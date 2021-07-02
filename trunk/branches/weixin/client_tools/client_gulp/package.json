@@ -1,0 +1,43 @@
+{
+  "name": "client_gulp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "client": "worker.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-footer": "^2.0.2",
+    "gulp-header": "^2.0.7",
+    "gulp-remember": "^1.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.2",
+    "install": "^0.12.1",
+    "npm": "^6.2.0",
+    "pump": "^3.0.0",
+    "run-sequence": "^2.2.1",
+    "uglify-es": "^3.3.9"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-order": "^1.2.0",
+    "gulp-print": "^5.0.2",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-typescript-filesort": "0.0.4",
+    "javascript-obfuscator": "^2.12.0",
+    "jszip": "^3.6.0",
+    "typescript": "^3.9.7",
+    "uglify-js": "^3.13.5"
+  }
+}
