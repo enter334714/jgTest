@@ -506,7 +506,7 @@ gulp.task('build-all-MT1', function (cb) {
 
 //混淆
 gulp.task('build-babel-obfuscator-MT1', function (cb) {
-    sequence('build-identifier-MT1', 'build-js-babel', 'build-end-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator', 'build-end-obfuscator', cb)
+    sequence("MT1_COPY",'build-identifier-MT1', 'build-js-babel', 'build-end-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator', 'build-end-obfuscator', cb)
 });
 /**-------------------------------------------------微信小游戏--迈腾1包  end-----------------------------------------------------------*/
 
@@ -2575,11 +2575,39 @@ gulp.task('MT1_COPY', function () {
         }))
         .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/weapp-adapter.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)/g, function (match, p1, offset, string) {
             console.log('Found ' + match + ' with param ' + p1);
-            return filesMap[match];
+            var arr = filesMap[match].split("/");
+            return arr[arr.length-1];
         }))
         .pipe(replace(/(.\/wxsdk\/wx_aksdk.js)|(.\/helper)|(.\/sax)|(.\/dom)|(client_pb.js)|(protobuf.js)|(main.min.js)/g, function (match, p1, offset, string) {
             console.log('Found ' + match + ' with param ' + p1);
             return mt1[match];
+        }))
+        .pipe(replace(/( name: 'main')/g,"name: 'mawin'"))
+        .pipe(replace(/( name: 'probuf')/g,"name: 'proaf'"))
+        .pipe(through.obj(function(file,encode,cb){
+            // console.log("file:",file,"encode:",encode);
+            if(file.relative == "game.json"){
+
+                var result = file.contents.toString();
+                var json = JSON.parse(result);
+                json.subpackages = [
+                    {
+                        "name": "liwbs",
+                        "root": "liwbs/"
+                    },
+                    {
+                        "name": "proaf",
+                        "root": "proaf/"
+                    },
+                    {
+                        "name": "mawin",
+                        "root": "mawin/"
+                    }
+                ]
+                console.log(json)
+            }
+            this.push(file);
+            cb();
         }))
         .pipe(gulp.dest(targetUrl + '/'))
 });
