@@ -2576,7 +2576,7 @@ gulp.task('MT1_COPY', function () {
             // console.log('Found ' + match + ' with param ' + p1);
             return filesMap[match];
         }))
-        .pipe(replace(/(.\/wxsdk\/wx_aksdk.js)|(.\/helper) | (.\/sax)|(.\/dom) | (client_pb.js) | (protobuf.js)/g, function (match, p1, offset, string) {
+        .pipe(replace(/(.\/wxsdk\/wx_aksdk.js)|(.\/helper)|(.\/sax)|(.\/dom) | (client_pb.js) | (protobuf.js)/g, function (match, p1, offset, string) {
             console.log('Found ' + match + ' with param ' + p1);
             return mt1[match];
         }))
