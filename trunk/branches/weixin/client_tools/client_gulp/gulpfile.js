@@ -1273,7 +1273,7 @@ var js_minify = function () {
             compress: {
                 global_defs: {DEBUG: false},
                 drop_debugger: true,
-                toplevel: false, //干掉顶层作用域中没有被引用的函数 ("funcs")和/或变量("vars") 
+                toplevel: false, //干掉顶层作用域中没有被引用的函数 ("funcs")和/或变量("vars")
                 if_return: true,
                 join_vars: false, //合并连续 var 声明
                 booleans: true,
@@ -2529,13 +2529,20 @@ gulp.task('build_webpack', function () {
         .pipe(gulp.dest(BUILD + 'jg_gameB/'))
 });
 
-
+var mt1 = {
+    "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"],
+    "./helper": "./" + "wxfdehelp",
+    "./sax": "./sawewdx",
+    "./dom": "./ddwdom",
+    "client_pb.js": "clewepb.js",
+    "protobuf.js": "progtrbuf.js",
+}
 gulp.task('MT1_COPY', function () {
     sourceProject = "../../client/wx_build/jg_gameMT2";
     targetProject = "../../client/wx_build/jg_gameMT1_obfuscatorTEST";
     return gulp.src(sourceProject + "/" + '/**/*')
         .pipe(rename(function (path) {
-            console.log(path);
+            // console.log(path);
             var fileName;
             if (path.dirname == ".") {
                 fileName = path.basename + path.extname;
@@ -2558,19 +2565,24 @@ gulp.task('MT1_COPY', function () {
                         var curFileName = dirs.pop();
                         var dirPath = dirs.join("/");
                         path.dirname = dirPath;
-                        path.basename = curFileName;
+                        path.basename = curFileName.split(".")[0];
                     }
                 }
             }
-            console.log("ppp:", path);
+            // console.log("ppp:", path);
 
         }))
-        // .pipe(replace(/^import/g,function(match, p1, offset, string){
-        //     console.log('Found ' + match + ' with param ' + p1 + ' at ' + offset + ' inside of ' + string);
-        //     return "pppp";
-        // }))
+        .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/weapp-adapter.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)/g, function (match, p1, offset, string) {
+            // console.log('Found ' + match + ' with param ' + p1);
+            return filesMap[match];
+        }))
+        .pipe(replace(/(.\/wxsdk\/wx_aksdk.js)|(.\/helper) | (.\/sax)|(.\/dom) | (client_pb.js) | (protobuf.js)/g, function (match, p1, offset, string) {
+            console.log('Found ' + match + ' with param ' + p1);
+            return mt1[match];
+        }))
         .pipe(gulp.dest(targetProject + '/'))
 });
+
 // gulp.task("build-libs-obfuscator", function () {
 //
 //     var stream = gulp
