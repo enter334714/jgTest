@@ -33,6 +33,8 @@
     "gulp": "^3.9.1",
     "gulp-order": "^1.2.0",
     "gulp-print": "^5.0.2",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.1.3",
     "gulp-typescript": "^6.0.0-alpha.1",
     "gulp-typescript-filesort": "0.0.4",
     "javascript-obfuscator": "^2.12.0",
