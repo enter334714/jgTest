@@ -2536,11 +2536,12 @@ var mt1 = {
     "./dom": "./ddwdom",
     "client_pb.js": "clewepb.js",
     "protobuf.js": "progtrbuf.js",
+    "main.min.js":"maisdn.js"
 }
 gulp.task('MT1_COPY', function () {
-    sourceProject = "../../client/wx_build/jg_gameMT2";
-    targetProject = "../../client/wx_build/jg_gameMT1_obfuscatorTEST";
-    return gulp.src(sourceProject + "/" + '/**/*')
+    var sourceUrl = "../../client/wx_build/jg_gameMT1";
+    var targetUrl = "../../client/wx_build/jg_gameMT1_new";
+    return gulp.src(sourceUrl + "/" + '/**/*')
         .pipe(rename(function (path) {
             // console.log(path);
             var fileName;
@@ -2573,14 +2574,14 @@ gulp.task('MT1_COPY', function () {
 
         }))
         .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/weapp-adapter.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)/g, function (match, p1, offset, string) {
-            // console.log('Found ' + match + ' with param ' + p1);
+            console.log('Found ' + match + ' with param ' + p1);
             return filesMap[match];
         }))
-        .pipe(replace(/(.\/wxsdk\/wx_aksdk.js)|(.\/helper)|(.\/sax)|(.\/dom)|(client_pb.js)|(protobuf.js)/g, function (match, p1, offset, string) {
+        .pipe(replace(/(.\/wxsdk\/wx_aksdk.js)|(.\/helper)|(.\/sax)|(.\/dom)|(client_pb.js)|(protobuf.js)|(main.min.js)/g, function (match, p1, offset, string) {
             console.log('Found ' + match + ' with param ' + p1);
             return mt1[match];
         }))
-        .pipe(gulp.dest(targetProject + '/'))
+        .pipe(gulp.dest(targetUrl + '/'))
 });
 
 // gulp.task("build-libs-obfuscator", function () {
