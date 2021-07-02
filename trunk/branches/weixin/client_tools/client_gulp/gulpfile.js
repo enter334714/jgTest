@@ -31,7 +31,7 @@ var INIT_PATH = ''; //init.min.js的目录
 var SCOPE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_';
 let PREFIX = '';
 var sourceProject = "../../client/wx_build/jg_gameMT1_new";
-var targetProject = "../../client/wx_build/jg_gameB_obfuscator";
+var targetProject = "../../client/wx_build/jg_gameMT1_obfuscator";
 
 
 /**scope.js文件处理*/
