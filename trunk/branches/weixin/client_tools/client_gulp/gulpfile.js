@@ -2554,6 +2554,7 @@ gulp.task('MT1_COPY', function () {
             if (isDir) {
                 var defineDirname = filesMap[fileName];
                 if (defineDirname) {
+                    console.log("文件夹名字:",path.basename,"修改为:",defineDirname)
                     path.basename = defineDirname;
                 }
             } else {
@@ -2561,12 +2562,15 @@ gulp.task('MT1_COPY', function () {
                 if (defineDirname) {
                     var dirs = defineDirname.split("/");
                     if (dirs.length <= 1) { //直接是文件
+                        console.log("文件名字:",path.basename,"修改文件名为:", dirs[0])
                         path.basename = dirs[0];
                     } else {  //有路径
                         var curFileName = dirs.pop();
                         var dirPath = dirs.join("/");
+                        console.log("文件路径:",path.dirname,"文件名字:",path.basename, "修改路径为:", dirPath,"修改文件名为：",curFileName.split(".")[0]);
                         path.dirname = dirPath;
                         path.basename = curFileName.split(".")[0];
+
                     }
                 }
             }
@@ -2574,12 +2578,12 @@ gulp.task('MT1_COPY', function () {
 
         }))
         .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/weapp-adapter.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)/g, function (match, p1, offset, string) {
-            console.log('Found ' + match + ' with param ' + p1);
             var arr = filesMap[match].split("/");
+            console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
             return arr[arr.length-1];
         }))
         .pipe(replace(/(.\/wxsdk\/wx_aksdk.js)|(.\/helper)|(.\/sax)|(.\/dom)|(client_pb.js)|(protobuf.js)|(main.min.js)/g, function (match, p1, offset, string) {
-            console.log('Found ' + match + ' with param ' + p1);
+            console.log('Found ' + match + ' with param ' + p1,"替换为:", mt1[match]);
             return mt1[match];
         }))
         .pipe(replace(/( name: 'main')/g,"name: 'mawin'"))
@@ -2590,6 +2594,7 @@ gulp.task('MT1_COPY', function () {
 
                 var result = file.contents.toString();
                 var json = JSON.parse(result);
+                console.log("修改game.json：修改分包")
                 json.subpackages = [
                     {
                         "name": "liwbs",
@@ -2603,8 +2608,10 @@ gulp.task('MT1_COPY', function () {
                         "name": "mawin",
                         "root": "mawin/"
                     }
-                ]
+                ];
                 console.log(json)
+                file.contents = new Buffer(JSON.stringify(json))
+
             }
             this.push(file);
             cb();

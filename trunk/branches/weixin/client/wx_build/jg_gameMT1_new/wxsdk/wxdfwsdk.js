@@ -1,7 +1,7 @@
 import Dall from './wxfdehelp'
 var config = {
     game_id: '256', //天剑奇缘
-    game_pkg: 'tjqy_wxxyxcs_M',
+    game_pkg: 'tjqy_wxmjbcs_AA',
     partner_id: '19',
     game_ver: '1.0.357',  //A包为1.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false,  //授权登录

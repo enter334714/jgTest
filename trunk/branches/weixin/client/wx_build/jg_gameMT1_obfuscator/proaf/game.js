@@ -1,1 +1,1 @@
-var ba=wx['$b'];require(ba[0xcf3a]),window[ba[0xcf3b]]=require(ba[0xcf3c]),window[ba[0xcf3d]]=window[ba[0xcf3e]]['Root']['fromJSON'](client_pb);
+var ba=wx['$b'];require(ba[0xcf49]),window[ba[0xcf4a]]['util']['Long']=null,window[ba[0xcf4b]]=require(ba[0xcf4c]),window[ba[0xcf4d]]=window[ba[0xcf4e]]['Root']['fromJSON'](client_pb);
