@@ -16,7 +16,7 @@ wx.getFileSystemManager().unzip({
                         }
             
                         var loadLibsTask = wx.loadSubpackage({
-                            name: 'liwbs',
+                            name: 'lxxibbs',
                             success: function(res) {
                                 if (res && res.errMsg == "loadSubpackage:ok") {
                                 } else {
