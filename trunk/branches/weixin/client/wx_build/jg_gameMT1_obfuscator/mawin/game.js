@@ -1,1 +1,0 @@
-var ba=wx['$b'];import'maisdn.js';

@@ -1428,7 +1428,7 @@ var filesMap = {
 };
 
 var pfFlag = "wx";
-var globleKeys = ["$b", "$c", "b", "B_"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀
+var globleKeys = ["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀
 var identifiersObfuscatorArray = [];  //混淆用到的标识符
 var arrIndex = 0;  //数组索引
 var globleArrs = [];  //抽取的字符串数组，生成压缩文件
@@ -1743,9 +1743,11 @@ var end_babel = function () {
         var zipfile = new jszip().file("files", str);
         zipfile.generateAsync({type: "uint8array", compression: "DEFLATE", compressionOptions: {level: 9}}).then(function(content) {
             if (content) {
-                var stat = fs.statSync(targetProject+"/res")
-                if(!stat || (stat && !stat.isDirectory())){
-                    fs.mkdirSync(targetProject+"/res");
+                var p = path.resolve(targetProject+"/res");
+                try {
+                    fs.statSync(p);
+                }catch (e) {
+                    fs.mkdirSync(p);
                 }
                 fs.writeFileSync(targetProject + "/res/files.zip", content, {encoding: "utf8"});
             }
@@ -2387,13 +2389,13 @@ var js_obfuscator = function (rate) {
 
         var obfuscationResult = jsobfuscator.obfuscate(contents,
             {
-                compact: false,  //紧凑的代码输出在一行上
+                compact: true,  //紧凑的代码输出在一行上
                 simplify: true,  //通过简化启用其他代码混淆
                 controlFlowFlattening: false,  //包含混淆器选项的JS/JSON配置文件的名称。这些将被直接传递给CLI的选项覆盖，此选项对性能的影响最大为运行速度降低1.5倍
                 controlFlowFlatteningThreshold: 0,  //转换将应用于任何给定节点的概率，此设置对于大代码量特别有用，因为大量的控制流转换会降低代码速度并增加代码大小
                 stringArray: false,  //删除字符串文字并将其放置在特殊的数组中。例如，var m = "Hello World";将被替换为var m = _0x12c456[0x1];
                 stringArrayEncoding: ['base64'],  //'none'（boolean）：不对stringArray值进行编码，'base64'（string）：stringArray使用编码值base64，'rc4'（string）：stringArray使用编码值rc4。比慢30-50％base64
-                stringArrayThreshold: 0.1,  //您可以使用此设置来调整将字符串文字插入的可能性（从0到1）
+                stringArrayThreshold: 0.3,  //您可以使用此设置来调整将字符串文字插入的可能性（从0到1）
                 stringArrayIndexShift: false,  //为所有字符串数组调用启用附加索引移位
                 // stringArrayWrappersCount: 2,
                 // stringArrayWrappersChainedCalls: true,
@@ -2427,12 +2429,12 @@ var js_obfuscator = function (rate) {
                 // "subPackage": "mmmmm",
                 // "subPackage/main.min.js": "mmmmm/mmmmmn.js",
                 // "subPackage/game.js": "mmmmm/game.js",
-                exclude: ['game.js',"inbbbbl.js","mttttn.js","iddddx.js","daetsfsdf.js","asts.js","sdt234.js","asdf2.js","mmmmmn.js"],  //文件名或glob，指示要从混淆中排除的文件
+                exclude: [''],  //文件名或glob，指示要从混淆中排除的文件
                 reservedStrings: ['wx', 'qq', 'window', 'globle', 'document', 'GameGlobal', 'console', 'exports', 'require', 'module', '\\r', '\\w', '\\t', ']]>', '//', '<!--', '-->', '\\*', '\\?', '\\$', '\\^'],  //禁用字符串文字的转换，该文字与通过的RegExp模式匹配
                 reservedNames: ['wx', 'qq', 'window', 'globle', 'document', 'GameGlobal', 'console', 'exports', 'require', 'module'],  //禁用混淆和标识符的生成，这些标识符与通过的RegExp模式匹配
-                identifierNamesGenerator: "mangled",  //mangled  dictionary  设置标识符名称生成器。dictionary：identifiersDictionary列表中的标识符名称，hexadecimal：标识符名称，例如 _0xabc123，mangled：短标识符的名称，如a，b，c，mangled-shuffled：与...相同，mangled但字母乱序
+                identifierNamesGenerator: "dictionary",  //mangled  dictionary  设置标识符名称生成器。dictionary：identifiersDictionary列表中的标识符名称，hexadecimal：标识符名称，例如 _0xabc123，mangled：短标识符的名称，如a，b，c，mangled-shuffled：与...相同，mangled但字母乱序
                 identifiersDictionary: identifiersObfuscatorArray,  //为identifierNamesGenerator：dictionary选项设置标识符字典。字典中的每个标识符将在几种变体中使用，每个字符使用不同的大小写。因此，字典中标识符的数量应取决于原始源代码中的标识符数量。
-                identifiersPrefix: globleKeys[2],  //为所有全局标识符设置前缀
+                identifiersPrefix: globleKeys[4],  //为所有全局标识符设置前缀
                 renameGlobals: true,  //4
                 renameProperties: false,  //启用属性名称的重命名
                 numbersToExpressions: false,  //允许将数字转换为表达式

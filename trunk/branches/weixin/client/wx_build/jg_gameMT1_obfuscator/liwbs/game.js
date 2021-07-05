@@ -1,1 +1,0 @@
-var ba=wx['$b'];require(ba[0xde]);

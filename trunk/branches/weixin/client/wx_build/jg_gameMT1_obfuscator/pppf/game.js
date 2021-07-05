@@ -1,0 +1,1 @@
+var $stqvu=wx['$b'];require($stqvu[0xb99b]),window[$stqvu[0xb99c]]['util']['Long']=null,window[$stqvu[0xb99d]]=require($stqvu[0xb99e]),window[$stqvu[0xb99f]]=window[$stqvu[0xb9a0]]['Root']['fromJSON'](client_pb);
