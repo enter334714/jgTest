@@ -2714,11 +2714,15 @@ gulp.task('MT1_COPY', function () {
         }))
         .pipe(replace(/(res\/atlas\/wxlogin_atlas.png)|(res\/atlas\/wxeff_btn_atlas.png)|(res\/atlas\/wxloading_atlas.png)|(res\/atlas)/g,function(match, p1, offset, string){
             var relative = this.file.relative.replace(/\\/g, "/");
-            if(relative=="mmmmm/mmmmmn.js")
+            if(relative=="lxxibbs/inbbbbl.js"){
+                var arr = filesMap[match].split("/");
+                console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
+                return arr[arr.length-1];
+            }else{
                 return match;
-            var arr = filesMap[match].split("/");
-            console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
-            return arr[arr.length-1];
+            }
+
+
         }))
         //不用修改
         .pipe(replace(/(.\/wxsdk\/wx_aksdk.js)|(.\/helper)|(.\/sax)|(.\/dom)|(client_pb.js)|(protobuf.js)|(main.min.js)/g, function (match, p1, offset, string) {
