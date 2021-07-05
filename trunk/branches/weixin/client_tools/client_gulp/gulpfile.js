@@ -2713,7 +2713,8 @@ gulp.task('MT1_COPY', function () {
             return arr[arr.length-1];
         }))
         .pipe(replace(/(res\/atlas\/wxlogin_atlas.png)|(res\/atlas\/wxeff_btn_atlas.png)|(res\/atlas\/wxloading_atlas.png)|(res\/atlas)/g,function(match, p1, offset, string){
-            if(file.relative=="mmmmm/mmmmmn.js")
+            var relative = this.file.relative.replace(/\\/g, "/");
+            if(relative=="mmmmm/mmmmmn.js")
                 return match;
             var arr = filesMap[match].split("/");
             console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
