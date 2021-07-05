@@ -1,4 +1,4 @@
-import Dall from './helper'
+﻿import Dall from './helper'
 var config = {
     game_id: '256', //天剑奇缘
     game_pkg: 'tjqy_wxmjbcs_AA',
