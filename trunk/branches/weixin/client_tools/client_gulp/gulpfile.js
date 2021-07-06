@@ -30,7 +30,7 @@ var BUILD = '../../client/wx_build/'; //路径
 var PACK = 'jg_gameA'; //项目名
 var INIT_PATH = ''; //init.min.js的目录
 var SCOPE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_';
-let PREFIX = '';
+var PREFIX = '';
 var sourceProject = "../../client/wx_build/jg_gameMT1_new";
 var targetProject = "../../client/wx_build/jg_gameMT1_obfuscator";
 
@@ -499,6 +499,7 @@ gulp.task('scope-MT1', function (cb) {
     sequence('set-param-mt1', 'scope-modify', cb)
 });
 
+
 //打包所有（迈腾1包）
 gulp.task('build-all-MT1', function (cb) {
     sequence('set-param-mt1', 'scope-check', 'main-modify', 'main-map', 'main-backup', 'init-modify', 'init-backup', 'libs-min', 'libs-map', 'libs-backup', 'build-protobuf', 'copy', "build-babel-obfuscator-MT1", cb)
@@ -506,7 +507,7 @@ gulp.task('build-all-MT1', function (cb) {
 
 //混淆
 gulp.task('build-babel-obfuscator-MT1', function (cb) {
-    sequence("MT1_COPY",'MT1_COPY2','build-identifier-MT1', 'build-js-babel', 'build-end-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator', 'build-end-obfuscator', cb)
+    sequence("MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier-MT1', 'build-js-babel', 'build-end-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator', 'build-end-obfuscator', cb)
 });
 /**-------------------------------------------------微信小游戏--迈腾1包  end-----------------------------------------------------------*/
 
@@ -1428,7 +1429,7 @@ var filesMap = {
 };
 
 var pfFlag = "wx";
-var globleKeys = ["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀
+var globleKeys =["x$","_$","_","Z","__"] ;//["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀
 var identifiersObfuscatorArray = [];  //混淆用到的标识符
 var arrIndex = 0;  //数组索引
 var globleArrs = [];  //抽取的字符串数组，生成压缩文件
@@ -1604,6 +1605,7 @@ var identifier_create = function (rate) {
 
         leading = "abcdefghijklmnopqrstuvwxyz$_0123456789";
         leading = leading.replace(globleKeys[2], '');
+        //生成混淆用的标识符
         for (var n = 1; n < 7; n++) { //字符数量
             for (var m = 0; m < leading.length; m++) {
                 perm(leading.slice(m, m + n), identifiersObfuscatorArray, '');
@@ -1650,6 +1652,7 @@ var js_babel = function () {
         var arrayName = globleKeys[1];
         // var arrayElements = [];
         // var arrayDeclaration = babel_types.variableDeclaration("var", [babel_types.variableDeclarator(babel_types.identifier(arrayName), babel_types.arrayExpression(arrayElements)]);
+        //var  $b = wx.xxx;  variableDeclaration 声明一个变量   variableDeclarator声明变量node  identifier 声明变量的标识符（名字）    memberExpression 成员表达式 通常指屌用成员对象
         var arrayDeclaration = babel_types.variableDeclaration("var", [babel_types.variableDeclarator(babel_types.identifier(arrayName), babel_types.memberExpression(babel_types.identifier(pfFlag), babel_types.identifier(globleKeys[0])))]);
 
 
@@ -2395,7 +2398,7 @@ var js_obfuscator = function (rate) {
                 controlFlowFlatteningThreshold: 0,  //转换将应用于任何给定节点的概率，此设置对于大代码量特别有用，因为大量的控制流转换会降低代码速度并增加代码大小
                 stringArray: false,  //删除字符串文字并将其放置在特殊的数组中。例如，var m = "Hello World";将被替换为var m = _0x12c456[0x1];
                 stringArrayEncoding: ['base64'],  //'none'（boolean）：不对stringArray值进行编码，'base64'（string）：stringArray使用编码值base64，'rc4'（string）：stringArray使用编码值rc4。比慢30-50％base64
-                stringArrayThreshold: 0.3,  //您可以使用此设置来调整将字符串文字插入的可能性（从0到1）
+                stringArrayThreshold: 0,  //您可以使用此设置来调整将字符串文字插入的可能性（从0到1）
                 stringArrayIndexShift: false,  //为所有字符串数组调用启用附加索引移位
                 // stringArrayWrappersCount: 2,
                 // stringArrayWrappersChainedCalls: true,
@@ -2404,44 +2407,22 @@ var js_obfuscator = function (rate) {
                 splitStrings: false,  //将文字字符串拆分为带有splitStringsChunkLength选项值长度的块
                 splitStringsChunkLength: 1,  //设置splitStrings选项的块长度
                 shuffleStringArray: false,  //随机stringArray排列数组项
-                // "libs": "lxxibbs",
-                // "game.js": "lxxibbs/mttttn.js",
-                // "index.js": "lxxibbs/iddddx.js",
-                // "init.min.js": "lxxibbs/inbbbbl.js",
-                // "libs/dom.js": "lxxibbs/dddom.js",
-                // "libs/dom_parser.js": "lxxibbs/daetsfsdf.js",
-                // "libs/laya.wxmini.js": "lxxibbs/asts.js",
-                // "libs/libs.min.js": "lxxibbs/sdt234.js",
-                // "libs/md5.min.js": "lxxibbs/asdf2.js",
-                // "libs/sax.js": "lxxibbs/ahg324.js",
-                // "libs/weapp-adapter.js": "lxxibbs/adg431.js",
-                // "libs/zlib.js": "lxxibbs/ah5.js",
-                // "libs/game.js": "lxxibbs/game.js",
-                // "wxsdk":"ddk",
-                // "wxsdk/wx_aksdk.js": "ddk/ddsdk.js",
-                // "wxsdk/helper.js": "ddk/ddhelp.js",
-                //
-                // "protobuf": "pppf",
-                // "protobuf/client_pb.js": "pppf/pppfb.js",
-                // "protobuf/protobuf.js": "pppf/buff.js",
-                // "protobuf/game.js": "pppf/game.js",
-                //
-                // "subPackage": "mmmmm",
-                // "subPackage/main.min.js": "mmmmm/mmmmmn.js",
-                // "subPackage/game.js": "mmmmm/game.js",
-                exclude: [''],  //文件名或glob，指示要从混淆中排除的文件
+                exclude: [],  //文件名或glob，指示要从混淆中排除的文件
                 reservedStrings: ['wx', 'qq', 'window', 'globle', 'document', 'GameGlobal', 'console', 'exports', 'require', 'module', '\\r', '\\w', '\\t', ']]>', '//', '<!--', '-->', '\\*', '\\?', '\\$', '\\^'],  //禁用字符串文字的转换，该文字与通过的RegExp模式匹配
                 reservedNames: ['wx', 'qq', 'window', 'globle', 'document', 'GameGlobal', 'console', 'exports', 'require', 'module'],  //禁用混淆和标识符的生成，这些标识符与通过的RegExp模式匹配
                 identifierNamesGenerator: "dictionary",  //mangled  dictionary  设置标识符名称生成器。dictionary：identifiersDictionary列表中的标识符名称，hexadecimal：标识符名称，例如 _0xabc123，mangled：短标识符的名称，如a，b，c，mangled-shuffled：与...相同，mangled但字母乱序
                 identifiersDictionary: identifiersObfuscatorArray,  //为identifierNamesGenerator：dictionary选项设置标识符字典。字典中的每个标识符将在几种变体中使用，每个字符使用不同的大小写。因此，字典中标识符的数量应取决于原始源代码中的标识符数量。
                 identifiersPrefix: globleKeys[4],  //为所有全局标识符设置前缀
-                renameGlobals: true,  //4
-                renameProperties: false,  //启用属性名称的重命名
+                renameGlobals: true,  //4 启用全局变量和函数名与声明的混淆 此选项可能会破坏您的代码。只有当你知道它的功能时才启用它！
+                renameProperties: false,  //启用属性名称的重命名  启用属性名称的重命名。所有内置的DOM属性和核心JavaScript类中的属性都将被忽略。此选项可能会破坏您的代码。只有当你知道它的功能时才启用它！
+                renamePropertiesMode:"safe",//Type: string Default: safe 即使在安全模式下，renameProperties选项也可能会破坏代码 如果一个文件正在使用其他文件的属性，请使用identifierNameCache选项在这些文件之间保持相同的属性名称。
                 numbersToExpressions: false,  //允许将数字转换为表达式
                 disableConsoleOutput: false,  //控制台输出
                 unicodeEscapeSequence: false, //允许启用/禁用字符串转换为Unicode转义序列
                 deadCodeInJection: false, // 使用此选项，将随机废代码添加到混淆代码中  该选项显著的增加混淆代码的大小（200%），如果贵混淆代码大小不敏感的时候启用改选项 。开启该选项将强制启用stringArray选项
                 optionsPreset: 'default',//可用参数 default,low-obfuscation,medium-obfuscation,high-obfuscation,所有副将选项将于改名称对应的预设选项合并
+                //rotateStringArray:true,//将stringArray移动固定和随机（在代码混淆处生成）位置。这使得将删除的字符串的顺序与其原始位置进行匹配变得更加困难。
+                //seed:0,Type: string|number Default: 0 此选项设置随机生成器的种子。这对于创建可重复结果很有用,如果种子是0-随机生成器将工作无种子。
                 // sourceMap:true,
                 // sourceMapMode:'inline',
 
@@ -2664,6 +2645,15 @@ var mt1Replace = {
     "image_xuanfu_xfbg.png":"9.png",
 }
 
+//压缩
+gulp.task('MT1_build_minify', function () {
+    var sourceUrl = "../../client/wx_build/jg_gameMT1";
+    var targetUrl = "../../client/wx_build/jg_gameMT1_new";
+    var stream = gulp.src([targetUrl + '/**/*.js',"!"+targetUrl + '/**/mmmmmn.js'])
+        .pipe(js_minify())
+        .pipe(gulp.dest(targetUrl + '/'))
+    return stream;
+});
 
 gulp.task('MT1_COPY', function () {
     var sourceUrl = "../../client/wx_build/jg_gameMT1";
@@ -2723,37 +2713,12 @@ gulp.task('MT1_COPY', function () {
             }else{
                 return match;
             }
-
-
         }))
         //不用修改
         .pipe(replace(/(.\/wxsdk\/wx_aksdk.js)|(.\/helper)|(.\/sax)|(.\/dom)|(client_pb.js)|(protobuf.js)|(main.min.js)/g, function (match, p1, offset, string) {
             // console.log('Found ' + match + ' with param ' + p1,"替换为:", mt1Replace[match]);
             return mt1Replace[match];
         }))
-        // "res/atlas/wxeff_btn_atlas.png":"tt/atss/dafad.png",
-    // "btn_loding_abcelq0.png":"1.png",
-        // "btn_loding_abcelq1.png":"2.png",
-        // "image_loading_bg.jpg":"3.jpg",
-        // "image_loading_bg_bottom.jpg":"4.jpg",
-        // "image_loading_bg_bottom2.jpg":"5.jpg",
-        // "image_loading_bg_left.jpg":"6.jpg",
-        // "image_loading_bg_left2.jpg":"7.jpg",
-        // "image_loading_bg_right.jpg":"8.jpg",
-        // "image_loading_bg_right2.jpg":"9.jpg",
-        // "image_loading_bg_top.jpg":"10.jpg",
-        // "image_loading_bg_top2.jpg":"11.jpg",
-        // "image_loading_bg2.jpg":"12.jpg",
-        //
-        // "image_denglu_txtshenpi.png":"1.png",
-        // "image_login_loginbg.jpg":"2.jpg",
-        // "image_login_loginbg_bottom.jpg":"3.jpg",
-        // "image_login_loginbg_left.jpg":"4.jpg",
-        // "image_login_loginbg_right.jpg":"5.jpg",
-        // "image_login_loginbg_top.jpg":"6.jpg",
-        // "image_login_logo.jpg":"7.jpg",
-        // "image_login_notice.png":"8.png",
-        // "image_xuanfu_xfbg.png":"9.png",
         .pipe(replace(/(wxlogin_atlas)|(wxeff_btn_atlas)|(wxloading_atlas)|(btn_loding_abcelq0.png)|(btn_loding_abcelq1.png)|(image_loading_bg.jpg)|(image_loading_bg_bottom.jpg)|(image_loading_bg_bottom2.jpg)|(image_loading_bg_left.jpg)|(image_loading_bg_left2.jpg)|(image_loading_bg_right.jpg)|(image_loading_bg_right2.jpg)|(image_loading_bg_top.jpg)|(image_loading_bg_top2.jpg)|(image_loading_bg2.jpg)/g,function(match, p1, offset, string){
             console.log('Found ' + match + ' with param ' + p1,"替换为:", mt1Replace[match]);
             if(!mt1Replace[match]){
@@ -2809,6 +2774,152 @@ gulp.task('MT1_COPY2', function () {
         .pipe(gulp.dest(targetUrl + '/'));
 });
 
+
+//随机产生辣鸡空文件
+gulp.task('MT1_CREATE_REFUSEFILE', function () {
+    var targetUrl = "../../client/wx_build/jg_gameMT1_obfuscator";
+    return gulp.src(targetUrl + "/game.js")
+        .pipe(mt1_createRefuseFile())
+        .pipe(gulp.dest(targetUrl + '/'));
+});
+
+//删除随机产生的辣鸡空文件
+gulp.task('MT1_DEL_REFUSEFILE', function () {
+    var targetUrl = "../../client/wx_build/jg_gameMT1_obfuscator";
+    return gulp.src(targetUrl + "/game.js")
+        .pipe(mt1_deleteRefuseFile())
+        .pipe(gulp.dest(targetUrl + '/'));
+});
+
+var mt1_deleteRefuseFile = function(){
+    function onFile(file, enc, cb) {
+        var targetUrl = "../../client/wx_build/jg_gameMT1_obfuscator";
+        function delTempFile(foldPath){
+            var files = fs.readdirSync(foldPath);
+            for(var i = 0;i<files.length;i++){
+                var fileName = files[i];
+                var director = path.resolve(foldPath , fileName);
+                var stat = fs.statSync(director);
+                if(stat.isDirectory()){
+                    delTempFile(director);
+                }
+                if(stat.isFile()){
+                    if(fileName.indexOf("temp")!=-1){
+                        console.log("删除随机文件:",director)
+                        fs.unlinkSync(director);
+                    }
+                }
+            }
+        }
+        delTempFile(targetUrl)
+        cb();
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+}
+//随机产生辣鸡空文件
+var mt1_createRefuseFile = function(){
+    function onFile(file, enc, cb) {
+        var targetUrl = "../../client/wx_build/jg_gameMT1_obfuscator";
+        function delTempFile(foldPath){
+            var files = fs.readdirSync(foldPath);
+            for(var i = 0;i<files.length;i++){
+                var fileName = files[i];
+                var director = path.resolve(foldPath , fileName);
+                var stat = fs.statSync(director);
+                if(stat.isDirectory()){
+                    delTempFile(director);
+                }
+                if(stat.isFile()){
+                    if(fileName.indexOf("temp")!=-1){
+                        console.log("删除随机文件:",director)
+                        fs.unlinkSync(director);
+                    }
+                }
+            }
+        }
+        delTempFile(targetUrl)
+        var codes = [];
+        for(var i = 48;i<=57;i++){
+            codes.push(i);
+        }
+        for(var i = 65;i<=90;i++){
+            codes.push(i);
+        }
+        for(var i = 97;i<=122;i++){
+            codes.push(i);
+        }
+        codes.push(95);
+        var createFileNum = (Math.random()*150>>0) + 100; //创建多少个文件
+        // var createFolderNum = 100;//创建多少个文件夹
+        // var folderNames = [];
+        console.log("随机产生辣鸡文件数量：",createFileNum);
+        var suffixs = ["js","png","jpg","webpb","*","php","jsp","*"];
+        var fielNames = [];
+        var createSuffixs = [];
+
+
+
+        for(var i = 0;i<createFileNum;i++){
+            var fileNameLength = (Math.random()*10>>0)+1; //文件名字长度
+            var suffixIndex = Math.random()*suffixs.length >> 0;
+            var suffix = suffixs[suffixIndex];
+            if(suffix=="*"){
+                var suffixLength = (Math.random()*5>>0)+1; //后缀长度
+                // var str = "";
+                suffix = "";
+                for(var j = 0;j<suffixLength;j++){
+                    var index = (Math.random()*(codes.length-1)>>0)+1;
+                    var ascill = String.fromCharCode(codes[index]) ;
+                    suffix += ascill;
+                }
+
+            }
+
+            var filename = "";
+            for(var j = 0;j<fileNameLength;j++){
+                var index = (Math.random()*(codes.length-1)>>0)+1;
+                var ascill = String.fromCharCode(codes[index]) ;
+                filename += ascill;
+            }
+            fielNames.push(filename);
+            createSuffixs.push(suffix);
+        }
+
+        var files = fs.readdirSync(targetUrl);
+        for(var i = 0;i<files.length;i++){
+            var fileName = files[i];
+            var director = path.resolve(targetUrl + '/', fileName);
+            var stat = fs.statSync(director);
+            if(stat.isDirectory()){
+                var insertNum = (Math.random()*(fielNames.length/2-1))>>0;
+                for(var m = 0;m<insertNum;m++){
+                    var f = fielNames.pop();
+                    var s = createSuffixs.pop();
+                    var tempName = "temp"+f +"."+ s;
+                    var url = director+"/"+tempName
+                    fs.writeFileSync(url,Math.random()*999999>>0);
+                    console.log("随机生成文件:",url);
+                }
+            }
+        }
+
+        for(var i = fielNames.length-1;i>=0;i--){
+            var f = fielNames.pop();
+            var s = createSuffixs.pop();
+            var tempName = "temp"+f +"."+ s;
+            var url = targetUrl+"/"+tempName
+            fs.writeFileSync(url,Math.random()*999999>>0);
+            console.log("随机生成文件:",url);
+        }
+
+    cb();
+    this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+}
 
 // gulp.task("build-libs-obfuscator", function () {
 //
