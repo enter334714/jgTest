@@ -678,7 +678,11 @@ var sort_files = function () {
                                 var moduleNames = moduleName.split(".");
                                 for (var k = 0; k < moduleNames.length; k++) {
                                     if (moduleNames[k] != "") {
-                                        if (!parentMap.moduleMap[moduleNames[k]]) parentMap.moduleMap[moduleNames[k]] = {moduleMap:{}, importMap:{}, classMap:{}};
+                                        if (!parentMap.moduleMap[moduleNames[k]]) parentMap.moduleMap[moduleNames[k]] = {
+                                            moduleMap: {},
+                                            importMap: {},
+                                            classMap: {}
+                                        };
                                         parentMap = parentMap.moduleMap[moduleNames[k]];
                                     }
                                 }
@@ -1409,7 +1413,7 @@ var filesMap = {
     "libs/weapp-adapter.js": "lxxibbs/adg431.js",
     "libs/zlib.js": "lxxibbs/ah5.js",
     "libs/game.js": "lxxibbs/game.js",
-    "wxsdk":"ddk",
+    "wxsdk": "ddk",
     "wxsdk/wx_aksdk.js": "ddk/ddsdk.js",
     "wxsdk/helper.js": "ddk/ddhelp.js",
 
@@ -1423,13 +1427,13 @@ var filesMap = {
     "subPackage/game.js": "mmmmm/game.js",
 
     //随机创建名字和文件夹
-    "res/atlas/wxlogin_atlas.atlas":"ttt/wxlogin_atlas123.atlas",
-    "wxlogin_atlas":"wxlogin_atlas123",
+    "res/atlas/wxlogin_atlas.atlas": "ttt/wxlogin_atlas123.atlas",
+    "wxlogin_atlas": "wxlogin_atlas123",
 
 };
 
 var pfFlag = "wx";
-var globleKeys =["x$","_$","_","Z","__"] ;//["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀
+var globleKeys = ["x$", "_$", "_", "Z", "__"];//["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀
 var identifiersObfuscatorArray = [];  //混淆用到的标识符
 var arrIndex = 0;  //数组索引
 var globleArrs = [];  //抽取的字符串数组，生成压缩文件
@@ -1699,6 +1703,38 @@ var js_babel = function () {
                     }
                 }
             },
+            NewExpression(path) {
+                var node = path.node;
+                var isNewExpression = babel_types.isNewExpression(node);
+                if (isNewExpression) {
+                    var name = node.callee.name;
+                    if (name == "Array") {
+                        // var arguments = path.get("arguments");
+                        var arguments = path.node.arguments;
+                        if(arguments.length <= 0 || arguments.length > 1){ //只有一個參數的表达式不管，因为一个参数如果是表达式，区分不开是设置长度还是设置设置数据
+                            var arrayExpression = babel_types.arrayExpression(arguments);
+                            path.replaceWith(arrayExpression)
+                        }else{
+                            var arg0 = arguments[0];
+                            //是否是成员表达式，是表达式就不管
+                            // var isMemberExpression = babel_types.isMemberExpression(arg0);
+                            // if(isMemberExpression){
+                            //     console.log("repalce Array isMemberExpression discard")
+                            //     return;
+                            // }
+                            //BinaryExpression //1+1,2+2 这种二进制表达式直接算出值， 先不管，工具会自动先转换
+                            var isLiteral = babel_types.isLiteral(arg0)
+                            if(isLiteral){ //除了直接是數字，其他都不管
+                                var arrayExpression = babel_types.arrayExpression();
+                                path.replaceWith(arrayExpression)
+                            }else{
+                                console.log("repalce Array isMemberExpression discard：",arg0.type);
+                                return;
+                            }
+                        }
+                    }
+                }
+            },
             Program: {
                 enter(path, state) {
                     // console.log('start processing this Program...');
@@ -1746,10 +1782,10 @@ var end_babel = function () {
         var zipfile = new jszip().file("files", str);
         zipfile.generateAsync({type: "uint8array", compression: "DEFLATE", compressionOptions: {level: 9}}).then(function(content) {
             if (content) {
-                var p = path.resolve(targetProject+"/res");
+                var p = path.resolve(targetProject + "/res");
                 try {
                     fs.statSync(p);
-                }catch (e) {
+                } catch (e) {
                     fs.mkdirSync(p);
                 }
                 fs.writeFileSync(targetProject + "/res/files.zip", content, {encoding: "utf8"});
@@ -2415,7 +2451,7 @@ var js_obfuscator = function (rate) {
                 identifiersPrefix: globleKeys[4],  //为所有全局标识符设置前缀
                 renameGlobals: true,  //4 启用全局变量和函数名与声明的混淆 此选项可能会破坏您的代码。只有当你知道它的功能时才启用它！
                 renameProperties: false,  //启用属性名称的重命名  启用属性名称的重命名。所有内置的DOM属性和核心JavaScript类中的属性都将被忽略。此选项可能会破坏您的代码。只有当你知道它的功能时才启用它！
-                renamePropertiesMode:"safe",//Type: string Default: safe 即使在安全模式下，renameProperties选项也可能会破坏代码 如果一个文件正在使用其他文件的属性，请使用identifierNameCache选项在这些文件之间保持相同的属性名称。
+                renamePropertiesMode: "safe",//Type: string Default: safe 即使在安全模式下，renameProperties选项也可能会破坏代码 如果一个文件正在使用其他文件的属性，请使用identifierNameCache选项在这些文件之间保持相同的属性名称。
                 numbersToExpressions: false,  //允许将数字转换为表达式
                 disableConsoleOutput: false,  //控制台输出
                 unicodeEscapeSequence: false, //允许启用/禁用字符串转换为Unicode转义序列
@@ -2562,7 +2598,7 @@ var filesMap = {
     "libs/weapp-adapter.js": "lxxibbs/adg431.js",
     "libs/zlib.js": "lxxibbs/ah5.js",
     "libs/game.js": "lxxibbs/game.js",
-    "wxsdk":"ddk",
+    "wxsdk": "ddk",
     "wxsdk/wx_aksdk.js": "ddk/ddsdk.js",
     "wxsdk/helper.js": "ddk/ddhelp.js",
 
@@ -2576,36 +2612,36 @@ var filesMap = {
     "subPackage/game.js": "mmmmm/game.js",
 
     //随机创建名字和文件夹
-    "res":"atlas333",
-    "res/atlas":"atlas333",
-    "wxloading_atlas":"looooooding",
-    "wxlogin_atlas":"llllogin",
-    "res/atlas/wxlogin_atlas.png":"atlas333/llllogin.png",
-    "res/atlas/wxeff_btn_atlas.png":"atlas333/bbbtn.png",
-    "res/atlas/wxloading_atlas.png":"atlas333/looooooding.png",
+    "res": "atlas333",
+    "res/atlas": "atlas333",
+    "wxloading_atlas": "looooooding",
+    "wxlogin_atlas": "llllogin",
+    "res/atlas/wxlogin_atlas.png": "atlas333/llllogin.png",
+    "res/atlas/wxeff_btn_atlas.png": "atlas333/bbbtn.png",
+    "res/atlas/wxloading_atlas.png": "atlas333/looooooding.png",
 
-    "wxloading_atlas/btn_loding_abcelq0.png":"looooooding/1.png",
-    "wxloading_atlas/btn_loding_abcelq1.png":"looooooding/2.png",
-    "wxloading_atlas/image_loading_bg.jpg":"looooooding/3.jpg",
-    "wxloading_atlas/image_loading_bg_bottom.jpg":"looooooding/4.jpg",
-    "wxloading_atlas/image_loading_bg_bottom2.jpg":"looooooding/5.jpg",
-    "wxloading_atlas/image_loading_bg_left.jpg":"looooooding/6.jpg",
-    "wxloading_atlas/image_loading_bg_left2.jpg":"looooooding/7.jpg",
-    "wxloading_atlas/image_loading_bg_right.jpg":"looooooding/8.jpg",
-    "wxloading_atlas/image_loading_bg_right2.jpg":"looooooding/9.jpg",
-    "wxloading_atlas/image_loading_bg_top.jpg":"looooooding/10.jpg",
-    "wxloading_atlas/image_loading_bg_top2.jpg":"looooooding/11.jpg",
-    "wxloading_atlas/image_loading_bg2.jpg":"looooooding/12.jpg",
+    "wxloading_atlas/btn_loding_abcelq0.png": "looooooding/1.png",
+    "wxloading_atlas/btn_loding_abcelq1.png": "looooooding/2.png",
+    "wxloading_atlas/image_loading_bg.jpg": "looooooding/3.jpg",
+    "wxloading_atlas/image_loading_bg_bottom.jpg": "looooooding/4.jpg",
+    "wxloading_atlas/image_loading_bg_bottom2.jpg": "looooooding/5.jpg",
+    "wxloading_atlas/image_loading_bg_left.jpg": "looooooding/6.jpg",
+    "wxloading_atlas/image_loading_bg_left2.jpg": "looooooding/7.jpg",
+    "wxloading_atlas/image_loading_bg_right.jpg": "looooooding/8.jpg",
+    "wxloading_atlas/image_loading_bg_right2.jpg": "looooooding/9.jpg",
+    "wxloading_atlas/image_loading_bg_top.jpg": "looooooding/10.jpg",
+    "wxloading_atlas/image_loading_bg_top2.jpg": "looooooding/11.jpg",
+    "wxloading_atlas/image_loading_bg2.jpg": "looooooding/12.jpg",
 
-    "wxlogin_atlas/image_denglu_txtshenpi.png":"llllogin/1.png",
-    "wxlogin_atlas/image_login_loginbg.jpg":"llllogin/2.jpg",
-    "wxlogin_atlas/image_login_loginbg_bottom.jpg":"llllogin/3.jpg",
-    "wxlogin_atlas/image_login_loginbg_left.jpg":"llllogin/4.jpg",
-    "wxlogin_atlas/image_login_loginbg_right.jpg":"llllogin/5.jpg",
-    "wxlogin_atlas/image_login_loginbg_top.jpg":"llllogin/6.jpg",
-    "wxlogin_atlas/image_login_logo.png":"llllogin/7.png",
-    "wxlogin_atlas/image_login_notice.png":"llllogin/8.png",
-    "wxlogin_atlas/image_xuanfu_xfbg.png":"llllogin/9.png",
+    "wxlogin_atlas/image_denglu_txtshenpi.png": "llllogin/1.png",
+    "wxlogin_atlas/image_login_loginbg.jpg": "llllogin/2.jpg",
+    "wxlogin_atlas/image_login_loginbg_bottom.jpg": "llllogin/3.jpg",
+    "wxlogin_atlas/image_login_loginbg_left.jpg": "llllogin/4.jpg",
+    "wxlogin_atlas/image_login_loginbg_right.jpg": "llllogin/5.jpg",
+    "wxlogin_atlas/image_login_loginbg_top.jpg": "llllogin/6.jpg",
+    "wxlogin_atlas/image_login_logo.png": "llllogin/7.png",
+    "wxlogin_atlas/image_login_notice.png": "llllogin/8.png",
+    "wxlogin_atlas/image_xuanfu_xfbg.png": "llllogin/9.png",
 
 };
 var mt1Replace = {
@@ -2615,41 +2651,41 @@ var mt1Replace = {
     "./dom": "./dddom",
     "client_pb.js": "pppfb.js",
     "protobuf.js": "buff.js",
-    "main.min.js":"mmmmmn.js",
-    "wxlogin_atlas":"llllogin",
-    "wxeff_btn_atlas":"bbbtn",
-    "wxloading_atlas":"looooooding",
-    "res/atlas/":"atlas333/",
+    "main.min.js": "mmmmmn.js",
+    "wxlogin_atlas": "llllogin",
+    "wxeff_btn_atlas": "bbbtn",
+    "wxloading_atlas": "looooooding",
+    "res/atlas/": "atlas333/",
 
-    "btn_loding_abcelq0.png":"1.png",
-    "btn_loding_abcelq1.png":"2.png",
-    "image_loading_bg.jpg":"3.jpg",
-    "image_loading_bg_bottom.jpg":"4.jpg",
-    "image_loading_bg_bottom2.jpg":"5.jpg",
-    "image_loading_bg_left.jpg":"6.jpg",
-    "image_loading_bg_left2.jpg":"7.jpg",
-    "image_loading_bg_right.jpg":"8.jpg",
-    "image_loading_bg_right2.jpg":"9.jpg",
-    "image_loading_bg_top.jpg":"10.jpg",
-    "image_loading_bg_top2.jpg":"11.jpg",
-    "image_loading_bg2.jpg":"12.jpg",
+    "btn_loding_abcelq0.png": "1.png",
+    "btn_loding_abcelq1.png": "2.png",
+    "image_loading_bg.jpg": "3.jpg",
+    "image_loading_bg_bottom.jpg": "4.jpg",
+    "image_loading_bg_bottom2.jpg": "5.jpg",
+    "image_loading_bg_left.jpg": "6.jpg",
+    "image_loading_bg_left2.jpg": "7.jpg",
+    "image_loading_bg_right.jpg": "8.jpg",
+    "image_loading_bg_right2.jpg": "9.jpg",
+    "image_loading_bg_top.jpg": "10.jpg",
+    "image_loading_bg_top2.jpg": "11.jpg",
+    "image_loading_bg2.jpg": "12.jpg",
 
-    "image_denglu_txtshenpi.png":"1.png",
-    "image_login_loginbg.jpg":"2.jpg",
-    "image_login_loginbg_bottom.jpg":"3.jpg",
-    "image_login_loginbg_left.jpg":"4.jpg",
-    "image_login_loginbg_right.jpg":"5.jpg",
-    "image_login_loginbg_top.jpg":"6.jpg",
-    "image_login_logo.png":"7.png",
-    "image_login_notice.png":"8.png",
-    "image_xuanfu_xfbg.png":"9.png",
+    "image_denglu_txtshenpi.png": "1.png",
+    "image_login_loginbg.jpg": "2.jpg",
+    "image_login_loginbg_bottom.jpg": "3.jpg",
+    "image_login_loginbg_left.jpg": "4.jpg",
+    "image_login_loginbg_right.jpg": "5.jpg",
+    "image_login_loginbg_top.jpg": "6.jpg",
+    "image_login_logo.png": "7.png",
+    "image_login_notice.png": "8.png",
+    "image_xuanfu_xfbg.png": "9.png",
 }
 
 //压缩
 gulp.task('MT1_build_minify', function () {
     var sourceUrl = "../../client/wx_build/jg_gameMT1";
     var targetUrl = "../../client/wx_build/jg_gameMT1_new";
-    var stream = gulp.src([targetUrl + '/**/*.js',"!"+targetUrl + '/**/mmmmmn.js'])
+    var stream = gulp.src([targetUrl + '/**/*.js', "!" + targetUrl + '/**/mmmmmn.js'])
         .pipe(js_minify())
         .pipe(gulp.dest(targetUrl + '/'))
     return stream;
@@ -2673,9 +2709,9 @@ gulp.task('MT1_COPY', function () {
                 var defineDirname = filesMap[fileName];
                 if (defineDirname) {
                     var dirs = defineDirname.split("/");
-                    console.log("文件夹名字:",path.basename,"修改为:",defineDirname);
+                    console.log("文件夹名字:", path.basename, "修改为:", defineDirname);
                     var basename = dirs.pop();
-                    path.dirname= dirs.join("/");
+                    path.dirname = dirs.join("/");
                     path.basename = basename;
                 }
             } else {
@@ -2683,12 +2719,12 @@ gulp.task('MT1_COPY', function () {
                 if (defineDirname) {
                     var dirs = defineDirname.split("/");
                     if (dirs.length <= 1) { //直接是文件
-                        console.log("文件名字:",path.basename,"修改文件名为:", dirs[0]);
+                        console.log("文件名字:", path.basename, "修改文件名为:", dirs[0]);
                         path.basename = dirs[0];
                     } else {  //有路径
                         var curFileName = dirs.pop();
                         var dirPath = dirs.join("/");
-                        console.log("文件路径:",path.dirname,"文件名字:",path.basename, "修改路径为:", dirPath,"修改文件名为：",curFileName.split(".")[0]);
+                        console.log("文件路径:", path.dirname, "文件名字:", path.basename, "修改路径为:", dirPath, "修改文件名为：", curFileName.split(".")[0]);
                         path.dirname = dirPath;
                         path.basename = curFileName.split(".")[0];
 
@@ -2702,15 +2738,15 @@ gulp.task('MT1_COPY', function () {
         .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/weapp-adapter.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)|(game.js)/g, function (match, p1, offset, string) {
             var arr = filesMap[match].split("/");
             // console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
-            return arr[arr.length-1];
+            return arr[arr.length - 1];
         }))
-        .pipe(replace(/(res\/atlas\/wxlogin_atlas.png)|(res\/atlas\/wxeff_btn_atlas.png)|(res\/atlas\/wxloading_atlas.png)|(res\/atlas)/g,function(match, p1, offset, string){
+        .pipe(replace(/(res\/atlas\/wxlogin_atlas.png)|(res\/atlas\/wxeff_btn_atlas.png)|(res\/atlas\/wxloading_atlas.png)|(res\/atlas)/g, function (match, p1, offset, string) {
             var relative = this.file.relative.replace(/\\/g, "/");
-            if(relative=="lxxibbs/inbbbbl.js"){
+            if (relative == "lxxibbs/inbbbbl.js") {
                 var arr = filesMap[match].split("/");
-                console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
-                return arr[arr.length-1];
-            }else{
+                console.log('Found ' + match + ' with param ' + p1, "替换为:", arr[arr.length - 1]);
+                return arr[arr.length - 1];
+            } else {
                 return match;
             }
         }))
@@ -2719,26 +2755,26 @@ gulp.task('MT1_COPY', function () {
             // console.log('Found ' + match + ' with param ' + p1,"替换为:", mt1Replace[match]);
             return mt1Replace[match];
         }))
-        .pipe(replace(/(wxlogin_atlas)|(wxeff_btn_atlas)|(wxloading_atlas)|(btn_loding_abcelq0.png)|(btn_loding_abcelq1.png)|(image_loading_bg.jpg)|(image_loading_bg_bottom.jpg)|(image_loading_bg_bottom2.jpg)|(image_loading_bg_left.jpg)|(image_loading_bg_left2.jpg)|(image_loading_bg_right.jpg)|(image_loading_bg_right2.jpg)|(image_loading_bg_top.jpg)|(image_loading_bg_top2.jpg)|(image_loading_bg2.jpg)/g,function(match, p1, offset, string){
-            console.log('Found ' + match + ' with param ' + p1,"替换为:", mt1Replace[match]);
-            if(!mt1Replace[match]){
+        .pipe(replace(/(wxlogin_atlas)|(wxeff_btn_atlas)|(wxloading_atlas)|(btn_loding_abcelq0.png)|(btn_loding_abcelq1.png)|(image_loading_bg.jpg)|(image_loading_bg_bottom.jpg)|(image_loading_bg_bottom2.jpg)|(image_loading_bg_left.jpg)|(image_loading_bg_left2.jpg)|(image_loading_bg_right.jpg)|(image_loading_bg_right2.jpg)|(image_loading_bg_top.jpg)|(image_loading_bg_top2.jpg)|(image_loading_bg2.jpg)/g, function (match, p1, offset, string) {
+            console.log('Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
+            if (!mt1Replace[match]) {
                 console.log(1);
             }
             return mt1Replace[match];
         }))
-        .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)/g,function(match, p1, offset, string){
-            if(!mt1Replace[match]){
+        .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)/g, function (match, p1, offset, string) {
+            if (!mt1Replace[match]) {
                 console.log(1);
             }
-            console.log('Found ' + match + ' with param ' + p1,"替换为:", mt1Replace[match]);
+            console.log('Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
             return mt1Replace[match];
         }))
         //报名需要修改
-        .pipe(replace(/( name: 'main')/g,"name: 'mmmmm'"))
-        .pipe(replace(/( name: 'probuf')/g,"name: 'pppf'"))
-        .pipe(through.obj(function(file,encode,cb){
+        .pipe(replace(/( name: 'main')/g, "name: 'mmmmm'"))
+        .pipe(replace(/( name: 'probuf')/g, "name: 'pppf'"))
+        .pipe(through.obj(function (file, encode, cb) {
             // console.log("file:",file,"encode:",encode);
-            if(file.relative == "game.json"){
+            if (file.relative == "game.json") {
                 var result = file.contents.toString();
                 var json = JSON.parse(result);
                 console.log("修改game.json：修改分包")
@@ -2757,7 +2793,7 @@ gulp.task('MT1_COPY', function () {
                     }
                 ];
                 console.log(json)
-                file.contents =  Buffer.from(JSON.stringify(json),"utf-8")
+                file.contents = Buffer.from(JSON.stringify(json), "utf-8")
 
             }
             this.push(file);
@@ -2769,8 +2805,8 @@ gulp.task('MT1_COPY', function () {
 gulp.task('MT1_COPY2', function () {
     var sourceUrl = "../../client/wx_build/jg_gameMT1_new";
     var targetUrl = "../../client/wx_build/jg_gameMT1_obfuscator";
-    var req = "sourceUrl + "/" + '/**/*";
-    return gulp.src([sourceUrl + "/" + '/**/*.png',sourceUrl + "/" + '/**/*.jpg',sourceUrl + "/" + '/**/*.json'])
+    var req = "sourceUrl + " / " + '/**/*";
+    return gulp.src([sourceUrl + "/" + '/**/*.png', sourceUrl + "/" + '/**/*.jpg', sourceUrl + "/" + '/**/*.json'])
         .pipe(gulp.dest(targetUrl + '/'));
 });
 
@@ -2791,96 +2827,100 @@ gulp.task('MT1_DEL_REFUSEFILE', function () {
         .pipe(gulp.dest(targetUrl + '/'));
 });
 
-var mt1_deleteRefuseFile = function(){
+var mt1_deleteRefuseFile = function () {
     function onFile(file, enc, cb) {
         var targetUrl = "../../client/wx_build/jg_gameMT1_obfuscator";
-        function delTempFile(foldPath){
+
+        function delTempFile(foldPath) {
             var files = fs.readdirSync(foldPath);
-            for(var i = 0;i<files.length;i++){
+            for (var i = 0; i < files.length; i++) {
                 var fileName = files[i];
-                var director = path.resolve(foldPath , fileName);
+                var director = path.resolve(foldPath, fileName);
                 var stat = fs.statSync(director);
-                if(stat.isDirectory()){
+                if (stat.isDirectory()) {
                     delTempFile(director);
                 }
-                if(stat.isFile()){
-                    if(fileName.indexOf("temp")!=-1){
-                        console.log("删除随机文件:",director)
+                if (stat.isFile()) {
+                    if (fileName.indexOf("temp") != -1) {
+                        console.log("删除随机文件:", director)
                         fs.unlinkSync(director);
                     }
                 }
             }
         }
+
         delTempFile(targetUrl)
         cb();
         this.emit("data", file);
     }
+
     // 不处理end 使用默认的end
     return through.obj(onFile);
 }
 //随机产生辣鸡空文件
-var mt1_createRefuseFile = function(){
+var mt1_createRefuseFile = function () {
     function onFile(file, enc, cb) {
         var targetUrl = "../../client/wx_build/jg_gameMT1_obfuscator";
-        function delTempFile(foldPath){
+
+        function delTempFile(foldPath) {
             var files = fs.readdirSync(foldPath);
-            for(var i = 0;i<files.length;i++){
+            for (var i = 0; i < files.length; i++) {
                 var fileName = files[i];
-                var director = path.resolve(foldPath , fileName);
+                var director = path.resolve(foldPath, fileName);
                 var stat = fs.statSync(director);
-                if(stat.isDirectory()){
+                if (stat.isDirectory()) {
                     delTempFile(director);
                 }
-                if(stat.isFile()){
-                    if(fileName.indexOf("temp")!=-1){
-                        console.log("删除随机文件:",director)
+                if (stat.isFile()) {
+                    if (fileName.indexOf("temp") != -1) {
+                        console.log("删除随机文件:", director)
                         fs.unlinkSync(director);
                     }
                 }
             }
         }
+
         delTempFile(targetUrl)
         var codes = [];
-        for(var i = 48;i<=57;i++){
+        for (var i = 48; i <= 57; i++) {
             codes.push(i);
         }
-        for(var i = 65;i<=90;i++){
+        for (var i = 65; i <= 90; i++) {
             codes.push(i);
         }
-        for(var i = 97;i<=122;i++){
+        for (var i = 97; i <= 122; i++) {
             codes.push(i);
         }
         codes.push(95);
-        var createFileNum = (Math.random()*150>>0) + 100; //创建多少个文件
+        var createFileNum = (Math.random() * 150 >> 0) + 100; //创建多少个文件
         // var createFolderNum = 100;//创建多少个文件夹
         // var folderNames = [];
-        console.log("随机产生辣鸡文件数量：",createFileNum);
-        var suffixs = ["js","png","jpg","webpb","*","php","jsp","*"];
+        console.log("随机产生辣鸡文件数量：", createFileNum);
+        var suffixs = ["js", "png", "jpg", "ogg", "mp4", "mp3", "astc", "ktx", "txt", "etc", "pvr", "gif", "bmp", "jpeg", "svg", "ico"];//"*"];
         var fielNames = [];
         var createSuffixs = [];
 
 
-
-        for(var i = 0;i<createFileNum;i++){
-            var fileNameLength = (Math.random()*10>>0)+1; //文件名字长度
-            var suffixIndex = Math.random()*suffixs.length >> 0;
+        for (var i = 0; i < createFileNum; i++) {
+            var fileNameLength = (Math.random() * 10 >> 0) + 1; //文件名字长度
+            var suffixIndex = Math.random() * suffixs.length >> 0;
             var suffix = suffixs[suffixIndex];
-            if(suffix=="*"){
-                var suffixLength = (Math.random()*5>>0)+1; //后缀长度
+            if (suffix == "*") {
+                var suffixLength = (Math.random() * 5 >> 0) + 1; //后缀长度
                 // var str = "";
                 suffix = "";
-                for(var j = 0;j<suffixLength;j++){
-                    var index = (Math.random()*(codes.length-1)>>0)+1;
-                    var ascill = String.fromCharCode(codes[index]) ;
+                for (var j = 0; j < suffixLength; j++) {
+                    var index = (Math.random() * (codes.length - 1) >> 0) + 1;
+                    var ascill = String.fromCharCode(codes[index]);
                     suffix += ascill;
                 }
 
             }
 
             var filename = "";
-            for(var j = 0;j<fileNameLength;j++){
-                var index = (Math.random()*(codes.length-1)>>0)+1;
-                var ascill = String.fromCharCode(codes[index]) ;
+            for (var j = 0; j < fileNameLength; j++) {
+                var index = (Math.random() * (codes.length - 1) >> 0) + 1;
+                var ascill = String.fromCharCode(codes[index]);
                 filename += ascill;
             }
             fielNames.push(filename);
@@ -2888,38 +2928,175 @@ var mt1_createRefuseFile = function(){
         }
 
         var files = fs.readdirSync(targetUrl);
-        for(var i = 0;i<files.length;i++){
+        for (var i = 0; i < files.length; i++) {
             var fileName = files[i];
             var director = path.resolve(targetUrl + '/', fileName);
             var stat = fs.statSync(director);
-            if(stat.isDirectory()){
-                var insertNum = (Math.random()*(fielNames.length/2-1))>>0;
-                for(var m = 0;m<insertNum;m++){
+            if (stat.isDirectory()) {
+                var insertNum = (Math.random() * (fielNames.length / 2 - 1)) >> 0;
+                for (var m = 0; m < insertNum; m++) {
                     var f = fielNames.pop();
                     var s = createSuffixs.pop();
-                    var tempName = "temp"+f +"."+ s;
-                    var url = director+"/"+tempName
-                    fs.writeFileSync(url,Math.random()*999999>>0);
-                    console.log("随机生成文件:",url);
+                    var tempName = "temp" + f + "." + s;
+                    var url = director + "/" + tempName
+                    fs.writeFileSync(url, Math.random() * 999999 >> 0);
+                    console.log("随机生成文件:", url);
                 }
             }
         }
 
-        for(var i = fielNames.length-1;i>=0;i--){
+        for (var i = fielNames.length - 1; i >= 0; i--) {
             var f = fielNames.pop();
             var s = createSuffixs.pop();
-            var tempName = "temp"+f +"."+ s;
-            var url = targetUrl+"/"+tempName
-            fs.writeFileSync(url,Math.random()*999999>>0);
-            console.log("随机生成文件:",url);
+            var tempName = "temp" + f + "." + s;
+            var url = targetUrl + "/" + tempName
+            fs.writeFileSync(url, Math.random() * 999999 >> 0);
+            console.log("随机生成文件:", url);
         }
 
-    cb();
-    this.emit("data", file);
+        cb();
+        this.emit("data", file);
     }
+
     // 不处理end 使用默认的end
     return through.obj(onFile);
 }
+
+/**AST处理（字符串提取，变量名替换）//临时测试用的*/
+var mt_js_babel = function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+        var contents = "" + file.contents;
+        console.info("字符串标识符处理：" + file.path);
+        identifiersRenameStr += "\n\n\n\n============================" + file.path + "\n";
+
+        var arrayName = globleKeys[1];
+        // var arrayElements = [];
+        // var arrayDeclaration = babel_types.variableDeclaration("var", [babel_types.variableDeclarator(babel_types.identifier(arrayName), babel_types.arrayExpression(arrayElements)]);
+        //var  $b = wx.xxx;  variableDeclaration 声明一个变量   variableDeclarator声明变量node  identifier 声明变量的标识符（名字）    memberExpression 成员表达式 通常指屌用成员对象
+        // var arrayDeclaration = babel_types.variableDeclaration("var", [babel_types.variableDeclarator(babel_types.identifier(arrayName), babel_types.memberExpression(babel_types.identifier(pfFlag), babel_types.identifier(globleKeys[0])))]);
+
+
+        //插件对象，可以对特定类型的节点进行处理
+        var visitor = {
+            StringLiteral(path) {  //代表处理 StringLiteral 节点 提取字符串
+                // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
+                if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
+                    // var tempstr = path.node.value;
+                    // if (tempstr.length > 0 && tempstr.length < 100 && tempstr.indexOf("\n") == -1) {
+                    //     // console.info(path.node.type +"   "+ path.node.value);
+                    //     try {
+                    //         var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName), babel_types.numericLiteral(arrIndex), true);
+                    //         path.replaceWith(memberExpression);
+                    //         // var element = babel_types.stringLiteral(tempstr);  //创建一个数组元素
+                    //         // arrayElements.push(element);
+                    //         globleArrs.push(tempstr);
+                    //         arrIndex++;
+                    //     } catch (error) {
+                    //         // console.error(error);
+                    //     }
+                    // }
+                }
+            },
+            Identifier(path) {  //代表处理 Identifier 节点  全局变量名替换）
+                if (path.node.type == "Identifier") { //查找需要修改的叶子节点
+                    // var tempstr = path.node.name;
+                    // if (identifiersGlobleMap.hasOwnProperty(tempstr)) {
+                    //     var member_path = path.findParent(p => p.isMemberExpression());
+                    //     var object = member_path && member_path.node && member_path.node.object;
+                    //     if (object && (object.name == "wx" || object.name == "qq" || object.name == "laya" || object.name == "Laya")) {
+                    //         // console.info("全局变量名替换："+  path.node.type +"   "+ path.node.name +" => "+ identifiersGlobleMap[tempstr]);
+                    //     } else {
+                    //         path.node.name = identifiersGlobleMap[tempstr];
+                    //     }
+                    // } else {
+                    //     if (!identifiersUIMap[tempstr] && tempstr.length >= 10) {
+                    //         var str = "'" + path.node.name + "', ";
+                    //         if (identifiersRenameStr.indexOf(str) == -1) {
+                    //             identifiersRenameStr += str;
+                    //             // console.info("未混淆变量名："+  path.node.type +"   "+ path.node.name);
+                    //         }
+                    //     }
+                    // }
+                }
+            },
+            NewExpression(path) {
+                var node = path.node;
+                var isNewExpression = babel_types.isNewExpression(node);
+                if (isNewExpression) {
+                    var name = node.callee.name;
+                    if (name == "Array") {
+                        // var arguments = path.get("arguments");
+                        var arguments = path.node.arguments;
+                        if(arguments.length <= 0 || arguments.length > 1){ //只有一個參數的表达式不管，因为一个参数如果是表达式，区分不开是设置长度还是设置设置数据
+                            var arrayExpression = babel_types.arrayExpression(arguments);
+                            path.replaceWith(arrayExpression)
+                        }else{
+                            var arg0 = arguments[0];
+                            //是否是成员表达式，是表达式就不管
+                            var isMemberExpression = babel_types.isMemberExpression(arg0);
+                            if(isMemberExpression){
+                                return;
+                            }
+                            //BinaryExpression //1+1,2+2 这种二进制表达式直接算出值， 先不管，工具会自动先转换
+                            var isLiteral = babel_types.isLiteral(arg0)
+                            if(isLiteral){
+                                var arrayExpression = babel_types.arrayExpression();
+                                path.replaceWith(arrayExpression)
+                            }else{
+                               return;
+                            }
+                        }
+                    }
+                }
+            },
+            Program: {
+                enter(path, state) {
+                    // console.log('start processing this Program...');
+                },
+                exit(path, state) {
+                    // console.log('end processing this Program!');
+                    // console.info(path.node.type +"   "+ (path.node.body&&path.node.body.length));
+                    // if (path.node.body) {
+                    //     path.node.body.unshift(arrayDeclaration);
+                    // }
+                }
+            }
+        };
+
+        //transform方法转换code，babel先将代码转换成ast，然后进行遍历，最后输出code
+        var result = babel_core.transform(contents, {
+            plugins: [
+                {
+                    visitor
+                }
+            ]
+        });
+        contents = result.code; //从AST还原成字符串
+
+
+        var bf = new Buffer.from(contents);
+        file.contents = bf;
+        cb();
+        this.emit("data", file);
+    }
+
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task("MT1-build-js-babel", function () {
+    var sourceUrl = "../../client/wx_build/jg_gameMT1_new1";
+
+    var stream = gulp
+        .src(sourceUrl + '/game.js')
+        .pipe(mt_js_babel())
+        .pipe(gulp.dest(sourceUrl + "/ast/"))
+    return stream;
+});
 
 // gulp.task("build-libs-obfuscator", function () {
 //
