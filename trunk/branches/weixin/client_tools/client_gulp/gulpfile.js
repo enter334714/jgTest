@@ -459,6 +459,12 @@ var set_param_mt1 = function () {
         sourceProject = "../../client/wx_build/jg_gameMT1_new";
         targetProject = "../../client/wx_build/jg_gameMT1_obfuscator";
 
+        for(var key in  filesMap){
+            var item = filesMap[key];
+            var url = item.url;
+            targetFileMap[url] = item;
+        }
+
         cb();
         this.emit("data", file);
     }
@@ -507,7 +513,7 @@ gulp.task('build-all-MT1', function (cb) {
 
 //混淆
 gulp.task('build-babel-obfuscator-MT1', function (cb) {
-    sequence("MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier-MT1', 'build-js-babel', 'build-end-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator', 'build-end-obfuscator', cb)
+    sequence("set-param-mt1","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier-MT1', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator', 'build-end-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string',  'build-end-babel', cb)
 });
 /**-------------------------------------------------微信小游戏--迈腾1包  end-----------------------------------------------------------*/
 
@@ -1399,44 +1405,46 @@ gulp.task('build-all-qq-A', function (cb) {
 
 
 //马甲包文件名重命名映射表
-var filesMap = {
-    "libs": "lxxibbs",
-    "game.js": "lxxibbs/mttttn.js",
-    "index.js": "lxxibbs/iddddx.js",
-    "init.min.js": "lxxibbs/inbbbbl.js",
-    "libs/dom.js": "lxxibbs/dddom.js",
-    "libs/dom_parser.js": "lxxibbs/daetsfsdf.js",
-    "libs/laya.wxmini.js": "lxxibbs/asts.js",
-    "libs/libs.min.js": "lxxibbs/sdt234.js",
-    "libs/md5.min.js": "lxxibbs/asdf2.js",
-    "libs/sax.js": "lxxibbs/ahg324.js",
-    "libs/weapp-adapter.js": "lxxibbs/adg431.js",
-    "libs/zlib.js": "lxxibbs/ah5.js",
-    "libs/game.js": "lxxibbs/game.js",
-    "wxsdk": "ddk",
-    "wxsdk/wx_aksdk.js": "ddk/ddsdk.js",
-    "wxsdk/helper.js": "ddk/ddhelp.js",
-
-    "protobuf": "pppf",
-    "protobuf/client_pb.js": "pppf/pppfb.js",
-    "protobuf/protobuf.js": "pppf/buff.js",
-    "protobuf/game.js": "pppf/game.js",
-
-    "subPackage": "mmmmm",
-    "subPackage/main.min.js": "mmmmm/mmmmmn.js",
-    "subPackage/game.js": "mmmmm/game.js",
-
-    //随机创建名字和文件夹
-    "res/atlas/wxlogin_atlas.atlas": "ttt/wxlogin_atlas123.atlas",
-    "wxlogin_atlas": "wxlogin_atlas123",
-
-};
+// var filesMap = {
+//     "libs": "lxxibbs",
+//     "game.js": "lxxibbs/mttttn.js",
+//     "index.js": "lxxibbs/iddddx.js",
+//     "init.min.js": "lxxibbs/inbbbbl.js",
+//     "libs/dom.js": "lxxibbs/dddom.js",
+//     "libs/dom_parser.js": "lxxibbs/daetsfsdf.js",
+//     "libs/laya.wxmini.js": "lxxibbs/asts.js",
+//     "libs/libs.min.js": "lxxibbs/sdt234.js",
+//     "libs/md5.min.js": "lxxibbs/asdf2.js",
+//     "libs/sax.js": "lxxibbs/ahg324.js",
+//     "libs/weapp-adapter.js": "lxxibbs/adg431.js",
+//     "libs/zlib.js": "lxxibbs/ah5.js",
+//     "libs/game.js": "lxxibbs/game.js",
+//     "wxsdk": "ddk",
+//     "wxsdk/wx_aksdk.js": "ddk/ddsdk.js",
+//     "wxsdk/helper.js": "ddk/ddhelp.js",
+//
+//     "protobuf": "pppf",
+//     "protobuf/client_pb.js": "pppf/pppfb.js",
+//     "protobuf/protobuf.js": "pppf/buff.js",
+//     "protobuf/game.js": "pppf/game.js",
+//
+//     "subPackage": "mmmmm",
+//     "subPackage/main.min.js": "mmmmm/mmmmmn.js",
+//     "subPackage/game.js": "mmmmm/game.js",
+//
+//     //随机创建名字和文件夹
+//     "res/atlas/wxlogin_atlas.atlas": "ttt/wxlogin_atlas123.atlas",
+//     "wxlogin_atlas": "wxlogin_atlas123",
+//
+// };
 
 var pfFlag = "wx";
 var globleKeys = ["x$", "_$", "_", "Z", "__"];//["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀
 var identifiersObfuscatorArray = [];  //混淆用到的标识符
 var arrIndex = 0;  //数组索引
 var globleArrs = [];  //抽取的字符串数组，生成压缩文件
+var globleArrsObj = {}; //抽取的字符串数组用于比较重复，不重复添加到globleArrs
+var globleStrStat = {}; //字符出现统计
 var identifiersGlobleMap = {};
 var identifiersRenameStr = '';
 var identifiersRenameMapStr = '';
@@ -1641,6 +1649,103 @@ gulp.task("build-identifier-MT1", function () {
     return stream;
 });
 
+var js_checkStrCount =  function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+        var contents = "" + file.contents;
+        console.info("字符串检测：" + file.path);
+
+        var url = file.relative.replace(/\\/g,"/");
+        var config = targetFileMap[url];
+        if(!config){
+            console.log("没有配置 "+file.path)
+        }else{
+            var extractStr = config.extractStr || false;
+            if(!extractStr){
+                console.log("check  配置不需要提取字符串:", url);
+            }
+        }
+
+        //插件对象，可以对特定类型的节点进行处理
+        var filePath = path;
+        var visitor = {
+            StringLiteral(path) {  //代表处理 StringLiteral 节点 提取字符串
+                // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
+                if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
+                    var tempstr = path.node.value;
+                    if(!config){
+                        return;
+                    }
+                    if(globleKeys.indexOf(tempstr)!= -1){//不需要提取
+                        return;
+                    }
+                    if(tempstr.indexOf(PREFIX)!= -1){ //不需要提取
+                        return;
+                    }
+                    var extractStr = config.extractStr || false;
+                    var strLen = config.strLen;
+
+                    if(!extractStr || tempstr.length < strLen){
+                        return;
+                    }
+                    if (tempstr.length > 0 && tempstr.length < 100 && tempstr.indexOf("\n") == -1) {
+                        // console.info(path.node.type +"   "+ path.node.value);
+                        try {
+                            if(globleStrStat[tempstr] == undefined){
+                                globleStrStat[tempstr] = 1;
+                            }else{
+                                globleStrStat[tempstr] += 1;
+                            }
+                            var count = config.count;
+                            if(globleStrStat[tempstr] == count){
+                                console.log(url+"出现"+count+"次:",tempstr)
+                            }
+                        } catch (error) {
+                            console
+                            // console.error(error);
+                        }
+                    }
+
+                }
+            },
+            Program: {
+                enter(path, state) {
+                    // console.log('start processing this Program...');
+                },
+                exit(path, state) {
+                    // console.log('end processing this Program!');
+                    // console.info(path.node.type +"   "+ (path.node.body&&path.node.body.length));
+                    // if (path.node.body) {
+                    //     path.node.body.unshift(arrayDeclaration);
+                    // }
+                }
+            }
+        };
+
+
+        //transform方法转换code，babel先将代码转换成ast，然后进行遍历，最后输出code
+        var result = babel_core.transform(contents, {
+            plugins: [
+                {
+                    visitor
+                }
+            ]
+        });
+        contents = result.code; //从AST还原成字符串
+
+
+        var bf = new Buffer.from(contents);
+        file.contents = bf;
+        cb();
+        this.emit("data", file);
+    }
+
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
 
 /**AST处理（字符串提取，变量名替换）*/
 var js_babel = function () {
@@ -1657,8 +1762,18 @@ var js_babel = function () {
         // var arrayElements = [];
         // var arrayDeclaration = babel_types.variableDeclaration("var", [babel_types.variableDeclarator(babel_types.identifier(arrayName), babel_types.arrayExpression(arrayElements)]);
         //var  $b = wx.xxx;  variableDeclaration 声明一个变量   variableDeclarator声明变量node  identifier 声明变量的标识符（名字）    memberExpression 成员表达式 通常指屌用成员对象
-        var arrayDeclaration = babel_types.variableDeclaration("var", [babel_types.variableDeclarator(babel_types.identifier(arrayName), babel_types.memberExpression(babel_types.identifier(pfFlag), babel_types.identifier(globleKeys[0])))]);
-
+        // var arrayDeclaration = babel_types.variableDeclaration("var", [babel_types.variableDeclarator(babel_types.identifier(arrayName), babel_types.memberExpression(babel_types.identifier(pfFlag), babel_types.identifier(globleKeys[0])))]);
+        var url = file.relative.replace(/\\/g,"/");
+        var config = targetFileMap[url];
+        if(!config){
+            console.log("没有配置 "+file.path)
+        }
+        else{
+            var extractStr = config.extractStr || false;
+            if(!extractStr){
+                console.log("js_babel  配置不需要提取字符串:", url);
+            }
+        }
 
         //插件对象，可以对特定类型的节点进行处理
         var visitor = {
@@ -1666,19 +1781,69 @@ var js_babel = function () {
                 // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
                 if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
                     var tempstr = path.node.value;
+                    if(!config){
+                        return;
+                    }
+                    if(globleKeys.indexOf(tempstr)!= -1){//不需要提取
+                        return;
+                    }
+                    if(tempstr.indexOf(PREFIX)!= -1){ //不需要提取
+                        return;
+                    }
+                    var extractStr = config.extractStr || false;
+                    if(!extractStr){
+                        return;
+                    }
+                    var strLen = config.strLen;
+                    if(tempstr.length < strLen)
+                        return;
+                    var count = config.count || 0;
+                    if(!globleStrStat[tempstr]){
+                        return;
+                    }
+                    if(globleStrStat[tempstr] < count) {
+                        console.log(url+"字符小于"+count+"次抛弃：",tempstr)
+                        return;
+                    }
                     if (tempstr.length > 0 && tempstr.length < 100 && tempstr.indexOf("\n") == -1) {
                         // console.info(path.node.type +"   "+ path.node.value);
                         try {
-                            var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName), babel_types.numericLiteral(arrIndex), true);
+                            var index;
+                            var add = false;
+
+                            if(globleArrsObj[tempstr] != undefined &&  globleArrsObj[tempstr] >= 0 ){
+                                index = globleArrsObj[tempstr];
+                                add = false;
+                                // if(globleStrStat[tempstr] == undefined){
+                                //     globleStrStat[tempstr] = 2;
+                                // }else{
+                                //     globleStrStat[tempstr] += 1;
+                                // }
+                                //
+                                // if( globleStrStat[tempstr] >= 5){
+                                //     // console.log("出现五次以上的字符：",tempstr,"次数：",globleStrStat[tempstr]);
+                                // }
+                                // console.log("重复的字符串：",tempstr,"使用下标:",index,"globleArrs[index]:",globleArrs[index])
+                            }else{
+                                index = arrIndex;
+                                add = true;
+                                // console.log("字符下标:",arrIndex)
+                            }
+
+                            var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName), babel_types.numericLiteral(index), true);
                             path.replaceWith(memberExpression);
-                            // var element = babel_types.stringLiteral(tempstr);  //创建一个数组元素
-                            // arrayElements.push(element);
-                            globleArrs.push(tempstr);
-                            arrIndex++;
+
+                            if(add){
+                                globleArrs.push(tempstr);
+                                globleArrsObj[tempstr] = arrIndex;
+                                arrIndex = globleArrs.length;
+                            }
                         } catch (error) {
+                            console
                             // console.error(error);
                         }
                     }
+
                 }
             },
             Identifier(path) {  //代表处理 Identifier 节点  全局变量名替换）
@@ -1742,6 +1907,132 @@ var js_babel = function () {
                 exit(path, state) {
                     // console.log('end processing this Program!');
                     // console.info(path.node.type +"   "+ (path.node.body&&path.node.body.length));
+                    // if (path.node.body) {
+                    //     path.node.body.unshift(arrayDeclaration);
+                    // }
+                }
+            }
+        };
+
+
+        //transform方法转换code，babel先将代码转换成ast，然后进行遍历，最后输出code
+        var result = babel_core.transform(contents, {
+            plugins: [
+                {
+                    visitor
+                }
+            ]
+        });
+        contents = result.code; //从AST还原成字符串
+
+
+        var bf = new Buffer.from(contents);
+        file.contents = bf;
+        cb();
+        this.emit("data", file);
+    }
+
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+/**AST处理 混淆完成在处理一遍字符串*/
+var js_babel_str = function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+        var contents = "" + file.contents;
+        console.info("字符串标识符处理：" + file.path);
+        var arrayName = globleKeys[1];
+        // var arrayElements = [];
+        // var arrayDeclaration = babel_types.variableDeclaration("var", [babel_types.variableDeclarator(babel_types.identifier(arrayName), babel_types.arrayExpression(arrayElements)]);
+        //var  $b = wx.xxx;  variableDeclaration 声明一个变量   variableDeclarator声明变量node  identifier 声明变量的标识符（名字）    memberExpression 成员表达式 通常指屌用成员对象
+        var arrayDeclaration = babel_types.variableDeclaration("var", [babel_types.variableDeclarator(babel_types.identifier(arrayName), babel_types.memberExpression(babel_types.identifier(pfFlag), babel_types.identifier(globleKeys[0])))]);
+        var url = file.relative.replace(/\\/g,"/");
+        var config = targetFileMap[url];
+        if(!config){
+            console.log("没有配置 "+file.path)
+        } else{
+            var extractStr = config.extractStr || false;
+            if(!extractStr){
+                console.log("js_babel_str  配置不需要提取字符串:", url);
+            }
+        }
+        //插件对象，可以对特定类型的节点进行处理
+        var visitor = {
+            StringLiteral(path) {  //代表处理 StringLiteral 节点 提取字符串
+                // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
+                if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
+                    var tempstr = path.node.value;
+                    if(!config){
+                       return;
+                    }
+                    if(globleKeys.indexOf(tempstr)!= -1){
+                        return;
+                    }
+                    if(tempstr.indexOf(PREFIX)!= -1){ //不需要提取
+                        return;
+                    }
+                    var extractStr = config.extractStr || false;
+                    if(!extractStr){
+                        return;
+                    }
+                    var strLen = config.strLen;
+                    if(tempstr.length < strLen)
+                        return;
+                    var count = config.count || 0;
+                    if(!globleStrStat[tempstr]){
+                        return;
+                    }
+                    if(globleStrStat[tempstr] < count) {
+                        console.log(url+"字符小于"+count+"次抛弃：",tempstr)
+                        return;
+                    }
+                    if (tempstr.length > 0 && tempstr.length < 100 && tempstr.indexOf("\n") == -1) {
+                        // console.info(path.node.type +"   "+ path.node.value);
+                        try {
+                            var index;
+                            var add = false;
+                            if(globleArrsObj[tempstr] != undefined &&  globleArrsObj[tempstr] >= 0 ){
+                                index = globleArrsObj[tempstr];
+                                add = false;
+                                // if(globleStrStat[tempstr] == undefined){
+                                //     globleStrStat[tempstr] = 2;
+                                // }else{
+                                //     globleStrStat[tempstr] += 1;
+                                // }
+                                //
+                                // if( globleStrStat[tempstr] >= 5){
+                                //     console.log("出现五次以上的字符：",tempstr,"次数：",globleStrStat[tempstr]);
+                                // }
+                                // console.log("混淆后 重复的字符串：",tempstr,"使用下标:",index,"globleArrs[index]:",globleArrs[index])
+                            }else{
+                                index = arrIndex;
+                                add = true;
+                                // console.log("字符下标:",arrIndex)
+                            }
+                            var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName), babel_types.numericLiteral(index), true);
+                            path.replaceWith(memberExpression);
+                            if(add){
+                                globleArrs.push(tempstr);
+                                globleArrsObj[tempstr] = arrIndex;
+                                arrIndex = globleArrs.length;
+                            }
+                        } catch (error) {
+                            console
+                            // console.error(error);
+                        }
+                    }
+
+                }
+            },
+            Program: {
+                enter(path, state) {
+
+                },
+                exit(path, state) {
                     if (path.node.body) {
                         path.node.body.unshift(arrayDeclaration);
                     }
@@ -1770,6 +2061,8 @@ var js_babel = function () {
     // 不处理end 使用默认的end
     return through.obj(onFile);
 };
+
+
 var end_babel = function () {
     function onFile(file, enc, cb) {
         if (file.isStream()) {
@@ -1808,6 +2101,32 @@ gulp.task("build-js-babel", function () {
         .pipe(gulp.dest(targetProject + "/"))
     return stream;
 });
+
+
+gulp.task("build-js-babel-source-string-check", function () {
+    var stream = gulp
+        .src(sourceProject + '/**/*.js')
+        .pipe(js_checkStrCount())
+        .pipe(gulp.dest(sourceProject + "/"))
+    return stream;
+});
+
+gulp.task("build-js-babel-target-string-check", function () {
+    var stream = gulp
+        .src(targetProject + '/**/*.js')
+        .pipe(js_checkStrCount())
+        .pipe(gulp.dest(targetProject + "/"))
+    return stream;
+});
+
+gulp.task("build-js-babel-target-string", function () {
+    var stream = gulp
+        .src(targetProject + '/**/*.js')
+        .pipe(js_babel_str())
+        .pipe(gulp.dest(targetProject + "/"))
+    return stream;
+});
+
 gulp.task("build-end-babel", function () {
     var stream = gulp
         .src(sourceProject + '/game.js')
@@ -2501,29 +2820,29 @@ var js_obfuscator = function (rate) {
 };
 gulp.task("build-libs-obfuscator", function () {
     var stream = gulp
-        .src(targetProject + '/' + filesMap["libs"] + '/**/*.js')
+        .src(targetProject + '/' + filesMap["libs"].url + '/**/*.js')
         .pipe(js_obfuscator(1))
-        .pipe(gulp.dest(targetProject + '/' + filesMap["libs"]))
+        .pipe(gulp.dest(targetProject + '/' + filesMap["libs"].url))
     return stream;
 });
 gulp.task("build-protobuf-obfuscator", function () {
     var stream = gulp
-        .src(targetProject + '/' + filesMap["protobuf"] + '/**/*.js')
+        .src(targetProject + '/' + filesMap["protobuf"].url + '/**/*.js')
         .pipe(js_obfuscator(1))
-        .pipe(gulp.dest(targetProject + '/' + filesMap["protobuf"]))
+        .pipe(gulp.dest(targetProject + '/' + filesMap["protobuf"].url))
     return stream;
 });
 gulp.task("build-subPackage-obfuscator", function () {
     var stream = gulp
-        .src(targetProject + '/' + filesMap["subPackage"] + '/**/*.js')
+        .src(targetProject + '/' + filesMap["subPackage"].url + '/**/*.js')
         .pipe(js_obfuscator(1))
-        .pipe(gulp.dest(targetProject + '/' + filesMap["subPackage"]))
+        .pipe(gulp.dest(targetProject + '/' + filesMap["subPackage"].url))
     return stream;
 });
 gulp.task("build-workers-obfuscator", function () {
     var stream = gulp
-        .src(targetProject + '/' + filesMap["workers"] + '/**/*.js')
-        .pipe(gulp.dest(targetProject + '/' + filesMap["workers"]))
+        .src(targetProject + '/' + filesMap["workers"].url + '/**/*.js')
+        .pipe(gulp.dest(targetProject + '/' + filesMap["workers"].url))
     return stream;
 });
 gulp.task("build-js-obfuscator", function () {
@@ -2585,67 +2904,71 @@ gulp.task('build_webpack', function () {
 });
 //马甲包文件名重命名映射表
 var filesMap = {
-    "libs": "lxxibbs",
-    "game.js": "lxxibbs/mttttn.js",
-    "index.js": "lxxibbs/iddddx.js",
-    "init.min.js": "lxxibbs/inbbbbl.js",
-    "libs/dom.js": "lxxibbs/dddom.js",
-    "libs/dom_parser.js": "lxxibbs/daetsfsdf.js",
-    "libs/laya.wxmini.js": "lxxibbs/asts.js",
-    "libs/libs.min.js": "lxxibbs/sdt234.js",
-    "libs/md5.min.js": "lxxibbs/asdf2.js",
-    "libs/sax.js": "lxxibbs/ahg324.js",
-    "libs/weapp-adapter.js": "lxxibbs/adg431.js",
-    "libs/zlib.js": "lxxibbs/ah5.js",
-    "libs/game.js": "lxxibbs/game.js",
-    "wxsdk": "ddk",
-    "wxsdk/wx_aksdk.js": "ddk/ddsdk.js",
-    "wxsdk/helper.js": "ddk/ddhelp.js",
+    //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen
+    "libs": {url:"lxxibbs"},
+    "game.js": {url:"lxxibbs/mttttn.js",extractStr:true,count:1,strLen:3},
+    "index.js": {url:"lxxibbs/iddddx.js",extractStr:true,count:1,strLen:3},
+    "init.min.js":  {url:"lxxibbs/inbbbbl.js",extractStr:true,count:1,strLen:3},
+    "libs/dom.js":  {url:"lxxibbs/dddom.js"},
+    "libs/dom_parser.js":  {url:"lxxibbs/daetsfsdf.js"},
+    "libs/laya.wxmini.js":  {url:"lxxibbs/asts.js"},
+    "libs/libs.min.js":  {url:"lxxibbs/sdt234.js",extractStr:false},
+    "libs/md5.min.js":  {url:"lxxibbs/asdf2.js"},
+    "libs/sax.js":  {url:"lxxibbs/ahg324.js"},
+    "libs/weapp-adapter.js":  {url:"lxxibbs/adg431.js"},
+    "libs/zlib.js":  {url:"lxxibbs/ah5.js"},
+    "libs/game.js":  {url:"lxxibbs/game.js",extractStr:true,count:1,strLen:3},
+    "wxsdk":  {url:"ddk"},
+    "wxsdk/wx_aksdk.js":  {url:"ddk/ddsdk.js",extractStr:true,count:1,strLen:3},
+    "wxsdk/helper.js":  {url:"ddk/ddhelp.js",extractStr:true,count:1,strLen:3},
 
-    "protobuf": "pppf",
-    "protobuf/client_pb.js": "pppf/pppfb.js",
-    "protobuf/protobuf.js": "pppf/buff.js",
-    "protobuf/game.js": "pppf/game.js",
+    "protobuf":  {url:"pppf"},
+    "protobuf/client_pb.js":  {url:"pppf/pppfb.js",extractStr:true,count:5,strLen:3},
+    "protobuf/protobuf.js":  {url:"pppf/buff.js",extractStr:true,count:5,strLen:3},
+    "protobuf/game.js":  {url:"pppf/game.js",extractStr:true,count:5,strLen:3},
 
-    "subPackage": "mmmmm",
-    "subPackage/main.min.js": "mmmmm/mmmmmn.js",
-    "subPackage/game.js": "mmmmm/game.js",
+    "subPackage":  {url:"mmmmm"},
+    "subPackage/main.min.js":  {url:"mmmmm/mmmmmn.js",extractStr:true,count:1,strLen:3},
+    "subPackage/game.js":  {url:"mmmmm/game.js",extractStr:true,count:1,strLen:3},
 
     //随机创建名字和文件夹
-    "res": "atlas333",
-    "res/atlas": "atlas333",
-    "wxloading_atlas": "looooooding",
-    "wxlogin_atlas": "llllogin",
-    "res/atlas/wxlogin_atlas.png": "atlas333/llllogin.png",
-    "res/atlas/wxeff_btn_atlas.png": "atlas333/bbbtn.png",
-    "res/atlas/wxloading_atlas.png": "atlas333/looooooding.png",
+    "res": {url:"atlas333"},
+    "res/atlas": {url:"atlas333"},
+    "wxloading_atlas": {url:"looooooding"},
+    "wxlogin_atlas": {url:"llllogin"},
+    "res/atlas/wxlogin_atlas.png": {url:"atlas333/llllogin.png"},
+    "res/atlas/wxeff_btn_atlas.png": {url:"atlas333/bbbtn.png"},
+    "res/atlas/wxloading_atlas.png": {url:"atlas333/looooooding.png"},
 
-    "wxloading_atlas/btn_loding_abcelq0.png": "looooooding/1.png",
-    "wxloading_atlas/btn_loding_abcelq1.png": "looooooding/2.png",
-    "wxloading_atlas/image_loading_bg.jpg": "looooooding/3.jpg",
-    "wxloading_atlas/image_loading_bg_bottom.jpg": "looooooding/4.jpg",
-    "wxloading_atlas/image_loading_bg_bottom2.jpg": "looooooding/5.jpg",
-    "wxloading_atlas/image_loading_bg_left.jpg": "looooooding/6.jpg",
-    "wxloading_atlas/image_loading_bg_left2.jpg": "looooooding/7.jpg",
-    "wxloading_atlas/image_loading_bg_right.jpg": "looooooding/8.jpg",
-    "wxloading_atlas/image_loading_bg_right2.jpg": "looooooding/9.jpg",
-    "wxloading_atlas/image_loading_bg_top.jpg": "looooooding/10.jpg",
-    "wxloading_atlas/image_loading_bg_top2.jpg": "looooooding/11.jpg",
-    "wxloading_atlas/image_loading_bg2.jpg": "looooooding/12.jpg",
+    "wxloading_atlas/btn_loding_abcelq0.png": {url:"looooooding/1.png"},
+    "wxloading_atlas/btn_loding_abcelq1.png": {url:"looooooding/2.png"},
+    "wxloading_atlas/image_loading_bg.jpg": {url:"looooooding/3.jpg"},
+    "wxloading_atlas/image_loading_bg_bottom.jpg": {url:"looooooding/4.jpg"},
+    "wxloading_atlas/image_loading_bg_bottom2.jpg": {url:"looooooding/5.jpg"},
+    "wxloading_atlas/image_loading_bg_left.jpg": {url:"looooooding/6.jpg"},
+    "wxloading_atlas/image_loading_bg_left2.jpg": {url:"looooooding/7.jpg"},
+    "wxloading_atlas/image_loading_bg_right.jpg": {url:"looooooding/8.jpg"},
+    "wxloading_atlas/image_loading_bg_right2.jpg": {url:"looooooding/9.jpg"},
+    "wxloading_atlas/image_loading_bg_top.jpg": {url:"looooooding/10.jpg"},
+    "wxloading_atlas/image_loading_bg_top2.jpg": {url:"looooooding/11.jpg"},
+    "wxloading_atlas/image_loading_bg2.jpg": {url:"looooooding/12.jpg"},
 
-    "wxlogin_atlas/image_denglu_txtshenpi.png": "llllogin/1.png",
-    "wxlogin_atlas/image_login_loginbg.jpg": "llllogin/2.jpg",
-    "wxlogin_atlas/image_login_loginbg_bottom.jpg": "llllogin/3.jpg",
-    "wxlogin_atlas/image_login_loginbg_left.jpg": "llllogin/4.jpg",
-    "wxlogin_atlas/image_login_loginbg_right.jpg": "llllogin/5.jpg",
-    "wxlogin_atlas/image_login_loginbg_top.jpg": "llllogin/6.jpg",
-    "wxlogin_atlas/image_login_logo.png": "llllogin/7.png",
-    "wxlogin_atlas/image_login_notice.png": "llllogin/8.png",
-    "wxlogin_atlas/image_xuanfu_xfbg.png": "llllogin/9.png",
-
+    "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"llllogin/1.png"},
+    "wxlogin_atlas/image_login_loginbg.jpg": {url:"llllogin/2.jpg"},
+    "wxlogin_atlas/image_login_loginbg_bottom.jpg": {url:"llllogin/3.jpg"},
+    "wxlogin_atlas/image_login_loginbg_left.jpg": {url:"llllogin/4.jpg"},
+    "wxlogin_atlas/image_login_loginbg_right.jpg": {url:"llllogin/5.jpg"},
+    "wxlogin_atlas/image_login_loginbg_top.jpg": {url:"llllogin/6.jpg"},
+    "wxlogin_atlas/image_login_logo.png": {url:"llllogin/7.png"},
+    "wxlogin_atlas/image_login_notice.png": {url:"llllogin/8.png"},
+    "wxlogin_atlas/image_xuanfu_xfbg.png": {url:"llllogin/9.png"},
 };
+
+//混淆后的文件配置通过  filesMap 转化 "libs": {url:"lxxibbs"},  -》"lxxibbs":{url:"lxxibbs"}
+var targetFileMap = {};
+
 var mt1Replace = {
-    "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"],
+    "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
     "./helper": "./" + "ddhelp",
     "./sax": "./ahg324",
     "./dom": "./dddom",
@@ -2683,7 +3006,6 @@ var mt1Replace = {
 
 //压缩
 gulp.task('MT1_build_minify', function () {
-    var sourceUrl = "../../client/wx_build/jg_gameMT1";
     var targetUrl = "../../client/wx_build/jg_gameMT1_new";
     var stream = gulp.src([targetUrl + '/**/*.js', "!" + targetUrl + '/**/mmmmmn.js'])
         .pipe(js_minify())
@@ -2706,7 +3028,7 @@ gulp.task('MT1_COPY', function () {
             fileName = fileName.replace(/\\/g, "/");
             var isDir = path.extname == "";
             if (isDir) {
-                var defineDirname = filesMap[fileName];
+                var defineDirname = (filesMap[fileName] || {}).url;
                 if (defineDirname) {
                     var dirs = defineDirname.split("/");
                     console.log("文件夹名字:", path.basename, "修改为:", defineDirname);
@@ -2715,7 +3037,7 @@ gulp.task('MT1_COPY', function () {
                     path.basename = basename;
                 }
             } else {
-                var defineDirname = filesMap[fileName];
+                var defineDirname = (filesMap[fileName] || {}).url;
                 if (defineDirname) {
                     var dirs = defineDirname.split("/");
                     if (dirs.length <= 1) { //直接是文件
@@ -2736,14 +3058,14 @@ gulp.task('MT1_COPY', function () {
         }))
         //不用修改
         .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/weapp-adapter.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)|(game.js)/g, function (match, p1, offset, string) {
-            var arr = filesMap[match].split("/");
+            var arr = filesMap[match].url.split("/");
             // console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
             return arr[arr.length - 1];
         }))
         .pipe(replace(/(res\/atlas\/wxlogin_atlas.png)|(res\/atlas\/wxeff_btn_atlas.png)|(res\/atlas\/wxloading_atlas.png)|(res\/atlas)/g, function (match, p1, offset, string) {
             var relative = this.file.relative.replace(/\\/g, "/");
             if (relative == "lxxibbs/inbbbbl.js") {
-                var arr = filesMap[match].split("/");
+                var arr = filesMap[match].url.split("/");
                 console.log('Found ' + match + ' with param ' + p1, "替换为:", arr[arr.length - 1]);
                 return arr[arr.length - 1];
             } else {
