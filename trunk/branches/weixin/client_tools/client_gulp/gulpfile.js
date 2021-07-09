@@ -1799,96 +1799,37 @@ var js_babel = function () {
                 // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
                 if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
                     var tempstr = path.node.value;
-                    var trace = false;
-                    if(tempstr.indexOf("恭喜您刷出新的光环")!=-1 || tempstr.indexOf("存活怪物")!=-1 || tempstr.indexOf("你已经成功加入战队") !=-1
-                        || tempstr.indexOf("剩余的扫荡次数")!=-1
-                        || tempstr.indexOf("可额外获得")!=-1
-                        || tempstr.indexOf("解散战队后战队数据将")!=-1
-
-                        || tempstr.indexOf("逃脱数量")!=-1){
-                        trace = true;
-                        console.log("ttttttempstr:",tempstr,"trace:",trace);
-                    }
-                    if(trace){
-                        console.log("!!!!!1")
-                    }
                     if(!config){
-                        if(trace){
-                            console.log("!config")
-                        }
+                        return;
+                    }
 
-                        return;
-                    }
-                    if(trace){
-                        console.log("!!!!!2")
-                    }
                     if(globleKeys.indexOf(tempstr)!= -1){//不需要提取
-                        if(trace){
-                            console.log("!lobleKeys.indexOf(tempstr)!= -1")
-                        }
                         return;
                     }
-                    if(trace){
-                        console.log("!!!!!3")
-                    }
+
                     if(tempstr.indexOf(PREFIX)!= -1){ //不需要提取
-                        if(trace){
-                            console.log("tempstr.indexOf(PREFIX)!= -1")
-                        }
                         return;
                     }
-                    if(trace){
-                        console.log("!!!!!4")
-                    }
+
                     var extractStr = config.extractStr || false;
                     if(!extractStr){
-                        if(trace){
-                            console.log("!extractStr：",config)
-                        }
                         return;
-                    }
-                    if(trace){
-                        console.log("!!!!!5")
                     }
                     var reg = /[\u4e00-\u9fa5]+/g;
                     var isChinese = reg.test(tempstr);
-                    if(trace){
-                        console.log("是否含有中文:",isChinese);
-                    }
                     var strLen = config.strLen || 0;
                     if(tempstr.length < strLen && !isChinese){
-                        if(trace){
-                            console.log("!extractStr：",tempstr.length < strLen && !isChinese,tempstr.length,strLen,!isChinese)
-                        }
                         return;
-                    }
-                    if(trace){
-                        console.log("!!!!!6")
                     }
                     var count = config.count || 0;
                     if(!globleStrStat[tempstr] && !isChinese){
-                        if(trace){
-                            console.log("!globleStrStat[tempstr]",!globleStrStat[tempstr],!isChinese)
-                        }
                         return;
-                    }
-                    if(trace){
-                        console.log("!!!!!7")
                     }
                     if(globleStrStat[tempstr] < count && !isChinese) {
                         // console.log(url+"字符小于"+count+"次抛弃：",tempstr)
-                        if(trace){
-                            console.log("globleStrStat[tempstr] < count",globleStrStat[tempstr],count,!isChinese)
-                        }
                         return;
                     }
-                    if(trace){
-                        console.log("!!!!!8")
-                    }
-                    if(trace){
-                        console.log("tempstr.length > 0:",tempstr.length > 0,tempstr.length < 1000 && tempstr.indexOf("\n") == -1,isChinese,tempstr.length > 0 && ((tempstr.length < 1000 && tempstr.indexOf("\n") == -1) || isChinese))
-                        console.log("!!!!!9999:",isChinese)
-                    }
+
                     if (tempstr.length > 0 && ((tempstr.length < 1000 && tempstr.indexOf("\n") == -1) || isChinese)) {
                         // console.info(path.node.type +"   "+ path.node.value);
                         try {
@@ -3399,7 +3340,9 @@ var mt_js_babel = function () {
         //插件对象，可以对特定类型的节点进行处理
         var visitor = {
             StringLiteral(path) {  //代表处理 StringLiteral 节点 提取字符串
-                // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
+
+
+                // // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
                 if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
                     var tempstr = path.node.value;
                     var memberExpression = babel_types.memberExpression(babel_types.identifier("as"), babel_types.numericLiteral(10), true);
@@ -3420,7 +3363,7 @@ var mt_js_babel = function () {
                 }
             },
             Identifier(path) {  //代表处理 Identifier 节点  全局变量名替换）
-                if (path.node.type == "Identifier") { //查找需要修改的叶子节点
+                // if (path.node.type == "Identifier") { //查找需要修改的叶子节点
                     // var tempstr = path.node.name;
                     // if (identifiersGlobleMap.hasOwnProperty(tempstr)) {
                     //     var member_path = path.findParent(p => p.isMemberExpression());
@@ -3439,7 +3382,7 @@ var mt_js_babel = function () {
                     //         }
                     //     }
                     // }
-                }
+                // }
             },
             NewExpression(path) {
                 var node = path.node;
@@ -3476,9 +3419,11 @@ var mt_js_babel = function () {
             },
             Program: {
                 enter(path, state) {
+                    console.log("enter:",path.type)
                     // console.log('start processing this Program...');
                 },
                 exit(path, state) {
+                    console.log("exit:",path.type)
                     // console.log('end processing this Program!');
                     // console.info(path.node.type +"   "+ (path.node.body&&path.node.body.length));
                     // if (path.node.body) {
