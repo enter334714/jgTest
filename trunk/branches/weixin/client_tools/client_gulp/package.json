@@ -30,6 +30,9 @@
     "uglify-es": "^3.3.9"
   },
   "devDependencies": {
+    "@babel/parser": "^7.14.7",
+    "babel-generator": "^6.26.1",
+    "babel-traverse": "^6.26.0",
     "gulp": "^3.9.1",
     "gulp-order": "^1.2.0",
     "gulp-print": "^5.0.2",

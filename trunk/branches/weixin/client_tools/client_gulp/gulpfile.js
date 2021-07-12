@@ -1856,15 +1856,10 @@ var js_babel = function () {
                                 add = true;
                                 // console.log("字符下标:",arrIndex)
                             }
-                            if(trace){
-                                console.log("tempstr:",tempstr,"开始替换")
-                            }
+
                             var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName), babel_types.numericLiteral(index), true);
                             path.replaceWith(memberExpression);
 
-                            if(trace){
-                                console.log("tempstr:",tempstr,"替换成功")
-                            }
                             if(add){
                                 globleArrs.push(tempstr);
                                 globleArrsObj[tempstr] = arrIndex;
