@@ -465,7 +465,7 @@ var js_minify = function () {
 
 
 var pfFlag = "wx";
-var globleKeys = ["y$", "_", "_s", "p", "_d"];//["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀
+var globleKeys = ["y$", "_", "_s", "p$", "_d"];//["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀
 var identifiersObfuscatorArray = [];  //混淆用到的标识符
 var arrIndex = 0;  //数组索引
 var globleArrs = [];  //抽取的字符串数组，生成压缩文件
@@ -695,18 +695,17 @@ var js_checkStrCount =  function () {
                 // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
                 if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
                     var tempstr = path.node.value;
-
-                    if(tempstr.indexOf("恭喜您刷出新的光环")!=-1 || tempstr.indexOf("存活怪物")!=-1 || tempstr.indexOf("你已经成功加入战队") !=-1
-                        || tempstr.indexOf("剩余的扫荡次数")!=-1
-                        || tempstr.indexOf("可额外获得")!=-1
-                        || tempstr.indexOf("解散战队后战队数据将")!=-1
-
-                        || tempstr.indexOf("逃脱数量")!=-1){
-                        console
-                    }
                     if(!config){
                         return;
                     }
+                    if(tempstr.indexOf(globleKeys[3])!=-1){//不需要提取
+                        return;//
+                    }
+
+                    if(tempstr.indexOf(".png")!=-1 || tempstr.indexOf(".jpg")!=-1){//不需要提取
+                        return;//
+                    }
+
                     if(globleKeys.indexOf(tempstr)!= -1){//不需要提取
                         return;
                     }
@@ -820,6 +819,14 @@ var js_babel = function () {
                     var tempstr = path.node.value;
                     if(!config){
                         return;
+                    }
+
+                    if(tempstr.indexOf(globleKeys[3])!=-1){//不需要提取
+                        return;//
+                    }
+
+                    if(tempstr.indexOf(".png")!=-1 || tempstr.indexOf(".jpg")!=-1){//不需要提取
+                        return;//
                     }
 
                     if(globleKeys.indexOf(tempstr)!= -1){//不需要提取
@@ -1015,6 +1022,14 @@ var js_babel_str = function () {
                     if(!config){
                        return;
                     }
+                    if(tempstr.indexOf(globleKeys[3])!=-1){//不需要提取
+                        return;//
+                    }
+
+                    if(tempstr.indexOf(".png")!=-1 || tempstr.indexOf(".jpg")!=-1){//不需要提取
+                        return;//
+                    }
+
                     if(globleKeys.indexOf(tempstr)!= -1){
                         return;
                     }

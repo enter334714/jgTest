@@ -1678,15 +1678,6 @@ var js_checkStrCount =  function () {
                 // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
                 if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
                     var tempstr = path.node.value;
-
-                    if(tempstr.indexOf("恭喜您刷出新的光环")!=-1 || tempstr.indexOf("存活怪物")!=-1 || tempstr.indexOf("你已经成功加入战队") !=-1
-                        || tempstr.indexOf("剩余的扫荡次数")!=-1
-                        || tempstr.indexOf("可额外获得")!=-1
-                        || tempstr.indexOf("解散战队后战队数据将")!=-1
-
-                        || tempstr.indexOf("逃脱数量")!=-1){
-                        console
-                    }
                     if(!config){
                         return;
                     }
