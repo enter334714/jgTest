@@ -17,16 +17,18 @@ window.PF_INFO = {
 
 PF_INFO.pay_infos = {}
 PF_INFO.package = "0";
-PF_INFO.callback = "https://jgcenter.sh9130.com/api/sdk/game.php/";
 PF_INFO.version = window.versions.wxVersion;
 PF_INFO.mac = "";
 PF_INFO.os = "1";
 PF_INFO.sdk_name = "9130";
-PF_INFO.apiurl = "https://api-pjg.sh9130.com";
+PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";
+PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
+PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
 PF_INFO.apikey = "MQx0mYlUWO5XYKvgAIPKWgK1w722GKih";
 PF_INFO.partnerId = "1";
 PF_INFO.pkgName = "";
 PF_INFO.device_id = "";
+PF_INFO.from_scene = 0;
 PF_INFO.serverList = {};
 PF_INFO.channelNum = parseInt(PF_INFO.partnerId);
 PF_INFO.channel = PF_INFO.partnerId;
@@ -233,25 +235,30 @@ window.sdkOnInited = function(res) {
   if (window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
     console.log("#正式版=============================");
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
-    PF_INFO.apikey = "MQx0mYlUWO5XYKvgAIPKWgK1w722GKih";
+    PF_INFO.logurl = "https://log-tjqy.shzbkj.com";
+    PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/",
     PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = false;
   } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0){  //当前版本 == 后台版本
     console.log("#审核版=============================");
-    PF_INFO.apiurl = "https://api-pjg.sh9130.com";    //测试服（审核版本）
-    PF_INFO.apikey = "MQx0mYlUWO5XYKvgAIPKWgK1w722GKih";
+    PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（审核版本）
+    PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
+    PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/",
     PF_INFO.version_name = "";
     PF_INFO.wxShield = true;                          //屏蔽活动
   } else {
     console.log("#开发版=============================");
-    PF_INFO.apiurl = "https://api-pjg.sh9130.com";    //测试服（开发版本）
-    PF_INFO.apikey = "MQx0mYlUWO5XYKvgAIPKWgK1w722GKih";
+    PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（开发版本）
+    PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
+    PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/",
     PF_INFO.version_name = "";
     PF_INFO.wxShield = false;
   }
+  PF_INFO.from_scene = config.from ? config.from : 0;
+
   this.loadVersionConfig();
   this.reqPkgOptions();
   AKSDK.login(this.sdkOnLogin.bind(this));
@@ -262,12 +269,13 @@ window.sdkOnLogin = function(status, data) {
   if (status === 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
     var self = this;
-    sendApi('User.login', {
+    sendApi(PF_INFO.apiurl, 'User.login', {
       'platform': PF_INFO.sdk_name,
       'partner_id': PF_INFO.partnerId,
       'token': data.token,
       'game_pkg': PF_INFO.pkgName,
       'deviceId': PF_INFO.device_id,
+      'scene': 'WX_'+ PF_INFO.from_scene,
     }, this.onUserLogin.bind(this), apiRetryAmount, onApiError);
   } else {
     clientlog(JSON.stringify({
@@ -301,7 +309,7 @@ window.onUserLogin = function (response) {
   PF_INFO.sign = ''; // TODO
 
   var self = this;
-  sendApi('Server.defaultServer', {
+  sendApi(PF_INFO.apiurl, 'Server.defaultServer', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
     'version': PF_INFO.version,
@@ -358,7 +366,7 @@ window.initComplete = function() {
 // 加载version_config版本文件，读取lastVersion号，外网是从后台请求获取
 window.loadVersionConfig = function() {
   var self = this;
-  sendApi('User.getCdnVersion', {
+  sendApi(PF_INFO.apiurl, 'User.getCdnVersion', {
     'game_pkg': PF_INFO.pkgName,
     'version_name': PF_INFO.version_name,
   }, function(response) {
@@ -383,7 +391,7 @@ window.loadVersionConfig = function() {
 // 请求隐私、超级VIP、微信公众号信息
 window.pkgOptions
 window.reqPkgOptions = function() {
-  sendApi('Common.get_option_pkg', { 
+  sendApi(PF_INFO.apiurl, 'Common.get_option_pkg', { 
     'game_pkg': PF_INFO.pkgName,
   }, reqPkgOptionsCallBack);
 }
@@ -416,7 +424,7 @@ window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, pric
     'price': price,
     'callback': callback,
   }
-  sendApi('Order.order', {
+  sendApi(PF_INFO.payurl, 'Order.order', {
     'game_pkg': PF_INFO.pkgName,
     'server_id': PF_INFO.selectedServer.server_id,
     'server_name': PF_INFO.selectedServer.server_name,
@@ -428,6 +436,7 @@ window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, pric
     'product_name': productname,
     'product_desc': productdesc,
     'money': price,
+    'partner_id': PF_INFO.partnerId,
     // 'appleprd_id': appleprd_id,
   }, toPayCallBack, apiRetryAmount, onApiError)
 
@@ -480,7 +489,7 @@ window.loadCreateRole = function() {
 }
 window.toCreate = function(role_id, role_name, role_level, role_type) {
   AKSDK.logCreateRole(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, role_id, role_name, role_level);
-  sendApi('User.create_role', {
+  sendApi(PF_INFO.apiurl, 'User.create_role', {
     'game_pkg': PF_INFO.pkgName,
     'server_id': PF_INFO.selectedServer.server_id,
     'role_id': role_id,
@@ -495,7 +504,7 @@ window.toLogin = function(role_id, role_name, role_level, role_type, evolution) 
   PF_INFO.roleName = role_name;
   PF_INFO.roleLevel = role_level;
   AKSDK.logEnterGame(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, role_id, role_name, role_level);
-  sendApi('User.update_role', {
+  sendApi(PF_INFO.apiurl, 'User.update_role', {
     'game_pkg': PF_INFO.pkgName,
     'server_id': PF_INFO.selectedServer.server_id,
     'role_id': role_id,
@@ -511,7 +520,7 @@ window.toLevelUp = function(role_id, role_name, role_level, role_type, evolution
   PF_INFO.roleName = role_name;
   PF_INFO.roleLevel = role_level;
   // AKSDK.logRoleUpLevel(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, role_id, role_name, role_level);
-  /*sendApi('User.update_role', {
+  /*sendApi(PF_INFO.apiurl, 'User.update_role', {
       'game_pkg': PF_INFO.pkgName,
       'server_id': PF_INFO.selectedServer.server_id,
       'role_id': role_id,
@@ -710,7 +719,7 @@ window.send = function(url, data, callBack, retryAmount, errorCB, checkSuccess, 
   xhr.send(data);
 }
 
-window.sendApi = function(method, param, callBack, retryAmount, errorCB, checkSuccess) {
+window.sendApi = function(apiurl, method, param, callBack, retryAmount, errorCB, checkSuccess) {
   if (!param) {
     param = {};
   }
@@ -730,7 +739,7 @@ window.sendApi = function(method, param, callBack, retryAmount, errorCB, checkSu
 
   var extendParam = 'sign=' + md5(md5Str);
 
-  send(PF_INFO.apiurl + '?' + reqStr + (reqStr == '' ? '' : '&') + extendParam, null, callBack, retryAmount, errorCB, checkSuccess || function(response) {
+  send(apiurl + '?' + reqStr + (reqStr == '' ? '' : '&') + extendParam, null, callBack, retryAmount, errorCB, checkSuccess || function(response) {
     return response.state == 'success';
   }, null, 'application/x-www-form-urlencoded');
 }
@@ -740,7 +749,7 @@ window.onRoleRecordStep = function(step, role_id) {
   if (PF_INFO.selectedServer) {
     serverTmpId = PF_INFO.selectedServer.server_id;
   }
-  sendApi('UserLog.reportUidStep', {
+  sendApi(PF_INFO.logurl, 'UserLog.reportUidStep', {
     'partnerId': PF_INFO.partnerId,
     'gamePkg': PF_INFO.pkgName,
     'logTime': Math.floor(Date.now() / 1000),
@@ -754,7 +763,7 @@ window.onRoleRecordStep = function(step, role_id) {
 
 
 window.req_server_group = function(step) {
-  sendApi('Server.getServerGroup', {
+  sendApi(PF_INFO.apiurl, 'Server.getServerGroup', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
     'version': PF_INFO.version,
@@ -781,7 +790,7 @@ window.reqServerGroupCallBack = function(data) {
 }
 
 window.req_server_owner = function(step) {
-  sendApi('Server.getServerByUid', {
+  sendApi(PF_INFO.apiurl, 'Server.getServerByUid', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
     'version': PF_INFO.version,
@@ -802,7 +811,7 @@ window.reqServerOwnerCallBack = function(data) {
 }
 
 window.req_server_list = function(step, group_id) {
-  sendApi('Server.getServerByGroup', {
+  sendApi(PF_INFO.apiurl, 'Server.getServerByGroup', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
     'version': PF_INFO.version,
@@ -830,7 +839,7 @@ window.reqServerListCallBack = function(data) {
   }
 }
 window.req_recommend_server_list = function(step) {
-  sendApi('Server.getRecommendServerList', {
+  sendApi(PF_INFO.apiurl, 'Server.getRecommendServerList', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
     'version': PF_INFO.version,
@@ -860,7 +869,7 @@ window.changeServerName = function(lst) {
 }
 window.req_server_notice = function(server_id, callback) {
   server_id = server_id || PF_INFO.selectedServer.server_id;
-  sendApi('Common.get_anno', {
+  sendApi(PF_INFO.apiurl, 'Common.get_anno', {
     'type': '4',
     'game_pkg': PF_INFO.pkgName,
     'server_id': server_id,
@@ -892,7 +901,7 @@ window.req_server_check_ban = function(step, server_id) {
     'server_id': server_id
   };
   var self = this;
-  sendApi('User.checkInfo', {
+  sendApi(PF_INFO.apiurl, 'User.checkInfo', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
     'game_pkg': PF_INFO.pkgName,
@@ -930,12 +939,13 @@ window.reqServerCheckBanCallBack = function(data) {
 
     checkBanSuccess();
   } else {
-    sendApi('User.login', {
+    sendApi(PF_INFO.apiurl, 'User.login', {
       'platform': PF_INFO.sdk_name,
       'partner_id': PF_INFO.partnerId,
       'token': PF_INFO.sdk_token,
       'game_pkg': PF_INFO.pkgName,
       'deviceId': PF_INFO.device_id,
+      'scene': 'WX_'+ PF_INFO.from_scene,
     }, function(response) {
       if (response.state == "failed") {
         window.loginAlert('User.login failed: ' + response.state);
@@ -963,15 +973,18 @@ window.initMain = function() {
   if(window.loadProbPkg && window.loadMainPkg && window.loadVersion && window.loadServer) {
     if (!window.MainWX.instance) {
       console.log("Main 初始化"+window.MainWX.instance);
+      var info = wx.getLaunchOptionsSync();
+      var scene = info.scene?info.scene:0;
       var platData = {
         cdn: window.PF_INFO.cdn,
         spareCdn: window.PF_INFO.spareCdn, 
         newRegister: window.PF_INFO.newRegister,
         wxPC: window.PF_INFO.wxPC,
         wxIOS: window.PF_INFO.wxIOS,
-        wxParam: {limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel},
+        wxParam: {limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.config.from ? 1: 0), wxSDKVersion: window.SDKVersion},
         configType: window.PF_INFO.configType, 
-        exposeType: window.PF_INFO.exposeType
+        exposeType: window.PF_INFO.exposeType,
+        scene:scene
       }
       new window.MainWX(platData, window.PF_INFO.lastVersion, window.workerJsURL);
     }
