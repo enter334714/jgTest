@@ -491,6 +491,11 @@ gulp.task('scope-B', function (cb) {
 gulp.task('build-all-B', function (cb) {
     sequence('set-param-b', 'scope-check', 'main-modify', 'main-map', 'main-backup', 'init-modify', 'init-backup', 'libs-min', 'libs-map', 'libs-backup', 'build-protobuf', 'copy', cb)
 });
+
+//混淆
+gulp.task('build-babel-obfuscator-MT1', function (cb) {
+    sequence("set_param_b","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier-MT1', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator', 'build-end-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string',  'build-end-babel', cb)
+});
 /**-------------------------------------------------微信小游戏--B包  end-----------------------------------------------------------*/
 
 
@@ -3048,6 +3053,117 @@ gulp.task('MT1_build_minify', function () {
         .pipe(js_minify())
         .pipe(gulp.dest(sourceUrl + '/'))
     return stream;
+});
+
+gulp.task('B_COPY', function () {
+    var sourceUrl = "../../client/wx_build/"+ PACK //jg_gameMT1";
+    var targetUrl =  sourceProject;
+    return gulp.src(sourceUrl + "/" + '/**/*')
+        .pipe(rename(function (path) {
+            // console.log(path);
+            var fileName;
+            if (path.dirname == ".") {
+                fileName = path.basename + path.extname;
+            } else {
+                fileName = path.dirname + "/" + path.basename + path.extname;
+            }
+            fileName = fileName.replace(/\\/g, "/");
+            var isDir = path.extname == "";
+            if (isDir) {
+                var defineDirname = (filesMap[fileName] || {}).url;
+                if (defineDirname) {
+                    var dirs = defineDirname.split("/");
+                    console.log("文件夹名字:", path.basename, "修改为:", defineDirname);
+                    var basename = dirs.pop();
+                    path.dirname = dirs.join("/");
+                    path.basename = basename;
+                }
+            } else {
+                var defineDirname = (filesMap[fileName] || {}).url;
+                if (defineDirname) {
+                    var dirs = defineDirname.split("/");
+                    if (dirs.length <= 1) { //直接是文件
+                        console.log("文件名字:", path.basename, "修改文件名为:", dirs[0]);
+                        path.basename = dirs[0];
+                    } else {  //有路径
+                        var curFileName = dirs.pop();
+                        var dirPath = dirs.join("/");
+                        console.log("文件路径:", path.dirname, "文件名字:", path.basename, "修改路径为:", dirPath, "修改文件名为：", curFileName.split(".")[0]);
+                        path.dirname = dirPath;
+                        path.basename = curFileName.split(".")[0];
+
+                    }
+                }
+            }
+            // console.log("ppp:", path);
+
+        }))
+        //不用修改
+        .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/weapp-adapter.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)|(game.js)/g, function (match, p1, offset, string) {
+            var arr = filesMap[match].url.split("/");
+            // console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
+            return arr[arr.length - 1];
+        }))
+        .pipe(replace(/(res\/atlas\/wxlogin_atlas.png)|(res\/atlas\/wxeff_btn_atlas.png)|(res\/atlas\/wxloading_atlas.png)|(res\/atlas)/g, function (match, p1, offset, string) {
+            var relative = this.file.relative.replace(/\\/g, "/");
+            if (relative == "lxxibbs/inbbbbl.js") {
+                var arr = filesMap[match].url.split("/");
+                console.log('Found ' + match + ' with param ' + p1, "替换为:", arr[arr.length - 1]);
+                return arr[arr.length - 1];
+            } else {
+                return match;
+            }
+        }))
+        //不用修改
+        .pipe(replace(/(.\/wxsdk\/wx_aksdk.js)|(.\/helper)|(.\/sax)|(.\/dom)|(client_pb.js)|(protobuf.js)|(main.min.js)/g, function (match, p1, offset, string) {
+            // console.log('Found ' + match + ' with param ' + p1,"替换为:", mt1Replace[match]);
+            return mt1Replace[match];
+        }))
+        .pipe(replace(/(wxlogin_atlas)|(wxeff_btn_atlas)|(wxloading_atlas)|(btn_loding_abcelq0.png)|(btn_loding_abcelq1.png)|(image_loading_bg.jpg)|(image_loading_bg_bottom.jpg)|(image_loading_bg_bottom2.jpg)|(image_loading_bg_left.jpg)|(image_loading_bg_left2.jpg)|(image_loading_bg_right.jpg)|(image_loading_bg_right2.jpg)|(image_loading_bg_top.jpg)|(image_loading_bg_top2.jpg)|(image_loading_bg2.jpg)/g, function (match, p1, offset, string) {
+            console.log('Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
+            if (!mt1Replace[match]) {
+                console.log(1);
+            }
+            return mt1Replace[match];
+        }))
+        .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)/g, function (match, p1, offset, string) {
+            if (!mt1Replace[match]) {
+                console.log(1);
+            }
+            console.log('Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
+            return mt1Replace[match];
+        }))
+        //报名需要修改
+        .pipe(replace(/( name: 'main')/g, "name: 'mmmmm'"))
+        .pipe(replace(/( name: 'probuf')/g, "name: 'pppf'"))
+        .pipe(through.obj(function (file, encode, cb) {
+            // console.log("file:",file,"encode:",encode);
+            if (file.relative == "game.json") {
+                var result = file.contents.toString();
+                var json = JSON.parse(result);
+                console.log("修改game.json：修改分包")
+                json.subpackages = [
+                    {
+                        "name": "lxxibbs",
+                        "root": "lxxibbs/"
+                    },
+                    {
+                        "name": "pppf",
+                        "root": "pppf/"
+                    },
+                    {
+                        "name": "mmmmm",
+                        "root": "mmmmm/"
+                    }
+                ];
+                console.log(json)
+                file.contents = Buffer.from(JSON.stringify(json), "utf-8")
+
+            }
+            this.push(file);
+            cb();
+        }))
+        .pipe(gulp.dest(targetUrl + '/'))
 });
 
 gulp.task('MT1_COPY', function () {

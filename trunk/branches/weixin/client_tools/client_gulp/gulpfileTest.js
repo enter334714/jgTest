@@ -3043,16 +3043,16 @@ var mt1Replace = {
 
 //压缩
 gulp.task('MT1_build_minify', function () {
-    var sourceUrl =  sourceProject;// "../../client/wx_build/jg_gameMT1_new";
-    var stream = gulp.src([sourceUrl + '/**/*.js', "!" + sourceUrl + '/**/mmmmmn.js'])
+    var targetUrl = "../../client/wx_build/jg_gameMT1_new";
+    var stream = gulp.src([targetUrl + '/**/*.js', "!" + targetUrl + '/**/mmmmmn.js'])
         .pipe(js_minify())
-        .pipe(gulp.dest(sourceUrl + '/'))
+        .pipe(gulp.dest(targetUrl + '/'))
     return stream;
 });
 
 gulp.task('MT1_COPY', function () {
-    var sourceUrl = "../../client/wx_build/"+ PACK //jg_gameMT1";
-    var targetUrl =  sourceProject;
+    var sourceUrl = "../../client/wx_build/jg_gameMT1";
+    var targetUrl = "../../client/wx_build/jg_gameMT1_new";
     return gulp.src(sourceUrl + "/" + '/**/*')
         .pipe(rename(function (path) {
             // console.log(path);
@@ -3162,8 +3162,8 @@ gulp.task('MT1_COPY', function () {
 });
 
 gulp.task('MT1_COPY2', function () {
-    var sourceUrl =  sourceProject;// "../../client/wx_build/jg_gameMT1_new";
-    var targetUrl = targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
+    var sourceUrl = "../../client/wx_build/jg_gameMT1_new";
+    var targetUrl = "../../client/wx_build/jg_gameMT1_obfuscator";
     var req = "sourceUrl + " / " + '/**/*";
     return gulp.src([sourceUrl + "/" + '/**/*.png', sourceUrl + "/" + '/**/*.jpg', sourceUrl + "/" + '/**/*.json'])
         .pipe(gulp.dest(targetUrl + '/'));
@@ -3171,24 +3171,24 @@ gulp.task('MT1_COPY2', function () {
 
 
 //随机产生辣鸡空文件
-gulp.task('CREATE_REFUSEFILE', function () {
-    var targetUrl = targetProject;//"../../client/wx_build/jg_gameMT1_obfuscator";
+gulp.task('MT1_CREATE_REFUSEFILE', function () {
+    var targetUrl = "../../client/wx_build/jg_gameMT1_obfuscator";
     return gulp.src(targetUrl + "/game.js")
-        .pipe(createRefuseFile())
+        .pipe(mt1_createRefuseFile())
         .pipe(gulp.dest(targetUrl + '/'));
 });
 
 //删除随机产生的辣鸡空文件
-gulp.task('DEL_REFUSEFILE', function () {
-    var targetUrl = targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
+gulp.task('MT1_DEL_REFUSEFILE', function () {
+    var targetUrl = "../../client/wx_build/jg_gameMT1_obfuscator";
     return gulp.src(targetUrl + "/game.js")
-        .pipe(deleteRefuseFile())
+        .pipe(mt1_deleteRefuseFile())
         .pipe(gulp.dest(targetUrl + '/'));
 });
 
-var deleteRefuseFile = function () {
+var mt1_deleteRefuseFile = function () {
     function onFile(file, enc, cb) {
-        var targetUrl =  targetProject;////"../../client/wx_build/jg_gameMT1_obfuscator";
+        var targetUrl = "../../client/wx_build/jg_gameMT1_obfuscator";
 
         function delTempFile(foldPath) {
             var files = fs.readdirSync(foldPath);
@@ -3217,9 +3217,9 @@ var deleteRefuseFile = function () {
     return through.obj(onFile);
 }
 //随机产生辣鸡空文件
-var createRefuseFile = function () {
+var mt1_createRefuseFile = function () {
     function onFile(file, enc, cb) {
-        var targetUrl =  targetUrl;// "../../client/wx_build/jg_gameMT1_obfuscator";
+        var targetUrl = "../../client/wx_build/jg_gameMT1_obfuscator";
 
         function delTempFile(foldPath) {
             var files = fs.readdirSync(foldPath);
