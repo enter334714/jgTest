@@ -1,4 +1,4 @@
-wx.x$ = [];
+wx.y$ = [];
 var fs = wx.getFileSystemManager();
 wx.getFileSystemManager().unzip({
     zipFilePath: "/res/files.zip",
@@ -10,7 +10,7 @@ wx.getFileSystemManager().unzip({
                 success: function (res41) {
                     if (res41.errMsg == "readFile:ok" && res41.data) {
                         try {
-                            wx.x$ = JSON.parse(res41.data);
+                            wx.y$ = JSON.parse(res41.data);
                         } catch (error) {
                             console.error(error);
                         }
