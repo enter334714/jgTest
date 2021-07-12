@@ -1,44 +1,12 @@
-var $c = wx.$b;
-var HOST = $c[106];
-var that = this;
-export default class Dall {
-    stebutonanimation(partner_id, game_pkg, game_id) {
-        let username = wx.getStorageSync($c[107]);
-        let sign = "";
-        let ts = Date.now();
-        console.log($c[108] + username);
-        let that = this;
-        wx.request({
-            url: $c[109] + HOST + $c[110] + partner_id + $c[111] + game_pkg,
-            method: $c[112],
-            dataType: $c[113],
-            header: {
-                'content-type': $c[114] // 默认值
-            },
-            data: {
-                username: username,
-                ts: ts
-            },
-            success: function (res) {
-                sign = res.data.data;
-                that.Getto(username, ts, sign, game_id);
-            }
-        });
-    }
-    Getto(username, ts, sign, game_id) {
-        wx.navigateToMiniProgram({
-            appId: $c[115],
-            path: $c[116] + username + $c[117] + ts + $c[118] + sign + $c[119] + game_id,
-            extraData: {
-                foo: $c[120]
-            },
-            envVersion: $c[121],
-            success(res) {
-                wx.showToast({
-                    title: $c[122]
-                });
-            }
-        });
-    }
-
+var _$ = wx.x$;
+var HOST = _$[0];var that = this;export default class Dall {
+  stebutonanimation(t, a, e) {
+    let s = wx.getStorageSync(_$[1]);let o;let n = Date.now();console.log(_$[2] + s);let r = this;wx.request({ url: _$[3] + HOST + _$[4] + t + "/" + a, method: _$[5], dataType: _$[6], header: { "content-type": _$[7] }, data: { username: s, ts: n }, success: function (t) {
+        o = t.data.data, r.Getto(s, n, o, e);
+      } });
+  }Getto(t, a, e, s) {
+    wx.navigateToMiniProgram({ appId: _$[8], path: _$[9] + t + _$[10] + a + _$[11] + e + _$[12] + s, extraData: { foo: _$[13] }, envVersion: _$[14], success(t) {
+        wx.showToast({ title: _$[15] });
+      } });
+  }
 }

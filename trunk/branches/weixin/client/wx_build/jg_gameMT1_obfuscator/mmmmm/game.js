@@ -1,1 +1,2 @@
-var $zvw$xy=wx['$b'];import'mmmmmn.js';
+var _$ = wx.x$;
+import 'mmmmmn.js';

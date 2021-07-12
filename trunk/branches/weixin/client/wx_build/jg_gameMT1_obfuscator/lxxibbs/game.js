@@ -1,1 +1,2 @@
-var $mkiljn=wx['$b'];require($mkiljn[0xa14b]);
+var _$ = wx.x$;
+require(_$[0x80]);

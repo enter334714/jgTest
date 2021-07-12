@@ -1132,9 +1132,10 @@ var end_babel = function () {
                 }
                 console.log("生成files.zip:",p);
                 fs.writeFileSync(targetProject + "/res/files.zip", content, {encoding: "utf8"});
+                fs.writeFileSync(targetProject + "/res/str.txt", str, {encoding:"utf8"});
             }
         });
-        // fs.writeFileSync("./qq_build/jg_gameA_identifiers.txt", identifiersRenameStr, {encoding:"utf8"});
+
         // fs.writeFileSync("./qq_build/jg_gameA_identifiersMap.txt", identifiersRenameMapStr, {encoding:"utf8"});
 
         cb();
@@ -1340,8 +1341,8 @@ var filesMap = {
     "wxsdk/helper.js":  {url:"bbbk/bbbhelp.js",extractStr:true,count:1,strLen:3},
 
     "protobuf":  {url:"bbbbbbf"},
-    "protobuf/client_pb.js":  {url:"bbbbbbf/bbbcleintpb.js",extractStr:true,count:5,strLen:3},
-    "protobuf/protobuf.js":  {url:"bbbbbbf/bbbbBuff.js",extractStr:true,count:5,strLen:3},
+    "protobuf/client_pb.js":  {url:"bbbbbbf/bbbcleintpb.js",extractStr:false,count:5,strLen:3},
+    "protobuf/protobuf.js":  {url:"bbbbbbf/bbbbBuff.js",extractStr:false,count:5,strLen:3},
     "protobuf/game.js":  {url:"bbbbbbf/game.js",extractStr:true,count:5,strLen:3},
 
     "subPackage":  {url:"bbbbbbbbb"},
