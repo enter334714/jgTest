@@ -4631,6 +4631,7 @@ module ui {
 		public btnGd:Laya.Button;
 		public btnTransform:modules.n_transforming.TransformingBtnView;
 		public btnms:modules.n_thirdEquip.moshen.MSBtnView;
+		public btnmsbs:modules.n_thirdEquip.moshen.MSBSBtnView;
 		public btnJhhb:Laya.Button;
 		public boxTeam:Laya.Box;
 		public txtTeamNumCount:laya.display.Text;
@@ -4678,6 +4679,7 @@ module ui {
         createChildren():void {
         			View.regComponent("modules.n_transforming.TransformingBtnView",modules.n_transforming.TransformingBtnView);
 			View.regComponent("modules.n_thirdEquip.moshen.MSBtnView",modules.n_thirdEquip.moshen.MSBtnView);
+			View.regComponent("modules.n_thirdEquip.moshen.MSBSBtnView",modules.n_thirdEquip.moshen.MSBSBtnView);
 			View.regComponent("Text",laya.display.Text);
 			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
 
@@ -26307,6 +26309,23 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_MountsPracticeView");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_MSBSViewUI extends BaseView {
+		public bsbox:Laya.Box;
+		public msbox:Laya.Box;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_MSBSView");
 
         }
 
