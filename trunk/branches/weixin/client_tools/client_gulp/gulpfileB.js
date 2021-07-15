@@ -33,8 +33,8 @@ var PACK = 'jg_gameA'; //项目名
 var INIT_PATH = ''; //init.min.js的目录
 var SCOPE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_';
 var PREFIX = '';
-var sourceProject = "../../client/wx_build/jg_gameMT1_new";
-var targetProject = "../../client/wx_build/jg_gameMT1_obfuscator";
+var sourceProject = "../../client/wx_build/jg_gameB_new";
+var targetProject = "../../client/wx_build/jg_gameB_obfuscator";
 
 
 /**scope.js文件处理*/
@@ -702,9 +702,13 @@ var js_checkStrCount =  function () {
                         return;//
                     }
 
-                    if(tempstr.indexOf(".png")!=-1 || tempstr.indexOf(".jpg")!=-1){//不需要提取
-                        return;//
+                    if(tempstr.indexOf("$")!=-1){
+                        return;
                     }
+
+                    // if(tempstr.indexOf(".png")!=-1 || tempstr.indexOf(".jpg")!=-1){//不需要提取
+                    //     return;//
+                    // }
 
                     if(globleKeys.indexOf(tempstr)!= -1){//不需要提取
                         return;
@@ -825,9 +829,13 @@ var js_babel = function () {
                         return;//
                     }
 
-                    if(tempstr.indexOf(".png")!=-1 || tempstr.indexOf(".jpg")!=-1){//不需要提取
-                        return;//
+                    if(tempstr.indexOf("$")!=-1){
+                        return;
                     }
+
+                    // if(tempstr.indexOf(".png")!=-1 || tempstr.indexOf(".jpg")!=-1){//不需要提取
+                    //     return;//
+                    // }
 
                     if(globleKeys.indexOf(tempstr)!= -1){//不需要提取
                         return;
@@ -836,6 +844,7 @@ var js_babel = function () {
                     if(tempstr.indexOf(PREFIX)!= -1){ //不需要提取
                         return;
                     }
+
 
                     var extractStr = config.extractStr || false;
                     if(!extractStr){
@@ -1025,10 +1034,14 @@ var js_babel_str = function () {
                     if(tempstr.indexOf(globleKeys[3])!=-1){//不需要提取
                         return;//
                     }
-
-                    if(tempstr.indexOf(".png")!=-1 || tempstr.indexOf(".jpg")!=-1){//不需要提取
-                        return;//
+                    
+                    if(tempstr.indexOf("$")!=-1){
+                        return;
                     }
+                    
+                    // if(tempstr.indexOf(".png")!=-1 || tempstr.indexOf(".jpg")!=-1){//不需要提取
+                    //     return;//
+                    // }
 
                     if(globleKeys.indexOf(tempstr)!= -1){
                         return;
@@ -1147,7 +1160,7 @@ var end_babel = function () {
                 }
                 console.log("生成files.zip:",p);
                 fs.writeFileSync(targetProject + "/res/files.zip", content, {encoding: "utf8"});
-                fs.writeFileSync(targetProject + "/res/str.txt", str, {encoding:"utf8"});
+                // fs.writeFileSync(targetProject + "/res/str.txt", str, {encoding:"utf8"});
             }
         });
 
@@ -1356,8 +1369,8 @@ var filesMap = {
     "wxsdk/helper.js":  {url:"bbbk/bbbhelp.js",extractStr:true,count:1,strLen:3},
 
     "protobuf":  {url:"bbbbbbf"},
-    "protobuf/client_pb.js":  {url:"bbbbbbf/bbbcleintpb.js",extractStr:false,count:5,strLen:3},
-    "protobuf/protobuf.js":  {url:"bbbbbbf/bbbbBuff.js",extractStr:false,count:5,strLen:3},
+    "protobuf/client_pb.js":  {url:"bbbbbbf/bbbcleintpb.js",extractStr:true,count:5,strLen:3},
+    "protobuf/protobuf.js":  {url:"bbbbbbf/bbbbBuff.js",extractStr:true,count:5,strLen:3},
     "protobuf/game.js":  {url:"bbbbbbf/game.js",extractStr:true,count:5,strLen:3},
 
     "subPackage":  {url:"bbbbbbbbb"},
@@ -1615,7 +1628,7 @@ var deleteRefuseFile = function () {
 //随机产生辣鸡空文件
 var createRefuseFile = function () {
     function onFile(file, enc, cb) {
-        var targetUrl =  targetUrl;// "../../client/wx_build/jg_gameMT1_obfuscator";
+        var targetUrl =  targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
 
         function delTempFile(foldPath) {
             var files = fs.readdirSync(foldPath);
@@ -1627,7 +1640,7 @@ var createRefuseFile = function () {
                     delTempFile(director);
                 }
                 if (stat.isFile()) {
-                    if (fileName.indexOf("temp") != -1) {
+                    if (fileName.indexOf("btemp") != -1) {
                         console.log("删除随机文件:", director)
                         fs.unlinkSync(director);
                     }
@@ -1692,7 +1705,7 @@ var createRefuseFile = function () {
                 for (var m = 0; m < insertNum; m++) {
                     var f = fielNames.pop();
                     var s = createSuffixs.pop();
-                    var tempName = "temp" + f + "." + s;
+                    var tempName = "btemp" + f + "." + s;
                     var url = director + "/" + tempName
                     fs.writeFileSync(url, Math.random() * 999999 >> 0);
                     console.log("随机生成文件:", url);
@@ -1703,7 +1716,7 @@ var createRefuseFile = function () {
         for (var i = fielNames.length - 1; i >= 0; i--) {
             var f = fielNames.pop();
             var s = createSuffixs.pop();
-            var tempName = "temp" + f + "." + s;
+            var tempName = "btemp" + f + "." + s;
             var url = targetUrl + "/" + tempName
             fs.writeFileSync(url, Math.random() * 999999 >> 0);
             console.log("随机生成文件:", url);

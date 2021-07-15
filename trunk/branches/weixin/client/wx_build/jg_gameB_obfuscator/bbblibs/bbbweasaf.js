@@ -1,503 +1,503 @@
 var _ = wx.y$;
-!function (yzwvux) {
-  var orpqt = {};function __webpack_require__(faebcd) {
-    if (orpqt[faebcd]) return orpqt[faebcd]['exports'];var gfdch = orpqt[faebcd] = { 'exports': {}, 'id': faebcd, 'loaded': !0x1 };return yzwvux[faebcd]['call'](gfdch['exports'], gfdch, gfdch['exports'], __webpack_require__), gfdch['loaded'] = !0x0, gfdch['exports'];
-  }__webpack_require__['m'] = yzwvux, __webpack_require__['c'] = orpqt, __webpack_require__['p'] = '', __webpack_require__(0x0);
-}([function (ljnmk, sortpq, uwts) {
+!function (ywutxv) {
+  var yz$wvx = {};function __webpack_require__(ghjfi) {
+    if (yz$wvx[ghjfi]) return yz$wvx[ghjfi]['exports'];var ilhjg = yz$wvx[ghjfi] = { 'exports': {}, 'id': ghjfi, 'loaded': !0x1 };return ywutxv[ghjfi]['call'](ilhjg['exports'], ilhjg, ilhjg['exports'], __webpack_require__), ilhjg['loaded'] = !0x0, ilhjg['exports'];
+  }__webpack_require__['m'] = ywutxv, __webpack_require__['c'] = yz$wvx, __webpack_require__['p'] = '', __webpack_require__(0x0);
+}([function (opmnrq, x$y, rsvu) {
   'use strict';
 
-  var usvrq = function (jegf) {
+  var wzvxy = function (fjg) {
     {
-      if (jegf && jegf['__esModule']) return jegf;var lgihjk = {};if (null != jegf) {
-        for (var xwuvyt in jegf) Object['prototype']['hasOwnProperty']['call'](jegf, xwuvyt) && (lgihjk[xwuvyt] = jegf[xwuvyt]);
-      }return lgihjk['default'] = jegf, lgihjk;
+      if (fjg && fjg['__esModule']) return fjg;var yz$1_0 = {};if (null != fjg) {
+        for (var omkjln in fjg) Object['prototype']['hasOwnProperty']['call'](fjg, omkjln) && (yz$1_0[omkjln] = fjg[omkjln]);
+      }return yz$1_0['default'] = fjg, yz$1_0;
     }
-  }(uwts(0x1)),
-      jolk = uwts(0x4),
-      xvty = (yxw$_ = jolk) && yxw$_['__esModule'] ? yxw$_ : { 'default': yxw$_ },
-      yxw$_,
-      bdceg = GameGlobal;GameGlobal['__isAdapterInjected'] || (GameGlobal['__isAdapterInjected'] = !0x0, function () {
-    usvrq['addEventListener'] = function (ljik, $2_0z) {
-      usvrq['document']['addEventListener'](ljik, $2_0z);
-    }, usvrq['removeEventListener'] = function (wz$xvy, xutvws) {
-      usvrq['document']['removeEventListener'](wz$xvy, xutvws);
-    }, usvrq['canvas'] && (usvrq['canvas']['addEventListener'] = usvrq['addEventListener'], usvrq['canvas']['removeEventListener'] = usvrq['removeEventListener']), bdceg['sharedCanvas'] && (sharedCanvas['__proto__']['__proto__'] = new xvty['default']('canvas'), sharedCanvas['addEventListener'] = usvrq['addEventListener'], sharedCanvas['removeEventListener'] = usvrq['removeEventListener']);var gfdhie = wx['getSystemInfoSync']()['platform'];if ('undefined' == typeof __devtoolssubcontext && 'devtools' === gfdhie) {
-      for (var soqpn in usvrq) {
-        var gikljh = Object['getOwnPropertyDescriptor'](bdceg, soqpn);gikljh && !0x0 !== gikljh['configurable'] || Object['defineProperty'](window, soqpn, { 'value': usvrq[soqpn] });
-      }for (var dhf in usvrq['document']) {
-        var stpruq = Object['getOwnPropertyDescriptor'](bdceg['document'], dhf);stpruq && !0x0 !== stpruq['configurable'] || Object['defineProperty'](bdceg['document'], dhf, { 'value': usvrq['document'][dhf] });
+  }(rsvu(0x1)),
+      xsuvtw = rsvu(0x4),
+      fhk = (fjkgi = xsuvtw) && fjkgi['__esModule'] ? fjkgi : { 'default': fjkgi },
+      fjkgi,
+      mnijl = GameGlobal;GameGlobal['__isAdapterInjected'] || (GameGlobal['__isAdapterInjected'] = !0x0, function () {
+    wzvxy['addEventListener'] = function (bfgdec, urpstq) {
+      wzvxy['document']['addEventListener'](bfgdec, urpstq);
+    }, wzvxy['removeEventListener'] = function (_0y$z1, _z1$2) {
+      wzvxy['document']['removeEventListener'](_0y$z1, _z1$2);
+    }, wzvxy['canvas'] && (wzvxy['canvas']['addEventListener'] = wzvxy['addEventListener'], wzvxy['canvas']['removeEventListener'] = wzvxy['removeEventListener']), mnijl['sharedCanvas'] && (sharedCanvas['__proto__']['__proto__'] = new fhk['default']('canvas'), sharedCanvas['addEventListener'] = wzvxy['addEventListener'], sharedCanvas['removeEventListener'] = wzvxy['removeEventListener']);var gkl = wx['getSystemInfoSync']()['platform'];if ('undefined' == typeof __devtoolssubcontext && 'devtools' === gkl) {
+      for (var gdhief in wzvxy) {
+        var uxvzwy = Object['getOwnPropertyDescriptor'](mnijl, gdhief);uxvzwy && !0x0 !== uxvzwy['configurable'] || Object['defineProperty'](window, gdhief, { 'value': wzvxy[gdhief] });
+      }for (var lpomkn in wzvxy['document']) {
+        var zwy$v = Object['getOwnPropertyDescriptor'](mnijl['document'], lpomkn);zwy$v && !0x0 !== zwy$v['configurable'] || Object['defineProperty'](mnijl['document'], lpomkn, { 'value': wzvxy['document'][lpomkn] });
       }window['parent'] = window;
     } else {
-      for (var vuqst in usvrq) bdceg[vuqst] = usvrq[vuqst];bdceg['window'] = usvrq, window = bdceg, window['top'] = window['parent'] = window;
+      for (var vxzy in wzvxy) mnijl[vxzy] = wzvxy[vxzy];mnijl['window'] = wzvxy, window = mnijl, window['top'] = window['parent'] = window;
     }
   }());
-}, function (fehcd, mlnoqp, fchgd) {
+}, function (hdef, qtsp, qpruts) {
   'use strict';
 
-  Object['defineProperty'](mlnoqp, '__esModule', { 'value': !0x0 }), mlnoqp['cancelAnimationFrame'] = mlnoqp['requestAnimationFrame'] = mlnoqp['clearInterval'] = mlnoqp['clearTimeout'] = mlnoqp['setInterval'] = mlnoqp['setTimeout'] = mlnoqp['canvas'] = mlnoqp['location'] = mlnoqp['localStorage'] = mlnoqp['HTMLElement'] = mlnoqp['FileReader'] = mlnoqp['Audio'] = mlnoqp['Image'] = mlnoqp['WebSocket'] = mlnoqp['XMLHttpRequest'] = mlnoqp['navigator'] = mlnoqp['document'] = void 0x0;var nmik = fchgd(0x2);Object['keys'](nmik)['forEach'](function (xvwstu) {
-    'default' !== xvwstu && '__esModule' !== xvwstu && Object['defineProperty'](mlnoqp, xvwstu, { 'enumerable': !0x0, 'get': function () {
-        return nmik[xvwstu];
+  Object['defineProperty'](qtsp, '__esModule', { 'value': !0x0 }), qtsp['cancelAnimationFrame'] = qtsp['requestAnimationFrame'] = qtsp['clearInterval'] = qtsp['clearTimeout'] = qtsp['setInterval'] = qtsp['setTimeout'] = qtsp['canvas'] = qtsp['location'] = qtsp['localStorage'] = qtsp['HTMLElement'] = qtsp['FileReader'] = qtsp['Audio'] = qtsp['Image'] = qtsp['WebSocket'] = qtsp['XMLHttpRequest'] = qtsp['navigator'] = qtsp['document'] = void 0x0;var lnpmq = qpruts(0x2);Object['keys'](lnpmq)['forEach'](function (efbac) {
+    'default' !== efbac && '__esModule' !== efbac && Object['defineProperty'](qtsp, efbac, { 'enumerable': !0x0, 'get': function () {
+        return lnpmq[efbac];
       } });
-  });var uwy = fchgd(0x3);Object['keys'](uwy)['forEach'](function (yz_0) {
-    'default' !== yz_0 && '__esModule' !== yz_0 && Object['defineProperty'](mlnoqp, yz_0, { 'enumerable': !0x0, 'get': function () {
-        return uwy[yz_0];
+  });var pmnrqo = qpruts(0x3);Object['keys'](pmnrqo)['forEach'](function ($zx_0y) {
+    'default' !== $zx_0y && '__esModule' !== $zx_0y && Object['defineProperty'](qtsp, $zx_0y, { 'enumerable': !0x0, 'get': function () {
+        return pmnrqo[$zx_0y];
       } });
-  });var mnroqp = mlnjo(fchgd(0x9)),
-      suptrq = fchgd(0x11),
-      hjfegi = mlnjo(fchgd(0xa)),
-      ihmjl = mlnjo(fchgd(0x12)),
-      cfdhe = mlnjo(fchgd(0x13)),
-      wvuxz = mlnjo(fchgd(0x14)),
-      eghfc = mlnjo(fchgd(0xb)),
-      ijhlg = mlnjo(fchgd(0xc)),
-      roqnsp = mlnjo(fchgd(0x15)),
-      mkiljh = mlnjo(fchgd(0x4)),
-      ihdfg = mlnjo(fchgd(0x16));fchgd = mlnjo(fchgd(0x17));function mlnjo(nkmji) {
-    return nkmji && nkmji['__esModule'] ? nkmji : { 'default': nkmji };
-  }mlnoqp['document'] = hjfegi['default'], mlnoqp['navigator'] = ihmjl['default'], mlnoqp['XMLHttpRequest'] = cfdhe['default'], mlnoqp['WebSocket'] = wvuxz['default'], mlnoqp['Image'] = eghfc['default'], mlnoqp['Audio'] = ijhlg['default'], mlnoqp['FileReader'] = roqnsp['default'], mlnoqp['HTMLElement'] = mkiljh['default'], mlnoqp['localStorage'] = ihdfg['default'], mlnoqp['location'] = fchgd['default'], mnroqp = (0x0, suptrq['isSubContext'])() ? void 0x0 : new mnroqp['default'](), (mlnoqp['canvas'] = mnroqp, mlnoqp['setTimeout'] = setTimeout, mlnoqp['setInterval'] = setInterval, mlnoqp['clearTimeout'] = clearTimeout, mlnoqp['clearInterval'] = clearInterval, mlnoqp['requestAnimationFrame'] = requestAnimationFrame, mlnoqp['cancelAnimationFrame'] = cancelAnimationFrame);
-}, function (_z021$, $z_wy) {
+  });var dfecg = vwuxyt(qpruts(0x9)),
+      pqrust = qpruts(0x11),
+      wvyxzu = vwuxyt(qpruts(0xa)),
+      rswvu = vwuxyt(qpruts(0x12)),
+      npromq = vwuxyt(qpruts(0x13)),
+      gljhk = vwuxyt(qpruts(0x14)),
+      imjkhl = vwuxyt(qpruts(0xb)),
+      $wzvxy = vwuxyt(qpruts(0xc)),
+      $zxwyv = vwuxyt(qpruts(0x15)),
+      zy0$1 = vwuxyt(qpruts(0x4)),
+      potr = vwuxyt(qpruts(0x16));qpruts = vwuxyt(qpruts(0x17));function vwuxyt($yx0_z) {
+    return $yx0_z && $yx0_z['__esModule'] ? $yx0_z : { 'default': $yx0_z };
+  }qtsp['document'] = wvyxzu['default'], qtsp['navigator'] = rswvu['default'], qtsp['XMLHttpRequest'] = npromq['default'], qtsp['WebSocket'] = gljhk['default'], qtsp['Image'] = imjkhl['default'], qtsp['Audio'] = $wzvxy['default'], qtsp['FileReader'] = $zxwyv['default'], qtsp['HTMLElement'] = zy0$1['default'], qtsp['localStorage'] = potr['default'], qtsp['location'] = qpruts['default'], dfecg = (0x0, pqrust['isSubContext'])() ? void 0x0 : new dfecg['default'](), (qtsp['canvas'] = dfecg, qtsp['setTimeout'] = setTimeout, qtsp['setInterval'] = setInterval, qtsp['clearTimeout'] = clearTimeout, qtsp['clearInterval'] = clearInterval, qtsp['requestAnimationFrame'] = requestAnimationFrame, qtsp['cancelAnimationFrame'] = cancelAnimationFrame);
+}, function (dcfeh, _zx$w) {
   'use strict';
 
-  Object['defineProperty']($z_wy, '__esModule', { 'value': !0x0 });var ifhdeg = wx['getSystemInfoSync'](),
-      rmponq = ifhdeg['screenWidth'],
-      ytvxu = ifhdeg['screenHeight'],
-      ifhdeg = ifhdeg['devicePixelRatio'];rmponq = $z_wy['innerWidth'] = rmponq, ytvxu = $z_wy['innerHeight'] = ytvxu, $z_wy['devicePixelRatio'] = ifhdeg, $z_wy['screen'] = { 'availWidth': rmponq, 'availHeight': ytvxu }, $z_wy['performance'] = { 'now': function () {
+  Object['defineProperty'](_zx$w, '__esModule', { 'value': !0x0 });var degfhi = wx['getSystemInfoSync'](),
+      zy_10 = degfhi['screenWidth'],
+      jikln = degfhi['screenHeight'],
+      degfhi = degfhi['devicePixelRatio'];zy_10 = _zx$w['innerWidth'] = zy_10, jikln = _zx$w['innerHeight'] = jikln, _zx$w['devicePixelRatio'] = degfhi, _zx$w['screen'] = { 'availWidth': zy_10, 'availHeight': jikln }, _zx$w['performance'] = { 'now': function () {
       return Date['now']() / 0x3e8;
-    } }, $z_wy['ontouchstart'] = null, $z_wy['ontouchmove'] = null, $z_wy['ontouchend'] = null;
-}, function (_z0y$, otsp, pqrnom) {
+    } }, _zx$w['ontouchstart'] = null, _zx$w['ontouchmove'] = null, _zx$w['ontouchend'] = null;
+}, function (stuxw, _$xzwy, _3014) {
   'use strict';
 
-  Object['defineProperty'](otsp, '__esModule', { 'value': !0x0 }), otsp['HTMLCanvasElement'] = otsp['HTMLImageElement'] = void 0x0;var _$zy = pqrnom(0x4);pqrnom = (jhik = _$zy) && jhik['__esModule'] ? jhik : { 'default': jhik };var jhik;function uxstvw(rqpto, jgilhk) {
-    if (!(rqpto instanceof jgilhk)) throw new TypeError('Cannot call a class as a function');
-  }function nmojkl(ijlmn, ghfeji) {
-    if (!ijlmn) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !ghfeji || 'object' != typeof ghfeji && 'function' != typeof ghfeji ? ijlmn : ghfeji;
-  }function y$z01(wuzvxy, yvxutw) {
-    if ('function' != typeof yvxutw && null !== yvxutw) throw new TypeError('Super expression must either be null or a function, not ' + typeof yvxutw);wuzvxy['prototype'] = Object['create'](yvxutw && yvxutw['prototype'], { 'constructor': { 'value': wuzvxy, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), yvxutw && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](wuzvxy, yvxutw) : wuzvxy['__proto__'] = yvxutw);
-  }otsp['HTMLImageElement'] = (y$z01(kljihg, pqrnom['default']), kljihg);function kljihg() {
-    return uxstvw(this, kljihg), nmojkl(this, (kljihg['__proto__'] || Object['getPrototypeOf'](kljihg))['call'](this, 'img'));
-  }otsp['HTMLCanvasElement'] = (y$z01(xwvty, pqrnom['default']), xwvty);function xwvty() {
-    return uxstvw(this, xwvty), nmojkl(this, (xwvty['__proto__'] || Object['getPrototypeOf'](xwvty))['call'](this, 'canvas'));
+  Object['defineProperty'](_$xzwy, '__esModule', { 'value': !0x0 }), _$xzwy['HTMLCanvasElement'] = _$xzwy['HTMLImageElement'] = void 0x0;var ywuv = _3014(0x4);_3014 = (mnkljo = ywuv) && mnkljo['__esModule'] ? mnkljo : { 'default': mnkljo };var mnkljo;function fgcdeh(knmlop, ejhgif) {
+    if (!(knmlop instanceof ejhgif)) throw new TypeError('Cannot call a class as a function');
+  }function njlkm(_12034, z0$1) {
+    if (!_12034) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !z0$1 || 'object' != typeof z0$1 && 'function' != typeof z0$1 ? _12034 : z0$1;
+  }function lhimk(ljkmhi, uvxywt) {
+    if ('function' != typeof uvxywt && null !== uvxywt) throw new TypeError('Super expression must either be null or a function, not ' + typeof uvxywt);ljkmhi['prototype'] = Object['create'](uvxywt && uvxywt['prototype'], { 'constructor': { 'value': ljkmhi, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), uvxywt && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](ljkmhi, uvxywt) : ljkmhi['__proto__'] = uvxywt);
+  }_$xzwy['HTMLImageElement'] = (lhimk(fiheg, _3014['default']), fiheg);function fiheg() {
+    return fgcdeh(this, fiheg), njlkm(this, (fiheg['__proto__'] || Object['getPrototypeOf'](fiheg))['call'](this, 'img'));
+  }_$xzwy['HTMLCanvasElement'] = (lhimk(gkljh, _3014['default']), gkljh);function gkljh() {
+    return fgcdeh(this, gkljh), njlkm(this, (gkljh['__proto__'] || Object['getPrototypeOf'](gkljh))['call'](this, 'canvas'));
   }
-}, function (mq, sqruv, dhcf) {
+}, function (jefhg, sutxvw, uwsvtx) {
   'use strict';
 
-  Object['defineProperty'](sqruv, '__esModule', { 'value': !0x0 });var mljo = function (twuv, xuyvwz, $102z) {
-    return xuyvwz && eifhjg(twuv['prototype'], xuyvwz), $102z && eifhjg(twuv, $102z), twuv;
-  };function eifhjg(y_z01, eidfgh) {
-    for (var dcbegf = 0x0; dcbegf < eidfgh['length']; dcbegf++) {
-      var orqmn = eidfgh[dcbegf];orqmn['enumerable'] = orqmn['enumerable'] || !0x1, orqmn['configurable'] = !0x0, 'value' in orqmn && (orqmn['writable'] = !0x0), Object['defineProperty'](y_z01, orqmn['key'], orqmn);
+  Object['defineProperty'](sutxvw, '__esModule', { 'value': !0x0 });var _z12$ = function (gjhie, jfkg, hkfgj) {
+    return jfkg && dgbcfe(gjhie['prototype'], jfkg), hkfgj && dgbcfe(gjhie, hkfgj), gjhie;
+  };function dgbcfe(qtrv, fbeadc) {
+    for (var ustvx = 0x0; ustvx < fbeadc['length']; ustvx++) {
+      var xwvyuz = fbeadc[ustvx];xwvyuz['enumerable'] = xwvyuz['enumerable'] || !0x1, xwvyuz['configurable'] = !0x0, 'value' in xwvyuz && (xwvyuz['writable'] = !0x0), Object['defineProperty'](qtrv, xwvyuz['key'], xwvyuz);
     }
-  }var yw$zv = dhcf(0x5),
-      sutvrq = (utrqs = yw$zv) && utrqs['__esModule'] ? utrqs : { 'default': utrqs },
-      utrqs,
-      w_$zx = dhcf(0x8),
-      echdf = dhcf(0x2);(function (jnmokl, jhkmil) {
-    if ('function' != typeof jhkmil && null !== jhkmil) throw new TypeError('Super expression must either be null or a function, not ' + typeof jhkmil);jnmokl['prototype'] = Object['create'](jhkmil && jhkmil['prototype'], { 'constructor': { 'value': jnmokl, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), jhkmil && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](jnmokl, jhkmil) : jnmokl['__proto__'] = jhkmil);
-  })(mkjnol, sutvrq['default']), mljo(mkjnol, [{ 'key': 'setAttribute', 'value': function (lgji, xw$vyz) {
-      this[lgji] = xw$vyz;
-    } }, { 'key': 'getAttribute', 'value': function (xz0_y) {
-      return this[xz0_y];
+  }var xwzvuy = uwsvtx(0x5),
+      mqpro = (yzvuxw = xwzvuy) && yzvuxw['__esModule'] ? yzvuxw : { 'default': yzvuxw },
+      yzvuxw,
+      vuyz = uwsvtx(0x8),
+      $y0z_ = uwsvtx(0x2);(function (hdegc, fedhi) {
+    if ('function' != typeof fedhi && null !== fedhi) throw new TypeError('Super expression must either be null or a function, not ' + typeof fedhi);hdegc['prototype'] = Object['create'](fedhi && fedhi['prototype'], { 'constructor': { 'value': hdegc, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), fedhi && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](hdegc, fedhi) : hdegc['__proto__'] = fedhi);
+  })(knmo, mqpro['default']), _z12$(knmo, [{ 'key': 'setAttribute', 'value': function (zy_0, z$201) {
+      this[zy_0] = z$201;
+    } }, { 'key': 'getAttribute', 'value': function (kilhjm) {
+      return this[kilhjm];
     } }, { 'key': 'getBoundingClientRect', 'value': function () {
-      return { 'top': 0x0, 'left': 0x0, 'width': echdf['innerWidth'], 'height': echdf['innerHeight'] };
+      return { 'top': 0x0, 'left': 0x0, 'width': $y0z_['innerWidth'], 'height': $y0z_['innerHeight'] };
     } }, { 'key': 'focus', 'value': function () {} }, { 'key': 'clientWidth', 'get': function () {
-      var rswtu = parseInt(this['style']['fontSize'], 0xa) * this['innerHTML']['length'];return Number['isNaN'](rswtu) ? 0x0 : rswtu;
+      var rwsvt = parseInt(this['style']['fontSize'], 0xa) * this['innerHTML']['length'];return Number['isNaN'](rwsvt) ? 0x0 : rwsvt;
     } }, { 'key': 'clientHeight', 'get': function () {
-      var hgeij = parseInt(this['style']['fontSize'], 0xa);return Number['isNaN'](hgeij) ? 0x0 : hgeij;
-    } }]), mljo = mkjnol;function mkjnol() {
-    var xusv = 0x0 < arguments['length'] && void 0x0 !== arguments[0x0] ? arguments[0x0] : '';!function (ife, iejfh) {
-      if (!(ife instanceof iejfh)) throw new TypeError('Cannot call a class as a function');
-    }(this, mkjnol);var onlj = function (qrosn, dcae) {
-      if (!qrosn) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !dcae || 'object' != typeof dcae && 'function' != typeof dcae ? qrosn : dcae;
-    }(this, (mkjnol['__proto__'] || Object['getPrototypeOf'](mkjnol))['call'](this));return onlj['className'] = '', onlj['childern'] = [], onlj['style'] = { 'width': echdf['innerWidth'] + 'px', 'height': echdf['innerHeight'] + 'px' }, onlj['insertBefore'] = w_$zx['noop'], onlj['innerHTML'] = '', onlj['tagName'] = xusv['toUpperCase'](), onlj;
-  }sqruv['default'] = mljo;
-}, function (wutrsv, fdegc, txsvw) {
+      var zywvxu = parseInt(this['style']['fontSize'], 0xa);return Number['isNaN'](zywvxu) ? 0x0 : zywvxu;
+    } }]), _z12$ = knmo;function knmo() {
+    var kjomn = 0x0 < arguments['length'] && void 0x0 !== arguments[0x0] ? arguments[0x0] : '';!function (hcgfde, gil) {
+      if (!(hcgfde instanceof gil)) throw new TypeError('Cannot call a class as a function');
+    }(this, knmo);var qonmpl = function (mnik, qrtusv) {
+      if (!mnik) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !qrtusv || 'object' != typeof qrtusv && 'function' != typeof qrtusv ? mnik : qrtusv;
+    }(this, (knmo['__proto__'] || Object['getPrototypeOf'](knmo))['call'](this));return qonmpl['className'] = '', qonmpl['childern'] = [], qonmpl['style'] = { 'width': $y0z_['innerWidth'] + 'px', 'height': $y0z_['innerHeight'] + 'px' }, qonmpl['insertBefore'] = vuyz['noop'], qonmpl['innerHTML'] = '', qonmpl['tagName'] = kjomn['toUpperCase'](), qonmpl;
+  }sutxvw['default'] = _z12$;
+}, function (qptors, nlpqom, hkifg) {
   'use strict';
 
-  Object['defineProperty'](fdegc, '__esModule', { 'value': !0x0 });var qutsrp = txsvw(0x6),
-      pnlkom;(function (w_zx$, $vzwyx) {
-    if ('function' != typeof $vzwyx && null !== $vzwyx) throw new TypeError('Super expression must either be null or a function, not ' + typeof $vzwyx);w_zx$['prototype'] = Object['create']($vzwyx && $vzwyx['prototype'], { 'constructor': { 'value': w_zx$, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), $vzwyx && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](w_zx$, $vzwyx) : w_zx$['__proto__'] = $vzwyx);
-  })(zyvw$, ((pnlkom = qutsrp) && pnlkom['__esModule'] ? pnlkom : { 'default': pnlkom })['default']), txsvw = zyvw$;function zyvw$() {
-    !function (jeig, lmjhik) {
-      if (!(jeig instanceof lmjhik)) throw new TypeError('Cannot call a class as a function');
-    }(this, zyvw$);var rstqp = function (vuwsxt, pqsor) {
-      if (!vuwsxt) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !pqsor || 'object' != typeof pqsor && 'function' != typeof pqsor ? vuwsxt : pqsor;
-    }(this, (zyvw$['__proto__'] || Object['getPrototypeOf'](zyvw$))['call'](this));return rstqp['className'] = '', rstqp['children'] = [], rstqp;
-  }fdegc['default'] = txsvw;
-}, function (gjiefh, yxz0, gefch) {
+  Object['defineProperty'](nlpqom, '__esModule', { 'value': !0x0 });var spnqr = hkifg(0x6),
+      wrvt;(function (khjigl, _4321) {
+    if ('function' != typeof _4321 && null !== _4321) throw new TypeError('Super expression must either be null or a function, not ' + typeof _4321);khjigl['prototype'] = Object['create'](_4321 && _4321['prototype'], { 'constructor': { 'value': khjigl, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), _4321 && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](khjigl, _4321) : khjigl['__proto__'] = _4321);
+  })($21z0_, ((wrvt = spnqr) && wrvt['__esModule'] ? wrvt : { 'default': wrvt })['default']), hkifg = $21z0_;function $21z0_() {
+    !function (nlkoj, _wz) {
+      if (!(nlkoj instanceof _wz)) throw new TypeError('Cannot call a class as a function');
+    }(this, $21z0_);var efcgdh = function (fedihg, qnpos) {
+      if (!fedihg) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !qnpos || 'object' != typeof qnpos && 'function' != typeof qnpos ? fedihg : qnpos;
+    }(this, ($21z0_['__proto__'] || Object['getPrototypeOf']($21z0_))['call'](this));return efcgdh['className'] = '', efcgdh['children'] = [], efcgdh;
+  }nlpqom['default'] = hkifg;
+}, function (hlj, utqrsp, _z$y1) {
   'use strict';
 
-  Object['defineProperty'](yxz0, '__esModule', { 'value': !0x0 });var yz$vx = function (debgf, fegjih, uywvt) {
-    return fegjih && gkfh(debgf['prototype'], fegjih), uywvt && gkfh(debgf, uywvt), debgf;
-  };function gkfh(qpnlom, yz$wvx) {
-    for (var tusqvr = 0x0; tusqvr < yz$wvx['length']; tusqvr++) {
-      var pnomkl = yz$wvx[tusqvr];pnomkl['enumerable'] = pnomkl['enumerable'] || !0x1, pnomkl['configurable'] = !0x0, 'value' in pnomkl && (pnomkl['writable'] = !0x0), Object['defineProperty'](qpnlom, pnomkl['key'], pnomkl);
+  Object['defineProperty'](utqrsp, '__esModule', { 'value': !0x0 });var dfaceb = function (ghei, rnqpo, poqmln) {
+    return rnqpo && wyvuzx(ghei['prototype'], rnqpo), poqmln && wyvuzx(ghei, poqmln), ghei;
+  };function wyvuzx(uqtvsr, jnkml) {
+    for (var opmknl = 0x0; opmknl < jnkml['length']; opmknl++) {
+      var ustpq = jnkml[opmknl];ustpq['enumerable'] = ustpq['enumerable'] || !0x1, ustpq['configurable'] = !0x0, 'value' in ustpq && (ustpq['writable'] = !0x0), Object['defineProperty'](uqtvsr, ustpq['key'], ustpq);
     }
-  }var x_$0y = gefch(0x7),
-      nsopq;(function (nqom, npmrqo) {
-    if ('function' != typeof npmrqo && null !== npmrqo) throw new TypeError('Super expression must either be null or a function, not ' + typeof npmrqo);nqom['prototype'] = Object['create'](npmrqo && npmrqo['prototype'], { 'constructor': { 'value': nqom, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), npmrqo && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](nqom, npmrqo) : nqom['__proto__'] = npmrqo);
-  })(wyzx_, ((nsopq = x_$0y) && nsopq['__esModule'] ? nsopq : { 'default': nsopq })['default']), yz$vx(wyzx_, [{ 'key': 'appendChild', 'value': function (_1y0z) {
-      if (!(_1y0z instanceof wyzx_)) throw new TypeError('Failed to executed \'appendChild\' on \'Node\': parameter 1 is not of type \'Node\'.');this['childNodes']['push'](_1y0z);
+  }var ijlnm = _z$y1(0x7),
+      egif;(function (onmpkl, imhk) {
+    if ('function' != typeof imhk && null !== imhk) throw new TypeError('Super expression must either be null or a function, not ' + typeof imhk);onmpkl['prototype'] = Object['create'](imhk && imhk['prototype'], { 'constructor': { 'value': onmpkl, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), imhk && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](onmpkl, imhk) : onmpkl['__proto__'] = imhk);
+  })(gjil, ((egif = ijlnm) && egif['__esModule'] ? egif : { 'default': egif })['default']), dfaceb(gjil, [{ 'key': 'appendChild', 'value': function (qtpsr) {
+      if (!(qtpsr instanceof gjil)) throw new TypeError('Failed to executed \'appendChild\' on \'Node\': parameter 1 is not of type \'Node\'.');this['childNodes']['push'](qtpsr);
     } }, { 'key': 'cloneNode', 'value': function () {
-      var vx$wz = Object['create'](this);return Object['assign'](vx$wz, this), vx$wz;
-    } }, { 'key': 'removeChild', 'value': function (hgfiej) {
-      var dgfihe = this['childNodes']['findIndex'](function (higfk) {
-        return higfk === hgfiej;
-      });return -0x1 < dgfihe ? this['childNodes']['splice'](dgfihe, 0x1) : null;
-    } }]), yz$vx = wyzx_;function wyzx_() {
-    !function ($ywv, tuswvr) {
-      if (!($ywv instanceof tuswvr)) throw new TypeError('Cannot call a class as a function');
-    }(this, wyzx_);var kln = function (cgfbed, vxy$w) {
-      if (!cgfbed) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !vxy$w || 'object' != typeof vxy$w && 'function' != typeof vxy$w ? cgfbed : vxy$w;
-    }(this, (wyzx_['__proto__'] || Object['getPrototypeOf'](wyzx_))['call'](this));return kln['childNodes'] = [], kln;
-  }yxz0['default'] = yz$vx;
-}, function (lnjmok, nqpoml) {
+      var ronqmp = Object['create'](this);return Object['assign'](ronqmp, this), ronqmp;
+    } }, { 'key': 'removeChild', 'value': function (bgcfed) {
+      var opk = this['childNodes']['findIndex'](function (swvxt) {
+        return swvxt === bgcfed;
+      });return -0x1 < opk ? this['childNodes']['splice'](opk, 0x1) : null;
+    } }]), dfaceb = gjil;function gjil() {
+    !function (ljkhm, osrtp) {
+      if (!(ljkhm instanceof osrtp)) throw new TypeError('Cannot call a class as a function');
+    }(this, gjil);var lmpko = function (uwtr, xy$_z0) {
+      if (!uwtr) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !xy$_z0 || 'object' != typeof xy$_z0 && 'function' != typeof xy$_z0 ? uwtr : xy$_z0;
+    }(this, (gjil['__proto__'] || Object['getPrototypeOf'](gjil))['call'](this));return lmpko['childNodes'] = [], lmpko;
+  }utqrsp['default'] = dfaceb;
+}, function (osrqp, vzxuwy) {
   'use strict';
 
-  Object['defineProperty'](nqpoml, '__esModule', { 'value': !0x0 });var z_$x = function (ortsq, gihjfk, psrqn) {
-    return gihjfk && cfhegd(ortsq['prototype'], gihjfk), psrqn && cfhegd(ortsq, psrqn), ortsq;
-  };function cfhegd(yxzw$v, xvywz$) {
-    for (var z_x0 = 0x0; z_x0 < xvywz$['length']; z_x0++) {
-      var $102_3 = xvywz$[z_x0];$102_3['enumerable'] = $102_3['enumerable'] || !0x1, $102_3['configurable'] = !0x0, 'value' in $102_3 && ($102_3['writable'] = !0x0), Object['defineProperty'](yxzw$v, $102_3['key'], $102_3);
+  Object['defineProperty'](vzxuwy, '__esModule', { 'value': !0x0 });var x0y_z = function (hedi, _302, urspqt) {
+    return _302 && gjhikl(hedi['prototype'], _302), urspqt && gjhikl(hedi, urspqt), hedi;
+  };function gjhikl(sxtuvw, _24130) {
+    for (var gchefd = 0x0; gchefd < _24130['length']; gchefd++) {
+      var vrstw = _24130[gchefd];vrstw['enumerable'] = vrstw['enumerable'] || !0x1, vrstw['configurable'] = !0x0, 'value' in vrstw && (vrstw['writable'] = !0x0), Object['defineProperty'](sxtuvw, vrstw['key'], vrstw);
     }
-  }var ihj = new WeakMap();z_$x(hgfej, [{ 'key': 'addEventListener', 'value': function (cfdh, adfc) {
-      var bgecf = 0x2 < arguments['length'] && void 0x0 !== arguments[0x2] ? arguments[0x2] : {},
-          fgdihe = ihj['get'](this);fgdihe || ihj['set'](this, fgdihe = {}), fgdihe[cfdh] || (fgdihe[cfdh] = []), fgdihe[cfdh]['push'](adfc), bgecf['capture'] && console['warn']('EventTarget.addEventListener: options.capture is not implemented.'), bgecf['once'] && console['warn']('EventTarget.addEventListener: options.once is not implemented.'), bgecf['passive'] && console['warn']('EventTarget.addEventListener: options.passive is not implemented.');
-    } }, { 'key': 'removeEventListener', 'value': function (klhmij, echfg) {
-      var fjhg = ihj['get'](this)[klhmij];if (fjhg && 0x0 < fjhg['length']) {
-        for (var kpolnm = fjhg['length']; kpolnm--;) if (fjhg[kpolnm] === echfg) {
-          fjhg['splice'](kpolnm, 0x1);break;
+  }var zyx_$w = new WeakMap();x0y_z(jlkgh, [{ 'key': 'addEventListener', 'value': function (wstuxv, $z0_1) {
+      var $0_y1z = 0x2 < arguments['length'] && void 0x0 !== arguments[0x2] ? arguments[0x2] : {},
+          wvyx = zyx_$w['get'](this);wvyx || zyx_$w['set'](this, wvyx = {}), wvyx[wstuxv] || (wvyx[wstuxv] = []), wvyx[wstuxv]['push']($z0_1), $0_y1z['capture'] && console['warn']('EventTarget.addEventListener: options.capture is not implemented.'), $0_y1z['once'] && console['warn']('EventTarget.addEventListener: options.once is not implemented.'), $0_y1z['passive'] && console['warn']('EventTarget.addEventListener: options.passive is not implemented.');
+    } }, { 'key': 'removeEventListener', 'value': function (xust, rqust) {
+      var ghfi = zyx_$w['get'](this)[xust];if (ghfi && 0x0 < ghfi['length']) {
+        for (var tusvqr = ghfi['length']; tusvqr--;) if (ghfi[tusvqr] === rqust) {
+          ghfi['splice'](tusvqr, 0x1);break;
         }
       }
     } }, { 'key': 'dispatchEvent', 'value': function () {
-      var stwrvu = 0x0 < arguments['length'] && void 0x0 !== arguments[0x0] ? arguments[0x0] : {},
-          jgeh = ihj['get'](this)[stwrvu['type']];if (jgeh) {
-        for (var qsorpt = 0x0; qsorpt < jgeh['length']; qsorpt++) jgeh[qsorpt](stwrvu);
+      var uxswvt = 0x0 < arguments['length'] && void 0x0 !== arguments[0x0] ? arguments[0x0] : {},
+          nokjlm = zyx_$w['get'](this)[uxswvt['type']];if (nokjlm) {
+        for (var wtsvx = 0x0; wtsvx < nokjlm['length']; wtsvx++) nokjlm[wtsvx](uxswvt);
       }
-    } }]), z_$x = hgfej;function hgfej() {
-    !function (nmrpq, adcfbe) {
-      if (!(nmrpq instanceof adcfbe)) throw new TypeError('Cannot call a class as a function');
-    }(this, hgfej), ihj['set'](this, {});
-  }nqpoml['default'] = z_$x;
-}, function (gfhki, hfej) {
+    } }]), x0y_z = jlkgh;function jlkgh() {
+    !function (qrptsu, opqnml) {
+      if (!(qrptsu instanceof opqnml)) throw new TypeError('Cannot call a class as a function');
+    }(this, jlkgh), zyx_$w['set'](this, {});
+  }vzxuwy['default'] = x0y_z;
+}, function (plok, molnjk) {
   'use strict';
 
-  Object['defineProperty'](hfej, '__esModule', { 'value': !0x0 }), hfej['noop'] = function () {}, hfej['isSubContext'] = function () {
+  Object['defineProperty'](molnjk, '__esModule', { 'value': !0x0 }), molnjk['noop'] = function () {}, molnjk['isSubContext'] = function () {
     return 'undefined' != typeof GameGlobal && !0x0 === GameGlobal['__isSubContext'];
   };
-}, function (zxyw$v, gfcdbe, _2$0) {
+}, function (fbead, gijhk, y$1z0) {
   'use strict';
 
-  Object['defineProperty'](gfcdbe, '__esModule', { 'value': !0x0 }), gfcdbe['default'] = function () {
-    var jihfk = wx['createCanvas']();return jihfk['type'] = 'canvas', jihfk['__proto__']['__proto__'] = new lmjkni['default']('canvas'), jihfk['getContext'], (jihfk['getBoundingClientRect'] = function () {
+  Object['defineProperty'](gijhk, '__esModule', { 'value': !0x0 }), gijhk['default'] = function () {
+    var gjhlki = wx['createCanvas']();return gjhlki['type'] = 'canvas', gjhlki['__proto__']['__proto__'] = new zy_['default']('canvas'), gjhlki['getContext'], (gjhlki['getBoundingClientRect'] = function () {
       return { 'top': 0x0, 'left': 0x0, 'width': window['innerWidth'], 'height': window['innerHeight'] };
-    }, jihfk);
-  }, _2$0(0x3);var lmjkni = iehd(_2$0(0x4));iehd(_2$0(0xa));function iehd(sorqnp) {
-    return sorqnp && sorqnp['__esModule'] ? sorqnp : { 'default': sorqnp };
+    }, gjhlki);
+  }, y$1z0(0x3);var zy_ = ceadfb(y$1z0(0x4));ceadfb(y$1z0(0xa));function ceadfb($_10z2) {
+    return $_10z2 && $_10z2['__esModule'] ? $_10z2 : { 'default': $_10z2 };
   }
-}, function (chdgfe, $z1y0, kmpnlo) {
+}, function (xwyz_$, fdecb, wvxstu) {
   'use strict';
 
-  Object['defineProperty']($z1y0, '__esModule', { 'value': !0x0 });var nqplom = function (gifjkh) {
+  Object['defineProperty'](fdecb, '__esModule', { 'value': !0x0 });var cbedfg = function (oklpn) {
     {
-      if (gifjkh && gifjkh['__esModule']) return gifjkh;var ywzv$x = {};if (null != gifjkh) {
-        for (var nlpqo in gifjkh) Object['prototype']['hasOwnProperty']['call'](gifjkh, nlpqo) && (ywzv$x[nlpqo] = gifjkh[nlpqo]);
-      }return ywzv$x['default'] = gifjkh, ywzv$x;
+      if (oklpn && oklpn['__esModule']) return oklpn;var yvuwt = {};if (null != oklpn) {
+        for (var kgjfh in oklpn) Object['prototype']['hasOwnProperty']['call'](oklpn, kgjfh) && (yvuwt[kgjfh] = oklpn[kgjfh]);
+      }return yvuwt['default'] = oklpn, yvuwt;
     }
-  }(kmpnlo(0x1)),
-      jlnok = _1y0z$(kmpnlo(0x4)),
-      rsptqo = _1y0z$(kmpnlo(0xb)),
-      usrwvt = _1y0z$(kmpnlo(0xc)),
-      zxy$ = _1y0z$(kmpnlo(0x9));function _1y0z$(urqtvs) {
-    return urqtvs && urqtvs['__esModule'] ? urqtvs : { 'default': urqtvs };
-  }kmpnlo(0xf);var qmorpn = {},
-      otqsp = { 'readyState': 'complete', 'visibilityState': 'visible', 'documentElement': nqplom, 'hidden': !0x1, 'style': {}, 'location': nqplom['location'], 'ontouchstart': null, 'ontouchmove': null, 'ontouchend': null, 'head': new jlnok['default']('head'), 'body': new jlnok['default']('body'), 'createElement': function (_xz$0y) {
-      return 'canvas' === _xz$0y ? new zxy$['default']() : 'audio' === _xz$0y ? new usrwvt['default']() : 'img' === _xz$0y ? new rsptqo['default']() : new jlnok['default'](_xz$0y);
-    }, 'getElementById': function (_z2$10) {
-      return _z2$10 === nqplom['canvas']['id'] ? nqplom['canvas'] : null;
-    }, 'getElementsByTagName': function (jmlhi) {
-      return 'head' === jmlhi ? [otqsp['head']] : 'body' === jmlhi ? [otqsp['body']] : 'canvas' === jmlhi ? [nqplom['canvas']] : [];
-    }, 'querySelector': function (mprn) {
-      return 'head' === mprn ? otqsp['head'] : 'body' === mprn ? otqsp['body'] : 'canvas' === mprn || mprn === '#' + nqplom['canvas']['id'] ? nqplom['canvas'] : null;
-    }, 'querySelectorAll': function (ytxwu) {
-      return 'head' === ytxwu ? [otqsp['head']] : 'body' === ytxwu ? [otqsp['body']] : 'canvas' === ytxwu ? [nqplom['canvas']] : [];
-    }, 'addEventListener': function (_2013$, uwtr) {
-      qmorpn[_2013$] || (qmorpn[_2013$] = []), qmorpn[_2013$]['push'](uwtr);
-    }, 'removeEventListener': function (ghif, afdcbe) {
-      var kijgl = qmorpn[ghif];if (kijgl && 0x0 < kijgl['length']) {
-        for (var nqposr = kijgl['length']; nqposr--;) if (kijgl[nqposr] === afdcbe) {
-          kijgl['splice'](nqposr, 0x1);break;
+  }(wvxstu(0x1)),
+      nmklop = lpoqnm(wvxstu(0x4)),
+      promq = lpoqnm(wvxstu(0xb)),
+      yx_wz$ = lpoqnm(wvxstu(0xc)),
+      rtsuqv = lpoqnm(wvxstu(0x9));function lpoqnm(pomrqn) {
+    return pomrqn && pomrqn['__esModule'] ? pomrqn : { 'default': pomrqn };
+  }wvxstu(0xf);var ijklhm = {},
+      prtqso = { 'readyState': 'complete', 'visibilityState': 'visible', 'documentElement': cbedfg, 'hidden': !0x1, 'style': {}, 'location': cbedfg['location'], 'ontouchstart': null, 'ontouchmove': null, 'ontouchend': null, 'head': new nmklop['default']('head'), 'body': new nmklop['default']('body'), 'createElement': function (jhefg) {
+      return 'canvas' === jhefg ? new rtsuqv['default']() : 'audio' === jhefg ? new yx_wz$['default']() : 'img' === jhefg ? new promq['default']() : new nmklop['default'](jhefg);
+    }, 'getElementById': function (loqmnp) {
+      return loqmnp === cbedfg['canvas']['id'] ? cbedfg['canvas'] : null;
+    }, 'getElementsByTagName': function (zvuxw) {
+      return 'head' === zvuxw ? [prtqso['head']] : 'body' === zvuxw ? [prtqso['body']] : 'canvas' === zvuxw ? [cbedfg['canvas']] : [];
+    }, 'querySelector': function (becdfg) {
+      return 'head' === becdfg ? prtqso['head'] : 'body' === becdfg ? prtqso['body'] : 'canvas' === becdfg || becdfg === '#' + cbedfg['canvas']['id'] ? cbedfg['canvas'] : null;
+    }, 'querySelectorAll': function (_1z0$2) {
+      return 'head' === _1z0$2 ? [prtqso['head']] : 'body' === _1z0$2 ? [prtqso['body']] : 'canvas' === _1z0$2 ? [cbedfg['canvas']] : [];
+    }, 'addEventListener': function (dcb, fgkih) {
+      ijklhm[dcb] || (ijklhm[dcb] = []), ijklhm[dcb]['push'](fgkih);
+    }, 'removeEventListener': function (ehigfj, uxwtyv) {
+      var nopml = ijklhm[ehigfj];if (nopml && 0x0 < nopml['length']) {
+        for (var x_yw$z = nopml['length']; x_yw$z--;) if (nopml[x_yw$z] === uxwtyv) {
+          nopml['splice'](x_yw$z, 0x1);break;
         }
       }
-    }, 'dispatchEvent': function (dbacef) {
-      var xyvwt = qmorpn[dbacef['type']];if (xyvwt) {
-        for (var edhgf = 0x0; edhgf < xyvwt['length']; edhgf++) xyvwt[edhgf](dbacef);
+    }, 'dispatchEvent': function ($xzv) {
+      var ihegjf = ijklhm[$xzv['type']];if (ihegjf) {
+        for (var ponq = 0x0; ponq < ihegjf['length']; ponq++) ihegjf[ponq]($xzv);
       }
-    } };$z1y0['default'] = otqsp;
-}, function (qrmpon, ehcgf) {
+    } };fdecb['default'] = prtqso;
+}, function (noql, onpqr) {
   'use strict';
 
-  Object['defineProperty'](ehcgf, '__esModule', { 'value': !0x0 }), ehcgf['default'] = function () {
+  Object['defineProperty'](onpqr, '__esModule', { 'value': !0x0 }), onpqr['default'] = function () {
     return wx['createImage']();
   };
-}, function (jkinm, wuxs, noqrs) {
+}, function (prsno, $zxwvy, qupts) {
   'use strict';
 
-  Object['defineProperty'](wuxs, '__esModule', { 'value': !0x0 });var eacbd = function (nmpor, mqpl, zy_$) {
-    return mqpl && ywvutx(nmpor['prototype'], mqpl), zy_$ && ywvutx(nmpor, zy_$), nmpor;
-  };function ywvutx(milnj, efihj) {
-    for (var fcdegh = 0x0; fcdegh < efihj['length']; fcdegh++) {
-      var mlqp = efihj[fcdegh];mlqp['enumerable'] = mlqp['enumerable'] || !0x1, mlqp['configurable'] = !0x0, 'value' in mlqp && (mlqp['writable'] = !0x0), Object['defineProperty'](milnj, mlqp['key'], mlqp);
+  Object['defineProperty']($zxwvy, '__esModule', { 'value': !0x0 });var ursqpt = function (z0y$_1, _yz$0, hfdceg) {
+    return _yz$0 && xw$yz_(z0y$_1['prototype'], _yz$0), hfdceg && xw$yz_(z0y$_1, hfdceg), z0y$_1;
+  };function xw$yz_(qpnrmo, wvru) {
+    for (var wrtsuv = 0x0; wrtsuv < wvru['length']; wrtsuv++) {
+      var ywuzv = wvru[wrtsuv];ywuzv['enumerable'] = ywuzv['enumerable'] || !0x1, ywuzv['configurable'] = !0x0, 'value' in ywuzv && (ywuzv['writable'] = !0x0), Object['defineProperty'](qpnrmo, ywuzv['key'], ywuzv);
     }
-  }var wzvxyu = noqrs(0xd),
-      gehdfi = (rsnp = wzvxyu) && rsnp['__esModule'] ? rsnp : { 'default': rsnp },
-      rsnp,
-      yx$_ = noqrs(0x8);function kmijlh(mnkp, $zy0_1) {
-    if (!mnkp) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !$zy0_1 || 'object' != typeof $zy0_1 && 'function' != typeof $zy0_1 ? mnkp : $zy0_1;
-  }var hjifkg = 0x0,
-      dcbeg = 0x1,
-      otsrqp = 0x2,
-      facbd = 0x3,
-      pnkm = 0x4,
-      hkmji = new WeakMap(),
-      stvqu = new WeakMap();new WeakMap(), new WeakMap(), (function (squprt, utsrpq) {
-    if ('function' != typeof utsrpq && null !== utsrpq) throw new TypeError('Super expression must either be null or a function, not ' + typeof utsrpq);squprt['prototype'] = Object['create'](utsrpq && utsrpq['prototype'], { 'constructor': { 'value': squprt, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), utsrpq && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](squprt, utsrpq) : squprt['__proto__'] = utsrpq);
-  }($_yzxw, gehdfi['default']), eacbd($_yzxw, [{ 'key': 'load', 'value': function () {
+  }var fkgh = qupts(0xd),
+      opnsq = (mknplo = fkgh) && mknplo['__esModule'] ? mknplo : { 'default': mknplo },
+      mknplo,
+      ghj = qupts(0x8);function nqrsp(uqvtsr, mnkp) {
+    if (!uqvtsr) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !mnkp || 'object' != typeof mnkp && 'function' != typeof mnkp ? uqvtsr : mnkp;
+  }var nlk = 0x0,
+      ebgfdc = 0x1,
+      prqom = 0x2,
+      bafcde = 0x3,
+      rnsqop = 0x4,
+      nrposq = new WeakMap(),
+      suvqr = new WeakMap();new WeakMap(), new WeakMap(), (function (kjhgif, rpqnm) {
+    if ('function' != typeof rpqnm && null !== rpqnm) throw new TypeError('Super expression must either be null or a function, not ' + typeof rpqnm);kjhgif['prototype'] = Object['create'](rpqnm && rpqnm['prototype'], { 'constructor': { 'value': kjhgif, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), rpqnm && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](kjhgif, rpqnm) : kjhgif['__proto__'] = rpqnm);
+  }(zvuxwy, opnsq['default']), ursqpt(zvuxwy, [{ 'key': 'load', 'value': function () {
       console['warn']('HTMLAudioElement.load() is not implemented.');
     } }, { 'key': 'play', 'value': function () {
-      (0x0, yx$_['isSubContext'])() || hkmji['get'](this)['play']();
+      (0x0, ghj['isSubContext'])() || nrposq['get'](this)['play']();
     } }, { 'key': 'pause', 'value': function () {
-      (0x0, yx$_['isSubContext'])() || hkmji['get'](this)['pause']();
+      (0x0, ghj['isSubContext'])() || nrposq['get'](this)['pause']();
     } }, { 'key': 'canPlayType', 'value': function () {
-      var prns = 0x0 < arguments['length'] && void 0x0 !== arguments[0x0] ? arguments[0x0] : '';return 'string' == typeof prns && (-0x1 < prns['indexOf']('audio/mpeg') || prns['indexOf']('audio/mp4')) ? 'probably' : '';
+      var hmiklj = 0x0 < arguments['length'] && void 0x0 !== arguments[0x0] ? arguments[0x0] : '';return 'string' == typeof hmiklj && (-0x1 < hmiklj['indexOf']('audio/mpeg') || hmiklj['indexOf']('audio/mp4')) ? 'probably' : '';
     } }, { 'key': 'cloneNode', 'value': function () {
-      var rqvsu = new $_yzxw();return (0x0, yx$_['isSubContext'])() || (rqvsu['loop'] = hkmji['get'](this)['loop'], rqvsu['autoplay'] = hkmji['get'](this)['loop'], rqvsu['src'] = this['src']), rqvsu;
+      var xzwvy = new zvuxwy();return (0x0, ghj['isSubContext'])() || (xzwvy['loop'] = nrposq['get'](this)['loop'], xzwvy['autoplay'] = nrposq['get'](this)['loop'], xzwvy['src'] = this['src']), xzwvy;
     } }, { 'key': 'currentTime', 'get': function () {
-      return (0x0, yx$_['isSubContext'])() ? 0x0 : hkmji['get'](this)['currentTime'];
-    }, 'set': function (gbfde) {
-      (0x0, yx$_['isSubContext'])() || hkmji['get'](this)['seek'](gbfde);
+      return (0x0, ghj['isSubContext'])() ? 0x0 : nrposq['get'](this)['currentTime'];
+    }, 'set': function ($12_03) {
+      (0x0, ghj['isSubContext'])() || nrposq['get'](this)['seek']($12_03);
     } }, { 'key': 'src', 'get': function () {
-      return stvqu['get'](this);
-    }, 'set': function (tvuxyw) {
-      stvqu['set'](this, tvuxyw), (0x0, yx$_['isSubContext'])() || (hkmji['get'](this)['src'] = tvuxyw);
+      return suvqr['get'](this);
+    }, 'set': function ($xvw) {
+      suvqr['set'](this, $xvw), (0x0, ghj['isSubContext'])() || (nrposq['get'](this)['src'] = $xvw);
     } }, { 'key': 'loop', 'get': function () {
-      return !(0x0, yx$_['isSubContext'])() && hkmji['get'](this)['loop'];
-    }, 'set': function (gijkhl) {
-      (0x0, yx$_['isSubContext'])() || (hkmji['get'](this)['loop'] = gijkhl);
+      return !(0x0, ghj['isSubContext'])() && nrposq['get'](this)['loop'];
+    }, 'set': function (wyvxut) {
+      (0x0, ghj['isSubContext'])() || (nrposq['get'](this)['loop'] = wyvxut);
     } }, { 'key': 'autoplay', 'get': function () {
-      return !(0x0, yx$_['isSubContext'])() && hkmji['get'](this)['autoplay'];
-    }, 'set': function (rstv) {
-      (0x0, yx$_['isSubContext'])() || (hkmji['get'](this)['autoplay'] = rstv);
+      return !(0x0, ghj['isSubContext'])() && nrposq['get'](this)['autoplay'];
+    }, 'set': function (xwyzv) {
+      (0x0, ghj['isSubContext'])() || (nrposq['get'](this)['autoplay'] = xwyzv);
     } }, { 'key': 'paused', 'get': function () {
-      return !(0x0, yx$_['isSubContext'])() && hkmji['get'](this)['paused'];
-    } }]), eacbd = $_yzxw);function $_yzxw(prnsoq) {
-    !function (vq, fceb) {
-      if (!(vq instanceof fceb)) throw new TypeError('Cannot call a class as a function');
-    }(this, $_yzxw);var ecdhfg = kmijlh(this, ($_yzxw['__proto__'] || Object['getPrototypeOf']($_yzxw))['call'](this));if (ecdhfg['HAVE_NOTHING'] = hjifkg, ecdhfg['HAVE_METADATA'] = dcbeg, ecdhfg['HAVE_CURRENT_DATA'] = otsrqp, ecdhfg['HAVE_FUTURE_DATA'] = facbd, ecdhfg['HAVE_ENOUGH_DATA'] = pnkm, ecdhfg['readyState'] = hjifkg, (0x0, yx$_['isSubContext'])()) return console['warn']('HTMLAudioElement is not supported in SubContext.'), kmijlh(ecdhfg);stvqu['set'](ecdhfg, '');var xzwy$v = wx['createInnerAudioContext']();return hkmji['set'](ecdhfg, xzwy$v), xzwy$v['onCanplay'](function () {
-      ecdhfg['dispatchEvent']({ 'type': 'load' }), ecdhfg['dispatchEvent']({ 'type': 'loadend' }), ecdhfg['dispatchEvent']({ 'type': 'canplay' }), ecdhfg['dispatchEvent']({ 'type': 'canplaythrough' }), ecdhfg['dispatchEvent']({ 'type': 'loadedmetadata' }), ecdhfg['readyState'] = otsrqp;
-    }), xzwy$v['onPlay'](function () {
-      ecdhfg['dispatchEvent']({ 'type': 'play' });
-    }), xzwy$v['onPause'](function () {
-      ecdhfg['dispatchEvent']({ 'type': 'pause' });
-    }), xzwy$v['onEnded'](function () {
-      ecdhfg['dispatchEvent']({ 'type': 'ended' }), ecdhfg['readyState'] = pnkm;
-    }), xzwy$v['onError'](function () {
-      ecdhfg['dispatchEvent']({ 'type': 'error' });
-    }), prnsoq && (hkmji['get'](ecdhfg)['src'] = prnsoq), ecdhfg;
-  }wuxs['default'] = eacbd;
-}, function (gfeji, ghcedf, edgc) {
+      return !(0x0, ghj['isSubContext'])() && nrposq['get'](this)['paused'];
+    } }]), ursqpt = zvuxwy);function zvuxwy(tsrpo) {
+    !function (edbg, pokmln) {
+      if (!(edbg instanceof pokmln)) throw new TypeError('Cannot call a class as a function');
+    }(this, zvuxwy);var vuwstx = nqrsp(this, (zvuxwy['__proto__'] || Object['getPrototypeOf'](zvuxwy))['call'](this));if (vuwstx['HAVE_NOTHING'] = nlk, vuwstx['HAVE_METADATA'] = ebgfdc, vuwstx['HAVE_CURRENT_DATA'] = prqom, vuwstx['HAVE_FUTURE_DATA'] = bafcde, vuwstx['HAVE_ENOUGH_DATA'] = rnsqop, vuwstx['readyState'] = nlk, (0x0, ghj['isSubContext'])()) return console['warn']('HTMLAudioElement is not supported in SubContext.'), nqrsp(vuwstx);suvqr['set'](vuwstx, '');var osqn = wx['createInnerAudioContext']();return nrposq['set'](vuwstx, osqn), osqn['onCanplay'](function () {
+      vuwstx['dispatchEvent']({ 'type': 'load' }), vuwstx['dispatchEvent']({ 'type': 'loadend' }), vuwstx['dispatchEvent']({ 'type': 'canplay' }), vuwstx['dispatchEvent']({ 'type': 'canplaythrough' }), vuwstx['dispatchEvent']({ 'type': 'loadedmetadata' }), vuwstx['readyState'] = prqom;
+    }), osqn['onPlay'](function () {
+      vuwstx['dispatchEvent']({ 'type': 'play' });
+    }), osqn['onPause'](function () {
+      vuwstx['dispatchEvent']({ 'type': 'pause' });
+    }), osqn['onEnded'](function () {
+      vuwstx['dispatchEvent']({ 'type': 'ended' }), vuwstx['readyState'] = rnsqop;
+    }), osqn['onError'](function () {
+      vuwstx['dispatchEvent']({ 'type': 'error' });
+    }), tsrpo && (nrposq['get'](vuwstx)['src'] = tsrpo), vuwstx;
+  }$zxwvy['default'] = ursqpt;
+}, function (sxvuwt, $wy_, $_320) {
   'use strict';
 
-  Object['defineProperty'](ghcedf, '__esModule', { 'value': !0x0 });var vxtyw = edgc(0xe),
-      _4301;(function (chgd, postrq) {
-    if ('function' != typeof postrq && null !== postrq) throw new TypeError('Super expression must either be null or a function, not ' + typeof postrq);chgd['prototype'] = Object['create'](postrq && postrq['prototype'], { 'constructor': { 'value': chgd, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), postrq && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](chgd, postrq) : chgd['__proto__'] = postrq);
-  })(uxywvz, ((_4301 = vxtyw) && _4301['__esModule'] ? _4301 : { 'default': _4301 })['default']), edgc = uxywvz;function uxywvz() {
-    return function (hijeg, surqp) {
-      if (!(hijeg instanceof surqp)) throw new TypeError('Cannot call a class as a function');
-    }(this, uxywvz), function (wy$vz, nmoklj) {
-      if (!wy$vz) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !nmoklj || 'object' != typeof nmoklj && 'function' != typeof nmoklj ? wy$vz : nmoklj;
-    }(this, (uxywvz['__proto__'] || Object['getPrototypeOf'](uxywvz))['call'](this, 'audio'));
-  }ghcedf['default'] = edgc;
-}, function (olnmkj, $_xyz, fgkih) {
+  Object['defineProperty']($wy_, '__esModule', { 'value': !0x0 });var lhjmik = $_320(0xe),
+      nmlji;(function (snqrpo, nqo) {
+    if ('function' != typeof nqo && null !== nqo) throw new TypeError('Super expression must either be null or a function, not ' + typeof nqo);snqrpo['prototype'] = Object['create'](nqo && nqo['prototype'], { 'constructor': { 'value': snqrpo, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), nqo && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](snqrpo, nqo) : snqrpo['__proto__'] = nqo);
+  })(cadeb, ((nmlji = lhjmik) && nmlji['__esModule'] ? nmlji : { 'default': nmlji })['default']), $_320 = cadeb;function cadeb() {
+    return function (jkgfhi, ejfhi) {
+      if (!(jkgfhi instanceof ejfhi)) throw new TypeError('Cannot call a class as a function');
+    }(this, cadeb), function (zyuv, y0_z1) {
+      if (!zyuv) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !y0_z1 || 'object' != typeof y0_z1 && 'function' != typeof y0_z1 ? zyuv : y0_z1;
+    }(this, (cadeb['__proto__'] || Object['getPrototypeOf'](cadeb))['call'](this, 'audio'));
+  }$wy_['default'] = $_320;
+}, function (hjigl, wzyx_$, vzyxuw) {
   'use strict';
 
-  Object['defineProperty']($_xyz, '__esModule', { 'value': !0x0 });var fhedgi = function (zy$_w, zxvw$, sruqtp) {
-    return zxvw$ && omkjn(zy$_w['prototype'], zxvw$), sruqtp && omkjn(zy$_w, sruqtp), zy$_w;
-  };function omkjn(rvutq, z_12$0) {
-    for (var tvywux = 0x0; tvywux < z_12$0['length']; tvywux++) {
-      var mnlpk = z_12$0[tvywux];mnlpk['enumerable'] = mnlpk['enumerable'] || !0x1, mnlpk['configurable'] = !0x0, 'value' in mnlpk && (mnlpk['writable'] = !0x0), Object['defineProperty'](rvutq, mnlpk['key'], mnlpk);
+  Object['defineProperty'](wzyx_$, '__esModule', { 'value': !0x0 });var snoprq = function (gjeif, lmkjn, kgjif) {
+    return lmkjn && uqrp(gjeif['prototype'], lmkjn), kgjif && uqrp(gjeif, kgjif), gjeif;
+  };function uqrp(v$zxy, efdhig) {
+    for (var opsrnq = 0x0; opsrnq < efdhig['length']; opsrnq++) {
+      var kpo = efdhig[opsrnq];kpo['enumerable'] = kpo['enumerable'] || !0x1, kpo['configurable'] = !0x0, 'value' in kpo && (kpo['writable'] = !0x0), Object['defineProperty'](v$zxy, kpo['key'], kpo);
     }
-  }var y0zx$ = fgkih(0x4),
-      onp;(function (lnmkji, pnmok) {
-    if ('function' != typeof pnmok && null !== pnmok) throw new TypeError('Super expression must either be null or a function, not ' + typeof pnmok);lnmkji['prototype'] = Object['create'](pnmok && pnmok['prototype'], { 'constructor': { 'value': lnmkji, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), pnmok && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](lnmkji, pnmok) : lnmkji['__proto__'] = pnmok);
-  })(ursqtp, ((onp = y0zx$) && onp['__esModule'] ? onp : { 'default': onp })['default']), fhedgi(ursqtp, [{ 'key': 'addTextTrack', 'value': function () {} }, { 'key': 'captureStream', 'value': function () {} }, { 'key': 'fastSeek', 'value': function () {} }, { 'key': 'load', 'value': function () {} }, { 'key': 'pause', 'value': function () {} }, { 'key': 'play', 'value': function () {} }]), fhedgi = ursqtp;function ursqtp(gihed) {
-    return function (wturs, dgfeb) {
-      if (!(wturs instanceof dgfeb)) throw new TypeError('Cannot call a class as a function');
-    }(this, ursqtp), function (edfhcg, efgih) {
-      if (!edfhcg) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !efgih || 'object' != typeof efgih && 'function' != typeof efgih ? edfhcg : efgih;
-    }(this, (ursqtp['__proto__'] || Object['getPrototypeOf'](ursqtp))['call'](this, gihed));
-  }$_xyz['default'] = fhedgi;
-}, function (urtqsp, pnmqor, rpqost) {
+  }var wruts = vzyxuw(0x4),
+      z$120_;(function (yvx$z, wvrsu) {
+    if ('function' != typeof wvrsu && null !== wvrsu) throw new TypeError('Super expression must either be null or a function, not ' + typeof wvrsu);yvx$z['prototype'] = Object['create'](wvrsu && wvrsu['prototype'], { 'constructor': { 'value': yvx$z, 'enumerable': !0x1, 'writable': !0x0, 'configurable': !0x0 } }), wvrsu && (Object['setPrototypeOf'] ? Object['setPrototypeOf'](yvx$z, wvrsu) : yvx$z['__proto__'] = wvrsu);
+  })($201, ((z$120_ = wruts) && z$120_['__esModule'] ? z$120_ : { 'default': z$120_ })['default']), snoprq($201, [{ 'key': 'addTextTrack', 'value': function () {} }, { 'key': 'captureStream', 'value': function () {} }, { 'key': 'fastSeek', 'value': function () {} }, { 'key': 'load', 'value': function () {} }, { 'key': 'pause', 'value': function () {} }, { 'key': 'play', 'value': function () {} }]), snoprq = $201;function $201(ruqtsv) {
+    return function (yvuxzw, vruqts) {
+      if (!(yvuxzw instanceof vruqts)) throw new TypeError('Cannot call a class as a function');
+    }(this, $201), function (otsrpq, sprtoq) {
+      if (!otsrpq) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return !sprtoq || 'object' != typeof sprtoq && 'function' != typeof sprtoq ? otsrpq : sprtoq;
+    }(this, ($201['__proto__'] || Object['getPrototypeOf']($201))['call'](this, ruqtsv));
+  }wzyx_$['default'] = snoprq;
+}, function (xyzvwu, diehfg, nolpmq) {
   'use strict';
 
-  rpqost(0x10);
-}, function (bfedg, pstrq, knplom) {
+  nolpmq(0x10);
+}, function (svxtwu, fhidge, $xz0y) {
   'use strict';
 
-  var iglh = function (lijkm) {
+  var vxuwst = function (ecfgh) {
     {
-      if (lijkm && lijkm['__esModule']) return lijkm;var pqstr = {};if (null != lijkm) {
-        for (var gdiehf in lijkm) Object['prototype']['hasOwnProperty']['call'](lijkm, gdiehf) && (pqstr[gdiehf] = lijkm[gdiehf]);
-      }return pqstr['default'] = lijkm, pqstr;
+      if (ecfgh && ecfgh['__esModule']) return ecfgh;var pqmlon = {};if (null != ecfgh) {
+        for (var fbec in ecfgh) Object['prototype']['hasOwnProperty']['call'](ecfgh, fbec) && (pqmlon[fbec] = ecfgh[fbec]);
+      }return pqmlon['default'] = ecfgh, pqmlon;
     }
-  }(knplom(0x1)),
-      tvxws = knplom(0xa),
-      _$y0 = (idehgf = tvxws) && idehgf['__esModule'] ? idehgf : { 'default': idehgf },
-      idehgf,
-      cfeabd = knplom(0x8);function jkhfg(iefdg) {
-    !function (spoqrt, qvst) {
-      if (!(spoqrt instanceof qvst)) throw new TypeError('Cannot call a class as a function');
-    }(this, jkhfg), this['target'] = iglh['canvas'], this['currentTarget'] = iglh['canvas'], this['touches'] = [], this['targetTouches'] = [], this['changedTouches'] = [], this['preventDefault'] = cfeabd['noop'], this['stopPropagation'] = cfeabd['noop'], this['type'] = iefdg;
-  }function ihlgj(bcg) {
-    return function (linjk) {
-      var ojmlk = new jkhfg(bcg);ojmlk['touches'] = linjk['touches'], ojmlk['targetTouches'] = Array['prototype']['slice']['call'](linjk['touches']), ojmlk['changedTouches'] = linjk['changedTouches'], ojmlk['timeStamp'] = linjk['timeStamp'], _$y0['default']['dispatchEvent'](ojmlk);
+  }($xz0y(0x1)),
+      idge = $xz0y(0xa),
+      lpmq = (kilgh = idge) && kilgh['__esModule'] ? kilgh : { 'default': kilgh },
+      kilgh,
+      hgefi = $xz0y(0x8);function loqp(tvrwu) {
+    !function (ljknom, mjhki) {
+      if (!(ljknom instanceof mjhki)) throw new TypeError('Cannot call a class as a function');
+    }(this, loqp), this['target'] = vxuwst['canvas'], this['currentTarget'] = vxuwst['canvas'], this['touches'] = [], this['targetTouches'] = [], this['changedTouches'] = [], this['preventDefault'] = hgefi['noop'], this['stopPropagation'] = hgefi['noop'], this['type'] = tvrwu;
+  }function npkol(xw_$y) {
+    return function (onmlkj) {
+      var npmklo = new loqp(xw_$y);npmklo['touches'] = onmlkj['touches'], npmklo['targetTouches'] = Array['prototype']['slice']['call'](onmlkj['touches']), npmklo['changedTouches'] = onmlkj['changedTouches'], npmklo['timeStamp'] = onmlkj['timeStamp'], lpmq['default']['dispatchEvent'](npmklo);
     };
-  }wx['onTouchStart'](ihlgj('touchstart')), wx['onTouchMove'](ihlgj('touchmove')), wx['onTouchEnd'](ihlgj('touchend')), wx['onTouchCancel'](ihlgj('touchcancel'));
-}, function (ljkhmi, dhfgc) {
+  }wx['onTouchStart'](npkol('touchstart')), wx['onTouchMove'](npkol('touchmove')), wx['onTouchEnd'](npkol('touchend')), wx['onTouchCancel'](npkol('touchcancel'));
+}, function (x_$y, _10$yz) {
   'use strict';
 
-  Object['defineProperty'](dhfgc, '__esModule', { 'value': !0x0 }), dhfgc['noop'] = function () {}, dhfgc['isSubContext'] = function () {
+  Object['defineProperty'](_10$yz, '__esModule', { 'value': !0x0 }), _10$yz['noop'] = function () {}, _10$yz['isSubContext'] = function () {
     return 'undefined' != typeof GameGlobal && !0x0 === GameGlobal['__isSubContext'];
   };
-}, function (vswt, hmki, qrtop) {
+}, function (hcgef, tpsqu, ebgcdf) {
   'use strict';
 
-  Object['defineProperty'](hmki, '__esModule', { 'value': !0x0 }), qrtop = qrtop(0x8), qrtop = { 'platform': wx['getSystemInfoSync']()['platform'], 'language': 'zh-cn', 'appVersion': '5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1', 'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E8301 MicroMessenger/6.6.0 MiniGame NetType/WIFI Language/zh_CN', 'onLine': !0x0, 'geolocation': { 'getCurrentPosition': qrtop['noop'], 'watchPosition': qrtop['noop'], 'clearWatch': qrtop['noop'] } }, hmki['default'] = qrtop;
-}, function (lomqp, ghkjl) {
+  Object['defineProperty'](tpsqu, '__esModule', { 'value': !0x0 }), ebgcdf = ebgcdf(0x8), ebgcdf = { 'platform': wx['getSystemInfoSync']()['platform'], 'language': 'zh-cn', 'appVersion': '5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1', 'userAgent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E8301 MicroMessenger/6.6.0 MiniGame NetType/WIFI Language/zh_CN', 'onLine': !0x0, 'geolocation': { 'getCurrentPosition': ebgcdf['noop'], 'watchPosition': ebgcdf['noop'], 'clearWatch': ebgcdf['noop'] } }, tpsqu['default'] = ebgcdf;
+}, function (mlknp, fedgc) {
   'use strict';
 
-  Object['defineProperty'](ghkjl, '__esModule', { 'value': !0x0 });var xutv = function (onmklj, ghdefi, febdgc) {
-    return ghdefi && y0$1_z(onmklj['prototype'], ghdefi), febdgc && y0$1_z(onmklj, febdgc), onmklj;
-  };function y0$1_z(nloq, z_021) {
-    for (var ormpq = 0x0; ormpq < z_021['length']; ormpq++) {
-      var ehigd = z_021[ormpq];ehigd['enumerable'] = ehigd['enumerable'] || !0x1, ehigd['configurable'] = !0x0, 'value' in ehigd && (ehigd['writable'] = !0x0), Object['defineProperty'](nloq, ehigd['key'], ehigd);
+  Object['defineProperty'](fedgc, '__esModule', { 'value': !0x0 });var ghjki = function (khljg, tvuwr, iegjhf) {
+    return tvuwr && fdecab(khljg['prototype'], tvuwr), iegjhf && fdecab(khljg, iegjhf), khljg;
+  };function fdecab(xwyvt, hjlg) {
+    for (var fgjhk = 0x0; fgjhk < hjlg['length']; fgjhk++) {
+      var roqmn = hjlg[fgjhk];roqmn['enumerable'] = roqmn['enumerable'] || !0x1, roqmn['configurable'] = !0x0, 'value' in roqmn && (roqmn['writable'] = !0x0), Object['defineProperty'](xwyvt, roqmn['key'], roqmn);
     }
-  }var mponqr = new WeakMap(),
-      $z_0y = new WeakMap(),
-      ljkmhi = new WeakMap(),
-      gcfdbe = new WeakMap(),
-      oqpsnr = new WeakMap();function xzuv(kimnlj) {
-    if ('function' == typeof this['on' + kimnlj]) {
-      for (var gilkh = arguments['length'], gcd = Array(0x1 < gilkh ? gilkh - 0x1 : 0x0), ecfgdh = 0x1; ecfgdh < gilkh; ecfgdh++) gcd[ecfgdh - 0x1] = arguments[ecfgdh];this['on' + kimnlj]['apply'](this, gcd);
+  }var rsutq = new WeakMap(),
+      pomnk = new WeakMap(),
+      wvyzu = new WeakMap(),
+      yxv$z = new WeakMap(),
+      wtyu = new WeakMap();function lj(fdaec) {
+    if ('function' == typeof this['on' + fdaec]) {
+      for (var acbd = arguments['length'], sxwtvu = Array(0x1 < acbd ? acbd - 0x1 : 0x0), klijn = 0x1; klijn < acbd; klijn++) sxwtvu[klijn - 0x1] = arguments[klijn];this['on' + fdaec]['apply'](this, sxwtvu);
     }
-  }function y1(lhjikm) {
-    this['readyState'] = lhjikm, xzuv['call'](this, 'readystatechange');
-  }xutv(ghfecd, [{ 'key': 'abort', 'value': function () {
-      var hmijl = oqpsnr['get'](this);hmijl && hmijl['abort']();
+  }function xwuy($_zyxw) {
+    this['readyState'] = $_zyxw, lj['call'](this, 'readystatechange');
+  }ghjki(ghief, [{ 'key': 'abort', 'value': function () {
+      var mpnlk = wtyu['get'](this);mpnlk && mpnlk['abort']();
     } }, { 'key': 'getAllResponseHeaders', 'value': function () {
-      var kijlmn = gcfdbe['get'](this);return Object['keys'](kijlmn)['map'](function (x$wyz) {
-        return x$wyz + ':\x20' + kijlmn[x$wyz];
+      var x$yw_z = yxv$z['get'](this);return Object['keys'](x$yw_z)['map'](function (cdh) {
+        return cdh + ':\x20' + x$yw_z[cdh];
       })['join']('\x0a');
-    } }, { 'key': 'getResponseHeader', 'value': function (xustvw) {
-      return gcfdbe['get'](this)[xustvw];
-    } }, { 'key': 'open', 'value': function (qmoln, vywzx) {
-      $z_0y['set'](this, qmoln), mponqr['set'](this, vywzx), y1['call'](this, ghfecd['OPENED']);
+    } }, { 'key': 'getResponseHeader', 'value': function (qronmp) {
+      return yxv$z['get'](this)[qronmp];
+    } }, { 'key': 'open', 'value': function (gdfceb, ikjlmh) {
+      pomnk['set'](this, gdfceb), rsutq['set'](this, ikjlmh), xwuy['call'](this, ghief['OPENED']);
     } }, { 'key': 'overrideMimeType', 'value': function () {} }, { 'key': 'send', 'value': function () {
-      var klgj = this,
-          igjklh = 0x0 < arguments['length'] && void 0x0 !== arguments[0x0] ? arguments[0x0] : '';if (this['readyState'] !== ghfecd['OPENED']) throw new Error('Failed to execute \'send\' on \'XMLHttpRequest\': The object\'s state must be OPENED.');wx['request']({ 'data': igjklh, 'url': mponqr['get'](this), 'method': $z_0y['get'](this), 'header': ljkmhi['get'](this), 'responseType': this['responseType'], 'success': function (z20$_) {
-          var stqrvu = z20$_['data'],
-              klnopm = z20$_['statusCode'],
-              z20$_ = z20$_['header'];if ('string' != typeof stqrvu && !(stqrvu instanceof ArrayBuffer)) try {
-            stqrvu = JSON['stringify'](stqrvu);
-          } catch (nqmorp) {}if (klgj['status'] = klnopm, gcfdbe['set'](klgj, z20$_), xzuv['call'](klgj, 'loadstart'), y1['call'](klgj, ghfecd['HEADERS_RECEIVED']), y1['call'](klgj, ghfecd['LOADING']), (klgj['response'] = stqrvu) instanceof ArrayBuffer) {
-            klgj['responseText'] = '';var oqrmp = new Uint8Array(stqrvu),
-                nrmqpo = oqrmp['byteLength'];for (var kmijl = 0x0; kmijl < nrmqpo; kmijl++) klgj['responseText'] += String['fromCharCode'](oqrmp[kmijl]);
-          } else klgj['responseText'] = stqrvu;y1['call'](klgj, ghfecd['DONE']), xzuv['call'](klgj, 'load'), xzuv['call'](klgj, 'loadend');
-        }, 'fail': function (tqursv) {
-          tqursv = tqursv['errMsg'], (-0x1 !== tqursv['indexOf']('abort') ? xzuv['call'](klgj, 'abort') : xzuv['call'](klgj, 'error', tqursv), xzuv['call'](klgj, 'loadend'));
+      var kmihlj = this,
+          yz$_ = 0x0 < arguments['length'] && void 0x0 !== arguments[0x0] ? arguments[0x0] : '';if (this['readyState'] !== ghief['OPENED']) throw new Error('Failed to execute \'send\' on \'XMLHttpRequest\': The object\'s state must be OPENED.');wx['request']({ 'data': yz$_, 'url': rsutq['get'](this), 'method': pomnk['get'](this), 'header': wvyzu['get'](this), 'responseType': this['responseType'], 'success': function (txuy) {
+          var feihg = txuy['data'],
+              twuvy = txuy['statusCode'],
+              txuy = txuy['header'];if ('string' != typeof feihg && !(feihg instanceof ArrayBuffer)) try {
+            feihg = JSON['stringify'](feihg);
+          } catch (jlnkim) {}if (kmihlj['status'] = twuvy, yxv$z['set'](kmihlj, txuy), lj['call'](kmihlj, 'loadstart'), xwuy['call'](kmihlj, ghief['HEADERS_RECEIVED']), xwuy['call'](kmihlj, ghief['LOADING']), (kmihlj['response'] = feihg) instanceof ArrayBuffer) {
+            kmihlj['responseText'] = '';var dbaf = new Uint8Array(feihg),
+                sprutq = dbaf['byteLength'];for (var tswvx = 0x0; tswvx < sprutq; tswvx++) kmihlj['responseText'] += String['fromCharCode'](dbaf[tswvx]);
+          } else kmihlj['responseText'] = feihg;xwuy['call'](kmihlj, ghief['DONE']), lj['call'](kmihlj, 'load'), lj['call'](kmihlj, 'loadend');
+        }, 'fail': function (zyv$w) {
+          zyv$w = zyv$w['errMsg'], (-0x1 !== zyv$w['indexOf']('abort') ? lj['call'](kmihlj, 'abort') : lj['call'](kmihlj, 'error', zyv$w), lj['call'](kmihlj, 'loadend'));
         } });
-    } }, { 'key': 'setRequestHeader', 'value': function (ywvuxt, ecfh) {
-      var kjih = ljkmhi['get'](this);kjih[ywvuxt] = ecfh, ljkmhi['set'](this, kjih);
-    } }]), xutv = ghfecd;function ghfecd() {
-    !function (mpqrn, rposqn) {
-      if (!(mpqrn instanceof rposqn)) throw new TypeError('Cannot call a class as a function');
-    }(this, ghfecd), this['onabort'] = null, this['onerror'] = null, this['onload'] = null, this['onloadstart'] = null, this['onprogress'] = null, this['ontimeout'] = null, this['onloadend'] = null, this['onreadystatechange'] = null, this['readyState'] = 0x0, this['response'] = null, this['responseText'] = null, this['responseType'] = '', this['responseXML'] = null, this['status'] = 0x0, this['statusText'] = '', this['upload'] = {}, this['withCredentials'] = !0x1, ljkmhi['set'](this, { 'content-type': 'application/x-www-form-urlencoded' }), gcfdbe['set'](this, {});
-  }xutv['UNSEND'] = 0x0, xutv['OPENED'] = 0x1, xutv['HEADERS_RECEIVED'] = 0x2, xutv['LOADING'] = 0x3, xutv['DONE'] = 0x4, ghkjl['default'] = xutv;
-}, function (xzv, swvxt, qnors) {
+    } }, { 'key': 'setRequestHeader', 'value': function (opqnrm, _z0$21) {
+      var omlknj = wvyzu['get'](this);omlknj[opqnrm] = _z0$21, wvyzu['set'](this, omlknj);
+    } }]), ghjki = ghief;function ghief() {
+    !function (fdcghe, qorpm) {
+      if (!(fdcghe instanceof qorpm)) throw new TypeError('Cannot call a class as a function');
+    }(this, ghief), this['onabort'] = null, this['onerror'] = null, this['onload'] = null, this['onloadstart'] = null, this['onprogress'] = null, this['ontimeout'] = null, this['onloadend'] = null, this['onreadystatechange'] = null, this['readyState'] = 0x0, this['response'] = null, this['responseText'] = null, this['responseType'] = '', this['responseXML'] = null, this['status'] = 0x0, this['statusText'] = '', this['upload'] = {}, this['withCredentials'] = !0x1, wvyzu['set'](this, { 'content-type': 'application/x-www-form-urlencoded' }), yxv$z['set'](this, {});
+  }ghjki['UNSEND'] = 0x0, ghjki['OPENED'] = 0x1, ghjki['HEADERS_RECEIVED'] = 0x2, ghjki['LOADING'] = 0x3, ghjki['DONE'] = 0x4, fedgc['default'] = ghjki;
+}, function (rqtu, vtwuxs, edfch) {
   'use strict';
 
-  Object['defineProperty'](swvxt, '__esModule', { 'value': !0x0 });var lhkgj = function (rqsop, v$ywzx, wrvust) {
-    return v$ywzx && qsrvut(rqsop['prototype'], v$ywzx), wrvust && qsrvut(rqsop, wrvust), rqsop;
-  };function qsrvut(fiehgj, pqsorn) {
-    for (var wuyvzx = 0x0; wuyvzx < pqsorn['length']; wuyvzx++) {
-      var kighfj = pqsorn[wuyvzx];kighfj['enumerable'] = kighfj['enumerable'] || !0x1, kighfj['configurable'] = !0x0, 'value' in kighfj && (kighfj['writable'] = !0x0), Object['defineProperty'](fiehgj, kighfj['key'], kighfj);
+  Object['defineProperty'](vtwuxs, '__esModule', { 'value': !0x0 });var inmlk = function (uvsrw, yuwtv, jnmokl) {
+    return yuwtv && wtvxus(uvsrw['prototype'], yuwtv), jnmokl && wtvxus(uvsrw, jnmokl), uvsrw;
+  };function wtvxus(hjkgl, jikhlg) {
+    for (var $_013 = 0x0; $_013 < jikhlg['length']; $_013++) {
+      var yxz_0 = jikhlg[$_013];yxz_0['enumerable'] = yxz_0['enumerable'] || !0x1, yxz_0['configurable'] = !0x0, 'value' in yxz_0 && (yxz_0['writable'] = !0x0), Object['defineProperty'](hjkgl, yxz_0['key'], yxz_0);
     }
-  }var psnqo = qnors(0x8),
-      tquspr = new WeakMap();lhkgj(dfcegh, [{ 'key': 'close', 'value': function (eghid, qrom) {
-      this['readyState'] = dfcegh['CLOSING'], tquspr['get'](this)['close']({ 'code': eghid, 'reason': qrom });
-    } }, { 'key': 'send', 'value': function (wzyxv) {
-      if ('string' != typeof wzyxv && !(wzyxv instanceof ArrayBuffer)) throw new TypeError('Failed to send message: The data ' + wzyxv + ' is invalid');tquspr['get'](this)['send']({ 'data': wzyxv });
-    } }]), lhkgj = dfcegh;function dfcegh(efdgb) {
-    var vtsurq = this,
-        rsqvu = 0x1 < arguments['length'] && void 0x0 !== arguments[0x1] ? arguments[0x1] : [];if (!function (fhegc, klpmn) {
-      if (!(fhegc instanceof klpmn)) throw new TypeError('Cannot call a class as a function');
-    }(this, dfcegh), this['binaryType'] = '', this['bufferedAmount'] = 0x0, this['extensions'] = '', this['onclose'] = null, this['onerror'] = null, this['onmessage'] = null, this['onopen'] = null, this['protocol'] = '', this['readyState'] = 0x3, (0x0, psnqo['isSubContext'])()) throw new Error('WebSocket is not supported in SubContext.');if ('string' != typeof efdgb || !/(^ws:\/\/)|(^wss:\/\/)/['test'](efdgb)) throw new TypeError('Failed to construct \'WebSocket\': The URL \'' + efdgb + '\' is invalid');return this['url'] = efdgb, this['readyState'] = dfcegh['CONNECTING'], rsqvu = wx['connectSocket']({ 'url': efdgb, 'protocols': Array['isArray'](rsqvu) ? rsqvu : [rsqvu] }), (tquspr['set'](this, rsqvu), rsqvu['onClose'](function (wyvu) {
-      vtsurq['readyState'] = dfcegh['CLOSED'], 'function' == typeof vtsurq['onclose'] && vtsurq['onclose'](wyvu);
-    }), rsqvu['onMessage'](function (lknijm) {
-      'function' == typeof vtsurq['onmessage'] && vtsurq['onmessage'](lknijm);
-    }), rsqvu['onOpen'](function () {
-      vtsurq['readyState'] = dfcegh['OPEN'], 'function' == typeof vtsurq['onopen'] && vtsurq['onopen']();
-    }), rsqvu['onError'](function (utqrvs) {
-      'function' == typeof vtsurq['onerror'] && vtsurq['onerror'](new Error(utqrvs['errMsg']));
+  }var lkmno = edfch(0x8),
+      twsrv = new WeakMap();inmlk(uqrsvt, [{ 'key': 'close', 'value': function (cdfeg, jikhf) {
+      this['readyState'] = uqrsvt['CLOSING'], twsrv['get'](this)['close']({ 'code': cdfeg, 'reason': jikhf });
+    } }, { 'key': 'send', 'value': function (cfdbae) {
+      if ('string' != typeof cfdbae && !(cfdbae instanceof ArrayBuffer)) throw new TypeError('Failed to send message: The data ' + cfdbae + ' is invalid');twsrv['get'](this)['send']({ 'data': cfdbae });
+    } }]), inmlk = uqrsvt;function uqrsvt(_$0132) {
+    var sqop = this,
+        ikhgj = 0x1 < arguments['length'] && void 0x0 !== arguments[0x1] ? arguments[0x1] : [];if (!function (wsuvt, vwsutx) {
+      if (!(wsuvt instanceof vwsutx)) throw new TypeError('Cannot call a class as a function');
+    }(this, uqrsvt), this['binaryType'] = '', this['bufferedAmount'] = 0x0, this['extensions'] = '', this['onclose'] = null, this['onerror'] = null, this['onmessage'] = null, this['onopen'] = null, this['protocol'] = '', this['readyState'] = 0x3, (0x0, lkmno['isSubContext'])()) throw new Error('WebSocket is not supported in SubContext.');if ('string' != typeof _$0132 || !/(^ws:\/\/)|(^wss:\/\/)/['test'](_$0132)) throw new TypeError('Failed to construct \'WebSocket\': The URL \'' + _$0132 + '\' is invalid');return this['url'] = _$0132, this['readyState'] = uqrsvt['CONNECTING'], ikhgj = wx['connectSocket']({ 'url': _$0132, 'protocols': Array['isArray'](ikhgj) ? ikhgj : [ikhgj] }), (twsrv['set'](this, ikhgj), ikhgj['onClose'](function (ptrqso) {
+      sqop['readyState'] = uqrsvt['CLOSED'], 'function' == typeof sqop['onclose'] && sqop['onclose'](ptrqso);
+    }), ikhgj['onMessage'](function (y$wzv) {
+      'function' == typeof sqop['onmessage'] && sqop['onmessage'](y$wzv);
+    }), ikhgj['onOpen'](function () {
+      sqop['readyState'] = uqrsvt['OPEN'], 'function' == typeof sqop['onopen'] && sqop['onopen']();
+    }), ikhgj['onError'](function (xyvz$w) {
+      'function' == typeof sqop['onerror'] && sqop['onerror'](new Error(xyvz$w['errMsg']));
     }), this);
-  }lhkgj['CONNECTING'] = 0x0, lhkgj['OPEN'] = 0x1, lhkgj['CLOSING'] = 0x2, lhkgj['CLOSED'] = 0x3, swvxt['default'] = lhkgj;
-}, function (nkmojl, mihjkl, chedfg) {
+  }inmlk['CONNECTING'] = 0x0, inmlk['OPEN'] = 0x1, inmlk['CLOSING'] = 0x2, inmlk['CLOSED'] = 0x3, vtwuxs['default'] = inmlk;
+}, function (xvwyut, lnji, _zy0) {
   'use strict';
 
-  Object['defineProperty'](mihjkl, '__esModule', { 'value': !0x0 });var dbacf = function (ifkh, efchd, dfeih) {
-    return efchd && y0_zx$(ifkh['prototype'], efchd), dfeih && y0_zx$(ifkh, dfeih), ifkh;
-  };function y0_zx$(zx$y_w, zwvyxu) {
-    for (var xw$zy = 0x0; xw$zy < zwvyxu['length']; xw$zy++) {
-      var ursv = zwvyxu[xw$zy];ursv['enumerable'] = ursv['enumerable'] || !0x1, ursv['configurable'] = !0x0, 'value' in ursv && (ursv['writable'] = !0x0), Object['defineProperty'](zx$y_w, ursv['key'], ursv);
+  Object['defineProperty'](lnji, '__esModule', { 'value': !0x0 });var rsupqt = function (rwsuvt, z21_, _z$2) {
+    return z21_ && tvuxwy(rwsuvt['prototype'], z21_), _z$2 && tvuxwy(rwsuvt, _z$2), rwsuvt;
+  };function tvuxwy(lonmk, nmpq) {
+    for (var ghjlk = 0x0; ghjlk < nmpq['length']; ghjlk++) {
+      var sxvw = nmpq[ghjlk];sxvw['enumerable'] = sxvw['enumerable'] || !0x1, sxvw['configurable'] = !0x0, 'value' in sxvw && (sxvw['writable'] = !0x0), Object['defineProperty'](lonmk, sxvw['key'], sxvw);
     }
-  }var ighjfe = chedfg(0x8);dbacf(vtuxwy, [{ 'key': 'construct', 'value': function () {
-      if ((0x0, ighjfe['isSubContext'])()) throw new Error('FileReader is not supported in SubContext.');
-    } }]), dbacf = vtuxwy;function vtuxwy() {
-    !function (gfjie, oknlp) {
-      if (!(gfjie instanceof oknlp)) throw new TypeError('Cannot call a class as a function');
-    }(this, vtuxwy);
-  }mihjkl['default'] = dbacf;
-}, function (wyz_$x, jgfk, roqpns) {
+  }var _2$031 = _zy0(0x8);rsupqt($2_130, [{ 'key': 'construct', 'value': function () {
+      if ((0x0, _2$031['isSubContext'])()) throw new Error('FileReader is not supported in SubContext.');
+    } }]), rsupqt = $2_130;function $2_130() {
+    !function (rqvs, qposnr) {
+      if (!(rqvs instanceof qposnr)) throw new TypeError('Cannot call a class as a function');
+    }(this, $2_130);
+  }lnji['default'] = rsupqt;
+}, function (lpmnoq, ljghki, gjhkf) {
   'use strict';
 
-  Object['defineProperty'](jgfk, '__esModule', { 'value': !0x0 });var fgkhji = roqpns(0x8),
-      psrno = { get 'length'() {
+  Object['defineProperty'](ljghki, '__esModule', { 'value': !0x0 });var z12$0 = gjhkf(0x8),
+      kmhil = { get 'length'() {
       return wx['getStorageInfoSync']()['keys']['length'];
-    }, 'key': function (gdebc) {
-      return wx['getStorageInfoSync']()['keys'][gdebc];
-    }, 'getItem': function (dgcfeh) {
-      return wx['getStorageSync'](dgcfeh);
-    }, 'setItem': function (xuswv, dcgfhe) {
-      return wx['setStorageSync'](xuswv, dcgfhe);
-    }, 'removeItem': function (ehidgf) {
-      wx['removeStorageSync'](ehidgf);
+    }, 'key': function (utvsx) {
+      return wx['getStorageInfoSync']()['keys'][utvsx];
+    }, 'getItem': function (ecfbdg) {
+      return wx['getStorageSync'](ecfbdg);
+    }, 'setItem': function (pnqsr, knmop) {
+      return wx['setStorageSync'](pnqsr, knmop);
+    }, 'removeItem': function (ospqn) {
+      wx['removeStorageSync'](ospqn);
     }, 'clear': function () {
       wx['clearStorageSync']();
     } },
-      rqtsu = {};roqpns = { get 'length'() {
-      return Object['keys'](rqtsu)['length'];
-    }, 'key': function (wtvxuy) {
-      return Object['keys'](rqtsu)[wtvxuy];
-    }, 'getItem': function (fcgeb) {
-      return rqtsu[fcgeb];
-    }, 'setItem': function (fabd, optr) {
-      rqtsu[fabd] = optr;
-    }, 'removeItem': function (pomqln) {
-      delete rqtsu[pomqln];
+      hfgk = {};gjhkf = { get 'length'() {
+      return Object['keys'](hfgk)['length'];
+    }, 'key': function (kjmnlo) {
+      return Object['keys'](hfgk)[kjmnlo];
+    }, 'getItem': function (ihfedg) {
+      return hfgk[ihfedg];
+    }, 'setItem': function (hk, trops) {
+      hfgk[hk] = trops;
+    }, 'removeItem': function (_32140) {
+      delete hfgk[_32140];
     }, 'clear': function () {
-      rqtsu = {};
-    } }, psrno = (0x0, fgkhji['isSubContext'])() ? roqpns : psrno, jgfk['default'] = psrno;
-}, function (wuvxt, onpmkl) {
+      hfgk = {};
+    } }, kmhil = (0x0, z12$0['isSubContext'])() ? gjhkf : kmhil, ljghki['default'] = kmhil;
+}, function (tqupsr, spuqt) {
   'use strict';
 
-  Object['defineProperty'](onpmkl, '__esModule', { 'value': !0x0 }), onpmkl['default'] = { 'href': 'bbbgame.js', 'reload': function () {} };
+  Object['defineProperty'](spuqt, '__esModule', { 'value': !0x0 }), spuqt['default'] = { 'href': 'bbbgame.js', 'reload': function () {} };
 }]);

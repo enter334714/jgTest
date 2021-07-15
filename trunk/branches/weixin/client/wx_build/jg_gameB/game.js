@@ -231,6 +231,7 @@ window.loadSubpackages = function () {
   }
 }
 
+
 if (window.compareVersion(window.SDKVersion, '2.1.0') >= 0) {   //分包wx.loadSubpackage：2.1.0，SDk的wx.createUserInfoButton：2.0.1
   console.log("微信基础库版本符合最低版本要求：" + window.SDKVersion + ">=2.1.0");
   // wxShowLoading({ title: '正在加载游戏' });

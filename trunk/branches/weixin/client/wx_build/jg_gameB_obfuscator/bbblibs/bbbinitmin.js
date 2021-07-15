@@ -1,269 +1,269 @@
 'use strict';
 
 var _ = wx.y$;
-var _dstqvr,
-    _dtxywuv = this && this[_[12038]] || function () {
-  var ifghkj = Object[_[12039]] || { '__proto__': [] } instanceof Array && function (kljigh, porqt) {
-    kljigh[_[24862]] = porqt;
-  } || function (eghdif, z$1_0y) {
-    for (var wvsxu in z$1_0y) z$1_0y[_[12041]](wvsxu) && (eghdif[wvsxu] = z$1_0y[wvsxu]);
-  };return function (fkghi, gcfdh) {
-    function dhfgce() {
-      this[_[12042]] = fkghi;
-    }ifghkj(fkghi, gcfdh), fkghi[_[12043]] = null === gcfdh ? Object[_[43]](gcfdh) : (dhfgce[_[12043]] = gcfdh[_[12043]], new dhfgce());
+var _dcdfeb,
+    _djonlmk = this && this[_[13161]] || function () {
+  var prsqot = Object[_[13162]] || { '__proto__': [] } instanceof Array && function (_0zyx, _2$301) {
+    _0zyx[_[26304]] = _2$301;
+  } || function (uwzv, pronq) {
+    for (var opkn in pronq) pronq[_[13164]](opkn) && (uwzv[opkn] = pronq[opkn]);
+  };return function (yz$0_x, _yx0$) {
+    function klmhji() {
+      this[_[13165]] = yz$0_x;
+    }prsqot(yz$0_x, _yx0$), yz$0_x[_[13166]] = null === _yx0$ ? Object[_[43]](_yx0$) : (klmhji[_[13166]] = _yx0$[_[13166]], new klmhji());
   };
 }(),
-    _dqust = laya['ui'][_[11964]],
-    _dvxy$ = laya['ui'][_[12913]];!function (kljnm) {
-  var xw$z_y = (_dtxywuv(ghifkj, rpsqot = _dqust), ghifkj[_[12043]][_[12926]] = function () {
-    rpsqot[_[12043]][_[12926]][_[8591]](this), this[_[12893]](kljnm['b$c'][_[24863]]);
-  }, ghifkj[_[24863]] = { 'type': _[0x2ebc], 'props': { 'width': 0x2d0, 'name': _[0x2ebd], 'height': 0x500 }, 'child': [{ 'type': _[0x17ab], 'props': { 'width': 0x2d0, 'var': _[0x2ebe], 'skin': 'bbblogin/20.jpg', 'name': 'bg', 'height': 0x500, 'centerY': 0x0, 'centerX': 0x0 } }, { 'type': _[0x17aa], 'props': { 'y': 0x0, 'width': 0x2d0, 'right': 0x0, 'height': 0x500 }, 'child': [{ 'type': _[0x17ab], 'props': { 'width': 0x2d0, 'var': _[0x2ebf], 'top': -0x8b, 'skin': 'bbblogin/60.jpg', 'height': 0x8b, 'centerX': 0x0, 'anchorY': 0x1 } }, { 'type': _[0x17ab], 'props': { 'width': 0x2d0, 'var': _[0x2ec0], 'top': 0x500, 'skin': 'bbblogin/30.jpg', 'height': 0x8b, 'centerX': 0x0 } }, { 'type': _[0x17ab], 'props': { 'x': -0xdc, 'width': 0xdc, 'var': _[0x2ec1], 'skin': 'bbblogin/40.jpg', 'left': -0xdc, 'height': 0x500, 'centerY': 0x0 } }, { 'type': _[0x17ab], 'props': { 'width': 0xdc, 'var': _[0x2ec2], 'skin': 'bbblogin/50.jpg', 'left': 0x2d0, 'height': 0x500, 'centerY': 0x0 } }] }] }, ghifkj);function ghifkj() {
-    return rpsqot[_[8591]](this) || this;
-  }var rpsqot;kljnm['b$c'] = xw$z_y;
-}(_dstqvr = _dstqvr || {}), function (fcebda) {
-  var poqrmn = (_dtxywuv(qru, feghij = _dqust), qru[_[12043]][_[12926]] = function () {
-    feghij[_[12043]][_[12926]][_[8591]](this), this[_[12893]](fcebda['b$d'][_[24863]]);
-  }, qru[_[24863]] = { 'type': _[0x2ebc], 'props': { 'width': 0x2d0, 'name': _[0x2ec3], 'height': 0x500 }, 'child': [{ 'type': _[0x17ab], 'props': { 'width': 0x2d0, 'var': _[0x2ebe], 'name': 'bg', 'height': 0x500, 'centerY': 0x0, 'centerX': 0x0 } }, { 'type': _[0x17aa], 'props': { 'y': 0x0, 'x': 0x0, 'width': 0x2d0, 'height': 0x500 }, 'child': [{ 'type': _[0x17ab], 'props': { 'var': _[0x2ebf], 'centerX': 0x0, 'bottom': 0x500, 'anchorY': 0x1 } }, { 'type': _[0x17ab], 'props': { 'var': _[0x2ec0], 'top': 0x500, 'centerX': 0x0 } }, { 'type': _[0x17ab], 'props': { 'var': _[0x2ec1], 'right': 0x2d0, 'pivotX': 0x1, 'centerY': 0x0 } }, { 'type': _[0x17ab], 'props': { 'var': _[0x2ec2], 'left': 0x2d0, 'centerY': 0x0 } }] }, { 'type': _[0x17ab], 'props': { 'var': _[0x2ec4], 'skin': 'bbblogin/10.png', 'centerX': 0x0, 'bottom': 0xa } }, { 'type': _[0x17aa], 'props': { 'y': 0x3c3, 'x': 0x0, 'width': 0x2d0, 'var': _[0x2ec5], 'name': _[0x2ec5], 'height': 0x82 }, 'child': [{ 'type': _[0x17ab], 'props': { 'y': 0x2e, 'x': 0x3e, 'width': 0x254, 'var': _[0x2ec6], 'skin': 'bbbloding/image_loding_bar0.png', 'height': 0x1b, 'centerX': 0x0 } }, { 'type': _[0x17ab], 'props': { 'y': 0x31, 'x': 0x40, 'width': 0x24e, 'var': _[0x2ec7], 'skin': 'bbbloding/image_loding_bar1.png', 'height': 0x15 } }, { 'type': _[0x17ab], 'props': { 'y': 0x37, 'x': 0x1fb, 'width': 0xd0, 'var': _[0x2ec8], 'skin': 'bbbloding/image_loding_bar2.png', 'height': 0xb } }, { 'type': _[0x17ab], 'props': { 'y': 0x6, 'x': 0x274, 'width': 0x27, 'var': _[0x2ec9], 'skin': 'bbbloding/image_loding_bar3.png', 'height': 0x74 } }, { 'type': _[0x2eca], 'props': { 'y': 0x30, 'x': 0x125, 'width': 0x86, 'var': _[0x2ecb], 'valign': _[0x18f8], 'text': _[0x2ecc], 'strokeColor': _[0x2ecd], 'stroke': 0x3, 'height': 0x18, 'fontSize': 0x18, 'color': _[0x2ece], 'centerX': 0x0, 'bold': !0x1, 'align': _[0x1f0] } }] }, { 'type': _[0x17aa], 'props': { 'y': 0x429, 'x': 0x0, 'width': 0x2d0, 'var': _[0x2ecf], 'name': _[0x2ecf], 'height': 0x11 }, 'child': [{ 'type': _[0x17ab], 'props': { 'y': 0x0, 'x': 0x133, 'var': _[0x2ed0], 'skin': 'bbbloding/image_login_point3.png', 'centerX': -0x2d } }, { 'type': _[0x17ab], 'props': { 'y': 0x0, 'x': 0x151, 'var': _[0x2ed1], 'skin': 'bbbloding/image_login_point2.png', 'centerX': -0xf } }, { 'type': _[0x17ab], 'props': { 'y': 0x0, 'x': 0x16f, 'var': _[0x2ed2], 'skin': 'bbbloding/image_login_point1.png', 'centerX': 0xf } }, { 'type': _[0x17ab], 'props': { 'y': 0x0, 'x': 0x18d, 'var': _[0x2ed3], 'skin': 'bbbloding/image_login_point1.png', 'centerX': 0x2d } }] }, { 'type': _[0x17ac], 'props': { 'y': 0x316, 'x': 0x37, 'visible': !0x1, 'var': _[0x2ed4], 'stateNum': 0x1, 'skin': 'bbbloding/10.png', 'name': _[0x2ed4], 'labelSize': 0x1e, 'labelFont': _[0x1ccd], 'labelColors': _[0x1d56] }, 'child': [{ 'type': _[0x2eca], 'props': { 'y': 0x9b, 'x': 0x92, 'width': 0x143, 'var': _[0x2ed5], 'text': _[0x2ed6], 'name': _[0x2ed5], 'height': 0x1e, 'fontSize': 0x1e, 'color': _[0x2ed7], 'align': _[0x1f0] } }] }, { 'type': _[0x2eca], 'props': { 'y': 0x453, 'width': 0x1f4, 'var': _[0x2ed8], 'valign': _[0x18f8], 'text': _[0x2ed9], 'height': 0x1a, 'fontSize': 0x1a, 'color': _[0x2eda], 'centerX': 0x0, 'bold': !0x1, 'align': _[0x1f0] } }, { 'type': _[0x2eca], 'props': { 'y': 0xa, 'x': 0xa, 'width': 0x156, 'var': _[0x2edb], 'valign': _[0x18f8], 'top': 0x14, 'text': _[0x2edc], 'right': 0x14, 'height': 0x20, 'fontSize': 0x18, 'color': _[0x2edd], 'bold': !0x1, 'align': _[0xdbf] } }] }, qru);function qru() {
-    return feghij[_[8591]](this) || this;
-  }var feghij;fcebda['b$d'] = poqrmn;
-}(_dstqvr = _dstqvr || {}), function (tvwy) {
-  var hgedcf = (_dtxywuv(klhmij, ebc = _dqust), klhmij[_[12043]][_[12926]] = function () {
-    _dqust[_[12927]](_[0x1f9], laya[_[5978]][_[505]]), ebc[_[12043]][_[12926]][_[8591]](this), this[_[12893]](tvwy['b$e'][_[24863]]);
-  }, klhmij[_[24863]] = { 'type': _[0x2ebc], 'props': { 'width': 0x2d0, 'name': _[0x2ede], 'height': 0x500 }, 'child': [{ 'type': _[0x17ab], 'props': { 'width': 0x2d0, 'var': _[0x2ebe], 'skin': 'bbblogin/20.jpg', 'name': 'bg', 'height': 0x500, 'centerY': 0x0, 'centerX': 0x0 } }, { 'type': _[0x17aa], 'props': { 'y': 0x0, 'x': 0x0, 'width': 0x2d0, 'height': 0x500 }, 'child': [{ 'type': _[0x17ab], 'props': { 'width': 0x2d0, 'var': _[0x2ebf], 'top': -0x8b, 'skin': 'bbblogin/60.jpg', 'height': 0x8b, 'centerX': 0x0 } }, { 'type': _[0x17ab], 'props': { 'width': 0x2d0, 'var': _[0x2ec0], 'top': 0x500, 'skin': 'bbblogin/30.jpg', 'height': 0x8b, 'centerX': 0x0 } }, { 'type': _[0x17ab], 'props': { 'width': 0xdc, 'var': _[0x2ec1], 'skin': 'bbblogin/40.jpg', 'left': -0xdc, 'height': 0x500, 'centerY': 0x0 } }, { 'type': _[0x17ab], 'props': { 'width': 0xdc, 'var': _[0x2ec2], 'skin': 'bbblogin/50.jpg', 'left': 0x2d0, 'height': 0x500, 'centerY': 0x0 } }] }, { 'type': _[0x17ab], 'props': { 'y': 0x34d, 'var': _[0x2edf], 'skin': 'bbblogin/image_login_xuanqubg.png', 'centerX': 0x0 } }, { 'type': _[0x17ab], 'props': { 'y': 0x3a2, 'x': 0xa2, 'var': _[0x2ee0], 'skin': 'bbblogin/image_login_changtong.png' } }, { 'type': _[0x17ab], 'props': { 'var': _[0x2ec4], 'skin': 'bbblogin/10.png', 'centerX': 0x0, 'bottom': 0xa } }, { 'type': _[0x17ab], 'props': { 'y': 0x3f7, 'var': _[0x17ad], 'stateNum': 0x1, 'skin': 'bbblogin/btn_login_loginanniu.png', 'name': _[0x17ad], 'centerX': 0x0 } }, { 'type': _[0x2eca], 'props': { 'y': 0x3a4, 'x': 0x209, 'var': _[0x2ee1], 'valign': _[0x18f8], 'text': _[0x2ee2], 'height': 0x20, 'fontSize': 0x1e, 'color': _[0x196e], 'bold': !0x1, 'align': _[0x1f0] } }, { 'type': _[0x2eca], 'props': { 'y': 0x3a4, 'width': 0x156, 'var': _[0x2ee3], 'valign': _[0x18f8], 'text': _[0x2ee4], 'height': 0x20, 'fontSize': 0x1e, 'color': _[0x196e], 'centerX': 0x0, 'bold': !0x1, 'align': _[0x1f0] } }, { 'type': _[0x2eca], 'props': { 'width': 0x156, 'var': _[0x2edb], 'valign': _[0x18f8], 'top': 0x14, 'text': _[0x2edc], 'right': 0x14, 'height': 0x20, 'fontSize': 0x18, 'color': _[0x2edd], 'bold': !0x1, 'align': _[0xdbf] } }, { 'type': _[0x17ab], 'props': { 'y': 0x7f, 'x': 593.5, 'var': _[0x2ee5], 'skin': 'bbblogin/btn_login_gonggao.png' } }, { 'type': _[0x17ab], 'props': { 'y': 0x47, 'x': -0x2, 'visible': !0x1, 'var': _[0x2ee6], 'skin': 'bbblogin/80.png', 'centerY': 0x0, 'centerX': 0x0 }, 'child': [{ 'type': _[0x17ab], 'props': { 'y': 36.5, 'x': 0x268, 'var': _[0x2ee7], 'skin': 'bbblogin/btn_com_chuangback.png' } }, { 'type': _[0x2eca], 'props': { 'y': 0x48, 'x': 0xd8, 'width': 0xea, 'var': _[0x2ee8], 'valign': _[0x18f8], 'text': _[0x2ee9], 'height': 0x23, 'fontSize': 0x1e, 'color': _[0x937], 'bold': !0x1, 'align': _[0x1f0] } }, { 'type': _[0x1f9], 'props': { 'y': 0x8e, 'x': 0x3d, 'wordWrap': !0x0, 'width': 0x221, 'var': _[0x2eea], 'valign': _[0x27], 'overflow': _[0x2eeb], 'mouseEnabled': !0x0, 'leading': 0x4, 'height': 0x366, 'fontSize': 0x1a, 'color': _[0x2406] } }] }, { 'type': _[0x17ab], 'props': { 'visible': !0x1, 'var': _[0x2eec], 'skin': 'bbblogin/90.png', 'centerY': 0x0, 'centerX': 0x0 }, 'child': [{ 'type': _[0x17aa], 'props': { 'y': 0x75, 'x': 0x3d, 'width': 0xc8, 'var': _[0x2eed], 'height': 0x389 } }, { 'type': _[0x17aa], 'props': { 'y': 0x75, 'x': 0x125, 'width': 0x166, 'var': _[0x2eee], 'height': 0x389 } }, { 'type': _[0x17ab], 'props': { 'y': 0xd, 'x': 0x282, 'var': _[0x2eef], 'skin': 'bbblogin/image_com_tuichu.png' } }] }] }, klhmij);function klhmij() {
-    return ebc[_[8591]](this) || this;
-  }var ebc;tvwy['b$e'] = hgedcf;
-}(_dstqvr = _dstqvr || {}), function (tprsuq) {
-  function echdg() {
-    return _021$z[_[8591]](this) || this;
-  }var _021$z;tprsuq = tprsuq['b$f'] || (tprsuq['b$f'] = {}), _021$z = _dstqvr['b$c'], _dtxywuv(echdg, _021$z), echdg[_[12043]][_[12894]] = function () {
-    _021$z[_[12043]][_[12894]][_[8591]](this), this[_[12870]] = 0x0, this[_[12871]] = 0x0, p$ACDB(), this[_[12897]](), this[_[12898]]();
-  }, echdg[_[12043]][_[12897]] = function () {}, echdg[_[12043]][_[12899]] = function () {}, echdg[_[12043]][_[12898]] = function () {
-    _donprmq[_[36]]['p$CBDE'](), _donprmq[_[36]][_[24864]]();
-  }, echdg[_[12043]][_[12140]] = function (dfcgbe) {
-    void 0x0 === dfcgbe && (dfcgbe = !0x0), this[_[12899]](), _021$z[_[12043]][_[12140]][_[8591]](this, dfcgbe);
-  }, tprsuq[_[24865]] = echdg;
-}(modules = modules || {}), function (svuq) {
-  var ytxwu, z_210$, lhgkj, mpnoqr;function onkmp() {
-    var _0y$1 = _zx[_[8591]](this) || this;return _0y$1['b$h'] = new lhgkj(), _0y$1[_[12442]](_0y$1['b$h']), _0y$1['b$i'] = null, _0y$1['b$j'] = [], _0y$1['b$k'] = !0x1, _0y$1['b$l'] = 0x0, _0y$1['b$m'] = !0x0, _0y$1['b$n'] = 0x6, _0y$1['b$o'] = !0x1, _0y$1['on'](z_210$[_[12876]], _0y$1, _0y$1['b$p']), _0y$1['on'](z_210$[_[12877]], _0y$1, _0y$1['b$q']), _0y$1;
-  }var _zx;ytxwu = svuq['b$g'] || (svuq['b$g'] = {}), z_210$ = Laya[_[12436]], lhgkj = Laya[_[6059]], svuq = Laya[_[12979]], mpnoqr = Laya[_[12523]], _dtxywuv(onkmp, _zx = svuq), onkmp[_[43]] = function (imlkn, tvwyu, jmkonl, ilkmjn, gfkhij, uwvtxy, zy$) {
-    void 0x0 === ilkmjn && (ilkmjn = 0x0), void 0x0 === gfkhij && (gfkhij = 0x6), void 0x0 === uwvtxy && (uwvtxy = !0x0), void 0x0 === zy$ && (zy$ = !0x1);var $1zy_0 = new onkmp();return $1zy_0[_[2479]](tvwyu, jmkonl, ilkmjn), $1zy_0[_[2483]] = gfkhij, $1zy_0[_[11083]] = uwvtxy, $1zy_0[_[2482]] = zy$, imlkn && imlkn[_[12442]]($1zy_0), $1zy_0;
-  }, onkmp[_[12681]] = function (fijhk) {
-    fijhk && (fijhk[_[12865]] = !0x0, fijhk[_[12681]]());
-  }, onkmp[_[12229]] = function (gfecbd) {
-    gfecbd && (gfecbd[_[12865]] = !0x1, gfecbd[_[12229]]());
-  }, onkmp[_[12043]][_[12140]] = function (z0y1) {
-    Laya[_[12067]][_[12081]](this, this['b$r']), this[_[12883]](z_210$[_[12876]], this, this['b$p']), this[_[12883]](z_210$[_[12877]], this, this['b$q']), _zx[_[12043]][_[12140]][_[8591]](this, z0y1);
-  }, onkmp[_[12043]]['b$p'] = function () {}, onkmp[_[12043]]['b$q'] = function () {}, onkmp[_[12043]][_[2479]] = function (w_yz$, jlnok, egcd) {
-    if (this['b$i'] != w_yz$) {
-      this['b$i'] = w_yz$, this['b$j'] = [];for (var z$2_10 = 0x0, nrqpso = egcd; nrqpso <= jlnok; nrqpso++) this['b$j'][z$2_10++] = w_yz$ + '/' + nrqpso + '.png';egcd = mpnoqr[_[12548]](this['b$j'][0x0]), (egcd && (this[_[2946]] = egcd[_[24866]], this[_[2947]] = egcd[_[24867]]), this['b$r']());
+    _dsutqv = laya['ui'][_[12931]],
+    _dkmnpol = laya['ui'][_[14035]];!function (monpq) {
+  var npqom = (_djonlmk(hie, vxwyz = _dsutqv), hie[_[13166]][_[14048]] = function () {
+    vxwyz[_[13166]][_[14048]][_[8938]](this), this[_[14015]](monpq['b$c'][_[26305]]);
+  }, hie[_[26305]] = { 'type': _[0x3283], 'props': { 'width': 0x2d0, 'name': _[0x3284], 'height': 0x500 }, 'child': [{ 'type': _[0x180c], 'props': { 'width': 0x2d0, 'var': _[0x3285], 'skin': _[0x3286], 'name': 'bg', 'height': 0x500, 'centerY': 0x0, 'centerX': 0x0 } }, { 'type': _[0x180b], 'props': { 'y': 0x0, 'width': 0x2d0, 'right': 0x0, 'height': 0x500 }, 'child': [{ 'type': _[0x180c], 'props': { 'width': 0x2d0, 'var': _[0x3287], 'top': -0x8b, 'skin': _[0x3288], 'height': 0x8b, 'centerX': 0x0, 'anchorY': 0x1 } }, { 'type': _[0x180c], 'props': { 'width': 0x2d0, 'var': _[0x3289], 'top': 0x500, 'skin': _[0x328a], 'height': 0x8b, 'centerX': 0x0 } }, { 'type': _[0x180c], 'props': { 'x': -0xdc, 'width': 0xdc, 'var': _[0x328b], 'skin': _[0x328c], 'left': -0xdc, 'height': 0x500, 'centerY': 0x0 } }, { 'type': _[0x180c], 'props': { 'width': 0xdc, 'var': _[0x328d], 'skin': _[0x328e], 'left': 0x2d0, 'height': 0x500, 'centerY': 0x0 } }] }] }, hie);function hie() {
+    return vxwyz[_[8938]](this) || this;
+  }var vxwyz;monpq['b$c'] = npqom;
+}(_dcdfeb = _dcdfeb || {}), function (iehfjg) {
+  var gfbedc = (_djonlmk(ifhe, lmkjin = _dsutqv), ifhe[_[13166]][_[14048]] = function () {
+    lmkjin[_[13166]][_[14048]][_[8938]](this), this[_[14015]](iehfjg['b$d'][_[26305]]);
+  }, ifhe[_[26305]] = { 'type': _[0x3283], 'props': { 'width': 0x2d0, 'name': _[0x328f], 'height': 0x500 }, 'child': [{ 'type': _[0x180c], 'props': { 'width': 0x2d0, 'var': _[0x3285], 'name': 'bg', 'height': 0x500, 'centerY': 0x0, 'centerX': 0x0 } }, { 'type': _[0x180b], 'props': { 'y': 0x0, 'x': 0x0, 'width': 0x2d0, 'height': 0x500 }, 'child': [{ 'type': _[0x180c], 'props': { 'var': _[0x3287], 'centerX': 0x0, 'bottom': 0x500, 'anchorY': 0x1 } }, { 'type': _[0x180c], 'props': { 'var': _[0x3289], 'top': 0x500, 'centerX': 0x0 } }, { 'type': _[0x180c], 'props': { 'var': _[0x328b], 'right': 0x2d0, 'pivotX': 0x1, 'centerY': 0x0 } }, { 'type': _[0x180c], 'props': { 'var': _[0x328d], 'left': 0x2d0, 'centerY': 0x0 } }] }, { 'type': _[0x180c], 'props': { 'var': _[0x3290], 'skin': _[0x3291], 'centerX': 0x0, 'bottom': 0xa } }, { 'type': _[0x180b], 'props': { 'y': 0x3c3, 'x': 0x0, 'width': 0x2d0, 'var': _[0x3292], 'name': _[0x3292], 'height': 0x82 }, 'child': [{ 'type': _[0x180c], 'props': { 'y': 0x2e, 'x': 0x3e, 'width': 0x254, 'var': _[0x3293], 'skin': _[0x3294], 'height': 0x1b, 'centerX': 0x0 } }, { 'type': _[0x180c], 'props': { 'y': 0x31, 'x': 0x40, 'width': 0x24e, 'var': _[0x3295], 'skin': _[0x3296], 'height': 0x15 } }, { 'type': _[0x180c], 'props': { 'y': 0x37, 'x': 0x1fb, 'width': 0xd0, 'var': _[0x3297], 'skin': _[0x3298], 'height': 0xb } }, { 'type': _[0x180c], 'props': { 'y': 0x6, 'x': 0x274, 'width': 0x27, 'var': _[0x3299], 'skin': _[0x329a], 'height': 0x74 } }, { 'type': _[0x329b], 'props': { 'y': 0x30, 'x': 0x125, 'width': 0x86, 'var': _[0x329c], 'valign': _[0x1973], 'text': _[0x329d], 'strokeColor': _[0x329e], 'stroke': 0x3, 'height': 0x18, 'fontSize': 0x18, 'color': _[0x329f], 'centerX': 0x0, 'bold': !0x1, 'align': _[0x1f9] } }] }, { 'type': _[0x180b], 'props': { 'y': 0x429, 'x': 0x0, 'width': 0x2d0, 'var': _[0x32a0], 'name': _[0x32a0], 'height': 0x11 }, 'child': [{ 'type': _[0x180c], 'props': { 'y': 0x0, 'x': 0x133, 'var': _[0x32a1], 'skin': _[0x32a2], 'centerX': -0x2d } }, { 'type': _[0x180c], 'props': { 'y': 0x0, 'x': 0x151, 'var': _[0x32a3], 'skin': _[0x32a4], 'centerX': -0xf } }, { 'type': _[0x180c], 'props': { 'y': 0x0, 'x': 0x16f, 'var': _[0x32a5], 'skin': _[0x32a6], 'centerX': 0xf } }, { 'type': _[0x180c], 'props': { 'y': 0x0, 'x': 0x18d, 'var': _[0x32a7], 'skin': _[0x32a6], 'centerX': 0x2d } }] }, { 'type': _[0x1814], 'props': { 'y': 0x316, 'x': 0x37, 'visible': !0x1, 'var': _[0x32a8], 'stateNum': 0x1, 'skin': _[0x32a9], 'name': _[0x32a8], 'labelSize': 0x1e, 'labelFont': _[0x1dcb], 'labelColors': _[0x1e5f] }, 'child': [{ 'type': _[0x329b], 'props': { 'y': 0x9b, 'x': 0x92, 'width': 0x143, 'var': _[0x32aa], 'text': _[0x32ab], 'name': _[0x32aa], 'height': 0x1e, 'fontSize': 0x1e, 'color': _[0x32ac], 'align': _[0x1f9] } }] }, { 'type': _[0x329b], 'props': { 'y': 0x453, 'width': 0x1f4, 'var': _[0x32ad], 'valign': _[0x1973], 'text': _[0x32ae], 'height': 0x1a, 'fontSize': 0x1a, 'color': _[0x32af], 'centerX': 0x0, 'bold': !0x1, 'align': _[0x1f9] } }, { 'type': _[0x329b], 'props': { 'y': 0xa, 'x': 0xa, 'width': 0x156, 'var': _[0x32b0], 'valign': _[0x1973], 'top': 0x14, 'text': _[0x32b1], 'right': 0x14, 'height': 0x20, 'fontSize': 0x18, 'color': _[0x32b2], 'bold': !0x1, 'align': _[0xe0b] } }] }, ifhe);function ifhe() {
+    return lmkjin[_[8938]](this) || this;
+  }var lmkjin;iehfjg['b$d'] = gfbedc;
+}(_dcdfeb = _dcdfeb || {}), function (dhigef) {
+  var tywuvx = (_djonlmk(efbda, pqomnl = _dsutqv), efbda[_[13166]][_[14048]] = function () {
+    _dsutqv[_[14049]](_[0x202], laya[_[6074]][_[514]]), pqomnl[_[13166]][_[14048]][_[8938]](this), this[_[14015]](dhigef['b$e'][_[26305]]);
+  }, efbda[_[26305]] = { 'type': _[0x3283], 'props': { 'width': 0x2d0, 'name': _[0x32b3], 'height': 0x500 }, 'child': [{ 'type': _[0x180c], 'props': { 'width': 0x2d0, 'var': _[0x3285], 'skin': _[0x3286], 'name': 'bg', 'height': 0x500, 'centerY': 0x0, 'centerX': 0x0 } }, { 'type': _[0x180b], 'props': { 'y': 0x0, 'x': 0x0, 'width': 0x2d0, 'height': 0x500 }, 'child': [{ 'type': _[0x180c], 'props': { 'width': 0x2d0, 'var': _[0x3287], 'top': -0x8b, 'skin': _[0x3288], 'height': 0x8b, 'centerX': 0x0 } }, { 'type': _[0x180c], 'props': { 'width': 0x2d0, 'var': _[0x3289], 'top': 0x500, 'skin': _[0x328a], 'height': 0x8b, 'centerX': 0x0 } }, { 'type': _[0x180c], 'props': { 'width': 0xdc, 'var': _[0x328b], 'skin': _[0x328c], 'left': -0xdc, 'height': 0x500, 'centerY': 0x0 } }, { 'type': _[0x180c], 'props': { 'width': 0xdc, 'var': _[0x328d], 'skin': _[0x328e], 'left': 0x2d0, 'height': 0x500, 'centerY': 0x0 } }] }, { 'type': _[0x180c], 'props': { 'y': 0x34d, 'var': _[0x32b4], 'skin': _[0x32b5], 'centerX': 0x0 } }, { 'type': _[0x180c], 'props': { 'y': 0x3a2, 'x': 0xa2, 'var': _[0x32b6], 'skin': _[0x32b7] } }, { 'type': _[0x180c], 'props': { 'var': _[0x3290], 'skin': _[0x3291], 'centerX': 0x0, 'bottom': 0xa } }, { 'type': _[0x180c], 'props': { 'y': 0x3f7, 'var': _[0x1815], 'stateNum': 0x1, 'skin': _[0x32b8], 'name': _[0x1815], 'centerX': 0x0 } }, { 'type': _[0x329b], 'props': { 'y': 0x3a4, 'x': 0x209, 'var': _[0x32b9], 'valign': _[0x1973], 'text': _[0x32ba], 'height': 0x20, 'fontSize': 0x1e, 'color': _[0x19f0], 'bold': !0x1, 'align': _[0x1f9] } }, { 'type': _[0x329b], 'props': { 'y': 0x3a4, 'width': 0x156, 'var': _[0x32bb], 'valign': _[0x1973], 'text': _[0x32bc], 'height': 0x20, 'fontSize': 0x1e, 'color': _[0x19f0], 'centerX': 0x0, 'bold': !0x1, 'align': _[0x1f9] } }, { 'type': _[0x329b], 'props': { 'width': 0x156, 'var': _[0x32b0], 'valign': _[0x1973], 'top': 0x14, 'text': _[0x32b1], 'right': 0x14, 'height': 0x20, 'fontSize': 0x18, 'color': _[0x32b2], 'bold': !0x1, 'align': _[0xe0b] } }, { 'type': _[0x180c], 'props': { 'y': 0x7f, 'x': 593.5, 'var': _[0x32bd], 'skin': _[0x32be] } }, { 'type': _[0x180c], 'props': { 'y': 0x47, 'x': -0x2, 'visible': !0x1, 'var': _[0x32bf], 'skin': _[0x32c0], 'centerY': 0x0, 'centerX': 0x0 }, 'child': [{ 'type': _[0x180c], 'props': { 'y': 36.5, 'x': 0x268, 'var': _[0x32c1], 'skin': _[0x32c2] } }, { 'type': _[0x329b], 'props': { 'y': 0x48, 'x': 0xd8, 'width': 0xea, 'var': _[0x32c3], 'valign': _[0x1973], 'text': _[0x32c4], 'height': 0x23, 'fontSize': 0x1e, 'color': _[0x965], 'bold': !0x1, 'align': _[0x1f9] } }, { 'type': _[0x202], 'props': { 'y': 0x8e, 'x': 0x3d, 'wordWrap': !0x0, 'width': 0x221, 'var': _[0x32c5], 'valign': _[0x27], 'overflow': _[0x32c6], 'mouseEnabled': !0x0, 'leading': 0x4, 'height': 0x366, 'fontSize': 0x1a, 'color': _[0x257e] } }] }, { 'type': _[0x180c], 'props': { 'visible': !0x1, 'var': _[0x32c7], 'skin': _[0x32c8], 'centerY': 0x0, 'centerX': 0x0 }, 'child': [{ 'type': _[0x180b], 'props': { 'y': 0x75, 'x': 0x3d, 'width': 0xc8, 'var': _[0x32c9], 'height': 0x389 } }, { 'type': _[0x180b], 'props': { 'y': 0x75, 'x': 0x125, 'width': 0x166, 'var': _[0x32ca], 'height': 0x389 } }, { 'type': _[0x180c], 'props': { 'y': 0xd, 'x': 0x282, 'var': _[0x32cb], 'skin': _[0x32cc] } }] }] }, efbda);function efbda() {
+    return pqomnl[_[8938]](this) || this;
+  }var pqomnl;dhigef['b$e'] = tywuvx;
+}(_dcdfeb = _dcdfeb || {}), function (cafbe) {
+  function rpomn() {
+    return swvxt[_[8938]](this) || this;
+  }var swvxt;cafbe = cafbe['b$f'] || (cafbe['b$f'] = {}), swvxt = _dcdfeb['b$c'], _djonlmk(rpomn, swvxt), rpomn[_[13166]][_[14016]] = function () {
+    swvxt[_[13166]][_[14016]][_[8938]](this), this[_[13992]] = 0x0, this[_[13993]] = 0x0, p$ACDB(), this[_[14019]](), this[_[14020]]();
+  }, rpomn[_[13166]][_[14019]] = function () {}, rpomn[_[13166]][_[14021]] = function () {}, rpomn[_[13166]][_[14020]] = function () {
+    _dlkhimj[_[36]]['p$CBDE'](), _dlkhimj[_[36]][_[26306]]();
+  }, rpomn[_[13166]][_[13262]] = function (klihm) {
+    void 0x0 === klihm && (klihm = !0x0), this[_[14021]](), swvxt[_[13166]][_[13262]][_[8938]](this, klihm);
+  }, cafbe[_[26307]] = rpomn;
+}(modules = modules || {}), function (cfbge) {
+  var mlnk, vwtuyx, hdce, imjlk;function yz_$() {
+    var gfhkij = mplnko[_[8938]](this) || this;return gfhkij['b$h'] = new hdce(), gfhkij[_[13564]](gfhkij['b$h']), gfhkij['b$i'] = null, gfhkij['b$j'] = [], gfhkij['b$k'] = !0x1, gfhkij['b$l'] = 0x0, gfhkij['b$m'] = !0x0, gfhkij['b$n'] = 0x6, gfhkij['b$o'] = !0x1, gfhkij['on'](vwtuyx[_[13998]], gfhkij, gfhkij['b$p']), gfhkij['on'](vwtuyx[_[13999]], gfhkij, gfhkij['b$q']), gfhkij;
+  }var mplnko;mlnk = cfbge['b$g'] || (cfbge['b$g'] = {}), vwtuyx = Laya[_[13558]], hdce = Laya[_[6156]], cfbge = Laya[_[14101]], imjlk = Laya[_[13645]], _djonlmk(yz_$, mplnko = cfbge), yz_$[_[43]] = function (bacfed, z$x_yw, kgfih, vsutr, vxz, xyuwvt, jhlk) {
+    void 0x0 === vsutr && (vsutr = 0x0), void 0x0 === vxz && (vxz = 0x6), void 0x0 === xyuwvt && (xyuwvt = !0x0), void 0x0 === jhlk && (jhlk = !0x1);var _x0z$ = new yz_$();return _x0z$[_[2542]](z$x_yw, kgfih, vsutr), _x0z$[_[2546]] = vxz, _x0z$[_[12030]] = xyuwvt, _x0z$[_[2545]] = jhlk, bacfed && bacfed[_[13564]](_x0z$), _x0z$;
+  }, yz_$[_[13803]] = function (fdgie) {
+    fdgie && (fdgie[_[13987]] = !0x0, fdgie[_[13803]]());
+  }, yz_$[_[13351]] = function (zw$x_y) {
+    zw$x_y && (zw$x_y[_[13987]] = !0x1, zw$x_y[_[13351]]());
+  }, yz_$[_[13166]][_[13262]] = function (jlhkig) {
+    Laya[_[13189]][_[13203]](this, this['b$r']), this[_[14005]](vwtuyx[_[13998]], this, this['b$p']), this[_[14005]](vwtuyx[_[13999]], this, this['b$q']), mplnko[_[13166]][_[13262]][_[8938]](this, jlhkig);
+  }, yz_$[_[13166]]['b$p'] = function () {}, yz_$[_[13166]]['b$q'] = function () {}, yz_$[_[13166]][_[2542]] = function (monlpq, vuqt, mjklno) {
+    if (this['b$i'] != monlpq) {
+      this['b$i'] = monlpq, this['b$j'] = [];for (var rqpst = 0x0, ikhj = mjklno; ikhj <= vuqt; ikhj++) this['b$j'][rqpst++] = monlpq + '/' + ikhj + _[0x56];mjklno = imjlk[_[13670]](this['b$j'][0x0]), (mjklno && (this[_[3012]] = mjklno[_[26308]], this[_[3013]] = mjklno[_[26309]]), this['b$r']());
     }
-  }, Object[_[12061]](onkmp[_[12043]], _[0x9b2], { 'get': function () {
+  }, Object[_[13183]](yz_$[_[13166]], _[0x9f1], { 'get': function () {
       return this['b$o'];
-    }, 'set': function (xvuywt) {
-      this['b$o'] = xvuywt;
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), Object[_[12061]](onkmp[_[12043]], _[0x9b3], { 'set': function (x_y0$z) {
-      this['b$n'] != x_y0$z && (this['b$n'] = x_y0$z, this['b$k'] && (Laya[_[12067]][_[12081]](this, this['b$r']), Laya[_[12067]][_[11083]](this['b$n'] * (0x3e8 / 0x3c), this, this['b$r'])));
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), Object[_[12061]](onkmp[_[12043]], _[0x2b4b], { 'set': function (njlikm) {
-      this['b$m'] = njlikm;
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), onkmp[_[12043]][_[12681]] = function () {
-    this['b$k'] && this[_[12229]](), this['b$k'] = !0x0, this['b$l'] = 0x0, Laya[_[12067]][_[11083]](this['b$n'] * (0x3e8 / 0x3c), this, this['b$r']), this['b$r']();
-  }, onkmp[_[12043]][_[12229]] = function () {
-    this['b$k'] = !0x1, this['b$l'] = 0x0, this['b$r'](), Laya[_[12067]][_[12081]](this, this['b$r']);
-  }, onkmp[_[12043]][_[13389]] = function () {
-    this['b$k'] && (this['b$k'] = !0x1, Laya[_[12067]][_[12081]](this, this['b$r']));
-  }, onkmp[_[12043]][_[13390]] = function () {
-    this['b$k'] || (this['b$k'] = !0x0, Laya[_[12067]][_[11083]](this['b$n'] * (0x3e8 / 0x3c), this, this['b$r']), this['b$r']());
-  }, Object[_[12061]](onkmp[_[12043]], _[0x9b4], { 'get': function () {
+    }, 'set': function (ifdg) {
+      this['b$o'] = ifdg;
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), Object[_[13183]](yz_$[_[13166]], _[0x9f2], { 'set': function (roqm) {
+      this['b$n'] != roqm && (this['b$n'] = roqm, this['b$k'] && (Laya[_[13189]][_[13203]](this, this['b$r']), Laya[_[13189]][_[12030]](this['b$n'] * (0x3e8 / 0x3c), this, this['b$r'])));
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), Object[_[13183]](yz_$[_[13166]], _[0x2efe], { 'set': function (vruts) {
+      this['b$m'] = vruts;
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), yz_$[_[13166]][_[13803]] = function () {
+    this['b$k'] && this[_[13351]](), this['b$k'] = !0x0, this['b$l'] = 0x0, Laya[_[13189]][_[12030]](this['b$n'] * (0x3e8 / 0x3c), this, this['b$r']), this['b$r']();
+  }, yz_$[_[13166]][_[13351]] = function () {
+    this['b$k'] = !0x1, this['b$l'] = 0x0, this['b$r'](), Laya[_[13189]][_[13203]](this, this['b$r']);
+  }, yz_$[_[13166]][_[14511]] = function () {
+    this['b$k'] && (this['b$k'] = !0x1, Laya[_[13189]][_[13203]](this, this['b$r']));
+  }, yz_$[_[13166]][_[14512]] = function () {
+    this['b$k'] || (this['b$k'] = !0x0, Laya[_[13189]][_[12030]](this['b$n'] * (0x3e8 / 0x3c), this, this['b$r']), this['b$r']());
+  }, Object[_[13183]](yz_$[_[13166]], _[0x9f3], { 'get': function () {
       return this['b$k'];
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), onkmp[_[12043]]['b$r'] = function () {
-    this['b$j'] && 0x0 != this['b$j'][_[8021]] && (this['b$h'][_[2479]] = this['b$j'][this['b$l']], this['b$k'] && (this['b$l']++, this['b$l'] == this['b$j'][_[8021]] && (this['b$m'] ? this['b$l'] = 0x0 : (Laya[_[12067]][_[12081]](this, this['b$r']), this['b$k'] = !0x1, this['b$o'] && (this[_[12865]] = !0x1), this[_[12397]](z_210$[_[13388]])))));
-  }, ytxwu[_[24868]] = onkmp;
-}(modules = modules || {}), function (jlimh) {
-  var aefdcb, zy10$_;function lkhjmi(rqonm) {
-    void 0x0 === rqonm && (rqonm = 0x0);var portqs = sxuvtw[_[8591]](this) || this;return portqs['b$s'] = { 'bgImgSkin': 'bbbloding/30.jpg', 'topImgSkin': 'bbbloding/100.jpg', 'btmImgSkin': 'bbbloding/40.jpg', 'leftImgSkin': 'bbbloding/60.jpg', 'rightImgSkin': 'bbbloding/80.jpg', 'loadingBarBgSkin': 'bbbloding/image_loding_bar0.png', 'copyRightImgBottom': 0xa, 'processBox1Y': 0x3c3, 'processBox2Y': 0x429, 'loadingTipsSize': 0x1a, 'getTipsBtnVisible': !0x1 }, portqs['b$t'] = { 'bgImgSkin': 'bbbloding/120.jpg', 'topImgSkin': 'bbbloding/110.jpg', 'btmImgSkin': 'bbbloding/50.jpg', 'leftImgSkin': 'bbbloding/70.jpg', 'rightImgSkin': 'bbbloding/90.jpg', 'loadingBarBgSkin': 'bbbloding/image_loding_bar02.png', 'copyRightImgBottom': 0xa, 'processBox1Y': 0x3c3, 'processBox2Y': 0x429, 'loadingTipsSize': 0x1a, 'getTipsBtnVisible': !0x1 }, portqs['b$u'] = 0x0, portqs['b$v'](0x1 == rqonm ? portqs['b$t'] : portqs['b$s']), portqs;
-  }var sxuvtw;aefdcb = jlimh['b$f'] || (jlimh['b$f'] = {}), zy10$_ = jlimh['b$g'][_[24868]], sxuvtw = _dstqvr['b$d'], _dtxywuv(lkhjmi, sxuvtw), lkhjmi[_[12043]][_[12894]] = function () {
-    var ijlnmk;sxuvtw[_[12043]][_[12894]][_[8591]](this), _donprmq[_[36]][_[24864]](), this['b$w'] = _dmnq[_[12799]]['p$CD'], this[_[12870]] = 0x0, this[_[12871]] = 0x0, this['b$w'] && (ijlnmk = this['b$w'][_[24796]], this[_[11992]][_[2871]] = 0x1 != ijlnmk && 0x2 == ijlnmk ? _[0x2ef0] : _[0x2eda]), this['b$x'] = [this[_[11984]], this[_[11985]], this[_[11986]], this[_[11987]]], _dmnq[_[12799]][_[24869]] = this, p$ACDB(), _donprmq[_[36]][_[24799]](), _donprmq[_[36]][_[24800]](), this[_[12898]]();
-  }, lkhjmi[_[12043]]['p$ACD'] = function (hkjig) {
-    var hikjgf = this;if (-0x1 === hkjig) return hikjgf['b$u'] = 0x0, Laya[_[12067]][_[12081]](this, this['p$ACD']), void Laya[_[12067]][_[12068]](0x1, this, this['p$ACD']);var ceafdb;-0x2 !== hkjig ? (hikjgf['b$u'] < 0.9 ? hikjgf['b$u'] += (0.15 * Math[_[12108]]() + 0.01) / (0x64 * Math[_[12108]]() + 0x32) : hikjgf['b$u'] < 0x1 && (hikjgf['b$u'] += 0.0001), 0.9999 < hikjgf['b$u'] && (hikjgf['b$u'] = 0.9999, Laya[_[12067]][_[12081]](this, this['p$ACD']), Laya[_[12067]][_[12390]](0xbb8, this, function () {
-      0.9 < hikjgf['b$u'] && p$ACD(-0x1);
-    })), hkjig = 0x24e * (ceafdb = hikjgf['b$u']), hikjgf['b$u'] = hikjgf['b$u'] > ceafdb ? hikjgf['b$u'] : ceafdb, hikjgf[_[11975]][_[2946]] = hkjig, hkjig = hikjgf[_[11975]]['x'] + hkjig, hikjgf[_[11977]]['x'] = hkjig - 0xf, 0x16c <= hkjig ? (hikjgf[_[11976]][_[12865]] = !0x0, hikjgf[_[11976]]['x'] = hkjig - 0xca) : hikjgf[_[11976]][_[12865]] = !0x1, hikjgf[_[11979]][_[10532]] = (0x64 * ceafdb >> 0x0) + '%', hikjgf['b$u'] < 0.9999 && Laya[_[12067]][_[12068]](0x1, this, this['p$ACD'])) : Laya[_[12067]][_[12081]](this, this['p$ACD']);
-  }, lkhjmi[_[12043]]['p$ADC'] = function (rvwut, xu, nrspq) {
-    var nqrpo = 0x24e * (rvwut = 0x1 < rvwut ? 0x1 : rvwut);this['b$u'] = this['b$u'] > rvwut ? this['b$u'] : rvwut, this[_[11975]][_[2946]] = nqrpo, nqrpo = this[_[11975]]['x'] + nqrpo, (this[_[11977]]['x'] = nqrpo - 0xf, 0x16c <= nqrpo ? (this[_[11976]][_[12865]] = !0x0, this[_[11976]]['x'] = nqrpo - 0xca) : this[_[11976]][_[12865]] = !0x1, this[_[11979]][_[10532]] = (0x64 * rvwut >> 0x0) + '%', this[_[11992]][_[10532]] = xu);for (var egdcb = nrspq - 0x1, swurt = 0x0; swurt < this['b$x'][_[8021]]; swurt++) this['b$x'][swurt][_[2479]] = swurt < egdcb ? 'bbbloding/image_login_point3.png' : egdcb === swurt ? 'bbbloding/image_login_point2.png' : 'bbbloding/image_login_point1.png';
-  }, lkhjmi[_[12043]][_[12898]] = function () {
-    this['p$ADC'](0.1, _[0x2ef1], 0x1), this['p$ACD'](-0x1), _dmnq[_[12799]]['p$ACD'] = this['p$ACD'][_[12072]](this), _dmnq[_[12799]]['p$ADC'] = this['p$ADC'][_[12072]](this), this[_[11995]][_[10532]] = _[0x2ef2] + this['b$w'][_[12094]] + _[0x2ef3] + this['b$w'][_[24788]], this[_[24860]]();
-  }, lkhjmi[_[12043]][_[12077]] = function (pnsqo) {
-    this[_[24870]](), Laya[_[12067]][_[12081]](this, this['p$ACD']), Laya[_[12067]][_[12081]](this, this['b$y']), _donprmq[_[36]][_[24801]](), this[_[11988]][_[12883]](Laya[_[12436]][_[12881]], this, this['b$z']);
-  }, lkhjmi[_[12043]][_[24870]] = function () {
-    _dmnq[_[12799]]['p$ACD'] = function () {}, _dmnq[_[12799]]['p$ADC'] = function () {};
-  }, lkhjmi[_[12043]][_[12140]] = function (jnkilm) {
-    void 0x0 === jnkilm && (jnkilm = !0x0), this[_[24870]](), sxuvtw[_[12043]][_[12140]][_[8591]](this, jnkilm);
-  }, lkhjmi[_[12043]][_[24860]] = function () {
-    this['b$w'][_[24860]] && 0x1 == this['b$w'][_[24860]] && (this[_[11988]][_[12865]] = !0x0, this[_[11988]][_[12275]] = !0x0, this[_[11988]][_[2479]] = 'bbbloding/10.png', this[_[11988]]['on'](Laya[_[12436]][_[12881]], this, this['b$z']), this['b$A'](), this['b$B'](!0x0));
-  }, lkhjmi[_[12043]]['b$z'] = function () {
-    this[_[11988]][_[12275]] && (this[_[11988]][_[12275]] = !0x1, this[_[11988]][_[2479]] = 'bbbloding/20.png', this['b$C'](), this['b$B'](!0x1));
-  }, lkhjmi[_[12043]]['b$v'] = function (vtuswr) {
-    this[_[11966]][_[2479]] = vtuswr[_[24871]], this[_[11967]][_[2479]] = vtuswr[_[24872]], this[_[11968]][_[2479]] = vtuswr[_[24873]], this[_[11969]][_[2479]] = vtuswr[_[24874]], this[_[11970]][_[2479]] = vtuswr[_[24875]], this[_[11972]][_[10542]] = vtuswr[_[24876]], this[_[11973]]['y'] = vtuswr[_[24877]], this[_[11983]]['y'] = vtuswr[_[24878]], this[_[11974]][_[2479]] = vtuswr[_[24879]], this[_[11992]][_[10538]] = vtuswr[_[24880]], this[_[11988]][_[12865]] = this['b$w'][_[24860]] && 0x1 == this['b$w'][_[24860]], this[_[11988]][_[12865]] ? this['b$A']() : this['b$C'](), this['b$B'](this[_[11988]][_[12865]]);
-  }, lkhjmi[_[12043]]['b$A'] = function () {
-    this['b$D'] || (this['b$D'] = zy10$_[_[43]](this[_[11988]], _[0x2ef4], 0x4, 0x0, 0xc), this['b$D'][_[3612]](0xa1, 0x6a), this['b$D'][_[163]](1.14, 1.15)), zy10$_[_[12681]](this['b$D']);
-  }, lkhjmi[_[12043]]['b$C'] = function () {
-    this['b$D'] && zy10$_[_[12229]](this['b$D']);
-  }, lkhjmi[_[12043]]['b$B'] = function (mkjinl) {
-    Laya[_[12067]][_[12081]](this, this['b$y']), mkjinl ? (this['b$E'] = 0x9, this[_[11989]][_[12865]] = !0x0, this['b$y'](), Laya[_[12067]][_[11083]](0x3e8, this, this['b$y'])) : this[_[11989]][_[12865]] = !0x1;
-  }, lkhjmi[_[12043]]['b$y'] = function () {
-    0x0 < this['b$E'] ? (this[_[11989]][_[10532]] = _[0x2ef5] + this['b$E'] + 's)', this['b$E']--) : (this[_[11989]][_[10532]] = '', Laya[_[12067]][_[12081]](this, this['b$y']), this['b$z']());
-  }, aefdcb[_[24881]] = lkhjmi;
-}(modules = modules || {}), function (usx) {
-  var z$xvyw, hklmj, ecgd;function tuwy() {
-    var stvruq = jkigf[_[8591]](this) || this;return stvruq['b$F'] = 0x0, stvruq;
-  }var jkigf;z$xvyw = usx['b$f'] || (usx['b$f'] = {}), hklmj = Laya[_[16867]], ecgd = Laya[_[12436]], jkigf = _dstqvr['b$e'], _dtxywuv(tuwy, jkigf), tuwy[_[12043]][_[12894]] = function () {
-    jkigf[_[12043]][_[12894]][_[8591]](this), _donprmq[_[36]]['p$CBDE'](), this[_[12870]] = 0x0, this[_[12871]] = 0x0, this['b$w'] = _dmnq[_[12799]]['p$CD'], this['b$G'] = new hklmj(), this['b$G'][_[16877]] = '', this['b$G'][_[6198]] = z$xvyw[_[24882]], this['b$G'][_[39]] = 0x5, this['b$G'][_[16878]] = 0x1, this['b$G'][_[16879]] = 0x5, this['b$G'][_[2946]] = this[_[12013]][_[2946]], this['b$G'][_[2947]] = this[_[12013]][_[2947]] - 0x8, this[_[12013]][_[12442]](this['b$G']), this['b$H'] = new hklmj(), this['b$H'][_[16877]] = '', this['b$H'][_[6198]] = z$xvyw[_[24883]], this['b$H'][_[39]] = 0x5, this['b$H'][_[16878]] = 0x1, this['b$H'][_[16879]] = 0x5, this['b$H'][_[2946]] = this[_[12014]][_[2946]], this['b$H'][_[2947]] = this[_[12014]][_[2947]] - 0x8, this[_[12014]][_[12442]](this['b$H']);var qprus = this['b$w'][_[24796]];this['b$I'] = 0x1 != qprus && (0x2 == qprus || 0x3 == qprus) ? _[0x196e] : _[0x2ef6], this[_[12005]][_[12865]] = !0x1, _dmnq[_[12799]][_[16422]] = this, p$ACDB(), _donprmq[_[36]][_[24799]](), this[_[12897]](), this[_[12898]]();
-  }, tuwy[_[12043]][_[12897]] = function () {
-    this[_[6061]]['on'](Laya[_[12436]][_[12881]], this, this['b$J']), this[_[11999]]['on'](Laya[_[12436]][_[12881]], this, this['b$K']), this[_[11999]]['on'](Laya[_[12436]][_[12881]], this, this['b$K']), this[_[12015]]['on'](Laya[_[12436]][_[12881]], this, this['b$L']), this[_[12005]]['on'](Laya[_[12436]][_[12881]], this, this['b$M']), this[_[12007]]['on'](Laya[_[12436]][_[12881]], this, this['b$N']), this[_[12010]]['on'](Laya[_[12436]][_[12916]], this, this['b$O']);
-  }, tuwy[_[12043]][_[12899]] = function () {
-    this[_[6061]][_[12883]](Laya[_[12436]][_[12881]], this, this['b$J']), this[_[11999]][_[12883]](Laya[_[12436]][_[12881]], this, this['b$K']), this[_[11999]][_[12883]](Laya[_[12436]][_[12881]], this, this['b$K']), this[_[12015]][_[12883]](Laya[_[12436]][_[12881]], this, this['b$L']), this[_[12005]][_[12883]](Laya[_[12436]][_[12881]], this, this['b$M']), this[_[12007]][_[12883]](Laya[_[12436]][_[12881]], this, this['b$N']), this[_[12010]][_[12883]](Laya[_[12436]][_[12916]], this, this['b$O']);
-  }, tuwy[_[12043]][_[12898]] = function () {
-    this['b$P'] = this['b$w'][_[23450]][_[16203]], this['b$Q'](this['b$w'][_[23450]]), this['b$G'][_[502]] = this['b$w'][_[24842]], this['b$K'](), this[_[11995]][_[10532]] = _[0x2ef2] + this['b$w'][_[12094]] + _[0x2ef3] + this['b$w'][_[24788]], this[_[12003]][_[2871]] = this[_[12001]][_[2871]] = this['b$I'];
-  }, tuwy[_[12043]][_[12140]] = function ($xwvyz) {
-    void 0x0 === $xwvyz && ($xwvyz = !0x0), this[_[12899]](), this['b$G'] && (this['b$G'][_[12440]](), this['b$G'][_[12140]](), this['b$G'] = null), this['b$H'] && (this['b$H'][_[12440]](), this['b$H'][_[12140]](), this['b$H'] = null), jkigf[_[12043]][_[12140]][_[8591]](this, $xwvyz);
-  }, tuwy[_[12043]]['b$L'] = function () {
-    this[_[12012]][_[12865]] = !0x1;
-  }, tuwy[_[12043]]['b$J'] = function () {
-    this['b$R'](this['b$w'][_[23450]]) && (_dmnq[_[12799]]['p$CD'][_[23450]] = this['b$w'][_[23450]], p$DBAC(0x0, this['b$w'][_[23450]][_[16203]]));
-  }, tuwy[_[12043]]['b$M'] = function () {
-    this[_[12006]][_[12865]] = !0x0, p$DABC(this['b$w'][_[23450]][_[16203]], this['b$S'][_[12072]](this));
-  }, tuwy[_[12043]]['b$N'] = function () {
-    this[_[12006]][_[12865]] = !0x1;
-  }, tuwy[_[12043]]['b$O'] = function () {
-    this['b$F'] = this[_[12010]][_[12921]], Laya[_[2698]]['on'](ecgd[_[16292]], this, this['b$T']), Laya[_[2698]]['on'](ecgd[_[12917]], this, this['b$U']), Laya[_[2698]]['on'](ecgd[_[16294]], this, this['b$U']);
-  }, tuwy[_[12043]]['b$T'] = function () {
-    var rvstw = this['b$F'] - this[_[12010]][_[12921]];this[_[12010]][_[23106]] += rvstw, this['b$F'] = this[_[12010]][_[12921]];
-  }, tuwy[_[12043]]['b$U'] = function () {
-    Laya[_[2698]][_[12883]](ecgd[_[16292]], this, this['b$T']), Laya[_[2698]][_[12883]](ecgd[_[12917]], this, this['b$U']), Laya[_[2698]][_[12883]](ecgd[_[16294]], this, this['b$U']);
-  }, tuwy[_[12043]]['b$R'] = function (tuvqrs) {
-    return -0x1 == tuvqrs[_[197]] ? (alert(_[0x2ef7]), !0x1) : 0x0 != tuvqrs[_[197]] || (alert(_[0x2ef8]), !0x1);
-  }, tuwy[_[12043]]['b$K'] = function () {
-    this['b$w'][_[24844]] ? this[_[12012]][_[12865]] = !0x0 : (this['b$w'][_[24844]] = !0x0, p$ABC(0x0));
-  }, tuwy[_[12043]][_[24884]] = function () {}, tuwy[_[12043]][_[24885]] = function (gjhei) {
-    var gkhij = '';return 0x2 === gjhei ? gkhij = 'bbblogin/image_login_changtong.png' : 0x1 === gjhei ? gkhij = 'bbblogin/image_login_fanmang.png' : -0x1 !== gjhei && 0x0 !== gjhei || (gkhij = 'bbblogin/image_login_weihu.png'), gkhij;
-  }, tuwy[_[12043]]['b$Q'] = function (stpuq) {
-    this[_[12003]][_[10532]] = -0x1 === stpuq[_[197]] ? stpuq[_[24815]] + _[0x2ef9] : 0x0 === stpuq[_[197]] ? stpuq[_[24815]] + _[0x2efa] : stpuq[_[24815]], this[_[12003]][_[2871]] = -0x1 === stpuq[_[197]] ? _[0x19fc] : 0x0 === stpuq[_[197]] ? _[0x2efb] : this['b$I'], this[_[12000]][_[2479]] = this[_[24885]](stpuq[_[197]]), this['b$w'][_[13281]] = stpuq[_[13281]] || '', this['b$w'][_[23450]] = stpuq, this[_[12005]][_[12865]] = !0x0;
-  }, tuwy[_[12043]]['b$V'] = function (xyzw$v) {
-    this[_[24843]](xyzw$v);
-  }, tuwy[_[12043]]['b$W'] = function (pkonl) {
-    this['b$Q'](pkonl), this[_[12012]][_[12865]] = !0x1;
-  }, tuwy[_[12043]]['b$S'] = function (kih) {
-    this[_[12010]][_[10532]] = kih[_[501]][_[6398]] || '', this[_[12008]][_[10532]] = kih[_[501]][_[2406]] || _[0x2ee9];
-  }, tuwy[_[12043]][_[24843]] = function (hfgikj) {
-    if (void 0x0 === hfgikj && (hfgikj = 0x0), this[_[3559]]) {
-      var rwtvus = this['b$w'][_[24842]];if (rwtvus && 0x0 !== rwtvus[_[8021]]) {
-        for (var sruqtp = rwtvus[_[8021]], lkmhj = 0x0; lkmhj < sruqtp; lkmhj++) rwtvus[lkmhj][_[15161]] = this['b$V'][_[12072]](this), rwtvus[lkmhj][_[6847]] = lkmhj == hfgikj, rwtvus[lkmhj][_[4328]] = lkmhj;var pnosr = (this['b$G'][_[16883]] = rwtvus)[hfgikj]['id'];this['b$w'][_[24793]][pnosr] ? this[_[24847]](pnosr) : this['b$w'][_[24845]] || (this['b$w'][_[24845]] = !0x0, -0x1 == pnosr ? p$BAC(0x0) : -0x2 == pnosr ? p$CEBD(0x0) : p$CAB(0x0, pnosr));
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), yz_$[_[13166]]['b$r'] = function () {
+    this['b$j'] && 0x0 != this['b$j'][_[8332]] && (this['b$h'][_[2542]] = this['b$j'][this['b$l']], this['b$k'] && (this['b$l']++, this['b$l'] == this['b$j'][_[8332]] && (this['b$m'] ? this['b$l'] = 0x0 : (Laya[_[13189]][_[13203]](this, this['b$r']), this['b$k'] = !0x1, this['b$o'] && (this[_[13987]] = !0x1), this[_[13519]](vwtuyx[_[14510]])))));
+  }, mlnk[_[26310]] = yz_$;
+}(modules = modules || {}), function (pqnorm) {
+  var z2_10, uvws;function wtuv(wz$yvx) {
+    void 0x0 === wz$yvx && (wz$yvx = 0x0);var kijml = gbfdce[_[8938]](this) || this;return kijml['b$s'] = { 'bgImgSkin': _[0x32cd], 'topImgSkin': _[0x32ce], 'btmImgSkin': _[0x32cf], 'leftImgSkin': _[0x32d0], 'rightImgSkin': _[0x32d1], 'loadingBarBgSkin': _[0x3294], 'copyRightImgBottom': 0xa, 'processBox1Y': 0x3c3, 'processBox2Y': 0x429, 'loadingTipsSize': 0x1a, 'getTipsBtnVisible': !0x1 }, kijml['b$t'] = { 'bgImgSkin': _[0x32d2], 'topImgSkin': _[0x32d3], 'btmImgSkin': _[0x32d4], 'leftImgSkin': _[0x32d5], 'rightImgSkin': _[0x32d6], 'loadingBarBgSkin': _[0x32d7], 'copyRightImgBottom': 0xa, 'processBox1Y': 0x3c3, 'processBox2Y': 0x429, 'loadingTipsSize': 0x1a, 'getTipsBtnVisible': !0x1 }, kijml['b$u'] = 0x0, kijml['b$v'](0x1 == wz$yvx ? kijml['b$t'] : kijml['b$s']), kijml;
+  }var gbfdce;z2_10 = pqnorm['b$f'] || (pqnorm['b$f'] = {}), uvws = pqnorm['b$g'][_[26310]], gbfdce = _dcdfeb['b$d'], _djonlmk(wtuv, gbfdce), wtuv[_[13166]][_[14016]] = function () {
+    var upsrq;gbfdce[_[13166]][_[14016]][_[8938]](this), _dlkhimj[_[36]][_[26306]](), this['b$w'] = _diklhgj[_[13921]]['p$CD'], this[_[13992]] = 0x0, this[_[13993]] = 0x0, this['b$w'] && (upsrq = this['b$w'][_[26238]], this[_[12973]][_[2937]] = 0x1 != upsrq && 0x2 == upsrq ? _[0x32d8] : _[0x32af]), this['b$x'] = [this[_[12961]], this[_[12963]], this[_[12965]], this[_[12967]]], _diklhgj[_[13921]][_[26311]] = this, p$ACDB(), _dlkhimj[_[36]][_[26241]](), _dlkhimj[_[36]][_[26242]](), this[_[14020]]();
+  }, wtuv[_[13166]]['p$ACD'] = function (pqmnor) {
+    var $x_zy = this;if (-0x1 === pqmnor) return $x_zy['b$u'] = 0x0, Laya[_[13189]][_[13203]](this, this['p$ACD']), void Laya[_[13189]][_[13190]](0x1, this, this['p$ACD']);var cbd;-0x2 !== pqmnor ? ($x_zy['b$u'] < 0.9 ? $x_zy['b$u'] += (0.15 * Math[_[13230]]() + 0.01) / (0x64 * Math[_[13230]]() + 0x32) : $x_zy['b$u'] < 0x1 && ($x_zy['b$u'] += 0.0001), 0.9999 < $x_zy['b$u'] && ($x_zy['b$u'] = 0.9999, Laya[_[13189]][_[13203]](this, this['p$ACD']), Laya[_[13189]][_[13512]](0xbb8, this, function () {
+      0.9 < $x_zy['b$u'] && p$ACD(-0x1);
+    })), pqmnor = 0x24e * (cbd = $x_zy['b$u']), $x_zy['b$u'] = $x_zy['b$u'] > cbd ? $x_zy['b$u'] : cbd, $x_zy[_[12949]][_[3012]] = pqmnor, pqmnor = $x_zy[_[12949]]['x'] + pqmnor, $x_zy[_[12953]]['x'] = pqmnor - 0xf, 0x16c <= pqmnor ? ($x_zy[_[12951]][_[13987]] = !0x0, $x_zy[_[12951]]['x'] = pqmnor - 0xca) : $x_zy[_[12951]][_[13987]] = !0x1, $x_zy[_[12956]][_[11414]] = (0x64 * cbd >> 0x0) + '%', $x_zy['b$u'] < 0.9999 && Laya[_[13189]][_[13190]](0x1, this, this['p$ACD'])) : Laya[_[13189]][_[13203]](this, this['p$ACD']);
+  }, wtuv[_[13166]]['p$ADC'] = function (nqo, bceg, zy$_x) {
+    var zwvuyx = 0x24e * (nqo = 0x1 < nqo ? 0x1 : nqo);this['b$u'] = this['b$u'] > nqo ? this['b$u'] : nqo, this[_[12949]][_[3012]] = zwvuyx, zwvuyx = this[_[12949]]['x'] + zwvuyx, (this[_[12953]]['x'] = zwvuyx - 0xf, 0x16c <= zwvuyx ? (this[_[12951]][_[13987]] = !0x0, this[_[12951]]['x'] = zwvuyx - 0xca) : this[_[12951]][_[13987]] = !0x1, this[_[12956]][_[11414]] = (0x64 * nqo >> 0x0) + '%', this[_[12973]][_[11414]] = bceg);for (var eabdcf = zy$_x - 0x1, wvxty = 0x0; wvxty < this['b$x'][_[8332]]; wvxty++) this['b$x'][wvxty][_[2542]] = wvxty < eabdcf ? _[0x32a2] : eabdcf === wvxty ? _[0x32a4] : _[0x32a6];
+  }, wtuv[_[13166]][_[14020]] = function () {
+    this['p$ADC'](0.1, _[0x32d9], 0x1), this['p$ACD'](-0x1), _diklhgj[_[13921]]['p$ACD'] = this['p$ACD'][_[13194]](this), _diklhgj[_[13921]]['p$ADC'] = this['p$ADC'][_[13194]](this), this[_[12976]][_[11414]] = _[0x32da] + this['b$w'][_[13216]] + _[0x32db] + this['b$w'][_[26227]], this[_[26301]]();
+  }, wtuv[_[13166]][_[13199]] = function (wzyuv) {
+    this[_[26312]](), Laya[_[13189]][_[13203]](this, this['p$ACD']), Laya[_[13189]][_[13203]](this, this['b$y']), _dlkhimj[_[36]][_[26243]](), this[_[12968]][_[14005]](Laya[_[13558]][_[14003]], this, this['b$z']);
+  }, wtuv[_[13166]][_[26312]] = function () {
+    _diklhgj[_[13921]]['p$ACD'] = function () {}, _diklhgj[_[13921]]['p$ADC'] = function () {};
+  }, wtuv[_[13166]][_[13262]] = function (prqnos) {
+    void 0x0 === prqnos && (prqnos = !0x0), this[_[26312]](), gbfdce[_[13166]][_[13262]][_[8938]](this, prqnos);
+  }, wtuv[_[13166]][_[26301]] = function () {
+    this['b$w'][_[26301]] && 0x1 == this['b$w'][_[26301]] && (this[_[12968]][_[13987]] = !0x0, this[_[12968]][_[13397]] = !0x0, this[_[12968]][_[2542]] = _[0x32a9], this[_[12968]]['on'](Laya[_[13558]][_[14003]], this, this['b$z']), this['b$A'](), this['b$B'](!0x0));
+  }, wtuv[_[13166]]['b$z'] = function () {
+    this[_[12968]][_[13397]] && (this[_[12968]][_[13397]] = !0x1, this[_[12968]][_[2542]] = _[0x32dc], this['b$C'](), this['b$B'](!0x1));
+  }, wtuv[_[13166]]['b$v'] = function (trupq) {
+    this[_[12933]][_[2542]] = trupq[_[26313]], this[_[12935]][_[2542]] = trupq[_[26314]], this[_[12937]][_[2542]] = trupq[_[26315]], this[_[12939]][_[2542]] = trupq[_[26316]], this[_[12941]][_[2542]] = trupq[_[26317]], this[_[12944]][_[11424]] = trupq[_[26318]], this[_[12946]]['y'] = trupq[_[26319]], this[_[12960]]['y'] = trupq[_[26320]], this[_[12947]][_[2542]] = trupq[_[26321]], this[_[12973]][_[11420]] = trupq[_[26322]], this[_[12968]][_[13987]] = this['b$w'][_[26301]] && 0x1 == this['b$w'][_[26301]], this[_[12968]][_[13987]] ? this['b$A']() : this['b$C'](), this['b$B'](this[_[12968]][_[13987]]);
+  }, wtuv[_[13166]]['b$A'] = function () {
+    this['b$D'] || (this['b$D'] = uvws[_[43]](this[_[12968]], _[0x32dd], 0x4, 0x0, 0xc), this['b$D'][_[3691]](0xa1, 0x6a), this['b$D'][_[164]](1.14, 1.15)), uvws[_[13803]](this['b$D']);
+  }, wtuv[_[13166]]['b$C'] = function () {
+    this['b$D'] && uvws[_[13351]](this['b$D']);
+  }, wtuv[_[13166]]['b$B'] = function (_$wyzx) {
+    Laya[_[13189]][_[13203]](this, this['b$y']), _$wyzx ? (this['b$E'] = 0x9, this[_[12970]][_[13987]] = !0x0, this['b$y'](), Laya[_[13189]][_[12030]](0x3e8, this, this['b$y'])) : this[_[12970]][_[13987]] = !0x1;
+  }, wtuv[_[13166]]['b$y'] = function () {
+    0x0 < this['b$E'] ? (this[_[12970]][_[11414]] = _[0x32de] + this['b$E'] + 's)', this['b$E']--) : (this[_[12970]][_[11414]] = '', Laya[_[13189]][_[13203]](this, this['b$y']), this['b$z']());
+  }, z2_10[_[26323]] = wtuv;
+}(modules = modules || {}), function (gfeihd) {
+  var dfgi, vtuy, rqpnso;function $zyw() {
+    var $210z_ = qptur[_[8938]](this) || this;return $210z_['b$F'] = 0x0, $210z_;
+  }var qptur;dfgi = gfeihd['b$f'] || (gfeihd['b$f'] = {}), vtuy = Laya[_[17988]], rqpnso = Laya[_[13558]], qptur = _dcdfeb['b$e'], _djonlmk($zyw, qptur), $zyw[_[13166]][_[14016]] = function () {
+    qptur[_[13166]][_[14016]][_[8938]](this), _dlkhimj[_[36]]['p$CBDE'](), this[_[13992]] = 0x0, this[_[13993]] = 0x0, this['b$w'] = _diklhgj[_[13921]]['p$CD'], this['b$G'] = new vtuy(), this['b$G'][_[17998]] = '', this['b$G'][_[6313]] = dfgi[_[26324]], this['b$G'][_[39]] = 0x5, this['b$G'][_[17999]] = 0x1, this['b$G'][_[18000]] = 0x5, this['b$G'][_[3012]] = this[_[13001]][_[3012]], this['b$G'][_[3013]] = this[_[13001]][_[3013]] - 0x8, this[_[13001]][_[13564]](this['b$G']), this['b$H'] = new vtuy(), this['b$H'][_[17998]] = '', this['b$H'][_[6313]] = dfgi[_[26325]], this['b$H'][_[39]] = 0x5, this['b$H'][_[17999]] = 0x1, this['b$H'][_[18000]] = 0x5, this['b$H'][_[3012]] = this[_[13002]][_[3012]], this['b$H'][_[3013]] = this[_[13002]][_[3013]] - 0x8, this[_[13002]][_[13564]](this['b$H']);var badefc = this['b$w'][_[26238]];this['b$I'] = 0x1 != badefc && (0x2 == badefc || 0x3 == badefc) ? _[0x19f0] : _[0x32df], this[_[12989]][_[13987]] = !0x1, _diklhgj[_[13921]][_[17544]] = this, p$ACDB(), _dlkhimj[_[36]][_[26241]](), this[_[14019]](), this[_[14020]]();
+  }, $zyw[_[13166]][_[14019]] = function () {
+    this[_[6165]]['on'](Laya[_[13558]][_[14003]], this, this['b$J']), this[_[12980]]['on'](Laya[_[13558]][_[14003]], this, this['b$K']), this[_[12980]]['on'](Laya[_[13558]][_[14003]], this, this['b$K']), this[_[13003]]['on'](Laya[_[13558]][_[14003]], this, this['b$L']), this[_[12989]]['on'](Laya[_[13558]][_[14003]], this, this['b$M']), this[_[12993]]['on'](Laya[_[13558]][_[14003]], this, this['b$N']), this[_[12997]]['on'](Laya[_[13558]][_[14038]], this, this['b$O']);
+  }, $zyw[_[13166]][_[14021]] = function () {
+    this[_[6165]][_[14005]](Laya[_[13558]][_[14003]], this, this['b$J']), this[_[12980]][_[14005]](Laya[_[13558]][_[14003]], this, this['b$K']), this[_[12980]][_[14005]](Laya[_[13558]][_[14003]], this, this['b$K']), this[_[13003]][_[14005]](Laya[_[13558]][_[14003]], this, this['b$L']), this[_[12989]][_[14005]](Laya[_[13558]][_[14003]], this, this['b$M']), this[_[12993]][_[14005]](Laya[_[13558]][_[14003]], this, this['b$N']), this[_[12997]][_[14005]](Laya[_[13558]][_[14038]], this, this['b$O']);
+  }, $zyw[_[13166]][_[14020]] = function () {
+    this['b$P'] = this['b$w'][_[24570]][_[17325]], this['b$Q'](this['b$w'][_[24570]]), this['b$G'][_[511]] = this['b$w'][_[26283]], this['b$K'](), this[_[12976]][_[11414]] = _[0x32da] + this['b$w'][_[13216]] + _[0x32db] + this['b$w'][_[26227]], this[_[12987]][_[2937]] = this[_[12985]][_[2937]] = this['b$I'];
+  }, $zyw[_[13166]][_[13262]] = function (vwsurt) {
+    void 0x0 === vwsurt && (vwsurt = !0x0), this[_[14021]](), this['b$G'] && (this['b$G'][_[13562]](), this['b$G'][_[13262]](), this['b$G'] = null), this['b$H'] && (this['b$H'][_[13562]](), this['b$H'][_[13262]](), this['b$H'] = null), qptur[_[13166]][_[13262]][_[8938]](this, vwsurt);
+  }, $zyw[_[13166]]['b$L'] = function () {
+    this[_[12999]][_[13987]] = !0x1;
+  }, $zyw[_[13166]]['b$J'] = function () {
+    this['b$R'](this['b$w'][_[24570]]) && (_diklhgj[_[13921]]['p$CD'][_[24570]] = this['b$w'][_[24570]], p$DBAC(0x0, this['b$w'][_[24570]][_[17325]]));
+  }, $zyw[_[13166]]['b$M'] = function () {
+    this[_[12991]][_[13987]] = !0x0, p$DABC(this['b$w'][_[24570]][_[17325]], this['b$S'][_[13194]](this));
+  }, $zyw[_[13166]]['b$N'] = function () {
+    this[_[12991]][_[13987]] = !0x1;
+  }, $zyw[_[13166]]['b$O'] = function () {
+    this['b$F'] = this[_[12997]][_[14043]], Laya[_[2762]]['on'](rqpnso[_[17414]], this, this['b$T']), Laya[_[2762]]['on'](rqpnso[_[14039]], this, this['b$U']), Laya[_[2762]]['on'](rqpnso[_[17416]], this, this['b$U']);
+  }, $zyw[_[13166]]['b$T'] = function () {
+    var kilmjn = this['b$F'] - this[_[12997]][_[14043]];this[_[12997]][_[24226]] += kilmjn, this['b$F'] = this[_[12997]][_[14043]];
+  }, $zyw[_[13166]]['b$U'] = function () {
+    Laya[_[2762]][_[14005]](rqpnso[_[17414]], this, this['b$T']), Laya[_[2762]][_[14005]](rqpnso[_[14039]], this, this['b$U']), Laya[_[2762]][_[14005]](rqpnso[_[17416]], this, this['b$U']);
+  }, $zyw[_[13166]]['b$R'] = function (jfhgk) {
+    return -0x1 == jfhgk[_[198]] ? (alert(_[0x32e0]), !0x1) : 0x0 != jfhgk[_[198]] || (alert(_[0x32e1]), !0x1);
+  }, $zyw[_[13166]]['b$K'] = function () {
+    this['b$w'][_[26285]] ? this[_[12999]][_[13987]] = !0x0 : (this['b$w'][_[26285]] = !0x0, p$ABC(0x0));
+  }, $zyw[_[13166]][_[26326]] = function () {}, $zyw[_[13166]][_[26327]] = function (rnomq) {
+    var quprs = '';return 0x2 === rnomq ? quprs = _[0x32b7] : 0x1 === rnomq ? quprs = _[0x32e2] : -0x1 !== rnomq && 0x0 !== rnomq || (quprs = _[0x32e3]), quprs;
+  }, $zyw[_[13166]]['b$Q'] = function (bge) {
+    this[_[12987]][_[11414]] = -0x1 === bge[_[198]] ? bge[_[26256]] + _[0x32e4] : 0x0 === bge[_[198]] ? bge[_[26256]] + _[0x32e5] : bge[_[26256]], this[_[12987]][_[2937]] = -0x1 === bge[_[198]] ? _[0x1a8a] : 0x0 === bge[_[198]] ? _[0x32e6] : this['b$I'], this[_[12982]][_[2542]] = this[_[26327]](bge[_[198]]), this['b$w'][_[14403]] = bge[_[14403]] || '', this['b$w'][_[24570]] = bge, this[_[12989]][_[13987]] = !0x0;
+  }, $zyw[_[13166]]['b$V'] = function (gcehf) {
+    this[_[26284]](gcehf);
+  }, $zyw[_[13166]]['b$W'] = function (uspqt) {
+    this['b$Q'](uspqt), this[_[12999]][_[13987]] = !0x1;
+  }, $zyw[_[13166]]['b$S'] = function (mnkij) {
+    this[_[12997]][_[11414]] = mnkij[_[510]][_[6521]] || '', this[_[12995]][_[11414]] = mnkij[_[510]][_[2469]] || _[0x32c4];
+  }, $zyw[_[13166]][_[26284]] = function (likgjh) {
+    if (void 0x0 === likgjh && (likgjh = 0x0), this[_[3638]]) {
+      var _23041 = this['b$w'][_[26283]];if (_23041 && 0x0 !== _23041[_[8332]]) {
+        for (var _1432 = _23041[_[8332]], vtwsr = 0x0; vtwsr < _1432; vtwsr++) _23041[vtwsr][_[16283]] = this['b$V'][_[13194]](this), _23041[vtwsr][_[7011]] = vtwsr == likgjh, _23041[vtwsr][_[4412]] = vtwsr;var ecfb = (this['b$G'][_[18004]] = _23041)[likgjh]['id'];this['b$w'][_[26235]][ecfb] ? this[_[26288]](ecfb) : this['b$w'][_[26286]] || (this['b$w'][_[26286]] = !0x0, -0x1 == ecfb ? p$BAC(0x0) : -0x2 == ecfb ? p$CEBD(0x0) : p$CAB(0x0, ecfb));
       }
     }
-  }, tuwy[_[12043]][_[24847]] = function (fhdge) {
-    if (this[_[3559]] && this['b$w'][_[24793]][fhdge]) {
-      for (var ijhgf = this['b$w'][_[24793]][fhdge], kihljg = ijhgf[_[8021]], xswt = 0x0; xswt < kihljg; xswt++) ijhgf[xswt][_[15161]] = this['b$W'][_[12072]](this);this['b$H'][_[16883]] = ijhgf;
+  }, $zyw[_[13166]][_[26288]] = function (fech) {
+    if (this[_[3638]] && this['b$w'][_[26235]][fech]) {
+      for (var xwsvut = this['b$w'][_[26235]][fech], _yxw = xwsvut[_[8332]], gebc = 0x0; gebc < _yxw; gebc++) xwsvut[gebc][_[16283]] = this['b$W'][_[13194]](this);this['b$H'][_[18004]] = xwsvut;
     }
-  }, z$xvyw[_[24886]] = tuwy;
+  }, dfgi[_[26328]] = $zyw;
 }(modules = modules || {});var modules,
-    _dmnq = Laya[_[12078]],
-    _dswrutv = Laya[_[23433]],
-    _dz_1$0y = Laya[_[23434]],
-    _dikjlm = Laya[_[23435]],
-    _dtsrqo = Laya[_[12958]],
-    _djkfig = modules['b$f'][_[24865]],
-    _duvswt = modules['b$f'][_[24881]],
-    _dkgfhij = modules['b$f'][_[24886]],
-    _donprmq = function () {
-  function kjfhgi(txvusw) {
-    this['p$CEDB'] = [_[0x2efc], 'bbbloding/30.jpg', 'bbbloding/40.jpg', 'bbbloding/60.jpg', 'bbbloding/80.jpg', 'bbbloding/100.jpg'], this['p$BCE'] = [_[0x2efc], _[0x2efd], 'bbbloding/120.jpg', 'bbbloding/50.jpg', 'bbbloding/70.jpg', 'bbbloding/90.jpg', 'bbbloding/110.jpg', 'bbbloding/10.png', 'bbbloding/20.png'], this['p$BEC'] = [_[0x2efe], 'bbblogin/20.jpg'], this['p$CBE'] = ['bbblogin/30.jpg', 'bbblogin/40.jpg', 'bbblogin/50.jpg', 'bbblogin/60.jpg', 'bbblogin/10.png', 'bbblogin/80.png', 'bbblogin/90.png'], this[_[24887]] = !0x1, this[_[24888]] = !0x1, kjfhgi[_[36]] = this, Laya[_[24889]][_[10148]](), Laya3D[_[10148]](0x0, 0x0, !0x1, !0x1, !0x1), DecodeTools[_[10148]](), Laya[_[2698]][_[12600]] = Laya[_[16304]][_[16305]], Laya[_[2698]][_[23477]] = Laya[_[16304]][_[23478]], Laya[_[2698]][_[23479]] = Laya[_[16304]][_[23480]], Laya[_[2698]][_[23481]] = Laya[_[16304]][_[23482]], Laya[_[2698]][_[18340]] = Laya[_[16304]][_[18341]];var nqopm = Laya[_[23483]];nqopm[_[23484]] = 0x4, nqopm[_[23485]] = nqopm[_[23486]] = 0x400, nqopm[_[23487]](), Laya[_[13377]][_[23497]] = Laya[_[13377]][_[23498]] = '', Laya[_[12078]][_[12799]][_[19496]](Laya[_[12436]][_[23499]], this['b$X'][_[12072]](this)), txvusw['p$ECD'] || (this['p$BCE'] = []), nqopm = Laya[_[12523]][_[13368]], (nqopm[_[0x2efe]] = txvusw[_[24890]], nqopm[_[0x2efc]] = txvusw[_[24891]], nqopm[_[0x2efd]] = txvusw[_[12020]], nqopm[_[0x2eff]] = { 'frames': { 'btn_chuangjue_kaishi.png': { 'frame': { 'h': 0x58, 'idx': 0x0, 'w': 0x1fa, 'x': 0x0, 'y': 0x0 }, 'sourceSize': { 'h': 0x58, 'w': 0x1fa }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'btn_chuangjue_nan.png': { 'frame': { 'h': 0x62, 'idx': 0x0, 'w': 0x6c, 'x': 0x14f, 'y': 0x59 }, 'sourceSize': { 'h': 0x62, 'w': 0x6c }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'btn_chuangjue_nv.png': { 'frame': { 'h': 0x62, 'idx': 0x0, 'w': 0x6b, 'x': 0x0, 'y': 0xa4 }, 'sourceSize': { 'h': 0x62, 'w': 0x6b }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'image_chuangjue_mingbg.png': { 'frame': { 'h': 0x4a, 'idx': 0x0, 'w': 0x14e, 'x': 0x0, 'y': 0x59 }, 'sourceSize': { 'h': 0x4a, 'w': 0x14e }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'image_chuangjue_suiji.png': { 'frame': { 'h': 0x38, 'idx': 0x0, 'w': 0x34, 'x': 0x1bc, 'y': 0x59 }, 'sourceSize': { 'h': 0x38, 'w': 0x34 }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } } }, 'meta': { 'image': 'create_role_atlas.png', 'prefix': _[0x2f00] } }, _dmnq[_[12799]][_[12794]] = kjfhgi[_[36]]['p$CEB'], _dmnq[_[12799]][_[12795]] = kjfhgi[_[36]]['p$CEB'], this[_[24892]] = new Laya[_[12979]](), this[_[24892]][_[21]] = _[0x89c], Laya[_[2698]][_[12442]](this[_[24892]]), this['b$X']());
-  }return kjfhgi[_[12043]]['p$ADBC'] = function (egbdfc) {
-    kjfhgi[_[36]][_[24892]][_[12865]] = egbdfc;
-  }, kjfhgi[_[12043]]['p$BDCE'] = function () {
-    kjfhgi[_[36]][_[24893]] || (kjfhgi[_[36]][_[24893]] = new _djkfig()), kjfhgi[_[36]][_[24893]][_[3559]] || kjfhgi[_[36]][_[24892]][_[12442]](kjfhgi[_[36]][_[24893]]), kjfhgi[_[36]]['b$Y']();
-  }, kjfhgi[_[12043]][_[24799]] = function () {
-    this[_[24893]] && this[_[24893]][_[3559]] && (Laya[_[2698]][_[12439]](this[_[24893]]), this[_[24893]][_[12140]](!0x0), this[_[24893]] = null);
-  }, kjfhgi[_[12043]]['p$CBDE'] = function () {
-    this[_[24887]] || (this[_[24887]] = !0x0, Laya[_[12406]][_[12127]](this['p$BEC']), Laya[_[12406]][_[12127]](this['p$CBE']));
-  }, kjfhgi[_[12043]][_[24818]] = function () {
-    Laya[_[12406]][_[12127]](this['p$BEC'], _dtsrqo[_[43]](this, function () {
-      kjfhgi[_[36]][_[24894]] || (kjfhgi[_[36]][_[24894]] = new _dkgfhij()), kjfhgi[_[36]][_[24894]][_[3559]] || kjfhgi[_[36]][_[24892]][_[12442]](kjfhgi[_[36]][_[24894]]), kjfhgi[_[36]]['b$Y']();
+    _diklhgj = Laya[_[13200]],
+    _dfikgjh = Laya[_[24553]],
+    _dponmkl = Laya[_[24554]],
+    _dfecg = Laya[_[24555]],
+    _dolkmnp = Laya[_[14080]],
+    _dfhecd = modules['b$f'][_[26307]],
+    _dpqnsro = modules['b$f'][_[26323]],
+    _dutsxw = modules['b$f'][_[26328]],
+    _dlkhimj = function () {
+  function ljkmh(_$10yz) {
+    this['p$CEDB'] = [_[0x32e7], _[0x32cd], _[0x32cf], _[0x32d0], _[0x32d1], _[0x32ce]], this['p$BCE'] = [_[0x32e7], _[0x32e8], _[0x32d2], _[0x32d4], _[0x32d5], _[0x32d6], _[0x32d3], _[0x32a9], _[0x32dc]], this['p$BEC'] = [_[0x32e9], _[0x3286]], this['p$CBE'] = [_[0x328a], _[0x328c], _[0x328e], _[0x3288], _[0x3291], _[0x32c0], _[0x32c8]], this[_[26329]] = !0x1, this[_[26330]] = !0x1, ljkmh[_[36]] = this, Laya[_[26331]][_[10998]](), Laya3D[_[10998]](0x0, 0x0, !0x1, !0x1, !0x1), DecodeTools[_[10998]](), Laya[_[2762]][_[13722]] = Laya[_[17426]][_[17427]], Laya[_[2762]][_[24597]] = Laya[_[17426]][_[24598]], Laya[_[2762]][_[24599]] = Laya[_[17426]][_[24600]], Laya[_[2762]][_[24601]] = Laya[_[17426]][_[24602]], Laya[_[2762]][_[19460]] = Laya[_[17426]][_[19461]];var lihjg = Laya[_[24603]];lihjg[_[24604]] = 0x4, lihjg[_[24605]] = lihjg[_[24606]] = 0x400, lihjg[_[24607]](), Laya[_[14499]][_[24617]] = Laya[_[14499]][_[24618]] = '', Laya[_[13200]][_[13921]][_[20616]](Laya[_[13558]][_[24619]], this['b$X'][_[13194]](this)), _$10yz['p$ECD'] || (this['p$BCE'] = []), lihjg = Laya[_[13645]][_[14490]], (lihjg[_[0x32e9]] = _$10yz[_[26332]], lihjg[_[0x32e7]] = _$10yz[_[26333]], lihjg[_[0x32e8]] = _$10yz[_[13021]], lihjg[_[0x32ea]] = { 'frames': { 'btn_chuangjue_kaishi.png': { 'frame': { 'h': 0x58, 'idx': 0x0, 'w': 0x1fa, 'x': 0x0, 'y': 0x0 }, 'sourceSize': { 'h': 0x58, 'w': 0x1fa }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'btn_chuangjue_nan.png': { 'frame': { 'h': 0x62, 'idx': 0x0, 'w': 0x6c, 'x': 0x14f, 'y': 0x59 }, 'sourceSize': { 'h': 0x62, 'w': 0x6c }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'btn_chuangjue_nv.png': { 'frame': { 'h': 0x62, 'idx': 0x0, 'w': 0x6b, 'x': 0x0, 'y': 0xa4 }, 'sourceSize': { 'h': 0x62, 'w': 0x6b }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'image_chuangjue_mingbg.png': { 'frame': { 'h': 0x4a, 'idx': 0x0, 'w': 0x14e, 'x': 0x0, 'y': 0x59 }, 'sourceSize': { 'h': 0x4a, 'w': 0x14e }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'image_chuangjue_suiji.png': { 'frame': { 'h': 0x38, 'idx': 0x0, 'w': 0x34, 'x': 0x1bc, 'y': 0x59 }, 'sourceSize': { 'h': 0x38, 'w': 0x34 }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } } }, 'meta': { 'image': _[0x32eb], 'prefix': _[0x32ec] } }, _diklhgj[_[13921]][_[13916]] = ljkmh[_[36]]['p$CEB'], _diklhgj[_[13921]][_[13917]] = ljkmh[_[36]]['p$CEB'], this[_[26334]] = new Laya[_[14101]](), this[_[26334]][_[21]] = _[0x8a7], Laya[_[2762]][_[13564]](this[_[26334]]), this['b$X']());
+  }return ljkmh[_[13166]]['p$ADBC'] = function (srptq) {
+    ljkmh[_[36]][_[26334]][_[13987]] = srptq;
+  }, ljkmh[_[13166]]['p$BDCE'] = function () {
+    ljkmh[_[36]][_[26335]] || (ljkmh[_[36]][_[26335]] = new _dfhecd()), ljkmh[_[36]][_[26335]][_[3638]] || ljkmh[_[36]][_[26334]][_[13564]](ljkmh[_[36]][_[26335]]), ljkmh[_[36]]['b$Y']();
+  }, ljkmh[_[13166]][_[26241]] = function () {
+    this[_[26335]] && this[_[26335]][_[3638]] && (Laya[_[2762]][_[13561]](this[_[26335]]), this[_[26335]][_[13262]](!0x0), this[_[26335]] = null);
+  }, ljkmh[_[13166]]['p$CBDE'] = function () {
+    this[_[26329]] || (this[_[26329]] = !0x0, Laya[_[13528]][_[13249]](this['p$BEC']), Laya[_[13528]][_[13249]](this['p$CBE']));
+  }, ljkmh[_[13166]][_[26259]] = function () {
+    Laya[_[13528]][_[13249]](this['p$BEC'], _dolkmnp[_[43]](this, function () {
+      ljkmh[_[36]][_[26336]] || (ljkmh[_[36]][_[26336]] = new _dutsxw()), ljkmh[_[36]][_[26336]][_[3638]] || ljkmh[_[36]][_[26334]][_[13564]](ljkmh[_[36]][_[26336]]), ljkmh[_[36]]['b$Y']();
     }));
-  }, kjfhgi[_[12043]][_[24800]] = function () {
-    this[_[24894]] && this[_[24894]][_[3559]] && (Laya[_[2698]][_[12439]](this[_[24894]]), this[_[24894]][_[12140]](!0x0), this[_[24894]] = null);
-  }, kjfhgi[_[12043]][_[24864]] = function () {
-    this[_[24888]] || (this[_[24888]] = !0x0, Laya[_[12406]][_[12127]](this['p$CEDB']), this['p$BCE'] && this['p$BCE'][_[8021]] && Laya[_[12406]][_[12127]](this['p$BCE']));
-  }, kjfhgi[_[12043]][_[24817]] = function (yzx$_) {
-    var wzyvux = 0x1 == (yzx$_ = void 0x0 === yzx$_ ? 0x0 : yzx$_) && this['p$BCE'][_[8021]] ? this['p$BCE'] : this['p$CEDB'];Laya[_[12406]][_[12127]](wzyvux, _dtsrqo[_[43]](this, function () {
-      kjfhgi[_[36]][_[24895]] || (kjfhgi[_[36]][_[24895]] = new _duvswt(yzx$_)), kjfhgi[_[36]][_[24895]][_[3559]] || kjfhgi[_[36]][_[24892]][_[12442]](kjfhgi[_[36]][_[24895]]), kjfhgi[_[36]]['b$Y']();
+  }, ljkmh[_[13166]][_[26242]] = function () {
+    this[_[26336]] && this[_[26336]][_[3638]] && (Laya[_[2762]][_[13561]](this[_[26336]]), this[_[26336]][_[13262]](!0x0), this[_[26336]] = null);
+  }, ljkmh[_[13166]][_[26306]] = function () {
+    this[_[26330]] || (this[_[26330]] = !0x0, Laya[_[13528]][_[13249]](this['p$CEDB']), this['p$BCE'] && this['p$BCE'][_[8332]] && Laya[_[13528]][_[13249]](this['p$BCE']));
+  }, ljkmh[_[13166]][_[26258]] = function (xwsvtu) {
+    var kmlnji = 0x1 == (xwsvtu = void 0x0 === xwsvtu ? 0x0 : xwsvtu) && this['p$BCE'][_[8332]] ? this['p$BCE'] : this['p$CEDB'];Laya[_[13528]][_[13249]](kmlnji, _dolkmnp[_[43]](this, function () {
+      ljkmh[_[36]][_[26337]] || (ljkmh[_[36]][_[26337]] = new _dpqnsro(xwsvtu)), ljkmh[_[36]][_[26337]][_[3638]] || ljkmh[_[36]][_[26334]][_[13564]](ljkmh[_[36]][_[26337]]), ljkmh[_[36]]['b$Y']();
     }));
-  }, kjfhgi[_[12043]][_[24801]] = function () {
-    this[_[24895]] && this[_[24895]][_[3559]] && (Laya[_[2698]][_[12439]](this[_[24895]]), this[_[24895]][_[12140]](!0x0), this[_[24895]] = null);for (var edgih = 0x0, fihj = this['p$BEC']; edgih < fihj[_[8021]]; edgih++) {
-      var orsnq = fihj[edgih];Laya[_[12523]][_[13366]](orsnq, !0x0);
-    }for (var v$yxz = 0x0, igjhfe = this['p$CBE']; v$yxz < igjhfe[_[8021]]; v$yxz++) orsnq = igjhfe[v$yxz], Laya[_[12523]][_[13366]](orsnq, !0x0);for (var moklp = 0x0, gkfih = this['p$CEDB']; moklp < gkfih[_[8021]]; moklp++) orsnq = gkfih[moklp], Laya[_[12523]][_[13366]](orsnq, !0x0);for (var npomkl = 0x0, y_0xz$ = this['p$BCE']; npomkl < y_0xz$[_[8021]]; npomkl++) orsnq = y_0xz$[npomkl], Laya[_[12523]][_[13366]](orsnq, !0x0);this[_[24892]][_[3559]] && this[_[24892]][_[3559]][_[12439]](this[_[24892]]);
-  }, kjfhgi[_[12043]]['p$EBC'] = function () {
-    this[_[24895]] && this[_[24895]][_[3559]] && kjfhgi[_[36]][_[24895]][_[24860]]();
-  }, kjfhgi[_[12043]]['b$Z'] = function () {
-    var x_z$w = Laya[_[2698]],
-        tpsroq = Math[_[12107]](x_z$w[_[2946]]),
-        y_$0 = Math[_[12107]](x_z$w[_[2947]]);y_$0 / tpsroq < 1.7777778 ? (this[_[9754]] = Math[_[12107]](tpsroq / (y_$0 / 0x500)), this[_[9755]] = 0x500, this[_[9756]] = y_$0 / 0x500) : (this[_[9754]] = 0x2d0, this[_[9755]] = Math[_[12107]](y_$0 / (tpsroq / 0x2d0)), this[_[9756]] = tpsroq / 0x2d0), (tpsroq = Math[_[12107]](x_z$w[_[2946]]), x_z$w = Math[_[12107]](x_z$w[_[2947]])), (x_z$w / tpsroq < 1.7777778 ? (this[_[9754]] = Math[_[12107]](tpsroq / (x_z$w / 0x500)), this[_[9755]] = 0x500, this[_[9756]] = x_z$w / 0x500) : (this[_[9754]] = 0x2d0, this[_[9755]] = Math[_[12107]](x_z$w / (tpsroq / 0x2d0)), this[_[9756]] = tpsroq / 0x2d0), this['b$Y']());
-  }, kjfhgi[_[12043]]['b$Y'] = function () {
-    this[_[24892]] && (this[_[24892]][_[33]](this[_[9754]], this[_[9755]]), this[_[24892]][_[163]](this[_[9756]], this[_[9756]], !0x0));
-  }, kjfhgi[_[12043]]['b$X'] = function () {
-    if (_dz_1$0y[_[23470]] && _dmnq[_[14393]]) {
-      var zyw_x$ = parseInt(_dz_1$0y[_[23471]][_[5955]][_[39]][_[13371]]('px', '')),
-          $_xzw = parseInt(_dz_1$0y[_[23472]][_[5955]][_[2947]][_[13371]]('px', '')) * this[_[9756]],
-          rqpso = _dmnq[_[23473]] / _dikjlm[_[13]][_[2946]];return 0x0 < (zyw_x$ = _dmnq[_[23474]] - $_xzw * rqpso - zyw_x$) && (zyw_x$ = 0x0), void (_dmnq[_[16242]][_[5955]][_[39]] = zyw_x$ + 'px');
-    }_dmnq[_[16242]][_[5955]][_[39]] = _[0x27a6], $_xzw = ($_xzw = Math[_[12107]](_dmnq[_[2946]])) + 0x1 & 0x7ffffffe, rqpso = (rqpso = Math[_[12107]](_dmnq[_[2947]])) + 0x1 & 0x7ffffffe, zyw_x$ = Laya[_[2698]], (rqpso < $_xzw ? (zyw_x$[_[12600]] = Laya[_[16304]][_[23475]], zyw_x$[_[2946]] = $_xzw, zyw_x$[_[2947]] = rqpso) : (zyw_x$[_[12600]] = Laya[_[16304]][_[16305]], zyw_x$[_[2946]] = 0x348, zyw_x$[_[2947]] = Math[_[12107]](rqpso / ($_xzw / 0x348)) + 0x1 & 0x7ffffffe), this['b$Z']());
-  }, kjfhgi[_[12043]]['p$CEB'] = function (mrqn, tqrvus) {
-    function gjhlki() {
-      vwsru[_[23515]] = null, vwsru[_[12074]] = null;
-    }var vwsru,
-        hfcge = mrqn;mrqn && 0x0 < mrqn[_[12104]](':') || p$CD[_[13281]], (vwsru = new _dmnq[_[12799]][_[6059]]())[_[23515]] = function () {
-      gjhlki(), tqrvus(hfcge, 0xc8, vwsru);
-    }, vwsru[_[12074]] = function () {
-      console[_[12090]](_[0x2f01], hfcge), gjhlki(), tqrvus(hfcge, 0x194, null);
-    }, vwsru[_[23516]] = hfcge;
-  }, kjfhgi[_[12043]]['b$$'] = function (kmpon, psrqto, poqrt, spqotr) {
-    var loqnmp = kmpon[_[16436]]();spqotr(kmpon, psrqto, poqrt = poqrt && (this['b$_'](loqnmp, '.png') || this['b$_'](loqnmp, '.jpg')) ? DecodeTools[_[23537]](new Uint8Array(poqrt)) : poqrt);
-  }, kjfhgi[_[12043]]['b$_'] = function (_14320, $2z01) {
-    return -0x1 != _14320[_[12104]]($2z01, _14320[_[8021]] - $2z01[_[8021]]);
-  }, kjfhgi;
-}();!function (rstoq) {
-  function ospqtr() {
-    var twy = ghefj[_[8591]](this) || this;return twy[_[2946]] = 0xc0, twy[_[2947]] = 0x46, twy['b$a'] = new Laya[_[6059]](), twy[_[12442]](twy['b$a']), twy['b$b'] = new Laya[_[11978]](), twy['b$b'][_[10538]] = 0x1e, twy['b$b'][_[2871]] = twy['b$I'], twy[_[12442]](twy['b$b']), twy['b$b'][_[12870]] = 0x0, twy['b$b'][_[12871]] = 0x0, twy;
-  }var ghefj;rstoq = rstoq['b$f'] || (rstoq['b$f'] = {}), ghefj = Laya[_[11964]], _dtxywuv(ospqtr, ghefj), ospqtr[_[12043]][_[12894]] = function () {
-    ghefj[_[12043]][_[12894]][_[8591]](this), this['b$w'] = _dmnq[_[12799]]['p$CD'];var xuzyw = this['b$w'][_[24796]];this['b$I'] = 0x1 != xuzyw && 0x2 != xuzyw && 0x3 == xuzyw ? _[0x2f02] : _[0x2f03], this[_[12897]]();
-  }, Object[_[12061]](ospqtr[_[12043]], _[0x1f6], { 'set': function (hfgijk) {
-      hfgijk && this[_[12178]](hfgijk);
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), ospqtr[_[12043]][_[12178]] = function (dfegc) {
-    this['b$cc'] = dfegc, this['b$b'][_[10532]] = dfegc[_[21]], this['b$a'][_[2479]] = dfegc[_[6847]] ? 'bbblogin/btn_xuanqu_anniuhuang.png' : 'bbblogin/btn_xuanqu_anniulan.png';
-  }, ospqtr[_[12043]][_[12140]] = function (bdcfg) {
-    void 0x0 === bdcfg && (bdcfg = !0x0), this[_[12899]](), ghefj[_[12043]][_[12140]][_[8591]](this, bdcfg);
-  }, ospqtr[_[12043]][_[12897]] = function () {
-    this['on'](Laya[_[12436]][_[12917]], this, this[_[12922]]);
-  }, ospqtr[_[12043]][_[12899]] = function () {
-    this[_[12883]](Laya[_[12436]][_[12917]], this, this[_[12922]]);
-  }, ospqtr[_[12043]][_[12922]] = function () {
-    this['b$cc'][_[15161]] && this['b$cc'][_[15161]](this['b$cc'][_[4328]]);
-  }, rstoq[_[24882]] = ospqtr;
-}(modules = modules || {}), function (chedf) {
-  function qrtusp() {
-    var qonprs = roqns[_[8591]](this) || this;return qonprs['b$a'] = new Laya[_[6059]]('bbblogin/btn_xuanqu_quanniu.png'), qonprs['b$b'] = new Laya[_[11978]](), qonprs['b$b'][_[10538]] = 0x1e, qonprs['b$b'][_[2871]] = qonprs['b$I'], qonprs[_[12442]](qonprs['b$a']), qonprs['b$dc'] = new Laya[_[6059]](), qonprs[_[12442]](qonprs['b$dc']), qonprs[_[2946]] = 0x166, qonprs[_[2947]] = 0x46, qonprs[_[12442]](qonprs['b$b']), qonprs['b$dc'][_[12871]] = 0x0, qonprs['b$dc']['x'] = 0x12, qonprs['b$b']['x'] = 0x50, qonprs['b$b'][_[12871]] = 0x0, qonprs['b$a'][_[12886]][_[12887]](0x0, 0x0, qonprs[_[2946]], qonprs[_[2947]], _[0x2f04]), qonprs;
-  }var roqns;chedf = chedf['b$f'] || (chedf['b$f'] = {}), roqns = Laya[_[11964]], _dtxywuv(qrtusp, roqns), qrtusp[_[12043]][_[12894]] = function () {
-    roqns[_[12043]][_[12894]][_[8591]](this), this['b$w'] = _dmnq[_[12799]]['p$CD'];var mpnorq = this['b$w'][_[24796]];this['b$I'] = 0x1 != mpnorq && 0x2 != mpnorq && 0x3 == mpnorq ? _[0x2f02] : _[0x2f05], this[_[12897]]();
-  }, Object[_[12061]](qrtusp[_[12043]], _[0x1f6], { 'set': function (_y0xz) {
-      _y0xz && this[_[12178]](_y0xz);
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), qrtusp[_[12043]][_[12178]] = function (rsqno) {
-    this['b$cc'] = rsqno, this['b$b'][_[2871]] = -0x1 === rsqno[_[197]] ? _[0x19fc] : 0x0 === rsqno[_[197]] ? _[0x2efb] : this['b$I'], this['b$b'][_[10532]] = -0x1 === rsqno[_[197]] ? rsqno[_[24815]] + _[0x2ef9] : 0x0 === rsqno[_[197]] ? rsqno[_[24815]] + _[0x2efa] : rsqno[_[24815]], this['b$dc'][_[2479]] = this[_[24885]](rsqno[_[197]]);
-  }, qrtusp[_[12043]][_[12140]] = function (iegdhf) {
-    void 0x0 === iegdhf && (iegdhf = !0x0), this[_[12899]](), roqns[_[12043]][_[12140]][_[8591]](this, iegdhf);
-  }, qrtusp[_[12043]][_[12897]] = function () {
-    this['on'](Laya[_[12436]][_[12917]], this, this[_[12922]]);
-  }, qrtusp[_[12043]][_[12899]] = function () {
-    this[_[12883]](Laya[_[12436]][_[12917]], this, this[_[12922]]);
-  }, qrtusp[_[12043]][_[12922]] = function () {
-    this['b$cc'][_[15161]] && this['b$cc'][_[15161]](this['b$cc']);
-  }, qrtusp[_[12043]][_[24885]] = function (yvw$x) {
-    var rtvusw = '';return 0x2 === yvw$x ? rtvusw = 'bbblogin/image_login_changtong.png' : 0x1 === yvw$x ? rtvusw = 'bbblogin/image_login_fanmang.png' : -0x1 !== yvw$x && 0x0 !== yvw$x || (rtvusw = 'bbblogin/image_login_weihu.png'), rtvusw;
-  }, chedf[_[24883]] = qrtusp;
-}(modules = modules || {}), window[_[24748]] = _donprmq;
+  }, ljkmh[_[13166]][_[26243]] = function () {
+    this[_[26337]] && this[_[26337]][_[3638]] && (Laya[_[2762]][_[13561]](this[_[26337]]), this[_[26337]][_[13262]](!0x0), this[_[26337]] = null);for (var rst = 0x0, mlpkn = this['p$BEC']; rst < mlpkn[_[8332]]; rst++) {
+      var uvrw = mlpkn[rst];Laya[_[13645]][_[14488]](uvrw, !0x0);
+    }for (var turwvs = 0x0, lihgj = this['p$CBE']; turwvs < lihgj[_[8332]]; turwvs++) uvrw = lihgj[turwvs], Laya[_[13645]][_[14488]](uvrw, !0x0);for (var lkim = 0x0, gkijh = this['p$CEDB']; lkim < gkijh[_[8332]]; lkim++) uvrw = gkijh[lkim], Laya[_[13645]][_[14488]](uvrw, !0x0);for (var wvzxyu = 0x0, lkhijg = this['p$BCE']; wvzxyu < lkhijg[_[8332]]; wvzxyu++) uvrw = lkhijg[wvzxyu], Laya[_[13645]][_[14488]](uvrw, !0x0);this[_[26334]][_[3638]] && this[_[26334]][_[3638]][_[13561]](this[_[26334]]);
+  }, ljkmh[_[13166]]['p$EBC'] = function () {
+    this[_[26337]] && this[_[26337]][_[3638]] && ljkmh[_[36]][_[26337]][_[26301]]();
+  }, ljkmh[_[13166]]['b$Z'] = function () {
+    var utrqv = Laya[_[2762]],
+        rsqutp = Math[_[13229]](utrqv[_[3012]]),
+        ptros = Math[_[13229]](utrqv[_[3013]]);ptros / rsqutp < 1.7777778 ? (this[_[10600]] = Math[_[13229]](rsqutp / (ptros / 0x500)), this[_[10601]] = 0x500, this[_[10602]] = ptros / 0x500) : (this[_[10600]] = 0x2d0, this[_[10601]] = Math[_[13229]](ptros / (rsqutp / 0x2d0)), this[_[10602]] = rsqutp / 0x2d0), (rsqutp = Math[_[13229]](utrqv[_[3012]]), utrqv = Math[_[13229]](utrqv[_[3013]])), (utrqv / rsqutp < 1.7777778 ? (this[_[10600]] = Math[_[13229]](rsqutp / (utrqv / 0x500)), this[_[10601]] = 0x500, this[_[10602]] = utrqv / 0x500) : (this[_[10600]] = 0x2d0, this[_[10601]] = Math[_[13229]](utrqv / (rsqutp / 0x2d0)), this[_[10602]] = rsqutp / 0x2d0), this['b$Y']());
+  }, ljkmh[_[13166]]['b$Y'] = function () {
+    this[_[26334]] && (this[_[26334]][_[33]](this[_[10600]], this[_[10601]]), this[_[26334]][_[164]](this[_[10602]], this[_[10602]], !0x0));
+  }, ljkmh[_[13166]]['b$X'] = function () {
+    if (_dponmkl[_[24590]] && _diklhgj[_[15515]]) {
+      var ompnlq = parseInt(_dponmkl[_[24591]][_[6051]][_[39]][_[14493]]('px', '')),
+          kmjo = parseInt(_dponmkl[_[24592]][_[6051]][_[3013]][_[14493]]('px', '')) * this[_[10602]],
+          zw$vxy = _diklhgj[_[24593]] / _dfecg[_[13]][_[3012]];return 0x0 < (ompnlq = _diklhgj[_[24594]] - kmjo * zw$vxy - ompnlq) && (ompnlq = 0x0), void (_diklhgj[_[17364]][_[6051]][_[39]] = ompnlq + 'px');
+    }_diklhgj[_[17364]][_[6051]][_[39]] = _[0x2af8], kmjo = (kmjo = Math[_[13229]](_diklhgj[_[3012]])) + 0x1 & 0x7ffffffe, zw$vxy = (zw$vxy = Math[_[13229]](_diklhgj[_[3013]])) + 0x1 & 0x7ffffffe, ompnlq = Laya[_[2762]], (zw$vxy < kmjo ? (ompnlq[_[13722]] = Laya[_[17426]][_[24595]], ompnlq[_[3012]] = kmjo, ompnlq[_[3013]] = zw$vxy) : (ompnlq[_[13722]] = Laya[_[17426]][_[17427]], ompnlq[_[3012]] = 0x348, ompnlq[_[3013]] = Math[_[13229]](zw$vxy / (kmjo / 0x348)) + 0x1 & 0x7ffffffe), this['b$Z']());
+  }, ljkmh[_[13166]]['p$CEB'] = function (qnrmo, lmpkon) {
+    function gikhlj() {
+      rtvwu[_[24635]] = null, rtvwu[_[13196]] = null;
+    }var rtvwu,
+        twrvsu = qnrmo;qnrmo && 0x0 < qnrmo[_[13226]](':') || p$CD[_[14403]], (rtvwu = new _diklhgj[_[13921]][_[6156]]())[_[24635]] = function () {
+      gikhlj(), lmpkon(twrvsu, 0xc8, rtvwu);
+    }, rtvwu[_[13196]] = function () {
+      console[_[13212]](_[0x32ed], twrvsu), gikhlj(), lmpkon(twrvsu, 0x194, null);
+    }, rtvwu[_[24636]] = twrvsu;
+  }, ljkmh[_[13166]]['b$$'] = function (opqnm, bcd, lhjkg, hjefig) {
+    var mhjl = opqnm[_[17558]]();hjefig(opqnm, bcd, lhjkg = lhjkg && (this['b$_'](mhjl, _[0x56]) || this['b$_'](mhjl, _[0xbf3])) ? DecodeTools[_[24657]](new Uint8Array(lhjkg)) : lhjkg);
+  }, ljkmh[_[13166]]['b$_'] = function (oqrpns, vtwuxy) {
+    return -0x1 != oqrpns[_[13226]](vtwuxy, oqrpns[_[8332]] - vtwuxy[_[8332]]);
+  }, ljkmh;
+}();!function ($321_) {
+  function xz$y_w() {
+    var pnrm = cdhgef[_[8938]](this) || this;return pnrm[_[3012]] = 0xc0, pnrm[_[3013]] = 0x46, pnrm['b$a'] = new Laya[_[6156]](), pnrm[_[13564]](pnrm['b$a']), pnrm['b$b'] = new Laya[_[12955]](), pnrm['b$b'][_[11420]] = 0x1e, pnrm['b$b'][_[2937]] = pnrm['b$I'], pnrm[_[13564]](pnrm['b$b']), pnrm['b$b'][_[13992]] = 0x0, pnrm['b$b'][_[13993]] = 0x0, pnrm;
+  }var cdhgef;$321_ = $321_['b$f'] || ($321_['b$f'] = {}), cdhgef = Laya[_[12931]], _djonlmk(xz$y_w, cdhgef), xz$y_w[_[13166]][_[14016]] = function () {
+    cdhgef[_[13166]][_[14016]][_[8938]](this), this['b$w'] = _diklhgj[_[13921]]['p$CD'];var jifkg = this['b$w'][_[26238]];this['b$I'] = 0x1 != jifkg && 0x2 != jifkg && 0x3 == jifkg ? _[0x32ee] : _[0x32ef], this[_[14019]]();
+  }, Object[_[13183]](xz$y_w[_[13166]], _[0x1ff], { 'set': function (ghfji) {
+      ghfji && this[_[13300]](ghfji);
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), xz$y_w[_[13166]][_[13300]] = function (xwyvz$) {
+    this['b$cc'] = xwyvz$, this['b$b'][_[11414]] = xwyvz$[_[21]], this['b$a'][_[2542]] = xwyvz$[_[7011]] ? _[0x32f0] : _[0x32f1];
+  }, xz$y_w[_[13166]][_[13262]] = function (twsuxv) {
+    void 0x0 === twsuxv && (twsuxv = !0x0), this[_[14021]](), cdhgef[_[13166]][_[13262]][_[8938]](this, twsuxv);
+  }, xz$y_w[_[13166]][_[14019]] = function () {
+    this['on'](Laya[_[13558]][_[14039]], this, this[_[14044]]);
+  }, xz$y_w[_[13166]][_[14021]] = function () {
+    this[_[14005]](Laya[_[13558]][_[14039]], this, this[_[14044]]);
+  }, xz$y_w[_[13166]][_[14044]] = function () {
+    this['b$cc'][_[16283]] && this['b$cc'][_[16283]](this['b$cc'][_[4412]]);
+  }, $321_[_[26324]] = xz$y_w;
+}(modules = modules || {}), function (jgeif) {
+  function ihk() {
+    var ghifd = ecbg[_[8938]](this) || this;return ghifd['b$a'] = new Laya[_[6156]](_[0x32f2]), ghifd['b$b'] = new Laya[_[12955]](), ghifd['b$b'][_[11420]] = 0x1e, ghifd['b$b'][_[2937]] = ghifd['b$I'], ghifd[_[13564]](ghifd['b$a']), ghifd['b$dc'] = new Laya[_[6156]](), ghifd[_[13564]](ghifd['b$dc']), ghifd[_[3012]] = 0x166, ghifd[_[3013]] = 0x46, ghifd[_[13564]](ghifd['b$b']), ghifd['b$dc'][_[13993]] = 0x0, ghifd['b$dc']['x'] = 0x12, ghifd['b$b']['x'] = 0x50, ghifd['b$b'][_[13993]] = 0x0, ghifd['b$a'][_[14008]][_[14009]](0x0, 0x0, ghifd[_[3012]], ghifd[_[3013]], _[0x32f3]), ghifd;
+  }var ecbg;jgeif = jgeif['b$f'] || (jgeif['b$f'] = {}), ecbg = Laya[_[12931]], _djonlmk(ihk, ecbg), ihk[_[13166]][_[14016]] = function () {
+    ecbg[_[13166]][_[14016]][_[8938]](this), this['b$w'] = _diklhgj[_[13921]]['p$CD'];var nlimk = this['b$w'][_[26238]];this['b$I'] = 0x1 != nlimk && 0x2 != nlimk && 0x3 == nlimk ? _[0x32ee] : _[0x32f4], this[_[14019]]();
+  }, Object[_[13183]](ihk[_[13166]], _[0x1ff], { 'set': function (cfeghd) {
+      cfeghd && this[_[13300]](cfeghd);
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), ihk[_[13166]][_[13300]] = function (uyzwv) {
+    this['b$cc'] = uyzwv, this['b$b'][_[2937]] = -0x1 === uyzwv[_[198]] ? _[0x1a8a] : 0x0 === uyzwv[_[198]] ? _[0x32e6] : this['b$I'], this['b$b'][_[11414]] = -0x1 === uyzwv[_[198]] ? uyzwv[_[26256]] + _[0x32e4] : 0x0 === uyzwv[_[198]] ? uyzwv[_[26256]] + _[0x32e5] : uyzwv[_[26256]], this['b$dc'][_[2542]] = this[_[26327]](uyzwv[_[198]]);
+  }, ihk[_[13166]][_[13262]] = function (bcfade) {
+    void 0x0 === bcfade && (bcfade = !0x0), this[_[14021]](), ecbg[_[13166]][_[13262]][_[8938]](this, bcfade);
+  }, ihk[_[13166]][_[14019]] = function () {
+    this['on'](Laya[_[13558]][_[14039]], this, this[_[14044]]);
+  }, ihk[_[13166]][_[14021]] = function () {
+    this[_[14005]](Laya[_[13558]][_[14039]], this, this[_[14044]]);
+  }, ihk[_[13166]][_[14044]] = function () {
+    this['b$cc'][_[16283]] && this['b$cc'][_[16283]](this['b$cc']);
+  }, ihk[_[13166]][_[26327]] = function ($103) {
+    var efdihg = '';return 0x2 === $103 ? efdihg = _[0x32b7] : 0x1 === $103 ? efdihg = _[0x32e2] : -0x1 !== $103 && 0x0 !== $103 || (efdihg = _[0x32e3]), efdihg;
+  }, jgeif[_[26325]] = ihk;
+}(modules = modules || {}), window[_[26186]] = _dlkhimj;

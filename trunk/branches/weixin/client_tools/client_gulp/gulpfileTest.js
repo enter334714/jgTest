@@ -36,21 +36,13 @@ var babel_core_test = function () {
                 // // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
                 if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
                     var tempstr = path.node.value;
-                    var memberExpression = babel_types.memberExpression(babel_types.identifier("as"), babel_types.numericLiteral(10), true);
+                    var numericLiteral = babel_types.numericLiteral(0xff);
+                    numericLiteral.extra = {rawValue:1,raw:"0xff"}
+                    numericLiteral.raw = "0xff";
+                    var memberExpression = babel_types.memberExpression(babel_types.identifier("as"), numericLiteral, true);
+
                     path.replaceWith(memberExpression);
-                    // if (tempstr.length > 0 && tempstr.length < 100 && tempstr.indexOf("\n") == -1) {
-                    //     // console.info(path.node.type +"   "+ path.node.value);
-                    //     try {
-                    //         var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName), babel_types.numericLiteral(arrIndex), true);
-                    //         path.replaceWith(memberExpression);
-                    //         // var element = babel_types.stringLiteral(tempstr);  //创建一个数组元素
-                    //         // arrayElements.push(element);
-                    //         globleArrs.push(tempstr);
-                    //         arrIndex++;
-                    //     } catch (error) {
-                    //         // console.error(error);
-                    //     }
-                    // }
+
                 }
             },
             Identifier(path) {  //代表处理 Identifier 节点  全局变量名替换）
@@ -157,15 +149,34 @@ var babel_core_parse_traverse = function () {
         var visitor = {
             StringLiteral(path) {  //代表处理 StringLiteral 节点 提取字符串
                 console.log("path.type:",path.type);
-              // if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
-              //       var tempstr = path.node.value;
-              //       var memberExpression = babel_types.memberExpression(babel_types.identifier("as"), babel_types.numericLiteral(10), true);
-              //       path.replaceWith(memberExpression);
-              //
-              //   }
+              if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
+                    var tempstr = path.node.value;
+                  //
+                        //替换为一个表达式
+                  //   var memberExpression = babel_types.memberExpression(babel_types.identifier("as"), babel_types.binaryExpression("^", babel_types.numericLiteral(11), babel_types.numericLiteral(0)) , true);
+
+                  // if(tempstr)
+                  var numericLiteral = babel_types.numericLiteral(0xff);
+                  numericLiteral.extra = {rawValue:1,raw:"0xff"}
+                  numericLiteral.raw = "0x1";
+                  numericLiteral.raw = "0xff";
+
+                  var memberExpression = babel_types.memberExpression(babel_types.identifier("as"),numericLiteral , true);
+                    path.replaceWith(memberExpression);
+
+                }
+            },
+            NumericLiteral(path){
+                path.value = 0xff;
+                path.node.extra = {rawValue:0xff,raw:"0xff"}
+                path.node.raw = "0xff";
+                path.extra = {rawValue:0xff,raw:"0xff"}
+                path.raw = "0xff";
+              // console.log("pathNode：",path.node);
+
             },
             Identifier(path) {  //代表处理 Identifier 节点  全局变量名替换）
-
+1
 
             },
             NewExpression(path) {
@@ -241,7 +252,8 @@ var babel_core_parse_traverse = function () {
             compact:false,
             minified:true, //输出是否被压缩
         });
-        // console.log("code:",code.code);
+        // code.code = "var a = as[0xff]"
+        console.log("code:",code.code);
          var bf = new Buffer.from(code.code);
         file.contents = bf;
         cb();
@@ -265,7 +277,7 @@ gulp.task("AST-TEST-使用babel-core", function () {
 gulp.task("AST-TEST-使用-parser-traverse", function () {
     var sourceUrl = "../../client/wx_build/jg_gameMT1_new1";
     var stream = gulp
-        .src(sourceUrl + '/main.min.js')
+        .src(sourceUrl + '/game.js')
         .pipe(babel_core_parse_traverse())
         .pipe(gulp.dest(sourceUrl + "/ast/"))
     return stream;
