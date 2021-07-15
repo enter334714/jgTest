@@ -1,2 +1,2 @@
 var _ = wx.y$;
-require('bbbbBuff.js'), window['protobuf'][_[25937]][_[25843]] = null, window['client_pb'] = require('bbbcleintpb.js'), window[_[24623]] = window['protobuf'][_[24586]][_[24587]](client_pb);
+require('bbbbBuff.js'), window['protobuf'][_[25926]][_[25832]] = null, window['client_pb'] = require('bbbcleintpb.js'), window[_[24614]] = window['protobuf'][_[24577]][_[24578]](client_pb);
