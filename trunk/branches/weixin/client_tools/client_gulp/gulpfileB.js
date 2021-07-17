@@ -543,7 +543,7 @@ var identifier_create = function (rate) {
             'toCreate', 'toLogin', 'toLevelUp', 'toRealName', 'openShare', 'openService', 'onShow', 'onShowData', 'onShowCallback', 'reqPlayerAskInfo',
             'openSubscribeMsg', 'batteryInfo', 'getBatteryInfo', 'onRoleRecordStep', 'req_server_group', 'reqServerGroupCallBack', 'req_server_owner', 'reqServerOwnerCallBack',
             'req_server_list', 'reqServerListCallBack', 'req_server_notice', 'get_status', 'req_server_check_ban', 'reqServerCheckBanCallBack', 'checkBanSuccess',
-            'initMain', 'enterToGame', 'systemInfo', 'initComplete', 'workerJsURL', 'wxLimitLoad', 'wxBenchmarkLevel',
+            'initMain', 'enterToGame', 'initComplete', 'workerJsURL', 'wxLimitLoad', 'wxBenchmarkLevel',
 
             // libs/main.js
             'loadingInterval', 'wxData', 'showLoadingBtn', 'wxlogin_atlas', 'wxloading_atlas', 'wxeff_btn_atlas', 'openAuthor', 'compareVersion', 'loadProbuf', 'loadProbufTask',
