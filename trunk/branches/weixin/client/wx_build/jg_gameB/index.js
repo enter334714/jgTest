@@ -375,7 +375,11 @@ window.loadVersionConfig = function() {
       return;
     }
     if (response.state != 'success') {
-      window.loginAlert('User.getCdnVersion failed: ' + response.state);
+      window.loginAlert('User.getCdnVersion failed: state=' + response.state);
+      return;
+    }
+    if (!response.data || !response.data.version) {
+      window.loginAlert('User.getCdnVersion failed: version=' + (response.data&&response.data.version));
       return;
     }
     PF_INFO.base_cdn = response.data.cdn_url || PF_INFO.base_cdn;

@@ -52,7 +52,7 @@ import AKSDK from "../bbbk/bbbsdk.js";window.versions = { wxVersion: window.conf
   } else window.ServerLoading.instance.openServer(), wxHideLoading();window.loadServer = !0, window.initMain(), window.enterToGame();
 }, window.loadVersionConfig = function () {
   sendApi(PF_INFO.apiurl, "User.getCdnVersion", { game_pkg: PF_INFO.pkgName, version_name: PF_INFO.version_name }, function (e) {
-    e ? "success" == e.state ? (PF_INFO.base_cdn = e.data.cdn_url || PF_INFO.base_cdn, PF_INFO.cdn = e.data.cdn_url || PF_INFO.cdn, PF_INFO.lastVersion = e.data.version || PF_INFO.lastVersion, console.info("\u8d44\u6e90\u7248\u672c\u53f7\uff1a" + PF_INFO.lastVersion), window.loadVersion = !0, window.initMain(), window.enterToGame()) : window.loginAlert("User.getCdnVersion failed: " + e.state) : window.loginAlert("User.getCdnVersion failed");
+    e ? "success" == e.state ? e.data && e.data.version ? (PF_INFO.base_cdn = e.data.cdn_url || PF_INFO.base_cdn, PF_INFO.cdn = e.data.cdn_url || PF_INFO.cdn, PF_INFO.lastVersion = e.data.version || PF_INFO.lastVersion, console.info("\u8d44\u6e90\u7248\u672c\u53f7\uff1a" + PF_INFO.lastVersion), window.loadVersion = !0, window.initMain(), window.enterToGame()) : window.loginAlert("User.getCdnVersion failed: version=" + (e.data && e.data.version)) : window.loginAlert("User.getCdnVersion failed: state=" + e.state) : window.loginAlert("User.getCdnVersion failed");
   });
 }, window.pkgOptions, window.reqPkgOptions = function () {
   sendApi(PF_INFO.apiurl, "Common.get_option_pkg", { game_pkg: PF_INFO.pkgName }, reqPkgOptionsCallBack);
