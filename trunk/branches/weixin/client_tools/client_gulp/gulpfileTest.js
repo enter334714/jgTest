@@ -147,6 +147,33 @@ var babel_core_parse_traverse = function () {
         const astContents = babel_parse.parse(contents);
         console.info("AST测试-parse-traverse：" + file.path);
         var visitor = {
+
+            //条件运算符 var a = b?true:false
+            //interface ConditionalExpression {
+            //     type: 'ConditionalExpression';
+            //     test: Expression;
+            //     consequent: Expression;
+            //     alternate: Expression;
+            // }
+            ConditionalExpression(path){
+
+
+                // 把 a = m?11:22; 转成 m ? a = 11 : a = 22;  var a =  m?11:22;不行
+                var test = path.node.test;
+                var consequent = path.node.consequent;
+                var alternate = path.node.alternate;
+                var parentPath = path.parentPath;
+                //是否是赋值表达式
+                if(babel_types.isAssignmentExpression(parentPath)){
+                    var operator = parentPath.node.operator;
+                    var left = parentPath.node.left;
+                    if (operator === '='){
+                        consequent = babel_types.AssignmentExpression('=', left, consequent);
+                        alternate = babel_types.AssignmentExpression('=', left, alternate);
+                        parentPath.replaceWith(babel_types.ConditionalExpression(test, consequent, alternate))
+                    }
+                }
+            },
             StringLiteral(path) {  //代表处理 StringLiteral 节点 提取字符串
                 console.log("path.type:",path.type);
               if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
@@ -154,7 +181,7 @@ var babel_core_parse_traverse = function () {
                   //
                         //替换为一个表达式
                   //   var memberExpression = babel_types.memberExpression(babel_types.identifier("as"), babel_types.binaryExpression("^", babel_types.numericLiteral(11), babel_types.numericLiteral(0)) , true);
-
+                  // path.get('extra').remove();
                   // if(tempstr)
                   var numericLiteral = babel_types.numericLiteral(0xff);
                   numericLiteral.extra = {rawValue:1,raw:"0xff"}
