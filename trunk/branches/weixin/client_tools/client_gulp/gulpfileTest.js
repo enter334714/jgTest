@@ -183,10 +183,12 @@ var babel_core_parse_traverse = function () {
                   //   var memberExpression = babel_types.memberExpression(babel_types.identifier("as"), babel_types.binaryExpression("^", babel_types.numericLiteral(11), babel_types.numericLiteral(0)) , true);
                   // path.get('extra').remove();
                   // if(tempstr)
-                  var numericLiteral = babel_types.numericLiteral(0xff);
-                  numericLiteral.extra = {rawValue:1,raw:"0xff"}
-                  numericLiteral.raw = "0x1";
-                  numericLiteral.raw = "0xff";
+                  var value = 16;
+
+                  var numericLiteral = babel_types.numericLiteral(value);
+                  // numericLiteral.extra = {rawValue:value,raw:hexValue}
+                  // numericLiteral.raw = hexValue;
+
 
                   var memberExpression = babel_types.memberExpression(babel_types.identifier("as"),numericLiteral , true);
                     path.replaceWith(memberExpression);
@@ -194,12 +196,13 @@ var babel_core_parse_traverse = function () {
                 }
             },
             NumericLiteral(path){
-                path.value = 0xff;
-                path.node.extra = {rawValue:0xff,raw:"0xff"}
-                path.node.raw = "0xff";
-                path.extra = {rawValue:0xff,raw:"0xff"}
-                path.raw = "0xff";
-                path.replaceWith(path);
+                // path.value = 0xff;
+                var hexValue = "0x"+path.node.value.toString(16);
+                path.node.extra = {raw:hexValue,rawValue:path.node.value};
+                // path.node.raw = "0xff";
+                // path.extra = {rawValue:0xff,raw:"0xff"}
+                // path.raw = "0xff";
+                // path.replaceWith(path);
               // console.log("pathNode：",path.node);
 
             },
@@ -278,7 +281,7 @@ var babel_core_parse_traverse = function () {
             auxiliaryCommentAfter:"这是一个结束注释", //可选字符串，在输出文件的末尾添加块注释
             comments:false,//输出中是否包含注释
             compact:false,
-            minified:true, //输出是否被压缩
+            // minified:true, //输出是否被压缩
         });
         // code.code = "var a = as[0xff]"
         console.log("code:",code.code);
