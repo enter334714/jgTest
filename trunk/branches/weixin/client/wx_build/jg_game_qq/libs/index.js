@@ -535,7 +535,7 @@ window.toRealName = function (callback) {
 
 //调起分享（QQ）
 window.openShare = function (callback) {
-  AKSDK.share('share', function (data) {
+  AKSDK.share('share', function (data) {
     callback(data);
   });
 }
@@ -1057,12 +1057,18 @@ window.enterToGame = function () {
 
       window.MainWX.instance.initPlatdata(platData);
       setSharedCanvasSize(1000, 200);
-      let param = { type: 1, data: { space: 150} }
-      drawHead(0);
+       testDrawHead(0);
+      let param = { type: 1, data: { space: 150} }     
       openContextPostMsg(param);
       setInterval(() => {
-        drawHead(100);
-      },1000)    
+        testDrawHead(100);
+      },1000);    
+
+      setTimeout(()=>{
+          console.log("刷新")
+          let param = { type: 1, data: { space: 150} }     
+          openContextPostMsg(param);
+      },5000)
     } else {
       wxHideLoading();
     }
@@ -1077,7 +1083,8 @@ window.setSharedCanvasSize = function (width, height) {
 }
 
 window.openBitmap = null;
-window.drawHead = function (x) {
+//测试
+window.testDrawHead = function (x) {
 
   let layaTexture = new Laya.Texture(sharedCanvas);
   // console.log("bitmap:", layaTexture.bitmap);

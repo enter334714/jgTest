@@ -21,6 +21,7 @@ var drawHead = function () {
         return;
     const sharedCanvas = qq.getSharedCanvas();
     const context = sharedCanvas.getContext('2d');
+    context.clearRect(0,0,sharedCanvas.width,sharedCanvas.height);  
     context.fillStyle = "#ffffff";
     context.font = "24px Arial";
     for (let i = 0; i < 3; i++) {
@@ -62,12 +63,12 @@ var getFriend = function (index) {
 
 
 var shareMessageToFriend = function (index) {
-    if (!friendList || friendList.length <= 0)
+     if (!friendList || friendList.length <= 0)
         return;
-    if (index >= friendList.length) {
+    if (index == void 0) {
         index = 0;
     }
-    if (index == void 0) {
+    if (index >= friendList.length) {
         index = 0;
     }
     let info = friendList[index];
@@ -93,12 +94,12 @@ var shareMessageToFriend = function (index) {
     }
     qq.shareMessageToFriend(param);
 }
-// qq.onTouchEnd((event) => {
-//     console.info("点击调用")
-//     shareMessageToFriend();
-//     // const l = event.changedTouches.length;
-//     // for (let i = 0; i < l; i++) {
-//     //     console.log(event.changedTouches[i]);
-//     // }
-// }
-// )
+qq.onTouchEnd((event) => {
+    console.info("点击调用")
+    shareMessageToFriend();
+    // const l = event.changedTouches.length;
+    // for (let i = 0; i < l; i++) {
+    //     console.log(event.changedTouches[i]);
+    // }
+}
+)
