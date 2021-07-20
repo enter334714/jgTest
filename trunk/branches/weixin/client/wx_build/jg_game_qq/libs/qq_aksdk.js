@@ -6,6 +6,7 @@ var config = {
     partner_id: 382,
     game_ver: '1.0.83',
     is_auth: false, //授权登录
+    tmpId: {1:'pSH28Vom5lPVtCh0-QfVZqUDv1plQ6nvDoKF7gnKEtQ', 2:'ZHiVm5KGXfUpJT779phqRjQ2OsJW2BjJXF1zkPLIEtQ', 3:'pBpwl_Syx8rWKuuEw2P0A0zFbrqei0kIAyBj7EkEkLg'},  // 订阅的类型 和 模板id
     qq_app_id: '1111683091'
 };
 window.config = config;
@@ -17,6 +18,9 @@ var user_invite_info = null;
 var sysInfo = qq.getSystemInfoSync();
 var platform = sysInfo.platform;
 var partner_user_info = null;
+
+var share_img = null;
+var share_title = null;
 
 // 初始化SDK
 AladinSDK.init(config.qq_app_id,config.game_ver);
@@ -85,6 +89,13 @@ function mainSDK() {
                     callback && callback(data);
                 });
             }
+
+            // 获取定向分享的标题跟图片
+            self.getShareInfo('activity', function (data) {
+                share_img = data.img;
+                share_title = data.title;
+            });
+
         },
 
         //登录接口
@@ -115,7 +126,6 @@ function mainSDK() {
             var public_data = self.getPublicData();
             public_data['user_info'] = JSON.stringify(info);
 
-
             if(user_invite_info && typeof user_invite_info == 'object'){
                 for(var key in user_invite_info){
                     public_data[key] = user_invite_info[key];
@@ -131,8 +141,7 @@ function mainSDK() {
                 },
                 data: public_data,
                 success: function (res) {
-                    console.log("[SDK]登录结果：");
-                    console.log(res);
+                    console.log("[SDK]登录结果："+JSON.stringify(res));
                     if(res.statusCode == 200){
                         var data = res.data;
                         if(data.state){
@@ -157,9 +166,11 @@ function mainSDK() {
                                 }
                             } catch (e) {
                             }
-                            self.getShareInfo('share', function (data) {
+
+                            // 登录成功，加载右上角分享数据
+                            self.getShareInfo('menu', function (data) {
                                 //记录开始分享
-                                self.logStartShare('share');
+                                self.logStartShare('menu');
                                 qq.onShareAppMessage(() => ({
                                     title: data.title,
                                     imageUrl: data.img // 图片 URL
@@ -170,28 +181,22 @@ function mainSDK() {
                             callbacks['login'] && callbacks['login'](1, {errMsg: data.msg});
                         }
 
-                        //登录成功，加载右上角分享数据
-                        // self.getShareInfo('menu', function (data) {
-                        //     console.log("[SDK]开始监听右上角菜单分享");
-
-                        // });
                     }else{
                         callbacks['login'] && callbacks['login'](1, {errMsg: '请求平台服务器失败！'});
                     }
                 }
             });
-
         },
 
         share: function (data) {
             console.log("[AKSDK]share config 1: "+JSON.stringify(data));
-           
+
             callbacks['share'] = typeof callback == 'function' ? callback : null;
             var type = data.type || 'share';
             console.log("[SDK]CP调用分享 type=" + type);
             var self = this;
             this.getShareInfo(type, function (data) {
-            console.log("[AKSDK]share config 2: "+JSON.stringify(data));
+                console.log("[AKSDK]share config 2: "+JSON.stringify(data));
                 //记录开始分享
                 self.logStartShare(type);
                 qq.shareAppMessage({
@@ -506,7 +511,6 @@ function mainSDK() {
                 };
             }
 
-
             this.log('levelup', postData);
         },
 
@@ -583,19 +587,33 @@ function mainSDK() {
         downloadClient: function () {
             qq.openCustomerServiceConversation();
         },
-        
+
         subscribeMessage : function (tmplIds, callback){
             console.log('[SDK]订阅消息：'+tmplIds);
             //获取模板ID
             callbacks['subscribeMessage'] = typeof callback == 'function' ? callback : null;
-            callbacks['subscribeMessage'] && callbacks['subscribeMessage']({errMsg:"无返回"});
-        }, 
+
+            // 一次性订阅
+            qq.subscribeAppMsg({
+                tmplIds: tmplIds,//一次最多填三个模板ID
+                subscribe: true,
+                success(res) {
+                    console.log("----subscribeAppMsg----success", res);
+                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+                },
+                fail(res) {
+                    console.log("----subscribeAppMsg----fail", res);
+                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+                }
+            });
+        },
 
         // 渠道自定义上报
         reportAnalytics: function (step) {
             console.log('自定义上报：'+step);
             AladinSDK.reportAnalytics(config.qq_app_id,step) //step只能为1-50的数字
-        }
+        },
+
     }
 }
 
@@ -677,7 +695,9 @@ module.exports.getConfig = function () {
     return {
         game_id: config.game_id,
         game_pkg: config.game_pkg,
-        partner_id: config.partner_id
+        partner_id: config.partner_id,
+        share_title: share_title,
+        share_img: share_img
     }
 };
 
