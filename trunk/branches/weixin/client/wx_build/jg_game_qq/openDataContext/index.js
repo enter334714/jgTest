@@ -33,12 +33,12 @@ var drawHead = function () {
         let space = paramData.space - measureText.width;
         if (space < 0)
             space = 0;
-        context.fillText(name, x + space / 2, 150, 150);
+        context.fillText(name, x + space / 2, 120, 150);
         let img = qq.createImage()
         img.onload = function () {
             // imgLoad = true
             context.drawImage(img, x + 25, 0);
-            console.error("进drawImage：：", i, "name:", name, "nameWidth:", measureText.width, "url:", url, "x:", x, "width:", sharedCanvas.width);
+            console.log("进drawImage：：", i, "name:", name, "nameWidth:", measureText.width, "url:", url, "x:", x, "width:", sharedCanvas.width);
         }
         img.src = url;
     }
@@ -49,14 +49,14 @@ var getFriend = function (index) {
     qq.getPotentialFriendList({
         success(res) {
             friendList = res.list;
-            console.error(" getPotentialFriendList success:", res)
+            console.log(" getPotentialFriendList success:", res)
             drawHead();
         },
         fail(res) {
-            console.error(" getPotentialFriendList fail:", res)
+            console.log(" getPotentialFriendList fail:", res)
         },
         complete(res) {
-            console.error("getPotentialFriendList complete:", res)
+            console.log("getPotentialFriendList complete:", res)
         }
     })
 }
