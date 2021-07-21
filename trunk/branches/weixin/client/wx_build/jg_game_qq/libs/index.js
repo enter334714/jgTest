@@ -1082,29 +1082,29 @@ window.setSharedCanvasSize = function (width, height) {
   sharedCanvas.height = height;
 }
 
-window.openBitmap = null;
-//测试
-window.testDrawHead = function (x) {
+// window.openBitmap = null;
+// //测试
+// window.testDrawHead = function (x) {
 
-  let layaTexture = new Laya.Texture(sharedCanvas);
-  // console.log("bitmap:", layaTexture.bitmap);
-  if (!openBitmap) {
-    let sprite = new Laya.Sprite();
-    sprite.x = x;
-    sprite.width = 1000;
-    sprite.graphics.drawTexture(layaTexture);
-    Laya.stage.addChild(sprite);
-    openBitmap = layaTexture.bitmap;
-    // sprite.on(Laya.Event.CLICK,this,()=>{
-    //   console.log(111);
-    // })
-  } else {
-    // sprite.Texture
-    let func = openBitmap._source && openBitmap.reloadCanvasData;
-    func && func.call(openBitmap)
-  }
-  // console.error("LayaSprite")
-}
+//   let layaTexture = new Laya.Texture(sharedCanvas);
+//   // console.log("bitmap:", layaTexture.bitmap);
+//   if (!openBitmap) {
+//     let sprite = new Laya.Sprite();
+//     sprite.x = x;
+//     sprite.width = 1000;
+//     sprite.graphics.drawTexture(layaTexture);
+//     Laya.stage.addChild(sprite);
+//     openBitmap = layaTexture.bitmap;
+//     // sprite.on(Laya.Event.CLICK,this,()=>{
+//     //   console.log(111);
+//     // })
+//   } else {
+//     // sprite.Texture
+//     let func = openBitmap._source && openBitmap.reloadCanvasData;
+//     func && func.call(openBitmap)
+//   }
+//   // console.error("LayaSprite")
+// }
 /*定向分享*/
 window.atShare = function (param) {
   let callback = param.data.callBack;
