@@ -39,7 +39,8 @@ qq.onError(function (error) {
       cdn: window.PF_INFO.cdn,
       serverid: (window.PF_INFO.selectedServer ? window.PF_INFO.selectedServer.server_id : 0),
       systemInfo: window.systemInfo,
-      error: (error ? error.message : ""),
+      error: "MiniProgramError",
+      stack: (error ? error.message : ""),
     }
     var infostr = JSON.stringify(info);
     console.error("脚本错误："+ infostr);

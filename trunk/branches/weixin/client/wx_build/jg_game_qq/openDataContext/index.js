@@ -38,7 +38,7 @@ var drawHead = function () {
         let img = qq.createImage()
         img.onload = function () {
             // imgLoad = true
-            context.drawImage(img, x + 25, 0);
+            context.drawImage(img, x + 25, 0,100,100);
             console.log("进drawImage：：", i, "name:", name, "nameWidth:", measureText.width, "url:", url, "x:", x, "width:", sharedCanvas.width,"height:",sharedCanvas.height);
         }
         img.src = url;
@@ -79,8 +79,8 @@ var shareMessageToFriend = function (index) {
             nickname: info["nickname"],
             openid: info["openid"]
         },
-        title: paramData.share_title || "找朋友一起玩吧",
-        imageUrl: paramData.share_img || info["avatarUrl"],
+        // title: paramData.share_title || "找朋友一起玩吧",
+        imageUrl: "res/atlas/share.jpg",//paramData.share_img || info["avatarUrl"],
         success: function (res) {
             console.info("定向分享接口调用成功:",res)
         },
