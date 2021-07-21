@@ -1056,19 +1056,19 @@ window.enterToGame = function () {
       }
 
       window.MainWX.instance.initPlatdata(platData);
-      setSharedCanvasSize(1000, 200);
-       testDrawHead(0);
-      let param = { type: 1, data: { space: 150} }     
-      openContextPostMsg(param);
-      setInterval(() => {
-        testDrawHead(100);
-      },1000);    
+      // setSharedCanvasSize(1000, 200);
+      //  testDrawHead(0);
+      // let param = { type: 1, data: { space: 150} }     
+      // openContextPostMsg(param);
+      // setInterval(() => {
+      //   testDrawHead(100);
+      // },1000);    
 
-      setTimeout(()=>{
-          console.log("刷新")
-          let param = { type: 1, data: { space: 150} }     
-          openContextPostMsg(param);
-      },5000)
+      // setTimeout(()=>{
+      //     console.log("刷新")
+      //     let param = { type: 1, data: { space: 150} }     
+      //     openContextPostMsg(param);
+      // },5000)
     } else {
       wxHideLoading();
     }
@@ -1105,11 +1105,17 @@ window.testDrawHead = function (x) {
   }
   // console.error("LayaSprite")
 }
+/*定向分享*/
+window.atShare = function (param) {
+  let callback = param.data.callBack;
+  callback() //直接回调 
+  openContextPostMsg(param);
+}
 
 window.openContextPostMsg = function (param) {
   let shareConfig = AKSDK.getConfig();
   param.data.share_title = shareConfig.share_title;
   param.data.share_img = shareConfig.share_img
-  const openDataContext = qq.getOpenDataContext()
+  const openDataContext = qq.getOpenDataContext();
   openDataContext.postMessage(param)
 }

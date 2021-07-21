@@ -94,12 +94,12 @@ var shareMessageToFriend = function (index) {
     }
     qq.shareMessageToFriend(param);
 }
-qq.onTouchEnd((event) => {
-    console.info("点击调用")
-    shareMessageToFriend();
-    // const l = event.changedTouches.length;
-    // for (let i = 0; i < l; i++) {
-    //     console.log(event.changedTouches[i]);
-    // }
-}
-)
+// qq.onTouchEnd((event) => {
+//     console.info("点击调用")
+//     shareMessageToFriend();
+//     // const l = event.changedTouches.length;
+//     // for (let i = 0; i < l; i++) {
+//     //     console.log(event.changedTouches[i]);
+//     // }
+// }
+// )
