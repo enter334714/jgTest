@@ -538,7 +538,7 @@ window.toRealName = function(callback) {
 
 //调起分享（QQ）
 window.openShare = function(callback){
-  AKSDK.share('share', function (data) {
+  AKSDK.share('share', function (data) {
       callback(data);
   }); 
 }
@@ -645,7 +645,7 @@ window.openSubscribeMsg = function(ids, callback) {
         AKSDK.subscribeMessage(tmpIds, function (res) {
             console.log("订阅回调：");
             console.log(res);
-            if (res && res.errMsg == "requestSubscribeMessage:ok") {
+            if (res && res.errMsg == "subscribeAppMsg:ok") {
                 for (var id in tmpObj) {
                     if (res[tmpObj[id]] == 'accept') { //同意
                         var idn = Number(id);
