@@ -27,18 +27,19 @@ var drawHead = function () {
     for (let i = 0; i < 3; i++) {
         let url = friendList[i]["avatarUrl"];
         let name = friendList[i]["nickname"];
+        name = name.substring(0,7)        
         let x = paramData.space * i;
         let measureText = context.measureText(name);
         // ctx.fillText("width:" + .width,10,50)
         let space = paramData.space - measureText.width;
         if (space < 0)
             space = 0;
-        context.fillText(name, x + space / 2, 120, 150);
+        context.fillText(name, x + space / 2, 130, 150);
         let img = qq.createImage()
         img.onload = function () {
             // imgLoad = true
             context.drawImage(img, x + 25, 0);
-            console.log("进drawImage：：", i, "name:", name, "nameWidth:", measureText.width, "url:", url, "x:", x, "width:", sharedCanvas.width);
+            console.log("进drawImage：：", i, "name:", name, "nameWidth:", measureText.width, "url:", url, "x:", x, "width:", sharedCanvas.width,"height:",sharedCanvas.height);
         }
         img.src = url;
     }
@@ -72,8 +73,6 @@ var shareMessageToFriend = function (index) {
         index = 0;
     }
     let info = friendList[index];
-
-    console.info("开始定向分享:", info)
     let param = {
         friendInfo: {
             avatarUrl: info["avatarUrl"],
@@ -81,9 +80,9 @@ var shareMessageToFriend = function (index) {
             openid: info["openid"]
         },
         title: paramData.share_title || "找朋友一起玩吧",
-        imageUrl: paramData.share_img || "",
+        imageUrl: paramData.share_img || info["avatarUrl"],
         success: function (res) {
-            console.info("定向分享接口调用成功")
+            console.info("定向分享接口调用成功:",res)
         },
         fail: function (res) {
             console.info("定向分享接口调用失败:", res)
@@ -92,6 +91,7 @@ var shareMessageToFriend = function (index) {
             console.info("定向分享接口调用完成:", res)
         }
     }
+    console.info("开始定向分享:", JSON.stringify(param))
     qq.shareMessageToFriend(param);
 }
 // qq.onTouchEnd((event) => {
