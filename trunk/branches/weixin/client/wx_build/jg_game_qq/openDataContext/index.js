@@ -21,13 +21,17 @@ var drawHead = function () {
         return;
     const sharedCanvas = qq.getSharedCanvas();
     const context = sharedCanvas.getContext('2d');
-    context.clearRect(0,0,sharedCanvas.width,sharedCanvas.height);  
-    context.fillStyle = "#ffffff";
+    context.clearRect(0, 0, sharedCanvas.width, sharedCanvas.height);
+    context.fillStyle = "#28514d";
     context.font = "24px Arial";
-    for (let i = 0; i < 3; i++) {
+    let len = friendList.length;
+    if (len > 3) {
+        len = 3;
+    }
+    for (let i = 0; i < len; i++) {
         let url = friendList[i]["avatarUrl"];
         let name = friendList[i]["nickname"];
-        name = name.substring(0,7)        
+        name = name.substring(0, 7)
         let x = paramData.space * i;
         let measureText = context.measureText(name);
         // ctx.fillText("width:" + .width,10,50)
@@ -38,8 +42,8 @@ var drawHead = function () {
         let img = qq.createImage()
         img.onload = function () {
             // imgLoad = true
-            context.drawImage(img, x + 25, 0,100,100);
-            console.log("进drawImage：：", i, "name:", name, "nameWidth:", measureText.width, "url:", url, "x:", x, "width:", sharedCanvas.width,"height:",sharedCanvas.height);
+            context.drawImage(img, x + 25, 0, 100, 100);
+            console.log("进drawImage：：", i, "name:", name, "nameWidth:", measureText.width, "url:", url, "x:", x, "width:", sharedCanvas.width, "height:", sharedCanvas.height);
         }
         img.src = url;
     }
@@ -64,7 +68,7 @@ var getFriend = function (index) {
 
 
 var shareMessageToFriend = function (index) {
-     if (!friendList || friendList.length <= 0)
+    if (!friendList || friendList.length <= 0)
         return;
     if (index == void 0) {
         index = 0;
@@ -82,7 +86,7 @@ var shareMessageToFriend = function (index) {
         // title: paramData.share_title || "找朋友一起玩吧",
         imageUrl: "res/atlas/share.jpg",//paramData.share_img || info["avatarUrl"],
         success: function (res) {
-            console.info("定向分享接口调用成功:",res)
+            console.info("定向分享接口调用成功:", res)
         },
         fail: function (res) {
             console.info("定向分享接口调用失败:", res)
@@ -102,4 +106,4 @@ var shareMessageToFriend = function (index) {
 //     //     console.log(event.changedTouches[i]);
 //     // }
 // }
-// )
+// ) 
