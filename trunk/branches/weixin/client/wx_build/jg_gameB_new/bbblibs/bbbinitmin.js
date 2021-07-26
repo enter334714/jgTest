@@ -242,7 +242,7 @@ var ui,
   }, b$c.prototype.rmEvts = function () {
     this.off(Laya.Event.MOUSE_UP, this, this.clkHdler);
   }, b$c.prototype.clkHdler = function () {
-    this.b$cc.callBack && this.b$cc.callBack(this.b$cc.index);
+    this.b$cc && this.b$cc.callBack && this.b$cc.callBack(this.b$cc.index);
   }, t.SelectLeftListItem = b$c;
 }(modules = modules || {}), function (t) {
   function b$c() {
@@ -260,7 +260,7 @@ var ui,
   }, b$c.prototype.rmEvts = function () {
     this.off(Laya.Event.MOUSE_UP, this, this.clkHdler);
   }, b$c.prototype.clkHdler = function () {
-    this.b$cc.callBack && this.b$cc.callBack(this.b$cc);
+    this.b$cc && this.b$cc.callBack && this.b$cc.callBack(this.b$cc);
   }, b$c.prototype.getStatusSrc = function (t) {
     var e = "";return 2 === t ? e = "bbblogin/image_login_changtong.png" : 1 === t ? e = "bbblogin/image_login_fanmang.png" : -1 !== t && 0 !== t || (e = "bbblogin/image_login_weihu.png"), e;
   }, t.SelectRightListItem = b$c;

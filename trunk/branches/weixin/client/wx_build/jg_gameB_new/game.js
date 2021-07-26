@@ -89,8 +89,6 @@ window.loadingInterval = setInterval(function () {
 }, 16);
 console.info("2 加载游戏");
 
-wxShowLoading({ title: '正在加载游戏' });
-
 // 每个分包的图集不一样，采用传参形式
 var wxData = {
   showLoadingBtn: true,
@@ -211,7 +209,6 @@ window.loadSubpackages = function () {
   if (window.compareVersion(window.SDKVersion, '2.1.0') >= 0) {
     //分包wx.loadSubpackage：2.1.0，SDk的wx.createUserInfoButton：2.0.1
     console.log("微信基础库版本符合最低版本要求：" + window.SDKVersion + ">=2.1.0");
-    // wxShowLoading({ title: '正在加载游戏' });
     window.sdkInit();
     window.loadProbuf();
     window.loadMain();
