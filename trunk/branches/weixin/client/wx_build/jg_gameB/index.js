@@ -224,6 +224,8 @@ window.sdkInit = function() {
     game_ver: PF_INFO.version
   };
   PF_INFO.device_id = this.guild();
+
+  wxShowLoading({ title: '正在初始化' });
   AKSDK.init(initData, this.sdkOnInited.bind(this));
 }
 /*sdk初始化回调*/
@@ -261,6 +263,8 @@ window.sdkOnInited = function(res) {
 
   this.loadVersionConfig();
   this.reqPkgOptions();
+
+  wxShowLoading({ title: '正在登录账号' });
   AKSDK.login(this.sdkOnLogin.bind(this));
 }
 /*sdk登录回调*/
@@ -309,6 +313,7 @@ window.onUserLogin = function (response) {
   PF_INFO.sign = ''; // TODO
 
   var self = this;
+  wxShowLoading({ title: '正在请求服务器' });
   sendApi(PF_INFO.apiurl, 'Server.defaultServer', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
@@ -905,6 +910,7 @@ window.req_server_check_ban = function(step, server_id) {
     'server_id': server_id
   };
   var self = this;
+  wxShowLoading({ title: '正在验证角色' });
   sendApi(PF_INFO.apiurl, 'User.checkInfo', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
@@ -1045,5 +1051,7 @@ window.enterToGame = function() {
     } else {
       wxHideLoading();
     }
+  } else {
+    console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);
   }
 }
