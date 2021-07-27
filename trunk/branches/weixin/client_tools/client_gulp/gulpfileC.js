@@ -679,14 +679,6 @@ var js_checkStrCount =  function () {
 
         var url = file.relative.replace(/\\/g,"/");
         var config = targetFileMap[url];
-        if(!config){
-            console.log("没有配置 "+file.path)
-        }else{
-            var extractStr = config.extractStr || false;
-            if(!extractStr){
-                console.log("check  配置不需要提取字符串:", url);
-            }
-        }
 
         //插件对象，可以对特定类型的节点进行处理
         var filePath = path;
@@ -764,21 +756,29 @@ var js_checkStrCount =  function () {
                 }
             }
         };
-
-
-        //transform方法转换code，babel先将代码转换成ast，然后进行遍历，最后输出code
-        var result = babel_core.transform(contents, {
-            plugins: [
-                {
-                    visitor
-                }
-            ]
-        });
-        contents = result.code; //从AST还原成字符串
-
-
-        var bf = new Buffer.from(contents);
-        file.contents = bf;
+        var check = false;
+        if(!config){
+            console.log("没有配置 "+file.path)
+            check = true;
+        }else{
+            check = config.extractStr || false;
+            if(!check){
+                console.log("check  配置不需要提取字符串:", url);
+            }
+        }
+        if(check){
+            //transform方法转换code，babel先将代码转换成ast，然后进行遍历，最后输出code
+            var result = babel_core.transform(contents, {
+                plugins: [
+                    {
+                        visitor
+                    }
+                ]
+            });
+            contents = result.code; //从AST还原成字符串
+            var bf = new Buffer.from(contents);
+            file.contents = bf;
+        }
         cb();
         this.emit("data", file);
     }
@@ -821,6 +821,7 @@ var js_babel = function () {
                 // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
                 if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
                     var tempstr = path.node.value;
+                    // console.log("tempstr：",tempstr)
                     if(!config){
                         return;
                     }
@@ -877,17 +878,17 @@ var js_babel = function () {
                             }else{
                                 index = arrIndex;
                                 add = true;
-                                // console.log("字符下标:",arrIndex)
+                                 // console.log("字符下标:",arrIndex)
                             }
+                            // console.log("输出-------------：",1);
                             var numericLiteral = babel_types.numericLiteral(index);
+                            // console.log("输出-------------：",2);
                             var hexValue = "0x"+index.toString(16);
-                            numericLiteral.extra = {rawValue:value,raw:hexValue};
+                            numericLiteral.extra = {rawValue:index,raw:hexValue};
                             numericLiteral.raw = hexValue;
-                            console.log("输出：",hexValue);
+                            console.log("输出-------------：",value,hexValue);
                             var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName), numericLiteral, true);
                             path.replaceWith(memberExpression);
-
-
                             if(add){
                                 globleArrs.push(tempstr);
                                 globleArrsObj[tempstr] = arrIndex;
