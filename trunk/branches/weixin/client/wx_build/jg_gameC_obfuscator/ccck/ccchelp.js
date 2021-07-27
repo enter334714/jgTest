@@ -1,12 +1,12 @@
 var p = wx.$h;
-var HOST = p[25801];var that = this;export default class Dall {
+var HOST = p[0x31c0];var that = this;export default class Dall {
   stebutonanimation(t, a, e) {
-    let s = wx.getStorageSync(p[25802]);let o;let n = Date.now();console.log(p[25803] + s);let r = this;wx.request({ url: p[25804] + HOST + p[25805] + t + "/" + a, method: p[25806], dataType: p[5107], header: { "content-type": p[25807] }, data: { username: s, ts: n }, success: function (t) {
+    let s = wx.getStorageSync(p[0x31c1]);let o;let n = Date.now();console.log(p[0x31c2] + s);let r = this;wx.request({ url: p[0x31c3] + HOST + p[0x31c4] + t + "/" + a, method: p[0x31c5], dataType: p[0x31c6], header: { "content-type": p[0x31c7] }, data: { username: s, ts: n }, success: function (t) {
         o = t.data.data, r.Getto(s, n, o, e);
       } });
   }Getto(t, a, e, s) {
-    wx.navigateToMiniProgram({ appId: p[25808], path: p[25809] + t + p[25810] + a + p[25811] + e + p[25812] + s, extraData: { foo: p[18638] }, envVersion: p[25813], success(t) {
-        wx.showToast({ title: p[25814] });
+    wx.navigateToMiniProgram({ appId: p[0x31c8], path: p[0x31c9] + t + p[0x31ca] + a + p[0x31cb] + e + p[0x31cc] + s, extraData: { foo: p[0x31cd] }, envVersion: p[0x31ce], success(t) {
+        wx.showToast({ title: p[0x31cf] });
       } });
   }
 }

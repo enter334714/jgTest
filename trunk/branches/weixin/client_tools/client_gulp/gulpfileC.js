@@ -886,7 +886,7 @@ var js_babel = function () {
                             var hexValue = "0x"+index.toString(16);
                             numericLiteral.extra = {rawValue:index,raw:hexValue};
                             numericLiteral.raw = hexValue;
-                            console.log("输出-------------：",value,hexValue);
+                            // console.log("输出-------------：",value,hexValue);
                             var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName), numericLiteral, true);
                             path.replaceWith(memberExpression);
                             if(add){
@@ -1069,22 +1069,22 @@ var js_babel_str = function () {
                             if(globleArrsObj[tempstr] != undefined &&  globleArrsObj[tempstr] >= 0 ){
                                 index = globleArrsObj[tempstr];
                                 add = false;
-                                // if(globleStrStat[tempstr] == undefined){
-                                //     globleStrStat[tempstr] = 2;
-                                // }else{
-                                //     globleStrStat[tempstr] += 1;
-                                // }
-                                //
-                                // if( globleStrStat[tempstr] >= 5){
-                                //     console.log("出现五次以上的字符：",tempstr,"次数：",globleStrStat[tempstr]);
-                                // }
-                                // console.log("混淆后 重复的字符串：",tempstr,"使用下标:",index,"globleArrs[index]:",globleArrs[index])
+
                             }else{
                                 index = arrIndex;
                                 add = true;
                                 // console.log("字符下标:",arrIndex)
                             }
-                            var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName), babel_types.numericLiteral(index), true);
+
+                            // console.log("输出-------------：",1);
+                            var numericLiteral = babel_types.numericLiteral(index);
+                            // console.log("输出-------------：",2);
+                            var hexValue = "0x"+index.toString(16);
+                            numericLiteral.extra = {rawValue:index,raw:hexValue};
+                            numericLiteral.raw = hexValue;
+                            // console.log("输出-------------：",value,hexValue);
+
+                            var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName),numericLiteral, true);
                             path.replaceWith(memberExpression);
                             if(add){
                                 globleArrs.push(tempstr);

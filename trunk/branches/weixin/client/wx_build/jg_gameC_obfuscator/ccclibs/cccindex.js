@@ -1,194 +1,194 @@
 var p = wx.$h;
-import a_dhfe from '../ccck/cccsdk.js';window[p[26050]] = { 'wxVersion': window[p[542]][p[25919]] }, window[p[26051]] = !0x1, window['$aED'] = 0x1, window[p[26052]] = 0x1, window['$aCDE'] = !0x0, window[p[26053]] = !0x0, window['$aABDCE'] = '', window['$aDE'] = { 'base_cdn': p[26054], 'cdn': p[26054] }, $aDE[p[26055]] = {}, $aDE[p[22297]] = '0', $aDE[p[4018]] = window[p[26050]][p[26056]], $aDE[p[26023]] = '', $aDE['os'] = '1', $aDE[p[26057]] = p[26058], $aDE[p[26059]] = p[26060], $aDE[p[26061]] = p[26062], $aDE[p[26063]] = p[26064], $aDE[p[26065]] = p[26066], $aDE[p[22300]] = '1', $aDE[p[22677]] = '', $aDE[p[26067]] = '', $aDE[p[26068]] = 0x0, $aDE[p[26069]] = {}, $aDE[p[26070]] = parseInt($aDE[p[22300]]), $aDE[p[22675]] = $aDE[p[22300]], $aDE[p[22671]] = {}, $aDE['$aBD'] = p[26071], $aDE[p[26072]] = !0x1, $aDE[p[10762]] = p[26073], $aDE[p[22650]] = Date[p[82]](), $aDE[p[10370]] = p[26074], $aDE[p[686]] = '_a', $aDE[p[26075]] = 0x2, $aDE[p[100]] = 0x7c1, $aDE[p[26056]] = window[p[26050]][p[26056]], $aDE[p[1078]] = !0x1, $aDE[p[496]] = !0x1, window['$aCED'] = 0x5, window['$aCE'] = !0x1, window['$aEC'] = !0x1, window['$aDCE'] = !0x1, window['$aDEC'] = !0x1, window['$aCD'] = !0x1, window['$aDC'] = !0x1, window['$aECD'] = !0x1, window[p[3512]] = function (y$z1) {
-  console[p[466]](p[3512], y$z1), wx[p[4270]]({}), wx[p[25974]]({ 'title': p[5635], 'content': y$z1, 'success'(qpnmol) {
-      qpnmol[p[26076]] ? console[p[466]](p[26077]) : qpnmol[p[538]] && console[p[466]](p[26078]);
+import a_tqrpso from '../ccck/cccsdk.js';window[p[0x669a]] = { 'wxVersion': window[p[0x351a]][p[0x665b]] }, window[p[0x669b]] = !0x1, window['$aED'] = 0x1, window[p[0x669c]] = 0x1, window['$aCDE'] = !0x0, window[p[0x669d]] = !0x0, window['$aABDCE'] = '', window['$aDE'] = { 'base_cdn': p[0x32ae], 'cdn': p[0x32ae] }, $aDE[p[0x669e]] = {}, $aDE[p[0x5f94]] = '0', $aDE[p[0x2a68]] = window[p[0x669a]][p[0x669f]], $aDE[p[0x329f]] = '', $aDE['os'] = '1', $aDE[p[0x66a0]] = p[0x32af], $aDE[p[0x66a1]] = p[0x32b0], $aDE[p[0x66a2]] = p[0x32b1], $aDE[p[0x66a3]] = p[0x32b2], $aDE[p[0x66a4]] = p[0x32b3], $aDE[p[0x5f97]] = '1', $aDE[p[0x6025]] = '', $aDE[p[0x66a5]] = '', $aDE[p[0x66a6]] = 0x0, $aDE[p[0x66a7]] = {}, $aDE[p[0x66a8]] = parseInt($aDE[p[0x5f97]]), $aDE[p[0x6023]] = $aDE[p[0x5f97]], $aDE[p[0x6022]] = {}, $aDE['$aBD'] = p[0x32b4], $aDE[p[0x66a9]] = !0x1, $aDE[p[0x448c]] = p[0x32b5], $aDE[p[0x601a]] = Date[p[0x33ba]](), $aDE[p[0x43ec]] = p[0x32b6], $aDE[p[0x3562]] = '_a', $aDE[p[0x66aa]] = 0x2, $aDE[p[0x33c9]] = 0x7c1, $aDE[p[0x669f]] = window[p[0x669a]][p[0x669f]], $aDE[p[0x369d]] = !0x1, $aDE[p[0x34f8]] = !0x1, window['$aCED'] = 0x5, window['$aCE'] = !0x1, window['$aEC'] = !0x1, window['$aDCE'] = !0x1, window['$aDEC'] = !0x1, window['$aCD'] = !0x1, window['$aDC'] = !0x1, window['$aECD'] = !0x1, window[p[0x32b7]] = function (wtxvr) {
+  console[p[0x34e7]](p[0x32b7], wtxvr), wx[p[0x3973]]({}), wx[p[0x667d]]({ 'title': p[0xcbe], 'content': wtxvr, 'success'(xvtsrw) {
+      xvtsrw[p[0x66ab]] ? console[p[0x34e7]](p[0x32b8]) : xvtsrw[p[0x3518]] && console[p[0x34e7]](p[0x32b9]);
     } });
-}, window['$aBCDE'] = function (y_wzx) {
-  console[p[466]](p[26079], y_wzx), $aBDEC(), wx[p[25974]]({ 'title': p[5635], 'content': y_wzx, 'confirmText': p[26080], 'cancelText': p[16828], 'success'(_1y0) {
-      _1y0[p[26076]] ? window['$aDB']() : _1y0[p[538]] && (console[p[466]](p[26081]), wx[p[22805]]({}));
+}, window['$aBCDE'] = function (kopln) {
+  console[p[0x34e7]](p[0x32ba], kopln), $aBDEC(), wx[p[0x667d]]({ 'title': p[0xcbe], 'content': kopln, 'confirmText': p[0x32bb], 'cancelText': p[0x2062], 'success'(xwvyst) {
+      xwvyst[p[0x66ab]] ? window['$aDB']() : xwvyst[p[0x3518]] && (console[p[0x34e7]](p[0x32bc]), wx[p[0x6058]]({}));
     } });
-}, window['$aEDA'] = function (nlmkjo) {
-  console[p[466]](p[26082], nlmkjo), wx[p[25974]]({ 'title': p[5635], 'content': nlmkjo, 'confirmText': p[22783], 'showCancel': !0x1, 'complete'(gdcfeb) {
-      console[p[466]](p[26081]), wx[p[22805]]({});
+}, window['$aEDA'] = function (z0$21_) {
+  console[p[0x34e7]](p[0x32bd], z0$21_), wx[p[0x667d]]({ 'title': p[0xcbe], 'content': z0$21_, 'confirmText': p[0x2b14], 'showCancel': !0x1, 'complete'(pomn) {
+      console[p[0x34e7]](p[0x32bc]), wx[p[0x6058]]({});
     } });
-}, window['$aBCED'] = !0x1, window['$aBDCE'] = function (xwz$_) {
-  window['$aBCED'] = !0x0, wx[p[4269]](xwz$_);
+}, window['$aBCED'] = !0x1, window['$aBDCE'] = function (yz$xwv) {
+  window['$aBCED'] = !0x0, wx[p[0x3972]](yz$xwv);
 }, window['$aBDEC'] = function () {
-  window['$aBCED'] && (window['$aBCED'] = !0x1, wx[p[4270]]({}));
-}, window['$aBECD'] = function (vsqpr) {
-  window[p[25965]][p[147]]['$aBECD'](vsqpr);
-}, window[p[10679]] = function (nmpk, $302_) {
-  a_dhfe[p[10679]](nmpk, function (qrtsp) {
-    qrtsp && qrtsp[p[11]] ? 0x1 == qrtsp[p[11]][p[3449]] ? $302_(!0x0) : ($302_(!0x1), console[p[77]](p[26083] + qrtsp[p[11]][p[26084]])) : console[p[466]](p[10679], qrtsp);
+  window['$aBCED'] && (window['$aBCED'] = !0x1, wx[p[0x3973]]({}));
+}, window['$aBECD'] = function (wqrvts) {
+  window[p[0x6676]][p[0x24]]['$aBECD'](wqrvts);
+}, window[p[0x3235]] = function (wrsvt, kilhj) {
+  a_tqrpso[p[0x3235]](wrsvt, function (egfhc) {
+    egfhc && egfhc[p[0x1fe]] ? 0x1 == egfhc[p[0x1fe]][p[0xacb]] ? kilhj(!0x0) : (kilhj(!0x1), console[p[0xb]](p[0x32be] + egfhc[p[0x1fe]][p[0x66ac]])) : console[p[0x34e7]](p[0x3235], egfhc);
   });
-}, window['$aBEDC'] = function (txwvrs) {
-  console[p[466]](p[26085], txwvrs);
-}, window['$aBDE'] = function (omlq) {}, window['$aBED'] = function (mil, x$ywz_, z$xvwy) {}, window['$aBE'] = function (kfgjhi) {
-  console[p[466]](p[26086], kfgjhi), window[p[25965]][p[147]][p[26087]](), window[p[25965]][p[147]][p[26088]](), window[p[25965]][p[147]][p[26089]]();
-}, window['$aEB'] = function (osrpn) {
-  console[p[466]](p[26090]), window['$aBCDE'](p[26090]), $aBD(osrpn || p[26091]);
-}, window['$aDBE'] = function (hfedi) {
-  hfedi = JSON[p[512]](hfedi), (hfedi[p[26092]] = window[p[542]][p[25919]], hfedi[p[26093]] = window['$aDE'][p[22671]] ? window['$aDE'][p[22671]][p[10316]] : 0x0, hfedi[p[25926]] = window[p[25926]]), hfedi = JSON[p[3819]](hfedi), (console[p[124]](p[26094] + hfedi), $aBD(hfedi));
-}, window['$aDEB'] = function (ehgdfc) {
-  ehgdfc = { 'id': window['$aDE'][p[25924]], 'role': window['$aDE'][p[3947]], 'level': window['$aDE'][p[25925]], 'user': window['$aDE'][p[22676]], 'version': window['$aDE'][p[100]], 'cdn': window['$aDE'][p[3831]], 'pkgName': window['$aDE'][p[22677]], 'gamever': window[p[542]][p[25919]], 'serverid': window['$aDE'][p[22671]] ? window['$aDE'][p[22671]][p[10316]] : 0x0, 'systemInfo': window[p[25926]], 'error': ehgdfc }, ehgdfc = JSON[p[3819]](ehgdfc), (console[p[95]](p[26095] + ehgdfc), window['$aBD'](ehgdfc));
-}, window['$aBD'] = function (ifkgjh) {
-  var xz$_wy;p[26096] != window['$aDE'][p[26024]] && (xz$_wy = $aDE['$aBD'] + p[26097] + $aDE[p[22676]], wx[p[461]]({ 'url': xz$_wy, 'method': p[25806], 'data': ifkgjh, 'header': { 'content-type': p[26098], 'cache-control': p[26099] }, 'success': function (qtrsv) {}, 'fail': function (jiegfh) {}, 'complete': function () {} }));
-}, window[p[26100]] = function () {
-  function onmljk() {
-    return (0x10000 * (0x1 + Math[p[118]]()) | 0x0)[p[270]](0x10)[p[484]](0x1);
-  }return onmljk() + onmljk() + '-' + onmljk() + '-' + onmljk() + '-' + onmljk() + '+' + onmljk() + onmljk() + onmljk();
+}, window['$aBEDC'] = function (rpnsoq) {
+  console[p[0x34e7]](p[0x32bf], rpnsoq);
+}, window['$aBDE'] = function (twrxv) {}, window['$aBED'] = function (jghe, txsyvw, vw$z) {}, window['$aBE'] = function (mpqlno) {
+  console[p[0x34e7]](p[0x32c0], mpqlno), window[p[0x6676]][p[0x24]][p[0x66ad]](), window[p[0x6676]][p[0x24]][p[0x66ae]](), window[p[0x6676]][p[0x24]][p[0x66af]]();
+}, window['$aEB'] = function (vtwsxr) {
+  console[p[0x34e7]](p[0x32c1]), window['$aBCDE'](p[0x32c1]), $aBD(vtwsxr || p[0x32c2]);
+}, window['$aDBE'] = function (rpvst) {
+  rpvst = JSON[p[0x3506]](rpvst), (rpvst[p[0x66b0]] = window[p[0x351a]][p[0x665b]], rpvst[p[0x66b1]] = window['$aDE'][p[0x6022]] ? window['$aDE'][p[0x6022]][p[0x43d5]] : 0x0, rpvst[p[0x665e]] = window[p[0x665e]]), rpvst = JSON[p[0x3862]](rpvst), (console[p[0x9]](p[0x32c3] + rpvst), $aBD(rpvst));
+}, window['$aDEB'] = function (vwqrs) {
+  vwqrs = { 'id': window['$aDE'][p[0x665c]], 'role': window['$aDE'][p[0x9d9]], 'level': window['$aDE'][p[0x665d]], 'user': window['$aDE'][p[0x6024]], 'version': window['$aDE'][p[0x33c9]], 'cdn': window['$aDE'][p[0x386b]], 'pkgName': window['$aDE'][p[0x6025]], 'gamever': window[p[0x351a]][p[0x665b]], 'serverid': window['$aDE'][p[0x6022]] ? window['$aDE'][p[0x6022]][p[0x43d5]] : 0x0, 'systemInfo': window[p[0x665e]], 'error': vwqrs }, vwqrs = JSON[p[0x3862]](vwqrs), (console[p[0x33c5]](p[0x32c4] + vwqrs), window['$aBD'](vwqrs));
+}, window['$aBD'] = function ($zvy) {
+  var vprq;p[0x32c5] != window['$aDE'][p[0x668e]] && (vprq = $aDE['$aBD'] + p[0x32c6] + $aDE[p[0x6024]], wx[p[0x34e2]]({ 'url': vprq, 'method': p[0x31c5], 'data': $zvy, 'header': { 'content-type': p[0x32c7], 'cache-control': p[0x32c8] }, 'success': function (soqnpr) {}, 'fail': function (klnmj) {}, 'complete': function () {} }));
+}, window[p[0x66b2]] = function () {
+  function nlkjom() {
+    return (0x10000 * (0x1 + Math[p[0x33d7]]()) | 0x0)[p[0x3456]](0x10)[p[0x34ed]](0x1);
+  }return nlkjom() + nlkjom() + '-' + nlkjom() + '-' + nlkjom() + '-' + nlkjom() + '+' + nlkjom() + nlkjom() + nlkjom();
 }, window['$aDB'] = function () {
-  console[p[466]](p[26101]);var gdehf = a_dhfe[p[26102]]();$aDE[p[22675]] = gdehf[p[26103]], $aDE[p[26070]] = gdehf[p[26103]], $aDE[p[22300]] = gdehf[p[26103]], $aDE[p[22677]] = gdehf[p[26104]], gdehf = { 'game_ver': $aDE[p[4018]] }, ($aDE[p[26067]] = this[p[26100]](), $aBDCE({ 'title': p[26105] }), a_dhfe[p[359]](gdehf, this['$aEBD'][p[73]](this)));
-}, window['$aEBD'] = function (x$_yzw) {
-  var xztywv = x$_yzw[p[26106]];console[p[466]](p[26107] + xztywv + p[26108] + (0x1 == xztywv) + p[26109] + x$_yzw[p[25919]] + p[26110] + window[p[26050]][p[26056]]), window['$aADBCE'](window[p[26050]][p[26056]], x$_yzw[p[25919]]) < 0x0 ? (console[p[466]](p[26111]), $aDE[p[26059]] = p[26112], $aDE[p[26061]] = p[26113], $aDE[p[26063]] = p[26114], $aDE[p[22296]] = p[26115], $aDE[p[26116]] = p[26117], $aDE[p[1078]] = !0x1) : 0x0 == window['$aADBCE'](window[p[26050]][p[26056]], x$_yzw[p[25919]]) ? (console[p[466]](p[26118]), $aDE[p[26059]] = p[26060], $aDE[p[26061]] = p[26062], $aDE[p[26063]] = p[26064], $aDE[p[22296]] = p[26115], $aDE[p[26116]] = '', $aDE[p[1078]] = !0x0) : (console[p[466]](p[26119]), $aDE[p[26059]] = p[26060], $aDE[p[26061]] = p[26062], $aDE[p[26063]] = p[26064], $aDE[p[22296]] = p[26115], $aDE[p[26116]] = '', $aDE[p[1078]] = !0x1), $aDE[p[26068]] = config[p[25454]] || 0x0, this['$aCDBE'](), this['$aCDEB'](), $aBDCE({ 'title': p[26120] }), a_dhfe[p[25907]](this['$aEDB'][p[73]](this));
-}, window['$aEDB'] = function (pnqors, $0z_x) {
-  $aBDCE({ 'title': p[26121] }), 0x0 === pnqors && $0z_x && $0z_x[p[25545]] ? ($aDE[p[26122]] = $0z_x[p[25545]], sendApi($aDE[p[26059]], p[26123], { 'platform': $aDE[p[26057]], 'partner_id': $aDE[p[22300]], 'token': $0z_x[p[25545]], 'game_pkg': $aDE[p[22677]], 'deviceId': $aDE[p[26067]], 'scene': p[26124] + $aDE[p[26068]] }, this['$aCBDE'][p[73]](this), $aCED, $aEB)) : ($aBD(JSON[p[3819]]({ 'error': JSON[p[3819]]({ 'type': p[26125], 'status': pnqors, 'data': $0z_x }) })), window['$aBCDE'](p[26126] + ($0z_x && $0z_x[p[22823]] ? '，' + $0z_x[p[22823]] : '')));
-}, window['$aCBDE'] = function (cbge) {
-  cbge ? p[8898] == cbge[p[3449]] ? ($aDE[p[22670]] = String(cbge[p[22676]]), $aDE[p[22676]] = String(cbge[p[22676]]), $aDE[p[22648]] = String(cbge[p[22648]]), $aDE[p[22675]] = String(cbge[p[22648]]), $aDE[p[22678]] = String(cbge[p[22678]]), $aDE[p[26127]] = String(cbge[p[10298]]), $aDE[p[26128]] = String(cbge[p[814]]), $aDE[p[10298]] = '', $aBDCE({ 'title': p[26129] }), sendApi($aDE[p[26059]], p[26130], { 'partner_id': $aDE[p[22300]], 'uid': $aDE[p[22676]], 'version': $aDE[p[4018]], 'game_pkg': $aDE[p[22677]], 'device': $aDE[p[26067]] }, this['$aCBED'][p[73]](this), $aCED, $aEB)) : window['$aBCDE'](p[26131] + cbge[p[3449]]) : window['$aBCDE'](p[26132]);
-}, window['$aCBED'] = function (jhei) {
-  jhei ? p[8898] == jhei[p[3449]] ? jhei[p[11]] && 0x0 != jhei[p[11]][p[13]] ? ($aDE[p[629]] = jhei[p[26133]], $aDE[p[22671]] = { 'server_id': String(jhei[p[11]][0x0][p[10316]]), 'server_name': String(jhei[p[11]][0x0][p[26134]]), 'entry_ip': jhei[p[11]][0x0][p[22696]], 'entry_port': parseInt(jhei[p[11]][0x0][p[22697]]), 'status': $aEBDC(jhei[p[11]][0x0]), 'start_time': jhei[p[11]][0x0][p[26135]], 'cdn': $aDE[p[3831]] }, this['$aABCED']()) : window['$aBCDE'](p[26136]) : window['$aBCDE'](p[26137] + jhei[p[3449]]) : window['$aBCDE'](p[26138]);
+  console[p[0x34e7]](p[0x32c9]);var ligk = a_tqrpso[p[0x66b3]]();$aDE[p[0x6023]] = ligk[p[0x66b4]], $aDE[p[0x66a8]] = ligk[p[0x66b4]], $aDE[p[0x5f97]] = ligk[p[0x66b4]], $aDE[p[0x6025]] = ligk[p[0x66b5]], ligk = { 'game_ver': $aDE[p[0x2a68]] }, ($aDE[p[0x66a5]] = this[p[0x66b2]](), $aBDCE({ 'title': p[0x32ca] }), a_tqrpso[p[0x2afa]](ligk, this['$aEBD'][p[0x33b3]](this)));
+}, window['$aEBD'] = function (cgbfe) {
+  var z_y$0 = cgbfe[p[0x66b6]];console[p[0x34e7]](p[0x32cb] + z_y$0 + p[0x32cc] + (0x1 == z_y$0) + p[0x32cd] + cgbfe[p[0x665b]] + p[0x32ce] + window[p[0x669a]][p[0x669f]]), window['$aADBCE'](window[p[0x669a]][p[0x669f]], cgbfe[p[0x665b]]) < 0x0 ? (console[p[0x34e7]](p[0x32cf]), $aDE[p[0x66a1]] = p[0x32d0], $aDE[p[0x66a2]] = p[0x32d1], $aDE[p[0x66a3]] = p[0x32d2], $aDE[p[0x5f93]] = p[0x32d3], $aDE[p[0x66b7]] = p[0x32d4], $aDE[p[0x369d]] = !0x1) : 0x0 == window['$aADBCE'](window[p[0x669a]][p[0x669f]], cgbfe[p[0x665b]]) ? (console[p[0x34e7]](p[0x32d5]), $aDE[p[0x66a1]] = p[0x32b0], $aDE[p[0x66a2]] = p[0x32b1], $aDE[p[0x66a3]] = p[0x32b2], $aDE[p[0x5f93]] = p[0x32d3], $aDE[p[0x66b7]] = '', $aDE[p[0x369d]] = !0x0) : (console[p[0x34e7]](p[0x32d6]), $aDE[p[0x66a1]] = p[0x32b0], $aDE[p[0x66a2]] = p[0x32b1], $aDE[p[0x66a3]] = p[0x32b2], $aDE[p[0x5f93]] = p[0x32d3], $aDE[p[0x66b7]] = '', $aDE[p[0x369d]] = !0x1), $aDE[p[0x66a6]] = config[p[0x652a]] || 0x0, this['$aCDBE'](), this['$aCDEB'](), $aBDCE({ 'title': p[0x32d7] }), a_tqrpso[p[0x322f]](this['$aEDB'][p[0x33b3]](this));
+}, window['$aEDB'] = function (z0_1y$, gifh) {
+  $aBDCE({ 'title': p[0x32d8] }), 0x0 === z0_1y$ && gifh && gifh[p[0x6577]] ? ($aDE[p[0x66b8]] = gifh[p[0x6577]], sendApi($aDE[p[0x66a1]], p[0x32d9], { 'platform': $aDE[p[0x66a0]], 'partner_id': $aDE[p[0x5f97]], 'token': gifh[p[0x6577]], 'game_pkg': $aDE[p[0x6025]], 'deviceId': $aDE[p[0x66a5]], 'scene': p[0x32da] + $aDE[p[0x66a6]] }, this['$aCBDE'][p[0x33b3]](this), $aCED, $aEB)) : ($aBD(JSON[p[0x3862]]({ 'error': JSON[p[0x3862]]({ 'type': p[0x32db], 'status': z0_1y$, 'data': gifh }) })), window['$aBCDE'](p[0x32dc] + (gifh && gifh[p[0x605e]] ? '，' + gifh[p[0x605e]] : '')));
+}, window['$aCBDE'] = function (noqr) {
+  noqr ? p[0x13e0] == noqr[p[0xacb]] ? ($aDE[p[0x6021]] = String(noqr[p[0x6024]]), $aDE[p[0x6024]] = String(noqr[p[0x6024]]), $aDE[p[0x6018]] = String(noqr[p[0x6018]]), $aDE[p[0x6023]] = String(noqr[p[0x6018]]), $aDE[p[0x6026]] = String(noqr[p[0x6026]]), $aDE[p[0x66b9]] = String(noqr[p[0x43cf]]), $aDE[p[0x66ba]] = String(noqr[p[0xac9]]), $aDE[p[0x43cf]] = '', $aBDCE({ 'title': p[0x32dd] }), sendApi($aDE[p[0x66a1]], p[0x32de], { 'partner_id': $aDE[p[0x5f97]], 'uid': $aDE[p[0x6024]], 'version': $aDE[p[0x2a68]], 'game_pkg': $aDE[p[0x6025]], 'device': $aDE[p[0x66a5]] }, this['$aCBED'][p[0x33b3]](this), $aCED, $aEB)) : window['$aBCDE'](p[0x32df] + noqr[p[0xacb]]) : window['$aBCDE'](p[0x32e0]);
+}, window['$aCBED'] = function (qrnop) {
+  qrnop ? p[0x13e0] == qrnop[p[0xacb]] ? qrnop[p[0x1fe]] && 0x0 != qrnop[p[0x1fe]][p[0x208c]] ? ($aDE[p[0x3548]] = qrnop[p[0x66bb]], $aDE[p[0x6022]] = { 'server_id': String(qrnop[p[0x1fe]][0x0][p[0x43d5]]), 'server_name': String(qrnop[p[0x1fe]][0x0][p[0x66bc]]), 'entry_ip': qrnop[p[0x1fe]][0x0][p[0x6030]], 'entry_port': parseInt(qrnop[p[0x1fe]][0x0][p[0x6031]]), 'status': $aEBDC(qrnop[p[0x1fe]][0x0]), 'start_time': qrnop[p[0x1fe]][0x0][p[0x66bd]], 'cdn': $aDE[p[0x386b]] }, this['$aABCED']()) : window['$aBCDE'](p[0x32e1]) : window['$aBCDE'](p[0x32e2] + qrnop[p[0xacb]]) : window['$aBCDE'](p[0x32e3]);
 }, window['$aABCED'] = function () {
-  if (0x1 == $aDE[p[629]]) {
-    var gbdfec = $aDE[p[22671]][p[105]];if (-0x1 === gbdfec || 0x0 === gbdfec) return void window['$aBCDE'](-0x1 === gbdfec ? p[26139] : p[26140]);$aECBD(0x0, $aDE[p[22671]][p[10316]]), window[p[25965]][p[147]][p[26141]]($aDE[p[629]]);
-  } else window[p[25965]][p[147]][p[26142]](), $aBDEC();window['$aDC'] = !0x0, window['$aEDCB'](), window['$aABCDE']();
+  if (0x1 == $aDE[p[0x3548]]) {
+    var ehfid = $aDE[p[0x6022]][p[0xc6]];if (-0x1 === ehfid || 0x0 === ehfid) return void window['$aBCDE'](-0x1 === ehfid ? p[0x32e4] : p[0x32e5]);$aECBD(0x0, $aDE[p[0x6022]][p[0x43d5]]), window[p[0x6676]][p[0x24]][p[0x66be]]($aDE[p[0x3548]]);
+  } else window[p[0x6676]][p[0x24]][p[0x66bf]](), $aBDEC();window['$aDC'] = !0x0, window['$aEDCB'](), window['$aABCDE']();
 }, window['$aCDBE'] = function () {
-  sendApi($aDE[p[26059]], p[26143], { 'game_pkg': $aDE[p[22677]], 'version_name': $aDE[p[26116]] }, function (z_0y$) {
-    z_0y$ ? p[8898] == z_0y$[p[3449]] ? z_0y$[p[11]] && z_0y$[p[11]][p[4018]] ? ($aDE[p[26144]] = z_0y$[p[11]][p[26145]] || $aDE[p[26144]], $aDE[p[3831]] = z_0y$[p[11]][p[26145]] || $aDE[p[3831]], $aDE[p[100]] = z_0y$[p[11]][p[4018]] || $aDE[p[100]], console[p[77]](p[26146] + $aDE[p[100]]), window['$aDEC'] = !0x0, window['$aEDCB'](), window['$aABCDE']()) : window['$aBCDE'](p[26147] + (z_0y$[p[11]] && z_0y$[p[11]][p[4018]])) : window['$aBCDE'](p[26148] + z_0y$[p[3449]]) : window['$aBCDE'](p[26149]);
+  sendApi($aDE[p[0x66a1]], p[0x32e6], { 'game_pkg': $aDE[p[0x6025]], 'version_name': $aDE[p[0x66b7]] }, function (acde) {
+    acde ? p[0x13e0] == acde[p[0xacb]] ? acde[p[0x1fe]] && acde[p[0x1fe]][p[0x2a68]] ? ($aDE[p[0x66c0]] = acde[p[0x1fe]][p[0x66c1]] || $aDE[p[0x66c0]], $aDE[p[0x386b]] = acde[p[0x1fe]][p[0x66c1]] || $aDE[p[0x386b]], $aDE[p[0x33c9]] = acde[p[0x1fe]][p[0x2a68]] || $aDE[p[0x33c9]], console[p[0xb]](p[0x32e7] + $aDE[p[0x33c9]]), window['$aDEC'] = !0x0, window['$aEDCB'](), window['$aABCDE']()) : window['$aBCDE'](p[0x32e8] + (acde[p[0x1fe]] && acde[p[0x1fe]][p[0x2a68]])) : window['$aBCDE'](p[0x32e9] + acde[p[0xacb]]) : window['$aBCDE'](p[0x32ea]);
   });
-}, window[p[26150]], window['$aCDEB'] = function () {
-  sendApi($aDE[p[26059]], p[26151], { 'game_pkg': $aDE[p[22677]] }, $aCEBD);
-}, window['$aCEBD'] = function (ihfjeg) {
-  if (p[8898] === ihfjeg[p[3449]] && ihfjeg[p[11]]) {
-    for (var ghjil in window[p[26150]] = ihfjeg[p[11]], ihfjeg[p[11]]) $aDE[ghjil] = ihfjeg[p[11]][ghjil];
-  } else console[p[77]](p[26152] + ihfjeg[p[3449]]);window['$aCD'] = !0x0, window['$aABCDE']();
-}, window[p[26153]] = function (npomq, z2_, rqspto, decfhg, vy$x, hjlkgi, bfdeac, mjhli, aecfd) {
-  vy$x = String(vy$x), ($aDE[p[26055]][vy$x] = { 'productid': vy$x, 'productname': bfdeac, 'productdesc': mjhli, 'roleid': npomq, 'rolename': z2_, 'rolelevel': rqspto, 'price': hjlkgi, 'callback': aecfd }, sendApi($aDE[p[26063]], p[26154], { 'game_pkg': $aDE[p[22677]], 'server_id': $aDE[p[22671]][p[10316]], 'server_name': $aDE[p[22671]][p[26134]], 'level': rqspto, 'uid': $aDE[p[22676]], 'role_id': npomq, 'role_name': z2_, 'product_id': vy$x, 'product_name': bfdeac, 'product_desc': mjhli, 'money': hjlkgi, 'partner_id': $aDE[p[22300]] }, toPayCallBack, $aCED, $aEB));
-}, window[p[26155]] = function (_130$2) {
-  var orsqpt;_130$2 && (0xc8 === _130$2[p[26156]] || p[8898] == _130$2[p[3449]] ? ((orsqpt = $aDE[p[26055]][String(_130$2[p[26157]])])[p[329]] && orsqpt[p[329]](_130$2[p[26157]], _130$2[p[26158]], -0x1), a_dhfe[p[25908]]({ 'cpbill': _130$2[p[26158]], 'productid': _130$2[p[26157]], 'productname': orsqpt[p[26159]], 'productdesc': orsqpt[p[26160]], 'serverid': $aDE[p[22671]][p[10316]], 'servername': $aDE[p[22671]][p[26134]], 'roleid': orsqpt[p[26161]], 'rolename': orsqpt[p[26162]], 'rolelevel': orsqpt[p[26163]], 'price': orsqpt[p[24054]], 'extension': JSON[p[3819]]({ 'cp_order_id': _130$2[p[26158]] }) }, function (jgkf, opmnlk) {
-    orsqpt[p[329]] && 0x0 == jgkf && orsqpt[p[329]](_130$2[p[26157]], _130$2[p[26158]], jgkf), console[p[77]](JSON[p[3819]]({ 'type': p[26164], 'status': jgkf, 'data': _130$2, 'role_name': orsqpt[p[26162]] }));
-  })) : alert(_130$2[p[77]]));
-}, window['$aCEDB'] = function () {}, window['$aBCE'] = function (dgehi, rswtxv, $zx0, npolk) {
-  a_dhfe[p[25910]]($aDE[p[22671]][p[10316]], $aDE[p[22671]][p[26134]] || $aDE[p[22671]][p[10316]], dgehi, rswtxv, $zx0), sendApi($aDE[p[26059]], p[26165], { 'game_pkg': $aDE[p[22677]], 'server_id': $aDE[p[22671]][p[10316]], 'role_id': dgehi, 'uid': $aDE[p[22676]], 'role_name': rswtxv, 'role_type': npolk, 'level': $zx0 });
-}, window['$aBEC'] = function (hdegc, fdegb, mjnokl, gij, dfei) {
-  $aDE[p[25924]] = hdegc, $aDE[p[3947]] = fdegb, $aDE[p[25925]] = mjnokl, a_dhfe[p[25911]]($aDE[p[22671]][p[10316]], $aDE[p[22671]][p[26134]] || $aDE[p[22671]][p[10316]], hdegc, fdegb, mjnokl), sendApi($aDE[p[26059]], p[26166], { 'game_pkg': $aDE[p[22677]], 'server_id': $aDE[p[22671]][p[10316]], 'role_id': hdegc, 'uid': $aDE[p[22676]], 'role_name': fdegb, 'role_type': gij, 'level': mjnokl, 'evolution': dfei });
-}, window['$aCBE'] = function (z0y_1$, xts, ifh, z_1y0$, vxytz) {
-  $aDE[p[25924]] = z0y_1$, $aDE[p[3947]] = xts, $aDE[p[25925]] = ifh;
-}, window['$aCEB'] = function (mlhkij) {}, window['$aBC'] = function (prtsv) {
-  a_dhfe[p[25849]](p[25849], function (xyz_0$) {
-    prtsv(xyz_0$);
+}, window[p[0x66c2]], window['$aCDEB'] = function () {
+  sendApi($aDE[p[0x66a1]], p[0x32eb], { 'game_pkg': $aDE[p[0x6025]] }, $aCEBD);
+}, window['$aCEBD'] = function (cfbdae) {
+  if (p[0x13e0] === cfbdae[p[0xacb]] && cfbdae[p[0x1fe]]) {
+    for (var xvytwz in window[p[0x66c2]] = cfbdae[p[0x1fe]], cfbdae[p[0x1fe]]) $aDE[xvytwz] = cfbdae[p[0x1fe]][xvytwz];
+  } else console[p[0xb]](p[0x32ec] + cfbdae[p[0xacb]]);window['$aCD'] = !0x0, window['$aABCDE']();
+}, window[p[0x66c3]] = function (wvzyx$, xyzvt, cefdh, pnlo, wy$zv, kghij, oqpns, mkhijl, nmj) {
+  wy$zv = String(wy$zv), ($aDE[p[0x669e]][wy$zv] = { 'productid': wy$zv, 'productname': oqpns, 'productdesc': mkhijl, 'roleid': wvzyx$, 'rolename': xyzvt, 'rolelevel': cefdh, 'price': kghij, 'callback': nmj }, sendApi($aDE[p[0x66a3]], p[0x32ed], { 'game_pkg': $aDE[p[0x6025]], 'server_id': $aDE[p[0x6022]][p[0x43d5]], 'server_name': $aDE[p[0x6022]][p[0x66bc]], 'level': cefdh, 'uid': $aDE[p[0x6024]], 'role_id': wvzyx$, 'role_name': xyzvt, 'product_id': wy$zv, 'product_name': oqpns, 'product_desc': mkhijl, 'money': kghij, 'partner_id': $aDE[p[0x5f97]] }, toPayCallBack, $aCED, $aEB));
+}, window[p[0x66c4]] = function (cefdgb) {
+  var gjhfei;cefdgb && (0xc8 === cefdgb[p[0x66c5]] || p[0x13e0] == cefdgb[p[0xacb]] ? ((gjhfei = $aDE[p[0x669e]][String(cefdgb[p[0x66c6]])])[p[0x3479]] && gjhfei[p[0x3479]](cefdgb[p[0x66c6]], cefdgb[p[0x66c7]], -0x1), a_tqrpso[p[0x3230]]({ 'cpbill': cefdgb[p[0x66c7]], 'productid': cefdgb[p[0x66c6]], 'productname': gjhfei[p[0x66c8]], 'productdesc': gjhfei[p[0x66c9]], 'serverid': $aDE[p[0x6022]][p[0x43d5]], 'servername': $aDE[p[0x6022]][p[0x66bc]], 'roleid': gjhfei[p[0x66ca]], 'rolename': gjhfei[p[0x66cb]], 'rolelevel': gjhfei[p[0x66cc]], 'price': gjhfei[p[0x6298]], 'extension': JSON[p[0x3862]]({ 'cp_order_id': cefdgb[p[0x66c7]] }) }, function (omlpqn, jiklhm) {
+    gjhfei[p[0x3479]] && 0x0 == omlpqn && gjhfei[p[0x3479]](cefdgb[p[0x66c6]], cefdgb[p[0x66c7]], omlpqn), console[p[0xb]](JSON[p[0x3862]]({ 'type': p[0x32ee], 'status': omlpqn, 'data': cefdgb, 'role_name': gjhfei[p[0x66cb]] }));
+  })) : alert(cefdgb[p[0xb]]));
+}, window['$aCEDB'] = function () {}, window['$aBCE'] = function (fidegh, qtprs, fchedg, wtys) {
+  a_tqrpso[p[0x3232]]($aDE[p[0x6022]][p[0x43d5]], $aDE[p[0x6022]][p[0x66bc]] || $aDE[p[0x6022]][p[0x43d5]], fidegh, qtprs, fchedg), sendApi($aDE[p[0x66a1]], p[0x32ef], { 'game_pkg': $aDE[p[0x6025]], 'server_id': $aDE[p[0x6022]][p[0x43d5]], 'role_id': fidegh, 'uid': $aDE[p[0x6024]], 'role_name': qtprs, 'role_type': wtys, 'level': fchedg });
+}, window['$aBEC'] = function (osqtrp, xwst, _x0y$z, _41302, sqpnr) {
+  $aDE[p[0x665c]] = osqtrp, $aDE[p[0x9d9]] = xwst, $aDE[p[0x665d]] = _x0y$z, a_tqrpso[p[0x3233]]($aDE[p[0x6022]][p[0x43d5]], $aDE[p[0x6022]][p[0x66bc]] || $aDE[p[0x6022]][p[0x43d5]], osqtrp, xwst, _x0y$z), sendApi($aDE[p[0x66a1]], p[0x32f0], { 'game_pkg': $aDE[p[0x6025]], 'server_id': $aDE[p[0x6022]][p[0x43d5]], 'role_id': osqtrp, 'uid': $aDE[p[0x6024]], 'role_name': xwst, 'role_type': _41302, 'level': _x0y$z, 'evolution': sqpnr });
+}, window['$aCBE'] = function (jlikmn, spqvrt, jhfkgi, ijhkgf, oqrmp) {
+  $aDE[p[0x665c]] = jlikmn, $aDE[p[0x9d9]] = spqvrt, $aDE[p[0x665d]] = jhfkgi;
+}, window['$aCEB'] = function (ysvtxw) {}, window['$aBC'] = function (jgeh) {
+  a_tqrpso[p[0x31f4]](p[0x31f4], function (xwtrvs) {
+    jgeh(xwtrvs);
   });
 }, window['$aCB'] = function () {
-  a_dhfe['$aCB']();
-}, window[p[26167]] = function () {
-  a_dhfe[p[22288]]();
-}, window['$aECB'] = null, window['$aDBCE'] = null, window['$aEBC'] = function (vrsxtw) {
-  window['$aDBCE'] = vrsxtw, window['$aDBCE'] && window['$aECB'] && (console[p[77]](p[26044] + window['$aECB'][p[739]]), window['$aDBCE'](window['$aECB']), window['$aECB'] = null);
-}, window['$aDBEC'] = function (snqop, z1_y, twvs, monlpk) {
-  window[p[21]](p[26168], { 'game_pkg': window['$aDE'][p[22677]], 'role_id': z1_y, 'server_id': twvs }, monlpk);
-}, window['$aDCBE'] = function (dbgce, xrsvt) {
-  wx[p[26169]](function ytvsx(jmlni) {
-    var lknmoj = [],
-        nqoprs = [],
-        mkjlh = window[p[542]][p[26170]];for (var khmj in mkjlh) {
-      var _y$x = Number(khmj);dbgce && dbgce[p[13]] && -0x1 == dbgce[p[114]](_y$x) || (nqoprs[p[28]](mkjlh[khmj]), lknmoj[p[28]]([_y$x, 0x3]));
-    }0x0 <= window['$aADBCE'](window[p[25966]], p[26171]) ? (console[p[466]](p[26172]), a_dhfe[p[25914]](nqoprs, function (_$2301) {
-      if (console[p[466]](p[26173]), console[p[466]](_$2301), _$2301 && p[26174] == _$2301[p[22823]]) {
-        for (var mjhilk in mkjlh) if (p[26175] == _$2301[mkjlh[mjhilk]]) {
-          var hgeidf = Number(mjhilk);for (var qnpo = 0x0; qnpo < lknmoj[p[13]]; qnpo++) if (lknmoj[qnpo][0x0] == hgeidf) {
-            lknmoj[qnpo][0x1] = 0x1;break;
+  a_tqrpso['$aCB']();
+}, window[p[0x66cd]] = function () {
+  a_tqrpso[p[0x3239]]();
+}, window['$aECB'] = null, window['$aDBCE'] = null, window['$aEBC'] = function (sorpqn) {
+  window['$aDBCE'] = sorpqn, window['$aDBCE'] && window['$aECB'] && (console[p[0xb]](p[0x32ab] + window['$aECB'][p[0xc7]]), window['$aDBCE'](window['$aECB']), window['$aECB'] = null);
+}, window['$aDBEC'] = function (dehfgi, polnqm, otpqrs, rmqpno) {
+  window[p[0x33a1]](p[0x32f1], { 'game_pkg': window['$aDE'][p[0x6025]], 'role_id': polnqm, 'server_id': otpqrs }, rmqpno);
+}, window['$aDCBE'] = function (dfgh, fdceb) {
+  wx[p[0x66ce]](function lnkpmo(cfdghe) {
+    var $z_xwy = [],
+        svqrp = [],
+        vqwtrs = window[p[0x351a]][p[0x66cf]];for (var sytxwv in vqwtrs) {
+      var edhfc = Number(sytxwv);dfgh && dfgh[p[0x208c]] && -0x1 == dfgh[p[0x33d3]](edhfc) || (svqrp[p[0x33a7]](vqwtrs[sytxwv]), $z_xwy[p[0x33a7]]([edhfc, 0x3]));
+    }0x0 <= window['$aADBCE'](window[p[0x6677]], p[0x32f2]) ? (console[p[0x34e7]](p[0x32f3]), a_tqrpso[p[0x3237]](svqrp, function (mihkj) {
+      if (console[p[0x34e7]](p[0x32f4]), console[p[0x34e7]](mihkj), mihkj && p[0x32f5] == mihkj[p[0x605e]]) {
+        for (var $y1_z in vqwtrs) if (p[0x32f6] == mihkj[vqwtrs[$y1_z]]) {
+          var zwtvx = Number($y1_z);for (var wtsx = 0x0; wtsx < $z_xwy[p[0x208c]]; wtsx++) if ($z_xwy[wtsx][0x0] == zwtvx) {
+            $z_xwy[wtsx][0x1] = 0x1;break;
           }
         }
-      }0x0 <= window['$aADBCE'](window[p[25966]], p[26176]) ? wx[p[26177]]({ 'withSubscriptions': !0x0, 'success': function (mnkol) {
-          var igjkhl = mnkol[p[26178]][p[26179]];if (igjkhl) {
-            for (var qtvpsr in console[p[466]](p[26180]), console[p[466]](igjkhl), mkjlh) if (p[26175] == igjkhl[mkjlh[qtvpsr]]) {
-              var twrs = Number(qtvpsr);for (var x$wz_y = 0x0; x$wz_y < lknmoj[p[13]]; x$wz_y++) if (lknmoj[x$wz_y][0x0] == twrs) {
-                lknmoj[x$wz_y][0x1] = 0x2;break;
+      }0x0 <= window['$aADBCE'](window[p[0x6677]], p[0x32f7]) ? wx[p[0x66d0]]({ 'withSubscriptions': !0x0, 'success': function (wyz_x) {
+          var bgcfed = wyz_x[p[0x66d1]][p[0x66d2]];if (bgcfed) {
+            for (var ebadf in console[p[0x34e7]](p[0x32f8]), console[p[0x34e7]](bgcfed), vqwtrs) if (p[0x32f6] == bgcfed[vqwtrs[ebadf]]) {
+              var qlno = Number(ebadf);for (var w_xy = 0x0; w_xy < $z_xwy[p[0x208c]]; w_xy++) if ($z_xwy[w_xy][0x0] == qlno) {
+                $z_xwy[w_xy][0x1] = 0x2;break;
               }
-            }console[p[466]](lknmoj), xrsvt && xrsvt(lknmoj);
-          } else console[p[466]](p[26181]), console[p[466]](mnkol), console[p[466]](lknmoj), xrsvt && xrsvt(lknmoj);
+            }console[p[0x34e7]]($z_xwy), fdceb && fdceb($z_xwy);
+          } else console[p[0x34e7]](p[0x32f9]), console[p[0x34e7]](wyz_x), console[p[0x34e7]]($z_xwy), fdceb && fdceb($z_xwy);
         }, 'fail': function () {
-          console[p[466]](p[26182]), console[p[466]](lknmoj), xrsvt && xrsvt(lknmoj);
-        } }) : (console[p[466]](p[26183] + window[p[25966]]), console[p[466]](lknmoj), xrsvt && xrsvt(lknmoj));
-    })) : (console[p[466]](p[26184] + window[p[25966]]), console[p[466]](lknmoj), xrsvt && xrsvt(lknmoj)), wx[p[26185]](ytvsx);
+          console[p[0x34e7]](p[0x32fa]), console[p[0x34e7]]($z_xwy), fdceb && fdceb($z_xwy);
+        } }) : (console[p[0x34e7]](p[0x32fb] + window[p[0x6677]]), console[p[0x34e7]]($z_xwy), fdceb && fdceb($z_xwy));
+    })) : (console[p[0x34e7]](p[0x32fc] + window[p[0x6677]]), console[p[0x34e7]]($z_xwy), fdceb && fdceb($z_xwy)), wx[p[0x66d3]](lnkpmo);
   });
-}, window['$aDCEB'] = { 'isSuccess': !0x1, 'level': p[26186], 'isCharging': !0x1 }, window['$aDEBC'] = function (ghij) {
-  wx[p[26032]]({ 'success': function (jhlkmi) {
-      var efcghd = window['$aDCEB'];efcghd[p[26187]] = !0x0, efcghd[p[3923]] = Number(jhlkmi[p[3923]])[p[3557]](0x0), efcghd[p[26035]] = jhlkmi[p[26035]], ghij && ghij(efcghd[p[26187]], efcghd[p[3923]], efcghd[p[26035]]);
-    }, 'fail': function (ifgd) {
-      console[p[466]](p[26188], ifgd[p[22823]]), ifgd = window['$aDCEB'], ghij && ghij(ifgd[p[26187]], ifgd[p[3923]], ifgd[p[26035]]);
+}, window['$aDCEB'] = { 'isSuccess': !0x1, 'level': p[0x32fd], 'isCharging': !0x1 }, window['$aDEBC'] = function (dfcgbe) {
+  wx[p[0x668f]]({ 'success': function (mjhlik) {
+      var dgifeh = window['$aDCEB'];dgifeh[p[0x66d4]] = !0x0, dgifeh[p[0x9ce]] = Number(mjhlik[p[0x9ce]])[p[0x37e8]](0x0), dgifeh[p[0x6690]] = mjhlik[p[0x6690]], dfcgbe && dfcgbe(dgifeh[p[0x66d4]], dgifeh[p[0x9ce]], dgifeh[p[0x6690]]);
+    }, 'fail': function (hljki) {
+      console[p[0x34e7]](p[0x32fe], hljki[p[0x605e]]), hljki = window['$aDCEB'], dfcgbe && dfcgbe(hljki[p[0x66d4]], hljki[p[0x9ce]], hljki[p[0x6690]]);
     } });
-}, window[p[21]] = function (hjkm, jmhikl, dfebac, ytwzvx, qosrt, likhmj, glhki, yv$xw) {
-  null == ytwzvx && (ytwzvx = 0x1);var osprn = new XMLHttpRequest();osprn[p[22508]] = function () {
-    if (0x4 == osprn[p[61]]) {
-      if (0xc8 == osprn[p[105]] || 0x12d == osprn[p[105]]) {
-        var kilgjh;osprn[p[22509]];if (kilgjh = JSON[p[512]](osprn[p[22509]]), !likhmj || likhmj(kilgjh, osprn, hjkm)) return void (dfebac && dfebac(kilgjh));console[p[77]](hjkm), console[p[124]](kilgjh);
-      }0x0 < ytwzvx - 0x1 ? setTimeout(function () {
-        send(hjkm, jmhikl, dfebac, ytwzvx - 0x1, qosrt, likhmj);
-      }, 0x3e8) : qosrt && qosrt(JSON[p[3819]]({ 'error': JSON[p[3819]]({ 'url': hjkm, 'status': osprn[p[105]], 'response': osprn[p[22509]], 'responseType': osprn[p[22851]] }) }));
+}, window[p[0x33a1]] = function (tpr, x$zvw, qsrpn, hgkijl, lpmq, fgjie, gdhfi, bcedg) {
+  null == hgkijl && (hgkijl = 0x1);var lkmnop = new XMLHttpRequest();lkmnop[p[0x5ff1]] = function () {
+    if (0x4 == lkmnop[p[0x3]]) {
+      if (0xc8 == lkmnop[p[0xc6]] || 0x12d == lkmnop[p[0xc6]]) {
+        var cfegd;lkmnop[p[0x5ff2]];if (cfegd = JSON[p[0x3506]](lkmnop[p[0x5ff2]]), !fgjie || fgjie(cfegd, lkmnop, tpr)) return void (qsrpn && qsrpn(cfegd));console[p[0xb]](tpr), console[p[0x9]](cfegd);
+      }0x0 < hgkijl - 0x1 ? setTimeout(function () {
+        send(tpr, x$zvw, qsrpn, hgkijl - 0x1, lpmq, fgjie);
+      }, 0x3e8) : lpmq && lpmq(JSON[p[0x3862]]({ 'error': JSON[p[0x3862]]({ 'url': tpr, 'status': lkmnop[p[0xc6]], 'response': lkmnop[p[0x5ff2]], 'responseType': lkmnop[p[0x6065]] }) }));
     }
-  }, osprn[p[64]](glhki || p[22513], hjkm), osprn[p[22851]] = p[3748], osprn[p[26189]](p[26190], yv$xw || p[26098]), osprn[p[21]](jmhikl);
-}, window[p[26191]] = function (mjkh, ljhi, y0_xz$, sqpr, jklgih, yv$zxw, tqvsr) {
-  y0_xz$ = y0_xz$ || {};var ifhed = Math[p[117]](Date[p[82]]() / 0x3e8);y0_xz$[p[814]] = ifhed, y0_xz$[p[22425]] = ljhi;var lmijn = Object[p[262]](y0_xz$)[p[1041]](),
-      pqrn = '',
-      y_z0$ = '';for (var vstrw = 0x0; vstrw < lmijn[p[13]]; vstrw++) pqrn = pqrn + (0x0 == vstrw ? '' : '&') + lmijn[vstrw] + y0_xz$[lmijn[vstrw]], y_z0$ = y_z0$ + (0x0 == vstrw ? '' : '&') + lmijn[vstrw] + '=' + encodeURIComponent(y0_xz$[lmijn[vstrw]]);pqrn += $aDE[p[26065]], ljhi = p[26192] + md5(pqrn), send(mjkh + '?' + y_z0$ + ('' == y_z0$ ? '' : '&') + ljhi, null, sqpr, jklgih, yv$zxw, tqvsr || function (klmop) {
-    return p[8898] == klmop[p[3449]];
-  }, null, p[25807]);
-}, window['$aDECB'] = function (y$01_, qrmpon) {
-  var xz$vyw = 0x0;$aDE[p[22671]] && (xz$vyw = $aDE[p[22671]][p[10316]]), sendApi($aDE[p[26061]], p[26193], { 'partnerId': $aDE[p[22300]], 'gamePkg': $aDE[p[22677]], 'logTime': Math[p[117]](Date[p[82]]() / 0x3e8), 'platformUid': $aDE[p[22678]], 'type': y$01_, 'serverId': xz$vyw }, null, 0x2, null, function () {
+  }, lkmnop[p[0x33ab]](gdhfi || p[0x2a63], tpr), lkmnop[p[0x6065]] = p[0x2cb5], lkmnop[p[0x66d5]](p[0x32ff], bcedg || p[0x32c7]), lkmnop[p[0x33a1]](x$zvw);
+}, window[p[0x66d6]] = function (plmnoq, hegcfd, egdfih, z_y1$0, lkhjmi, otqsrp, y1z_$0) {
+  egdfih = egdfih || {};var onsrq = Math[p[0x33d6]](Date[p[0x33ba]]() / 0x3e8);egdfih[p[0xac9]] = onsrq, egdfih[p[0x5fb5]] = hegcfd;var hilg = Object[p[0x344e]](egdfih)[p[0x368c]](),
+      dabcfe = '',
+      kijgfh = '';for (var yx0_$z = 0x0; yx0_$z < hilg[p[0x208c]]; yx0_$z++) dabcfe = dabcfe + (0x0 == yx0_$z ? '' : '&') + hilg[yx0_$z] + egdfih[hilg[yx0_$z]], kijgfh = kijgfh + (0x0 == yx0_$z ? '' : '&') + hilg[yx0_$z] + '=' + encodeURIComponent(egdfih[hilg[yx0_$z]]);dabcfe += $aDE[p[0x66a4]], hegcfd = p[0x3300] + md5(dabcfe), send(plmnoq + '?' + kijgfh + ('' == kijgfh ? '' : '&') + hegcfd, null, z_y1$0, lkhjmi, otqsrp, y1z_$0 || function ($1z0_2) {
+    return p[0x13e0] == $1z0_2[p[0xacb]];
+  }, null, p[0x31c7]);
+}, window['$aDECB'] = function ($3_210, hjkif) {
+  var ytwsxv = 0x0;$aDE[p[0x6022]] && (ytwsxv = $aDE[p[0x6022]][p[0x43d5]]), sendApi($aDE[p[0x66a2]], p[0x3301], { 'partnerId': $aDE[p[0x5f97]], 'gamePkg': $aDE[p[0x6025]], 'logTime': Math[p[0x33d6]](Date[p[0x33ba]]() / 0x3e8), 'platformUid': $aDE[p[0x6026]], 'type': $3_210, 'serverId': ytwsxv }, null, 0x2, null, function () {
     return !0x0;
   });
-}, window['$aBCD'] = function (hcdfeg) {
-  sendApi($aDE[p[26059]], p[26194], { 'partner_id': $aDE[p[22300]], 'uid': $aDE[p[22676]], 'version': $aDE[p[4018]], 'game_pkg': $aDE[p[22677]], 'device': $aDE[p[26067]] }, $aBDC, $aCED, $aEB);
-}, window['$aBDC'] = function (nmijl) {
-  p[8898] === nmijl[p[3449]] && nmijl[p[11]] ? (nmijl[p[11]][p[4861]]({ 'id': -0x2, 'name': p[26195] }), nmijl[p[11]][p[4861]]({ 'id': -0x1, 'name': p[26196] }), $aDE[p[26197]] = nmijl[p[11]], window[p[10811]] && window[p[10811]][p[26198]]()) : ($aDE[p[26199]] = !0x1, window['$aBCDE'](p[26200] + nmijl[p[3449]]));
-}, window['$aCBD'] = function (iegjhf) {
-  sendApi($aDE[p[26059]], p[26201], { 'partner_id': $aDE[p[22300]], 'uid': $aDE[p[22676]], 'version': $aDE[p[4018]], 'game_pkg': $aDE[p[22677]] }, $aCDB, $aCED, $aEB);
-}, window['$aCDB'] = function (fcbdea) {
-  if ($aDE[p[26202]] = !0x1, p[8898] === fcbdea[p[3449]] && fcbdea[p[11]]) {
-    for (var jokmln = 0x0; jokmln < fcbdea[p[11]][p[13]]; jokmln++) fcbdea[p[11]][jokmln][p[105]] = $aEBDC(fcbdea[p[11]][jokmln]);$aDE[p[26069]][-0x1] = window[p[26203]](fcbdea[p[11]]), window[p[10811]][p[26204]](-0x1);
-  } else window['$aBCDE'](p[26205] + fcbdea[p[3449]]);
-}, window['$aDBC'] = function (xwrtvs, olqpn) {
-  sendApi($aDE[p[26059]], p[26206], { 'partner_id': $aDE[p[22300]], 'uid': $aDE[p[22676]], 'version': $aDE[p[4018]], 'game_pkg': $aDE[p[22677]], 'device': $aDE[p[26067]], 'server_group_id': olqpn }, $aDCB, $aCED, $aEB);
-}, window['$aDCB'] = function (nomklj) {
-  if ($aDE[p[26202]] = !0x1, p[8898] === nomklj[p[3449]] && nomklj[p[11]] && nomklj[p[11]][p[11]]) {
-    var ywtxz = nomklj[p[11]][p[26207]],
-        bfcda = [];for (var lmoqnp = 0x0; lmoqnp < nomklj[p[11]][p[11]][p[13]]; lmoqnp++) nomklj[p[11]][p[11]][lmoqnp][p[105]] = $aEBDC(nomklj[p[11]][p[11]][lmoqnp]), 0x0 != bfcda[p[13]] && 0x0 == nomklj[p[11]][p[11]][lmoqnp][p[105]] || (bfcda[bfcda[p[13]]] = nomklj[p[11]][p[11]][lmoqnp]);$aDE[p[26069]][ywtxz] = window[p[26203]](bfcda), window[p[10811]][p[26204]](ywtxz);
-  } else window['$aBCDE'](p[26208] + nomklj[p[3449]]);
-}, window['$aADEC'] = function (ikgfj) {
-  sendApi($aDE[p[26059]], p[26209], { 'partner_id': $aDE[p[22300]], 'uid': $aDE[p[22676]], 'version': $aDE[p[4018]] }, reqServerRecommendCallBack, $aCED, $aEB);
-}, window[p[26210]] = function (qmlon) {
-  if ($aDE[p[26202]] = !0x1, p[8898] === qmlon[p[3449]] && qmlon[p[11]]) {
-    for (var xtzy = 0x0; xtzy < qmlon[p[11]][p[13]]; xtzy++) qmlon[p[11]][xtzy][p[105]] = $aEBDC(qmlon[p[11]][xtzy]);$aDE[p[26069]][-0x2] = window[p[26203]](qmlon[p[11]]), window[p[10811]][p[26204]](-0x2);
-  } else alert(p[26211] + qmlon[p[3449]]);
-}, window[p[26203]] = function (xwz$) {
-  if (!xwz$ && xwz$[p[13]] <= 0x0) return xwz$;for (let ikhjf = 0x0; ikhjf < xwz$[p[13]]; ikhjf++) xwz$[ikhjf][p[26212]] && 0x1 == xwz$[ikhjf][p[26212]] && (xwz$[ikhjf][p[26134]] += p[26213]);return xwz$;
-}, window['$aEBCD'] = function (yz$_x, vxrt) {
-  yz$_x = yz$_x || $aDE[p[22671]][p[10316]], sendApi($aDE[p[26059]], p[26214], { 'type': '4', 'game_pkg': $aDE[p[22677]], 'server_id': yz$_x }, vxrt);
-}, window['$aEBDC'] = function (oljm) {
-  return oljm ? 0x1 == oljm[p[105]] ? 0x1 == oljm[p[26215]] ? 0x2 : 0x1 : 0x0 == oljm[p[105]] ? 0x0 : -0x1 : -0x1;
-}, window['$aECBD'] = function (_$120z, zyw) {
-  $aDE[p[26216]] = { 'step': _$120z, 'server_id': zyw }, ($aBDCE({ 'title': p[26217] }), sendApi($aDE[p[26059]], p[26218], { 'partner_id': $aDE[p[22300]], 'uid': $aDE[p[22676]], 'game_pkg': $aDE[p[22677]], 'server_id': zyw, 'platform': $aDE[p[22648]], 'platform_uid': $aDE[p[22678]], 'check_login_time': $aDE[p[26128]], 'check_login_sign': $aDE[p[26127]], 'version_name': $aDE[p[26116]] }, $aECDB, $aCED, $aEB, function (igfj) {
-    return p[8898] == igfj[p[3449]] || p[26219] == igfj[p[77]] || p[26220] == igfj[p[77]];
+}, window['$aBCD'] = function (igjfk) {
+  sendApi($aDE[p[0x66a1]], p[0x3302], { 'partner_id': $aDE[p[0x5f97]], 'uid': $aDE[p[0x6024]], 'version': $aDE[p[0x2a68]], 'game_pkg': $aDE[p[0x6025]], 'device': $aDE[p[0x66a5]] }, $aBDC, $aCED, $aEB);
+}, window['$aBDC'] = function (plonm) {
+  p[0x13e0] === plonm[p[0xacb]] && plonm[p[0x1fe]] ? (plonm[p[0x1fe]][p[0x3ab4]]({ 'id': -0x2, 'name': p[0x3303] }), plonm[p[0x1fe]][p[0x3ab4]]({ 'id': -0x1, 'name': p[0x3304] }), $aDE[p[0x66d7]] = plonm[p[0x1fe]], window[p[0x44b0]] && window[p[0x44b0]][p[0x66d8]]()) : ($aDE[p[0x66d9]] = !0x1, window['$aBCDE'](p[0x3305] + plonm[p[0xacb]]));
+}, window['$aCBD'] = function (y$z10) {
+  sendApi($aDE[p[0x66a1]], p[0x3306], { 'partner_id': $aDE[p[0x5f97]], 'uid': $aDE[p[0x6024]], 'version': $aDE[p[0x2a68]], 'game_pkg': $aDE[p[0x6025]] }, $aCDB, $aCED, $aEB);
+}, window['$aCDB'] = function ($20_) {
+  if ($aDE[p[0x66da]] = !0x1, p[0x13e0] === $20_[p[0xacb]] && $20_[p[0x1fe]]) {
+    for (var geidhf = 0x0; geidhf < $20_[p[0x1fe]][p[0x208c]]; geidhf++) $20_[p[0x1fe]][geidhf][p[0xc6]] = $aEBDC($20_[p[0x1fe]][geidhf]);$aDE[p[0x66a7]][-0x1] = window[p[0x66db]]($20_[p[0x1fe]]), window[p[0x44b0]][p[0x66dc]](-0x1);
+  } else window['$aBCDE'](p[0x3307] + $20_[p[0xacb]]);
+}, window['$aDBC'] = function (jilhk, jkmlhi) {
+  sendApi($aDE[p[0x66a1]], p[0x3308], { 'partner_id': $aDE[p[0x5f97]], 'uid': $aDE[p[0x6024]], 'version': $aDE[p[0x2a68]], 'game_pkg': $aDE[p[0x6025]], 'device': $aDE[p[0x66a5]], 'server_group_id': jkmlhi }, $aDCB, $aCED, $aEB);
+}, window['$aDCB'] = function (xwvsy) {
+  if ($aDE[p[0x66da]] = !0x1, p[0x13e0] === xwvsy[p[0xacb]] && xwvsy[p[0x1fe]] && xwvsy[p[0x1fe]][p[0x1fe]]) {
+    var nopqrs = xwvsy[p[0x1fe]][p[0x66dd]],
+        gdebcf = [];for (var chfdg = 0x0; chfdg < xwvsy[p[0x1fe]][p[0x1fe]][p[0x208c]]; chfdg++) xwvsy[p[0x1fe]][p[0x1fe]][chfdg][p[0xc6]] = $aEBDC(xwvsy[p[0x1fe]][p[0x1fe]][chfdg]), 0x0 != gdebcf[p[0x208c]] && 0x0 == xwvsy[p[0x1fe]][p[0x1fe]][chfdg][p[0xc6]] || (gdebcf[gdebcf[p[0x208c]]] = xwvsy[p[0x1fe]][p[0x1fe]][chfdg]);$aDE[p[0x66a7]][nopqrs] = window[p[0x66db]](gdebcf), window[p[0x44b0]][p[0x66dc]](nopqrs);
+  } else window['$aBCDE'](p[0x3309] + xwvsy[p[0xacb]]);
+}, window['$aADEC'] = function (faced) {
+  sendApi($aDE[p[0x66a1]], p[0x330a], { 'partner_id': $aDE[p[0x5f97]], 'uid': $aDE[p[0x6024]], 'version': $aDE[p[0x2a68]] }, reqServerRecommendCallBack, $aCED, $aEB);
+}, window[p[0x66de]] = function (bdefgc) {
+  if ($aDE[p[0x66da]] = !0x1, p[0x13e0] === bdefgc[p[0xacb]] && bdefgc[p[0x1fe]]) {
+    for (var imjnlk = 0x0; imjnlk < bdefgc[p[0x1fe]][p[0x208c]]; imjnlk++) bdefgc[p[0x1fe]][imjnlk][p[0xc6]] = $aEBDC(bdefgc[p[0x1fe]][imjnlk]);$aDE[p[0x66a7]][-0x2] = window[p[0x66db]](bdefgc[p[0x1fe]]), window[p[0x44b0]][p[0x66dc]](-0x2);
+  } else alert(p[0x330b] + bdefgc[p[0xacb]]);
+}, window[p[0x66db]] = function (miljhk) {
+  if (!miljhk && miljhk[p[0x208c]] <= 0x0) return miljhk;for (let jghfik = 0x0; jghfik < miljhk[p[0x208c]]; jghfik++) miljhk[jghfik][p[0x66df]] && 0x1 == miljhk[jghfik][p[0x66df]] && (miljhk[jghfik][p[0x66bc]] += p[0x330c]);return miljhk;
+}, window['$aEBCD'] = function (hjgfki, ijfkg) {
+  hjgfki = hjgfki || $aDE[p[0x6022]][p[0x43d5]], sendApi($aDE[p[0x66a1]], p[0x330d], { 'type': '4', 'game_pkg': $aDE[p[0x6025]], 'server_id': hjgfki }, ijfkg);
+}, window['$aEBDC'] = function (txyws) {
+  return txyws ? 0x1 == txyws[p[0xc6]] ? 0x1 == txyws[p[0x66e0]] ? 0x2 : 0x1 : 0x0 == txyws[p[0xc6]] ? 0x0 : -0x1 : -0x1;
+}, window['$aECBD'] = function (vyzx$w, vrwt) {
+  $aDE[p[0x66e1]] = { 'step': vyzx$w, 'server_id': vrwt }, ($aBDCE({ 'title': p[0x330e] }), sendApi($aDE[p[0x66a1]], p[0x330f], { 'partner_id': $aDE[p[0x5f97]], 'uid': $aDE[p[0x6024]], 'game_pkg': $aDE[p[0x6025]], 'server_id': vrwt, 'platform': $aDE[p[0x6018]], 'platform_uid': $aDE[p[0x6026]], 'check_login_time': $aDE[p[0x66ba]], 'check_login_sign': $aDE[p[0x66b9]], 'version_name': $aDE[p[0x66b7]] }, $aECDB, $aCED, $aEB, function (qormn) {
+    return p[0x13e0] == qormn[p[0xacb]] || p[0x3310] == qormn[p[0xb]] || p[0x3311] == qormn[p[0xb]];
   }));
-}, window['$aECDB'] = function (mlnojk) {
-  var $_0zy;p[8898] === mlnojk[p[3449]] && mlnojk[p[11]] ? (($_0zy = $aDE[p[22671]])[p[26221]] = $aDE[p[26070]], $_0zy[p[10298]] = String(mlnojk[p[11]][p[26222]]), $_0zy[p[22650]] = parseInt(mlnojk[p[11]][p[814]]), mlnojk[p[11]][p[22649]] ? $_0zy[p[22649]] = parseInt(mlnojk[p[11]][p[22649]]) : $_0zy[p[22649]] = parseInt(mlnojk[p[11]][p[10316]]), $_0zy[p[26223]] = 0x0, $_0zy[p[3831]] = $aDE[p[26144]], $_0zy[p[26224]] = mlnojk[p[11]][p[26225]], $_0zy[p[26226]] = mlnojk[p[11]][p[26226]], 0x1 == $aDE[p[629]] && $_0zy[p[26226]] && 0x1 == $_0zy[p[26226]][p[26227]] && ($aDE[p[26228]] = 0x1, window[p[25965]][p[147]]['$aEA']()), $aEDBC()) : sendApi($aDE[p[26059]], p[26123], { 'platform': $aDE[p[26057]], 'partner_id': $aDE[p[22300]], 'token': $aDE[p[26122]], 'game_pkg': $aDE[p[22677]], 'deviceId': $aDE[p[26067]], 'scene': p[26124] + $aDE[p[26068]] }, function (ihklg) {
-    p[26229] != ihklg[p[3449]] ? ($aDE[p[26127]] = String(ihklg[p[10298]]), $aDE[p[26128]] = String(ihklg[p[814]]), setTimeout(function () {
-      $aECBD($aDE[p[26216]][p[6309]], $aDE[p[26216]][p[10316]]);
-    }, 0x5dc)) : window['$aBCDE'](p[26131] + ihklg[p[3449]]);
-  }, $aCED, $aEB, function (jfhe) {
-    return p[8898] == jfhe[p[3449]] || p[26229] == jfhe[p[3449]];
+}, window['$aECDB'] = function (jhkli) {
+  var fdaceb;p[0x13e0] === jhkli[p[0xacb]] && jhkli[p[0x1fe]] ? ((fdaceb = $aDE[p[0x6022]])[p[0x66e2]] = $aDE[p[0x66a8]], fdaceb[p[0x43cf]] = String(jhkli[p[0x1fe]][p[0x66e3]]), fdaceb[p[0x601a]] = parseInt(jhkli[p[0x1fe]][p[0xac9]]), jhkli[p[0x1fe]][p[0x6019]] ? fdaceb[p[0x6019]] = parseInt(jhkli[p[0x1fe]][p[0x6019]]) : fdaceb[p[0x6019]] = parseInt(jhkli[p[0x1fe]][p[0x43d5]]), fdaceb[p[0x66e4]] = 0x0, fdaceb[p[0x386b]] = $aDE[p[0x66c0]], fdaceb[p[0x66e5]] = jhkli[p[0x1fe]][p[0x66e6]], fdaceb[p[0x66e7]] = jhkli[p[0x1fe]][p[0x66e7]], 0x1 == $aDE[p[0x3548]] && fdaceb[p[0x66e7]] && 0x1 == fdaceb[p[0x66e7]][p[0x66e8]] && ($aDE[p[0x66e9]] = 0x1, window[p[0x6676]][p[0x24]]['$aEA']()), $aEDBC()) : sendApi($aDE[p[0x66a1]], p[0x32d9], { 'platform': $aDE[p[0x66a0]], 'partner_id': $aDE[p[0x5f97]], 'token': $aDE[p[0x66b8]], 'game_pkg': $aDE[p[0x6025]], 'deviceId': $aDE[p[0x66a5]], 'scene': p[0x32da] + $aDE[p[0x66a6]] }, function (wzxvy$) {
+    p[0x3312] != wzxvy$[p[0xacb]] ? ($aDE[p[0x66b9]] = String(wzxvy$[p[0x43cf]]), $aDE[p[0x66ba]] = String(wzxvy$[p[0xac9]]), setTimeout(function () {
+      $aECBD($aDE[p[0x66e1]][p[0x2cd5]], $aDE[p[0x66e1]][p[0x43d5]]);
+    }, 0x5dc)) : window['$aBCDE'](p[0x32df] + wzxvy$[p[0xacb]]);
+  }, $aCED, $aEB, function (rpo) {
+    return p[0x13e0] == rpo[p[0xacb]] || p[0x3312] == rpo[p[0xacb]];
   });
 }, window['$aEDBC'] = function () {
-  ServerLoading[p[147]][p[26141]]($aDE[p[629]]), window['$aCE'] = !0x0, window['$aABCDE']();
+  ServerLoading[p[0x24]][p[0x66be]]($aDE[p[0x3548]]), window['$aCE'] = !0x0, window['$aABCDE']();
 }, window['$aEDCB'] = function () {
-  var hlkim;window['$aEC'] && window['$aDCE'] && window['$aDEC'] && window['$aDC'] && (window[p[25437]][p[147]] || (console[p[466]](p[26230] + window[p[25437]][p[147]]), hlkim = wx[p[26231]]()[p[739]] || 0x0, hlkim = { 'cdn': window['$aDE'][p[3831]], 'spareCdn': window['$aDE'][p[22296]], 'newRegister': window['$aDE'][p[629]], 'wxPC': window['$aDE'][p[22299]], 'wxIOS': window['$aDE'][p[496]], 'wxParam': { 'limitLoad': window['$aDE']['$aABDEC'], 'benchmarkLevel': window['$aDE']['$aABECD'], 'wxFrom': window[p[542]][p[25454]] ? 0x1 : 0x0, 'wxSDKVersion': window[p[25966]] }, 'configType': window['$aDE'][p[10370]], 'exposeType': window['$aDE'][p[686]], 'scene': hlkim }, new window[p[25437]](hlkim, window['$aDE'][p[100]], window['$aABDCE'])));
+  var ehjifg;window['$aEC'] && window['$aDCE'] && window['$aDEC'] && window['$aDC'] && (window[p[0x651b]][p[0x24]] || (console[p[0x34e7]](p[0x3313] + window[p[0x651b]][p[0x24]]), ehjifg = wx[p[0x66ea]]()[p[0xc7]] || 0x0, ehjifg = { 'cdn': window['$aDE'][p[0x386b]], 'spareCdn': window['$aDE'][p[0x5f93]], 'newRegister': window['$aDE'][p[0x3548]], 'wxPC': window['$aDE'][p[0x5f96]], 'wxIOS': window['$aDE'][p[0x34f8]], 'wxParam': { 'limitLoad': window['$aDE']['$aABDEC'], 'benchmarkLevel': window['$aDE']['$aABECD'], 'wxFrom': window[p[0x351a]][p[0x652a]] ? 0x1 : 0x0, 'wxSDKVersion': window[p[0x6677]] }, 'configType': window['$aDE'][p[0x43ec]], 'exposeType': window['$aDE'][p[0x3562]], 'scene': ehjifg }, new window[p[0x651b]](ehjifg, window['$aDE'][p[0x33c9]], window['$aABDCE'])));
 }, window['$aABCDE'] = function () {
   if (window['$aEC'] && window['$aDCE'] && window['$aDEC'] && window['$aDC'] && window['$aCE'] && window['$aCD']) {
     if ($aECD) $aBDEC();else {
-      $aECD = !0x0, window[p[25437]][p[147]] || window['$aEDCB']();var becgfd = 0x0,
-          yxzv$w = wx[p[26232]]();yxzv$w && (window['$aDE'][p[26022]] && (becgfd = yxzv$w[p[318]]), console[p[77]](p[26233] + yxzv$w[p[318]] + p[26234] + yxzv$w[p[1159]] + p[26235] + yxzv$w[p[1162]] + p[26236] + yxzv$w[p[1161]] + p[26237] + yxzv$w[p[175]] + p[26238] + yxzv$w[p[176]]));var qrtosp = {};for (const nqrm in $aDE[p[22671]]) qrtosp[nqrm] = $aDE[p[22671]][nqrm];var orsnp = { 'channel': window['$aDE'][p[22675]], 'account': window['$aDE'][p[22676]], 'userId': window['$aDE'][p[22670]], 'serverId': qrtosp[p[10316]], 'cdn': window['$aDE'][p[3831]], 'data': window['$aDE'][p[11]], 'package': window['$aDE'][p[22297]], 'newRegister': window['$aDE'][p[629]], 'pkgName': window['$aDE'][p[22677]], 'partnerId': window['$aDE'][p[22300]], 'platform_uid': window['$aDE'][p[22678]], 'deviceId': window['$aDE'][p[26067]], 'selectedServer': qrtosp, 'configType': window['$aDE'][p[10370]], 'exposeType': window['$aDE'][p[686]], 'debugUsers': window['$aDE'][p[10762]], 'wxMenuTop': becgfd, 'wxShield': window['$aDE'][p[1078]] };if (window[p[26150]]) {
-        for (var rvpts in window[p[26150]]) orsnp[rvpts] = window[p[26150]][rvpts];
-      }window[p[25437]][p[147]]['$aCDAE'](orsnp);
+      $aECD = !0x0, window[p[0x651b]][p[0x24]] || window['$aEDCB']();var nqomp = 0x0,
+          rosptq = wx[p[0x66eb]]();rosptq && (window['$aDE'][p[0x668d]] && (nqomp = rosptq[p[0x27]]), console[p[0xb]](p[0x3314] + rosptq[p[0x27]] + p[0x3315] + rosptq[p[0x2cbf]] + p[0x3316] + rosptq[p[0x140a]] + p[0x3317] + rosptq[p[0xe0b]] + p[0x3318] + rosptq[p[0xbc4]] + p[0x3319] + rosptq[p[0xbc5]]));var jlgikh = {};for (const rwqsvt in $aDE[p[0x6022]]) jlgikh[rwqsvt] = $aDE[p[0x6022]][rwqsvt];var txsv = { 'channel': window['$aDE'][p[0x6023]], 'account': window['$aDE'][p[0x6024]], 'userId': window['$aDE'][p[0x6021]], 'serverId': jlgikh[p[0x43d5]], 'cdn': window['$aDE'][p[0x386b]], 'data': window['$aDE'][p[0x1fe]], 'package': window['$aDE'][p[0x5f94]], 'newRegister': window['$aDE'][p[0x3548]], 'pkgName': window['$aDE'][p[0x6025]], 'partnerId': window['$aDE'][p[0x5f97]], 'platform_uid': window['$aDE'][p[0x6026]], 'deviceId': window['$aDE'][p[0x66a5]], 'selectedServer': jlgikh, 'configType': window['$aDE'][p[0x43ec]], 'exposeType': window['$aDE'][p[0x3562]], 'debugUsers': window['$aDE'][p[0x448c]], 'wxMenuTop': nqomp, 'wxShield': window['$aDE'][p[0x369d]] };if (window[p[0x66c2]]) {
+        for (var qsw in window[p[0x66c2]]) txsv[qsw] = window[p[0x66c2]][qsw];
+      }window[p[0x651b]][p[0x24]]['$aCDAE'](txsv);
     }
-  } else console[p[77]](p[26239] + window['$aEC'] + p[26240] + window['$aDCE'] + p[26241] + window['$aDEC'] + p[26242] + window['$aDC'] + p[26243] + window['$aCE'] + p[26244] + window['$aCD']);
+  } else console[p[0xb]](p[0x331a] + window['$aEC'] + p[0x331b] + window['$aDCE'] + p[0x331c] + window['$aDEC'] + p[0x331d] + window['$aDC'] + p[0x331e] + window['$aCE'] + p[0x331f] + window['$aCD']);
 };
