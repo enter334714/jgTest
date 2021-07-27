@@ -299,6 +299,153 @@ module ui {
 }
 
 module ui {
+    export class P_ActAwardPre6ItemUI extends ItemRender {
+		public imgFirst:Laya.Image;
+		public imgSecond:Laya.Image;
+		public imgThird:Laya.Image;
+		public boxRanking:Laya.Box;
+		public imgUnder:Laya.Image;
+		public txtRanking:Laya.FontClip;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public Item5:modules.n_beibao.RootItem;
+		public Item6:modules.n_beibao.RootItem;
+		public Item7:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_ActAwardPre6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActAwardPre6ViewUI extends BaseView {
+		public rankImg1:Laya.Image;
+		public rankImg2:Laya.Image;
+		public norankImg:Laya.Image;
+		public imgDesignation:Laya.Image;
+		public txtTime:laya.display.Text;
+		public txtRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActAwardPre6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActAwardPre7ItemUI extends ItemRender {
+		public imgFirst:Laya.Image;
+		public imgSecond:Laya.Image;
+		public imgThird:Laya.Image;
+		public boxRanking:Laya.Box;
+		public imgUnder:Laya.Image;
+		public txtRanking:Laya.FontClip;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public Item5:modules.n_beibao.RootItem;
+		public Item6:modules.n_beibao.RootItem;
+		public Item7:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_ActAwardPre7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActAwardPre7ViewUI extends BaseView {
+		public rankImg1:Laya.Image;
+		public rankImg2:Laya.Image;
+		public norankImg:Laya.Image;
+		public imgDesignation:Laya.Image;
+		public txtTime:laya.display.Text;
+		public txtRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActAwardPre7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActAwardPre8ItemUI extends ItemRender {
+		public imgFirst:Laya.Image;
+		public imgSecond:Laya.Image;
+		public imgThird:Laya.Image;
+		public boxRanking:Laya.Box;
+		public imgUnder:Laya.Image;
+		public txtRanking:Laya.FontClip;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public Item5:modules.n_beibao.RootItem;
+		public Item6:modules.n_beibao.RootItem;
+		public Item7:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_ActAwardPre8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActAwardPre8ViewUI extends BaseView {
+		public rankImg1:Laya.Image;
+		public rankImg2:Laya.Image;
+		public norankImg:Laya.Image;
+		public imgDesignation:Laya.Image;
+		public txtTime:laya.display.Text;
+		public txtRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActAwardPre8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_ActDouble1HQViewUI extends BaseView {
 		public blackBg:Laya.Image;
 		public txtTime:laya.display.Text;
@@ -412,6 +559,66 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_ActDouble5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActDouble6ViewUI extends BaseView {
+		public blackBg:Laya.Image;
+		public txtTime:laya.display.Text;
+		public btnTrial:modules.n_common.BtnClkScale;
+		public btnActivity:modules.n_common.BtnClkScale;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_ActDouble6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActDouble7ViewUI extends BaseView {
+		public blackBg:Laya.Image;
+		public txtTime:laya.display.Text;
+		public btnTrial:modules.n_common.BtnClkScale;
+		public btnActivity:modules.n_common.BtnClkScale;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_ActDouble7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActDouble8ViewUI extends BaseView {
+		public blackBg:Laya.Image;
+		public txtTime:laya.display.Text;
+		public btnTrial:modules.n_common.BtnClkScale;
+		public btnActivity:modules.n_common.BtnClkScale;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_ActDouble8View");
 
         }
 
@@ -677,6 +884,165 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_ActExchange5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActExchange6ItemUI extends ItemRender {
+		public btnExchange:modules.n_common.BtnClkScale;
+		public Item1:modules.n_beibao.RootItem;
+		public boxAlert:Laya.Box;
+		public btnTrue:Laya.Button;
+		public imgMaterial:Laya.Image;
+		public txtName:Laya.Label;
+		public txtCost:laya.display.Text;
+		public txtNum:laya.display.Text;
+		public txtMax:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActExchange6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActExchange6ViewUI extends BaseView {
+		public btnGetItem:modules.n_common.BtnClkScale;
+		public txtTime:laya.display.Text;
+		public txtTips:laya.display.Text;
+		public boxMaterial1:Laya.Box;
+		public imgMaterial1:Laya.Image;
+		public txtMaterial1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxMaterial2:Laya.Box;
+		public imgMaterial2:Laya.Image;
+		public txtMaterial2:laya.display.Text;
+		public txtNum2:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActExchange6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActExchange7ItemUI extends ItemRender {
+		public btnExchange:modules.n_common.BtnClkScale;
+		public Item1:modules.n_beibao.RootItem;
+		public boxAlert:Laya.Box;
+		public btnTrue:Laya.Button;
+		public imgMaterial:Laya.Image;
+		public txtName:Laya.Label;
+		public txtCost:laya.display.Text;
+		public txtNum:laya.display.Text;
+		public txtMax:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActExchange7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActExchange7ViewUI extends BaseView {
+		public btnGetItem:modules.n_common.BtnClkScale;
+		public txtTime:laya.display.Text;
+		public txtTips:laya.display.Text;
+		public boxMaterial1:Laya.Box;
+		public imgMaterial1:Laya.Image;
+		public txtMaterial1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxMaterial2:Laya.Box;
+		public imgMaterial2:Laya.Image;
+		public txtMaterial2:laya.display.Text;
+		public txtNum2:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActExchange7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActExchange8ItemUI extends ItemRender {
+		public btnExchange:modules.n_common.BtnClkScale;
+		public Item1:modules.n_beibao.RootItem;
+		public boxAlert:Laya.Box;
+		public btnTrue:Laya.Button;
+		public imgMaterial:Laya.Image;
+		public txtName:Laya.Label;
+		public txtCost:laya.display.Text;
+		public txtNum:laya.display.Text;
+		public txtMax:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActExchange8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActExchange8ViewUI extends BaseView {
+		public btnGetItem:modules.n_common.BtnClkScale;
+		public txtTime:laya.display.Text;
+		public txtTips:laya.display.Text;
+		public boxMaterial1:Laya.Box;
+		public imgMaterial1:Laya.Image;
+		public txtMaterial1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxMaterial2:Laya.Box;
+		public imgMaterial2:Laya.Image;
+		public txtMaterial2:laya.display.Text;
+		public txtNum2:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActExchange8View");
 
         }
 
@@ -1109,6 +1475,222 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_ActGetRank5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGetRank6ItemUI extends ItemRender {
+		public btnSend:modules.n_common.BtnClkScale;
+		public txt1:Laya.Image;
+		public txt2:Laya.Image;
+		public tetMC:Laya.FontClip;
+		public imgHeadIcon2:Laya.Image;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadIcon3:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public imgHeadFrame2:Laya.Image;
+		public imgHeadFrame3:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public txtPlayer2:laya.display.Text;
+		public tittleTxt2:laya.display.Text;
+		public txtNum2:laya.display.Text;
+		public txtPlayer3:laya.display.Text;
+		public tittleTxt3:laya.display.Text;
+		public txtNum3:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGetRank6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGetRank6ViewUI extends BaseView {
+		public shangBangBox:Laya.Box;
+		public weiShangBangBox:Laya.Box;
+		public needImg1:Laya.Image;
+		public needImg2:Laya.Image;
+		public txtNeed:laya.display.Text;
+		public txtGet:Laya.Image;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadIcon2:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public imgHeadFrame2:Laya.Image;
+		public btnCall:modules.n_common.BtnClkScale;
+		public btnReward:modules.n_common.BtnClkScale;
+		public Designation:Laya.Image;
+		public txtNo:laya.display.Text;
+		public txtPlayer2:laya.display.Text;
+		public txtNum2:laya.display.Text;
+		public txtPlayer1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtRank:laya.display.Text;
+		public txtNum3:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_ActGetRank6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGetRank7ItemUI extends ItemRender {
+		public btnSend:modules.n_common.BtnClkScale;
+		public txt1:Laya.Image;
+		public txt2:Laya.Image;
+		public tetMC:Laya.FontClip;
+		public imgHeadIcon2:Laya.Image;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadIcon3:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public imgHeadFrame2:Laya.Image;
+		public imgHeadFrame3:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public txtPlayer2:laya.display.Text;
+		public tittleTxt2:laya.display.Text;
+		public txtNum2:laya.display.Text;
+		public txtPlayer3:laya.display.Text;
+		public tittleTxt3:laya.display.Text;
+		public txtNum3:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGetRank7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGetRank7ViewUI extends BaseView {
+		public shangBangBox:Laya.Box;
+		public weiShangBangBox:Laya.Box;
+		public needImg1:Laya.Image;
+		public needImg2:Laya.Image;
+		public txtNeed:laya.display.Text;
+		public txtGet:Laya.Image;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadIcon2:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public imgHeadFrame2:Laya.Image;
+		public btnCall:modules.n_common.BtnClkScale;
+		public btnReward:modules.n_common.BtnClkScale;
+		public Designation:Laya.Image;
+		public txtNo:laya.display.Text;
+		public txtPlayer2:laya.display.Text;
+		public txtNum2:laya.display.Text;
+		public txtPlayer1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtRank:laya.display.Text;
+		public txtNum3:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_ActGetRank7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGetRank8ItemUI extends ItemRender {
+		public btnSend:modules.n_common.BtnClkScale;
+		public txt1:Laya.Image;
+		public txt2:Laya.Image;
+		public tetMC:Laya.FontClip;
+		public imgHeadIcon2:Laya.Image;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadIcon3:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public imgHeadFrame2:Laya.Image;
+		public imgHeadFrame3:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public txtPlayer2:laya.display.Text;
+		public tittleTxt2:laya.display.Text;
+		public txtNum2:laya.display.Text;
+		public txtPlayer3:laya.display.Text;
+		public tittleTxt3:laya.display.Text;
+		public txtNum3:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGetRank8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGetRank8ViewUI extends BaseView {
+		public shangBangBox:Laya.Box;
+		public weiShangBangBox:Laya.Box;
+		public needImg1:Laya.Image;
+		public needImg2:Laya.Image;
+		public txtNeed:laya.display.Text;
+		public txtGet:Laya.Image;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadIcon2:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public imgHeadFrame2:Laya.Image;
+		public btnCall:modules.n_common.BtnClkScale;
+		public btnReward:modules.n_common.BtnClkScale;
+		public Designation:Laya.Image;
+		public txtNo:laya.display.Text;
+		public txtPlayer2:laya.display.Text;
+		public txtNum2:laya.display.Text;
+		public txtPlayer1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtRank:laya.display.Text;
+		public txtNum3:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_ActGetRank8View");
 
         }
 
@@ -1614,6 +2196,255 @@ module ui {
 }
 
 module ui {
+    export class P_ActGiveHua6AlertUI extends BaseDialog {
+		public btnAddOne:Laya.Button;
+		public btnMinusOne:Laya.Button;
+		public btnAddTen:modules.n_common.BtnClkScale;
+		public btnMinusTen:modules.n_common.BtnClkScale;
+		public icon:Laya.Image;
+		public imgHeadIcon:Laya.Image;
+		public imgHeadbgIcon:Laya.Image;
+		public btnSend:modules.n_common.BtnClkScale;
+		public textinput:Laya.TextInput;
+		public txtName:laya.display.Text;
+		public txtNum:laya.display.Text;
+		public txtTitle:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveHua6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveHua6ItemUI extends ItemRender {
+		public imgHeadIcon:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public btnSendGift:modules.n_common.BtnClkScale;
+		public txtName:laya.display.Text;
+		public txtNum:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveHua6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveHua6ViewUI extends BaseView {
+		public btnSendGift2:modules.n_common.BtnClkScale;
+		public btnSendGift1:modules.n_common.BtnClkScale;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadIcon2:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public imgHeadFrame2:Laya.Image;
+		public btnRefresh:modules.n_common.BtnClkScale;
+		public btnSearch:Laya.Button;
+		public txtName1:laya.display.Text;
+		public txtRank1:laya.display.Text;
+		public txtGet1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public txtName2:laya.display.Text;
+		public txtRank2:laya.display.Text;
+		public txtGet2:laya.display.Text;
+		public txtNum2:laya.display.Text;
+		public txtOpen:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveHua6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveHua7AlertUI extends BaseDialog {
+		public btnAddOne:Laya.Button;
+		public btnMinusOne:Laya.Button;
+		public btnAddTen:modules.n_common.BtnClkScale;
+		public btnMinusTen:modules.n_common.BtnClkScale;
+		public icon:Laya.Image;
+		public imgHeadIcon:Laya.Image;
+		public imgHeadbgIcon:Laya.Image;
+		public btnSend:modules.n_common.BtnClkScale;
+		public textinput:Laya.TextInput;
+		public txtName:laya.display.Text;
+		public txtNum:laya.display.Text;
+		public txtTitle:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveHua7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveHua7ItemUI extends ItemRender {
+		public imgHeadIcon:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public btnSendGift:modules.n_common.BtnClkScale;
+		public txtName:laya.display.Text;
+		public txtNum:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveHua7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveHua7ViewUI extends BaseView {
+		public btnSendGift2:modules.n_common.BtnClkScale;
+		public btnSendGift1:modules.n_common.BtnClkScale;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadIcon2:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public imgHeadFrame2:Laya.Image;
+		public btnRefresh:modules.n_common.BtnClkScale;
+		public btnSearch:Laya.Button;
+		public txtName1:laya.display.Text;
+		public txtRank1:laya.display.Text;
+		public txtGet1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public txtName2:laya.display.Text;
+		public txtRank2:laya.display.Text;
+		public txtGet2:laya.display.Text;
+		public txtNum2:laya.display.Text;
+		public txtOpen:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveHua7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveHua8AlertUI extends BaseDialog {
+		public btnAddOne:Laya.Button;
+		public btnMinusOne:Laya.Button;
+		public btnAddTen:modules.n_common.BtnClkScale;
+		public btnMinusTen:modules.n_common.BtnClkScale;
+		public icon:Laya.Image;
+		public imgHeadIcon:Laya.Image;
+		public imgHeadbgIcon:Laya.Image;
+		public btnSend:modules.n_common.BtnClkScale;
+		public textinput:Laya.TextInput;
+		public txtName:laya.display.Text;
+		public txtNum:laya.display.Text;
+		public txtTitle:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveHua8Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveHua8ItemUI extends ItemRender {
+		public imgHeadIcon:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public btnSendGift:modules.n_common.BtnClkScale;
+		public txtName:laya.display.Text;
+		public txtNum:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveHua8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveHua8ViewUI extends BaseView {
+		public btnSendGift2:modules.n_common.BtnClkScale;
+		public btnSendGift1:modules.n_common.BtnClkScale;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadIcon2:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public imgHeadFrame2:Laya.Image;
+		public btnRefresh:modules.n_common.BtnClkScale;
+		public btnSearch:Laya.Button;
+		public txtName1:laya.display.Text;
+		public txtRank1:laya.display.Text;
+		public txtGet1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public txtName2:laya.display.Text;
+		public txtRank2:laya.display.Text;
+		public txtGet2:laya.display.Text;
+		public txtNum2:laya.display.Text;
+		public txtOpen:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveHua8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_ActGiveHuaSearch1AlertUI extends BaseDialog {
 		public btnSearch:modules.n_common.BtnClkScale;
 		public closeBtn:Laya.Button;
@@ -1721,6 +2552,63 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_ActGiveHuaSearch5Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveHuaSearch6AlertUI extends BaseDialog {
+		public btnSearch:modules.n_common.BtnClkScale;
+		public closeBtn:Laya.Button;
+		public inputName:Laya.TextInput;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveHuaSearch6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveHuaSearch7AlertUI extends BaseDialog {
+		public btnSearch:modules.n_common.BtnClkScale;
+		public closeBtn:Laya.Button;
+		public inputName:Laya.TextInput;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveHuaSearch7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveHuaSearch8AlertUI extends BaseDialog {
+		public btnSearch:modules.n_common.BtnClkScale;
+		public closeBtn:Laya.Button;
+		public inputName:Laya.TextInput;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveHuaSearch8Alert");
 
         }
 
@@ -1947,7 +2835,11 @@ module ui {
 
 module ui {
     export class P_ActGiveRank3ViewUI extends BaseView {
+		public imgbg:Laya.Image;
 		public rebtn:Laya.Button;
+		public sureBtn:modules.n_common.BtnClkScale;
+		public receivedImg:Laya.Image;
+		public sureBtnRP:Laya.Image;
 		public activityText1:laya.display.Text;
 		public activityText:laya.display.Text;
 		public otherBox:Laya.Box;
@@ -1958,18 +2850,14 @@ module ui {
 		public myRankNumText:laya.display.Text;
 		public myIntegralText:laya.display.Text;
 		public scoreTxt:laya.display.Text;
-		public imgbg:Laya.Image;
 		public scheduleText:laya.display.Text;
 		public StatementHTML:laya.html.dom.HTMLDivElement;
-		public sureBtn:modules.n_common.BtnClkScale;
-		public receivedImg:Laya.Image;
-		public sureBtnRP:Laya.Image;
 
         constructor(){ super()}
         createChildren():void {
-        			View.regComponent("Text",laya.display.Text);
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
 			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
-			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
 
             super.createChildren();
             this.loadUI("P_ActGiveRank3View");
@@ -2075,6 +2963,69 @@ module ui {
     export class P_ActGiveRank5ViewUI extends BaseView {
 		public imgbg:Laya.Image;
 		public rebtn:Laya.Button;
+		public sureBtn:modules.n_common.BtnClkScale;
+		public receivedImg:Laya.Image;
+		public sureBtnRP:Laya.Image;
+		public activityText1:laya.display.Text;
+		public activityText:laya.display.Text;
+		public otherBox:Laya.Box;
+		public otherRankMingCiNumText:laya.display.Text;
+		public otherRankNumText:laya.display.Text;
+		public otherIntegralNameText:laya.display.Text;
+		public otherIntegralText:laya.display.Text;
+		public myRankNumText:laya.display.Text;
+		public myIntegralText:laya.display.Text;
+		public scoreTxt:laya.display.Text;
+		public scheduleText:laya.display.Text;
+		public StatementHTML:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveRank5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveRank6ItemUI extends ItemRender {
+		public oneImage:Laya.Image;
+		public twoImage:Laya.Image;
+		public threeImg:Laya.Image;
+		public otherBox:Laya.Box;
+		public afterthiredimage:Laya.Image;
+		public afterthired:Laya.FontClip;
+		public reward1:modules.n_beibao.RootItem;
+		public reward2:modules.n_beibao.RootItem;
+		public reward3:modules.n_beibao.RootItem;
+		public playername:laya.display.Text;
+		public notplaylisttxt:laya.display.Text;
+		public score1txt:laya.display.Text;
+		public score2txt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveRank6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveRank6ViewUI extends BaseView {
+		public imgbg:Laya.Image;
+		public rebtn:Laya.Button;
 		public activityText1:laya.display.Text;
 		public activityText:laya.display.Text;
 		public otherBox:Laya.Box;
@@ -2098,7 +3049,133 @@ module ui {
 			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
 
             super.createChildren();
-            this.loadUI("P_ActGiveRank5View");
+            this.loadUI("P_ActGiveRank6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveRank7ItemUI extends ItemRender {
+		public oneImage:Laya.Image;
+		public twoImage:Laya.Image;
+		public threeImg:Laya.Image;
+		public otherBox:Laya.Box;
+		public afterthiredimage:Laya.Image;
+		public afterthired:Laya.FontClip;
+		public reward1:modules.n_beibao.RootItem;
+		public reward2:modules.n_beibao.RootItem;
+		public reward3:modules.n_beibao.RootItem;
+		public playername:laya.display.Text;
+		public notplaylisttxt:laya.display.Text;
+		public score1txt:laya.display.Text;
+		public score2txt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveRank7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveRank7ViewUI extends BaseView {
+		public imgbg:Laya.Image;
+		public rebtn:Laya.Button;
+		public activityText1:laya.display.Text;
+		public activityText:laya.display.Text;
+		public otherBox:Laya.Box;
+		public otherRankMingCiNumText:laya.display.Text;
+		public otherRankNumText:laya.display.Text;
+		public otherIntegralNameText:laya.display.Text;
+		public otherIntegralText:laya.display.Text;
+		public myRankNumText:laya.display.Text;
+		public myIntegralText:laya.display.Text;
+		public scoreTxt:laya.display.Text;
+		public scheduleText:laya.display.Text;
+		public StatementHTML:laya.html.dom.HTMLDivElement;
+		public sureBtn:modules.n_common.BtnClkScale;
+		public receivedImg:Laya.Image;
+		public sureBtnRP:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveRank7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveRank8ItemUI extends ItemRender {
+		public oneImage:Laya.Image;
+		public twoImage:Laya.Image;
+		public threeImg:Laya.Image;
+		public otherBox:Laya.Box;
+		public afterthiredimage:Laya.Image;
+		public afterthired:Laya.FontClip;
+		public reward1:modules.n_beibao.RootItem;
+		public reward2:modules.n_beibao.RootItem;
+		public reward3:modules.n_beibao.RootItem;
+		public playername:laya.display.Text;
+		public notplaylisttxt:laya.display.Text;
+		public score1txt:laya.display.Text;
+		public score2txt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveRank8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActGiveRank8ViewUI extends BaseView {
+		public imgbg:Laya.Image;
+		public rebtn:Laya.Button;
+		public activityText1:laya.display.Text;
+		public activityText:laya.display.Text;
+		public otherBox:Laya.Box;
+		public otherRankMingCiNumText:laya.display.Text;
+		public otherRankNumText:laya.display.Text;
+		public otherIntegralNameText:laya.display.Text;
+		public otherIntegralText:laya.display.Text;
+		public myRankNumText:laya.display.Text;
+		public myIntegralText:laya.display.Text;
+		public scoreTxt:laya.display.Text;
+		public scheduleText:laya.display.Text;
+		public StatementHTML:laya.html.dom.HTMLDivElement;
+		public sureBtn:modules.n_common.BtnClkScale;
+		public receivedImg:Laya.Image;
+		public sureBtnRP:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_ActGiveRank8View");
 
         }
 
@@ -2472,6 +3549,123 @@ module ui {
 }
 
 module ui {
+    export class P_ActRedRain6ItemUI extends ItemRender {
+		public txtTm:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActRedRain6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActRedRain6ViewUI extends BaseView {
+		public boxList:Laya.Box;
+		public btnTips:Laya.Button;
+		public txtTm:laya.display.Text;
+		public txtState:laya.display.Text;
+		public txtNextTmH:laya.display.Text;
+		public txtNextTmM:laya.display.Text;
+		public txtNextTmS:laya.display.Text;
+		public txtMoney:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActRedRain6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActRedRain7ItemUI extends ItemRender {
+		public txtTm:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActRedRain7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActRedRain7ViewUI extends BaseView {
+		public boxList:Laya.Box;
+		public btnTips:Laya.Button;
+		public txtTm:laya.display.Text;
+		public txtState:laya.display.Text;
+		public txtNextTmH:laya.display.Text;
+		public txtNextTmM:laya.display.Text;
+		public txtNextTmS:laya.display.Text;
+		public txtMoney:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActRedRain7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActRedRain8ItemUI extends ItemRender {
+		public txtTm:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActRedRain8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActRedRain8ViewUI extends BaseView {
+		public boxList:Laya.Box;
+		public btnTips:Laya.Button;
+		public txtTm:laya.display.Text;
+		public txtState:laya.display.Text;
+		public txtNextTmH:laya.display.Text;
+		public txtNextTmM:laya.display.Text;
+		public txtNextTmS:laya.display.Text;
+		public txtMoney:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActRedRain8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_ActStoreHua1HQItemUI extends ItemRender {
 		public puchaseBtn:modules.n_common.BtnClkScale;
 		public itemName:Laya.Label;
@@ -2777,6 +3971,162 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_ActStoreHua5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActStoreHua6ItemUI extends ItemRender {
+		public puchaseBtn:modules.n_common.BtnClkScale;
+		public itemName:Laya.Label;
+		public item:modules.n_beibao.RootItem;
+		public maxCountTxt:laya.display.Text;
+		public limit:Laya.Box;
+		public limitHtml:laya.html.dom.HTMLDivElement;
+		public price:Laya.Box;
+		public priceImg:Laya.Image;
+		public priceTxt:Laya.Label;
+		public underLine:Laya.Image;
+		public nowPrice:Laya.Box;
+		public nowPriceImg:Laya.Image;
+		public nowPriceTxt:Laya.Label;
+		public vipBox:Laya.Box;
+		public vipLvImg:Laya.Image;
+		public vipLv:laya.display.Text;
+		public zeKouImg:Laya.Image;
+		public zeKouHTml:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_ActStoreHua6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActStoreHua6ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActStoreHua6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActStoreHua7ItemUI extends ItemRender {
+		public puchaseBtn:modules.n_common.BtnClkScale;
+		public itemName:Laya.Label;
+		public item:modules.n_beibao.RootItem;
+		public maxCountTxt:laya.display.Text;
+		public limit:Laya.Box;
+		public limitHtml:laya.html.dom.HTMLDivElement;
+		public price:Laya.Box;
+		public priceImg:Laya.Image;
+		public priceTxt:Laya.Label;
+		public underLine:Laya.Image;
+		public nowPrice:Laya.Box;
+		public nowPriceImg:Laya.Image;
+		public nowPriceTxt:Laya.Label;
+		public vipBox:Laya.Box;
+		public vipLvImg:Laya.Image;
+		public vipLv:laya.display.Text;
+		public zeKouImg:Laya.Image;
+		public zeKouHTml:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_ActStoreHua7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActStoreHua7ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActStoreHua7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActStoreHua8ItemUI extends ItemRender {
+		public puchaseBtn:modules.n_common.BtnClkScale;
+		public itemName:Laya.Label;
+		public item:modules.n_beibao.RootItem;
+		public maxCountTxt:laya.display.Text;
+		public limit:Laya.Box;
+		public limitHtml:laya.html.dom.HTMLDivElement;
+		public price:Laya.Box;
+		public priceImg:Laya.Image;
+		public priceTxt:Laya.Label;
+		public underLine:Laya.Image;
+		public nowPrice:Laya.Box;
+		public nowPriceImg:Laya.Image;
+		public nowPriceTxt:Laya.Label;
+		public vipBox:Laya.Box;
+		public vipLvImg:Laya.Image;
+		public vipLv:laya.display.Text;
+		public zeKouImg:Laya.Image;
+		public zeKouHTml:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_ActStoreHua8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ActStoreHua8ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ActStoreHua8View");
 
         }
 
@@ -3354,6 +4704,37 @@ module ui {
 }
 
 module ui {
+    export class P_BackDecorateAlertUI extends BaseDialog {
+		public battlepoper:Laya.Box;
+		public fightNum:modules.n_common.CstmBattlePowerFontClip;
+		public item1:modules.n_beibao.RootItem;
+		public item2:modules.n_beibao.RootItem;
+		public item3:modules.n_beibao.RootItem;
+		public item4:modules.n_beibao.RootItem;
+		public item5:modules.n_beibao.RootItem;
+		public rebateNum:Laya.FontClip;
+		public closeBtn:Laya.Button;
+		public priceNum:Laya.FontClip;
+		public buyBtn:modules.n_common.BtnClkScale;
+		public receiveImg:Laya.Image;
+		public timerTxt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_BackDecorateAlert");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_BangsViewUI extends BaseView {
 		public recharge_bar:Laya.Image;
 		public chargingIcon:Laya.Image;
@@ -3498,17 +4879,33 @@ module ui {
 module ui {
     export class P_BattleBeastAlertUI extends BaseDialog {
 		public mallBtn:Laya.Button;
-		public createRoomBtn:modules.n_common.BtnClkScale;
-		public matchBtn:modules.n_common.BtnClkScale;
-		public tipsBtn:Laya.Button;
+		public findCard:modules.n_common.BtnClkScale;
+		public closeBtn:Laya.Button;
+		public card1:Laya.Image;
+		public card2:Laya.Image;
+		public card3:Laya.Image;
+		public f1Box:Laya.Box;
+		public fimg1:Laya.Image;
+		public f1:Laya.FontClip;
+		public f2Box:Laya.Box;
+		public fimg2:Laya.Image;
+		public f2:Laya.FontClip;
+		public f3Box:Laya.Box;
+		public fimg3:Laya.Image;
+		public f3:Laya.FontClip;
+		public fightValueBox:Laya.Box;
+		public fightImg:Laya.Image;
+		public fightValueTxt:Laya.FontClip;
 		public activeCardTxt:laya.display.Text;
-		public fightValueTxt:laya.display.Text;
+		public cardName1:Laya.Label;
+		public cardName2:Laya.Label;
+		public cardName3:Laya.Label;
+		public createRoomBtn:modules.n_common.BtnClkScale;
+		public tipsBtn:Laya.Button;
+		public findBtnRp:Laya.Image;
 		public btnBox:Laya.Box;
 		public addTimesBtn:Laya.Button;
 		public challengeCountTxt:laya.display.Text;
-		public cardBox:Laya.Box;
-		public findCard:modules.n_common.BtnClkScale;
-		public findBtnRp:Laya.Image;
 
         constructor(){ super()}
         createChildren():void {
@@ -3525,8 +4922,11 @@ module ui {
 
 module ui {
     export class P_BattleBeastcardItemUI extends ItemRender {
+		public avtBox:Laya.Box;
 		public nameTxt:laya.display.Text;
-		public fightTxt:laya.display.Text;
+		public f1Box:Laya.Box;
+		public fimg1:Laya.Image;
+		public f1:Laya.FontClip;
 		public maskSprite:Laya.Image;
 		public activeBtn:modules.n_common.BtnClkScale;
 
@@ -3545,26 +4945,28 @@ module ui {
 
 module ui {
     export class P_BattleBeastCardWareHouseAlertUI extends BaseDialog {
-		public cardBox:Laya.Box;
+		public closeBtn:Laya.Button;
 		public skillIcon0:Laya.Image;
+		public skillIcon1:Laya.Image;
+		public skillIcon2:Laya.Image;
 		public skillLevelUnder0:Laya.Image;
+		public skillLevelUnder1:Laya.Image;
+		public skillLevelUnder2:Laya.Image;
+		public activeBtn:modules.n_common.BtnClkScale;
+		public listBg:Laya.Image;
 		public skillOpenDes0:laya.display.Text;
 		public skillLevelTxt0:modules.n_common.CstmNum;
-		public skillIcon1:Laya.Image;
-		public skillLevelUnder1:Laya.Image;
-		public skillOpenDes1:laya.display.Text;
 		public skillLevelTxt1:modules.n_common.CstmNum;
-		public skillIcon2:Laya.Image;
-		public skillLevelUnder2:Laya.Image;
+		public skillOpenDes1:laya.display.Text;
 		public skillOpenDes2:laya.display.Text;
 		public skillLevelTxt2:modules.n_common.CstmNum;
-		public activeBtn:modules.n_common.BtnClkScale;
+		public cardBox:Laya.Box;
 
         constructor(){ super()}
         createChildren():void {
-        			View.regComponent("Text",laya.display.Text);
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
 			View.regComponent("modules.n_common.CstmNum",modules.n_common.CstmNum);
-			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
 
             super.createChildren();
             this.loadUI("P_BattleBeastCardWareHouseAlert");
@@ -3600,19 +5002,20 @@ module ui {
 		public view2:modules.n_battle_beast.BattleBeastMainViewItem;
 		public view3:modules.n_battle_beast.BattleBeastMainViewItem;
 		public view4:modules.n_battle_beast.BattleBeastMainViewItem;
-		public countDownTxt:Laya.Label;
-		public battleCountTxt:Laya.Label;
-		public automaticalBtn:Laya.Button;
-		public followText:laya.display.Text;
 		public carWarehouseBtn:modules.n_common.BtnClkScale;
 		public skill1:modules.n_battle_beast.BattleBeastMainSkillItem;
 		public skill2:modules.n_battle_beast.BattleBeastMainSkillItem;
 		public skill3:modules.n_battle_beast.BattleBeastMainSkillItem;
+		public automaticalBtn:Laya.Button;
+		public countDownTxt:Laya.Label;
+		public bbox:Laya.Box;
+		public q1:Laya.Image;
+		public q2:Laya.FontClip;
+		public q3:Laya.Image;
 
         constructor(){ super()}
         createChildren():void {
         			View.regComponent("modules.n_battle_beast.BattleBeastMainViewItem",modules.n_battle_beast.BattleBeastMainViewItem);
-			View.regComponent("Text",laya.display.Text);
 			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
 			View.regComponent("modules.n_battle_beast.BattleBeastMainSkillItem",modules.n_battle_beast.BattleBeastMainSkillItem);
 
@@ -4459,6 +5862,14 @@ module ui {
 		public btnDirectBuy5:Laya.Button;
 		public rpDirectBuy5:Laya.Image;
 		public txtDirectBuy5:laya.display.Text;
+		public boxDirectBuy6:Laya.Box;
+		public btnDirectBuy6:Laya.Button;
+		public rpDirectBuy6:Laya.Image;
+		public txtDirectBuy6:laya.display.Text;
+		public boxDirectBuy7:Laya.Box;
+		public btnDirectBuy7:Laya.Button;
+		public rpDirectBuy7:Laya.Image;
+		public txtDirectBuy7:laya.display.Text;
 		public boxSyfl:Laya.Box;
 		public btnSyfl:Laya.Button;
 		public imgSyflRD:Laya.Image;
@@ -4654,6 +6065,7 @@ module ui {
 		public fightTeamTipsBtn:Laya.Button;
 		public privateChatBtn:Laya.Button;
 		public privateChatNum:laya.display.Text;
+		public helpBox:Laya.Box;
 		public boxXdzl:Laya.Box;
 		public btnXdzl:Laya.Button;
 		public imgXdzlRD:Laya.Image;
@@ -5549,6 +6961,7 @@ module ui {
 		public qualityImg:Laya.Image;
 		public iconImg:Laya.Image;
 		public gradeImg:Laya.Image;
+		public imgMask:Laya.Image;
 		public usingTxt:laya.display.Text;
 		public nameTxt:laya.display.Text;
 		public wayTxt:laya.display.Text;
@@ -7688,9 +9101,10 @@ module ui {
 		public bWrdNmImg:Laya.Image;
 		public itemPanel:Laya.Panel;
 		public adBg:Laya.Image;
+		public progressPanel:Laya.Panel;
+		public expProgress:Laya.Image;
 		public okBtn:modules.n_common.BtnClkScale;
 		public wanChengImg:Laya.Image;
-		public expProgress:Laya.Image;
 		public nowProcess:laya.display.Text;
 		public activityText:laya.display.Text;
 
@@ -9398,6 +10812,144 @@ module ui {
 }
 
 module ui {
+    export class P_EggBreak6ViewUI extends BaseView {
+		public egg1:Laya.Box;
+		public egg2:Laya.Box;
+		public egg3:Laya.Box;
+		public btnEgg1:Laya.Button;
+		public imgEggRp1:Laya.Image;
+		public btnEgg2:Laya.Button;
+		public imgEggRp2:Laya.Image;
+		public btnEgg3:Laya.Button;
+		public imgEggRp3:Laya.Image;
+		public btnEggTreasury:Laya.Button;
+		public btnDesc:Laya.Button;
+		public btnAwardPreview:Laya.Button;
+		public txtProbability:Laya.Button;
+		public btn10Count:modules.n_common.BtnClkScale;
+		public btn1Count:modules.n_common.BtnClkScale;
+		public barLucky:Laya.Image;
+		public panLeftAwards:Laya.Panel;
+		public panRightAwards:Laya.Panel;
+		public box1Count:Laya.Box;
+		public img1Count:Laya.Image;
+		public txt1Count:Laya.Label;
+		public box10Count:Laya.Box;
+		public img10Count:Laya.Image;
+		public txt10Count:Laya.Label;
+		public txtLucky:modules.n_common.CstmBarNum;
+		public txtTime:laya.display.Text;
+		public imgBigAward:Laya.Image;
+		public txtAwardName:laya.display.Text;
+		public btnClose1:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_common.CstmBarNum",modules.n_common.CstmBarNum);
+
+            super.createChildren();
+            this.loadUI("P_EggBreak6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggBreak7ViewUI extends BaseView {
+		public egg1:Laya.Box;
+		public egg2:Laya.Box;
+		public egg3:Laya.Box;
+		public btnEgg1:Laya.Button;
+		public imgEggRp1:Laya.Image;
+		public btnEgg2:Laya.Button;
+		public imgEggRp2:Laya.Image;
+		public btnEgg3:Laya.Button;
+		public imgEggRp3:Laya.Image;
+		public btnEggTreasury:Laya.Button;
+		public btnDesc:Laya.Button;
+		public btnAwardPreview:Laya.Button;
+		public txtProbability:Laya.Button;
+		public btn10Count:modules.n_common.BtnClkScale;
+		public btn1Count:modules.n_common.BtnClkScale;
+		public barLucky:Laya.Image;
+		public panLeftAwards:Laya.Panel;
+		public panRightAwards:Laya.Panel;
+		public box1Count:Laya.Box;
+		public img1Count:Laya.Image;
+		public txt1Count:Laya.Label;
+		public box10Count:Laya.Box;
+		public img10Count:Laya.Image;
+		public txt10Count:Laya.Label;
+		public txtLucky:modules.n_common.CstmBarNum;
+		public txtTime:laya.display.Text;
+		public imgBigAward:Laya.Image;
+		public txtAwardName:laya.display.Text;
+		public btnClose1:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_common.CstmBarNum",modules.n_common.CstmBarNum);
+
+            super.createChildren();
+            this.loadUI("P_EggBreak7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggBreak8ViewUI extends BaseView {
+		public egg1:Laya.Box;
+		public egg2:Laya.Box;
+		public egg3:Laya.Box;
+		public btnEgg1:Laya.Button;
+		public imgEggRp1:Laya.Image;
+		public btnEgg2:Laya.Button;
+		public imgEggRp2:Laya.Image;
+		public btnEgg3:Laya.Button;
+		public imgEggRp3:Laya.Image;
+		public btnEggTreasury:Laya.Button;
+		public btnDesc:Laya.Button;
+		public btnAwardPreview:Laya.Button;
+		public txtProbability:Laya.Button;
+		public btn10Count:modules.n_common.BtnClkScale;
+		public btn1Count:modules.n_common.BtnClkScale;
+		public barLucky:Laya.Image;
+		public panLeftAwards:Laya.Panel;
+		public panRightAwards:Laya.Panel;
+		public box1Count:Laya.Box;
+		public img1Count:Laya.Image;
+		public txt1Count:Laya.Label;
+		public box10Count:Laya.Box;
+		public img10Count:Laya.Image;
+		public txt10Count:Laya.Label;
+		public txtLucky:modules.n_common.CstmBarNum;
+		public txtTime:laya.display.Text;
+		public imgBigAward:Laya.Image;
+		public txtAwardName:laya.display.Text;
+		public btnClose1:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_common.CstmBarNum",modules.n_common.CstmBarNum);
+
+            super.createChildren();
+            this.loadUI("P_EggBreak8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_EggBreakAward1AlertUI extends BaseDialog {
 		public btnClose:Laya.Button;
 
@@ -9487,6 +11039,54 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_EggBreakAward5Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggBreakAward6AlertUI extends BaseDialog {
+		public btnClose:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggBreakAward6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggBreakAward7AlertUI extends BaseDialog {
+		public btnClose:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggBreakAward7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggBreakAward8AlertUI extends BaseDialog {
+		public btnClose:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggBreakAward8Alert");
 
         }
 
@@ -9655,6 +11255,90 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_EggBreakResult5Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggBreakResult6AlertUI extends BaseDialog {
+		public bg:Laya.Image;
+		public closeBtn:Laya.Button;
+		public listBox:Laya.Box;
+		public btn1:Laya.Box;
+		public btnbreak10:modules.n_common.BtnClkScale;
+		public btnBreak1:modules.n_common.BtnClkScale;
+		public fiftyCountBox:Laya.Box;
+		public fifityCountImg:Laya.Image;
+		public fiftyCount:Laya.Label;
+		public tenCountBox:Laya.Box;
+		public tenCountImg:Laya.Image;
+		public tenCount:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggBreakResult6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggBreakResult7AlertUI extends BaseDialog {
+		public bg:Laya.Image;
+		public closeBtn:Laya.Button;
+		public listBox:Laya.Box;
+		public btn1:Laya.Box;
+		public btnbreak10:modules.n_common.BtnClkScale;
+		public btnBreak1:modules.n_common.BtnClkScale;
+		public fiftyCountBox:Laya.Box;
+		public fifityCountImg:Laya.Image;
+		public fiftyCount:Laya.Label;
+		public tenCountBox:Laya.Box;
+		public tenCountImg:Laya.Image;
+		public tenCount:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggBreakResult7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggBreakResult8AlertUI extends BaseDialog {
+		public bg:Laya.Image;
+		public closeBtn:Laya.Button;
+		public listBox:Laya.Box;
+		public btn1:Laya.Box;
+		public btnbreak10:modules.n_common.BtnClkScale;
+		public btnBreak1:modules.n_common.BtnClkScale;
+		public fiftyCountBox:Laya.Box;
+		public fifityCountImg:Laya.Image;
+		public fiftyCount:Laya.Label;
+		public tenCountBox:Laya.Box;
+		public tenCountImg:Laya.Image;
+		public tenCount:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggBreakResult8Alert");
 
         }
 
@@ -9950,6 +11634,150 @@ module ui {
 }
 
 module ui {
+    export class P_EggContuePay6ItemUI extends ItemRender {
+		public btnRecharge:modules.n_common.BtnClkScale;
+		public btnGet:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggContuePay6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggContuePay6ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+		public txtTodayPay:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggContuePay6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggContuePay7ItemUI extends ItemRender {
+		public btnRecharge:modules.n_common.BtnClkScale;
+		public btnGet:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggContuePay7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggContuePay7ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+		public txtTodayPay:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggContuePay7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggContuePay8ItemUI extends ItemRender {
+		public btnRecharge:modules.n_common.BtnClkScale;
+		public btnGet:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggContuePay8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggContuePay8ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+		public txtTodayPay:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggContuePay8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_EggexAdvBox1AlertUI extends BaseDialog {
 		public btnGet:modules.n_common.BtnClkScale;
 		public btnClose:Laya.Button;
@@ -10069,6 +11897,69 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_EggexAdvBox5Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdvBox6AlertUI extends BaseDialog {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public imgYlq:Laya.Image;
+		public boxItems:Laya.Box;
+		public txtTips:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdvBox6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdvBox7AlertUI extends BaseDialog {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public imgYlq:Laya.Image;
+		public boxItems:Laya.Box;
+		public txtTips:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdvBox7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdvBox8AlertUI extends BaseDialog {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public imgYlq:Laya.Image;
+		public boxItems:Laya.Box;
+		public txtTips:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdvBox8Alert");
 
         }
 
@@ -10219,6 +12110,81 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_EggexAdvBuy5Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdvBuy6AlertUI extends BaseDialog {
+		public btnClose:Laya.Button;
+		public btnOperate:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public desHtml:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdvBuy6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdvBuy7AlertUI extends BaseDialog {
+		public btnClose:Laya.Button;
+		public btnOperate:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public desHtml:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdvBuy7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdvBuy8AlertUI extends BaseDialog {
+		public btnClose:Laya.Button;
+		public btnOperate:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public desHtml:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdvBuy8Alert");
 
         }
 
@@ -10637,20 +12603,24 @@ module ui {
 		public imgBigReward:Laya.Image;
 		public btnBox1:Laya.Box;
 		public imgBoxClose1:Laya.Image;
-		public imgBoxLight1:Laya.Image;
 		public imgBoxOpen1:Laya.Image;
+		public imgBoxLight1:Laya.Image;
+		public imgBoxGet1:Laya.Image;
 		public btnBox2:Laya.Box;
 		public imgBoxClose2:Laya.Image;
-		public imgBoxLight2:Laya.Image;
 		public imgBoxOpen2:Laya.Image;
+		public imgBoxLight2:Laya.Image;
+		public imgBoxGet2:Laya.Image;
 		public btnBox3:Laya.Box;
 		public imgBoxClose3:Laya.Image;
-		public imgBoxLight3:Laya.Image;
 		public imgBoxOpen3:Laya.Image;
+		public imgBoxLight3:Laya.Image;
+		public imgBoxGet3:Laya.Image;
 		public btnBox4:Laya.Box;
 		public imgBoxClose4:Laya.Image;
-		public imgBoxLight4:Laya.Image;
 		public imgBoxOpen4:Laya.Image;
+		public imgBoxLight4:Laya.Image;
+		public imgBoxGet4:Laya.Image;
 		public btnActive:Laya.Button;
 		public btnTaskType1:Laya.Button;
 		public btnTaskType2:Laya.Button;
@@ -10703,6 +12673,240 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_EggexAdventure5Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdventure6AlertUI extends BaseDialog {
+		public imgProg:Laya.Image;
+		public imgBigReward:Laya.Image;
+		public btnBox1:Laya.Box;
+		public imgBoxClose1:Laya.Image;
+		public imgBoxLight1:Laya.Image;
+		public imgBoxOpen1:Laya.Image;
+		public btnBox2:Laya.Box;
+		public imgBoxClose2:Laya.Image;
+		public imgBoxLight2:Laya.Image;
+		public imgBoxOpen2:Laya.Image;
+		public btnBox3:Laya.Box;
+		public imgBoxClose3:Laya.Image;
+		public imgBoxLight3:Laya.Image;
+		public imgBoxOpen3:Laya.Image;
+		public btnBox4:Laya.Box;
+		public imgBoxClose4:Laya.Image;
+		public imgBoxLight4:Laya.Image;
+		public imgBoxOpen4:Laya.Image;
+		public btnActive:Laya.Button;
+		public btnTaskType1:Laya.Button;
+		public btnTaskType2:Laya.Button;
+		public btnTaskType3:Laya.Button;
+		public btnTaskType4:Laya.Button;
+		public btnClose:Laya.Button;
+		public imgGot:Laya.Image;
+		public imgTabRD1:Laya.Image;
+		public imgTabRD2:Laya.Image;
+		public imgTabRD3:Laya.Image;
+		public imgTabRD4:Laya.Image;
+		public listBox:Laya.Box;
+		public txtProgress1:laya.display.Text;
+		public txtProgress2:laya.display.Text;
+		public txtProgress3:laya.display.Text;
+		public txtProgress4:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtPoint:laya.display.Text;
+		public tipsHtml:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdventure6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdventure6ItemUI extends ItemRender {
+		public btnOperate:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public txtFinish:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+		public htmlSchedule:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdventure6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdventure7AlertUI extends BaseDialog {
+		public imgProg:Laya.Image;
+		public imgBigReward:Laya.Image;
+		public btnBox1:Laya.Box;
+		public imgBoxClose1:Laya.Image;
+		public imgBoxLight1:Laya.Image;
+		public imgBoxOpen1:Laya.Image;
+		public btnBox2:Laya.Box;
+		public imgBoxClose2:Laya.Image;
+		public imgBoxLight2:Laya.Image;
+		public imgBoxOpen2:Laya.Image;
+		public btnBox3:Laya.Box;
+		public imgBoxClose3:Laya.Image;
+		public imgBoxLight3:Laya.Image;
+		public imgBoxOpen3:Laya.Image;
+		public btnBox4:Laya.Box;
+		public imgBoxClose4:Laya.Image;
+		public imgBoxLight4:Laya.Image;
+		public imgBoxOpen4:Laya.Image;
+		public btnActive:Laya.Button;
+		public btnTaskType1:Laya.Button;
+		public btnTaskType2:Laya.Button;
+		public btnTaskType3:Laya.Button;
+		public btnTaskType4:Laya.Button;
+		public btnClose:Laya.Button;
+		public imgGot:Laya.Image;
+		public imgTabRD1:Laya.Image;
+		public imgTabRD2:Laya.Image;
+		public imgTabRD3:Laya.Image;
+		public imgTabRD4:Laya.Image;
+		public listBox:Laya.Box;
+		public txtProgress1:laya.display.Text;
+		public txtProgress2:laya.display.Text;
+		public txtProgress3:laya.display.Text;
+		public txtProgress4:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtPoint:laya.display.Text;
+		public tipsHtml:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdventure7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdventure7ItemUI extends ItemRender {
+		public btnOperate:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public txtFinish:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+		public htmlSchedule:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdventure7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdventure8AlertUI extends BaseDialog {
+		public imgProg:Laya.Image;
+		public imgBigReward:Laya.Image;
+		public btnBox1:Laya.Box;
+		public imgBoxClose1:Laya.Image;
+		public imgBoxLight1:Laya.Image;
+		public imgBoxOpen1:Laya.Image;
+		public btnBox2:Laya.Box;
+		public imgBoxClose2:Laya.Image;
+		public imgBoxLight2:Laya.Image;
+		public imgBoxOpen2:Laya.Image;
+		public btnBox3:Laya.Box;
+		public imgBoxClose3:Laya.Image;
+		public imgBoxLight3:Laya.Image;
+		public imgBoxOpen3:Laya.Image;
+		public btnBox4:Laya.Box;
+		public imgBoxClose4:Laya.Image;
+		public imgBoxLight4:Laya.Image;
+		public imgBoxOpen4:Laya.Image;
+		public btnActive:Laya.Button;
+		public btnTaskType1:Laya.Button;
+		public btnTaskType2:Laya.Button;
+		public btnTaskType3:Laya.Button;
+		public btnTaskType4:Laya.Button;
+		public btnClose:Laya.Button;
+		public imgGot:Laya.Image;
+		public imgTabRD1:Laya.Image;
+		public imgTabRD2:Laya.Image;
+		public imgTabRD3:Laya.Image;
+		public imgTabRD4:Laya.Image;
+		public listBox:Laya.Box;
+		public txtProgress1:laya.display.Text;
+		public txtProgress2:laya.display.Text;
+		public txtProgress3:laya.display.Text;
+		public txtProgress4:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtPoint:laya.display.Text;
+		public tipsHtml:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdventure8Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdventure8ItemUI extends ItemRender {
+		public btnOperate:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public txtFinish:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+		public htmlSchedule:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdventure8Item");
 
         }
 
@@ -10848,6 +13052,75 @@ module ui {
 }
 
 module ui {
+    export class P_EggexAdvPoint6AlertUI extends BaseDialog {
+		public bgImg:Laya.Image;
+		public hintTxt:Laya.Image;
+		public btnGo:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public titleTxt:laya.display.Text;
+		public htmlTips:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdvPoint6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdvPoint7AlertUI extends BaseDialog {
+		public bgImg:Laya.Image;
+		public hintTxt:Laya.Image;
+		public btnGo:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public titleTxt:laya.display.Text;
+		public htmlTips:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdvPoint7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexAdvPoint8AlertUI extends BaseDialog {
+		public bgImg:Laya.Image;
+		public hintTxt:Laya.Image;
+		public btnGo:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public titleTxt:laya.display.Text;
+		public htmlTips:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggexAdvPoint8Alert");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_EggexFstPay1AlertUI extends BaseDialog {
 		public bgImg:Laya.Image;
 		public btnClose:Laya.Button;
@@ -10986,6 +13259,78 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_EggexFstPay5Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexFstPay6AlertUI extends BaseDialog {
+		public btnOperate:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public boxItems:Laya.Box;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggexFstPay6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexFstPay7AlertUI extends BaseDialog {
+		public btnOperate:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public boxItems:Laya.Box;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggexFstPay7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggexFstPay8AlertUI extends BaseDialog {
+		public btnOperate:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public boxItems:Laya.Box;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggexFstPay8Alert");
 
         }
 
@@ -11311,6 +13656,165 @@ module ui {
 }
 
 module ui {
+    export class P_EggGift6ItemUI extends ItemRender {
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public imgDiscount:Laya.Image;
+		public txtDiscount:laya.html.dom.HTMLDivElement;
+		public oldPrice:Laya.Box;
+		public oldPriceImg:Laya.Image;
+		public oldPriceTxt:laya.display.Text;
+		public underLine:Laya.Image;
+		public nowPrice:Laya.Box;
+		public nowPriceImg:Laya.Image;
+		public nowPriceTxt:Laya.Label;
+		public btnBuy:modules.n_common.BtnClkScale;
+		public txtSchedule:laya.display.Text;
+		public txtLimit:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+		public vipBox:Laya.Box;
+		public vipLvImg:Laya.Image;
+		public vipLv:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_EggGift6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggGift6ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggGift6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggGift7ItemUI extends ItemRender {
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public imgDiscount:Laya.Image;
+		public txtDiscount:laya.html.dom.HTMLDivElement;
+		public oldPrice:Laya.Box;
+		public oldPriceImg:Laya.Image;
+		public oldPriceTxt:laya.display.Text;
+		public underLine:Laya.Image;
+		public nowPrice:Laya.Box;
+		public nowPriceImg:Laya.Image;
+		public nowPriceTxt:Laya.Label;
+		public btnBuy:modules.n_common.BtnClkScale;
+		public txtSchedule:laya.display.Text;
+		public txtLimit:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+		public vipBox:Laya.Box;
+		public vipLvImg:Laya.Image;
+		public vipLv:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_EggGift7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggGift7ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggGift7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggGift8ItemUI extends ItemRender {
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public imgDiscount:Laya.Image;
+		public txtDiscount:laya.html.dom.HTMLDivElement;
+		public oldPrice:Laya.Box;
+		public oldPriceImg:Laya.Image;
+		public oldPriceTxt:laya.display.Text;
+		public underLine:Laya.Image;
+		public nowPrice:Laya.Box;
+		public nowPriceImg:Laya.Image;
+		public nowPriceTxt:Laya.Label;
+		public btnBuy:modules.n_common.BtnClkScale;
+		public txtSchedule:laya.display.Text;
+		public txtLimit:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+		public vipBox:Laya.Box;
+		public vipLvImg:Laya.Image;
+		public vipLv:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_EggGift8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggGift8ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggGift8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_EggGiftBuy1AlertUI extends BaseDialog {
 		public purchaseBtn:modules.n_common.BtnClkScale;
 		public addBtn:Laya.Button;
@@ -11490,6 +13994,99 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_EggGiftBuy5Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggGiftBuy6AlertUI extends BaseDialog {
+		public purchaseBtn:modules.n_common.BtnClkScale;
+		public addBtn:Laya.Button;
+		public reduceBtn:Laya.Button;
+		public addTenBtn:modules.n_common.BtnClkScale;
+		public reduceTenBtn:modules.n_common.BtnClkScale;
+		public closeBtn:Laya.Button;
+		public boxItems:Laya.Box;
+		public giftName:Laya.Label;
+		public price:Laya.Box;
+		public priceTxt:Laya.Label;
+		public priceImg:Laya.Image;
+		public totalPrice:Laya.Box;
+		public totalPriceTxt:Laya.Label;
+		public totalPriceImg:Laya.Image;
+		public numInput:Laya.TextInput;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_EggGiftBuy6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggGiftBuy7AlertUI extends BaseDialog {
+		public purchaseBtn:modules.n_common.BtnClkScale;
+		public addBtn:Laya.Button;
+		public reduceBtn:Laya.Button;
+		public addTenBtn:modules.n_common.BtnClkScale;
+		public reduceTenBtn:modules.n_common.BtnClkScale;
+		public closeBtn:Laya.Button;
+		public boxItems:Laya.Box;
+		public giftName:Laya.Label;
+		public price:Laya.Box;
+		public priceTxt:Laya.Label;
+		public priceImg:Laya.Image;
+		public totalPrice:Laya.Box;
+		public totalPriceTxt:Laya.Label;
+		public totalPriceImg:Laya.Image;
+		public numInput:Laya.TextInput;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_EggGiftBuy7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggGiftBuy8AlertUI extends BaseDialog {
+		public purchaseBtn:modules.n_common.BtnClkScale;
+		public addBtn:Laya.Button;
+		public reduceBtn:Laya.Button;
+		public addTenBtn:modules.n_common.BtnClkScale;
+		public reduceTenBtn:modules.n_common.BtnClkScale;
+		public closeBtn:Laya.Button;
+		public boxItems:Laya.Box;
+		public giftName:Laya.Label;
+		public price:Laya.Box;
+		public priceTxt:Laya.Label;
+		public priceImg:Laya.Image;
+		public totalPrice:Laya.Box;
+		public totalPriceTxt:Laya.Label;
+		public totalPriceImg:Laya.Image;
+		public numInput:Laya.TextInput;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_EggGiftBuy8Alert");
 
         }
 
@@ -11917,6 +14514,216 @@ module ui {
 }
 
 module ui {
+    export class P_EggRank6ItemUI extends ItemRender {
+		public imgRank1:Laya.Image;
+		public imgRank2:Laya.Image;
+		public imgRank3:Laya.Image;
+		public boxOther:Laya.Box;
+		public tetMC:Laya.FontClip;
+		public boxHavePlayer:Laya.Box;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxNoPlayer:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_EggRank6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggRank6ViewUI extends BaseView {
+		public boxHaveFst:Laya.Box;
+		public boxModel:Laya.Box;
+		public imgHead:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public txtEggPoint:laya.display.Text;
+		public txtName:laya.display.Text;
+		public boxNoFst:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public award1:modules.n_beibao.RootItem;
+		public award2:modules.n_beibao.RootItem;
+		public award3:modules.n_beibao.RootItem;
+		public award4:modules.n_beibao.RootItem;
+		public boxRanList:Laya.Box;
+		public btnDesc:Laya.Button;
+		public btnUp:Laya.Button;
+		public txtTime:laya.display.Text;
+		public txtMyPoint:laya.display.Text;
+		public txtMyRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_EggRank6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggRank7ItemUI extends ItemRender {
+		public imgRank1:Laya.Image;
+		public imgRank2:Laya.Image;
+		public imgRank3:Laya.Image;
+		public boxOther:Laya.Box;
+		public tetMC:Laya.FontClip;
+		public boxHavePlayer:Laya.Box;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxNoPlayer:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_EggRank7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggRank7ViewUI extends BaseView {
+		public boxHaveFst:Laya.Box;
+		public boxModel:Laya.Box;
+		public imgHead:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public txtEggPoint:laya.display.Text;
+		public txtName:laya.display.Text;
+		public boxNoFst:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public award1:modules.n_beibao.RootItem;
+		public award2:modules.n_beibao.RootItem;
+		public award3:modules.n_beibao.RootItem;
+		public award4:modules.n_beibao.RootItem;
+		public boxRanList:Laya.Box;
+		public btnDesc:Laya.Button;
+		public btnUp:Laya.Button;
+		public txtTime:laya.display.Text;
+		public txtMyPoint:laya.display.Text;
+		public txtMyRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_EggRank7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggRank8ItemUI extends ItemRender {
+		public imgRank1:Laya.Image;
+		public imgRank2:Laya.Image;
+		public imgRank3:Laya.Image;
+		public boxOther:Laya.Box;
+		public tetMC:Laya.FontClip;
+		public boxHavePlayer:Laya.Box;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxNoPlayer:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_EggRank8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggRank8ViewUI extends BaseView {
+		public boxHaveFst:Laya.Box;
+		public boxModel:Laya.Box;
+		public imgHead:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public txtEggPoint:laya.display.Text;
+		public txtName:laya.display.Text;
+		public boxNoFst:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public award1:modules.n_beibao.RootItem;
+		public award2:modules.n_beibao.RootItem;
+		public award3:modules.n_beibao.RootItem;
+		public award4:modules.n_beibao.RootItem;
+		public boxRanList:Laya.Box;
+		public btnDesc:Laya.Button;
+		public btnUp:Laya.Button;
+		public txtTime:laya.display.Text;
+		public txtMyPoint:laya.display.Text;
+		public txtMyRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_EggRank8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_EggRebate1ItemUI extends ItemRender {
 		public btnGo:modules.n_common.BtnClkScale;
 		public btnGet:modules.n_common.BtnClkScale;
@@ -12180,6 +14987,141 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_EggRebate5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggRebate6ItemUI extends ItemRender {
+		public btnGo:modules.n_common.BtnClkScale;
+		public btnGet:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggRebate6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggRebate6ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+		public txtEggPoint:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggRebate6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggRebate7ItemUI extends ItemRender {
+		public btnGo:modules.n_common.BtnClkScale;
+		public btnGet:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggRebate7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggRebate7ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+		public txtEggPoint:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggRebate7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggRebate8ItemUI extends ItemRender {
+		public btnGo:modules.n_common.BtnClkScale;
+		public btnGet:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggRebate8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggRebate8ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+		public txtEggPoint:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_EggRebate8View");
 
         }
 
@@ -12462,6 +15404,147 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_EggTreasury5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggTreasury6ItemUI extends ItemRender {
+		public btnExchange:modules.n_common.BtnClkScale;
+		public Item1:modules.n_beibao.RootItem;
+		public boxAlert:Laya.Box;
+		public btnTrue:Laya.Button;
+		public imgMaterial:Laya.Image;
+		public txtName:Laya.Label;
+		public txtCost:laya.display.Text;
+		public txtNum:laya.display.Text;
+		public txtMax:Laya.Label;
+		public txtLimit:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggTreasury6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggTreasury6ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+		public boxMaterial:Laya.Box;
+		public imgMaterial:Laya.Image;
+		public txtMaterial:laya.display.Text;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggTreasury6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggTreasury7ItemUI extends ItemRender {
+		public btnExchange:modules.n_common.BtnClkScale;
+		public Item1:modules.n_beibao.RootItem;
+		public boxAlert:Laya.Box;
+		public btnTrue:Laya.Button;
+		public imgMaterial:Laya.Image;
+		public txtName:Laya.Label;
+		public txtCost:laya.display.Text;
+		public txtNum:laya.display.Text;
+		public txtMax:Laya.Label;
+		public txtLimit:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggTreasury7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggTreasury7ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+		public boxMaterial:Laya.Box;
+		public imgMaterial:Laya.Image;
+		public txtMaterial:laya.display.Text;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggTreasury7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggTreasury8ItemUI extends ItemRender {
+		public btnExchange:modules.n_common.BtnClkScale;
+		public Item1:modules.n_beibao.RootItem;
+		public boxAlert:Laya.Box;
+		public btnTrue:Laya.Button;
+		public imgMaterial:Laya.Image;
+		public txtName:Laya.Label;
+		public txtCost:laya.display.Text;
+		public txtNum:laya.display.Text;
+		public txtMax:Laya.Label;
+		public txtLimit:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggTreasury8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_EggTreasury8ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+		public boxMaterial:Laya.Box;
+		public imgMaterial:Laya.Image;
+		public txtMaterial:laya.display.Text;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_EggTreasury8View");
 
         }
 
@@ -14136,7 +17219,6 @@ module ui {
 		public paneltype:Laya.Panel;
 		public goBtn:modules.n_common.BtnClkScale;
 		public tipsBtn:Laya.Button;
-		public addBtn:Laya.Button;
 		public awardBox:Laya.Image;
 		public diffBox:Laya.Image;
 		public btn_diff_0:Laya.Button;
@@ -14154,14 +17236,17 @@ module ui {
 		public diffSelBox:Laya.Box;
 		public unfoldDiffBtn:Laya.Button;
 		public unfoldDiffBtnState:Laya.Button;
+		public helpBox:Laya.Box;
 		public txt_help:laya.display.Text;
-		public txts_challenge:laya.display.Text;
 		public txt_tips:laya.display.Text;
 		public powerNum:laya.display.Text;
 		public selectedLine:Laya.Label;
 		public selectedDiff:Laya.Label;
 		public txtPanel:Laya.Panel;
 		public txt_buff:laya.html.dom.HTMLDivElement;
+		public challengeBox:Laya.Box;
+		public txts_challenge:laya.display.Text;
+		public addBtn:Laya.Button;
 		public autoCheckBox:Laya.Button;
 		public btnTabUp:Laya.Button;
 		public btnTabDown:Laya.Button;
@@ -14538,6 +17623,8 @@ module ui {
 
 module ui {
     export class P_FateSanShengPayViewUI extends BaseView {
+		public topBg1:Laya.Image;
+		public topBg2:Laya.Image;
 		public adBg:Laya.Image;
 		public wanChengImg:Laya.Image;
 		public okBtn:modules.n_common.BtnClkScale;
@@ -15801,32 +18888,46 @@ module ui {
 
 module ui {
     export class P_FirstPayUI extends BaseDialog {
-		public day1:Laya.Box;
+		public imgBg:Laya.Image;
+		public imgTopAd:Laya.Image;
+		public imgLeftAd:Laya.Image;
 		public getYuanBaoBox:Laya.Image;
-		public day2:Laya.Box;
-		public day3:Laya.Box;
 		public boxAwards:Laya.Box;
 		public closeBtn:Laya.Button;
 		public powerIncreaseNum:Laya.FontClip;
 		public sureBtn:modules.n_common.BtnClkScale;
 		public priceBox:Laya.Box;
-		public yuanImg:Laya.Image;
+		public imgPrice:Laya.Image;
 		public priceNum:Laya.FontClip;
-		public buttonImg:Laya.Image;
+		public yuanImg:Laya.Image;
+		public imgGet:Laya.Image;
+		public imgGot:Laya.Image;
+		public payBtn1:Laya.Button;
+		public payRp1:Laya.Image;
+		public payBtn2:Laya.Button;
+		public tabNum2:Laya.FontClip;
+		public payRp2:Laya.Image;
+		public payBtn3:Laya.Button;
+		public tabNum3:Laya.FontClip;
+		public payRp3:Laya.Image;
 		public dayBtn1:Laya.Button;
-		public dayBtn2:Laya.Button;
-		public dayBtn3:Laya.Button;
+		public imgDayAd1:Laya.Image;
 		public imgRp1:Laya.Image;
+		public dayBtn2:Laya.Button;
+		public imgDayAd2:Laya.Image;
 		public imgRp2:Laya.Image;
+		public dayBtn3:Laya.Button;
+		public imgDayAd3:Laya.Image;
 		public imgRp3:Laya.Image;
-		public txtCloseTip:laya.display.Text;
 		public htmLeftTime:laya.html.dom.HTMLDivElement;
+		public txtCloseTip:laya.display.Text;
+		public txtJump:laya.display.Text;
 
         constructor(){ super()}
         createChildren():void {
         			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
-			View.regComponent("Text",laya.display.Text);
 			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("Text",laya.display.Text);
 
             super.createChildren();
             this.loadUI("P_FirstPay");
@@ -18046,6 +21147,60 @@ module ui {
 }
 
 module ui {
+    export class P_HamsterAward6ViewUI extends BaseView {
+		public btnSingle:Laya.Button;
+		public btnAll:Laya.Button;
+		public imgSingleRD:Laya.Image;
+		public imgAllRD:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_HamsterAward6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterAward7ViewUI extends BaseView {
+		public btnSingle:Laya.Button;
+		public btnAll:Laya.Button;
+		public imgSingleRD:Laya.Image;
+		public imgAllRD:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_HamsterAward7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterAward8ViewUI extends BaseView {
+		public btnSingle:Laya.Button;
+		public btnAll:Laya.Button;
+		public imgSingleRD:Laya.Image;
+		public imgAllRD:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_HamsterAward8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_HamsterAwardAll1ItemUI extends ItemRender {
 		public btnGet:modules.n_common.BtnClkScale;
 		public btnCost:modules.n_common.BtnClkScale;
@@ -18174,6 +21329,87 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_HamsterAwardAll5Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterAwardAll6ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_HamsterAwardAll6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterAwardAll7ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_HamsterAwardAll7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterAwardAll8ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_HamsterAwardAll8Item");
 
         }
 
@@ -18316,6 +21552,87 @@ module ui {
 }
 
 module ui {
+    export class P_HamsterAwardSelf6ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_HamsterAwardSelf6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterAwardSelf7ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_HamsterAwardSelf7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterAwardSelf8ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_HamsterAwardSelf8Item");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_HamsterBigReward1AlertUI extends BaseDialog {
 		public item:modules.n_beibao.RootItem;
 		public btn:modules.n_common.BtnClkScale;
@@ -18414,6 +21731,69 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_HamsterBigReward5Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterBigReward6AlertUI extends BaseDialog {
+		public item:modules.n_beibao.RootItem;
+		public btn:modules.n_common.BtnClkScale;
+		public txtName:Laya.Label;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HamsterBigReward6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterBigReward7AlertUI extends BaseDialog {
+		public item:modules.n_beibao.RootItem;
+		public btn:modules.n_common.BtnClkScale;
+		public txtName:Laya.Label;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HamsterBigReward7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterBigReward8AlertUI extends BaseDialog {
+		public item:modules.n_beibao.RootItem;
+		public btn:modules.n_common.BtnClkScale;
+		public txtName:Laya.Label;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HamsterBigReward8Alert");
 
         }
 
@@ -18580,6 +21960,81 @@ module ui {
 }
 
 module ui {
+    export class P_HamsterGrid6ItemUI extends ItemRender {
+		public ani1:Laya.FrameAnimation;
+		public ani2:Laya.FrameAnimation;
+		public boxGrid:Laya.Box;
+		public imgBack:Laya.Image;
+		public hamsterImg:Laya.Image;
+		public hamsterHitImg:Laya.Image;
+		public item:modules.n_beibao.RootItem;
+		public txtCrit:Laya.FontClip;
+		public hitEffImg:Laya.Image;
+		public hammerImg:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HamsterGrid6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterGrid7ItemUI extends ItemRender {
+		public ani1:Laya.FrameAnimation;
+		public ani2:Laya.FrameAnimation;
+		public boxGrid:Laya.Box;
+		public imgBack:Laya.Image;
+		public hamsterImg:Laya.Image;
+		public hamsterHitImg:Laya.Image;
+		public item:modules.n_beibao.RootItem;
+		public txtCrit:Laya.FontClip;
+		public hitEffImg:Laya.Image;
+		public hammerImg:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HamsterGrid7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterGrid8ItemUI extends ItemRender {
+		public ani1:Laya.FrameAnimation;
+		public ani2:Laya.FrameAnimation;
+		public boxGrid:Laya.Box;
+		public imgBack:Laya.Image;
+		public hamsterImg:Laya.Image;
+		public hamsterHitImg:Laya.Image;
+		public item:modules.n_beibao.RootItem;
+		public txtCrit:Laya.FontClip;
+		public hitEffImg:Laya.Image;
+		public hammerImg:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HamsterGrid8Item");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_HamsterLine1ItemUI extends ItemRender {
 		public processBall:Laya.Image;
 		public item:modules.n_beibao.RootItem;
@@ -18700,6 +22155,78 @@ module ui {
 }
 
 module ui {
+    export class P_HamsterLine6ItemUI extends ItemRender {
+		public processBall:Laya.Image;
+		public item:modules.n_beibao.RootItem;
+		public txtCrit:Laya.FontClip;
+		public getDoneIcon:Laya.Image;
+		public oneKeyGet:Laya.Button;
+		public imgLock:Laya.Image;
+		public imgUnlock:Laya.Image;
+		public txtActive:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HamsterLine6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterLine7ItemUI extends ItemRender {
+		public processBall:Laya.Image;
+		public item:modules.n_beibao.RootItem;
+		public txtCrit:Laya.FontClip;
+		public getDoneIcon:Laya.Image;
+		public oneKeyGet:Laya.Button;
+		public imgLock:Laya.Image;
+		public imgUnlock:Laya.Image;
+		public txtActive:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HamsterLine7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterLine8ItemUI extends ItemRender {
+		public processBall:Laya.Image;
+		public item:modules.n_beibao.RootItem;
+		public txtCrit:Laya.FontClip;
+		public getDoneIcon:Laya.Image;
+		public oneKeyGet:Laya.Button;
+		public imgLock:Laya.Image;
+		public imgUnlock:Laya.Image;
+		public txtActive:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HamsterLine8Item");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_HamsterPreview1AlertUI extends BaseDialog {
 		public closeBtn:Laya.Button;
 		public boxAward:Laya.Box;
@@ -18788,6 +22315,63 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_HamsterPreview5Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterPreview6AlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public boxAward:Laya.Box;
+		public boxPreAward:Laya.Box;
+		public txtNextPreview:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HamsterPreview6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterPreview7AlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public boxAward:Laya.Box;
+		public boxPreAward:Laya.Box;
+		public txtNextPreview:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HamsterPreview7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterPreview8AlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public boxAward:Laya.Box;
+		public boxPreAward:Laya.Box;
+		public txtNextPreview:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HamsterPreview8Alert");
 
         }
 
@@ -19140,6 +22724,213 @@ module ui {
 }
 
 module ui {
+    export class P_HamsterRank6ItemUI extends ItemRender {
+		public imgRank1:Laya.Image;
+		public imgRank2:Laya.Image;
+		public imgRank3:Laya.Image;
+		public boxOther:Laya.Box;
+		public tetMC:Laya.FontClip;
+		public boxHavePlayer:Laya.Box;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxNoPlayer:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HamsterRank6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterRank6ViewUI extends BaseView {
+		public boxHaveFst:Laya.Box;
+		public boxModel:Laya.Box;
+		public imgHead:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public txtEggPoint:laya.display.Text;
+		public txtName:laya.display.Text;
+		public boxNoFst:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public award1:modules.n_beibao.RootItem;
+		public award2:modules.n_beibao.RootItem;
+		public award3:modules.n_beibao.RootItem;
+		public award4:modules.n_beibao.RootItem;
+		public boxRanList:Laya.Box;
+		public btnDesc:Laya.Button;
+		public txtTime:laya.display.Text;
+		public txtMyPoint:laya.display.Text;
+		public txtMyRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HamsterRank6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterRank7ItemUI extends ItemRender {
+		public imgRank1:Laya.Image;
+		public imgRank2:Laya.Image;
+		public imgRank3:Laya.Image;
+		public boxOther:Laya.Box;
+		public tetMC:Laya.FontClip;
+		public boxHavePlayer:Laya.Box;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxNoPlayer:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HamsterRank7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterRank7ViewUI extends BaseView {
+		public boxHaveFst:Laya.Box;
+		public boxModel:Laya.Box;
+		public imgHead:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public txtEggPoint:laya.display.Text;
+		public txtName:laya.display.Text;
+		public boxNoFst:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public award1:modules.n_beibao.RootItem;
+		public award2:modules.n_beibao.RootItem;
+		public award3:modules.n_beibao.RootItem;
+		public award4:modules.n_beibao.RootItem;
+		public boxRanList:Laya.Box;
+		public btnDesc:Laya.Button;
+		public txtTime:laya.display.Text;
+		public txtMyPoint:laya.display.Text;
+		public txtMyRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HamsterRank7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterRank8ItemUI extends ItemRender {
+		public imgRank1:Laya.Image;
+		public imgRank2:Laya.Image;
+		public imgRank3:Laya.Image;
+		public boxOther:Laya.Box;
+		public tetMC:Laya.FontClip;
+		public boxHavePlayer:Laya.Box;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxNoPlayer:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HamsterRank8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterRank8ViewUI extends BaseView {
+		public boxHaveFst:Laya.Box;
+		public boxModel:Laya.Box;
+		public imgHead:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public txtEggPoint:laya.display.Text;
+		public txtName:laya.display.Text;
+		public boxNoFst:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public award1:modules.n_beibao.RootItem;
+		public award2:modules.n_beibao.RootItem;
+		public award3:modules.n_beibao.RootItem;
+		public award4:modules.n_beibao.RootItem;
+		public boxRanList:Laya.Box;
+		public btnDesc:Laya.Button;
+		public txtTime:laya.display.Text;
+		public txtMyPoint:laya.display.Text;
+		public txtMyRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HamsterRank8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_HamsterSelect1AlertUI extends BaseDialog {
 		public btnConfirm:modules.n_common.BtnClkScale;
 		public btnClose:Laya.Button;
@@ -19333,6 +23124,126 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_HamsterSelect5Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterSelect6AlertUI extends BaseDialog {
+		public btnConfirm:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public btnFilter:Laya.Button;
+		public boxItems:Laya.Box;
+		public txtTips:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_HamsterSelect6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterSelect6ItemUI extends ItemRender {
+		public item:modules.n_beibao.RootItem;
+		public imgSelect:Laya.Image;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HamsterSelect6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterSelect7AlertUI extends BaseDialog {
+		public btnConfirm:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public btnFilter:Laya.Button;
+		public boxItems:Laya.Box;
+		public txtTips:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_HamsterSelect7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterSelect7ItemUI extends ItemRender {
+		public item:modules.n_beibao.RootItem;
+		public imgSelect:Laya.Image;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HamsterSelect7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterSelect8AlertUI extends BaseDialog {
+		public btnConfirm:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public btnFilter:Laya.Button;
+		public boxItems:Laya.Box;
+		public txtTips:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_HamsterSelect8Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterSelect8ItemUI extends ItemRender {
+		public item:modules.n_beibao.RootItem;
+		public imgSelect:Laya.Image;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HamsterSelect8Item");
 
         }
 
@@ -19675,6 +23586,207 @@ module ui {
 }
 
 module ui {
+    export class P_HamsterTrea6ViewUI extends BaseView {
+		public btnPreview:Laya.Button;
+		public btnAuto:Laya.Button;
+		public itemReward:modules.n_beibao.RootItem;
+		public btnSelect:Laya.Button;
+		public btnTips:Laya.Button;
+		public intoNxtLvBtn:Laya.Button;
+		public line1A:Laya.Image;
+		public line1B:Laya.Image;
+		public line3A:Laya.Image;
+		public line3B:Laya.Image;
+		public line2A:Laya.Image;
+		public line2B:Laya.Image;
+		public line4A:Laya.Image;
+		public line4B:Laya.Image;
+		public gridItem1:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem2:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem3:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem4:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem5:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem6:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem7:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem8:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem9:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem10:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem11:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem12:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem13:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem14:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem15:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem16:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem17:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem18:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem19:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem20:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem21:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem22:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem23:modules.n_egg.hamster.HamsterGrid6Item;
+		public gridItem24:modules.n_egg.hamster.HamsterGrid6Item;
+		public lineAward1:modules.n_egg.hamster.HamsterLine6Item;
+		public lineAward2:modules.n_egg.hamster.HamsterLine6Item;
+		public lineAward3:modules.n_egg.hamster.HamsterLine6Item;
+		public lineAward4:modules.n_egg.hamster.HamsterLine6Item;
+		public imgCostItem:Laya.Image;
+		public btnChange:Laya.Button;
+		public comboHitBox:Laya.Box;
+		public comboHitNum:Laya.FontClip;
+		public txtItemCount:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtFloor:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_egg.hamster.HamsterGrid6Item",modules.n_egg.hamster.HamsterGrid6Item);
+			View.regComponent("modules.n_egg.hamster.HamsterLine6Item",modules.n_egg.hamster.HamsterLine6Item);
+
+            super.createChildren();
+            this.loadUI("P_HamsterTrea6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterTrea7ViewUI extends BaseView {
+		public btnPreview:Laya.Button;
+		public btnAuto:Laya.Button;
+		public itemReward:modules.n_beibao.RootItem;
+		public btnSelect:Laya.Button;
+		public btnTips:Laya.Button;
+		public intoNxtLvBtn:Laya.Button;
+		public line1A:Laya.Image;
+		public line1B:Laya.Image;
+		public line3A:Laya.Image;
+		public line3B:Laya.Image;
+		public line2A:Laya.Image;
+		public line2B:Laya.Image;
+		public line4A:Laya.Image;
+		public line4B:Laya.Image;
+		public gridItem1:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem2:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem3:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem4:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem5:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem6:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem7:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem8:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem9:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem10:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem11:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem12:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem13:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem14:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem15:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem16:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem17:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem18:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem19:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem20:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem21:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem22:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem23:modules.n_egg.hamster.HamsterGrid7Item;
+		public gridItem24:modules.n_egg.hamster.HamsterGrid7Item;
+		public lineAward1:modules.n_egg.hamster.HamsterLine7Item;
+		public lineAward2:modules.n_egg.hamster.HamsterLine7Item;
+		public lineAward3:modules.n_egg.hamster.HamsterLine7Item;
+		public lineAward4:modules.n_egg.hamster.HamsterLine7Item;
+		public imgCostItem:Laya.Image;
+		public btnChange:Laya.Button;
+		public comboHitBox:Laya.Box;
+		public comboHitNum:Laya.FontClip;
+		public txtItemCount:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtFloor:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_egg.hamster.HamsterGrid7Item",modules.n_egg.hamster.HamsterGrid7Item);
+			View.regComponent("modules.n_egg.hamster.HamsterLine7Item",modules.n_egg.hamster.HamsterLine7Item);
+
+            super.createChildren();
+            this.loadUI("P_HamsterTrea7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HamsterTrea8ViewUI extends BaseView {
+		public btnPreview:Laya.Button;
+		public btnAuto:Laya.Button;
+		public itemReward:modules.n_beibao.RootItem;
+		public btnSelect:Laya.Button;
+		public btnTips:Laya.Button;
+		public intoNxtLvBtn:Laya.Button;
+		public line1A:Laya.Image;
+		public line1B:Laya.Image;
+		public line3A:Laya.Image;
+		public line3B:Laya.Image;
+		public line2A:Laya.Image;
+		public line2B:Laya.Image;
+		public line4A:Laya.Image;
+		public line4B:Laya.Image;
+		public gridItem1:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem2:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem3:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem4:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem5:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem6:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem7:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem8:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem9:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem10:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem11:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem12:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem13:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem14:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem15:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem16:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem17:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem18:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem19:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem20:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem21:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem22:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem23:modules.n_egg.hamster.HamsterGrid8Item;
+		public gridItem24:modules.n_egg.hamster.HamsterGrid8Item;
+		public lineAward1:modules.n_egg.hamster.HamsterLine8Item;
+		public lineAward2:modules.n_egg.hamster.HamsterLine8Item;
+		public lineAward3:modules.n_egg.hamster.HamsterLine8Item;
+		public lineAward4:modules.n_egg.hamster.HamsterLine8Item;
+		public imgCostItem:Laya.Image;
+		public btnChange:Laya.Button;
+		public comboHitBox:Laya.Box;
+		public comboHitNum:Laya.FontClip;
+		public txtItemCount:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtFloor:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_egg.hamster.HamsterGrid8Item",modules.n_egg.hamster.HamsterGrid8Item);
+			View.regComponent("modules.n_egg.hamster.HamsterLine8Item",modules.n_egg.hamster.HamsterLine8Item);
+
+            super.createChildren();
+            this.loadUI("P_HamsterTrea8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_HandSkillChangeUI extends BaseDialog {
 		public goBtn:modules.n_common.BtnClkScale;
 		public quickChangeBtn:modules.n_common.BtnClkScale;
@@ -19744,6 +23856,28 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_HandSkillTipsAlert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HandUpHelpViewUI extends BaseView {
+		public zxCheck:Laya.Button;
+		public gdCheck:Laya.Button;
+		public roadCheck:Laya.Button;
+		public helpCheck:Laya.Button;
+		public expCheck:Laya.Button;
+		public heroBtn:modules.n_common.BtnClkScale;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HandUpHelpView");
 
         }
 
@@ -20078,6 +24212,135 @@ module ui {
 }
 
 module ui {
+    export class P_HideAward6ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_HideAward6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideAward6ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideAward6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideAward7ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_HideAward7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideAward7ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideAward7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideAward8ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_HideAward8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideAward8ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideAward8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_HideBag1AlertUI extends BaseDialog {
 		public closeBtn:Laya.Button;
 		public btnBag:Laya.Button;
@@ -20203,6 +24466,81 @@ module ui {
 }
 
 module ui {
+    export class P_HideBag6AlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public btnBag:Laya.Button;
+		public btnPreview:Laya.Button;
+		public imgBagRP:Laya.Image;
+		public boxBag:Laya.Box;
+		public btnGetAll:modules.n_common.BtnClkScale;
+		public bagList:Laya.Box;
+		public boxPreview:Laya.Box;
+		public rewardList:Laya.Box;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_HideBag6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideBag7AlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public btnBag:Laya.Button;
+		public btnPreview:Laya.Button;
+		public imgBagRP:Laya.Image;
+		public boxBag:Laya.Box;
+		public btnGetAll:modules.n_common.BtnClkScale;
+		public bagList:Laya.Box;
+		public boxPreview:Laya.Box;
+		public rewardList:Laya.Box;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_HideBag7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideBag8AlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public btnBag:Laya.Button;
+		public btnPreview:Laya.Button;
+		public imgBagRP:Laya.Image;
+		public boxBag:Laya.Box;
+		public btnGetAll:modules.n_common.BtnClkScale;
+		public bagList:Laya.Box;
+		public boxPreview:Laya.Box;
+		public rewardList:Laya.Box;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_HideBag8Alert");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_HideDice1AlertUI extends BaseDialog {
 		public imgSelect:Laya.Image;
 		public num1:Laya.Button;
@@ -20313,6 +24651,72 @@ module ui {
 }
 
 module ui {
+    export class P_HideDice6AlertUI extends BaseDialog {
+		public imgSelect:Laya.Image;
+		public num1:Laya.Button;
+		public num2:Laya.Button;
+		public num3:Laya.Button;
+		public num4:Laya.Button;
+		public num5:Laya.Button;
+		public num6:Laya.Button;
+		public btnConfirm:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_HideDice6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideDice7AlertUI extends BaseDialog {
+		public imgSelect:Laya.Image;
+		public num1:Laya.Button;
+		public num2:Laya.Button;
+		public num3:Laya.Button;
+		public num4:Laya.Button;
+		public num5:Laya.Button;
+		public num6:Laya.Button;
+		public btnConfirm:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_HideDice7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideDice8AlertUI extends BaseDialog {
+		public imgSelect:Laya.Image;
+		public num1:Laya.Button;
+		public num2:Laya.Button;
+		public num3:Laya.Button;
+		public num4:Laya.Button;
+		public num5:Laya.Button;
+		public num6:Laya.Button;
+		public btnConfirm:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_HideDice8Alert");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_HideFloorReward1AlertUI extends BaseDialog {
 		public item:modules.n_beibao.RootItem;
 		public btn:modules.n_common.BtnClkScale;
@@ -20413,6 +24817,66 @@ module ui {
 }
 
 module ui {
+    export class P_HideFloorReward6AlertUI extends BaseDialog {
+		public item:modules.n_beibao.RootItem;
+		public btn:modules.n_common.BtnClkScale;
+		public txtName:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideFloorReward6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideFloorReward7AlertUI extends BaseDialog {
+		public item:modules.n_beibao.RootItem;
+		public btn:modules.n_common.BtnClkScale;
+		public txtName:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideFloorReward7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideFloorReward8AlertUI extends BaseDialog {
+		public item:modules.n_beibao.RootItem;
+		public btn:modules.n_common.BtnClkScale;
+		public txtName:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideFloorReward8Alert");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_HideGrid1ItemUI extends ItemRender {
 		public imgBg:Laya.Image;
 		public boxContent:Laya.Box;
@@ -20506,6 +24970,66 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_HideGrid5Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideGrid6ItemUI extends ItemRender {
+		public imgBg:Laya.Image;
+		public boxContent:Laya.Box;
+		public imgIcon:Laya.Image;
+		public pieceImg:Laya.Image;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideGrid6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideGrid7ItemUI extends ItemRender {
+		public imgBg:Laya.Image;
+		public boxContent:Laya.Box;
+		public imgIcon:Laya.Image;
+		public pieceImg:Laya.Image;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideGrid7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideGrid8ItemUI extends ItemRender {
+		public imgBg:Laya.Image;
+		public boxContent:Laya.Box;
+		public imgIcon:Laya.Image;
+		public pieceImg:Laya.Image;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideGrid8Item");
 
         }
 
@@ -20858,6 +25382,213 @@ module ui {
 }
 
 module ui {
+    export class P_HideHunter6ItemUI extends ItemRender {
+		public imgRank1:Laya.Image;
+		public imgRank2:Laya.Image;
+		public imgRank3:Laya.Image;
+		public boxOther:Laya.Box;
+		public tetMC:Laya.FontClip;
+		public boxHavePlayer:Laya.Box;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxNoPlayer:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HideHunter6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideHunter6ViewUI extends BaseView {
+		public boxHaveFst:Laya.Box;
+		public boxModel:Laya.Box;
+		public imgHead:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public txtEggPoint:laya.display.Text;
+		public txtName:laya.display.Text;
+		public boxNoFst:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public award1:modules.n_beibao.RootItem;
+		public award2:modules.n_beibao.RootItem;
+		public award3:modules.n_beibao.RootItem;
+		public award4:modules.n_beibao.RootItem;
+		public boxRanList:Laya.Box;
+		public btnDesc:Laya.Button;
+		public txtTime:laya.display.Text;
+		public txtMyPoint:laya.display.Text;
+		public txtMyRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HideHunter6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideHunter7ItemUI extends ItemRender {
+		public imgRank1:Laya.Image;
+		public imgRank2:Laya.Image;
+		public imgRank3:Laya.Image;
+		public boxOther:Laya.Box;
+		public tetMC:Laya.FontClip;
+		public boxHavePlayer:Laya.Box;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxNoPlayer:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HideHunter7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideHunter7ViewUI extends BaseView {
+		public boxHaveFst:Laya.Box;
+		public boxModel:Laya.Box;
+		public imgHead:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public txtEggPoint:laya.display.Text;
+		public txtName:laya.display.Text;
+		public boxNoFst:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public award1:modules.n_beibao.RootItem;
+		public award2:modules.n_beibao.RootItem;
+		public award3:modules.n_beibao.RootItem;
+		public award4:modules.n_beibao.RootItem;
+		public boxRanList:Laya.Box;
+		public btnDesc:Laya.Button;
+		public txtTime:laya.display.Text;
+		public txtMyPoint:laya.display.Text;
+		public txtMyRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HideHunter7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideHunter8ItemUI extends ItemRender {
+		public imgRank1:Laya.Image;
+		public imgRank2:Laya.Image;
+		public imgRank3:Laya.Image;
+		public boxOther:Laya.Box;
+		public tetMC:Laya.FontClip;
+		public boxHavePlayer:Laya.Box;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxNoPlayer:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HideHunter8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideHunter8ViewUI extends BaseView {
+		public boxHaveFst:Laya.Box;
+		public boxModel:Laya.Box;
+		public imgHead:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public txtEggPoint:laya.display.Text;
+		public txtName:laya.display.Text;
+		public boxNoFst:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public award1:modules.n_beibao.RootItem;
+		public award2:modules.n_beibao.RootItem;
+		public award3:modules.n_beibao.RootItem;
+		public award4:modules.n_beibao.RootItem;
+		public boxRanList:Laya.Box;
+		public btnDesc:Laya.Button;
+		public txtTime:laya.display.Text;
+		public txtMyPoint:laya.display.Text;
+		public txtMyRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HideHunter8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_HideLand1ViewUI extends BaseView {
 		public btnBag:Laya.Button;
 		public btnReward:Laya.Button;
@@ -20998,6 +25729,90 @@ module ui {
 }
 
 module ui {
+    export class P_HideLand6ViewUI extends BaseView {
+		public btnBag:Laya.Button;
+		public btnReward:Laya.Button;
+		public btnWhite:Laya.Button;
+		public btnGold:Laya.Button;
+		public numWhite:Laya.FontClip;
+		public numGold:Laya.FontClip;
+		public btnSkip:Laya.Button;
+		public btnAuto:Laya.Button;
+		public imgBagRP:Laya.Image;
+		public txtTime:laya.display.Text;
+		public txtFloor:laya.display.Text;
+		public boxMarking:Laya.Box;
+		public boxGrids:Laya.Box;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideLand6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideLand7ViewUI extends BaseView {
+		public btnBag:Laya.Button;
+		public btnReward:Laya.Button;
+		public btnWhite:Laya.Button;
+		public btnGold:Laya.Button;
+		public numWhite:Laya.FontClip;
+		public numGold:Laya.FontClip;
+		public btnSkip:Laya.Button;
+		public btnAuto:Laya.Button;
+		public imgBagRP:Laya.Image;
+		public txtTime:laya.display.Text;
+		public txtFloor:laya.display.Text;
+		public boxMarking:Laya.Box;
+		public boxGrids:Laya.Box;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideLand7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideLand8ViewUI extends BaseView {
+		public btnBag:Laya.Button;
+		public btnReward:Laya.Button;
+		public btnWhite:Laya.Button;
+		public btnGold:Laya.Button;
+		public numWhite:Laya.FontClip;
+		public numGold:Laya.FontClip;
+		public btnSkip:Laya.Button;
+		public btnAuto:Laya.Button;
+		public imgBagRP:Laya.Image;
+		public txtTime:laya.display.Text;
+		public txtFloor:laya.display.Text;
+		public boxMarking:Laya.Box;
+		public boxGrids:Laya.Box;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideLand8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_HideMarking1ItemUI extends ItemRender {
 		public imgMarking:Laya.Image;
 		public txtNum:laya.display.Text;
@@ -21076,6 +25891,57 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_HideMarking5Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideMarking6ItemUI extends ItemRender {
+		public imgMarking:Laya.Image;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideMarking6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideMarking7ItemUI extends ItemRender {
+		public imgMarking:Laya.Image;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideMarking7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideMarking8ItemUI extends ItemRender {
+		public imgMarking:Laya.Image;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_HideMarking8Item");
 
         }
 
@@ -21206,6 +26072,84 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_HideReward5Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideReward6ItemUI extends ItemRender {
+		public txtFloor:laya.display.Text;
+		public htmlTitle:laya.html.dom.HTMLDivElement;
+		public item0:modules.n_beibao.RootItem;
+		public item1:modules.n_beibao.RootItem;
+		public item2:modules.n_beibao.RootItem;
+		public item3:modules.n_beibao.RootItem;
+		public item4:modules.n_beibao.RootItem;
+		public item5:modules.n_beibao.RootItem;
+		public item6:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HideReward6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideReward7ItemUI extends ItemRender {
+		public txtFloor:laya.display.Text;
+		public htmlTitle:laya.html.dom.HTMLDivElement;
+		public item0:modules.n_beibao.RootItem;
+		public item1:modules.n_beibao.RootItem;
+		public item2:modules.n_beibao.RootItem;
+		public item3:modules.n_beibao.RootItem;
+		public item4:modules.n_beibao.RootItem;
+		public item5:modules.n_beibao.RootItem;
+		public item6:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HideReward7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_HideReward8ItemUI extends ItemRender {
+		public txtFloor:laya.display.Text;
+		public htmlTitle:laya.html.dom.HTMLDivElement;
+		public item0:modules.n_beibao.RootItem;
+		public item1:modules.n_beibao.RootItem;
+		public item2:modules.n_beibao.RootItem;
+		public item3:modules.n_beibao.RootItem;
+		public item4:modules.n_beibao.RootItem;
+		public item5:modules.n_beibao.RootItem;
+		public item6:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_HideReward8Item");
 
         }
 
@@ -25411,7 +30355,6 @@ module ui {
 
 module ui {
     export class P_MarryPublishAlertUI extends BaseDialog {
-		public backTxt:laya.display.Text;
 		public closeButton:Laya.Button;
 		public btnN:modules.n_common.BtnClkScale;
 		public btnY:modules.n_common.BtnClkScale;
@@ -25422,8 +30365,8 @@ module ui {
 
         constructor(){ super()}
         createChildren():void {
-        			View.regComponent("Text",laya.display.Text);
-			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
 
             super.createChildren();
             this.loadUI("P_MarryPublishAlert");
@@ -25435,7 +30378,6 @@ module ui {
 
 module ui {
     export class P_MarryPushAlertUI extends BaseDialog {
-		public backTxt:laya.display.Text;
 		public vipBg:Laya.Image;
 		public svipLogo:Laya.Image;
 		public vipIcon:Laya.Image;
@@ -25446,6 +30388,7 @@ module ui {
 		public boxCost:Laya.Box;
 		public txtCost:laya.display.Text;
 		public closeButton:Laya.Button;
+		public boxBtns:Laya.Box;
 		public btnN:modules.n_common.BtnClkScale;
 		public btnY:modules.n_common.BtnClkScale;
 		public btnSwitch:Laya.Button;
@@ -26317,13 +31260,17 @@ module ui {
 
 module ui {
     export class P_MSBSViewUI extends BaseView {
+		public msbsimg:Laya.Image;
+		public con1:Laya.Box;
+		public expMask:Laya.Image;
+		public con2:Laya.Box;
+		public expMask2:Laya.Image;
 		public bsbox:Laya.Box;
 		public msbox:Laya.Box;
 
         constructor(){ super()}
         createChildren():void {
-        			View.regComponent("Text",laya.display.Text);
-
+        
             super.createChildren();
             this.loadUI("P_MSBSView");
 
@@ -26726,10 +31673,7 @@ module ui {
 		public listBg1:Laya.Image;
 		public okBtn:modules.n_common.BtnClkScale;
 		public listBg2:Laya.Image;
-		public item1:modules.n_beibao.RootItem;
-		public item2:modules.n_beibao.RootItem;
-		public item3:modules.n_beibao.RootItem;
-		public item4:modules.n_beibao.RootItem;
+		public listbox:Laya.Box;
 		public myLvTxt:laya.display.Text;
 		public rankItem1:modules.n_topPk.TopPkResItm;
 		public rankItem2:modules.n_topPk.TopPkResItm;
@@ -26739,7 +31683,6 @@ module ui {
         createChildren():void {
         			View.regComponent("Text",laya.display.Text);
 			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
-			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
 			View.regComponent("modules.n_topPk.TopPkResItm",modules.n_topPk.TopPkResItm);
 
             super.createChildren();
@@ -26794,17 +31737,14 @@ module ui {
 
 module ui {
     export class P_NineTopAwardItemUI extends ItemRender {
+		public bgImg:Laya.Image;
 		public rankImg:Laya.Image;
-		public item0:modules.n_beibao.RootItem;
-		public item1:modules.n_beibao.RootItem;
-		public item2:modules.n_beibao.RootItem;
-		public item3:modules.n_beibao.RootItem;
 		public rankTxt:laya.display.Text;
+		public listbox:Laya.Box;
 
         constructor(){ super()}
         createChildren():void {
-        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
-			View.regComponent("Text",laya.display.Text);
+        			View.regComponent("Text",laya.display.Text);
 
             super.createChildren();
             this.loadUI("P_NineTopAwardItem");
@@ -26900,6 +31840,28 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_OfficialAccount");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_OfficialAccountNewViewUI extends BaseView {
+		public imgHead:Laya.Image;
+		public box_mask:Laya.Sprite;
+		public imgQRCode:Laya.Image;
+		public btnCopy:Laya.Button;
+		public boxReward:Laya.Box;
+		public txtWechat:laya.display.Text;
+		public txtDes:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_OfficialAccountNewView");
 
         }
 
@@ -28381,6 +33343,8 @@ module ui {
 		public txtNumBoss3:laya.display.Text;
 		public txtNumBoss2:laya.display.Text;
 		public txtNumBoss1:laya.display.Text;
+		public helpBox:Laya.Box;
+		public ckBox:Laya.Button;
 
         constructor(){ super()}
         createChildren():void {
@@ -30941,6 +35905,150 @@ module ui {
 }
 
 module ui {
+    export class P_SeaContueLogin6ItemUI extends ItemRender {
+		public btnOperate:modules.n_common.BtnClkScale;
+		public imgWdc:Laya.Image;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaContueLogin6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaContueLogin6ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public activityText1:laya.display.Text;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaContueLogin6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaContueLogin7ItemUI extends ItemRender {
+		public btnOperate:modules.n_common.BtnClkScale;
+		public imgWdc:Laya.Image;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaContueLogin7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaContueLogin7ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public activityText1:laya.display.Text;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaContueLogin7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaContueLogin8ItemUI extends ItemRender {
+		public btnOperate:modules.n_common.BtnClkScale;
+		public imgWdc:Laya.Image;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaContueLogin8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaContueLogin8ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public activityText1:laya.display.Text;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaContueLogin8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_SeaCumulCost1ItemUI extends ItemRender {
 		public btnGet:modules.n_common.BtnClkScale;
 		public btnCost:modules.n_common.BtnClkScale;
@@ -31169,6 +36277,147 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_SeaCumulCost5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulCost6ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulCost6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulCost6ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulCost6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulCost7ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulCost7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulCost7ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulCost7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulCost8ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulCost8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulCost8ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulCost8View");
 
         }
 
@@ -31458,6 +36707,147 @@ module ui {
 }
 
 module ui {
+    export class P_SeaCumulPay6ItemUI extends ItemRender {
+		public btnRecharge:modules.n_common.BtnClkScale;
+		public btnGet:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulPay6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulPay6ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulPay6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulPay7ItemUI extends ItemRender {
+		public btnRecharge:modules.n_common.BtnClkScale;
+		public btnGet:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulPay7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulPay7ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulPay7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulPay8ItemUI extends ItemRender {
+		public btnRecharge:modules.n_common.BtnClkScale;
+		public btnGet:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulPay8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulPay8ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulPay8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_SeaCumulPaySev1ItemUI extends ItemRender {
 		public btnRecharge:modules.n_common.BtnClkScale;
 		public btnGet:modules.n_common.BtnClkScale;
@@ -31693,6 +37083,147 @@ module ui {
 }
 
 module ui {
+    export class P_SeaCumulPaySev6ItemUI extends ItemRender {
+		public btnRecharge:modules.n_common.BtnClkScale;
+		public btnGet:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulPaySev6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulPaySev6ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulPaySev6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulPaySev7ItemUI extends ItemRender {
+		public btnRecharge:modules.n_common.BtnClkScale;
+		public btnGet:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulPaySev7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulPaySev7ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulPaySev7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulPaySev8ItemUI extends ItemRender {
+		public btnRecharge:modules.n_common.BtnClkScale;
+		public btnGet:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulPaySev8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaCumulPaySev8ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaCumulPaySev8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_SeaDrop1ViewUI extends BaseView {
 		public btnGo:modules.n_common.BtnClkScale;
 		public txtTime:laya.display.Text;
@@ -31776,6 +37307,60 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_SeaDrop5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaDrop6ViewUI extends BaseView {
+		public btnGo:modules.n_common.BtnClkScale;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaDrop6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaDrop7ViewUI extends BaseView {
+		public btnGo:modules.n_common.BtnClkScale;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaDrop7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaDrop8ViewUI extends BaseView {
+		public btnGo:modules.n_common.BtnClkScale;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaDrop8View");
 
         }
 
@@ -31890,6 +37475,63 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_SeaGogok5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaGogok6ViewUI extends BaseView {
+		public blackBg:Laya.Image;
+		public txtTime:laya.display.Text;
+		public btnRecharge:modules.n_common.BtnClkScale;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_SeaGogok6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaGogok7ViewUI extends BaseView {
+		public blackBg:Laya.Image;
+		public txtTime:laya.display.Text;
+		public btnRecharge:modules.n_common.BtnClkScale;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_SeaGogok7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaGogok8ViewUI extends BaseView {
+		public blackBg:Laya.Image;
+		public txtTime:laya.display.Text;
+		public btnRecharge:modules.n_common.BtnClkScale;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_SeaGogok8View");
 
         }
 
@@ -32173,6 +37815,144 @@ module ui {
 }
 
 module ui {
+    export class P_SeaLoginReward6ItemUI extends ItemRender {
+		public theEnd:Laya.Image;
+		public tomorrowIsOk:laya.display.Text;
+		public received:Laya.Image;
+		public sureBtn:modules.n_common.BtnClkScale;
+		public loginBase1:modules.n_beibao.RootItem;
+		public loginBase2:modules.n_beibao.RootItem;
+		public loginBase3:modules.n_beibao.RootItem;
+		public idText:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_SeaLoginReward6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaLoginReward6ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public activityText1:laya.display.Text;
+		public activityText:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaLoginReward6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaLoginReward7ItemUI extends ItemRender {
+		public theEnd:Laya.Image;
+		public tomorrowIsOk:laya.display.Text;
+		public received:Laya.Image;
+		public sureBtn:modules.n_common.BtnClkScale;
+		public loginBase1:modules.n_beibao.RootItem;
+		public loginBase2:modules.n_beibao.RootItem;
+		public loginBase3:modules.n_beibao.RootItem;
+		public idText:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_SeaLoginReward7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaLoginReward7ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public activityText1:laya.display.Text;
+		public activityText:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaLoginReward7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaLoginReward8ItemUI extends ItemRender {
+		public theEnd:Laya.Image;
+		public tomorrowIsOk:laya.display.Text;
+		public received:Laya.Image;
+		public sureBtn:modules.n_common.BtnClkScale;
+		public loginBase1:modules.n_beibao.RootItem;
+		public loginBase2:modules.n_beibao.RootItem;
+		public loginBase3:modules.n_beibao.RootItem;
+		public idText:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_SeaLoginReward8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaLoginReward8ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public activityText1:laya.display.Text;
+		public activityText:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaLoginReward8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_SeaSinglePay1ItemUI extends ItemRender {
 		public imgYjs:Laya.Image;
 		public btnGet:modules.n_common.BtnClkScale;
@@ -32411,6 +38191,153 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_SeaSinglePay5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaSinglePay6ItemUI extends ItemRender {
+		public imgYjs:Laya.Image;
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnRecharge:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public txtTimes:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaSinglePay6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaSinglePay6ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaSinglePay6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaSinglePay7ItemUI extends ItemRender {
+		public imgYjs:Laya.Image;
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnRecharge:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public txtTimes:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaSinglePay7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaSinglePay7ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaSinglePay7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaSinglePay8ItemUI extends ItemRender {
+		public imgYjs:Laya.Image;
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnRecharge:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public txtTimes:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaSinglePay8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaSinglePay8ViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public wanChengImg:Laya.Image;
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaSinglePay8View");
 
         }
 
@@ -32920,6 +38847,162 @@ module ui {
 }
 
 module ui {
+    export class P_SeaStore6ItemUI extends ItemRender {
+		public puchaseBtn:modules.n_common.BtnClkScale;
+		public itemName:Laya.Label;
+		public item:modules.n_beibao.RootItem;
+		public maxCountTxt:laya.display.Text;
+		public limit:Laya.Box;
+		public limitHtml:laya.html.dom.HTMLDivElement;
+		public price:Laya.Box;
+		public priceImg:Laya.Image;
+		public priceTxt:Laya.Label;
+		public underLine:Laya.Image;
+		public nowPrice:Laya.Box;
+		public nowPriceImg:Laya.Image;
+		public nowPriceTxt:Laya.Label;
+		public vipBox:Laya.Box;
+		public vipLvImg:Laya.Image;
+		public vipLv:laya.display.Text;
+		public zeKouImg:Laya.Image;
+		public zeKouHTml:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaStore6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaStore6ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaStore6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaStore7ItemUI extends ItemRender {
+		public puchaseBtn:modules.n_common.BtnClkScale;
+		public itemName:Laya.Label;
+		public item:modules.n_beibao.RootItem;
+		public maxCountTxt:laya.display.Text;
+		public limit:Laya.Box;
+		public limitHtml:laya.html.dom.HTMLDivElement;
+		public price:Laya.Box;
+		public priceImg:Laya.Image;
+		public priceTxt:Laya.Label;
+		public underLine:Laya.Image;
+		public nowPrice:Laya.Box;
+		public nowPriceImg:Laya.Image;
+		public nowPriceTxt:Laya.Label;
+		public vipBox:Laya.Box;
+		public vipLvImg:Laya.Image;
+		public vipLv:laya.display.Text;
+		public zeKouImg:Laya.Image;
+		public zeKouHTml:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaStore7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaStore7ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaStore7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaStore8ItemUI extends ItemRender {
+		public puchaseBtn:modules.n_common.BtnClkScale;
+		public itemName:Laya.Label;
+		public item:modules.n_beibao.RootItem;
+		public maxCountTxt:laya.display.Text;
+		public limit:Laya.Box;
+		public limitHtml:laya.html.dom.HTMLDivElement;
+		public price:Laya.Box;
+		public priceImg:Laya.Image;
+		public priceTxt:Laya.Label;
+		public underLine:Laya.Image;
+		public nowPrice:Laya.Box;
+		public nowPriceImg:Laya.Image;
+		public nowPriceTxt:Laya.Label;
+		public vipBox:Laya.Box;
+		public vipLvImg:Laya.Image;
+		public vipLv:laya.display.Text;
+		public zeKouImg:Laya.Image;
+		public zeKouHTml:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaStore8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaStore8ViewUI extends BaseView {
+		public txtTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaStore8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_SeaTreaRank1AlertUI extends BaseDialog {
 		public btnClose:Laya.Button;
 		public weiShangBangImg:Laya.Image;
@@ -33165,6 +39248,153 @@ module ui {
 }
 
 module ui {
+    export class P_SeaTreaRank6AlertUI extends BaseDialog {
+		public btnClose:Laya.Button;
+		public weiShangBangImg:Laya.Image;
+		public txtMyRanking:laya.display.Text;
+		public txtMyIntegral:laya.display.Text;
+		public txtTips:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreaRank6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreaRank6ItemUI extends ItemRender {
+		public imgFirst:Laya.Image;
+		public imgSecond:Laya.Image;
+		public imgThird:Laya.Image;
+		public boxRanking:Laya.Box;
+		public imgUnder:Laya.Image;
+		public txtRanking:Laya.FontClip;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public txtPlayerName:laya.display.Text;
+		public txtNoName:laya.display.Text;
+		public score1txt:laya.display.Text;
+		public score2txt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreaRank6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreaRank7AlertUI extends BaseDialog {
+		public btnClose:Laya.Button;
+		public weiShangBangImg:Laya.Image;
+		public txtMyRanking:laya.display.Text;
+		public txtMyIntegral:laya.display.Text;
+		public txtTips:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreaRank7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreaRank7ItemUI extends ItemRender {
+		public imgFirst:Laya.Image;
+		public imgSecond:Laya.Image;
+		public imgThird:Laya.Image;
+		public boxRanking:Laya.Box;
+		public imgUnder:Laya.Image;
+		public txtRanking:Laya.FontClip;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public txtPlayerName:laya.display.Text;
+		public txtNoName:laya.display.Text;
+		public score1txt:laya.display.Text;
+		public score2txt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreaRank7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreaRank8AlertUI extends BaseDialog {
+		public btnClose:Laya.Button;
+		public weiShangBangImg:Laya.Image;
+		public txtMyRanking:laya.display.Text;
+		public txtMyIntegral:laya.display.Text;
+		public txtTips:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreaRank8Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreaRank8ItemUI extends ItemRender {
+		public imgFirst:Laya.Image;
+		public imgSecond:Laya.Image;
+		public imgThird:Laya.Image;
+		public boxRanking:Laya.Box;
+		public imgUnder:Laya.Image;
+		public txtRanking:Laya.FontClip;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public txtPlayerName:laya.display.Text;
+		public txtNoName:laya.display.Text;
+		public score1txt:laya.display.Text;
+		public score2txt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreaRank8Item");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_SeaTreaResultAlertUI extends BaseDialog {
 		public bg:Laya.Image;
 		public closeBtn:Laya.Button;
@@ -33381,6 +39611,123 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_SeaTreaScore5Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreaScore6AlertUI extends BaseDialog {
+		public imgBg:Laya.Image;
+		public btnClose:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreaScore6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreaScore6ItemUI extends ItemRender {
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreaScore6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreaScore7AlertUI extends BaseDialog {
+		public imgBg:Laya.Image;
+		public btnClose:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreaScore7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreaScore7ItemUI extends ItemRender {
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreaScore7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreaScore8AlertUI extends BaseDialog {
+		public imgBg:Laya.Image;
+		public btnClose:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreaScore8Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreaScore8ItemUI extends ItemRender {
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreaScore8Item");
 
         }
 
@@ -33646,6 +39993,165 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_SeaTreasure5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreasure6ViewUI extends BaseView {
+		public boxScoreReward:Laya.Box;
+		public btnScoreReward:Laya.Button;
+		public btnRank:Laya.Button;
+		public btn10Count:modules.n_common.BtnClkScale;
+		public btn50Count:modules.n_common.BtnClkScale;
+		public btn1Count:modules.n_common.BtnClkScale;
+		public imgBar:Laya.Image;
+		public box50Count:Laya.Box;
+		public img50Count:Laya.Image;
+		public txt50Count:Laya.Label;
+		public box1Count:Laya.Box;
+		public img1Count:Laya.Image;
+		public txt1Count:Laya.Label;
+		public box10Count:Laya.Box;
+		public img10Count:Laya.Image;
+		public txt10Count:Laya.Label;
+		public severPanel:Laya.Panel;
+		public selfPanel:Laya.Panel;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public Item5:modules.n_beibao.RootItem;
+		public Item6:modules.n_beibao.RootItem;
+		public Item7:modules.n_beibao.RootItem;
+		public Item8:modules.n_beibao.RootItem;
+		public Item9:modules.n_beibao.RootItem;
+		public Item10:modules.n_beibao.RootItem;
+		public selfList:Laya.Button;
+		public severList:Laya.Button;
+		public shouChouBiDeImg:Laya.Image;
+		public closeBtn1:Laya.Image;
+		public txtProbability:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtTimeLabel:laya.display.Text;
+		public txtScore:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreasure6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreasure7ViewUI extends BaseView {
+		public boxScoreReward:Laya.Box;
+		public btnScoreReward:Laya.Button;
+		public btnRank:Laya.Button;
+		public btn10Count:modules.n_common.BtnClkScale;
+		public btn50Count:modules.n_common.BtnClkScale;
+		public btn1Count:modules.n_common.BtnClkScale;
+		public imgBar:Laya.Image;
+		public box50Count:Laya.Box;
+		public img50Count:Laya.Image;
+		public txt50Count:Laya.Label;
+		public box1Count:Laya.Box;
+		public img1Count:Laya.Image;
+		public txt1Count:Laya.Label;
+		public box10Count:Laya.Box;
+		public img10Count:Laya.Image;
+		public txt10Count:Laya.Label;
+		public severPanel:Laya.Panel;
+		public selfPanel:Laya.Panel;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public Item5:modules.n_beibao.RootItem;
+		public Item6:modules.n_beibao.RootItem;
+		public Item7:modules.n_beibao.RootItem;
+		public Item8:modules.n_beibao.RootItem;
+		public Item9:modules.n_beibao.RootItem;
+		public Item10:modules.n_beibao.RootItem;
+		public selfList:Laya.Button;
+		public severList:Laya.Button;
+		public shouChouBiDeImg:Laya.Image;
+		public closeBtn1:Laya.Image;
+		public txtProbability:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtTimeLabel:laya.display.Text;
+		public txtScore:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreasure7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SeaTreasure8ViewUI extends BaseView {
+		public boxScoreReward:Laya.Box;
+		public btnScoreReward:Laya.Button;
+		public btnRank:Laya.Button;
+		public btn10Count:modules.n_common.BtnClkScale;
+		public btn50Count:modules.n_common.BtnClkScale;
+		public btn1Count:modules.n_common.BtnClkScale;
+		public imgBar:Laya.Image;
+		public box50Count:Laya.Box;
+		public img50Count:Laya.Image;
+		public txt50Count:Laya.Label;
+		public box1Count:Laya.Box;
+		public img1Count:Laya.Image;
+		public txt1Count:Laya.Label;
+		public box10Count:Laya.Box;
+		public img10Count:Laya.Image;
+		public txt10Count:Laya.Label;
+		public severPanel:Laya.Panel;
+		public selfPanel:Laya.Panel;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public Item5:modules.n_beibao.RootItem;
+		public Item6:modules.n_beibao.RootItem;
+		public Item7:modules.n_beibao.RootItem;
+		public Item8:modules.n_beibao.RootItem;
+		public Item9:modules.n_beibao.RootItem;
+		public Item10:modules.n_beibao.RootItem;
+		public selfList:Laya.Button;
+		public severList:Laya.Button;
+		public shouChouBiDeImg:Laya.Image;
+		public closeBtn1:Laya.Image;
+		public txtProbability:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtTimeLabel:laya.display.Text;
+		public txtScore:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SeaTreasure8View");
 
         }
 
@@ -36265,6 +42771,7 @@ module ui {
 		public closeBtn:Laya.Button;
 		public listBox:Laya.Box;
 		public marsBuffBox:Laya.Box;
+		public decTxt:laya.html.dom.HTMLDivElement;
 		public occNameTxt:laya.display.Text;
 		public getBtnPanel:Laya.Panel;
 		public getBtnConBox:Laya.Box;
@@ -36273,6 +42780,7 @@ module ui {
         constructor(){ super()}
         createChildren():void {
         			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
 
             super.createChildren();
             this.loadUI("P_StrategyAlert");
@@ -37306,6 +43814,10 @@ module ui {
 		public tipstxt2:laya.display.Text;
 		public tipstxt3:laya.display.Text;
 		public tipstxt4:laya.display.Text;
+		public sviptxt2:laya.display.Text;
+		public sviptxt:laya.display.Text;
+		public askbtn:modules.n_common.BtnClkScale;
+		public privateRoomBtn:Laya.Button;
 
         constructor(){ super()}
         createChildren():void {
@@ -37404,6 +43916,60 @@ module ui {
         
             super.createChildren();
             this.loadUI("P_TempleAward5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleAward6ViewUI extends BaseView {
+		public btnSingle:Laya.Button;
+		public btnAll:Laya.Button;
+		public imgSingleRD:Laya.Image;
+		public imgAllRD:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_TempleAward6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleAward7ViewUI extends BaseView {
+		public btnSingle:Laya.Button;
+		public btnAll:Laya.Button;
+		public imgSingleRD:Laya.Image;
+		public imgAllRD:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_TempleAward7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleAward8ViewUI extends BaseView {
+		public btnSingle:Laya.Button;
+		public btnAll:Laya.Button;
+		public imgSingleRD:Laya.Image;
+		public imgAllRD:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_TempleAward8View");
 
         }
 
@@ -37546,6 +44112,87 @@ module ui {
 }
 
 module ui {
+    export class P_TempleAwardAll6ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_TempleAwardAll6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleAwardAll7ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_TempleAwardAll7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleAwardAll8ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_TempleAwardAll8Item");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_TempleAwardSelf1ItemUI extends ItemRender {
 		public btnGet:modules.n_common.BtnClkScale;
 		public btnCost:modules.n_common.BtnClkScale;
@@ -37681,6 +44328,87 @@ module ui {
 }
 
 module ui {
+    export class P_TempleAwardSelf6ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_TempleAwardSelf6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleAwardSelf7ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_TempleAwardSelf7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleAwardSelf8ItemUI extends ItemRender {
+		public btnGet:modules.n_common.BtnClkScale;
+		public btnCost:modules.n_common.BtnClkScale;
+		public imgYlq:Laya.Image;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+		public txtSchedule:laya.display.Text;
+		public htmlMessage:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_TempleAwardSelf8Item");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_TempleBigReward1AlertUI extends BaseDialog {
 		public item:modules.n_beibao.RootItem;
 		public btn:modules.n_common.BtnClkScale;
@@ -37774,6 +44502,66 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_TempleBigReward5Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleBigReward6AlertUI extends BaseDialog {
+		public item:modules.n_beibao.RootItem;
+		public btn:modules.n_common.BtnClkScale;
+		public txtName:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TempleBigReward6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleBigReward7AlertUI extends BaseDialog {
+		public item:modules.n_beibao.RootItem;
+		public btn:modules.n_common.BtnClkScale;
+		public txtName:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TempleBigReward7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleBigReward8AlertUI extends BaseDialog {
+		public item:modules.n_beibao.RootItem;
+		public btn:modules.n_common.BtnClkScale;
+		public txtName:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TempleBigReward8Alert");
 
         }
 
@@ -37910,6 +44698,63 @@ module ui {
 }
 
 module ui {
+    export class P_TempleGrid6ItemUI extends ItemRender {
+		public boxGrid:Laya.Box;
+		public imgBack:Laya.Image;
+		public item:modules.n_beibao.RootItem;
+		public txtCrit:Laya.FontClip;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_TempleGrid6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleGrid7ItemUI extends ItemRender {
+		public boxGrid:Laya.Box;
+		public imgBack:Laya.Image;
+		public item:modules.n_beibao.RootItem;
+		public txtCrit:Laya.FontClip;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_TempleGrid7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleGrid8ItemUI extends ItemRender {
+		public boxGrid:Laya.Box;
+		public imgBack:Laya.Image;
+		public item:modules.n_beibao.RootItem;
+		public txtCrit:Laya.FontClip;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_TempleGrid8Item");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_TemplePreview1AlertUI extends BaseDialog {
 		public closeBtn:Laya.Button;
 		public boxAward:Laya.Box;
@@ -37998,6 +44843,63 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_TemplePreview5Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TemplePreview6AlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public boxAward:Laya.Box;
+		public boxPreAward:Laya.Box;
+		public txtNextPreview:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TemplePreview6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TemplePreview7AlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public boxAward:Laya.Box;
+		public boxPreAward:Laya.Box;
+		public txtNextPreview:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TemplePreview7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TemplePreview8AlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public boxAward:Laya.Box;
+		public boxPreAward:Laya.Box;
+		public txtNextPreview:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TemplePreview8Alert");
 
         }
 
@@ -38350,6 +45252,213 @@ module ui {
 }
 
 module ui {
+    export class P_TempleRank6ItemUI extends ItemRender {
+		public imgRank1:Laya.Image;
+		public imgRank2:Laya.Image;
+		public imgRank3:Laya.Image;
+		public boxOther:Laya.Box;
+		public tetMC:Laya.FontClip;
+		public boxHavePlayer:Laya.Box;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxNoPlayer:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_TempleRank6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleRank6ViewUI extends BaseView {
+		public boxHaveFst:Laya.Box;
+		public boxModel:Laya.Box;
+		public imgHead:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public txtEggPoint:laya.display.Text;
+		public txtName:laya.display.Text;
+		public boxNoFst:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public award1:modules.n_beibao.RootItem;
+		public award2:modules.n_beibao.RootItem;
+		public award3:modules.n_beibao.RootItem;
+		public award4:modules.n_beibao.RootItem;
+		public boxRanList:Laya.Box;
+		public btnDesc:Laya.Button;
+		public txtTime:laya.display.Text;
+		public txtMyPoint:laya.display.Text;
+		public txtMyRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_TempleRank6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleRank7ItemUI extends ItemRender {
+		public imgRank1:Laya.Image;
+		public imgRank2:Laya.Image;
+		public imgRank3:Laya.Image;
+		public boxOther:Laya.Box;
+		public tetMC:Laya.FontClip;
+		public boxHavePlayer:Laya.Box;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxNoPlayer:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_TempleRank7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleRank7ViewUI extends BaseView {
+		public boxHaveFst:Laya.Box;
+		public boxModel:Laya.Box;
+		public imgHead:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public txtEggPoint:laya.display.Text;
+		public txtName:laya.display.Text;
+		public boxNoFst:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public award1:modules.n_beibao.RootItem;
+		public award2:modules.n_beibao.RootItem;
+		public award3:modules.n_beibao.RootItem;
+		public award4:modules.n_beibao.RootItem;
+		public boxRanList:Laya.Box;
+		public btnDesc:Laya.Button;
+		public txtTime:laya.display.Text;
+		public txtMyPoint:laya.display.Text;
+		public txtMyRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_TempleRank7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleRank8ItemUI extends ItemRender {
+		public imgRank1:Laya.Image;
+		public imgRank2:Laya.Image;
+		public imgRank3:Laya.Image;
+		public boxOther:Laya.Box;
+		public tetMC:Laya.FontClip;
+		public boxHavePlayer:Laya.Box;
+		public imgHeadIcon1:Laya.Image;
+		public imgHeadFrame1:Laya.Image;
+		public txtPlayer1:laya.display.Text;
+		public tittleTxt1:laya.display.Text;
+		public txtNum1:laya.display.Text;
+		public boxNoPlayer:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public Item1:modules.n_beibao.RootItem;
+		public Item2:modules.n_beibao.RootItem;
+		public Item3:modules.n_beibao.RootItem;
+		public Item4:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_TempleRank8Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleRank8ViewUI extends BaseView {
+		public boxHaveFst:Laya.Box;
+		public boxModel:Laya.Box;
+		public imgHead:Laya.Image;
+		public imgHeadFrame:Laya.Image;
+		public txtEggPoint:laya.display.Text;
+		public txtName:laya.display.Text;
+		public boxNoFst:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public award1:modules.n_beibao.RootItem;
+		public award2:modules.n_beibao.RootItem;
+		public award3:modules.n_beibao.RootItem;
+		public award4:modules.n_beibao.RootItem;
+		public boxRanList:Laya.Box;
+		public btnDesc:Laya.Button;
+		public txtTime:laya.display.Text;
+		public txtMyPoint:laya.display.Text;
+		public txtMyRank:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_TempleRank8View");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_TempleReward1AlertUI extends BaseDialog {
 		public btnConfirm:modules.n_common.BtnClkScale;
 		public btnClose:Laya.Button;
@@ -38443,6 +45552,66 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_TempleReward5Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleReward6AlertUI extends BaseDialog {
+		public btnConfirm:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public boxItems:Laya.Box;
+		public txtEmpty:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_TempleReward6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleReward7AlertUI extends BaseDialog {
+		public btnConfirm:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public boxItems:Laya.Box;
+		public txtEmpty:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_TempleReward7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleReward8AlertUI extends BaseDialog {
+		public btnConfirm:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public boxItems:Laya.Box;
+		public txtEmpty:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_TempleReward8Alert");
 
         }
 
@@ -38650,6 +45819,126 @@ module ui {
 }
 
 module ui {
+    export class P_TempleSelect6AlertUI extends BaseDialog {
+		public btnConfirm:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public btnFilter:Laya.Button;
+		public boxItems:Laya.Box;
+		public txtTips:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_TempleSelect6Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleSelect6ItemUI extends ItemRender {
+		public item:modules.n_beibao.RootItem;
+		public imgSelect:Laya.Image;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TempleSelect6Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleSelect7AlertUI extends BaseDialog {
+		public btnConfirm:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public btnFilter:Laya.Button;
+		public boxItems:Laya.Box;
+		public txtTips:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_TempleSelect7Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleSelect7ItemUI extends ItemRender {
+		public item:modules.n_beibao.RootItem;
+		public imgSelect:Laya.Image;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TempleSelect7Item");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleSelect8AlertUI extends BaseDialog {
+		public btnConfirm:modules.n_common.BtnClkScale;
+		public btnClose:Laya.Button;
+		public btnFilter:Laya.Button;
+		public boxItems:Laya.Box;
+		public txtTips:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_TempleSelect8Alert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleSelect8ItemUI extends ItemRender {
+		public item:modules.n_beibao.RootItem;
+		public imgSelect:Laya.Image;
+		public txtNum:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TempleSelect8Item");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_TempleTrea1ViewUI extends BaseView {
 		public btnAuto:Laya.Button;
 		public boxGrids:Laya.Box;
@@ -38778,6 +46067,87 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_TempleTrea5View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleTrea6ViewUI extends BaseView {
+		public btnAuto:Laya.Button;
+		public boxGrids:Laya.Box;
+		public itemReward:modules.n_beibao.RootItem;
+		public btnSelect:Laya.Button;
+		public btnTips:Laya.Button;
+		public btnPreview:Laya.Button;
+		public btnChange:Laya.Button;
+		public imgCostItem:Laya.Image;
+		public txtItemCount:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtFloor:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TempleTrea6View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleTrea7ViewUI extends BaseView {
+		public btnAuto:Laya.Button;
+		public boxGrids:Laya.Box;
+		public itemReward:modules.n_beibao.RootItem;
+		public btnSelect:Laya.Button;
+		public btnTips:Laya.Button;
+		public btnPreview:Laya.Button;
+		public btnChange:Laya.Button;
+		public imgCostItem:Laya.Image;
+		public txtItemCount:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtFloor:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TempleTrea7View");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TempleTrea8ViewUI extends BaseView {
+		public btnAuto:Laya.Button;
+		public boxGrids:Laya.Box;
+		public itemReward:modules.n_beibao.RootItem;
+		public btnSelect:Laya.Button;
+		public btnTips:Laya.Button;
+		public btnPreview:Laya.Button;
+		public btnChange:Laya.Button;
+		public imgCostItem:Laya.Image;
+		public txtItemCount:laya.display.Text;
+		public txtTime:laya.display.Text;
+		public txtFloor:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TempleTrea8View");
 
         }
 
@@ -39115,10 +46485,6 @@ module ui {
 		public baseAttrTxt_1:laya.display.Text;
 		public baseAttrTxt_2:laya.display.Text;
 		public baseAttrTxt_3:laya.display.Text;
-		public shbox:Laya.Box;
-		public txtname1:laya.display.Text;
-		public shattrtxt1:laya.display.Text;
-		public shattrtxt2:laya.display.Text;
 		public llbox:Laya.Box;
 		public txtname2:laya.display.Text;
 		public llattrtxt1:laya.display.Text;
@@ -39133,6 +46499,29 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_ThirdEquipAlert2");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ThirdEquipAttrAlertUI extends BaseDialog {
+		public backGroundImg:Laya.Image;
+		public closeBtn:Laya.Button;
+		public backImg:Laya.Image;
+		public baseAttrBtn:Laya.Button;
+		public betterAttrBtn:Laya.Button;
+		public battlepoper:Laya.Box;
+		public powerNum:modules.n_common.CstmBattlePowerFontClip;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
+
+            super.createChildren();
+            this.loadUI("P_ThirdEquipAttrAlert");
 
         }
 
@@ -39235,6 +46624,16 @@ module ui {
 		public nameTxt_3:laya.display.Text;
 		public nameTxt_4:laya.display.Text;
 		public fullLevelImg:Laya.Image;
+		public Img1:Laya.Image;
+		public Img2:Laya.Image;
+		public Img3:Laya.Image;
+		public Img4:Laya.Image;
+		public Img5:Laya.Image;
+		public Img6:Laya.Image;
+		public Img7:Laya.Image;
+		public Img8:Laya.Image;
+		public Img9:Laya.Image;
+		public Img10:Laya.Image;
 		public dtimg:Laya.Image;
 		public xtimg:Laya.Image;
 		public needImg:Laya.Image;
@@ -39297,15 +46696,18 @@ module ui {
 		public zbllbtn:modules.n_common.BtnClkScale;
 		public upimg1:Laya.Image;
 		public upimg2:Laya.Image;
-		public partrp1:Laya.Image;
-		public partrp2:Laya.Image;
-		public partrp3:Laya.Image;
-		public partrp4:Laya.Image;
-		public partrp5:Laya.Image;
-		public partrp6:Laya.Image;
-		public selimg:Laya.Image;
-		public needImg:Laya.Image;
-		public needtxt:laya.display.Text;
+		public imgpart1:Laya.Image;
+		public imgpart2:Laya.Image;
+		public imgpart3:Laya.Image;
+		public imgpart4:Laya.Image;
+		public imgpart5:Laya.Image;
+		public imgpart6:Laya.Image;
+		public parttxt1:laya.display.Text;
+		public parttxt2:laya.display.Text;
+		public parttxt3:laya.display.Text;
+		public parttxt4:laya.display.Text;
+		public parttxt5:laya.display.Text;
+		public parttxt6:laya.display.Text;
 		public upArrImg_1:Laya.Image;
 		public upArrImg_2:Laya.Image;
 		public upArrImg_3:Laya.Image;
@@ -39319,6 +46721,14 @@ module ui {
 		public nameTxt_3:laya.display.Text;
 		public nameTxt_4:laya.display.Text;
 		public fullLevelImg:Laya.Image;
+		public item:modules.n_beibao.RootItem;
+		public itempart1:modules.n_thirdEquip.lianling.ThirdEquipLianLingIconItem;
+		public itempart2:modules.n_thirdEquip.lianling.ThirdEquipLianLingIconItem;
+		public itempart3:modules.n_thirdEquip.lianling.ThirdEquipLianLingIconItem;
+		public itempart4:modules.n_thirdEquip.lianling.ThirdEquipLianLingIconItem;
+		public itempart5:modules.n_thirdEquip.lianling.ThirdEquipLianLingIconItem;
+		public itempart6:modules.n_thirdEquip.lianling.ThirdEquipLianLingIconItem;
+		public selimg:Laya.Image;
 
         constructor(){ super()}
         createChildren():void {
@@ -39326,6 +46736,8 @@ module ui {
 			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
 			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
 			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_thirdEquip.lianling.ThirdEquipLianLingIconItem",modules.n_thirdEquip.lianling.ThirdEquipLianLingIconItem);
 
             super.createChildren();
             this.loadUI("P_ThirdEquipLLPanel");
@@ -39462,6 +46874,8 @@ module ui {
 		public battlepoper:modules.n_common.FtYToLayer;
 		public numPower:modules.n_common.CstmBattlePowerFontClip;
 		public itemsbox:Laya.Box;
+		public needtxt:laya.display.Text;
+		public needImg:Laya.Image;
 		public btnYjzb:modules.n_common.BtnClkScale;
 		public lookbtn:modules.n_common.BtnClkScale;
 		public imgRD5:Laya.Image;
@@ -39487,6 +46901,7 @@ module ui {
         createChildren():void {
         			View.regComponent("modules.n_common.FtYToLayer",modules.n_common.FtYToLayer);
 			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
+			View.regComponent("Text",laya.display.Text);
 			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
 			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
 
@@ -42254,6 +49669,49 @@ module ui {
 }
 
 module ui {
+    export class P_XianFuAlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public flpPrice:Laya.FontClip;
+		public leftBtn:Laya.Button;
+		public rightBtn:Laya.Button;
+		public buyBtn:modules.n_common.BtnClkScale;
+		public receiveImg:Laya.Image;
+		public tab0:Laya.Box;
+		public fhTopBtn:Laya.Button;
+		public fhTopBtn_light:Laya.Button;
+		public jtfhRP:Laya.Image;
+		public tab1:Laya.Box;
+		public sqTopBtn:Laya.Button;
+		public sqTopBtn_light:Laya.Button;
+		public scsqRP:Laya.Image;
+		public battlepoper:Laya.Box;
+		public fightClip:modules.n_common.CstmBattlePowerFontClip;
+		public boxAwards:Laya.Box;
+		public item1:modules.n_beibao.RootItem;
+		public item2:modules.n_beibao.RootItem;
+		public item3:modules.n_beibao.RootItem;
+		public item4:modules.n_beibao.RootItem;
+		public item5:modules.n_beibao.RootItem;
+		public item6:modules.n_beibao.RootItem;
+		public rebateNum:Laya.FontClip;
+		public timerTxt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_XianFuAlert");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_XianfuBottomItemUI extends BaseView {
 		public signImg:Laya.Image;
 		public timeBox:Laya.Box;
@@ -42679,6 +50137,8 @@ module ui {
 		public boxModel:Laya.Box;
 		public lbgimg:Laya.Box;
 		public upgradeBtn:modules.n_common.BtnClkScale;
+		public upImg6:Laya.Image;
+		public upImg5:Laya.Image;
 		public upImg4:Laya.Image;
 		public upImg3:Laya.Image;
 		public upImg2:Laya.Image;
@@ -42686,17 +50146,9 @@ module ui {
 		public upbtn:Laya.Button;
 		public hhbtn:Laya.Button;
 		public fhbtn:Laya.Button;
-		public btn1:Laya.Button;
-		public btn2:Laya.Button;
-		public btn3:Laya.Button;
-		public btn4:Laya.Button;
 		public rpimg1:Laya.Image;
 		public rpimg2:Laya.Image;
 		public rpimg3:Laya.Image;
-		public rp4:Laya.Image;
-		public rp3:Laya.Image;
-		public rp2:Laya.Image;
-		public rp1:Laya.Image;
 		public fullLvImg:Laya.Image;
 		public nameTxt1:laya.display.Text;
 		public upTxt1:laya.display.Text;
@@ -42706,6 +50158,10 @@ module ui {
 		public upTxt3:laya.display.Text;
 		public nameTxt4:laya.display.Text;
 		public upTxt4:laya.display.Text;
+		public nameTxt5:laya.display.Text;
+		public upTxt5:laya.display.Text;
+		public nameTxt6:laya.display.Text;
+		public upTxt6:laya.display.Text;
 		public switchBtn:Laya.Button;
 		public noActImg:Laya.Image;
 		public preBtn:Laya.Button;
@@ -42766,7 +50222,6 @@ module ui {
 		public skillitem2:modules.n_xianfu.home_mansion.HomeMansionSkillItem;
 		public skillitem3:modules.n_xianfu.home_mansion.HomeMansionSkillItem;
 		public skillitem4:modules.n_xianfu.home_mansion.HomeMansionSkillItem;
-		public skillitem5:modules.n_xianfu.home_mansion.HomeMansionSkillItem;
 
         constructor(){ super()}
         createChildren():void {
@@ -42903,6 +50358,55 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_XianfuPetTravelingAlert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_XianfuRechargeItemUI extends ItemRender {
+		public sureBox:Laya.Box;
+		public sureBtn:modules.n_common.BtnClkScale;
+		public rechargeBtn:modules.n_common.BtnClkScale;
+		public receivedImg:Laya.Image;
+		public continueBase1:modules.n_beibao.RootItem;
+		public continueBase2:modules.n_beibao.RootItem;
+		public continueBase3:modules.n_beibao.RootItem;
+		public continueBase4:modules.n_beibao.RootItem;
+		public scheduleText:laya.display.Text;
+		public StatementHTML:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_XianfuRechargeItem");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_XianfuRechargeViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public wanChengImg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public activityText1:laya.display.Text;
+		public activityText:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_XianfuRechargeView");
 
         }
 
