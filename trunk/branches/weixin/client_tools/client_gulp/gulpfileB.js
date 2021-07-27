@@ -26,10 +26,10 @@ var replace = require('gulp-replace');
 
 var SRC = '../../client/src/'; //路径
 var BIN = '../../client/bin/'; //路径
-var DEST = '../../client/wx_dist/packageA'; //路径自行设置
+var DEST = '../../client/wx_dist/packageB'; //路径自行设置
 var DEST_JS = '../../client/wx_dist/'; //路径
 var BUILD = '../../client/wx_build/'; //路径
-var PACK = 'jg_gameA'; //项目名
+var PACK = 'jg_gameB'; //项目名
 var INIT_PATH = ''; //init.min.js的目录
 var SCOPE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_';
 var PREFIX = '';

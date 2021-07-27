@@ -37,7 +37,7 @@ var babel_core_test = function () {
                 if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
                     var tempstr = path.node.value;
                     var numericLiteral = babel_types.numericLiteral(0xff);
-                    numericLiteral.extra = {rawValue:1,raw:"0xff"}
+                    numericLiteral.extra = {rawValue:255,raw:"0xff"}
                     numericLiteral.raw = "0xff";
                     var memberExpression = babel_types.memberExpression(babel_types.identifier("as"), numericLiteral, true);
 
@@ -186,8 +186,9 @@ var babel_core_parse_traverse = function () {
                   var value = 16;
 
                   var numericLiteral = babel_types.numericLiteral(value);
-                  // numericLiteral.extra = {rawValue:value,raw:hexValue}
-                  // numericLiteral.raw = hexValue;
+                  var hexValue = "0x888";
+                  numericLiteral.extra = {rawValue:value,raw:hexValue}
+                  numericLiteral.raw = hexValue;
 
 
                   var memberExpression = babel_types.memberExpression(babel_types.identifier("as"),numericLiteral , true);
@@ -197,8 +198,8 @@ var babel_core_parse_traverse = function () {
             },
             NumericLiteral(path){
                 // path.value = 0xff;
-                var hexValue = "0x"+path.node.value.toString(16);
-                path.node.extra = {raw:hexValue,rawValue:path.node.value};
+                // var hexValue = "0x"+path.node.value.toString(16);
+                // path.node.extra = {raw:hexValue,rawValue:path.node.value};
                 // path.node.raw = "0xff";
                 // path.extra = {rawValue:0xff,raw:"0xff"}
                 // path.raw = "0xff";
