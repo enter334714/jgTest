@@ -21,14 +21,14 @@
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
-    "useApiHostProcess": true,
+    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "useIsolateContext": false,
+    "useIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -37,8 +37,8 @@
   },
   "compileType": "game",
   "libVersion": "2.1.0",
-  "appid": "wxd039198b00fda28f",
-  "projectname": "jg_gameB",
+  "appid": "wx04eeef71bb839e9f",
+  "projectname": "jg_game_C",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {

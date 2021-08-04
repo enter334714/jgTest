@@ -33,8 +33,8 @@ var PACK = 'jg_gameC'; //项目名
 var INIT_PATH = ''; //init.min.js的目录
 var SCOPE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_';
 var PREFIX = '';
-var sourceProject = "../../client/wx_build/jg_gameB_new";
-var targetProject = "../../client/wx_build/jg_gameB_obfuscator";
+var sourceProject = "../../client/wx_build/jg_gameC_new";
+var targetProject = "../../client/wx_build/jg_gameC_obfuscator";
 
 
 /**scope.js文件处理*/
@@ -316,6 +316,23 @@ gulp.task('copy', function () {
     return stream;
 });
 
+gulp.task('renamegamejs',function(){
+    var stream = gulp.src(targetProject + "/game_ob.js").
+        pipe(rename(function (path) {
+            path.basename = "game";
+         })
+        ).pipe(gulp.dest(targetProject + '/'))
+    return stream;
+})
+
+gulp.task('cleangamjs',function(){
+    var stream = gulp.src(targetProject + "/game_ob.js")
+        .pipe(clean({
+            force: true
+        }))
+    return stream;
+})
+
 
 //protobuf的json文件转成js文件输出
 gulp.task("build-protobuf", function () {
@@ -390,7 +407,7 @@ gulp.task('build-all-C', function (cb) {
 
 //混淆
 gulp.task('build-babel-obfuscator-C', function (cb) {
-    sequence("set-param-c","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator', 'build-end-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string',  'build-end-babel', cb)
+    sequence("set-param-c","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator', 'build-end-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string',  'build-end-babel',"renamegamejs",'cleangamjs',cb)
 });
 /**-------------------------------------------------微信小游戏--C包  end-----------------------------------------------------------*/
 

@@ -46,6 +46,8 @@ PF_INFO.lastVersion = 1985;
 PF_INFO.wxVersion = window.versions.wxVersion;
 PF_INFO.wxShield = false;
 PF_INFO.wxIOS = false;
+PF_INFO.wxAndroid = false;
+PF_INFO.wxPC = false;
 
 window.apiRetryAmount = 5;
 window.isCheckBan = false;
@@ -313,7 +315,7 @@ window.onUserLogin = function (response) {
   PF_INFO.sign = ''; // TODO
 
   var self = this;
-  wxShowLoading({ title: '正在请求服务器' });
+  wxShowLoading({ title: '请求服务器' });
   sendApi(PF_INFO.apiurl, 'Server.defaultServer', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
@@ -991,7 +993,8 @@ window.initMain = function() {
         newRegister: window.PF_INFO.newRegister,
         wxPC: window.PF_INFO.wxPC,
         wxIOS: window.PF_INFO.wxIOS,
-        wxParam: {limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.config.from ? 1: 0), wxSDKVersion: window.SDKVersion},
+        wxAndroid: window.PF_INFO.wxAndroid,
+        wxParam: {limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.config.from=="txcps" ? 1: 0), wxSDKVersion: window.SDKVersion},
         configType: window.PF_INFO.configType, 
         exposeType: window.PF_INFO.exposeType,
         scene:scene

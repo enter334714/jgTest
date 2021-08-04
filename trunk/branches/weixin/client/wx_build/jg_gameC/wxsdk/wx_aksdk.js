@@ -1,12 +1,12 @@
 ﻿import Dall from './helper'
 var config = {
-    game_id: '256', //九歌行
-    game_pkg: 'tjqy_jgxxyx_AF',
+   game_id: '256', //天剑奇缘
+    game_pkg: 'tjqy_wxmjbcs_AA',
     partner_id: '19',
-    game_ver: '2.0.93',  //B包为2.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '2.0.81',  //A包为1.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false,  //授权登录
     from: null, //来源
-    tmpId: {1:'EINuK1ZxS2r8DUPVqymQs_JbjT6nV5o_bo-wc67bbs8', 2:'JJ3T3yUyMvF_XfMKx3fFEPYJV8iZHI4M8Do5ddeN7sM', 3:'snQEtMujGdKT78ppl6C_k6z2Tzvp3W-2E_Tr02w2pB0'},  // 订阅的类型 和 模板id
+    tmpId: {1:'pSH28Vom5lPVtCh0-QfVZqUDv1plQ6nvDoKF7gnKEtQ', 2:'ZHiVm5KGXfUpJT779phqRjQ2OsJW2BjJXF1zkPLIEtQ', 3:'pBpwl_Syx8rWKuuEw2P0A0zFbrqei0kIAyBj7EkEkLg'},  // 订阅的类型 和 模板id
     min_app_id: '',
 };
 window.config = config;
@@ -65,7 +65,7 @@ function mainSDK() {
                 if(!from && from!="") config.from = from;
             }
             // config.from = "txcps"
-            console.log(config.from);
+            console.log("from: "+ config.from);
 
             var data = {
                 install: is_new,

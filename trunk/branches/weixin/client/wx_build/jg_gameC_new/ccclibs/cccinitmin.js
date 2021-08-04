@@ -80,7 +80,7 @@ var ui,
   var e, i;function b$c(t) {
     void 0 === t && (t = 0);var e = o.call(this) || this;return e.b$s = { bgImgSkin: "c2/a3.jpg", topImgSkin: "c2/a10.jpg", btmImgSkin: "c2/a4.jpg", leftImgSkin: "c2/a6.jpg", rightImgSkin: "c2/a8.jpg", loadingBarBgSkin: "c2/image_loding_bar0.png", copyRightImgBottom: 10, processBox1Y: 963, processBox2Y: 1065, loadingTipsSize: 26, getTipsBtnVisible: !1 }, e.b$t = { bgImgSkin: "c2/a12.jpg", topImgSkin: "c2/a11.jpg", btmImgSkin: "c2/a5.jpg", leftImgSkin: "c2/a7.jpg", rightImgSkin: "c2/a9.jpg", loadingBarBgSkin: "c2/image_loding_bar02.png", copyRightImgBottom: 10, processBox1Y: 963, processBox2Y: 1065, loadingTipsSize: 26, getTipsBtnVisible: !1 }, e.b$u = 0, e.b$v(1 == t ? e.b$t : e.b$s), e;
   }var o;e = t.b$f || (t.b$f = {}), i = t.b$g.PanelEff, o = ui.b$d, __extends(b$c, o), b$c.prototype.initialize = function () {
-    var t;o.prototype.initialize.call(this), ServerLoading.instance.preloadLoading(), this.b$w = Browser.window.PF_INFO, this.centerX = 0, this.centerY = 0, this.b$w && (t = this.b$w.loadingType, this.loadingTips.color = 1 != t && 2 == t ? "#7c51ae" : "#f2ffb5"), this.b$x = [this.point1, this.point2, this.point3, this.point4], Browser.window.watPanel = this, wxHideLoading(), ServerLoading.instance.closeAuthor(), ServerLoading.instance.closeServer(), this.onOpened();
+    o.prototype.initialize.call(this), ServerLoading.instance.preloadLoading(), this.b$w = Browser.window.PF_INFO, this.centerX = 0, this.centerY = 0, this.b$w && (this.b$w.loadingType, this.loadingTips.color = "#f2ffb5"), this.b$x = [this.point1, this.point2, this.point3, this.point4], Browser.window.watPanel = this, wxHideLoading(), ServerLoading.instance.closeAuthor(), ServerLoading.instance.closeServer(), this.onOpened();
   }, b$c.prototype.toAllProgress = function (t) {
     var e = this;if (-1 === t) return e.b$u = 0, Laya.timer.clear(this, this.toAllProgress), void Laya.timer.frameLoop(1, this, this.toAllProgress);var i;-2 !== t ? (e.b$u < .9 ? e.b$u += (.15 * Math.random() + .01) / (100 * Math.random() + 50) : e.b$u < 1 && (e.b$u += 1e-4), .9999 < e.b$u && (e.b$u = .9999, Laya.timer.clear(this, this.toAllProgress), Laya.timer.once(3e3, this, function () {
       .9 < e.b$u && toAllProgress(-1);
@@ -114,7 +114,7 @@ var ui,
   var e, i, o;function b$c() {
     var t = n.call(this) || this;return t.b$F = 0, t;
   }var n;e = t.b$f || (t.b$f = {}), i = Laya.List, o = Laya.Event, n = ui.b$e, __extends(b$c, n), b$c.prototype.initialize = function () {
-    n.prototype.initialize.call(this), ServerLoading.instance.preloadServer(), this.centerX = 0, this.centerY = 0, this.b$w = Browser.window.PF_INFO, this.b$G = new i(), this.b$G.vScrollBarSkin = "", this.b$G.itemRender = e.SelectLeftListItem, this.b$G.top = 5, this.b$G.repeatX = 1, this.b$G.spaceY = 5, this.b$G.width = this.leftListBox.width, this.b$G.height = this.leftListBox.height - 8, this.leftListBox.addChild(this.b$G), this.b$H = new i(), this.b$H.vScrollBarSkin = "", this.b$H.itemRender = e.SelectRightListItem, this.b$H.top = 5, this.b$H.repeatX = 1, this.b$H.spaceY = 5, this.b$H.width = this.rightListBox.width, this.b$H.height = this.rightListBox.height - 8, this.rightListBox.addChild(this.b$H);var t = this.b$w.loadingType;this.b$I = 1 != t && (2 == t || 3 == t) ? "#feffc0" : "#93353b", this.noticeBtn.visible = !1, Browser.window.initPanel = this, wxHideLoading(), ServerLoading.instance.closeAuthor(), this.addEvt(), this.onOpened();
+    n.prototype.initialize.call(this), ServerLoading.instance.preloadServer(), this.centerX = 0, this.centerY = 0, this.b$w = Browser.window.PF_INFO, this.b$G = new i(), this.b$G.vScrollBarSkin = "", this.b$G.itemRender = e.SelectLeftListItem, this.b$G.top = 5, this.b$G.repeatX = 1, this.b$G.spaceY = 5, this.b$G.width = this.leftListBox.width, this.b$G.height = this.leftListBox.height - 8, this.leftListBox.addChild(this.b$G), this.b$H = new i(), this.b$H.vScrollBarSkin = "", this.b$H.itemRender = e.SelectRightListItem, this.b$H.top = 5, this.b$H.repeatX = 1, this.b$H.spaceY = 5, this.b$H.width = this.rightListBox.width, this.b$H.height = this.rightListBox.height - 8, this.rightListBox.addChild(this.b$H);var t = this.b$w.loadingType;this.b$I = 1 != t && (2 == t || 3 == t) ? "#feffc0" : "#93353b", this.enterBtn.size(506, 88), this.noticeBtn.visible = !1, Browser.window.initPanel = this, wxHideLoading(), ServerLoading.instance.closeAuthor(), this.addEvt(), this.onOpened();
   }, b$c.prototype.addEvt = function () {
     this.enterBtn.on(Laya.Event.CLICK, this, this.b$J), this.selectServer.on(Laya.Event.CLICK, this, this.b$K), this.selectServer.on(Laya.Event.CLICK, this, this.b$K), this.closeBg.on(Laya.Event.CLICK, this, this.b$L), this.noticeBtn.on(Laya.Event.CLICK, this, this.b$M), this.noticeClose.on(Laya.Event.CLICK, this, this.b$N), this.noticeContent.on(Laya.Event.MOUSE_DOWN, this, this.b$O);
   }, b$c.prototype.rmEvts = function () {
@@ -173,7 +173,7 @@ var ui,
     SelectServerPanel = modules.b$f.SelectServerPanel,
     ServerLoading = function () {
   function b$f(t) {
-    this.m_loadingRes1 = ["c1/c2.atlas", "c2/a3.jpg", "c2/a4.jpg", "c2/a6.jpg", "c2/a8.jpg", "c2/a10.jpg"], this.m_loadingRes2 = ["c1/c2.atlas", "c1/r3.atlas", "c2/a12.jpg", "c2/a5.jpg", "c2/a7.jpg", "c2/a9.jpg", "c2/a11.jpg", "c2/a1.png", "c2/a2.png"], this.m_serverRes = ["c1/ccclogin.atlas", "ccclogin/b2.jpg"], this.m_serverRes1 = ["ccclogin/b3.jpg", "ccclogin/b4.jpg", "ccclogin/b5.jpg", "ccclogin/b6.jpg", "ccclogin/b1.png", "ccclogin/b8.png", "ccclogin/b9.png"], this.m_isPrelodServer = !1, this.m_isPrelodLoading = !1, b$f.instance = this, Laya.MiniAdpter.init(), Laya3D.init(0, 0, !1, !1, !1), DecodeTools.init(), Laya.stage.scaleMode = Laya.Stage.SCALE_FIXED_WIDTH, Laya.stage.screenMode = Laya.Stage.SCREEN_NONE, Laya.stage.alignH = Laya.Stage.ALIGN_CENTER, Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE, Laya.stage.frameRate = Laya.Stage.FRAME_SLOW;var e = Laya.AtlasResourceManager;e.maxTextureCount = 4, e.atlasTextureWidth = e.atlasTextureHeight = 1024, e._enable(), Laya.URL.rootPath = Laya.URL.basePath = "", Laya.Browser.window.addEventListener(Laya.Event.RESIZE, this.b$X.bind(this)), t.showLoadingBtn || (this.m_loadingRes2 = []);e = Laya.Loader.preLoadedMap;e["c1/ccclogin.atlas"] = t.ccclogin, e["c1/c2.atlas"] = t.c2, e["c1/r3.atlas"] = t.r3, e["c1/create_role_atlas.atlas"] = { frames: { "btn_chuangjue_kaishi.png": { frame: { h: 88, idx: 0, w: 506, x: 0, y: 0 }, sourceSize: { h: 88, w: 506 }, spriteSourceSize: { x: 0, y: 0 } }, "btn_chuangjue_nan.png": { frame: { h: 98, idx: 0, w: 108, x: 335, y: 89 }, sourceSize: { h: 98, w: 108 }, spriteSourceSize: { x: 0, y: 0 } }, "btn_chuangjue_nv.png": { frame: { h: 98, idx: 0, w: 107, x: 0, y: 164 }, sourceSize: { h: 98, w: 107 }, spriteSourceSize: { x: 0, y: 0 } }, "image_chuangjue_mingbg.png": { frame: { h: 74, idx: 0, w: 334, x: 0, y: 89 }, sourceSize: { h: 74, w: 334 }, spriteSourceSize: { x: 0, y: 0 } }, "image_chuangjue_suiji.png": { frame: { h: 56, idx: 0, w: 52, x: 444, y: 89 }, sourceSize: { h: 56, w: 52 }, spriteSourceSize: { x: 0, y: 0 } } }, meta: { image: "create_role_atlas.png", prefix: "create_role_atlas/" } }, Browser.window.resMgrLoad = b$f.instance.requestWeb, Browser.window.imgMgrLoad = b$f.instance.requestWeb, this.m_layer = new Laya.Component(), this.m_layer.name = "_wxLoadingLayer", Laya.stage.addChild(this.m_layer), this.b$X();
+    this.m_loadingRes = ["c1/c2.atlas", "c2/a3.jpg"], this.m_loadingNewRes = ["c1/c2.atlas", "c2/a12.jpg", "c1/r3.atlas"], this.m_loadingRes1 = ["c2/a4.jpg", "c2/a6.jpg", "c2/a8.jpg", "c2/a10.jpg"], this.m_loadingNewRes1 = ["c2/a5.jpg", "c2/a7.jpg", "c2/a9.jpg", "c2/a11.jpg", "c2/a1.png", "c2/a2.png"], this.m_serverRes = ["c1/ccclogin.atlas", "ccclogin/b2.jpg"], this.m_serverRes1 = ["ccclogin/b3.jpg", "ccclogin/b4.jpg", "ccclogin/b5.jpg", "ccclogin/b6.jpg", "ccclogin/b1.png", "ccclogin/b8.png", "ccclogin/b9.png"], this.m_isPrelodServer = !1, this.m_isPrelodLoading = !1, b$f.instance = this, Laya.MiniAdpter.init(), Laya3D.init(0, 0, !1, !1, !1), DecodeTools.init(), Laya.stage.scaleMode = Laya.Stage.SCALE_FIXED_WIDTH, Laya.stage.screenMode = Laya.Stage.SCREEN_NONE, Laya.stage.alignH = Laya.Stage.ALIGN_CENTER, Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE, Laya.stage.frameRate = Laya.Stage.FRAME_SLOW;var e = Laya.AtlasResourceManager;e.maxTextureCount = 4, e.atlasTextureWidth = e.atlasTextureHeight = 1024, e._enable(), Laya.URL.rootPath = Laya.URL.basePath = "", Laya.Browser.window.addEventListener(Laya.Event.RESIZE, this.b$X.bind(this)), t.showLoadingBtn || (this.m_loadingNewRes = [], this.m_loadingNewRes1 = []);e = Laya.Loader.preLoadedMap;e["c1/ccclogin.atlas"] = t.ccclogin, e["c1/c2.atlas"] = t.c2, e["c1/r3.atlas"] = t.r3, e["c1/create_role_atlas.atlas"] = { frames: { "btn_chuangjue_kaishi.png": { frame: { h: 88, idx: 0, w: 506, x: 0, y: 0 }, sourceSize: { h: 88, w: 506 }, spriteSourceSize: { x: 0, y: 0 } }, "btn_chuangjue_nan.png": { frame: { h: 98, idx: 0, w: 108, x: 335, y: 89 }, sourceSize: { h: 98, w: 108 }, spriteSourceSize: { x: 0, y: 0 } }, "btn_chuangjue_nv.png": { frame: { h: 98, idx: 0, w: 107, x: 0, y: 164 }, sourceSize: { h: 98, w: 107 }, spriteSourceSize: { x: 0, y: 0 } }, "image_chuangjue_mingbg.png": { frame: { h: 74, idx: 0, w: 334, x: 0, y: 89 }, sourceSize: { h: 74, w: 334 }, spriteSourceSize: { x: 0, y: 0 } }, "image_chuangjue_suiji.png": { frame: { h: 56, idx: 0, w: 52, x: 444, y: 89 }, sourceSize: { h: 56, w: 52 }, spriteSourceSize: { x: 0, y: 0 } } }, meta: { image: "create_role_atlas.png", prefix: "create_role_atlas/" } }, Browser.window.resMgrLoad = b$f.instance.requestWeb, Browser.window.imgMgrLoad = b$f.instance.requestWeb, this.m_layer = new Laya.Component(), this.m_layer.name = "_wxLoadingLayer", Laya.stage.addChild(this.m_layer), this.b$X();
   }return b$f.prototype.changeServerLoading = function (t) {
     b$f.instance.m_layer.visible = t;
   }, b$f.prototype.openAuthor = function () {
@@ -181,7 +181,9 @@ var ui,
   }, b$f.prototype.closeAuthor = function () {
     this.m_author && this.m_author.parent && (Laya.stage.removeChild(this.m_author), this.m_author.destroy(!0), this.m_author = null);
   }, b$f.prototype.preloadServer = function () {
-    this.m_isPrelodServer || (this.m_isPrelodServer = !0, Laya.loader.load(this.m_serverRes), Laya.loader.load(this.m_serverRes1));
+    this.m_isPrelodServer || (this.m_isPrelodServer = !0, Laya.loader.load(this.m_serverRes, Handler.create(this, function () {
+      b$f.instance.b$Z() && Laya.loader.load(b$f.instance.m_serverRes1);
+    })));
   }, b$f.prototype.openServer = function () {
     Laya.loader.load(this.m_serverRes, Handler.create(this, function () {
       b$f.instance.m_server || (b$f.instance.m_server = new SelectServerPanel()), b$f.instance.m_server.parent || b$f.instance.m_layer.addChild(b$f.instance.m_server), b$f.instance.b$Y();
@@ -189,18 +191,22 @@ var ui,
   }, b$f.prototype.closeServer = function () {
     this.m_server && this.m_server.parent && (Laya.stage.removeChild(this.m_server), this.m_server.destroy(!0), this.m_server = null);
   }, b$f.prototype.preloadLoading = function () {
-    this.m_isPrelodLoading || (this.m_isPrelodLoading = !0, Laya.loader.load(this.m_loadingRes1), this.m_loadingRes2 && this.m_loadingRes2.length && Laya.loader.load(this.m_loadingRes2));
+    this.m_isPrelodLoading || (this.m_isPrelodLoading = !0, Laya.loader.load(this.m_loadingRes, Handler.create(this, function () {
+      b$f.instance.b$Z() && Laya.loader.load(b$f.instance.m_loadingRes1);
+    })), this.m_loadingNewRes && this.m_loadingNewRes.length && Laya.loader.load(this.m_loadingNewRes, Handler.create(this, function () {
+      b$f.instance.b$Z() && Laya.loader.load(b$f.instance.m_loadingNewRes1);
+    })));
   }, b$f.prototype.openLoading = function (t) {
-    var e = 1 == (t = void 0 === t ? 0 : t) && this.m_loadingRes2.length ? this.m_loadingRes2 : this.m_loadingRes1;Laya.loader.load(e, Handler.create(this, function () {
+    var e = 1 == (t = void 0 === t ? 0 : t) && this.m_loadingNewRes.length ? this.m_loadingNewRes : this.m_loadingRes;Laya.loader.load(e, Handler.create(this, function () {
       b$f.instance.m_loading || (b$f.instance.m_loading = new LoadingPanel(t)), b$f.instance.m_loading.parent || b$f.instance.m_layer.addChild(b$f.instance.m_loading), b$f.instance.b$Y();
     }));
   }, b$f.prototype.closeLoading = function () {
     this.m_loading && this.m_loading.parent && (Laya.stage.removeChild(this.m_loading), this.m_loading.destroy(!0), this.m_loading = null);for (var t = 0, e = this.m_serverRes; t < e.length; t++) {
       var i = e[t];Laya.Loader.clearRes(i, !0);
-    }for (var o = 0, n = this.m_serverRes1; o < n.length; o++) i = n[o], Laya.Loader.clearRes(i, !0);for (var s = 0, r = this.m_loadingRes1; s < r.length; s++) i = r[s], Laya.Loader.clearRes(i, !0);for (var a = 0, h = this.m_loadingRes2; a < h.length; a++) i = h[a], Laya.Loader.clearRes(i, !0);this.m_layer.parent && this.m_layer.parent.removeChild(this.m_layer);
+    }for (var o = 0, n = this.m_serverRes1; o < n.length; o++) i = n[o], Laya.Loader.clearRes(i, !0);for (var s = 0, r = this.m_loadingRes; s < r.length; s++) i = r[s], Laya.Loader.clearRes(i, !0);for (var a = 0, h = this.m_loadingRes1; a < h.length; a++) i = h[a], Laya.Loader.clearRes(i, !0);for (var c = 0, l = this.m_loadingNewRes; c < l.length; c++) i = l[c], Laya.Loader.clearRes(i, !0);for (var p = 0, b = this.m_loadingNewRes1; p < b.length; p++) i = b[p], Laya.Loader.clearRes(i, !0);this.m_layer.parent && this.m_layer.parent.removeChild(this.m_layer);
   }, b$f.prototype.setShowBtn = function () {
     this.m_loading && this.m_loading.parent && b$f.instance.m_loading.showGetBtn();
-  }, b$f.prototype.b$Z = function () {
+  }, b$f.prototype.b$$ = function () {
     var t = Laya.stage,
         e = Math.floor(t.width),
         i = Math.floor(t.height);i / e < 1.7777778 ? (this.viewW = Math.floor(e / (i / 1280)), this.viewH = 1280, this.viewS = i / 1280) : (this.viewW = 720, this.viewH = Math.floor(i / (e / 720)), this.viewS = e / 720);e = Math.floor(t.width), t = Math.floor(t.height);t / e < 1.7777778 ? (this.viewW = Math.floor(e / (t / 1280)), this.viewH = 1280, this.viewS = t / 1280) : (this.viewW = 720, this.viewH = Math.floor(t / (e / 720)), this.viewS = e / 720), this.b$Y();
@@ -211,30 +217,32 @@ var ui,
       var t = parseInt(Input.inputContainer.style.top.replace("px", "")),
           e = parseInt(Input.inputElement.style.height.replace("px", "")) * this.viewS,
           i = Browser.clientWidth / Render.canvas.width;return 0 < (t = Browser.clientHeight - e * i - t) && (t = 0), void (Browser.container.style.top = t + "px");
-    }Browser.container.style.top = "0px", e = (e = Math.floor(Browser.width)) + 1 & 2147483646, i = (i = Math.floor(Browser.height)) + 1 & 2147483646;t = Laya.stage;i < e ? (t.scaleMode = Laya.Stage.SCALE_NOSCALE, t.width = e, t.height = i) : (t.scaleMode = Laya.Stage.SCALE_FIXED_WIDTH, t.width = 840, t.height = Math.floor(i / (e / 840)) + 1 & 2147483646), this.b$Z();
+    }Browser.container.style.top = "0px", e = (e = Math.floor(Browser.width)) + 1 & 2147483646, i = (i = Math.floor(Browser.height)) + 1 & 2147483646;t = Laya.stage;i < e ? (t.scaleMode = Laya.Stage.SCALE_NOSCALE, t.width = e, t.height = i) : (t.scaleMode = Laya.Stage.SCALE_FIXED_WIDTH, t.width = 840, t.height = Math.floor(i / (e / 840)) + 1 & 2147483646), this.b$$();
   }, b$f.prototype.requestWeb = function (t, e) {
     function b$e() {
       i.onload = null, i.onerror = null;
     }var i,
-        o = t;t && 0 < t.indexOf(":") || PF_INFO.cdn, (i = new Browser.window.Image()).onload = function () {
+        o = t;(i = new Browser.window.Image()).onload = function () {
       b$e(), e(o, 200, i);
     }, i.onerror = function () {
       console.warn("[warn] WX loadImage onerror:", o), b$e(), e(o, 404, null);
     }, i.src = o;
-  }, b$f.prototype.b$$ = function (t, e, i, o) {
-    var n = t.toLowerCase();o(t, e, i = i && (this.b$_(n, ".png") || this.b$_(n, ".jpg")) ? DecodeTools.decodeImage(new Uint8Array(i)) : i);
-  }, b$f.prototype.b$_ = function (t, e) {
+  }, b$f.prototype.b$_ = function (t, e, i, o) {
+    var n = t.toLowerCase();o(t, e, i = i && (this.b$a(n, ".png") || this.b$a(n, ".jpg")) ? DecodeTools.decodeImage(new Uint8Array(i)) : i);
+  }, b$f.prototype.b$a = function (t, e) {
     return -1 != t.indexOf(e, t.length - e.length);
+  }, b$f.prototype.b$Z = function () {
+    return Browser.window.imgMgrLoad == b$f.instance.requestWeb;
   }, b$f;
 }();!function (t) {
   function b$c() {
-    var t = e.call(this) || this;return t.width = 192, t.height = 70, t.b$a = new Laya.Image(), t.addChild(t.b$a), t.b$b = new Laya.Label(), t.b$b.fontSize = 30, t.b$b.color = t.b$I, t.addChild(t.b$b), t.b$b.centerX = 0, t.b$b.centerY = 0, t;
+    var t = e.call(this) || this;return t.width = 192, t.height = 70, t.b$b = new Laya.Image(), t.addChild(t.b$b), t.b$cc = new Laya.Label(), t.b$cc.fontSize = 30, t.b$cc.color = t.b$I, t.addChild(t.b$cc), t.b$cc.centerX = 0, t.b$cc.centerY = 0, t;
   }var e;t = t.b$f || (t.b$f = {}), e = Laya.View, __extends(b$c, e), b$c.prototype.initialize = function () {
     e.prototype.initialize.call(this), this.b$w = Browser.window.PF_INFO;var t = this.b$w.loadingType;this.b$I = 1 != t && 2 != t && 3 == t ? "#763042" : "#263d7d", this.addEvt();
   }, Object.defineProperty(b$c.prototype, "dataSource", { set: function (t) {
       t && this.setData(t);
     }, enumerable: !0, configurable: !0 }), b$c.prototype.setData = function (t) {
-    this.b$cc = t, this.b$b.text = t.name, this.b$a.skin = t.select ? "ccclogin/btn_xuanqu_anniuhuang.png" : "ccclogin/btn_xuanqu_anniulan.png";
+    this.b$dc = t, this.b$cc.text = t.name, this.b$b.skin = t.select ? "ccclogin/btn_xuanqu_anniuhuang.png" : "ccclogin/btn_xuanqu_anniulan.png";
   }, b$c.prototype.destroy = function (t) {
     void 0 === t && (t = !0), this.rmEvts(), e.prototype.destroy.call(this, t);
   }, b$c.prototype.addEvt = function () {
@@ -242,17 +250,17 @@ var ui,
   }, b$c.prototype.rmEvts = function () {
     this.off(Laya.Event.MOUSE_UP, this, this.clkHdler);
   }, b$c.prototype.clkHdler = function () {
-    this.b$cc && this.b$cc.callBack && this.b$cc.callBack(this.b$cc.index);
+    this.b$dc && this.b$dc.callBack && this.b$dc.callBack(this.b$dc.index);
   }, t.SelectLeftListItem = b$c;
 }(modules = modules || {}), function (t) {
   function b$c() {
-    var t = e.call(this) || this;return t.b$a = new Laya.Image("ccclogin/btn_xuanqu_quanniu.png"), t.b$b = new Laya.Label(), t.b$b.fontSize = 30, t.b$b.color = t.b$I, t.addChild(t.b$a), t.b$dc = new Laya.Image(), t.addChild(t.b$dc), t.width = 358, t.height = 70, t.addChild(t.b$b), t.b$dc.centerY = 0, t.b$dc.x = 18, t.b$b.x = 80, t.b$b.centerY = 0, t.b$a.graphics.drawRect(0, 0, t.width, t.height, "#00sasd"), t;
+    var t = e.call(this) || this;return t.b$b = new Laya.Image("ccclogin/btn_xuanqu_quanniu.png"), t.b$cc = new Laya.Label(), t.b$cc.fontSize = 30, t.b$cc.color = t.b$I, t.addChild(t.b$b), t.b$ec = new Laya.Image(), t.addChild(t.b$ec), t.width = 358, t.height = 70, t.addChild(t.b$cc), t.b$ec.centerY = 0, t.b$ec.x = 18, t.b$cc.x = 80, t.b$cc.centerY = 0, t.b$b.graphics.drawRect(0, 0, t.width, t.height, "#00sasd"), t;
   }var e;t = t.b$f || (t.b$f = {}), e = Laya.View, __extends(b$c, e), b$c.prototype.initialize = function () {
     e.prototype.initialize.call(this), this.b$w = Browser.window.PF_INFO;var t = this.b$w.loadingType;this.b$I = 1 != t && 2 != t && 3 == t ? "#763042" : "#34267d", this.addEvt();
   }, Object.defineProperty(b$c.prototype, "dataSource", { set: function (t) {
       t && this.setData(t);
     }, enumerable: !0, configurable: !0 }), b$c.prototype.setData = function (t) {
-    this.b$cc = t, this.b$b.color = -1 === t.status ? "#d50000" : 0 === t.status ? "#49575a" : this.b$I, this.b$b.text = -1 === t.status ? t.server_name + "(\u7ef4\u62a4\u4e2d)" : 0 === t.status ? t.server_name + "(\u5f85\u5f00\u670d)" : t.server_name, this.b$dc.skin = this.getStatusSrc(t.status);
+    this.b$dc = t, this.b$cc.color = -1 === t.status ? "#d50000" : 0 === t.status ? "#49575a" : this.b$I, this.b$cc.text = -1 === t.status ? t.server_name + "(\u7ef4\u62a4\u4e2d)" : 0 === t.status ? t.server_name + "(\u5f85\u5f00\u670d)" : t.server_name, this.b$ec.skin = this.getStatusSrc(t.status);
   }, b$c.prototype.destroy = function (t) {
     void 0 === t && (t = !0), this.rmEvts(), e.prototype.destroy.call(this, t);
   }, b$c.prototype.addEvt = function () {
@@ -260,7 +268,7 @@ var ui,
   }, b$c.prototype.rmEvts = function () {
     this.off(Laya.Event.MOUSE_UP, this, this.clkHdler);
   }, b$c.prototype.clkHdler = function () {
-    this.b$cc && this.b$cc.callBack && this.b$cc.callBack(this.b$cc);
+    this.b$dc && this.b$dc.callBack && this.b$dc.callBack(this.b$dc);
   }, b$c.prototype.getStatusSrc = function (t) {
     var e = "";return 2 === t ? e = "ccclogin/image_login_changtong.png" : 1 === t ? e = "ccclogin/image_login_fanmang.png" : -1 !== t && 0 !== t || (e = "ccclogin/image_login_weihu.png"), e;
   }, t.SelectRightListItem = b$c;
