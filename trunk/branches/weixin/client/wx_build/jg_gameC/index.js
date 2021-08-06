@@ -1006,6 +1006,7 @@ window.initMain = function() {
 
 window.enterToGame = function() {
   if(window.loadProbPkg && window.loadMainPkg && window.loadVersion && window.loadServer && window.isCheckBan && window.loadOption) {
+    wxHideLoading();
     if (!bEnterGame) {
       bEnterGame = true;
       if (!window.MainWX.instance) window.initMain();
@@ -1051,8 +1052,6 @@ window.enterToGame = function() {
       }
 
       window.MainWX.instance.initPlatdata(platData);
-    } else {
-      wxHideLoading();
     }
   } else {
     console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);

@@ -351,8 +351,7 @@ var js_obfuscator = function (rate) {
         );
         contents = obfuscationResult.getObfuscatedCode();
 
-        var bf =
-            new Buffer.from(contents);
+        var bf = new Buffer.from(contents);
         file.contents = bf;
         cb();
         this.emit("data", file);
