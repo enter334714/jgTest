@@ -1,0 +1,21 @@
+{
+    "package": "com.cn.tianjianqiyuan",
+    "name": "天剑奇缘",
+    "versionName": "1.0.0",
+    "versionCode": "1",
+    "minPlatformVersion":"1200",
+    "icon": "res/logo.png",
+    "orientation": "portrait",
+    "type": "game",
+    "conﬁg": { "logLevel": "debug" },
+    "subpackages": [
+        {
+            "name": "sub1Name",
+            "root": "sub1/"
+        }
+        {
+            "name": "sub2Name",
+            "root": "sub2/"
+        }
+    ]
+}

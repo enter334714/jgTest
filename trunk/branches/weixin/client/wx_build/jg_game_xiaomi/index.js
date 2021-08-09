@@ -1,3 +1,5 @@
+//keytool -export -rfc -keystore D:\android_certificate/debug.jks  -alias key0 -file D:\android_certificate/certificate.pem
+//keytool -export -rfc -keystore D:\android_certificate/release.jks  -alias key0 -file D:\android_certificate/private.pem
 import AKSDK from "./wxsdk/xiaomi_kysdk.js";
 window.versions = {
   wxVersion: window.config.game_ver,
