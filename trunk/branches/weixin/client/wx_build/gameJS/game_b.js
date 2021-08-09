@@ -1,4 +1,4 @@
-wx.$h = [];
+﻿wx.y$ = [];
 var fs = wx.getFileSystemManager();
 wx.getFileSystemManager().unzip({
     zipFilePath: "/res/files.zip",
@@ -10,20 +10,20 @@ wx.getFileSystemManager().unzip({
                 success: function (res41) {
                     if (res41.errMsg == "readFile:ok" && res41.data) {
                         try {
-                            wx.$h = JSON.parse(res41.data);
+                            wx.y$ = JSON.parse(res41.data);
                         } catch (error) {
                             console.error(error);
                         }
-
+            
                         var loadLibsTask = wx.loadSubpackage({
-                            name: 'ccclibs',
-                            success: function (res) {
+                            name: 'bbblibs',
+                            success: function(res) {
                                 if (res && res.errMsg == "loadSubpackage:ok") {
                                 } else {
                                 }
                                 window.loadSubpackages();
                             },
-                            fail: function (res) {
+                            fail: function(res) {
                                 console.error(res);
                             },
                         });
@@ -43,6 +43,7 @@ wx.getFileSystemManager().unzip({
         console.error(res52.errMsg);
     }
 });
+
 
 //监听小游戏切前台事件
 wx.onShow(function (res) {
