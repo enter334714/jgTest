@@ -35,7 +35,7 @@ var SCOPE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_';
 var PREFIX = '';
 var sourceProject = "../../client/wx_build/jg_gameB_new";
 var targetProject = "../../client/wx_build/jg_gameB_obfuscator";
-
+var gameJsPath ="../../client/wx_build/gameJS/game_b.js";
 
 /**scope.js文件处理*/
 var modify_scope = function () {
@@ -390,7 +390,7 @@ gulp.task('build-all-B', function (cb) {
 
 //混淆
 gulp.task('build-babel-obfuscator-B', function (cb) {
-    sequence("set-param-b","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator', 'build-end-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string',  'build-end-babel', cb)
+    sequence("set-param-b","MT1_COPY",'MT1_COPY2',"copyGameJs","MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
 });
 /**-------------------------------------------------微信小游戏--B包  end-----------------------------------------------------------*/
 
@@ -664,7 +664,7 @@ gulp.task("build-identifier", function () {
     var stream = gulp
         .src(BUILD+PACK+"/game.js")
         .pipe(identifier_create())
-        .pipe(gulp.dest(sourceProject+"/"))
+        // .pipe(gulp.dest(sourceProject+"/"))
     return stream;
 });
 
@@ -1034,11 +1034,11 @@ var js_babel_str = function () {
                     if(tempstr.indexOf(globleKeys[3])!=-1){//不需要提取
                         return;//
                     }
-                    
+
                     if(tempstr.indexOf("$")!=-1){
                         return;
                     }
-                    
+
                     // if(tempstr.indexOf(".png")!=-1 || tempstr.indexOf(".jpg")!=-1){//不需要提取
                     //     return;//
                     // }
@@ -1208,9 +1208,9 @@ gulp.task("build-js-babel-target-string", function () {
 
 gulp.task("build-end-babel", function () {
     var stream = gulp
-        .src(sourceProject + '/game.js')
+        .src(BUILD + PACK +  '/game.js')
         .pipe(end_babel())
-        .pipe(gulp.dest(targetProject + "/"))
+        // .pipe(gulp.dest(targetProject + "/"))
     return stream;
 });
 gulp.task('build-babel', function (cb) {
@@ -1342,7 +1342,7 @@ gulp.task("build-js-obfuscator", function () {
 });
 gulp.task("build-end-obfuscator", function () {
     var stream = gulp
-        .src(sourceProject + '/game.js')
+        .src(targetProject + '/game.js')
         .pipe(gulp.dest(targetProject + '/'))
     return stream;
 });
@@ -1411,7 +1411,7 @@ var filesMap = {
 };
 
 //混淆后的文件配置通过  filesMap 转化 "libs": {url:"bbblibs"},  -》"bbblibs":{url:"bbblibs"}
-var targetFileMap = {};
+var targetFileMap = {"game_b.js":{url:"game_b.js",extractStr:false,count:5,strLen:13}};
 
 var mt1Replace = {
     "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
@@ -1577,6 +1577,32 @@ gulp.task('MT1_COPY2', function () {
     return gulp.src([sourceUrl + "/" + '/**/*.png', sourceUrl + "/" + '/**/*.jpg', sourceUrl + "/" + '/**/*.json'])
         .pipe(gulp.dest(targetUrl + '/'));
 });
+
+gulp.task('copyGameJs',function(){
+    var stream = gulp.src(gameJsPath)
+        // pipe(rename(function (path) {
+        //     path.basename = "game";
+        // }))
+        .pipe(gulp.dest(sourceProject + '/'))
+    return stream;
+});
+
+gulp.task('renameGameJs',function(){
+    var stream = gulp.src(targetProject + "/game_b.js").
+    pipe(rename(function (path) {
+            path.basename = "game";
+        })
+    ).pipe(gulp.dest(targetProject + '/'))
+    return stream;
+})
+
+gulp.task('cleanGameJs',function(){
+    var stream = gulp.src(targetProject + "/game_b.js")
+        .pipe(clean({
+            force: true
+        }))
+    return stream;
+})
 
 
 //随机产生辣鸡空文件

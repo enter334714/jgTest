@@ -78,7 +78,7 @@ import AKSDK from "../bbbk/bbbsdk.js";window.versions = { wxVersion: window.conf
   AKSDK.openService();
 }, window.microPortGuide = function () {
   AKSDK.weiduanHelper();
-}, window.onShowData = null, window.onShowCallback = null, window.onShow = function (e) {
+}, window.onShow = function (e) {
   window.onShowCallback = e, window.onShowCallback && window.onShowData && (console.info("\u5c0f\u6e38\u620f\u5207\u524d\u53f0\u4e8b\u4ef6\uff0c\u573a\u666f\u503c\uff1a" + window.onShowData.scene), window.onShowCallback(window.onShowData), window.onShowData = null);
 }, window.reqPlayerAskInfo = function (e, n, o, i) {
   window.send("https://sdk.sh9130.com/game/?ct=min&ac=getInviter", { game_pkg: window.PF_INFO.pkgName, role_id: n, server_id: o }, i);
