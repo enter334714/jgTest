@@ -1,4 +1,4 @@
-import AKSDK from "./wxsdk/wx_aksdk.js";
+﻿import AKSDK from "./wxsdk/wx_aksdk.js";
 window.versions = { 
   wxVersion: window.config.game_ver,  
 };
@@ -236,7 +236,7 @@ window.sdkOnInited = function(res) {
   // res.game_ver = "1.0.86";
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
   console.log("#初始化成功   提审状态:"+ develop +"   是否提审:"+ (develop == 1) +"   提审版本号:"+res.game_ver +"   当前版本号:"+window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
-  if (window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
+  if (!res.game_ver || window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
     console.log("#正式版=============================");
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
     PF_INFO.logurl = "https://log-tjqy.shzbkj.com";
@@ -563,8 +563,8 @@ window.microPortGuide = function(){
 }
 
 //收藏
-// window.onShowData = null;
-// window.onShowCallback = null;
+//window.onShowData = null;
+//window.onShowCallback = null;
 window.onShow = function(callback){
   window.onShowCallback = callback;
   if (window.onShowCallback && window.onShowData) {
@@ -1006,6 +1006,7 @@ window.initMain = function() {
 
 window.enterToGame = function() {
   if(window.loadProbPkg && window.loadMainPkg && window.loadVersion && window.loadServer && window.isCheckBan && window.loadOption) {
+    wxHideLoading();
     if (!bEnterGame) {
       bEnterGame = true;
       if (!window.MainWX.instance) window.initMain();
@@ -1051,8 +1052,6 @@ window.enterToGame = function() {
       }
 
       window.MainWX.instance.initPlatdata(platData);
-    } else {
-      wxHideLoading();
     }
   } else {
     console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);

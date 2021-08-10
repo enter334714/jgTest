@@ -3,7 +3,7 @@ var config = {
     game_id: '256', //九歌行
     game_pkg: 'tjqy_jgxxyx_AF',
     partner_id: '19',
-    game_ver: '2.0.97',  //B包为2.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '2.0.99',  //B包为2.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false,  //授权登录
     from: null, //来源
     tmpId: {1:'EINuK1ZxS2r8DUPVqymQs_JbjT6nV5o_bo-wc67bbs8', 2:'JJ3T3yUyMvF_XfMKx3fFEPYJV8iZHI4M8Do5ddeN7sM', 3:'snQEtMujGdKT78ppl6C_k6z2Tzvp3W-2E_Tr02w2pB0'},  // 订阅的类型 和 模板id
@@ -19,6 +19,7 @@ var t_max = 300;
 var user_game_info = null;
 var user_invite_info = null;
 var this_order_id = null;
+var timeHandler = null;
 
 function mainSDK() {
     var callbacks = {};
@@ -116,9 +117,6 @@ function mainSDK() {
                         }else{
                             console.log("[SDK]获得授权设置：未授权");
                             wx.hideLoading({});
-                            // setTimeout(() => {
-                            //     wx.hideLoading();
-                            // }, 1000);
                             var system_info = wx.getSystemInfoSync();
                             var screen_width = system_info.screenWidth;
                             var screen_height = system_info.screenHeight;
@@ -402,8 +400,9 @@ function mainSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[SDK]获取游戏版本结果");
+                    console.log("[SDK]获取游戏版本成功");
                     console.log(res);
+                    if (timeHandler) clearTimeout(timeHandler);
                     if(res.statusCode == 200){
                         var data = res.data;
                         config.min_app_id = data.data.min_app_id;
@@ -417,9 +416,17 @@ function mainSDK() {
                     }
                 },
                 fail: function(res){
+                    console.log("[SDK]获取游戏版本失败");
                     console.log(res);
+                    if (timeHandler) clearTimeout(timeHandler);
+                    callback && callback({develop: 0});
                 }
             });
+            var func = function() {
+                console.log("[SDK]获取游戏版本超时");
+                callback && callback({develop: 0});
+            }
+            timeHandler = setTimeout(func, 10000);
         },
         getShareInfo: function (type, callback) {
             console.log("[SDK]获取分享参数");
@@ -915,7 +922,15 @@ function mainSDK() {
             console.log(public_data);
 
             wx.request({
-                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data))
+                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data)),
+                success: function (res) {
+                    // console.log("[SDK]上报数据成功");
+                    // console.log(res);
+                },
+                fail: function(res){
+                    // console.log("[SDK]上报数据失败");
+                    // console.log(res);
+                }
             });
         },
 

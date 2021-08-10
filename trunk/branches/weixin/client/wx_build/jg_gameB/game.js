@@ -92,6 +92,7 @@ window.loadingInterval = setInterval(function(){
   render();
 }, 16)
 console.info("2 加载游戏");
+wxShowLoading({ title: '正在加载' });
 
 // 每个分包的图集不一样，采用传参形式
 var wxData = {
@@ -131,7 +132,7 @@ console.log("微信基础库版本："+window.SDKVersion);
 
 
 // 版本更新相关，基础库 1.9.90 开始支持
-const updateManager = wx.getUpdateManager();
+var updateManager = wx.getUpdateManager();
 updateManager.onCheckForUpdate(function (res) {
   console.log("是否有新版本："+ res.hasUpdate);
 })
@@ -300,7 +301,6 @@ wx.onShow(function (res) {
 window.memoryWarningNum = 0;
 window.onMemoryWarningCallBack = null;
 wx.onMemoryWarning(function () {
-  
   window.memoryWarningNum++;
   wx.triggerGC(); //微信小游戏垃圾回收;
   if (window.memoryWarningNum >= 2) {
