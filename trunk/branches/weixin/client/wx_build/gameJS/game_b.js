@@ -1,4 +1,5 @@
-﻿wx.y$ = [];
+﻿import "libsss/bbbweasaf.js";
+wx.y$ = [];
 var fs = wx.getFileSystemManager();
 wx.getFileSystemManager().unzip({
     zipFilePath: "/res/files.zip",
