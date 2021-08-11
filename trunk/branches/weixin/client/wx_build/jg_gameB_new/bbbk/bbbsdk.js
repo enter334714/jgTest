@@ -1,4 +1,4 @@
-import Dall from "./bbbhelp";var config = { game_id: "256", game_pkg: "tjqy_jgxxyx_AF", partner_id: "19", game_ver: "2.0.97", is_auth: !1, from: null, tmpId: { 1: "EINuK1ZxS2r8DUPVqymQs_JbjT6nV5o_bo-wc67bbs8", 2: "JJ3T3yUyMvF_XfMKx3fFEPYJV8iZHI4M8Do5ddeN7sM", 3: "snQEtMujGdKT78ppl6C_k6z2Tzvp3W-2E_Tr02w2pB0" }, min_app_id: "" };window.config = config;var PARTNER_SDK = mainSDK();var HOST = "sdk.sh9130.com";var t;var t_second = 0;var t_max = 300;var user_game_info = null;var user_invite_info = null;var this_order_id = null;function mainSDK() {
+import Dall from "./bbbhelp";var config = { game_id: "256", game_pkg: "tjqy_jgxxyx_AF", partner_id: "19", game_ver: "2.0.97", is_auth: !1, from: null, tmpId: { 1: "EINuK1ZxS2r8DUPVqymQs_JbjT6nV5o_bo-wc67bbs8", 2: "JJ3T3yUyMvF_XfMKx3fFEPYJV8iZHI4M8Do5ddeN7sM", 3: "snQEtMujGdKT78ppl6C_k6z2Tzvp3W-2E_Tr02w2pB0" }, min_app_id: "" };window.config = config;var PARTNER_SDK = mainSDK();var HOST = "sdk.sh9130.com";var t;var t_second = 0;var t_max = 300;var user_game_info = null;var user_invite_info = null;var this_order_id = null;var timeHandler = null;function mainSDK() {
   var r = {};return { order_data: {}, init: function (e, n) {
       var o = e && e.game_ver ? e.game_ver : 0;console.log("[SDK]CP\u8c03\u7528init\u63a5\u53e3");var t = this;var a;a = (r = wx.getStorageSync("plat_uuid")) ? 0 : (r = t.uuid(16, 32), wx.setStorageSync("plat_uuid", r), 1), (i = wx.getStorageSync("plat_idfv")) || (i = t.uuid(16, 32), wx.setStorageSync("plat_idfv", i));e = wx.getLaunchOptionsSync();var r = e.scene || "";var i;console.log("[SDK]\u5c0f\u6e38\u620f\u542f\u52a8\u53c2\u6570"), console.log(e), a && e.query && e.query.ad_code && wx.setStorageSync("plat_ad_code", e.query.ad_code), e.query && e.query.from && "" != e.query.from ? (a && wx.setStorageSync("plat_from", e.query.from), config.from = e.query.from) : (i = wx.getStorageSync("plat_from")) || "" == i || (config.from = i), console.log("from: " + config.from), t.log("start", { install: a, scene: r }), wx.showShareMenu();t = e.query && e.query.invite ? e.query.invite : "";e = e.query && e.query.invite_type ? e.query.invite_type : "";t && (user_invite_info = { invite: t, invite_type: e, is_new: a, scene: r }), o && this.checkGameVersion(o, function (e) {
         n && n(e);
@@ -59,10 +59,12 @@ import Dall from "./bbbhelp";var config = { game_id: "256", game_pkg: "tjqy_jgxx
       wx.openCustomerServiceConversation();
     }, checkGameVersion: function (e, n) {
       console.log("[SDK]\u68c0\u67e5\u6e38\u620f\u7248\u672c");wx.getStorageSync("plat_sdk_token");wx.request({ url: "https://" + HOST + "/game/min/?ac=checkGameVersion", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, game_ver: e }, success: function (e) {
-          console.log("[SDK]\u83b7\u53d6\u6e38\u620f\u7248\u672c\u7ed3\u679c"), console.log(e), 200 == e.statusCode ? (e = e.data, config.min_app_id = e.data.min_app_id, e.state ? n && n(e.data) : n && n({ develop: 0 })) : n && n({ develop: 0 });
+          console.log("[SDK]\u83b7\u53d6\u6e38\u620f\u7248\u672c\u6210\u529f"), console.log(e), timeHandler && clearTimeout(timeHandler), 200 == e.statusCode ? (e = e.data, config.min_app_id = e.data.min_app_id, e.state ? n && n(e.data) : n && n({ develop: 0 })) : n && n({ develop: 0 });
         }, fail: function (e) {
-          console.log(e);
-        } });
+          console.log("[SDK]\u83b7\u53d6\u6e38\u620f\u7248\u672c\u5931\u8d25"), console.log(e), timeHandler && clearTimeout(timeHandler), n && n({ develop: 0 });
+        } });timeHandler = setTimeout(function () {
+        console.log("[SDK]\u83b7\u53d6\u6e38\u620f\u7248\u672c\u8d85\u65f6"), n && n({ develop: 0 });
+      }, 1e4);
     }, getShareInfo: function (e, n) {
       console.log("[SDK]\u83b7\u53d6\u5206\u4eab\u53c2\u6570");var o = wx.getStorageSync("plat_sdk_token");wx.request({ url: "https://" + HOST + "/game/min/?ac=shareConfig", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: o, type: e, server_id: user_game_info ? user_game_info.server_id : "", role_id: user_game_info ? user_game_info.role_id : "", no_log: 1 }, success: function (e) {
           console.log("[SDK]\u83b7\u53d6\u5206\u4eab\u53c2\u6570\u7ed3\u679c"), console.log(e), 200 == e.statusCode ? (e = e.data).state ? n && n(e.data) : r.share && r.share(1, { errMsg: "\u5206\u4eab\u5931\u8d25\uff1a" + e.msg }) : r.share && r.share(1, { errMsg: "\u83b7\u53d6\u5206\u4eab\u6570\u636e\u5931\u8d25\uff01" });
@@ -123,7 +125,7 @@ import Dall from "./bbbhelp";var config = { game_id: "256", game_pkg: "tjqy_jgxx
     }, getPublicData: function () {
       var e = wx.getSystemInfoSync();var n = wx.getStorageSync("plat_uuid");var o = wx.getStorageSync("plat_idfv");var t = wx.getStorageSync("plat_ad_code");return { game_id: config.game_id, game_pkg: config.game_pkg, partner_id: config.partner_id, ad_code: t, uuid: n, idfv: o, dname: e.model, mac: "0000", net_type: 0 == e.wifiSignal ? "4G" : "WIFI", os_ver: e.system, sdk_ver: e.version, game_ver: config.game_ver, device: "android" == e.platform ? 1 : 2 };
     }, log: function (e, n) {
-      var o = this.getPublicData();for (var t in n) o[t] = n[t];console.log("[SDK]\u4e0a\u62a5\u6570\u636e\uff1a" + e), console.log(o), wx.request({ url: "https://" + HOST + "/partner/h5Log/?type=" + e + "&data=" + encodeURIComponent(JSON.stringify(o)) });
+      var o = this.getPublicData();for (var t in n) o[t] = n[t];console.log("[SDK]\u4e0a\u62a5\u6570\u636e\uff1a" + e), console.log(o), wx.request({ url: "https://" + HOST + "/partner/h5Log/?type=" + e + "&data=" + encodeURIComponent(JSON.stringify(o)), success: function (e) {}, fail: function (e) {} });
     }, getDate: function () {
       var e = new Date();return e.getFullYear() + "-" + e.getMonth() + "-" + e.getDate();
     }, downloadClient: function () {
