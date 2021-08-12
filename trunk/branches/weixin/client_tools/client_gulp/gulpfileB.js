@@ -1361,7 +1361,7 @@ var filesMap = {
     "libs/libs.min.js":  {url:"bbblibs/bbblibsmin.js",extractStr:false},
     "libs/md5.min.js":  {url:"bbblibs/bbbmd5min.js"},
     "libs/sax.js":  {url:"bbblibs/bbbsax.js"},
-    "libs/weapp-adapter.js":  {url:"bbblibs/bbbweasaf.js"},
+    "libs/weapp-adapter.js":  {url:"bbssss/bbbweasaf.js"},
     "libs/zlib.js":  {url:"bbblibs/bbbzlibs.js"},
     "libs/game.js":  {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
     "wxsdk":  {url:"bbbk"},
@@ -1460,7 +1460,7 @@ gulp.task('MT1_build_minify', function () {
 });
 
 gulp.task('MT1_COPY', function () {
-    var sourceUrl = "../../client/wx_build/"+ PACK //jg_gameMT1";
+    var sourceUrl = "../../client/wx_build/"+ PACK;
     var targetUrl =  sourceProject;
     return gulp.src(sourceUrl + "/" + '/**/*')
         .pipe(rename(function (path) {
@@ -1503,9 +1503,15 @@ gulp.task('MT1_COPY', function () {
 
         }))
         //不用修改
-        .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/weapp-adapter.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)|(game.js)/g, function (match, p1, offset, string) {
+        .pipe(replace(/(import "libs\/weapp-adapter.js";)/g, function (match, p1, offset, string) {
+            return "";
+        }))
+        .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)|(game.js)/g, function (match, p1, offset, string) {
             var arr = filesMap[match].url.split("/");
             // console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
+            if(arr[arr.length - 1].indexOf("bbbweasaf")!=-1)
+                debugger;
+            console.log(" arr[arr.length - 1]:", arr[arr.length - 1])
             return arr[arr.length - 1];
         }))
         .pipe(replace(/(res\/atlas\/wxlogin_atlas.png)|(res\/atlas\/wxeff_btn_atlas.png)|(res\/atlas\/wxloading_atlas.png)|(res\/atlas)/g, function (match, p1, offset, string) {

