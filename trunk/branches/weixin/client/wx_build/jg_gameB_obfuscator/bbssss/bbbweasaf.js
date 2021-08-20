@@ -198,7 +198,9 @@ var _ = wx.y$;
   "use strict";
 
   Object.defineProperty(t, "__esModule", { value: !0 }), t.default = function () {
-    return wx.createImage();
+    var e = wx.createImage();return e.destroy = function () {
+      e.src = "";
+    }, e;
   };
 }, function (e, t, n) {
   "use strict";

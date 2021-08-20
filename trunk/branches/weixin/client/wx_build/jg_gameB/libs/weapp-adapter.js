@@ -807,7 +807,10 @@
 	});
 	exports.default = Image;
 	function Image() {
-	  var image = wx.createImage();
+		var image = wx.createImage();
+		image.destroy = function(){
+			image.src = "";
+		}
 
 	  return image;
 	}

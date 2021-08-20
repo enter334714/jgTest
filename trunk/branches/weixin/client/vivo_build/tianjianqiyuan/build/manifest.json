@@ -1,0 +1,24 @@
+{
+  "package": "com.application.demo",
+  "name": "quickgame",
+  "versionName": "1.0.0",
+  "versionCode": "1",
+  "minPlatformVersion": "1050",
+  "icon": "/res/logo.png",
+  "orientation": "portrait",
+  "config": {
+    "logLevel": "log",
+    "debug": true
+  },
+  "subpackages": [
+    {
+      "name": "probuf",
+      "root": "protobuf/"
+    },
+    {
+      "name": "sub",
+      "root": "subPackage/"
+    }
+  ],
+  "type": "game"
+}

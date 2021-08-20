@@ -53,6 +53,8 @@ window.apiRetryAmount = 5;
 window.isCheckBan = false;
 window.loadProbPkg = false;
 window.loadMainPkg = false;
+window.loadServerRes = false;
+window.loadLoadingRes = false;
 window.loadVersion = false;
 window.loadOption = false;
 window.loadServer = false;
@@ -241,7 +243,8 @@ window.sdkOnInited = function(res) {
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
     PF_INFO.logurl = "https://log-tjqy.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
-    PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/",
+    PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_1/";
+    PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
     PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = false;
   } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0){  //当前版本 == 后台版本
@@ -249,7 +252,8 @@ window.sdkOnInited = function(res) {
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（审核版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-    PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/",
+    PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/";
+    PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
     PF_INFO.version_name = "";
     PF_INFO.wxShield = true;                          //屏蔽活动
   } else {
@@ -257,7 +261,8 @@ window.sdkOnInited = function(res) {
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（开发版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-    PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/",
+    PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/";
+    PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
     PF_INFO.version_name = "";
     PF_INFO.wxShield = false;
   }
@@ -389,8 +394,8 @@ window.loadVersionConfig = function() {
       window.loginAlert('User.getCdnVersion failed: version=' + (response.data&&response.data.version));
       return;
     }
-    PF_INFO.base_cdn = response.data.cdn_url || PF_INFO.base_cdn;
-    PF_INFO.cdn = response.data.cdn_url || PF_INFO.cdn;
+    PF_INFO.base_cdn = (response.data.cdn_url&&response.data.cdn_url.length ? response.data.cdn_url : PF_INFO.base_cdn);
+    PF_INFO.cdn = (response.data.cdn_url&&response.data.cdn_url.length ? response.data.cdn_url : PF_INFO.cdn);
     PF_INFO.lastVersion = response.data.version || PF_INFO.lastVersion;
     console.info("资源版本号："+PF_INFO.lastVersion);
     window.loadVersion = true;
@@ -982,7 +987,7 @@ window.checkBanSuccess = function() {
 
 
 window.initMain = function() {
-  if(window.loadProbPkg && window.loadMainPkg && window.loadVersion && window.loadServer) {
+  if(window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer) {
     if (!window.MainWX.instance) {
       console.log("Main 初始化"+window.MainWX.instance);
       var info = wx.getLaunchOptionsSync();
@@ -1005,7 +1010,7 @@ window.initMain = function() {
 }
 
 window.enterToGame = function() {
-  if(window.loadProbPkg && window.loadMainPkg && window.loadVersion && window.loadServer && window.isCheckBan && window.loadOption) {
+  if(window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer && window.isCheckBan && window.loadOption) {
     wxHideLoading();
     if (!bEnterGame) {
       bEnterGame = true;
@@ -1054,6 +1059,6 @@ window.enterToGame = function() {
       window.MainWX.instance.initPlatdata(platData);
     }
   } else {
-    console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);
+    console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadServerRes:"+window.loadServerRes+",loadLoadingRes:"+window.loadLoadingRes+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);
   }
 }
