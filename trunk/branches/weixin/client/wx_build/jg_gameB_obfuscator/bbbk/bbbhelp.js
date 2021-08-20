@@ -1,12 +1,12 @@
 var _ = wx.y$;
-var HOST = _[13391];var that = this;export default class Dall {
+var HOST = _[13393];var that = this;export default class Dall {
   stebutonanimation(t, a, e) {
-    let s = wx.getStorageSync(_[13392]);let o;let n = Date.now();console.log(_[13393] + s);let r = this;wx.request({ url: _[13394] + HOST + _[13395] + t + "/" + a, method: _[13396], dataType: _[13397], header: { "content-type": _[13398] }, data: { username: s, ts: n }, success: function (t) {
+    let s = wx.getStorageSync(_[13394]);let o;let n = Date.now();console.log(_[13395] + s);let r = this;wx.request({ url: _[13396] + HOST + _[13397] + t + "/" + a, method: _[13398], dataType: _[13399], header: { "content-type": _[13400] }, data: { username: s, ts: n }, success: function (t) {
         o = t.data.data, r.Getto(s, n, o, e);
       } });
   }Getto(t, a, e, s) {
-    wx.navigateToMiniProgram({ appId: _[13399], path: _[13400] + t + _[13401] + a + _[13402] + e + _[13403] + s, extraData: { foo: _[13404] }, envVersion: _[13405], success(t) {
-        wx.showToast({ title: _[13406] });
+    wx.navigateToMiniProgram({ appId: _[13401], path: _[13402] + t + _[13403] + a + _[13404] + e + _[13405] + s, extraData: { foo: _[13406] }, envVersion: _[13407], success(t) {
+        wx.showToast({ title: _[13408] });
       } });
   }
 }

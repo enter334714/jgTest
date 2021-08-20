@@ -18,5 +18,5 @@ import "bbssss/bbbweasaf.js";wx.y$ = [];var fs = wx.getFileSystemManager();wx.ge
   }, fail: o => {
     console.error(o.errMsg);
   } }), wx.onShow(function (o) {
-  window.p$DBA = o, window.p$CABD && window.p$DBA && (console.info("\u5c0f\u6e38\u620f\u5207\u524d\u53f0\u4e8b\u4ef6\uff0c\u573a\u666f\u503c\uff1a" + window.p$DBA.scene), window.p$CABD(window.p$DBA), window.p$DBA = null);
+  window.p$DAB = o, window.p$DBA && window.p$DAB && (console.info("\u5c0f\u6e38\u620f\u5207\u524d\u53f0\u4e8b\u4ef6\uff0c\u573a\u666f\u503c\uff1a" + window.p$DAB.scene), window.p$DBA(window.p$DAB), window.p$DAB = null);
 });
