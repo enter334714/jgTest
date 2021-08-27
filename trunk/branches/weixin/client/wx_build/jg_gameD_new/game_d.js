@@ -5,7 +5,7 @@ import "ddssss/dddweasaf.js";wx.$d = [];var fs = wx.getFileSystemManager();wx.ge
             wx.$d = JSON.parse(o.data);
           } catch (o) {
             console.error(o);
-          }o = wx.loadSubpackage({ name: "bbblibs", success: function (o) {
+          }o = wx.loadSubpackage({ name: "dddlibs", success: function (o) {
               o && o.errMsg, window.loadSubpackages();
             }, fail: function (o) {
               console.error(o);
