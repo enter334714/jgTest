@@ -390,7 +390,7 @@ gulp.task('build-all-B', function (cb) {
 
 //混淆
 gulp.task('build-babel-obfuscator-B', function (cb) {
-    sequence("set-param-b","MT1_COPY",'MT1_COPY2',"copyGameJs","MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
+    sequence("set-param-b","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
 });
 /**-------------------------------------------------微信小游戏--B包  end-----------------------------------------------------------*/
 
@@ -597,8 +597,9 @@ var identifier_create = function (rate) {
         var identifiersRenameArray = [];
         var identifiersGlobleArray = [];
         identifiersObfuscatorArray = [];
-
-        var perm = function (s, arr, pre) {
+        var reNameArrObj = {};
+        var obfuscatorArrObj = {};
+        var perm = function (s, arrObj, pre) {
             var result = [];
             if (s.length <= 1) {
                 return [s];
@@ -606,14 +607,14 @@ var identifier_create = function (rate) {
                 for (var i = 0; i < s.length; i++) {
                     var c = s[i];
                     var newStr = s.slice(0, i) + s.slice(i + 1, s.length);
-                    var l = perm(newStr, arr, pre);
+                    var l = perm(newStr, arrObj, pre);
 
                     for (var j = 0; j < l.length; j++) {
                         var tmp = c + l[j];
                         result.push(tmp);
                         tmp = pre + tmp;
-                        if (keys.indexOf(tmp) == -1 && globleKeys.indexOf(tmp) == -1 && arr.indexOf(tmp) == -1 && identifiersObfuscatorArray.indexOf(tmp) == -1 && identifiersGlobleArray.indexOf(tmp) == -1 && digits.indexOf(tmp.slice(0, 1)) == -1) {
-                            arr.push(tmp);
+                        if (keys.indexOf(tmp) == -1 && globleKeys.indexOf(tmp) == -1 && !reNameArrObj[tmp] && !obfuscatorArrObj[tmp] && identifiersGlobleArray.indexOf(tmp) == -1 && digits.indexOf(tmp.slice(0, 1)) == -1) {
+                            arrObj[tmp] = tmp;
                         }
                     }
                 }
@@ -624,19 +625,23 @@ var identifier_create = function (rate) {
         var leading = "ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789";
         for (var n = 4; n < 5; n++) {
             for (var m = 0; m < leading.length; m++) {
-                perm(leading.slice(m, m + n), identifiersRenameArray, globleKeys[3]);
+                perm(leading.slice(m, m + n), reNameArrObj, globleKeys[3]);
             }
+        }
+
+        for(var key in reNameArrObj){
+            identifiersRenameArray.push(key);
         }
 
         if (identifiersRename.length > identifiersRenameArray.length) {
             throw new Error('全局变量映射随机字符过少  ' + identifiersRename.length + '  ' + identifiersRenameArray.length);
         }
-        identifiersRenameMapStr = "";
+        // identifiersRenameMapStr = "";
         for (var i = 0; i < identifiersRename.length; i++) {
             identifiersGlobleMap[identifiersRename[i]] = identifiersRenameArray[i];
             identifiersGlobleArray.push(identifiersRename[i]);
             identifiersGlobleArray.push(identifiersRenameArray[i]);
-            identifiersRenameMapStr += identifiersRename[i] + ":" + identifiersRenameArray[i] + ", ";
+            // identifiersRenameMapStr += identifiersRename[i] + ":" + identifiersRenameArray[i] + ", ";
         }
         // console.info("全局变量映射关系："+ identifiersRenameMapStr);
 
@@ -646,8 +651,11 @@ var identifier_create = function (rate) {
         //生成混淆用的标识符
         for (var n = 1; n < 7; n++) { //字符数量
             for (var m = 0; m < leading.length; m++) {
-                perm(leading.slice(m, m + n), identifiersObfuscatorArray, '');
+                perm(leading.slice(m, m + n), obfuscatorArrObj, '');
             }
+        }
+        for(var key in obfuscatorArrObj){
+            identifiersObfuscatorArray.push(key);
         }
 
         console.info("标识符生成：" + identifiersRenameArray.length + "  " + identifiersObfuscatorArray.length);
@@ -1353,6 +1361,7 @@ var filesMap = {
     //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen
     "libs": {url:"bbblibs"},
     "game.js": {url:"bbblibs/bbbgame.js",extractStr:true,count:1,strLen:3},
+    "game_bbblibs.js": {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
     "index.js": {url:"bbblibs/bbbindex.js",extractStr:true,count:1,strLen:3},
     "init.min.js":  {url:"bbblibs/bbbinitmin.js",extractStr:true,count:1,strLen:3},
     "libs/dom.js":  {url:"bbblibs/bbbdom.js"},
@@ -1572,6 +1581,10 @@ gulp.task('MT1_COPY', function () {
             // console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
             if(arr[arr.length - 1].indexOf("bbbweasaf")!=-1)
                 debugger;
+            var relative = this.file.relative.replace(/\\/g, "/");
+            if(relative == "bbblibs/game.js"){
+                return match;
+            }
             console.log(" arr[arr.length - 1]:", arr[arr.length - 1])
             return arr[arr.length - 1];
         }))

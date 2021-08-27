@@ -1,1 +1,1 @@
-require("ddddddgame.js");
+require("dddgame.js");

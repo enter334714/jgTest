@@ -41,7 +41,7 @@ import AKSDK from "../dddk/dddsdk.js";window.versions = { wxVersion: window.conf
 }, window.sdkOnInited = function (e) {
   var n = e.develop;console.log("#\u521d\u59cb\u5316\u6210\u529f   \u63d0\u5ba1\u72b6\u6001:" + n + "   \u662f\u5426\u63d0\u5ba1:" + (1 == n) + "   \u63d0\u5ba1\u7248\u672c\u53f7:" + e.game_ver + "   \u5f53\u524d\u7248\u672c\u53f7:" + window.versions.wxVersion), !e.game_ver || window.compareVersion(window.versions.wxVersion, e.game_ver) < 0 ? (console.log("#\u6b63\u5f0f\u7248============================="), PF_INFO.apiurl = "https://api-tjqy.shzbkj.com", PF_INFO.logurl = "https://log-tjqy.shzbkj.com", PF_INFO.payurl = "https://pay-tjqy.shzbkj.com", PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_1/", PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/", PF_INFO.version_name = "weixin", PF_INFO.wxShield = !1) : 0 == window.compareVersion(window.versions.wxVersion, e.game_ver) ? (console.log("#\u5ba1\u6838\u7248============================="), PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com", PF_INFO.logurl = "https://log-tjqytest.shzbkj.com", PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com", PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/", PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/", PF_INFO.version_name = "", PF_INFO.wxShield = !0) : (console.log("#\u5f00\u53d1\u7248============================="), PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com", PF_INFO.logurl = "https://log-tjqytest.shzbkj.com", PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com", PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/", PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/", PF_INFO.version_name = "", PF_INFO.wxShield = !1), PF_INFO.from_scene = config.from || 0, this.loadVersionConfig(), this.reqPkgOptions(), wxShowLoading({ title: "\u6b63\u5728\u767b\u5f55\u8d26\u53f7" }), AKSDK.login(this.sdkOnLogin.bind(this));
 }, window.sdkOnLogin = function (e, n) {
-  wxShowLoading({ title: "\u6b63\u5728\u9a8c\u8bc1\u8d26\u53f7" }), 0 === e && n && n.token ? (PF_INFO.sdk_token = n.token, sendApi(PF_INFO.apiurl, "User.login", { platform: PF_INFO.sdk_name, partner_id: PF_INFO.partnerId, token: n.token, game_pkg: PF_INFO.pkgName, deviceId: PF_INFO.device_id, scene: "WX_" + PF_INFO.from_scene }, this.onUserLogin.bind(this), apiRetryAmount, onApiError)) : (clientlog(JSON.stringify({ error: JSON.stringify({ type: "sdkOnLoginError", status: e, data: n }) })), window.loginAlert("\u767b\u5f55/\u6ce8\u518c\u5931\u8d25" + (n && n.errMsg ? "\uff0c" + n.errMsg : "")));
+  wxShowLoading({ title: "\u6b63\u5728\u9a8c\u8bc1\u8d26\u53f7" }), 0 === e && n && n.token ? (PF_INFO.sdk_token = n.token, sendApi(PF_INFO.apiurl, "User.login", { platform: PF_INFO.sdk_name, partner_id: PF_INFO.partnerId, token: n.token, game_pkg: PF_INFO.pkgName, deviceId: PF_INFO.device_id, scene: "WX_" + PF_INFO.from_scene }, this.onUserLogin.bind(this), apiRetryAmount, onApiError)) : (clientlog(JSON.stringify({ account: PF_INFO.account, pkgName: PF_INFO.pkgName, error: "sdkOnLoginError", stack: JSON.stringify({ status: e, data: n }) })), window.loginAlert("\u767b\u5f55/\u6ce8\u518c\u5931\u8d25" + (n && n.errMsg ? "\uff0c" + n.errMsg : "")));
 }, window.onUserLogin = function (e) {
   e ? "success" == e.state ? (PF_INFO.userId = String(e.account), PF_INFO.account = String(e.account), PF_INFO.platform = String(e.platform), PF_INFO.channel = String(e.platform), PF_INFO.platform_uid = String(e.platform_uid), PF_INFO.php_sign = String(e.sign), PF_INFO.php_signtime = String(e.time), PF_INFO.sign = "", wxShowLoading({ title: "\u8bf7\u6c42\u670d\u52a1\u5668" }), sendApi(PF_INFO.apiurl, "Server.defaultServer", { partner_id: PF_INFO.partnerId, uid: PF_INFO.account, version: PF_INFO.version, game_pkg: PF_INFO.pkgName, device: PF_INFO.device_id }, this.onUserLoginDefaultServers.bind(this), apiRetryAmount, onApiError)) : window.loginAlert("User.login failed: " + e.state) : window.loginAlert("User.login failed");
 }, window.onUserLoginDefaultServers = function (e) {
@@ -58,17 +58,17 @@ import AKSDK from "../dddk/dddsdk.js";window.versions = { wxVersion: window.conf
   sendApi(PF_INFO.apiurl, "Common.get_option_pkg", { game_pkg: PF_INFO.pkgName }, reqPkgOptionsCallBack);
 }, window.reqPkgOptionsCallBack = function (e) {
   if ("success" === e.state && e.data) for (var n in window.pkgOptions = e.data, e.data) PF_INFO[n] = e.data[n];else console.info("reqPkgOptionsCallBack " + e.state);window.loadOption = !0, window.enterToGame();
-}, window.toPay = function (e, n, o, i, r, t, a, d, s) {
-  r = String(r);PF_INFO.pay_infos[r] = { productid: r, productname: a, productdesc: d, roleid: e, rolename: n, rolelevel: o, price: t, callback: s }, sendApi(PF_INFO.payurl, "Order.order", { game_pkg: PF_INFO.pkgName, server_id: PF_INFO.selectedServer.server_id, server_name: PF_INFO.selectedServer.server_name, level: o, uid: PF_INFO.account, role_id: e, role_name: n, product_id: r, product_name: a, product_desc: d, money: t, partner_id: PF_INFO.partnerId }, toPayCallBack, apiRetryAmount, onApiError);
+}, window.toPay = function (e, n, o, i, r, t, a, s, d) {
+  r = String(r);PF_INFO.pay_infos[r] = { productid: r, productname: a, productdesc: s, roleid: e, rolename: n, rolelevel: o, price: t, callback: d }, sendApi(PF_INFO.payurl, "Order.order", { game_pkg: PF_INFO.pkgName, server_id: PF_INFO.selectedServer.server_id, server_name: PF_INFO.selectedServer.server_name, level: o, uid: PF_INFO.account, role_id: e, role_name: n, product_id: r, product_name: a, product_desc: s, money: t, partner_id: PF_INFO.partnerId }, toPayCallBack, apiRetryAmount, onApiError);
 }, window.toPayCallBack = function (o) {
   var i;o && (200 === o.errCode || "success" == o.state ? ((i = PF_INFO.pay_infos[String(o.product_id)]).callback && i.callback(o.product_id, o.cp_order_id, -1), AKSDK.pay({ cpbill: o.cp_order_id, productid: o.product_id, productname: i.productname, productdesc: i.productdesc, serverid: PF_INFO.selectedServer.server_id, servername: PF_INFO.selectedServer.server_name, roleid: i.roleid, rolename: i.rolename, rolelevel: i.rolelevel, price: i.price, extension: JSON.stringify({ cp_order_id: o.cp_order_id }) }, function (e, n) {
     i.callback && 0 == e && i.callback(o.product_id, o.cp_order_id, e), console.info(JSON.stringify({ type: "paycallback", status: e, data: o, role_name: i.rolename }));
   })) : alert(o.info));
-}, window.loadCreateRole = function () {}, window.toCreate = function (e, n, o, i) {
+}, window.loadCreateRole = function () {}, window.toCreate = function (e, n, o, i, r) {
   AKSDK.logCreateRole(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, e, n, o), sendApi(PF_INFO.apiurl, "User.create_role", { game_pkg: PF_INFO.pkgName, server_id: PF_INFO.selectedServer.server_id, role_id: e, uid: PF_INFO.account, role_name: n, role_type: i, level: o });
-}, window.toLogin = function (e, n, o, i, r) {
+}, window.toLogin = function (e, n, o, i, r, t, a, s, d, w) {
   PF_INFO.roleId = e, PF_INFO.roleName = n, PF_INFO.roleLevel = o, AKSDK.logEnterGame(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, e, n, o), sendApi(PF_INFO.apiurl, "User.update_role", { game_pkg: PF_INFO.pkgName, server_id: PF_INFO.selectedServer.server_id, role_id: e, uid: PF_INFO.account, role_name: n, role_type: i, level: o, evolution: r });
-}, window.toLevelUp = function (e, n, o, i, r) {
+}, window.toLevelUp = function (e, n, o, i, r, t, a, s, d, w) {
   PF_INFO.roleId = e, PF_INFO.roleName = n, PF_INFO.roleLevel = o;
 }, window.toRealName = function (e) {}, window.openShare = function (n) {
   AKSDK.share("share", function (e) {
@@ -82,7 +82,7 @@ import AKSDK from "../dddk/dddsdk.js";window.versions = { wxVersion: window.conf
   window.onShowCallback = e, window.onShowCallback && window.onShowData && (console.info("\u5c0f\u6e38\u620f\u5207\u524d\u53f0\u4e8b\u4ef6\uff0c\u573a\u666f\u503c\uff1a" + window.onShowData.scene), window.onShowCallback(window.onShowData), window.onShowData = null);
 }, window.reqPlayerAskInfo = function (e, n, o, i) {
   window.send("https://sdk.sh9130.com/game/?ct=min&ac=getInviter", { game_pkg: window.PF_INFO.pkgName, role_id: n, server_id: o }, i);
-}, window.openSubscribeMsg = function (r, d) {
+}, window.openSubscribeMsg = function (r, s) {
   wx.onTouchEnd(function onTouchEnd(e) {
     var t = [];var n = [];var a = window.config.tmpId;for (var o in a) {
       var i = Number(o);r && r.length && -1 == r.indexOf(i) || (n.push(a[o]), t.push([i, 3]));
@@ -97,12 +97,12 @@ import AKSDK from "../dddk/dddsdk.js";window.versions = { wxVersion: window.conf
               var i = Number(o);for (var r = 0; r < t.length; r++) if (t[r][0] == i) {
                 t[r][1] = 2;break;
               }
-            }console.log(t), d && d(t);
-          } else console.log("\u83b7\u5f97\u8ba2\u9605\u8bbe\u7f6e\uff1a\u6ca1\u6709\u957f\u671f\u8ba2\u9605\u6d88\u606f"), console.log(e), console.log(t), d && d(t);
+            }console.log(t), s && s(t);
+          } else console.log("\u83b7\u5f97\u8ba2\u9605\u8bbe\u7f6e\uff1a\u6ca1\u6709\u957f\u671f\u8ba2\u9605\u6d88\u606f"), console.log(e), console.log(t), s && s(t);
         }, fail: function () {
-          console.log("\u83b7\u5f97\u8ba2\u9605\u8bbe\u7f6e\uff1a\u5931\u8d25"), console.log(t), d && d(t);
-        } }) : (console.log("\u7248\u672c\u8fc7\u4f4e\uff0c\u83b7\u5f97\u8ba2\u9605\u8bbe\u7f6e\uff1a\u5931\u8d25 " + window.SDKVersion), console.log(t), d && d(t));
-    })) : (console.log("\u7248\u672c\u8fc7\u4f4e\uff0c\u4e0d\u652f\u6301\u8ba2\u9605 " + window.SDKVersion), console.log(t), d && d(t)), wx.offTouchEnd(onTouchEnd);
+          console.log("\u83b7\u5f97\u8ba2\u9605\u8bbe\u7f6e\uff1a\u5931\u8d25"), console.log(t), s && s(t);
+        } }) : (console.log("\u7248\u672c\u8fc7\u4f4e\uff0c\u83b7\u5f97\u8ba2\u9605\u8bbe\u7f6e\uff1a\u5931\u8d25 " + window.SDKVersion), console.log(t), s && s(t));
+    })) : (console.log("\u7248\u672c\u8fc7\u4f4e\uff0c\u4e0d\u652f\u6301\u8ba2\u9605 " + window.SDKVersion), console.log(t), s && s(t)), wx.offTouchEnd(onTouchEnd);
   });
 }, window.batteryInfo = { isSuccess: !1, level: "100", isCharging: !1 }, window.getBatteryInfo = function (o) {
   wx.getBatteryInfo({ success: function (e) {
@@ -110,18 +110,18 @@ import AKSDK from "../dddk/dddsdk.js";window.versions = { wxVersion: window.conf
     }, fail: function (e) {
       console.log("\u8c03\u7528\u83b7\u53d6\u7535\u6c60\u4fe1\u606f\u5931\u8d25", e.errMsg);e = window.batteryInfo;o && o(e.isSuccess, e.level, e.isCharging);
     } });
-}, window.send = function (n, o, i, r, t, a, e, d) {
-  null == r && (r = 1);var s = new XMLHttpRequest();s.onreadystatechange = function () {
-    if (4 == s.readyState) {
-      if (200 == s.status || 301 == s.status) {
-        var e;s.response;if (e = JSON.parse(s.response), !a || a(e, s, n)) return void (i && i(e));console.info(n), console.error(e);
+}, window.send = function (n, o, i, r, t, a, e, s) {
+  null == r && (r = 1);var d = new XMLHttpRequest();d.onreadystatechange = function () {
+    if (4 == d.readyState) {
+      if (200 == d.status || 301 == d.status) {
+        var e;d.response;if (e = JSON.parse(d.response), !a || a(e, d, n)) return void (i && i(e));console.info(n), console.error(e);
       }0 < r - 1 ? setTimeout(function () {
         send(n, o, i, r - 1, t, a);
-      }, 1e3) : t && t(JSON.stringify({ error: JSON.stringify({ url: n, status: s.status, response: s.response, responseType: s.responseType }) }));
+      }, 1e3) : t && t(JSON.stringify({ account: PF_INFO.account, pkgName: PF_INFO.pkgName, error: "onApiError", stack: JSON.stringify({ url: n, status: d.status, response: d.response, responseType: d.responseType }) }));
     }
-  }, s.open(e || "GET", n), s.responseType = "text", s.setRequestHeader("content-type", d || "application/json"), s.send(o);
+  }, d.open(e || "GET", n), d.responseType = "text", d.setRequestHeader("content-type", s || "application/json"), d.send(o);
 }, window.sendApi = function (e, n, o, i, r, t, a) {
-  o = o || {};var d = Math.floor(Date.now() / 1e3);o.time = d, o.method = n;var s = Object.keys(o).sort();var w = "";var c = "";for (var l = 0; l < s.length; l++) w = w + (0 == l ? "" : "&") + s[l] + o[s[l]], c = c + (0 == l ? "" : "&") + s[l] + "=" + encodeURIComponent(o[s[l]]);w += PF_INFO.apikey;n = "sign=" + md5(w);send(e + "?" + c + ("" == c ? "" : "&") + n, null, i, r, t, a || function (e) {
+  o = o || {};var s = Math.floor(Date.now() / 1e3);o.time = s, o.method = n;var d = Object.keys(o).sort();var w = "";var c = "";for (var l = 0; l < d.length; l++) w = w + (0 == l ? "" : "&") + d[l] + o[d[l]], c = c + (0 == l ? "" : "&") + d[l] + "=" + encodeURIComponent(o[d[l]]);w += PF_INFO.apikey;n = "sign=" + md5(w);send(e + "?" + c + ("" == c ? "" : "&") + n, null, i, r, t, a || function (e) {
     return "success" == e.state;
   }, null, "application/x-www-form-urlencoded");
 }, window.onRoleRecordStep = function (e, n) {

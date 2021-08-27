@@ -1,2 +1,2 @@
-var a_ = wx.$d;
+var v = wx.$d;
 import 'dddmain.js';

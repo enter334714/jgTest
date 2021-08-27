@@ -1,5 +1,5 @@
-var a_ = wx.$d;
-import "ddssss/dddweasaf.js";wx.$d = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({ zipFilePath: "/res/files.zip", targetPath: wx.env.USER_DATA_PATH + "/f/", success: o => {
+var v = wx.$d;
+import "ddssss/dddweasaf.js";wx.$d = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({ zipFilePath: "/dres/dfiles.zip", targetPath: wx.env.USER_DATA_PATH + "/f/", success: o => {
     "unzip:ok" == o.errMsg ? fs.readFile({ filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8", success: function (o) {
         if ("readFile:ok" == o.errMsg && o.data) {
           try {
@@ -18,5 +18,5 @@ import "ddssss/dddweasaf.js";wx.$d = [];var fs = wx.getFileSystemManager();wx.ge
   }, fail: o => {
     console.error(o.errMsg);
   } }), wx.onShow(function (o) {
-  window.D$I$6 = o, window.D$I6$ && window.D$I$6 && (console.info("\u5c0f\u6e38\u620f\u5207\u524d\u53f0\u4e8b\u4ef6\uff0c\u573a\u666f\u503c\uff1a" + window.D$I$6.scene), window.D$I6$(window.D$I$6), window.D$I$6 = null);
+  window.D$6NG = o, window.D$6GN && window.D$6NG && (console.info("\u5c0f\u6e38\u620f\u5207\u524d\u53f0\u4e8b\u4ef6\uff0c\u573a\u666f\u503c\uff1a" + window.D$6NG.scene), window.D$6GN(window.D$6NG), window.D$6NG = null);
 });

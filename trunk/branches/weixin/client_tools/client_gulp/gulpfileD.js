@@ -390,7 +390,7 @@ gulp.task('build-all-D', function (cb) {
 
 //混淆
 gulp.task('build-babel-obfuscator-D', function (cb) {
-    sequence("set-param-d","MT1_COPY",'MT1_COPY2',"copyGameJs","MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
+    sequence("set-param-d","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
 });
 /**-------------------------------------------------微信小游戏--D包  end-----------------------------------------------------------*/
 
@@ -465,7 +465,7 @@ var js_minify = function () {
 
 
 var pfFlag = "wx";
-var globleKeys = ["$d", "a_", "s_", "D$", "b_"];//["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀
+var globleKeys = ["$d", "v", "s", "D$", "z"];//["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀
 var identifiersObfuscatorArray = [];  //混淆用到的标识符
 var arrIndex = 0;  //数组索引
 var globleArrs = [];  //抽取的字符串数组，生成压缩文件
@@ -894,23 +894,19 @@ var js_babel = function () {
                             if(globleArrsObj[tempstr] != undefined &&  globleArrsObj[tempstr] >= 0 ){
                                 index = globleArrsObj[tempstr];
                                 add = false;
-                                // if(globleStrStat[tempstr] == undefined){
-                                //     globleStrStat[tempstr] = 2;
-                                // }else{
-                                //     globleStrStat[tempstr] += 1;
-                                // }
-                                //
-                                // if( globleStrStat[tempstr] >= 5){
-                                //     // console.log("出现五次以上的字符：",tempstr,"次数：",globleStrStat[tempstr]);
-                                // }
-                                // console.log("重复的字符串：",tempstr,"使用下标:",index,"globleArrs[index]:",globleArrs[index])
                             }else{
                                 index = arrIndex;
                                 add = true;
                                 // console.log("字符下标:",arrIndex)
                             }
-
-                            var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName), babel_types.numericLiteral(index), true);
+                            // console.log("输出-------------：",1);
+                            var numericLiteral = babel_types.numericLiteral(index);
+                            // console.log("输出-------------：",2);
+                            var hexValue = "0x"+index.toString(16);
+                            numericLiteral.extra = {rawValue:index,raw:hexValue};
+                            numericLiteral.raw = hexValue;
+                            // console.log("输出-------------：",value,hexValue);
+                            var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName), numericLiteral, true);
                             path.replaceWith(memberExpression);
 
 
@@ -1094,22 +1090,22 @@ var js_babel_str = function () {
                             if(globleArrsObj[tempstr] != undefined &&  globleArrsObj[tempstr] >= 0 ){
                                 index = globleArrsObj[tempstr];
                                 add = false;
-                                // if(globleStrStat[tempstr] == undefined){
-                                //     globleStrStat[tempstr] = 2;
-                                // }else{
-                                //     globleStrStat[tempstr] += 1;
-                                // }
-                                //
-                                // if( globleStrStat[tempstr] >= 5){
-                                //     console.log("出现五次以上的字符：",tempstr,"次数：",globleStrStat[tempstr]);
-                                // }
-                                // console.log("混淆后 重复的字符串：",tempstr,"使用下标:",index,"globleArrs[index]:",globleArrs[index])
+
                             }else{
                                 index = arrIndex;
                                 add = true;
                                 // console.log("字符下标:",arrIndex)
                             }
-                            var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName), babel_types.numericLiteral(index), true);
+
+                            // console.log("输出-------------：",1);
+                            var numericLiteral = babel_types.numericLiteral(index);
+                            // console.log("输出-------------：",2);
+                            var hexValue = "0x"+index.toString(16);
+                            numericLiteral.extra = {rawValue:index,raw:hexValue};
+                            numericLiteral.raw = hexValue;
+                            // console.log("输出-------------：",value,hexValue);
+
+                            var memberExpression = babel_types.memberExpression(babel_types.identifier(arrayName),numericLiteral, true);
                             path.replaceWith(memberExpression);
                             if(add){
                                 globleArrs.push(tempstr);
@@ -1172,14 +1168,14 @@ var end_babel = function () {
         var zipfile = new jszip().file("files", str);
         zipfile.generateAsync({type: "uint8array", compression: "DEFLATE", compressionOptions: {level: 9}}).then(function(content) {
             if (content) {
-                var p = path.resolve(targetProject + "/res");
+                var p = path.resolve(targetProject + "/dres");
                 try {
                     fs.statSync(p);
                 } catch (e) {
                     fs.mkdirSync(p);
                 }
                 console.log("生成files.zip:",p);
-                fs.writeFileSync(targetProject + "/res/files.zip", content, {encoding: "utf8"});
+                fs.writeFileSync(targetProject + "/dres/dfiles.zip", content, {encoding: "utf8"});
                 // fs.writeFileSync(targetProject + "/res/str.txt", str, {encoding:"utf8"});
             }
         });
@@ -1373,6 +1369,7 @@ var filesMap = {
     //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen
     "libs": {url:"dddlibs"},
     "game.js": {url:"dddlibs/dddgame.js",extractStr:true,count:1,strLen:3},
+    "game_dddlibs.js": {url:"dddlibs/game.js",extractStr:true,count:1,strLen:3},
     "index.js": {url:"dddlibs/dddindex.js",extractStr:true,count:1,strLen:3},
     "init.min.js":  {url:"dddlibs/dddinitmin.js",extractStr:true,count:1,strLen:3},
     "libs/dom.js":  {url:"dddlibs/ddddom.js"},
@@ -1461,7 +1458,7 @@ var filesMap = {
 };
 
 //混淆后的文件配置通过  filesMap 转化 "libs": {url:"dddlibs"},  -》"dddlibs":{url:"dddlibs"}
-var targetFileMap = {"game_b.js":{url:"game_b.js",extractStr:false,count:5,strLen:13}};
+var targetFileMap = {"game_d.js":{url:"game_d.js",extractStr:false,count:5,strLen:13}};
 
 var mt1Replace = {
     "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
@@ -1592,6 +1589,13 @@ gulp.task('MT1_COPY', function () {
             // console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
             if(arr[arr.length - 1].indexOf("dddweasaf")!=-1)
                 debugger;
+            if(arr[arr.length - 1].indexOf("dddgame")!=-1){
+                debugger;
+            }
+            var relative = this.file.relative.replace(/\\/g, "/");
+            if(relative == "dddlibs/game.js"){
+                return match;
+            }
             console.log(" arr[arr.length - 1]:", arr[arr.length - 1])
             return arr[arr.length - 1];
         }))
@@ -1678,14 +1682,7 @@ gulp.task('MT1_COPY2', function () {
         .pipe(gulp.dest(targetUrl + '/'));
 });
 
-gulp.task('copyGameJs',function(){
-    var stream = gulp.src(gameJsPath)
-        // pipe(rename(function (path) {
-        //     path.basename = "game";
-        // }))
-        .pipe(gulp.dest(sourceProject + '/'))
-    return stream;
-});
+
 
 gulp.task('renameGameJs',function(){
     var stream = gulp.src(targetProject + "/game_d.js").

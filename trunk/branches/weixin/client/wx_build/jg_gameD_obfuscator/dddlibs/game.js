@@ -1,2 +1,2 @@
-var a_ = wx.$d;
-require("dddgame.js");
+var v = wx.$d;
+require(v[0x3628]);

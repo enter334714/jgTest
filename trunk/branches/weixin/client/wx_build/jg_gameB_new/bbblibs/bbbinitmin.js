@@ -44,7 +44,7 @@ var ui,
   }, b$c.prototype.destroy = function (t) {
     void 0 === t && (t = !0), this.rmEvts(), e.prototype.destroy.call(this, t);
   }, b$c.prototype.b$g = function () {
-    1e4 < Date.now() - this.b$h && (this.b$h -= 1e3, Browser.window.PF_INFO.selectedServer.server_id || (ServerLoading.instance.enterDefaultServer(), ServerLoading.instance.sendRecord()));
+    1e4 < Date.now() - this.b$h && (this.b$h -= 1e3, Browser.window.PF_INFO.selectedServer.server_id && (ServerLoading.instance.enterDefaultServer(), ServerLoading.instance.sendRecord()));
   }, t.AuthorizationPanel = b$c;
 }(modules = modules || {}), function (t) {
   var e, i, n, s;function b$k() {
