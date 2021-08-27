@@ -6,6 +6,7 @@ var config = {
     game_ver: '4.0.0',
     partner_label:'pbxyx',
     is_auth: false,
+    from: null, //来源
 };
 window.config = config;
 var PARTNER_UNION_SDK = mainUnionSDK();
@@ -16,6 +17,7 @@ var t_max = 300;
 var user_game_info_9130 = null;
 var user_invite_info_9130 = null;
 var this_order_id = null;
+var timeHandler = null;
 
 function mainUnionSDK() {
     var callbacks = {};
@@ -42,8 +44,11 @@ function mainUnionSDK() {
                 wx.setStorageSync('9130_plat_idfv', idfv);
             }
 
+
             var info = wx.getLaunchOptionsSync();
             var scene = info.scene ? info.scene : '';
+            console.log("[SDK]小游戏启动参数");
+            console.log(info);
 
             if(is_new && info.query && info.query.ad_code){
                 wx.setStorageSync('9130_plat_ad_code', info.query.ad_code);
@@ -227,7 +232,7 @@ function mainUnionSDK() {
         },
 
         checkGameVersion: function (game_ver, callback) {
-            console.log("[UNION_SDK]检查版本");
+            console.log("[UNION_SDK]检查游戏版本");
             var sdk_token = wx.getStorageSync('9130_plat_sdk_token');
             wx.request({
                 url: 'https://' + PARTNER_HOST + '/game/min/?ac=checkGameVersion',
@@ -244,6 +249,7 @@ function mainUnionSDK() {
                 success: function (res) {
                     console.log("[UNION_SDK]检查版本结果");
                     console.log(res);
+                    if (timeHandler) clearTimeout(timeHandler);
                     if(res.statusCode == 200){
                         var data = res.data;
                         if(data.state){
@@ -254,8 +260,19 @@ function mainUnionSDK() {
                     }else{
                         callback && callback({develop: 0});
                     }
+                },
+                fail: function(res){
+                    console.log("[UNION_SDK]获取游戏版本失败");
+                    console.log(res);
+                    if (timeHandler) clearTimeout(timeHandler);
+                    callback && callback({develop: 0});
                 }
             });
+            var func = function() {
+                console.log("[UNION_SDK]获取游戏版本超时");
+                callback && callback({develop: 0});
+            }
+            timeHandler = setTimeout(func, 10000);
         },
 
         getShareInfo: function (type, callback) {
@@ -324,6 +341,7 @@ function mainUnionSDK() {
         },
 
         msgCheck: function (content,callback) {
+            console.log("[UNION_SDK]查看文本是否有违规内容");
             dkm.msgCheck(content,callback);
             // var sdk_token = wx.getStorageSync('9130_plat_sdk_token');
             // wx.request({
