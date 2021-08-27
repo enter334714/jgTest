@@ -290,8 +290,10 @@ window.sdkOnLogin = function(status, data) {
     }, this.onUserLogin.bind(this), apiRetryAmount, onApiError);
   } else {
     clientlog(JSON.stringify({
-      error: JSON.stringify({
-        type: "sdkOnLoginError",
+      account: PF_INFO.account,
+      pkgName: PF_INFO.pkgName,
+      error: "sdkOnLoginError",
+      stack: JSON.stringify({
         status: status,
         data: data
       })
@@ -503,7 +505,7 @@ window.toPayCallBack = function(data) {
 window.loadCreateRole = function() {
   // AKSDK.logLoadingFinish();
 }
-window.toCreate = function(role_id, role_name, role_level, role_type) {
+window.toCreate = function(role_id, role_name, role_level, role_type, time) {
   AKSDK.logCreateRole(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, role_id, role_name, role_level);
   sendApi(PF_INFO.apiurl, 'User.create_role', {
     'game_pkg': PF_INFO.pkgName,
@@ -515,7 +517,7 @@ window.toCreate = function(role_id, role_name, role_level, role_type) {
     'level': role_level,
   })
 }
-window.toLogin = function(role_id, role_name, role_level, role_type, evolution) {
+window.toLogin = function(role_id, role_name, role_level, role_type, evolution, time, fight, gold, eraLv, eraNum) {
   PF_INFO.roleId = role_id;
   PF_INFO.roleName = role_name;
   PF_INFO.roleLevel = role_level;
@@ -531,7 +533,7 @@ window.toLogin = function(role_id, role_name, role_level, role_type, evolution) 
     'evolution': evolution,
   })
 }
-window.toLevelUp = function(role_id, role_name, role_level, role_type, evolution) {
+window.toLevelUp = function(role_id, role_name, role_level, role_type, evolution, time, fight, gold, eraLv, eraNum) {
   PF_INFO.roleId = role_id;
   PF_INFO.roleName = role_name;
   PF_INFO.roleLevel = role_level;
@@ -716,7 +718,10 @@ window.send = function(url, data, callBack, retryAmount, errorCB, checkSuccess, 
       } else {
         if (errorCB) {
           errorCB(JSON.stringify({
-            error: JSON.stringify({
+            account: PF_INFO.account,
+            pkgName: PF_INFO.pkgName,
+            error: "onApiError",
+            stack: JSON.stringify({
               url: url,
               status: xhr.status,
               response: xhr.response,
