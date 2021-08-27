@@ -557,7 +557,7 @@ var identifier_create = function (rate) {
             'bEnterGame', 'loginAlert', 'loginAlert', 'isShowLoading', 'wxShowLoading', 'wxHideLoading', 'changeServerLoading', 'getJsURL',
             'toAllProgress', 'toProgress', 'toEnterGame', 'onApiError', 'reqRecordError', 'reqRecordInfo', 'clientlog', 'sdkInit', 'sdkOnInited',
             'sdkOnLogin', 'onUserLogin', 'onUserLoginDefaultServers', 'loadVersionConfig', 'reqPkgOptions', 'reqPkgOptionsCallBack', 'loadCreateRole',
-            'toCreate', 'toLogin', 'toLevelUp', 'toRealName', 'openShare', 'openService', 'onShow', 'onShowData', 'onShowCallback', 'reqPlayerAskInfo',
+            'toCreate', 'toLogin', 'toLevelUp', 'toRealName', 'openShare', 'onShow', 'onShowData', 'onShowCallback', 'reqPlayerAskInfo',
             'openSubscribeMsg', 'batteryInfo', 'getBatteryInfo', 'onRoleRecordStep', 'req_server_group', 'reqServerGroupCallBack', 'req_server_owner', 'reqServerOwnerCallBack',
             'req_server_list', 'reqServerListCallBack', 'req_server_notice', 'get_status', 'req_server_check_ban', 'reqServerCheckBanCallBack', 'checkBanSuccess',
             'initMain', 'enterToGame', 'initComplete', 'workerJsURL', 'wxLimitLoad', 'wxBenchmarkLevel',
@@ -696,6 +696,14 @@ var js_checkStrCount =  function () {
 
         var url = file.relative.replace(/\\/g,"/");
         var config = targetFileMap[url];
+        if(!config){
+            console.log("没有配置 "+file.path)
+        }else{
+            var extractStr = config.extractStr || false;
+            if(!extractStr){
+                console.log("check  配置不需要提取字符串:", url);
+            }
+        }
 
         //插件对象，可以对特定类型的节点进行处理
         var filePath = path;
@@ -838,7 +846,6 @@ var js_babel = function () {
                 // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
                 if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
                     var tempstr = path.node.value;
-                    // console.log("tempstr：",tempstr)
                     if(!config){
                         return;
                     }
@@ -1220,9 +1227,9 @@ gulp.task("build-js-babel-target-string", function () {
 
 gulp.task("build-end-babel", function () {
     var stream = gulp
-        .src(sourceProject + '/game.js')
+        .src(BUILD + PACK +  '/game.js')
         .pipe(end_babel())
-        .pipe(gulp.dest(targetProject + "/"))
+        // .pipe(gulp.dest(targetProject + "/"))
     return stream;
 });
 gulp.task('build-babel', function (cb) {
@@ -1354,7 +1361,7 @@ gulp.task("build-js-obfuscator", function () {
 });
 gulp.task("build-end-obfuscator", function () {
     var stream = gulp
-        .src(sourceProject + '/game.js')
+        .src(targetProject + '/game.js')
         .pipe(gulp.dest(targetProject + '/'))
     return stream;
 });
@@ -1515,39 +1522,55 @@ gulp.task('MT1_COPY', function () {
 
         }))
         //不用修改
-        .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/weapp-adapter.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)|(game.js)/g, function (match, p1, offset, string) {
+        .pipe(replace(/(import "libs\/weapp-adapter.js";)/g, function (match, p1, offset, string) {
+            return "";
+        }))
+        .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)|(game.js)/g, function (match, p1, offset, string) {
             var arr = filesMap[match].url.split("/");
             // console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
             return arr[arr.length - 1];
         }))
-        .pipe(replace(/(res\/atlas\/wxlogin_atlas.png)|(res\/atlas\/wxeff_btn_atlas.png)|(res\/atlas\/wxloading_atlas.png)|(res\/atlas)/g, function (match, p1, offset, string) {
-            var relative = this.file.relative.replace(/\\/g, "/");
-            if (relative == "ccclibs/cccinitmin.js") { //登录界面才替换
-                var arr = filesMap[match].url.split("/");
-                console.log('Found ' + match + ' with param ' + p1, "替换为:", arr[arr.length - 1]);
-                return arr[arr.length - 1];
-            } else {
-                return match;
-            }
-        }))
+        // .pipe(replace(/(res\/atlas\/wxlogin_atlas.png)|(res\/atlas\/wxeff_btn_atlas.png)|(res\/atlas\/wxloading_atlas.png)|(res\/atlas)/g, function (match, p1, offset, string) {
+        //     var relative = this.file.relative.replace(/\\/g, "/");
+        //     if (relative == "dddlibs/dddinitmin.js") { //登录界面才替换
+        //         var arr = filesMap[match].url.split("/");
+        //         console.log('Found ' + match + ' with param ' + p1, "替换为:", arr[arr.length - 1]);
+        //         return arr[arr.length - 1];
+        //     } else {
+        //         return match;
+        //     }
+        // }))
         //不用修改
         .pipe(replace(/(.\/wxsdk\/wx_aksdk.js)|(.\/helper)|(.\/sax)|(.\/dom)|(client_pb.js)|(protobuf.js)|(main.min.js)/g, function (match, p1, offset, string) {
             // console.log('Found ' + match + ' with param ' + p1,"替换为:", mt1Replace[match]);
             return mt1Replace[match];
         }))
-        .pipe(replace(/(wxlogin_atlas)|(wxeff_btn_atlas)|(wxloading_atlas)|(btn_loding_abcelq0.png)|(btn_loding_abcelq1.png)|(image_loading_bg.jpg)|(image_loading_bg_bottom.jpg)|(image_loading_bg_bottom2.jpg)|(image_loading_bg_left.jpg)|(image_loading_bg_left2.jpg)|(image_loading_bg_right.jpg)|(image_loading_bg_right2.jpg)|(image_loading_bg_top.jpg)|(image_loading_bg_top2.jpg)|(image_loading_bg2.jpg)/g, function (match, p1, offset, string) {
+        .pipe(replace(/(wxlogin_atlas)|(wxeff_btn_atlas)|(wxloading_atlas)|(btn_loding_abcelq0.png)|(btn_loding_abcelq1.png)|(image_loading_bg.jpg)|(image_loading_bg_bottom.jpg)|(image_loading_bg_bottom2.jpg)|(image_loading_bg_left.jpg)|(image_loading_bg_left2.jpg)|(image_loading_bg_right.jpg)|(image_loading_bg_right2.jpg)|(image_loading_bg_top.jpg)|(image_loading_bg_top2.jpg)|(image_loading_bg2.jpg)|(image_loding_bar0.png)|(image_loding_bar1.png)|(image_loding_bar02.png)|(image_loding_bar2.png)|(image_loding_bar3.png)|(image_login_point1.png)|(image_login_point2.png)|(image_login_point3.png)/g, function (match, p1, offset, string) {
             console.log('Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
             if (!mt1Replace[match]) {
                 console.log(1);
             }
             return mt1Replace[match];
         }))
-        .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)/g, function (match, p1, offset, string) {
+        .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)|(btn_com_chuangback.png)|(btn_login_gonggao.png)|(btn_login_loginanniu.png)|(btn_login_yingsi.png)|(btn_xuanqu_anniuhuang.png)|(btn_xuanqu_anniulan.png)|(btn_xuanqu_quanniu.png)|(image_com_tuichu.png)|(image_login_changtong.png)|(image_login_fanmang.png)|(image_login_weihu.png)|(image_login_xuanqubg.png)/g, function (match, p1, offset, string) {
             if (!mt1Replace[match]) {
                 console.log(1);
             }
             console.log('Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
             return mt1Replace[match];
+        }))
+        .pipe(replace(/(0.png)|(1.png)|(2.png)|(3.png)|(4.png)/g, function (match, p1, offset, string) {
+            var relative = this.file.relative.replace(/\\/g, "/");
+            if (relative == "dddlibs/dddinitmin.js") { //登录界面才替换
+                if (!mt1Replace[match]) {
+                    console.log(1);
+                }
+                console.log('Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
+                return mt1Replace[match];
+            }else{
+                return match;
+            }
+
         }))
         //报名需要修改
         .pipe(replace(/( name: 'main')/g, "name: 'ccccccccc'"))
@@ -1589,6 +1612,32 @@ gulp.task('MT1_COPY2', function () {
     return gulp.src([sourceUrl + "/" + '/**/*.png', sourceUrl + "/" + '/**/*.jpg', sourceUrl + "/" + '/**/*.json'])
         .pipe(gulp.dest(targetUrl + '/'));
 });
+
+gulp.task('copyGameJs',function(){
+    var stream = gulp.src(gameJsPath)
+        // pipe(rename(function (path) {
+        //     path.basename = "game";
+        // }))
+        .pipe(gulp.dest(sourceProject + '/'))
+    return stream;
+});
+
+gulp.task('renameGameJs',function(){
+    var stream = gulp.src(targetProject + "/game_d.js").
+    pipe(rename(function (path) {
+            path.basename = "game";
+        })
+    ).pipe(gulp.dest(targetProject + '/'))
+    return stream;
+})
+
+gulp.task('cleanGameJs',function(){
+    var stream = gulp.src(targetProject + "/game_d.js")
+        .pipe(clean({
+            force: true
+        }))
+    return stream;
+})
 
 
 //随机产生辣鸡空文件
