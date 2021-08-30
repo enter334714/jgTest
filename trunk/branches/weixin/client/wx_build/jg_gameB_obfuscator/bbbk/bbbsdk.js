@@ -1,12 +1,12 @@
 var _ = wx.y$;
-import Dall from "./bbbhelp";var config = { game_id: _[13411], game_pkg: _[13412], partner_id: "19", game_ver: _[13413], is_auth: !1, from: null, tmpId: { 1: _[13414], 2: _[13415], 3: _[13416] }, min_app_id: "" };window.config = config;var p$BED = p$DEB();var HOST = _[13395];var t;var t_second = 0;var t_max = 300;var p$BE = null;var p$EB = null;var p$DBE = null;var timeHandler = null;function p$DEB() {
+import Dall from "./bbbhelp";var config = { game_id: _[13411], game_pkg: _[13412], partner_id: "19", game_ver:"2.0.117", is_auth: !1, from: null, tmpId: { 1: _[13414], 2: _[13415], 3: _[13416] }, min_app_id: "" };window.config = config;var p$BED = p$DEB();var HOST = _[13395];var t;var t_second = 0;var t_max = 300;var p$BE = null;var p$EB = null;var p$DBE = null;var timeHandler = null;function p$DEB() {
   var r = {};return { order_data: {}, init: function (e, n) {
       var o = e && e.game_ver ? e.game_ver : 0;console.log(_[13417]);var t = this;var a;a = (r = wx.getStorageSync(_[13418])) ? 0 : (r = t.uuid(16, 32), wx.setStorageSync(_[13418], r), 1), (i = wx.getStorageSync(_[13419])) || (i = t.uuid(16, 32), wx.setStorageSync(_[13419], i));e = wx.getLaunchOptionsSync();var r = e.scene || "";var i;console.log(_[13420]), console.log(e), a && e.query && e.query.ad_code && wx.setStorageSync(_[13421], e.query.ad_code), e.query && e.query.from && "" != e.query.from ? (a && wx.setStorageSync(_[13422], e.query.from), config.from = e.query.from) : (i = wx.getStorageSync(_[13422])) || "" == i || (config.from = i), console.log(_[13423] + config.from), t.log(_[13424], { install: a, scene: r }), wx.showShareMenu();t = e.query && e.query.invite ? e.query.invite : "";e = e.query && e.query.invite_type ? e.query.invite_type : "";t && (p$EB = { invite: t, invite_type: e, is_new: a, scene: r }), o && this.checkGameVersion(o, function (e) {
         n && n(e);
       });
     }, login: function (e, n) {
-      console.log(_[13425]);var t = this;r.login = _[12] == typeof n ? n : null, config.is_auth ? wx.getSetting({ success: function (e) {
-          var n, o;e.authSetting[_[13426]] ? (console.log(_[13427]), t.do_login()) : (console.log(_[13428]), wx.hideLoading({}), e = 2 * (n = wx.getSystemInfoSync()).screenWidth / 3, n.screenHeight, (o = wx.createUserInfoButton({ type: _[12056], text: _[13429], withCredentials: !1, style: { top: n.windowHeight / 2 + n.windowHeight / 4, left: n.windowWidth / 2 - 100, width: 200, height: 40, lineHeight: 40, backgroundColor: _[13430], color: _[2820], textAlign: _[591], fontSize: 16, borderRadius: 4 } })).show(), o.onTap(e => {
+      console.log(_[13425]);var t = this;r.login = _[13354] == typeof n ? n : null, config.is_auth ? wx.getSetting({ success: function (e) {
+          var n, o;e.authSetting[_[13426]] ? (console.log(_[13427]), t.do_login()) : (console.log(_[13428]), wx.hideLoading({}), e = 2 * (n = wx.getSystemInfoSync()).screenWidth / 3, n.screenHeight, (o = wx.createUserInfoButton({ type: _[12006], text: _[13429], withCredentials: !1, style: { top: n.windowHeight / 2 + n.windowHeight / 4, left: n.windowWidth / 2 - 100, width: 200, height: 40, lineHeight: 40, backgroundColor: _[13430], color: _[2767], textAlign: _[537], fontSize: 16, borderRadius: 4 } })).show(), o.onTap(e => {
             console.log(e), p$ACBD({ title: _[13431] }), _[13432] == e.errMsg ? t.do_login({ head_img: e.userInfo.avatarUrl || "", nick_name: e.userInfo.nickName || "" }) : t.do_login(), o.destroy();
           }));
         }, fail: function () {
@@ -15,7 +15,7 @@ import Dall from "./bbbhelp";var config = { game_id: _[13411], game_pkg: _[13412
     }, do_login: function (o) {
       var a = this;wx.login({ success: function (e) {
           if (console.log(_[13435] + JSON.stringify(e)), e.code) {
-            var t = a.getPublicData();if (t.is_from_min = 1, t.code = e.code, t.nick_name = o ? o.nick_name : "", t.head_img = o ? o.head_img : "", p$EB && _[1] == typeof p$EB) for (var n in p$EB) t[n] = p$EB[n];config.is_auth ? wx.getUserInfo({ success: function (e) {
+            var t = a.getPublicData();if (t.is_from_min = 1, t.code = e.code, t.nick_name = o ? o.nick_name : "", t.head_img = o ? o.head_img : "", p$EB && _[26] == typeof p$EB) for (var n in p$EB) t[n] = p$EB[n];config.is_auth ? wx.getUserInfo({ success: function (e) {
                 var n = e.encryptedData;var o = e.iv;e = e.signature;t.encryptedData = n, t.iv = o, t.signature = e, wx.request({ url: _[13398] + HOST + _[13436], method: _[13400], dataType: _[13401], header: { "content-type": _[13402] }, data: t, success: function (e) {
                     if (console.log(_[13437]), console.log(e), 200 == e.statusCode) {
                       var n = e.data;if (n.state) {
@@ -51,7 +51,7 @@ import Dall from "./bbbhelp";var config = { game_id: _[13411], game_pkg: _[13412
           console.log(_[13444] + JSON.stringify(e)), (-1 < e.errMsg.indexOf(_[13445]) || -1 < e.errMsg.indexOf(_[13446])) && r.login && r.login(1, { errMsg: e.errMsg });
         } });
     }, share: function (e) {
-      r.share = _[12] == typeof callback ? callback : null;var n = e.type || _[13447];console.log(_[13448] + n);var o = this;this.getShareInfo(n, function (e) {
+      r.share = _[13354] == typeof callback ? callback : null;var n = e.type || _[13447];console.log(_[13448] + n);var o = this;this.getShareInfo(n, function (e) {
         o.logStartShare(n), wx.shareAppMessage({ title: e.title, imageUrl: e.img, query: e.query });
       });
     }, logStartShare: function (e) {
@@ -87,7 +87,7 @@ import Dall from "./bbbhelp";var config = { game_id: _[13411], game_pkg: _[13412
           });
         } });
     }, startPay: function (e, n) {
-      console.log(_[13467]), console.log(e);var o = this;r.pay = _[12] == typeof n ? n : null;var t = wx.getStorageSync(_[13438]);n = wx.getStorageSync(_[13440]);var a;t && n ? (a = wx.getSystemInfoSync(), t = { cpbill: e.cpbill, productid: e.productid, productname: e.productname, productdesc: e.productdesc, serverid: e.serverid, servername: e.servername, roleid: e.roleid, rolename: e.rolename, rolelevel: e.rolelevel, price: e.price, extension: e.extension, sdk_token: t, session_key: n, platform: a.platform }, o.order_data = t, (n = o.getPublicData()).order_data = JSON.stringify(t), n.is_from_min = 1, wx.request({ url: _[13398] + HOST + _[13468], method: _[13400], dataType: _[13401], header: { "content-type": _[13402] }, data: n, success: function (e) {
+      console.log(_[13467]), console.log(e);var o = this;r.pay = _[13354] == typeof n ? n : null;var t = wx.getStorageSync(_[13438]);n = wx.getStorageSync(_[13440]);var a;t && n ? (a = wx.getSystemInfoSync(), t = { cpbill: e.cpbill, productid: e.productid, productname: e.productname, productdesc: e.productdesc, serverid: e.serverid, servername: e.servername, roleid: e.roleid, rolename: e.rolename, rolelevel: e.rolelevel, price: e.price, extension: e.extension, sdk_token: t, session_key: n, platform: a.platform }, o.order_data = t, (n = o.getPublicData()).order_data = JSON.stringify(t), n.is_from_min = 1, wx.request({ url: _[13398] + HOST + _[13468], method: _[13400], dataType: _[13401], header: { "content-type": _[13402] }, data: n, success: function (e) {
           console.log(_[13469]), console.log(e), 200 == e.statusCode ? (e = e.data).state ? void 0 === wx.requestPayment ? _[13470] == a.platform || _[13471] == a.platform ? e.data.is_android_pay ? 1 == e.data.ios_pay_type ? o.kfPay(e.data) : 2 == e.data.ios_pay_type && o.xiaoPay(e.data) : o.gamePay(e.data) : e.data.is_ios_pay ? 1 == e.data.ios_pay_type ? o.kfPay(e.data) : 2 == e.data.ios_pay_type && o.xiaoPay(e.data) : wx.showModal({ title: _[13472], content: _[13473], confirmText: _[13474], showCancel: !1 }) : o.minPay(e.data) : r.pay && r.pay(1, { errMsg: e.msg }) : r.login && r.login(1, { errMsg: _[13443] });
         } })) : r.pay && r.pay(1, { errMsg: _[13475] });
     }, xiaoPay: function (e) {
@@ -115,7 +115,7 @@ import Dall from "./bbbhelp";var config = { game_id: _[13411], game_pkg: _[13412
           console.log(_[13495]), console.log(e), 200 == e.statusCode && (1 == e.data.state ? (e = { cpOrderNo: o.order_data.cpbill, orderNo: n.orderId, amount: o.order_data.price, extension: o.order_data.extension }, r.pay && r.pay(0, e)) : r.pay && r.pay(1, { errMsg: _[13496] }));
         }, fail: function () {} });
     }, logCreateRole: function (e) {
-      var n = wx.getStorageSync(_[13439]);var o = wx.getStorageSync(_[13396]);var t = {};t.user_id = n, t.user_name = o, t.role_id = e.roleid, t.role_lev = e.rolelevel, t.role_name = e.rolename, t.server_id = e.serverid, e.roleid && e.serverid && (p$BE = { role_id: e.roleid, server_id: e.serverid }), this.log(_[99], t);
+      var n = wx.getStorageSync(_[13439]);var o = wx.getStorageSync(_[13396]);var t = {};t.user_id = n, t.user_name = o, t.role_id = e.roleid, t.role_lev = e.rolelevel, t.role_name = e.rolename, t.server_id = e.serverid, e.roleid && e.serverid && (p$BE = { role_id: e.roleid, server_id: e.serverid }), this.log(_[44], t);
     }, logEnterGame: function (e) {
       var n = wx.getStorageSync(_[13439]);var o = wx.getStorageSync(_[13396]);var t = {};t.user_id = n, t.user_name = o, t.role_id = e.roleid, t.role_lev = e.rolelevel, t.role_name = e.rolename, t.server_id = e.serverid, e.roleid && e.serverid && (p$BE = { role_id: e.roleid, server_id: e.serverid }), this.log(_[13497], t), p$EB && this.updateShare(p$EB.invite, p$EB.invite_type, p$EB.is_new, e.roleid, e.serverid, p$EB.scene);
     }, logRoleUpLevel: function (e) {
@@ -132,7 +132,7 @@ import Dall from "./bbbhelp";var config = { game_id: _[13411], game_pkg: _[13412
     }, downloadClient: function () {
       wx.openCustomerServiceConversation();
     }, subscribeMessage: function (e, n) {
-      console.log(_[13505] + e), r.subscribeMessage = _[12] == typeof n ? n : null, wx.requestSubscribeMessage({ tmplIds: e, success(e) {
+      console.log(_[13505] + e), r.subscribeMessage = _[13354] == typeof n ? n : null, wx.requestSubscribeMessage({ tmplIds: e, success(e) {
           console.log(_[13506]), console.log(e), r.subscribeMessage && r.subscribeMessage(e);
         }, fail(e) {
           console.log(_[13507]), console.log(e), r.subscribeMessage && r.subscribeMessage(e);
@@ -143,7 +143,7 @@ import Dall from "./bbbhelp";var config = { game_id: _[13411], game_pkg: _[13412
 }function run(e, n, o) {
   e in p$BED && p$BED[e](n, o);
 }exports.init = function (e, n) {
-  run(_[11575], e, n);
+  run(_[11524], e, n);
 }, exports.login = function (e) {
   run(_[13508], "", e);
 }, exports.pay = function (e, n) {

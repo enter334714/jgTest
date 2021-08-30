@@ -1,2 +1,2 @@
 var _ = wx.y$;
-require("bbbgame.js");
+require(_[0x3602]);
