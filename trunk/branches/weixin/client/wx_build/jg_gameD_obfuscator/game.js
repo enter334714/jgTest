@@ -18,5 +18,5 @@ import "ddssss/dddweasaf.js";wx.$d = [];var fs = wx.getFileSystemManager();wx.ge
   }, fail: o => {
     console.error(o.errMsg);
   } }), wx.onShow(function (o) {
-  window.D$6NG = o, window.D$6GN && window.D$6NG && (console.info("\u5c0f\u6e38\u620f\u5207\u524d\u53f0\u4e8b\u4ef6\uff0c\u573a\u666f\u503c\uff1a" + window.D$6NG.scene), window.D$6GN(window.D$6NG), window.D$6NG = null);
+  window.D$0B3 = o, window.D$03B && window.D$0B3 && (console.info("\u5c0f\u6e38\u620f\u5207\u524d\u53f0\u4e8b\u4ef6\uff0c\u573a\u666f\u503c\uff1a" + window.D$0B3.scene), window.D$03B(window.D$0B3), window.D$0B3 = null);
 });

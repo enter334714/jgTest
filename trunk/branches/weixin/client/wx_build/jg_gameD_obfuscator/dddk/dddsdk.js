@@ -1,5 +1,5 @@
 var v = wx.$d;
-import dkm from "./dddhelp";var config = { game_id: v[0x34b9], game_pkg: v[0x34ba], partner_id: v[0x34bb], game_ver: v[0x34bc], partner_label: v[0x34bd], is_auth: !1, from: null };window.config = config;var PARTNER_UNION_SDK = mainUnionSDK();var PARTNER_HOST = v[0x34be];var t;var t_second = 0;var t_max = 300;var user_game_info_9130 = null;var user_invite_info_9130 = null;var D$P6GN7 = null;var timeHandler = null;function mainUnionSDK() {
+import dkm from "./dddhelp";var config = { game_id: v[0x34b9], game_pkg: v[0x34ba], partner_id: v[0x34bb], game_ver: v[0x34bc], partner_label: v[0x34bd], is_auth: !1, from: null };window.config = config;var PARTNER_UNION_SDK = mainUnionSDK();var PARTNER_HOST = v[0x34be];var t;var t_second = 0;var t_max = 300;var user_game_info_9130 = null;var user_invite_info_9130 = null;var D$H03BR = null;var timeHandler = null;function mainUnionSDK() {
   var a = {};return { order_data: {}, init: function (e, n) {
       var o = e && e.game_ver ? e.game_ver : 0;console.log(v[0x34bf]);var r = this;var a;a = (t = wx.getStorageSync(v[0x34c0])) ? 0 : (t = r.uuid(16, 32), wx.setStorageSync(v[0x34c0], t), 1), (e = wx.getStorageSync(v[0x34c1])) || (e = r.uuid(16, 32), wx.setStorageSync(v[0x34c1], e));var t = wx.getLaunchOptionsSync();e = t.scene || "";console.log(v[0x34c2]), console.log(t), a && t.query && t.query.ad_code && wx.setStorageSync(v[0x34c3], t.query.ad_code), r.log(v[0x345c], { install: a, scene: e }), dkm.init({ game_ver: o }, function (e) {
         n && n(e);
@@ -9,7 +9,7 @@ import dkm from "./dddhelp";var config = { game_id: v[0x34b9], game_pkg: v[0x34b
         console.log(v[0x34c5]), console.log(e), console.log(n), n.token ? o.do_login(n) : a.login && a.login(1, { errMsg: res.errMsg });
       });
     }, do_login: function (e) {
-      var n = this.getPublicData();if (n.token = e.token, n.uid = e.userid, n.is_from_min = 1, user_invite_info_9130 && v[0x1a] == typeof D$P6N7G) for (var o in user_invite_info_9130) n[o] = user_invite_info_9130[o];if (user_invite_info_9130 && v[0x1a] == typeof user_invite_info_9130) for (var o in user_invite_info_9130) n[o] = user_invite_info_9130[o];wx.request({ url: v[0x3463] + PARTNER_HOST + v[0x3464], method: v[0x3465], dataType: v[0x3466], header: { "content-type": v[0x3467] }, data: n, success: function (e) {
+      var n = this.getPublicData();if (n.token = e.token, n.uid = e.userid, n.is_from_min = 1, user_invite_info_9130 && v[0x1a] == typeof D$H0BR3) for (var o in user_invite_info_9130) n[o] = user_invite_info_9130[o];if (user_invite_info_9130 && v[0x1a] == typeof user_invite_info_9130) for (var o in user_invite_info_9130) n[o] = user_invite_info_9130[o];wx.request({ url: v[0x3463] + PARTNER_HOST + v[0x3464], method: v[0x3465], dataType: v[0x3466], header: { "content-type": v[0x3467] }, data: n, success: function (e) {
           if (console.log(v[0x34c6]), console.log(e), 200 == e.statusCode) {
             var n = e.data;if (n.state) {
               e = { userid: n.data.user_id, account: n.data.nick_name, token: n.data.token, invite_uid: n.data.invite_uid || "", invite_nickname: n.data.invite_nickname || "", invite_head_img: n.data.invite_head_img || "", head_img: n.data.head_img || "", is_client: n.data.is_client || "0", ios_pay: n.data.ios_pay || "0" };try {
@@ -75,7 +75,7 @@ import dkm from "./dddhelp";var config = { game_id: v[0x34b9], game_pkg: v[0x34b
           -1 !== e.errMsg.indexOf(v[0x34e4]) ? a.pay && a.pay(2, { errMsg: v[0x34e5] }) : a.pay && a.pay(1, { errMsg: v[0x34e6] + e.errMsg });
         }, complete: function (e) {} }));
     }, kfPay: function (e) {
-      D$P6GN7 = e.orderId, wx.showModal({ title: v[0x34de], content: v[0x34e7], showCancel: !1, confirmText: v[0x34e2], success: function () {
+      D$H03BR = e.orderId, wx.showModal({ title: v[0x34de], content: v[0x34e7], showCancel: !1, confirmText: v[0x34e2], success: function () {
           wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageTitle: v[0x34e8], sendMessageImg: v[0x34e9] });
         } });
     }, gameGoPay: function (n, e) {

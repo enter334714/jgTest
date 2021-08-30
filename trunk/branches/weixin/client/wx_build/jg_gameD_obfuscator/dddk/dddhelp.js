@@ -1,7 +1,7 @@
 var v = wx.$d;
-var config = { game_id: v[0x3453], game_pkg: v[0x3454], partner_id: v[0x3455], game_ver: v[0x3456], is_auth: "1", btn_img: "", btn_bg: "" };var D$P76GN = D$P6G7N();var HOST = v[0x3457];var t;var t_second = 0;var t_max = 300;var D$P6NG7 = null;var D$P6N7G = null;var D$P6GN7 = null;var btnImg_url = "";function D$P6G7N() {
+var config = { game_id: v[0x3453], game_pkg: v[0x3454], partner_id: v[0x3455], game_ver: v[0x3456], is_auth: "1", btn_img: "", btn_bg: "" };var D$HR03B = D$H03RB();var HOST = v[0x3457];var t;var t_second = 0;var t_max = 300;var D$H0B3R = null;var D$H0BR3 = null;var D$H03BR = null;var btnImg_url = "";function D$H03RB() {
   var r = {};return { order_data: {}, init: function (e, n) {
-      var t = e && e.game_ver ? e.game_ver : 0;console.log(v[0x3458]);var a = this;var o;o = (r = wx.getStorageSync(v[0x3459])) ? 0 : (r = a.uuid(16, 32), wx.setStorageSync(v[0x3459], r), 1), (e = wx.getStorageSync(v[0x345a])) || (e = a.uuid(16, 32), wx.setStorageSync(v[0x345a], e));var r = wx.getLaunchOptionsSync();e = r.scene || "";o && r.query && r.query.ad_code && wx.setStorageSync(v[0x345b], r.query.ad_code), a.log(v[0x345c], { install: o, scene: e }), wx.showShareMenu();a = r.query && r.query.invite ? r.query.invite : "";r = r.query && r.query.invite_type ? r.query.invite_type : "";a && (D$P6N7G = { invite: a, invite_type: r, is_new: o, scene: e }), t && this.checkGameVersion(t, function (e) {
+      var t = e && e.game_ver ? e.game_ver : 0;console.log(v[0x3458]);var a = this;var o;o = (r = wx.getStorageSync(v[0x3459])) ? 0 : (r = a.uuid(16, 32), wx.setStorageSync(v[0x3459], r), 1), (e = wx.getStorageSync(v[0x345a])) || (e = a.uuid(16, 32), wx.setStorageSync(v[0x345a], e));var r = wx.getLaunchOptionsSync();e = r.scene || "";o && r.query && r.query.ad_code && wx.setStorageSync(v[0x345b], r.query.ad_code), a.log(v[0x345c], { install: o, scene: e }), wx.showShareMenu();a = r.query && r.query.invite ? r.query.invite : "";r = r.query && r.query.invite_type ? r.query.invite_type : "";a && (D$H0BR3 = { invite: a, invite_type: r, is_new: o, scene: e }), t && this.checkGameVersion(t, function (e) {
         config.is_auth = e.is_auth, config.btn_bg = e.auth_bg_image, config.btn_img = e.auth_button_image, n && n(e);
       });
     }, login: function (e, n) {
@@ -17,7 +17,7 @@ var config = { game_id: v[0x3453], game_pkg: v[0x3454], partner_id: v[0x3455], g
     }, do_login1: function (t) {
       var o = this;wx.login({ success: function (e) {
           if (console.log(v[0x3461] + JSON.stringify(e)), e.code) {
-            var a = o.getPublicData();if (a.is_from_min = 1, a.code = e.code, a.nick_name = t ? t.nick_name : "", a.head_img = t ? t.head_img : "", D$P6N7G && v[0x1a] == typeof D$P6N7G) for (var n in D$P6N7G) a[n] = D$P6N7G[n];wx.getUserInfo({ success: function (e) {
+            var a = o.getPublicData();if (a.is_from_min = 1, a.code = e.code, a.nick_name = t ? t.nick_name : "", a.head_img = t ? t.head_img : "", D$H0BR3 && v[0x1a] == typeof D$H0BR3) for (var n in D$H0BR3) a[n] = D$H0BR3[n];wx.getUserInfo({ success: function (e) {
                 console.log(v[0x3462] + JSON.stringify(e));var n = e.encryptedData;var t = e.iv;e = e.signature;a.encryptedData = encodeURIComponent(n), a.iv = encodeURIComponent(t), a.signature = e, wx.request({ url: v[0x3463] + HOST + v[0x3464], method: v[0x3465], dataType: v[0x3466], header: { "content-type": v[0x3467] }, data: a, success: function (e) {
                     if (console.log(v[0x3468]), console.log(e), 200 == e.statusCode) {
                       var n = e.data;if (n.state) {
@@ -41,7 +41,7 @@ var config = { game_id: v[0x3453], game_pkg: v[0x3454], partner_id: v[0x3455], g
     }, do_login2: function (a) {
       var o = this;wx.login({ success: function (e) {
           if (console.log(v[0x3461] + JSON.stringify(e)), e.code) {
-            var n = o.getPublicData();if (n.is_from_min = 1, n.code = e.code, n.nick_name = a ? a.nick_name : "", n.head_img = a ? a.head_img : "", D$P6N7G && v[0x1a] == typeof D$P6N7G) for (var t in D$P6N7G) n[t] = D$P6N7G[t];wx.request({ url: v[0x3463] + HOST + v[0x3464], method: v[0x3465], dataType: v[0x3466], header: { "content-type": v[0x3467] }, data: n, success: function (e) {
+            var n = o.getPublicData();if (n.is_from_min = 1, n.code = e.code, n.nick_name = a ? a.nick_name : "", n.head_img = a ? a.head_img : "", D$H0BR3 && v[0x1a] == typeof D$H0BR3) for (var t in D$H0BR3) n[t] = D$H0BR3[t];wx.request({ url: v[0x3463] + HOST + v[0x3464], method: v[0x3465], dataType: v[0x3466], header: { "content-type": v[0x3467] }, data: n, success: function (e) {
                 if (console.log(v[0x3468]), console.log(e), 200 == e.statusCode) {
                   var n = e.data;if (n.state) {
                     e = { userid: n.data.user_id, account: n.data.nick_name, token: n.data.token, invite_uid: n.data.invite_uid || "", invite_nickname: n.data.invite_nickname || "", invite_head_img: n.data.invite_head_img || "", head_img: n.data.head_img || "", is_client: n.data.is_client || "0", ios_pay: n.data.ios_pay || "0" };try {
@@ -63,7 +63,7 @@ var config = { game_id: v[0x3453], game_pkg: v[0x3454], partner_id: v[0x3455], g
         t.logStartShare(n), wx.shareAppMessage({ title: e.title, imageUrl: e.img, query: e.query });
       });
     }, logStartShare: function (e) {
-      var n = wx.getStorageSync(v[0x3469]);wx.request({ url: v[0x3463] + HOST + v[0x3475], method: v[0x3465], dataType: v[0x3466], header: { "content-type": v[0x3467] }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: n, server_id: D$P6NG7 ? D$P6NG7.server_id : "", role_id: D$P6NG7 ? D$P6NG7.role_id : "", type: e }, success: function (e) {} });
+      var n = wx.getStorageSync(v[0x3469]);wx.request({ url: v[0x3463] + HOST + v[0x3475], method: v[0x3465], dataType: v[0x3466], header: { "content-type": v[0x3467] }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: n, server_id: D$H0B3R ? D$H0B3R.server_id : "", role_id: D$H0B3R ? D$H0B3R.role_id : "", type: e }, success: function (e) {} });
     }, openService: function () {
       wx.openCustomerServiceConversation();
     }, checkGameVersion: function (e, t) {
@@ -71,7 +71,7 @@ var config = { game_id: v[0x3453], game_pkg: v[0x3454], partner_id: v[0x3455], g
           var n;console.log(v[0x3478]), console.log(e), 200 == e.statusCode && (n = e.data).state ? t && t(n.data) : t && t({ develop: 0 });
         } });
     }, getShareInfo: function (e, n) {
-      console.log(v[0x3479]);var t = wx.getStorageSync(v[0x3469]);wx.request({ url: v[0x3463] + HOST + v[0x347a], method: v[0x3465], dataType: v[0x3466], header: { "content-type": v[0x3467] }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: t, type: e, server_id: D$P6NG7 ? D$P6NG7.server_id : "", role_id: D$P6NG7 ? D$P6NG7.role_id : "", no_log: 1 }, success: function (e) {
+      console.log(v[0x3479]);var t = wx.getStorageSync(v[0x3469]);wx.request({ url: v[0x3463] + HOST + v[0x347a], method: v[0x3465], dataType: v[0x3466], header: { "content-type": v[0x3467] }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: t, type: e, server_id: D$H0B3R ? D$H0B3R.server_id : "", role_id: D$H0B3R ? D$H0B3R.role_id : "", no_log: 1 }, success: function (e) {
           console.log(v[0x347b]), console.log(e), 200 == e.statusCode ? (e = e.data).state ? n && n(e.data) : r.share && r.share(1, { errMsg: v[0x347c] + e.msg }) : r.share && r.share(1, { errMsg: v[0x347d] });
         } });
     }, updateShare: function (e, n, t, a, o, r) {
@@ -111,7 +111,7 @@ var config = { game_id: v[0x3453], game_pkg: v[0x3454], partner_id: v[0x3455], g
           console.log(v[0x349b]), console.log(e), -1 !== e.errMsg.indexOf(v[0x349c]) ? r.pay && r.pay(2, { errMsg: v[0x3491] }) : r.pay && r.pay(1, { errMsg: v[0x3492] + e.errCode + "," + e.errMsg });
         }, complete: function (e) {} }));
     }, kfPay: function (e) {
-      D$P6GN7 = e.orderId, wx.showModal({ title: v[0x3489], content: v[0x349d], showCancel: !1, confirmText: v[0x348b], success: function () {
+      D$H03BR = e.orderId, wx.showModal({ title: v[0x3489], content: v[0x349d], showCancel: !1, confirmText: v[0x348b], success: function () {
           wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageTitle: v[0x349e], sendMessagePath: v[0x349f], sendMessageImg: v[0x349f] });
         } });
     }, gameGoPay: function (n, e) {
@@ -119,11 +119,11 @@ var config = { game_id: v[0x3453], game_pkg: v[0x3454], partner_id: v[0x3455], g
           console.log(v[0x34a2]), console.log(e), 200 == e.statusCode && (1 == e.data.state ? (e = { cpOrderNo: t.order_data.cpbill, orderNo: n.orderId, amount: t.order_data.price, extension: t.order_data.extension }, r.pay && r.pay(0, e)) : r.pay && r.pay(1, { errMsg: v[0x34a3] }));
         }, fail: function () {} });
     }, logCreateRole: function (e) {
-      var n = wx.getStorageSync(v[0x346a]);var t = wx.getStorageSync(v[0x346b]);var a = {};a.user_id = n, a.user_name = t, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && (D$P6NG7 = { role_id: e.roleid, server_id: e.serverid }), this.log(v[0x2c], a);
+      var n = wx.getStorageSync(v[0x346a]);var t = wx.getStorageSync(v[0x346b]);var a = {};a.user_id = n, a.user_name = t, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && (D$H0B3R = { role_id: e.roleid, server_id: e.serverid }), this.log(v[0x2c], a);
     }, logEnterGame: function (e) {
-      var n = wx.getStorageSync(v[0x346a]);var t = wx.getStorageSync(v[0x346b]);var a = {};a.user_id = n, a.user_name = t, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && (D$P6NG7 = { role_id: e.roleid, server_id: e.serverid }), this.log(v[0x34a4], a), D$P6N7G && this.updateShare(D$P6N7G.invite, D$P6N7G.invite_type, D$P6N7G.is_new, e.roleid, e.serverid, D$P6N7G.scene);
+      var n = wx.getStorageSync(v[0x346a]);var t = wx.getStorageSync(v[0x346b]);var a = {};a.user_id = n, a.user_name = t, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && (D$H0B3R = { role_id: e.roleid, server_id: e.serverid }), this.log(v[0x34a4], a), D$H0BR3 && this.updateShare(D$H0BR3.invite, D$H0BR3.invite_type, D$H0BR3.is_new, e.roleid, e.serverid, D$H0BR3.scene);
     }, logRoleUpLevel: function (e) {
-      var n = wx.getStorageSync(v[0x346a]);var t = wx.getStorageSync(v[0x346b]);var a = {};a.user_id = n, a.user_name = t, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && (D$P6NG7 = { role_id: e.roleid, server_id: e.serverid }), this.log(v[0x34a5], a);
+      var n = wx.getStorageSync(v[0x346a]);var t = wx.getStorageSync(v[0x346b]);var a = {};a.user_id = n, a.user_name = t, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && (D$H0B3R = { role_id: e.roleid, server_id: e.serverid }), this.log(v[0x34a5], a);
     }, uuid: function (e, n) {
       var t = v[0x34a6].split("");var a,
           o = [];var r;if (e = e || t.length, n) for (a = 0; a < n; a++) o[a] = t[0 | Math.random() * e];else for (o[8] = o[13] = o[18] = o[23] = "-", o[14] = "4", a = 0; a < 36; a++) o[a] || (r = 0 | 16 * Math.random(), o[a] = t[19 == a ? 3 & r | 8 : r]);return o.join("");
@@ -139,7 +139,7 @@ var config = { game_id: v[0x3453], game_pkg: v[0x3454], partner_id: v[0x3455], g
       var n = e.game_id;e = e.query;this.log(v[0x34ae], { event: v[0x34af], ext1: n, ext2: e });
     } };
 }function run(e, n, t) {
-  e in D$P76GN && D$P76GN[e](n, t);
+  e in D$HR03B && D$HR03B[e](n, t);
 }exports.init = function (e, n) {
   run(v[0x2d04], e, n);
 }, exports.login = function (e) {

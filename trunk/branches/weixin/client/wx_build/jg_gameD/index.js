@@ -816,6 +816,7 @@ window.req_server_owner = function(step) {
     'uid': PF_INFO.account,
     'version': PF_INFO.version,
     'game_pkg': PF_INFO.pkgName,
+    'device': PF_INFO.device_id,
   }, reqServerOwnerCallBack, apiRetryAmount, onApiError);
 }
 window.reqServerOwnerCallBack = function(data) {
@@ -864,7 +865,8 @@ window.req_recommend_server_list = function(step) {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
     'version': PF_INFO.version,
-    //'game_pkg': PF_INFO.pkgName,
+    'game_pkg': PF_INFO.pkgName,
+    'device': PF_INFO.device_id,
   }, reqServerRecommendCallBack, apiRetryAmount, onApiError);
 }
 window.reqServerRecommendCallBack = function(data) {
