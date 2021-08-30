@@ -1370,110 +1370,110 @@ gulp.task("build-end-obfuscator", function () {
 //马甲包文件名重命名映射表
 var filesMap = {
     //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen
-    "libs": {url:"bbblibs"},
-    "game.js": {url:"bbblibs/bbbgame.js",extractStr:true,count:1,strLen:3},
-    "libs_game.js": {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
-    "index.js": {url:"bbblibs/bbbindex.js",extractStr:true,count:1,strLen:3},
-    "init.min.js":  {url:"bbblibs/bbbinitmin.js",extractStr:true,count:1,strLen:3},
-    "libs/dom.js":  {url:"bbblibs/bbbdom.js"},
-    "libs/dom_parser.js":  {url:"bbblibs/bbbdomparser.js"},
-    "libs/laya.wxmini.js":  {url:"bbblibs/bbbwxmini.js"},
-    "libs/libs.min.js":  {url:"bbblibs/bbblibsmin.js",extractStr:false},
-    "libs/md5.min.js":  {url:"bbblibs/bbbmd5min.js"},
-    "libs/sax.js":  {url:"bbblibs/bbbsax.js"},
-    "libs/weapp-adapter.js":  {url:"bbssss/bbbweasaf.js"},
-    "libs/zlib.js":  {url:"bbblibs/bbbzlibs.js"},
-    "libs/game.js":  {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
-    "wxsdk":  {url:"bbbk"},
-    "wxsdk/wx_aksdk.js":  {url:"bbbk/bbbsdk.js",extractStr:true,count:1,strLen:3},
-    "wxsdk/helper.js":  {url:"bbbk/bbbhelp.js",extractStr:true,count:1,strLen:3},
+    "libs": {url:"ccclibs"},
+    "game.js": {url:"ccclibs/cccgame.js",extractStr:true,count:1,strLen:3},
+    "libs_game.js": {url:"ccclibs/game.js",extractStr:true,count:1,strLen:3},
+    "index.js": {url:"ccclibs/cccindex.js",extractStr:true,count:1,strLen:3},
+    "init.min.js":  {url:"ccclibs/cccinitmin.js",extractStr:true,count:1,strLen:3},
+    "libs/dom.js":  {url:"ccclibs/cccdom.js"},
+    "libs/dom_parser.js":  {url:"ccclibs/cccdomparser.js"},
+    "libs/laya.wxmini.js":  {url:"ccclibs/cccwxmini.js"},
+    "libs/libs.min.js":  {url:"ccclibs/ccclibsmin.js",extractStr:false},
+    "libs/md5.min.js":  {url:"ccclibs/cccmd5min.js"},
+    "libs/sax.js":  {url:"ccclibs/cccsax.js"},
+    "libs/weapp-adapter.js":  {url:"cccssss/cccweasaf.js"},
+    "libs/zlib.js":  {url:"ccclibs/ccczlibs.js"},
+    "libs/game.js":  {url:"ccclibs/game.js",extractStr:true,count:1,strLen:3},
+    "wxsdk":  {url:"cccck"},
+    "wxsdk/wx_aksdk.js":  {url:"cccck/cccsdk.js",extractStr:true,count:1,strLen:3},
+    "wxsdk/helper.js":  {url:"cccck/ccchelp.js",extractStr:true,count:1,strLen:3},
 
-    "protobuf":  {url:"bbbbbbf"},
-    "protobuf/client_pb.js":  {url:"bbbbbbf/bbbcleintpb.js",extractStr:true,count:5,strLen:3},
-    "protobuf/protobuf.js":  {url:"bbbbbbf/bbbbBuff.js",extractStr:true,count:5,strLen:3},
-    "protobuf/game.js":  {url:"bbbbbbf/game.js",extractStr:true,count:5,strLen:3},
+    "protobuf":  {url:"cccccf"},
+    "protobuf/client_pb.js":  {url:"cccccf/ccccleintpb.js",extractStr:true,count:5,strLen:3},
+    "protobuf/protobuf.js":  {url:"cccccf/ccccBuff.js",extractStr:true,count:5,strLen:3},
+    "protobuf/game.js":  {url:"cccccf/game.js",extractStr:true,count:5,strLen:3},
 
-    "subPackage":  {url:"bbbbbbbbb"},
-    "subPackage/main.min.js":  {url:"bbbbbbbbb/lsjdflaamain.js",extractStr:true,count:1,strLen:3},
-    "subPackage/game.js":  {url:"bbbbbbbbb/game.js",extractStr:true,count:1,strLen:3},
+    "subPackage":  {url:"cccccccc"},
+    "subPackage/main.min.js":  {url:"cccccccc/ccccccccmain.js",extractStr:true,count:1,strLen:3},
+    "subPackage/game.js":  {url:"cccccccc/game.js",extractStr:true,count:1,strLen:3},
 
     //随机创建名字和文件夹
     // "res": {url:"gafda"},
     // "res/atlas": {url:"gafda"},
-    "wxloading_atlas": {url:"bbbloding"},
-    "wxlogin_atlas": {url:"bbblogin"},
+    "wxloading_atlas": {url:"cccloding"},
+    "wxlogin_atlas": {url:"ccclogin"},
     "wxeff_btn_atlas":{url:"bwxeff"},
-    // "res/atlas/wxlogin_atlas.png": {url:"gafda/bbblogin.png"},
+    // "res/atlas/wxlogin_atlas.png": {url:"gafda/ccclogin.png"},
     // "res/atlas/wxeff_btn_atlas.png": {url:"gafda/adga321.png"},
-    // "res/atlas/wxloading_atlas.png": {url:"gafda/bbbloding.png"},
+    // "res/atlas/wxloading_atlas.png": {url:"gafda/cccloding.png"},
 
-    "wxloading_atlas/btn_loding_abcelq0.png": {url:"bbbloding/a1a.png"},
-    "wxloading_atlas/btn_loding_abcelq1.png": {url:"bbbloding/a2a.png"},
-    "wxloading_atlas/image_loading_bg.jpg": {url:"bbbloding/a3a.jpg"},
-    "wxloading_atlas/image_loading_bg_bottom.jpg": {url:"bbbloding/a4a.jpg"},
-    "wxloading_atlas/image_loading_bg_bottom2.jpg": {url:"bbbloding/a5a.jpg"},
-    "wxloading_atlas/image_loading_bg_left.jpg": {url:"bbbloding/a6a.jpg"},
-    "wxloading_atlas/image_loading_bg_left2.jpg": {url:"bbbloding/a7a.jpg"},
-    "wxloading_atlas/image_loading_bg_right.jpg": {url:"bbbloding/a8a.jpg"},
-    "wxloading_atlas/image_loading_bg_right2.jpg": {url:"bbbloding/a9a.jpg"},
-    "wxloading_atlas/image_loading_bg_top.jpg": {url:"bbbloding/a10a.jpg"},
-    "wxloading_atlas/image_loading_bg_top2.jpg": {url:"bbbloding/a11a.jpg"},
-    "wxloading_atlas/image_loading_bg2.jpg": {url:"bbbloding/a12a.jpg"},
+    "wxloading_atlas/btn_loding_abcelq0.png": {url:"cccloding/a1c.png"},
+    "wxloading_atlas/btn_loding_abcelq1.png": {url:"cccloding/a2c.png"},
+    "wxloading_atlas/image_loading_bg.jpg": {url:"cccloding/a3c.jpg"},
+    "wxloading_atlas/image_loading_bg_bottom.jpg": {url:"cccloding/a4c.jpg"},
+    "wxloading_atlas/image_loading_bg_bottom2.jpg": {url:"cccloding/a5c.jpg"},
+    "wxloading_atlas/image_loading_bg_left.jpg": {url:"cccloding/a6c.jpg"},
+    "wxloading_atlas/image_loading_bg_left2.jpg": {url:"cccloding/a7c.jpg"},
+    "wxloading_atlas/image_loading_bg_right.jpg": {url:"cccloding/a8c.jpg"},
+    "wxloading_atlas/image_loading_bg_right2.jpg": {url:"cccloding/a9c.jpg"},
+    "wxloading_atlas/image_loading_bg_top.jpg": {url:"cccloding/a10c.jpg"},
+    "wxloading_atlas/image_loading_bg_top2.jpg": {url:"cccloding/a11c.jpg"},
+    "wxloading_atlas/image_loading_bg2.jpg": {url:"cccloding/a12c.jpg"},
 
-    "wxloading_atlas/image_loding_bar0.png": {url:"bbbloding/a13a.png"},
-    "wxloading_atlas/image_loding_bar1.png": {url:"bbbloding/a14a.png"},
-    "wxloading_atlas/image_loding_bar02.png": {url:"bbbloding/a15a.png"},
-    "wxloading_atlas/image_loding_bar2.png": {url:"bbbloding/a16a.png"},
-    "wxloading_atlas/image_loding_bar3.png": {url:"bbbloding/a17a.png"},
-    "wxloading_atlas/image_login_point1.png": {url:"bbbloding/a18a.png"},
-    "wxloading_atlas/image_login_point2.png": {url:"bbbloding/a19a.png"},
-    "wxloading_atlas/image_login_point3.png": {url:"bbbloding/a20a.png"},
+    "wxloading_atlas/image_loding_bar0.png": {url:"cccloding/a13c.png"},
+    "wxloading_atlas/image_loding_bar1.png": {url:"cccloding/a14c.png"},
+    "wxloading_atlas/image_loding_bar02.png": {url:"cccloding/a15c.png"},
+    "wxloading_atlas/image_loding_bar2.png": {url:"cccloding/a16c.png"},
+    "wxloading_atlas/image_loding_bar3.png": {url:"cccloding/a17c.png"},
+    "wxloading_atlas/image_login_point1.png": {url:"cccloding/a18c.png"},
+    "wxloading_atlas/image_login_point2.png": {url:"cccloding/a19c.png"},
+    "wxloading_atlas/image_login_point3.png": {url:"cccloding/a20c.png"},
 
-    "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"bbblogin/b1b.png"},
-    "wxlogin_atlas/image_login_loginbg.jpg": {url:"bbblogin/b2b.jpg"},
-    "wxlogin_atlas/image_login_loginbg_bottom.jpg": {url:"bbblogin/b3b.jpg"},
-    "wxlogin_atlas/image_login_loginbg_left.jpg": {url:"bbblogin/b4b.jpg"},
-    "wxlogin_atlas/image_login_loginbg_right.jpg": {url:"bbblogin/b5b.jpg"},
-    "wxlogin_atlas/image_login_loginbg_top.jpg": {url:"bbblogin/b6b.jpg"},
-    "wxlogin_atlas/image_login_logo.png": {url:"bbblogin/b7b.png"},
-    "wxlogin_atlas/image_login_notice.png": {url:"bbblogin/b8b.png"},
-    "wxlogin_atlas/image_xuanfu_xfbg.png": {url:"bbblogin/b9b.png"},
+    "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ccclogin/b1c.png"},
+    "wxlogin_atlas/image_login_loginbg.jpg": {url:"ccclogin/b2c.jpg"},
+    "wxlogin_atlas/image_login_loginbg_bottom.jpg": {url:"ccclogin/b3c.jpg"},
+    "wxlogin_atlas/image_login_loginbg_left.jpg": {url:"ccclogin/b4c.jpg"},
+    "wxlogin_atlas/image_login_loginbg_right.jpg": {url:"ccclogin/b5c.jpg"},
+    "wxlogin_atlas/image_login_loginbg_top.jpg": {url:"ccclogin/b6c.jpg"},
+    "wxlogin_atlas/image_login_logo.png": {url:"ccclogin/b7c.png"},
+    "wxlogin_atlas/image_login_notice.png": {url:"ccclogin/b8c.png"},
+    "wxlogin_atlas/image_xuanfu_xfbg.png": {url:"ccclogin/b9c.png"},
 
-    "wxlogin_atlas/btn_com_chuangback.png": {url:"bbblogin/b10b.png"},
-    "wxlogin_atlas/btn_login_gonggao.png": {url:"bbblogin/b11b.png"},
-    "wxlogin_atlas/btn_login_loginanniu.png": {url:"bbblogin/b12b.png"},
-    "wxlogin_atlas/btn_login_yingsi.png": {url:"bbblogin/b13b.png"},
-    "wxlogin_atlas/btn_xuanqu_anniuhuang.png": {url:"bbblogin/b14b.png"},
-    "wxlogin_atlas/btn_xuanqu_anniulan.png": {url:"bbblogin/b15b.png"},
-    "wxlogin_atlas/btn_xuanqu_quanniu.png": {url:"bbblogin/b16b.png"},
-    "wxlogin_atlas/image_com_tuichu.png": {url:"bbblogin/b17b.png"},
-    "wxlogin_atlas/image_login_changtong.png": {url:"bbblogin/b18b.png"},
-    "wxlogin_atlas/image_login_fanmang.png": {url:"bbblogin/b19b.png"},
-    "wxlogin_atlas/image_login_weihu.png": {url:"bbblogin/b20b.png"},
-    "wxlogin_atlas/image_login_xuanqubg.png": {url:"bbblogin/b21b.png"},
+    "wxlogin_atlas/btn_com_chuangback.png": {url:"ccclogin/b10c.png"},
+    "wxlogin_atlas/btn_login_gonggao.png": {url:"ccclogin/b11c.png"},
+    "wxlogin_atlas/btn_login_loginanniu.png": {url:"ccclogin/b12c.png"},
+    "wxlogin_atlas/btn_login_yingsi.png": {url:"ccclogin/b13c.png"},
+    "wxlogin_atlas/btn_xuanqu_anniuhuang.png": {url:"ccclogin/b14c.png"},
+    "wxlogin_atlas/btn_xuanqu_anniulan.png": {url:"ccclogin/b15c.png"},
+    "wxlogin_atlas/btn_xuanqu_quanniu.png": {url:"ccclogin/b16c.png"},
+    "wxlogin_atlas/image_com_tuichu.png": {url:"ccclogin/b17c.png"},
+    "wxlogin_atlas/image_login_changtong.png": {url:"ccclogin/b18c.png"},
+    "wxlogin_atlas/image_login_fanmang.png": {url:"ccclogin/b19c.png"},
+    "wxlogin_atlas/image_login_weihu.png": {url:"ccclogin/b20c.png"},
+    "wxlogin_atlas/image_login_xuanqubg.png": {url:"ccclogin/b21c.png"},
 
 
-    "wxeff_btn_atlas/0.png": {url:"bwxeff/c1c.png"},
-    "wxeff_btn_atlas/1.png": {url:"bwxeff/c2c.png"},
-    "wxeff_btn_atlas/2.png": {url:"bwxeff/c3c.png"},
-    "wxeff_btn_atlas/3.png": {url:"bwxeff/c4c.png"},
-    "wxeff_btn_atlas/4.png": {url:"bwxeff/c5c.png"},
+    "wxeff_btn_atlas/0.png": {url:"bwxeff/c1d.png"},
+    "wxeff_btn_atlas/1.png": {url:"bwxeff/c2d.png"},
+    "wxeff_btn_atlas/2.png": {url:"bwxeff/c3d.png"},
+    "wxeff_btn_atlas/3.png": {url:"bwxeff/c4d.png"},
+    "wxeff_btn_atlas/4.png": {url:"bwxeff/c5d.png"},
 };
 
-//混淆后的文件配置通过  filesMap 转化 "libs": {url:"bbblibs"},  -》"bbblibs":{url:"bbblibs"}
+//混淆后的文件配置通过  filesMap 转化 "libs": {url:"ccclibs"},  -》"ccclibs":{url:"ccclibs"}
 var targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
 
 var mt1Replace = {
     "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
-    "./helper": "./" + "bbbhelp",
-    "./sax": "./bbbsax",
-    "./dom": "./bbbdom",
-    "client_pb.js": "bbbcleintpb.js",
-    "protobuf.js": "bbbbBuff.js",
-    "main.min.js": "lsjdflaamain.js",
-    "wxlogin_atlas": "bbblogin",
+    "./helper": "./" + "ccchelp",
+    "./sax": "./cccsax",
+    "./dom": "./cccdom",
+    "client_pb.js": "ccccleintpb.js",
+    "protobuf.js": "ccccBuff.js",
+    "main.min.js": "ccccccccmain.js",
+    "wxlogin_atlas": "ccclogin",
     "wxeff_btn_atlas": "bwxeff",
-    "wxloading_atlas": "bbbloding",
+    "wxloading_atlas": "cccloding",
     // "res/atlas/": "gafda/",
 
     "btn_loding_abcelq0.png": "a1a.png",
@@ -1590,10 +1590,10 @@ gulp.task('MT1_COPY', function () {
         .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)|(game.js)/g, function (match, p1, offset, string) {
             var arr = filesMap[match].url.split("/");
             // console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
-            if(arr[arr.length - 1].indexOf("bbbweasaf")!=-1)
+            if(arr[arr.length - 1].indexOf("cccweasaf")!=-1)
                 debugger;
             var relative = this.file.relative.replace(/\\/g, "/");
-            if(relative == "bbblibs/game.js"){
+            if(relative == "ccclibs/game.js"){
                 return match;
             }
             console.log(" arr[arr.length - 1]:", arr[arr.length - 1])
@@ -1630,7 +1630,7 @@ gulp.task('MT1_COPY', function () {
         }))
         .pipe(replace(/(0.png)|(1.png)|(2.png)|(3.png)|(4.png)/g, function (match, p1, offset, string) {
             var relative = this.file.relative.replace(/\\/g, "/");
-            if (relative == "bbblibs/bbbinitmin.js") { //登录界面才替换
+            if (relative == "ccclibs/cccinitmin.js") { //登录界面才替换
                 if (!mt1Replace[match]) {
                     console.log(1);
                 }
@@ -1642,8 +1642,8 @@ gulp.task('MT1_COPY', function () {
 
         }))
         //报名需要修改
-        .pipe(replace(/( name: 'main')/g, "name: 'bbbbbbbbb'"))
-        .pipe(replace(/( name: 'probuf')/g, "name: 'bbbbbbf'"))
+        .pipe(replace(/( name: 'main')/g, "name: 'cccccccc'"))
+        .pipe(replace(/( name: 'probuf')/g, "name: 'cccccf'"))
         .pipe(through.obj(function (file, encode, cb) {
             // console.log("file:",file,"encode:",encode);
             if (file.relative == "game.json") {
@@ -1652,16 +1652,16 @@ gulp.task('MT1_COPY', function () {
                 console.log("修改game.json：修改分包")
                 json.subpackages = [
                     {
-                        "name": "bbblibs",
-                        "root": "bbblibs/"
+                        "name": "ccclibs",
+                        "root": "ccclibs/"
                     },
                     {
-                        "name": "bbbbbbf",
-                        "root": "bbbbbbf/"
+                        "name": "cccccf",
+                        "root": "cccccf/"
                     },
                     {
-                        "name": "bbbbbbbbb",
-                        "root": "bbbbbbbbb/"
+                        "name": "cccccccc",
+                        "root": "cccccccc/"
                     }
                 ];
                 console.log(json)
