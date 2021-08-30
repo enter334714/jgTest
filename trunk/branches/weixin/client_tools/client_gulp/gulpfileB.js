@@ -35,7 +35,6 @@ var SCOPE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_';
 var PREFIX = '';
 var sourceProject = "../../client/wx_build/jg_gameB_new";
 var targetProject = "../../client/wx_build/jg_gameB_obfuscator";
-var gameJsPath ="../../client/wx_build/gameJS/game_b.js";
 
 /**scope.js文件处理*/
 var modify_scope = function () {
@@ -1361,7 +1360,7 @@ var filesMap = {
     //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen
     "libs": {url:"bbblibs"},
     "game.js": {url:"bbblibs/bbbgame.js",extractStr:true,count:1,strLen:3},
-    "game_bbblibs.js": {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
+    "libs_game.js": {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
     "index.js": {url:"bbblibs/bbbindex.js",extractStr:true,count:1,strLen:3},
     "init.min.js":  {url:"bbblibs/bbbinitmin.js",extractStr:true,count:1,strLen:3},
     "libs/dom.js":  {url:"bbblibs/bbbdom.js"},
@@ -1450,7 +1449,7 @@ var filesMap = {
 };
 
 //混淆后的文件配置通过  filesMap 转化 "libs": {url:"bbblibs"},  -》"bbblibs":{url:"bbblibs"}
-var targetFileMap = {"game_b.js":{url:"game_b.js",extractStr:false,count:5,strLen:13}};
+var targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
 
 var mt1Replace = {
     "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
@@ -1671,17 +1670,8 @@ gulp.task('MT1_COPY2', function () {
         .pipe(gulp.dest(targetUrl + '/'));
 });
 
-gulp.task('copyGameJs',function(){
-    var stream = gulp.src(gameJsPath)
-        // pipe(rename(function (path) {
-        //     path.basename = "game";
-        // }))
-        .pipe(gulp.dest(sourceProject + '/'))
-    return stream;
-});
-
 gulp.task('renameGameJs',function(){
-    var stream = gulp.src(targetProject + "/game_b.js").
+    var stream = gulp.src(targetProject + "/game_main.js").
     pipe(rename(function (path) {
             path.basename = "game";
         })
@@ -1690,7 +1680,7 @@ gulp.task('renameGameJs',function(){
 })
 
 gulp.task('cleanGameJs',function(){
-    var stream = gulp.src(targetProject + "/game_b.js")
+    var stream = gulp.src(targetProject + "/game_main.js")
         .pipe(clean({
             force: true
         }))

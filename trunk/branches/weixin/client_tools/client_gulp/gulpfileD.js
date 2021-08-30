@@ -35,7 +35,7 @@ var SCOPE = 'abcdefijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_gh';
 var PREFIX = '';
 var sourceProject = "../../client/wx_build/jg_gameD_new";
 var targetProject = "../../client/wx_build/jg_gameD_obfuscator";
-var gameJsPath ="../../client/wx_build/gameJS/game_d.js";
+
 
 /**scope.js文件处理*/
 var modify_scope = function () {
@@ -1369,7 +1369,7 @@ var filesMap = {
     //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen
     "libs": {url:"dddlibs"},
     "game.js": {url:"dddlibs/dddgame.js",extractStr:true,count:1,strLen:3},
-    "game_dddlibs.js": {url:"dddlibs/game.js",extractStr:true,count:1,strLen:3},
+    "libs_game.js": {url:"dddlibs/game.js",extractStr:true,count:1,strLen:3},
     "index.js": {url:"dddlibs/dddindex.js",extractStr:true,count:1,strLen:3},
     "init.min.js":  {url:"dddlibs/dddinitmin.js",extractStr:true,count:1,strLen:3},
     "libs/dom.js":  {url:"dddlibs/ddddom.js"},
@@ -1458,7 +1458,7 @@ var filesMap = {
 };
 
 //混淆后的文件配置通过  filesMap 转化 "libs": {url:"dddlibs"},  -》"dddlibs":{url:"dddlibs"}
-var targetFileMap = {"game_d.js":{url:"game_d.js",extractStr:false,count:5,strLen:13}};
+var targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
 
 var mt1Replace = {
     "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
@@ -1685,7 +1685,7 @@ gulp.task('MT1_COPY2', function () {
 
 
 gulp.task('renameGameJs',function(){
-    var stream = gulp.src(targetProject + "/game_d.js").
+    var stream = gulp.src(targetProject + "/game_main.js").
     pipe(rename(function (path) {
             path.basename = "game";
         })
@@ -1694,7 +1694,7 @@ gulp.task('renameGameJs',function(){
 })
 
 gulp.task('cleanGameJs',function(){
-    var stream = gulp.src(targetProject + "/game_d.js")
+    var stream = gulp.src(targetProject + "/game_main.js")
         .pipe(clean({
             force: true
         }))
