@@ -1439,6 +1439,7 @@ var filesMap = {
     "wxlogin_atlas/image_login_fanmang.png": {url:"bbblogin/b19b.png"},
     "wxlogin_atlas/image_login_weihu.png": {url:"bbblogin/b20b.png"},
     "wxlogin_atlas/image_login_xuanqubg.png": {url:"bbblogin/b21b.png"},
+    "wxlogin_atlas/image_login_init.png": {url:"bbblogin/b22b.png"},
 
 
     "wxeff_btn_atlas/0.png": {url:"bwxeff/c1c.png"},
@@ -1510,6 +1511,7 @@ var mt1Replace = {
     "image_login_fanmang.png": "b19b.png",
     "image_login_weihu.png": "b20b.png",
     "image_login_xuanqubg.png": "b21b.png",
+    "image_login_init.png": {url:"b22b.png"},
 
     "0.png": "c1c.png",
     "1.png": "c2c.png",
@@ -1609,7 +1611,7 @@ gulp.task('MT1_COPY', function () {
             }
             return mt1Replace[match];
         }))
-        .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)|(btn_com_chuangback.png)|(btn_login_gonggao.png)|(btn_login_loginanniu.png)|(btn_login_yingsi.png)|(btn_xuanqu_anniuhuang.png)|(btn_xuanqu_anniulan.png)|(btn_xuanqu_quanniu.png)|(image_com_tuichu.png)|(image_login_changtong.png)|(image_login_fanmang.png)|(image_login_weihu.png)|(image_login_xuanqubg.png)/g, function (match, p1, offset, string) {
+        .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)|(btn_com_chuangback.png)|(btn_login_gonggao.png)|(btn_login_loginanniu.png)|(btn_login_yingsi.png)|(btn_xuanqu_anniuhuang.png)|(btn_xuanqu_anniulan.png)|(btn_xuanqu_quanniu.png)|(image_com_tuichu.png)|(image_login_changtong.png)|(image_login_fanmang.png)|(image_login_weihu.png)|(image_login_xuanqubg.png)|(image_login_init.png)/g, function (match, p1, offset, string) {
             if (!mt1Replace[match]) {
                 console.log(1);
             }
