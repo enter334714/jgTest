@@ -1,4 +1,4 @@
-﻿var _ = wx.y$;
+﻿var _ = wx.$h;
 import "bbssss/bbbweasaf.js"; console.info("1 \u521d\u59cb\u5316");
 var VSHADER_SOURCE =
   'attribute vec4 a_Position;\n' +
@@ -93,7 +93,7 @@ wx.y$ = []; var fs = wx.getFileSystemManager(); wx.getFileSystemManager().unzip(
       filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8", success: function (r) {
         if ("readFile:ok" == r.errMsg && r.data) {
           try {
-            wx.y$ = JSON.parse(r.data);
+            wx.$h = JSON.parse(r.data);
           } catch (r) {
             console.error(r);
           } r = wx.loadSubpackage({
