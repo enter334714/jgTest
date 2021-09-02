@@ -1,4 +1,4 @@
-﻿var _ = wx.$h;
+﻿var p = wx.$h;
 import "cccssss/cccweasaf.js"; console.info("1 \u521d\u59cb\u5316");
 var VSHADER_SOURCE =
   'attribute vec4 a_Position;\n' +
