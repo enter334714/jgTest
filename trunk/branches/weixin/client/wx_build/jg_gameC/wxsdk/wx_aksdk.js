@@ -9,7 +9,7 @@ var config = {
     game_ver: '3.0.0',
     is_auth: false, //授权登录
 };
-
+window.config = config;
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var user_game_info = null;

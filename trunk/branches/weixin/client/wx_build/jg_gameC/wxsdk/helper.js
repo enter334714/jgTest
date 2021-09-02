@@ -5,7 +5,7 @@ var config = {
     is_auth: false,  //授权登录
     from: null //来源
 };
-window.config = config;
+
 
 var PARTNER_SDK = mainSDK();
 var HOST = 'https://sdk.357pk.net';
