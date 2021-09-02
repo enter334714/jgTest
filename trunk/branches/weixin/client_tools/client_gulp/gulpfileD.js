@@ -1448,7 +1448,7 @@ var filesMap = {
     "wxlogin_atlas/image_login_fanmang.png": {url:"dddlogin/d19b.png"},
     "wxlogin_atlas/image_login_weihu.png": {url:"dddlogin/d20b.png"},
     "wxlogin_atlas/image_login_xuanqubg.png": {url:"dddlogin/d21b.png"},
-    "wxlogin_atlas/image_login_init.png": {url:"bbblogin/d22b.png"}
+    "wxlogin_atlas/image_login_init.png": {url:"bbblogin/d22b.png"},
 
     "wxeff_btn_atlas/0.png": {url:"ddwxeff/d1c.png"},
     "wxeff_btn_atlas/1.png": {url:"ddwxeff/d2c.png"},

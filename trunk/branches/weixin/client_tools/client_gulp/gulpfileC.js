@@ -389,7 +389,7 @@ gulp.task('build-all-C', function (cb) {
 
 //混淆
 gulp.task('build-babel-obfuscator-C', function (cb) {
-    sequence("set-param-c","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator', 'build-end-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string',  'build-end-babel',"renameGamejs",'cleanGamejs',cb)
+    sequence("set-param-c","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
 });
 /**-------------------------------------------------微信小游戏--C包  end-----------------------------------------------------------*/
 
