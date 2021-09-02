@@ -1,8 +1,8 @@
-var config = {
+﻿var config = {
     game_id: '699',
     game_pkg: 'tjqy_jyhjl_AF',
     partner_id: '5156',
-    game_ver: '1.0.0',
+    game_ver: '4.0.0',
     is_auth: '1' , //授权登录
     btn_img: '',
     btn_bg: '',
