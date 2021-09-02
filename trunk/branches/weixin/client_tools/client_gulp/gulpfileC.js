@@ -31,7 +31,7 @@ var DEST_JS = '../../client/wx_dist/'; //路径
 var BUILD = '../../client/wx_build/'; //路径
 var PACK = 'jg_gameC'; //项目名
 var INIT_PATH = ''; //init.min.js的目录
-var SCOPE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_';
+var SCOPE = 'abcdghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ef';
 var PREFIX = '';
 var sourceProject = "../../client/wx_build/jg_gameC_new";
 var targetProject = "../../client/wx_build/jg_gameC_obfuscator";
@@ -353,7 +353,7 @@ var set_param_c = function () {
         PACK = 'jg_gameC';
         INIT_PATH = '/';
         SCOPE = 'cdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ef';
-        PREFIX = 'd$';
+        PREFIX = 'c$';
         sourceProject = "../../client/wx_build/jg_gameC_new";
         targetProject = "../../client/wx_build/jg_gameC_obfuscator";
         for(var key in  filesMap){
@@ -596,8 +596,9 @@ var identifier_create = function (rate) {
         var identifiersRenameArray = [];
         var identifiersGlobleArray = [];
         identifiersObfuscatorArray = [];
-
-        var perm = function (s, arr, pre) {
+        var reNameArrObj = {};
+        var obfuscatorArrObj = {};
+        var perm = function (s, arrObj, pre) {
             var result = [];
             if (s.length <= 1) {
                 return [s];
@@ -605,14 +606,14 @@ var identifier_create = function (rate) {
                 for (var i = 0; i < s.length; i++) {
                     var c = s[i];
                     var newStr = s.slice(0, i) + s.slice(i + 1, s.length);
-                    var l = perm(newStr, arr, pre);
+                    var l = perm(newStr, arrObj, pre);
 
                     for (var j = 0; j < l.length; j++) {
                         var tmp = c + l[j];
                         result.push(tmp);
                         tmp = pre + tmp;
-                        if (keys.indexOf(tmp) == -1 && globleKeys.indexOf(tmp) == -1 && arr.indexOf(tmp) == -1 && identifiersObfuscatorArray.indexOf(tmp) == -1 && identifiersGlobleArray.indexOf(tmp) == -1 && digits.indexOf(tmp.slice(0, 1)) == -1) {
-                            arr.push(tmp);
+                        if (keys.indexOf(tmp) == -1 && globleKeys.indexOf(tmp) == -1 && !reNameArrObj[tmp] && !obfuscatorArrObj[tmp] && identifiersGlobleArray.indexOf(tmp) == -1 && digits.indexOf(tmp.slice(0, 1)) == -1) {
+                            arrObj[tmp] = tmp;
                         }
                     }
                 }
@@ -620,7 +621,17 @@ var identifier_create = function (rate) {
             return result;
         };
 
-        var leading = "ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789";
+        var shuffle =  function (array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        };
+
+        leading = shuffle(Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789")).join("")
         for (var n = 5; n < 6; n++) {
             for (var m = 0; m < leading.length; m++) {
                 perm(leading.slice(m, m + n), reNameArrObj, globleKeys[3]);
@@ -646,8 +657,10 @@ var identifier_create = function (rate) {
 
         leading = "abcdefghijklmnopqrstuvwxyz$_0123456789";
         leading = leading.replace(globleKeys[2], '');
+        leading = shuffle(Array.from(leading)).join("")
         //生成混淆用的标识符
-        for (var n = 1; n < 7; n++) { //字符数量
+        for (var n = 1; n < 8; n++) { //字符数量
+        //     var n = 7;
             for (var m = 0; m < leading.length; m++) {
                 perm(leading.slice(m, m + n), obfuscatorArrObj, '');
             }
@@ -670,7 +683,7 @@ gulp.task("build-identifier", function () {
     var stream = gulp
         .src(BUILD+PACK+"/game.js")
         .pipe(identifier_create())
-        .pipe(gulp.dest(sourceProject+"/"))
+        // .pipe(gulp.dest(sourceProject+"/"))
     return stream;
 });
 
@@ -770,29 +783,21 @@ var js_checkStrCount =  function () {
                 }
             }
         };
-        var check = false;
-        if(!config){
-            console.log("没有配置 "+file.path)
-            check = true;
-        }else{
-            check = config.extractStr || false;
-            if(!check){
-                console.log("check  配置不需要提取字符串:", url);
-            }
-        }
-        if(check){
-            //transform方法转换code，babel先将代码转换成ast，然后进行遍历，最后输出code
-            var result = babel_core.transform(contents, {
-                plugins: [
-                    {
-                        visitor
-                    }
-                ]
-            });
-            contents = result.code; //从AST还原成字符串
-            var bf = new Buffer.from(contents);
-            file.contents = bf;
-        }
+
+
+        //transform方法转换code，babel先将代码转换成ast，然后进行遍历，最后输出code
+        var result = babel_core.transform(contents, {
+            plugins: [
+                {
+                    visitor
+                }
+            ]
+        });
+        contents = result.code; //从AST还原成字符串
+
+
+        var bf = new Buffer.from(contents);
+        file.contents = bf;
         cb();
         this.emit("data", file);
     }
@@ -1084,16 +1089,7 @@ var js_babel_str = function () {
                             if(globleArrsObj[tempstr] != undefined &&  globleArrsObj[tempstr] >= 0 ){
                                 index = globleArrsObj[tempstr];
                                 add = false;
-                                // if(globleStrStat[tempstr] == undefined){
-                                //     globleStrStat[tempstr] = 2;
-                                // }else{
-                                //     globleStrStat[tempstr] += 1;
-                                // }
-                                //
-                                // if( globleStrStat[tempstr] >= 5){
-                                //     console.log("出现五次以上的字符：",tempstr,"次数：",globleStrStat[tempstr]);
-                                // }
-                                // console.log("混淆后 重复的字符串：",tempstr,"使用下标:",index,"globleArrs[index]:",globleArrs[index])
+
                             }else{
                                 index = arrIndex;
                                 add = true;
@@ -1171,14 +1167,14 @@ var end_babel = function () {
         var zipfile = new jszip().file("files", str);
         zipfile.generateAsync({type: "uint8array", compression: "DEFLATE", compressionOptions: {level: 9}}).then(function(content) {
             if (content) {
-                var p = path.resolve(targetProject + "/res");
+                var p = path.resolve(targetProject + "/cres");
                 try {
                     fs.statSync(p);
                 } catch (e) {
                     fs.mkdirSync(p);
                 }
                 console.log("生成files.zip:",p);
-                fs.writeFileSync(targetProject + "/res/files.zip", content, {encoding: "utf8"});
+                fs.writeFileSync(targetProject + "/cres/files.zip", content, {encoding: "utf8"});
                 // fs.writeFileSync(targetProject + "/res/str.txt", str, {encoding:"utf8"});
             }
         });
@@ -1402,7 +1398,7 @@ var filesMap = {
     // "res/atlas": {url:"gafda"},
     "wxloading_atlas": {url:"cccloding"},
     "wxlogin_atlas": {url:"ccclogin"},
-    "wxeff_btn_atlas":{url:"bwxeff"},
+    "wxeff_btn_atlas":{url:"cccwxeff"},
     // "res/atlas/wxlogin_atlas.png": {url:"gafda/ccclogin.png"},
     // "res/atlas/wxeff_btn_atlas.png": {url:"gafda/adga321.png"},
     // "res/atlas/wxloading_atlas.png": {url:"gafda/cccloding.png"},
@@ -1451,13 +1447,13 @@ var filesMap = {
     "wxlogin_atlas/image_login_fanmang.png": {url:"ccclogin/b19c.png"},
     "wxlogin_atlas/image_login_weihu.png": {url:"ccclogin/b20c.png"},
     "wxlogin_atlas/image_login_xuanqubg.png": {url:"ccclogin/b21c.png"},
+    "wxlogin_atlas/image_login_init.png": {url:"bbblogin/b22c.png"},
 
-
-    "wxeff_btn_atlas/0.png": {url:"bwxeff/c1d.png"},
-    "wxeff_btn_atlas/1.png": {url:"bwxeff/c2d.png"},
-    "wxeff_btn_atlas/2.png": {url:"bwxeff/c3d.png"},
-    "wxeff_btn_atlas/3.png": {url:"bwxeff/c4d.png"},
-    "wxeff_btn_atlas/4.png": {url:"bwxeff/c5d.png"},
+    "wxeff_btn_atlas/0.png": {url:"cccwxeff/c100c.png"},
+    "wxeff_btn_atlas/1.png": {url:"cccwxeff/c101c.png"},
+    "wxeff_btn_atlas/2.png": {url:"cccwxeff/c102c.png"},
+    "wxeff_btn_atlas/3.png": {url:"cccwxeff/c103c.png"},
+    "wxeff_btn_atlas/4.png": {url:"cccwxeff/c104c.png"},
 };
 
 //混淆后的文件配置通过  filesMap 转化 "libs": {url:"ccclibs"},  -》"ccclibs":{url:"ccclibs"}
@@ -1472,62 +1468,64 @@ var mt1Replace = {
     "protobuf.js": "ccccBuff.js",
     "main.min.js": "ccccccccmain.js",
     "wxlogin_atlas": "ccclogin",
-    "wxeff_btn_atlas": "bwxeff",
+    "wxeff_btn_atlas": "cccwxeff",
     "wxloading_atlas": "cccloding",
     // "res/atlas/": "gafda/",
 
-    "btn_loding_abcelq0.png": "a1a.png",
-    "btn_loding_abcelq1.png": "a2a.png",
-    "image_loading_bg.jpg": "a3a.jpg",
-    "image_loading_bg_bottom.jpg": "a4a.jpg",
-    "image_loading_bg_bottom2.jpg": "a5a.jpg",
-    "image_loading_bg_left.jpg": "a6a.jpg",
-    "image_loading_bg_left2.jpg": "a7a.jpg",
-    "image_loading_bg_right.jpg": "a8a.jpg",
-    "image_loading_bg_right2.jpg": "a9a.jpg",
-    "image_loading_bg_top.jpg": "a10a.jpg",
-    "image_loading_bg_top2.jpg": "a11a.jpg",
-    "image_loading_bg2.jpg": "a12a.jpg",
+    "btn_loding_abcelq0.png": "a1c.png",
+    "btn_loding_abcelq1.png": "a2c.png",
+    "image_loading_bg.jpg": "a3c.jpg",
+    "image_loading_bg_bottom.jpg": "a4c.jpg",
+    "image_loading_bg_bottom2.jpg": "a5c.jpg",
+    "image_loading_bg_left.jpg": "a6c.jpg",
+    "image_loading_bg_left2.jpg": "a7c.jpg",
+    "image_loading_bg_right.jpg": "a8c.jpg",
+    "image_loading_bg_right2.jpg": "a9c.jpg",
+    "image_loading_bg_top.jpg": "a10c.jpg",
+    "image_loading_bg_top2.jpg": "a11c.jpg",
+    "image_loading_bg2.jpg": "a12c.jpg",
 
-    "image_loding_bar0.png": "a13a.png",
-    "image_loding_bar1.png": "a14a.png",
-    "image_loding_bar02.png": "a15a.png",
-    "image_loding_bar2.png": "a16a.png",
-    "image_loding_bar3.png": "a17a.png",
-    "image_login_point1.png": "a18a.png",
-    "image_login_point2.png":"a19a.png",
-    "image_login_point3.png": "a20a.png",
+    "image_loding_bar0.png": "a13c.png",
+    "image_loding_bar1.png": "a14c.png",
+    "image_loding_bar02.png": "a15c.png",
+    "image_loding_bar2.png": "a16c.png",
+    "image_loding_bar3.png": "a17c.png",
+    "image_login_point1.png": "a18c.png",
+    "image_login_point2.png":"a19c.png",
+    "image_login_point3.png": "a20c.png",
 
 
 
-    "image_denglu_txtshenpi.png": "b1b.png",
-    "image_login_loginbg.jpg": "b2b.jpg",
-    "image_login_loginbg_bottom.jpg": "b3b.jpg",
-    "image_login_loginbg_left.jpg": "b4b.jpg",
-    "image_login_loginbg_right.jpg": "b5b.jpg",
-    "image_login_loginbg_top.jpg": "b6b.jpg",
-    "image_login_logo.png": "b7b.png",
-    "image_login_notice.png": "b8b.png",
-    "image_xuanfu_xfbg.png": "b9b.png",
+    "image_denglu_txtshenpi.png": "b1c.png",
+    "image_login_loginbg.jpg": "b2c.jpg",
+    "image_login_loginbg_bottom.jpg": "b3c.jpg",
+    "image_login_loginbg_left.jpg": "b4c.jpg",
+    "image_login_loginbg_right.jpg": "b5c.jpg",
+    "image_login_loginbg_top.jpg": "b6c.jpg",
+    "image_login_logo.png": "b7c.png",
+    "image_login_notice.png": "b8c.png",
+    "image_xuanfu_xfbg.png": "b9c.png",
 
-    "btn_com_chuangback.png": "b10b.png",
-    "btn_login_gonggao.png": "b11b.png",
-    "btn_login_loginanniu.png": "b12b.png",
-    "btn_login_yingsi.png": "b13b.png",
-    "btn_xuanqu_anniuhuang.png": "b14b.png",
-    "btn_xuanqu_anniulan.png": "b15b.png",
-    "btn_xuanqu_quanniu.png": "b16b.png",
-    "image_com_tuichu.png": "b17b.png",
-    "image_login_changtong.png": "b18b.png",
-    "image_login_fanmang.png": "b19b.png",
-    "image_login_weihu.png": "b20b.png",
-    "image_login_xuanqubg.png": "b21b.png",
+    "btn_com_chuangback.png": "b10c.png",
+    "btn_login_gonggao.png": "b11c.png",
+    "btn_login_loginanniu.png": "b12c.png",
+    "btn_login_yingsi.png": "b13c.png",
+    "btn_xuanqu_anniuhuang.png": "b14c.png",
+    "btn_xuanqu_anniulan.png": "b15c.png",
+    "btn_xuanqu_quanniu.png": "b16c.png",
+    "image_com_tuichu.png": "b17c.png",
+    "image_login_changtong.png": "b18c.png",
+    "image_login_fanmang.png": "b19c.png",
+    "image_login_weihu.png": "b20c.png",
+    "image_login_xuanqubg.png": "b21c.png",
+    "image_login_init.png": "b22c.png",
 
-    "0.png": "c1c.png",
-    "1.png": "c2c.png",
-    "2.png": "c3c.png",
-    "3.png": "c4c.png",
-    "4.png": "c5c.png",
+
+    "0.png": "c100c.png",
+    "1.png": "c101c.png",
+    "2.png": "c102c.png",
+    "3.png": "c103c.png",
+    "4.png": "c104c.png",
 
 }
 
@@ -1621,7 +1619,7 @@ gulp.task('MT1_COPY', function () {
             }
             return mt1Replace[match];
         }))
-        .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)|(btn_com_chuangback.png)|(btn_login_gonggao.png)|(btn_login_loginanniu.png)|(btn_login_yingsi.png)|(btn_xuanqu_anniuhuang.png)|(btn_xuanqu_anniulan.png)|(btn_xuanqu_quanniu.png)|(image_com_tuichu.png)|(image_login_changtong.png)|(image_login_fanmang.png)|(image_login_weihu.png)|(image_login_xuanqubg.png)/g, function (match, p1, offset, string) {
+        .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)|(btn_com_chuangback.png)|(btn_login_gonggao.png)|(btn_login_loginanniu.png)|(btn_login_yingsi.png)|(btn_xuanqu_anniuhuang.png)|(btn_xuanqu_anniulan.png)|(btn_xuanqu_quanniu.png)|(image_com_tuichu.png)|(image_login_changtong.png)|(image_login_fanmang.png)|(image_login_weihu.png)|(image_login_xuanqubg.png)|(image_login_init.png)/g, function (match, p1, offset, string) {
             if (!mt1Replace[match]) {
                 console.log(1);
             }

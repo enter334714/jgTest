@@ -1442,11 +1442,11 @@ var filesMap = {
     "wxlogin_atlas/image_login_init.png": {url:"bbblogin/b22b.png"},
 
 
-    "wxeff_btn_atlas/0.png": {url:"bwxeff/c1c.png"},
-    "wxeff_btn_atlas/1.png": {url:"bwxeff/c2c.png"},
-    "wxeff_btn_atlas/2.png": {url:"bwxeff/c3c.png"},
-    "wxeff_btn_atlas/3.png": {url:"bwxeff/c4c.png"},
-    "wxeff_btn_atlas/4.png": {url:"bwxeff/c5c.png"},
+    "wxeff_btn_atlas/0.png": {url:"bwxeff/b100b.png"},
+    "wxeff_btn_atlas/1.png": {url:"bwxeff/b101b.png"},
+    "wxeff_btn_atlas/2.png": {url:"bwxeff/b102b.png"},
+    "wxeff_btn_atlas/3.png": {url:"bwxeff/b103b.png"},
+    "wxeff_btn_atlas/4.png": {url:"bwxeff/b104b.png"},
 };
 
 //混淆后的文件配置通过  filesMap 转化 "libs": {url:"bbblibs"},  -》"bbblibs":{url:"bbblibs"}
@@ -1511,13 +1511,13 @@ var mt1Replace = {
     "image_login_fanmang.png": "b19b.png",
     "image_login_weihu.png": "b20b.png",
     "image_login_xuanqubg.png": "b21b.png",
-    "image_login_init.png": {url:"b22b.png"},
+    "image_login_init.png": "b22b.png",
 
-    "0.png": "c1c.png",
-    "1.png": "c2c.png",
-    "2.png": "c3c.png",
-    "3.png": "c4c.png",
-    "4.png": "c5c.png",
+    "0.png": "b100b.png",
+    "1.png": "b101b.png",
+    "2.png": "b102b.png",
+    "3.png": "b103b.png",
+    "4.png": "b104b.png",
 
 }
 
