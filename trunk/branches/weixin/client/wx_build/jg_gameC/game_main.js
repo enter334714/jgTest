@@ -1,5 +1,5 @@
 ﻿var _ = wx.$h;
-import "bbssss/bbbweasaf.js"; console.info("1 \u521d\u59cb\u5316");
+import "cccssss/cccweasaf.js"; console.info("1 \u521d\u59cb\u5316");
 var VSHADER_SOURCE =
   'attribute vec4 a_Position;\n' +
   'attribute vec2 a_TexCoord;\n' +
@@ -44,7 +44,7 @@ gl.useProgram(shaderProgram);
 
 
 var image = new Image();
-image.src = "bbblogin/b22c.png";
+image.src = "ccclogin/b22c.png";
 var buffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
@@ -97,7 +97,7 @@ wx.y$ = []; var fs = wx.getFileSystemManager(); wx.getFileSystemManager().unzip(
           } catch (r) {
             console.error(r);
           } r = wx.loadSubpackage({
-            name: "bbblibs", success: function (r) {
+            name: "ccclibs", success: function (r) {
               r && r.errMsg, window.loadSubpackages();             
             }, fail: function (r) {
               console.error(r);
