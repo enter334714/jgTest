@@ -1,2 +1,2 @@
 var _ = wx.y$;
-require(_[0x3602]);
+require(_[0x366d]);

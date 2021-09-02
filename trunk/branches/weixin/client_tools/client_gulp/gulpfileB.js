@@ -1371,7 +1371,7 @@ var filesMap = {
     "libs/sax.js":  {url:"bbblibs/bbbsax.js"},
     "libs/weapp-adapter.js":  {url:"bbssss/bbbweasaf.js"},
     "libs/zlib.js":  {url:"bbblibs/bbbzlibs.js"},
-    "libs/game.js":  {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
+    // "libs/game.js":  {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
     "wxsdk":  {url:"bbbk"},
     "wxsdk/wx_aksdk.js":  {url:"bbbk/bbbsdk.js",extractStr:true,count:1,strLen:3},
     "wxsdk/helper.js":  {url:"bbbk/bbbhelp.js",extractStr:true,count:1,strLen:3},

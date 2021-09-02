@@ -1380,7 +1380,7 @@ var filesMap = {
     "libs/sax.js":  {url:"dddlibs/dddsax.js"},
     "libs/weapp-adapter.js":  {url:"ddssss/dddweasaf.js"},
     "libs/zlib.js":  {url:"dddlibs/dddzlibs.js"},
-    "libs/game.js":  {url:"dddlibs/game.js",extractStr:true,count:1,strLen:3},
+    // "libs/game.js":  {url:"dddlibs/game.js",extractStr:true,count:1,strLen:3},
     "wxsdk":  {url:"dddk"},
     "wxsdk/wx_aksdk.js":  {url:"dddk/dddsdk.js",extractStr:true,count:1,strLen:3},
     "wxsdk/helper.js":  {url:"dddk/dddhelp.js",extractStr:true,count:1,strLen:3},
@@ -1448,7 +1448,7 @@ var filesMap = {
     "wxlogin_atlas/image_login_fanmang.png": {url:"dddlogin/d19b.png"},
     "wxlogin_atlas/image_login_weihu.png": {url:"dddlogin/d20b.png"},
     "wxlogin_atlas/image_login_xuanqubg.png": {url:"dddlogin/d21b.png"},
-    "wxlogin_atlas/image_login_init.png": {url:"bbblogin/d22b.png"},
+    "wxlogin_atlas/image_login_init.png": {url:"dddlogin/d22b.png"},
 
     "wxeff_btn_atlas/0.png": {url:"ddwxeff/d1c.png"},
     "wxeff_btn_atlas/1.png": {url:"ddwxeff/d2c.png"},

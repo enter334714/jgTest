@@ -3,7 +3,7 @@ var config = {
     game_id: '285',
     game_pkg: 'tjqy_tjqyjyhjl_FH',
     partner_id: '249',
-    game_ver: '4.0.0',
+    game_ver: '4.0.1',
     partner_label:'pbxyx',
     is_auth: false,
     from: null, //来源

@@ -466,8 +466,8 @@ var js_minify = function () {
 var pfFlag = "wx";
 var globleKeys = ["$h", "p", "u", "$a", "a_"];//["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀
 var identifiersObfuscatorArray = [];  //混淆用到的标识符
-var arrIndex = 0;  //数组索引
-var globleArrs = [];  //抽取的字符串数组，生成压缩文件
+var arrIndex = 60000;  //数组索引
+var globleArrs = new Array(arrIndex);  //抽取的字符串数组，生成压缩文件
 var globleArrsObj = {}; //抽取的字符串数组用于比较重复，不重复添加到globleArrs
 var globleStrStat = {}; //字符出现统计
 var identifiersGlobleMap = {};
@@ -1164,6 +1164,7 @@ var end_babel = function () {
         //生成 files.zip
 
         var str = JSON.stringify(globleArrs);
+        console.log("globleArrs长度：",globleArrs.length)
         var zipfile = new jszip().file("files", str);
         zipfile.generateAsync({type: "uint8array", compression: "DEFLATE", compressionOptions: {level: 9}}).then(function(content) {
             if (content) {
@@ -1379,7 +1380,7 @@ var filesMap = {
     "libs/sax.js":  {url:"ccclibs/cccsax.js"},
     "libs/weapp-adapter.js":  {url:"cccssss/cccweasaf.js"},
     "libs/zlib.js":  {url:"ccclibs/ccczlibs.js"},
-    "libs/game.js":  {url:"ccclibs/game.js",extractStr:true,count:1,strLen:3},
+    // "libs/game.js":  {url:"ccclibs/game.js",extractStr:true,count:1,strLen:3},
     "wxsdk":  {url:"cccck"},
     "wxsdk/wx_aksdk.js":  {url:"cccck/cccsdk.js",extractStr:true,count:1,strLen:3},
     "wxsdk/helper.js":  {url:"cccck/ccchelp.js",extractStr:true,count:1,strLen:3},
@@ -1447,7 +1448,7 @@ var filesMap = {
     "wxlogin_atlas/image_login_fanmang.png": {url:"ccclogin/b19c.png"},
     "wxlogin_atlas/image_login_weihu.png": {url:"ccclogin/b20c.png"},
     "wxlogin_atlas/image_login_xuanqubg.png": {url:"ccclogin/b21c.png"},
-    "wxlogin_atlas/image_login_init.png": {url:"bbblogin/b22c.png"},
+    "wxlogin_atlas/image_login_init.png": {url:"ccclogin/b22c.png"},
 
     "wxeff_btn_atlas/0.png": {url:"cccwxeff/c100c.png"},
     "wxeff_btn_atlas/1.png": {url:"cccwxeff/c101c.png"},

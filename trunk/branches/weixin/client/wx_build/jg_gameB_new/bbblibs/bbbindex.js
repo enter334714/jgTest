@@ -133,7 +133,7 @@ import AKSDK from "../bbbk/bbbsdk.js";window.versions = { wxVersion: window.conf
 }, window.reqServerGroupCallBack = function (e) {
   "success" === e.state && e.data ? (e.data.unshift({ id: -2, name: "\u6700\u65b0\u670d" }), e.data.unshift({ id: -1, name: "\u5df2\u6709\u89d2\u8272" }), PF_INFO.groupList = e.data, window.initPanel && window.initPanel.showGroupList()) : (PF_INFO.hasGroupReq = !1, window.loginAlert("reqServerGroupCallBack " + e.state));
 }, window.req_server_owner = function (e) {
-  sendApi(PF_INFO.apiurl, "Server.getServerByUid", { partner_id: PF_INFO.partnerId, uid: PF_INFO.account, version: PF_INFO.version, game_pkg: PF_INFO.pkgName }, reqServerOwnerCallBack, apiRetryAmount, onApiError);
+  sendApi(PF_INFO.apiurl, "Server.getServerByUid", { partner_id: PF_INFO.partnerId, uid: PF_INFO.account, version: PF_INFO.version, game_pkg: PF_INFO.pkgName, device: PF_INFO.device_id }, reqServerOwnerCallBack, apiRetryAmount, onApiError);
 }, window.reqServerOwnerCallBack = function (e) {
   if (PF_INFO.hasServerReq = !1, "success" === e.state && e.data) {
     for (var n = 0; n < e.data.length; n++) e.data[n].status = get_status(e.data[n]);PF_INFO.serverList[-1] = window.changeServerName(e.data), window.initPanel.showServerList(-1);
@@ -145,7 +145,7 @@ import AKSDK from "../bbbk/bbbsdk.js";window.versions = { wxVersion: window.conf
     var n = e.data.server_group_id;var o = [];for (var i = 0; i < e.data.data.length; i++) e.data.data[i].status = get_status(e.data.data[i]), 0 != o.length && 0 == e.data.data[i].status || (o[o.length] = e.data.data[i]);PF_INFO.serverList[n] = window.changeServerName(o), window.initPanel.showServerList(n);
   } else window.loginAlert("reqServerListCallBack " + e.state);
 }, window.req_recommend_server_list = function (e) {
-  sendApi(PF_INFO.apiurl, "Server.getRecommendServerList", { partner_id: PF_INFO.partnerId, uid: PF_INFO.account, version: PF_INFO.version }, reqServerRecommendCallBack, apiRetryAmount, onApiError);
+  sendApi(PF_INFO.apiurl, "Server.getRecommendServerList", { partner_id: PF_INFO.partnerId, uid: PF_INFO.account, version: PF_INFO.version, game_pkg: PF_INFO.pkgName, device: PF_INFO.device_id }, reqServerRecommendCallBack, apiRetryAmount, onApiError);
 }, window.reqServerRecommendCallBack = function (e) {
   if (PF_INFO.hasServerReq = !1, "success" === e.state && e.data) {
     for (var n = 0; n < e.data.length; n++) e.data[n].status = get_status(e.data[n]);PF_INFO.serverList[-2] = window.changeServerName(e.data), window.initPanel.showServerList(-2);

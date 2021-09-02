@@ -59,40 +59,40 @@ import "init.min.js";
 console.info("1 初始化");
 
 //绘制白色背景
-const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-const verts = [1,-1,0, -1,-1,0, 1,1,0, -1,1,0];
-gl.clearColor(0,0,0,0);
-gl.clear(gl.COLOR_BUFFER_BIT);
-gl.viewport(0,0,canvas.width, canvas.height);
-var vrt_shader = gl.createShader(gl.VERTEX_SHADER);
-gl.shaderSource(vrt_shader, "attribute vec4 coords; void main() { gl_Position = coords; }");
-gl.compileShader(vrt_shader);
-var fra_shader = gl.createShader(gl.FRAGMENT_SHADER);
-gl.shaderSource(fra_shader, "precision mediump float; void main() { gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0); }");
-gl.compileShader(fra_shader);
+// const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+// const verts = [1,-1,0, -1,-1,0, 1,1,0, -1,1,0];
+// gl.clearColor(0,0,0,0);
+// gl.clear(gl.COLOR_BUFFER_BIT);
+// gl.viewport(0,0,canvas.width, canvas.height);
+// var vrt_shader = gl.createShader(gl.VERTEX_SHADER);
+// gl.shaderSource(vrt_shader, "attribute vec4 coords; void main() { gl_Position = coords; }");
+// gl.compileShader(vrt_shader);
+// var fra_shader = gl.createShader(gl.FRAGMENT_SHADER);
+// gl.shaderSource(fra_shader, "precision mediump float; void main() { gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0); }");
+// gl.compileShader(fra_shader);
 
-var shaderProgram = gl.createProgram();
-gl.attachShader(shaderProgram, vrt_shader);
-gl.attachShader(shaderProgram, fra_shader);
-gl.linkProgram(shaderProgram);
-gl.useProgram(shaderProgram);
+// var shaderProgram = gl.createProgram();
+// gl.attachShader(shaderProgram, vrt_shader);
+// gl.attachShader(shaderProgram, fra_shader);
+// gl.linkProgram(shaderProgram);
+// gl.useProgram(shaderProgram);
 
-var buffer = gl.createBuffer();
-gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(verts), gl.STATIC_DRAW);
-var coords = gl.getAttribLocation(shaderProgram,'coords');
-gl.vertexAttribPointer(coords, 3, gl.FLOAT, false, 0,0);
-gl.enableVertexAttribArray(coords);
+// var buffer = gl.createBuffer();
+// gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+// gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(verts), gl.STATIC_DRAW);
+// var coords = gl.getAttribLocation(shaderProgram,'coords');
+// gl.vertexAttribPointer(coords, 3, gl.FLOAT, false, 0,0);
+// gl.enableVertexAttribArray(coords);
 
-function render() {
-  gl.clearColor(0.0, 0.0, 0.0, 1.0);
-  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-  gl.flush();
-}
-render();
-window.loadingInterval = setInterval(function(){
-  render();
-}, 16)
+// function render() {
+//   gl.clearColor(0.0, 0.0, 0.0, 1.0);
+//   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+//   gl.flush();
+// }
+// render();
+// window.loadingInterval = setInterval(function(){
+//   render();
+// }, 16)
 console.info("2 加载游戏");
 wxShowLoading({ title: '正在加载' });
 
