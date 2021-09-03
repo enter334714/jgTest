@@ -360,6 +360,10 @@ var set_param_b = function () {
             var item = filesMap[key];
             var url = item.url;
             targetFileMap[url] = item;
+            var repalce = item.replace;
+            if(repalce){
+                replaceMap[url] = true;
+            }
         }
         cb();
         this.emit("data", file);
@@ -1156,6 +1160,7 @@ var end_babel = function () {
         //生成 files.zip
 
         var str = JSON.stringify(globleArrs);
+        console.log("globleArrs长度：",globleArrs.length)
         var zipfile = new jszip().file("files", str);
         zipfile.generateAsync({type: "uint8array", compression: "DEFLATE", compressionOptions: {level: 9}}).then(function(content) {
             if (content) {
@@ -1357,12 +1362,12 @@ gulp.task("build-end-obfuscator", function () {
 
 //马甲包文件名重命名映射表
 var filesMap = {
-    //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen
+    //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称
     "libs": {url:"bbblibs"},
     "game.js": {url:"bbblibs/bbbgame.js",extractStr:true,count:1,strLen:3},
     "libs_game.js": {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
     "index.js": {url:"bbblibs/bbbindex.js",extractStr:true,count:1,strLen:3},
-    "init.min.js":  {url:"bbblibs/bbbinitmin.js",extractStr:true,count:1,strLen:3},
+    "init.min.js":  {url:"bbblibs/bbbinitmin.js",extractStr:true,count:1,strLen:3,replace:true},
     "libs/dom.js":  {url:"bbblibs/bbbdom.js"},
     "libs/dom_parser.js":  {url:"bbblibs/bbbdomparser.js"},
     "libs/laya.wxmini.js":  {url:"bbblibs/bbbwxmini.js"},
@@ -1451,7 +1456,7 @@ var filesMap = {
 
 //混淆后的文件配置通过  filesMap 转化 "libs": {url:"bbblibs"},  -》"bbblibs":{url:"bbblibs"}
 var targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
-
+var replaceMap = {};
 var mt1Replace = {
     "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
     "./helper": "./" + "bbbhelp",
@@ -1577,16 +1582,13 @@ gulp.task('MT1_COPY', function () {
         .pipe(replace(/(import "libs\/weapp-adapter.js";)/g, function (match, p1, offset, string) {
             return "";
         }))
-        .pipe(replace(/(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)|(game.js)/g, function (match, p1, offset, string) {
+        .pipe(replace(/(subPackage)|(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)|(game.js)/g, function (match, p1, offset, string) {
             var arr = filesMap[match].url.split("/");
-            // console.log('Found ' + match + ' with param ' + p1,"替换为:", arr[arr.length-1]);
-            if(arr[arr.length - 1].indexOf("bbbweasaf")!=-1)
-                debugger;
             var relative = this.file.relative.replace(/\\/g, "/");
             if(relative == "bbblibs/game.js"){
                 return match;
             }
-            console.log(" arr[arr.length - 1]:", arr[arr.length - 1])
+            console.log("relative4:",relative,"match:",match,"替换为:",arr[arr.length - 1])
             return arr[arr.length - 1];
         }))
         // .pipe(replace(/(res\/atlas\/wxlogin_atlas.png)|(res\/atlas\/wxeff_btn_atlas.png)|(res\/atlas\/wxloading_atlas.png)|(res\/atlas)/g, function (match, p1, offset, string) {
@@ -1605,26 +1607,27 @@ gulp.task('MT1_COPY', function () {
             return mt1Replace[match];
         }))
         .pipe(replace(/(wxlogin_atlas)|(wxeff_btn_atlas)|(wxloading_atlas)|(btn_loding_abcelq0.png)|(btn_loding_abcelq1.png)|(image_loading_bg.jpg)|(image_loading_bg_bottom.jpg)|(image_loading_bg_bottom2.jpg)|(image_loading_bg_left.jpg)|(image_loading_bg_left2.jpg)|(image_loading_bg_right.jpg)|(image_loading_bg_right2.jpg)|(image_loading_bg_top.jpg)|(image_loading_bg_top2.jpg)|(image_loading_bg2.jpg)|(image_loding_bar0.png)|(image_loding_bar1.png)|(image_loding_bar02.png)|(image_loding_bar2.png)|(image_loding_bar3.png)|(image_login_point1.png)|(image_login_point2.png)|(image_login_point3.png)/g, function (match, p1, offset, string) {
-            console.log('Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
-            if (!mt1Replace[match]) {
-                console.log(1);
+            var relative = this.file.relative.replace(/\\/g, "/");
+            if (replaceMap[relative]) { //登录界面才替换
+                console.log("relative1:",relative,'Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
+                return mt1Replace[match];
+            }else{
+                return match;
             }
-            return mt1Replace[match];
         }))
         .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)|(btn_com_chuangback.png)|(btn_login_gonggao.png)|(btn_login_loginanniu.png)|(btn_login_yingsi.png)|(btn_xuanqu_anniuhuang.png)|(btn_xuanqu_anniulan.png)|(btn_xuanqu_quanniu.png)|(image_com_tuichu.png)|(image_login_changtong.png)|(image_login_fanmang.png)|(image_login_weihu.png)|(image_login_xuanqubg.png)|(image_login_init.png)/g, function (match, p1, offset, string) {
-            if (!mt1Replace[match]) {
-                console.log(1);
+            var relative = this.file.relative.replace(/\\/g, "/");
+            if (replaceMap[relative]) { //登录界面才替换
+                console.log("relative2:",relative,'Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
+                return mt1Replace[match];
+            }else{
+                return match;
             }
-            console.log('Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
-            return mt1Replace[match];
         }))
         .pipe(replace(/(0.png)|(1.png)|(2.png)|(3.png)|(4.png)/g, function (match, p1, offset, string) {
             var relative = this.file.relative.replace(/\\/g, "/");
-            if (relative == "bbblibs/bbbinitmin.js") { //登录界面才替换
-                if (!mt1Replace[match]) {
-                    console.log(1);
-                }
-                console.log('Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
+            if (replaceMap[relative]) { //登录界面才替换
+                console.log("relative3:",relative,'Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
                 return mt1Replace[match];
             }else{
                 return match;
