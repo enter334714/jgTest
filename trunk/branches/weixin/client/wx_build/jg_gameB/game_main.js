@@ -111,6 +111,13 @@ wx.y$ = []; var fs = wx.getFileSystemManager(); wx.getFileSystemManager().unzip(
   }, fail: r => {
     console.error(r.errMsg);
   }
-}), wx.onShow(function (r) {
-  window.p$DAB = r, window.p$DBA && window.p$DAB && (console.info("\u5c0f\u6e38\u620f\u5207\u524d\u53f0\u4e8b\u4ef6\uff0c\u573a\u666f\u503c\uff1a" + window.p$DAB.scene), window.p$DBA(window.p$DAB), window.p$DAB = null);
 });
+//监听小游戏切前台事件
+wx.onShow(function (res) {
+    window.onShowData = res;
+    if (window.onShowCallback && window.onShowData) {
+        console.info("小游戏切前台事件，场景值：" + window.onShowData.scene);
+        window.onShowCallback(window.onShowData);
+        window.onShowData = null;
+    }
+})
