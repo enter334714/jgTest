@@ -1,4 +1,4 @@
-import AKSDK from "./wxsdk/wx_aksdk.js";
+﻿import AKSDK from "./wxsdk/wx_aksdk.js";
 window.versions = { 
   wxVersion: window.config.game_ver,  
 };
@@ -570,8 +570,8 @@ window.microPortGuide = function(){
 }
 
 //收藏
-window.onShowData = null;
-window.onShowCallback = null;
+//window.onShowData = null;
+//window.onShowCallback = null;
 window.onShow = function(callback){
   window.onShowCallback = callback;
   if (window.onShowCallback && window.onShowData) {
