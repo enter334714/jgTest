@@ -1169,6 +1169,7 @@ var end_babel = function () {
         //生成 files.zip
 
         var str = JSON.stringify(globleArrs);
+        console.log("globleArrs长度：",globleArrs.length)
         var zipfile = new jszip().file("files", str);
         zipfile.generateAsync({type: "uint8array", compression: "DEFLATE", compressionOptions: {level: 9}}).then(function(content) {
             if (content) {
@@ -1541,6 +1542,14 @@ gulp.task('MT1_build_minify', function () {
         .pipe(gulp.dest(sourceUrl + '/'))
     return stream;
 });
+
+gulp.task('CleanNewFolder',function(){
+    var stream = gulp.src([sourceProject + "/",targetProject + "/"])
+        .pipe(clean({
+            force: true
+        }))
+    return stream;
+})
 
 gulp.task('MT1_COPY', function () {
     var sourceUrl = "../../client/wx_build/"+ PACK;

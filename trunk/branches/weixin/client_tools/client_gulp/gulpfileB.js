@@ -26,15 +26,15 @@ var replace = require('gulp-replace');
 
 var SRC = '../../client/src/'; //路径
 var BIN = '../../client/bin/'; //路径
-var DEST = '../../client/wx_dist/packageB'; //路径自行设置
-var DEST_JS = '../../client/wx_dist/'; //路径
-var BUILD = '../../client/wx_build/'; //路径
-var PACK = 'jg_gameB'; //项目名
+var DEST = ''; //路径自行设置
+var DEST_JS = ''; //路径
+var BUILD = ''; //路径
+var PACK = ''; //项目名
 var INIT_PATH = ''; //init.min.js的目录
-var SCOPE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_';
+var SCOPE = '';
 var PREFIX = '';
-var sourceProject = "../../client/wx_build/jg_gameB_new";
-var targetProject = "../../client/wx_build/jg_gameB_obfuscator";
+var sourceProject = "";
+var targetProject = "";
 
 /**scope.js文件处理*/
 var modify_scope = function () {
@@ -353,10 +353,11 @@ var set_param_b = function () {
         PACK = 'jg_gameB';
         INIT_PATH = '/';
         SCOPE = 'cdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ab';
-        PREFIX = 'b$';
+        PREFIX = '$';
         sourceProject = "../../client/wx_build/jg_gameB_new";
         targetProject = "../../client/wx_build/jg_gameB_obfuscator";
         targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
+        mainJsName = "lsjdflaamain.js";
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称
             "libs": {url:"bbblibs"},
@@ -383,7 +384,7 @@ var set_param_b = function () {
             "protobuf/game.js":  {url:"bbbbbbf/game.js",extractStr:true,count:5,strLen:3},
 
             "subPackage":  {url:"bbbbbbbbb"},
-            "subPackage/main.min.js":  {url:"bbbbbbbbb/lsjdflaamain.js",extractStr:true,count:1,strLen:3},
+            "subPackage/main.min.js":  {url:"bbbbbbbbb/"+mainJsName,extractStr:true,count:1,strLen:3},
             "subPackage/game.js":  {url:"bbbbbbbbb/game.js",extractStr:true,count:1,strLen:3},
 
             //随机创建名字和文件夹
@@ -456,7 +457,7 @@ var set_param_b = function () {
             "./dom": "./bbbdom",
             "client_pb.js": "bbbcleintpb.js",
             "protobuf.js": "bbbbBuff.js",
-            "main.min.js": "lsjdflaamain.js",
+            "main.min.js": mainJsName,
             "wxlogin_atlas": "bbblogin",
             "wxeff_btn_atlas": "bwxeff",
             "wxloading_atlas": "bbbloding",
@@ -528,6 +529,7 @@ var set_param_b = function () {
         arrIndex = 0;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
+        needShuffle = false;
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -579,11 +581,12 @@ var set_param_c = function () {
         BUILD = '../../client/wx_build/';
         PACK = 'jg_gameC';
         INIT_PATH = '/';
-        SCOPE = 'cdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ef';
+        SCOPE = 'abcdghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ef';
         PREFIX = 'c$';
         sourceProject = "../../client/wx_build/jg_gameC_new";
         targetProject = "../../client/wx_build/jg_gameC_obfuscator";
         targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
+        mainJsName = "ccccccccmain.js";
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen   replace是否替换文件里面的资源名称
             "libs": {url:"ccclibs"},
@@ -610,7 +613,7 @@ var set_param_c = function () {
             "protobuf/game.js":  {url:"cccccf/game.js",extractStr:true,count:5,strLen:3},
 
             "subPackage":  {url:"cccccccc"},
-            "subPackage/main.min.js":  {url:"cccccccc/ccccccccmain.js",extractStr:true,count:1,strLen:3},
+            "subPackage/main.min.js":  {url:"cccccccc/"+mainJsName,extractStr:true,count:1,strLen:3},
             "subPackage/game.js":  {url:"cccccccc/game.js",extractStr:true,count:1,strLen:3},
 
             //随机创建名字和文件夹
@@ -682,7 +685,7 @@ var set_param_c = function () {
             "./dom": "./cccdom",
             "client_pb.js": "ccccleintpb.js",
             "protobuf.js": "ccccBuff.js",
-            "main.min.js": "ccccccccmain.js",
+            "main.min.js": mainJsName,
             "wxlogin_atlas": "ccclogin",
             "wxeff_btn_atlas": "cccwxeff",
             "wxloading_atlas": "cccloding",
@@ -754,6 +757,7 @@ var set_param_c = function () {
         arrIndex = 60000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
+        needShuffle = true;
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -782,6 +786,226 @@ gulp.task('set-param-c', function () {
 gulp.task('build-babel-obfuscator-C', function (cb) {
     sequence("set-param-c","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
 });
+
+/**-------------------------------------------------微信小游戏--C包  end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--D包  start-----------------------------------------------------------*/
+/**D包参数*/
+var set_param_d = function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = '../../client/wx_dist/packageD/';
+        BUILD = '../../client/wx_build/';
+        PACK = 'jg_gameD';
+        INIT_PATH = '/';
+        SCOPE = 'abcdefijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_gh';
+        PREFIX = 'd$';
+        sourceProject = "../../client/wx_build/jg_gameD_new";
+        targetProject = "../../client/wx_build/jg_gameD_obfuscator";
+        targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
+        mainJsName = "dddmain.js";
+        filesMap = {
+            //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称
+            "libs": {url:"dddlibs"},
+            "game.js": {url:"dddlibs/dddgame.js",extractStr:true,count:1,strLen:3},
+            "libs_game.js": {url:"dddlibs/game.js",extractStr:true,count:1,strLen:3},
+            "index.js": {url:"dddlibs/dddindex.js",extractStr:true,count:1,strLen:3},
+            "init.min.js":  {url:"dddlibs/dddinitmin.js",extractStr:true,count:1,strLen:3,replace:true},
+            "libs/dom.js":  {url:"dddlibs/ddddom.js"},
+            "libs/dom_parser.js":  {url:"dddlibs/ddddomparser.js"},
+            "libs/laya.wxmini.js":  {url:"dddlibs/dddwxmini.js"},
+            "libs/libs.min.js":  {url:"dddlibs/dddlibsmin.js",extractStr:false},
+            "libs/md5.min.js":  {url:"dddlibs/dddmd5min.js"},
+            "libs/sax.js":  {url:"dddlibs/dddsax.js"},
+            "libs/weapp-adapter.js":  {url:"ddssss/dddweasaf.js"},
+            "libs/zlib.js":  {url:"dddlibs/dddzlibs.js"},
+            // "libs/game.js":  {url:"dddlibs/game.js",extractStr:true,count:1,strLen:3},
+            "wxsdk":  {url:"dddk"},
+            "wxsdk/wx_aksdk.js":  {url:"dddk/dddsdk.js",extractStr:true,count:1,strLen:3},
+            "wxsdk/helper.js":  {url:"dddk/dddhelp.js",extractStr:true,count:1,strLen:3},
+
+            "protobuf":  {url:"ddddddf"},
+            "protobuf/client_pb.js":  {url:"ddddddf/dddcleintpb.js",extractStr:true,count:5,strLen:3},
+            "protobuf/protobuf.js":  {url:"ddddddf/ddddBuff.js",extractStr:true,count:5,strLen:3},
+            "protobuf/game.js":  {url:"ddddddf/game.js",extractStr:true,count:5,strLen:3},
+
+            "subPackage":  {url:"ddddddddd"},
+            "subPackage/main.min.js":  {url:"ddddddddd/"+mainJsName,extractStr:true,count:1,strLen:3},
+            "subPackage/game.js":  {url:"ddddddddd/game.js",extractStr:true,count:1,strLen:3},
+
+            //随机创建名字和文件夹
+            // "res": {url:"gafda"},
+            // "res/atlas": {url:"gafda"},
+            "wxloading_atlas": {url:"dddloding"},
+            "wxlogin_atlas": {url:"dddlogin"},
+            "wxeff_btn_atlas":{url:"ddwxeff"},
+            // "res/atlas/wxlogin_atlas.png": {url:"gafda/dddlogin.png"},
+            // "res/atlas/wxeff_btn_atlas.png": {url:"gafda/adga321.png"},
+            // "res/atlas/wxloading_atlas.png": {url:"gafda/dddloding.png"},
+
+            "wxloading_atlas/btn_loding_abcelq0.png": {url:"dddloding/d1a.png"},
+            "wxloading_atlas/btn_loding_abcelq1.png": {url:"dddloding/d2a.png"},
+            "wxloading_atlas/image_loading_bg.jpg": {url:"dddloding/d3a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom.jpg": {url:"dddloding/d4a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom2.jpg": {url:"dddloding/d5a.jpg"},
+            "wxloading_atlas/image_loading_bg_left.jpg": {url:"dddloding/d6a.jpg"},
+            "wxloading_atlas/image_loading_bg_left2.jpg": {url:"dddloding/d7a.jpg"},
+            "wxloading_atlas/image_loading_bg_right.jpg": {url:"dddloding/d8a.jpg"},
+            "wxloading_atlas/image_loading_bg_right2.jpg": {url:"dddloding/d9a.jpg"},
+            "wxloading_atlas/image_loading_bg_top.jpg": {url:"dddloding/d10a.jpg"},
+            "wxloading_atlas/image_loading_bg_top2.jpg": {url:"dddloding/d11a.jpg"},
+            "wxloading_atlas/image_loading_bg2.jpg": {url:"dddloding/d12a.jpg"},
+
+            "wxloading_atlas/image_loding_bar0.png": {url:"dddloding/d13a.png"},
+            "wxloading_atlas/image_loding_bar1.png": {url:"dddloding/d14a.png"},
+            "wxloading_atlas/image_loding_bar02.png": {url:"dddloding/d15a.png"},
+            "wxloading_atlas/image_loding_bar2.png": {url:"dddloding/d16a.png"},
+            "wxloading_atlas/image_loding_bar3.png": {url:"dddloding/d17a.png"},
+            "wxloading_atlas/image_login_point1.png": {url:"dddloding/d18a.png"},
+            "wxloading_atlas/image_login_point2.png": {url:"dddloding/d19a.png"},
+            "wxloading_atlas/image_login_point3.png": {url:"dddloding/d20a.png"},
+
+            "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"dddlogin/d1b.png"},
+            "wxlogin_atlas/image_login_loginbg.jpg": {url:"dddlogin/d2b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_bottom.jpg": {url:"dddlogin/d3b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_left.jpg": {url:"dddlogin/d4b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_right.jpg": {url:"dddlogin/d5b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_top.jpg": {url:"dddlogin/d6b.jpg"},
+            "wxlogin_atlas/image_login_logo.png": {url:"dddlogin/d7b.png"},
+            "wxlogin_atlas/image_login_notice.png": {url:"dddlogin/d8b.png"},
+            "wxlogin_atlas/image_xuanfu_xfbg.png": {url:"dddlogin/d9b.png"},
+
+            "wxlogin_atlas/btn_com_chuangback.png": {url:"dddlogin/d10b.png"},
+            "wxlogin_atlas/btn_login_gonggao.png": {url:"dddlogin/d11b.png"},
+            "wxlogin_atlas/btn_login_loginanniu.png": {url:"dddlogin/d12b.png"},
+            "wxlogin_atlas/btn_login_yingsi.png": {url:"dddlogin/d13b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniuhuang.png": {url:"dddlogin/d14b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniulan.png": {url:"dddlogin/d15b.png"},
+            "wxlogin_atlas/btn_xuanqu_quanniu.png": {url:"dddlogin/d16b.png"},
+            "wxlogin_atlas/image_com_tuichu.png": {url:"dddlogin/d17b.png"},
+            "wxlogin_atlas/image_login_changtong.png": {url:"dddlogin/d18b.png"},
+            "wxlogin_atlas/image_login_fanmang.png": {url:"dddlogin/d19b.png"},
+            "wxlogin_atlas/image_login_weihu.png": {url:"dddlogin/d20b.png"},
+            "wxlogin_atlas/image_login_xuanqubg.png": {url:"dddlogin/d21b.png"},
+            "wxlogin_atlas/image_login_init.png": {url:"dddlogin/d22b.png"},
+
+            "wxeff_btn_atlas/0.png": {url:"ddwxeff/d1c.png"},
+            "wxeff_btn_atlas/1.png": {url:"ddwxeff/d2c.png"},
+            "wxeff_btn_atlas/2.png": {url:"ddwxeff/d3c.png"},
+            "wxeff_btn_atlas/3.png": {url:"ddwxeff/d4c.png"},
+            "wxeff_btn_atlas/4.png": {url:"ddwxeff/d5c.png"},
+        };
+        mt1Replace = {
+            "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
+            "./helper": "./" + "dddhelp",
+            "./sax": "./dddsax",
+            "./dom": "./ddddom",
+            "client_pb.js": "dddcleintpb.js",
+            "protobuf.js": "ddddBuff.js",
+            "main.min.js": mainJsName,
+            "wxlogin_atlas": "dddlogin",
+            "wxeff_btn_atlas": "ddwxeff",
+            "wxloading_atlas": "dddloding",
+            // "res/atlas/": "gafda/",
+
+            "btn_loding_abcelq0.png": "d1a.png",
+            "btn_loding_abcelq1.png": "d2a.png",
+            "image_loading_bg.jpg": "d3a.jpg",
+            "image_loading_bg_bottom.jpg": "d4a.jpg",
+            "image_loading_bg_bottom2.jpg": "d5a.jpg",
+            "image_loading_bg_left.jpg": "d6a.jpg",
+            "image_loading_bg_left2.jpg": "d7a.jpg",
+            "image_loading_bg_right.jpg": "d8a.jpg",
+            "image_loading_bg_right2.jpg": "d9a.jpg",
+            "image_loading_bg_top.jpg": "d10a.jpg",
+            "image_loading_bg_top2.jpg": "d11a.jpg",
+            "image_loading_bg2.jpg": "d12a.jpg",
+
+            "image_loding_bar0.png": "d13a.png",
+            "image_loding_bar1.png": "d14a.png",
+            "image_loding_bar02.png": "d15a.png",
+            "image_loding_bar2.png": "d16a.png",
+            "image_loding_bar3.png": "d17a.png",
+            "image_login_point1.png": "d18a.png",
+            "image_login_point2.png":"d19a.png",
+            "image_login_point3.png": "d20a.png",
+
+
+
+            "image_denglu_txtshenpi.png": "d1b.png",
+            "image_login_loginbg.jpg": "d2b.jpg",
+            "image_login_loginbg_bottom.jpg": "d3b.jpg",
+            "image_login_loginbg_left.jpg": "d4b.jpg",
+            "image_login_loginbg_right.jpg": "d5b.jpg",
+            "image_login_loginbg_top.jpg": "d6b.jpg",
+            "image_login_logo.png": "d7b.png",
+            "image_login_notice.png": "d8b.png",
+            "image_xuanfu_xfbg.png": "d9b.png",
+
+            "btn_com_chuangback.png": "d10b.png",
+            "btn_login_gonggao.png": "d11b.png",
+            "btn_login_loginanniu.png": "d12b.png",
+            "btn_login_yingsi.png": "d13b.png",
+            "btn_xuanqu_anniuhuang.png": "d14b.png",
+            "btn_xuanqu_anniulan.png": "d15b.png",
+            "btn_xuanqu_quanniu.png": "d16b.png",
+            "image_com_tuichu.png": "d17b.png",
+            "image_login_changtong.png": "d18b.png",
+            "image_login_fanmang.png": "d19b.png",
+            "image_login_weihu.png": "d20b.png",
+            "image_login_xuanqubg.png": "d21b.png",
+            "image_login_init.png": "d22b.png",
+
+            "0.png": "d1c.png",
+            "1.png": "d2c.png",
+            "2.png": "d3c.png",
+            "3.png": "d4c.png",
+            "4.png": "d5c.png",
+
+        }
+        strFilePath = "/dres";
+        strFileName = "/dfiles.zip";
+        globleKeys = ["$d", "v", "s", "D$", "z"];
+        noReplaceJs = "dddlibs/game.js";
+        packageName1 = "dddlibs";
+        packageName2 = "ddddddf";
+        packageName3 = "ddddddddd";
+        arrIndex = 0;
+        globleArrs = new Array(arrIndex);
+        numberToHex = true;
+        needShuffle = true;
+        for(var key in  filesMap){
+            var item = filesMap[key];
+            var url = item.url;
+            targetFileMap[url] = item;
+            var repalce = item.replace;
+            if(repalce){
+                replaceMap[url] = true;
+            }
+        }
+        cb();
+        this.emit("data", file);
+    }
+
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-d', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_d())
+    return stream;
+});
+
+//混淆
+gulp.task('build-babel-obfuscator-D', function (cb) {
+    sequence("set-param-d","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
+});
+/**-------------------------------------------------微信小游戏--D包  end-----------------------------------------------------------*/
 /**文件压缩*/
 var js_minify = function () {
     function onFile(file, enc, cb) {
@@ -848,7 +1072,7 @@ var js_minify = function () {
     return through.obj(onFile);
 };
 var pfFlag = "wx";
-var globleKeys = ["y$", "_", "_s", "p$", "_d"];//["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+var globleKeys = [];//["$b", "$c", "b", "B_","$"];  //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
 var identifiersObfuscatorArray = [];  //混淆用到的标识符
 var arrIndex = 0;  //数组索引
 var globleArrs = [];  //抽取的字符串数组，生成压缩文件
@@ -865,6 +1089,8 @@ var packageName1 = "";  //包名1
 var packageName2 = "";  //包名2
 var packageName3 = "";  //包名3
 var numberToHex=false;  //提取的字符串数组下标是否转化为16进制
+var needShuffle = false; //是否打乱替换的字符串
+var mainJsName = ""; //主文件的名字
 /**生成随机变量名*/
 var identifier_create = function (rate) {
     function onFile(file, enc, cb) {
@@ -1011,8 +1237,21 @@ var identifier_create = function (rate) {
             return result;
         };
 
-        var leading = "ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789";
-        for (var n = 4; n < 5; n++) {
+        var shuffle =  function (array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        };
+        leading = "ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789";
+        console.log("是否打乱数组：ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789",needShuffle)
+        if(needShuffle){
+            leading = shuffle(Array.from(leading)).join("")
+        }
+        for (var n = 5; n < 6; n++) {
             for (var m = 0; m < leading.length; m++) {
                 perm(leading.slice(m, m + n), reNameArrObj, globleKeys[3]);
             }
@@ -1036,7 +1275,12 @@ var identifier_create = function (rate) {
 
 
         leading = "abcdefghijklmnopqrstuvwxyz$_0123456789";
+        console.log("是否打乱数组：abcdefghijklmnopqrstuvwxyz$_0123456789",needShuffle)
         leading = leading.replace(globleKeys[2], '');
+        if(needShuffle){
+            leading = shuffle(Array.from(leading)).join("")
+        }
+
         //生成混淆用的标识符
         for (var n = 1; n < 7; n++) { //字符数量
             for (var m = 0; m < leading.length; m++) {
@@ -1098,11 +1342,11 @@ var js_checkStrCount =  function () {
                     if(tempstr.indexOf(globleKeys[3])!=-1){//不需要提取
                         return;//
                     }
-                    for(var i = 0;i<globleKeys.length;i++){
-                        if(tempstr.indexOf(globleKeys[i])!=-1){
-                            return;
-                        }
-                    }
+                    // for(var i = 0;i<globleKeys.length;i++){
+                    //     if(tempstr.indexOf(globleKeys[i])!=-1){
+                    //         return;
+                    //     }
+                    // }
                     if(tempstr.indexOf("$")!=-1){
                         return;
                     }
@@ -1223,11 +1467,11 @@ var js_babel = function () {
                     if(tempstr.indexOf(globleKeys[3])!=-1){//不需要提取
                         return;//
                     }
-                    for(var i = 0;i<globleKeys.length;i++){
-                        if(tempstr.indexOf(globleKeys[i])!=-1){
-                            return;
-                        }
-                    }
+                    // for(var i = 0;i<globleKeys.length;i++){
+                    //     if(tempstr.indexOf(globleKeys[i])!=-1){
+                    //         return;
+                    //     }
+                    // }
                     if(tempstr.indexOf("$")!=-1){
                         return;
                     }
@@ -1423,11 +1667,11 @@ var js_babel_str = function () {
                     if(tempstr.indexOf(globleKeys[3])!=-1){//不需要提取
                         return;//
                     }
-                    for(var i = 0;i<globleKeys.length;i++){
-                        if(tempstr.indexOf(globleKeys[i])!=-1){
-                            return;
-                        }
-                    }
+                    // for(var i = 0;i<globleKeys.length;i++){
+                    //     if(tempstr.indexOf(globleKeys[i])!=-1){
+                    //         return;
+                    //     }
+                    // }
                     if(tempstr.indexOf("$")!=-1){
                         return;
                     }
@@ -1733,7 +1977,7 @@ var mt1Replace = {}
 //压缩
 gulp.task('MT1_build_minify', function () {
     var sourceUrl =  sourceProject;// "../../client/wx_build/jg_gameMT1_new";
-    var stream = gulp.src([sourceUrl + '/**/*.js', "!" + sourceUrl + '/**/lsjdflaamain.js'])
+    var stream = gulp.src([sourceUrl + '/**/*.js', "!" + sourceUrl + '/**/'+mainJsName])
         .pipe(js_minify())
         .pipe(gulp.dest(sourceUrl + '/'))
     return stream;
@@ -1847,8 +2091,8 @@ gulp.task('MT1_COPY', function () {
 
         }))
         //报名需要修改
-        .pipe(replace(/( name: 'main')/g, "name: "+packageName3))
-        .pipe(replace(/( name: 'probuf')/g, "name: "+packageName2))
+        .pipe(replace(/( name: 'main')/g, "name: " + "'" + packageName3 + "'"))
+        .pipe(replace(/( name: 'probuf')/g, "name: " + "'" + packageName2 + "'"))
         .pipe(through.obj(function (file, encode, cb) {
             // console.log("file:",file,"encode:",encode);
             if (file.relative == "game.json") {
