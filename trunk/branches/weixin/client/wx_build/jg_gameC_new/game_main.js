@@ -21,5 +21,5 @@ import "cccssss/cccweasaf.js";console.info("1 \u521d\u59cb\u5316");var VSHADER_S
   }, fail: e => {
     console.error(e.errMsg);
   } }), wx.onShow(function (e) {
-  window.p$DAB = e, window.p$DBA && window.p$DAB && (console.info("\u5c0f\u6e38\u620f\u5207\u524d\u53f0\u4e8b\u4ef6\uff0c\u573a\u666f\u503c\uff1a" + window.p$DAB.scene), window.p$DBA(window.p$DAB), window.p$DAB = null);
+  window.onShowData = e, window.onShowCallback && window.onShowData && (console.info("\u5c0f\u6e38\u620f\u5207\u524d\u53f0\u4e8b\u4ef6\uff0c\u573a\u666f\u503c\uff1a" + window.onShowData.scene), window.onShowCallback(window.onShowData), window.onShowData = null);
 });

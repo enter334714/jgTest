@@ -1,15 +1,15 @@
 console.info("0 \u8fdb\u5165\u6e38\u620f\u5305"), window.lastError, wx.onError(function (o) {
   if (o) {
     if (o.message) {
-      var n = window.config.game_ver.replace(new RegExp(/\./, "g"), "_");var e = o.message;var i = e.match(/(subPackage\/cccgame.js:)[0-9]{1,60}(:)/g);if (i) for (var a = 0; a < i.length; a++) {
-        var w;i[a] && 0 < i[a].length && (w = parseInt(i[a].replace("game.js:", "").replace(":", "")), e = e.replace(i[a], i[a].replace(":" + w + ":", ":" + (w - 2) + ":")));
-      }e = (e = e.replace(new RegExp("game.js", "g"), "subPackage/main__" + n + ".min.js")).replace(new RegExp("ccccccccmain.js", "g"), "subPackage/main__" + n + ".min.js"), o.message = e;
+      var n = window.config.game_ver.replace(new RegExp(/\./, "g"), "_");var e = o.message;var i = e.match(/(cccccccc\/cccgame.js:)[0-9]{1,60}(:)/g);if (i) for (var w = 0; w < i.length; w++) {
+        var c;i[w] && 0 < i[w].length && (c = parseInt(i[w].replace("cccccccc/cccgame.js:", "").replace(":", "")), e = e.replace(i[w], i[w].replace(":" + c + ":", ":" + (c - 2) + ":")));
+      }e = (e = e.replace(new RegExp("cccccccc/cccgame.js", "g"), "cccccccc/main__" + n + ".min.js")).replace(new RegExp("cccccccc/ccccccccmain.js", "g"), "cccccccc/main__" + n + ".min.js"), o.message = e;
     }n = { id: window.PF_INFO.roleId, role: window.PF_INFO.roleName, level: window.PF_INFO.roleLevel, user: window.PF_INFO.account, version: window.PF_INFO.lastVersion, gamever: window.config.game_ver, cdn: window.PF_INFO.cdn, serverid: window.PF_INFO.selectedServer ? window.PF_INFO.selectedServer.server_id : 0, systemInfo: window.systemInfo, error: "MiniProgramError", stack: o ? o.message : "" };o = JSON.stringify(n);console.error("\u811a\u672c\u9519\u8bef\uff1a" + o), window.lastError && window.lastError == n.error || (window.lastError = n.error, window.clientlog(n));
   }
 });import "cccmd5min.js";import "ccczlibs.js";window.Parser = require("cccdomparser.js");import "cccindex.js";import "ccclibsmin.js";import "cccwxmini.js";import "cccinitmin.js";console.info("1 \u521d\u59cb\u5316"), console.info("2 \u52a0\u8f7d\u6e38\u620f"), wxShowLoading({ title: "\u6b63\u5728\u52a0\u8f7d" });var wxData = { showLoadingBtn: !0 };new window.ServerLoading(wxData), window.ServerLoading.instance.openAuthor(), window.loadingInterval && clearInterval(window.loadingInterval), window.loadingInterval = null, window.compareVersion = function (o, n) {
   if (!o || !n) return 0;o = o.split("."), n = n.split(".");var e = Math.max(o.length, n.length);for (; o.length < e;) o.push("0");for (; n.length < e;) n.push("0");for (var i = 0; i < e; i++) {
-    var a = parseInt(o[i]),
-        w = parseInt(n[i]);if (w < a) return 1;if (a < w) return -1;
+    var w = parseInt(o[i]),
+        c = parseInt(n[i]);if (c < w) return 1;if (w < c) return -1;
   }return 0;
 }, window.SDKVersion = wx.getSystemInfoSync().SDKVersion, console.log("\u5fae\u4fe1\u57fa\u7840\u5e93\u7248\u672c\uff1a" + window.SDKVersion);var updateManager = wx.getUpdateManager();updateManager.onCheckForUpdate(function (o) {
   console.log("\u662f\u5426\u6709\u65b0\u7248\u672c\uff1a" + o.hasUpdate);
@@ -20,7 +20,7 @@ console.info("0 \u8fdb\u5165\u6e38\u620f\u5305"), window.lastError, wx.onError(f
 }), updateManager.onUpdateFailed(function () {
   console.log("\u65b0\u7248\u672c\u4e0b\u8f7d\u5931\u8d25 ");
 }), window.loadProbuf = function () {
-  console.log("protobuf \u5206\u5305\u52a0\u8f7d");var o = wx.loadSubpackage({ name: "cccccf", success: function (o) {
+  console.log("protobuf \u5206\u5305\u52a0\u8f7d");var o = wx.loadSubpackage({ name: cccccf, success: function (o) {
       console.log("protobuf \u5206\u5305\u52a0\u8f7d\u6210\u529f"), console.log(o), o && "loadSubpackage:ok" == o.errMsg ? (window.loadProbPkg = !0, window.initMain(), window.enterToGame()) : setTimeout(function () {
         window.loadProbuf();
       }, 500);
@@ -30,7 +30,7 @@ console.info("0 \u8fdb\u5165\u6e38\u620f\u5305"), window.lastError, wx.onError(f
       }, 500);
     } });o && o.onProgressUpdate(o => {});
 }, window.loadMain = function () {
-  console.log("Main \u5206\u5305\u52a0\u8f7d");var o = wx.loadSubpackage({ name: "cccccccc", success: function (o) {
+  console.log("Main \u5206\u5305\u52a0\u8f7d");var o = wx.loadSubpackage({ name: cccccccc, success: function (o) {
       console.log("Main \u5206\u5305\u52a0\u8f7d\u6210\u529f"), console.log(o), o && "loadSubpackage:ok" == o.errMsg ? (window.loadMainPkg = !0, window.initMain(), window.enterToGame()) : setTimeout(function () {
         window.loadMain();
       }, 500);
