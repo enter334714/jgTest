@@ -254,7 +254,7 @@ window.sdkOnInited = function(res) {
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
     PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
-    PF_INFO.version_name = "";
+    PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = true;                          //屏蔽活动
   } else {
     console.log("#开发版=============================");
@@ -263,7 +263,7 @@ window.sdkOnInited = function(res) {
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
     PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
-    PF_INFO.version_name = "";
+    PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = false;
   }
   PF_INFO.from_scene = config.from ? config.from : 0;
@@ -955,6 +955,8 @@ window.reqServerCheckBanCallBack = function(data) {
     server.cdn = PF_INFO.base_cdn;
     server.resver = data.data.cdn_version;
     server.server_options = data.data.server_options;
+
+    console.log("server_options："+ JSON.stringify(server.server_options));
 
     if (PF_INFO.newRegister == 1 && server.server_options && server.server_options.show_btn == 1) {
       PF_INFO.showGetBtn = 1;
