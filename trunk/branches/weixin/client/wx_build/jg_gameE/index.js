@@ -243,16 +243,16 @@ window.sdkOnInited = function(res) {
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
     PF_INFO.logurl = "https://log-tjqy.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy-sg.shzbkj.com/weixin_1/";
+    PF_INFO.cdn = "https://cdn-tjqy-fj.shzbkj.com/weixin_1/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
-    PF_INFO.version_name = "sg";
+    PF_INFO.version_name = "fj";
     PF_INFO.wxShield = false;
   } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0){  //当前版本 == 后台版本
     console.log("#审核版=============================");
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（审核版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy-sg.shzbkj.com/weixin_0/";
+    PF_INFO.cdn = "https://cdn-tjqy-fj.shzbkj.com/weixin_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
     PF_INFO.version_name = "";
     PF_INFO.wxShield = true;                          //屏蔽活动
@@ -261,7 +261,7 @@ window.sdkOnInited = function(res) {
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（开发版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy-sg.shzbkj.com/weixin_0/";
+    PF_INFO.cdn = "https://cdn-tjqy-fj.shzbkj.com/weixin_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
     PF_INFO.version_name = "";
     PF_INFO.wxShield = false;
@@ -732,6 +732,7 @@ window.send = function(url, data, callBack, retryAmount, errorCB, checkSuccess, 
       }
     }
   };
+  console.log("url:",url)
   xhr.open(reqType || "GET", url);
   xhr.responseType = "text";
   // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

@@ -18,6 +18,7 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
     "useApiHostProcess": true,
@@ -27,19 +28,17 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "bundle": false,
     "useIsolateContext": true,
-    "useCompilerModule": false,
-    "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "showES6CompileOption": false
   },
   "compileType": "game",
-  "libVersion": "2.1.0",
-  "appid": "wx65294feeda4c934c",
-  "projectname": "jg_gameD",
+  "libVersion": "2.12.3",
+  "appid": "wx433f090305c60c42",
+  "projectname": "jg_gameE",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
