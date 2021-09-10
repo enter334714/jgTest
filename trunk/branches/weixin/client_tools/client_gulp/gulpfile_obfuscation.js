@@ -2157,12 +2157,23 @@ gulp.task('CREATE_REFUSEFILE', function () {
         .pipe(gulp.dest(targetUrl + '/'));
 });
 
+
+
+
 //删除随机产生的辣鸡空文件
 gulp.task('DEL_REFUSEFILE', function () {
     var targetUrl = targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
     return gulp.src(targetUrl + "/game.js")
         .pipe(deleteRefuseFile())
         .pipe(gulp.dest(targetUrl + '/'));
+});
+
+gulp.task('CREATE_REFUSEFILE_B', function (cb) {
+    sequence("set-param-b","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_B', function (cb) {
+    sequence("set-param-b","DEL_REFUSEFILE",cb)
 });
 
 var deleteRefuseFile = function () {
