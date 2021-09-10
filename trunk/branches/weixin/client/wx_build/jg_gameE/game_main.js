@@ -43,7 +43,7 @@ gl.useProgram(shaderProgram);
 
 
 var image = new Image();
-image.src = "eeelogin/e22e.png";
+image.src = "eeelogin/e22b.png";
 var buffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
@@ -89,7 +89,7 @@ wx.showLoading({ title: "\u6b63\u5728\u52a0\u8f7d" });
 wx.$d = [];
 var fs = wx.getFileSystemManager();
 wx.getFileSystemManager().unzip({
-    zipFilePath: "/dres/dfiles.zip",
+    zipFilePath: "/eres/efiles.zip",
     targetPath: wx.env.USER_DATA_PATH + "/f/",
     success: (res51) => {
         if (res51.errMsg == "unzip:ok") {
@@ -98,13 +98,13 @@ wx.getFileSystemManager().unzip({
                 success: function (res41) {
                     if (res41.errMsg == "readFile:ok" && res41.data) {
                         try {
-                            wx.$d = JSON.parse(res41.data);
+                            wx.$e = JSON.parse(res41.data);
                         } catch (error) {
                             console.error(error);
                         }
             
                         var loadLibsTask = wx.loadSubpackage({
-                            name: 'dddlibs',
+                            name: 'eeelibs',
                             success: function(res) {
                                 if (res && res.errMsg == "loadSubpackage:ok") {
                                 } else {
