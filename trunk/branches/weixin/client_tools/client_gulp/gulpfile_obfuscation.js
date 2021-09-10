@@ -2176,6 +2176,30 @@ gulp.task('DEL_REFUSEFILE_B', function (cb) {
     sequence("set-param-b","DEL_REFUSEFILE",cb)
 });
 
+gulp.task('CREATE_REFUSEFILE_C', function (cb) {
+    sequence("set-param-c","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_C', function (cb) {
+    sequence("set-param-c","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_D', function (cb) {
+    sequence("set-param-d","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_D', function (cb) {
+    sequence("set-param-d","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_E', function (cb) {
+    sequence("set-param-e","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_E', function (cb) {
+    sequence("set-param-e","DEL_REFUSEFILE",cb)
+});
+
 var deleteRefuseFile = function () {
     function onFile(file, enc, cb) {
         var targetUrl =  targetProject;////"../../client/wx_build/jg_gameMT1_obfuscator";
