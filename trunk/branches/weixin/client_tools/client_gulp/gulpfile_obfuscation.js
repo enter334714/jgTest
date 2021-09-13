@@ -1024,7 +1024,7 @@ var set_param_e = function () {
         PACK = 'jg_gameE';
         INIT_PATH = '/';
         SCOPE = 'abcdefghklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ij';
-        PREFIX = 'e';
+        PREFIX = 'e$';
         sourceProject = "../../client/wx_build/jg_gameE_new";
         targetProject = "../../client/wx_build/jg_gameE_obfuscator";
         targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
@@ -1193,7 +1193,8 @@ var set_param_e = function () {
         }
         strFilePath = "/eres";
         strFileName = "/efiles.zip";
-        globleKeys = ["$e", "i", "j", "e$", "e"];
+        // globleKeys = ["$e", "w", "x", "E$", "y"];
+        globleKeys = ["$e", "b", "c", "E$", "e"];
         noReplaceJs = packageName1+"/game.js";
         arrIndex = 0;
         globleArrs = new Array(arrIndex);
@@ -1224,7 +1225,7 @@ gulp.task('set-param-e', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-E', function (cb) {
-    sequence("set-param-e","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
+    sequence("set-param-e","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 
@@ -1632,18 +1633,18 @@ var js_checkStrCount =  function () {
 
 
         //transform方法转换code，babel先将代码转换成ast，然后进行遍历，最后输出code
-        var result = babel_core.transform(contents, {
-            plugins: [
-                {
-                    visitor
-                }
-            ]
-        });
-        contents = result.code; //从AST还原成字符串
+            var result = babel_core.transform(contents, {
+                plugins: [
+                    {
+                        visitor
+                    }
+                ]
+            });
+            contents = result.code; //从AST还原成字符串
 
 
-        var bf = new Buffer.from(contents);
-        file.contents = bf;
+            var bf = new Buffer.from(contents);
+            file.contents = bf;
         cb();
         this.emit("data", file);
     }
@@ -1835,19 +1836,19 @@ var js_babel = function () {
         };
 
 
-        //transform方法转换code，babel先将代码转换成ast，然后进行遍历，最后输出code
-        var result = babel_core.transform(contents, {
-            plugins: [
-                {
-                    visitor
-                }
-            ]
-        });
-        contents = result.code; //从AST还原成字符串
+            //transform方法转换code，babel先将代码转换成ast，然后进行遍历，最后输出code
+            var result = babel_core.transform(contents, {
+                plugins: [
+                    {
+                        visitor
+                    }
+                ]
+            });
+            contents = result.code; //从AST还原成字符串
 
 
-        var bf = new Buffer.from(contents);
-        file.contents = bf;
+            var bf = new Buffer.from(contents);
+            file.contents = bf;
         cb();
         this.emit("data", file);
     }
@@ -1970,19 +1971,19 @@ var js_babel_str = function () {
         };
 
 
-        //transform方法转换code，babel先将代码转换成ast，然后进行遍历，最后输出code
-        var result = babel_core.transform(contents, {
-            plugins: [
-                {
-                    visitor
-                }
-            ]
-        });
-        contents = result.code; //从AST还原成字符串
+            //transform方法转换code，babel先将代码转换成ast，然后进行遍历，最后输出code
+            var result = babel_core.transform(contents, {
+                plugins: [
+                    {
+                        visitor
+                    }
+                ]
+            });
+            contents = result.code; //从AST还原成字符串
 
 
-        var bf = new Buffer.from(contents);
-        file.contents = bf;
+            var bf = new Buffer.from(contents);
+            file.contents = bf;
         cb();
         this.emit("data", file);
     }
