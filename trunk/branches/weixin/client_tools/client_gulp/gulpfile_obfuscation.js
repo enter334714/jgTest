@@ -17,7 +17,10 @@ var path = require('path');
 var gulpts = require('gulp-typescript');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
-
+var imagemin  = require('gulp-imagemin');
+var smushit = require('gulp-smushit');
+const gulpPngquant = require('gulp-pngquant');
+const tiny = require('gulp-tinypng-nokey');
 // var requirejs = require('gulp-requirejs');
 // var webpack = require('webpack-stream');
 // var rollup = require('gulp-rollup');
@@ -2424,6 +2427,45 @@ gulp.task('CREATE_REFUSEFILE_E', function (cb) {
 
 gulp.task('DEL_REFUSEFILE_E', function (cb) {
     sequence("set-param-e","DEL_REFUSEFILE",cb)
+});
+
+//无网络 使用这个图片压缩
+gulp.task('gulp-imagemin', function (cb) {
+    sourceProject = "../../client/wx_build/jg_gameE_new";
+    targetProject = "../../client/wx_build/jg_gameE_obfuscator";
+    var sourceUrl =  sourceProject;// "../../client/wx_build/jg_gameMT1_new";
+    var targetUrl = targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
+    return gulp.src([sourceUrl + "/" + '/**/*'])
+        .pipe(imagemin({
+            optimizationLevel: 7, //类型：Number  默认：3  取值范围：0-7（优化等级）
+            progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
+            use:[gulpPngquant({
+                quality: '65-80'
+            })]
+        }))
+        .pipe(gulp.dest(targetUrl + '/'));
+});
+
+//有网络 使用这个 图片压缩
+gulp.task('gulp-tingPNG', function (cb) {
+    sourceProject = "../../client/wx_build/jg_gameE_new";
+    targetProject = "../../client/wx_build/jg_gameE_obfuscator";
+    var sourceUrl =  sourceProject;// "../../client/wx_build/jg_gameMT1_new";
+    var targetUrl = targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
+    return gulp.src([sourceUrl + "/" + '/**/*.{png,jpg}'])
+        .pipe(tiny())
+        .pipe(gulp.dest(targetUrl + '/'));
+});
+
+//图片压缩 太慢了不用这个
+gulp.task('gulp_smushit', function (cb) {
+    sourceProject = "../../client/wx_build/jg_gameE_new";
+    targetProject = "../../client/wx_build/jg_gameE_obfuscator";
+    var sourceUrl =  sourceProject;// "../../client/wx_build/jg_gameMT1_new";
+    var targetUrl = targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
+    return gulp.src([sourceUrl + "/" + '/**/*.{jpg,png}'])
+        .pipe(smushit())
+        .pipe(gulp.dest(targetUrl + '/'));
 });
 
 var deleteRefuseFile = function () {
