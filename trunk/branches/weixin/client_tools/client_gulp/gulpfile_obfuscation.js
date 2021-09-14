@@ -445,6 +445,10 @@ var set_param_b = function () {
             "wxlogin_atlas/image_login_weihu.png": {url:"bbblogin/b20b.png"},
             "wxlogin_atlas/image_login_xuanqubg.png": {url:"bbblogin/b21b.png"},
             "wxlogin_atlas/image_login_init.png": {url:"bbblogin/b22b.png"},
+            "wxlogin_atlas/btn_com_chuangback1.png": {url:"bbblogin/b23b.png"},
+            "wxlogin_atlas/btn_com_long0.png": {url:"bbblogin/b24b.png"},
+            "wxlogin_atlas/btn_com_long1.png": {url:"bbblogin/b25b.png"},
+            "wxlogin_atlas/image_login_notice1.png": {url:"bbblogin/b26b.png"},
 
 
             "wxeff_btn_atlas/0.png": {url:"bwxeff/b100b.png"},
@@ -513,6 +517,11 @@ var set_param_b = function () {
             "image_login_weihu.png": "b20b.png",
             "image_login_xuanqubg.png": "b21b.png",
             "image_login_init.png": "b22b.png",
+            "btn_com_chuangback1.png": "b23b.png",
+            "btn_com_long0.png":"b24b.png",
+            "btn_com_long1.png":"b25b.png",
+            "image_login_notice1.png":"b26b.png",
+
 
             "0.png": "b100b.png",
             "1.png": "b101b.png",
@@ -2300,7 +2309,7 @@ gulp.task('MT1_COPY', function () {
                 return match;
             }
         }))
-        .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)|(btn_com_chuangback.png)|(btn_login_gonggao.png)|(btn_login_loginanniu.png)|(btn_login_yingsi.png)|(btn_xuanqu_anniuhuang.png)|(btn_xuanqu_anniulan.png)|(btn_xuanqu_quanniu.png)|(image_com_tuichu.png)|(image_login_changtong.png)|(image_login_fanmang.png)|(image_login_weihu.png)|(image_login_xuanqubg.png)|(image_login_init.png)/g, function (match, p1, offset, string) {
+        .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)|(btn_com_chuangback.png)|(btn_login_gonggao.png)|(btn_login_loginanniu.png)|(btn_login_yingsi.png)|(btn_xuanqu_anniuhuang.png)|(btn_xuanqu_anniulan.png)|(btn_xuanqu_quanniu.png)|(image_com_tuichu.png)|(image_login_changtong.png)|(image_login_fanmang.png)|(image_login_weihu.png)|(image_login_xuanqubg.png)|(image_login_init.png)|(btn_com_chuangback1.png)|(btn_com_long0.png)|(btn_com_long1.png)|(image_login_notice1.png)/g, function (match, p1, offset, string) {
             var relative = this.file.relative.replace(/\\/g, "/");
             if (replaceMap[relative]) { //登录界面才替换
                 console.log("relative2:",relative,'Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
