@@ -898,6 +898,14 @@ window.req_server_notice = function(server_id, callback) {
     'server_id': server_id,
   }, callback);
 }
+window.req_multi_server_notice = function(type, pkgName, server_id, callback) {
+  server_id = server_id || PF_INFO.selectedServer.server_id;
+  sendApi(PF_INFO.apiurl, 'Common.get_new_anno', {
+    'type': type,
+    'game_pkg': pkgName,
+    'server_id': server_id,
+  }, callback);
+}
 
 
 window.get_status = function (server) {
