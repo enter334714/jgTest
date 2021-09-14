@@ -911,6 +911,10 @@ var set_param_d = function () {
             "wxlogin_atlas/image_login_weihu.png": {url:"dddlogin/d20b.png"},
             "wxlogin_atlas/image_login_xuanqubg.png": {url:"dddlogin/d21b.png"},
             "wxlogin_atlas/image_login_init.png": {url:"dddlogin/d22b.png"},
+            "wxlogin_atlas/btn_com_chuangback1.png": {url:"dddlogin/d23b.png"},
+            "wxlogin_atlas/btn_com_long0.png": {url:"dddlogin/d24b.png"},
+            "wxlogin_atlas/btn_com_long1.png": {url:"dddlogin/d25b.png"},
+            "wxlogin_atlas/image_login_notice1.png": {url:"dddlogin/d26b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"ddwxeff/d1c.png"},
             "wxeff_btn_atlas/1.png": {url:"ddwxeff/d2c.png"},
@@ -978,6 +982,10 @@ var set_param_d = function () {
             "image_login_weihu.png": "d20b.png",
             "image_login_xuanqubg.png": "d21b.png",
             "image_login_init.png": "d22b.png",
+            "btn_com_chuangback1.png": "d23b.png",
+            "btn_com_long0.png":"d24b.png",
+            "btn_com_long1.png":"d25b.png",
+            "image_login_notice1.png":"d26b.png",
 
             "0.png": "d1c.png",
             "1.png": "d2c.png",
@@ -1135,6 +1143,10 @@ var set_param_e = function () {
             "wxlogin_atlas/image_login_weihu.png": {url:"eeelogin/e20b.png"},
             "wxlogin_atlas/image_login_xuanqubg.png": {url:"eeelogin/e21b.png"},
             "wxlogin_atlas/image_login_init.png": {url:"eeelogin/e22b.png"},
+            "wxlogin_atlas/btn_com_chuangback1.png": {url:"eeelogin/e23b.png"},
+            "wxlogin_atlas/btn_com_long0.png": {url:"eeelogin/e24b.png"},
+            "wxlogin_atlas/btn_com_long1.png": {url:"eeelogin/e25b.png"},
+            "wxlogin_atlas/image_login_notice1.png": {url:"eeelogin/e26b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"eewxeff/e1c.png"},
             "wxeff_btn_atlas/1.png": {url:"eewxeff/e2c.png"},
@@ -1202,6 +1214,10 @@ var set_param_e = function () {
             "image_login_weihu.png": "e20b.png",
             "image_login_xuanqubg.png": "e21b.png",
             "image_login_init.png": "e22b.png",
+            "btn_com_chuangback1.png": "e23b.png",
+            "btn_com_long0.png":"e24b.png",
+            "btn_com_long1.png":"e25b.png",
+            "image_login_notice1.png":"e26b.png",
 
             "0.png": "e1c.png",
             "1.png": "e2c.png",
