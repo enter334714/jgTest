@@ -683,6 +683,10 @@ var set_param_c = function () {
             "wxlogin_atlas/image_login_weihu.png": {url:"ccclogin/b20c.png"},
             "wxlogin_atlas/image_login_xuanqubg.png": {url:"ccclogin/b21c.png"},
             "wxlogin_atlas/image_login_init.png": {url:"ccclogin/b22c.png"},
+            "wxlogin_atlas/btn_com_chuangback1.png": {url:"ccclogin/b23c.png"},
+            "wxlogin_atlas/btn_com_long0.png": {url:"ccclogin/b24c.png"},
+            "wxlogin_atlas/btn_com_long1.png": {url:"ccclogin/b25c.png"},
+            "wxlogin_atlas/image_login_notice1.png": {url:"ccclogin/b26c.png"},
 
             "wxeff_btn_atlas/0.png": {url:"cccwxeff/c100c.png"},
             "wxeff_btn_atlas/1.png": {url:"cccwxeff/c101c.png"},
@@ -750,7 +754,10 @@ var set_param_c = function () {
             "image_login_weihu.png": "b20c.png",
             "image_login_xuanqubg.png": "b21c.png",
             "image_login_init.png": "b22c.png",
-
+            "btn_com_chuangback1.png": "b23c.png",
+            "btn_com_long0.png":"b24c.png",
+            "btn_com_long1.png":"b25c.png",
+            "image_login_notice1.png":"b26c.png",
 
             "0.png": "c100c.png",
             "1.png": "c101c.png",
