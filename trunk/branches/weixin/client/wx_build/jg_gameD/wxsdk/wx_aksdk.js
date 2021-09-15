@@ -1,12 +1,13 @@
 ﻿import dkm from './helper'
 var config = {
-    game_id: '285',
+    game_id: '285', //9187飘步-九幽幻剑录-闪光服
     game_pkg: 'tjqy_tjqyjyhjl_FH',
     partner_id: '249',
-    game_ver: '4.0.1',
+    game_ver: '4.0.3', //D包为4.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     partner_label:'pbxyx',
     is_auth: false,
     from: null, //来源
+    tmpId: {},  // 订阅的类型 和 模板id
 };
 window.config = config;
 var PARTNER_UNION_SDK = mainUnionSDK();

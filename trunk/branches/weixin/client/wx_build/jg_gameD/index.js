@@ -243,27 +243,27 @@ window.sdkOnInited = function(res) {
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
     PF_INFO.logurl = "https://log-tjqy.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_1/";
+    PF_INFO.cdn = "https://cdn-tjqy-sg.shzbkj.com/weixin_1/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
-    PF_INFO.version_name = "weixin";
+    PF_INFO.version_name = "sg";
     PF_INFO.wxShield = false;
   } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0){  //当前版本 == 后台版本
     console.log("#审核版=============================");
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（审核版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/";
+    PF_INFO.cdn = "https://cdn-tjqy-sg.shzbkj.com/weixin_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
-    PF_INFO.version_name = "";
+    PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = true;                          //屏蔽活动
   } else {
     console.log("#开发版=============================");
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（开发版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/";
+    PF_INFO.cdn = "https://cdn-tjqy-sg.shzbkj.com/weixin_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
-    PF_INFO.version_name = "";
+    PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = false;
   }
   PF_INFO.from_scene = config.from ? config.from : 0;
@@ -898,6 +898,14 @@ window.req_server_notice = function(server_id, callback) {
     'server_id': server_id,
   }, callback);
 }
+window.req_multi_server_notice = function(type, pkgName, server_id, callback) {
+  server_id = server_id || PF_INFO.selectedServer.server_id;
+  sendApi(PF_INFO.apiurl, 'Common.get_new_anno', {
+    'type': type,
+    'game_pkg': pkgName,
+    'server_id': server_id,
+  }, callback);
+}
 
 
 window.get_status = function (server) {
@@ -955,6 +963,8 @@ window.reqServerCheckBanCallBack = function(data) {
     server.cdn = PF_INFO.base_cdn;
     server.resver = data.data.cdn_version;
     server.server_options = data.data.server_options;
+
+    console.log("server_options："+ JSON.stringify(server.server_options));
 
     if (PF_INFO.newRegister == 1 && server.server_options && server.server_options.show_btn == 1) {
       PF_INFO.showGetBtn = 1;
