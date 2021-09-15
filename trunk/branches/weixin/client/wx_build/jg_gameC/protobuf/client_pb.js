@@ -6408,6 +6408,10 @@ module.exports = {
             "f2": {
               "type": "bool",
               "id": 2
+            },
+            "f3": {
+              "type": "uint64",
+              "id": 3
             }
           }
         },
@@ -6720,6 +6724,10 @@ module.exports = {
             "f9": {
               "type": "uint64",
               "id": 9
+            },
+            "f10": {
+              "type": "bool",
+              "id": 10
             }
           }
         },
@@ -8561,6 +8569,14 @@ module.exports = {
             "f2": {
               "type": "uint64",
               "id": 2
+            },
+            "f3": {
+              "type": "uint64",
+              "id": 3
+            },
+            "f4": {
+              "type": "uint64",
+              "id": 4
             }
           }
         },
@@ -9104,6 +9120,10 @@ module.exports = {
             "f2": {
               "type": "uint64",
               "id": 2
+            },
+            "f3": {
+              "type": "uint64",
+              "id": 3
             }
           }
         },
@@ -18440,6 +18460,15 @@ module.exports = {
             }
           }
         },
+        "TXtz": {
+          "fields": {
+            "f0": {
+              "rule": "repeated",
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
         "TmEL": {
           "fields": {
             "f0": {
@@ -26426,6 +26455,14 @@ module.exports = {
             }
           }
         },
+        "Tzoj": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
         "TtJT": {
           "fields": {
             "f0": {
@@ -28442,6 +28479,14 @@ module.exports = {
             }
           }
         },
+        "TmGA": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
         "TWGL": {
           "fields": {
             "f0": {
@@ -28465,6 +28510,33 @@ module.exports = {
               "id": 0
             }
           }
+        },
+        "TWGz": {
+          "fields": {
+            "f0": {
+              "type": "bool",
+              "id": 0
+            },
+            "f1": {
+              "type": "uint64",
+              "id": 1
+            },
+            "f2": {
+              "type": "uint64",
+              "id": 2
+            }
+          }
+        },
+        "TBBM": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "TuVM": {
+          "fields": {}
         },
         "TMzs": {
           "fields": {}
@@ -33220,7 +33292,12 @@ module.exports = {
           }
         },
         "TtrH": {
-          "fields": {}
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
         },
         "Tzoy": {
           "fields": {}
@@ -33326,6 +33403,12 @@ module.exports = {
           }
         },
         "TdgK": {
+          "fields": {}
+        },
+        "TMoK": {
+          "fields": {}
+        },
+        "Tafz": {
           "fields": {}
         },
         "T0mh": {
@@ -33540,6 +33623,9 @@ module.exports = {
             }
           }
         },
+        "TtrM": {
+          "fields": {}
+        },
         "T0mk": {
           "fields": {}
         },
@@ -33652,6 +33738,22 @@ module.exports = {
             "f0": {
               "type": "uint64",
               "id": 0
+            }
+          }
+        },
+        "TnfA": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            },
+            "f1": {
+              "type": "uint64",
+              "id": 1
+            },
+            "f2": {
+              "type": "uint64",
+              "id": 2
             }
           }
         },

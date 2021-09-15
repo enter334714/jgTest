@@ -2,20 +2,24 @@
 
 //TODO 替换对应参数
 var config = {
-    game_id: 256,
+    game_id: 256,//光奈-黎明风暴-天师服
     game_pkg: 'tjqy_tjqylmfb_FK',
     partner_label: 'GNWX',
     partner_id: '443',
-    game_ver: '3.0.0',
+    game_ver: '3.0.2',//C包为3.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false, //授权登录
+    from: null, //来源
+    tmpId: {}  // 订阅的类型 和 模板id
 };
 window.config = config;
+
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var user_game_info = null;
 var user_invite_info = null;
 var sysInfo = wx.getSystemInfoSync();
 var platform = sysInfo.platform;
+var timeHandler = null;
 
 function mainSDK() {
     var callbacks = {};
@@ -44,7 +48,8 @@ function mainSDK() {
 
             var info = wx.getLaunchOptionsSync();
             var scene = info.scene ? info.scene : '';
-
+            console.log("[SDK]小游戏启动参数");
+            console.log(info);
 
             //判断今天是否已经上报过
             if (is_new && info.query && info.query.ad_code) {
@@ -229,26 +234,33 @@ function mainSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[SDK]获取游戏版本结果" + JSON.stringify(res));
-
-                    if (res.statusCode == 200) {
+                    console.log("[SDK]获取游戏版本成功");
+                    console.log(res);
+                    if (timeHandler) clearTimeout(timeHandler);
+                    if(res.statusCode == 200){
                         var data = res.data;
-                        if (data.state) {
+                        if(data.state){
                             callback && callback(data.data);
-                        } else {
-                            callback && callback({
-                                develop: 0
-                            });
+                        }else{
+                            callback && callback({develop: 0});
                         }
-                    } else {
-                        callback && callback({
-                            develop: 0
-                        });
+                    }else{
+                        callback && callback({develop: 0});
                     }
+                },
+                fail: function(res){
+                    console.log("[SDK]获取游戏版本失败");
+                    console.log(res);
+                    if (timeHandler) clearTimeout(timeHandler);
+                    callback && callback({develop: 0});
                 }
             });
+            var func = function() {
+                console.log("[SDK]获取游戏版本超时");
+                callback && callback({develop: 0});
+            }
+            timeHandler = setTimeout(func, 10000);
         },
-
         getShareInfo: function (type, callback) {
             console.log("[SDK]获取分享参数");
             var sdk_token = wx.getStorageSync('9130_plat_sdk_token');
@@ -271,19 +283,15 @@ function mainSDK() {
                 success: function (res) {
                     console.log("[SDK]获取分享参数结果");
                     console.log(res);
-                    if (res.statusCode == 200) {
+                    if(res.statusCode == 200){
                         var data = res.data;
-                        if (data.state) {
+                        if(data.state){
                             callback && callback(data.data);
-                        } else {
-                            callbacks['share'] && callbacks['share'](1, {
-                                errMsg: '分享失败：' + data.msg
-                            });
+                        }else{
+                            callbacks['share'] && callbacks['share'](1, {errMsg: '分享失败：' + data.msg});
                         }
-                    } else {
-                        callbacks['share'] && callbacks['share'](1, {
-                            errMsg: '获取分享数据失败！'
-                        });
+                    }else{
+                        callbacks['share'] && callbacks['share'](1, {errMsg: '获取分享数据失败！'});
                     }
                 }
             });
@@ -311,7 +319,8 @@ function mainSDK() {
                     scene: scene
                 },
                 success: function (res) {
-                    console.log("[SDK]上报分享结果返回:" + JSON.stringify(res));
+                    console.log("[SDK]上报分享结果返回:");
+                    console.log(res);
                 }
             });
         },
