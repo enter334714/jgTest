@@ -1291,6 +1291,7 @@ var set_param_f = function () {
         packageName1 = "ffflibs";
         packageName2 = "ffffffpf";
         packageName3 = "ffffffff";
+        var clinetPbName = "fffcleintpb.js";
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称
             "libs": {url:packageName1},
@@ -1312,7 +1313,7 @@ var set_param_f = function () {
             "wxsdk/helper.js":  {url:"ffffsdk/fffhelp.js",extractStr:true,count:1,strLen:3},
 
             "protobuf":  {url:packageName2},
-            "protobuf/client_pb.js":  {url: packageName2 + "/fffcleintpb.js",extractStr:true,count:5,strLen:3},
+            "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:5,strLen:3},
             "protobuf/protobuf.js":  {url: packageName2 + "/ffffBuff.js",extractStr:true,count:5,strLen:3},
             "protobuf/game.js":  {url: packageName2 + "/game.js",extractStr:true,count:5,strLen:3},
 
@@ -1380,18 +1381,18 @@ var set_param_f = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"ffflogin/e25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"ffflogin/e26b.png"},
 
-            "wxeff_btn_atlas/0.png": {url:"eewxeff/e1c.png"},
-            "wxeff_btn_atlas/1.png": {url:"eewxeff/e2c.png"},
-            "wxeff_btn_atlas/2.png": {url:"eewxeff/e3c.png"},
-            "wxeff_btn_atlas/3.png": {url:"eewxeff/e4c.png"},
-            "wxeff_btn_atlas/4.png": {url:"eewxeff/e5c.png"},
+            "wxeff_btn_atlas/0.png": {url:"ffwxeff/e1c.png"},
+            "wxeff_btn_atlas/1.png": {url:"ffwxeff/e2c.png"},
+            "wxeff_btn_atlas/2.png": {url:"ffwxeff/e3c.png"},
+            "wxeff_btn_atlas/3.png": {url:"ffwxeff/e4c.png"},
+            "wxeff_btn_atlas/4.png": {url:"ffwxeff/e5c.png"},
         };
         mt1Replace = {
             "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
             "./helper": "./" + "fffhelp",
             "./sax": "./fffsax",
             "./dom": "./fffdom",
-            "client_pb.js": "fffcleintpb.js",
+            "client_pb.js": clinetPbName,
             "protobuf.js": "ffffBuff.js",
             "main.min.js": mainJsName,
             "wxlogin_atlas": "ffflogin",
@@ -1776,7 +1777,7 @@ var identifier_create = function (rate) {
         }
 
         //生成混淆用的标识符
-        for (var n = 1; n < 7; n++) { //字符数量
+        for (var n = 1; n < 8; n++) { //字符数量
             for (var m = 0; m < leading.length; m++) {
                 perm(leading.slice(m, m + n), obfuscatorArrObj, '');
             }
