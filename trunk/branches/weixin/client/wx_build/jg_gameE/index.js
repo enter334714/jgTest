@@ -254,7 +254,7 @@ window.sdkOnInited = function(res) {
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
     PF_INFO.cdn = "https://cdn-tjqy-fj.shzbkj.com/weixin_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
-    PF_INFO.version_name = "";
+    PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = true;                          //屏蔽活动
   } else {
     console.log("#开发版=============================");
@@ -263,7 +263,7 @@ window.sdkOnInited = function(res) {
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
     PF_INFO.cdn = "https://cdn-tjqy-fj.shzbkj.com/weixin_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
-    PF_INFO.version_name = "";
+    PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = false;
   }
   PF_INFO.from_scene = config.from ? config.from : 0;
@@ -896,6 +896,14 @@ window.req_server_notice = function(server_id, callback) {
   sendApi(PF_INFO.apiurl, 'Common.get_anno', {
     'type': '4',
     'game_pkg': PF_INFO.pkgName,
+    'server_id': server_id,
+  }, callback);
+}
+window.req_multi_server_notice = function(type, pkgName, server_id, callback) {
+  server_id = server_id || PF_INFO.selectedServer.server_id;
+  sendApi(PF_INFO.apiurl, 'Common.get_new_anno', {
+    'type': type,
+    'game_pkg': pkgName,
     'server_id': server_id,
   }, callback);
 }

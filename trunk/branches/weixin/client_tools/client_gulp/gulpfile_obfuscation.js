@@ -1231,7 +1231,7 @@ var set_param_e = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$e", "b", "c", "E$", "e"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 0;
+        arrIndex = 30000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         needShuffle = true;
@@ -1777,7 +1777,7 @@ var identifier_create = function (rate) {
         }
 
         //生成混淆用的标识符
-        for (var n = 1; n < 8; n++) { //字符数量
+        for (var n = 1; n < 7; n++) { //字符数量
             for (var m = 0; m < leading.length; m++) {
                 perm(leading.slice(m, m + n), obfuscatorArrObj, '');
             }
