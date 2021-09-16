@@ -5,7 +5,7 @@ var config = {
     is_auth: false,  //授权登录
     from: null //来源
 };
-
+window.config = config;
 
 var PARTNER_SDK = mainSDK();
 var HOST = 'https://sdk.357pk.net';
@@ -23,19 +23,19 @@ function mainSDK() {
             console.log("[SDK]CP调用init接口");
             var self = this;
 
-            var uuid = wx.getStorageSync('plat_uuid');
+            var uuid = wx.getStorageSync('7cwan_plat_uuid');
             var is_new;
             if(!uuid){
                 uuid = self.uuid(16, 32);
-                wx.setStorageSync('plat_uuid', uuid);
+                wx.setStorageSync('7cwan_plat_uuid', uuid);
                 is_new = 1;
             }else{
                 is_new = 0;
             }
-            var idfv = wx.getStorageSync('plat_idfv');
+            var idfv = wx.getStorageSync('7cwan_plat_idfv');
             if(!idfv){
                 idfv = self.uuid(16, 32);
-                wx.setStorageSync('plat_idfv', idfv);
+                wx.setStorageSync('7cwan_plat_idfv', idfv);
             }
 
             var info = wx.getLaunchOptionsSync();
@@ -46,15 +46,15 @@ function mainSDK() {
             //判断今天是否已经上报过
             if(is_new && info.query && info.query.ad_code){
                 
-                wx.setStorageSync('plat_ad_code', info.query.ad_code);
+                wx.setStorageSync('7cwan_plat_ad_code', info.query.ad_code);
             }
 
             //用户来源，如："txcps"
             if(info.query && info.query.from && info.query.from!=""){
-                if (is_new) wx.setStorageSync('plat_from', info.query.from);
+                if (is_new) wx.setStorageSync('7cwan_plat_from', info.query.from);
                 config.from = info.query.from;
             } else {
-                var from = wx.getStorageSync('plat_from');
+                var from = wx.getStorageSync('7cwan_plat_from');
                 if(!from && from!="") config.from = from;
             }
             // config.from = "txcps"
@@ -193,11 +193,11 @@ function mainSDK() {
                                                         token: data.data.token,
                                                     };
                                                     try {
-                                                        wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
-                                                        wx.setStorageSync('plat_uid', data.data.user_id);
-                                                        wx.setStorageSync('plat_username', data.data.username);
+                                                        wx.setStorageSync('7cwan_plat_sdk_token', data.data.sdk_token);
+                                                        wx.setStorageSync('7cwan_plat_uid', data.data.user_id);
+                                                        wx.setStorageSync('7cwan_plat_username', data.data.username);
                                                         if(data.data.ext){
-                                                            wx.setStorageSync('plat_session_key', data.data.ext);
+                                                            wx.setStorageSync('7cwan_plat_session_key', data.data.ext);
                                                         }
                                                     } catch (e) {
                                                     }
@@ -240,11 +240,11 @@ function mainSDK() {
                                                 token: data.data.token,
                                             };
                                             try {
-                                                wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
-                                                wx.setStorageSync('plat_uid', data.data.user_id);
-                                                wx.setStorageSync('plat_username', data.data.username);
+                                                wx.setStorageSync('7cwan_plat_sdk_token', data.data.sdk_token);
+                                                wx.setStorageSync('7cwan_plat_uid', data.data.user_id);
+                                                wx.setStorageSync('7cwan_plat_username', data.data.username);
                                                 if(data.data.ext){
-                                                    wx.setStorageSync('plat_session_key', data.data.ext);
+                                                    wx.setStorageSync('7cwan_plat_session_key', data.data.ext);
                                                 }
                                             } catch (e) {
                                             }
@@ -276,7 +276,7 @@ function mainSDK() {
 
         checkGameVersion: function (game_ver, callback) {
             console.log("[SDK]检查游戏版本");
-            var sdk_token = wx.getStorageSync('plat_sdk_token');
+            var sdk_token = wx.getStorageSync('7cwan_plat_sdk_token');
             wx.request({
                 url: HOST + '/game/min/?ac=checkGameVersion',
                 method: 'POST',
@@ -334,8 +334,8 @@ function mainSDK() {
             callbacks['pay'] = typeof callback == 'function' ? callback : null;
             //先下单
             this_pay_order = 0;
-            var sdk_token = wx.getStorageSync('plat_sdk_token');
-            var session_key = wx.getStorageSync('plat_session_key');
+            var sdk_token = wx.getStorageSync('7cwan_plat_sdk_token');
+            var session_key = wx.getStorageSync('7cwan_plat_session_key');
             if(!sdk_token || !session_key){
                 callbacks['pay'] && callbacks['pay'](1, {errMsg: "用户未登录，支付失败！"});
                 return;
@@ -489,7 +489,7 @@ function mainSDK() {
             console.log("[SDK]米大师支付完毕，通知服务器发货");
             //请求pay接口
             var self = this;
-            var session_key = wx.getStorageSync('plat_session_key');
+            var session_key = wx.getStorageSync('7cwan_plat_session_key');
             wx.request({
                 url: HOST + '/partner/pay/' + config.partner_id + '/' + config.game_pkg + '/',
                 method: 'POST',
@@ -528,8 +528,8 @@ function mainSDK() {
 
         //创建角色
         logCreateRole: function (data) {
-            var uid = wx.getStorageSync('plat_uid');
-            var username = wx.getStorageSync('plat_username');
+            var uid = wx.getStorageSync('7cwan_plat_uid');
+            var username = wx.getStorageSync('7cwan_plat_username');
 
             var postData = {};
             postData['user_id'] = uid;
@@ -551,8 +551,8 @@ function mainSDK() {
 
         //进入游戏
         logEnterGame: function (data) {
-            var uid = wx.getStorageSync('plat_uid');
-            var username = wx.getStorageSync('plat_username');
+            var uid = wx.getStorageSync('7cwan_plat_uid');
+            var username = wx.getStorageSync('7cwan_plat_username');
 
             var postData = {};
             postData['user_id'] = uid;
@@ -576,8 +576,8 @@ function mainSDK() {
 
         //角色升级
         logRoleUpLevel: function (data) {
-            var uid = wx.getStorageSync('plat_uid');
-            var username = wx.getStorageSync('plat_username');
+            var uid = wx.getStorageSync('7cwan_plat_uid');
+            var username = wx.getStorageSync('7cwan_plat_username');
 
             var postData = {};
             postData['user_id'] = uid;
@@ -626,9 +626,9 @@ function mainSDK() {
         //获取公共参数
         getPublicData: function () {
             var system = wx.getSystemInfoSync();
-            var uuid = wx.getStorageSync('plat_uuid');
-            var idfv = wx.getStorageSync('plat_idfv');
-            var ad_code = wx.getStorageSync('plat_ad_code');
+            var uuid = wx.getStorageSync('7cwan_plat_uuid');
+            var idfv = wx.getStorageSync('7cwan_plat_idfv');
+            var ad_code = wx.getStorageSync('7cwan_plat_ad_code');
 
             return {
                 game_id: config.game_id,
@@ -674,7 +674,7 @@ function mainSDK() {
 
         checkMsg: function (msg, callback) {
             console.log("[SDK]查看文本是否有违规内容");
-            var sdk_token = wx.getStorageSync('plat_sdk_token');
+            var sdk_token = wx.getStorageSync('7cwan_plat_sdk_token');
             wx.request({
                 url: HOST + '/game/min/?ac=msgCheck',
                 method: 'POST',
