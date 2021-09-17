@@ -92,11 +92,11 @@ wx.y$ = []; var fs = wx.getFileSystemManager(); wx.getFileSystemManager().unzip(
       filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8", success: function (r) {
         if ("readFile:ok" == r.errMsg && r.data) {
           try {
-            wx.y$ = JSON.parse(r.data);
+           wx.$f = JSON.parse(r.data);
           } catch (r) {
             console.error(r);
           } r = wx.loadSubpackage({
-            name: "bbblibs", success: function (r) {
+            name: "ffflibs", success: function (r) {
               r && r.errMsg, window.loadSubpackages();             
             }, fail: function (r) {
               console.error(r);
