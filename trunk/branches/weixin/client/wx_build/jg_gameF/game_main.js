@@ -1,5 +1,4 @@
-﻿var _ = wx.y$;
-import "bbssss/bbbweasaf.js"; console.info("1 \u521d\u59cb\u5316");
+﻿import "ffssss/fffweasaf.js"; console.info("1 \u521d\u59cb\u5316");
 var VSHADER_SOURCE =
   'attribute vec4 a_Position;\n' +
   'attribute vec2 a_TexCoord;\n' +
@@ -44,7 +43,7 @@ gl.useProgram(shaderProgram);
 
 
 var image = new Image();
-image.src = "bbblogin/b22b.png";
+image.src = "ffflogin/f22b.png";
 var buffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
