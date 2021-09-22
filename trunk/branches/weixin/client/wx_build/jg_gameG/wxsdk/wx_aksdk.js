@@ -1,21 +1,31 @@
-import Sygame from './helper';
+let hortor = require("./utils/Hortor/sdk");
+let hortorSdk = hortor.sdk; //核心业务SDK
+let wallSDK = hortorSdk.wallSDK;
+let partner_config = hortor.config; //SDK配置
+let wxapm = hortor.wxapm;    //应用监控SDK
 
+// 引入VIP大使
+import HortorVip from "./utils/HortorVipSdk/hortorVip";
+
+//TODO 替换对应参数
 var config = {
-    game_id: '88',
-    game_pkg: 'tjqy_tjqygjhol_FW', //盛也微信小游戏--鬼剑豪
-    partner_label: 'shengye2',
-    partner_id: '398',
-    game_ver: '6.0.0',
+    game_id: '256',
+    game_pkg: 'tjqy_tjlywffkxyxmj_FV',
+    partner_label: 'fkxyx',
+    partner_id: '222',
+    game_ver: '7.0.0',
+    partner_game_id: 'xjtjqymini',
     is_auth: false, //授权登录
 };
 window.config = config;
+var partner_user_data = {};
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var user_game_info = null;
 var user_invite_info = null;
-var partner_user_data={};
-var user_invite_by_activity = null;
-
+var system = wx.getSystemInfoSync();
+var device = system.platform=='android' ? 'android' : 'ios';
+var userInfoBtn = '';
 
 function mainSDK() {
     var callbacks = {};
@@ -54,33 +64,15 @@ function mainSDK() {
                 scene: scene
             };
             self.log('start', data);
-
-            //渠道初始化
-            Sygame.init(info);
+            //这里修改了配置版本号
+            partner_config['gameVersion'] && (partner_config['gameVersion'] = ops.game_ver);
+            //TODO 替换对应参数
+            hortor.init(partner_config);
 
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
             var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
-            var cp_activity_id  = info.query && info.query.cp_activity_id ? info.query.cp_activity_id : '';
 
-            // 普通分享不存在活动ID的话  再看下定向分享是否存在
-            if(!cp_activity_id){
-                cp_activity_id  = info.query && info.query.shareMessageToFriendScene ? info.query.shareMessageToFriendScene : '';
-                invite_type = cp_activity_id?'activity':'';
-            }
-
-            // 带活动ID
-            if(cp_activity_id){
-                user_invite_by_activity = {
-                    invite: invite,
-                    invite_type: invite_type,
-                    is_new: is_new,
-                    scene: scene,
-                    cp_activity_id:cp_activity_id
-                };
-            }
-
-            // 带邀请码
             if (invite) {
                 user_invite_info = {
                     invite: invite,
@@ -93,39 +85,129 @@ function mainSDK() {
             //判断版本号
             if (game_ver) {
                 this.checkGameVersion(game_ver, function (data) {
-                    callback && callback(data);
+                    hortorSdk.checkSwitches({switches:['share', 'iospay', 'vipds', 'gzgzh']}).then(res => {
+                        console.log('checkSwitches result', res);
+                        data.is_share = res.share ? 1 : 0;
+                        data.show_pay = res.iospay ? 1 : 0;
+                        data.is_vipds = res.vipds ? 1 : 0;
+                        data.is_gzgzh = res.gzgzh ? 1 : 0;
+                        data.is_skip_create_role = data.skip_create_role ? 1 : 0;
+                        callback && callback(data);
+                    }).catch(err => {
+                        console.log(`获取失败，errCode=${err.errCode} errMsg=${err.errMsg}`)
+                        callback && callback(data);
+                    });
+
                 });
             }
         },
 
+        //TODO 替换联运登录接口
         login: function (data,callback) {
-            var self = this;
             console.log("[SDK]调起登录");
+            console.log("sdk login.............." + Date.now());
+            var that = this;
             callbacks['login'] = typeof callback == 'function' ? callback : null;
-            Sygame.syLogin().then((res) => {
-                console.log("[SDK]登录回调:",res);
-                if(res.code===1001){
-                    partner_user_data =res;
-                    self.do_login(partner_user_data);
-                }else{
-                    callbacks['login'] && callbacks['login'](1, {errMsg: res.message});
-                }
+            var system_info = wx.getSystemInfoSync();
+            var screen_width = system_info.screenWidth;
+            var screen_height = system_info.screenHeight;
+            var btn_width = screen_width * 2 / 4;
+            var btn_height = btn_width / 4;
+            var btn_left = (screen_width - btn_width) / 2;
+            var btn_top = screen_height / 2;
+
+            //授权登录
+            if(config.is_auth){
+                wx.getSetting({
+                    success: function (res) {
+                        if(res.authSetting['scope.userInfo']){
+                            //已授权
+                            hortorSdk.login().then(res => {
+                                console.log("[SDK]联运登录结果 " + JSON.stringify(res));
+                                that.do_login(res);
+
+                            }).catch(err => {
+                                console.log("[SDK]登录失败！", err);
+                            });
+                        }else{
+                            const userInfoBtn = hortorSdk.createGetUserInfoBtn({
+                                type: 'text',
+                                text: '授权登录游戏',
+                                style: {
+                                    left: btn_left,
+                                    top: btn_top,
+                                    width: btn_width,
+                                    height: btn_height,
+                                    lineHeight: btn_height,
+                                    backgroundColor: '#07c160',
+                                    color: '#ffffff',
+                                    textAlign: 'center',
+                                    fontSize: 16,
+                                    borderRadius: 4
+                                }
+                            });
+                            if (userInfoBtn) {
+                                // 显示按钮
+                                userInfoBtn.show();
+                                // 点击事件
+                                userInfoBtn.onTap(res => {
+                                    if (res && res.userInfo) {
+                                        // 同意授权
+                                        console.log('[SDK]同意授权');
+                                        // TODO: 重新登录
+                                        hortorSdk.login().then(res => {
+                                            console.log("[SDK]联运登录结果 " + JSON.stringify(res));
+                                            that.do_login(res);
+
+                                        }).catch(err => {
+                                            console.log("[SDK]登录失败！", err);
+                                        });
+                                        // 按钮隐藏
+                                        userInfoBtn.hide();
+                                    }else{
+                                        // 拒绝授权
+                                        that.weak_login();
+                                    }
+
+                                });
+                            }
+                        }
+                    },
+                    fail: function () {
+                        that.weak_login();
+                    }
+                });
+
+            }else{
+                that.weak_login();
+            }
+        },
+
+        weak_login:function(){
+            hortorSdk.weakLogin().then(res => {
+                console.log("弱授权登录成功！", res);
+                this.do_login(res);
+            }).catch(err => {
+                console.log("弱授权登录失败！", err);
+                callbacks['login'] && callbacks['login'](1, {errMsg: '登录失败'});
             });
         },
 
-        do_login: function (user_info) {
+        do_login: function (info) {
             var self = this;
 
-            var login_data = self.getPublicData();
-            login_data['partner_user_info'] = JSON.stringify(user_info);
-
+            //发起网络请求
+            var public_data = self.getPublicData();
+            public_data['userInfo'] = info.encryptUserInfo ? info.encryptUserInfo : info.userInfo;
+            public_data['timestamp'] = info.timestamp;
+            public_data['sign'] = info.sign;
+            public_data['is_from_min'] = 1;
             if (user_invite_info && typeof user_invite_info == 'object') {
                 for (var key in user_invite_info) {
-                    login_data[key] = user_invite_info[key];
+                    public_data[key] = user_invite_info[key];
                 }
             }
 
-            //发起网络请求
             wx.request({
                 url: 'https://' + HOST + '/partner/auth',
                 method: 'POST',
@@ -133,13 +215,16 @@ function mainSDK() {
                 header: {
                     'content-type': 'application/x-www-form-urlencoded' // 默认值
                 },
-                data: login_data,
+                data: public_data,
                 success: function (res) {
-                    console.log("[SDK]登录结果：",res);
+                    console.log("[SDK]登录结果：");
+                    console.log(res);
                     if (res.statusCode === 200) {
                         var data = res.data;
                         if (data.state) {
-                            partner_user_data.openid = data.data.ext;
+                            partner_user_data.uid = data.data.openid;
+                            partner_user_data.uniqueIdNew = data.data.ext.uniqueId;
+
                             try {
                                 wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
                                 wx.setStorageSync('plat_uid', data.data.user_id);
@@ -149,10 +234,12 @@ function mainSDK() {
                                 }
                             } catch (e) {
                             }
+
                             var userData = {
                                 userid: data.data.user_id,
                                 account: data.data.nick_name,
                                 token: data.data.token,
+                                openid: data.data.ext.uniqueId,
                                 invite_uid: data.data.invite_uid || '',
                                 invite_nickname: data.data.invite_nickname || '',
                                 invite_head_img: data.data.invite_head_img || '',
@@ -162,21 +249,32 @@ function mainSDK() {
                             };
                             callbacks['login'] && callbacks['login'](0, userData);
                         } else {
-                            callbacks['login'] && callbacks['login'](1, {errMsg: data.msg});
+                            callbacks['login'] && callbacks['login'](1, {
+                                errMsg: data.msg
+                            });
                         }
+
+                        hortorSdk.setGameUserInfo();
 
                         //登录成功，加载右上角分享数据
                         self.getShareInfo('menu', function (data) {
                             console.log("[SDK]开始监听右上角菜单分享");
+                            var shareType = 'default';
+                            var shareData = hortorSdk.getShareData({
+                                shareType: shareType
+                            });
+                            console.log("[SDK]分享类型 default 的分享方案是", JSON.stringify(shareData));
                             wx.onShareAppMessage(function () {
                                 //记录开始分享
                                 self.logStartShare('menu');
-                                return {
-                                    title: data.title,
-                                    imageUrl: data.img,
-                                    query: data.query,
+                                hortorSdk.sharePointShow(shareType);
+                                return  {
+                                    title: shareData.title,
+                                    imageUrl: shareData.imageUrl,
+                                    query: shareData.query+'&'+data.query,
                                 }
                             });
+
                         });
 
                     } else {
@@ -186,26 +284,28 @@ function mainSDK() {
                     }
                 }
             });
+
         },
 
         share: function (data) {
             callbacks['share'] = typeof callback == 'function' ? callback : null;
             var type = data.type || 'share';
-            var cp_activity_id = data.cp_activity_id || '';
-
             console.log("[SDK]CP调用分享 type=" + type);
             var self = this;
-            this.getShareInfo(type, function (data) {
-                if(cp_activity_id !='' && data.query != ''){
-                    data.query = data.query + '&cp_activity_id='+ cp_activity_id;
-                }
 
+            this.getShareInfo(type, function (data) {
+                var shareType = 'Invite';
+                var shareData = hortorSdk.getShareData({
+                    shareType: shareType
+                });
+                console.log("[SDK]分享类型 Invite 的分享方案是", shareData);
                 //记录开始分享
                 self.logStartShare(type);
+                hortorSdk.sharePointShow(shareType);
                 wx.shareAppMessage({
-                    title: data.title,
-                    imageUrl: data.img,
-                    query: data.query,
+                    title: shareData.title,
+                    imageUrl: shareData.imageUrl,
+                    query: shareData.query+'&'+data.query,
                 });
             });
         },
@@ -231,8 +331,93 @@ function mainSDK() {
             });
         },
 
+        is_authorize: function(callback){
+            console.log('[SDK]判断是否授权');
+            wx.getSetting({
+                success: function (res) {
+                    if (res.authSetting['scope.userInfo']) {
+                        callback(1);
+                    } else {
+                        callback(0);
+                    }
+                }
+            });
+        },
+
+        go_authorize: function(data, callback){
+            console.log('[SDK]前往授权');
+            userInfoBtn  = hortorSdk.createGetUserInfoBtn({
+                type: 'image',
+                image: 'https://static.sh9130.com/uploads/images/wx_fk_btn.jpg',
+                style: {
+                    left: data.left,
+                    top: data.top,
+                    width: data.width,
+                    height: data.height,
+                    lineHeight: data.height,
+                    textAlign: 'center',
+                    fontSize: 16,
+                    borderRadius: 4
+                }
+            });
+            if (userInfoBtn) {
+                // 显示按钮
+                userInfoBtn.show();
+                // 点击事件
+                userInfoBtn.onTap(res => {
+                    if (res && res.userInfo) {
+                        // 同意授权
+                        console.log('[SDK]同意授权');
+                        hortorSdk.updateUserInfo().then(res => {
+                            console.log("[SDK]更新成功！", res);
+                            callback(1);
+                        }).catch(err => {
+                            console.log("[SDK]更新失败！", err);
+                            callback(0);
+                        });
+
+                    }else{
+                        // 拒绝授权
+                        console.log('[SDK]拒绝授权');
+                        callback(0);
+                    }
+
+                    // 按钮隐藏
+                    userInfoBtn.hide();
+
+                });
+
+            }
+        },
+
+        hideUserInfoBtn:function(){
+            if(userInfoBtn){
+                userInfoBtn.hide();
+            }
+        },
+
         openService: function () {
-            wx.openCustomerServiceConversation();
+            hortorSdk.customerService({
+                showMessageCard: true,
+                success: (res) => {
+                    console.log('send card success', res)
+                },
+                fail: (res) => {
+                    console.log('send card fail:', res)
+                }
+            });
+
+        },
+
+        goCustomer: function (data){
+            hortorSdk.goCustomer({
+                playerId: data.roleid,
+                playerName: data.rolename,
+            }).then(res => {
+                console.log("跳转成功！");
+            }).catch(err => {
+                console.log("跳转失败！", err);
+            });
         },
 
         checkGameVersion: function (game_ver, callback) {
@@ -342,6 +527,7 @@ function mainSDK() {
         msgCheck: function (content, callback) {
             console.log("[SDK]查看文本是否有违规内容");
             var sdk_token = wx.getStorageSync('plat_sdk_token');
+
             wx.request({
                 url: 'https://' + HOST + '/partner/data/msgSecCheck/'+config.partner_id+'/'+config.game_pkg,
                 method: 'POST',
@@ -354,11 +540,36 @@ function mainSDK() {
                     partner_id: config.partner_id,
                     sdk_token: sdk_token,
                     content:content,
+                    uId:partner_user_data.uid,
                 },
                 success: function (res) {
                     console.log("[SDK]查看文本是否有违规内容结果返回:");
                     console.log(res);
                     callback && callback(res);
+                }
+            });
+        },
+
+        isSubscribe: function(callback){
+            console.log("[SDK]检查是否关注公众号");
+            var ext = wx.getStorageSync('plat_session_key');
+            wx.request({
+                url: 'https://' + HOST + '/partner/data/is_subscribe/'+config.partner_id+'/'+config.game_pkg,
+                method: 'POST',
+                dataType: 'json',
+                header: {
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                data: {
+                    openid:ext.uniqueId,
+                },
+                success: function (res) {
+                    console.log("[SDK]检查是否关注公众号结果返回:", res);
+                    if(res.data.state==1){
+                        callback({status:1});
+                    }else{
+                        callback({status:0});
+                    }
                 }
             });
         },
@@ -370,14 +581,18 @@ function mainSDK() {
 
         //支付接口
         startPay: function (data, callback) {
-            console.log("[SDK]调起支付，CP传值：",data);
+            console.log("[SDK]调起支付，CP传值：");
+            console.log(data);
+
             var self = this;
             callbacks['pay'] = typeof callback == 'function' ? callback : null;
             //先下单
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             var session_key = wx.getStorageSync('plat_session_key');
             if (!sdk_token && !session_key) {
-                callbacks['pay'] && callbacks['pay'](1, {errMsg: "用户未登录，支付失败！"});
+                callbacks['pay'] && callbacks['pay'](1, {
+                    errMsg: "用户未登录，支付失败！"
+                });
                 return;
             }
 
@@ -403,6 +618,7 @@ function mainSDK() {
 
             var public_data = self.getPublicData();
             public_data['order_data'] = JSON.stringify(order_data);
+            public_data['is_from_min'] = 1;
 
             //发起网络请求
             wx.request({
@@ -414,37 +630,44 @@ function mainSDK() {
                 },
                 data: public_data,
                 success: function (res) {
-                    console.log("[SDK]完成创建订单",res);
-
+                    console.log("[SDK]完成创建订单");
+                    console.log(res);
                     if (res.statusCode === 200) {
                         var data = res.data;
                         if (data.state && data.data.pay_data) {
+                            //TODO 替换对应方法
                             console.log("[SDK]联运支付参数"+JSON.stringify(data.data.pay_data));
-
-                            let pay_data = {
-                                product_name: data.data.pay_data.productName,// 商品名称 可选
-                                product_id: data.data.pay_data.productId,    // 商品ID 可选
-                                order_id: data.data.pay_data.orderId,        // string 订单号 必填，游戏⽅⽣成的订单id，⻓度为10-32的字符串，是订单的唯⼀标识，即使清档后也不能重复。建议使⽤appid+⽆序字符串成，以避免和其他游戏的订单重复，若⻓度超出，可使⽤md5加密。
-                                product_price: data.data.pay_data.amount,    // 必填,商品价格,以元为单位
-                                extends_param1: data.data.pay_data.orderId,  // 选填,服务器将此参数原封不动回传⾄CP服务器
-                                extends_param2: data.data.pay_data.orderId,  // 选填,服务器将此参数原封不动回传⾄CP服务器
-                                role_id: data.data.pay_data.roleId,          // 选填,有的话尽量填写
-                                role_name: data.data.pay_data.roleName,      // 选填,⻆⾊名称
-                                role_level: data.data.pay_data.roleLevel,    // 选填,⻆⾊等级
-                                server_id: data.data.pay_data.serverId,      // 必填,服务器ID
-                                server_name: data.data.pay_data.serverName,  // 选填,服务器名称
-                                role_vip: 0                                  // 选填,VIP等级
+                            if(device==='ios'){
+                                console.log("[SDK]跳转支付");
+                                hortorSdk.jumpPay(data.data.pay_data).then(res => {
+                                    console.log("跳转成功！");
+                                }).catch(err => {
+                                    console.log("跳转失败！", err);
+                                    callbacks['pay'] && callbacks['pay'](1, {
+                                        errMsg: err.errMsg
+                                    });
+                                });
+                            }else{
+                                console.log("[SDK]米大师支付");
+                                hortorSdk.midasPay(data.data.pay_data).then(res => {
+                                    console.log("支付成功！");
+                                }).catch(err => {
+                                    console.log("支付失败！", err);
+                                    callbacks['pay'] && callbacks['pay'](1, {
+                                        errMsg: err.errMsg
+                                    });
+                                });
                             }
 
-                            Sygame.syPay(pay_data).then((res) => {
-                                console.log('支付结果',res);
-                            });
-
                         } else {
-                            callbacks['pay'] && callbacks['pay'](1, {errMsg: data.errMsg});
+                            callbacks['pay'] && callbacks['pay'](1, {
+                                errMsg: data.msg
+                            });
                         }
                     } else {
-                        callbacks['login'] && callbacks['login'](1, {errMsg: '请求平台服务器失败！'});
+                        callbacks['login'] && callbacks['login'](1, {
+                            errMsg: '请求平台服务器失败！'
+                        });
                     }
                 }
             });
@@ -453,14 +676,14 @@ function mainSDK() {
         logCreateRole: function (data) {
             var uid = wx.getStorageSync('plat_uid');
             var username = wx.getStorageSync('plat_username');
-
-            var role_info = {};
-            role_info['user_id'] = uid;
-            role_info['user_name'] = username;
-            role_info['role_id'] = data.roleid;
-            role_info['role_lev'] = data.rolelevel;
-            role_info['role_name'] = data.rolename;
-            role_info['server_id'] = data.serverid;
+            var plat_session_key = wx.getStorageSync('plat_session_key');
+            var postData = {};
+            postData['user_id'] = uid;
+            postData['user_name'] = username;
+            postData['role_id'] = data.roleid;
+            postData['role_lev'] = data.rolelevel;
+            postData['role_name'] = data.rolename;
+            postData['server_id'] = data.serverid;
 
             if (data.roleid && data.serverid) {
                 user_game_info = {
@@ -468,63 +691,55 @@ function mainSDK() {
                     server_id: data.serverid,
                 };
             }
-            this.log('create', role_info);
+            this.log('create', postData);
 
+            var roleInfo = {
+                roleId: data.roleid,
+                roleName: data.rolename,
+                serverId: data.serverid,
+                level: data.rolelevel,
+                roleCtime: Date.parse(new Date()),
+                id: plat_session_key.uniqueId,
+            };
 
-            // 记录从活动分享进入的角色信息
-            if(user_invite_by_activity){
-                var scene       = user_invite_by_activity.scene;
-                var is_new      = user_invite_by_activity.is_new;
-                var invite_code = user_invite_by_activity.invite;
-                var invite_type = user_invite_by_activity && user_invite_by_activity.invite_type ? user_invite_by_activity.invite_type : '';
-                var cp_activity_id = user_invite_by_activity.cp_activity_id;
+            hortorSdk.setGameUserInfo(roleInfo);
+            // 创角数据上报
+            this.roleCreateReport(0);
+        },
 
-                var roleInfo = {
-                    uid :uid,
-                    role_id :data.roleid,
-                    role_name :data.rolename,
-                    server_id :data.serverid,
-                    server_name :data.servername,
-                    game_id:config.game_id,
-                    partner_id :config.partner_id,
-                    game_pkg :config.game_pkg,
-                    scene :scene,
-                    is_new :is_new,
-                    invite_code :invite_code,
-                    invite_type :invite_type,
-                    cp_activity_id :cp_activity_id,
+        roleCreateReport: function(is_valid=1){
+
+            wx.request({
+                url: 'https://' + HOST + '/partner/data/roleCreate/'+config.partner_id+'/'+config.game_pkg,
+                method: 'POST',
+                dataType: 'json',
+                header: {
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                data: {
+                    game_pkg: config.game_pkg,
+                    partner_id: config.partner_id,
+                    uniqueId: partner_user_data.uid,
+                    is_valid: is_valid===1 ? 1 : 0,
+                },
+                success: function (res) {
+                    console.log("[SDK]上报创角信息接口结果返回:", res);
                 }
-
-                wx.request({
-                    url: 'https://' + HOST + '/game/min/?ac=report2Cp',
-                    method: 'POST',
-                    dataType: 'json',
-                    header: {
-                        'content-type': 'application/x-www-form-urlencoded' // 默认值
-                    },
-                    data: roleInfo,
-                    success: function (res) {
-                        console.log("[SDK]活动上报分享结果返回:"+JSON.stringify(res));
-                    }
-                });
-
-            }
-
-            this.upRoleInfo('createrole', data);
+            });
         },
 
         //进入游戏
-        logEnterGame: function (data) {
+        logEnterGame: function (data,callback) {
             var uid = wx.getStorageSync('plat_uid');
             var username = wx.getStorageSync('plat_username');
-
-            var role_info = {};
-            role_info['user_id'] = uid;
-            role_info['user_name'] = username;
-            role_info['role_id'] = data.roleid;
-            role_info['role_lev'] = data.rolelevel;
-            role_info['role_name'] = data.rolename;
-            role_info['server_id'] = data.serverid;
+            var plat_session_key = wx.getStorageSync('plat_session_key');
+            var postData = {};
+            postData['user_id'] = uid;
+            postData['user_name'] = username;
+            postData['role_id'] = data.roleid;
+            postData['role_lev'] = data.rolelevel;
+            postData['role_name'] = data.rolename;
+            postData['server_id'] = data.serverid;
 
             if (data.roleid && data.serverid) {
                 user_game_info = {
@@ -532,29 +747,67 @@ function mainSDK() {
                     server_id: data.serverid,
                 };
             }
+            // hortorSdk.checkSwitches(['antiaddicted'], {}).then(res => {
+            hortorSdk.checkSwitches({switches:['antiaddicted']}).then(res => {
+                console.log('[SDK]检查防沉迷开关返回：', res);
+                if(res.antiaddicted){
+                    //防沉迷
+                    hortorSdk.checkRest(() => {
+                        console.log('[SDK]防沉迷回调：玩家需要休息');
+                    });
+                }
+            }).catch(err => {
+                console.log(`[SDK]检查防沉迷开关返回失败，errCode=${err.errCode} errMsg=${err.errMsg}`)
+            });
 
-            this.log('enter', role_info);
 
-            this.upRoleInfo('entergame', data);
+            this.log('enter', postData);
+
+            var roleInfo = {
+                roleId: data.roleid,
+                roleName: data.rolename,
+                serverId: data.serverid,
+                level: data.rolelevel,
+                roleCtime: data.rolecreatetime ? data.rolecreatetime * 1000 : 0,
+                id: plat_session_key.uniqueId,
+            };
+
+            hortorSdk.setGameUserInfo(roleInfo);
 
             //进入游戏确认邀请成功
             if (user_invite_info) {
                 this.updateShare(user_invite_info.invite, user_invite_info.invite_type, user_invite_info.is_new, data.roleid, data.serverid, user_invite_info.scene);
             }
+
+            hortorSdk.checkSwitches({switches:['iospay']}).then(res => {
+                console.log('[SDK]获取支付开关：', res);
+
+                var show_pay = 0;
+                if(res.iospay){
+                    show_pay = 1;
+                }
+
+                callback && callback({'show_pay':show_pay});
+
+            }).catch(err => {
+                console.log(`[SDK]获取支付开关返回失败，errCode=${err.errCode} errMsg=${err.errMsg}`);
+                callback && callback({'show_pay':0});
+            });
+
         },
 
         //角色升级
-        logRoleUpLevel: function (data) {
+        logRoleUpLevel: function (data,callback) {
             var uid = wx.getStorageSync('plat_uid');
             var username = wx.getStorageSync('plat_username');
-
-            var role_info = {};
-            role_info['user_id'] = uid;
-            role_info['user_name'] = username;
-            role_info['role_id'] = data.roleid;
-            role_info['role_lev'] = data.rolelevel;
-            role_info['role_name'] = data.rolename;
-            role_info['server_id'] = data.serverid;
+            var plat_session_key = wx.getStorageSync('plat_session_key');
+            var postData = {};
+            postData['user_id'] = uid;
+            postData['user_name'] = username;
+            postData['role_id'] = data.roleid;
+            postData['role_lev'] = data.rolelevel;
+            postData['role_name'] = data.rolename;
+            postData['server_id'] = data.serverid;
 
             if (data.roleid && data.serverid) {
                 user_game_info = {
@@ -563,101 +816,56 @@ function mainSDK() {
                 };
             }
 
-            this.log('levelup', role_info);
-        },
+            this.log('levelup', postData);
 
-        // 角色上报
-        upRoleInfo: function(type, data){
-            var role_info = {
-                report_type: type,
-                role_id: data.roleid,
-                role_name: data.rolename,
-                role_level: data.rolelevel,
-                server_id: data.serverid,
-                server_name: data.servername,
-                role_power: data.rolepower ? data.rolepower : 0,
-                role_vip: 0,
+            var roleInfo = {
+                roleId: data.roleid,
+                roleName: data.rolename,
+                serverId: data.serverid,
+                level: data.rolelevel,
+                roleCtime: data.rolecreatetime ? data.rolecreatetime * 1000 : 0,
+                id: plat_session_key.uniqueId,
             };
 
-            Sygame.syReportRoleInfo(role_info).then((res) => {
-                console.log("[SDK]角色上报回调：",res);
-            })
-        },
+            hortorSdk.setGameUserInfo(roleInfo);
 
-        // 渠道-- 获取分享开关配置
-        shareConfig:function (callback){
-            var data = {
-                'code':1,
-                'msg':'成功',
-                'data': {
-                    is_push :true
-                }
+            if(data.rolelevel >= 80){
+                this.roleCreateReport(1);
             }
-            callback && callback(data);
 
-        },
+            hortorSdk.checkSwitches({switches:['iospay']}).then(res => {
+                console.log('[SDK]获取支付开关：', res);
 
-        shareRecommend: function (callback) {
-            let params = {
-                    page: 0, // 分⻚⻚码,从0开始（必填）
-                    count: 15, // 分⻚每⻚获取数量 （必填）
+                var show_pay = 0;
+                if(res.iospay){
+                    show_pay = 1;
                 }
-                //可参考下列代码段
-            Sygame.syGetBoxList(params).then((res) => {
-                let ret = {};
-                if(res.data.status == 1001){
-                    ret.code  = 1;
-                    ret.msg   = res.data.info;
 
-                    var game_list = Array() ;
-                    var game_list_init = res.data.data;
-                    ret.data = {};
+                callback && callback({'show_pay':show_pay});
 
-                    if(game_list_init.length > 0){
-                        for (let i = 0; i < game_list_init.length; ++i) {
-                            game_list[i] = Object();
-                            game_list[i]['jump_path'] = game_list_init[i]['jump_path'];
-                            game_list[i]['panel'] = i+1;
-                            game_list[i]['pic'] = game_list_init[i]['icon'];
-                            game_list[i]['to_appid'] = game_list_init[i]['jump_appid'];
-                            game_list[i]['to_game_name'] = game_list_init[i]['title'];
-                            game_list[i]['jump_type'] = game_list_init[i]['jump_type'];
-                            game_list[i]['preview_img'] = game_list_init[i]['preview_img'];
-                            game_list[i]['game_id'] = game_list_init[i]['game_id'];
-                            game_list[i]['tunnel_id'] = game_list_init[i]['tunnel_id'];
-                        }
-
-                        ret.data = game_list;
-                    }
-
-                }else{
-                    ret.code  = res.data.status;
-                    ret.msg   = res.data.info;
-                    ret.data  = res.data.data?res.data.data:{};
-                }
-                console.log("获取盒⼦列表:"+JSON.stringify(ret));
-
-                callback && callback(ret);
+            }).catch(err => {
+                console.log(`[SDK]获取支付开关返回失败，errCode=${err.errCode} errMsg=${err.errMsg}`);
+                callback && callback({'show_pay':0});
             });
         },
 
-        openBox: function (callback) {
-            Sygame.syClickOpenBox().then((res) => {
-                console.log("展开盒⼦事件上报:",res);
-                callback && callback(res)
-            });
-        },
-
-        clickBoxGame: function (data) {
-            let params = {
-                "game_id":data.game_id,
-                "tunnel_id":data.tunnel_id,
-                "jump_appid":data.jump_appid,
-                "jump_path":data.jump_path,
-            }
-
-            Sygame.syClickBox(params).then((res) => {
-                console.log("点击盒⼦内游戏事件上报:",res);
+        //显示大天使图标
+        showHortorVip: function () {
+            // 游戏登录成功后实例化 + 初始化 HortorVip：
+            let hortorVip = new HortorVip();
+            hortorVip.init({
+                vipGameId: config.partner_game_id,     // 大使功能游戏id，跟平台游戏id保持一致；
+                gameVersion: "1.0.905",    // 游戏版本
+                env: "Prod",             // 运行环境 测试：Test， 正式：Prod
+                userId: partner_user_data.uniqueIdNew,          // 登录后返回的用户平台 uniqueId，没有时可以使用 openId
+                icon: {                  // 悬浮图标默认位置，若不设置默认右上角
+                    posX: -1, // x轴位置
+                    posY: -1, // y轴位置
+                },
+                defShowIcon: true,        // 是否默认展示 icon，默认 true
+                onLoad: (err, data) => {  // vip 数据加载完时触发
+                    console.log('vip data loaded---', err, data);
+                },
             });
         },
 
@@ -700,7 +908,6 @@ function mainSDK() {
                 partner_id: config.partner_id,
                 partner_label: config.partner_label,
                 ad_code: ad_code,
-                is_from_min:1,
                 uuid: uuid,
                 idfv: idfv,
                 dname: system.model,
@@ -735,20 +942,6 @@ function mainSDK() {
 
         downloadClient: function () {
             wx.openCustomerServiceConversation();
-        },
-
-        // 设置 wx.shareMessageToFriend 接口 query 字段的值
-        setMessageToFriendQuery: function (data,callback) {
-            var cp_activity_id = data.activity_id;
-            var result = wx.setMessageToFriendQuery({shareMessageToFriendScene:cp_activity_id});
-
-            callback && callback(result);
-        },
-
-        getFriendShareInfo: function (callback) {
-            this.getShareInfo('activity', function (data) {
-                callback && callback({title:data.title,'img':data.img});
-            });
         }
     }
 }
@@ -773,6 +966,17 @@ exports.openService = function () {
     run('openService');
 };
 
+exports.goCustomer = function (serverId, serverName, roleId, roleName, roleLevel, rolecreatetime) {
+    var data = {
+        serverid: serverId,
+        servername: serverName,
+        roleid: roleId,
+        rolename: roleName,
+        rolelevel: roleLevel,
+    };
+    run('goCustomer', data);
+};
+
 exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLevel) {
     var data = {
         serverid: serverId,
@@ -785,7 +989,6 @@ exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLe
 };
 
 exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLevel, rolecreatetime, extra) {
-    var rolepower = extra && extra.rolepower?extra.rolepower:0;
     var data = {
         serverid: serverId,
         servername: serverName,
@@ -793,14 +996,13 @@ exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLev
         rolename: roleName,
         rolelevel: roleLevel,
         rolecreatetime: rolecreatetime,
-        rolepower: rolepower
+        rolepower:extra.rolepower
     };
 
-    run('logEnterGame', data);
+    run('logEnterGame', data, extra.callback);
 };
 
 exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleLevel, rolecreatetime, extra) {
-    var rolepower = extra && extra.rolepower?extra.rolepower:0;
     var data = {
         serverid: serverId,
         servername: serverName,
@@ -808,40 +1010,20 @@ exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleL
         rolename: roleName,
         rolelevel: roleLevel,
         rolecreatetime: rolecreatetime,
-        rolepower: rolepower
+        rolepower: extra.rolepower
     };
-    run('logRoleUpLevel', data);
+    run('logRoleUpLevel', data, extra.callback);
 };
 
-exports.share = function (type,data) {
-    var cp_activity_id = data && data.activity_id ? data.activity_id : '';
-
-    var params = {
-        type: type,
-        cp_activity_id:cp_activity_id
+exports.share = function (type) {
+    var data = {
+        type: type
     };
-
-    run('share', params);
+    run('share', data);
 };
 
 exports.msgCheck = function (data, callback) {
     run('msgCheck', data, callback);
-};
-
-exports.shareConfig = function (callback){
-    run('shareConfig',callback);
-};
-
-exports.shareRecommend  = function (callback) {
-    run('shareRecommend',callback);
-};
-
-exports.openBox = function (callback) {
-    run('openBox',   callback);
-};
-
-exports.clickBoxGame = function (data) {
-    run('clickBoxGame', data);
 };
 
 exports.downloadClient = function () {
@@ -860,10 +1042,26 @@ exports.getPublicData = function () {
     run('getPublicData');
 };
 
-exports.setMessageToFriendQuery = function (data,callback) {
-    run('setMessageToFriendQuery',data,callback);
+exports.showHortorVip = function () {
+    run('showHortorVip');
 };
 
-exports.getFriendShareInfo = function (callback) {
-    run('getFriendShareInfo',callback);
-}
+exports.roleCreateReport = function (is_valid) {
+    run('roleCreateReport', is_valid);
+};
+
+exports.isSubscribe = function (callback) {
+    run('isSubscribe', callback);
+};
+
+exports.is_authorize = function (callback) {
+    run('is_authorize', callback);
+};
+
+exports.go_authorize = function (data, callback) {
+    run('go_authorize', data, callback);
+};
+
+exports.hideUserInfoBtn = function (callback) {
+    run('hideUserInfoBtn', callback);
+};
