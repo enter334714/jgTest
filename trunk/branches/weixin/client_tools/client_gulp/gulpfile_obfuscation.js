@@ -685,7 +685,7 @@ var set_param_c = function () {
             "wxlogin_atlas/image_login_init.png": {url:"ccclogin/b22c.png"},
             "wxlogin_atlas/btn_com_chuangback1.png": {url:"ccclogin/b23c.png"},
             "wxlogin_atlas/btn_com_long0.png": {url:"ccclogin/b24c.png"},
-            "wxlogin_atlas/btn_com_long1.png": {url:"ccclogin/b25c.png"},
+            "wxlogin_atlas/btn_com_long1.png": {url:"ccclogin/b255c.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"ccclogin/b26c.png"},
 
             "wxeff_btn_atlas/0.png": {url:"cccwxeff/c100c.png"},
@@ -756,7 +756,7 @@ var set_param_c = function () {
             "image_login_init.png": "b22c.png",
             "btn_com_chuangback1.png": "b23c.png",
             "btn_com_long0.png":"b24c.png",
-            "btn_com_long1.png":"b25c.png",
+            "btn_com_long1.png":"b255c.png",
             "image_login_notice1.png":"b26c.png",
 
             "0.png": "c100c.png",
@@ -1499,6 +1499,239 @@ gulp.task('build-babel-obfuscator-F', function (cb) {
 
 
 /**-------------------------------------------------微信小游戏--F包  end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--G包  start-----------------------------------------------------------*/
+
+
+/**G包参数*/
+var set_param_g = function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = '../../client/wx_dist/packageG/';
+        BUILD = '../../client/wx_build/';
+        PACK = 'jg_gameG';
+        INIT_PATH = '/';
+        SCOPE = 'abcdefghijklopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_mn';
+        PREFIX = 'G';
+        sourceProject = "../../client/wx_build/jg_gameG_new";
+        targetProject = "../../client/wx_build/jg_gameG_obfuscator";
+        targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
+        mainJsName = "gggmain.js";
+        packageName1 = "ggglibs";
+        packageName2 = "ggggggpf";
+        packageName3 = "gggggggg";
+        var clinetPbName = "gggcleintpb.js";
+        filesMap = {
+            //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称
+            "libs": {url:packageName1},
+            "game.js": {url:packageName1+"/gggggame.js",extractStr:true,count:1,strLen:3},
+            "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
+            "index.js": {url:packageName1+"/gggindex.js",extractStr:true,count:1,strLen:3},
+            "init.min.js":  {url:packageName1+"/ggginitmin.js",extractStr:true,count:1,strLen:3,replace:true},
+            "libs/dom.js":  {url:packageName1+"/gggdom.js"},
+            "libs/dom_parser.js":  {url:packageName1+"/gggdomparser.js"},
+            "libs/laya.wxmini.js":  {url:packageName1+"/gggwxmini.js"},
+            "libs/libs.min.js":  {url:packageName1+"/ggglibsmin.js",extractStr:false},
+            "libs/md5.min.js":  {url:packageName1+"/gggmd5min.js"},
+            "libs/sax.js":  {url:packageName1+"/gggsax.js"},
+            "libs/weapp-adapter.js":  {url:"ggssss/gggweasaf.js"},
+            "libs/zlib.js":  {url:packageName1+"/gggzlibs.js"},
+            // "libs/game.js":  {url:"eeelibs/game.js",extractStr:true,count:1,strLen:3},
+            "wxsdk":  {url:"ffffsdk"},
+            "wxsdk/wx_aksdk.js":  {url:"ffffsdk/gggsdk.js",extractStr:true,count:1,strLen:3},
+            "wxsdk/helper.js":  {url:"ffffsdk/ggghelp.js",extractStr:true,count:1,strLen:3},
+
+            "protobuf":  {url:packageName2},
+            "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:5,strLen:3},
+            "protobuf/protobuf.js":  {url: packageName2 + "/ggggBuff.js",extractStr:true,count:5,strLen:3},
+            "protobuf/game.js":  {url: packageName2 + "/game.js",extractStr:true,count:5,strLen:3},
+
+            "subPackage":  {url:packageName3},
+            "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
+            "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
+
+            //随机创建名字和文件夹
+            // "res": {url:"gafda"},
+            // "res/atlas": {url:"gafda"},
+            "wxloading_atlas": {url:"gggloding"},
+            "wxlogin_atlas": {url:"ggglogin"},
+            "wxeff_btn_atlas":{url:"gggwxeff"},
+            // "res/atlas/wxlogin_atlas.png": {url:"gafda/eeelogin.png"},
+            // "res/atlas/wxeff_btn_atlas.png": {url:"gafda/adga321.png"},
+            // "res/atlas/wxloading_atlas.png": {url:"gafda/gggloding.png"},
+
+            "wxloading_atlas/btn_loding_abcelq0.png": {url:"gggloding/g1a.png"},
+            "wxloading_atlas/btn_loding_abcelq1.png": {url:"gggloding/g2a.png"},
+            "wxloading_atlas/image_loading_bg.jpg": {url:"gggloding/g3a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom.jpg": {url:"gggloding/g4a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom2.jpg": {url:"gggloding/g5a.jpg"},
+            "wxloading_atlas/image_loading_bg_left.jpg": {url:"gggloding/g6a.jpg"},
+            "wxloading_atlas/image_loading_bg_left2.jpg": {url:"gggloding/g7a.jpg"},
+            "wxloading_atlas/image_loading_bg_right.jpg": {url:"gggloding/g8a.jpg"},
+            "wxloading_atlas/image_loading_bg_right2.jpg": {url:"gggloding/g9a.jpg"},
+            "wxloading_atlas/image_loading_bg_top.jpg": {url:"gggloding/g10a.jpg"},
+            "wxloading_atlas/image_loading_bg_top2.jpg": {url:"gggloding/g11a.jpg"},
+            "wxloading_atlas/image_loading_bg2.jpg": {url:"gggloding/g12a.jpg"},
+
+            "wxloading_atlas/image_loding_bar0.png": {url:"gggloding/g13a.png"},
+            "wxloading_atlas/image_loding_bar1.png": {url:"gggloding/g14a.png"},
+            "wxloading_atlas/image_loding_bar02.png": {url:"gggloding/g15a.png"},
+            "wxloading_atlas/image_loding_bar2.png": {url:"gggloding/g16a.png"},
+            "wxloading_atlas/image_loding_bar3.png": {url:"gggloding/g17a.png"},
+            "wxloading_atlas/image_login_point1.png": {url:"gggloding/g18a.png"},
+            "wxloading_atlas/image_login_point2.png": {url:"gggloding/g19a.png"},
+            "wxloading_atlas/image_login_point3.png": {url:"gggloding/g20a.png"},
+
+            "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ggglogin/g1b.png"},
+            "wxlogin_atlas/image_login_loginbg.jpg": {url:"ggglogin/g2b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_bottom.jpg": {url:"ggglogin/g3b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_left.jpg": {url:"ggglogin/g4b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_right.jpg": {url:"ggglogin/g5b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_top.jpg": {url:"ggglogin/g6b.jpg"},
+            "wxlogin_atlas/image_login_logo.png": {url:"ggglogin/g7b.png"},
+            "wxlogin_atlas/image_login_notice.png": {url:"ggglogin/g8b.png"},
+            "wxlogin_atlas/image_xuanfu_xfbg.png": {url:"ggglogin/g9b.png"},
+
+            "wxlogin_atlas/btn_com_chuangback.png": {url:"ggglogin/g10b.png"},
+            "wxlogin_atlas/btn_login_gonggao.png": {url:"ggglogin/g11b.png"},
+            "wxlogin_atlas/btn_login_loginanniu.png": {url:"ggglogin/g12b.png"},
+            "wxlogin_atlas/btn_login_yingsi.png": {url:"ggglogin/g13b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniuhuang.png": {url:"ggglogin/g14b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniulan.png": {url:"ggglogin/g15b.png"},
+            "wxlogin_atlas/btn_xuanqu_quanniu.png": {url:"ggglogin/g16b.png"},
+            "wxlogin_atlas/image_com_tuichu.png": {url:"ggglogin/g17b.png"},
+            "wxlogin_atlas/image_login_changtong.png": {url:"ggglogin/g18b.png"},
+            "wxlogin_atlas/image_login_fanmang.png": {url:"ggglogin/g19b.png"},
+            "wxlogin_atlas/image_login_weihu.png": {url:"ggglogin/g20b.png"},
+            "wxlogin_atlas/image_login_xuanqubg.png": {url:"ggglogin/g21b.png"},
+            "wxlogin_atlas/image_login_init.png": {url:"ggglogin/g22b.png"},
+            "wxlogin_atlas/btn_com_chuangback1.png": {url:"ggglogin/g23b.png"},
+            "wxlogin_atlas/btn_com_long0.png": {url:"ggglogin/g24b.png"},
+            "wxlogin_atlas/btn_com_long1.png": {url:"ggglogin/g25b.png"},
+            "wxlogin_atlas/image_login_notice1.png": {url:"ggglogin/g26b.png"},
+
+            "wxeff_btn_atlas/0.png": {url:"gggwxeff/g1c.png"},
+            "wxeff_btn_atlas/1.png": {url:"gggwxeff/g2c.png"},
+            "wxeff_btn_atlas/2.png": {url:"gggwxeff/g3c.png"},
+            "wxeff_btn_atlas/3.png": {url:"gggwxeff/g4c.png"},
+            "wxeff_btn_atlas/4.png": {url:"gggwxeff/g5c.png"},
+        };
+        mt1Replace = {
+            "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
+            "./helper": "./" + "ggghelp",
+            "./sax": "./gggsax",
+            "./dom": "./gggdom",
+            "client_pb.js": clinetPbName,
+            "protobuf.js": "ggggBuff.js",
+            "main.min.js": mainJsName,
+            "wxlogin_atlas": "ggglogin",
+            "wxeff_btn_atlas": "gggwxeff",
+            "wxloading_atlas": "gggloding",
+            // "res/atlas/": "gafda/",
+
+            "btn_loding_abcelq0.png": "g1a.png",
+            "btn_loding_abcelq1.png": "g2a.png",
+            "image_loading_bg.jpg": "g3a.jpg",
+            "image_loading_bg_bottom.jpg": "g4a.jpg",
+            "image_loading_bg_bottom2.jpg": "g5a.jpg",
+            "image_loading_bg_left.jpg": "g6a.jpg",
+            "image_loading_bg_left2.jpg": "g7a.jpg",
+            "image_loading_bg_right.jpg": "g8a.jpg",
+            "image_loading_bg_right2.jpg": "g9a.jpg",
+            "image_loading_bg_top.jpg": "g10a.jpg",
+            "image_loading_bg_top2.jpg": "g11a.jpg",
+            "image_loading_bg2.jpg": "g12a.jpg",
+
+            "image_loding_bar0.png": "g13a.png",
+            "image_loding_bar1.png": "g14a.png",
+            "image_loding_bar02.png": "g15a.png",
+            "image_loding_bar2.png": "g16a.png",
+            "image_loding_bar3.png": "g17a.png",
+            "image_login_point1.png": "g18a.png",
+            "image_login_point2.png":"g19a.png",
+            "image_login_point3.png": "g20a.png",
+
+
+
+            "image_denglu_txtshenpi.png": "g1b.png",
+            "image_login_loginbg.jpg": "g2b.jpg",
+            "image_login_loginbg_bottom.jpg": "g3b.jpg",
+            "image_login_loginbg_left.jpg": "g4b.jpg",
+            "image_login_loginbg_right.jpg": "g5b.jpg",
+            "image_login_loginbg_top.jpg": "g6b.jpg",
+            "image_login_logo.png": "g7b.png",
+            "image_login_notice.png": "g8b.png",
+            "image_xuanfu_xfbg.png": "g9b.png",
+
+            "btn_com_chuangback.png": "g10b.png",
+            "btn_login_gonggao.png": "g11b.png",
+            "btn_login_loginanniu.png": "g12b.png",
+            "btn_login_yingsi.png": "g13b.png",
+            "btn_xuanqu_anniuhuang.png": "g14b.png",
+            "btn_xuanqu_anniulan.png": "g15b.png",
+            "btn_xuanqu_quanniu.png": "g16b.png",
+            "image_com_tuichu.png": "g17b.png",
+            "image_login_changtong.png": "g18b.png",
+            "image_login_fanmang.png": "g19b.png",
+            "image_login_weihu.png": "g20b.png",
+            "image_login_xuanqubg.png": "g21b.png",
+            "image_login_init.png": "g22b.png",
+            "btn_com_chuangback1.png": "g23b.png",
+            "btn_com_long0.png":"g24b.png",
+            "btn_com_long1.png":"g25b.png",
+            "image_login_notice1.png":"g26b.png",
+
+            "0.png": "g1c.png",
+            "1.png": "g2c.png",
+            "2.png": "g3c.png",
+            "3.png": "g4c.png",
+            "4.png": "g5c.png",
+
+        }
+        strFilePath = "/gres";
+        strFileName = "/gfiles.zip";
+        // globleKeys = ["$e", "w", "x", "E$", "y"];
+        globleKeys = ["$g", "m", "n", "G$", "g"];
+        noReplaceJs = packageName1+"/game.js";
+        arrIndex = 0;
+        globleArrs = new Array(arrIndex);
+        numberToHex = false;
+        needShuffle = true;
+        for(var key in  filesMap){
+            var item = filesMap[key];
+            var url = item.url;
+            targetFileMap[url] = item;
+            var repalce = item.replace;
+            if(repalce){
+                replaceMap[url] = true;
+            }
+        }
+        cb();
+        this.emit("data", file);
+    }
+
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-g', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_g())
+    return stream;
+});
+
+//混淆
+gulp.task('build-babel-obfuscator-G', function (cb) {
+    sequence("set-param-g","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+});
+
+
+
+/**-------------------------------------------------微信小游戏--G包  end-----------------------------------------------------------*/
 
 
 /**文件压缩*/
@@ -2701,6 +2934,14 @@ gulp.task('CREATE_REFUSEFILE_F', function (cb) {
 
 gulp.task('DEL_REFUSEFILE_F', function (cb) {
     sequence("set-param-f","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_G', function (cb) {
+    sequence("set-param-g","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_G', function (cb) {
+    sequence("set-param-g","DEL_REFUSEFILE",cb)
 });
 
 //无网络 使用这个图片压缩
