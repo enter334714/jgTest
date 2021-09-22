@@ -1,0 +1,1 @@
+require("fffgame.js")
