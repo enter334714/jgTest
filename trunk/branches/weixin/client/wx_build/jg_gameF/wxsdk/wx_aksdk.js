@@ -1,11 +1,11 @@
-import Sygame from './helper';
+﻿import Sygame from './helper';
 
 var config = {
     game_id: '88',
     game_pkg: 'tjqy_tjqygjhol_FW', //盛也微信小游戏--鬼剑豪
     partner_label: 'shengye2',
     partner_id: '398',
-    game_ver: '6.0.0',
+    game_ver: '6.0.2',
     is_auth: false, //授权登录
 };
 window.config = config;
