@@ -87,7 +87,7 @@ window.loadingInterval = setInterval(function(){
 }, 16)
 wx.showLoading({ title: "\u6b63\u5728\u52a0\u8f7d" });
 wx.y$ = []; var fs = wx.getFileSystemManager(); wx.getFileSystemManager().unzip({
-  zipFilePath: "/fres/gfiles.zip", targetPath: wx.env.USER_DATA_PATH + "/f/", success: r => {
+  zipFilePath: "/gres/gfiles.zip", targetPath: wx.env.USER_DATA_PATH + "/f/", success: r => {
     "unzip:ok" == r.errMsg ? fs.readFile({
       filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8", success: function (r) {
         if ("readFile:ok" == r.errMsg && r.data) {

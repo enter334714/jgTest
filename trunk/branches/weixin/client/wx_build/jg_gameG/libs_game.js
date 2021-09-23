@@ -1,1 +1,1 @@
-require("fffgame.js")
+require("gggggame.js")

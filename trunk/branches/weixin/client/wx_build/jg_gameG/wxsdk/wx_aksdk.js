@@ -1,11 +1,11 @@
-let hortor = require("./utils/Hortor/sdk");
+let hortor = require("../utils/Hortor/sdk");
 let hortorSdk = hortor.sdk; //核心业务SDK
 let wallSDK = hortorSdk.wallSDK;
 let partner_config = hortor.config; //SDK配置
 let wxapm = hortor.wxapm;    //应用监控SDK
 
 // 引入VIP大使
-import HortorVip from "./utils/HortorVipSdk/hortorVip";
+import HortorVip from "../utils/HortorVipSdk/hortorVip";
 
 //TODO 替换对应参数
 var config = {
