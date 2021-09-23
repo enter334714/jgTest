@@ -1526,7 +1526,7 @@ var set_param_g = function () {
         packageName3 = "gggggggg";
         var clinetPbName = "gggcleintpb.js";
         filesMap = {
-            //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称
+            //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
             "libs": {url:packageName1},
             "game.js": {url:packageName1+"/gggggame.js",extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
@@ -1553,7 +1553,7 @@ var set_param_g = function () {
             "subPackage":  {url:packageName3},
             "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
             "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
-
+            "utils/Hortor/sdk/sdk.min.js":{url:"utils/Hortor/sdk/sdk.min.js",addGlobleKeys0:false,extractStr:false},
             //随机创建名字和文件夹
             // "res": {url:"gafda"},
             // "res/atlas": {url:"gafda"},
@@ -2166,7 +2166,7 @@ var js_babel = function () {
         console.info("字符串标识符处理：" + file.path);
         identifiersRenameStr += "\n\n\n\n============================" + file.path + "\n";
 
-        var arrayName = globleKeys[1];
+        // var arrayName = globleKeys[1];
         // var arrayElements = [];
         // var arrayDeclaration = babel_types.variableDeclaration("var", [babel_types.variableDeclarator(babel_types.identifier(arrayName), babel_types.arrayExpression(arrayElements)]);
         //var  $b = wx.xxx;  variableDeclaration 声明一个变量   variableDeclarator声明变量node  identifier 声明变量的标识符（名字）    memberExpression 成员表达式 通常指屌用成员对象
@@ -2375,6 +2375,7 @@ var js_babel_str = function () {
         var arrayDeclaration = babel_types.variableDeclaration("var", [babel_types.variableDeclarator(babel_types.identifier(arrayName), babel_types.memberExpression(babel_types.identifier(pfFlag), babel_types.identifier(globleKeys[0])))]);
         var url = file.relative.replace(/\\/g,"/");
         var config = targetFileMap[url];
+        var addGlobleKeys0 = true;
         if(!config){
             console.log("没有配置 "+file.path)
         } else{
@@ -2382,7 +2383,9 @@ var js_babel_str = function () {
             if(!extractStr){
                 console.log("js_babel_str  配置不需要提取字符串:", url);
             }
+            addGlobleKeys0 = !(config.addGlobleKeys0 === false);
         }
+        console.log(file.path + "是否添加全局变量:",addGlobleKeys0)
         //插件对象，可以对特定类型的节点进行处理
         var visitor = {
             StringLiteral(path) {  //代表处理 StringLiteral 节点 提取字符串
@@ -2466,7 +2469,9 @@ var js_babel_str = function () {
                 },
                 exit(path, state) {
                     if (path.node.body) {
-                        path.node.body.unshift(arrayDeclaration);
+                        if(addGlobleKeys0){
+                            path.node.body.unshift(arrayDeclaration);
+                        }
                     }
                 }
             }
@@ -2705,7 +2710,12 @@ var mt1Replace = {}
 //压缩
 gulp.task('MT1_build_minify', function () {
     var sourceUrl =  sourceProject;// "../../client/wx_build/jg_gameMT1_new";
-    var stream = gulp.src([sourceUrl + '/**/*.js', "!" + sourceUrl + '/**/'+mainJsName])
+    var srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/**/'+mainJsName];
+    if(PREFIX == "G"){
+        //g包SDK都不處理
+        srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/utils/**/*.js',"!" + sourceUrl + '/**/'+mainJsName];
+    }
+    var stream = gulp.src(srcs)
         .pipe(js_minify())
         .pipe(gulp.dest(sourceUrl + '/'))
     return stream;
@@ -2752,9 +2762,14 @@ gulp.task('MT1_COPY', function () {
                     } else {  //有路径
                         var curFileName = dirs.pop();
                         var dirPath = dirs.join("/");
-                        console.log("文件路径:", path.dirname, "文件名字:", path.basename, "修改路径为:", dirPath, "修改文件名为：", curFileName.split(".")[0]);
+                        if(path.basename.indexOf("sdk.min")!=-1){
+                            debugger;
+                        }
+                        var lastIndex = curFileName.lastIndexOf(".");
+                        var baseName = curFileName.slice(0,lastIndex);
+                        console.log("文件路径:", path.dirname, "文件名字:", path.basename, "修改路径为:", dirPath, "修改文件名为：", baseName);
                         path.dirname = dirPath;
-                        path.basename = curFileName.split(".")[0];
+                        path.basename = baseName;
 
                     }
                 }
