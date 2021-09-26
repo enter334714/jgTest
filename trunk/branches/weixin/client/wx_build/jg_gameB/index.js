@@ -399,7 +399,7 @@ window.loadVersionConfig = function() {
     PF_INFO.base_cdn = (response.data.cdn_url&&response.data.cdn_url.length ? response.data.cdn_url : PF_INFO.base_cdn);
     PF_INFO.cdn = (response.data.cdn_url&&response.data.cdn_url.length ? response.data.cdn_url : PF_INFO.cdn);
     PF_INFO.lastVersion = response.data.version || PF_INFO.lastVersion;
-    console.info("资源版本号："+PF_INFO.lastVersion);
+    console.info("lastVersion:"+PF_INFO.lastVersion+", version_name:"+PF_INFO.version_name);
     window.loadVersion = true;
     window.initMain();
     window.enterToGame(); 
