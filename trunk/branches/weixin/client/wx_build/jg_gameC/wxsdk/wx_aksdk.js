@@ -6,7 +6,7 @@ var config = {
     game_pkg: 'tjqy_tjqylmfb_FK',
     partner_label: 'GNWX',
     partner_id: '443',
-    game_ver: '3.0.6',//C包为3.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '3.0.8',//C包为3.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false, //授权登录
     from: null, //来源
     tmpId: {}  // 订阅的类型 和 模板id
