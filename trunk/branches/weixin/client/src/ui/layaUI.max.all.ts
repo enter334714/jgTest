@@ -4745,7 +4745,7 @@ module ui {
 
 module ui {
     export class P_BangsViewUI extends BaseView {
-		public rechargeBar:Laya.Image;
+		public recharge_bar:Laya.Image;
 		public chargingIcon:Laya.Image;
 		public leftPower:laya.display.Text;
 		public curTime:laya.display.Text;
@@ -15326,7 +15326,6 @@ module ui {
 
 module ui {
     export class P_EggexAdventure3AlertUI extends BaseDialog {
-		public imgProg:Laya.Image;
 		public imgBigReward:Laya.Image;
 		public btnBox1:Laya.Box;
 		public imgBoxClose1:Laya.Image;
@@ -15349,6 +15348,11 @@ module ui {
 		public imgBoxLight4:Laya.Image;
 		public imgBoxGet4:Laya.Image;
 		public btnActive:Laya.Button;
+		public imgProg:Laya.Image;
+		public imgBoxBg1:Laya.Image;
+		public imgBoxBg2:Laya.Image;
+		public imgBoxBg3:Laya.Image;
+		public imgBoxBg4:Laya.Image;
 		public btnClose:Laya.Button;
 		public btnTaskType1:Laya.Button;
 		public btnTaskType2:Laya.Button;
