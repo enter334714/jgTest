@@ -603,7 +603,7 @@ window.openSubscribeMsg = function (ids, callback) {
     }
     if (window.compareVersion(window.SDKVersion, '2.4.4') >= 0) {
       console.log("调用订阅");
-      AKSDK.subscribeMessage(tmpIds, function (res) {
+      AKSDK.subscribeMessage && AKSDK.subscribeMessage(tmpIds, function (res) {
         console.log("订阅回调：");
         console.log(res);
         if (res && res.errMsg == "requestSubscribeMessage:ok") {
@@ -1074,6 +1074,7 @@ window.enterToGame = function () {
       }
 
       window.MainWX.instance.initPlatdata(platData);
+      new minitool();
     }
   } else {
     console.info("【登录】loadProbPkg:" + window.loadProbPkg + ",loadMainPkg:" + window.loadMainPkg + ",loadServerRes:" + window.loadServerRes + ",loadLoadingRes:" + window.loadLoadingRes + ",loadVersion:" + window.loadVersion + ",loadServer:" + window.loadServer + ",isCheckBan:" + window.isCheckBan + ",loadOption:" + window.loadOption);

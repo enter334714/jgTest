@@ -1,7 +1,7 @@
 var k = wx.$f;
-import Sygame from "./fffhelp";window.Sygame = Sygame;var config = { game_id: "88", game_pkg: "tjqy_tjqygjhol_FW", partner_label: k[26094], partner_id: k[26095], game_ver: k[26096], is_auth: !1 };window.config = config;var F$B5GZE = F$BGZ5E();var HOST = k[26097];var F$BGEZ5 = null;var F$BGE5Z = null;var partner_user_data = {};var user_invite_by_activity = null;function F$BGZ5E() {
+import Sygame from "./fffhelp";window.Sygame = Sygame;var config = { game_id: "88", game_pkg: "tjqy_tjqygjhol_FW", partner_label: k[26094], partner_id: k[26095], game_ver: k[26096], is_auth: !1 };window.config = config;var F$UB21L = F$U21BL();var HOST = k[26097];var F$U2L1B = null;var F$U2LB1 = null;var partner_user_data = {};var user_invite_by_activity = null;function F$U21BL() {
   var n = {};return { order_data: {}, init: function (e, t) {
-      var r = e && e.game_ver ? e.game_ver : 0;console.log(k[26098]);var a = this;var n;n = (i = wx.getStorageSync(k[26099])) ? 0 : (i = a.uuid(16, 32), wx.setStorageSync(k[26099], i), 1), (s = wx.getStorageSync(k[26100])) || (s = a.uuid(16, 32), wx.setStorageSync(k[26100], s));var o = wx.getLaunchOptionsSync();e = o.scene || "";n && o.query && o.query.ad_code && wx.setStorageSync(k[26101], o.query.ad_code), a.log(k[277], { install: n, scene: e }), Sygame.init(o);var i = o.query && o.query.invite ? o.query.invite : "";var s = o.query && o.query.invite_type ? o.query.invite_type : "";a = o.query && o.query.cp_activity_id ? o.query.cp_activity_id : "";a || (s = (a = o.query && o.query.shareMessageToFriendScene ? o.query.shareMessageToFriendScene : "") ? k[26102] : ""), a && (user_invite_by_activity = { invite: i, invite_type: s, is_new: n, scene: e, cp_activity_id: a }), i && (F$BGE5Z = { invite: i, invite_type: s, is_new: n, scene: e }), r && this.checkGameVersion(r, function (e) {
+      var r = e && e.game_ver ? e.game_ver : 0;console.log(k[26098]);var a = this;var n;n = (i = wx.getStorageSync(k[26099])) ? 0 : (i = a.uuid(16, 32), wx.setStorageSync(k[26099], i), 1), (s = wx.getStorageSync(k[26100])) || (s = a.uuid(16, 32), wx.setStorageSync(k[26100], s));var o = wx.getLaunchOptionsSync();e = o.scene || "";n && o.query && o.query.ad_code && wx.setStorageSync(k[26101], o.query.ad_code), a.log(k[277], { install: n, scene: e }), Sygame.init(o);var i = o.query && o.query.invite ? o.query.invite : "";var s = o.query && o.query.invite_type ? o.query.invite_type : "";a = o.query && o.query.cp_activity_id ? o.query.cp_activity_id : "";a || (s = (a = o.query && o.query.shareMessageToFriendScene ? o.query.shareMessageToFriendScene : "") ? k[26102] : ""), a && (user_invite_by_activity = { invite: i, invite_type: s, is_new: n, scene: e, cp_activity_id: a }), i && (F$U2LB1 = { invite: i, invite_type: s, is_new: n, scene: e }), r && this.checkGameVersion(r, function (e) {
         t && t(e);
       });
     }, login: function (e, t) {
@@ -9,7 +9,7 @@ import Sygame from "./fffhelp";window.Sygame = Sygame;var config = { game_id: "8
         console.log(k[26104], e), 1001 === e.code ? (partner_user_data = e, r.do_login(partner_user_data)) : n.login && n.login(1, { errMsg: e.message });
       });
     }, do_login: function (e) {
-      var r = this;var t = r.getPublicData();if (t.partner_user_info = JSON.stringify(e), F$BGE5Z && k[272] == typeof F$BGE5Z) for (var a in F$BGE5Z) t[a] = F$BGE5Z[a];wx.request({ url: k[26105] + HOST + k[26106], method: k[26041], dataType: k[5190], header: { "content-type": k[26107] }, data: t, success: function (e) {
+      var r = this;var t = r.getPublicData();if (t.partner_user_info = JSON.stringify(e), F$U2LB1 && k[272] == typeof F$U2LB1) for (var a in F$U2LB1) t[a] = F$U2LB1[a];wx.request({ url: k[26105] + HOST + k[26106], method: k[26041], dataType: k[5190], header: { "content-type": k[26107] }, data: t, success: function (e) {
           if (console.log(k[26108], e), 200 === e.statusCode) {
             var t = e.data;if (t.state) {
               partner_user_data.openid = t.data.ext;try {
@@ -27,7 +27,7 @@ import Sygame from "./fffhelp";window.Sygame = Sygame;var config = { game_id: "8
         "" != r && "" != e.query && (e.query = e.query + k[26118] + r), a.logStartShare(t), wx.shareAppMessage({ title: e.title, imageUrl: e.img, query: e.query });
       });
     }, logStartShare: function (e) {
-      var t = wx.getStorageSync(k[26109]);wx.request({ url: k[26105] + HOST + k[26119], method: k[26041], dataType: k[5190], header: { "content-type": k[26107] }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: t, server_id: F$BGEZ5 ? F$BGEZ5.server_id : "", role_id: F$BGEZ5 ? F$BGEZ5.role_id : "", type: e }, success: function (e) {} });
+      var t = wx.getStorageSync(k[26109]);wx.request({ url: k[26105] + HOST + k[26119], method: k[26041], dataType: k[5190], header: { "content-type": k[26107] }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: t, server_id: F$U2L1B ? F$U2L1B.server_id : "", role_id: F$U2L1B ? F$U2L1B.role_id : "", type: e }, success: function (e) {} });
     }, openService: function () {
       wx.openCustomerServiceConversation();
     }, checkGameVersion: function (e, r) {
@@ -35,7 +35,7 @@ import Sygame from "./fffhelp";window.Sygame = Sygame;var config = { game_id: "8
           var t;console.log(k[26122]), console.log(e), 200 == e.statusCode && (t = e.data).state ? r && r(t.data) : r && r({ develop: 0 });
         } });
     }, getShareInfo: function (e, t) {
-      console.log(k[26123]);var r = wx.getStorageSync(k[26109]);wx.request({ url: k[26105] + HOST + k[26124], method: k[26041], dataType: k[5190], header: { "content-type": k[26107] }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: r, type: e, server_id: F$BGEZ5 ? F$BGEZ5.server_id : "", role_id: F$BGEZ5 ? F$BGEZ5.role_id : "", no_log: 1 }, success: function (e) {
+      console.log(k[26123]);var r = wx.getStorageSync(k[26109]);wx.request({ url: k[26105] + HOST + k[26124], method: k[26041], dataType: k[5190], header: { "content-type": k[26107] }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: r, type: e, server_id: F$U2L1B ? F$U2L1B.server_id : "", role_id: F$U2L1B ? F$U2L1B.role_id : "", no_log: 1 }, success: function (e) {
           console.log(k[26125]), console.log(e), 200 == e.statusCode ? (e = e.data).state ? t && t(e.data) : n.share && n.share(1, { errMsg: k[26126] + e.msg }) : n.share && n.share(1, { errMsg: k[26127] });
         } });
     }, updateShare: function (e, t, r, a, n, o) {
@@ -55,13 +55,13 @@ import Sygame from "./fffhelp";window.Sygame = Sygame;var config = { game_id: "8
           })) : n.pay && n.pay(1, { errMsg: t.errMsg }) : n.login && n.login(1, { errMsg: k[26115] });
         } })) : n.pay && n.pay(1, { errMsg: k[26139] });
     }, logCreateRole: function (e) {
-      var t = wx.getStorageSync(k[26110]);var r = wx.getStorageSync(k[26111]);var a = {};var n, o, i;a.user_id = t, a.user_name = r, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && (F$BGEZ5 = { role_id: e.roleid, server_id: e.serverid }), this.log(k[6], a), user_invite_by_activity && (n = user_invite_by_activity.scene, o = user_invite_by_activity.is_new, i = user_invite_by_activity.invite, r = user_invite_by_activity && user_invite_by_activity.invite_type ? user_invite_by_activity.invite_type : "", a = user_invite_by_activity.cp_activity_id, a = { uid: t, role_id: e.roleid, role_name: e.rolename, server_id: e.serverid, server_name: e.servername, game_id: config.game_id, partner_id: config.partner_id, game_pkg: config.game_pkg, scene: n, is_new: o, invite_code: i, invite_type: r, cp_activity_id: a }, wx.request({ url: k[26105] + HOST + k[26140], method: k[26041], dataType: k[5190], header: { "content-type": k[26107] }, data: a, success: function (e) {
+      var t = wx.getStorageSync(k[26110]);var r = wx.getStorageSync(k[26111]);var a = {};var n, o, i;a.user_id = t, a.user_name = r, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && (F$U2L1B = { role_id: e.roleid, server_id: e.serverid }), this.log(k[6], a), user_invite_by_activity && (n = user_invite_by_activity.scene, o = user_invite_by_activity.is_new, i = user_invite_by_activity.invite, r = user_invite_by_activity && user_invite_by_activity.invite_type ? user_invite_by_activity.invite_type : "", a = user_invite_by_activity.cp_activity_id, a = { uid: t, role_id: e.roleid, role_name: e.rolename, server_id: e.serverid, server_name: e.servername, game_id: config.game_id, partner_id: config.partner_id, game_pkg: config.game_pkg, scene: n, is_new: o, invite_code: i, invite_type: r, cp_activity_id: a }, wx.request({ url: k[26105] + HOST + k[26140], method: k[26041], dataType: k[5190], header: { "content-type": k[26107] }, data: a, success: function (e) {
           console.log(k[26141] + JSON.stringify(e));
         } })), this.upRoleInfo(k[26142], e);
     }, logEnterGame: function (e) {
-      var t = wx.getStorageSync(k[26110]);var r = wx.getStorageSync(k[26111]);var a = {};a.user_id = t, a.user_name = r, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && (F$BGEZ5 = { role_id: e.roleid, server_id: e.serverid }), this.log(k[5087], a), this.upRoleInfo(k[26143], e), F$BGE5Z && this.updateShare(F$BGE5Z.invite, F$BGE5Z.invite_type, F$BGE5Z.is_new, e.roleid, e.serverid, F$BGE5Z.scene);
+      var t = wx.getStorageSync(k[26110]);var r = wx.getStorageSync(k[26111]);var a = {};a.user_id = t, a.user_name = r, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && (F$U2L1B = { role_id: e.roleid, server_id: e.serverid }), this.log(k[5087], a), this.upRoleInfo(k[26143], e), F$U2LB1 && this.updateShare(F$U2LB1.invite, F$U2LB1.invite_type, F$U2LB1.is_new, e.roleid, e.serverid, F$U2LB1.scene);
     }, logRoleUpLevel: function (e) {
-      var t = wx.getStorageSync(k[26110]);var r = wx.getStorageSync(k[26111]);var a = {};a.user_id = t, a.user_name = r, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && (F$BGEZ5 = { role_id: e.roleid, server_id: e.serverid }), this.log(k[26144], a);
+      var t = wx.getStorageSync(k[26110]);var r = wx.getStorageSync(k[26111]);var a = {};a.user_id = t, a.user_name = r, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && (F$U2L1B = { role_id: e.roleid, server_id: e.serverid }), this.log(k[26144], a);
     }, upRoleInfo: function (e, t) {
       t = { report_type: e, role_id: t.roleid, role_name: t.rolename, role_level: t.rolelevel, server_id: t.serverid, server_name: t.servername, role_power: t.rolepower || 0, role_vip: 0 };Sygame.syReportRoleInfo(t).then(e => {
         console.log(k[26145], e);
@@ -103,7 +103,7 @@ import Sygame from "./fffhelp";window.Sygame = Sygame;var config = { game_id: "8
       });
     } };
 }function run(e, t, r) {
-  e in F$B5GZE && F$B5GZE[e](t, r);
+  e in F$UB21L && F$UB21L[e](t, r);
 }exports.init = function (e, t) {
   run(k[356], e, t);
 }, exports.login = function (e) {

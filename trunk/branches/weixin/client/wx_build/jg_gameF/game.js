@@ -53,6 +53,7 @@ import "index.js";
 import "libs/libs.min.js";
 import "libs/laya.wxmini.js";
 import "init.min.js";
+import "SyMiniTool.js";
 
 
 
