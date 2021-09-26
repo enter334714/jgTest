@@ -399,7 +399,7 @@ window.loadVersionConfig = function() {
     PF_INFO.base_cdn = (response.data.cdn_url&&response.data.cdn_url.length ? response.data.cdn_url : PF_INFO.base_cdn);
     PF_INFO.cdn = (response.data.cdn_url&&response.data.cdn_url.length ? response.data.cdn_url : PF_INFO.cdn);
     PF_INFO.lastVersion = response.data.version || PF_INFO.lastVersion;
-    console.info("资源版本号："+PF_INFO.lastVersion);
+    console.info("lastVersion:"+PF_INFO.lastVersion+", version_name:"+PF_INFO.version_name);
     window.loadVersion = true;
     window.initMain();
     window.enterToGame(); 
@@ -603,7 +603,7 @@ window.openSubscribeMsg = function(ids, callback) {
     }
     if (window.compareVersion(window.SDKVersion, '2.4.4') >= 0) {
         console.log("调用订阅");
-        AKSDK.subscribeMessage(tmpIds, function (res) {
+        AKSDK.subscribeMessage && AKSDK.subscribeMessage(tmpIds, function (res) {
             console.log("订阅回调：");
             console.log(res);
             if (res && res.errMsg == "requestSubscribeMessage:ok") {
