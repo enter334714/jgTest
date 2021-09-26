@@ -16,5 +16,8 @@
       "name": "main",
       "root": "subPackage/"
     }
-  ]
+  ],
+  "navigateToMiniProgramAppIdList": [
+    "wx593c981d5ed7c10d"
+]
 }
