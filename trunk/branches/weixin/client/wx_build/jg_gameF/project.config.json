@@ -21,7 +21,7 @@
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
-    "useApiHostProcess": true,
+    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -33,12 +33,10 @@
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "disableUseStrict": false,
-    "showES6CompileOption": false,
-    "useCompilerPlugins": false
+    "showES6CompileOption": false
   },
   "compileType": "game",
-  "libVersion": "2.10.4",
+  "libVersion": "2.1.0",
   "appid": "wx4ce69989cfb43218",
   "projectname": "jg_gameF",
   "simulatorType": "wechat",

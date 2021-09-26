@@ -68,14 +68,14 @@ var minitool = /** @class */ (function () {
         switch (data.status) {
             case 1001:
                 var srcArray = [
-                    // { url: data.msg.basics_image_url, type: Laya.Loader.IMAGE },
-                    // { url: data.msg.public_code, type: Laya.Loader.IMAGE },
-                    // { url: data.msg.vip_customer_service, type: Laya.Loader.IMAGE },
-                    // { url: data.msg.vip_customer_service_not_add, type: Laya.Loader.IMAGE },
-                    // { url: data.msg.game_center_image_url, type: Laya.Loader.IMAGE },
-                    // { url: data.msg.vip_qrcode, type: Laya.Loader.IMAGE },
-                    // { url: this.getIcon, type: Laya.Loader.IMAGE },
-                    // { url: this.copyIcon, type: Laya.Loader.IMAGE }
+                // { url: data.msg.basics_image_url, type: Laya.Loader.IMAGE },
+                // { url: data.msg.public_code, type: Laya.Loader.IMAGE },
+                // { url: data.msg.vip_customer_service, type: Laya.Loader.IMAGE },
+                // { url: data.msg.vip_customer_service_not_add, type: Laya.Loader.IMAGE },
+                // { url: data.msg.game_center_image_url, type: Laya.Loader.IMAGE },
+                // { url: data.msg.vip_qrcode, type: Laya.Loader.IMAGE },
+                // { url: this.getIcon, type: Laya.Loader.IMAGE },
+                // { url: this.copyIcon, type: Laya.Loader.IMAGE }
                 ];
                 data.msg.basics_image_url && srcArray.push({ url: data.msg.basics_image_url, type: Laya.Loader.IMAGE });
                 data.msg.public_code && srcArray.push({ url: data.msg.public_code, type: Laya.Loader.IMAGE });
@@ -134,28 +134,26 @@ var MainController = /** @class */ (function () {
         this.boxlist = [];
         this.tool = tool;
     }
-    MainController.prototype.setChildMouseThrough = function (node) {
-           //@ts-ignore
-           var childs = node._childs || [];
-           for (var i = 0; i < childs.length; i++) {
-               if (childs[i]) {               
-                   childs[i].mouseThrough = true;                 
-               }
-           }
-    }
-    MainController.prototype.Ffaod = function (event) {
-        console.log("event:",event.target.name)
-    }
-    
+    MainController.prototype.setChildMouseThroughs = function (node) {
+        var childs = node._childs || [];
+        for (var i = 0; i < childs.length; i++) {
+            if (childs[i]) {
+                childs[i].mouseThrough = true;
+            }
+        }
+    };
     MainController.prototype.show = function () {
         if (this.tool.data.on === '1') {
             this.main = new ui.demoui.MainUI();
             Laya.stage.addChild(this.main);
             this.main.mouseThrough = true;
-                    
-            // Laya.stage.on(Laya.Event.CLICK, this, this.Ffaod)
-            this.setChildMouseThrough(this.main);
-            this.setChildMouseThrough(this.main._childs[0]);
+            //@ts-ignore
+            var childs = this.main._childs || [];
+            for (var i = 0; i < childs.length; i++) {
+                childs[i].mouseThrough = true;
+            }
+            this.setChildMouseThroughs(this.main._childs);
+            this.setChildMouseThroughs(this.main._childs[0]);
             this.initIcon();
             this.initEvent();
             this.initView();
@@ -219,7 +217,6 @@ var MainController = /** @class */ (function () {
     };
     MainController.prototype.initIcon = function () {
         this.icon = new Laya.Image();
-        this.icon.mouseThrough = true;
         this.icon.skin = this.tool.data.basics_image_url; //Laya.loader.getRes(Global.getResMap(this.tool.data.basics_image_url));
         this.icon.x = 0;
         this.icon.y = 200;
@@ -502,11 +499,6 @@ var Toast = /** @class */ (function () {
             this.ui = new ui.demoui.ToastUI();
             this.ui.visible = false;
             Laya.stage.addChild(this.ui);
-            //@ts-ignore
-            var childs = this.ui._childs || [];
-            for (var i = 0; i < childs.length; i++) {
-                childs[i].mouseThrough = true;
-            }
         }
     };
     Toast.msg = function (text) {
@@ -525,4 +517,4 @@ var Toast = /** @class */ (function () {
 }());
 //@ts-ignore
 window["minitool"] = minitool;
-//# sourceMappingURL=SyMiniTool172.js.map
+//# sourceMappingURL=SyMiniTool.js.map
