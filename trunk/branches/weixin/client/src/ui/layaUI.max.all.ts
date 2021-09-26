@@ -4745,7 +4745,7 @@ module ui {
 
 module ui {
     export class P_BangsViewUI extends BaseView {
-		public recharge_bar:Laya.Image;
+		public rechargeBar:Laya.Image;
 		public chargingIcon:Laya.Image;
 		public leftPower:laya.display.Text;
 		public curTime:laya.display.Text;
