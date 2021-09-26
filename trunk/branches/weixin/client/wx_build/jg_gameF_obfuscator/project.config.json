@@ -36,7 +36,7 @@
     "showES6CompileOption": false
   },
   "compileType": "game",
-  "libVersion": "2.1.0",
+  "libVersion": "2.10.4",
   "appid": "wx4ce69989cfb43218",
   "projectname": "jg_gameF",
   "simulatorType": "wechat",
