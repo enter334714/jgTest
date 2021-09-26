@@ -1307,6 +1307,7 @@ var set_param_f = function () {
             "libs/sax.js":  {url:packageName1+"/fffsax.js"},
             "libs/weapp-adapter.js":  {url:"ffssss/fffweasaf.js"},
             "libs/zlib.js":  {url:packageName1+"/fffzlibs.js"},
+            "SyMiniTool.js":  {url:packageName1+"/SyMiniTool.js",extractStr:false,count:1,strLen:3},
             // "libs/game.js":  {url:"eeelibs/game.js",extractStr:true,count:1,strLen:3},
             "wxsdk":  {url:"ffffsdk"},
             "wxsdk/wx_aksdk.js":  {url:"ffffsdk/fffsdk.js",extractStr:true,count:1,strLen:3},
