@@ -543,9 +543,9 @@ var laya = (function (exports) {
             let hortorVip$1 = new hortorVip();
             hortorVip$1.init({
                 gameVersion: window["config"].game_ver,
-                vipGameId: "dddjs-test",
-                env: "Test",
-                userId: "6497efc2b3ccedf546b5d0cabc697960",
+                vipGameId: window["config"].partner_game_id,
+                env: "Prod",
+                userId: window["PF_INFO"].userId,
                 icon: {
                     posX: 100,
                     posY: 250,
