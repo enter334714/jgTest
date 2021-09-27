@@ -521,7 +521,7 @@ window.toLogin = function (role_id, role_name, role_level, role_type, evolution,
   PF_INFO.roleId = role_id;
   PF_INFO.roleName = role_name;
   PF_INFO.roleLevel = role_level;
-  AKSDK.logEnterGame(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, role_id, role_name, role_level,time,{rolepower:fight});
+  AKSDK.logEnterGame(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, role_id, role_name, role_level, time, { rolepower: fight });
   sendApi(PF_INFO.apiurl, 'User.update_role', {
     'game_pkg': PF_INFO.pkgName,
     'server_id': PF_INFO.selectedServer.server_id,
@@ -559,9 +559,9 @@ window.openShare = function (callback) {
     callback(data);
   });
 }
-//调起客服
+//调起客服serverId, serverName, roleId, roleName, roleLevel
 window.openService = function () {
-  AKSDK.openService();
+  AKSDK.goCustomer(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, PF_INFO.roleId, PF_INFO.roleName, PF_INFO.roleLevel);  
 }
 
 //微端引导
@@ -1074,6 +1074,10 @@ window.enterToGame = function () {
       }
 
       window.MainWX.instance.initPlatdata(platData);
+    
+      setTimeout(() => {
+        new XingJuBoxMain();
+      }, 5000);      
     }
   } else {
     console.info("【登录】loadProbPkg:" + window.loadProbPkg + ",loadMainPkg:" + window.loadMainPkg + ",loadServerRes:" + window.loadServerRes + ",loadLoadingRes:" + window.loadLoadingRes + ",loadVersion:" + window.loadVersion + ",loadServer:" + window.loadServer + ",isCheckBan:" + window.isCheckBan + ",loadOption:" + window.loadOption);

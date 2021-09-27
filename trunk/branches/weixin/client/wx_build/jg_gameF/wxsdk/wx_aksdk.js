@@ -1,5 +1,5 @@
 ﻿import Sygame from './helper';
-window["Sygame] = Sygame;
+window["Sygame"] = Sygame;
 var config = {
     game_id: '88',
     game_pkg: 'tjqy_tjqygjhol_FW', //盛也微信小游戏--鬼剑豪

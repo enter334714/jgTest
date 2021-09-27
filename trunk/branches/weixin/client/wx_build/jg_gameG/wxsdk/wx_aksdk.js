@@ -5,7 +5,7 @@ let partner_config = hortor.config; //SDK配置
 let wxapm = hortor.wxapm;    //应用监控SDK
 
 // 引入VIP大使
-import HortorVip from "../utils/HortorVipSdk/hortorVip";
+// import HortorVip from "../utils/HortorVipSdk/hortorVip";
 
 //TODO 替换对应参数
 var config = {
@@ -850,24 +850,24 @@ function mainSDK() {
         },
 
         //显示大天使图标
-        showHortorVip: function () {
-            // 游戏登录成功后实例化 + 初始化 HortorVip：
-            let hortorVip = new HortorVip();
-            hortorVip.init({
-                vipGameId: config.partner_game_id,     // 大使功能游戏id，跟平台游戏id保持一致；
-                gameVersion: "1.0.905",    // 游戏版本
-                env: "Prod",             // 运行环境 测试：Test， 正式：Prod
-                userId: partner_user_data.uniqueIdNew,          // 登录后返回的用户平台 uniqueId，没有时可以使用 openId
-                icon: {                  // 悬浮图标默认位置，若不设置默认右上角
-                    posX: -1, // x轴位置
-                    posY: -1, // y轴位置
-                },
-                defShowIcon: true,        // 是否默认展示 icon，默认 true
-                onLoad: (err, data) => {  // vip 数据加载完时触发
-                    console.log('vip data loaded---', err, data);
-                },
-            });
-        },
+        // showHortorVip: function () {
+        //     // 游戏登录成功后实例化 + 初始化 HortorVip：
+        //     let hortorVip = new HortorVip();
+        //     hortorVip.init({
+        //         vipGameId: config.partner_game_id,     // 大使功能游戏id，跟平台游戏id保持一致；
+        //         gameVersion: "1.0.905",    // 游戏版本
+        //         env: "Prod",             // 运行环境 测试：Test， 正式：Prod
+        //         userId: partner_user_data.uniqueIdNew,          // 登录后返回的用户平台 uniqueId，没有时可以使用 openId
+        //         icon: {                  // 悬浮图标默认位置，若不设置默认右上角
+        //             posX: -1, // x轴位置
+        //             posY: -1, // y轴位置
+        //         },
+        //         defShowIcon: true,        // 是否默认展示 icon，默认 true
+        //         onLoad: (err, data) => {  // vip 数据加载完时触发
+        //             console.log('vip data loaded---', err, data);
+        //         },
+        //     });
+        // },
 
         //获取唯一设备码（自定义）
         uuid: function (radix, len) {
@@ -1042,9 +1042,9 @@ exports.getPublicData = function () {
     run('getPublicData');
 };
 
-exports.showHortorVip = function () {
-    run('showHortorVip');
-};
+// exports.showHortorVip = function () {
+//     run('showHortorVip');
+// };
 
 exports.roleCreateReport = function (is_valid) {
     run('roleCreateReport', is_valid);

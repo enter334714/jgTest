@@ -7,17 +7,16 @@
     "uploadFile": 1500000,
     "downloadFile": 1500000
   },
-  "subpackages": [
-    {
+  "subpackages": [{
       "name": "probuf",
       "root": "protobuf/"
     },
-	  {
+    {
       "name": "main",
       "root": "subPackage/"
     }
   ],
   "navigateToMiniProgramAppIdList": [
     "wx593c981d5ed7c10d"
-]
+  ]
 }
