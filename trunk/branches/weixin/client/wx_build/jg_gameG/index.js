@@ -61,7 +61,7 @@ window.loadServer = false;
 
 window.bEnterGame = false;
 
-
+window.sdk_info = {};
 window.alert = function (value) {
   console.log("alert", value);
   wx.hideLoading({});
@@ -235,6 +235,7 @@ window.sdkInit = function () {
 /*sdk初始化回调*/
 window.sdkOnInited = function (res) {
   var develop = res.develop;
+  sdk_info = res;
   // res.game_ver = "1.0.86";
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
   console.log("#初始化成功   提审状态:" + develop + "   是否提审:" + (develop == 1) + "   提审版本号:" + res.game_ver + "   当前版本号:" + window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本

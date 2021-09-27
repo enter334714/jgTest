@@ -1,5 +1,6 @@
 import HortorVip from "./HortorVipSdk/hortorVip.js";
 export class XingJuBoxMain {
+	private static ins:XingJuBoxMain;
 	constructor() {
 		let hortorVip = new HortorVip();
 		hortorVip.init({
@@ -12,9 +13,9 @@ export class XingJuBoxMain {
 			// userId: "6497efc2b3ccedf546b5d0cabc697960",
 			icon: {                  // 悬浮图标默认位置，若不设置默认右上角
 				posX: 100,
-				posY: 250,
+				posY: 550,
 			},
-			defShowIcon: true,        // 是否默认展示 icon，默认 true
+			defShowIcon: !!window["sdk_info"].is_vipds,        // 是否默认展示 icon，默认 true
 			onLoad: (err, data) => {  // vip 数据加载完时触发
 				console.log('vip data loaded---', err, data);
 			}
