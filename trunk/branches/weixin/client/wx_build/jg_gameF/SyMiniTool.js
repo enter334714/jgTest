@@ -68,14 +68,14 @@ var minitool = /** @class */ (function () {
         switch (data.status) {
             case 1001:
                 var srcArray = [
-                // { url: data.msg.basics_image_url, type: Laya.Loader.IMAGE },
-                // { url: data.msg.public_code, type: Laya.Loader.IMAGE },
-                // { url: data.msg.vip_customer_service, type: Laya.Loader.IMAGE },
-                // { url: data.msg.vip_customer_service_not_add, type: Laya.Loader.IMAGE },
-                // { url: data.msg.game_center_image_url, type: Laya.Loader.IMAGE },
-                // { url: data.msg.vip_qrcode, type: Laya.Loader.IMAGE },
-                // { url: this.getIcon, type: Laya.Loader.IMAGE },
-                // { url: this.copyIcon, type: Laya.Loader.IMAGE }
+                    // { url: data.msg.basics_image_url, type: Laya.Loader.IMAGE },
+                    // { url: data.msg.public_code, type: Laya.Loader.IMAGE },
+                    // { url: data.msg.vip_customer_service, type: Laya.Loader.IMAGE },
+                    // { url: data.msg.vip_customer_service_not_add, type: Laya.Loader.IMAGE },
+                    // { url: data.msg.game_center_image_url, type: Laya.Loader.IMAGE },
+                    // { url: data.msg.vip_qrcode, type: Laya.Loader.IMAGE },
+                    // { url: this.getIcon, type: Laya.Loader.IMAGE },
+                    // { url: this.copyIcon, type: Laya.Loader.IMAGE }
                 ];
                 data.msg.basics_image_url && srcArray.push({ url: data.msg.basics_image_url, type: Laya.Loader.IMAGE });
                 data.msg.public_code && srcArray.push({ url: data.msg.public_code, type: Laya.Loader.IMAGE });
@@ -142,6 +142,9 @@ var MainController = /** @class */ (function () {
             }
         }
     };
+    MainController.prototype.clickTest = function (e) {
+        console.log("target:", e.target, e.target.name)
+    }
     MainController.prototype.show = function () {
         if (this.tool.data.on === '1') {
             this.main = new ui.demoui.MainUI();
@@ -154,6 +157,7 @@ var MainController = /** @class */ (function () {
             }
             this.setChildMouseThroughs(this.main._childs);
             this.setChildMouseThroughs(this.main._childs[0]);
+            Laya.stage.on(Laya.Event.CLICK, this, this.clickTest)
             this.initIcon();
             this.initEvent();
             this.initView();
@@ -226,7 +230,10 @@ var MainController = /** @class */ (function () {
         this.icon.on(Laya.Event.MOUSE_DOWN, this, this.iconPress);
         this.icon.on(Laya.Event.MOUSE_UP, this, this.iconUp);
         this.icon.on(Laya.Event.MOUSE_MOVE, this, this.iconMove);
+        this.icon.name = "icon";
+        console.log("initIcon")
         this.dragRect = new Laya.Rectangle(-this.icon.width / 2, 0, Laya.stage.width, Laya.stage.height - this.icon.height / 2);
+        this.dragRect.name = "dragRect";
         //console.log(Laya.stage.width, Laya.stage.height);
     };
     MainController.prototype.initEvent = function () {
@@ -254,10 +261,12 @@ var MainController = /** @class */ (function () {
     };
     MainController.prototype.initBoard = function () {
         this.isInitBoard = true;
+        console.log("initBoard")
         //this.main.bg.texture = Laya.loader.getRes(this.game.data.game_center_image_url);
         this.page1();
     };
     MainController.prototype.showBoard = function () {
+        console.log("showBoard")
         this.main.bg.x = 0;
         // TweenJS.create(this.main.bg).to({ x: 0 }, 300);
         this.icon.visible = false;
@@ -407,20 +416,33 @@ var MainController = /** @class */ (function () {
     MainController.prototype.boxClickHandler = function () {
     };
     //////////////////////////////////////图标拖拽
+    MainController.prototype.donwX = 0;
+    MainController.prototype.donwY = 0;
     MainController.prototype.iconPress = function (e) {
+       
         this.icon.startDrag(this.dragRect);
+        this.donwX = e.target.x;
+        this.donwY = e.target.y;
         this.isMove = false;
-        this.isPress = true;
+        this.isPress = true;       
     };
-    MainController.prototype.iconMove = function () {
+    MainController.prototype.iconMove = function (e) {          
         this.isMove = true;
     };
-    MainController.prototype.iconUp = function () {
+    MainController.prototype.iconUp = function (e) {
+        // console.log("iconUp:",this.isPress,!this.isMove,e.target.x)
+        var targetx = e.target.x;
+        var targety = e.target.y;
         this.icon.stopDrag();
-        if (this.isPress && !this.isMove) {
+        if(this.donwX ==targetx && this.donwY == targety){
             this.isInitBoard || this.initBoard();
             this.showBoard();
         }
+     
+        // if (this.isPress && !this.isMove) {
+        //     this.isInitBoard || this.initBoard();
+        //     this.showBoard();
+        // }
         this.isMove = false;
         this.isPress = false;
     };
