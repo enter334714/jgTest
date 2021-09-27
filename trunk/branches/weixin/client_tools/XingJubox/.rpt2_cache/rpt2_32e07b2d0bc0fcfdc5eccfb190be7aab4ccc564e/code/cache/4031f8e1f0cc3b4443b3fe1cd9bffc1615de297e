@@ -1,0 +1,6 @@
+{
+  "code": "import HortorVip from \"./HortorVipSdk/hortorVip.js\";\r\nexport class XingJuBoxMain {\r\n    constructor() {\r\n        let hortorVip = new HortorVip();\r\n        hortorVip.init({\r\n            gameVersion: window[\"config\"].game_ver,\r\n            vipGameId: \"dddjs-test\",\r\n            env: \"Test\",\r\n            userId: \"6497efc2b3ccedf546b5d0cabc697960\",\r\n            icon: {\r\n                posX: 100,\r\n                posY: 250,\r\n            },\r\n            defShowIcon: true,\r\n            onLoad: (err, data) => {\r\n                console.log('vip data loaded---', err, data);\r\n            }\r\n        });\r\n    }\r\n}\r\nwindow[\"XingJuBoxMain\"] = XingJuBoxMain;\r\n",
+  "references": [
+    "D:/jg/trunk/branches/weixin/client_tools/XingJubox/src/HortorVipSdk/hortorVip.js"
+  ]
+}

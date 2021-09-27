@@ -1,0 +1,6 @@
+{
+  "code": "import HortorVip from \"./HortorVipSdk/hortorVip.js\";\r\nclass XingJuBoxMain {\r\n    constructor() {\r\n        let hortorVip = new HortorVip();\r\n        hortorVip.init({\r\n            vipGameId: \"dddjs-test\",\r\n            gameVersion: \"0.1\",\r\n            env: \"Test\",\r\n            userId: \"useId\",\r\n            icon: {\r\n                posX: 50,\r\n                posY: 50,\r\n            },\r\n        });\r\n    }\r\n}\r\nnew XingJuBoxMain();\r\n",
+  "references": [
+    "E:/LayaTest1/boneTest4/myLaya/src/HortorVipSdk/hortorVip.js"
+  ]
+}
