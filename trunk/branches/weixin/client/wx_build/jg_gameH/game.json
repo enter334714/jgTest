@@ -1,0 +1,21 @@
+{
+  "deviceOrientation": "portrait",
+  "openDataContext": "myOpenDataContext",
+  "showStatusBar": false,
+  "networkTimeout": {
+    "request": 1500000,
+    "connectSocket": 1500000,
+    "uploadFile": 1500000,
+    "downloadFile": 1500000
+  },
+  "subpackages": [
+    {
+      "name": "probuf",
+      "root": "protobuf/"
+    },
+	  {
+      "name": "main",
+      "root": "subPackage/"
+    }
+  ]
+}
