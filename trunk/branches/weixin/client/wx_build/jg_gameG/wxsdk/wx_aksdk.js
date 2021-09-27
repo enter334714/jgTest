@@ -1,4 +1,4 @@
-let hortor = require("../utils/Hortor/sdk");
+﻿let hortor = require("../utils/Hortor/sdk");
 let hortorSdk = hortor.sdk; //核心业务SDK
 let wallSDK = hortorSdk.wallSDK;
 let partner_config = hortor.config; //SDK配置
@@ -13,7 +13,7 @@ var config = {
     game_pkg: 'tjqy_tjlywffkxyxmj_FV',
     partner_label: 'fkxyx',
     partner_id: '222',
-    game_ver: '7.0.0',
+    game_ver: '7.0.2',
     partner_game_id: 'xjtjqymini',
     is_auth: false, //授权登录
 };

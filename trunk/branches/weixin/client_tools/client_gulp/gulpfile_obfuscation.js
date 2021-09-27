@@ -1312,7 +1312,6 @@ var set_param_f = function () {
             "wxsdk":  {url:"ffffsdk"},
             "wxsdk/wx_aksdk.js":  {url:"ffffsdk/fffsdk.js",extractStr:true,count:1,strLen:3},
             "wxsdk/helper.js":  {url:"ffffsdk/fffhelp.js",extractStr:true,count:1,strLen:3},
-
             "protobuf":  {url:packageName2},
             "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:5,strLen:3},
             "protobuf/protobuf.js":  {url: packageName2 + "/ffffBuff.js",extractStr:true,count:5,strLen:3},
@@ -1555,6 +1554,7 @@ var set_param_g = function () {
             "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
             "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
             "utils/Hortor/sdk/sdk.min.js":{url:"utils/Hortor/sdk/sdk.min.js",addGlobleKeys0:false,extractStr:false},
+            "XingJuBox.js":  {url:packageName1+"/XingJuBox.js",extractStr:false,count:1,strLen:3},
             //随机创建名字和文件夹
             // "res": {url:"gafda"},
             // "res/atlas": {url:"gafda"},

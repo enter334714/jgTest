@@ -603,7 +603,7 @@ window.openSubscribeMsg = function (ids, callback) {
     }
     if (window.compareVersion(window.SDKVersion, '2.4.4') >= 0) {
       console.log("调用订阅");
-      AKSDK.subscribeMessage(tmpIds, function (res) {
+      AKSDK.subscribeMessage && AKSDK.subscribeMessage(tmpIds, function (res) {
         console.log("订阅回调：");
         console.log(res);
         if (res && res.errMsg == "requestSubscribeMessage:ok") {

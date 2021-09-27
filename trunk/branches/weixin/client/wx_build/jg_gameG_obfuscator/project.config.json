@@ -28,7 +28,7 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "useIsolateContext": false,
+    "useIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -36,11 +36,12 @@
     "showES6CompileOption": false
   },
   "compileType": "game",
-  "libVersion": "2.1.0",
+  "libVersion": "2.10.4",
   "appid": "wx57229ab52d6c7cf8",
-  "projectname": "jg_gameG",
+  "projectname": "%E6%98%9F%E8%81%9A",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+  "projectType": "game",
   "condition": {
     "search": {
       "list": []
@@ -48,9 +49,27 @@
     "conversation": {
       "list": []
     },
-    "game": {
-      "currentL": -1,
+    "plugin": {
       "list": []
+    },
+    "game": {
+      "list": [
+        {
+          "id": 0,
+          "name": "广告",
+          "query": "ad_code=ft_1_2659_243"
+        },
+        {
+          "id": 1,
+          "name": "邀请进入",
+          "query": "invite=5ORYZ2G&invite_type=menu&ad_code=ft_0_2659_243"
+        },
+        {
+          "id": -1,
+          "name": "广告来源",
+          "query": "ad_code=XXXXXXX22222"
+        }
+      ]
     },
     "miniprogram": {
       "list": []
