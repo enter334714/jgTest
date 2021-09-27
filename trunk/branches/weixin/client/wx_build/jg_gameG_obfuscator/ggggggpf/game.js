@@ -1,0 +1,2 @@
+var m = wx.$g;
+require('ggggBuff.js'), window['protobuf'][m[25755]][m[25756]] = null, window['client_pb'] = require('gggcleintpb.js'), window[m[23001]] = window['protobuf'][m[22907]][m[22908]](client_pb);
