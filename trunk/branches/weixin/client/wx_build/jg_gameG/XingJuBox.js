@@ -2,8 +2,8 @@
     'use strict';
 
     class VipIcon {
-        constructor(data) { 
-            this.onClickEvent = () => {};
+        constructor(data) {
+            this.onClickEvent = () => { };
             if (!data || !data.gameGsConf || !data.gameGsConf.icon) {
                 console.log('[VIP] Icon init data null', data);
                 return;
@@ -15,20 +15,20 @@
 
         addIcon() {
             let texture = Laya.loader.getRes(this.opt.url);
-            
+
             this.icon = new Laya.Sprite();
-    		Laya.stage.addChild(this.icon);
+            Laya.stage.addChild(this.icon);
             this.icon.pivot(texture.width / 2, texture.height / 2);
-            
+
             let x = this.opt.x || this.opt.posX || 0;
             let y = this.opt.y || this.opt.posY || 0;
-            this.icon.pos(x === -1 ? Laya.stage.width - texture.width - 15: x, y === -1 ? Laya.stage.height / 2 : y);
+            this.icon.pos(x === -1 ? Laya.stage.width - texture.width - 15 : x, y === -1 ? Laya.stage.height / 2 : y);
 
             this.icon.size(texture.width, texture.height);
             this.icon.graphics.clear();
-    		this.icon.graphics.drawTexture(texture, 0, 0);
-    		
-            
+            this.icon.graphics.drawTexture(texture, 0, 0);
+
+
             this.bindDrag();
         }
 
@@ -37,10 +37,10 @@
             let h = this.icon.height;
 
             //拖动限制区域
-    	    let dragRegion = new Laya.Rectangle(w / 2, h / 2, Laya.stage.width - w, Laya.stage.height - h);
+            let dragRegion = new Laya.Rectangle(w / 2, h / 2, Laya.stage.width - w, Laya.stage.height - h);
 
             //鼠标按下开始拖拽(设置了拖动区域和超界弹回的滑动效果)
-    		this.icon.on(Laya.Event.MOUSE_DOWN, this, () => {
+            this.icon.on(Laya.Event.MOUSE_DOWN, this, () => {
                 this.icon.startDrag(dragRegion, true, 100, 300, null, true);
             });
 
@@ -198,7 +198,7 @@
         // 添加图片资源
         drawSprite(node, url) {
             let texture = Laya.loader.getRes(url);
-            
+
             if (!texture) {
                 return;
             }
@@ -225,7 +225,7 @@
             Laya.loader.load(conf.url, Laya.Handler.create(this, () => {
                 this.setRate(Laya.loader.getRes(conf.url));
                 this.drawSprite(this.bg, conf.url);
-                this.setPos(this.bg, { x: 0, y: 0, z: zIndxs.bg});
+                this.setPos(this.bg, { x: 0, y: 0, z: zIndxs.bg });
                 callBack && callBack();
             }));
         }
@@ -272,7 +272,7 @@
             txt.fontSize = conf.size || 32;
             txt.align = (conf.textAlign || "center");
             txt.color = conf.color || '#ffffff';
-            this.setPos(txt, {x: conf.posX, y: conf.posY, z: zIndxs.account });
+            this.setPos(txt, { x: conf.posX, y: conf.posY, z: zIndxs.account });
             this.bg.addChild(txt);
         }
 
@@ -283,7 +283,7 @@
             // page close log
             this._log && this._log.post(logTypes.pageClose, this._openType);
         }
-        
+
         // 清空
         clear() {
             this.mask.destroy();
@@ -324,7 +324,7 @@
             txt.fontSize = 32;
             txt.horizontalAlign = "center".toUpperCase();
             txt.color = exclusiveNumInfo.color || '#FFFFFF';
-            this.setPos(txt, {x: exclusiveNumInfo.posX, y: exclusiveNumInfo.posY, z: zIndxs.codeNum });
+            this.setPos(txt, { x: exclusiveNumInfo.posX, y: exclusiveNumInfo.posY, z: zIndxs.codeNum });
             this.bg.addChild(txt);
             this.renderSecretBtn();
         }
@@ -350,7 +350,7 @@
                 wx.setClipboardData({
                     data: number
                 });
-        
+
                 // copy click log
                 this._log && this._log.post(logTypes.number, this._openType);
             }
@@ -362,7 +362,7 @@
                 wx.setClipboardData({
                     data: config.wxAccount
                 });
-        
+
                 // copy click log
                 this._log && this._log.post(logTypes.copySecretNum, this._openType);
             }
@@ -447,7 +447,7 @@
 
             let url = `${this._host}${consts.URLS.Info}?gameId=${this._conf.vipGameId}&userId=${this._conf.userId}`;
             let xhr = new Laya.HttpRequest();
-            xhr.once(Laya.Event.COMPLETE, this, res => {          
+            xhr.once(Laya.Event.COMPLETE, this, res => {
                 this._vipData = JSON.parse(res);
                 if (this._vipData.meta && this._vipData.meta.errCode) {
                     callback(this._vipData.meta);
@@ -550,7 +550,7 @@
                     posX: 100,
                     posY: 550,
                 },
-                defShowIcon: true,
+                defShowIcon: !!sdk_info.is_vipds,
                 onLoad: (err, data) => {
                     console.log('vip data loaded---', err, data);
                 }
