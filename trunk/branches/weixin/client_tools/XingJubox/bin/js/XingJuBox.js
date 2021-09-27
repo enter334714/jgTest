@@ -548,7 +548,7 @@ var laya = (function (exports) {
                 userId: window["PF_INFO"].userId,
                 icon: {
                     posX: 100,
-                    posY: 250,
+                    posY: 550,
                 },
                 defShowIcon: true,
                 onLoad: (err, data) => {
