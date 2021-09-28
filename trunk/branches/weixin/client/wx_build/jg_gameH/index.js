@@ -243,9 +243,9 @@ window.sdkOnInited = function(res) {
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
     PF_INFO.logurl = "https://log-tjqy.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy-ts.shzbkj.com/weixin_1/";
+    PF_INFO.cdn = "https://cdn-tjqy-wd.shzbkj.com/weixin_1/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
-    PF_INFO.version_name = "ts";
+    PF_INFO.version_name = "wd";
     PF_INFO.wxShield = false;
   } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0){  //当前版本 == 后台版本
     console.log("#审核版=============================");
