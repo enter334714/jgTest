@@ -3,7 +3,7 @@
 //TODO 替换对应参数
 var config = {
     game_id: 256,
-    game_pkg: 'tjqy_tjqywlsdh5_GD',
+    game_pkg: 'tjqy_tjqywlsdh5_GD', //布咕--武林盛典online
     partner_label: 'bgxyx',
     partner_id: '389',
     game_ver: '8.0.0',

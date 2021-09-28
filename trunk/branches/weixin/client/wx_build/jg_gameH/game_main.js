@@ -92,7 +92,7 @@ wx.y$ = []; var fs = wx.getFileSystemManager(); wx.getFileSystemManager().unzip(
       filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8", success: function (r) {
         if ("readFile:ok" == r.errMsg && r.data) {
           try {
-            wx.$h = JSON.parse(r.data);
+            wx.$c = JSON.parse(r.data);
           } catch (r) {
             console.error(r);
           } r = wx.loadSubpackage({
