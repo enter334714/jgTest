@@ -3310,7 +3310,11 @@ var createRefuseFile = function () {
         console.log("随机产生辣鸡文件数量：", createFileNum);
 
         var suffixs = [
-            "png","jpg","jpeg","gif","svg","js","json","cer","obj","dae","fbx","mtl","stl","3ds","mp3","pvr","wav","plist","ttf","fnt","gz","ccz","m4a","mp4","bmp","atlas","swf","ani","part","proto","bin","sk","mipmaps","txt","zip","tt","map","ogg","silk","dbbin","dbmv","etc","lmat","lm","ls","lh","lani","lav","lsani","ltc","aac","astc","br","csv","cur","dat","dds","glb","gltf","ico","ktx","lmani","lml","pkm","prefab","scene","skel","wasm","xml",
+            "png","jpg","jpeg","gif","svg","js","json","cer","obj","dae","fbx","mtl","stl","3ds","mp3","pvr",
+            "wav","plist","ttf","fnt","gz","ccz","m4a","mp4","bmp","atlas","swf","ani","part","proto","bin",
+            "sk","mipmaps","txt","zip","ogg","silk","dbbin","dbmv","etc","lmat","lm","ls","lh",
+            "lani","lav","lsani","ltc","aac","astc","br","csv","cur","dat","dds","glb","gltf","ico","ktx",
+            "lmani","lml","pkm","prefab","scene","skel","wasm","xml"
         ];
         var fielNames = [];
         var createSuffixs = [];
