@@ -3192,6 +3192,14 @@ gulp.task('DEL_REFUSEFILE_G', function (cb) {
     sequence("set-param-g","DEL_REFUSEFILE",cb)
 });
 
+gulp.task('CREATE_REFUSEFILE_H', function (cb) {
+    sequence("set-param-h","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_H', function (cb) {
+    sequence("set-param-h","DEL_REFUSEFILE",cb)
+});
+
 //无网络 使用这个图片压缩
 gulp.task('gulp-imagemin', function (cb) {
     sourceProject = "../../client/wx_build/jg_gameE_new";
@@ -3300,7 +3308,10 @@ var createRefuseFile = function () {
         // var createFolderNum = 100;//创建多少个文件夹
         // var folderNames = [];
         console.log("随机产生辣鸡文件数量：", createFileNum);
-        var suffixs = ["js", "png", "jpg", "ogg", "mp4", "mp3", "astc", "ktx", "txt", "etc", "pvr", "gif", "bmp", "jpeg", "svg", "ico"];//"*"];
+
+        var suffixs = [
+            "png","jpg","jpeg","gif","svg","js","json","cer","obj","dae","fbx","mtl","stl","3ds","mp3","pvr","wav","plist","ttf","fnt","gz","ccz","m4a","mp4","bmp","atlas","swf","ani","part","proto","bin","sk","mipmaps","txt","zip","tt","map","ogg","silk","dbbin","dbmv","etc","lmat","lm","ls","lh","lani","lav","lsani","ltc","aac","astc","br","csv","cur","dat","dds","glb","gltf","ico","ktx","lmani","lml","pkm","prefab","scene","skel","wasm","xml",
+        ];
         var fielNames = [];
         var createSuffixs = [];
 
