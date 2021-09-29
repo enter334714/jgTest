@@ -477,7 +477,7 @@ function mainSDK() {
                     var obj = {
                         showMessageCard:true,
                         sendMessageTitle:"不用点这个卡片",
-                        sendMessageImg:"https://static.sh9130.com/gw/images/WechatIMG700.png"
+                        sendMessageImg:"https://static.357pk.net/uploads/2109/weixin_pay_img1.png"
                     };
                     wx.openCustomerServiceConversation(obj);
                 }
@@ -669,6 +669,20 @@ function mainSDK() {
         },
 
         downloadClient: function () {
+            wx.showModal({
+                title: "微端下载提示",
+                content: '进入客服会话，点击右下角小卡片或输入"wd"或"微端"获取微端下载链接',
+                showCancel: false,
+                confirmText: "我知道了",
+                success: function () {
+                    var obj = {
+                        showMessageCard:true,
+                        sendMessageTitle:"微端-不用点这个卡片",
+                        sendMessageImg:"https://static.357pk.net/uploads/2109/weixin_download_img2.jpg"
+                    };
+                    wx.openCustomerServiceConversation(obj);
+                }
+            });
             wx.openCustomerServiceConversation();
         },
 
