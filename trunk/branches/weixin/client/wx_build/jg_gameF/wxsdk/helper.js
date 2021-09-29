@@ -564,7 +564,7 @@ const Sygame = {
           console.log("分享:", res.data.data);
           Sygame.share_data = res.data.data;
         } else {
-          params.errorCallback(res);
+          params && params.errorCallback && params.errorCallback(res);
           console.log("盛也share失败", res);
         }
       },
