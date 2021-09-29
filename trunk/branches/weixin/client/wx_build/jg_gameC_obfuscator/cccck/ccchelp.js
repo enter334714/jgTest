@@ -1,121 +1,121 @@
 var p = wx.$h;
-var config = { game_id: "2", game_pkg: p[87172], partner_id: "4", is_auth: !1, from: null };window.config = config;var $aOXZW8 = $aOZWX8();var HOST = p[87173];var $aOZ8WX = null;var $aOZW8X = null;var game_ver = "";function $aOZWX8() {
-  var r = {};return { order_data: {}, init: function (e, o) {
-      game_ver = e && e.game_ver ? e.game_ver : 0, console.log(p[87174]);var n = this;var a;a = (t = wx.getStorageSync(p[87175])) ? 0 : (t = n.uuid(16, 32), wx.setStorageSync(p[87175], t), 1), (e = wx.getStorageSync(p[87176])) || (e = n.uuid(16, 32), wx.setStorageSync(p[87176], e));var t = wx.getLaunchOptionsSync();e = t.scene || "";console.log(p[87177]), console.log(t), a && t.query && t.query.ad_code && wx.setStorageSync(p[87178], t.query.ad_code), t.query && t.query.from && "" != t.query.from ? (a && wx.setStorageSync(p[87179], t.query.from), config.from = t.query.from) : (t = wx.getStorageSync(p[87179])) || "" == t || (config.from = t), console.log(config.from), n.log(p[60284], { install: a, scene: e }), wx.showShareMenu(), game_ver && this.checkGameVersion(game_ver, function (e) {
+var config = { game_id: "2", game_pkg: p[27662], partner_id: "4", is_auth: !1, from: null };window.config = config;var $aQ1GNI = $aQGN1I();var HOST = p[27663];var $aQGIN1 = null;var $aQGNI1 = null;var game_ver = "";function $aQGN1I() {
+  var a = {};return { order_data: {}, init: function (e, o) {
+      game_ver = e && e.game_ver ? e.game_ver : 0, console.log(p[27664]);var t = this;var n;n = (r = wx.getStorageSync(p[27665])) ? 0 : (r = t.uuid(16, 32), wx.setStorageSync(p[27665], r), 1), (e = wx.getStorageSync(p[27666])) || (e = t.uuid(16, 32), wx.setStorageSync(p[27666], e));var r = wx.getLaunchOptionsSync();e = r.scene || "";console.log(p[27667]), console.log(r), n && r.query && r.query.ad_code && wx.setStorageSync(p[27668], r.query.ad_code), r.query && r.query.from && "" != r.query.from ? (n && wx.setStorageSync(p[27669], r.query.from), config.from = r.query.from) : (r = wx.getStorageSync(p[27669])) || "" == r || (config.from = r), console.log(config.from), t.log(p[284], { install: n, scene: e }), wx.showShareMenu(), game_ver && this.checkGameVersion(game_ver, function (e) {
         o && o(e);
       });
     }, login: function (e, o) {
-      console.log(p[87180]);var a = this;r.login = p[86850] == typeof o ? o : null, config.is_auth ? wx.getSetting({ success: function (e) {
-          var o, n;e.authSetting[p[87181]] ? (console.log(p[87182]), a.do_login()) : (console.log(p[87183]), wx.hideLoading({}), e = 2 * (o = wx.getSystemInfoSync()).screenWidth / 3, o.screenHeight, (n = wx.createUserInfoButton({ type: p[64286], text: p[87184], withCredentials: !1, style: { top: o.windowHeight / 2 + o.windowHeight / 4, left: o.windowWidth / 2 - 100, width: 200, height: 40, lineHeight: 40, backgroundColor: p[87185], color: p[64308], textAlign: p[61543], fontSize: 16, borderRadius: 4 } })).show(), n.onTap(e => {
-            console.log(e), $a8XWZ({ title: p[87186] }), p[87187] == e.errMsg ? a.do_login({ head_img: e.userInfo.avatarUrl || "", nick_name: e.userInfo.nickName || "" }) : a.do_login(), n.destroy();
+      console.log(p[27670]);var n = this;a.login = p[26855] == typeof o ? o : null, config.is_auth ? wx.getSetting({ success: function (e) {
+          var o, t;e.authSetting[p[27671]] ? (console.log(p[27672]), n.do_login()) : (console.log(p[27673]), wx.hideLoading({}), e = 2 * (o = wx.getSystemInfoSync()).screenWidth / 3, o.screenHeight, (t = wx.createUserInfoButton({ type: p[4286], text: p[27674], withCredentials: !1, style: { top: o.windowHeight / 2 + o.windowHeight / 4, left: o.windowWidth / 2 - 100, width: 200, height: 40, lineHeight: 40, backgroundColor: p[27675], color: p[4308], textAlign: p[1543], fontSize: 16, borderRadius: 4 } })).show(), t.onTap(e => {
+            console.log(e), $aI1NG({ title: p[27676] }), p[27677] == e.errMsg ? n.do_login({ head_img: e.userInfo.avatarUrl || "", nick_name: e.userInfo.nickName || "" }) : n.do_login(), t.destroy();
           }));
         }, fail: function () {
-          console.log(p[87188]), a.do_login();
-        } }) : (console.log(p[87189] + config.is_auth), a.do_login());
+          console.log(p[27678]), n.do_login();
+        } }) : (console.log(p[27679] + config.is_auth), n.do_login());
     }, do_login: function (o) {
-      var n = this;wx.login({ success: function (e) {
-          var a;console.log(p[87190] + JSON.stringify(e)), e.code ? ((a = n.getPublicData()).mo = 1, a.code = e.code, a.nick_name = o ? o.nick_name : "", a.head_img = o ? o.head_img : "", config.is_auth ? wx.getUserInfo({ success: function (e) {
-              var o = e.encryptedData;var n = e.iv;e = e.signature;a.encryptedData = o, a.iv = n, a.signature = e, wx.request({ url: HOST + p[87191], method: p[87192], dataType: p[65684], header: { "content-type": p[87193] }, data: a, success: function (e) {
-                  if (console.log(p[87194]), console.log(e), 200 == e.statusCode) {
+      var t = this;wx.login({ success: function (e) {
+          var n;console.log(p[27680] + JSON.stringify(e)), e.code ? ((n = t.getPublicData()).mo = 1, n.code = e.code, n.nick_name = o ? o.nick_name : "", n.head_img = o ? o.head_img : "", config.is_auth ? wx.getUserInfo({ success: function (e) {
+              var o = e.encryptedData;var t = e.iv;e = e.signature;n.encryptedData = o, n.iv = t, n.signature = e, wx.request({ url: HOST + p[27681], method: p[27331], dataType: p[5684], header: { "content-type": p[27436] }, data: n, success: function (e) {
+                  if (console.log(p[27682]), console.log(e), 200 == e.statusCode) {
                     var o = e.data;if (o.state) {
                       e = { userid: o.data.user_id, account: o.data.nick_name, token: o.data.token };try {
-                        wx.setStorageSync(p[87195], o.data.sdk_token), wx.setStorageSync(p[87196], o.data.user_id), wx.setStorageSync(p[87197], o.data.username), o.data.ext && wx.setStorageSync(p[87198], o.data.ext);
-                      } catch (e) {}r.login && r.login(0, e);
-                    } else r.login && r.login(1, { errMsg: o.msg });
-                  } else r.login && r.login(1, { errMsg: p[87199] });
+                        wx.setStorageSync(p[27683], o.data.sdk_token), wx.setStorageSync(p[27684], o.data.user_id), wx.setStorageSync(p[27685], o.data.username), o.data.ext && wx.setStorageSync(p[27686], o.data.ext);
+                      } catch (e) {}a.login && a.login(0, e);
+                    } else a.login && a.login(1, { errMsg: o.msg });
+                  } else a.login && a.login(1, { errMsg: p[27687] });
                 }, fail: function (e) {
-                  r.login && r.login(1, { errMsg: e.errMsg });
+                  a.login && a.login(1, { errMsg: e.errMsg });
                 } });
             }, fail: function (e) {
-              r.login && r.login(1, { errMsg: e.errMsg });
-            } }) : wx.request({ url: HOST + p[87191], method: p[87192], dataType: p[65684], header: { "content-type": p[87193] }, data: a, success: function (e) {
-              if (console.log(p[87194]), console.log(e), 200 == e.statusCode) {
+              a.login && a.login(1, { errMsg: e.errMsg });
+            } }) : wx.request({ url: HOST + p[27681], method: p[27331], dataType: p[5684], header: { "content-type": p[27436] }, data: n, success: function (e) {
+              if (console.log(p[27682]), console.log(e), 200 == e.statusCode) {
                 var o = e.data;if (o.state) {
                   e = { userid: o.data.user_id, account: o.data.nick_name, token: o.data.token };try {
-                    wx.setStorageSync(p[87195], o.data.sdk_token), wx.setStorageSync(p[87196], o.data.user_id), wx.setStorageSync(p[87197], o.data.username), o.data.ext && wx.setStorageSync(p[87198], o.data.ext);
-                  } catch (e) {}r.login && r.login(0, e);
-                } else r.login && r.login(1, { errMsg: o.msg });
-              } else r.login && r.login(1, { errMsg: p[87200] });
-            } })) : r.login && r.login(1, { errMsg: e.errMsg });
+                    wx.setStorageSync(p[27683], o.data.sdk_token), wx.setStorageSync(p[27684], o.data.user_id), wx.setStorageSync(p[27685], o.data.username), o.data.ext && wx.setStorageSync(p[27686], o.data.ext);
+                  } catch (e) {}a.login && a.login(0, e);
+                } else a.login && a.login(1, { errMsg: o.msg });
+              } else a.login && a.login(1, { errMsg: p[27688] });
+            } })) : a.login && a.login(1, { errMsg: e.errMsg });
         }, fail: function (e) {
-          console.log(p[87201] + JSON.stringify(e)), (-1 < e.errMsg.indexOf(p[87202]) || -1 < e.errMsg.indexOf(p[87203])) && r.login && r.login(1, { errMsg: e.errMsg });
+          console.log(p[27689] + JSON.stringify(e)), (-1 < e.errMsg.indexOf(p[27690]) || -1 < e.errMsg.indexOf(p[27691])) && a.login && a.login(1, { errMsg: e.errMsg });
         } });
-    }, checkGameVersion: function (e, n) {
-      console.log(p[87204]);wx.getStorageSync(p[87195]);wx.request({ url: HOST + p[87205], method: p[87192], dataType: p[65684], header: { "content-type": p[87193] }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, game_ver: e }, success: function (e) {
-          var o;console.log(p[87206]), console.log(e), 200 == e.statusCode && (o = e.data).state ? n && n(o.data) : n && n({ develop: 0 });
+    }, checkGameVersion: function (e, t) {
+      console.log(p[27692]);wx.getStorageSync(p[27683]);wx.request({ url: HOST + p[27693], method: p[27331], dataType: p[5684], header: { "content-type": p[27436] }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, game_ver: e }, success: function (e) {
+          var o;console.log(p[27694]), console.log(e), 200 == e.statusCode && (o = e.data).state ? t && t(o.data) : t && t({ develop: 0 });
         }, fail: function (e) {
           console.log(e);
         } });
     }, pay: function (e, o) {
-      var n = this;wx.checkSession({ success: function () {
-          n.startPay(e, o);
+      var t = this;wx.checkSession({ success: function () {
+          t.startPay(e, o);
         }, fail: function () {
-          console.log(p[87207]), n.login({}, function () {
-            n.startPay(e, o);
+          console.log(p[27695]), t.login({}, function () {
+            t.startPay(e, o);
           });
         } });
     }, startPay: function (e, o) {
-      console.log(p[87208]), console.log(e);var n = this;r.pay = p[86850] == typeof o ? o : null;var a = wx.getStorageSync(p[87195]);o = wx.getStorageSync(p[87198]);var t;a && o ? (t = wx.getSystemInfoSync(), a = { cpbill: e.cpbill, productid: e.productid, productname: e.productname, productdesc: e.productdesc, serverid: e.serverid, servername: e.servername, roleid: e.roleid, rolename: e.rolename, rolelevel: e.rolelevel, price: e.price, extension: e.extension, sdk_token: a, session_key: o, platform: t.platform }, n.order_data = a, (o = n.getPublicData()).order_data = JSON.stringify(a), wx.request({ url: HOST + p[87209], method: p[87192], dataType: p[65684], header: { "content-type": p[87193] }, data: o, success: function (e) {
-          console.log(p[87210]), console.log(e), 200 == e.statusCode ? (e = e.data).state ? void 0 === wx.requestPayment ? p[87211] == t.platform || p[87212] == t.platform || p[87213] == t.platform ? e.data.is_android_pay ? n.kfPay(e.data) : n.gamePay(e.data) : e.data.is_ios_pay ? 1 == e.data.ios_pay_type && n.kfPay(e.data) : wx.showModal({ title: p[87214], content: p[87215], confirmText: p[87216], showCancel: !1 }) : n.minPay(e.data) : r.pay && r.pay(1, { errMsg: e.msg }) : r.login && r.login(1, { errMsg: p[87217] });
-        } })) : r.pay && r.pay(1, { errMsg: p[87218] });
+      console.log(p[27696]), console.log(e);var t = this;a.pay = p[26855] == typeof o ? o : null;var n = wx.getStorageSync(p[27683]);o = wx.getStorageSync(p[27686]);var r;n && o ? (r = wx.getSystemInfoSync(), n = { cpbill: e.cpbill, productid: e.productid, productname: e.productname, productdesc: e.productdesc, serverid: e.serverid, servername: e.servername, roleid: e.roleid, rolename: e.rolename, rolelevel: e.rolelevel, price: e.price, extension: e.extension, sdk_token: n, session_key: o, platform: r.platform }, t.order_data = n, (o = t.getPublicData()).order_data = JSON.stringify(n), wx.request({ url: HOST + p[27697], method: p[27331], dataType: p[5684], header: { "content-type": p[27436] }, data: o, success: function (e) {
+          console.log(p[27698]), console.log(e), 200 == e.statusCode ? (e = e.data).state ? void 0 === wx.requestPayment ? p[27252] == r.platform || p[27254] == r.platform || p[27329] == r.platform ? e.data.is_android_pay ? t.kfPay(e.data) : t.gamePay(e.data) : e.data.is_ios_pay ? 1 == e.data.ios_pay_type && t.kfPay(e.data) : wx.showModal({ title: p[27699], content: p[27700], confirmText: p[27701], showCancel: !1 }) : t.minPay(e.data) : a.pay && a.pay(1, { errMsg: e.msg }) : a.login && a.login(1, { errMsg: p[27702] });
+        } })) : a.pay && a.pay(1, { errMsg: p[27703] });
     }, gamePay: function (o) {
-      var n = this;o.buyQuantity <= o.balance ? (console.log(p[87219]), wx.showModal({ title: p[87214], content: p[87220] + o.balance + p[87221] + o.buyQuantity + p[87222], showCancel: !1, confirmText: p[87216], success: function () {
-          n.gameGoPay(o);
-        } })) : (console.log(p[87223]), console.log(o), wx.requestMidasPayment({ mode: p[87224], env: o.env, offerId: o.offerId, currencyType: o.currencyType, platform: o.platform, buyQuantity: o.buyQuantity, zoneId: o.zoneId, success: function (e) {
-          p[87225] == e.errMsg && n.gameGoPay(o);
+      var t = this;o.buyQuantity <= o.balance ? (console.log(p[27704]), wx.showModal({ title: p[27699], content: p[27705] + o.balance + p[27706] + o.buyQuantity + p[27707], showCancel: !1, confirmText: p[27701], success: function () {
+          t.gameGoPay(o);
+        } })) : (console.log(p[27708]), console.log(o), wx.requestMidasPayment({ mode: p[27709], env: o.env, offerId: o.offerId, currencyType: o.currencyType, platform: o.platform, buyQuantity: o.buyQuantity, zoneId: o.zoneId, success: function (e) {
+          p[27710] == e.errMsg && t.gameGoPay(o);
         }, fail: function (e) {
-          -1 !== e.errMsg.indexOf(p[87226]) ? r.pay && r.pay(2, { errMsg: p[87227] }) : r.pay && r.pay(1, { errMsg: p[87228] + e.errMsg + "(" + e.errCode + ")" });
+          -1 !== e.errMsg.indexOf(p[27711]) ? a.pay && a.pay(2, { errMsg: p[27712] }) : a.pay && a.pay(1, { errMsg: p[27713] + e.errMsg + "(" + e.errCode + ")" });
         }, complete: function (e) {} }));
     }, kfPay: function (e) {
-      $aOZW8X = e.orderId, wx.showModal({ title: p[87214], content: p[87229], showCancel: !1, confirmText: p[87216], success: function () {
-          wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageTitle: p[87230], sendMessageImg: p[87231] });
+      $aQGNI1 = e.orderId, wx.showModal({ title: p[27699], content: p[27714], showCancel: !1, confirmText: p[27701], success: function () {
+          wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageTitle: p[27715], sendMessageImg: p[27716] });
         } });
     }, gameGoPay: function (o, e) {
-      console.log(p[87232]);var n = this;var a = wx.getStorageSync(p[87198]);wx.request({ url: HOST + p[87233] + config.partner_id + "/" + config.game_pkg + "/", method: p[87192], dataType: p[65684], header: { "content-type": p[87193] }, data: { order_id: o.orderId, time: o.time, sign: o.sign, session_key: a }, success: function (e) {
-          console.log(p[87234]), console.log(e), 200 == e.statusCode && (1 == e.data.state ? (e = { cpOrderNo: n.order_data.cpbill, orderNo: o.orderId, amount: n.order_data.price, extension: n.order_data.extension }, r.pay && r.pay(0, e)) : r.pay && r.pay(1, { errMsg: p[87235] }));
+      console.log(p[27717]);var t = this;var n = wx.getStorageSync(p[27686]);wx.request({ url: HOST + p[27718] + config.partner_id + "/" + config.game_pkg + "/", method: p[27331], dataType: p[5684], header: { "content-type": p[27436] }, data: { order_id: o.orderId, time: o.time, sign: o.sign, session_key: n }, success: function (e) {
+          console.log(p[27719]), console.log(e), 200 == e.statusCode && (1 == e.data.state ? (e = { cpOrderNo: t.order_data.cpbill, orderNo: o.orderId, amount: t.order_data.price, extension: t.order_data.extension }, a.pay && a.pay(0, e)) : a.pay && a.pay(1, { errMsg: p[27720] }));
         }, fail: function () {} });
     }, logCreateRole: function (e) {
-      var o = wx.getStorageSync(p[87196]);var n = wx.getStorageSync(p[87197]);var a = {};a.user_id = o, a.user_name = n, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && ($aOZ8WX = { role_id: e.roleid, server_id: e.serverid }), this.log(p[60006], a);
+      var o = wx.getStorageSync(p[27684]);var t = wx.getStorageSync(p[27685]);var n = {};n.user_id = o, n.user_name = t, n.role_id = e.roleid, n.role_lev = e.rolelevel, n.role_name = e.rolename, n.server_id = e.serverid, e.roleid && e.serverid && ($aQGIN1 = { role_id: e.roleid, server_id: e.serverid }), this.log(p[6], n);
     }, logEnterGame: function (e) {
-      var o = wx.getStorageSync(p[87196]);var n = wx.getStorageSync(p[87197]);var a = {};a.user_id = o, a.user_name = n, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && ($aOZ8WX = { role_id: e.roleid, server_id: e.serverid }), this.log(p[65565], a);
+      var o = wx.getStorageSync(p[27684]);var t = wx.getStorageSync(p[27685]);var n = {};n.user_id = o, n.user_name = t, n.role_id = e.roleid, n.role_lev = e.rolelevel, n.role_name = e.rolename, n.server_id = e.serverid, e.roleid && e.serverid && ($aQGIN1 = { role_id: e.roleid, server_id: e.serverid }), this.log(p[5565], n);
     }, logRoleUpLevel: function (e) {
-      var o = wx.getStorageSync(p[87196]);var n = wx.getStorageSync(p[87197]);var a = {};a.user_id = o, a.user_name = n, a.role_id = e.roleid, a.role_lev = e.rolelevel, a.role_name = e.rolename, a.server_id = e.serverid, e.roleid && e.serverid && ($aOZ8WX = { role_id: e.roleid, server_id: e.serverid }), this.log(p[87236], a);
+      var o = wx.getStorageSync(p[27684]);var t = wx.getStorageSync(p[27685]);var n = {};n.user_id = o, n.user_name = t, n.role_id = e.roleid, n.role_lev = e.rolelevel, n.role_name = e.rolename, n.server_id = e.serverid, e.roleid && e.serverid && ($aQGIN1 = { role_id: e.roleid, server_id: e.serverid }), this.log(p[27721], n);
     }, uuid: function (e, o) {
-      var n = p[87237].split("");var a,
-          t = [];var r;if (e = e || n.length, o) for (a = 0; a < o; a++) t[a] = n[0 | Math.random() * e];else for (t[8] = t[13] = t[18] = t[23] = "-", t[14] = "4", a = 0; a < 36; a++) t[a] || (r = 0 | 16 * Math.random(), t[a] = n[19 == a ? 3 & r | 8 : r]);return t.join("");
+      var t = p[27722].split("");var n,
+          r = [];var a;if (e = e || t.length, o) for (n = 0; n < o; n++) r[n] = t[0 | Math.random() * e];else for (r[8] = r[13] = r[18] = r[23] = "-", r[14] = "4", n = 0; n < 36; n++) r[n] || (a = 0 | 16 * Math.random(), r[n] = t[19 == n ? 3 & a | 8 : a]);return r.join("");
     }, getPublicData: function () {
-      var e = wx.getSystemInfoSync();var o = wx.getStorageSync(p[87175]);var n = wx.getStorageSync(p[87176]);var a = wx.getStorageSync(p[87178]);return { game_id: config.game_id, game_pkg: config.game_pkg, partner_id: config.partner_id, ad_code: a, uuid: o, idfv: n, dname: e.model, mac: p[87238], net_type: 0 == e.wifiSignal ? "4G" : p[87239], os_ver: e.system, sdk_ver: e.version, game_ver: game_ver, device: p[87211] == e.platform ? 1 : 2, is_from_min: 1 };
+      var e = wx.getSystemInfoSync();var o = wx.getStorageSync(p[27665]);var t = wx.getStorageSync(p[27666]);var n = wx.getStorageSync(p[27668]);return { game_id: config.game_id, game_pkg: config.game_pkg, partner_id: config.partner_id, ad_code: n, uuid: o, idfv: t, dname: e.model, mac: p[27723], net_type: 0 == e.wifiSignal ? "4G" : p[27724], os_ver: e.system, sdk_ver: e.version, game_ver: game_ver, device: p[27252] == e.platform ? 1 : 2, is_from_min: 1 };
     }, log: function (e, o) {
-      var n = this.getPublicData();for (var a in o) n[a] = o[a];console.log(p[87240] + e), console.log(n), wx.request({ url: HOST + p[87241] + e + p[87242] + encodeURIComponent(JSON.stringify(n)) });
+      var t = this.getPublicData();for (var n in o) t[n] = o[n];console.log(p[27725] + e), console.log(t), wx.request({ url: HOST + p[27726] + e + p[27727] + encodeURIComponent(JSON.stringify(t)) });
     }, getDate: function () {
       var e = new Date();return e.getFullYear() + "-" + e.getMonth() + "-" + e.getDate();
     }, downloadClient: function () {
       wx.openCustomerServiceConversation();
     }, checkMsg: function (e, o) {
-      console.log(p[87243]);var n = wx.getStorageSync(p[87195]);wx.request({ url: HOST + p[87244], method: p[87192], dataType: p[65684], header: { "content-type": p[87193] }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: n, content: e }, success: function (e) {
-          console.log(p[87245]), o && o(0 == e.data.code ? 1 : 0, e.data.msg);
+      console.log(p[27728]);var t = wx.getStorageSync(p[27683]);wx.request({ url: HOST + p[27729], method: p[27331], dataType: p[5684], header: { "content-type": p[27436] }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: t, content: e }, success: function (e) {
+          console.log(p[27730]), o && o(0 == e.data.code ? 1 : 0, e.data.msg);
         } });
     } };
-}function run(e, o, n) {
-  e in $aOXZW8 && $aOXZW8[e](o, n);
+}function run(e, o, t) {
+  e in $aQ1GNI && $aQ1GNI[e](o, t);
 }exports.init = function (e, o) {
-  run(p[60364], e, o);
+  run(p[364], e, o);
 }, exports.login = function (e) {
-  run(p[87246], "", e);
+  run(p[27357], "", e);
 }, exports.pay = function (e, o) {
-  run(p[87247], e, o);
-}, exports.logCreateRole = function (e, o, n, a, t) {
-  run(p[87248], { serverid: e, servername: o, roleid: n, rolename: a, rolelevel: t });
-}, exports.logEnterGame = function (e, o, n, a, t) {
-  run(p[87249], { serverid: e, servername: o, roleid: n, rolename: a, rolelevel: t });
-}, exports.logRoleUpLevel = function (e, o, n, a, t) {
-  run(p[87250], { serverid: e, servername: o, roleid: n, rolename: a, rolelevel: t });
+  run(p[27396], e, o);
+}, exports.logCreateRole = function (e, o, t, n, r) {
+  run(p[27403], { serverid: e, servername: o, roleid: t, rolename: n, rolelevel: r });
+}, exports.logEnterGame = function (e, o, t, n, r) {
+  run(p[27405], { serverid: e, servername: o, roleid: t, rolename: n, rolelevel: r });
+}, exports.logRoleUpLevel = function (e, o, t, n, r) {
+  run(p[27731], { serverid: e, servername: o, roleid: t, rolename: n, rolelevel: r });
 }, exports.downloadClient = function () {
-  run(p[87251]);
+  run(p[27732]);
 }, exports.getConfig = function () {
   return { game_id: config.game_id, game_pkg: config.game_pkg, partner_id: config.partner_id };
 }, exports.getPublicData = function () {
-  run(p[87252]);
+  run(p[27733]);
 }, exports.checkMsg = function (e, o) {
-  run(p[87253], e, o);
+  run(p[27734], e, o);
 };
