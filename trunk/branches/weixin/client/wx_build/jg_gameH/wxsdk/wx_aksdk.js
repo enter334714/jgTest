@@ -6,7 +6,7 @@ var config = {
     game_pkg: 'tjqy_tjqywlsdh5_GD', //布咕--问道服-武林盛典online
     partner_label: 'bgxyx',
     partner_id: '389',
-    game_ver: '8.0.0',
+    game_ver: '8.0.2',
     is_auth: false, //授权登录
     partner_app_id:28, // 渠道游戏的标识ID
     partner_mp_id:'wx41e26949e9eae873' // 小程序ID，来自微信官方平台
@@ -60,7 +60,7 @@ function mainSDK() {
                 scene: scene
             };
             self.log('start', data);
-
+            wx.showShareMenu();
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
             var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
@@ -91,12 +91,16 @@ function mainSDK() {
             // 初始化成功再调起登录
             sdk.init({
                 app_id: config.partner_app_id,
-                mp_id: config.partner_mp_id
+                mp_id: config.partner_mp_id,
+                showLoading:false,
             }).then(res => {
                 sdk.login({
                     data: {
                         // 路径跳转从 state 参数获取，扫码跳转从 scene 参数获取，因此此处需要兼容处理
                         state: opts.query.state || opts.query.scene || ''
+                    },
+                    confg:{
+                        showLoading:false
                     }
                 }).then(res => {
                     partner_user_info = res.data;

@@ -1,4 +1,4 @@
-var O = wx.$c;
+var O = wx.$C;
 !function (n) {
   var r = {};function __webpack_require__(e) {
     if (r[e]) return r[e].exports;var t = r[e] = { exports: {}, id: e, loaded: !1 };return n[e].call(t.exports, t, t.exports, __webpack_require__), t.loaded = !0, t.exports;

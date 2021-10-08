@@ -37,7 +37,7 @@
     "minifyWXSS": true
   },
   "compileType": "game",
-  "libVersion": "2.1.0",
+  "libVersion": "2.10.4",
   "appid": "wx41e26949e9eae873",
   "projectname": "布咕-武林盛典online",
   "simulatorType": "wechat",

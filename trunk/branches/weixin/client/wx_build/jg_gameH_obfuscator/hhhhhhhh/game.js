@@ -1,2 +1,2 @@
-var O = wx.$c;
+var O = wx.$C;
 import 'hhhhmain.js';
