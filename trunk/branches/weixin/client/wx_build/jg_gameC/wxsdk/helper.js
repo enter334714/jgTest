@@ -683,7 +683,6 @@ function mainSDK() {
                     wx.openCustomerServiceConversation(obj);
                 }
             });
-            wx.openCustomerServiceConversation();
         },
 
         checkMsg: function (msg, callback) {
