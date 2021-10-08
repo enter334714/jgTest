@@ -1,4 +1,3 @@
-var m = wx.$g;
 var sdkConfig = require('./config.js');
 var sdk = require('./sdk/sdk.min.js');
 var apmSDK, wallSDK, crossSDK;

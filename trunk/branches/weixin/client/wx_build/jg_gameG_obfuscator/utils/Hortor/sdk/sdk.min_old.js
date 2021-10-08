@@ -1,4 +1,3 @@
-var m = wx.$g;
 !function () {
   "use strict";
 
@@ -786,7 +785,7 @@ var m = wx.$g;
       return B.sdkConfig() || {};
     }, getNotchInfo: function () {
       return F.getNotchInfo();
-    }, G$LA: function (e) {
+    }, G$8L: function (e) {
       N(e);
     }, offShow: function (e) {
       x(e);
@@ -1028,7 +1027,7 @@ var m = wx.$g;
           r = e || {},
           n = r.config,
           o = r.onTap,
-          i = r.G$LA,
+          i = r.G$8L,
           s = r.stayOnDeny;return new Promise(function (e, r) {
         var a = t._getOnlyBtn(n);if (!a) throw K.ERR_WX_NOT_SUPPORT;a.onTap(function (n) {
           var i = (n || {}).encryptedData;i ? e(n) : s || r(K.ERR_WX_AUTH_DENY), o && o(n), !i && s || t._removeOnlyBtn();
@@ -1263,13 +1262,13 @@ var m = wx.$g;
             o = t.onShareCallbackTime,
             i = t.success,
             s = t.fail,
-            a = t.complete;this.successDiff = n || 2e3, this.onCallbackTime = o || 500, this.forceResult = r, this.showEnv = this.G$LA.bind(this, { success: i, fail: s, complete: a }), this._bind();
+            a = t.complete;this.successDiff = n || 2e3, this.onCallbackTime = o || 500, this.forceResult = r, this.showEnv = this.G$8L.bind(this, { success: i, fail: s, complete: a }), this._bind();
       }
     }, _bind: function () {
       A.eventBus.on(A.consts.EVT_ON_SHOW, this.showEnv);
     }, _unbind: function () {
       A.eventBus.off(A.consts.EVT_ON_SHOW, this.showEnv);
-    }, G$LA: function (e, t) {
+    }, G$8L: function (e, t) {
       if (!this.destroyed) {
         var r = e || {},
             n = r.success,
