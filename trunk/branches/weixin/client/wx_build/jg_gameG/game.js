@@ -246,22 +246,22 @@ wx.getSystemInfo({
     window.PF_INFO.wxPC = system.indexOf("windows") != -1 || system.indexOf("mac") != -1;
     window.PF_INFO.wxPlatform = (res.platform ? res.platform.toLowerCase() : "");
     window.PF_INFO.wxLimitLoad = false; //model.indexOf("iphonex") != -1;
-    window.PF_INFO.wxBenchmarkLevel = 1;
+    window.PF_INFO.wxBenchmarkLevel = 2;
     if (system.indexOf("android") != -1) { //android按设备等级
       if (res.benchmarkLevel >= 24) 
-        window.PF_INFO.wxBenchmarkLevel = 2;
+        window.PF_INFO.wxBenchmarkLevel = 3;
       else 
-        window.PF_INFO.wxBenchmarkLevel = 1;
+        window.PF_INFO.wxBenchmarkLevel = 2;
     } else if (system.indexOf("ios") != -1) { //ios按型号
       if(res.benchmarkLevel && res.benchmarkLevel >= 20)
-        window.PF_INFO.wxBenchmarkLevel = 2;
+        window.PF_INFO.wxBenchmarkLevel = 3;
       else if (model.indexOf("iphone5") != -1 || model.indexOf("iphone6") != -1 || model.indexOf("iphone7") != -1 
         || model.indexOf("iphonese") != -1 || model.indexOf("ipad") != -1) 
-        window.PF_INFO.wxBenchmarkLevel = 1;
-      else 
         window.PF_INFO.wxBenchmarkLevel = 2;
+      else 
+        window.PF_INFO.wxBenchmarkLevel = 3;
     } else { //PC
-      window.PF_INFO.wxBenchmarkLevel = 1;
+      window.PF_INFO.wxBenchmarkLevel = 2;
     }
     console.log("加载限制："+ window.PF_INFO.wxLimitLoad +"，设备限制等级："+ window.PF_INFO.wxBenchmarkLevel);
   }

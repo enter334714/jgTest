@@ -10,10 +10,10 @@ let wxapm = hortor.wxapm;    //应用监控SDK
 //TODO 替换对应参数
 var config = {
     game_id: '256',
-    game_pkg: 'tjqy_tjlywffkxyxmj_FV',
+    game_pkg: 'tjqy_tjlywffkxyxmj_FV', //疯狂微信小游戏-无双服-星聚
     partner_label: 'fkxyx',
     partner_id: '222',
-    game_ver: '7.0.2',
+    game_ver: '7.0.4',
     partner_game_id: 'xjtjqymini',
     is_auth: false, //授权登录
 };
