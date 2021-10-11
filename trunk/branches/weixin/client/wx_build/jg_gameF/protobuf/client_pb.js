@@ -439,6 +439,10 @@ module.exports = {
             "f52": {
               "type": "ToVw",
               "id": 52
+            },
+            "f53": {
+              "type": "bool",
+              "id": 53
             }
           }
         },
@@ -6392,6 +6396,11 @@ module.exports = {
               "rule": "repeated",
               "type": "T0JW",
               "id": 15
+            },
+            "f16": {
+              "rule": "repeated",
+              "type": "uint64",
+              "id": 16
             }
           }
         },
@@ -9124,6 +9133,10 @@ module.exports = {
             "f3": {
               "type": "uint64",
               "id": 3
+            },
+            "f4": {
+              "type": "uint64",
+              "id": 4
             }
           }
         },
@@ -9178,6 +9191,22 @@ module.exports = {
               "rule": "repeated",
               "type": "Ttrw",
               "id": 4
+            }
+          }
+        },
+        "Ttra": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            },
+            "f1": {
+              "type": "uint64",
+              "id": 1
+            },
+            "f2": {
+              "type": "uint64",
+              "id": 2
             }
           }
         },
@@ -22866,6 +22895,9 @@ module.exports = {
             }
           }
         },
+        "T0ra": {
+          "fields": {}
+        },
         "TMzo": {
           "fields": {
             "f0": {
@@ -25175,6 +25207,10 @@ module.exports = {
             "f2": {
               "type": "uint64",
               "id": 2
+            },
+            "f3": {
+              "type": "uint64",
+              "id": 3
             }
           }
         },
@@ -25800,6 +25836,31 @@ module.exports = {
               "rule": "repeated",
               "type": "TdSc",
               "id": 1
+            }
+          }
+        },
+        "TBBy": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            },
+            "f1": {
+              "rule": "repeated",
+              "type": "ToGy",
+              "id": 1
+            },
+            "f2": {
+              "type": "uint64",
+              "id": 2
+            }
+          }
+        },
+        "TMoj": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
             }
           }
         },
@@ -28399,6 +28460,10 @@ module.exports = {
             "f0": {
               "type": "uint64",
               "id": 0
+            },
+            "f1": {
+              "type": "uint64",
+              "id": 1
             }
           }
         },
@@ -28426,6 +28491,14 @@ module.exports = {
           "fields": {
             "f0": {
               "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "TrBT": {
+          "fields": {
+            "f0": {
+              "type": "bool",
               "id": 0
             }
           }
@@ -28487,6 +28560,17 @@ module.exports = {
             }
           }
         },
+        "T0rT": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "TdgP": {
+          "fields": {}
+        },
         "TWGL": {
           "fields": {
             "f0": {
@@ -28537,6 +28621,92 @@ module.exports = {
         },
         "TuVM": {
           "fields": {}
+        },
+        "TdgS": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            },
+            "f1": {
+              "type": "uint64",
+              "id": 1
+            }
+          }
+        },
+        "TmGn": {
+          "fields": {
+            "f0": {
+              "type": "TdgS",
+              "id": 0
+            }
+          }
+        },
+        "TrBa": {
+          "fields": {
+            "f0": {
+              "type": "TdgS",
+              "id": 0
+            }
+          }
+        },
+        "TzoS": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "Tnfn": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "TqgS": {
+          "fields": {
+            "f0": {
+              "rule": "repeated",
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "TWGn": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "TMoS": {
+          "fields": {
+            "f0": {
+              "type": "Ttra",
+              "id": 0
+            }
+          }
+        },
+        "Tafn": {
+          "fields": {
+            "f0": {
+              "rule": "repeated",
+              "type": "Ttra",
+              "id": 0
+            }
+          }
+        },
+        "TMog": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
         },
         "TMzs": {
           "fields": {}
@@ -33411,6 +33581,45 @@ module.exports = {
         "Tafz": {
           "fields": {}
         },
+        "ToVa": {
+          "fields": {}
+        },
+        "TbuS": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            },
+            "f1": {
+              "type": "uint64",
+              "id": 1
+            }
+          }
+        },
+        "TXtn": {
+          "fields": {}
+        },
+        "Tdgg": {
+          "fields": {}
+        },
+        "TWGo": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            },
+            "f1": {
+              "type": "uint64",
+              "id": 1
+            }
+          }
+        },
+        "TBBu": {
+          "fields": {}
+        },
+        "Tafo": {
+          "fields": {}
+        },
         "T0mh": {
           "fields": {
             "f0": {
@@ -35040,6 +35249,9 @@ module.exports = {
         "TWvc": {
           "fields": {}
         },
+        "TmGU": {
+          "fields": {}
+        },
         "TBkx": {
           "fields": {}
         },
@@ -35366,6 +35578,17 @@ module.exports = {
         },
         "Tafd": {
           "fields": {}
+        },
+        "TafA": {
+          "fields": {}
+        },
+        "TuVy": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
         },
         "TAQP": {
           "fields": {
