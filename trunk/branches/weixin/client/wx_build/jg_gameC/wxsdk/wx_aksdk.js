@@ -433,13 +433,13 @@ function mainSDK() {
             }
             this.log('create', postData);
             // 渠道上报
-            sdk.logCreateRole({
-                serverId:data.serverid,
-                serverName:data.servername,
-                roleId:data.roleid,
-                roleName:data.rolename,
-                roleLevel:data.rolelevel
-            });
+            sdk.logCreateRole(
+                data.serverid,
+                data.servername,
+                data.roleid,
+                data.rolename,
+                data.rolelevel
+            );
 
         },
 
@@ -469,13 +469,12 @@ function mainSDK() {
             if (user_invite_info) {
                 this.updateShare(user_invite_info.invite, user_invite_info.invite_type, user_invite_info.is_new, data.roleid, data.serverid, user_invite_info.scene);
             }
-            sdk.logEnterGame({
-                serverId:data.serverid,
-                serverName:data.servername,
-                roleId:data.roleid,
-                roleName:data.rolename,
-                roleLevel:data.rolelevel
-            });
+            sdk.logEnterGame(
+                data.serverid,
+                data.servername,
+                data.roleid,
+                data.rolename,
+                data.rolelevel);
         },
 
         //角色升级
@@ -499,13 +498,12 @@ function mainSDK() {
             }
 
             this.log('levelup', postData);
-            sdk.logRoleUpLevel({
-                serverId:data.serverid,
-                serverName:data.servername,
-                roleId:data.roleid,
-                roleName:data.rolename,
-                roleLevel:data.rolelevel
-            });
+            sdk.logRoleUpLevel(
+                data.serverid,
+                data.servername,
+                data.roleid,
+                data.rolename,
+                data.rolelevel);
 
         },
 
