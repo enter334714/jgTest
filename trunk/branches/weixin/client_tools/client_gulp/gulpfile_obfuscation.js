@@ -352,13 +352,13 @@ var set_param_b = function () {
         }
 
         DEST = '../../client/wx_dist/packageB/';
-        BUILD = '../../client/wx_build/';
+        BUILD = 'wx_build/';
         PACK = 'jg_gameB';
         INIT_PATH = '/';
         SCOPE = 'cdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ab';
         PREFIX = '$';
-        sourceProject = "../../client/wx_build/jg_gameB_new";
-        targetProject = "../../client/wx_build/jg_gameB_obfuscator";
+        sourceProject = "wx_build/jg_gameB_new";
+        targetProject = "wx_build/jg_gameB_obfuscator";
         targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
         mainJsName = "lsjdflaamain.js";
         filesMap = {
@@ -590,13 +590,13 @@ var set_param_c = function () {
         }
 
         DEST = '../../client/wx_dist/packageC/';
-        BUILD = '../../client/wx_build/';
+        BUILD = 'wx_build/';
         PACK = 'jg_gameC';
         INIT_PATH = '/';
         SCOPE = 'abcdghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ef';
         PREFIX = 'c$';
-        sourceProject = "../../client/wx_build/jg_gameC_new";
-        targetProject = "../../client/wx_build/jg_gameC_obfuscator";
+        sourceProject = "wx_build/jg_gameC_new";
+        targetProject = "wx_build/jg_gameC_obfuscator";
         targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
         mainJsName = "ccccccccmain.js";
         filesMap = {
@@ -818,13 +818,13 @@ var set_param_d = function () {
         }
 
         DEST = '../../client/wx_dist/packageD/';
-        BUILD = '../../client/wx_build/';
+        BUILD = 'wx_build/';
         PACK = 'jg_gameD';
         INIT_PATH = '/';
         SCOPE = 'abcdefijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_gh';
         PREFIX = 'd$';
-        sourceProject = "../../client/wx_build/jg_gameD_new";
-        targetProject = "../../client/wx_build/jg_gameD_obfuscator";
+        sourceProject = "wx_build/jg_gameD_new";
+        targetProject = "wx_build/jg_gameD_obfuscator";
         targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
         mainJsName = "dddmain.js";
         filesMap = {
@@ -1047,13 +1047,13 @@ var set_param_e = function () {
         }
 
         DEST = '../../client/wx_dist/packageE/';
-        BUILD = '../../client/wx_build/';
+        BUILD = 'wx_build/';
         PACK = 'jg_gameE';
         INIT_PATH = '/';
         SCOPE = 'abcdefghklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ij';
         PREFIX = 'E';
-        sourceProject = "../../client/wx_build/jg_gameE_new";
-        targetProject = "../../client/wx_build/jg_gameE_obfuscator";
+        sourceProject = "wx_build/jg_gameE_new";
+        targetProject = "wx_build/jg_gameE_obfuscator";
         targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
         mainJsName = "eeemain.js";
         packageName1 = "eeelibs";
@@ -1279,13 +1279,13 @@ var set_param_f = function () {
         }
 
         DEST = '../../client/wx_dist/packageF/';
-        BUILD = '../../client/wx_build/';
+        BUILD = 'wx_build/';
         PACK = 'jg_gameF';
         INIT_PATH = '/';
         SCOPE = 'abcdefghijmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_kl';
         PREFIX = 'F';
-        sourceProject = "../../client/wx_build/jg_gameF_new";
-        targetProject = "../../client/wx_build/jg_gameF_obfuscator";
+        sourceProject = "wx_build/jg_gameF_new";
+        targetProject = "wx_build/jg_gameF_obfuscator";
         targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
         mainJsName = "fffmain.js";
         packageName1 = "ffflibs";
@@ -1512,13 +1512,13 @@ var set_param_g = function () {
         }
 
         DEST = '../../client/wx_dist/packageG/';
-        BUILD = '../../client/wx_build/';
+        BUILD = 'wx_build/';
         PACK = 'jg_gameG';
         INIT_PATH = '/';
         SCOPE = 'abcdefghijklopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_mn';
         PREFIX = 'G';
-        sourceProject = "../../client/wx_build/jg_gameG_new";
-        targetProject = "../../client/wx_build/jg_gameG_obfuscator";
+        sourceProject = "wx_build/jg_gameG_new";
+        targetProject = "wx_build/jg_gameG_obfuscator";
         targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
         mainJsName = "gggmain.js";
         packageName1 = "ggglibs";
@@ -1745,13 +1745,13 @@ var set_param_h = function () {
         }
 
         DEST = '../../client/wx_dist/packageH/';
-        BUILD = '../../client/wx_build/';
+        BUILD = 'wx_build/';
         PACK = 'jg_gameH';
         INIT_PATH = '/';
         SCOPE = 'abcdefghijklmnqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_op';
         PREFIX = 'H_';
-        sourceProject = "../../client/wx_build/jg_gameH_new";
-        targetProject = "../../client/wx_build/jg_gameH_obfuscator";
+        sourceProject = "wx_build/jg_gameH_new";
+        targetProject = "wx_build/jg_gameH_obfuscator";
         targetFileMap = {"game_main.js":{url:"game_main.js",extractStr:false,count:5,strLen:13}};
         mainJsName = "hhhhmain.js";
         packageName1 = "hhhlibs";
@@ -1966,6 +1966,12 @@ gulp.task('build-babel-obfuscator-H', function (cb) {
 
 /**-------------------------------------------------微信小游戏--H包  end-----------------------------------------------------------*/
 
+//打包所有
+gulp.task('打包所有', function (cb) {
+    // sequence("build-babel-obfuscator-B","build-babel-obfuscator-C","build-babel-obfuscator-E","build-babel-obfuscator-F","build-babel-obfuscator-G","build-babel-obfuscator-H",cb);
+    sequence("build-babel-obfuscator-B","build-babel-obfuscator-C","build-babel-obfuscator-E","build-babel-obfuscator-F","build-babel-obfuscator-H",cb);
+
+});
 
 /**文件压缩*/
 var js_minify = function () {
@@ -2474,6 +2480,14 @@ var js_babel = function () {
                                 index = arrIndex;
                                 add = true;
                             }
+                            // 暂时不用
+                            // var strLength = tempstr.length + 1; //字符的数量
+                            // var arrExpression = arrayName+"["+index+"]";
+                            // var arrNameLength = arrExpression.length;
+                            // if(arrNameLength > strLength && !isChinese){
+                            //     add = false;
+                            //     console.log("长度过大，不替换:",tempstr,"strLength：",strLength,"arrExpression:",arrExpression,"arrExpression length:",arrNameLength)
+                            // }
 
                             // console.log("输出-------------：",1);
                             var numericLiteral = babel_types.numericLiteral(index);
@@ -2492,6 +2506,7 @@ var js_babel = function () {
                                 globleArrs.push(tempstr);
                                 globleArrsObj[tempstr] = arrIndex;
                                 arrIndex = globleArrs.length;
+                                console.log("成功的字符串:",tempstr,"替换失败")
                             }
                         } catch (error) {
                             // console.log("失败的字符串:",tempstr,"替换失败")
@@ -2675,6 +2690,15 @@ var js_babel_str = function () {
                                 index = arrIndex;
                                 add = true;
                             }
+                            // 暂时不用
+                            // var strLength = tempstr.length + 1; //字符的数量
+                            // var arrExpression = arrayName+"["+index+"]";
+                            // var arrNameLength = arrExpression.length;
+                            // if(arrNameLength > strLength && !isChinese){
+                            //     add = false;
+                            //     console.log("长度过大，不替换:",tempstr,"strLength：",strLength,"arrExpression:",arrExpression,"arrExpression length:",arrNameLength)
+                            // }
+
                             var numericLiteral = babel_types.numericLiteral(index);
                             if(numberToHex){
                                 var hexValue = "0x"+index.toString(16);
@@ -2741,10 +2765,10 @@ var end_babel = function () {
         }
 
         //生成 files.zip
-
         var str = JSON.stringify(globleArrs);
         console.log("globleArrs长度：",globleArrs.length)
         var zipfile = new jszip().file("files", str);
+        var self = this;
         zipfile.generateAsync({type: "uint8array", compression: "DEFLATE", compressionOptions: {level: 9}}).then(function(content) {
             if (content) {
                 var p = path.resolve(targetProject + strFilePath);
@@ -2756,13 +2780,14 @@ var end_babel = function () {
                 console.log("生成files.zip:",p);
                 fs.writeFileSync(targetProject + strFilePath+strFileName, content, {encoding: "utf8"});
                 // fs.writeFileSync(targetProject + "/res/str.txt", str, {encoding:"utf8"});
+                cb();
+                self.emit("data", file);
             }
         });
 
         // fs.writeFileSync("./qq_build/jg_gameA_identifiersMap.txt", identifiersRenameMapStr, {encoding:"utf8"});
 
-        cb();
-        this.emit("data", file);
+
     }
 
     // 不处理end 使用默认的end
@@ -2771,7 +2796,7 @@ var end_babel = function () {
 gulp.task("build-js-babel", function () {
     var stream = gulp
         .src(sourceProject + '/**/*.js')
-        .pipe(js_babel())
+        .pipe(js_babel()) //暂时不用这个
         .pipe(gulp.dest(targetProject + "/"))
     return stream;
 });
@@ -2942,7 +2967,7 @@ var mt1Replace = {}
 
 //压缩
 gulp.task('MT1_build_minify', function () {
-    var sourceUrl =  sourceProject;// "../../client/wx_build/jg_gameMT1_new";
+    var sourceUrl =  sourceProject;// "wx_build/jg_gameMT1_new";
     var srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/**/'+mainJsName];
     if(PREFIX == "G"){
         //g包SDK都不處理
@@ -2963,7 +2988,7 @@ gulp.task('CleanNewFolder',function(){
 })
 
 gulp.task('MT1_COPY', function () {
-    var sourceUrl = "../../client/wx_build/"+ PACK;
+    var sourceUrl = "wx_build/"+ PACK;
     var targetUrl =  sourceProject;
     return gulp.src(sourceUrl + "/" + '/**/*')
         .pipe(rename(function (path) {
@@ -3100,8 +3125,8 @@ gulp.task('MT1_COPY', function () {
 });
 
 gulp.task('MT1_COPY2', function () {
-    var sourceUrl =  sourceProject;// "../../client/wx_build/jg_gameMT1_new";
-    var targetUrl = targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
+    var sourceUrl =  sourceProject;// "wx_build/jg_gameMT1_new";
+    var targetUrl = targetProject;// "wx_build/jg_gameMT1_obfuscator";
     var req = "sourceUrl + " / " + '/**/*";
     return gulp.src([sourceUrl + "/" + '/**/*.png', sourceUrl + "/" + '/**/*.jpg', sourceUrl + "/" + '/**/*.json'])
         .pipe(gulp.dest(targetUrl + '/'));
@@ -3127,7 +3152,7 @@ gulp.task('cleanGameJs',function(){
 
 //随机产生辣鸡空文件
 gulp.task('CREATE_REFUSEFILE', function () {
-    var targetUrl = targetProject;//"../../client/wx_build/jg_gameMT1_obfuscator";
+    var targetUrl = targetProject;//"wx_build/jg_gameMT1_obfuscator";
     return gulp.src(targetUrl + "/game.js")
         .pipe(createRefuseFile())
         .pipe(gulp.dest(targetUrl + '/'));
@@ -3138,7 +3163,7 @@ gulp.task('CREATE_REFUSEFILE', function () {
 
 //删除随机产生的辣鸡空文件
 gulp.task('DEL_REFUSEFILE', function () {
-    var targetUrl = targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
+    var targetUrl = targetProject;// "wx_build/jg_gameMT1_obfuscator";
     return gulp.src(targetUrl + "/game.js")
         .pipe(deleteRefuseFile())
         .pipe(gulp.dest(targetUrl + '/'));
@@ -3202,10 +3227,10 @@ gulp.task('DEL_REFUSEFILE_H', function (cb) {
 
 //无网络 使用这个图片压缩
 gulp.task('gulp-imagemin', function (cb) {
-    sourceProject = "../../client/wx_build/jg_gameE_new";
-    targetProject = "../../client/wx_build/jg_gameE_obfuscator";
-    var sourceUrl =  sourceProject;// "../../client/wx_build/jg_gameMT1_new";
-    var targetUrl = targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
+    sourceProject = "wx_build/jg_gameE_new";
+    targetProject = "wx_build/jg_gameE_obfuscator";
+    var sourceUrl =  sourceProject;// "wx_build/jg_gameMT1_new";
+    var targetUrl = targetProject;// "wx_build/jg_gameMT1_obfuscator";
     return gulp.src([sourceUrl + "/" + '/**/*'])
         .pipe(imagemin({
             optimizationLevel: 7, //类型：Number  默认：3  取值范围：0-7（优化等级）
@@ -3219,10 +3244,10 @@ gulp.task('gulp-imagemin', function (cb) {
 
 //有网络 使用这个 图片压缩
 gulp.task('gulp-tingPNG', function (cb) {
-    sourceProject = "../../client/wx_build/jg_gameE_new";
-    targetProject = "../../client/wx_build/jg_gameE_obfuscator";
-    var sourceUrl =  sourceProject;// "../../client/wx_build/jg_gameMT1_new";
-    var targetUrl = targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
+    sourceProject = "wx_build/jg_gameE_new";
+    targetProject = "wx_build/jg_gameE_obfuscator";
+    var sourceUrl =  sourceProject;// "wx_build/jg_gameMT1_new";
+    var targetUrl = targetProject;// "wx_build/jg_gameMT1_obfuscator";
     return gulp.src([sourceUrl + "/" + '/**/*.{png,jpg}'])
         .pipe(tiny())
         .pipe(gulp.dest(targetUrl + '/'));
@@ -3230,10 +3255,10 @@ gulp.task('gulp-tingPNG', function (cb) {
 
 //图片压缩 太慢了不用这个
 gulp.task('gulp_smushit', function (cb) {
-    sourceProject = "../../client/wx_build/jg_gameE_new";
-    targetProject = "../../client/wx_build/jg_gameE_obfuscator";
-    var sourceUrl =  sourceProject;// "../../client/wx_build/jg_gameMT1_new";
-    var targetUrl = targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
+    sourceProject = "wx_build/jg_gameE_new";
+    targetProject = "wx_build/jg_gameE_obfuscator";
+    var sourceUrl =  sourceProject;// "wx_build/jg_gameMT1_new";
+    var targetUrl = targetProject;// "wx_build/jg_gameMT1_obfuscator";
     return gulp.src([sourceUrl + "/" + '/**/*.{jpg,png}'])
         .pipe(smushit())
         .pipe(gulp.dest(targetUrl + '/'));
@@ -3241,7 +3266,7 @@ gulp.task('gulp_smushit', function (cb) {
 
 var deleteRefuseFile = function () {
     function onFile(file, enc, cb) {
-        var targetUrl =  targetProject;////"../../client/wx_build/jg_gameMT1_obfuscator";
+        var targetUrl =  targetProject;////"wx_build/jg_gameMT1_obfuscator";
 
         function delTempFile(foldPath) {
             var files = fs.readdirSync(foldPath);
@@ -3272,7 +3297,7 @@ var deleteRefuseFile = function () {
 //随机产生辣鸡空文件
 var createRefuseFile = function () {
     function onFile(file, enc, cb) {
-        var targetUrl =  targetProject;// "../../client/wx_build/jg_gameMT1_obfuscator";
+        var targetUrl =  targetProject;// "wx_build/jg_gameMT1_obfuscator";
 
         function delTempFile(foldPath) {
             var files = fs.readdirSync(foldPath);
