@@ -1,330 +1,332 @@
 'use strict';
-var gsx37zu,
-    gcm4a = this && this['__extends'] || function () {
-  var kfz7x = Object['setPrototypeOf'] || { '__proto__': [] } instanceof Array && function (a2y4, el_h8) {
-    a2y4['__proto__'] = el_h8;
-  } || function (szxk7f, _hg9l6) {
-    for (var $j_gh in _hg9l6) _hg9l6['hasOwnProperty']($j_gh) && (szxk7f[$j_gh] = _hg9l6[$j_gh]);
-  };return function (w_e9l, ubpv37) {
-    function xus7kz() {
-      this['constructor'] = w_e9l;
-    }kfz7x(w_e9l, ubpv37), w_e9l['prototype'] = null === ubpv37 ? Object['create'](ubpv37) : (xus7kz['prototype'] = ubpv37['prototype'], new xus7kz());
+
+var m = wx.$g;
+var gvea43,
+    gdy4wae = this && this[m[0]] || function () {
+  var s8fkg = Object[m[1]] || { '__proto__': [] } instanceof Array && function (dv3ae, va4wed) {
+    dv3ae[m[26617]] = va4wed;
+  } || function (cl09p, gfs_) {
+    for (var h1yiw in gfs_) gfs_[m[3]](h1yiw) && (cl09p[h1yiw] = gfs_[h1yiw]);
+  };return function (k9pcl5, irbh_1) {
+    function qujtx() {
+      this[m[4]] = k9pcl5;
+    }s8fkg(k9pcl5, irbh_1), k9pcl5[m[5]] = null === irbh_1 ? Object[m[6]](irbh_1) : (qujtx[m[5]] = irbh_1[m[5]], new qujtx());
   };
 }(),
-    gbpouv = laya['ui']['View'],
-    gopwtq = laya['ui']['Dialog'];!function (to8qe) {
-  var qtp = (gcm4a(zkxus7, bvp7u3 = gbpouv), zkxus7['prototype']['createChildren'] = function () {
-    bvp7u3['prototype']['createChildren']['call'](this), this['createView'](to8qe['Ga']['uiView']);
-  }, zkxus7['uiView'] = { 'type': 'View', 'props': { 'width': 0x2d0, 'name': 'P_WXAuthorizationViewUI', 'height': 0x500 }, 'child': [{ 'type': 'Image', 'props': { 'width': 0x2d0, 'var': 'bgImg', 'skin': 'ggglogin/g2b.jpg', 'name': 'bg', 'height': 0x500, 'centerY': 0x0, 'centerX': 0x0 } }, { 'type': 'Box', 'props': { 'y': 0x0, 'width': 0x2d0, 'right': 0x0, 'height': 0x500 }, 'child': [{ 'type': 'Image', 'props': { 'width': 0x2d0, 'var': 'topImg', 'top': -0x8b, 'skin': 'ggglogin/g6b.jpg', 'height': 0x8b, 'centerX': 0x0, 'anchorY': 0x1 } }, { 'type': 'Image', 'props': { 'width': 0x2d0, 'var': 'btmImg', 'top': 0x500, 'skin': 'ggglogin/g3b.jpg', 'height': 0x8b, 'centerX': 0x0 } }, { 'type': 'Image', 'props': { 'x': -0xdc, 'width': 0xdc, 'var': 'leftImg', 'skin': 'ggglogin/g4b.jpg', 'left': -0xdc, 'height': 0x500, 'centerY': 0x0 } }, { 'type': 'Image', 'props': { 'width': 0xdc, 'var': 'rightImg', 'skin': 'ggglogin/g5b.jpg', 'left': 0x2d0, 'height': 0x500, 'centerY': 0x0 } }] }] }, zkxus7);function zkxus7() {
-    return bvp7u3['call'](this) || this;
-  }var bvp7u3;to8qe['Ga'] = qtp;
-}(gsx37zu = gsx37zu || {}), function (j0iy1) {
-  var xsfzk7 = (gcm4a(yrj$i1, j$riy = gbpouv), yrj$i1['prototype']['createChildren'] = function () {
-    j$riy['prototype']['createChildren']['call'](this), this['createView'](j0iy1['Gb']['uiView']);
-  }, yrj$i1['uiView'] = { 'type': 'View', 'props': { 'width': 0x2d0, 'name': 'P_LoadingView', 'height': 0x500 }, 'child': [{ 'type': 'Image', 'props': { 'width': 0x2d0, 'var': 'bgImg', 'name': 'bg', 'height': 0x500, 'centerY': 0x0, 'centerX': 0x0 } }, { 'type': 'Box', 'props': { 'y': 0x0, 'x': 0x0, 'width': 0x2d0, 'height': 0x500 }, 'child': [{ 'type': 'Image', 'props': { 'var': 'topImg', 'centerX': 0x0, 'bottom': 0x500, 'anchorY': 0x1 } }, { 'type': 'Image', 'props': { 'var': 'btmImg', 'top': 0x500, 'centerX': 0x0 } }, { 'type': 'Image', 'props': { 'var': 'leftImg', 'right': 0x2d0, 'pivotX': 0x1, 'centerY': 0x0 } }, { 'type': 'Image', 'props': { 'var': 'rightImg', 'left': 0x2d0, 'centerY': 0x0 } }] }, { 'type': 'Image', 'props': { 'var': 'copyRightImg', 'skin': 'ggglogin/g1b.png', 'centerX': 0x0, 'bottom': 0xa } }, { 'type': 'Box', 'props': { 'y': 0x3c3, 'x': 0x0, 'width': 0x2d0, 'var': 'processBox1', 'name': 'processBox1', 'height': 0x82 }, 'child': [{ 'type': 'Image', 'props': { 'y': 0x2e, 'x': 0x3e, 'width': 0x254, 'var': 'loadingBarBg', 'skin': 'gggloding/g13a.png', 'height': 0x1b, 'centerX': 0x0 } }, { 'type': 'Image', 'props': { 'y': 0x31, 'x': 0x40, 'width': 0x24e, 'var': 'loadingBar', 'skin': 'gggloding/g14a.png', 'height': 0x15 } }, { 'type': 'Image', 'props': { 'y': 0x37, 'x': 0x1fb, 'width': 0xd0, 'var': 'loadingImg1', 'skin': 'gggloding/g16a.png', 'height': 0xb } }, { 'type': 'Image', 'props': { 'y': 0x6, 'x': 0x274, 'width': 0x27, 'var': 'loadingImg2', 'skin': 'gggloding/g17a.png', 'height': 0x74 } }, { 'type': 'Label', 'props': { 'y': 0x30, 'x': 0x125, 'width': 0x86, 'var': 'percentageTips', 'valign': 'middle', 'text': '88%', 'strokeColor': '#565353', 'stroke': 0x3, 'height': 0x18, 'fontSize': 0x18, 'color': '#fbfbf9', 'centerX': 0x0, 'bold': !0x1, 'align': 'center' } }] }, { 'type': 'Box', 'props': { 'y': 0x429, 'x': 0x0, 'width': 0x2d0, 'var': 'processBox2', 'name': 'processBox2', 'height': 0x11 }, 'child': [{ 'type': 'Image', 'props': { 'y': 0x0, 'x': 0x133, 'var': 'point1', 'skin': 'gggloding/g20a.png', 'centerX': -0x2d } }, { 'type': 'Image', 'props': { 'y': 0x0, 'x': 0x151, 'var': 'point2', 'skin': 'gggloding/g19a.png', 'centerX': -0xf } }, { 'type': 'Image', 'props': { 'y': 0x0, 'x': 0x16f, 'var': 'point3', 'skin': 'gggloding/g18a.png', 'centerX': 0xf } }, { 'type': 'Image', 'props': { 'y': 0x0, 'x': 0x18d, 'var': 'point4', 'skin': 'gggloding/g18a.png', 'centerX': 0x2d } }] }, { 'type': 'Button', 'props': { 'y': 0x316, 'x': 0x37, 'visible': !0x1, 'var': 'getTipsBtn', 'stateNum': 0x1, 'skin': 'gggloding/g1a.png', 'name': 'getTipsBtn', 'labelSize': 0x1e, 'labelFont': 'SimHei', 'labelColors': '#af4158' }, 'child': [{ 'type': 'Label', 'props': { 'y': 0x9b, 'x': 0x92, 'width': 0x143, 'var': 'txtGetTm', 'text': '立即领取(5s)', 'name': 'txtGetTm', 'height': 0x1e, 'fontSize': 0x1e, 'color': '#bd4f1e', 'align': 'center' } }] }, { 'type': 'Label', 'props': { 'y': 0x453, 'width': 0x1f4, 'var': 'loadingTips', 'valign': 'middle', 'text': '加载描述', 'height': 0x1a, 'fontSize': 0x1a, 'color': '#f2ffb5', 'centerX': 0x0, 'bold': !0x1, 'align': 'center' } }, { 'type': 'Label', 'props': { 'y': 0xa, 'x': 0xa, 'width': 0x156, 'var': 'versionTxt', 'valign': 'middle', 'top': 0x14, 'text': '版本\uFF1A100', 'right': 0x14, 'height': 0x20, 'fontSize': 0x18, 'color': '#163274', 'bold': !0x1, 'align': 'right' } }] }, yrj$i1);function yrj$i1() {
-    return j$riy['call'](this) || this;
-  }var j$riy;j0iy1['Gb'] = xsfzk7;
-}(gsx37zu = gsx37zu || {}), function (obqp) {
-  var j6g$h_ = (gcm4a(hg9_6l, xfsdkz = gbpouv), hg9_6l['prototype']['createChildren'] = function () {
-    gbpouv['regComponent']('Text', laya['display']['Text']), xfsdkz['prototype']['createChildren']['call'](this), this['createView'](obqp['Gc']['uiView']);
-  }, hg9_6l['uiView'] = { 'type': 'View', 'props': { 'width': 0x2d0, 'name': 'P_SelectServerViewUI', 'height': 0x500 }, 'child': [{ 'type': 'Image', 'props': { 'width': 0x2d0, 'var': 'bgImg', 'skin': 'ggglogin/g2b.jpg', 'name': 'bg', 'height': 0x500, 'centerY': 0x0, 'centerX': 0x0 } }, { 'type': 'Box', 'props': { 'y': 0x0, 'x': 0x0, 'width': 0x2d0, 'height': 0x500 }, 'child': [{ 'type': 'Image', 'props': { 'width': 0x2d0, 'var': 'topImg', 'top': -0x8b, 'skin': 'ggglogin/g6b.jpg', 'height': 0x8b, 'centerX': 0x0 } }, { 'type': 'Image', 'props': { 'width': 0x2d0, 'var': 'btmImg', 'top': 0x500, 'skin': 'ggglogin/g3b.jpg', 'height': 0x8b, 'centerX': 0x0 } }, { 'type': 'Image', 'props': { 'width': 0xdc, 'var': 'leftImg', 'skin': 'ggglogin/g4b.jpg', 'left': -0xdc, 'height': 0x500, 'centerY': 0x0 } }, { 'type': 'Image', 'props': { 'width': 0xdc, 'var': 'rightImg', 'skin': 'ggglogin/g5b.jpg', 'left': 0x2d0, 'height': 0x500, 'centerY': 0x0 } }] }, { 'type': 'Image', 'props': { 'y': 0x34d, 'var': 'selectServer', 'skin': 'ggglogin/g21b.png', 'centerX': 0x0 } }, { 'type': 'Image', 'props': { 'y': 0x3a2, 'x': 0xa2, 'var': 'hotImage', 'skin': 'ggglogin/g18b.png' } }, { 'type': 'Image', 'props': { 'var': 'copyRightImg', 'skin': 'ggglogin/g1b.png', 'centerX': 0x0, 'bottom': 0xa } }, { 'type': 'Image', 'props': { 'y': 0x3f7, 'var': 'enterBtn', 'stateNum': 0x1, 'skin': 'ggglogin/g12b.png', 'name': 'enterBtn', 'centerX': 0x0 } }, { 'type': 'Label', 'props': { 'y': 0x3a4, 'x': 0x209, 'var': 'selServer', 'valign': 'middle', 'text': '选服>', 'height': 0x20, 'fontSize': 0x1e, 'color': '#feffc0', 'bold': !0x1, 'align': 'center' } }, { 'type': 'Label', 'props': { 'y': 0x3a4, 'width': 0x156, 'var': 'serverName', 'valign': 'middle', 'text': '0000000000001服', 'height': 0x20, 'fontSize': 0x1e, 'color': '#feffc0', 'centerX': 0x0, 'bold': !0x1, 'align': 'center' } }, { 'type': 'Label', 'props': { 'width': 0x156, 'var': 'versionTxt', 'valign': 'middle', 'top': 0x14, 'text': '版本\uFF1A100', 'right': 0x14, 'height': 0x20, 'fontSize': 0x18, 'color': '#163274', 'bold': !0x1, 'align': 'right' } }, { 'type': 'Image', 'props': { 'y': 0x7f, 'x': 593.5, 'var': 'noticeBtn', 'skin': 'ggglogin/g11b.png' } }, { 'type': 'Image', 'props': { 'y': 0x47, 'x': -0x2, 'visible': !0x1, 'var': 'noticeBg', 'skin': 'ggglogin/g8b.png', 'centerY': 0x0, 'centerX': 0x0 }, 'child': [{ 'type': 'Image', 'props': { 'y': 36.5, 'x': 0x268, 'var': 'noticeClose', 'skin': 'ggglogin/g10b.png' } }, { 'type': 'Label', 'props': { 'y': 0x48, 'x': 0xd8, 'width': 0xea, 'var': 'noticeTitle', 'valign': 'middle', 'text': '暂无公告', 'height': 0x23, 'fontSize': 0x1e, 'color': '#ffffff', 'bold': !0x1, 'align': 'center' } }, { 'type': 'Text', 'props': { 'y': 0x8e, 'x': 0x3d, 'wordWrap': !0x0, 'width': 0x221, 'var': 'noticeContent', 'valign': 'top', 'overflow': 'scroll', 'mouseEnabled': !0x0, 'leading': 0x4, 'height': 0x366, 'fontSize': 0x1a, 'color': '#212942' } }] }, { 'type': 'Image', 'props': { 'y': 0x71, 'x': 0x21, 'visible': !0x1, 'var': 'mNoticeBg', 'skin': 'ggglogin/g26b.png', 'centerY': 0x0, 'centerX': 0x0 }, 'child': [{ 'type': 'Image', 'props': { 'y': 36.5, 'x': 0x268, 'var': 'mNoticeClose', 'skin': 'ggglogin/g10b.png' } }, { 'type': 'Box', 'props': { 'y': 0x388, 'x': 0x22, 'width': 0x254, 'var': 'boxTab', 'height': 0x3b } }, { 'type': 'Label', 'props': { 'y': 0x48, 'x': 0xd8, 'width': 0xea, 'var': 'mNoticeTitle', 'valign': 'middle', 'text': '暂无公告', 'height': 0x23, 'fontSize': 0x1e, 'color': '#ffffff', 'bold': !0x1, 'align': 'center' } }, { 'type': 'Text', 'props': { 'y': 0x8e, 'x': 0x3d, 'wordWrap': !0x0, 'width': 0x221, 'var': 'mNoticeContent', 'valign': 'top', 'overflow': 'scroll', 'mouseEnabled': !0x0, 'leading': 0x4, 'height': 0x2dd, 'fontSize': 0x1a, 'color': '#212942' } }] }, { 'type': 'Image', 'props': { 'visible': !0x1, 'var': 'listBg', 'skin': 'ggglogin/g9b.png', 'centerY': 0x0, 'centerX': 0x0 }, 'child': [{ 'type': 'Box', 'props': { 'y': 0x75, 'x': 0x3d, 'width': 0xc8, 'var': 'leftListBox', 'height': 0x389 } }, { 'type': 'Box', 'props': { 'y': 0x75, 'x': 0x125, 'width': 0x166, 'var': 'rightListBox', 'height': 0x389 } }, { 'type': 'Image', 'props': { 'y': 0xd, 'x': 0x282, 'var': 'closeBg', 'skin': 'ggglogin/g17b.png' } }] }] }, hg9_6l);function hg9_6l() {
-    return xfsdkz['call'](this) || this;
-  }var xfsdkz;obqp['Gc'] = j6g$h_;
-}(gsx37zu = gsx37zu || {}), function (ltw8qe) {
-  function pteow() {
-    return pvbo['call'](this) || this;
-  }var pvbo;ltw8qe = ltw8qe['Gd'] || (ltw8qe['Gd'] = {}), pvbo = gsx37zu['Ga'], gcm4a(pteow, pvbo), pteow['prototype']['initialize'] = function () {
-    pvbo['prototype']['initialize']['call'](this), this['centerX'] = 0x0, this['centerY'] = 0x0, this['addEvt'](), this['onOpened']();
-  }, pteow['prototype']['addEvt'] = function () {
-    this['on'](Laya['Event']['CLICK'], this, this['Ge']);
-  }, pteow['prototype']['rmEvts'] = function () {
-    this['off'](Laya['Event']['CLICK'], this, this['Ge']);
-  }, pteow['prototype']['onOpened'] = function () {
-    this['Gf'] = Date['now'](), gvqptw['instance']['G$Q$YL8'](), gvqptw['instance']['preloadLoading']();
-  }, pteow['prototype']['destroy'] = function (z7kxsf) {
-    void 0x0 === z7kxsf && (z7kxsf = !0x0), this['rmEvts'](), pvbo['prototype']['destroy']['call'](this, z7kxsf);
-  }, pteow['prototype']['Ge'] = function () {
-    0x2710 < Date['now']() - this['Gf'] && (this['Gf'] -= 0x3e8, gg6_jh$['window']['G$Y$']['selectedServer']['server_id'] && (gvqptw['instance']['enterDefaultServer'](), gvqptw['instance']['sendRecord']()));
-  }, ltw8qe['AuthorizationPanel'] = pteow;
-}(modules = modules || {}), function (xs3z7u) {
-  var hjg$6_, qotvpb, b3p7uv, zvbu3;function ig61j() {
-    var g6lh9 = votpbq['call'](this) || this;return g6lh9['Gh'] = new b3p7uv(), g6lh9['addChild'](g6lh9['Gh']), g6lh9['Gi'] = null, g6lh9['Gj'] = [], g6lh9['Gk'] = !0x1, g6lh9['Gl'] = 0x0, g6lh9['Go'] = !0x0, g6lh9['Gp'] = 0x6, g6lh9['Gq'] = !0x1, g6lh9['on'](qotvpb['DISPLAY'], g6lh9, g6lh9['Gr']), g6lh9['on'](qotvpb['UNDISPLAY'], g6lh9, g6lh9['Gs']), g6lh9;
-  }var votpbq;hjg$6_ = xs3z7u['Gg'] || (xs3z7u['Gg'] = {}), qotvpb = Laya['Event'], b3p7uv = Laya['Image'], xs3z7u = Laya['Component'], zvbu3 = Laya['Loader'], gcm4a(ig61j, votpbq = xs3z7u), ig61j['create'] = function (v73uz, gij6, hg98_l, zfskd, kfx7, kzxsd, ghl_6) {
-    void 0x0 === zfskd && (zfskd = 0x0), void 0x0 === kfx7 && (kfx7 = 0x6), void 0x0 === kzxsd && (kzxsd = !0x0), void 0x0 === ghl_6 && (ghl_6 = !0x1);var bpu3o = new ig61j();return bpu3o['skin'](gij6, hg98_l, zfskd), bpu3o['durFrm'] = kfx7, bpu3o['loop'] = kzxsd, bpu3o['atHide'] = ghl_6, v73uz && v73uz['addChild'](bpu3o), bpu3o;
-  }, ig61j['play'] = function (ptvwo) {
-    ptvwo && (ptvwo['visible'] = !0x0, ptvwo['play']());
-  }, ig61j['stop'] = function (tqeow8) {
-    tqeow8 && (tqeow8['visible'] = !0x1, tqeow8['stop']());
-  }, ig61j['prototype']['destroy'] = function (topwe) {
-    Laya['timer']['clear'](this, this['Gt']), this['off'](qotvpb['DISPLAY'], this, this['Gr']), this['off'](qotvpb['UNDISPLAY'], this, this['Gs']), votpbq['prototype']['destroy']['call'](this, topwe);
-  }, ig61j['prototype']['Gr'] = function () {}, ig61j['prototype']['Gs'] = function () {}, ig61j['prototype']['skin'] = function (z7sxku, uskzx7, w89le) {
-    if (this['Gi'] != z7sxku) {
-      this['Gi'] = z7sxku, this['Gj'] = [];for (var kzdfs = 0x0, ou3b = w89le; ou3b <= uskzx7; ou3b++) this['Gj'][kzdfs++] = z7sxku + '/' + ou3b + '.png';w89le = zvbu3['getRes'](this['Gj'][0x0]), (w89le && (this['width'] = w89le['sourceWidth'], this['height'] = w89le['sourceHeight']), this['Gt']());
+    gcz5pk = laya['ui'][m[1465]],
+    g_bi1$ = laya['ui'][m[1477]];!function (o6092) {
+  var br_hi = (gdy4wae(b_h1r, $r_sfi = gcz5pk), b_h1r[m[5]][m[1495]] = function () {
+    $r_sfi[m[5]][m[1495]][m[18]](this), this[m[1448]](o6092['$c'][m[26618]]);
+  }, b_h1r[m[26618]] = { 'type': m[1465], 'props': { 'width': 0x2d0, 'name': m[26619], 'height': 0x500 }, 'child': [{ 'type': m[1103], 'props': { 'width': 0x2d0, 'var': m[1476], 'skin': m[26620], 'name': 'bg', 'height': 0x500, 'centerY': 0x0, 'centerX': 0x0 } }, { 'type': m[3402], 'props': { 'y': 0x0, 'width': 0x2d0, 'right': 0x0, 'height': 0x500 }, 'child': [{ 'type': m[1103], 'props': { 'width': 0x2d0, 'var': m[21425], 'top': -0x8b, 'skin': m[26621], 'height': 0x8b, 'centerX': 0x0, 'anchorY': 0x1 } }, { 'type': m[1103], 'props': { 'width': 0x2d0, 'var': m[26622], 'top': 0x500, 'skin': m[26623], 'height': 0x8b, 'centerX': 0x0 } }, { 'type': m[1103], 'props': { 'x': -0xdc, 'width': 0xdc, 'var': m[26624], 'skin': m[26625], 'left': -0xdc, 'height': 0x500, 'centerY': 0x0 } }, { 'type': m[1103], 'props': { 'width': 0xdc, 'var': m[26626], 'skin': m[26627], 'left': 0x2d0, 'height': 0x500, 'centerY': 0x0 } }] }] }, b_h1r);function b_h1r() {
+    return $r_sfi[m[18]](this) || this;
+  }var $r_sfi;o6092['$c'] = br_hi;
+}(gvea43 = gvea43 || {}), function (utj3q) {
+  var gsf8z$ = (gdy4wae(eat3v, $fisr_ = gcz5pk), eat3v[m[5]][m[1495]] = function () {
+    $fisr_[m[5]][m[1495]][m[18]](this), this[m[1448]](utj3q['$d'][m[26618]]);
+  }, eat3v[m[26618]] = { 'type': m[1465], 'props': { 'width': 0x2d0, 'name': m[26628], 'height': 0x500 }, 'child': [{ 'type': m[1103], 'props': { 'width': 0x2d0, 'var': m[1476], 'name': 'bg', 'height': 0x500, 'centerY': 0x0, 'centerX': 0x0 } }, { 'type': m[3402], 'props': { 'y': 0x0, 'x': 0x0, 'width': 0x2d0, 'height': 0x500 }, 'child': [{ 'type': m[1103], 'props': { 'var': m[21425], 'centerX': 0x0, 'bottom': 0x500, 'anchorY': 0x1 } }, { 'type': m[1103], 'props': { 'var': m[26622], 'top': 0x500, 'centerX': 0x0 } }, { 'type': m[1103], 'props': { 'var': m[26624], 'right': 0x2d0, 'pivotX': 0x1, 'centerY': 0x0 } }, { 'type': m[1103], 'props': { 'var': m[26626], 'left': 0x2d0, 'centerY': 0x0 } }] }, { 'type': m[1103], 'props': { 'var': m[26629], 'skin': m[26630], 'centerX': 0x0, 'bottom': 0xa } }, { 'type': m[3402], 'props': { 'y': 0x3c3, 'x': 0x0, 'width': 0x2d0, 'var': m[26631], 'name': m[26631], 'height': 0x82 }, 'child': [{ 'type': m[1103], 'props': { 'y': 0x2e, 'x': 0x3e, 'width': 0x254, 'var': m[26632], 'skin': m[26633], 'height': 0x1b, 'centerX': 0x0 } }, { 'type': m[1103], 'props': { 'y': 0x31, 'x': 0x40, 'width': 0x24e, 'var': m[26634], 'skin': m[26635], 'height': 0x15 } }, { 'type': m[1103], 'props': { 'y': 0x37, 'x': 0x1fb, 'width': 0xd0, 'var': m[26636], 'skin': m[26637], 'height': 0xb } }, { 'type': m[1103], 'props': { 'y': 0x6, 'x': 0x274, 'width': 0x27, 'var': m[26638], 'skin': m[26639], 'height': 0x74 } }, { 'type': m[6349], 'props': { 'y': 0x30, 'x': 0x125, 'width': 0x86, 'var': m[26640], 'valign': m[11743], 'text': m[26641], 'strokeColor': m[26642], 'stroke': 0x3, 'height': 0x18, 'fontSize': 0x18, 'color': m[26643], 'centerX': 0x0, 'bold': !0x1, 'align': m[1454] } }] }, { 'type': m[3402], 'props': { 'y': 0x429, 'x': 0x0, 'width': 0x2d0, 'var': m[26644], 'name': m[26644], 'height': 0x11 }, 'child': [{ 'type': m[1103], 'props': { 'y': 0x0, 'x': 0x133, 'var': m[17943], 'skin': m[26645], 'centerX': -0x2d } }, { 'type': m[1103], 'props': { 'y': 0x0, 'x': 0x151, 'var': m[17945], 'skin': m[26646], 'centerX': -0xf } }, { 'type': m[1103], 'props': { 'y': 0x0, 'x': 0x16f, 'var': m[17944], 'skin': m[26647], 'centerX': 0xf } }, { 'type': m[1103], 'props': { 'y': 0x0, 'x': 0x18d, 'var': m[17946], 'skin': m[26647], 'centerX': 0x2d } }] }, { 'type': m[1101], 'props': { 'y': 0x316, 'x': 0x37, 'visible': !0x1, 'var': m[26648], 'stateNum': 0x1, 'skin': m[26649], 'name': m[26648], 'labelSize': 0x1e, 'labelFont': m[14982], 'labelColors': m[15356] }, 'child': [{ 'type': m[6349], 'props': { 'y': 0x9b, 'x': 0x92, 'width': 0x143, 'var': 'txtGetTm', 'text': m[26650], 'name': 'txtGetTm', 'height': 0x1e, 'fontSize': 0x1e, 'color': m[26651], 'align': m[1454] } }] }, { 'type': m[6349], 'props': { 'y': 0x453, 'width': 0x1f4, 'var': m[26652], 'valign': m[11743], 'text': m[26653], 'height': 0x1a, 'fontSize': 0x1a, 'color': m[26654], 'centerX': 0x0, 'bold': !0x1, 'align': m[1454] } }, { 'type': m[6349], 'props': { 'y': 0xa, 'x': 0xa, 'width': 0x156, 'var': m[26655], 'valign': m[11743], 'top': 0x14, 'text': m[26656], 'right': 0x14, 'height': 0x20, 'fontSize': 0x18, 'color': m[26657], 'bold': !0x1, 'align': m[1109] } }] }, eat3v);function eat3v() {
+    return $fisr_[m[18]](this) || this;
+  }var $fisr_;utj3q['$d'] = gsf8z$;
+}(gvea43 = gvea43 || {}), function (z5gklp) {
+  var $_s8r = (gdy4wae(da4wv, kfpzg8 = gcz5pk), da4wv[m[5]][m[1495]] = function () {
+    gcz5pk[m[1496]](m[1500], laya[m[1501]][m[1500]]), kfpzg8[m[5]][m[1495]][m[18]](this), this[m[1448]](z5gklp['$e'][m[26618]]);
+  }, da4wv[m[26618]] = { 'type': m[1465], 'props': { 'width': 0x2d0, 'name': m[26658], 'height': 0x500 }, 'child': [{ 'type': m[1103], 'props': { 'width': 0x2d0, 'var': m[1476], 'skin': m[26620], 'name': 'bg', 'height': 0x500, 'centerY': 0x0, 'centerX': 0x0 } }, { 'type': m[3402], 'props': { 'y': 0x0, 'x': 0x0, 'width': 0x2d0, 'height': 0x500 }, 'child': [{ 'type': m[1103], 'props': { 'width': 0x2d0, 'var': m[21425], 'skin': m[26621], 'bottom': 0x4ff } }, { 'type': m[1103], 'props': { 'width': 0x2d0, 'var': m[26622], 'top': 0x4ff, 'skin': m[26623] } }, { 'type': m[1103], 'props': { 'var': m[26624], 'skin': m[26625], 'right': 0x2cf, 'height': 0x500 } }, { 'type': m[1103], 'props': { 'var': m[26626], 'skin': m[26627], 'left': 0x2cf, 'height': 0x500 } }] }, { 'type': m[1103], 'props': { 'y': 0x34d, 'var': m[26659], 'skin': m[26660], 'centerX': 0x0 } }, { 'type': m[1103], 'props': { 'y': 0x3a2, 'x': 0xa2, 'var': m[26661], 'skin': m[26662] } }, { 'type': m[1103], 'props': { 'var': m[26629], 'skin': m[26630], 'centerX': 0x0, 'bottom': 0xa } }, { 'type': m[1103], 'props': { 'y': 0x3f7, 'var': m[10794], 'stateNum': 0x1, 'skin': m[26663], 'name': m[10794], 'centerX': 0x0 } }, { 'type': m[6349], 'props': { 'y': 0x3a4, 'x': 0x209, 'var': m[26664], 'valign': m[11743], 'text': m[26665], 'height': 0x20, 'fontSize': 0x1e, 'color': m[12137], 'bold': !0x1, 'align': m[1454] } }, { 'type': m[6349], 'props': { 'y': 0x3a4, 'width': 0x156, 'var': m[26666], 'valign': m[11743], 'text': m[26667], 'height': 0x20, 'fontSize': 0x1e, 'color': m[12137], 'centerX': 0x0, 'bold': !0x1, 'align': m[1454] } }, { 'type': m[6349], 'props': { 'width': 0x156, 'var': m[26655], 'valign': m[11743], 'top': 0x14, 'text': m[26656], 'right': 0x14, 'height': 0x20, 'fontSize': 0x18, 'color': m[26657], 'bold': !0x1, 'align': m[1109] } }, { 'type': m[1103], 'props': { 'y': 0x7f, 'x': 593.5, 'var': m[11761], 'skin': m[26668] } }, { 'type': m[1103], 'props': { 'y': 0x47, 'x': -0x2, 'visible': !0x1, 'var': m[26669], 'skin': m[26670], 'centerY': 0x0, 'centerX': 0x0 }, 'child': [{ 'type': m[1103], 'props': { 'y': 36.5, 'x': 0x268, 'var': m[26671], 'skin': m[26672] } }, { 'type': m[6349], 'props': { 'y': 0x48, 'x': 0xd8, 'width': 0xea, 'var': m[26673], 'valign': m[11743], 'text': m[26674], 'height': 0x23, 'fontSize': 0x1e, 'color': m[3953], 'bold': !0x1, 'align': m[1454] } }, { 'type': m[1500], 'props': { 'y': 0x8e, 'x': 0x3d, 'wordWrap': !0x0, 'width': 0x221, 'var': m[26675], 'valign': m[309], 'overflow': m[9113], 'mouseEnabled': !0x0, 'leading': 0x4, 'height': 0x366, 'fontSize': 0x1a, 'color': m[20862] } }] }, { 'type': m[1103], 'props': { 'y': 0x71, 'x': 0x21, 'visible': !0x1, 'var': m[26676], 'skin': m[26677], 'centerY': 0x0, 'centerX': 0x0 }, 'child': [{ 'type': m[1103], 'props': { 'y': 36.5, 'x': 0x268, 'var': m[26678], 'skin': m[26672] } }, { 'type': m[3402], 'props': { 'y': 0x388, 'x': 0x22, 'width': 0x254, 'var': m[26679], 'height': 0x3b } }, { 'type': m[6349], 'props': { 'y': 0x48, 'x': 0xd8, 'width': 0xea, 'var': m[26680], 'valign': m[11743], 'text': m[26674], 'height': 0x23, 'fontSize': 0x1e, 'color': m[3953], 'bold': !0x1, 'align': m[1454] } }, { 'type': m[1500], 'props': { 'y': 0x8e, 'x': 0x3d, 'wordWrap': !0x0, 'width': 0x221, 'var': m[26681], 'valign': m[309], 'overflow': m[9113], 'mouseEnabled': !0x0, 'leading': 0x4, 'height': 0x2dd, 'fontSize': 0x1a, 'color': m[20862] } }] }, { 'type': m[1103], 'props': { 'visible': !0x1, 'var': m[12777], 'skin': m[26682], 'centerY': 0x0, 'centerX': 0x0 }, 'child': [{ 'type': m[3402], 'props': { 'y': 0x75, 'x': 0x3d, 'width': 0xc8, 'var': m[26683], 'height': 0x389 } }, { 'type': m[3402], 'props': { 'y': 0x75, 'x': 0x125, 'width': 0x166, 'var': m[26684], 'height': 0x389 } }, { 'type': m[1103], 'props': { 'y': 0xd, 'x': 0x282, 'var': m[26685], 'skin': m[26686] } }] }] }, da4wv);function da4wv() {
+    return kfpzg8[m[18]](this) || this;
+  }var kfpzg8;z5gklp['$e'] = $_s8r;
+}(gvea43 = gvea43 || {}), function (etav3m) {
+  function hiy1w() {
+    return f$r8_[m[18]](this) || this;
+  }var f$r8_;etav3m = etav3m['$f'] || (etav3m['$f'] = {}), f$r8_ = gvea43['$c'], gdy4wae(hiy1w, f$r8_), hiy1w[m[5]][m[1449]] = function () {
+    f$r8_[m[5]][m[1449]][m[18]](this), this[m[1106]] = 0x0, this[m[1107]] = 0x0, this[m[1456]](), this[m[1457]]();
+  }, hiy1w[m[5]][m[1456]] = function () {
+    this['on'](Laya[m[536]][m[1136]], this, this['$g']);
+  }, hiy1w[m[5]][m[1458]] = function () {
+    this[m[1138]](Laya[m[536]][m[1136]], this, this['$g']);
+  }, hiy1w[m[5]][m[1457]] = function () {
+    this['$h'] = Date[m[77]](), ghiwb1y[m[139]]['G$7N0I4'](), ghiwb1y[m[139]][m[26687]]();
+  }, hiy1w[m[5]][m[155]] = function ($rf8) {
+    void 0x0 === $rf8 && ($rf8 = !0x0), this[m[1458]](), f$r8_[m[5]][m[155]][m[18]](this, $rf8);
+  }, hiy1w[m[5]]['$g'] = function () {
+    0x2710 < Date[m[77]]() - this['$h'] && (this['$h'] -= 0x3e8, glc5p[m[969]]['G$0N'][m[23036]][m[10321]] && (ghiwb1y[m[139]][m[26688]](), ghiwb1y[m[139]][m[26689]]()));
+  }, etav3m[m[26690]] = hiy1w;
+}(modules = modules || {}), function (br_i) {
+  var tjxmqu, byh1r, zcp5l, vemjt;function kl59pc() {
+    var zsf8g$ = ad4e3[m[18]](this) || this;return zsf8g$['$j'] = new zcp5l(), zsf8g$[m[544]](zsf8g$['$j']), zsf8g$['$k'] = null, zsf8g$['$l'] = [], zsf8g$['$m'] = !0x1, zsf8g$['$n'] = 0x0, zsf8g$['$o'] = !0x0, zsf8g$['$p'] = 0x6, zsf8g$['$q'] = !0x1, zsf8g$['on'](byh1r[m[1116]], zsf8g$, zsf8g$['$r']), zsf8g$['on'](byh1r[m[1117]], zsf8g$, zsf8g$['$s']), zsf8g$;
+  }var ad4e3;tjxmqu = br_i['$i'] || (br_i['$i'] = {}), byh1r = Laya[m[536]], zcp5l = Laya[m[1103]], br_i = Laya[m[3428]], vemjt = Laya[m[705]], gdy4wae(kl59pc, ad4e3 = br_i), kl59pc[m[6]] = function (czpk, b4dywh, mtev, bhr1yi, lk95, ev3a4, i_sr1$) {
+    void 0x0 === bhr1yi && (bhr1yi = 0x0), void 0x0 === lk95 && (lk95 = 0x6), void 0x0 === ev3a4 && (ev3a4 = !0x0), void 0x0 === i_sr1$ && (i_sr1$ = !0x1);var a4dy = new kl59pc();return a4dy[m[1120]](b4dywh, mtev, bhr1yi), a4dy[m[3760]] = lk95, a4dy[m[4240]] = ev3a4, a4dy[m[3761]] = i_sr1$, czpk && czpk[m[544]](a4dy), a4dy;
+  }, kl59pc[m[878]] = function (zs8k) {
+    zs8k && (zs8k[m[1091]] = !0x0, zs8k[m[878]]());
+  }, kl59pc[m[256]] = function (y1bh4w) {
+    y1bh4w && (y1bh4w[m[1091]] = !0x1, y1bh4w[m[256]]());
+  }, kl59pc[m[5]][m[155]] = function (s_$irf) {
+    Laya[m[62]][m[79]](this, this['$t']), this[m[1138]](byh1r[m[1116]], this, this['$r']), this[m[1138]](byh1r[m[1117]], this, this['$s']), ad4e3[m[5]][m[155]][m[18]](this, s_$irf);
+  }, kl59pc[m[5]]['$r'] = function () {}, kl59pc[m[5]]['$s'] = function () {}, kl59pc[m[5]][m[1120]] = function ($rs_if, we4av, h1ir_b) {
+    if (this['$k'] != $rs_if) {
+      this['$k'] = $rs_if, this['$l'] = [];for (var w4adv = 0x0, tuxqjm = h1ir_b; tuxqjm <= we4av; tuxqjm++) this['$l'][w4adv++] = $rs_if + '/' + tuxqjm + m[514];h1ir_b = vemjt[m[733]](this['$l'][0x0]), (h1ir_b && (this[m[167]] = h1ir_b[m[26691]], this[m[168]] = h1ir_b[m[26692]]), this['$t']());
     }
-  }, Object['defineProperty'](ig61j['prototype'], 'atHide', { 'get': function () {
-      return this['Gq'];
-    }, 'set': function (r4ya1) {
-      this['Gq'] = r4ya1;
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), Object['defineProperty'](ig61j['prototype'], 'durFrm', { 'set': function (xz7fsk) {
-      this['Gp'] != xz7fsk && (this['Gp'] = xz7fsk, this['Gk'] && (Laya['timer']['clear'](this, this['Gt']), Laya['timer']['loop'](this['Gp'] * (0x3e8 / 0x3c), this, this['Gt'])));
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), Object['defineProperty'](ig61j['prototype'], 'loop', { 'set': function (pqtvo) {
-      this['Go'] = pqtvo;
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), ig61j['prototype']['play'] = function () {
-    this['Gk'] && this['stop'](), this['Gk'] = !0x0, this['Gl'] = 0x0, Laya['timer']['loop'](this['Gp'] * (0x3e8 / 0x3c), this, this['Gt']), this['Gt']();
-  }, ig61j['prototype']['stop'] = function () {
-    this['Gk'] = !0x1, this['Gl'] = 0x0, this['Gt'](), Laya['timer']['clear'](this, this['Gt']);
-  }, ig61j['prototype']['pause'] = function () {
-    this['Gk'] && (this['Gk'] = !0x1, Laya['timer']['clear'](this, this['Gt']));
-  }, ig61j['prototype']['resume'] = function () {
-    this['Gk'] || (this['Gk'] = !0x0, Laya['timer']['loop'](this['Gp'] * (0x3e8 / 0x3c), this, this['Gt']), this['Gt']());
-  }, Object['defineProperty'](ig61j['prototype'], 'isPlay', { 'get': function () {
-      return this['Gk'];
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), ig61j['prototype']['Gt'] = function () {
-    this['Gj'] && 0x0 != this['Gj']['length'] && (this['Gh']['skin'] = this['Gj'][this['Gl']], this['Gk'] && (this['Gl']++, this['Gl'] == this['Gj']['length'] && (this['Go'] ? this['Gl'] = 0x0 : (Laya['timer']['clear'](this, this['Gt']), this['Gk'] = !0x1, this['Gq'] && (this['visible'] = !0x1), this['event'](qotvpb['COMPLETE'])))));
-  }, hjg$6_['PanelEff'] = ig61j;
-}(modules = modules || {}), function (tvpboq) {
-  var $ji61g, m4a250;function g_lh69(ir$61) {
-    void 0x0 === ir$61 && (ir$61 = 0x0);var otw8 = zfkdxs['call'](this) || this;return otw8['Gu'] = { 'bgImgSkin': 'gggloding/g3a.jpg', 'topImgSkin': 'gggloding/g10a.jpg', 'btmImgSkin': 'gggloding/g4a.jpg', 'leftImgSkin': 'gggloding/g6a.jpg', 'rightImgSkin': 'gggloding/g8a.jpg', 'loadingBarBgSkin': 'gggloding/g13a.png', 'copyRightImgBottom': 0xa, 'processBox1Y': 0x3c3, 'processBox2Y': 0x429, 'loadingTipsSize': 0x1a, 'getTipsBtnVisible': !0x1 }, otw8['Gv'] = { 'bgImgSkin': 'gggloding/g12a.jpg', 'topImgSkin': 'gggloding/g11a.jpg', 'btmImgSkin': 'gggloding/g5a.jpg', 'leftImgSkin': 'gggloding/g7a.jpg', 'rightImgSkin': 'gggloding/g9a.jpg', 'loadingBarBgSkin': 'gggloding/g15a.png', 'copyRightImgBottom': 0xa, 'processBox1Y': 0x3c3, 'processBox2Y': 0x429, 'loadingTipsSize': 0x1a, 'getTipsBtnVisible': !0x1 }, otw8['Gw'] = 0x0, otw8['Gx'](0x1 == ir$61 ? otw8['Gv'] : otw8['Gu']), otw8;
-  }var zfkdxs;$ji61g = tvpboq['Gd'] || (tvpboq['Gd'] = {}), m4a250 = tvpboq['Gg']['PanelEff'], zfkdxs = gsx37zu['Gb'], gcm4a(g_lh69, zfkdxs), g_lh69['prototype']['initialize'] = function () {
-    zfkdxs['prototype']['initialize']['call'](this), gvqptw['instance']['preloadLoading'](), this['Gy'] = gg6_jh$['window']['G$Y$'], this['centerX'] = 0x0, this['centerY'] = 0x0, this['Gy'] && (this['Gy']['loadingType'], this['loadingTips']['color'] = '#f2ffb5'), this['Gz'] = [this['point1'], this['point2'], this['point3'], this['point4']], gg6_jh$['window']['watPanel'] = this, G$LY$8(), gvqptw['instance']['closeAuthor'](), gvqptw['instance']['closeServer'](), this['onOpened']();
-  }, g_lh69['prototype']['G$LY$'] = function (qpovtw) {
-    var bu7vp = this;if (-0x1 === qpovtw) return bu7vp['Gw'] = 0x0, Laya['timer']['clear'](this, this['G$LY$']), void Laya['timer']['frameLoop'](0x1, this, this['G$LY$']);var h$6ji;-0x2 !== qpovtw ? (bu7vp['Gw'] < 0.9 ? bu7vp['Gw'] += (0.15 * Math['random']() + 0.01) / (0x64 * Math['random']() + 0x32) : bu7vp['Gw'] < 0x1 && (bu7vp['Gw'] += 0.0001), 0.9999 < bu7vp['Gw'] && (bu7vp['Gw'] = 0.9999, Laya['timer']['clear'](this, this['G$LY$']), Laya['timer']['once'](0xbb8, this, function () {
-      0.9 < bu7vp['Gw'] && G$LY$(-0x1);
-    })), qpovtw = 0x24e * (h$6ji = bu7vp['Gw']), bu7vp['Gw'] = bu7vp['Gw'] > h$6ji ? bu7vp['Gw'] : h$6ji, bu7vp['loadingBar']['width'] = qpovtw, qpovtw = bu7vp['loadingBar']['x'] + qpovtw, bu7vp['loadingImg2']['x'] = qpovtw - 0xf, 0x16c <= qpovtw ? (bu7vp['loadingImg1']['visible'] = !0x0, bu7vp['loadingImg1']['x'] = qpovtw - 0xca) : bu7vp['loadingImg1']['visible'] = !0x1, bu7vp['percentageTips']['text'] = (0x64 * h$6ji >> 0x0) + '%', bu7vp['Gw'] < 0.9999 && Laya['timer']['frameLoop'](0x1, this, this['G$LY$'])) : Laya['timer']['clear'](this, this['G$LY$']);
-  }, g_lh69['prototype']['G$L$Y'] = function (yj$r, e8h9l, szdkfx) {
-    var dkxsf = this,
-        v73upb = 0x24e * (yj$r = 0x1 < yj$r ? 0x1 : yj$r);dkxsf['Gw'] = dkxsf['Gw'] > yj$r ? dkxsf['Gw'] : yj$r, dkxsf['loadingBar']['width'] = v73upb, v73upb = dkxsf['loadingBar']['x'] + v73upb, (dkxsf['loadingImg2']['x'] = v73upb - 0xf, 0x16c <= v73upb ? (dkxsf['loadingImg1']['visible'] = !0x0, dkxsf['loadingImg1']['x'] = v73upb - 0xca) : dkxsf['loadingImg1']['visible'] = !0x1, dkxsf['percentageTips']['text'] = (0x64 * yj$r >> 0x0) + '%', dkxsf['loadingTips']['text'] = e8h9l);for (var ou3 = szdkfx - 0x1, jg61$ = 0x0; jg61$ < this['Gz']['length']; jg61$++) dkxsf['Gz'][jg61$]['skin'] = jg61$ < ou3 ? 'gggloding/g20a.png' : ou3 === jg61$ ? 'gggloding/g19a.png' : 'gggloding/g18a.png';
-  }, g_lh69['prototype']['onOpened'] = function () {
-    this['G$L$Y'](0.1, '正在加载资源...', 0x1), this['G$LY$'](-0x1), gg6_jh$['window']['G$LY$'] = this['G$LY$']['bind'](this), gg6_jh$['window']['G$L$Y'] = this['G$L$Y']['bind'](this), this['versionTxt']['text'] = '资源：' + this['Gy']['lastVersion'] + '\x20\x20\x20\x20\x20\x20版本：' + this['Gy']['wxVersion'], this['showGetBtn']();
-  }, g_lh69['prototype']['close'] = function (bv73pu) {
-    this['resetWinFun'](), Laya['timer']['clear'](this, this['G$LY$']), Laya['timer']['clear'](this, this['GA']), gvqptw['instance']['closeLoading'](), this['getTipsBtn']['off'](Laya['Event']['CLICK'], this, this['GB']);
-  }, g_lh69['prototype']['resetWinFun'] = function () {
-    gg6_jh$['window']['G$LY$'] = function () {}, gg6_jh$['window']['G$L$Y'] = function () {};
-  }, g_lh69['prototype']['destroy'] = function (r05ya4) {
-    void 0x0 === r05ya4 && (r05ya4 = !0x0), this['resetWinFun'](), zfkdxs['prototype']['destroy']['call'](this, r05ya4);
-  }, g_lh69['prototype']['showGetBtn'] = function () {
-    this['Gy']['showGetBtn'] && 0x1 == this['Gy']['showGetBtn'] && (this['getTipsBtn']['visible'] = !0x0, this['getTipsBtn']['tag'] = !0x0, this['getTipsBtn']['skin'] = 'gggloding/g1a.png', this['getTipsBtn']['on'](Laya['Event']['CLICK'], this, this['GB']), this['GC'](), this['GD'](!0x0));
-  }, g_lh69['prototype']['GB'] = function () {
-    this['getTipsBtn']['tag'] && (this['getTipsBtn']['tag'] = !0x1, this['getTipsBtn']['skin'] = 'gggloding/g2a.png', this['GE'](), this['GD'](!0x1));
-  }, g_lh69['prototype']['Gx'] = function (kxsd) {
-    this['bgImg']['skin'] = kxsd['bgImgSkin'], this['topImg']['skin'] = kxsd['topImgSkin'], this['btmImg']['skin'] = kxsd['btmImgSkin'], this['leftImg']['skin'] = kxsd['leftImgSkin'], this['rightImg']['skin'] = kxsd['rightImgSkin'], this['copyRightImg']['bottom'] = kxsd['copyRightImgBottom'], this['processBox1']['y'] = kxsd['processBox1Y'], this['processBox2']['y'] = kxsd['processBox2Y'], this['loadingBarBg']['skin'] = kxsd['loadingBarBgSkin'], this['loadingTips']['fontSize'] = kxsd['loadingTipsSize'], this['getTipsBtn']['visible'] = this['Gy']['showGetBtn'] && 0x1 == this['Gy']['showGetBtn'], this['getTipsBtn']['visible'] ? this['GC']() : this['GE'](), this['GD'](this['getTipsBtn']['visible']);
-  }, g_lh69['prototype']['GC'] = function () {
-    this['GF'] || (this['GF'] = m4a250['create'](this['getTipsBtn'], 'gggwxeff', 0x4, 0x0, 0xc), this['GF']['pos'](0xa1, 0x6a), this['GF']['scale'](1.14, 1.15)), m4a250['play'](this['GF']);
-  }, g_lh69['prototype']['GE'] = function () {
-    this['GF'] && m4a250['stop'](this['GF']);
-  }, g_lh69['prototype']['GD'] = function (ma0452) {
-    Laya['timer']['clear'](this, this['GA']), ma0452 ? (this['GG'] = 0x9, this['txtGetTm']['visible'] = !0x0, this['GA'](), Laya['timer']['loop'](0x3e8, this, this['GA'])) : this['txtGetTm']['visible'] = !0x1;
-  }, g_lh69['prototype']['GA'] = function () {
-    0x0 < this['GG'] ? (this['txtGetTm']['text'] = '立即领取(' + this['GG'] + 's)', this['GG']--) : (this['txtGetTm']['text'] = '', Laya['timer']['clear'](this, this['GA']), this['GB']());
-  }, $ji61g['LoadingPanel'] = g_lh69;
-}(modules = modules || {}), function (o3bvu) {
-  var eqto, yia0r1, e8ltq;function wlqe89() {
-    var q8e9 = ptqvob['call'](this) || this;return q8e9['GH'] = 0x0, q8e9['GI'] = 'multi_notice_key', q8e9['GJ'] = 0x0, q8e9;
-  }var ptqvob;eqto = o3bvu['Gd'] || (o3bvu['Gd'] = {}), yia0r1 = Laya['List'], e8ltq = Laya['Event'], ptqvob = gsx37zu['Gc'], gcm4a(wlqe89, ptqvob), wlqe89['prototype']['initialize'] = function () {
-    ptqvob['prototype']['initialize']['call'](this), gvqptw['instance']['G$Q$YL8'](), this['centerX'] = 0x0, this['centerY'] = 0x0, this['Gy'] = gg6_jh$['window']['G$Y$'], this['GK'] = new yia0r1(), this['GK']['vScrollBarSkin'] = '', this['GK']['itemRender'] = eqto['SelectLeftListItem'], this['GK']['top'] = 0x5, this['GK']['repeatX'] = 0x1, this['GK']['spaceY'] = 0x5, this['GK']['width'] = this['leftListBox']['width'], this['GK']['height'] = this['leftListBox']['height'] - 0x8, this['leftListBox']['addChild'](this['GK']), this['GL'] = new yia0r1(), this['GL']['vScrollBarSkin'] = '', this['GL']['itemRender'] = eqto['SelectRightListItem'], this['GL']['top'] = 0x5, this['GL']['repeatX'] = 0x1, this['GL']['spaceY'] = 0x5, this['GL']['width'] = this['rightListBox']['width'], this['GL']['height'] = this['rightListBox']['height'] - 0x8, this['rightListBox']['addChild'](this['GL']), this['GM'] = new yia0r1(), this['GM']['hScrollBarSkin'] = '', this['GM']['itemRender'] = eqto['NoticeItem'], this['GM']['repeatY'] = 0x1, this['GM']['width'] = this['boxTab']['width'], this['GM']['height'] = this['boxTab']['height'], this['boxTab']['addChild'](this['GM']);var te8qwl = this['Gy']['loadingType'];this['GN'] = 0x1 != te8qwl && (0x2 == te8qwl || 0x3 == te8qwl) ? '#feffc0' : '#93353b', this['enterBtn']['size'](0x1fa, 0x58), this['noticeBtn']['visible'] = !0x1, gg6_jh$['window']['initPanel'] = this, G$LY$8(), this['addEvt'](), this['onOpened']();
-  }, wlqe89['prototype']['addEvt'] = function () {
-    this['bgImg']['on'](Laya['Event']['CLICK'], this, this['Ge']), this['enterBtn']['on'](Laya['Event']['CLICK'], this, this['GO']), this['selectServer']['on'](Laya['Event']['CLICK'], this, this['GP']), this['selectServer']['on'](Laya['Event']['CLICK'], this, this['GP']), this['closeBg']['on'](Laya['Event']['CLICK'], this, this['GQ']), this['noticeBtn']['on'](Laya['Event']['CLICK'], this, this['GR']), this['noticeClose']['on'](Laya['Event']['CLICK'], this, this['GS']), this['noticeContent']['on'](Laya['Event']['MOUSE_DOWN'], this, this['GT']), this['mNoticeClose']['on'](Laya['Event']['CLICK'], this, this['GU']), this['mNoticeContent']['on'](Laya['Event']['MOUSE_DOWN'], this, this['GV']), this['GM']['selectEnable'] = !0x0, this['GM']['selectHandler'] = Laya['Handler']['create'](this, this['GW'], null, !0x1);
-  }, wlqe89['prototype']['rmEvts'] = function () {
-    this['bgImg']['off'](Laya['Event']['CLICK'], this, this['Ge']), this['enterBtn']['off'](Laya['Event']['CLICK'], this, this['GO']), this['selectServer']['off'](Laya['Event']['CLICK'], this, this['GP']), this['selectServer']['off'](Laya['Event']['CLICK'], this, this['GP']), this['closeBg']['off'](Laya['Event']['CLICK'], this, this['GQ']), this['noticeBtn']['off'](Laya['Event']['CLICK'], this, this['GR']), this['noticeClose']['off'](Laya['Event']['CLICK'], this, this['GS']), this['noticeContent']['off'](Laya['Event']['MOUSE_DOWN'], this, this['GT']), this['mNoticeClose']['off'](Laya['Event']['CLICK'], this, this['GU']), this['mNoticeContent']['off'](Laya['Event']['MOUSE_DOWN'], this, this['GV']), this['GM']['selectEnable'] = !0x1, this['GM']['selectHandler'] = null;
-  }, wlqe89['prototype']['onOpened'] = function () {
-    this['Gf'] = Date['now'](), this['GX'] = this['Gy']['selectedServer']['server_id'], this['GY'](this['Gy']['selectedServer']), this['GK']['dataSource'] = this['Gy']['groupList'], this['GP'](), this['versionTxt']['text'] = '资源：' + this['Gy']['lastVersion'] + '\x20\x20\x20\x20\x20\x20版本：' + this['Gy']['wxVersion'], this['serverName']['color'] = this['selServer']['color'] = this['GN'], req_multi_server_notice(0x4, this['Gy']['pkgName'], this['Gy']['selectedServer']['server_id'], this['GZ']['bind'](this));
-  }, wlqe89['prototype']['destroy'] = function (vb37u) {
-    void 0x0 === vb37u && (vb37u = !0x0), this['rmEvts'](), this['GK'] && (this['GK']['removeSelf'](), this['GK']['destroy'](), this['GK'] = null), this['GL'] && (this['GL']['removeSelf'](), this['GL']['destroy'](), this['GL'] = null), this['GM'] && (this['GM']['removeSelf'](), this['GM']['destroy'](), this['GM'] = null), ptqvob['prototype']['destroy']['call'](this, vb37u);
-  }, wlqe89['prototype']['Ge'] = function () {
-    0x2710 < Date['now']() - this['Gf'] && (this['Gf'] -= 0x7d0, gvqptw['instance']['enterDefaultServer']());
-  }, wlqe89['prototype']['GQ'] = function () {
-    this['listBg']['visible'] = !0x1;
-  }, wlqe89['prototype']['GO'] = function () {
-    this['G$'](this['Gy']['selectedServer']) && (gg6_jh$['window']['G$Y$']['selectedServer'] = this['Gy']['selectedServer'], G$$LY8(0x0, this['Gy']['selectedServer']['server_id']));
-  }, wlqe89['prototype']['GR'] = function () {
-    this['noticeBg']['visible'] = !0x0, G$Y8L(this['Gy']['selectedServer']['server_id'], this['G_']['bind'](this));
-  }, wlqe89['prototype']['GS'] = function () {
-    this['noticeBg']['visible'] = !0x1;
-  }, wlqe89['prototype']['GT'] = function () {
-    this['GH'] = this['noticeContent']['mouseY'], Laya['stage']['on'](e8ltq['MOUSE_MOVE'], this, this['Gm']), Laya['stage']['on'](e8ltq['MOUSE_UP'], this, this['Gn']), Laya['stage']['on'](e8ltq['MOUSE_OUT'], this, this['Gn']);
-  }, wlqe89['prototype']['Gm'] = function () {
-    var eq8l9 = this['GH'] - this['noticeContent']['mouseY'];this['noticeContent']['scrollY'] += eq8l9, this['GH'] = this['noticeContent']['mouseY'];
-  }, wlqe89['prototype']['Gn'] = function () {
-    Laya['stage']['off'](e8ltq['MOUSE_MOVE'], this, this['Gm']), Laya['stage']['off'](e8ltq['MOUSE_UP'], this, this['Gn']), Laya['stage']['off'](e8ltq['MOUSE_OUT'], this, this['Gn']);
-  }, wlqe89['prototype']['G$'] = function (g8l_h9) {
-    return -0x1 == g8l_h9['status'] ? (alert('服务器维护中'), !0x1) : 0x0 != g8l_h9['status'] || (alert('服务器尚未开启，敬请期待'), !0x1);
-  }, wlqe89['prototype']['GP'] = function () {
-    this['Gy']['hasGroupReq'] ? this['listBg']['visible'] = !0x0 : (this['Gy']['hasGroupReq'] = !0x0, G$Y$8L(0x0));
-  }, wlqe89['prototype']['GZ'] = function (pwqt) {
-    console['log']('onMultiNoticeCallback, param = ', pwqt);var ehl9_8 = Date['now']() / 0x3e8,
-        b3zx7u = localStorage['getItem'](this['GI']);if (this['Gaa'] = [], 'success' == pwqt['state']) for (var $_g6j in pwqt['data']) {
-      var rj6$1i = pwqt['data'][$_g6j],
-          y1$ij = ehl9_8 < rj6$1i['end_time'],
-          wle8q9 = 0x1 == rj6$1i['pop_type'],
-          $_g6j = 0x2 == rj6$1i['pop_type'] && rj6$1i['key'] + '' != b3zx7u;y1$ij && (wle8q9 || $_g6j) && this['Gaa']['push'](rj6$1i), $_g6j && localStorage['setItem'](this['GI'], rj6$1i['key'] + '');
-    }this['Gaa']['sort'](function (r014a, qpowe) {
-      return r014a['login_id'] - qpowe['login_id'];
-    }), console['log']('onMultiNoticeCallback, datas = ', this['Gaa']), 0x0 < this['Gaa']['length'] && this['Gba']();
-  }, wlqe89['prototype']['preload'] = function () {}, wlqe89['prototype']['getStatusSrc'] = function ($g6ij1) {
-    var e89 = '';return 0x2 === $g6ij1 ? e89 = 'ggglogin/g18b.png' : 0x1 === $g6ij1 ? e89 = 'ggglogin/g19b.png' : -0x1 !== $g6ij1 && 0x0 !== $g6ij1 || (e89 = 'ggglogin/g20b.png'), e89;
-  }, wlqe89['prototype']['GY'] = function (h_69l) {
-    this['serverName']['text'] = -0x1 === h_69l['status'] ? h_69l['server_name'] + '(维护中)' : 0x0 === h_69l['status'] ? h_69l['server_name'] + '(待开服)' : h_69l['server_name'], this['serverName']['color'] = -0x1 === h_69l['status'] ? '#d50000' : 0x0 === h_69l['status'] ? '#49575a' : this['GN'], this['hotImage']['skin'] = this['getStatusSrc'](h_69l['status']), this['Gy']['cdn'] = h_69l['cdn'] || '', this['Gy']['selectedServer'] = h_69l, this['noticeBtn']['visible'] = !0x0;
-  }, wlqe89['prototype']['Gca'] = function (ig1j6$) {
-    this['showGroupList'](ig1j6$);
-  }, wlqe89['prototype']['Gda'] = function (opuvb3) {
-    this['GY'](opuvb3), this['listBg']['visible'] = !0x1;
-  }, wlqe89['prototype']['G_'] = function (i1yr$j) {
-    this['noticeContent']['text'] = i1yr$j['data']['content'] || '', this['noticeTitle']['text'] = i1yr$j['data']['title'] || '暂无公告';
-  }, wlqe89['prototype']['showGroupList'] = function (zxfk7) {
-    if (void 0x0 === zxfk7 && (zxfk7 = 0x0), this['parent']) {
-      var tpovwq = this['Gy']['groupList'];if (tpovwq && 0x0 !== tpovwq['length']) {
-        for (var gh_9 = tpovwq['length'], a402m = 0x0; a402m < gh_9; a402m++) tpovwq[a402m]['callBack'] = this['Gca']['bind'](this), tpovwq[a402m]['select'] = a402m == zxfk7, tpovwq[a402m]['index'] = a402m;var gi$1j6 = (this['GK']['array'] = tpovwq)[zxfk7]['id'];this['Gy']['serverList'][gi$1j6] ? this['showServerList'](gi$1j6) : this['Gy']['hasServerReq'] || (this['Gy']['hasServerReq'] = !0x0, -0x1 == gi$1j6 ? G$LY8(0x0) : -0x2 == gi$1j6 ? G$QY8$(0x0) : G$8YL(0x0, gi$1j6));
+  }, Object[m[53]](kl59pc[m[5]], m[3761], { 'get': function () {
+      return this['$q'];
+    }, 'set': function (at3vm) {
+      this['$q'] = at3vm;
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), Object[m[53]](kl59pc[m[5]], m[3760], { 'set': function (c529l0) {
+      this['$p'] != c529l0 && (this['$p'] = c529l0, this['$m'] && (Laya[m[62]][m[79]](this, this['$t']), Laya[m[62]][m[4240]](this['$p'] * (0x3e8 / 0x3c), this, this['$t'])));
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), Object[m[53]](kl59pc[m[5]], m[4240], { 'set': function (aw4yh) {
+      this['$o'] = aw4yh;
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), kl59pc[m[5]][m[878]] = function () {
+    this['$m'] && this[m[256]](), this['$m'] = !0x0, this['$n'] = 0x0, Laya[m[62]][m[4240]](this['$p'] * (0x3e8 / 0x3c), this, this['$t']), this['$t']();
+  }, kl59pc[m[5]][m[256]] = function () {
+    this['$m'] = !0x1, this['$n'] = 0x0, this['$t'](), Laya[m[62]][m[79]](this, this['$t']);
+  }, kl59pc[m[5]][m[4242]] = function () {
+    this['$m'] && (this['$m'] = !0x1, Laya[m[62]][m[79]](this, this['$t']));
+  }, kl59pc[m[5]][m[4243]] = function () {
+    this['$m'] || (this['$m'] = !0x0, Laya[m[62]][m[4240]](this['$p'] * (0x3e8 / 0x3c), this, this['$t']), this['$t']());
+  }, Object[m[53]](kl59pc[m[5]], m[4244], { 'get': function () {
+      return this['$m'];
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), kl59pc[m[5]]['$t'] = function () {
+    this['$l'] && 0x0 != this['$l'][m[13]] && (this['$j'][m[1120]] = this['$l'][this['$n']], this['$m'] && (this['$n']++, this['$n'] == this['$l'][m[13]] && (this['$o'] ? this['$n'] = 0x0 : (Laya[m[62]][m[79]](this, this['$t']), this['$m'] = !0x1, this['$q'] && (this[m[1091]] = !0x1), this[m[482]](byh1r[m[4241]])))));
+  }, tjxmqu[m[26693]] = kl59pc;
+}(modules = modules || {}), function (z8kgsf) {
+  var y41bwh, k8lg;function lpckz5(kpgf8z) {
+    void 0x0 === kpgf8z && (kpgf8z = 0x0);var advem = ihyr1b[m[18]](this) || this;return advem['$u'] = { 'bgImgSkin': m[26694], 'topImgSkin': m[26695], 'btmImgSkin': m[26696], 'leftImgSkin': m[26697], 'rightImgSkin': m[26698], 'loadingBarBgSkin': m[26633], 'copyRightImgBottom': 0xa, 'processBox1Y': 0x3c3, 'processBox2Y': 0x429, 'loadingTipsSize': 0x1a, 'getTipsBtnVisible': !0x1 }, advem['$v'] = { 'bgImgSkin': m[26699], 'topImgSkin': m[26700], 'btmImgSkin': m[26701], 'leftImgSkin': m[26702], 'rightImgSkin': m[26703], 'loadingBarBgSkin': m[26704], 'copyRightImgBottom': 0xa, 'processBox1Y': 0x3c3, 'processBox2Y': 0x429, 'loadingTipsSize': 0x1a, 'getTipsBtnVisible': !0x1 }, advem['$w'] = 0x0, advem['$x'](0x1 == kpgf8z ? advem['$v'] : advem['$u']), advem;
+  }var ihyr1b;y41bwh = z8kgsf['$f'] || (z8kgsf['$f'] = {}), k8lg = z8kgsf['$i'][m[26693]], ihyr1b = gvea43['$d'], gdy4wae(lpckz5, ihyr1b), lpckz5[m[5]][m[1449]] = function () {
+    ihyr1b[m[5]][m[1449]][m[18]](this), ghiwb1y[m[139]][m[26687]](), this['$y'] = glc5p[m[969]]['G$0N'], this[m[1106]] = 0x0, this[m[1107]] = 0x0, this['$y'] && (this['$y'][m[26436]], this[m[26652]][m[847]] = m[26654]), this['$z'] = [this[m[17943]], this[m[17945]], this[m[17944]], this[m[17946]]], glc5p[m[969]][m[26705]] = this, G$I0N4(), ghiwb1y[m[139]][m[26450]](), ghiwb1y[m[139]][m[26451]](), this[m[1457]]();
+  }, lpckz5[m[5]]['G$I0N'] = function (c50296) {
+    var o926 = this;if (-0x1 === c50296) return o926['$w'] = 0x0, Laya[m[62]][m[79]](this, this['G$I0N']), void Laya[m[62]][m[63]](0x1, this, this['G$I0N']);var si_1$;-0x2 !== c50296 ? (o926['$w'] < 0.9 ? o926['$w'] += (0.15 * Math[m[113]]() + 0.01) / (0x64 * Math[m[113]]() + 0x32) : o926['$w'] < 0x1 && (o926['$w'] += 0.0001), 0.9999 < o926['$w'] && (o926['$w'] = 0.9999, Laya[m[62]][m[79]](this, this['G$I0N']), Laya[m[62]][m[475]](0xbb8, this, function () {
+      0.9 < o926['$w'] && G$I0N(-0x1);
+    })), c50296 = 0x24e * (si_1$ = o926['$w']), o926['$w'] = o926['$w'] > si_1$ ? o926['$w'] : si_1$, o926[m[26634]][m[167]] = c50296, c50296 = o926[m[26634]]['x'] + c50296, o926[m[26638]]['x'] = c50296 - 0xf, 0x16c <= c50296 ? (o926[m[26636]][m[1091]] = !0x0, o926[m[26636]]['x'] = c50296 - 0xca) : o926[m[26636]][m[1091]] = !0x1, o926[m[26640]][m[3931]] = (0x64 * si_1$ >> 0x0) + '%', o926['$w'] < 0.9999 && Laya[m[62]][m[63]](0x1, this, this['G$I0N'])) : Laya[m[62]][m[79]](this, this['G$I0N']);
+  }, lpckz5[m[5]]['G$IN0'] = function (uxjtm, hywad4, kgz8sf) {
+    var kszgf = this,
+        g$f8_ = 0x24e * (uxjtm = 0x1 < uxjtm ? 0x1 : uxjtm);kszgf['$w'] = kszgf['$w'] > uxjtm ? kszgf['$w'] : uxjtm, kszgf[m[26634]][m[167]] = g$f8_, g$f8_ = kszgf[m[26634]]['x'] + g$f8_, (kszgf[m[26638]]['x'] = g$f8_ - 0xf, 0x16c <= g$f8_ ? (kszgf[m[26636]][m[1091]] = !0x0, kszgf[m[26636]]['x'] = g$f8_ - 0xca) : kszgf[m[26636]][m[1091]] = !0x1, kszgf[m[26640]][m[3931]] = (0x64 * uxjtm >> 0x0) + '%', kszgf[m[26652]][m[3931]] = hywad4);for (var kzg8f = kgz8sf - 0x1, sf8g_ = 0x0; sf8g_ < this['$z'][m[13]]; sf8g_++) kszgf['$z'][sf8g_][m[1120]] = sf8g_ < kzg8f ? m[26645] : kzg8f === sf8g_ ? m[26646] : m[26647];
+  }, lpckz5[m[5]][m[1457]] = function () {
+    this['G$IN0'](0.1, m[26706], 0x1), this['G$I0N'](-0x1), glc5p[m[969]]['G$I0N'] = this['G$I0N'][m[68]](this), glc5p[m[969]]['G$IN0'] = this['G$IN0'][m[68]](this), this[m[26655]][m[3931]] = m[26707] + this['$y'][m[95]] + m[26708] + this['$y'][m[26419]], this['showGetBtn']();
+  }, lpckz5[m[5]][m[75]] = function (e3da4v) {
+    this[m[26709]](), Laya[m[62]][m[79]](this, this['G$I0N']), Laya[m[62]][m[79]](this, this['$A']), ghiwb1y[m[139]][m[26452]](), this[m[26648]][m[1138]](Laya[m[536]][m[1136]], this, this['$B']);
+  }, lpckz5[m[5]][m[26709]] = function () {
+    glc5p[m[969]]['G$I0N'] = function () {}, glc5p[m[969]]['G$IN0'] = function () {};
+  }, lpckz5[m[5]][m[155]] = function (mtvj) {
+    void 0x0 === mtvj && (mtvj = !0x0), this[m[26709]](), ihyr1b[m[5]][m[155]][m[18]](this, mtvj);
+  }, lpckz5[m[5]]['showGetBtn'] = function () {
+    this['$y']['showGetBtn'] && 0x1 == this['$y']['showGetBtn'] && (this[m[26648]][m[1091]] = !0x0, this[m[26648]][m[325]] = !0x0, this[m[26648]][m[1120]] = m[26649], this[m[26648]]['on'](Laya[m[536]][m[1136]], this, this['$B']), this['$C'](), this['$D'](!0x0));
+  }, lpckz5[m[5]]['$B'] = function () {
+    this[m[26648]][m[325]] && (this[m[26648]][m[325]] = !0x1, this[m[26648]][m[1120]] = m[26710], this['$E'](), this['$D'](!0x1));
+  }, lpckz5[m[5]]['$x'] = function (ckl59) {
+    this[m[1476]][m[1120]] = ckl59[m[26711]], this[m[21425]][m[1120]] = ckl59[m[26712]], this[m[26622]][m[1120]] = ckl59[m[26713]], this[m[26624]][m[1120]] = ckl59[m[26714]], this[m[26626]][m[1120]] = ckl59[m[26715]], this[m[26629]][m[1108]] = ckl59[m[26716]], this[m[26631]]['y'] = ckl59[m[26717]], this[m[26644]]['y'] = ckl59[m[26718]], this[m[26632]][m[1120]] = ckl59[m[26719]], this[m[26652]][m[1452]] = ckl59[m[26720]], this[m[26648]][m[1091]] = this['$y']['showGetBtn'] && 0x1 == this['$y']['showGetBtn'], this[m[26648]][m[1091]] ? this['$C']() : this['$E'](), this['$D'](this[m[26648]][m[1091]]);
+  }, lpckz5[m[5]]['$C'] = function () {
+    this['$F'] || (this['$F'] = k8lg[m[6]](this[m[26648]], m[26721], 0x4, 0x0, 0xc), this['$F'][m[376]](0xa1, 0x6a), this['$F'][m[232]](1.14, 1.15)), k8lg[m[878]](this['$F']);
+  }, lpckz5[m[5]]['$E'] = function () {
+    this['$F'] && k8lg[m[256]](this['$F']);
+  }, lpckz5[m[5]]['$D'] = function (c205l9) {
+    Laya[m[62]][m[79]](this, this['$A']), c205l9 ? (this['$G'] = 0x9, this['txtGetTm'][m[1091]] = !0x0, this['$A'](), Laya[m[62]][m[4240]](0x3e8, this, this['$A'])) : this['txtGetTm'][m[1091]] = !0x1;
+  }, lpckz5[m[5]]['$A'] = function () {
+    0x0 < this['$G'] ? (this['txtGetTm'][m[3931]] = m[26722] + this['$G'] + 's)', this['$G']--) : (this['txtGetTm'][m[3931]] = '', Laya[m[62]][m[79]](this, this['$A']), this['$B']());
+  }, y41bwh[m[26723]] = lpckz5;
+}(modules = modules || {}), function (lpgz) {
+  var me3a, rb$i1_, jtqu3;function vm3dea() {
+    var ved34 = cl2590[m[18]](this) || this;return ved34['$H'] = 0x0, ved34['$I'] = m[26724], ved34['$J'] = [], ved34['$K'] = 0x0, ved34;
+  }var cl2590;me3a = lpgz['$f'] || (lpgz['$f'] = {}), rb$i1_ = Laya[m[11625]], jtqu3 = Laya[m[536]], cl2590 = gvea43['$e'], gdy4wae(vm3dea, cl2590), vm3dea[m[5]][m[1449]] = function () {
+    cl2590[m[5]][m[1449]][m[18]](this), ghiwb1y[m[139]]['G$7N0I4'](), this[m[1106]] = 0x0, this[m[1107]] = 0x0, this['$y'] = glc5p[m[969]]['G$0N'], this['$L'] = new rb$i1_(), this['$L'][m[11635]] = '', this['$L'][m[11043]] = me3a[m[26725]], this['$L'][m[309]] = 0x5, this['$L'][m[11636]] = 0x1, this['$L'][m[11637]] = 0x5, this['$L'][m[167]] = this[m[26683]][m[167]], this['$L'][m[168]] = this[m[26683]][m[168]] - 0x8, this[m[26683]][m[544]](this['$L']), this['$M'] = new rb$i1_(), this['$M'][m[11635]] = '', this['$M'][m[11043]] = me3a[m[26726]], this['$M'][m[309]] = 0x5, this['$M'][m[11636]] = 0x1, this['$M'][m[11637]] = 0x5, this['$M'][m[167]] = this[m[26684]][m[167]], this['$M'][m[168]] = this[m[26684]][m[168]] - 0x8, this[m[26684]][m[544]](this['$M']), this['$N'] = new rb$i1_(), this['$N'][m[14505]] = '', this['$N'][m[11043]] = me3a[m[26727]], this['$N'][m[15322]] = 0x1, this['$N'][m[167]] = this[m[26679]][m[167]], this['$N'][m[168]] = this[m[26679]][m[168]], this[m[26679]][m[544]](this['$N']);var sif$ = this['$y'][m[26436]];this['$O'] = 0x1 != sif$ && (0x2 == sif$ || 0x3 == sif$) ? m[12137] : m[26728], this[m[10794]][m[296]](0x1fa, 0x58), this[m[11761]][m[1091]] = !0x1, glc5p[m[969]][m[10898]] = this, G$I0N4(), this[m[1456]](), this[m[1457]]();
+  }, vm3dea[m[5]][m[1456]] = function () {
+    this[m[1476]]['on'](Laya[m[536]][m[1136]], this, this['$g']), this[m[10794]]['on'](Laya[m[536]][m[1136]], this, this['$P']), this[m[26659]]['on'](Laya[m[536]][m[1136]], this, this['$Q']), this[m[26659]]['on'](Laya[m[536]][m[1136]], this, this['$Q']), this[m[26685]]['on'](Laya[m[536]][m[1136]], this, this['$R']), this[m[11761]]['on'](Laya[m[536]][m[1136]], this, this['$S']), this[m[26671]]['on'](Laya[m[536]][m[1136]], this, this['$T']), this[m[26675]]['on'](Laya[m[536]][m[1481]], this, this['$U']), this[m[26678]]['on'](Laya[m[536]][m[1136]], this, this['$V']), this[m[26681]]['on'](Laya[m[536]][m[1481]], this, this['$W']), this['$N'][m[14270]] = !0x0, this['$N'][m[15254]] = Laya[m[3404]][m[6]](this, this['$X'], null, !0x1);
+  }, vm3dea[m[5]][m[1458]] = function () {
+    this[m[1476]][m[1138]](Laya[m[536]][m[1136]], this, this['$g']), this[m[10794]][m[1138]](Laya[m[536]][m[1136]], this, this['$P']), this[m[26659]][m[1138]](Laya[m[536]][m[1136]], this, this['$Q']), this[m[26659]][m[1138]](Laya[m[536]][m[1136]], this, this['$Q']), this[m[26685]][m[1138]](Laya[m[536]][m[1136]], this, this['$R']), this[m[11761]][m[1138]](Laya[m[536]][m[1136]], this, this['$S']), this[m[26671]][m[1138]](Laya[m[536]][m[1136]], this, this['$T']), this[m[26675]][m[1138]](Laya[m[536]][m[1481]], this, this['$U']), this[m[26678]][m[1138]](Laya[m[536]][m[1136]], this, this['$V']), this[m[26681]][m[1138]](Laya[m[536]][m[1481]], this, this['$W']), this['$N'][m[14270]] = !0x1, this['$N'][m[15254]] = null;
+  }, vm3dea[m[5]][m[1457]] = function () {
+    this['$h'] = Date[m[77]](), this['$Y'] = this['$y'][m[23036]][m[10321]], this['$Z'](this['$y'][m[23036]]), this['$L'][m[1493]] = this['$y'][m[26569]], this['$Q'](), this[m[26655]][m[3931]] = m[26707] + this['$y'][m[95]] + m[26708] + this['$y'][m[26419]], this[m[26666]][m[847]] = this[m[26664]][m[847]] = this['$O'], req_multi_server_notice(0x4, this['$y'][m[23042]], this['$y'][m[23036]][m[10321]], this['$$'][m[68]](this));
+  }, vm3dea[m[5]][m[155]] = function (yi1) {
+    void 0x0 === yi1 && (yi1 = !0x0), this[m[1458]](), this['$L'] && (this['$L'][m[541]](), this['$L'][m[155]](), this['$L'] = null), this['$M'] && (this['$M'][m[541]](), this['$M'][m[155]](), this['$M'] = null), this['$N'] && (this['$N'][m[541]](), this['$N'][m[155]](), this['$N'] = null), cl2590[m[5]][m[155]][m[18]](this, yi1);
+  }, vm3dea[m[5]]['$g'] = function () {
+    0x2710 < Date[m[77]]() - this['$h'] && (this['$h'] -= 0x7d0, ghiwb1y[m[139]][m[26688]]());
+  }, vm3dea[m[5]]['$R'] = function () {
+    this[m[12777]][m[1091]] = !0x1;
+  }, vm3dea[m[5]]['$P'] = function () {
+    this['$a'](this['$y'][m[23036]]) && (glc5p[m[969]]['G$0N'][m[23036]] = this['$y'][m[23036]], G$NI04(0x0, this['$y'][m[23036]][m[10321]]));
+  }, vm3dea[m[5]]['$S'] = function () {
+    this['$b']();
+  }, vm3dea[m[5]]['$T'] = function () {
+    this[m[26669]][m[1091]] = !0x1;
+  }, vm3dea[m[5]]['$U'] = function () {
+    this['$H'] = this[m[26675]][m[1487]], Laya[m[1484]]['on'](jtqu3[m[10638]], this, this['$cc']), Laya[m[1484]]['on'](jtqu3[m[1482]], this, this['$dc']), Laya[m[1484]]['on'](jtqu3[m[10640]], this, this['$dc']);
+  }, vm3dea[m[5]]['$cc'] = function () {
+    var sfg$8 = this['$H'] - this[m[26675]][m[1487]];this[m[26675]][m[21396]] += sfg$8, this['$H'] = this[m[26675]][m[1487]];
+  }, vm3dea[m[5]]['$dc'] = function () {
+    Laya[m[1484]][m[1138]](jtqu3[m[10638]], this, this['$cc']), Laya[m[1484]][m[1138]](jtqu3[m[1482]], this, this['$dc']), Laya[m[1484]][m[1138]](jtqu3[m[10640]], this, this['$dc']);
+  }, vm3dea[m[5]]['$a'] = function (fs_$8g) {
+    return -0x1 == fs_$8g[m[100]] ? (alert(m[26729]), !0x1) : 0x0 != fs_$8g[m[100]] || (alert(m[26730]), !0x1);
+  }, vm3dea[m[5]]['$Q'] = function () {
+    this['$y']['hasGroupReq'] ? this[m[12777]][m[1091]] = !0x0 : (this['$y']['hasGroupReq'] = !0x0, G$0N4I(0x0));
+  }, vm3dea[m[5]]['$$'] = function (r_si1) {
+    console[m[454]](m[26731], r_si1);var hiwyb = Date[m[77]]() / 0x3e8,
+        d4hwby = localStorage[m[452]](this['$I']);if (this['$J'] = [], m[8959] == r_si1[m[3631]]) for (var jqt3vm in r_si1[m[11]]) {
+      var ey4aw = r_si1[m[11]][jqt3vm],
+          vtmae = hiwyb < ey4aw[m[26732]],
+          evm3ad = 0x1 == ey4aw[m[26733]],
+          jqt3vm = 0x2 == ey4aw[m[26733]] && ey4aw[m[257]] + '' != d4hwby;vtmae && (evm3ad || jqt3vm) && this['$J'][m[29]](ey4aw), jqt3vm && localStorage[m[457]](this['$I'], ey4aw[m[257]] + '');
+    }this['$J'][m[979]](function (mqvtj3, iyhrb1) {
+      return mqvtj3[m[26734]] - iyhrb1[m[26734]];
+    }), console[m[454]](m[26735], this['$J']), 0x0 < this['$J'][m[13]] && this['$b']();
+  }, vm3dea[m[5]][m[26736]] = function () {}, vm3dea[m[5]][m[26737]] = function (i$f_) {
+    var mqj3v = '';return 0x2 === i$f_ ? mqj3v = m[26662] : 0x1 === i$f_ ? mqj3v = m[26738] : -0x1 !== i$f_ && 0x0 !== i$f_ || (mqj3v = m[26739]), mqj3v;
+  }, vm3dea[m[5]]['$Z'] = function (zck) {
+    this[m[26666]][m[3931]] = -0x1 === zck[m[100]] ? zck[m[26501]] + m[26740] : 0x0 === zck[m[100]] ? zck[m[26501]] + m[26741] : zck[m[26501]], this[m[26666]][m[847]] = -0x1 === zck[m[100]] ? m[12569] : 0x0 === zck[m[100]] ? m[26742] : this['$O'], this[m[26661]][m[1120]] = this[m[26737]](zck[m[100]]), this['$y'][m[4016]] = zck[m[4016]] || '', this['$y'][m[23036]] = zck, this[m[11761]][m[1091]] = !0x0;
+  }, vm3dea[m[5]]['$ec'] = function (a3emv) {
+    this['showGroupList'](a3emv);
+  }, vm3dea[m[5]]['$fc'] = function (o692) {
+    this['$Z'](o692), this[m[12777]][m[1091]] = !0x1;
+  }, vm3dea[m[5]]['$gc'] = function (ea3vmd) {
+    this[m[26675]][m[3931]] = ea3vmd[m[11]][m[11767]] || '', this[m[26673]][m[3931]] = ea3vmd[m[11]][m[620]] || m[26674];
+  }, vm3dea[m[5]]['showGroupList'] = function (l9pk5) {
+    if (void 0x0 === l9pk5 && (l9pk5 = 0x0), this[m[534]]) {
+      var f$8_r = this['$y'][m[26569]];if (f$8_r && 0x0 !== f$8_r[m[13]]) {
+        for (var _r1s$i = f$8_r[m[13]], dwaey4 = 0x0; dwaey4 < _r1s$i; dwaey4++) f$8_r[dwaey4][m[7852]] = this['$ec'][m[68]](this), f$8_r[dwaey4][m[3853]] = dwaey4 == l9pk5, f$8_r[dwaey4][m[239]] = dwaey4;var dmva3 = (this['$L'][m[11649]] = f$8_r)[l9pk5]['id'];this['$y'][m[26430]][dmva3] ? this[m[26573]](dmva3) : this['$y'][m[26571]] || (this['$y'][m[26571]] = !0x0, -0x1 == dmva3 ? G$I04(0x0) : -0x2 == dmva3 ? G$704N(0x0) : G$40I(0x0, dmva3));
       }
     }
-  }, wlqe89['prototype']['showServerList'] = function (sxkzdf) {
-    if (this['parent'] && this['Gy']['serverList'][sxkzdf]) {
-      for (var dksxfz = this['Gy']['serverList'][sxkzdf], e_9lw8 = dksxfz['length'], wqvt = 0x0; wqvt < e_9lw8; wqvt++) dksxfz[wqvt]['callBack'] = this['Gda']['bind'](this);this['GL']['array'] = dksxfz;
+  }, vm3dea[m[5]][m[26573]] = function (is$rf_) {
+    if (this[m[534]] && this['$y'][m[26430]][is$rf_]) {
+      for (var at3vem = this['$y'][m[26430]][is$rf_], h4bw1y = at3vem[m[13]], vdema = 0x0; vdema < h4bw1y; vdema++) at3vem[vdema][m[7852]] = this['$fc'][m[68]](this);this['$M'][m[11649]] = at3vem;
     }
-  }, wlqe89['prototype']['Gba'] = function () {
-    if (this['Gaa']) {
-      this['GM']['x'] = 0x2 < this['Gaa']['length'] ? 0x0 : (this['boxTab']['width'] - 0x112 * this['Gaa']['length']) / 0x2;for (var xkdfsz = [], oeq8tw = 0x0; oeq8tw < this['Gaa']['length']; oeq8tw++) {
-        var ryj0 = this['Gaa'][oeq8tw];xkdfsz['push']([ryj0, oeq8tw == this['GM']['selectedIndex']]);
-      }this['GM']['dataSource'] = xkdfsz, this['GM']['selectedIndex'] = 0x0, this['GM']['scrollTo'](0x0);
-    }this['mNoticeBg']['visible'] = !0x0;
-  }, wlqe89['prototype']['GU'] = function () {
-    this['mNoticeBg']['visible'] = !0x1;
-  }, wlqe89['prototype']['GW'] = function () {
-    if (this['GM']['dataSource']) {
-      for (var c54m2a, _hj$g = 0x0; _hj$g < this['GM']['dataSource']['length']; _hj$g++) {
-        var y1ri$ = this['GM']['dataSource'][_hj$g];y1ri$[0x1] = _hj$g == this['GM']['selectedIndex'], _hj$g == this['GM']['selectedIndex'] && (c54m2a = y1ri$[0x0]);
-      }c54m2a && (this['mNoticeTitle']['text'] = c54m2a['title'] || 'null', this['mNoticeContent']['text'] = c54m2a['content'] || 'null');
+  }, vm3dea[m[5]]['$b'] = function () {
+    if (this['$J']) {
+      this['$N']['x'] = 0x2 < this['$J'][m[13]] ? 0x0 : (this[m[26679]][m[167]] - 0x112 * this['$J'][m[13]]) / 0x2;for (var rfs_ = [], o20769 = 0x0; o20769 < this['$J'][m[13]]; o20769++) {
+        var l5gpz = this['$J'][o20769];rfs_[m[29]]([l5gpz, o20769 == this['$N'][m[1135]]]);
+      }0x0 < (this['$N'][m[1493]] = rfs_)[m[13]] ? (this['$N'][m[1135]] = 0x0, this['$N'][m[6802]](0x0)) : (this[m[26680]][m[3931]] = m[26674], this[m[26681]][m[3931]] = '');
+    }this[m[26676]][m[1091]] = !0x0;
+  }, vm3dea[m[5]]['$V'] = function () {
+    this[m[26676]][m[1091]] = !0x1;
+  }, vm3dea[m[5]]['$X'] = function () {
+    if (this['$N'][m[1493]]) {
+      for (var u3jqmt, txjmqu = 0x0; txjmqu < this['$N'][m[1493]][m[13]]; txjmqu++) {
+        var k9pc5l = this['$N'][m[1493]][txjmqu];k9pc5l[0x1] = txjmqu == this['$N'][m[1135]], txjmqu == this['$N'][m[1135]] && (u3jqmt = k9pc5l[0x0]);
+      }this[m[26680]][m[3931]] = u3jqmt && u3jqmt[m[620]] ? u3jqmt[m[620]] : '', this[m[26681]][m[3931]] = u3jqmt && u3jqmt[m[11767]] ? u3jqmt[m[11767]] : '';
     }
-  }, wlqe89['prototype']['GV'] = function () {
-    this['GJ'] = this['mNoticeContent']['mouseY'], Laya['stage']['on'](e8ltq['MOUSE_MOVE'], this, this['Gea']), Laya['stage']['on'](e8ltq['MOUSE_UP'], this, this['Gfa']), Laya['stage']['on'](e8ltq['MOUSE_OUT'], this, this['Gfa']);
-  }, wlqe89['prototype']['Gea'] = function () {
-    var mca524 = this['GJ'] - this['mNoticeContent']['mouseY'];this['mNoticeContent']['scrollY'] += mca524, this['GJ'] = this['mNoticeContent']['mouseY'];
-  }, wlqe89['prototype']['Gfa'] = function () {
-    Laya['stage']['off'](e8ltq['MOUSE_MOVE'], this, this['Gea']), Laya['stage']['off'](e8ltq['MOUSE_UP'], this, this['Gfa']), Laya['stage']['off'](e8ltq['MOUSE_OUT'], this, this['Gfa']);
-  }, eqto['SelectServerPanel'] = wlqe89;
+  }, vm3dea[m[5]]['$W'] = function () {
+    this['$K'] = this[m[26681]][m[1487]], Laya[m[1484]]['on'](jtqu3[m[10638]], this, this['$hc']), Laya[m[1484]]['on'](jtqu3[m[1482]], this, this['$ic']), Laya[m[1484]]['on'](jtqu3[m[10640]], this, this['$ic']);
+  }, vm3dea[m[5]]['$hc'] = function () {
+    var sf8zk = this['$K'] - this[m[26681]][m[1487]];this[m[26681]][m[21396]] += sf8zk, this['$K'] = this[m[26681]][m[1487]];
+  }, vm3dea[m[5]]['$ic'] = function () {
+    Laya[m[1484]][m[1138]](jtqu3[m[10638]], this, this['$hc']), Laya[m[1484]][m[1138]](jtqu3[m[1482]], this, this['$ic']), Laya[m[1484]][m[1138]](jtqu3[m[10640]], this, this['$ic']);
+  }, me3a[m[26743]] = vm3dea;
 }(modules = modules || {});var modules,
-    gg6_jh$ = Laya['Browser'],
-    gy1ria0 = Laya['Font'],
-    gi$1rj6 = Laya['Input'],
-    gvzb7 = Laya['Render'],
-    gvqtwpo = Laya['Handler'],
-    gu3szx7 = modules['Gd']['AuthorizationPanel'],
-    gvpu37 = modules['Gd']['LoadingPanel'],
-    gcma42 = modules['Gd']['SelectServerPanel'],
-    gvqptw = function () {
-  function ubz37x(g9) {
-    this['m_loadingRes'] = ['gggloding/g13a.png', 'gggloding/g15a.png', 'gggloding/g14a.png', 'gggloding/g16a.png', 'gggloding/g17a.png', 'gggloding/g18a.png', 'gggloding/g19a.png', 'gggloding/g20a.png', 'gggwxeff/g1c.png', 'gggwxeff/g2c.png', 'gggwxeff/g3c.png', 'gggwxeff/g4c.png', 'gggwxeff/g5c.png', 'gggloding/g3a.jpg', 'gggloding/g12a.jpg', 'gggloding/g1a.png', 'gggloding/g2a.png', 'gggloding/g4a.jpg', 'gggloding/g6a.jpg', 'gggloding/g8a.jpg', 'gggloding/g10a.jpg', 'gggloding/g5a.jpg', 'gggloding/g7a.jpg', 'gggloding/g9a.jpg', 'gggloding/g11a.jpg'], this['G$Q$Y8'] = ['ggglogin/g10b.png', 'ggglogin/g11b.png', 'ggglogin/g12b.png', 'ggglogin/g13b.png', 'ggglogin/g14b.png', 'ggglogin/g15b.png', 'ggglogin/g16b.png', 'ggglogin/g17b.png', 'ggglogin/g18b.png', 'ggglogin/g19b.png', 'ggglogin/g20b.png', 'ggglogin/g21b.png', 'ggglogin/g2b.jpg', 'ggglogin/g3b.jpg', 'ggglogin/g4b.jpg', 'ggglogin/g5b.jpg', 'ggglogin/g6b.jpg', 'ggglogin/g1b.png', 'ggglogin/g8b.png', 'ggglogin/g9b.png'], this['m_isPrelodServer'] = !0x1, this['m_isPrelodLoading'] = !0x1, this['Gga'] = !0x1, this['Gha'] = '', ubz37x['instance'] = this, Laya['MiniAdpter']['init'](), Laya3D['init'](0x0, 0x0, !0x1, !0x1, !0x1), DecodeTools['init'](), Laya['stage']['scaleMode'] = Laya['Stage']['SCALE_FIXED_WIDTH'], Laya['stage']['screenMode'] = Laya['Stage']['SCREEN_NONE'], Laya['stage']['alignH'] = Laya['Stage']['ALIGN_CENTER'], Laya['stage']['alignV'] = Laya['Stage']['ALIGN_MIDDLE'], Laya['stage']['frameRate'] = Laya['Stage']['FRAME_SLOW'];var _el89 = Laya['AtlasResourceManager'];_el89['maxTextureCount'] = 0x4, _el89['atlasTextureWidth'] = _el89['atlasTextureHeight'] = 0x400, _el89['_enable'](), Laya['URL']['rootPath'] = Laya['URL']['basePath'] = '', Laya['Browser']['window']['addEventListener'](Laya['Event']['RESIZE'], this['Gia']['bind'](this)), Laya['Loader']['preLoadedMap']['res/atlas/create_role_atlas.atlas'] = { 'frames': { 'btn_chuangjue_kaishi.png': { 'frame': { 'h': 0x58, 'idx': 0x0, 'w': 0x1fa, 'x': 0x0, 'y': 0x0 }, 'sourceSize': { 'h': 0x58, 'w': 0x1fa }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'btn_chuangjue_nan.png': { 'frame': { 'h': 0x62, 'idx': 0x0, 'w': 0x6c, 'x': 0x14f, 'y': 0x59 }, 'sourceSize': { 'h': 0x62, 'w': 0x6c }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'btn_chuangjue_nv.png': { 'frame': { 'h': 0x62, 'idx': 0x0, 'w': 0x6b, 'x': 0x0, 'y': 0xa4 }, 'sourceSize': { 'h': 0x62, 'w': 0x6b }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'image_chuangjue_mingbg.png': { 'frame': { 'h': 0x4a, 'idx': 0x0, 'w': 0x14e, 'x': 0x0, 'y': 0x59 }, 'sourceSize': { 'h': 0x4a, 'w': 0x14e }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'image_chuangjue_suiji.png': { 'frame': { 'h': 0x38, 'idx': 0x0, 'w': 0x34, 'x': 0x1bc, 'y': 0x59 }, 'sourceSize': { 'h': 0x38, 'w': 0x34 }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } } }, 'meta': { 'image': 'create_role_atlas.png', 'prefix': 'create_role_atlas/' } }, gg6_jh$['window']['resMgrLoad'] = ubz37x['instance']['G$Q$Y'], gg6_jh$['window']['imgMgrLoad'] = ubz37x['instance']['G$Q$Y'], this['m_layer'] = new Laya['Component'](), this['m_layer']['name'] = '_wxLoadingLayer', Laya['stage']['addChild'](this['m_layer']), this['Gia']();
-  }return ubz37x['prototype']['G$L$8Y'] = function (pqotb) {
-    ubz37x['instance']['m_layer']['visible'] = pqotb;
-  }, ubz37x['prototype']['G$Q8$LY'] = function () {
-    ubz37x['instance']['m_author'] || (ubz37x['instance']['m_author'] = new gu3szx7()), ubz37x['instance']['m_author']['parent'] || ubz37x['instance']['m_layer']['addChild'](ubz37x['instance']['m_author']), ubz37x['instance']['Gja']();
-  }, ubz37x['prototype']['closeAuthor'] = function () {
-    this['m_author'] && this['m_author']['parent'] && (Laya['stage']['removeChild'](this['m_author']), this['m_author']['destroy'](!0x0), this['m_author'] = null);
-  }, ubz37x['prototype']['G$Q$YL8'] = function () {
-    this['m_isPrelodServer'] || (this['m_isPrelodServer'] = !0x0, Laya['loader']['load'](this['G$Q$Y8'], gvqtwpo['create'](this, function () {
-      gg6_jh$['window']['loadServerRes'] = !0x0, gg6_jh$['window']['G$$YL8'](), gg6_jh$['window']['G$$Y8L']();
+    glc5p = Laya[m[76]],
+    ggs$zf = Laya[m[23002]],
+    guxtqj = Laya[m[23003]],
+    glp90 = Laya[m[23004]],
+    g$fg8z = Laya[m[3404]],
+    gjvem3 = modules['$f'][m[26690]],
+    gdm3va = modules['$f'][m[26723]],
+    gjv3me = modules['$f'][m[26743]],
+    ghiwb1y = function () {
+  function tjmv3e(m3tva) {
+    this[m[26744]] = [m[26633], m[26704], m[26635], m[26637], m[26639], m[26647], m[26646], m[26645], m[26745], m[26746], m[26747], m[26748], m[26749], m[26694], m[26699], m[26649], m[26710], m[26696], m[26697], m[26698], m[26695], m[26701], m[26702], m[26703], m[26700]], this['G$7N04'] = [m[26672], m[26668], m[26663], m[26750], m[26751], m[26752], m[26753], m[26686], m[26662], m[26738], m[26739], m[26660], m[26620], m[26623], m[26625], m[26627], m[26621], m[26630], m[26670], m[26682], m[26754], m[26755], m[26756], m[26677]], this[m[26757]] = !0x1, this[m[26758]] = !0x1, this['$jc'] = !0x1, this['$kc'] = '', tjmv3e[m[139]] = this, Laya[m[26759]][m[353]](), Laya3D[m[353]](0x0, 0x0, !0x1, !0x1, !0x1), DecodeTools[m[353]](), Laya[m[1484]][m[787]] = Laya[m[10660]][m[10661]], Laya[m[1484]][m[23112]] = Laya[m[10660]][m[23113]], Laya[m[1484]][m[23114]] = Laya[m[10660]]['ALIGN_CENTER'], Laya[m[1484]][m[23115]] = Laya[m[10660]]['ALIGN_MIDDLE'], Laya[m[1484]][m[13819]] = Laya[m[10660]][m[13820]];var v34ead = Laya[m[23116]];v34ead[m[23117]] = 0x4, v34ead[m[23118]] = v34ead[m[23119]] = 0x400, v34ead[m[23120]](), Laya[m[4199]][m[23138]] = Laya[m[4199]][m[23139]] = '', Laya[m[76]][m[969]][m[15652]](Laya[m[536]][m[23143]], this['$lc'][m[68]](this)), Laya[m[705]][m[4188]][m[21824]] = { 'frames': { 'btn_chuangjue_kaishi.png': { 'frame': { 'h': 0x58, 'idx': 0x0, 'w': 0x1fa, 'x': 0x0, 'y': 0x0 }, 'sourceSize': { 'h': 0x58, 'w': 0x1fa }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'btn_chuangjue_nan.png': { 'frame': { 'h': 0x62, 'idx': 0x0, 'w': 0x6c, 'x': 0x14f, 'y': 0x59 }, 'sourceSize': { 'h': 0x62, 'w': 0x6c }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'btn_chuangjue_nv.png': { 'frame': { 'h': 0x62, 'idx': 0x0, 'w': 0x6b, 'x': 0x0, 'y': 0xa4 }, 'sourceSize': { 'h': 0x62, 'w': 0x6b }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'image_chuangjue_mingbg.png': { 'frame': { 'h': 0x4a, 'idx': 0x0, 'w': 0x14e, 'x': 0x0, 'y': 0x59 }, 'sourceSize': { 'h': 0x4a, 'w': 0x14e }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } }, 'image_chuangjue_suiji.png': { 'frame': { 'h': 0x38, 'idx': 0x0, 'w': 0x34, 'x': 0x1bc, 'y': 0x59 }, 'sourceSize': { 'h': 0x38, 'w': 0x34 }, 'spriteSourceSize': { 'x': 0x0, 'y': 0x0 } } }, 'meta': { 'image': m[26760], 'prefix': m[26761] } }, glc5p[m[969]][m[961]] = tjmv3e[m[139]]['G$7N0'], glc5p[m[969]][m[962]] = tjmv3e[m[139]]['G$7N0'], this[m[26762]] = new Laya[m[3428]](), this[m[26762]][m[173]] = m[3450], Laya[m[1484]][m[544]](this[m[26762]]), this['$lc']();
+  }return tjmv3e[m[5]]['G$IN40'] = function (hw4yd) {
+    tjmv3e[m[139]][m[26762]][m[1091]] = hw4yd;
+  }, tjmv3e[m[5]]['G$74NI0'] = function () {
+    tjmv3e[m[139]][m[26763]] || (tjmv3e[m[139]][m[26763]] = new gjvem3()), tjmv3e[m[139]][m[26763]][m[534]] || tjmv3e[m[139]][m[26762]][m[544]](tjmv3e[m[139]][m[26763]]), tjmv3e[m[139]]['$mc']();
+  }, tjmv3e[m[5]][m[26450]] = function () {
+    this[m[26763]] && this[m[26763]][m[534]] && (Laya[m[1484]][m[540]](this[m[26763]]), this[m[26763]][m[155]](!0x0), this[m[26763]] = null);
+  }, tjmv3e[m[5]]['G$7N0I4'] = function () {
+    this[m[26757]] || (this[m[26757]] = !0x0, Laya[m[492]][m[140]](this['G$7N04'], g$fg8z[m[6]](this, function () {
+      glc5p[m[969]][m[26437]] = !0x0, glc5p[m[969]]['G$N0I4'](), glc5p[m[969]]['G$N04I']();
     })));
-  }, ubz37x['prototype']['openServer'] = function () {
-    for (var qpote = function () {
-      ubz37x['instance']['m_server'] || (ubz37x['instance']['m_server'] = new gcma42()), ubz37x['instance']['m_server']['parent'] || ubz37x['instance']['m_layer']['addChild'](ubz37x['instance']['m_server']), ubz37x['instance']['Gja']();
-    }, zxs7uk = !0x0, hg_8 = 0x0, ew8oqt = this['G$Q$Y8']; hg_8 < ew8oqt['length']; hg_8++) {
-      var zbv7u3 = ew8oqt[hg_8];if (null == Laya['Loader']['getRes'](zbv7u3)) {
-        zxs7uk = !0x1;break;
+  }, tjmv3e[m[5]][m[26509]] = function () {
+    for (var um3t = function () {
+      tjmv3e[m[139]][m[26764]] || (tjmv3e[m[139]][m[26764]] = new gjv3me()), tjmv3e[m[139]][m[26764]][m[534]] || tjmv3e[m[139]][m[26762]][m[544]](tjmv3e[m[139]][m[26764]]), tjmv3e[m[139]]['$mc']();
+    }, e4dav = !0x0, gp8lkz = 0x0, p5kzl = this['G$7N04']; gp8lkz < p5kzl[m[13]]; gp8lkz++) {
+      var $8frs = p5kzl[gp8lkz];if (null == Laya[m[705]][m[733]]($8frs)) {
+        e4dav = !0x1;break;
       }
-    }zxs7uk ? qpote() : Laya['loader']['load'](this['G$Q$Y8'], gvqtwpo['create'](this, qpote));
-  }, ubz37x['prototype']['closeServer'] = function () {
-    this['m_server'] && this['m_server']['parent'] && (Laya['stage']['removeChild'](this['m_server']), this['m_server']['destroy'](!0x0), this['m_server'] = null);
-  }, ubz37x['prototype']['preloadLoading'] = function () {
-    this['m_isPrelodLoading'] || (this['m_isPrelodLoading'] = !0x0, Laya['loader']['load'](this['m_loadingRes'], gvqtwpo['create'](this, function () {
-      gg6_jh$['window']['loadLoadingRes'] = !0x0, gg6_jh$['window']['G$$YL8'](), gg6_jh$['window']['G$$Y8L']();
+    }e4dav ? um3t() : Laya[m[492]][m[140]](this['G$7N04'], g$fg8z[m[6]](this, um3t));
+  }, tjmv3e[m[5]][m[26451]] = function () {
+    this[m[26764]] && this[m[26764]][m[534]] && (Laya[m[1484]][m[540]](this[m[26764]]), this[m[26764]][m[155]](!0x0), this[m[26764]] = null);
+  }, tjmv3e[m[5]][m[26687]] = function () {
+    this[m[26758]] || (this[m[26758]] = !0x0, Laya[m[492]][m[140]](this[m[26744]], g$fg8z[m[6]](this, function () {
+      glc5p[m[969]][m[26438]] = !0x0, glc5p[m[969]]['G$N0I4'](), glc5p[m[969]]['G$N04I']();
     })));
-  }, ubz37x['prototype']['openLoading'] = function (i6gh) {
-    void 0x0 === i6gh && (i6gh = 0x0), Laya['loader']['load'](this['m_loadingRes'], gvqtwpo['create'](this, function () {
-      ubz37x['instance']['m_loading'] || (ubz37x['instance']['m_loading'] = new gvpu37(i6gh)), ubz37x['instance']['m_loading']['parent'] || ubz37x['instance']['m_layer']['addChild'](ubz37x['instance']['m_loading']), ubz37x['instance']['Gja']();
+  }, tjmv3e[m[5]][m[26508]] = function (isr_$1) {
+    void 0x0 === isr_$1 && (isr_$1 = 0x0), Laya[m[492]][m[140]](this[m[26744]], g$fg8z[m[6]](this, function () {
+      tjmv3e[m[139]][m[26765]] || (tjmv3e[m[139]][m[26765]] = new gdm3va(isr_$1)), tjmv3e[m[139]][m[26765]][m[534]] || tjmv3e[m[139]][m[26762]][m[544]](tjmv3e[m[139]][m[26765]]), tjmv3e[m[139]]['$mc']();
     }));
-  }, ubz37x['prototype']['closeLoading'] = function () {
-    this['m_loading'] && this['m_loading']['parent'] && (Laya['stage']['removeChild'](this['m_loading']), this['m_loading']['destroy'](!0x0), this['m_loading'] = null);for (var $6i1r = 0x0, ry40 = this['G$Q$Y8']; $6i1r < ry40['length']; $6i1r++) {
-      var hl9g_ = ry40[$6i1r];Laya['Loader']['clearCache'](ubz37x['instance'], hl9g_), Laya['Loader']['clearRes'](hl9g_, !0x0);
-    }for (var kszx = 0x0, g89h = this['m_loadingRes']; kszx < g89h['length']; kszx++) hl9g_ = g89h[kszx], Laya['Loader']['clearCache'](ubz37x['instance'], hl9g_), Laya['Loader']['clearRes'](hl9g_, !0x0);this['m_layer']['parent'] && this['m_layer']['parent']['removeChild'](this['m_layer']);
-  }, ubz37x['prototype']['G$Q$'] = function () {
-    this['m_loading'] && this['m_loading']['parent'] && ubz37x['instance']['m_loading']['showGetBtn']();
-  }, ubz37x['prototype']['enterDefaultServer'] = function () {
-    var c254am = gg6_jh$['window']['G$Y$']['selectedServer'];this['Gga'] || -0x1 == c254am['status'] || 0x0 == c254am['status'] || (this['Gga'] = !0x0, gg6_jh$['window']['G$Y$']['selectedServer'] = c254am, G$$LY8(0x0, c254am['server_id']));
-  }, ubz37x['prototype']['sendRecord'] = function () {
-    var u37bvp = '';u37bvp += 'newRegister=' + gg6_jh$['window']['G$Y$']['newRegister'], u37bvp += ', isPrelodServer=' + this['m_isPrelodServer'], u37bvp += ', SelectServerPanel=' + (null != ubz37x['instance']['m_server']), u37bvp += ', isPrelodLoading=' + this['m_isPrelodLoading'], u37bvp += ', LoadingPanel=' + (null != ubz37x['instance']['m_loading']), u37bvp += ', resMgrLoad=' + (gg6_jh$['window']['resMgrLoad'] == ubz37x['instance']['G$Q$Y']), u37bvp += ', imgMgrLoad=' + (gg6_jh$['window']['imgMgrLoad'] == ubz37x['instance']['G$Q$Y']), u37bvp += ', errUrls=' + ubz37x['instance']['Gha'];for (var btqo = 0x0, gl69_h = this['G$Q$Y8']; btqo < gl69_h['length']; btqo++) u37bvp += ',\x20' + (obupv3 = gl69_h[btqo]) + '=' + (null != Laya['Loader']['getRes'](obupv3));for (var epwtqo = 0x0, wltq = this['m_loadingRes']; epwtqo < wltq['length']; epwtqo++) {
-      var obupv3;u37bvp += ',\x20' + (obupv3 = wltq[epwtqo]) + '=' + (null != Laya['Loader']['getRes'](obupv3));
-    }var b3x7u = gg6_jh$['window']['G$Y$']['selectedServer'];b3x7u && (u37bvp += ', server_status=' + b3x7u['status'], u37bvp += ', server_id=' + b3x7u['server_id'], u37bvp += ', server_name=' + b3x7u['server_name']), b3x7u = JSON['stringify']({ 'error': '初始界面超过10秒', 'stack': u37bvp }), (console['error'](b3x7u), this['Gka'] && this['Gka'] == u37bvp || (this['Gka'] = u37bvp, G$YL$(b3x7u)));
-  }, ubz37x['prototype']['Gla'] = function () {
-    var u3vobp = Laya['stage'],
-        pu3v7b = Math['floor'](u3vobp['width']),
-        eh_8l9 = Math['floor'](u3vobp['height']);eh_8l9 / pu3v7b < 1.7777778 ? (this['viewW'] = Math['floor'](pu3v7b / (eh_8l9 / 0x500)), this['viewH'] = 0x500, this['viewS'] = eh_8l9 / 0x500) : (this['viewW'] = 0x2d0, this['viewH'] = Math['floor'](eh_8l9 / (pu3v7b / 0x2d0)), this['viewS'] = pu3v7b / 0x2d0), (pu3v7b = Math['floor'](u3vobp['width']), u3vobp = Math['floor'](u3vobp['height'])), (u3vobp / pu3v7b < 1.7777778 ? (this['viewW'] = Math['floor'](pu3v7b / (u3vobp / 0x500)), this['viewH'] = 0x500, this['viewS'] = u3vobp / 0x500) : (this['viewW'] = 0x2d0, this['viewH'] = Math['floor'](u3vobp / (pu3v7b / 0x2d0)), this['viewS'] = pu3v7b / 0x2d0), this['Gja']());
-  }, ubz37x['prototype']['Gja'] = function () {
-    this['m_layer'] && (this['m_layer']['size'](this['viewW'], this['viewH']), this['m_layer']['scale'](this['viewS'], this['viewS'], !0x0));
-  }, ubz37x['prototype']['Gia'] = function () {
-    if (gi$1rj6['isInputting'] && gg6_jh$['onMobile']) {
-      var _lh9e8 = parseInt(gi$1rj6['inputContainer']['style']['top']['replace']('px', '')),
-          b7zuv = parseInt(gi$1rj6['inputElement']['style']['height']['replace']('px', '')) * this['viewS'],
-          ry41 = gg6_jh$['clientWidth'] / gvzb7['canvas']['width'];return 0x0 < (_lh9e8 = gg6_jh$['clientHeight'] - b7zuv * ry41 - _lh9e8) && (_lh9e8 = 0x0), void (gg6_jh$['container']['style']['top'] = _lh9e8 + 'px');
-    }gg6_jh$['container']['style']['top'] = '0px', b7zuv = (b7zuv = Math['floor'](gg6_jh$['width'])) + 0x1 & 0x7ffffffe, ry41 = (ry41 = Math['floor'](gg6_jh$['height'])) + 0x1 & 0x7ffffffe, _lh9e8 = Laya['stage'], (0x3 == ENV || ry41 < b7zuv ? (_lh9e8['scaleMode'] = Laya['Stage']['SCALE_NOSCALE'], _lh9e8['width'] = b7zuv, _lh9e8['height'] = ry41) : (_lh9e8['scaleMode'] = Laya['Stage']['SCALE_FIXED_WIDTH'], _lh9e8['width'] = 0x348, _lh9e8['height'] = Math['floor'](ry41 / (b7zuv / 0x348)) + 0x1 & 0x7ffffffe), this['Gla']());
-  }, ubz37x['prototype']['G$Q$Y'] = function (twepoq, g1j) {
-    function _l98w() {
-      sfkzdx['onload'] = null, sfkzdx['onerror'] = null;
-    }var sfkzdx,
-        $rjiy1 = twepoq;(sfkzdx = new gg6_jh$['window']['Image']())['onload'] = function () {
-      _l98w(), g1j($rjiy1, 0xc8, sfkzdx);
-    }, sfkzdx['onerror'] = function () {
-      console['warn']('[warn] WX loadImage onerror:', $rjiy1), ubz37x['instance']['Gha'] += $rjiy1 + '|', _l98w(), g1j($rjiy1, 0x194, null);
-    }, sfkzdx['src'] = $rjiy1, -0x1 == ubz37x['instance']['G$Q$Y8']['indexOf']($rjiy1) && -0x1 == ubz37x['instance']['m_loadingRes']['indexOf']($rjiy1) || Laya['Loader']['keepCache'](ubz37x['instance'], $rjiy1);
-  }, ubz37x['prototype']['Goa'] = function (g89hl_, a402) {
-    return -0x1 != g89hl_['indexOf'](a402, g89hl_['length'] - a402['length']);
-  }, ubz37x;
-}();!function (fsxk7z) {
-  function wtpoeq() {
-    var b3tpv = sxz7u['call'](this) || this;return b3tpv['Gpa'] = '#72441d', b3tpv['Gqa'] = '#263d7d', b3tpv['width'] = 0x112, b3tpv['height'] = 0x3b, b3tpv['Gra'] = new Laya['Image'](), b3tpv['addChild'](b3tpv['Gra']), b3tpv['Gsa'] = new Laya['Label'](), b3tpv['Gsa']['fontSize'] = 0x1e, b3tpv['Gsa']['color'] = b3tpv['Gqa'], b3tpv['addChild'](b3tpv['Gsa']), b3tpv['Gsa']['centerX'] = 0x0, b3tpv['Gsa']['centerY'] = 0x0, b3tpv;
-  }var sxz7u;fsxk7z = fsxk7z['Gd'] || (fsxk7z['Gd'] = {}), sxz7u = Laya['View'], gcm4a(wtpoeq, sxz7u), wtpoeq['prototype']['initialize'] = function () {
-    sxz7u['prototype']['initialize']['call'](this), this['Gy'] = gg6_jh$['window']['G$Y$'], this['Gy']['loadingType'], this['addEvt']();
-  }, Object['defineProperty'](wtpoeq['prototype'], 'dataSource', { 'set': function ($yjri1) {
-      $yjri1 && this['setData']($yjri1);
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), wtpoeq['prototype']['setData'] = function (iy1ar0) {
-    this['Gta'] = iy1ar0[0x0], this['Gua'] = iy1ar0[0x1], this['Gsa']['text'] = this['Gta']['title'], this['Gsa']['color'] = this['Gua'] ? this['Gpa'] : this['Gqa'], this['Gra']['skin'] = this['Gua'] ? 'ggglogin/g25b.png' : 'ggglogin/g24b.png';
-  }, wtpoeq['prototype']['destroy'] = function (g8h9_l) {
-    void 0x0 === g8h9_l && (g8h9_l = !0x0), this['rmEvts'](), sxz7u['prototype']['destroy']['call'](this, g8h9_l);
-  }, wtpoeq['prototype']['addEvt'] = function () {}, wtpoeq['prototype']['rmEvts'] = function () {}, fsxk7z['NoticeItem'] = wtpoeq;
-}(modules = modules || {}), function (pu3bo) {
-  function i$j6r() {
-    var a5ry0 = ewq8lt['call'](this) || this;return a5ry0['width'] = 0xc0, a5ry0['height'] = 0x46, a5ry0['Gra'] = new Laya['Image'](), a5ry0['addChild'](a5ry0['Gra']), a5ry0['Gsa'] = new Laya['Label'](), a5ry0['Gsa']['fontSize'] = 0x1e, a5ry0['Gsa']['color'] = a5ry0['GN'], a5ry0['addChild'](a5ry0['Gsa']), a5ry0['Gsa']['centerX'] = 0x0, a5ry0['Gsa']['centerY'] = 0x0, a5ry0;
-  }var ewq8lt;pu3bo = pu3bo['Gd'] || (pu3bo['Gd'] = {}), ewq8lt = Laya['View'], gcm4a(i$j6r, ewq8lt), i$j6r['prototype']['initialize'] = function () {
-    ewq8lt['prototype']['initialize']['call'](this), this['Gy'] = gg6_jh$['window']['G$Y$'];var z7xks = this['Gy']['loadingType'];this['GN'] = 0x1 != z7xks && 0x2 != z7xks && 0x3 == z7xks ? '#763042' : '#263d7d', this['addEvt']();
-  }, Object['defineProperty'](i$j6r['prototype'], 'dataSource', { 'set': function (j01riy) {
-      j01riy && this['setData'](j01riy);
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), i$j6r['prototype']['setData'] = function (up37vb) {
-    this['Gta'] = up37vb, this['Gsa']['text'] = up37vb['name'], this['Gra']['skin'] = up37vb['select'] ? 'ggglogin/g14b.png' : 'ggglogin/g15b.png';
-  }, i$j6r['prototype']['destroy'] = function (o3ubp) {
-    void 0x0 === o3ubp && (o3ubp = !0x0), this['rmEvts'](), ewq8lt['prototype']['destroy']['call'](this, o3ubp);
-  }, i$j6r['prototype']['addEvt'] = function () {
-    this['on'](Laya['Event']['MOUSE_UP'], this, this['clkHdler']);
-  }, i$j6r['prototype']['rmEvts'] = function () {
-    this['off'](Laya['Event']['MOUSE_UP'], this, this['clkHdler']);
-  }, i$j6r['prototype']['clkHdler'] = function () {
-    this['Gta'] && this['Gta']['callBack'] && this['Gta']['callBack'](this['Gta']['index']);
-  }, pu3bo['SelectLeftListItem'] = i$j6r;
-}(modules = modules || {}), function (bv37z) {
-  function y4r05a() {
-    var rjy$i = szfdxk['call'](this) || this;return rjy$i['Gra'] = new Laya['Image']('ggglogin/g16b.png'), rjy$i['Gsa'] = new Laya['Label'](), rjy$i['Gsa']['fontSize'] = 0x1e, rjy$i['Gsa']['color'] = rjy$i['GN'], rjy$i['addChild'](rjy$i['Gra']), rjy$i['Gva'] = new Laya['Image'](), rjy$i['addChild'](rjy$i['Gva']), rjy$i['width'] = 0x166, rjy$i['height'] = 0x46, rjy$i['addChild'](rjy$i['Gsa']), rjy$i['Gva']['centerY'] = 0x0, rjy$i['Gva']['x'] = 0x12, rjy$i['Gsa']['x'] = 0x50, rjy$i['Gsa']['centerY'] = 0x0, rjy$i['Gra']['graphics']['drawRect'](0x0, 0x0, rjy$i['width'], rjy$i['height'], '#00sasd'), rjy$i;
-  }var szfdxk;bv37z = bv37z['Gd'] || (bv37z['Gd'] = {}), szfdxk = Laya['View'], gcm4a(y4r05a, szfdxk), y4r05a['prototype']['initialize'] = function () {
-    szfdxk['prototype']['initialize']['call'](this), this['Gy'] = gg6_jh$['window']['G$Y$'];var m24a5c = this['Gy']['loadingType'];this['GN'] = 0x1 != m24a5c && 0x2 != m24a5c && 0x3 == m24a5c ? '#763042' : '#34267d', this['addEvt']();
-  }, Object['defineProperty'](y4r05a['prototype'], 'dataSource', { 'set': function (g_l9h6) {
-      g_l9h6 && this['setData'](g_l9h6);
-    }, 'enumerable': !0x0, 'configurable': !0x0 }), y4r05a['prototype']['setData'] = function (o3tbp) {
-    this['Gta'] = o3tbp, this['Gsa']['color'] = -0x1 === o3tbp['status'] ? '#d50000' : 0x0 === o3tbp['status'] ? '#49575a' : this['GN'], this['Gsa']['text'] = -0x1 === o3tbp['status'] ? o3tbp['server_name'] + '(维护中)' : 0x0 === o3tbp['status'] ? o3tbp['server_name'] + '(待开服)' : o3tbp['server_name'], this['Gva']['skin'] = this['getStatusSrc'](o3tbp['status']);
-  }, y4r05a['prototype']['destroy'] = function (_$g6j) {
-    void 0x0 === _$g6j && (_$g6j = !0x0), this['rmEvts'](), szfdxk['prototype']['destroy']['call'](this, _$g6j);
-  }, y4r05a['prototype']['addEvt'] = function () {
-    this['on'](Laya['Event']['MOUSE_UP'], this, this['clkHdler']);
-  }, y4r05a['prototype']['rmEvts'] = function () {
-    this['off'](Laya['Event']['MOUSE_UP'], this, this['clkHdler']);
-  }, y4r05a['prototype']['clkHdler'] = function () {
-    this['Gta'] && this['Gta']['callBack'] && this['Gta']['callBack'](this['Gta']);
-  }, y4r05a['prototype']['getStatusSrc'] = function (xku7sz) {
-    var zs7xkf = '';return 0x2 === xku7sz ? zs7xkf = 'ggglogin/g18b.png' : 0x1 === xku7sz ? zs7xkf = 'ggglogin/g19b.png' : -0x1 !== xku7sz && 0x0 !== xku7sz || (zs7xkf = 'ggglogin/g20b.png'), zs7xkf;
-  }, bv37z['SelectRightListItem'] = y4r05a;
-}(modules = modules || {}), window['ServerLoading'] = gvqptw;
+  }, tjmv3e[m[5]][m[26452]] = function () {
+    this[m[26765]] && this[m[26765]][m[534]] && (Laya[m[1484]][m[540]](this[m[26765]]), this[m[26765]][m[155]](!0x0), this[m[26765]] = null);for (var lkc95p = 0x0, hbwy14 = this['G$7N04']; lkc95p < hbwy14[m[13]]; lkc95p++) {
+      var mde3va = hbwy14[lkc95p];Laya[m[705]][m[23848]](tjmv3e[m[139]], mde3va), Laya[m[705]][m[4180]](mde3va, !0x0);
+    }for (var f8$gzs = 0x0, d4yhwa = this[m[26744]]; f8$gzs < d4yhwa[m[13]]; f8$gzs++) mde3va = d4yhwa[f8$gzs], Laya[m[705]][m[23848]](tjmv3e[m[139]], mde3va), Laya[m[705]][m[4180]](mde3va, !0x0);this[m[26762]][m[534]] && this[m[26762]][m[534]][m[540]](this[m[26762]]);
+  }, tjmv3e[m[5]]['G$7N'] = function () {
+    this[m[26765]] && this[m[26765]][m[534]] && tjmv3e[m[139]][m[26765]]['showGetBtn']();
+  }, tjmv3e[m[5]][m[26688]] = function () {
+    var vmeta3 = glc5p[m[969]]['G$0N'][m[23036]];this['$jc'] || -0x1 == vmeta3[m[100]] || 0x0 == vmeta3[m[100]] || (this['$jc'] = !0x0, glc5p[m[969]]['G$0N'][m[23036]] = vmeta3, G$NI04(0x0, vmeta3[m[10321]]));
+  }, tjmv3e[m[5]][m[26689]] = function () {
+    var $g8fsz = '';$g8fsz += m[26766] + glc5p[m[969]]['G$0N'][m[599]], $g8fsz += m[26767] + this[m[26757]], $g8fsz += m[26768] + (null != tjmv3e[m[139]][m[26764]]), $g8fsz += m[26769] + this[m[26758]], $g8fsz += m[26770] + (null != tjmv3e[m[139]][m[26765]]), $g8fsz += m[26771] + (glc5p[m[969]][m[961]] == tjmv3e[m[139]]['G$7N0']), $g8fsz += m[26772] + (glc5p[m[969]][m[962]] == tjmv3e[m[139]]['G$7N0']), $g8fsz += m[26773] + tjmv3e[m[139]]['$kc'];for (var pc905 = 0x0, e3mjv = this['G$7N04']; pc905 < e3mjv[m[13]]; pc905++) $g8fsz += ',\x20' + (sfg = e3mjv[pc905]) + '=' + (null != Laya[m[705]][m[733]](sfg));for (var lpc905 = 0x0, rb1ih = this[m[26744]]; lpc905 < rb1ih[m[13]]; lpc905++) {
+      var sfg;$g8fsz += ',\x20' + (sfg = rb1ih[lpc905]) + '=' + (null != Laya[m[705]][m[733]](sfg));
+    }var rs_$8 = glc5p[m[969]]['G$0N'][m[23036]];rs_$8 && ($g8fsz += m[26774] + rs_$8[m[100]], $g8fsz += m[26775] + rs_$8[m[10321]], $g8fsz += m[26776] + rs_$8[m[26501]]), rs_$8 = JSON[m[4004]]({ 'error': m[26777], 'stack': $g8fsz }), (console[m[119]](rs_$8), this['$nc'] && this['$nc'] == $g8fsz || (this['$nc'] = $g8fsz, G$0IN(rs_$8)));
+  }, tjmv3e[m[5]]['$oc'] = function () {
+    var iwy1h = Laya[m[1484]],
+        gpz8l = Math[m[112]](iwy1h[m[167]]),
+        y4wb1h = Math[m[112]](iwy1h[m[168]]);y4wb1h / gpz8l < 1.7777778 ? (this[m[986]] = Math[m[112]](gpz8l / (y4wb1h / 0x500)), this[m[1112]] = 0x500, this[m[3457]] = y4wb1h / 0x500) : (this[m[986]] = 0x2d0, this[m[1112]] = Math[m[112]](y4wb1h / (gpz8l / 0x2d0)), this[m[3457]] = gpz8l / 0x2d0), (gpz8l = Math[m[112]](iwy1h[m[167]]), iwy1h = Math[m[112]](iwy1h[m[168]])), (iwy1h / gpz8l < 1.7777778 ? (this[m[986]] = Math[m[112]](gpz8l / (iwy1h / 0x500)), this[m[1112]] = 0x500, this[m[3457]] = iwy1h / 0x500) : (this[m[986]] = 0x2d0, this[m[1112]] = Math[m[112]](iwy1h / (gpz8l / 0x2d0)), this[m[3457]] = gpz8l / 0x2d0), this['$mc']());
+  }, tjmv3e[m[5]]['$mc'] = function () {
+    this[m[26762]] && (this[m[26762]][m[296]](this[m[986]], this[m[1112]]), this[m[26762]][m[232]](this[m[3457]], this[m[3457]], !0x0));
+  }, tjmv3e[m[5]]['$lc'] = function () {
+    if (guxtqj[m[23098]] && glc5p[m[6151]]) {
+      var ib1$r_ = parseInt(guxtqj[m[23100]][m[9093]][m[309]][m[4192]]('px', '')),
+          c956 = parseInt(guxtqj[m[23101]][m[9093]][m[168]][m[4192]]('px', '')) * this[m[3457]],
+          sr1i$_ = glc5p[m[23102]] / glp90[m[122]][m[167]];return 0x0 < (ib1$r_ = glc5p[m[23103]] - c956 * sr1i$_ - ib1$r_) && (ib1$r_ = 0x0), void (glc5p[m[10567]][m[9093]][m[309]] = ib1$r_ + 'px');
+    }glc5p[m[10567]][m[9093]][m[309]] = m[23104], c956 = (c956 = Math[m[112]](glc5p[m[167]])) + 0x1 & 0x7ffffffe, sr1i$_ = (sr1i$_ = Math[m[112]](glc5p[m[168]])) + 0x1 & 0x7ffffffe, ib1$r_ = Laya[m[1484]], (0x3 == ENV || sr1i$_ < c956 ? (ib1$r_[m[787]] = Laya[m[10660]][m[23105]], ib1$r_[m[167]] = c956, ib1$r_[m[168]] = sr1i$_) : (ib1$r_[m[787]] = Laya[m[10660]][m[10661]], ib1$r_[m[167]] = 0x348, ib1$r_[m[168]] = Math[m[112]](sr1i$_ / (c956 / 0x348)) + 0x1 & 0x7ffffffe), this['$oc']());
+  }, tjmv3e[m[5]]['G$7N0'] = function (m3jv, f8szk) {
+    function h1y4wb() {
+      $_sgf8[m[23222]] = null, $_sgf8[m[70]] = null;
+    }var $_sgf8,
+        met3av = m3jv;($_sgf8 = new glc5p[m[969]][m[1103]]())[m[23222]] = function () {
+      h1y4wb(), f8szk(met3av, 0xc8, $_sgf8);
+    }, $_sgf8[m[70]] = function () {
+      console[m[90]](m[26778], met3av), tjmv3e[m[139]]['$kc'] += met3av + '|', h1y4wb(), f8szk(met3av, 0x194, null);
+    }, $_sgf8[m[23224]] = met3av, -0x1 == tjmv3e[m[139]]['G$7N04'][m[109]](met3av) && -0x1 == tjmv3e[m[139]][m[26744]][m[109]](met3av) || Laya[m[705]][m[4212]](tjmv3e[m[139]], met3av);
+  }, tjmv3e[m[5]]['$pc'] = function (fr8_s, ihyb) {
+    return -0x1 != fr8_s[m[109]](ihyb, fr8_s[m[13]] - ihyb[m[13]]);
+  }, tjmv3e;
+}();!function (e3mdav) {
+  function c90o2() {
+    var gklz5 = ayw4h[m[18]](this) || this;return gklz5['$qc'] = m[23808], gklz5['$rc'] = m[26779], gklz5[m[167]] = 0x112, gklz5[m[168]] = 0x3b, gklz5['$sc'] = new Laya[m[1103]](), gklz5[m[544]](gklz5['$sc']), gklz5['$tc'] = new Laya[m[6349]](), gklz5['$tc'][m[1452]] = 0x1e, gklz5['$tc'][m[847]] = gklz5['$rc'], gklz5[m[544]](gklz5['$tc']), gklz5['$tc'][m[1106]] = 0x0, gklz5['$tc'][m[1107]] = 0x0, gklz5;
+  }var ayw4h;e3mdav = e3mdav['$f'] || (e3mdav['$f'] = {}), ayw4h = Laya[m[1465]], gdy4wae(c90o2, ayw4h), c90o2[m[5]][m[1449]] = function () {
+    ayw4h[m[5]][m[1449]][m[18]](this), this['$y'] = glc5p[m[969]]['G$0N'], this['$y'][m[26436]], this[m[1456]]();
+  }, Object[m[53]](c90o2[m[5]], m[1493], { 'set': function (i1rby) {
+      i1rby && this[m[199]](i1rby);
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), c90o2[m[5]][m[199]] = function (fgpk) {
+    this['$uc'] = fgpk[0x0], this['$vc'] = fgpk[0x1], this['$tc'][m[3931]] = this['$uc'][m[620]], this['$tc'][m[847]] = this['$vc'] ? this['$qc'] : this['$rc'], this['$sc'][m[1120]] = this['$vc'] ? m[26755] : m[26754];
+  }, c90o2[m[5]][m[155]] = function (t3aevm) {
+    void 0x0 === t3aevm && (t3aevm = !0x0), this[m[1458]](), ayw4h[m[5]][m[155]][m[18]](this, t3aevm);
+  }, c90o2[m[5]][m[1456]] = function () {}, c90o2[m[5]][m[1458]] = function () {}, e3mdav[m[26727]] = c90o2;
+}(modules = modules || {}), function (xmqtju) {
+  function mquxt() {
+    var o9270 = gs_[m[18]](this) || this;return o9270[m[167]] = 0xc0, o9270[m[168]] = 0x46, o9270['$sc'] = new Laya[m[1103]](), o9270[m[544]](o9270['$sc']), o9270['$tc'] = new Laya[m[6349]](), o9270['$tc'][m[1452]] = 0x1e, o9270['$tc'][m[847]] = o9270['$O'], o9270[m[544]](o9270['$tc']), o9270['$tc'][m[1106]] = 0x0, o9270['$tc'][m[1107]] = 0x0, o9270;
+  }var gs_;xmqtju = xmqtju['$f'] || (xmqtju['$f'] = {}), gs_ = Laya[m[1465]], gdy4wae(mquxt, gs_), mquxt[m[5]][m[1449]] = function () {
+    gs_[m[5]][m[1449]][m[18]](this), this['$y'] = glc5p[m[969]]['G$0N'];var yw4 = this['$y'][m[26436]];this['$O'] = 0x1 != yw4 && 0x2 != yw4 && 0x3 == yw4 ? m[26780] : m[26779], this[m[1456]]();
+  }, Object[m[53]](mquxt[m[5]], m[1493], { 'set': function (_g) {
+      _g && this[m[199]](_g);
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), mquxt[m[5]][m[199]] = function (si$f) {
+    this['$uc'] = si$f, this['$tc'][m[3931]] = si$f[m[173]], this['$sc'][m[1120]] = si$f[m[3853]] ? m[26751] : m[26752];
+  }, mquxt[m[5]][m[155]] = function (ewday) {
+    void 0x0 === ewday && (ewday = !0x0), this[m[1458]](), gs_[m[5]][m[155]][m[18]](this, ewday);
+  }, mquxt[m[5]][m[1456]] = function () {
+    this['on'](Laya[m[536]][m[1482]], this, this[m[1488]]);
+  }, mquxt[m[5]][m[1458]] = function () {
+    this[m[1138]](Laya[m[536]][m[1482]], this, this[m[1488]]);
+  }, mquxt[m[5]][m[1488]] = function () {
+    this['$uc'] && this['$uc'][m[7852]] && this['$uc'][m[7852]](this['$uc'][m[239]]);
+  }, xmqtju[m[26725]] = mquxt;
+}(modules = modules || {}), function (c509l) {
+  function byw4() {
+    var ibyw1 = wiybh1[m[18]](this) || this;return ibyw1['$sc'] = new Laya[m[1103]](m[26753]), ibyw1['$tc'] = new Laya[m[6349]](), ibyw1['$tc'][m[1452]] = 0x1e, ibyw1['$tc'][m[847]] = ibyw1['$O'], ibyw1[m[544]](ibyw1['$sc']), ibyw1['$wc'] = new Laya[m[1103]](), ibyw1[m[544]](ibyw1['$wc']), ibyw1[m[167]] = 0x166, ibyw1[m[168]] = 0x46, ibyw1[m[544]](ibyw1['$tc']), ibyw1['$wc'][m[1107]] = 0x0, ibyw1['$wc']['x'] = 0x12, ibyw1['$tc']['x'] = 0x50, ibyw1['$tc'][m[1107]] = 0x0, ibyw1['$sc'][m[1143]][m[1144]](0x0, 0x0, ibyw1[m[167]], ibyw1[m[168]], m[26781]), ibyw1;
+  }var wiybh1;c509l = c509l['$f'] || (c509l['$f'] = {}), wiybh1 = Laya[m[1465]], gdy4wae(byw4, wiybh1), byw4[m[5]][m[1449]] = function () {
+    wiybh1[m[5]][m[1449]][m[18]](this), this['$y'] = glc5p[m[969]]['G$0N'];var jv3tqm = this['$y'][m[26436]];this['$O'] = 0x1 != jv3tqm && 0x2 != jv3tqm && 0x3 == jv3tqm ? m[26780] : m[26782], this[m[1456]]();
+  }, Object[m[53]](byw4[m[5]], m[1493], { 'set': function (jumt) {
+      jumt && this[m[199]](jumt);
+    }, 'enumerable': !0x0, 'configurable': !0x0 }), byw4[m[5]][m[199]] = function (jmuqxt) {
+    this['$uc'] = jmuqxt, this['$tc'][m[847]] = -0x1 === jmuqxt[m[100]] ? m[12569] : 0x0 === jmuqxt[m[100]] ? m[26742] : this['$O'], this['$tc'][m[3931]] = -0x1 === jmuqxt[m[100]] ? jmuqxt[m[26501]] + m[26740] : 0x0 === jmuqxt[m[100]] ? jmuqxt[m[26501]] + m[26741] : jmuqxt[m[26501]], this['$wc'][m[1120]] = this[m[26737]](jmuqxt[m[100]]);
+  }, byw4[m[5]][m[155]] = function (v3ej) {
+    void 0x0 === v3ej && (v3ej = !0x0), this[m[1458]](), wiybh1[m[5]][m[155]][m[18]](this, v3ej);
+  }, byw4[m[5]][m[1456]] = function () {
+    this['on'](Laya[m[536]][m[1482]], this, this[m[1488]]);
+  }, byw4[m[5]][m[1458]] = function () {
+    this[m[1138]](Laya[m[536]][m[1482]], this, this[m[1488]]);
+  }, byw4[m[5]][m[1488]] = function () {
+    this['$uc'] && this['$uc'][m[7852]] && this['$uc'][m[7852]](this['$uc']);
+  }, byw4[m[5]][m[26737]] = function (p8fkg) {
+    var s$fg8z = '';return 0x2 === p8fkg ? s$fg8z = m[26662] : 0x1 === p8fkg ? s$fg8z = m[26738] : -0x1 !== p8fkg && 0x0 !== p8fkg || (s$fg8z = m[26739]), s$fg8z;
+  }, c509l[m[26726]] = byw4;
+}(modules = modules || {}), window[m[26327]] = ghiwb1y;

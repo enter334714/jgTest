@@ -1,57 +1,60 @@
-console['info']('0 进入游戏包'), window['lastError'], wx['onError'](function (l_8ew) {
-  if (l_8ew) {
-    if (l_8ew['message']) {
-      var hj6ig$ = window['config']['game_ver']['replace'](new RegExp(/\./, 'g'), '_'),
-          tbqpov = l_8ew['message'],
-          $i1r = tbqpov['match'](/(gggggggg\/gggggame.js:)[0-9]{1,60}(:)/g);if ($i1r) for (var voqptw = 0x0; voqptw < $i1r['length']; voqptw++) {
-        var a0yri;$i1r[voqptw] && 0x0 < $i1r[voqptw]['length'] && (a0yri = parseInt($i1r[voqptw]['replace']('gggggggg/gggggame.js:', '')['replace'](':', '')), tbqpov = tbqpov['replace']($i1r[voqptw], $i1r[voqptw]['replace'](':' + a0yri + ':', ':' + (a0yri - 0x2) + ':')));
-      }tbqpov = (tbqpov = tbqpov['replace'](new RegExp('gggggggg/gggggame.js', 'g'), 'gggggggg/main__' + hj6ig$ + '.min.js'))['replace'](new RegExp('gggggggg/gggmain.js', 'g'), 'gggggggg/main__' + hj6ig$ + '.min.js'), l_8ew['message'] = tbqpov;
-    }hj6ig$ = { 'id': window['G$Y$']['roleId'], 'role': window['G$Y$']['roleName'], 'level': window['G$Y$']['roleLevel'], 'user': window['G$Y$']['account'], 'version': window['G$Y$']['lastVersion'], 'gamever': window['config']['game_ver'], 'cdn': window['G$Y$']['cdn'], 'serverid': window['G$Y$']['selectedServer'] ? window['G$Y$']['selectedServer']['server_id'] : 0x0, 'systemInfo': window['systemInfo'], 'error': 'MiniProgramError', 'stack': l_8ew ? l_8ew['message'] : '' }, l_8ew = JSON['stringify'](hj6ig$), (console['error']('脚本错误：' + l_8ew), window['lastError'] && window['lastError'] == hj6ig$['error'] || (window['lastError'] = hj6ig$['error'], window['G$LY'](hj6ig$)));
+var m = wx.$g;
+console[m[72]](m[26309]), window[m[26310]], wx[m[26311]](function (yae4dw) {
+  if (yae4dw) {
+    if (yae4dw[m[4018]]) {
+      var hir1_ = window[m[528]][m[26312]][m[4192]](new RegExp(/\./, 'g'), '_'),
+          $g_fs8 = yae4dw[m[4018]],
+          zfs8kg = $g_fs8[m[10702]](/(gggggggg\/gggggame.js:)[0-9]{1,60}(:)/g);if (zfs8kg) for (var zkf = 0x0; zkf < zfs8kg[m[13]]; zkf++) {
+        var sz$8;zfs8kg[zkf] && 0x0 < zfs8kg[zkf][m[13]] && (sz$8 = parseInt(zfs8kg[zkf][m[4192]](m[26313], '')[m[4192]](':', '')), $g_fs8 = $g_fs8[m[4192]](zfs8kg[zkf], zfs8kg[zkf][m[4192]](':' + sz$8 + ':', ':' + (sz$8 - 0x2) + ':')));
+      }$g_fs8 = ($g_fs8 = $g_fs8[m[4192]](new RegExp(m[26314], 'g'), m[26315] + hir1_ + m[23134]))[m[4192]](new RegExp(m[26316], 'g'), m[26315] + hir1_ + m[23134]), yae4dw[m[4018]] = $g_fs8;
+    }hir1_ = { 'id': window['G$0N'][m[26317]], 'role': window['G$0N'][m[4136]], 'level': window['G$0N'][m[26318]], 'user': window['G$0N'][m[23041]], 'version': window['G$0N'][m[95]], 'gamever': window[m[528]][m[26312]], 'cdn': window['G$0N'][m[4016]], 'serverid': window['G$0N'][m[23036]] ? window['G$0N'][m[23036]][m[10321]] : 0x0, 'systemInfo': window[m[26319]], 'error': m[26320], 'stack': yae4dw ? yae4dw[m[4018]] : '' }, yae4dw = JSON[m[4004]](hir1_), (console[m[119]](m[26321] + yae4dw), window[m[26310]] && window[m[26310]] == hir1_[m[119]] || (window[m[26310]] = hir1_[m[119]], window['G$I0'](hir1_)));
   }
-});import 'gggmd5min.js';import 'gggzlibs.js';window['Parser'] = require('gggdomparser.js');import 'gggindex.js';import 'ggglibsmin.js';import 'gggwxmini.js';import 'ggginitmin.js';import 'XingJuBox.js';console['info']('1 初始化'), console['info']('2 加载游戏'), G$LY8$({ 'title': '正在加载' });var gyr5 = { 'G$Q8LY$': !0x0 };new window['ServerLoading'](gyr5), window['ServerLoading']['instance']['G$Q8$LY'](), window['G$QL$8Y'] && clearInterval(window['G$QL$8Y']), window['G$QL$8Y'] = null, window['G$Q8$YL'] = function (jg$16i, vtwpq) {
-  if (!jg$16i || !vtwpq) return 0x0;jg$16i = jg$16i['split']('.'), vtwpq = vtwpq['split']('.');var tqw8e = Math['max'](jg$16i['length'], vtwpq['length']);for (; jg$16i['length'] < tqw8e;) jg$16i['push']('0');for (; vtwpq['length'] < tqw8e;) vtwpq['push']('0');for (var r$y1ij = 0x0; r$y1ij < tqw8e; r$y1ij++) {
-    var $_6j = parseInt(jg$16i[r$y1ij]),
-        ayi0r = parseInt(vtwpq[r$y1ij]);if (ayi0r < $_6j) return 0x1;if ($_6j < ayi0r) return -0x1;
+});import 'gggmd5min.js';import 'gggzlibs.js';window[m[26322]] = require(m[26323]);import 'gggindex.js';import 'ggglibsmin.js';import 'gggwxmini.js';import 'ggginitmin.js';import 'XingJuBox.js';console[m[72]](m[26324]), console[m[72]](m[26325]), G$I04N({ 'title': m[26326] });var gklc59p = { 'G$74I0N': !0x0 };new window[m[26327]](gklc59p), window[m[26327]][m[139]]['G$74NI0'](), window['G$7IN40'] && clearInterval(window['G$7IN40']), window['G$7IN40'] = null, window['G$74N0I'] = function ($s8gz, z8fk) {
+  if (!$s8gz || !z8fk) return 0x0;$s8gz = $s8gz[m[15]]('.'), z8fk = z8fk[m[15]]('.');var tmev = Math[m[798]]($s8gz[m[13]], z8fk[m[13]]);for (; $s8gz[m[13]] < tmev;) $s8gz[m[29]]('0');for (; z8fk[m[13]] < tmev;) z8fk[m[29]]('0');for (var wed4 = 0x0; wed4 < tmev; wed4++) {
+    var i_$b1r = parseInt($s8gz[wed4]),
+        aedy4w = parseInt(z8fk[wed4]);if (aedy4w < i_$b1r) return 0x1;if (i_$b1r < aedy4w) return -0x1;
   }return 0x0;
-}, window['SDKVersion'] = wx['getSystemInfoSync']()['SDKVersion'], console['log']('微信基础库版本：' + window['SDKVersion']);var gr6$ij1 = wx['getUpdateManager']();gr6$ij1['onCheckForUpdate'](function (wtqp) {
-  console['log']('是否有新版本：' + wtqp['hasUpdate']);
-}), gr6$ij1['onUpdateReady'](function () {
-  wx['showModal']({ 'title': '更新提示', 'content': '新版本已经准备好，是否重启应用？', 'showCancel': !0x1, 'success': function (h_69g$) {
-      gr6$ij1['applyUpdate']();
+}, window[m[26328]] = wx[m[26329]]()[m[26328]], console[m[454]](m[26330] + window[m[26328]]);var gkzpcl5 = wx[m[26331]]();gkzpcl5[m[26332]](function ($irsf) {
+  console[m[454]](m[26333] + $irsf[m[26334]]);
+}), gkzpcl5[m[26335]](function () {
+  wx[m[26336]]({ 'title': m[26337], 'content': m[26338], 'showCancel': !0x1, 'success': function (xtumjq) {
+      gkzpcl5[m[26339]]();
     } });
-}), gr6$ij1['onUpdateFailed'](function () {
-  console['log']('新版本下载失败\x20');
-}), window['G$QYL8$'] = function () {
-  console['log']('protobuf 分包加载');var j$61ir = wx['loadSubpackage']({ 'name': 'ggggggpf', 'success': function ($6igj) {
-      console['log']('protobuf 分包加载成功'), console['log']($6igj), $6igj && 'loadSubpackage:ok' == $6igj['errMsg'] ? (window['G$$8'] = !0x0, window['G$$YL8'](), window['G$$Y8L']()) : setTimeout(function () {
-        window['G$QYL8$']();
+}), gkzpcl5[m[26340]](function () {
+  console[m[454]](m[26341]);
+}), window['G$70I4N'] = function () {
+  console[m[454]](m[26342]);var iybh1r = wx[m[26343]]({ 'name': m[26344], 'success': function (s$8_f) {
+      console[m[454]](m[26345]), console[m[454]](s$8_f), s$8_f && m[26346] == s$8_f[m[23202]] ? (window['G$N4'] = !0x0, window['G$N0I4'](), window['G$N04I']()) : setTimeout(function () {
+        window['G$70I4N']();
       }, 0x1f4);
-    }, 'fail': function (xusk7z) {
-      console['log']('protobuf 分包加载失败'), console['log'](xusk7z), setTimeout(function () {
-        window['G$QYL8$']();
+    }, 'fail': function (wyd4ha) {
+      console[m[454]](m[26347]), console[m[454]](wyd4ha), setTimeout(function () {
+        window['G$70I4N']();
       }, 0x1f4);
-    } });j$61ir && j$61ir['onProgressUpdate'](ihgj => {});
-}, window['G$QY8L$'] = function () {
-  console['log']('Main 分包加载');var g6$_h = wx['loadSubpackage']({ 'name': 'gggggggg', 'success': function (r1i$y) {
-      console['log']('Main 分包加载成功'), console['log'](r1i$y), r1i$y && 'loadSubpackage:ok' == r1i$y['errMsg'] ? (window['G$Y8$'] = !0x0, window['G$$YL8'](), window['G$$Y8L']()) : setTimeout(function () {
-        window['G$QY8L$']();
+    } });iybh1r && iybh1r[m[26348]](b1ihyw => {});
+}, window['G$704IN'] = function () {
+  console[m[454]](m[26349]);var zfkpg8 = wx[m[26343]]({ 'name': m[26350], 'success': function (r1ybi) {
+      console[m[454]](m[26351]), console[m[454]](r1ybi), r1ybi && m[26346] == r1ybi[m[23202]] ? (window['G$04N'] = !0x0, window['G$N0I4'](), window['G$N04I']()) : setTimeout(function () {
+        window['G$704IN']();
       }, 0x1f4);
-    }, 'fail': function (rya05) {
-      console['log']('Main 分包加载失败'), console['log'](rya05), setTimeout(function () {
-        window['G$QY8L$']();
+    }, 'fail': function (jtmx) {
+      console[m[454]](m[26352]), console[m[454]](jtmx), setTimeout(function () {
+        window['G$704IN']();
       }, 0x1f4);
-    } });g6$_h && g6$_h['onProgressUpdate'](wqvpo => {});
-}, 0x0 <= window['G$Q8$YL'](window['SDKVersion'], '2.1.0') ? (console['log']('微信基础库版本符合最低版本要求：' + window['SDKVersion'] + '>=2.1.0'), window['G$YL'](), window['G$QYL8$'](), window['G$QY8L$']()) : (window['G$Y$L']('微信基础库版本过低:' + window['SDKVersion']), wx['showModal']({ 'title': '提示', 'content': '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。' })), window['systemInfo'] = '', wx['getSystemInfo']({ 'success'(ry1j$) {
-    window['systemInfo'] = '品牌：' + ry1j$['brand'] + '，型号：' + ry1j$['model'] + '，微信版本号：' + ry1j$['version'] + '，系统及版本：' + ry1j$['system'] + '，客户端平台：' + ry1j$['platform'] + '，基础库版本：' + ry1j$['SDKVersion'] + '，设备性能等级：' + ry1j$['benchmarkLevel'], console['log'](window['systemInfo']), console['log']('设备像素比：' + ry1j$['pixelRatio'] + '，屏幕宽度：' + ry1j$['screenWidth'] + '，屏幕高度：' + ry1j$['screenHeight'] + '，可使用窗口宽度：' + ry1j$['windowWidth'] + '，可使用窗口高度：' + ry1j$['windowHeight'] + '，状态栏的高度：' + ry1j$['statusBarHeight'] + '，安全区域：' + (ry1j$['safeArea'] ? ry1j$['safeArea']['top'] + ',' + ry1j$['safeArea']['bottom'] + ',' + ry1j$['safeArea']['left'] + ',' + ry1j$['safeArea']['right'] : ''));var g_$ = ry1j$['system'] ? ry1j$['system']['toLowerCase']() : '',
-        g96_$h = ry1j$['model'] ? ry1j$['model']['toLowerCase']()['replace']('\x20', '') : '';window['G$Y$']['wxIOS'] = -0x1 != g_$['indexOf']('ios'), window['G$Y$']['wxAndroid'] = -0x1 != g_$['indexOf']('android'), window['G$Y$']['wxPhone'] = -0x1 != g_$['indexOf']('ios') || -0x1 != g_$['indexOf']('android'), window['G$Y$']['wxPC'] = -0x1 != g_$['indexOf']('windows') || -0x1 != g_$['indexOf']('mac'), window['G$Y$']['wxPlatform'] = ry1j$['platform'] ? ry1j$['platform']['toLowerCase']() : '', window['G$Y$']['G$QLY8$'] = !0x1, -(window['G$Y$']['G$QLY$8'] = 0x1) != g_$['indexOf']('android') ? 0x18 <= ry1j$['benchmarkLevel'] ? window['G$Y$']['G$QLY$8'] = 0x2 : window['G$Y$']['G$QLY$8'] = 0x1 : -0x1 == g_$['indexOf']('ios') || !(ry1j$['benchmarkLevel'] && 0x14 <= ry1j$['benchmarkLevel'] || -0x1 == g96_$h['indexOf']('iphone5') && -0x1 == g96_$h['indexOf']('iphone6') && -0x1 == g96_$h['indexOf']('iphone7') && -0x1 == g96_$h['indexOf']('iphonese') && -0x1 == g96_$h['indexOf']('ipad')) ? window['G$Y$']['G$QLY$8'] = 0x1 : window['G$Y$']['G$QLY$8'] = 0x2, console['log']('加载限制：' + window['G$Y$']['G$QLY8$'] + '，设备限制等级：' + window['G$Y$']['G$QLY$8']);
-  } }), wx['getBatteryInfo']({ 'success': function (k7z) {
-    console['log']('电量：' + k7z['level'] + '%，是否正在充电：' + k7z['isCharging']);
-  } }), wx['getNetworkType']({ 'success': function (xk7zf) {
-    console['log']('网络类型：' + xk7zf['networkType']);
-  } }), wx['setKeepScreenOn']({ 'keepScreenOn': !0x0 }), wx['onNetworkStatusChange'](function (leq98w) {
-  console['log']('网络类型：' + leq98w['networkType'] + '，是否有网络连接：' + leq98w['isConnected']);
-}), wx['onShow'](function (ihgj$) {
-  window['G$$L8'] = ihgj$, window['G$$8L'] && window['G$$L8'] && (console['info']('小游戏切前台事件，场景值：' + window['G$$L8']['scene']), window['G$$8L'](window['G$$L8']), window['G$$L8'] = null);
-}), window['G$QY$L8'] = 0x0, window['onMemoryWarningCallBack'] = null, wx['onMemoryWarning'](function () {
-  window['G$QY$L8']++, wx['triggerGC'](), 0x2 <= window['G$QY$L8'] && (window['G$QY$L8'] = 0x0, console['error']('第二次内存警告'), wx['reportMonitor']('0', 0x1), window['G$Y$'] && window['G$Y$']['wxIOS'] && window['G$Y$L']('内存警告'), onMemoryWarningCallBack && onMemoryWarningCallBack());
+    } });zfkpg8 && zfkpg8[m[26348]](bi_h => {});
+}, window[m[26353]] = function () {
+  0x0 <= window['G$74N0I'](window[m[26328]], m[26354]) ? (console[m[454]](m[26355] + window[m[26328]] + m[26356]), window['G$0I'](), window['G$70I4N'](), window['G$704IN']()) : (window['G$0NI'](m[26357] + window[m[26328]]), wx[m[26336]]({ 'title': m[5827], 'content': m[26358] }));
+}, window[m[26319]] = '', wx[m[26359]]({ 'success'(i1byw) {
+    window[m[26319]] = m[26360] + i1byw[m[26361]] + m[26362] + i1byw[m[26363]] + m[26364] + i1byw[m[4205]] + m[26365] + i1byw[m[447]] + m[26366] + i1byw[m[23014]] + m[26367] + i1byw[m[26328]] + m[26368] + i1byw[m[8413]], console[m[454]](window[m[26319]]), console[m[454]](m[26369] + i1byw[m[26370]] + m[26371] + i1byw[m[26372]] + m[26373] + i1byw[m[26374]] + m[26375] + i1byw[m[26376]] + m[26377] + i1byw[m[26378]] + m[26379] + i1byw[m[26380]] + m[26381] + (i1byw[m[26382]] ? i1byw[m[26382]][m[309]] + ',' + i1byw[m[26382]][m[1108]] + ',' + i1byw[m[26382]][m[1110]] + ',' + i1byw[m[26382]][m[1109]] : ''));var hwdby4 = i1byw[m[447]] ? i1byw[m[447]][m[10943]]() : '',
+        metav3 = i1byw[m[26363]] ? i1byw[m[26363]][m[10943]]()[m[4192]]('\x20', '') : '';window['G$0N'][m[484]] = -0x1 != hwdby4[m[109]](m[26383]), window['G$0N'][m[10157]] = -0x1 != hwdby4[m[109]](m[26384]), window['G$0N'][m[26385]] = -0x1 != hwdby4[m[109]](m[26383]) || -0x1 != hwdby4[m[109]](m[26384]), window['G$0N'][m[22691]] = -0x1 != hwdby4[m[109]](m[26386]) || -0x1 != hwdby4[m[109]](m[26387]), window['G$0N'][m[26388]] = i1byw[m[23014]] ? i1byw[m[23014]][m[10943]]() : '', window['G$0N']['G$7I04N'] = !0x1, window['G$0N']['G$7I0N4'] = 0x2, -0x1 != hwdby4[m[109]](m[26384]) ? 0x18 <= i1byw[m[8413]] ? window['G$0N']['G$7I0N4'] = 0x3 : window['G$0N']['G$7I0N4'] = 0x2 : -0x1 == hwdby4[m[109]](m[26383]) || !(i1byw[m[8413]] && 0x14 <= i1byw[m[8413]] || -0x1 == metav3[m[109]](m[26389]) && -0x1 == metav3[m[109]](m[26390]) && -0x1 == metav3[m[109]](m[26391]) && -0x1 == metav3[m[109]](m[26392]) && -0x1 == metav3[m[109]](m[26393])) ? window['G$0N']['G$7I0N4'] = 0x2 : window['G$0N']['G$7I0N4'] = 0x3, console[m[454]](m[26394] + window['G$0N']['G$7I04N'] + m[26395] + window['G$0N']['G$7I0N4']);
+  } }), wx[m[26396]]({ 'success': function (sr_i1$) {
+    console[m[454]](m[26397] + sr_i1$[m[4112]] + m[26398] + sr_i1$[m[26399]]);
+  } }), wx[m[26400]]({ 'success': function (xmjqut) {
+    console[m[454]](m[26401] + xmjqut[m[26402]]);
+  } }), wx[m[26403]]({ 'keepScreenOn': !0x0 }), wx[m[26404]](function (dhy4a) {
+  console[m[454]](m[26401] + dhy4a[m[26402]] + m[26405] + dhy4a[m[26406]]);
+}), wx[m[26407]](function (p8fkg) {
+  window['G$NI4'] = p8fkg, window['G$N4I'] && window['G$NI4'] && (console[m[72]](m[26408] + window['G$NI4'][m[727]]), window['G$N4I'](window['G$NI4']), window['G$NI4'] = null);
+}), window['G$70NI4'] = 0x0, window[m[26409]] = null, wx[m[26410]](function () {
+  window['G$70NI4']++, wx['triggerGC'](), 0x2 <= window['G$70NI4'] && (window['G$70NI4'] = 0x0, console[m[119]](m[26411]), wx[m[26412]]('0', 0x1), window['G$0N'] && window['G$0N'][m[484]] && window['G$0NI'](m[26413]), onMemoryWarningCallBack && onMemoryWarningCallBack());
 });

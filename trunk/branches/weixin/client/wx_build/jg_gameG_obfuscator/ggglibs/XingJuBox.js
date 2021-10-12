@@ -1,1 +1,133 @@
-var gpvt3ob=function(qwo8t){'use strict';class eqop{constructor(gj$i1){this['onClickEvent']=()=>{},gj$i1&&gj$i1['gameGsConf']&&gj$i1['gameGsConf']['icon']?(this['opt']=gj$i1['gameGsConf']['icon'],Laya['loader']['load'](this['opt']['url'],Laya['Handler']['create'](this,this['addIcon']))):console['log']('[VIP] Icon init data null',gj$i1);}['addIcon'](){var l8hg9=Laya['loader']['getRes'](this['opt']['url']);this['icon']=new Laya['Sprite'](),Laya['stage']['addChild'](this['icon']),this['icon']['pivot'](l8hg9['width']/0x2,l8hg9['height']/0x2);var _l9eh8=this['opt']['x']||this['opt']['posX']||0x0,_jg$6=this['opt']['y']||this['opt']['posY']||0x0;this['icon']['pos'](-0x1===_l9eh8?Laya['stage']['width']-l8hg9['width']-0xf:_l9eh8,-0x1===_jg$6?Laya['stage']['height']/0x2:_jg$6),this['icon']['size'](l8hg9['width'],l8hg9['height']),this['icon']['graphics']['clear'](),this['icon']['graphics']['drawTexture'](l8hg9,0x0,0x0),this['bindDrag']();}['bindDrag'](){var qt=this['icon']['width'],ovbpu=this['icon']['height'];let ihgj=new Laya['Rectangle'](qt/0x2,ovbpu/0x2,Laya['stage']['width']-qt,Laya['stage']['height']-ovbpu);this['icon']['on'](Laya['Event']['MOUSE_DOWN'],this,()=>{this['icon']['startDrag'](ihgj,!0x0,0x64,0x12c,null,!0x0);}),this['icon']['on'](Laya['Event']['CLICK'],this,ouvpb3=>{this['onClickEvent']();});}['onClick'](v3puo){v3puo&&'function'==typeof v3puo&&(this['onClickEvent']=v3puo);}['close'](){this['icon']['visible']=!0x1,this['icon']['destroy']();}}const w8l9eq={'auto':'AUTO','click':'CLICK'},h8l9={'iconShow':'ICON-SHOW','iconClick':'ICON-CLICK','copyClick':'WECHAT-COPY','btnClick':'BUTTON-CLICK','pageClose':'CONF-CLOSE','pageShow':'CONF-SHOW','copySecretNum':'SECRET-COPY'};class wtqov{['init'](gl69h_){this['opt']=Object['assign'](this['opt']||{},gl69h_);}['_jsonToQuery'](tbqo){let r0jiy1={};for(var vwptqo in tbqo)void 0x0!==tbqo[vwptqo]&&(r0jiy1[vwptqo]=tbqo[vwptqo]);return JSON['stringify'](r0jiy1);}['post'](skfx7,_9el8w){if(this['opt']&&this['opt']['host']){var _g6h9$=this['opt']['host']+'/customer/api/v1/gs/log';_9el8w=this['_jsonToQuery']({'gameId':this['opt']['gameId'],'userId':this['opt']['userId'],'gs':this['opt']['gs'],'alias':skfx7,'gsWay':_9el8w||this['opt']['openType']}),console['log']('[VIP] post log',_9el8w);let pvtqow=new Laya['HttpRequest']();pvtqow['send'](_g6h9$,_9el8w,'post',null,['Content-Type','application/json']);}}}const wt8eql={'bg':0xb,'avatar':0xd,'closer':0xd,'code':0xe,'cross':0xf,'account':0x10,'codeNum':0x11,'codeBtn':0x12};class tqwo8{constructor(tvbop,yr1$ij,h6$gji){console['log']('[VIP] Page init',tvbop),this['config']=tvbop,this['_log']=yr1$ij,this['_openType']=h6$gji,this['stageW']=Laya['stage']['width'],this['stageH']=Laya['stage']['height'],this['renderMask'](),this['renderBg'](()=>{this['renderAvatar'](),this['renderClose'](),this['renderCode'](),this['config']['useCopy']&&this['renderWXAccount'](),this['config']['gameGsConf']['secretary']&&this['config']['gameGsConf']['secretary']['number']&&this['renderSecretaryNum'](),this['_log']&&this['_log']['post'](h8l9['pageShow'],this['_openType']);});}['setRate'](sxz7){this['rate']=this['stageW']/sxz7['width'];}['newNode'](y25){y25=y25||Laya['stage'];var ubxz37=new Laya['Sprite']();return y25['addChild'](ubxz37),ubxz37;}['setPos'](oqep,pub3v){var xsz7=this['rate']||0x1;let o8qte=pub3v['x']||0x0,ay041=pub3v['y']||0x0,zu7xk=oqep['width']/0x2,oqbvpt=oqep['height']/0x2;-0x1==o8qte?o8qte=this['stageW']/0x2:(zu7xk=0x0,o8qte*=xsz7),-0x1==ay041?ay041=this['stageH']/0x2:(ay041*=xsz7,oqbvpt=0x0),oqep['pivot'](zu7xk,oqbvpt),oqep['pos'](o8qte,ay041),oqep['zOrder']=pub3v['z']||0x0;}['drawSprite'](tpoweq,pwvqto){var zx73s=Laya['loader']['getRes'](pwvqto),ux3sz7;zx73s&&(pwvqto=(ux3sz7=this['rate']||0x1)?zx73s['width']*ux3sz7:this['stageW'],ux3sz7=ux3sz7?zx73s['height']*ux3sz7:this['stageH'],tpoweq['size'](pwvqto,ux3sz7),tpoweq['graphics']['clear'](),tpoweq['graphics']['drawTexture'](zx73s,0x0,0x0,pwvqto,ux3sz7));}['renderMask'](){var qbvp=this['config']['gameGsConf']['background'];this['mask']=this['newNode'](),this['mask']['graphics']['drawRect'](0x0,0x0,this['stageW'],this['stageH'],'#'+(qbvp['color']||'aaaaaa'));}['renderBg'](_9g8hl){let vtbpqo=this['config']['gameGsConf']['background'];this['bg']=this['newNode'](),Laya['loader']['load'](vtbpqo['url'],Laya['Handler']['create'](this,()=>{this['setRate'](Laya['loader']['getRes'](vtbpqo['url'])),this['drawSprite'](this['bg'],vtbpqo['url']),this['setPos'](this['bg'],{'x':0x0,'y':0x0,'z':wt8eql['bg']}),_9g8hl&&_9g8hl();}));}['renderAvatar'](){let oq8te=this['config']['gameGsConf']['gsAvatar'];this['avatar']=this['newNode'](this['bg']),Laya['loader']['load'](oq8te['url'],Laya['Handler']['create'](this,()=>{this['drawSprite'](this['avatar'],oq8te['url']),this['setPos'](this['avatar'],{'x':oq8te['posX'],'y':oq8te['posY'],'z':wt8eql['avatar']});}));}['renderClose'](){let ewt8oq=this['config']['gameGsConf']['closeBtn'];this['closer']=this['newNode'](this['bg']),Laya['loader']['load'](ewt8oq['url'],Laya['Handler']['create'](this,()=>{this['drawSprite'](this['closer'],ewt8oq['url']),this['setPos'](this['closer'],{'x':ewt8oq['posX'],'y':ewt8oq['posY'],'z':wt8eql['closer']}),this['closer']['on'](Laya['Event']['CLICK'],this,this['close']);}));}['renderCode'](){let bx7uz=this['config']['gameGsConf']['qrCodeBtn'];this['code']=this['newNode'](this['bg']),Laya['loader']['load'](bx7uz['url'],Laya['Handler']['create'](this,()=>{this['drawSprite'](this['code'],bx7uz['url']),this['setPos'](this['code'],{'x':bx7uz['posX'],'y':bx7uz['posY'],'z':wt8eql['code']}),this['code']['on'](Laya['Event']['CLICK'],this,this['onBtnClick']);}));}['renderWXAccount'](){var ry0a1i=this['config']['wxAccount']||'',ltqew=this['config']['gameGsConf']['copyAccount'],twqe=new Laya['Text']();twqe['text']=(ltqew['title']||'')+ry0a1i,twqe['fontSize']=ltqew['size']||0x20,twqe['align']=ltqew['textAlign']||'center',twqe['color']=ltqew['color']||'#ffffff',this['setPos'](twqe,{'x':ltqew['posX'],'y':ltqew['posY'],'z':wt8eql['account']}),this['bg']['addChild'](twqe);}['close'](){this['clear'](),this['_log']&&this['_log']['post'](h8l9['pageClose'],this['_openType']);}['clear'](){this['mask']['destroy'](),this['bg']['destroy']();}['onBtnClick'](){var tpqvwo;this['_log']&&this['_log']['post'](h8l9['btnClick'],this['_openType']),this['config']['gs']?this['config']['useCopy']?this['onCopy'](this['config']):console['warn']('此VIP模块仅支持复制功能\uFF01'):(tpqvwo=this['config']['gameGsConf']['gsMsg']||'没有达到开通条件',wx&&wx['showModal']&&wx['showModal']({'content':tpqvwo,'showCancel':!0x1}));}['renderSecretaryNum'](){var e9hl=this['config']['gameGsConf']['secretary']||{},igj6$h=this['config']['gameGsConf']['exclusiveNumInfo'],ya02=e9hl['number'];ya02&&((e9hl=new Laya['Text']())['text']=igj6$h['title']+ya02,e9hl['fontSize']=0x20,e9hl['horizontalAlign']='center'['toUpperCase'](),e9hl['color']=igj6$h['color']||'#FFFFFF',this['setPos'](e9hl,{'x':igj6$h['posX'],'y':igj6$h['posY'],'z':wt8eql['codeNum']}),this['bg']['addChild'](e9hl),this['renderSecretBtn']());}['renderSecretBtn'](){let _h9l6g=this['config']['gameGsConf']['exclusiveNumBtn'];this['exclusiveBtn']=this['newNode'](this['bg']),Laya['loader']['load'](_h9l6g['url'],Laya['Handler']['create'](this,()=>{this['drawSprite'](this['exclusiveBtn'],_h9l6g['url']),this['setPos'](this['exclusiveBtn'],{'x':_h9l6g['posX'],'y':_h9l6g['posY'],'z':wt8eql['codeBtn']}),this['exclusiveBtn']['on'](Laya['Event']['CLICK'],this,this['clickSercretBtn']);}));}['clickSercretBtn'](){var uksz7=(this['config']['gameGsConf']['secretary']||{})['number'];uksz7&&wx&&wx['setClipboardData']&&(wx['setClipboardData']({'data':uksz7}),this['_log']&&this['_log']['post'](h8l9['number'],this['_openType']));}['onCopy'](up3v7){wx&&wx['setClipboardData']&&up3v7&&up3v7['wxAccount']&&(wx['setClipboardData']({'data':up3v7['wxAccount']}),this['_log']&&this['_log']['post'](h8l9['copySecretNum'],this['_openType']));}}const a54m0={'HOST':{'Prod':'https://platform.hortorgames.com','Test':'https://platform-test.hortorgames.com'},'URLS':{'Info':'/customer/api/v1/gs/info'}};class tpoew{['init'](xskfzd){console['log']('[VIP] hortorVip init',xskfzd),this['_showIcon']=!0x1!==xskfzd['defShowIcon'],this['_log']=new wtqov(),this['_init'](xskfzd),this['_loadVipData']();}['showIcon'](){this['_showIcon']=!0x0,this['visible']=!0x0,this['_initEntryIcon'](),this['_log']['post'](h8l9['iconShow']);}['hideIcon'](){this['_showIcon']=!0x1,this['_removeIcon']();}['refreshData'](_lw9e8){this['_init'](_lw9e8),this['_removeIcon'](),this['_loadVipData']();}['_init'](ar10i){ar10i&&(this['_conf']=Object['assign'](this['_conf']||{},ar10i),this['_host']=a54m0['HOST'][this['_conf']['env']],this['_log']['init']({'gameId':this['_conf']['vipGameId'],'userId':this['_conf']['userId']||this['_conf']['openId'],'host':this['_host']}));}['_loadVipData'](){console['log']('[VIP] _loadVipData');let _8e9hl=(a54m2,usk7x)=>{console['log']('[VIP] _loadVipData loaded',a54m2,usk7x),'function'==typeof this['_conf']['onLoad']&&this['_conf']['onLoad'](a54m2,usk7x);};var iyj10r=''+this['_host']+a54m0['URLS']['Info']+'?gameId='+this['_conf']['vipGameId']+'&userId='+this['_conf']['userId'];let bqo=new Laya['HttpRequest']();bqo['once'](Laya['Event']['COMPLETE'],this,b73uvp=>{this['_vipData']=JSON['parse'](b73uvp),this['_vipData']['meta']&&this['_vipData']['meta']['errCode']?_8e9hl(this['_vipData']['meta']):(this['_log']['init']({'gs':this['_vipData']['gs'],'openType':this['_vipData']['disabledAutoOpenQrcode']?w8l9eq['click']:w8l9eq['auto']}),_8e9hl(null,this['_vipData']),this['_showIcon']&&this['showIcon']());}),bqo['once'](Laya['Event']['ERROR'],this,h98_lg=>{_8e9hl(h98_lg);}),bqo['send'](iyj10r,null,'get','text');}['_initEntryIcon'](){return this['_icon']?console['log']('[VIP] 不能重复实例化 icon'):this['_vipData']&&this['_vipData']['gameGsConf']?this['_vipData']['disabled']?console['log']('[VIP] Disabled'):(this['_vipData']['gameGsConf']['useCross']=this['_crossSDK']&&!this['_vipData']['gameGsConf']['gsAddType'],this['_vipData']['useQRCode']=this['_vipData']['gs']&&!this['_vipData']['gameGsConf']['gsAddType'],this['_vipData']['useCopy']=this['_vipData']['gs']&&0x1==this['_vipData']['gameGsConf']['gsAddType'],Object['assign'](this['_vipData']['gameGsConf']['icon'],this['_conf']['icon']||{}),this['_icon']=new eqop(this['_vipData']),this['_icon']['onClick'](this['_onEntryIconClick']['bind'](this)),void this['_tryAutoOpen']()):console['log']('[VIP] 无配置信息');}['_removeIcon'](){this['visible']=!0x1,this['_icon']&&this['_icon']['close']&&(this['_icon']['close'](),this['_icon']=null),this['_removePage']();}['_removePage'](){this['_page']&&(this['_page']['clear'](),this['_page']=null);}['_tryAutoOpen'](){if(0x0===this['_vipData']['isAuth']&&!this['_vipData']['disabledAutoOpenQrcode']){if(!this['_vipData']['gs'])return console['log']('[VIP] 没有绑定客服');this['_vipData']['useCopy']&&this['_initPage'](w8l9eq['auto']);}}['_onEntryIconClick'](){this['_initPage'](w8l9eq['click']),this['_log']['post'](h8l9['iconClick']);}['_initPage'](jh$g_6){console['log']('[VIP] _initPage'),this['_removePage'](),this['_page']=new tqwo8(this['_vipData'],this['_log'],jh$g_6,this['_conf']);}}class dkzxsf{constructor(){let pubo=new tpoew();pubo['init']({'gameVersion':window['config']['game_ver'],'vipGameId':window['config']['partner_game_id'],'env':'Prod','userId':window['G$Y$']['userId'],'icon':{'posX':0x64,'posY':0x226},'defShowIcon':!!sdk_info['is_vipds'],'onLoad':(_h89e,ihg6j$)=>{console['log']('vip data loaded---',_h89e,ihg6j$);}});}}return window['XingJuBoxMain']=dkzxsf,qwo8t['XingJuBoxMain']=dkzxsf,qwo8t;}({});
+var m = wx.$g;
+var ghbwy1 = function (z8pl) {
+  'use strict';
+
+  class fgzp {
+    constructor(je3mtv) {
+      this['onClickEvent'] = () => {}, je3mtv && je3mtv['gameGsConf'] && je3mtv['gameGsConf']['icon'] ? (this['opt'] = je3mtv['gameGsConf']['icon'], Laya['loader']['load'](this['opt']['url'], Laya['Handler']['create'](this, this['addIcon']))) : console['log']('[VIP] Icon init data null', je3mtv);
+    }['addIcon']() {
+      var qumt = Laya['loader']['getRes'](this['opt']['url']);this['icon'] = new Laya['Sprite'](), Laya['stage']['addChild'](this['icon']), this['icon']['pivot'](qumt['width'] / 0x2, qumt['height'] / 0x2);var vd4ae = this['opt']['x'] || this['opt']['posX'] || 0x0,
+          hwiyb1 = this['opt']['y'] || this['opt']['posY'] || 0x0;this['icon']['pos'](-0x1 === vd4ae ? Laya['stage']['width'] - qumt['width'] - 0xf : vd4ae, -0x1 === hwiyb1 ? Laya['stage']['height'] / 0x2 : hwiyb1), this['icon']['size'](qumt['width'], qumt['height']), this['icon']['graphics']['clear'](), this['icon']['graphics']['drawTexture'](qumt, 0x0, 0x0), this['bindDrag']();
+    }['bindDrag']() {
+      var _1r$bi = this['icon']['width'],
+          kp5lc = this['icon']['height'];let wdhay4 = new Laya['Rectangle'](_1r$bi / 0x2, kp5lc / 0x2, Laya['stage']['width'] - _1r$bi, Laya['stage']['height'] - kp5lc);this['icon']['on'](Laya['Event']['MOUSE_DOWN'], this, () => {
+        this['icon']['startDrag'](wdhay4, !0x0, 0x64, 0x12c, null, !0x0);
+      }), this['icon']['on'](Laya['Event']['CLICK'], this, byhi1 => {
+        this['onClickEvent']();
+      });
+    }['onClick'](ad3) {
+      ad3 && 'function' == typeof ad3 && (this['onClickEvent'] = ad3);
+    }['close']() {
+      this['icon']['visible'] = !0x1, this['icon']['destroy']();
+    }
+  }const i_r$s = { 'auto': 'AUTO', 'click': 'CLICK' },
+        ih1br = { 'iconShow': 'ICON-SHOW', 'iconClick': 'ICON-CLICK', 'copyClick': 'WECHAT-COPY', 'btnClick': 'BUTTON-CLICK', 'pageClose': 'CONF-CLOSE', 'pageShow': 'CONF-SHOW', 'copySecretNum': 'SECRET-COPY' };class z8pkfg {
+    ['init'](jt3m) {
+      this['opt'] = Object['assign'](this['opt'] || {}, jt3m);
+    }['_jsonToQuery'](klpzc5) {
+      let $ir1_s = {};for (var tvmqj in klpzc5) void 0x0 !== klpzc5[tvmqj] && ($ir1_s[tvmqj] = klpzc5[tvmqj]);return JSON['stringify']($ir1_s);
+    }['post'](_br$i1, sg_$) {
+      if (this['opt'] && this['opt']['host']) {
+        var b1ih_r = this['opt']['host'] + '/customer/api/v1/gs/log';sg_$ = this['_jsonToQuery']({ 'gameId': this['opt']['gameId'], 'userId': this['opt']['userId'], 'gs': this['opt']['gs'], 'alias': _br$i1, 'gsWay': sg_$ || this['opt']['openType'] }), console['log']('[VIP] post log', sg_$);let b_1ir = new Laya['HttpRequest']();b_1ir['send'](b1ih_r, sg_$, 'post', null, ['Content-Type', 'application/json']);
+      }
+    }
+  }const r_h1 = { 'bg': 0xb, 'avatar': 0xd, 'closer': 0xd, 'code': 0xe, 'cross': 0xf, 'account': 0x10, 'codeNum': 0x11, 'codeBtn': 0x12 };class dwb4yh {
+    constructor($b1_i, mquxtj, k9l5p) {
+      console['log']('[VIP] Page init', $b1_i), this['config'] = $b1_i, this['_log'] = mquxtj, this['_openType'] = k9l5p, this['stageW'] = Laya['stage']['width'], this['stageH'] = Laya['stage']['height'], this['renderMask'](), this['renderBg'](() => {
+        this['renderAvatar'](), this['renderClose'](), this['renderCode'](), this['config']['useCopy'] && this['renderWXAccount'](), this['config']['gameGsConf']['secretary'] && this['config']['gameGsConf']['secretary']['number'] && this['renderSecretaryNum'](), this['_log'] && this['_log']['post'](ih1br['pageShow'], this['_openType']);
+      });
+    }['setRate'](yhib1) {
+      this['rate'] = this['stageW'] / yhib1['width'];
+    }['newNode'](jtuq3m) {
+      jtuq3m = jtuq3m || Laya['stage'];var _r$1s = new Laya['Sprite']();return jtuq3m['addChild'](_r$1s), _r$1s;
+    }['setPos'](lk8, kzplc) {
+      var l90c5 = this['rate'] || 0x1;let klc5pz = kzplc['x'] || 0x0,
+          muqxtj = kzplc['y'] || 0x0,
+          klzg8p = lk8['width'] / 0x2,
+          c62590 = lk8['height'] / 0x2;-0x1 == klc5pz ? klc5pz = this['stageW'] / 0x2 : (klzg8p = 0x0, klc5pz *= l90c5), -0x1 == muqxtj ? muqxtj = this['stageH'] / 0x2 : (muqxtj *= l90c5, c62590 = 0x0), lk8['pivot'](klzg8p, c62590), lk8['pos'](klc5pz, muqxtj), lk8['zOrder'] = kzplc['z'] || 0x0;
+    }['drawSprite'](tmva, bi1r$) {
+      var lc09p = Laya['loader']['getRes'](bi1r$),
+          bydh4w;lc09p && (bi1r$ = (bydh4w = this['rate'] || 0x1) ? lc09p['width'] * bydh4w : this['stageW'], bydh4w = bydh4w ? lc09p['height'] * bydh4w : this['stageH'], tmva['size'](bi1r$, bydh4w), tmva['graphics']['clear'](), tmva['graphics']['drawTexture'](lc09p, 0x0, 0x0, bi1r$, bydh4w));
+    }['renderMask']() {
+      var zkgfs = this['config']['gameGsConf']['background'];this['mask'] = this['newNode'](), this['mask']['graphics']['drawRect'](0x0, 0x0, this['stageW'], this['stageH'], '#' + (zkgfs['color'] || 'aaaaaa'));
+    }['renderBg'](l5cp0) {
+      let mva3te = this['config']['gameGsConf']['background'];this['bg'] = this['newNode'](), Laya['loader']['load'](mva3te['url'], Laya['Handler']['create'](this, () => {
+        this['setRate'](Laya['loader']['getRes'](mva3te['url'])), this['drawSprite'](this['bg'], mva3te['url']), this['setPos'](this['bg'], { 'x': 0x0, 'y': 0x0, 'z': r_h1['bg'] }), l5cp0 && l5cp0();
+      }));
+    }['renderAvatar']() {
+      let c52l09 = this['config']['gameGsConf']['gsAvatar'];this['avatar'] = this['newNode'](this['bg']), Laya['loader']['load'](c52l09['url'], Laya['Handler']['create'](this, () => {
+        this['drawSprite'](this['avatar'], c52l09['url']), this['setPos'](this['avatar'], { 'x': c52l09['posX'], 'y': c52l09['posY'], 'z': r_h1['avatar'] });
+      }));
+    }['renderClose']() {
+      let _f8s$r = this['config']['gameGsConf']['closeBtn'];this['closer'] = this['newNode'](this['bg']), Laya['loader']['load'](_f8s$r['url'], Laya['Handler']['create'](this, () => {
+        this['drawSprite'](this['closer'], _f8s$r['url']), this['setPos'](this['closer'], { 'x': _f8s$r['posX'], 'y': _f8s$r['posY'], 'z': r_h1['closer'] }), this['closer']['on'](Laya['Event']['CLICK'], this, this['close']);
+      }));
+    }['renderCode']() {
+      let zf$ = this['config']['gameGsConf']['qrCodeBtn'];this['code'] = this['newNode'](this['bg']), Laya['loader']['load'](zf$['url'], Laya['Handler']['create'](this, () => {
+        this['drawSprite'](this['code'], zf$['url']), this['setPos'](this['code'], { 'x': zf$['posX'], 'y': zf$['posY'], 'z': r_h1['code'] }), this['code']['on'](Laya['Event']['CLICK'], this, this['onBtnClick']);
+      }));
+    }['renderWXAccount']() {
+      var jvtm3e = this['config']['wxAccount'] || '',
+          gfpkz8 = this['config']['gameGsConf']['copyAccount'],
+          isf$ = new Laya['Text']();isf$['text'] = (gfpkz8['title'] || '') + jvtm3e, isf$['fontSize'] = gfpkz8['size'] || 0x20, isf$['align'] = gfpkz8['textAlign'] || 'center', isf$['color'] = gfpkz8['color'] || '#ffffff', this['setPos'](isf$, { 'x': gfpkz8['posX'], 'y': gfpkz8['posY'], 'z': r_h1['account'] }), this['bg']['addChild'](isf$);
+    }['close']() {
+      this['clear'](), this['_log'] && this['_log']['post'](ih1br['pageClose'], this['_openType']);
+    }['clear']() {
+      this['mask']['destroy'](), this['bg']['destroy']();
+    }['onBtnClick']() {
+      var wvdea4;this['_log'] && this['_log']['post'](ih1br['btnClick'], this['_openType']), this['config']['gs'] ? this['config']['useCopy'] ? this['onCopy'](this['config']) : console['warn']('此VIP模块仅支持复制功能\uFF01') : (wvdea4 = this['config']['gameGsConf']['gsMsg'] || '没有达到开通条件', wx && wx['showModal'] && wx['showModal']({ 'content': wvdea4, 'showCancel': !0x1 }));
+    }['renderSecretaryNum']() {
+      var dyw4hb = this['config']['gameGsConf']['secretary'] || {},
+          eyda4 = this['config']['gameGsConf']['exclusiveNumInfo'],
+          p9k = dyw4hb['number'];p9k && ((dyw4hb = new Laya['Text']())['text'] = eyda4['title'] + p9k, dyw4hb['fontSize'] = 0x20, dyw4hb['horizontalAlign'] = 'center'['toUpperCase'](), dyw4hb['color'] = eyda4['color'] || '#FFFFFF', this['setPos'](dyw4hb, { 'x': eyda4['posX'], 'y': eyda4['posY'], 'z': r_h1['codeNum'] }), this['bg']['addChild'](dyw4hb), this['renderSecretBtn']());
+    }['renderSecretBtn']() {
+      let r$fi_ = this['config']['gameGsConf']['exclusiveNumBtn'];this['exclusiveBtn'] = this['newNode'](this['bg']), Laya['loader']['load'](r$fi_['url'], Laya['Handler']['create'](this, () => {
+        this['drawSprite'](this['exclusiveBtn'], r$fi_['url']), this['setPos'](this['exclusiveBtn'], { 'x': r$fi_['posX'], 'y': r$fi_['posY'], 'z': r_h1['codeBtn'] }), this['exclusiveBtn']['on'](Laya['Event']['CLICK'], this, this['clickSercretBtn']);
+      }));
+    }['clickSercretBtn']() {
+      var c95kl = (this['config']['gameGsConf']['secretary'] || {})['number'];c95kl && wx && wx['setClipboardData'] && (wx['setClipboardData']({ 'data': c95kl }), this['_log'] && this['_log']['post'](ih1br['number'], this['_openType']));
+    }['onCopy'](_sr$f) {
+      wx && wx['setClipboardData'] && _sr$f && _sr$f['wxAccount'] && (wx['setClipboardData']({ 'data': _sr$f['wxAccount'] }), this['_log'] && this['_log']['post'](ih1br['copySecretNum'], this['_openType']));
+    }
+  }const _ir$s = { 'HOST': { 'Prod': 'https://platform.hortorgames.com', 'Test': 'https://platform-test.hortorgames.com' }, 'URLS': { 'Info': '/customer/api/v1/gs/info' } };class mvad3e {
+    ['init'](y4adew) {
+      console['log']('[VIP] hortorVip init', y4adew), this['_showIcon'] = !0x1 !== y4adew['defShowIcon'], this['_log'] = new z8pkfg(), this['_init'](y4adew), this['_loadVipData']();
+    }['showIcon']() {
+      this['_showIcon'] = !0x0, this['visible'] = !0x0, this['_initEntryIcon'](), this['_log']['post'](ih1br['iconShow']);
+    }['hideIcon']() {
+      this['_showIcon'] = !0x1, this['_removeIcon']();
+    }['refreshData'](vtema) {
+      this['_init'](vtema), this['_removeIcon'](), this['_loadVipData']();
+    }['_init'](oc69) {
+      oc69 && (this['_conf'] = Object['assign'](this['_conf'] || {}, oc69), this['_host'] = _ir$s['HOST'][this['_conf']['env']], this['_log']['init']({ 'gameId': this['_conf']['vipGameId'], 'userId': this['_conf']['userId'] || this['_conf']['openId'], 'host': this['_host'] }));
+    }['_loadVipData']() {
+      console['log']('[VIP] _loadVipData');let lp8zg = (h1ybwi, vtma3) => {
+        console['log']('[VIP] _loadVipData loaded', h1ybwi, vtma3), 'function' == typeof this['_conf']['onLoad'] && this['_conf']['onLoad'](h1ybwi, vtma3);
+      };var w4h1y = '' + this['_host'] + _ir$s['URLS']['Info'] + '?gameId=' + this['_conf']['vipGameId'] + '&userId=' + this['_conf']['userId'];let lp8zkg = new Laya['HttpRequest']();lp8zkg['once'](Laya['Event']['COMPLETE'], this, a4eywd => {
+        this['_vipData'] = JSON['parse'](a4eywd), this['_vipData']['meta'] && this['_vipData']['meta']['errCode'] ? lp8zg(this['_vipData']['meta']) : (this['_log']['init']({ 'gs': this['_vipData']['gs'], 'openType': this['_vipData']['disabledAutoOpenQrcode'] ? i_r$s['click'] : i_r$s['auto'] }), lp8zg(null, this['_vipData']), this['_showIcon'] && this['showIcon']());
+      }), lp8zkg['once'](Laya['Event']['ERROR'], this, p5k9c => {
+        lp8zg(p5k9c);
+      }), lp8zkg['send'](w4h1y, null, 'get', 'text');
+    }['_initEntryIcon']() {
+      return this['_icon'] ? console['log']('[VIP] 不能重复实例化 icon') : this['_vipData'] && this['_vipData']['gameGsConf'] ? this['_vipData']['disabled'] ? console['log']('[VIP] Disabled') : (this['_vipData']['gameGsConf']['useCross'] = this['_crossSDK'] && !this['_vipData']['gameGsConf']['gsAddType'], this['_vipData']['useQRCode'] = this['_vipData']['gs'] && !this['_vipData']['gameGsConf']['gsAddType'], this['_vipData']['useCopy'] = this['_vipData']['gs'] && 0x1 == this['_vipData']['gameGsConf']['gsAddType'], Object['assign'](this['_vipData']['gameGsConf']['icon'], this['_conf']['icon'] || {}), this['_icon'] = new fgzp(this['_vipData']), this['_icon']['onClick'](this['_onEntryIconClick']['bind'](this)), void this['_tryAutoOpen']()) : console['log']('[VIP] 无配置信息');
+    }['_removeIcon']() {
+      this['visible'] = !0x1, this['_icon'] && this['_icon']['close'] && (this['_icon']['close'](), this['_icon'] = null), this['_removePage']();
+    }['_removePage']() {
+      this['_page'] && (this['_page']['clear'](), this['_page'] = null);
+    }['_tryAutoOpen']() {
+      if (0x0 === this['_vipData']['isAuth'] && !this['_vipData']['disabledAutoOpenQrcode']) {
+        if (!this['_vipData']['gs']) return console['log']('[VIP] 没有绑定客服');this['_vipData']['useCopy'] && this['_initPage'](i_r$s['auto']);
+      }
+    }['_onEntryIconClick']() {
+      this['_initPage'](i_r$s['click']), this['_log']['post'](ih1br['iconClick']);
+    }['_initPage'](fi$sr) {
+      console['log']('[VIP] _initPage'), this['_removePage'](), this['_page'] = new dwb4yh(this['_vipData'], this['_log'], fi$sr, this['_conf']);
+    }
+  }class h1b_ir {
+    constructor() {
+      let yhbw = new mvad3e();yhbw['init']({ 'gameVersion': window['config']['game_ver'], 'vipGameId': window['config']['partner_game_id'], 'env': 'Prod', 'userId': window['G$0N']['userId'], 'icon': { 'posX': 0x64, 'posY': 0x226 }, 'defShowIcon': !!sdk_info['is_vipds'], 'onLoad': (fs8$_g, mxjut) => {
+          console['log']('vip data loaded---', fs8$_g, mxjut);
+        } });
+    }
+  }return window['XingJuBoxMain'] = h1b_ir, z8pl['XingJuBoxMain'] = h1b_ir, z8pl;
+}({});

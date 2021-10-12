@@ -1,1 +1,2 @@
-require('gggggame.js');
+var m = wx.$g;
+require(m[26308]);

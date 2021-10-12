@@ -1,3 +1,4 @@
+var m = wx.$g;
 module.exports = {
     env: 'Prod', // 必填 运行环境：  测试Test  上线Prod，上线审核开始要把环境改为Prod
     gameId: 'xjtjqymini', // 必填 游戏ID，去平台后台创建

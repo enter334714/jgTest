@@ -1,1 +1,2 @@
-require('ggggBuff.js'), window['protobuf']['util']['Long'] = null, window['client_pb'] = require('gggcleintpb.js'), window['protobufRoot'] = window['protobuf']['Root']['fromJSON'](client_pb);
+var m = wx.$g;
+require('ggggBuff.js'), window['protobuf'][m[25963]][m[25964]] = null, window['client_pb'] = require('gggcleintpb.js'), window[m[23164]] = window['protobuf'][m[23070]][m[23071]](client_pb);
