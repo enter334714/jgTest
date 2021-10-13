@@ -1,4 +1,4 @@
-﻿import "hhssss/hhhweasaf.js"; console.info("1 \u521d\u59cb\u5316");
+﻿import "iisadfa/iiiWEASAF.js"; console.info("1 \u521d\u59cb\u5316");
 var VSHADER_SOURCE =
   'attribute vec4 a_Position;\n' +
   'attribute vec2 a_TexCoord;\n' +
@@ -43,7 +43,7 @@ gl.useProgram(shaderProgram);
 
 
 var image = new Image();
-image.src = "hhhlogin/h22b.png";
+image.src = "IIILOGIN/I22b.png";
 var buffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
@@ -87,7 +87,7 @@ window.loadingInterval = setInterval(function(){
 }, 16)
 wx.showLoading({ title: "\u6b63\u5728\u52a0\u8f7d" });
 wx.y$ = []; var fs = wx.getFileSystemManager(); wx.getFileSystemManager().unzip({
-  zipFilePath: "/hres/hfiles.zip", targetPath: wx.env.USER_DATA_PATH + "/f/", success: r => {
+  zipFilePath: "/ires/ifiles.zip", targetPath: wx.env.USER_DATA_PATH + "/f/", success: r => {
     "unzip:ok" == r.errMsg ? fs.readFile({
       filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8", success: function (r) {
         if ("readFile:ok" == r.errMsg && r.data) {
@@ -96,7 +96,7 @@ wx.y$ = []; var fs = wx.getFileSystemManager(); wx.getFileSystemManager().unzip(
           } catch (r) {
             console.error(r);
           } r = wx.loadSubpackage({
-            name: "hhhlibs", success: function (r) {
+            name: "iiiLIBS", success: function (r) {
               r && r.errMsg, window.loadSubpackages();             
             }, fail: function (r) {
               console.error(r);

@@ -3,13 +3,13 @@
 //TODO 替换对应参数
 var config = {
     game_id: 256,
-    game_pkg: 'tjqy_tjqywlsdh5_GD', //布咕--问道服-武林盛典online
+    game_pkg: 'tjqy_tjqywlsdh5_GQ', //布咕微信小程序2包-问道服-林盛典H5
     partner_label: 'bgxyx',
     partner_id: '389',
-    game_ver: '8.0.4',
+    game_ver: '9.0.0',
     is_auth: false, //授权登录
-    partner_app_id:28, // 渠道游戏的标识ID
-    partner_mp_id:'wx41e26949e9eae873' // 小程序ID，来自微信官方平台
+    partner_app_id:26, // 渠道游戏的标识ID
+    partner_mp_id:'wx4966038c5b5290b0' // 小程序ID，来自微信官方平台
 };
 window.config = config;
 var PARTNER_SDK = mainSDK();

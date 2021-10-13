@@ -2158,10 +2158,10 @@ var set_param_h = function () {
             "4.png": "I5c.png",
 
         }
-        strFilePath = "/hres";
-        strFileName = "/hfiles.zip";
+        strFilePath = "/ires";
+        strFileName = "/ifiles.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
-        globleKeys = ["$C", "O", "_p", "$h", "h_"];
+        globleKeys = ["$I", "Q", "_r", "$i", "i_"];
         noReplaceJs = packageName1+"/game.js";
         arrIndex = 0;
         globleArrs = new Array(arrIndex);
@@ -2184,15 +2184,15 @@ var set_param_h = function () {
     return through.obj(onFile);
 };
 
-gulp.task('set-param-h', function () {
+gulp.task('set-param-i', function () {
     var stream = gulp.src("")
-        .pipe(set_param_h())
+        .pipe(set_param_i())
     return stream;
 });
 
 //混淆
-gulp.task('build-babel-obfuscator-H', function (cb) {
-    sequence("set-param-h","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+gulp.task('build-babel-obfuscator-I', function (cb) {
+    sequence("set-param-i","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 
@@ -2733,7 +2733,7 @@ var js_babel = function () {
                                 globleArrs.push(tempstr);
                                 globleArrsObj[tempstr] = arrIndex;
                                 arrIndex = globleArrs.length;
-                                console.log("成功的字符串:",tempstr,"替换失败")
+                                console.log("成功的字符串111:",tempstr)
                             }
                         } catch (error) {
                             // console.log("失败的字符串:",tempstr,"替换失败")
@@ -2938,6 +2938,7 @@ var js_babel_str = function () {
                                 globleArrs.push(tempstr);
                                 globleArrsObj[tempstr] = arrIndex;
                                 arrIndex = globleArrs.length;
+                                console.log("成功的字符串:",tempstr,"替换成功")
                             }
                         } catch (error) {
                             // console.log("失败的字符串:",tempstr,"替换失败")
