@@ -3228,7 +3228,7 @@ var end_babel = function () {
 
         //生成 files.zip
         var str = JSON.stringify(globleArrs);
-        console.log("globleArrs长度：",globleArrs)
+        console.log("globleArrs长度：",globleArrs.length)
         var zipfile = new jszip().file("files", str);
         var self = this;
 

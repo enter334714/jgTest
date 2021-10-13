@@ -537,7 +537,7 @@ window.toLevelUp = function(role_id, role_name, role_level, role_type, evolution
   PF_INFO.roleId = role_id;
   PF_INFO.roleName = role_name;
   PF_INFO.roleLevel = role_level;
-  // AKSDK.logRoleUpLevel(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, role_id, role_name, role_level);
+  AKSDK.logRoleUpLevel(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, role_id, role_name, role_level);
   /*sendApi(PF_INFO.apiurl, 'User.update_role', {
       'game_pkg': PF_INFO.pkgName,
       'server_id': PF_INFO.selectedServer.server_id,
