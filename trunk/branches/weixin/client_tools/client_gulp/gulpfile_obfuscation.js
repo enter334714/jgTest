@@ -773,7 +773,7 @@ var set_param_c = function () {
         packageName1 = "ccclibs";
         packageName2 = "cccccf";
         packageName3 = "cccccccc";
-        arrIndex = 60000;
+        arrIndex = 0;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         needShuffle = true;
@@ -1970,7 +1970,7 @@ gulp.task('build-babel-obfuscator-H', function (cb) {
 
 
 /**H包参数*/
-var set_param_h = function () {
+var set_param_i = function () {
     function onFile(file, enc, cb) {
         if (file.isStream()) {
             this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
@@ -2938,7 +2938,7 @@ var js_babel_str = function () {
                                 globleArrs.push(tempstr);
                                 globleArrsObj[tempstr] = arrIndex;
                                 arrIndex = globleArrs.length;
-                                console.log("成功的字符串:",tempstr,"替换成功")
+                                console.log("成功的字符串:",tempstr,"index:",index)
                             }
                         } catch (error) {
                             // console.log("失败的字符串:",tempstr,"替换失败")
@@ -2994,9 +2994,19 @@ var end_babel = function () {
 
         //生成 files.zip
         var str = JSON.stringify(globleArrs);
-        console.log("globleArrs长度：",globleArrs.length)
+        console.log("globleArrs长度：",globleArrs)
         var zipfile = new jszip().file("files", str);
         var self = this;
+
+        // var checkarr = globleArrs.concat();
+        // for(var i =  0;i<checkarr.length;i++){
+        //     var str = checkarr[i];
+        //     var lastIndex = checkarr.lastIndexOf(str)
+        //     if(lastIndex!=-1 && lastIndex != i){
+        //         console.log("str:",str,"curindex:",i,"lastIndex:",lastIndex)
+        //     }
+        // }
+
         zipfile.generateAsync({type: "uint8array", compression: "DEFLATE", compressionOptions: {level: 9}}).then(function(content) {
             if (content) {
                 var p = path.resolve(targetProject + strFilePath);
