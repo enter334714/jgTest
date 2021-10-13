@@ -17,10 +17,10 @@ var path = require('path');
 var gulpts = require('gulp-typescript');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
-var imagemin  = require('gulp-imagemin');
-var smushit = require('gulp-smushit');
-const gulpPngquant = require('gulp-pngquant');
-const tiny = require('gulp-tinypng-nokey');
+// var imagemin  = require('gulp-imagemin');
+// var smushit = require('gulp-smushit');
+// const gulpPngquant = require('gulp-pngquant');
+// const tiny = require('gulp-tinypng-nokey');
 // var requirejs = require('gulp-requirejs');
 // var webpack = require('webpack-stream');
 // var rollup = require('gulp-rollup');
@@ -3461,6 +3461,14 @@ gulp.task('CREATE_REFUSEFILE_H', function (cb) {
 
 gulp.task('DEL_REFUSEFILE_H', function (cb) {
     sequence("set-param-h","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_I', function (cb) {
+    sequence("set-param-i","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_I', function (cb) {
+    sequence("set-param-i","DEL_REFUSEFILE",cb)
 });
 
 //无网络 使用这个图片压缩
