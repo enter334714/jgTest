@@ -1,1 +1,1 @@
-require("cccgame.js");
+require("cccgame.js")
