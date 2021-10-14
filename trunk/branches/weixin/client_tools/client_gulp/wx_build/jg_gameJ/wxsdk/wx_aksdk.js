@@ -6,7 +6,7 @@ var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqyjx_GS',
     partner_id: '330',
-    game_ver: '10.0.0', //天剑奇缘-聚仙-风云微信小程序-GS
+    game_ver: '10.0.1', //天剑奇缘-聚仙-风云微信小程序-GS
     is_auth: false, //授权登录
 };
 window.config = config;

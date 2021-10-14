@@ -124,13 +124,13 @@ window.changeServerLoading = function(value) {
   window.ServerLoading.instance.changeServerLoading(value);
 }
 window.msgCheck = function(value, callback) {
-  AKSDK.msgCheck(value, function(res){
+  AKSDK.msgSecCheck(value, function(res){
     if (res && res.data) {
-      if (res.data.state == 1){ //没有敏感词
+      if (res.data.errcode == 0){ //没有敏感词
         callback(true);
       } else { //存在敏感词xxx
         callback(false);
-        console.info("存在敏感词： "+res.data.msg);
+        console.info("存在敏感词： "+res.data.errmsg);
       }
     } else {
       console.log("msgCheck", res);
