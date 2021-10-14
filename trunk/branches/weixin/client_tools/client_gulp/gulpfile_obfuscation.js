@@ -3705,6 +3705,14 @@ gulp.task('DEL_REFUSEFILE_I', function (cb) {
     sequence("set-param-i","DEL_REFUSEFILE",cb)
 });
 
+gulp.task('CREATE_REFUSEFILE_J', function (cb) {
+    sequence("set-param-j","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_J', function (cb) {
+    sequence("set-param-j","DEL_REFUSEFILE",cb)
+});
+
 //无网络 使用这个图片压缩
 gulp.task('gulp-imagemin', function (cb) {
     sourceProject = "wx_build/jg_gameE_new";
