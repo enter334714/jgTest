@@ -2209,7 +2209,7 @@ var set_param_j = function () {
             return cb();
         }
 
-        DEST = '../../client/wx_dist/packageI/';
+        DEST = '../../client/wx_dist/packagej/';
         BUILD = 'wx_build/';
         PACK = 'jg_gameJ';
         INIT_PATH = '/';
@@ -2427,6 +2427,8 @@ gulp.task('set-param-j', function () {
 //混淆
 gulp.task('build-babel-obfuscator-J', function (cb) {
     sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
+
 });
 
 
@@ -3032,6 +3034,29 @@ var js_babel = function () {
                     }
                 }
             },
+            AssignmentExpression(path){
+                try{
+                    var left = path.node.left;
+                    if(left.type == "MemberExpression" ){
+                        var name = left.property.name;
+                        var right = path.node.right;
+
+                        //J包 不需要自动创建角色 修改自动创角函数 返回false;
+                        if(PREFIX == "J_" && name == "isAutoCreRole" && right.type == "FunctionExpression" && right.body.body[0].argument.type != "NumericLiteral"){
+                            console.log("name:",name);
+                            var resultStatement = babel_types.returnStatement(babel_types.numericLiteral(0));
+                            var block = babel_types.blockStatement([resultStatement]);
+                            var func= babel_types.functionExpression(null,[],block);//;//arrowFunctionExpression([],block)
+                            var assignmentExpression = babel_types.assignmentExpression("=",path.node.left,func)
+                            path.replaceWith(assignmentExpression)
+                        }
+                    }
+
+                }catch (e) {
+
+                }
+            },
+
             Program: {
                 enter(path, state) {
                     // console.log('start processing this Program...');

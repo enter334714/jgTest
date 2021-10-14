@@ -34,18 +34,19 @@ var babel_core_test = function () {
 
 
                 // // && !(path.parent && path.parent.type == "VariableDeclaration" && path.parent.parent && path.parent.parent.type == "VariableDeclarator" && path.parent.parent.id && path.parent.parent.id.name== "acfe")
-                if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
-                    var tempstr = path.node.value;
-                    var numericLiteral = babel_types.numericLiteral(0xff);
-                    numericLiteral.extra = {rawValue:255,raw:"0xff"}
-                    numericLiteral.raw = "0xff";
-                    var memberExpression = babel_types.memberExpression(babel_types.identifier("as"), numericLiteral, true);
-
-                    path.replaceWith(memberExpression);
-
-                }
+                // if (path.node.type == "StringLiteral") { //查找需要修改的叶子节点
+                //     var tempstr = path.node.value;
+                //     var numericLiteral = babel_types.numericLiteral(0xff);
+                //     numericLiteral.extra = {rawValue:255,raw:"0xff"}
+                //     numericLiteral.raw = "0xff";
+                //     var memberExpression = babel_types.memberExpression(babel_types.identifier("as"), numericLiteral, true);
+                //
+                //     path.replaceWith(memberExpression);
+                //
+                // }
             },
             Identifier(path) {  //代表处理 Identifier 节点  全局变量名替换）
+
                 // if (path.node.type == "Identifier") { //查找需要修改的叶子节点
                     // var tempstr = path.node.name;
                     // if (identifiersGlobleMap.hasOwnProperty(tempstr)) {
@@ -68,38 +69,61 @@ var babel_core_test = function () {
                 // }
             },
             NewExpression(path) {
-                var node = path.node;
-                var isNewExpression = babel_types.isNewExpression(node);
-                if (isNewExpression) {
-                    var name = node.callee.name;
-                    if (name == "Array") {
-                        // var arguments = path.get("arguments");
-                        var arguments = path.node.arguments;
-                        if(arguments.length <= 0 || arguments.length > 1){ //只有一個參數的表达式不管，因为一个参数如果是表达式，区分不开是设置长度还是设置设置数据
-                            var arrayExpression = babel_types.arrayExpression(arguments);
-                            path.replaceWith(arrayExpression)
-                        }else{
-                            var arg0 = arguments[0];
-                            //是否是成员表达式，是表达式就不管
-                            var isMemberExpression = babel_types.isMemberExpression(arg0);
-                            if(isMemberExpression){
-                                return;
-                            }
-                            //BinaryExpression //1+1,2+2 这种二进制表达式直接算出值， 先不管，工具会自动先转换
-                            var isLiteral = babel_types.isLiteral(arg0)
-                            if(isLiteral){
-                                var arrayExpression = babel_types.arrayExpression();
-                                path.replaceWith(arrayExpression)
-                            }else{
-                               return;
-                            }
-                        }
-                    }
-                }
+                // var node = path.node;
+                // var isNewExpression = babel_types.isNewExpression(node);
+                // if (isNewExpression) {
+                //     var name = node.callee.name;
+                //     if (name == "Array") {
+                //         // var arguments = path.get("arguments");
+                //         var arguments = path.node.arguments;
+                //         if(arguments.length <= 0 || arguments.length > 1){ //只有一個參數的表达式不管，因为一个参数如果是表达式，区分不开是设置长度还是设置设置数据
+                //             var arrayExpression = babel_types.arrayExpression(arguments);
+                //             path.replaceWith(arrayExpression)
+                //         }else{
+                //             var arg0 = arguments[0];
+                //             //是否是成员表达式，是表达式就不管
+                //             var isMemberExpression = babel_types.isMemberExpression(arg0);
+                //             if(isMemberExpression){
+                //                 return;
+                //             }
+                //             //BinaryExpression //1+1,2+2 这种二进制表达式直接算出值， 先不管，工具会自动先转换
+                //             var isLiteral = babel_types.isLiteral(arg0)
+                //             if(isLiteral){
+                //                 var arrayExpression = babel_types.arrayExpression();
+                //                 path.replaceWith(arrayExpression)
+                //             }else{
+                //                return;
+                //             }
+                //         }
+                //     }
+                // }
             },
             BinaryExpression(path){
-                var node = path.node;
+                // var node = path.node;
             },
+            AssignmentExpression(path){
+                try{
+                    var left = path.node.left;
+                    if(left.type == "MemberExpression"){
+                        var name = left.property.name;
+                        var right = path.node.right;
+
+                        if(name == "isAutoCreRole" && right.type == "FunctionExpression" && right.body.body[0].argument.type != "NumericLiteral"){
+                            console.log("name:",name);
+                            var resultStatement = babel_types.returnStatement(babel_types.numericLiteral(0));
+                            var block = babel_types.blockStatement([resultStatement]);
+                            var func= babel_types.functionExpression(null,[],block);//;//arrowFunctionExpression([],block)
+                            var assignmentExpression = babel_types.assignmentExpression("=",path.node.left,func)
+                            path.replaceWith(assignmentExpression)
+                        }
+                    }
+
+                }catch (e) {
+                    debugger;
+                }
+            },
+
+
             Program: {
                 enter(path, state) {
                     console.log("enter:",path.type)
@@ -363,9 +387,9 @@ var js_obfuscator = function (rate) {
 
 //测试用
 gulp.task("AST-TEST-使用babel-core", function () {
-    var sourceUrl = "../../client/wx_build/jg_gameMT1_new1";
+    var sourceUrl = "wx_build/astTest";
     var stream = gulp
-        .src(sourceUrl + '/game.js')
+        .src(sourceUrl + '/main.min.js')
         .pipe(babel_core_test())
         .pipe(gulp.dest(sourceUrl + "/ast/"))
     return stream;
