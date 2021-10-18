@@ -3279,7 +3279,7 @@ var js_babel = function () {
                         var right = path.node.right;
 
                         //J包 不需要自动创建角色 修改自动创角函数 返回false;
-                        if(PREFIX == "J_" && name == "isAutoCreRole" && right.type == "FunctionExpression" && right.body.body[0].argument.type != "NumericLiteral"){
+                        if((PREFIX == "k$" || PREFIX == "J_") && name == "isAutoCreRole" && right.type == "FunctionExpression" && right.body.body[0].argument.type != "NumericLiteral"){
                             console.log("name:",name);
                             var resultStatement = babel_types.returnStatement(babel_types.numericLiteral(0));
                             var block = babel_types.blockStatement([resultStatement]);
@@ -3703,7 +3703,7 @@ var mt1Replace = {}
 gulp.task('MT1_build_minify', function () {
     var sourceUrl =  sourceProject;// "wx_build/jg_gameMT1_new";
     var srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/**/'+mainJsName];
-    if(PREFIX == "G" || PREFIX=="J_"){
+    if(PREFIX == "G" || PREFIX=="k$" || PREFIX == "J_"){
         //g,j包SDK都不處理
         srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/utils/**/*.js',"!" + sourceUrl + '/**/'+mainJsName];
     }
@@ -3967,12 +3967,12 @@ gulp.task('DEL_REFUSEFILE_I', function (cb) {
     sequence("set-param-i","DEL_REFUSEFILE",cb)
 });
 
-gulp.task('CREATE_REFUSEFILE_J', function (cb) {
-    sequence("set-param-j","CREATE_REFUSEFILE",cb)
+gulp.task('CREATE_REFUSEFILE_K', function (cb) {
+    sequence("set-param-k","CREATE_REFUSEFILE",cb)
 });
 
-gulp.task('DEL_REFUSEFILE_J', function (cb) {
-    sequence("set-param-j","DEL_REFUSEFILE",cb)
+gulp.task('DEL_REFUSEFILE_K', function (cb) {
+    sequence("set-param-k","DEL_REFUSEFILE",cb)
 });
 
 //无网络 使用这个图片压缩
