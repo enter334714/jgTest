@@ -13,7 +13,7 @@
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
-    "uglifyFileName": true,
+    "uglifyFileName": false,
     "checkInvalidKey": true,
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
@@ -40,7 +40,7 @@
   "compileType": "game",
   "libVersion": "2.10.4",
   "appid": "wx538953a4f1a3a954",
-  "projectname": "%E8%81%9A%E4%BB%99",
+  "projectname": "凡人伏魔录",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
