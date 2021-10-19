@@ -1,12 +1,12 @@
 ﻿import Dall from './helper'
 var config = {
-    game_id: '256', //九歌行--天枢服--官方
-    game_pkg: 'tjqy_jgxxyx_AF',
+    game_id: '256', //伏魔西游 -官包
+    game_pkg: 'tjqy_tjqyfmxy_GR',
     partner_id: '19',
-    game_ver: '2.0.129',  //B包为2.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '11.0.1',  //B包11.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false,  //授权登录
-    from: null, //来源
-    tmpId: {1:'EINuK1ZxS2r8DUPVqymQs_JbjT6nV5o_bo-wc67bbs8', 2:'JJ3T3yUyMvF_XfMKx3fFEPYJV8iZHI4M8Do5ddeN7sM', 3:'snQEtMujGdKT78ppl6C_k6z2Tzvp3W-2E_Tr02w2pB0'},  // 订阅的类型 和 模板id
+    //1活动开启通知 2.活动状态提醒 3.离线收益上限提醒
+    tmpId: {1:'L7OrwbNJkcOJhe5iikwV6QQubLUeFgGHG0SO6rpLdvo', 2:'06f-cBAmoX_GIJ0VlVHNVpmFO8avojaRor6-alzpBBg', 3:'DLW3vyySJD-DZ7P0BT2q00NAtzuPZMkzuf1EARmrsBM'},  // 订阅的类型 和 模板id
     min_app_id: '',
 };
 window.config = config;
@@ -19,7 +19,6 @@ var t_max = 300;
 var user_game_info = null;
 var user_invite_info = null;
 var this_order_id = null;
-var timeHandler = null;
 
 function mainSDK() {
     var callbacks = {};
@@ -46,27 +45,14 @@ function mainSDK() {
                 wx.setStorageSync('plat_idfv', idfv);
             }
 
-
             var info = wx.getLaunchOptionsSync();
             var scene = info.scene ? info.scene : '';
-            console.log("[SDK]小游戏启动参数");
-            console.log(info);
+
 
             //判断今天是否已经上报过
             if(is_new && info.query && info.query.ad_code){
                 wx.setStorageSync('plat_ad_code', info.query.ad_code);
             }
-
-            //用户来源，如："txcps"
-            if(info.query && info.query.from && info.query.from!=""){
-                if (is_new) wx.setStorageSync('plat_from', info.query.from);
-                config.from = info.query.from;
-            } else {
-                var from = wx.getStorageSync('plat_from');
-                if(!from && from!="") config.from = from;
-            }
-            // config.from = "txcps"
-            console.log("from: "+ config.from);
 
             var data = {
                 install: is_new,
@@ -74,10 +60,8 @@ function mainSDK() {
             };
             self.log('start', data);
 
-
             //显示右上角分享按钮
             wx.showShareMenu();
-
 
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
@@ -98,15 +82,14 @@ function mainSDK() {
                     callback && callback(data);
                 });
             }
-
-
         },
+
         //登录接口
         login: function (data, callback) {
             console.log("[SDK]调起登录");
             var self = this;
             callbacks['login'] = typeof callback == 'function' ? callback : null;
-            
+
             //授权登录
             if(config.is_auth){
                 wx.getSetting({
@@ -117,6 +100,9 @@ function mainSDK() {
                         }else{
                             console.log("[SDK]获得授权设置：未授权");
                             wx.hideLoading({});
+                            // setTimeout(() => {
+                            //     wx.hideLoading();
+                            // }, 1000);
                             var system_info = wx.getSystemInfoSync();
                             var screen_width = system_info.screenWidth;
                             var screen_height = system_info.screenHeight;
@@ -236,8 +222,6 @@ function mainSDK() {
                                                 }else{
                                                     callbacks['login'] && callbacks['login'](1, {errMsg: data.msg});
                                                 }
-
-
 
                                                 //登录成功，加载右上角分享数据
                                                 self.getShareInfo('menu', function (data) {
@@ -400,9 +384,8 @@ function mainSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[SDK]获取游戏版本成功");
+                    console.log("[SDK]获取游戏版本结果");
                     console.log(res);
-                    if (timeHandler) clearTimeout(timeHandler);
                     if(res.statusCode == 200){
                         var data = res.data;
                         config.min_app_id = data.data.min_app_id;
@@ -416,18 +399,11 @@ function mainSDK() {
                     }
                 },
                 fail: function(res){
-                    console.log("[SDK]获取游戏版本失败");
                     console.log(res);
-                    if (timeHandler) clearTimeout(timeHandler);
-                    callback && callback({develop: 0});
                 }
             });
-            var func = function() {
-                console.log("[SDK]获取游戏版本超时");
-                callback && callback({develop: 0});
-            }
-            timeHandler = setTimeout(func, 10000);
         },
+
         getShareInfo: function (type, callback) {
             console.log("[SDK]获取分享参数");
             var sdk_token = wx.getStorageSync('plat_sdk_token');
@@ -569,7 +545,6 @@ function mainSDK() {
             };
             self.order_data = order_data;
 
-
             var public_data = self.getPublicData();
             public_data['order_data'] = JSON.stringify(order_data);
             public_data['is_from_min'] = 1;
@@ -632,6 +607,7 @@ function mainSDK() {
                 }
             });
         },
+
         xiaoPay: function(data){
             var self = this;
             wx.navigateToMiniProgram({
@@ -646,6 +622,7 @@ function mainSDK() {
                 }
             })
         },
+
         //小程序支付
         minPay: function (data) {
             //正式调起微信支付
@@ -711,6 +688,7 @@ function mainSDK() {
                         }
                     },
                     fail: function (res) {
+                        console.log('调起支付失败'+JSON.stringify(res));
                         if(res.errMsg.indexOf('用户取消') !== -1){
                             callbacks['pay'] && callbacks['pay'](2, {errMsg: "用户取消支付"});
                         }else{
@@ -742,7 +720,6 @@ function mainSDK() {
                     wx.openCustomerServiceConversation(obj);
                 }
             });
-
         },
 
         gameGoPay: function (data, retry) {
@@ -828,7 +805,6 @@ function mainSDK() {
                     server_id:  data.serverid,
                 };
             }
-
 
             this.log('enter', postData);
 
@@ -922,15 +898,7 @@ function mainSDK() {
             console.log(public_data);
 
             wx.request({
-                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data)),
-                success: function (res) {
-                    // console.log("[SDK]上报数据成功");
-                    // console.log(res);
-                },
-                fail: function(res){
-                    // console.log("[SDK]上报数据失败");
-                    // console.log(res);
-                }
+                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data))
             });
         },
 
@@ -942,6 +910,7 @@ function mainSDK() {
         downloadClient: function () {
             wx.openCustomerServiceConversation();
         },
+
         subscribeMessage : function (tmplIds, callback){
             console.log('[SDK]订阅消息：'+tmplIds);
             //获取模板ID
@@ -958,13 +927,13 @@ function mainSDK() {
                     console.log(res);
                     callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
                 }
-              })
-        }, 
+            })
+        },
 
         // 微端小助手
         weiduanHelper: function() {
             var da = new Dall()
-            da.stebutonanimation(config.partner_id,config.game_pkg,config.game_id);
+            da.stebutonanimation(config.partner_id,config.game_pkg);
         },
     }
 }
@@ -977,15 +946,19 @@ function run(method, data, callback) {
 exports.init = function (data, callback) {
     run('init', data, callback);
 };
+
 exports.login = function (callback) {
     run('login', '', callback);
 };
+
 exports.pay = function (data, callback) {
     run('pay', data, callback);
 };
+
 exports.openService = function () {
     run('openService');
 };
+
 exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLevel) {
     var data = {
         serverid: serverId,
@@ -996,6 +969,7 @@ exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLe
     };
     run('logCreateRole', data);
 };
+
 exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLevel) {
     var data = {
         serverid: serverId,
@@ -1007,6 +981,7 @@ exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLev
 
     run('logEnterGame', data);
 };
+
 exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleLevel) {
     var data = {
         serverid: serverId,
@@ -1017,21 +992,25 @@ exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleL
     };
     run('logRoleUpLevel', data);
 };
+
 exports.share = function (type) {
     var data = {
         type: type
     };
     run('share', data);
 };
+
 exports.msgCheck = function (data, callback) {
     run('msgCheck', data, callback);
 };
+
 exports.downloadClient = function () {
     run('downloadClient');
 };
 exports.subscribeMessage = function (data, callback) {
     run('subscribeMessage', data, callback);
 };
+
 exports.getConfig = function () {
     return {
         game_id: config.game_id,
@@ -1039,9 +1018,11 @@ exports.getConfig = function () {
         partner_id: config.partner_id
     }
 };
+
 exports.getPublicData = function(){
     run('getPublicData');
 };
+
 exports.weiduanHelper = function () {
     run('weiduanHelper');
 };
