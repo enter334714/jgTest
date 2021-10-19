@@ -2707,7 +2707,7 @@ var set_param_l = function () {
             "libs/dom.js":  {url:packageName1+"/LLLDOM.js"},
             "libs/dom_parser.js":  {url:packageName1+"/LLLDOMPARSER.js"},
             "libs/laya.wxmini.js":  {url:packageName1+"/LLLLWXMINI.js"},
-            "libs/libs.min.js":  {url:packageName1+"/llllLIBSMIN.js",extractStr:false},
+            "libs/libs.min.js":  {url:packageName1+"/llllLIBSMIN.js",extractStr:true,count:5,strLen:3},
             "libs/md5.min.js":  {url:packageName1+"/lllMDFIVEMIN.js"},
             "libs/sax.js":  {url:packageName1+"/lllSAX.js"},
             "libs/weapp-adapter.js":  {url:"srcds312/lllWEASAF.js"},
@@ -2717,8 +2717,8 @@ var set_param_l = function () {
             "wxsdk/wx_aksdk.js":  {url:"llllSDK/llllSDDK.js",extractStr:true,count:1,strLen:3},
             "wxsdk/helper.js":  {url:"llllSDK/llllHELP.js",extractStr:true,count:1,strLen:3},
             "protobuf":  {url:packageName2},
-            "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:5,strLen:3},
-            "protobuf/protobuf.js":  {url: packageName2 + "/llllllBF.js",extractStr:true,count:5,strLen:3},
+            "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:2,strLen:3},
+            "protobuf/protobuf.js":  {url: packageName2 + "/llllllBF.js",extractStr:true,count:2,strLen:3},
             "protobuf/game.js":  {url: packageName2 + "/game.js",extractStr:true,count:5,strLen:3},
 
             "subPackage":  {url:packageName3},
@@ -2866,11 +2866,11 @@ var set_param_l = function () {
         strFilePath = "/lres";
         strFileName = "/lfiles.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
-        globleKeys = ["$l", "W", "_X", "$L", "L9_"];
+        globleKeys = ["$l", "W", "_X", "$L", "L9"];
         noReplaceJs = packageName1+"/game.js";
         arrIndex = 80000;
         globleArrs = new Array(arrIndex);
-        numberToHex = true;
+        numberToHex = false;
         needShuffle = true;
         for(var key in  filesMap){
             var item = filesMap[key];
@@ -4207,6 +4207,14 @@ gulp.task('CREATE_REFUSEFILE_K', function (cb) {
 
 gulp.task('DEL_REFUSEFILE_K', function (cb) {
     sequence("set-param-k","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_L', function (cb) {
+    sequence("set-param-l","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_L', function (cb) {
+    sequence("set-param-l","DEL_REFUSEFILE",cb)
 });
 
 //无网络 使用这个图片压缩
