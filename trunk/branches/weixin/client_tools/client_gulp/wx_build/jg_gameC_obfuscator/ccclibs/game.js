@@ -1,2 +1,2 @@
 var p = wx.$h;
-require(p[1315]);
+require("cccgame.js");

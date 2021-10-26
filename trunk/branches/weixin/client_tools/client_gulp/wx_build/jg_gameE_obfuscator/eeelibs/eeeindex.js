@@ -1,196 +1,1094 @@
-var b = wx.$e;
-import enuephb from '../eeeesdk/eeesdk.js';window[b[56422]] = { 'wxVersion': window[b[30497]][b[56323]] }, window['DEBUG'] = !0x1, window['E$KB'] = 0x1, window['ENV'] = 0x1, window['E$EBK'] = !0x0, window[b[56423]] = !0x0, window['E$IUEKB'] = '', window['E$BK'] = { 'base_cdn': b[56424], 'cdn': b[56424] }, E$BK[b[56425]] = {}, E$BK[b[52488]] = '0', E$BK[b[34010]] = window[b[56422]][b[56426]], E$BK[b[56395]] = '', E$BK['os'] = '1', E$BK[b[56427]] = b[56428], E$BK[b[56429]] = b[56430], E$BK[b[56431]] = b[56432], E$BK[b[56433]] = b[56434], E$BK[b[56435]] = b[56436], E$BK[b[51606]] = '1', E$BK[b[52830]] = '', E$BK[b[52832]] = '', E$BK[b[56437]] = 0x0, E$BK[b[56438]] = {}, E$BK[b[56439]] = parseInt(E$BK[b[51606]]), E$BK[b[52828]] = E$BK[b[51606]], E$BK[b[52824]] = {}, E$BK['E$UB'] = b[56440], E$BK[b[56441]] = !0x1, E$BK[b[40664]] = b[56442], E$BK[b[52804]] = Date[b[30080]](), E$BK[b[40271]] = b[56443], E$BK[b[30638]] = '_a', E$BK[b[56444]] = 0x2, E$BK[b[30097]] = 0x7c1, E$BK[b[56426]] = window[b[56422]][b[56426]], E$BK[b[30661]] = !0x1, E$BK[b[30452]] = !0x1, E$BK[b[39968]] = !0x1, E$BK[b[52490]] = !0x1, window['E$EKB'] = 0x5, window['E$EK'] = !0x1, window['E$KE'] = !0x1, window['E$BEK'] = !0x1, window[b[56445]] = !0x1, window[b[56446]] = !0x1, window['E$BKE'] = !0x1, window['E$EB'] = !0x1, window['E$BE'] = !0x1, window['E$KEB'] = !0x1, window[b[33518]] = function (ks65rd) {
-  console[b[30422]](b[33518], ks65rd), wx[b[34269]]({}), wx[b[56346]]({ 'title': b[35562], 'content': ks65rd, 'success'(v$w29q) {
-      v$w29q[b[56447]] ? console[b[30422]](b[56448]) : v$w29q[b[30493]] && console[b[30422]](b[56246]);
-    } });
-}, window['E$UEBK'] = function (vbuwn) {
-  console[b[30422]](b[56449], vbuwn), E$UBKE(), wx[b[56346]]({ 'title': b[35562], 'content': vbuwn, 'confirmText': b[56450], 'cancelText': b[46683], 'success'(qv2w$) {
-      qv2w$[b[56447]] ? window['E$BU']() : qv2w$[b[30493]] && (console[b[30422]](b[56451]), wx[b[52963]]({}));
-    } });
-}, window['E$KIB'] = function (i41ly7) {
-  console[b[30422]](b[56452], i41ly7), wx[b[56346]]({ 'title': b[35562], 'content': i41ly7, 'confirmText': b[52937], 'showCancel': !0x1, 'complete'(l4i17) {
-      console[b[30422]](b[56451]), wx[b[52963]]({});
-    } });
-}, window['E$UEKB'] = !0x1, window['E$UBEK'] = function (bwvne) {
-  window['E$UEKB'] = !0x0, wx[b[34268]](bwvne);
-}, window['E$UBKE'] = function () {
-  window['E$UEKB'] && (window['E$UEKB'] = !0x1, wx[b[34269]]({}));
-}, window['E$UKEB'] = function (t4iyo) {
-  window[b[56337]][b[30144]]['E$UKEB'](t4iyo);
-}, window[b[40582]] = function (_yztmo, ga038h) {
-  enuephb[b[40582]](_yztmo, function (agk) {
-    agk && agk[b[30010]] ? 0x1 == agk[b[30010]][b[33459]] ? ga038h(!0x0) : (ga038h(!0x1), console[b[30075]](b[56453] + agk[b[30010]][b[56454]])) : console[b[30422]](b[40582], agk);
+import AKSDK from "../eeeesdk/eeesdk.js";
+window.versions = {
+  wxVersion: window.config.game_ver
+};
+
+window.DEBUG = false;
+window.E$3E = 1;
+window.ENV = 1;
+window.E$PE3 = true;
+window.WSS = true;
+window.E$Q_P3E = "";
+window.E$E3 = {
+  base_cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
+  cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/"
+};
+
+E$E3.pay_infos = {};
+E$E3.package = "0";
+E$E3.version = window.versions.wxVersion;
+E$E3.mac = "";
+E$E3.os = "1";
+E$E3.sdk_name = "9130";
+E$E3.apiurl = "https://api-tjqytest.shzbkj.com";
+E$E3.logurl = "https://log-tjqytest.shzbkj.com";
+E$E3.payurl = "https://pay-tjqytest.shzbkj.com";
+E$E3.apikey = "MQx0mYlUWO5XYKvgAIPKWgK1w722GKih";
+E$E3.partnerId = "1";
+E$E3.pkgName = "";
+E$E3.device_id = "";
+E$E3.from_scene = 0;
+E$E3.serverList = {};
+E$E3.channelNum = parseInt(E$E3.partnerId);
+E$E3.channel = E$E3.partnerId;
+E$E3.selectedServer = {};
+
+E$E3.E$_E = "https://jgcenter.sh9130.com/clientlog/";
+E$E3.showLogo = false;
+E$E3.debugUsers = "39927500|58163716|74597555";
+E$E3.tick = Date.now();
+
+E$E3.configType = "_weixin";
+E$E3.exposeType = "_a";
+E$E3.loadingType = 2;
+E$E3.lastVersion = 1985;
+E$E3.wxVersion = window.versions.wxVersion;
+E$E3.wxShield = false;
+E$E3.wxIOS = false;
+E$E3.wxAndroid = false;
+E$E3.wxPC = false;
+
+window.E$P3E = 5;
+window.E$P3 = false;
+window.E$3P = false;
+window.E$EP3 = false;
+window.loadServerRes = false;
+window.loadLoadingRes = false;
+window.E$E3P = false;
+window.E$PE = false;
+window.E$EP = false;
+
+window.E$3PE = false;
+
+window.alert = function (value) {
+  console.log("alert", value);
+  wx.hideLoading({});
+  wx.showModal({
+    title: '提示',
+    content: value,
+    success(res) {
+      if (res.confirm) {
+        console.log('用户点击确定');
+      } else if (res.cancel) {
+        console.log('用户点击取消');
+      }
+    }
   });
-}, window['E$UKBE'] = function (tyo4i7) {
-  console[b[30422]](b[56455], tyo4i7);
-}, window['E$UBK'] = function (unevbp) {}, window['E$UKB'] = function (q2vw$9, yt_moz, upnebh) {}, window['E$UK'] = function (p38) {
-  console[b[30422]]('toEnterGame', p38), window[b[56337]][b[30144]][b[56456]](), window[b[56337]][b[30144]][b[56457]](), window[b[56337]][b[30144]][b[56458]]();
-}, window['E$KU'] = function (_ot4y7) {
-  console[b[30422]](b[56459]), window['E$UEBK'](b[56459]), E$UB(_ot4y7 || b[56460]);
-}, window['E$BUK'] = function (s56m) {
-  s56m = JSON[b[30468]](s56m), (s56m[b[56461]] = window[b[30497]][b[56323]], s56m[b[56462]] = window['E$BK'][b[52824]] ? window['E$BK'][b[52824]][b[40114]] : 0x0, s56m[b[56330]] = window[b[56330]]), s56m = JSON[b[33819]](s56m), (console[b[30121]](b[56463] + s56m), E$UB(s56m));
-}, window['E$BKU'] = function (y_tmz) {
-  y_tmz = { 'id': window['E$BK'][b[56328]], 'role': window['E$BK'][b[33943]], 'level': window['E$BK'][b[56329]], 'user': window['E$BK'][b[52829]], 'version': window['E$BK'][b[30097]], 'cdn': window['E$BK'][b[33831]], 'pkgName': window['E$BK'][b[52830]], 'gamever': window[b[30497]][b[56323]], 'serverid': window['E$BK'][b[52824]] ? window['E$BK'][b[52824]][b[40114]] : 0x0, 'systemInfo': window[b[56330]], 'error': y_tmz }, y_tmz = JSON[b[33819]](y_tmz), (console[b[30092]](b[56464] + y_tmz), window['E$UB'](y_tmz));
-}, window['E$UB'] = function (agjkd6) {
-  var u38h0;b[56465] != window['E$BK'][b[56396]] && (u38h0 = E$BK['E$UB'] + b[56466] + E$BK[b[52829]], wx[b[30417]]({ 'url': u38h0, 'method': b[56281], 'data': agjkd6, 'header': { 'content-type': b[56467], 'cache-control': b[56468] }, 'success': function ($wvb2e) {}, 'fail': function (zot5_) {}, 'complete': function () {} }));
-}, window[b[56469]] = function () {
-  function a6rdk() {
-    return (0x10000 * (0x1 + Math[b[30115]]()) | 0x0)[b[30255]](0x10)[b[30440]](0x1);
-  }return a6rdk() + a6rdk() + '-' + a6rdk() + '-' + a6rdk() + '-' + a6rdk() + '+' + a6rdk() + a6rdk() + a6rdk();
-}, window['E$BU'] = function () {
-  console[b[30422]](b[56470]);var d5k6s = enuephb[b[56471]]();E$BK[b[52828]] = d5k6s[b[56472]], E$BK[b[56439]] = d5k6s[b[56472]], E$BK[b[51606]] = d5k6s[b[56472]], E$BK[b[52830]] = d5k6s[b[56473]], d5k6s = { 'game_ver': E$BK[b[34010]] }, (E$BK[b[52832]] = this[b[56469]](), E$UBEK({ 'title': b[56474] }), enuephb[b[30338]](d5k6s, this['E$KUB'][b[30071]](this)));
-}, window['E$KUB'] = function (vupne) {
-  var ew2nbv = vupne[b[56475]];console[b[30422]](b[56476] + ew2nbv + b[56477] + (0x1 == ew2nbv) + b[56478] + vupne[b[56323]] + b[56479] + window[b[56422]][b[56426]]), !vupne[b[56323]] || window['E$IEKBU'](window[b[56422]][b[56426]], vupne[b[56323]]) < 0x0 ? (console[b[30422]](b[56480]), E$BK[b[56429]] = b[56481], E$BK[b[56431]] = b[56482], E$BK[b[56433]] = b[56483], E$BK[b[33831]] = b[56484], E$BK[b[52487]] = b[56485], E$BK[b[56486]] = 'fj', E$BK[b[30661]] = !0x1) : 0x0 == window['E$IEKBU'](window[b[56422]][b[56426]], vupne[b[56323]]) ? (console[b[30422]](b[56487]), E$BK[b[56429]] = b[56430], E$BK[b[56431]] = b[56432], E$BK[b[56433]] = b[56434], E$BK[b[33831]] = b[56488], E$BK[b[52487]] = b[56485], E$BK[b[56486]] = b[56489], E$BK[b[30661]] = !0x0) : (console[b[30422]](b[56490]), E$BK[b[56429]] = b[56430], E$BK[b[56431]] = b[56432], E$BK[b[56433]] = b[56434], E$BK[b[33831]] = b[56488], E$BK[b[52487]] = b[56485], E$BK[b[56486]] = b[56489], E$BK[b[30661]] = !0x1), E$BK[b[56437]] = config[b[55977]] || 0x0, this['E$EBUK'](), this['E$EBKU'](), E$UBEK({ 'title': b[56491] }), enuephb[b[56179]](this['E$KBU'][b[30071]](this));
-}, window['E$KBU'] = function (ms56rz, liy74) {
-  E$UBEK({ 'title': b[56492] }), 0x0 === ms56rz && liy74 && liy74[b[56067]] ? (E$BK[b[56493]] = liy74[b[56067]], sendApi(E$BK[b[56429]], b[56494], { 'platform': E$BK[b[56427]], 'partner_id': E$BK[b[51606]], 'token': liy74[b[56067]], 'game_pkg': E$BK[b[52830]], 'deviceId': E$BK[b[52832]], 'scene': b[56495] + E$BK[b[56437]] }, this['E$EUBK'][b[30071]](this), E$EKB, E$KU)) : (E$UB(JSON[b[33819]]({ 'account': E$BK[b[52829]], 'pkgName': E$BK[b[52830]], 'error': 'sdkOnLoginError', 'stack': JSON[b[33819]]({ 'status': ms56rz, 'data': liy74 }) })), window['E$UEBK'](b[56496] + (liy74 && liy74[b[52983]] ? '，' + liy74[b[52983]] : '')));
-}, window['E$EUBK'] = function (o7_tmy) {
-  o7_tmy ? b[38726] == o7_tmy[b[33459]] ? (E$BK[b[51605]] = String(o7_tmy[b[52829]]), E$BK[b[52829]] = String(o7_tmy[b[52829]]), E$BK[b[52802]] = String(o7_tmy[b[52802]]), E$BK[b[52828]] = String(o7_tmy[b[52802]]), E$BK[b[52831]] = String(o7_tmy[b[52831]]), E$BK[b[56497]] = String(o7_tmy[b[40097]]), E$BK[b[56498]] = String(o7_tmy[b[30770]]), E$BK[b[40097]] = '', E$UBEK({ 'title': b[56499] }), sendApi(E$BK[b[56429]], b[56500], { 'partner_id': E$BK[b[51606]], 'uid': E$BK[b[52829]], 'version': E$BK[b[34010]], 'game_pkg': E$BK[b[52830]], 'device': E$BK[b[52832]] }, this['E$EUKB'][b[30071]](this), E$EKB, E$KU)) : window['E$UEBK'](b[56501] + o7_tmy[b[33459]]) : window['E$UEBK'](b[56502]);
-}, window['E$EUKB'] = function (ja308g) {
-  ja308g ? b[38726] == ja308g[b[33459]] ? ja308g[b[30010]] && 0x0 != ja308g[b[30010]][b[30012]] ? (E$BK[b[30562]] = ja308g[b[56503]], E$BK[b[52824]] = { 'server_id': String(ja308g[b[30010]][0x0][b[40114]]), 'server_name': String(ja308g[b[30010]][0x0][b[56504]]), 'entry_ip': ja308g[b[30010]][0x0][b[52852]], 'entry_port': parseInt(ja308g[b[30010]][0x0][b[52853]]), 'status': E$KUEB(ja308g[b[30010]][0x0]), 'start_time': ja308g[b[30010]][0x0][b[56505]], 'cdn': E$BK[b[33831]] }, this['E$IUEBK']()) : window['E$UEBK'](b[56506]) : window['E$UEBK'](b[56507] + ja308g[b[33459]]) : window['E$UEBK'](b[56508]);
-}, window['E$IUEBK'] = function () {
-  if (0x1 == E$BK[b[30562]]) {
-    var qwv$9 = E$BK[b[52824]][b[30102]];if (-0x1 === qwv$9 || 0x0 === qwv$9) return void window['E$UEBK'](-0x1 === qwv$9 ? b[56509] : b[56510]);E$KUBE(0x0, E$BK[b[52824]][b[40114]]), window[b[56337]][b[30144]][b[56511]](E$BK[b[30562]]);
-  } else window[b[56337]][b[30144]][b[56512]](), E$UBKE();window['E$BE'] = !0x0, window['E$KBUE'](), window['E$KBEU']();
-}, window['E$EBUK'] = function () {
-  sendApi(E$BK[b[56429]], b[56513], { 'game_pkg': E$BK[b[52830]], 'version_name': E$BK[b[56486]] }, function (kag3d) {
-    kag3d ? b[38726] == kag3d[b[33459]] ? kag3d[b[30010]] && kag3d[b[30010]][b[34010]] ? (E$BK[b[56514]] = kag3d[b[30010]][b[56515]] && kag3d[b[30010]][b[56515]][b[30012]] ? kag3d[b[30010]][b[56515]] : E$BK[b[56514]], E$BK[b[33831]] = kag3d[b[30010]][b[56515]] && kag3d[b[30010]][b[56515]][b[30012]] ? kag3d[b[30010]][b[56515]] : E$BK[b[33831]], E$BK[b[30097]] = kag3d[b[30010]][b[34010]] || E$BK[b[30097]], console[b[30075]](b[52943] + E$BK[b[30097]] + b[56516] + E$BK[b[56486]]), window['E$BKE'] = !0x0, window['E$KBUE'](), window['E$KBEU']()) : window['E$UEBK'](b[56517] + (kag3d[b[30010]] && kag3d[b[30010]][b[34010]])) : window['E$UEBK'](b[56518] + kag3d[b[33459]]) : window['E$UEBK'](b[56519]);
+};
+window.E$_PE3 = function (value) {
+  console.log("loginAlert", value);
+  E$_E3P();
+  wx.showModal({
+    title: '提示',
+    content: value,
+    confirmText: "重试",
+    cancelText: "退出",
+    success(res) {
+      if (res.confirm) {
+        window.E$E_();
+      } else if (res.cancel) {
+        console.log("退出游戏");
+        wx.exitMiniProgram({});
+      }
+    }
   });
-}, window[b[56520]], window['E$EBKU'] = function () {
-  sendApi(E$BK[b[56429]], b[56521], { 'game_pkg': E$BK[b[52830]] }, E$EKUB);
-}, window['E$EKUB'] = function (d56zs) {
-  if (b[38726] === d56zs[b[33459]] && d56zs[b[30010]]) {
-    for (var mzt5_o in window[b[56520]] = d56zs[b[30010]], d56zs[b[30010]]) E$BK[mzt5_o] = d56zs[b[30010]][mzt5_o];
-  } else console[b[30075]](b[56522] + d56zs[b[33459]]);window['E$EB'] = !0x0, window['E$KBEU']();
-}, window[b[56523]] = function (nwebv, b9v$w, ak3gj, eu8n, wuev, mr5z, $ewvb2, rd6zs5, ym7t_o) {
-  wuev = String(wuev), (E$BK[b[56425]][wuev] = { 'productid': wuev, 'productname': $ewvb2, 'productdesc': rd6zs5, 'roleid': nwebv, 'rolename': b9v$w, 'rolelevel': ak3gj, 'price': mr5z, 'callback': ym7t_o }, sendApi(E$BK[b[56433]], b[56524], { 'game_pkg': E$BK[b[52830]], 'server_id': E$BK[b[52824]][b[40114]], 'server_name': E$BK[b[52824]][b[56504]], 'level': ak3gj, 'uid': E$BK[b[52829]], 'role_id': nwebv, 'role_name': b9v$w, 'product_id': wuev, 'product_name': $ewvb2, 'product_desc': rd6zs5, 'money': mr5z, 'partner_id': E$BK[b[51606]] }, toPayCallBack, E$EKB, E$KU));
-}, window[b[56525]] = function (ymto_z) {
-  var r5_zs;ymto_z && (0xc8 === ymto_z[b[56526]] || b[38726] == ymto_z[b[33459]] ? ((r5_zs = E$BK[b[56425]][String(ymto_z[b[56527]])])[b[30311]] && r5_zs[b[30311]](ymto_z[b[56527]], ymto_z[b[56528]], -0x1), enuephb[b[56317]]({ 'cpbill': ymto_z[b[56528]], 'productid': ymto_z[b[56527]], 'productname': r5_zs[b[56529]], 'productdesc': r5_zs[b[56530]], 'serverid': E$BK[b[52824]][b[40114]], 'servername': E$BK[b[52824]][b[56504]], 'roleid': r5_zs[b[56531]], 'rolename': r5_zs[b[56532]], 'rolelevel': r5_zs[b[56533]], 'price': r5_zs[b[54301]], 'extension': JSON[b[33819]]({ 'cp_order_id': ymto_z[b[56528]] }) }, function (z5_sr, kaj6) {
-    r5_zs[b[30311]] && 0x0 == z5_sr && r5_zs[b[30311]](ymto_z[b[56527]], ymto_z[b[56528]], z5_sr), console[b[30075]](JSON[b[33819]]({ 'type': b[56534], 'status': z5_sr, 'data': ymto_z, 'role_name': r5_zs[b[56532]] }));
-  })) : alert(ymto_z[b[30075]]));
-}, window['E$EKBU'] = function () {}, window['E$UEK'] = function (_5ozt, kdj3g, pbhune, kgjd6a, kadj3) {
-  enuephb[b[56318]](E$BK[b[52824]][b[40114]], E$BK[b[52824]][b[56504]] || E$BK[b[52824]][b[40114]], _5ozt, kdj3g, pbhune), sendApi(E$BK[b[56429]], b[56535], { 'game_pkg': E$BK[b[52830]], 'server_id': E$BK[b[52824]][b[40114]], 'role_id': _5ozt, 'uid': E$BK[b[52829]], 'role_name': kdj3g, 'role_type': kgjd6a, 'level': pbhune });
-}, window['E$UKE'] = function (a8g0, $2wq9x, ha083, kjg0, g0hp38, $qx29, i47t, ds6rkj, l1iy, h3g0p8) {
-  E$BK[b[56328]] = a8g0, E$BK[b[33943]] = $2wq9x, E$BK[b[56329]] = ha083, enuephb['logEnterGame'](E$BK[b[52824]][b[40114]], E$BK[b[52824]][b[56504]] || E$BK[b[52824]][b[40114]], a8g0, $2wq9x, ha083), sendApi(E$BK[b[56429]], b[56536], { 'game_pkg': E$BK[b[52830]], 'server_id': E$BK[b[52824]][b[40114]], 'role_id': a8g0, 'uid': E$BK[b[52829]], 'role_name': $2wq9x, 'role_type': kjg0, 'level': ha083, 'evolution': g0hp38 });
-}, window['E$EUK'] = function (kjda6, qx$2w, il74y1, kr6d5s, phnub, ly41, i7lf14, hup8en, _m7oty, ga3jdk) {
-  E$BK[b[56328]] = kjda6, E$BK[b[33943]] = qx$2w, E$BK[b[56329]] = il74y1;
-}, window['E$EKU'] = function (ymto) {}, window['E$UE'] = function (oi74t) {
-  enuephb[b[56255]](b[56255], function (npu08h) {
-    oi74t(npu08h);
+};
+window.E$3QE = function (value) {
+  console.log("exitAlert", value);
+  wx.showModal({
+    title: '提示',
+    content: value,
+    confirmText: "重登",
+    showCancel: false,
+    complete(res) {
+      console.log("退出游戏");
+      wx.exitMiniProgram({});
+    }
   });
-}, window[b[52472]] = function () {
-  enuephb[b[52472]]();
-}, window[b[56537]] = function () {
-  enuephb[b[51515]]();
-}, window['E$EU'] = function (r5zm_) {
-  window['E$KEU'] = r5zm_, window['E$KEU'] && window['E$KUE'] && (console[b[30075]](b[56416] + window['E$KUE'][b[30695]]), window['E$KEU'](window['E$KUE']), window['E$KUE'] = null);
-}, window['E$BUEK'] = function (_r5s, agh, y_4ot7, ti47oy) {
-  window[b[30021]](b[56538], { 'game_pkg': window['E$BK'][b[52830]], 'role_id': agh, 'server_id': y_4ot7 }, ti47oy);
-}, window['E$BUKE'] = function (a3kjg0, nbvweu) {
-  wx['onTouchEnd'](function r6ms5(bnuwv) {
-    var rs6d = [],
-        _y4ot7 = [],
-        rdk6s5 = window[b[30497]][b[56539]];for (var q2x in rdk6s5) {
-      var u038ph = Number(q2x);a3kjg0 && a3kjg0[b[30012]] && -0x1 == a3kjg0[b[30111]](u038ph) || (_y4ot7[b[30028]](rdk6s5[q2x]), rs6d[b[30028]]([u038ph, 0x3]));
-    }0x0 <= window['E$IEKBU'](window[b[56338]], b[56540]) ? (console[b[30422]](b[56541]), enuephb[b[56542]] && enuephb[b[56542]](_y4ot7, function (bnvue) {
-      if (console[b[30422]](b[56543]), console[b[30422]](bnvue), bnvue && b[56544] == bnvue[b[52983]]) {
-        for (var p08uh in rdk6s5) if (b[56545] == bnvue[rdk6s5[p08uh]]) {
-          var o_tzm5 = Number(p08uh);for (var ag6k = 0x0; ag6k < rs6d[b[30012]]; ag6k++) if (rs6d[ag6k][0x0] == o_tzm5) {
-            rs6d[ag6k][0x1] = 0x1;break;
+};
+
+window.E$_P3E = false;
+window.E$_EP3 = function (value) {
+  window.E$_P3E = true;
+  wx.showLoading(value);
+};
+window.E$_E3P = function () {
+  if (window.E$_P3E) {
+    window.E$_P3E = false;
+    wx.hideLoading({});
+  }
+};
+window.E$_3PE = function (value) {
+  window.ServerLoading.instance.E$_3PE(value);
+};
+window.msgCheck = function (value, callback) {
+  AKSDK.msgCheck(value, function (res) {
+    if (res && res.data) {
+      if (res.data.state == 1) {
+        //没有敏感词
+        callback(true);
+      } else {
+        //存在敏感词xxx
+        callback(false);
+        console.info("存在敏感词： " + res.data.msg);
+      }
+    } else {
+      console.log("msgCheck", res);
+    }
+  });
+};
+
+window.E$_3EP = function (value) {
+  console.log("getJsURL", value);
+};
+window.E$_E3 = function (value) {
+  // console.log("toAllProgress", value);
+};
+window.E$_3E = function (value, str, currTaskIndex) {
+  // console.log("toProgress", value, str, currTaskIndex);
+};
+window.E$_3 = function (value) {
+  console.log("toEnterGame", value);
+  window.ServerLoading.instance.closeAuthor();
+  window.ServerLoading.instance.closeServer();
+  window.ServerLoading.instance.closeLoading();
+};
+
+window.E$3_ = function (str) {
+  // console.log('on api error');
+  // AKSDK.logout(function(){});
+  window.E$_PE3('on api error');
+  var info = {
+    id: window.E$E3.roleId,
+    role: window.E$E3.roleName,
+    level: window.E$E3.roleLevel,
+    account: window.E$E3.account,
+    version: window.E$E3.lastVersion,
+    cdn: window.E$E3.cdn,
+    pkgName: window.E$E3.pkgName,
+    gamever: window.config.game_ver,
+    serverid: window.E$E3.selectedServer ? window.E$E3.selectedServer.server_id : 0,
+    systemInfo: window.systemInfo,
+    error: "onApiError",
+    stack: str ? str : "on api error"
+  };
+  var infostr = JSON.stringify(info);
+  console.error("API错误：" + infostr);
+  window.E$_E(infostr);
+};
+window.E$E_3 = function (str) {
+  var info = JSON.parse(str);
+  info.gamever = window.config.game_ver;
+  info.serverid = window.E$E3.selectedServer ? window.E$E3.selectedServer.server_id : 0;
+  info.systemInfo = window.systemInfo;
+  var infostr = JSON.stringify(info);
+  console.error("上报错误：" + infostr);
+  window.E$_E(infostr);
+};
+window.E$E3_ = function (error, stack) {
+  var info = {
+    id: window.E$E3.roleId,
+    role: window.E$E3.roleName,
+    level: window.E$E3.roleLevel,
+    account: window.E$E3.account,
+    version: window.E$E3.lastVersion,
+    cdn: window.E$E3.cdn,
+    pkgName: window.E$E3.pkgName,
+    gamever: window.config.game_ver,
+    serverid: window.E$E3.selectedServer ? window.E$E3.selectedServer.server_id : 0,
+    systemInfo: window.systemInfo,
+    error: error,
+    stack: stack
+  };
+  var infostr = JSON.stringify(info);
+  console.warn("上报信息：" + infostr);
+  window.E$_E(infostr);
+};
+window.E$_E = function (info) {
+  if (window.E$E3.wxPlatform == "devtools") return;
+  var url = E$E3.E$_E + "?account=" + E$E3.account;
+  wx.request({
+    url: url,
+    method: "POST",
+    data: info,
+    header: {
+      "content-type": "application/json",
+      "cache-control": "no-cache"
+    },
+    success: function (res) {
+      DEBUG && console.log("clientlog:", url, info, res);
+    },
+    fail: function (res) {
+      DEBUG && console.log("clientlog:", url, info, res);
+    },
+    complete: function () {}
+  });
+};
+
+window.guild = function () {
+  function S4() {
+    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+  }
+  return S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "+" + S4() + S4() + S4();
+};
+/*sdk初始化*/
+window.E$E_ = function () {
+  console.log("#SDK 初始化：");
+  var cfg = AKSDK.getConfig();
+  E$E3.channel = cfg.partner_id;
+  E$E3.channelNum = cfg.partner_id;
+  E$E3.partnerId = cfg.partner_id;
+  E$E3.pkgName = cfg.game_pkg;
+  var initData = {
+    game_ver: E$E3.version
+  };
+  E$E3.device_id = this.guild();
+
+  E$_EP3({ title: '正在初始化' });
+  AKSDK.init(initData, this.E$3_E.bind(this));
+};
+/*sdk初始化回调*/
+window.E$3_E = function (res) {
+  var develop = res.develop;
+  // res.game_ver = "1.0.86";
+  // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
+  console.log("#初始化成功   提审状态:" + develop + "   是否提审:" + (develop == 1) + "   提审版本号:" + res.game_ver + "   当前版本号:" + window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
+  if (!res.game_ver || window.E$QP3E_(window.versions.wxVersion, res.game_ver) < 0) {
+    //当前版本 < 后台版本   
+    console.log("#正式版=============================");
+    E$E3.apiurl = "https://api-tjqy.shzbkj.com"; //正式服（线上版本）
+    E$E3.logurl = "https://log-tjqy.shzbkj.com";
+    E$E3.payurl = "https://pay-tjqy.shzbkj.com";
+    E$E3.cdn = "https://cdn-tjqy-fj.shzbkj.com/weixin_1/";
+    E$E3.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
+    E$E3.version_name = "fj";
+    E$E3.wxShield = false;
+  } else if (window.E$QP3E_(window.versions.wxVersion, res.game_ver) == 0) {
+    //当前版本 == 后台版本
+    console.log("#审核版=============================");
+    E$E3.apiurl = "https://api-tjqytest.shzbkj.com"; //测试服（审核版本）
+    E$E3.logurl = "https://log-tjqytest.shzbkj.com";
+    E$E3.payurl = "https://pay-tjqytest.shzbkj.com";
+    E$E3.cdn = "https://cdn-tjqy-fj.shzbkj.com/weixin_0/";
+    E$E3.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
+    E$E3.version_name = "weixin";
+    E$E3.wxShield = true; //屏蔽活动
+  } else {
+    console.log("#开发版=============================");
+    E$E3.apiurl = "https://api-tjqytest.shzbkj.com"; //测试服（开发版本）
+    E$E3.logurl = "https://log-tjqytest.shzbkj.com";
+    E$E3.payurl = "https://pay-tjqytest.shzbkj.com";
+    E$E3.cdn = "https://cdn-tjqy-fj.shzbkj.com/weixin_0/";
+    E$E3.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
+    E$E3.version_name = "weixin";
+    E$E3.wxShield = false;
+  }
+  E$E3.from_scene = config.from ? config.from : 0;
+
+  this.E$PE_3();
+  this.E$PE3_();
+
+  window.sdkLoginRetry = 5;
+  E$_EP3({ title: '正在登录账号' });
+  AKSDK.login(this.E$3E_.bind(this));
+};
+window.sdkLoginRetry = 5;
+/*sdk登录回调*/
+window.E$3E_ = function (status, data) {
+  if (status == 0 && data && data.token) {
+    E$E3.sdk_token = data.token;
+    var self = this;
+    E$_EP3({ title: '正在验证账号' });
+    sendApi(E$E3.apiurl, 'User.login', {
+      'platform': E$E3.sdk_name,
+      'partner_id': E$E3.partnerId,
+      'token': data.token,
+      'game_pkg': E$E3.pkgName,
+      'deviceId': E$E3.device_id,
+      'scene': 'WX_' + E$E3.from_scene
+    }, this.E$P_E3.bind(this), E$P3E, E$3_);
+  } else {
+    if (data && data.errMsg && window.sdkLoginRetry > 0 && (data.errMsg.indexOf("fail interrupted") != -1 || data.errMsg.indexOf("network api interrupted") != -1 || data.errMsg.indexOf("Network Error") != -1 || data.errMsg.indexOf("ERR_TIMED_OUT") != -1 || data.errMsg.indexOf("ERR_CONNECTION_ABORTED") != -1 || data.errMsg.indexOf("ERR_CONNECTION_RESET") != -1)) {
+      //可以自动重试的失败  network api interrupted in suspend state(小程序退后台之后发起网络请求)
+      window.sdkLoginRetry--;
+      AKSDK.login(this.E$3E_.bind(this));
+    } else {
+      window.E$E3_("sdkOnLoginError", JSON.stringify({ status: status, data: data }));
+      window.E$_PE3("登录/注册失败" + (data && data.errMsg ? "，" + data.errMsg : ""));
+    }
+  }
+};
+
+window.E$P_E3 = function (response) {
+  if (!response) {
+    window.E$_PE3('User.login failed');
+    return;
+  }
+  if (response.state != 'success') {
+    window.E$_PE3('User.login failed: ' + response.state);
+    return;
+  }
+
+  E$E3.userId = String(response.account);
+  E$E3.account = String(response.account);
+  E$E3.platform = String(response.platform);
+  E$E3.channel = String(response.platform);
+  E$E3.platform_uid = String(response.platform_uid);
+  E$E3.php_sign = String(response.sign);
+  E$E3.php_signtime = String(response.time);
+  E$E3.sign = ''; // TODO
+
+  var self = this;
+  E$_EP3({ title: '请求服务器' });
+  sendApi(E$E3.apiurl, 'Server.defaultServer', {
+    'partner_id': E$E3.partnerId,
+    'uid': E$E3.account,
+    'version': E$E3.version,
+    'game_pkg': E$E3.pkgName,
+    'device': E$E3.device_id
+  }, self.E$P_3E.bind(self), E$P3E, E$3_);
+};
+
+window.E$P_3E = function (response) {
+  if (!response) {
+    window.E$_PE3('Server.defaultServer failed');
+    return;
+  }
+  if (response.state != 'success') {
+    window.E$_PE3('Server.defaultServer failed: ' + response.state);
+    return;
+  }
+  if (!response.data || response.data.length == 0) {
+    window.E$_PE3('服务器尚未开启');
+    return;
+  }
+
+  E$E3.newRegister = response.is_new;
+  E$E3.selectedServer = {
+    'server_id': String(response.data[0].server_id),
+    'server_name': String(response.data[0].server_name),
+    'entry_ip': response.data[0].entry_ip,
+    'entry_port': parseInt(response.data[0].entry_port),
+    'status': E$3_PE(response.data[0]),
+    'start_time': response.data[0].start_time,
+    'cdn': E$E3.cdn
+  };
+  this.E$Q_PE3();
+};
+
+window.E$Q_PE3 = function () {
+  if (E$E3.newRegister == 1) {
+    //新用户，发送验证
+    var status = E$E3.selectedServer.status;
+    if (status === -1 || status === 0) {
+      window.E$_PE3(status === -1 ? "当前服务器在维护中" : "当前服务器尚未开启，敬请期待");
+      return;
+    }
+    E$3_EP(0, E$E3.selectedServer.server_id);
+    window.ServerLoading.instance.openLoading(E$E3.newRegister);
+  } else {
+    //老用户，进游戏的选服界面
+    window.ServerLoading.instance.openServer();
+    E$_E3P();
+  }
+  window.E$EP = true;
+  window.E$3E_P();
+  window.E$3EP_();
+};
+
+// 加载version_config版本文件，读取lastVersion号，外网是从后台请求获取
+window.E$PE_3 = function () {
+  var self = this;
+  sendApi(E$E3.apiurl, 'User.getCdnVersion', {
+    'game_pkg': E$E3.pkgName,
+    'version_name': E$E3.version_name
+  }, function (response) {
+    if (!response) {
+      window.E$_PE3('User.getCdnVersion failed');
+      return;
+    }
+    if (response.state != 'success') {
+      window.E$_PE3('User.getCdnVersion failed: state=' + response.state);
+      return;
+    }
+    if (!response.data || !response.data.version) {
+      window.E$_PE3('User.getCdnVersion failed: version=' + (response.data && response.data.version));
+      return;
+    }
+    if (response.data.cdn_url && response.data.cdn_url.length > 10) {
+      E$E3.base_cdn = response.data.cdn_url;
+      E$E3.cdn = response.data.cdn_url;
+    }
+    if (response.data.version) {
+      E$E3.lastVersion = response.data.version;
+    }
+    console.info("lastVersion:" + E$E3.lastVersion + ", version_name:" + E$E3.version_name);
+    window.E$E3P = true;
+    window.E$3E_P();
+    window.E$3EP_();
+  });
+};
+
+// 请求隐私、超级VIP、公众号信息
+window.pkgOptions;
+window.E$PE3_ = function () {
+  sendApi(E$E3.apiurl, 'Common.get_option_pkg', {
+    'game_pkg': E$E3.pkgName
+  }, E$P3_E);
+};
+window.E$P3_E = function (data) {
+  if (data.state === "success" && data.data) {
+    window.pkgOptions = data.data;
+    for (var k in data.data) {
+      E$E3[k] = data.data[k];
+    }
+  } else {
+    console.info("reqPkgOptionsCallBack " + data.state);
+  }
+  window.E$PE = true;
+  window.E$3EP_();
+};
+
+window.toPay = function (roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback) {
+  productId = String(productId);
+  var productname = productName;
+  var productdesc = productDesc;
+  E$E3.pay_infos[productId] = {
+    'productid': productId,
+    'productname': productname,
+    'productdesc': productdesc,
+    // 'ApplePrdId': appleprd_id,
+    'roleid': roleId,
+    'rolename': roleName,
+    'rolelevel': roleLevel,
+    'price': price,
+    'callback': callback
+  };
+  sendApi(E$E3.payurl, 'Order.order', {
+    'game_pkg': E$E3.pkgName,
+    'server_id': E$E3.selectedServer.server_id,
+    'server_name': E$E3.selectedServer.server_name,
+    'level': roleLevel,
+    'uid': E$E3.account,
+    'role_id': roleId,
+    'role_name': roleName,
+    'product_id': productId,
+    'product_name': productname,
+    'product_desc': productdesc,
+    'money': price,
+    'partner_id': E$E3.partnerId
+    // 'appleprd_id': appleprd_id,
+  }, toPayCallBack, E$P3E, E$3_);
+};
+window.toPayCallBack = function (data) {
+  if (data) {
+    if (data.errCode === 200 || data.state == 'success') {
+      var info = E$E3.pay_infos[String(data.product_id)];
+      if (info.callback) info.callback(data.product_id, data.cp_order_id, -1);
+      AKSDK.pay({
+        'cpbill': data.cp_order_id,
+        'productid': data.product_id,
+        'productname': info.productname,
+        'productdesc': info.productdesc,
+        'serverid': E$E3.selectedServer.server_id,
+        'servername': E$E3.selectedServer.server_name,
+        'roleid': info.roleid,
+        'rolename': info.rolename,
+        'rolelevel': info.rolelevel,
+        'price': info.price,
+        // 'ApplePrdId': info.ApplePrdId,
+        'extension': JSON.stringify({
+          'cp_order_id': data.cp_order_id
+        })
+      }, function (status, d) {
+        if (info.callback && status == 0) {
+          info.callback(data.product_id, data.cp_order_id, status);
+        }
+        //clientlog(JSON.stringify({error: JSON.stringify({type: "paycallback", status: status, data: data, role_name: info.rolename})}))
+        console.info(JSON.stringify({ type: "paycallback", status: status, data: data, role_name: info.rolename }));
+
+        if (status === 0) {
+          //成功
+        } else if (status === 1) {
+          //失败
+        } else if (status === 2) {
+          //取消
+        }
+      });
+    } else {
+      alert(data.info);
+    }
+  }
+};
+
+window.E$P3E_ = function () {
+  // AKSDK.logLoadingFinish();
+};
+window.E$_P3 = function (role_id, role_name, role_level, role_type, time) {
+  AKSDK.logCreateRole(E$E3.selectedServer.server_id, E$E3.selectedServer.server_name || E$E3.selectedServer.server_id, role_id, role_name, role_level);
+  sendApi(E$E3.apiurl, 'User.create_role', {
+    'game_pkg': E$E3.pkgName,
+    'server_id': E$E3.selectedServer.server_id,
+    'role_id': role_id,
+    'uid': E$E3.account,
+    'role_name': role_name,
+    'role_type': role_type,
+    'level': role_level
+  });
+};
+window.E$_3P = function (role_id, role_name, role_level, role_type, evolution, time, fight, gold, eraLv, eraNum) {
+  E$E3.roleId = role_id;
+  E$E3.roleName = role_name;
+  E$E3.roleLevel = role_level;
+  AKSDK.logEnterGame(E$E3.selectedServer.server_id, E$E3.selectedServer.server_name || E$E3.selectedServer.server_id, role_id, role_name, role_level);
+  sendApi(E$E3.apiurl, 'User.update_role', {
+    'game_pkg': E$E3.pkgName,
+    'server_id': E$E3.selectedServer.server_id,
+    'role_id': role_id,
+    'uid': E$E3.account,
+    'role_name': role_name,
+    'role_type': role_type,
+    'level': role_level,
+    'evolution': evolution
+  });
+};
+window.E$P_3 = function (role_id, role_name, role_level, role_type, evolution, time, fight, gold, eraLv, eraNum) {
+  E$E3.roleId = role_id;
+  E$E3.roleName = role_name;
+  E$E3.roleLevel = role_level;
+  AKSDK.logRoleUpLevel(E$E3.selectedServer.server_id, E$E3.selectedServer.server_name || E$E3.selectedServer.server_id, role_id, role_name, role_level);
+  sendApi(E$E3.apiurl, 'User.update_role', {
+    'game_pkg': E$E3.pkgName,
+    'server_id': E$E3.selectedServer.server_id,
+    'role_id': role_id,
+    'uid': E$E3.account,
+    'role_name': role_name,
+    'role_type': role_type,
+    'level': role_level,
+    'evolution': evolution
+  });
+};
+window.E$P3_ = function (callback) {};
+
+//调起分享
+window.E$_P = function (callback) {
+  AKSDK.share('share', function (data) {
+    callback && callback(data);
+  });
+};
+//调起客服
+window.openService = function () {
+  AKSDK.openService();
+};
+
+//微端引导
+window.microPortGuide = function () {
+  AKSDK.weiduanHelper();
+};
+
+//收藏
+//window.onShowData = null;
+//window.onShowCallback = null;
+window.E$P_ = function (callback) {
+  window.E$3P_ = callback;
+  if (window.E$3P_ && window.E$3_P) {
+    console.info("小游戏切前台事件，场景值：" + window.E$3_P.scene);
+    window.E$3P_(window.E$3_P);
+    window.E$3_P = null;
+  }
+};
+//获取邀请者
+window.E$E_P3 = function (packageName, role_id, serverId, callBack) {
+  window.send('https://sdk.sh9130.com/game/?ct=min&ac=getInviter', {
+    'game_pkg': window.E$E3.pkgName,
+    'role_id': role_id,
+    'server_id': serverId
+  }, callBack);
+};
+//调起订阅消息
+window.E$E_3P = function (ids, callback) {
+  function onTouchEnd(res) {
+    var data = [];
+    var tmpIds = [];
+    var tmpObj = window.config.tmpId;
+    for (var id in tmpObj) {
+      var idn = Number(id);
+      if (!ids || !ids.length || ids.indexOf(idn) != -1) {
+        //ids为空表示所有都请求
+        tmpIds.push(tmpObj[id]);
+        data.push([idn, 3]); //拒绝、封禁、过滤
+      }
+    }
+    if (window.E$QP3E_(window.SDKVersion, '2.4.4') >= 0) {
+      console.log("调用订阅");
+      AKSDK.subscribeMessage && AKSDK.subscribeMessage(tmpIds, function (res) {
+        console.log("订阅回调：");
+        console.log(res);
+        if (res && res.errMsg == "requestSubscribeMessage:ok") {
+          for (var id in tmpObj) {
+            if (res[tmpObj[id]] == 'accept') {
+              //同意
+              var idn = Number(id);
+              for (var i = 0; i < data.length; i++) {
+                if (data[i][0] == idn) {
+                  data[i][1] = 1;
+                  break;
+                }
+              }
+            }
           }
         }
-      }0x0 <= window['E$IEKBU'](window[b[56338]], b[56546]) ? wx[b[56547]]({ 'withSubscriptions': !0x0, 'success': function (a38h) {
-          var _zmyo = a38h[b[56548]][b[56549]];if (_zmyo) {
-            for (var mrs_ in console[b[30422]](b[56550]), console[b[30422]](_zmyo), rdk6s5) if (b[56545] == _zmyo[rdk6s5[mrs_]]) {
-              var dk56sr = Number(mrs_);for (var jk0g = 0x0; jk0g < rs6d[b[30012]]; jk0g++) if (rs6d[jk0g][0x0] == dk56sr) {
-                rs6d[jk0g][0x1] = 0x2;break;
+        if (window.E$QP3E_(window.SDKVersion, '2.10.1') >= 0) {
+          wx.getSetting({
+            withSubscriptions: true, //只返回用户勾选过订阅面板中的“总是保持以上选择，不再询问”的订阅消息。
+            success: function (res1) {
+              var sets = res1.subscriptionsSetting['itemSettings'];
+              if (sets) {
+                console.log("获得订阅设置：");
+                console.log(sets);
+                for (var id in tmpObj) {
+                  if (sets[tmpObj[id]] == 'accept') {
+                    //永久同意
+                    var idn = Number(id);
+                    for (var i = 0; i < data.length; i++) {
+                      if (data[i][0] == idn) {
+                        data[i][1] = 2;
+                        break;
+                      }
+                    }
+                  }
+                }
+                console.log(data);
+                callback && callback(data);
+              } else {
+                console.log("获得订阅设置：没有长期订阅消息");
+                console.log(res1);
+                console.log(data);
+                callback && callback(data);
               }
-            }console[b[30422]](rs6d), nbvweu && nbvweu(rs6d);
-          } else console[b[30422]](b[56551]), console[b[30422]](a38h), console[b[30422]](rs6d), nbvweu && nbvweu(rs6d);
-        }, 'fail': function () {
-          console[b[30422]](b[56552]), console[b[30422]](rs6d), nbvweu && nbvweu(rs6d);
-        } }) : (console[b[30422]](b[56553] + window[b[56338]]), console[b[30422]](rs6d), nbvweu && nbvweu(rs6d));
-    })) : (console[b[30422]](b[56554] + window[b[56338]]), console[b[30422]](rs6d), nbvweu && nbvweu(rs6d)), wx['offTouchEnd'](r6ms5);
-  });
-}, window['E$BEUK'] = { 'isSuccess': !0x1, 'level': b[56555], 'isCharging': !0x1 }, window['E$BEKU'] = function (n8ehp) {
-  wx[b[56404]]({ 'success': function (zsd56) {
-      var _rszm5 = window['E$BEUK'];_rszm5[b[56556]] = !0x0, _rszm5[b[33922]] = Number(zsd56[b[33922]])[b[33564]](0x0), _rszm5[b[56407]] = zsd56[b[56407]], n8ehp && n8ehp(_rszm5[b[56556]], _rszm5[b[33922]], _rszm5[b[56407]]);
-    }, 'fail': function (d6s5rz) {
-      console[b[30422]](b[56557], d6s5rz[b[52983]]), d6s5rz = window['E$BEUK'], n8ehp && n8ehp(d6s5rz[b[56556]], d6s5rz[b[33922]], d6s5rz[b[56407]]);
-    } });
-}, window[b[30021]] = function (szm56, o74tiy, l1fi47, iy, hpeun8, _4oy7, kjrda, $w92v) {
-  null == iy && (iy = 0x1);var o_7tym = new XMLHttpRequest();o_7tym[b[53006]] = function () {
-    if (0x4 == o_7tym[b[30061]]) {
-      if (0xc8 == o_7tym[b[30102]] || 0x12d == o_7tym[b[30102]]) {
-        var r_szm5;o_7tym[b[53007]];if (r_szm5 = JSON[b[30468]](o_7tym[b[53007]]), !_4oy7 || _4oy7(r_szm5, o_7tym, szm56)) return void (l1fi47 && l1fi47(r_szm5));console[b[30075]](szm56), console[b[30121]](r_szm5);
-      }0x0 < iy - 0x1 ? setTimeout(function () {
-        send(szm56, o74tiy, l1fi47, iy - 0x1, hpeun8, _4oy7);
-      }, 0x3e8) : hpeun8 && hpeun8(JSON[b[33819]]({ 'account': E$BK[b[52829]], 'pkgName': E$BK[b[52830]], 'error': 'onApiError', 'stack': JSON[b[33819]]({ 'url': szm56, 'status': o_7tym[b[30102]], 'response': o_7tym[b[53007]], 'responseType': o_7tym[b[53011]] }) }));
+            },
+            fail: function () {
+              console.log("获得订阅设置：失败");
+              console.log(data);
+              callback && callback(data);
+            }
+          });
+        } else {
+          console.log("版本过低，获得订阅设置：失败 " + window.SDKVersion);
+          console.log(data);
+          callback && callback(data);
+        }
+      });
+    } else {
+      console.log("版本过低，不支持订阅 " + window.SDKVersion);
+      console.log(data);
+      callback && callback(data);
     }
-  }, console[b[30422]](b[56558], szm56), o_7tym[b[30063]](kjrda || 'GET', szm56), o_7tym[b[53011]] = b[33746], o_7tym[b[56559]](b[56560], $w92v || b[56467]), o_7tym[b[30021]](o74tiy);
-}, window[b[56561]] = function (o_tym7, g380ja, web2vn, u83p0, agj30k, rks56, sdkr) {
-  web2vn = web2vn || {};var s5r6zm = Math[b[30114]](Date[b[30080]]() / 0x3e8);web2vn[b[30770]] = s5r6zm, web2vn[b[52601]] = g380ja;var uvenwb = Object[b[30247]](web2vn)[b[30908]](),
-      iyl741 = '',
-      dag = '';for (var $xq9w = 0x0; $xq9w < uvenwb[b[30012]]; $xq9w++) iyl741 = iyl741 + (0x0 == $xq9w ? '' : '&') + uvenwb[$xq9w] + web2vn[uvenwb[$xq9w]], dag = dag + (0x0 == $xq9w ? '' : '&') + uvenwb[$xq9w] + '=' + encodeURIComponent(web2vn[uvenwb[$xq9w]]);iyl741 += E$BK[b[56435]], g380ja = b[56562] + md5(iyl741), send(o_tym7 + '?' + dag + ('' == dag ? '' : '&') + g380ja, null, u83p0, agj30k, rks56, sdkr || function (_z5msr) {
-    return b[38726] == _z5msr[b[33459]];
-  }, null, b[56205]);
-}, window['E$BKUE'] = function (a3jkg, gkajd) {
-  var z5d6r = 0x0;E$BK[b[52824]] && (z5d6r = E$BK[b[52824]][b[40114]]), sendApi(E$BK[b[56431]], b[56563], { 'partnerId': E$BK[b[51606]], 'gamePkg': E$BK[b[52830]], 'logTime': Math[b[30114]](Date[b[30080]]() / 0x3e8), 'platformUid': E$BK[b[52831]], 'type': a3jkg, 'serverId': z5d6r }, null, 0x2, null, function () {
-    return !0x0;
-  });
-}, window['E$BKEU'] = function (zs5d6r) {
-  sendApi(E$BK[b[56429]], b[56564], { 'partner_id': E$BK[b[51606]], 'uid': E$BK[b[52829]], 'version': E$BK[b[34010]], 'game_pkg': E$BK[b[52830]], 'device': E$BK[b[52832]] }, E$UEB, E$EKB, E$KU);
-}, window['E$UEB'] = function (venw) {
-  b[38726] === venw[b[33459]] && venw[b[30010]] ? (venw[b[30010]][b[34812]]({ 'id': -0x2, 'name': b[56565] }), venw[b[30010]][b[34812]]({ 'id': -0x1, 'name': b[56566] }), E$BK[b[56567]] = venw[b[30010]], window[b[40713]] && window[b[40713]][b[56568]]()) : (E$BK[b[56569]] = !0x1, window['E$UEBK'](b[56570] + venw[b[33459]]));
-}, window['E$UBE'] = function (vwb29$) {
-  sendApi(E$BK[b[56429]], b[56571], { 'partner_id': E$BK[b[51606]], 'uid': E$BK[b[52829]], 'version': E$BK[b[34010]], 'game_pkg': E$BK[b[52830]], 'device': E$BK[b[52832]] }, E$EUB, E$EKB, E$KU);
-}, window['E$EUB'] = function (s65drk) {
-  if (E$BK[b[56572]] = !0x1, b[38726] === s65drk[b[33459]] && s65drk[b[30010]]) {
-    for (var yt7i4o = 0x0; yt7i4o < s65drk[b[30010]][b[30012]]; yt7i4o++) s65drk[b[30010]][yt7i4o][b[30102]] = E$KUEB(s65drk[b[30010]][yt7i4o]);E$BK[b[56438]][-0x1] = window[b[56573]](s65drk[b[30010]]), window[b[40713]][b[56574]](-0x1);
-  } else window['E$UEBK'](b[56575] + s65drk[b[33459]]);
-}, window['E$EBU'] = function (wb$2e, xq$92w) {
-  sendApi(E$BK[b[56429]], b[56576], { 'partner_id': E$BK[b[51606]], 'uid': E$BK[b[52829]], 'version': E$BK[b[34010]], 'game_pkg': E$BK[b[52830]], 'device': E$BK[b[52832]], 'server_group_id': xq$92w }, E$BUE, E$EKB, E$KU);
-}, window['E$BUE'] = function (pebuh) {
-  if (E$BK[b[56572]] = !0x1, b[38726] === pebuh[b[33459]] && pebuh[b[30010]] && pebuh[b[30010]][b[30010]]) {
-    var euhn = pebuh[b[30010]][b[56577]],
-        eupnbh = [];for (var evuwn = 0x0; evuwn < pebuh[b[30010]][b[30010]][b[30012]]; evuwn++) pebuh[b[30010]][b[30010]][evuwn][b[30102]] = E$KUEB(pebuh[b[30010]][b[30010]][evuwn]), 0x0 != eupnbh[b[30012]] && 0x0 == pebuh[b[30010]][b[30010]][evuwn][b[30102]] || (eupnbh[eupnbh[b[30012]]] = pebuh[b[30010]][b[30010]][evuwn]);E$BK[b[56438]][euhn] = window[b[56573]](eupnbh), window[b[40713]][b[56574]](euhn);
-  } else window['E$UEBK'](b[56578] + pebuh[b[33459]]);
-}, window['E$IBEK'] = function (tiy714) {
-  sendApi(E$BK[b[56429]], b[56579], { 'partner_id': E$BK[b[51606]], 'uid': E$BK[b[52829]], 'version': E$BK[b[34010]], 'game_pkg': E$BK[b[52830]], 'device': E$BK[b[52832]] }, reqServerRecommendCallBack, E$EKB, E$KU);
-}, window[b[56580]] = function (m56zrs) {
-  if (E$BK[b[56572]] = !0x1, b[38726] === m56zrs[b[33459]] && m56zrs[b[30010]]) {
-    for (var weu = 0x0; weu < m56zrs[b[30010]][b[30012]]; weu++) m56zrs[b[30010]][weu][b[30102]] = E$KUEB(m56zrs[b[30010]][weu]);E$BK[b[56438]][-0x2] = window[b[56573]](m56zrs[b[30010]]), window[b[40713]][b[56574]](-0x2);
-  } else alert(b[56581] + m56zrs[b[33459]]);
-}, window[b[56573]] = function (i4y7o) {
-  if (!i4y7o && i4y7o[b[30012]] <= 0x0) return i4y7o;for (let tmo7y = 0x0; tmo7y < i4y7o[b[30012]]; tmo7y++) i4y7o[tmo7y][b[56582]] && 0x1 == i4y7o[tmo7y][b[56582]] && (i4y7o[tmo7y][b[56504]] += b[56583]);return i4y7o;
-}, window['E$BEU'] = function (bvw29$, z_5srm) {
-  bvw29$ = bvw29$ || E$BK[b[52824]][b[40114]], sendApi(E$BK[b[56429]], b[56584], { 'type': '4', 'game_pkg': E$BK[b[52830]], 'server_id': bvw29$ }, z_5srm);
-}, window[b[56585]] = function (msz5o_, z_rms, myt_z, jdsr6) {
-  myt_z = myt_z || E$BK[b[52824]][b[40114]], sendApi(E$BK[b[56429]], b[56586], { 'type': msz5o_, 'game_pkg': z_rms, 'server_id': myt_z }, jdsr6);
-}, window['E$KUEB'] = function (ebhnup) {
-  return ebhnup ? 0x1 == ebhnup[b[30102]] ? 0x1 == ebhnup[b[56587]] ? 0x2 : 0x1 : 0x0 == ebhnup[b[30102]] ? 0x0 : -0x1 : -0x1;
-}, window['E$KUBE'] = function (d6ks, ms_zo) {
-  E$BK[b[56588]] = { 'step': d6ks, 'server_id': ms_zo }, (E$UBEK({ 'title': b[56589] }), sendApi(E$BK[b[56429]], b[56590], { 'partner_id': E$BK[b[51606]], 'uid': E$BK[b[52829]], 'game_pkg': E$BK[b[52830]], 'server_id': ms_zo, 'platform': E$BK[b[52802]], 'platform_uid': E$BK[b[52831]], 'check_login_time': E$BK[b[56498]], 'check_login_sign': E$BK[b[56497]], 'version_name': E$BK[b[56486]] }, E$KEUB, E$EKB, E$KU, function (sz_5o) {
-    return b[38726] == sz_5o[b[33459]] || b[56591] == sz_5o[b[30075]] || b[56592] == sz_5o[b[30075]];
-  }));
-}, window['E$KEUB'] = function (s5kr6) {
-  var sm_oz;b[38726] === s5kr6[b[33459]] && s5kr6[b[30010]] ? ((sm_oz = E$BK[b[52824]])[b[56593]] = E$BK[b[56439]], sm_oz[b[40097]] = String(s5kr6[b[30010]][b[56594]]), sm_oz[b[52804]] = parseInt(s5kr6[b[30010]][b[30770]]), s5kr6[b[30010]][b[52803]] ? sm_oz[b[52803]] = parseInt(s5kr6[b[30010]][b[52803]]) : sm_oz[b[52803]] = parseInt(s5kr6[b[30010]][b[40114]]), sm_oz[b[56595]] = 0x0, sm_oz[b[33831]] = E$BK[b[56514]], sm_oz[b[56596]] = s5kr6[b[30010]][b[56597]], sm_oz[b[56598]] = s5kr6[b[30010]][b[56598]], console[b[30422]](b[56599] + JSON[b[33819]](sm_oz[b[56598]])), 0x1 == E$BK[b[30562]] && sm_oz[b[56598]] && 0x1 == sm_oz[b[56598]][b[56600]] && (E$BK[b[56601]] = 0x1, window[b[56337]][b[30144]]['E$IK']()), E$KEBU()) : sendApi(E$BK[b[56429]], b[56494], { 'platform': E$BK[b[56427]], 'partner_id': E$BK[b[51606]], 'token': E$BK[b[56493]], 'game_pkg': E$BK[b[52830]], 'deviceId': E$BK[b[52832]], 'scene': b[56495] + E$BK[b[56437]] }, function (uwnb) {
-    b[53040] != uwnb[b[33459]] ? (E$BK[b[56497]] = String(uwnb[b[40097]]), E$BK[b[56498]] = String(uwnb[b[30770]]), setTimeout(function () {
-      E$KUBE(E$BK[b[56588]][b[36217]], E$BK[b[56588]][b[40114]]);
-    }, 0x5dc)) : window['E$UEBK'](b[56501] + uwnb[b[33459]]);
-  }, E$EKB, E$KU, function (bvpun) {
-    return b[38726] == bvpun[b[33459]] || b[53040] == bvpun[b[33459]];
-  });
-}, window['E$KEBU'] = function () {
-  ServerLoading[b[30144]][b[56511]](E$BK[b[30562]]), window['E$EK'] = !0x0, window['E$KBEU']();
-}, window['E$KBUE'] = function () {
-  var wuen;window['E$KE'] && window['E$BEK'] && window[b[56445]] && window[b[56446]] && window['E$BKE'] && window['E$BE'] && (window[b[55720]][b[30144]] || (console[b[30422]](b[56602] + window[b[55720]][b[30144]]), wuen = wx[b[56321]]()[b[30695]] || 0x0, wuen = { 'cdn': window['E$BK'][b[33831]], 'spareCdn': window['E$BK'][b[52487]], 'newRegister': window['E$BK'][b[30562]], 'wxPC': window['E$BK'][b[52490]], 'wxIOS': window['E$BK'][b[30452]], 'wxAndroid': window['E$BK'][b[39968]], 'wxParam': { 'limitLoad': window['E$BK']['E$IUBEK'], 'benchmarkLevel': window['E$BK']['E$IUBKE'], 'wxFrom': b[56603] == window[b[30497]][b[55977]] ? 0x1 : 0x0, 'wxSDKVersion': window[b[56338]] }, 'configType': window['E$BK'][b[40271]], 'exposeType': window['E$BK'][b[30638]], 'scene': wuen }, new window[b[55720]](wuen, window['E$BK'][b[30097]], window['E$IUEKB'])));
-}, window['E$KBEU'] = function () {
-  if (window['E$KE'] && window['E$BEK'] && window[b[56445]] && window[b[56446]] && window['E$BKE'] && window['E$BE'] && window['E$EK'] && window['E$EB']) {
-    if (E$UBKE(), !E$KEB) {
-      E$KEB = !0x0, window[b[55720]][b[30144]] || window['E$KBUE']();var jkg03a = 0x0,
-          hneb = wx[b[56604]]();hneb && (window['E$BK'][b[56393]] && (jkg03a = hneb[b[30301]]), console[b[30075]](b[56605] + hneb[b[30301]] + b[56606] + hneb[b[31037]] + b[56607] + hneb[b[31039]] + b[56608] + hneb[b[31038]] + b[56609] + hneb[b[30170]] + b[56610] + hneb[b[30171]]));var v$e2 = {};for (const pu803 in E$BK[b[52824]]) v$e2[pu803] = E$BK[b[52824]][pu803];var ty7i41 = { 'channel': window['E$BK'][b[52828]], 'account': window['E$BK'][b[52829]], 'userId': window['E$BK'][b[51605]], 'serverId': v$e2[b[40114]], 'cdn': window['E$BK'][b[33831]], 'data': window['E$BK'][b[30010]], 'package': window['E$BK'][b[52488]], 'newRegister': window['E$BK'][b[30562]], 'pkgName': window['E$BK'][b[52830]], 'partnerId': window['E$BK'][b[51606]], 'platform_uid': window['E$BK'][b[52831]], 'deviceId': window['E$BK'][b[52832]], 'selectedServer': v$e2, 'configType': window['E$BK'][b[40271]], 'exposeType': window['E$BK'][b[30638]], 'debugUsers': window['E$BK'][b[40664]], 'wxMenuTop': jkg03a, 'wxShield': window['E$BK'][b[30661]] };if (window[b[56520]]) {
-        for (var jkd3ag in window[b[56520]]) ty7i41[jkd3ag] = window[b[56520]][jkd3ag];
-      }window[b[55720]][b[30144]]['E$EIKB'](ty7i41);
+    wx.offTouchEnd(onTouchEnd);
+  }
+  wx.onTouchEnd(onTouchEnd);
+};
+//获取电池信息
+window.E$EP_3 = { isSuccess: false, level: "100", isCharging: false };
+window.E$EP3_ = function (callback) {
+  // console.log("调用获取电池信息");
+  wx.getBatteryInfo({
+    success: function (resSuccess) {
+      var info = window.E$EP_3;
+      info.isSuccess = true;
+      info.level = Number(resSuccess.level).toFixed(0);
+      info.isCharging = resSuccess.isCharging;
+      // console.log("调用获取电池信息成功", info.level, info.isCharging, resSuccess.errMsg, resSuccess.level);
+      callback && callback(info.isSuccess, info.level, info.isCharging);
+    },
+    fail: function (resFail) {
+      console.log("调用获取电池信息失败", resFail.errMsg);
+      var info = window.E$EP_3;
+      callback && callback(info.isSuccess, info.level, info.isCharging);
     }
-  } else console[b[30075]](b[56611] + window['E$KE'] + b[56612] + window['E$BEK'] + b[56613] + window[b[56445]] + b[56614] + window[b[56446]] + b[56615] + window['E$BKE'] + b[56616] + window['E$BE'] + b[56617] + window['E$EK'] + b[56618] + window['E$EB']);
+  });
+};
+
+window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess, reqType, contentType) {
+  if (retryAmount == undefined) {
+    retryAmount = 1;
+  }
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200 || xhr.status == 301) {
+        var response = xhr.response;
+        response = JSON.parse(xhr.response);
+
+        if (!checkSuccess || checkSuccess(response, xhr, url)) {
+          if (callBack) {
+            callBack(response);
+          }
+          return;
+        } else {
+          console.info(url);
+          console.error(response);
+        }
+      }
+      if (retryAmount - 1 > 0) {
+        setTimeout(function () {
+          send(url, data, callBack, retryAmount - 1, errorCB, checkSuccess);
+        }, 1000);
+      } else {
+        if (errorCB) {
+          errorCB(JSON.stringify({
+            url: url,
+            status: xhr.status,
+            response: xhr.response,
+            responseType: xhr.responseType
+          }));
+        }
+      }
+    }
+  };
+  xhr.open(reqType || "GET", url);
+  xhr.responseType = "text";
+  // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  // xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('content-type', contentType || 'application/json');
+  xhr.send(data);
+};
+
+window.sendApi = function (apiurl, method, param, callBack, retryAmount, errorCB, checkSuccess) {
+  if (!param) {
+    param = {};
+  }
+
+  var now = Math.floor(Date.now() / 1000);
+  param['time'] = now;
+  param['method'] = method;
+
+  var sortKeys = Object.keys(param).sort();
+  var md5Str = '';
+  var reqStr = '';
+  for (var i = 0; i < sortKeys.length; i++) {
+    md5Str = md5Str + (i == 0 ? '' : '&') + sortKeys[i] + param[sortKeys[i]];
+    reqStr = reqStr + (i == 0 ? '' : '&') + sortKeys[i] + '=' + encodeURIComponent(param[sortKeys[i]]);
+  }
+  md5Str = md5Str + E$E3.apikey;
+
+  var extendParam = 'sign=' + md5(md5Str);
+
+  send(apiurl + '?' + reqStr + (reqStr == '' ? '' : '&') + extendParam, null, callBack, retryAmount, errorCB, checkSuccess || function (response) {
+    return response.state == 'success';
+  }, null, 'application/x-www-form-urlencoded');
+};
+
+window.E$E3_P = function (step, role_id) {
+  var serverTmpId = 0;
+  if (E$E3.selectedServer) {
+    serverTmpId = E$E3.selectedServer.server_id;
+  }
+  sendApi(E$E3.logurl, 'UserLog.reportUidStep', {
+    'partnerId': E$E3.partnerId,
+    'gamePkg': E$E3.pkgName,
+    'logTime': Math.floor(Date.now() / 1000),
+    'platformUid': E$E3.platform_uid,
+    'type': step,
+    'serverId': serverTmpId
+  }, null, 2, null, function () {
+    return true;
+  });
+};
+
+window.E$E3P_ = function (step) {
+  sendApi(E$E3.apiurl, 'Server.getServerGroup', {
+    'partner_id': E$E3.partnerId,
+    'uid': E$E3.account,
+    'version': E$E3.version,
+    'game_pkg': E$E3.pkgName,
+    'device': E$E3.device_id
+  }, E$_PE, E$P3E, E$3_);
+};
+window.E$_PE = function (data) {
+  if (data.state === "success" && data.data) {
+    data.data.unshift({
+      'id': -2,
+      'name': "最新服"
+    });
+    data.data.unshift({
+      'id': -1,
+      'name': "已有角色"
+    });
+    E$E3.groupList = data.data;
+    if (window.initPanel) window.initPanel.showGroupList();
+  } else {
+    E$E3.hasGroupReq = false;
+    window.E$_PE3("reqServerGroupCallBack " + data.state);
+  }
+};
+
+window.E$_EP = function (step) {
+  sendApi(E$E3.apiurl, 'Server.getServerByUid', {
+    'partner_id': E$E3.partnerId,
+    'uid': E$E3.account,
+    'version': E$E3.version,
+    'game_pkg': E$E3.pkgName,
+    'device': E$E3.device_id
+  }, E$P_E, E$P3E, E$3_);
+};
+window.E$P_E = function (data) {
+  E$E3.hasServerReq = false;
+  if (data.state === "success" && data.data) {
+    for (var i = 0; i < data.data.length; i++) {
+      data.data[i].status = E$3_PE(data.data[i]);
+    }
+    E$E3.serverList[-1] = window.changeServerName(data.data);
+    window.initPanel.showServerList(-1);
+  } else {
+    window.E$_PE3("reqServerOwnerCallBack " + data.state);
+  }
+};
+window.req_server_owner_status = function (callback) {
+  sendApi(E$E3.apiurl, 'Server.getServerByUid', {
+    'partner_id': E$E3.partnerId,
+    'uid': E$E3.account,
+    'version': E$E3.version,
+    'game_pkg': E$E3.pkgName,
+    'device': E$E3.device_id
+  }, callback, E$P3E, E$3_);
+};
+
+window.E$PE_ = function (step, group_id) {
+  sendApi(E$E3.apiurl, 'Server.getServerByGroup', {
+    'partner_id': E$E3.partnerId,
+    'uid': E$E3.account,
+    'version': E$E3.version,
+    'game_pkg': E$E3.pkgName,
+    'device': E$E3.device_id,
+    'server_group_id': group_id
+  }, E$E_P, E$P3E, E$3_);
+};
+window.E$E_P = function (data) {
+  E$E3.hasServerReq = false;
+  if (data.state === "success" && data.data && data.data.data) {
+    var groupid = data.data.server_group_id;
+    var server_list = [];
+    for (var i = 0; i < data.data.data.length; i++) {
+      data.data.data[i].status = E$3_PE(data.data.data[i]);
+
+      if (server_list.length == 0 || data.data.data[i].status != 0) {
+        server_list[server_list.length] = data.data.data[i];
+      }
+    }
+    E$E3.serverList[groupid] = window.changeServerName(server_list);
+    window.initPanel.showServerList(groupid);
+  } else {
+    window.E$_PE3("reqServerListCallBack " + data.state);
+  }
+};
+window.E$QEP3 = function (step) {
+  sendApi(E$E3.apiurl, 'Server.getRecommendServerList', {
+    'partner_id': E$E3.partnerId,
+    'uid': E$E3.account,
+    'version': E$E3.version,
+    'game_pkg': E$E3.pkgName,
+    'device': E$E3.device_id
+  }, reqServerRecommendCallBack, E$P3E, E$3_);
+};
+window.reqServerRecommendCallBack = function (data) {
+  E$E3.hasServerReq = false;
+  if (data.state === "success" && data.data) {
+    for (var i = 0; i < data.data.length; i++) {
+      data.data[i].status = E$3_PE(data.data[i]);
+    }
+    E$E3.serverList[-2] = window.changeServerName(data.data);
+    window.initPanel.showServerList(-2);
+  } else {
+    alert("reqServerRecommendCallBack " + data.state);
+  }
+};
+window.changeServerName = function (lst) {
+  if (!lst && lst.length <= 0) return lst;
+  for (let i = 0; i < lst.length; i++) {
+    if (lst[i].is_recommend && lst[i].is_recommend == 1) {
+      lst[i].server_name += "(推荐)";
+    }
+  }
+  return lst;
+};
+window.E$EP_ = function (server_id, callback) {
+  server_id = server_id || E$E3.selectedServer.server_id;
+  sendApi(E$E3.apiurl, 'Common.get_anno', {
+    'type': '4',
+    'game_pkg': E$E3.pkgName,
+    'server_id': server_id
+  }, callback);
+};
+window.req_multi_server_notice = function (type, pkgName, server_id, callback) {
+  server_id = server_id || E$E3.selectedServer.server_id;
+  sendApi(E$E3.apiurl, 'Common.get_new_anno', {
+    'type': type,
+    'game_pkg': pkgName,
+    'server_id': server_id
+  }, callback);
+};
+
+window.E$3_PE = function (server) {
+  if (server) {
+    if (server.status == 1) {
+      if (server.online_status == 1) return 2;else return 1;
+    } else if (server.status == 0) {
+      return 0;
+    } else {
+      return -1;
+    }
+  }
+  return -1;
+};
+
+window.E$3_EP = function (step, server_id) {
+  E$E3.last_check_ban = {
+    'step': step,
+    'server_id': server_id
+  };
+  var self = this;
+  E$_EP3({ title: '正在验证角色' });
+  sendApi(E$E3.apiurl, 'User.checkInfo', {
+    'partner_id': E$E3.partnerId,
+    'uid': E$E3.account,
+    'game_pkg': E$E3.pkgName,
+    'server_id': server_id,
+    'platform': E$E3.platform,
+    'platform_uid': E$E3.platform_uid,
+    'check_login_time': E$E3.php_signtime,
+    'check_login_sign': E$E3.php_sign,
+    'version_name': E$E3.version_name
+  }, E$3P_E, E$P3E, E$3_, function (response) {
+    return response.state == 'success' || response.info == 'time_err' || response.info == 'sign_err';
+  });
+};
+window.E$3P_E = function (data) {
+  var self = this;
+  if (data.state === "success" && data.data) {
+    var server = E$E3.selectedServer;
+    server.channel_num = E$E3.channelNum;
+
+    server.sign = String(data.data.login_sign);
+    server.tick = parseInt(data.data.time);
+    if (data.data.server_num) server.server_num = parseInt(data.data.server_num);else server.server_num = parseInt(data.data.server_id);
+    server.is_domain = 0;
+    server.cdn = E$E3.base_cdn;
+    server.resver = data.data.cdn_version;
+    server.server_options = data.data.server_options;
+
+    console.log("server_options：" + JSON.stringify(server.server_options));
+
+    if (E$E3.newRegister == 1 && server.server_options && server.server_options.show_btn == 1) {
+      E$E3.showGetBtn = 1;
+      window.ServerLoading.instance.E$Q3();
+    }
+
+    E$3PE_();
+  } else {
+    sendApi(E$E3.apiurl, 'User.login', {
+      'platform': E$E3.sdk_name,
+      'partner_id': E$E3.partnerId,
+      'token': E$E3.sdk_token,
+      'game_pkg': E$E3.pkgName,
+      'deviceId': E$E3.device_id,
+      'scene': 'WX_' + E$E3.from_scene
+    }, function (response) {
+      if (response.state == "failed") {
+        window.E$_PE3('User.login failed: ' + response.state);
+        return;
+      }
+      E$E3.php_sign = String(response.sign);
+      E$E3.php_signtime = String(response.time);
+
+      setTimeout(function () {
+        E$3_EP(E$E3.last_check_ban.step, E$E3.last_check_ban.server_id);
+      }, 1500);
+    }, E$P3E, E$3_, function (response) {
+      return response.state == 'success' || response.state == 'failed';
+    });
+  }
+};
+window.E$3PE_ = function () {
+  ServerLoading.instance.openLoading(E$E3.newRegister);
+  window.E$P3 = true;
+  window.E$3EP_();
+};
+
+window.E$3E_P = function () {
+  if (window.E$3P && window.E$EP3 && window.loadServerRes && window.loadLoadingRes && window.E$E3P && window.E$EP) {
+    if (!window.MainWX.instance) {
+      console.log("Main 初始化" + window.MainWX.instance);
+      var info = wx.getLaunchOptionsSync();
+      var scene = info.scene ? info.scene : 0;
+      var platData = {
+        cdn: window.E$E3.cdn,
+        spareCdn: window.E$E3.spareCdn,
+        newRegister: window.E$E3.newRegister,
+        wxPC: window.E$E3.wxPC,
+        wxIOS: window.E$E3.wxIOS,
+        wxAndroid: window.E$E3.wxAndroid,
+        wxParam: { limitLoad: window.E$E3.E$Q_EP3, benchmarkLevel: window.E$E3.E$Q_E3P, wxFrom: window.config.from == "txcps" ? 1 : 0, wxSDKVersion: window.SDKVersion },
+        configType: window.E$E3.configType,
+        exposeType: window.E$E3.exposeType,
+        scene: scene
+      };
+      new window.MainWX(platData, window.E$E3.lastVersion, window.E$Q_P3E);
+    }
+  }
+};
+
+window.E$3EP_ = function () {
+  if (window.E$3P && window.E$EP3 && window.loadServerRes && window.loadLoadingRes && window.E$E3P && window.E$EP && window.E$P3 && window.E$PE) {
+    E$_E3P();
+    if (!E$3PE) {
+      E$3PE = true;
+      if (!window.MainWX.instance) window.E$3E_P();
+      var top = 0;
+      var rec = wx.getMenuButtonBoundingClientRect(); //基础库 2.1.0 开始支持
+      if (rec) {
+        if (window.E$E3.wxPhone) {
+          top = rec.top;
+        }
+        console.info("MenuButton  top:" + rec.top + ",bottom:" + rec.bottom + ",left:" + rec.left + ",right:" + rec.right + ",width:" + rec.width + ",height:" + rec.height);
+      }
+
+      var selectedServer = {};
+      for (const key in E$E3.selectedServer) {
+        selectedServer[key] = E$E3.selectedServer[key];
+      }
+
+      var platData = {
+        channel: window.E$E3.channel,
+        account: window.E$E3.account,
+        userId: window.E$E3.userId,
+        serverId: selectedServer.server_id,
+        cdn: window.E$E3.cdn,
+        data: window.E$E3.data,
+        package: window.E$E3.package,
+        newRegister: window.E$E3.newRegister,
+        pkgName: window.E$E3.pkgName,
+        partnerId: window.E$E3.partnerId,
+        platform_uid: window.E$E3.platform_uid,
+        deviceId: window.E$E3.device_id,
+        selectedServer: selectedServer,
+        configType: window.E$E3.configType,
+        exposeType: window.E$E3.exposeType,
+        debugUsers: window.E$E3.debugUsers,
+        wxMenuTop: top,
+        wxShield: window.E$E3.wxShield
+      };
+
+      if (window.pkgOptions) {
+        for (var k in window.pkgOptions) {
+          platData[k] = window.pkgOptions[k];
+        }
+      }
+
+      window.MainWX.instance.E$PQ3E(platData);
+    }
+  } else {
+    console.info("【登录】loadProbPkg:" + window.E$3P + ",loadMainPkg:" + window.E$EP3 + ",loadServerRes:" + window.loadServerRes + ",loadLoadingRes:" + window.loadLoadingRes + ",loadVersion:" + window.E$E3P + ",loadServer:" + window.E$EP + ",isCheckBan:" + window.E$P3 + ",loadOption:" + window.E$PE);
+  }
 };

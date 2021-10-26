@@ -1,60 +1,317 @@
-var b = wx.$e;
-console[b[30075]](b[56322]), window['lastError'], wx['onError'](function (yt4o_7) {
-  if (yt4o_7) {
-    if (yt4o_7[b[33833]]) {
-      var q2$9 = window[b[30497]][b[56323]][b[33997]](new RegExp(/\./, 'g'), '_'),
-          zo5_ms = yt4o_7[b[33833]],
-          zd5rs = zo5_ms[b[40513]](/(eeeeeeee\/eeegame.js:)[0-9]{1,60}(:)/g);if (zd5rs) for (var djrk6a = 0x0; djrk6a < zd5rs[b[30012]]; djrk6a++) {
-        var h830u;zd5rs[djrk6a] && 0x0 < zd5rs[djrk6a][b[30012]] && (h830u = parseInt(zd5rs[djrk6a][b[33997]](b[56324], '')[b[33997]](':', '')), zo5_ms = zo5_ms[b[33997]](zd5rs[djrk6a], zd5rs[djrk6a][b[33997]](':' + h830u + ':', ':' + (h830u - 0x2) + ':')));
-      }zo5_ms = (zo5_ms = zo5_ms[b[33997]](new RegExp(b[56325], 'g'), b[56326] + q2$9 + b[52918]))[b[33997]](new RegExp(b[56327], 'g'), b[56326] + q2$9 + b[52918]), yt4o_7[b[33833]] = zo5_ms;
-    }q2$9 = { 'id': window['E$BK'][b[56328]], 'role': window['E$BK'][b[33943]], 'level': window['E$BK'][b[56329]], 'user': window['E$BK'][b[52829]], 'version': window['E$BK'][b[30097]], 'gamever': window[b[30497]][b[56323]], 'cdn': window['E$BK'][b[33831]], 'serverid': window['E$BK'][b[52824]] ? window['E$BK'][b[52824]][b[40114]] : 0x0, 'systemInfo': window[b[56330]], 'error': 'MiniProgramError', 'stack': yt4o_7 ? yt4o_7[b[33833]] : '' }, yt4o_7 = JSON[b[33819]](q2$9), (console[b[30121]](b[56331] + yt4o_7), window['lastError'] && window['lastError'] == q2$9[b[30121]] || (window['lastError'] = q2$9[b[30121]], window['E$UB'](q2$9)));
+console.info("0 进入游戏包");
+
+//监听小程序错误事件。如脚本错误或 API 调用报错等
+window.lastError;
+wx.onError(function (error) {
+  if (error) {
+    if (error.message) {
+      var gamever = window.config.game_ver.replace(new RegExp(/\./, "g"), "_");
+      var message = error.message;
+      var arr = message.match(/(eeeeeeee\/eeegame.js:)[0-9]{1,60}(:)/g);
+      if (arr) {
+        for (var i = 0; i < arr.length; i++) {
+          //行数减2
+          if (arr[i] && arr[i].length > 0) {
+            var line = parseInt(arr[i].replace("eeeeeeee/eeegame.js:", "").replace(":", ""));
+            message = message.replace(arr[i], arr[i].replace(":" + line + ":", ":" + (line - 2) + ":"));
+          }
+        }
+      }
+      message = message.replace(new RegExp("eeeeeeee/eeegame.js", "g"), "eeeeeeee/main__" + gamever + ".min.js");
+      message = message.replace(new RegExp("eeeeeeee/eeemain.js", "g"), "eeeeeeee/main__" + gamever + ".min.js");
+      error.message = message;
+    }
+    var info = {
+      id: window.E$E3.roleId,
+      role: window.E$E3.roleName,
+      level: window.E$E3.roleLevel,
+      user: window.E$E3.account,
+      version: window.E$E3.lastVersion,
+      gamever: window.config.game_ver,
+      cdn: window.E$E3.cdn,
+      serverid: window.E$E3.selectedServer ? window.E$E3.selectedServer.server_id : 0,
+      systemInfo: window.systemInfo,
+      error: "MiniProgramError",
+      stack: error ? error.message : ""
+    };
+    var infostr = JSON.stringify(info);
+    console.error("脚本错误：" + infostr);
+    if (!window.lastError || window.lastError != info.error) {
+      window.lastError = info.error;
+      window.E$_E(info);
+    }
   }
-});import 'eeemd5min.js';import 'eeezlibs.js';window[b[56332]] = require(b[56333]);import 'eeeindex.js';import 'eeelibsmin.js';import 'eeewxmini.js';import 'eeeinitmin.js';console[b[30075]](b[56334]), console[b[30075]](b[56335]), E$UBEK({ 'title': b[56336] });var ega0jk = { 'E$IEUBK': !0x0 };new window[b[56337]](ega0jk), window[b[56337]][b[30144]]['E$IEKUB'](), window['E$IUKEB'] && clearInterval(window['E$IUKEB']), window['E$IUKEB'] = null, window['E$IEKBU'] = function (u8ep, jak6rd) {
-  if (!u8ep || !jak6rd) return 0x0;u8ep = u8ep[b[30014]]('.'), jak6rd = jak6rd[b[30014]]('.');var hpneu = Math[b[30772]](u8ep[b[30012]], jak6rd[b[30012]]);for (; u8ep[b[30012]] < hpneu;) u8ep[b[30028]]('0');for (; jak6rd[b[30012]] < hpneu;) jak6rd[b[30028]]('0');for (var puh0n8 = 0x0; puh0n8 < hpneu; puh0n8++) {
-    var yto4i = parseInt(u8ep[puh0n8]),
-        hn8pu = parseInt(jak6rd[puh0n8]);if (hn8pu < yto4i) return 0x1;if (yto4i < hn8pu) return -0x1;
-  }return 0x0;
-}, window[b[56338]] = wx[b[56339]]()[b[56338]], console[b[30422]](b[56340] + window[b[56338]]);var ey1i74l = wx[b[56341]]();ey1i74l[b[56342]](function (np80hu) {
-  console[b[30422]](b[56343] + np80hu[b[56344]]);
-}), ey1i74l[b[56345]](function () {
-  wx[b[56346]]({ 'title': b[56347], 'content': b[56348], 'showCancel': !0x1, 'success': function (_rmz) {
-      ey1i74l[b[56349]]();
-    } });
-}), ey1i74l[b[56350]](function () {
-  console[b[30422]](b[56351]);
-}), window['E$IBUEK'] = function () {
-  console[b[30422]](b[56352]);var nph0 = wx[b[56353]]({ 'name': b[56354], 'success': function (enbu) {
-      console[b[30422]](b[56355]), console[b[30422]](enbu), enbu && b[56356] == enbu[b[52983]] ? (window['E$KE'] = !0x0, window['E$KBUE'](), window['E$KBEU']()) : setTimeout(function () {
-        window['E$IBUEK']();
-      }, 0x1f4);
-    }, 'fail': function (dg) {
-      console[b[30422]](b[56357]), console[b[30422]](dg), setTimeout(function () {
-        window['E$IBUEK']();
-      }, 0x1f4);
-    } });nph0 && nph0[b[56358]](kga6dj => {});
-}, window['E$IBEUK'] = function () {
-  console[b[30422]](b[56359]);var g3ph80 = wx[b[56353]]({ 'name': b[56360], 'success': function (rsj6kd) {
-      console[b[30422]](b[56361]), console[b[30422]](rsj6kd), rsj6kd && b[56356] == rsj6kd[b[52983]] ? (window['E$BEK'] = !0x0, window['E$KBUE'](), window['E$KBEU']()) : setTimeout(function () {
-        window['E$IBEUK']();
-      }, 0x1f4);
-    }, 'fail': function (g0h38a) {
-      console[b[30422]](b[56362]), console[b[30422]](g0h38a), setTimeout(function () {
-        window['E$IBEUK']();
-      }, 0x1f4);
-    } });g3ph80 && g3ph80[b[56358]](_zom => {});
-}, window[b[56363]] = function () {
-  0x0 <= window['E$IEKBU'](window[b[56338]], b[56364]) ? (console[b[30422]](b[56365] + window[b[56338]] + b[56366]), window['E$BU'](), window['E$IBUEK'](), window['E$IBEUK']()) : (window['E$BKU'](b[56367] + window[b[56338]]), wx[b[56346]]({ 'title': b[35562], 'content': b[56368] }));
-}, window[b[56330]] = '', wx[b[56369]]({ 'success'(wv92$b) {
-    window[b[56330]] = b[56370] + wv92$b[b[56371]] + b[56372] + wv92$b[b[56373]] + b[56374] + wv92$b[b[34010]] + b[56375] + wv92$b[b[30415]] + b[56376] + wv92$b[b[52802]] + b[56377] + wv92$b[b[56338]] + b[56378] + wv92$b[b[38160]], console[b[30422]](window[b[56330]]), console[b[30422]](b[56379] + wv92$b[b[56380]] + b[56381] + wv92$b[b[56382]] + b[56383] + wv92$b[b[56384]] + b[56385] + wv92$b[b[56386]] + b[56387] + wv92$b[b[56388]] + b[56389] + wv92$b[b[56390]] + b[56391] + (wv92$b[b[56392]] ? wv92$b[b[56392]][b[30301]] + ',' + wv92$b[b[56392]][b[31037]] + ',' + wv92$b[b[56392]][b[31039]] + ',' + wv92$b[b[56392]][b[31038]] : ''));var ito7 = wv92$b[b[30415]] ? wv92$b[b[30415]][b[40762]]() : '',
-        l47yi = wv92$b[b[56373]] ? wv92$b[b[56373]][b[40762]]()[b[33997]]('\x20', '') : '';window['E$BK'][b[30452]] = -0x1 != ito7[b[30111]](b[56101]), window['E$BK'][b[39968]] = -0x1 != ito7[b[30111]](b[56100]), window['E$BK'][b[56393]] = -0x1 != ito7[b[30111]](b[56101]) || -0x1 != ito7[b[30111]](b[56100]), window['E$BK'][b[52490]] = -0x1 != ito7[b[30111]](b[56394]) || -0x1 != ito7[b[30111]](b[56395]), window['E$BK'][b[56396]] = wv92$b[b[52802]] ? wv92$b[b[52802]][b[40762]]() : '', window['E$BK']['E$IUBEK'] = !0x1, window['E$BK']['E$IUBKE'] = 0x2, -0x1 != ito7[b[30111]](b[56100]) ? 0x18 <= wv92$b[b[38160]] ? window['E$BK']['E$IUBKE'] = 0x3 : window['E$BK']['E$IUBKE'] = 0x2 : -0x1 == ito7[b[30111]](b[56101]) || !(wv92$b[b[38160]] && 0x14 <= wv92$b[b[38160]] || -0x1 == l47yi[b[30111]](b[56397]) && -0x1 == l47yi[b[30111]](b[56398]) && -0x1 == l47yi[b[30111]](b[56399]) && -0x1 == l47yi[b[30111]](b[56400]) && -0x1 == l47yi[b[30111]](b[56401])) ? window['E$BK']['E$IUBKE'] = 0x2 : window['E$BK']['E$IUBKE'] = 0x3, console[b[30422]](b[56402] + window['E$BK']['E$IUBEK'] + b[56403] + window['E$BK']['E$IUBKE']);
-  } }), wx[b[56404]]({ 'success': function (nwue) {
-    console[b[30422]](b[56405] + nwue[b[33922]] + b[56406] + nwue[b[56407]]);
-  } }), wx[b[56408]]({ 'success': function (upnhb) {
-    console[b[30422]](b[56409] + upnhb[b[56410]]);
-  } }), wx[b[56411]]({ 'keepScreenOn': !0x0 }), wx[b[56412]](function (w29qx$) {
-  console[b[30422]](b[56409] + w29qx$[b[56410]] + b[56413] + w29qx$[b[56414]]);
-}), wx[b[56415]](function (bupev) {
-  window['E$KUE'] = bupev, window['E$KEU'] && window['E$KUE'] && (console[b[30075]](b[56416] + window['E$KUE'][b[30695]]), window['E$KEU'](window['E$KUE']), window['E$KUE'] = null);
-}), window['E$IBKUE'] = 0x0, window[b[56417]] = null, wx[b[56418]](function () {
-  window['E$IBKUE']++, wx[b[40325]](), 0x2 <= window['E$IBKUE'] && (window['E$IBKUE'] = 0x0, console[b[30121]](b[56419]), wx[b[56420]]('0', 0x1), window['E$BK'] && window['E$BK'][b[30452]] && window['E$BKU'](b[56421]), onMemoryWarningCallBack && onMemoryWarningCallBack());
+});
+
+import "eeemd5min.js";
+import "eeezlibs.js";
+window["Parser"] = require("eeedomparser.js");
+import "eeeindex.js";
+import "eeelibsmin.js";
+import "eeewxmini.js";
+import "eeeinitmin.js";
+
+console.info("1 初始化");
+
+//绘制白色背景
+// const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+// const verts = [1,-1,0, -1,-1,0, 1,1,0, -1,1,0];
+// gl.clearColor(0,0,0,0);
+// gl.clear(gl.COLOR_BUFFER_BIT);
+// gl.viewport(0,0,canvas.width, canvas.height);
+// var vrt_shader = gl.createShader(gl.VERTEX_SHADER);
+// gl.shaderSource(vrt_shader, "attribute vec4 coords; void main() { gl_Position = coords; }");
+// gl.compileShader(vrt_shader);
+// var fra_shader = gl.createShader(gl.FRAGMENT_SHADER);
+// gl.shaderSource(fra_shader, "precision mediump float; void main() { gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0); }");
+// gl.compileShader(fra_shader);
+
+// var shaderProgram = gl.createProgram();
+// gl.attachShader(shaderProgram, vrt_shader);
+// gl.attachShader(shaderProgram, fra_shader);
+// gl.linkProgram(shaderProgram);
+// gl.useProgram(shaderProgram);
+
+// var buffer = gl.createBuffer();
+// gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+// gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(verts), gl.STATIC_DRAW);
+// var coords = gl.getAttribLocation(shaderProgram,'coords');
+// gl.vertexAttribPointer(coords, 3, gl.FLOAT, false, 0,0);
+// gl.enableVertexAttribArray(coords);
+
+// function render() {
+//   gl.clearColor(0.0, 0.0, 0.0, 1.0);
+//   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+//   gl.flush();
+// }
+// render();
+// window.loadingInterval = setInterval(function(){
+//   render();
+// }, 16)
+console.info("2 加载游戏");
+E$_EP3({ title: '正在加载' });
+
+// 每个分包的图集不一样，采用传参形式
+var E$Q_3EP = {
+  E$QP_E3: true
+};
+new window.ServerLoading(E$Q_3EP);
+window.ServerLoading.instance.E$QP3_E();
+if (window.E$Q_3PE) clearInterval(window.E$Q_3PE);
+window.E$Q_3PE = null;
+
+//比较版本号
+window.E$QP3E_ = function (v1, v2) {
+  if (!v1 || !v2) return 0;
+  v1 = v1.split('.');v2 = v2.split('.');
+  const len = Math.max(v1.length, v2.length);
+  while (v1.length < len) {
+    v1.push('0');
+  }
+  while (v2.length < len) {
+    v2.push('0');
+  }
+  for (var i = 0; i < len; i++) {
+    const num1 = parseInt(v1[i]),
+          num2 = parseInt(v2[i]);
+    if (num1 > num2) return 1;else if (num1 < num2) return -1;
+  }
+  return 0;
+};
+
+window.SDKVersion = wx.getSystemInfoSync().SDKVersion;
+console.log("微信基础库版本：" + window.SDKVersion);
+
+// 版本更新相关，基础库 1.9.90 开始支持
+var updateManager = wx.getUpdateManager();
+updateManager.onCheckForUpdate(function (res) {
+  console.log("是否有新版本：" + res.hasUpdate);
+});
+updateManager.onUpdateReady(function () {
+  wx.showModal({
+    title: '更新提示',
+    content: '新版本已经准备好，是否重启应用？',
+    showCancel: false, // 加了取消按钮后，实际不会触发更新
+    success: function (res) {
+      // if (res.confirm) { // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+      updateManager.applyUpdate();
+      // } else if (res.cancel) {
+      //   console.log('用户点击取消')
+      // }
+    }
+  });
+});
+updateManager.onUpdateFailed(function () {
+  console.log('新版本下载失败 ');
+});
+
+window.E$QE_P3 = function () {
+  console.log("protobuf 分包加载");
+  var E$QE_3P = wx.loadSubpackage({
+    name: 'eeeeeepf',
+    success: function (res) {
+      console.log("protobuf 分包加载成功");
+      console.log(res);
+      if (res && res.errMsg == "loadSubpackage:ok") {
+        window.E$3P = true;
+        window.E$3E_P();
+        window.E$3EP_();
+      } else {
+        setTimeout(function () {
+          window.E$QE_P3();
+        }, 500);
+      }
+    },
+    fail: function (res) {
+      console.log("protobuf 分包加载失败");
+      console.log(res);
+      setTimeout(function () {
+        window.E$QE_P3();
+      }, 500);
+    }
+  });
+  E$QE_3P && E$QE_3P.onProgressUpdate(res => {
+    // console.log('protobuf 下载进度:' + res.progress + '%, 已经下载的数据长度', res.totalBytesWritten, '预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
+  });
+};
+window.E$QEP_3 = function () {
+  console.log("Main 分包加载");
+  var E$QEP3_ = wx.loadSubpackage({
+    name: 'eeeeeeee',
+    success: function (res) {
+      console.log("Main 分包加载成功");
+      console.log(res);
+      if (res && res.errMsg == "loadSubpackage:ok") {
+        window.E$EP3 = true;
+        window.E$3E_P();
+        window.E$3EP_();
+      } else {
+        setTimeout(function () {
+          window.E$QEP_3();
+        }, 500);
+      }
+    },
+    fail: function (res) {
+      console.log("Main 分包加载失败");
+      console.log(res);
+      setTimeout(function () {
+        window.E$QEP_3();
+      }, 500);
+    }
+  });
+  E$QEP3_ && E$QEP3_.onProgressUpdate(res => {
+    // console.log('Main 下载进度:' + res.progress + '%, 已经下载的数据长度', res.totalBytesWritten, '预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
+  });
+};
+
+window.loadSubpackages = function () {
+  if (window.E$QP3E_(window.SDKVersion, '2.1.0') >= 0) {
+    //分包wx.loadSubpackage：2.1.0，SDk的wx.createUserInfoButton：2.0.1
+    console.log("微信基础库版本符合最低版本要求：" + window.SDKVersion + ">=2.1.0");
+    window.E$E_();
+    window.E$QE_P3();
+    window.E$QEP_3();
+  } else {
+    window.E$E3_("微信基础库版本过低", window.SDKVersion);
+    wx.showModal({
+      title: '提示',
+      content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+    });
+  }
+};
+
+//获取系统信息
+window.systemInfo = "";
+wx.getSystemInfo({
+  success(res) {
+    window.systemInfo = "品牌：" + res.brand + "，型号：" + res.model + "，微信版本号：" + res.version + "，系统及版本：" + res.system + "，客户端平台：" + res.platform + "，基础库版本：" + res.SDKVersion + "，设备性能等级：" + res.benchmarkLevel;
+    console.log(window.systemInfo);
+    console.log("设备像素比：" + res.pixelRatio + "，屏幕宽度：" + res.screenWidth + "，屏幕高度：" + res.screenHeight + "，可使用窗口宽度：" + res.windowWidth + "，可使用窗口高度：" + res.windowHeight + "，状态栏的高度：" + res.statusBarHeight + "，安全区域：" + (res.safeArea ? res.safeArea.top + "," + res.safeArea.bottom + "," + res.safeArea.left + "," + res.safeArea.right : ""));
+
+    var system = res.system ? res.system.toLowerCase() : "";
+    var model = res.model ? res.model.toLowerCase().replace(" ", "") : "";
+    window.E$E3.wxIOS = system.indexOf("ios") != -1;
+    window.E$E3.wxAndroid = system.indexOf("android") != -1;
+    window.E$E3.wxPhone = system.indexOf("ios") != -1 || system.indexOf("android") != -1;
+    window.E$E3.wxPC = system.indexOf("windows") != -1 || system.indexOf("mac") != -1;
+    window.E$E3.wxPlatform = res.platform ? res.platform.toLowerCase() : "";
+    window.E$E3.E$Q_EP3 = false; //model.indexOf("iphonex") != -1;
+    window.E$E3.E$Q_E3P = 2;
+    if (system.indexOf("android") != -1) {
+      //android按设备等级
+      if (res.benchmarkLevel >= 24) window.E$E3.E$Q_E3P = 3;else window.E$E3.E$Q_E3P = 2;
+    } else if (system.indexOf("ios") != -1) {
+      //ios按型号
+      if (res.benchmarkLevel && res.benchmarkLevel >= 20) window.E$E3.E$Q_E3P = 3;else if (model.indexOf("iphone5") != -1 || model.indexOf("iphone6") != -1 || model.indexOf("iphone7") != -1 || model.indexOf("iphonese") != -1 || model.indexOf("ipad") != -1) window.E$E3.E$Q_E3P = 2;else window.E$E3.E$Q_E3P = 3;
+    } else {
+      //PC
+      window.E$E3.E$Q_E3P = 2;
+    }
+    console.log("加载限制：" + window.E$E3.E$Q_EP3 + "，设备限制等级：" + window.E$E3.E$Q_E3P);
+  }
+});
+//获取设备电量
+wx.getBatteryInfo({
+  success: function (res) {
+    console.log("电量：" + res.level + "%，是否正在充电：" + res.isCharging);
+  }
+});
+//获取网络类型
+wx.getNetworkType({
+  success: function (res) {
+    console.log("网络类型：" + res.networkType);
+  }
+});
+//设置是否保持常亮状态，基础库 1.4.0 开始支持。仅在当前小程序生效，离开小程序后设置失效。
+wx.setKeepScreenOn({
+  keepScreenOn: true
+});
+//监听网络状态变化事件，基础库 1.1.0 开始支持
+wx.onNetworkStatusChange(function (res) {
+  console.log("网络类型：" + res.networkType + "，是否有网络连接：" + res.isConnected);
+});
+//监听小游戏切前台事件
+wx.onShow(function (res) {
+  window.E$3_P = res;
+  if (window.E$3P_ && window.E$3_P) {
+    console.info("小游戏切前台事件，场景值：" + window.E$3_P.scene);
+    window.E$3P_(window.E$3_P);
+    window.E$3_P = null;
+  }
+});
+
+// 内存警告相关，基础库 2.0.2 开始支持
+window.E$QE3_P = 0;
+window.onMemoryWarningCallBack = null;
+wx.onMemoryWarning(function () {
+  window.E$QE3_P++;
+  wx.triggerGC(); //微信小游戏垃圾回收;
+  if (window.E$QE3_P >= 2) {
+    window.E$QE3_P = 0;
+    console.error('第二次内存警告');
+    wx.reportMonitor('0', 1); //上报微信监控
+    if (window.E$E3 && window.E$E3.wxIOS) window.E$E3_("内存警告", "");
+    if (onMemoryWarningCallBack) onMemoryWarningCallBack(); //游戏内画质设为“低”
+  }
+  // wx.showModal({
+  //   title: '提示',
+  //   content: "内存偏低，请重启微信，并重新打开小游戏",
+  //   showCancel : false, 
+  //   success(res) {
+  //     if (window.memoryWarningNum >= 2) {
+  //       window.memoryWarningNum = 0;
+
+  //       wx.reportMonitor('0', 1);  //上报微信监控
+
+  //       wx.exitMiniProgram({
+  //         success: function () {
+  //           console.error('退出游戏成功！');
+  //         },
+  //         fail: function () {
+  //           console.error('退出游戏失败！');
+  //         }
+  //       })
+  //     }
+  //   }
+  // })
 });

@@ -1,2 +1,2 @@
 var p = wx.$h;
-require('ccccBuff.js'), window['protobuf'][p[336]][p[140]] = null, window['client_pb'] = require('ccccleintpb.js'), window[p[611]] = window['protobuf'][p[278]][p[181]](client_pb);
+require('ccccBuff.js'), window[p[225]][p[211]][p[12]] = null, window['client_pb'] = require('ccccleintpb.js'), window[p[490]] = window[p[225]][p[152]][p[53]](client_pb);
