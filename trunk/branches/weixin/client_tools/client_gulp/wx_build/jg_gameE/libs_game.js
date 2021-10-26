@@ -1,1 +1,1 @@
-require("eeegame.js")
+require("tempPackageGame.js")

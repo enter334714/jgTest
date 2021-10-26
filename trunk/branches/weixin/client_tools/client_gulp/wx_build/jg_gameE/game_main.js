@@ -1,4 +1,4 @@
-﻿import "eessss/eeeweasaf.js";
+﻿import "libs/weapp-adapter.js"; console.info("1 \u521d\u59cb\u5316");
 var VSHADER_SOURCE =
   'attribute vec4 a_Position;\n' +
   'attribute vec2 a_TexCoord;\n' +
@@ -43,7 +43,7 @@ gl.useProgram(shaderProgram);
 
 
 var image = new Image();
-image.src = "eeelogin/e22b.png";
+image.src = "wxlogin_atlas/image_login_init.png";
 var buffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
@@ -86,53 +86,31 @@ window.loadingInterval = setInterval(function(){
   render();
 }, 16)
 wx.showLoading({ title: "\u6b63\u5728\u52a0\u8f7d" });
-wx.$d = [];
-var fs = wx.getFileSystemManager();
-wx.getFileSystemManager().unzip({
-    zipFilePath: "/eres/efiles.zip",
-    targetPath: wx.env.USER_DATA_PATH + "/f/",
-    success: (res51) => {
-        if (res51.errMsg == "unzip:ok") {
-            fs.readFile({
-                filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8",
-                success: function (res41) {
-                    if (res41.errMsg == "readFile:ok" && res41.data) {
-                        try {
-                            wx.$e = JSON.parse(res41.data);
-                        } catch (error) {
-                            console.error(error);
-                        }
-            
-                        var loadLibsTask = wx.loadSubpackage({
-                            name: 'eeelibs',
-                            success: function(res) {
-                                if (res && res.errMsg == "loadSubpackage:ok") {
-                                } else {
-                                }
-                                window.loadSubpackages();
-                            },
-                            fail: function(res) {
-                                console.error(res);
-                            },
-                        });
-                        loadLibsTask && loadLibsTask.onProgressUpdate(res => {
-                        });
-                    }
-                },
-                fail: function (res42) {
-                    console.error(res42.errMsg);
-                }
-            });
-        } else {
-            console.error(res51.errMsg);
+wx.y$ = []; var fs = wx.getFileSystemManager(); wx.getFileSystemManager().unzip({
+  zipFilePath: "/zzzzipRes/ResFile.zip", targetPath: wx.env.USER_DATA_PATH + "/f/", success: r => {
+    "unzip:ok" == r.errMsg ? fs.readFile({
+      filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8", success: function (r) {
+        if ("readFile:ok" == r.errMsg && r.data) {
+          try {
+            wx.globalStrArrs = JSON.parse(r.data);
+          } catch (r) {
+            console.error(r);
+          } r = wx.loadSubpackage({
+            name: 'packages', success: function (r) {
+              r && r.errMsg, window.loadSubpackages();             
+            }, fail: function (r) {
+              console.error(r);
+            }
+          }); r && r.onProgressUpdate(r => { });
         }
-    },
-    fail: (res52) => {
-        console.error(res52.errMsg);
-    }
+      }, fail: function (r) {
+        console.error(r.errMsg);
+      }
+    }) : console.error(r.errMsg);
+  }, fail: r => {
+    console.error(r.errMsg);
+  }
 });
-
-
 //监听小游戏切前台事件
 wx.onShow(function (res) {
     window.onShowData = res;
