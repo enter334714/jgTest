@@ -785,6 +785,7 @@ var set_param_c = function () {
                 replaceMap[url] = true;
             }
         }
+        replaceMap[targetGameJs] = true;
         cb();
         this.emit("data", file);
     }
@@ -1014,6 +1015,7 @@ var set_param_d = function () {
                 replaceMap[url] = true;
             }
         }
+        replaceMap[targetGameJs] = true;
         cb();
         this.emit("data", file);
     }
@@ -1245,6 +1247,7 @@ var set_param_e = function () {
                 replaceMap[url] = true;
             }
         }
+        replaceMap[targetGameJs] = true;
         cb();
         this.emit("data", file);
     }
@@ -1479,6 +1482,7 @@ var set_param_f = function () {
                 replaceMap[url] = true;
             }
         }
+        replaceMap[targetGameJs] = true;
         cb();
         this.emit("data", file);
     }
@@ -1714,6 +1718,7 @@ var set_param_g = function () {
                 replaceMap[url] = true;
             }
         }
+        replaceMap[targetGameJs] = true;
         cb();
         this.emit("data", file);
     }
@@ -1947,6 +1952,7 @@ var set_param_h = function () {
                 replaceMap[url] = true;
             }
         }
+        replaceMap[targetGameJs] = true;
         cb();
         this.emit("data", file);
     }
@@ -2181,6 +2187,7 @@ var set_param_i = function () {
                 replaceMap[url] = true;
             }
         }
+        replaceMap[targetGameJs] = true;
         cb();
         this.emit("data", file);
     }
@@ -2416,6 +2423,7 @@ var set_param_j = function () {
                 replaceMap[url] = true;
             }
         }
+        replaceMap[targetGameJs] = true;
         cb();
         this.emit("data", file);
     }
@@ -2654,6 +2662,7 @@ var set_param_k = function () {
                 replaceMap[url] = true;
             }
         }
+        replaceMap[targetGameJs] = true;
         cb();
         this.emit("data", file);
     }
@@ -2889,6 +2898,7 @@ var set_param_l = function () {
                 replaceMap[url] = true;
             }
         }
+        replaceMap[targetGameJs] = true;
         cb();
         this.emit("data", file);
     }
@@ -3126,6 +3136,7 @@ var set_param_m = function () {
                 replaceMap[url] = true;
             }
         }
+        replaceMap[targetGameJs] = true;
         cb();
         this.emit("data", file);
     }
