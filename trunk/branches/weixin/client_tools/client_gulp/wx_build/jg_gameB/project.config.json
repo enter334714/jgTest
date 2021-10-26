@@ -37,7 +37,7 @@
     "minifyWXSS": true
   },
   "compileType": "game",
-  "libVersion": "2.1.0",
+  "libVersion": "2.10.4",
   "appid": "wxd039198b00fda28f",
   "projectname": "jg_gameB",
   "simulatorType": "wechat",
