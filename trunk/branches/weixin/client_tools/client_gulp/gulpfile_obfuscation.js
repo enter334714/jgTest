@@ -361,10 +361,11 @@ var set_param_b = function () {
         targetProject = "wx_build/jg_gameB_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
         mainJsName = "lsjdflaamain.js";
+        libsMainJs = "bbbgame.js";
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称
             "libs": {url:"bbblibs"},
-            "game.js": {url:"bbblibs/bbbgame.js",extractStr:true,count:1,strLen:3},
+            "game.js": {url:"bbblibs/"+libsMainJs,extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:"bbblibs/bbbindex.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:"bbblibs/bbbinitmin.js",extractStr:true,count:1,strLen:3,replace:true},
@@ -417,7 +418,7 @@ var set_param_b = function () {
             "wxloading_atlas/image_login_point1.png": {url:"bbbloding/a18a.png"},
             "wxloading_atlas/image_login_point2.png": {url:"bbbloding/a19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"bbbloding/a20a.png"},
-            "wxloading_atlas/image_loading_txtbhcc.png": {url:"bbbloding/a21a.png"},
+
 
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"bbblogin/b1b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"bbblogin/b2b.jpg"},
@@ -446,6 +447,7 @@ var set_param_b = function () {
             "wxlogin_atlas/btn_com_long0.png": {url:"bbblogin/b24b.png"},
             "wxlogin_atlas/btn_com_long1.png": {url:"bbblogin/b25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"bbblogin/b26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"bbblogin/b27b.png"},
 
 
             "wxeff_btn_atlas/0.png": {url:"bwxeff/b100b.png"},
@@ -488,7 +490,7 @@ var set_param_b = function () {
             "image_login_point1.png": "a18a.png",
             "image_login_point2.png":"a19a.png",
             "image_login_point3.png": "a20a.png",
-            "image_loding_txtbhcc.png":"a21a.png",
+
 
 
             "image_denglu_txtshenpi.png": "b1b.png",
@@ -518,7 +520,7 @@ var set_param_b = function () {
             "btn_com_long0.png":"b24b.png",
             "btn_com_long1.png":"b25b.png",
             "image_login_notice1.png":"b26b.png",
-
+            "image_loding_txtbhcc.png":"b27b.png",
 
             "0.png": "b100b.png",
             "1.png": "b101b.png",
@@ -597,10 +599,11 @@ var set_param_c = function () {
         targetProject = "wx_build/jg_gameC_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
         mainJsName = "ccccccccmain.js";
+        libsMainJs = "cccgame.js";
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen   replace是否替换文件里面的资源名称
             "libs": {url:"ccclibs"},
-            "game.js": {url:"ccclibs/cccgame.js",extractStr:true,count:1,strLen:3},
+            "game.js": {url:"ccclibs/"+libsMainJs,extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:"ccclibs/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:"ccclibs/cccindex.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:"ccclibs/cccinitmin.js",extractStr:true,count:1,strLen:3,replace:true},
@@ -657,7 +660,7 @@ var set_param_c = function () {
             "wxloading_atlas/image_login_point1.png": {url:"cccloding/a18c.png"},
             "wxloading_atlas/image_login_point2.png": {url:"cccloding/a19c.png"},
             "wxloading_atlas/image_login_point3.png": {url:"cccloding/a20c.png"},
-            "wxloading_atlas/image_loding_txtbhcc.png": {url:"cccloding/a21c.png"},
+
 
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ccclogin/b1c.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"ccclogin/b2c.jpg"},
@@ -686,6 +689,7 @@ var set_param_c = function () {
             "wxlogin_atlas/btn_com_long0.png": {url:"ccclogin/b24c.png"},
             "wxlogin_atlas/btn_com_long1.png": {url:"ccclogin/b255c.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"ccclogin/b26c.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"ccclogin/b27c.png"},
 
             "wxeff_btn_atlas/0.png": {url:"cccwxeff/c100c.png"},
             "wxeff_btn_atlas/1.png": {url:"cccwxeff/c101c.png"},
@@ -727,7 +731,7 @@ var set_param_c = function () {
             "image_login_point1.png": "a18c.png",
             "image_login_point2.png":"a19c.png",
             "image_login_point3.png": "a20c.png",
-            "image_loding_txtbhcc.png":"a21c.png",
+
 
 
             "image_denglu_txtshenpi.png": "b1c.png",
@@ -757,6 +761,7 @@ var set_param_c = function () {
             "btn_com_long0.png":"b24c.png",
             "btn_com_long1.png":"b255c.png",
             "image_login_notice1.png":"b26c.png",
+            "image_loding_txtbhcc.png":"b27c.png",
 
             "0.png": "c100c.png",
             "1.png": "c101c.png",
@@ -827,10 +832,11 @@ var set_param_d = function () {
         targetProject = "wx_build/jg_gameD_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
         mainJsName = "dddmain.js";
+        libsMainJs = "dddgame.js";
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称
             "libs": {url:"dddlibs"},
-            "game.js": {url:"dddlibs/dddgame.js",extractStr:true,count:1,strLen:3},
+            "game.js": {url:"dddlibs/"+libsMainJs,extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:"dddlibs/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:"dddlibs/dddindex.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:"dddlibs/dddinitmin.js",extractStr:true,count:1,strLen:3,replace:true},
@@ -887,7 +893,7 @@ var set_param_d = function () {
             "wxloading_atlas/image_login_point1.png": {url:"dddloding/d18a.png"},
             "wxloading_atlas/image_login_point2.png": {url:"dddloding/d19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"dddloding/d20a.png"},
-            "wxloading_atlas/image_loding_txtbhcc.png": {url:"dddloding/d21a.png"},
+
 
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"dddlogin/d1b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"dddlogin/d2b.jpg"},
@@ -916,6 +922,7 @@ var set_param_d = function () {
             "wxlogin_atlas/btn_com_long0.png": {url:"dddlogin/d24b.png"},
             "wxlogin_atlas/btn_com_long1.png": {url:"dddlogin/d25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"dddlogin/d26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"dddlogin/d27b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"ddwxeff/d1c.png"},
             "wxeff_btn_atlas/1.png": {url:"ddwxeff/d2c.png"},
@@ -957,7 +964,7 @@ var set_param_d = function () {
             "image_login_point1.png": "d18a.png",
             "image_login_point2.png":"d19a.png",
             "image_login_point3.png": "d20a.png",
-            "image_loding_txtbhcc.png":"d21a.png",
+
 
 
             "image_denglu_txtshenpi.png": "d1b.png",
@@ -987,6 +994,7 @@ var set_param_d = function () {
             "btn_com_long0.png":"d24b.png",
             "btn_com_long1.png":"d25b.png",
             "image_login_notice1.png":"d26b.png",
+            "image_loding_txtbhcc.png":"d27b.png",
 
             "0.png": "d1c.png",
             "1.png": "d2c.png",
@@ -1061,10 +1069,11 @@ var set_param_e = function () {
         packageName1 = "eeelibs";
         packageName2 = "eeeeeepf";
         packageName3 = "eeeeeeee";
+        libsMainJs = "eeegame.js";
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称
             "libs": {url:packageName1},
-            "game.js": {url:packageName1+"/eeegame.js",extractStr:true,count:1,strLen:3},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:packageName1+"/eeeindex.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:packageName1+"/eeeinitmin.js",extractStr:true,count:1,strLen:3,replace:true},
@@ -1121,7 +1130,7 @@ var set_param_e = function () {
             "wxloading_atlas/image_login_point1.png": {url:"eeeloding/e18a.png"},
             "wxloading_atlas/image_login_point2.png": {url:"eeeloding/e19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"eeeloding/e20a.png"},
-            "wxloading_atlas/image_loding_txtbhcc.png": {url:"eeeloding/e21a.png"},
+
 
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"eeelogin/e1b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"eeelogin/e2b.jpg"},
@@ -1150,6 +1159,7 @@ var set_param_e = function () {
             "wxlogin_atlas/btn_com_long0.png": {url:"eeelogin/e24b.png"},
             "wxlogin_atlas/btn_com_long1.png": {url:"eeelogin/e25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"eeelogin/e26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"eeelogin/e27b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"eewxeff/e1c.png"},
             "wxeff_btn_atlas/1.png": {url:"eewxeff/e2c.png"},
@@ -1191,7 +1201,7 @@ var set_param_e = function () {
             "image_login_point1.png": "e18a.png",
             "image_login_point2.png":"e19a.png",
             "image_login_point3.png": "e20a.png",
-            "image_loding_txtbhcc.png":"e21a.png",
+
 
 
             "image_denglu_txtshenpi.png": "e1b.png",
@@ -1221,6 +1231,7 @@ var set_param_e = function () {
             "btn_com_long0.png":"e24b.png",
             "btn_com_long1.png":"e25b.png",
             "image_login_notice1.png":"e26b.png",
+            "image_loding_txtbhcc.png":"e27b.png",
 
             "0.png": "e1c.png",
             "1.png": "e2c.png",
@@ -1295,11 +1306,12 @@ var set_param_f = function () {
         packageName1 = "ffflibs";
         packageName2 = "ffffffpf";
         packageName3 = "ffffffff";
+        libsMainJs = "fffgame.js";
         var clinetPbName = "fffcleintpb.js";
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称
             "libs": {url:packageName1},
-            "game.js": {url:packageName1+"/fffgame.js",extractStr:true,count:1,strLen:3},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:packageName1+"/fffindex.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:packageName1+"/fffinitmin.js",extractStr:true,count:1,strLen:3,replace:true},
@@ -1356,7 +1368,7 @@ var set_param_f = function () {
             "wxloading_atlas/image_login_point1.png": {url:"fffloding/f18a.png"},
             "wxloading_atlas/image_login_point2.png": {url:"fffloding/f19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"fffloding/f20a.png"},
-            "wxloading_atlas/image_loding_txtbhcc.png": {url:"fffloding/f21a.png"},
+
 
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ffflogin/f1b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"ffflogin/f2b.jpg"},
@@ -1385,6 +1397,7 @@ var set_param_f = function () {
             "wxlogin_atlas/btn_com_long0.png": {url:"ffflogin/f24b.png"},
             "wxlogin_atlas/btn_com_long1.png": {url:"ffflogin/f25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"ffflogin/f26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"ffflogin/f27b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"ffwxeff/f1c.png"},
             "wxeff_btn_atlas/1.png": {url:"ffwxeff/f2c.png"},
@@ -1426,7 +1439,7 @@ var set_param_f = function () {
             "image_login_point1.png": "f18a.png",
             "image_login_point2.png":"f19a.png",
             "image_login_point3.png": "f20a.png",
-            "image_loding_txtbhcc.png":"f21a.png",
+
 
 
             "image_denglu_txtshenpi.png": "f1b.png",
@@ -1456,6 +1469,7 @@ var set_param_f = function () {
             "btn_com_long0.png":"f24b.png",
             "btn_com_long1.png":"f25b.png",
             "image_login_notice1.png":"f26b.png",
+            "image_loding_txtbhcc.png":"f27b.png",
 
             "0.png": "f1c.png",
             "1.png": "f2c.png",
@@ -1527,6 +1541,7 @@ var set_param_g = function () {
         targetProject = "wx_build/jg_gameG_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
         mainJsName = "gggmain.js";
+        libsMainJs = "gggggame.js";
         packageName1 = "ggglibs";
         packageName2 = "ggggggpf";
         packageName3 = "gggggggg";
@@ -1534,7 +1549,7 @@ var set_param_g = function () {
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
             "libs": {url:packageName1},
-            "game.js": {url:packageName1+"/gggggame.js",extractStr:true,count:1,strLen:3},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:packageName1+"/gggindex.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:packageName1+"/ggginitmin.js",extractStr:true,count:1,strLen:3,replace:true},
@@ -1592,7 +1607,7 @@ var set_param_g = function () {
             "wxloading_atlas/image_login_point1.png": {url:"gggloding/g18a.png"},
             "wxloading_atlas/image_login_point2.png": {url:"gggloding/g19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"gggloding/g20a.png"},
-            "wxloading_atlas/image_loding_txtbhcc.png": {url:"gggloding/g21a.png"},
+
 
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ggglogin/g1b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"ggglogin/g2b.jpg"},
@@ -1621,6 +1636,7 @@ var set_param_g = function () {
             "wxlogin_atlas/btn_com_long0.png": {url:"ggglogin/g24b.png"},
             "wxlogin_atlas/btn_com_long1.png": {url:"ggglogin/g25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"ggglogin/g26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"ggglogin/g27b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"gggwxeff/g1c.png"},
             "wxeff_btn_atlas/1.png": {url:"gggwxeff/g2c.png"},
@@ -1662,7 +1678,7 @@ var set_param_g = function () {
             "image_login_point1.png": "g18a.png",
             "image_login_point2.png":"g19a.png",
             "image_login_point3.png": "g20a.png",
-            "image_loding_txtbhcc.png":"g21a.png",
+
 
 
             "image_denglu_txtshenpi.png": "g1b.png",
@@ -1692,6 +1708,7 @@ var set_param_g = function () {
             "btn_com_long0.png":"g24b.png",
             "btn_com_long1.png":"g25b.png",
             "image_login_notice1.png":"g26b.png",
+            "image_loding_txtbhcc.png":"g27b.png",
 
             "0.png": "g1c.png",
             "1.png": "g2c.png",
@@ -1762,6 +1779,7 @@ var set_param_h = function () {
         targetProject = "wx_build/jg_gameH_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
         mainJsName = "hhhhmain.js";
+        libsMainJs = "hhhhgame.js";
         packageName1 = "hhhlibs";
         packageName2 = "hhhhhhpf";
         packageName3 = "hhhhhhhh";
@@ -1769,7 +1787,7 @@ var set_param_h = function () {
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
             "libs": {url:packageName1},
-            "game.js": {url:packageName1+"/hhhhgame.js",extractStr:true,count:1,strLen:3},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:packageName1+"/hhhindex.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:packageName1+"/hhhinitmin.js",extractStr:true,count:1,strLen:3,replace:true},
@@ -1826,7 +1844,7 @@ var set_param_h = function () {
             "wxloading_atlas/image_login_point1.png": {url:"hhhloding/h18a.png"},
             "wxloading_atlas/image_login_point2.png": {url:"hhhloding/h19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"hhhloding/h20a.png"},
-            "wxloading_atlas/image_loding_txtbhcc.png": {url:"hhhloding/h21a.png"},
+
 
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"hhhlogin/h1b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"hhhlogin/h2b.jpg"},
@@ -1855,6 +1873,7 @@ var set_param_h = function () {
             "wxlogin_atlas/btn_com_long0.png": {url:"hhhlogin/h24b.png"},
             "wxlogin_atlas/btn_com_long1.png": {url:"hhhlogin/h25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"hhhlogin/h26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"hhhlogin/h27b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"hhhwxeff/h1c.png"},
             "wxeff_btn_atlas/1.png": {url:"hhhwxeff/h2c.png"},
@@ -1896,7 +1915,7 @@ var set_param_h = function () {
             "image_login_point1.png": "h18a.png",
             "image_login_point2.png":"h19a.png",
             "image_login_point3.png": "h20a.png",
-            "image_loding_txtbhcc.png":"h21a.png",
+
 
 
             "image_denglu_txtshenpi.png": "h1b.png",
@@ -1926,6 +1945,7 @@ var set_param_h = function () {
             "btn_com_long0.png":"h24b.png",
             "btn_com_long1.png":"h25b.png",
             "image_login_notice1.png":"h26b.png",
+            "image_loding_txtbhcc.png":"h27b.png",
 
             "0.png": "h1c.png",
             "1.png": "h2c.png",
@@ -1997,6 +2017,7 @@ var set_param_i = function () {
         targetProject = "wx_build/jg_gameI_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
         mainJsName = "iiiMAIN.js";
+        libsMainJs = "iiiiGAME.js";
         packageName1 = "iiiLIBS";
         packageName2 = "iiiiiPF";
         packageName3 = "iiiiiiiii";
@@ -2004,7 +2025,7 @@ var set_param_i = function () {
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
             "libs": {url:packageName1},
-            "game.js": {url:packageName1+"/iiiiGAME.js",extractStr:true,count:1,strLen:3},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:packageName1+"/iiiINDEX.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:packageName1+"/iiiINITMIN.js",extractStr:true,count:1,strLen:3,replace:true},
@@ -2061,7 +2082,7 @@ var set_param_i = function () {
             "wxloading_atlas/image_login_point1.png": {url:"IIILOADING/I18a.png"},
             "wxloading_atlas/image_login_point2.png": {url:"IIILOADING/I19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"IIILOADING/I20a.png"},
-            "wxloading_atlas/image_loding_txtbhcc.png": {url:"IIILOADING/I21a.png"},
+
 
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"IIILOGIN/I1b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"IIILOGIN/I2b.jpg"},
@@ -2090,6 +2111,7 @@ var set_param_i = function () {
             "wxlogin_atlas/btn_com_long0.png": {url:"IIILOGIN/I24b.png"},
             "wxlogin_atlas/btn_com_long1.png": {url:"IIILOGIN/I25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"IIILOGIN/I26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"IIILOGIN/I27b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"IIIWXEFF/I1c.png"},
             "wxeff_btn_atlas/1.png": {url:"IIIWXEFF/I2c.png"},
@@ -2131,7 +2153,8 @@ var set_param_i = function () {
             "image_login_point1.png": "I18a.png",
             "image_login_point2.png":"I19a.png",
             "image_login_point3.png": "I20a.png",
-            "image_loding_txtbhcc.png":"I21a.png",
+
+
 
 
             "image_denglu_txtshenpi.png": "I1b.png",
@@ -2161,6 +2184,7 @@ var set_param_i = function () {
             "btn_com_long0.png":"I24b.png",
             "btn_com_long1.png":"I25b.png",
             "image_login_notice1.png":"I26b.png",
+            "image_loding_txtbhcc.png":"I27b.png",
 
             "0.png": "I1c.png",
             "1.png": "I2c.png",
@@ -2231,6 +2255,7 @@ var set_param_j = function () {
         targetProject = "wx_build/jg_gameJ_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
         mainJsName = "jjjMAIN.js";
+        libsMainJs = "jjjjGAME.js";
         packageName1 = "jjjLIBS";
         packageName2 = "jjjjjPF";
         packageName3 = "jjjjjjjjjj";
@@ -2238,7 +2263,7 @@ var set_param_j = function () {
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
             "libs": {url:packageName1},
-            "game.js": {url:packageName1+"/jjjjGAME.js",extractStr:true,count:1,strLen:3},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:packageName1+"/jjjINDEX.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:packageName1+"/jjjINITMIN.js",extractStr:true,count:1,strLen:3,replace:true},
@@ -2297,7 +2322,7 @@ var set_param_j = function () {
             "wxloading_atlas/image_login_point1.png": {url:"JJJLOADING/J18a.png"},
             "wxloading_atlas/image_login_point2.png": {url:"JJJLOADING/J19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"JJJLOADING/J20a.png"},
-            "wxloading_atlas/image_loding_txtbhcc.png": {url:"JJJLOADING/J21a.png"},
+
 
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"JJJLOGIN/J1b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"JJJLOGIN/J2b.jpg"},
@@ -2326,6 +2351,7 @@ var set_param_j = function () {
             "wxlogin_atlas/btn_com_long0.png": {url:"JJJLOGIN/J24b.png"},
             "wxlogin_atlas/btn_com_long1.png": {url:"JJJLOGIN/J25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"JJJLOGIN/J26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"JJJLOGIN/J27b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"JJJWXEFF/J1c.png"},
             "wxeff_btn_atlas/1.png": {url:"JJJWXEFF/J2c.png"},
@@ -2367,7 +2393,7 @@ var set_param_j = function () {
             "image_login_point1.png": "J18a.png",
             "image_login_point2.png":"J19a.png",
             "image_login_point3.png": "J20a.png",
-            "image_loding_txtbhcc.png":"J21a.png",
+
 
 
             "image_denglu_txtshenpi.png": "J1b.png",
@@ -2397,6 +2423,7 @@ var set_param_j = function () {
             "btn_com_long0.png":"J24b.png",
             "btn_com_long1.png":"J25b.png",
             "image_login_notice1.png":"J26b.png",
+            "image_loding_txtbhcc.png":"J27b.png",
 
             "0.png": "J1c.png",
             "1.png": "J2c.png",
@@ -2470,6 +2497,7 @@ var set_param_k = function () {
         targetProject = "wx_build/jg_gameK_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
         mainJsName = "KKKMAIN.js";
+        libsMainJs = "kkkkGAME.js";
         packageName1 = "KKKLIBS";
         packageName2 = "kkkkkPF";
         packageName3 = "kkkkkkkkkk";
@@ -2477,7 +2505,7 @@ var set_param_k = function () {
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
             "libs": {url:packageName1},
-            "game.js": {url:packageName1+"/kkkkGAME.js",extractStr:true,count:1,strLen:3},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:packageName1+"/kkkINDEX.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:packageName1+"/kkkINITMIN.js",extractStr:true,count:1,strLen:3,replace:true},
@@ -2536,7 +2564,7 @@ var set_param_k = function () {
             "wxloading_atlas/image_login_point1.png": {url:"KKKLOADING/K18a.png"},
             "wxloading_atlas/image_login_point2.png": {url:"KKKLOADING/K19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"KKKLOADING/K20a.png"},
-            "wxloading_atlas/image_loding_txtbhcc.png": {url:"KKKLOADING/K21a.png"},
+
 
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"KKKLOGIN/K1b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"KKKLOGIN/K2b.jpg"},
@@ -2565,6 +2593,7 @@ var set_param_k = function () {
             "wxlogin_atlas/btn_com_long0.png": {url:"KKKLOGIN/K24b.png"},
             "wxlogin_atlas/btn_com_long1.png": {url:"KKKLOGIN/K25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"KKKLOGIN/K26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"KKKLOGIN/K27b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"KKKWXEFF/K1c.png"},
             "wxeff_btn_atlas/1.png": {url:"KKKWXEFF/K2c.png"},
@@ -2606,7 +2635,7 @@ var set_param_k = function () {
             "image_login_point1.png": "K18a.png",
             "image_login_point2.png":"K19a.png",
             "image_login_point3.png": "K20a.png",
-            "image_loding_txtbhcc.png":"K21a.png",
+
 
 
             "image_denglu_txtshenpi.png": "K1b.png",
@@ -2636,6 +2665,7 @@ var set_param_k = function () {
             "btn_com_long0.png":"K24b.png",
             "btn_com_long1.png":"K25b.png",
             "image_login_notice1.png":"K26b.png",
+            "image_loding_txtbhcc.png":"K27b.png",
 
             "0.png": "K1c.png",
             "1.png": "K2c.png",
@@ -2709,6 +2739,7 @@ var set_param_l = function () {
         targetProject = "wx_build/jg_gameL_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
         mainJsName = "LLLMAIN.js";
+        libsMainJs = "LLLLGAME.js";
         packageName1 = "LLLLIBS";
         packageName2 = "LLLLLLPF";
         packageName3 = "LLLLLLLL";
@@ -2716,7 +2747,7 @@ var set_param_l = function () {
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
             "libs": {url:packageName1},
-            "game.js": {url:packageName1+"/LLLLGAME.js",extractStr:true,count:1,strLen:3},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:packageName1+"/LLLLINDEX.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:packageName1+"/LLLINITMIN.js",extractStr:true,count:1,strLen:3,replace:true},
@@ -2772,7 +2803,7 @@ var set_param_l = function () {
             "wxloading_atlas/image_login_point1.png": {url:"lllllLOADING/l18a.png"},
             "wxloading_atlas/image_login_point2.png": {url:"lllllLOADING/l19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"lllllLOADING/l20a.png"},
-            "wxloading_atlas/image_loding_txtbhcc.png": {url:"lllllLOADING/l21a.png"},
+
 
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"llllLOGIN/l1b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"llllLOGIN/l2b.jpg"},
@@ -2801,6 +2832,7 @@ var set_param_l = function () {
             "wxlogin_atlas/btn_com_long0.png": {url:"llllLOGIN/l24b.png"},
             "wxlogin_atlas/btn_com_long1.png": {url:"llllLOGIN/l25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"llllLOGIN/l26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"llllLOGIN/l27b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"llllWXEFF/l1c.png"},
             "wxeff_btn_atlas/1.png": {url:"llllWXEFF/l2c.png"},
@@ -2842,7 +2874,7 @@ var set_param_l = function () {
             "image_login_point1.png": "l18a.png",
             "image_login_point2.png":"l19a.png",
             "image_login_point3.png": "l20a.png",
-            "image_loding_txtbhcc.png":"L21a.png",
+
 
 
             "image_denglu_txtshenpi.png": "l1b.png",
@@ -2872,6 +2904,7 @@ var set_param_l = function () {
             "btn_com_long0.png":"l24b.png",
             "btn_com_long1.png":"l25b.png",
             "image_login_notice1.png":"l26b.png",
+            "image_loding_txtbhcc.png":"l27b.png",
 
             "0.png": "l1c.png",
             "1.png": "l2c.png",
@@ -2945,6 +2978,7 @@ var set_param_m = function () {
         targetProject = "wx_build/jg_gameM_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
         mainJsName = "MMMMAIN.js";
+        libsMainJs = "mmmGAME.js";
         packageName1 = "MMMMIBS";
         packageName2 = "MMMMMMPF";
         packageName3 = "MMMMMMMM";
@@ -2952,7 +2986,7 @@ var set_param_m = function () {
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
             "libs": {url:packageName1},
-            "game.js": {url:packageName1+"/mmmGAME.js",extractStr:true,count:1,strLen:3},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
             "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:packageName1+"/mmmmINDEX.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:packageName1+"/mmmINITMIN.js",extractStr:true,count:1,strLen:3,replace:true},
@@ -3009,7 +3043,7 @@ var set_param_m = function () {
             "wxloading_atlas/image_login_point1.png": {url:"mmmmmmLOADING/m18a.png"},
             "wxloading_atlas/image_login_point2.png": {url:"mmmmmmLOADING/m19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"mmmmmmLOADING/m20a.png"},
-            "wxloading_atlas/image_loding_txtbhcc.png": {url:"mmmmmmLOADING/m21a.png"},
+
 
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"mmmmmLOGIN/m1b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"mmmmmLOGIN/m2b.jpg"},
@@ -3038,6 +3072,7 @@ var set_param_m = function () {
             "wxlogin_atlas/btn_com_long0.png": {url:"mmmmmLOGIN/m24b.png"},
             "wxlogin_atlas/btn_com_long1.png": {url:"mmmmmLOGIN/m25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"mmmmmLOGIN/m26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"mmmmmLOGIN/m27b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"mmmmmWXEFF/m1c.png"},
             "wxeff_btn_atlas/1.png": {url:"mmmmmWXEFF/m2c.png"},
@@ -3080,7 +3115,7 @@ var set_param_m = function () {
             "image_login_point1.png": "m18a.png",
             "image_login_point2.png":"m19a.png",
             "image_login_point3.png": "m20a.png",
-            "image_loding_txtbhcc.png":"m21a.png",
+
 
 
             "image_denglu_txtshenpi.png": "m1b.png",
@@ -3110,6 +3145,7 @@ var set_param_m = function () {
             "btn_com_long0.png":"m24b.png",
             "btn_com_long1.png":"m25b.png",
             "image_login_notice1.png":"m26b.png",
+            "image_loding_txtbhcc.png":"m27b.png",
 
             "0.png": "m1c.png",
             "1.png": "m2c.png",
@@ -3251,7 +3287,7 @@ var mainJsName = ""; //主文件的名字
 var imgRes1 = "wxloading_atlas";//图片资源文件夹1
 var imgRes2 = "wxlogin_atlas";//图片资源文件夹2
 var imgRes3  = "wxeff_btn_atlas";//图片资源文件夹3
-
+var libsMainJs = ""; //入口包game 应该require的文件
 /**生成随机变量名*/
 var identifier_create = function (rate) {
     function onFile(file, enc, cb) {
@@ -3700,7 +3736,7 @@ var js_babel = function () {
                                 globleArrs.push(tempstr);
                                 globleArrsObj[tempstr] = arrIndex;
                                 arrIndex = globleArrs.length;
-                                console.log("成功的字符串111:",tempstr)
+                                // console.log("成功的字符串111:",tempstr)
                             }
                         } catch (error) {
                             // console.log("失败的字符串:",tempstr,"替换失败")
@@ -3928,7 +3964,7 @@ var js_babel_str = function () {
                                 globleArrs.push(tempstr);
                                 globleArrsObj[tempstr] = arrIndex;
                                 arrIndex = globleArrs.length;
-                                console.log("成功的字符串:",tempstr,"index:",index)
+                                // console.log("成功的字符串:",tempstr,"index:",index)
                             }
                         } catch (error) {
                             // console.log("失败的字符串:",tempstr,"替换失败")
@@ -4327,7 +4363,7 @@ gulp.task('MT1_COPY', function () {
         }))
         .pipe(replace(/(\/zzzzipRes\/ResFile.zip)/g, strFilePath+strFileName))
         .pipe(replace(/(wx.globalStrArrs)/g, "wx."+globleKeys[0]))
-        .pipe(replace(/tempPackageGame.js/g,packageName1+".js"))
+        .pipe(replace(/tempPackageGame.js/g,libsMainJs))
         //报名需要修改
         .pipe(replace(/( name: 'packages')/g, "name: " + "'" + packageName1 + "'"))
         .pipe(replace(/( name: 'main')/g, "name: " + "'" + packageName3 + "'"))
