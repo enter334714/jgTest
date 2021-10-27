@@ -1,12 +1,44 @@
 var W = wx.$l;
-var HOST = W[110064];var that = this;export default class Dall {
-  stebutonanimation(t, a, e) {
-    let s = wx.getStorageSync(W[110065]);let o;let n = Date.now();console.log(W[110066] + s);let r = this;wx.request({ url: W[110067] + HOST + W[110068] + t + "/" + a, method: W[80573], dataType: W[81188], header: { "content-type": W[80701] }, data: { username: s, ts: n }, success: function (t) {
-        o = t.data.data, r.Getto(s, n, o, e);
-      } });
-  }Getto(t, a, e, s) {
-    wx.navigateToMiniProgram({ appId: W[110069], path: W[110070] + t + W[110071] + a + W[110072] + e + W[110073] + s, extraData: { foo: W[82370] }, envVersion: W[81836], success(t) {
-        wx.showToast({ title: W[110074] });
-      } });
-  }
+var HOST = W[27976];
+var that = this;
+export default class Dall {
+    stebutonanimation(partner_id, game_pkg, game_id) {
+        let username = wx.getStorageSync(W[27977]);
+        let sign = "";
+        let ts = Date.now();
+        console.log(W[27978] + username);
+        let that = this;
+        wx.request({
+            url: W[27979] + HOST + W[27980] + partner_id + '/' + game_pkg,
+            method: W[590],
+            dataType: W[6334],
+            header: {
+                'content-type': W[725] // 默认值
+            },
+            data: {
+                username: username,
+                ts: ts
+            },
+            success: function (res) {
+                sign = res.data.data;
+                that.Getto(username, ts, sign, game_id);
+            }
+        });
+    }
+    Getto(username, ts, sign, game_id) {
+        wx.navigateToMiniProgram({
+            appId: W[27981],
+            path: W[27982] + username + W[27983] + ts + W[27984] + sign + W[27985] + game_id,
+            extraData: {
+                foo: W[20292]
+            },
+            envVersion: W[27986],
+            success(res) {
+                wx.showToast({
+                    title: W[27987]
+                });
+            }
+        });
+    }
+
 }

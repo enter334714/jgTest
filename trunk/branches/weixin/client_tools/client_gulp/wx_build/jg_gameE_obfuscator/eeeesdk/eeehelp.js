@@ -1,6 +1,7 @@
+var b = wx.$e;
 const state = {
-    initStatus: 'default',
-    loginStatus: 'default',
+    initStatus: b[30307],
+    loginStatus: b[30307],
     videoAd: null, // 激励广告
     bannerAd: null, // banner广告
     gridAd: null, // 格子广告
@@ -8,8 +9,8 @@ const state = {
     customAd: null // 原生模板广告
 };
 const commonParams = {
-    referer: '00000_0',
-    partner: '309',
+    referer: b[56154],
+    partner: b[56155],
     mac: '',
     imei: '',
     gameId: "",
@@ -26,8 +27,8 @@ const commonParams = {
     iv: '',
     scene: '',
     query: '',
-    yy_pf: "WxApp",
-    payTip: "由于政策原因，暂无法支付，若需要充值，请将游戏分享到微信，在微信PC版打开游戏进行充值",
+    yy_pf: b[56156],
+    payTip: b[56157],
 
     accountInfo: {},
     envVersion: "",
@@ -74,23 +75,23 @@ state.level = {
 };
 
 // 地址
-const api = "https://sdk-js.rpgmoba.com";
-const wanBaApi = "https://wanba.rpgmoba.com/";
-const logApi = "https://sdk-data.rpgmoba.com";
-const wxRedApi = "https://idk.rpgmoba.com/";
+const api = b[56158];
+const wanBaApi = b[56159];
+const logApi = b[56160];
+const wxRedApi = b[56161];
 
 const Tools = {
     getDeviceType: () => {
         const systemInfo = wx.getSystemInfoSync();
         let osType;
-        if (systemInfo.system.toLowerCase().indexOf('android') > -1) {
-            osType = 'android';
-        } else if (systemInfo.system.toLowerCase().indexOf('ios') > -1) {
-            osType = 'ios';
-        } else if (systemInfo.system.toLowerCase().indexOf('win') > -1) {
-            osType = 'win';
+        if (systemInfo.system.toLowerCase().indexOf(b[56162]) > -1) {
+            osType = b[56162];
+        } else if (systemInfo.system.toLowerCase().indexOf(b[56163]) > -1) {
+            osType = b[56163];
+        } else if (systemInfo.system.toLowerCase().indexOf(b[38651]) > -1) {
+            osType = b[38651];
         } else {
-            osType = 'unknow';
+            osType = b[56164];
         }
         return osType;
     },
@@ -98,60 +99,60 @@ const Tools = {
         return Date.parse(new Date()) / 1000;
     },
     buildActiveParams: (params, gameKey) => {
-        const keys = ["gameid", "referer", "partner", "mac", "imei", "time"];
+        const keys = [b[56165], b[56166], b[56167], b[56168], b[56169], b[30771]];
         let signString = "";
         for (let k in params) {
             signString = signString + params[k];
         }
         signString = signString + gameKey;
-        params['sign'] = md5(signString);
+        params[b[40129]] = md5(signString);
         return params;
     },
     buildChangeShell: (params, gameKey) => {
-        const keys = ["gameid", "envVersion", "time"];
+        const keys = [b[56165], b[56170], b[30771]];
         let signString = "";
         for (let k in params) {
             signString = signString + params[k];
         }
         signString = signString + gameKey;
-        params['sign'] = md5(signString);
+        params[b[40129]] = md5(signString);
         return params;
     },
     buildLoginParams: params => {
-        const keys = ['deviceno', 'gameid', 'partner', 'referer', 'time'];
+        const keys = [b[56171], b[56165], b[56167], b[56166], b[30771]];
         let signString = "";
         for (let key in keys) {
             let k = keys[key];
             signString = signString + params[k];
         }
         signString = signString + commonParams.gameKey;
-        params['sign'] = md5(signString);
+        params[b[40129]] = md5(signString);
         return params;
     },
     buildBindParams: params => {
-        const keys = ['gameid', 'from_app_id', 'from_openid', 'time'];
+        const keys = [b[56165], b[56172], b[56173], b[30771]];
         let signString = "";
         for (let key in keys) {
             let k = keys[key];
             signString = signString + params[k];
         }
         signString = signString + commonParams.gameKey;
-        params['sign'] = md5(signString);
+        params[b[40129]] = md5(signString);
         return params;
     },
     buildPayParams: params => {
-        const keys = ['gameid', 'deviceno', 'partner', 'uid', 'money', 'time'];
+        const keys = [b[56165], b[56171], b[56167], b[36757], b[46884], b[30771]];
         let signString = "";
         for (let key in keys) {
             let k = keys[key];
             signString = signString + params[k];
         }
         signString = signString + commonParams.gameKey + commonParams.wxid;
-        params['sign'] = md5(signString);
+        params[b[40129]] = md5(signString);
         return params;
     },
     buildRepublish: params => {
-        const keys = ['uid', 'gameid', 'deviceno', 'partner', 'time'];
+        const keys = [b[36757], b[56165], b[56171], b[56167], b[30771]];
         let signString = "";
         for (let key in keys) {
             let k = keys[key];
@@ -161,25 +162,25 @@ const Tools = {
         return md5(signString).toLowerCase();
     },
     buildCheckMsg(params) {
-        const keys = ["gameid", "partner", "deviceno", "time"];
+        const keys = [b[56165], b[56167], b[56171], b[30771]];
         let signString = "";
         for (let key in keys) {
             let k = keys[key];
             signString = signString + params[k];
         }
         signString = signString + commonParams.gameKey;
-        params['sign'] = md5(signString).toLowerCase();
+        params[b[40129]] = md5(signString).toLowerCase();
         return params;
     },
 
     getDeviceTypeId: () => {
         const osType = Tools.getDeviceType();
-        let deviceType = 'unknow';
-        if (osType == 'ios') {
+        let deviceType = b[56164];
+        if (osType == b[56163]) {
             deviceType = 1;
-        } else if (osType == 'android') {
+        } else if (osType == b[56162]) {
             deviceType = 2;
-        } else if (osType == 'win') {
+        } else if (osType == b[38651]) {
             deviceType = 3;
         }
         return deviceType;
@@ -195,7 +196,7 @@ const Tools = {
             signString = signString + params[keyList[i]];
         }
         signString = signString + commonParams.gameKey;
-        params['sign'] = md5(signString);
+        params[b[40129]] = md5(signString);
         return params;
     },
     serialize: obj => {
@@ -211,8 +212,8 @@ const Tools = {
         for (let key of keyList) {
             stringParams += key + '=' + encodeURIComponent(params[key]) + '&';
         }
-        stringParams += 'key' + '=' + commonParams.gameKey;
-        params['sign'] = md5(stringParams);
+        stringParams += b[30250] + '=' + commonParams.gameKey;
+        params[b[40129]] = md5(stringParams);
         return params;
     },
     initLock: locks => {
@@ -225,8 +226,8 @@ const Tools = {
 };const init = function (gameId, gameKey) {
     const SDKyyw = this;
 
-    if (typeof SDKyyw.initLoginCallback != 'function') {
-        console.error("没有实现 initLoginCallback 初始化回调");
+    if (typeof SDKyyw.initLoginCallback != b[56070]) {
+        console.error(b[56174]);
     } else {
         sdkParams = Tools.buildActiveParams({
             gameid: gameId,
@@ -245,8 +246,8 @@ const Tools = {
         commonParams.query = launchOption.query;
 
         const accountInfo = wx.getAccountInfoSync();
-        console.log('accountInfo: ', accountInfo);
-        console.log('miniProgram: ', accountInfo.miniProgram.envVersion);
+        console.log(b[56175], accountInfo);
+        console.log(b[56176], accountInfo.miniProgram.envVersion);
         commonParams.envVersion = accountInfo.miniProgram.envVersion;
 
         if (launchOption.query && launchOption.query.share_id) {
@@ -266,7 +267,7 @@ const Tools = {
                 // 绑定主游戏
             };toBind(data);
         }
-        console.log("launchOption=", launchOption);
+        console.log(b[56177], launchOption);
         active(SDKyyw, sdkParams, gameId, gameKey);
     }
 };
@@ -274,29 +275,29 @@ const Tools = {
 //初始化激活
 const active = function (SDKyyw, params, gameId, gameKey) {
     wx.request({
-        url: api + '/pay/Active',
+        url: api + b[56178],
         data: params,
         timeout: 3000,
         success: res => {
             let ret = res.data;
-            console.log('active', ret);
+            console.log(b[30504], ret);
             if (ret.data.code == 1) {
                 wx.showToast({
-                    title: '成功',
-                    icon: 'succes',
+                    title: b[53500],
+                    icon: b[56179],
                     duration: 500,
                     mask: true
                 });
                 commonParams.gameId = gameId;
                 commonParams.gameKey = gameKey;
-                state.initStatus = 'success';
+                state.initStatus = b[38759];
 
                 if (commonParams.gameId) {
                     let data = {};
-                    data.logType = "active";
+                    data.logType = b[30504];
                     data.appId = commonParams.gameId;
-                    data.appVersion = '1.0.0';
-                    data.platform = "wxxyx";
+                    data.appVersion = b[56180];
+                    data.platform = b[56181];
                     data.source = commonParams.query.source ? commonParams.query.source : '';
                     data.source_type = commonParams.query.source_type ? commonParams.query.source_type : '';
                     pushData(data);
@@ -307,11 +308,11 @@ const active = function (SDKyyw, params, gameId, gameKey) {
                     withShareTicket: true
                 });
                 let orderList = [];
-                wx.setStorageSync('orderList', orderList);
+                wx.setStorageSync(b[56182], orderList);
                 wxLogin(SDKyyw);
             } else {
-                state.initStatus = 'fail';
-                console.log("传入的sdk参数有误", 'gameId:' + gameId, 'gameKey:' + gameKey);
+                state.initStatus = b[53115];
+                console.log(b[56183], b[56184] + gameId, b[56185] + gameKey);
                 if (commonParams.initTimer) {
                     clearTimeout(commonParams.initTimer);
                 }
@@ -321,7 +322,7 @@ const active = function (SDKyyw, params, gameId, gameKey) {
             }
         },
         fail: err => {
-            console.log("重新初始化");
+            console.log(b[56186]);
             if (commonParams.initTimer) {
                 clearTimeout(commonParams.initTimer);
             }
@@ -337,7 +338,7 @@ const wxLogin = function (SDKyyw) {
     wx.login({
         success: res => {
             if (res.code == null || res.code == undefined || res.code == "") {
-                console.log('微信登录失败code is null:');
+                console.log(b[56187]);
                 wxLogin(SDKyyw);
             } else {
                 let jscode = res.code;
@@ -345,10 +346,10 @@ const wxLogin = function (SDKyyw) {
                 //获取用户信息
                 wx.getSetting({
                     complete(com) {
-                        if (com.authSetting['scope.userInfo']) {
+                        if (com.authSetting[b[56188]]) {
                             wx.getUserInfo({
                                 success(res) {
-                                    console.log("res", res);
+                                    console.log(b[30295], res);
                                     commonParams.iv = res.iv;
                                     commonParams.encryptedData = res.encryptedData;
                                 }
@@ -367,7 +368,7 @@ const wxLogin = function (SDKyyw) {
                     time: Tools.getTimeStamp(),
                     code: jscode,
                     iv: commonParams.iv,
-                    osType: Tools.getDeviceType() == "ios" ? "2" : Tools.getDeviceType() == "android" ? "1" : Tools.getDeviceType() == "win" ? "3" : "unknow",
+                    osType: Tools.getDeviceType() == b[56163] ? "2" : Tools.getDeviceType() == b[56162] ? "1" : Tools.getDeviceType() == b[38651] ? "3" : b[56164],
                     os: Tools.getDeviceType(),
                     encryptedData: commonParams.encryptedData,
                     scene: commonParams.scene,
@@ -380,7 +381,7 @@ const wxLogin = function (SDKyyw) {
         },
         fail: err => {
             wxLogin(SDKyyw);
-            console.log("微信登录失败:", err);
+            console.log(b[56189], err);
         }
     });
 };
@@ -388,7 +389,7 @@ const wxLogin = function (SDKyyw) {
 //SDK登录
 const sdkLogin = function (SDKyyw, params) {
     wx.request({
-        url: api + '/pay/Login/',
+        url: api + b[56190],
         data: Tools.buildLoginParams(params),
         timeout: 3000,
         success: res => {
@@ -411,7 +412,7 @@ const sdkLogin = function (SDKyyw, params) {
                 commonParams.unionId = ret.data.unionId;
                 commonParams.showSquareOn = ret.data.showSquareOn;
 
-                console.log("微信跳转信息", commonParams.referrerInfo);
+                console.log(b[56191], commonParams.referrerInfo);
 
                 // 如果信息存在则调用
                 // squareBind()
@@ -425,7 +426,7 @@ const sdkLogin = function (SDKyyw, params) {
                 if (ret.data.payType === 0) {
                     commonParams.payTip = ret.data.payTip;
                 }
-                state.loginStatus = 'success';
+                state.loginStatus = b[38759];
                 if (commonParams.uid) {
                     let data = {};
                     data.type = '1';
@@ -434,12 +435,12 @@ const sdkLogin = function (SDKyyw, params) {
                 replenish();
                 if (ret.data.isNewUser == 1) {
                     let data = {};
-                    data.logType = "accountCreate";
+                    data.logType = b[56192];
                     data.appId = commonParams.gameId;
-                    data.appVersion = '1.0.0';
+                    data.appVersion = b[56180];
                     data.accountId = commonParams.uid;
                     data.deviceType = Tools.getDeviceTypeId();
-                    data.platform = "wxxyx";
+                    data.platform = b[56181];
                     data.serverId = '';
                     data.channel = commonParams.partner;
                     data.imei = commonParams.uid;
@@ -451,12 +452,12 @@ const sdkLogin = function (SDKyyw, params) {
                     data.source_type = commonParams.query.source_type ? commonParams.query.source_type : '';
                     pushData(data);
                 }
-                console.log('uid', ret.data.uid);
-                console.log('SDK登录', ret);
+                console.log(b[36757], ret.data.uid);
+                console.log(b[56193], ret);
                 // SDK登录回调
                 SDKyyw.initLoginCallback(ret);
             } else {
-                console.log("SDK登录失败重新登录", res);
+                console.log(b[56194], res);
                 if (commonParams.sdkLoginTimer) {
                     clearTimeout(commonParams.sdkLoginTimer);
                 }
@@ -466,7 +467,7 @@ const sdkLogin = function (SDKyyw, params) {
             }
         },
         fail: err => {
-            console.log("SDK登录错误:", err);
+            console.log(b[56195], err);
             if (commonParams.sdkLoginTimer) {
                 clearTimeout(commonParams.sdkLoginTimer);
             }
@@ -490,8 +491,8 @@ const jumpState = function () {
 // showSwitchOn 是否要跳转 初始化回调函数中返回
 const cutGame = function () {
     const SDKyyw = this;
-    if (typeof SDKyyw.cutGameCallback != "function") {
-        console.log("cutGameCallback必须是一个function");
+    if (typeof SDKyyw.cutGameCallback != b[56070]) {
+        console.log(b[56196]);
     } else {
         wx.navigateToMiniProgram({
             appId: commonParams.switchApp,
@@ -499,20 +500,20 @@ const cutGame = function () {
                 from_app_id: commonParams.gameId || "",
                 from_openid: commonParams.uid || ""
             },
-            envVersion: commonParams.switchEnv || "release", // develop trial release
+            envVersion: commonParams.switchEnv || b[56197], // develop trial release
             success(res) {
-                console.log("跳转游戏", res);
+                console.log(b[56198], res);
                 SDKyyw.cutGameCallback({
                     status: 1,
-                    msg: "success",
+                    msg: b[38759],
                     data: res
                 });
             },
             fail(err) {
-                console.log("跳转游戏失败", err);
+                console.log(b[56199], err);
                 SDKyyw.cutGameCallback({
                     status: 0,
-                    msg: "fail",
+                    msg: b[53115],
                     data: err
                 });
             }
@@ -536,11 +537,11 @@ const toBind = function (data) {
             });
 
             wx.request({
-                url: api + '/pay/login/bind',
+                url: api + b[56200],
                 data: params,
                 timeout: 3000,
                 success: res => {
-                    console.log("绑定主游戏", res.data);
+                    console.log(b[56201], res.data);
                 }
             });
         }
@@ -550,61 +551,61 @@ const toBind = function (data) {
 // 获取手机验证码
 const getCaptcha = function (data, sucCallback, errorCallback) {
     const SDKyyw = this;
-    if (typeof sucCallback == "function") {
+    if (typeof sucCallback == b[56070]) {
         let params = Tools.buildParams({
             yy_pf: commonParams.yy_pf,
             app_id: commonParams.gameId,
             telephone: data,
             open_id: commonParams.uid,
-            use: "bind",
+            use: b[30071],
             time: Tools.getTimeStamp()
         });
         wx.request({
-            url: wanBaApi + '/sdk/get_captcha',
+            url: wanBaApi + b[56202],
             data: params,
             timeout: 3000,
             success: res => {
                 if (res.data.code === 18000) {
-                    console.log("获取短信验证码成功", res);
+                    console.log(b[56203], res);
                     sucCallback(res);
                 } else {
-                    console.log("获取短信验证码错误", res);
+                    console.log(b[56204], res);
                     errorCallback(res);
                 }
             },
             error: err => {
-                console.log("获取短信验证码请求超时", err);
+                console.log(b[56205], err);
             }
         });
     } else {
-        if (typeof SDKyyw.getCaptchaCallback != "function") {
-            console.log("getCaptchaCallback必须是一个function");
+        if (typeof SDKyyw.getCaptchaCallback != b[56070]) {
+            console.log(b[56206]);
         } else {
             let params = Tools.buildParams({
                 yy_pf: commonParams.yy_pf,
                 app_id: commonParams.gameId,
                 telephone: data.telephone,
                 open_id: commonParams.uid,
-                use: "bind",
+                use: b[30071],
                 time: Tools.getTimeStamp()
             });
             wx.request({
-                url: wanBaApi + '/sdk/get_captcha',
+                url: wanBaApi + b[56202],
                 data: params,
                 timeout: 3000,
                 success: res => {
                     if (res.data.code === 18000) {
-                        console.log("获取短信验证码成功", res);
+                        console.log(b[56203], res);
                         SDKyyw.getCaptchaCallback({
                             status: 1,
-                            msg: "success",
+                            msg: b[38759],
                             data: res
                         });
                     } else {
-                        console.log("获取短信验证码错误", res);
+                        console.log(b[56204], res);
                         SDKyyw.getCaptchaCallback({
                             status: 0,
-                            msg: "fail",
+                            msg: b[53115],
                             data: res
                         });
                     }
@@ -618,7 +619,7 @@ const getCaptcha = function (data, sucCallback, errorCallback) {
 const bindTelephone = function (data, smsCode, sucCallback, errorCallback) {
     const SDKyyw = this;
 
-    if (typeof sucCallback == "function") {
+    if (typeof sucCallback == b[56070]) {
         let params = Tools.buildParams({
             yy_pf: commonParams.yy_pf,
             app_id: commonParams.gameId,
@@ -628,7 +629,7 @@ const bindTelephone = function (data, smsCode, sucCallback, errorCallback) {
             time: Tools.getTimeStamp()
         });
         wx.request({
-            url: wanBaApi + '/sdk/bind_telephone',
+            url: wanBaApi + b[56207],
             data: params,
             timeout: 3000,
             success: res => {
@@ -640,8 +641,8 @@ const bindTelephone = function (data, smsCode, sucCallback, errorCallback) {
             }
         });
     } else {
-        if (typeof SDKyyw.bindTelephoneCallback != "function") {
-            console.log('bindTelephoneCallback必须是一个function');
+        if (typeof SDKyyw.bindTelephoneCallback != b[56070]) {
+            console.log(b[56208]);
         } else {
             let params = Tools.buildParams({
                 yy_pf: commonParams.yy_pf,
@@ -652,20 +653,20 @@ const bindTelephone = function (data, smsCode, sucCallback, errorCallback) {
                 time: Tools.getTimeStamp()
             });
             wx.request({
-                url: wanBaApi + '/sdk/bind_telephone',
+                url: wanBaApi + b[56207],
                 data: params,
                 timeout: 3000,
                 success: res => {
                     if (res.data.code === 18000) {
                         SDKyyw.bindTelephoneCallback({
                             status: 1,
-                            msg: "success",
+                            msg: b[38759],
                             data: res
                         });
                     } else {
                         SDKyyw.bindTelephoneCallback({
                             status: 0,
-                            msg: "fail",
+                            msg: b[53115],
                             data: res
                         });
                     }
@@ -677,14 +678,14 @@ const bindTelephone = function (data, smsCode, sucCallback, errorCallback) {
 
 //自动补单,如果后端返回补单成功就删除缓存的订单号
 const replenish = function () {
-    let orderList = wx.getStorageSync('orderList');
+    let orderList = wx.getStorageSync(b[56182]);
     if (orderList.length !== 0) {
         for (let i in orderList) {
             wx.login({
                 success(res) {
                     orderList[i].code = res.code;
                     wx.request({
-                        url: api + "/pay/Order/supplement",
+                        url: api + b[56209],
                         data: orderList[i],
                         success(res) {
                             if (res.data.status == 1 && res.data.data.status == 1) {
@@ -699,7 +700,7 @@ const replenish = function () {
 };
 //删除补单成功的订单号
 const deleteItme = function (item) {
-    let orderList = wx.getStorageSync('orderList');
+    let orderList = wx.getStorageSync(b[56182]);
     if (orderList.length !== 0) {
         for (var i in orderList) {
             if (orderList[i].gameOrderid.includes(item)) {
@@ -707,28 +708,28 @@ const deleteItme = function (item) {
             }
         }
     }
-    wx.setStorageSync('orderList', orderList);
+    wx.setStorageSync(b[56182], orderList);
 };
 
 // 消息订阅
 const subscribeMessage = function (tmplIds) {
     const SDKyyw = this;
-    if (typeof SDKyyw.subscribeMsgCallback != 'function') {
-        console.log("subscribeMsgCallback必须是个funtion");
+    if (typeof SDKyyw.subscribeMsgCallback != b[56070]) {
+        console.log(b[56210]);
     } else {
         wx.requestSubscribeMessage({
             tmplIds: tmplIds,
             success: function (res) {
                 SDKyyw.subscribeMsgCallback({
                     "status": '1',
-                    "msg": 'success',
+                    "msg": b[38759],
                     "data": res
                 });
             },
             fail: function (fail) {
                 SDKyyw.subscribeMsgCallback({
                     "status": '0',
-                    "msg": 'fail',
+                    "msg": b[53115],
                     "data": fail
                 });
             }
@@ -758,9 +759,9 @@ const advertisement = function (data) {
     adData.roleName = data.roleName;
     adData.serverId = data.serverId;
 
-    if (data.type == 'createBannerAd') {
-        if (typeof SDKyyw.createBannerAdCallback != 'function') {
-            console.log("createBannerAdCallback必须是一个function");
+    if (data.type == b[56211]) {
+        if (typeof SDKyyw.createBannerAdCallback != b[56070]) {
+            console.log(b[56212]);
         } else {
             // 创建 Banner 广告实例，提前初始化
             adData.adType = 1;
@@ -775,14 +776,14 @@ const advertisement = function (data) {
             });
             // banner广告加载成功
             state.bannerAd.onLoad(res => {
-                console.log('banner 广告加载成功', res);
+                console.log(b[56213], res);
                 state.bannerAd.show().then(() => {
-                    console.log('banner 广告显示成功');
+                    console.log(b[56214]);
                     // banner显示成功上报
                     pushData(adData);
                     SDKyyw.createBannerAdCallback({
                         "status": '1',
-                        "msg": 'success',
+                        "msg": b[38759],
                         "data": {}
                     });
                 });
@@ -792,14 +793,14 @@ const advertisement = function (data) {
                 console.log('bannerAd onError', err);
                 SDKyyw.createBannerAdCallback({
                     "status": '0',
-                    "msg": 'fail',
+                    "msg": b[53115],
                     "data": err
                 });
             });
         }
-    } else if (data.type == 'createRewardedVideoAd') {
-        if (typeof SDKyyw.rewardedVideoAdCallback != 'function') {
-            console.log('rewardedVideoAdCallback必须是一个function');
+    } else if (data.type == b[56215]) {
+        if (typeof SDKyyw.rewardedVideoAdCallback != b[56070]) {
+            console.log(b[56216]);
         } else {
             adData.adType = 2;
             // 创建激励视频广告实例，提前初始化
@@ -810,37 +811,37 @@ const advertisement = function (data) {
             state.videoAd.show().catch(() => {
                 // 失败重试
                 state.videoAd.load().then(() => state.videoAd.show()).catch(err => {
-                    console.log('激励视频 广告显示失败');
+                    console.log(b[56217]);
                 });
                 state.videoAd.onClose(res => {
                     // 用户点击了【关闭广告】按钮
                     // 小于 2.1.0 的基础库版本，res 是一个 undefined
                     if (res && res.isEnded || res === undefined) {
                         // 正常播放结束，可以下发游戏奖励
-                        console.log("正常播放结束，可以下发游戏奖励");
+                        console.log(b[56218]);
 
                         // 正常播放完才上报
                         pushData(adData);
                         SDKyyw.rewardedVideoAdCallback({
                             "status": '1',
-                            "msg": 'success',
+                            "msg": b[38759],
                             "data": res
                         });
                     } else {
                         // 播放中途退出，不下发游戏奖励
-                        console.log("播放中途退出，不下发游戏奖励");
+                        console.log(b[56219]);
                         SDKyyw.rewardedVideoAdCallback({
                             "status": '0',
-                            "msg": 'fail',
+                            "msg": b[53115],
                             "data": res
                         });
                     }
                 });
             });
         }
-    } else if (data.type == 'createInterstitialAd') {
-        if (typeof SDKyyw.createInterstitialAdCallback != 'function') {
-            console.log('createInterstitialAdCallback必须是一个function');
+    } else if (data.type == b[56220]) {
+        if (typeof SDKyyw.createInterstitialAdCallback != b[56070]) {
+            console.log(b[56221]);
         } else {
             adData.adType = 3;
             // 创建插屏广告实例，提前初始化
@@ -849,26 +850,26 @@ const advertisement = function (data) {
                     adUnitId: data.adUnitId
                 });
                 state.interstitialAd.show().then(res => {
-                    console.log('插屏广告显示成功', res);
+                    console.log(b[56222], res);
                     pushData(adData);
                     SDKyyw.createInterstitialAdCallback({
                         "status": '1',
-                        "msg": 'success',
+                        "msg": b[38759],
                         "data": {}
                     });
                 }).catch(err => {
-                    console.log('插屏广告显示失败', err);
+                    console.log(b[56223], err);
                     SDKyyw.createInterstitialAdCallback({
                         "status": '0',
-                        "msg": 'fail',
+                        "msg": b[53115],
                         "data": err
                     });
                 });
             }
         }
-    } else if (data.type == 'createGridAd') {
-        if (typeof SDKyyw.createGridAdCallback != "function") {
-            console.log("createGridAdCallback必须是一个function");
+    } else if (data.type == b[56224]) {
+        if (typeof SDKyyw.createGridAdCallback != b[56070]) {
+            console.log(b[56225]);
         } else {
             // 格子广告
             adData.adType = 4;
@@ -885,13 +886,13 @@ const advertisement = function (data) {
             });
             // 创建格子广告实例，提前初始化
             state.gridAd.onLoad(() => {
-                console.log('Grid 广告加载成功');
+                console.log(b[56226]);
                 SDKyyw.state.gridAd.show().then(() => {
-                    console.log('Grid 广告显示成功');
+                    console.log(b[56227]);
                     pushData(adData);
                     SDKyyw.createGridAdCallback({
                         "status": '1',
-                        "msg": 'success',
+                        "msg": b[38759],
                         "data": {}
                     });
                 });
@@ -899,15 +900,15 @@ const advertisement = function (data) {
             state.gridAd.onError(err => {
                 SDKyyw.createGridAdCallback({
                     "status": '0',
-                    "msg": 'fail',
+                    "msg": b[53115],
                     "data": err
                 });
-                console.log('广告加载失败', err);
+                console.log(b[56228], err);
             });
         }
-    } else if (data.type == 'createCustomAd') {
-        if (typeof SDKyyw.createCustomAdCallback != 'function') {
-            console.log('createCustomAdCallback必须是一个function');
+    } else if (data.type == b[56229]) {
+        if (typeof SDKyyw.createCustomAdCallback != b[56070]) {
+            console.log(b[56230]);
         } else {
             adData.adType = 5;
             state.customAd = wx.createCustomAd({
@@ -920,18 +921,18 @@ const advertisement = function (data) {
                 }
             });
             state.customAd.show().then(res => {
-                console.log("customAd显示成功", res);
+                console.log(b[56231], res);
                 pushData(adData);
                 SDKyyw.createCustomAdCallback({
                     "status": '1',
-                    "msg": 'success',
+                    "msg": b[38759],
                     "data": res
                 });
             }).catch(err => {
-                console.log("customAd显示失败", err);
+                console.log(b[56232], err);
                 SDKyyw.createCustomAdCallback({
                     "status": '0',
-                    "msg": 'fail',
+                    "msg": b[53115],
                     "data": err
                 });
             });
@@ -948,29 +949,29 @@ const getLaunchOptionsSync = function () {
 // 开放数据
 const openData = function (data) {
     const SDKyyw = this;
-    if (typeof SDKyyw.openDataCallback != 'function') {
-        console.error("开放数据 openDataCallback 回调");
+    if (typeof SDKyyw.openDataCallback != b[56070]) {
+        console.error(b[56233]);
     } else {
-        if (data.type == 'getPotentialFriendList') {
+        if (data.type == b[56234]) {
             //好友感兴趣
             wx.getPotentialFriendList({
                 keyList: data.keyList,
                 success: res => {
                     SDKyyw.openDataCallback({
                         "status": '1',
-                        "msg": 'success',
+                        "msg": b[38759],
                         "data": res
                     });
                 },
                 fail: err => {
                     SDKyyw.openDataCallback({
                         "status": '0',
-                        "msg": 'fail',
+                        "msg": b[53115],
                         "data": err
                     });
                 }
             });
-        } else if (data.type == 'getGroupCloudStorage') {
+        } else if (data.type == b[56235]) {
             //群同玩成员
             wx.getGroupCloudStorage({
                 shareTicket: data.shareTicket,
@@ -978,33 +979,33 @@ const openData = function (data) {
                 success: res => {
                     SDKyyw.openDataCallback({
                         "status": '1',
-                        "msg": 'success',
+                        "msg": b[38759],
                         "data": res
                     });
                 },
                 fail: err => {
                     SDKyyw.openDataCallback({
                         "status": '0',
-                        "msg": 'fail',
+                        "msg": b[53115],
                         "data": err
                     });
                 }
             });
-        } else if (data.type == 'getFriendCloudStorage') {
+        } else if (data.type == b[56236]) {
             //当前用户同玩好友
             wx.getFriendCloudStorage({
                 keyList: data.keyList,
                 success: res => {
                     SDKyyw.openDataCallback({
                         "status": '1',
-                        "msg": 'success',
+                        "msg": b[38759],
                         "data": res
                     });
                 },
                 fail: err => {
                     SDKyyw.openDataCallback({
                         "status": '0',
-                        "msg": 'fail',
+                        "msg": b[53115],
                         "data": err
                     });
                 }
@@ -1015,16 +1016,16 @@ const openData = function (data) {
 
 //米大师支付成功后通知后端结果
 const sendResult = function (params) {
-    console.log("调用数据上报了", params);
+    console.log(b[56237], params);
     wx.login({
         success(res) {
             params.code = res.code;
             params.paytype = 3;
             wx.request({
-                url: api + '/pay/Order',
+                url: api + b[56238],
                 data: Tools.buildPayParams(params),
                 success(res) {
-                    console.log("成功数据上报", res);
+                    console.log(b[56239], res);
                 }
             });
         }
@@ -1040,19 +1041,19 @@ const pay = function (payData) {
 
     const systemInfo = wx.getSystemInfoSync();
     const osType = Tools.getDeviceType();
-    let deviceType = 'unknow';
-    if (osType == 'ios') {
+    let deviceType = b[56164];
+    if (osType == b[56163]) {
         deviceType = 2;
-    } else if (osType == 'android') {
+    } else if (osType == b[56162]) {
         deviceType = 1;
-    } else if (osType == 'win') {
+    } else if (osType == b[38651]) {
         deviceType = 3;
     }
 
-    if (typeof this.onPayCallback != 'function') {
-        console.error("没有实现 onPayCallback 支付回调");
+    if (typeof this.onPayCallback != b[56070]) {
+        console.error(b[56240]);
     } else {
-        console.log("commonParams", commonParams);
+        console.log(b[56241], commonParams);
         const params = {
             // presentCount: payData.presentCount,
             gameOrderid: payData.gameOrderid,
@@ -1086,7 +1087,7 @@ const pay = function (payData) {
             time: Tools.getTimeStamp()
         };
         wx.showLoading({
-            title: '正在支付中',
+            title: b[56242],
             mask: true
         });
 
@@ -1102,12 +1103,12 @@ const pay = function (payData) {
         wx.login({
             success(res) {
                 params.code = res.code;
-                console.log("login", res.code);
+                console.log(b[56243], res.code);
                 wx.request({
-                    url: api + '/pay/Order',
+                    url: api + b[56238],
                     data: Tools.buildPayParams(params),
                     success: payRes => {
-                        let orderList = wx.getStorageSync('orderList');
+                        let orderList = wx.getStorageSync(b[56182]);
                         let item = {
                             uid: commonParams.uid,
                             gameOrderid: params.gameOrderid,
@@ -1126,24 +1127,24 @@ const pay = function (payData) {
                             roleName: params.roleName,
                             pext: params.pext,
                             pext2: params.partner,
-                            mode: "game"
+                            mode: b[56244]
                         };
                         orderList.push(item);
 
-                        console.log("payRes==", payRes.data);
+                        console.log(b[56245], payRes.data);
                         wx.hideLoading();
                         let ret = payRes.data;
                         commonParams.payType = ret.paytype;
                         if (payRes.data.status == 1) {
                             SDKyyw.onPayCallback({
                                 "status": '1',
-                                "msg": '支付参数正确，正在支付'
+                                "msg": b[56246]
                             });
                             wx.hideLoading();
                             switch (commonParams.payType) {
                                 case 0:
                                     wx.showModal({
-                                        title: "温馨提示",
+                                        title: b[33622],
                                         content: commonParams.payTip,
                                         showCancel: false
                                     });
@@ -1155,11 +1156,11 @@ const pay = function (payData) {
                                         success(res) {
 
                                             wx.showModal({
-                                                title: "温馨提示",
-                                                content: '支付链接已复制到粘贴板,请在浏览器中粘贴访问即可完成支付',
+                                                title: b[33622],
+                                                content: b[56247],
                                                 showCancel: false,
-                                                confirmText: '朕知道了',
-                                                confirmColor: '#576B95'
+                                                confirmText: b[56248],
+                                                confirmColor: b[56249]
                                             });
                                         }
                                     });
@@ -1167,12 +1168,12 @@ const pay = function (payData) {
                                 case 2:
                                     //客服支付
                                     // if (ret.start == "0") {
-                                    let path = "https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/yywsdk/kefuIcon.png";
+                                    let path = b[56250];
                                     wx.showModal({
-                                        title: "温馨提示",
-                                        content: "请按确定后进入客服窗口，如果未收到本订单支付入口，请发送窗口右下角卡片获取.祝您游戏愉快!",
+                                        title: b[33622],
+                                        content: b[56251],
                                         showCancel: false,
-                                        confirmText: "确定",
+                                        confirmText: b[38480],
                                         success() {
                                             wx.openCustomerServiceConversation({
                                                 showMessageCard: true,
@@ -1192,18 +1193,18 @@ const pay = function (payData) {
                                     //官方米大师支付
                                     if (payRes.data.errcode == 0) {
                                         wx.requestMidasPayment({
-                                            mode: "game",
+                                            mode: b[56244],
                                             env: ret.data.env,
                                             offerId: ret.data.offerId,
-                                            currencyType: "CNY",
-                                            platform: "android",
+                                            currencyType: b[56252],
+                                            platform: b[56162],
                                             buyQuantity: ret.data.amt,
                                             success(res) {
-                                                wx.setStorageSync('orderList', orderList);
+                                                wx.setStorageSync(b[56182], orderList);
                                                 sendResult(params);
                                             },
                                             complete(com) {
-                                                console.log("米结果参数", com);
+                                                console.log(b[56253], com);
                                             }
                                         });
                                     }
@@ -1220,23 +1221,23 @@ const pay = function (payData) {
 
                                     wx.navigateToMiniProgram({
                                         appId: ret.appid,
-                                        path: 'pages/sdk/page',
-                                        envVersion: 'release',
+                                        path: b[56254],
+                                        envVersion: b[56197],
                                         extraData: Minidata,
                                         success: function (res) {
-                                            console.log('跳转小程序成功', res);
+                                            console.log(b[56255], res);
                                         },
                                         fail: function (err) {
-                                            console.log('跳转小程序失败', err);
+                                            console.log(b[56256], err);
                                             wx.request({
-                                                url: 'https://sdk-js.rpgmoba.com/pay/order/wxMiniPayBan?appid=' + commonParams.gameId + '&errMsg=' + err.errMsg,
+                                                url: b[56257] + commonParams.gameId + b[56258] + err.errMsg,
                                                 success(res) {
-                                                    console.log("跳转小程序失败=======上报成功", res);
+                                                    console.log(b[56259], res);
                                                 }
                                             });
                                         },
                                         complete: function (com) {
-                                            console.log('跳转小程序', com);
+                                            console.log(b[56260], com);
                                         }
                                     });
                                     break;
@@ -1244,7 +1245,7 @@ const pay = function (payData) {
                         } else {
                             SDKyyw.onPayCallback({
                                 "status": '0',
-                                "msg": "支付失败"
+                                "msg": b[56261]
                             });
                         }
                     }
@@ -1258,8 +1259,8 @@ const pay = function (payData) {
 // 游戏更新订阅状态查询接口
 const getWhatsNewSubscriptionsSetting = function (data) {
     const SDKyyw = this;
-    if (typeof SDKyyw.getWhatsNewSubscriptionsSettingCallback != 'function') {
-        console.log("getWhatsNewSubscriptionsSettingCallback必须是一个function");
+    if (typeof SDKyyw.getWhatsNewSubscriptionsSettingCallback != b[56070]) {
+        console.log(b[56262]);
     } else {
         wx.getWhatsNewSubscriptionsSetting({
             msgType: data.msgType, // 消息类型，1=游戏更新提醒，目前只有这种类型
@@ -1267,14 +1268,14 @@ const getWhatsNewSubscriptionsSetting = function (data) {
                 // res.status说明 0未知状态 1未订阅，可以发起订阅 2用户已订阅该类型消息 3超过频率限制，暂时不允许发起订阅 4没有权限或已封禁
                 SDKyyw.getWhatsNewSubscriptionsSettingCallback({
                     "code": '1',
-                    "msg": 'success',
+                    "msg": b[38759],
                     "data": res
                 });
             },
             fail(err) {
                 SDKyyw.getWhatsNewSubscriptionsSettingCallback({
                     "code": '0',
-                    "msg": 'fail',
+                    "msg": b[53115],
                     "data": err
                 });
             }
@@ -1285,15 +1286,15 @@ const getWhatsNewSubscriptionsSetting = function (data) {
 // 请求订阅游戏更新提醒
 const requestSubscribeWhatsNew = function (data) {
     const SDKyyw = this;
-    if (typeof SDKyyw.requestSubscribeWhatsNewCallback != 'function') {
-        console.log("requestSubscribeWhatsNewCallback必须是一个function");
+    if (typeof SDKyyw.requestSubscribeWhatsNewCallback != b[56070]) {
+        console.log(b[56263]);
     } else {
         wx.requestSubscribeWhatsNew({
             msgType: data.msgType, // 消息类型，1=游戏更新提醒，目前只有这种类型
             success(res) {
                 SDKyyw.requestSubscribeWhatsNewCallback({
                     "code": '1',
-                    "msg": 'success',
+                    "msg": b[38759],
                     "data": res
                 });
             },
@@ -1301,7 +1302,7 @@ const requestSubscribeWhatsNew = function (data) {
                 // errCode说明 1系统错误 2用户已订阅该类型消息 3超过频率限制，暂时不允许发起订阅 4没有权限或已封禁
                 SDKyyw.requestSubscribeWhatsNewCallback({
                     "code": '0',
-                    "msg": 'fail',
+                    "msg": b[53115],
                     "data": err
                 });
             }
@@ -1312,12 +1313,12 @@ const requestSubscribeWhatsNew = function (data) {
 // 获取红包开关 + 区服活动配置判断 + 抽奖活动状态
 const getRedPagState = function (data) {
     const SDKyyw = this;
-    if (typeof SDKyyw.getRedPagStateCallback != "function") {
-        console.log("getRedPagStateCallback必须为function");
+    if (typeof SDKyyw.getRedPagStateCallback != b[56070]) {
+        console.log(b[56264]);
     } else {
         if (commonParams.showRedPagOn) {
             wx.request({
-                url: wxRedApi + "wx/redpackage/check/",
+                url: wxRedApi + b[56265],
                 data: {
                     app_id: commonParams.gameId,
                     open_id: commonParams.uid,
@@ -1348,7 +1349,7 @@ const getRedPagState = function (data) {
                         "msg": err.errMsg,
                         "data": err
                     });
-                    console.log("请求错误", err);
+                    console.log(b[56266], err);
                 },
                 timeout: 4000
             });
@@ -1365,8 +1366,8 @@ const getRedPagState = function (data) {
 // 红包角色登录
 const redLogin = function (data) {
     const SDKyyw = this;
-    if (typeof SDKyyw.redLoginCallback != "function") {
-        console.log("redLoginCallback必须为function");
+    if (typeof SDKyyw.redLoginCallback != b[56070]) {
+        console.log(b[56267]);
     } else {
         // 初始化锁
         Tools.initLock(httpLock);
@@ -1385,11 +1386,11 @@ const redLogin = function (data) {
                     if (!httpLock.httpRedLoginFlag) {
                         httpLock.httpRedLoginFlag = true;
                         wx.request({
-                            url: wxRedApi + 'auth/wx/login',
-                            method: 'post',
+                            url: wxRedApi + b[56268],
+                            method: b[33876],
                             data: Tools.buildRedParams(params),
                             header: {
-                                "Content-Type": "application/x-www-form-urlencoded"
+                                "Content-Type": b[56269]
                             },
                             success(res) {
                                 let ret = res.data;
@@ -1414,7 +1415,7 @@ const redLogin = function (data) {
                                     "msg": err.errMsg,
                                     "data": err
                                 });
-                                console.log("err", err);
+                                console.log(b[44902], err);
                             },
                             complete(res) {
                                 httpLock.httpRedLoginFlag = false;
@@ -1423,7 +1424,7 @@ const redLogin = function (data) {
                         });
                     }
                 } else {
-                    console.log('登录失败！' + res.errMsg);
+                    console.log(b[56270] + res.errMsg);
                 }
             }
         });
@@ -1433,15 +1434,15 @@ const redLogin = function (data) {
 // 获取用户信息
 const getWxUserInfo = function () {
     const SDKyyw = this;
-    if (typeof SDKyyw.getWxUserInfoCallback != "function") {
-        console.log("getWxUserInfoCallback必须为function");
+    if (typeof SDKyyw.getWxUserInfoCallback != b[56070]) {
+        console.log(b[56271]);
     } else {
         const params = {
             app_id: commonParams.gameId,
             token: commonParams.token
         };
         wx.request({
-            url: wxRedApi + 'wx/user/info/',
+            url: wxRedApi + b[56272],
             data: Tools.buildRedParams(params),
             success(res) {
                 let ret = res.data;
@@ -1460,7 +1461,7 @@ const getWxUserInfo = function () {
                 }
             },
             fail(err) {
-                console.log("err", err);
+                console.log(b[44902], err);
             },
             timeout: 4000
         });
@@ -1470,8 +1471,8 @@ const getWxUserInfo = function () {
 // 红包列表
 const getRedPackageList = function () {
     const SDKyyw = this;
-    if (typeof SDKyyw.getRedPackageListCallback != "function") {
-        console.log("getRedPackageListCallback必须为function");
+    if (typeof SDKyyw.getRedPackageListCallback != b[56070]) {
+        console.log(b[56273]);
     } else {
         const params = {
             app_id: commonParams.gameId,
@@ -1480,7 +1481,7 @@ const getRedPackageList = function () {
         if (!httpLock.httpRedListFlag) {
             httpLock.httpRedListFlag = true;
             wx.request({
-                url: wxRedApi + 'wx/redpackage/index/',
+                url: wxRedApi + b[56274],
                 data: Tools.buildRedParams(params),
                 success(res) {
                     let ret = res.data;
@@ -1505,7 +1506,7 @@ const getRedPackageList = function () {
                         "msg": err.errMsg,
                         "data": err
                     });
-                    console.log("err", err);
+                    console.log(b[44902], err);
                 },
                 complete(res) {
                     httpLock.httpRedListFlag = false;
@@ -1519,15 +1520,15 @@ const getRedPackageList = function () {
 // 红包配置
 const getRedConfig = function () {
     const SDKyyw = this;
-    if (typeof SDKyyw.getRedConfigCallback != "function") {
-        console.log("getRedConfigCallback必须为function");
+    if (typeof SDKyyw.getRedConfigCallback != b[56070]) {
+        console.log(b[56275]);
     } else {
         const params = {
             app_id: commonParams.gameId,
             token: commonParams.token
         };
         wx.request({
-            url: wxRedApi + 'wx/config/activity/',
+            url: wxRedApi + b[56276],
             data: Tools.buildRedParams(params),
             success(res) {
                 let ret = res.data;
@@ -1546,7 +1547,7 @@ const getRedConfig = function () {
                 }
             },
             fail(err) {
-                console.log("err", err);
+                console.log(b[44902], err);
             },
             timeout: 4000
         });
@@ -1556,8 +1557,8 @@ const getRedConfig = function () {
 // 领取红包
 const toReceiveRedPackage = function (data) {
     const SDKyyw = this;
-    if (typeof SDKyyw.toReceiveRedPackageCallback != "function") {
-        console.log("toReceiveRedPackageCallback必须为function");
+    if (typeof SDKyyw.toReceiveRedPackageCallback != b[56070]) {
+        console.log(b[56277]);
     } else {
         if (!httpLock.httpReceiveRedPackageFlag) {
             const params = {
@@ -1569,11 +1570,11 @@ const toReceiveRedPackage = function (data) {
             };
             httpLock.httpReceiveRedPackageFlag = true;
             wx.request({
-                url: wxRedApi + 'wx/redpackage/receive',
-                method: 'post',
+                url: wxRedApi + b[56278],
+                method: b[33876],
                 data: Tools.buildRedParams(params),
                 header: {
-                    "Content-Type": "application/x-www-form-urlencoded"
+                    "Content-Type": b[56269]
                 },
                 success(res) {
                     let ret = res.data;
@@ -1592,7 +1593,7 @@ const toReceiveRedPackage = function (data) {
                     }
                 },
                 fail(err) {
-                    console.log("请求出错", err);
+                    console.log(b[56279], err);
                     SDKyyw.toReceiveRedPackageCallback({
                         "status": '-1',
                         "msg": err.errMsg,
@@ -1611,15 +1612,15 @@ const toReceiveRedPackage = function (data) {
 // 领取明细
 const getRedDetailList = function () {
     const SDKyyw = this;
-    if (typeof SDKyyw.getRedDetailListCallback != "function") {
-        console.log("getRedDetailListCallback必须为function");
+    if (typeof SDKyyw.getRedDetailListCallback != b[56070]) {
+        console.log(b[56280]);
     } else {
         const params = {
             app_id: commonParams.gameId,
             token: commonParams.token
         };
         wx.request({
-            url: wxRedApi + 'wx/redpackage/redlist/',
+            url: wxRedApi + b[56281],
             data: Tools.buildRedParams(params),
             success(res) {
                 let ret = res.data;
@@ -1638,7 +1639,7 @@ const getRedDetailList = function () {
                 }
             },
             fail(err) {
-                console.log("请求出错", err);
+                console.log(b[56279], err);
             },
             timeout: 4000
         });
@@ -1648,8 +1649,8 @@ const getRedDetailList = function () {
 // 去提现
 const toWithdraw = function (data) {
     const SDKyyw = this;
-    if (typeof SDKyyw.toWithdrawCallback != "function") {
-        console.log("toWithdrawCallback必须为function");
+    if (typeof SDKyyw.toWithdrawCallback != b[56070]) {
+        console.log(b[56282]);
     } else {
         const params = {
             withdraw_amount: data.withdraw_amount,
@@ -1659,11 +1660,11 @@ const toWithdraw = function (data) {
         if (!httpLock.httpToWithdraw) {
             httpLock.httpToWithdraw = true;
             wx.request({
-                url: wxRedApi + 'wx/redpackage/withdraw',
+                url: wxRedApi + b[56283],
                 data: Tools.buildRedParams(params),
-                method: 'post',
+                method: b[33876],
                 header: {
-                    "Content-Type": "application/x-www-form-urlencoded"
+                    "Content-Type": b[56269]
                 },
                 success(res) {
                     let ret = res.data;
@@ -1687,7 +1688,7 @@ const toWithdraw = function (data) {
                         "msg": err.errMsg,
                         "data": err
                     });
-                    console.log("请求出错", err);
+                    console.log(b[56279], err);
                 },
                 complete(res) {
                     httpLock.httpToWithdraw = false;
@@ -1706,11 +1707,11 @@ const toRedShare = function (data) {
         activity_id: data.share_activity_id
     };
     wx.request({
-        url: wxRedApi + 'wx/redpackage/share/',
+        url: wxRedApi + b[56284],
         data: Tools.buildRedParams(params),
         success(res) {
             let ret = res.data;
-            console.log("获取分享参数", ret);
+            console.log(b[56285], ret);
             if (ret.status == 200) {
                 wx.shareAppMessage({
                     title: ret.data.title || "",
@@ -1723,7 +1724,7 @@ const toRedShare = function (data) {
             }
         },
         fail(err) {
-            console.log("请求出错", err);
+            console.log(b[56279], err);
         },
         timeout: 4000
     });
@@ -1732,8 +1733,8 @@ const toRedShare = function (data) {
 // 红包分享成功邀请用户列表
 const getShareList = function (data) {
     const SDKyyw = this;
-    if (typeof SDKyyw.getShareListCallback != "function") {
-        console.log("getShareListCallback必须为function");
+    if (typeof SDKyyw.getShareListCallback != b[56070]) {
+        console.log(b[56286]);
     } else {
         const params = {
             activity_id: data.share_activity_id,
@@ -1741,7 +1742,7 @@ const getShareList = function (data) {
             token: commonParams.token
         };
         wx.request({
-            url: wxRedApi + 'wx/redpackage/shareList/',
+            url: wxRedApi + b[56287],
             data: Tools.buildRedParams(params),
             success(res) {
                 let ret = res.data;
@@ -1760,7 +1761,7 @@ const getShareList = function (data) {
                 }
             },
             fail(err) {
-                console.log("请求出错", err);
+                console.log(b[56279], err);
             },
             timeout: 4000
         });
@@ -1778,11 +1779,11 @@ const shareBind = function (data) {
                     code: res.code
                 };
                 wx.request({
-                    url: wxRedApi + "wx/redpackage/shareBind/",
+                    url: wxRedApi + b[56288],
                     data: Tools.buildRedParams(params),
                     success(res) {
                         let ret = res.data;
-                        console.log("shareBind", ret.data, ret.msg);
+                        console.log(b[56289], ret.data, ret.msg);
                     },
                     fail(err) {
                         console.log("shareBindErr", err);
@@ -1790,7 +1791,7 @@ const shareBind = function (data) {
                     timeout: 4000
                 });
             } else {
-                console.log('微信登录失败code is null:', res);
+                console.log(b[56187], res);
             }
         }
     });
@@ -1799,8 +1800,8 @@ const shareBind = function (data) {
 // 红包抽奖首页
 const getLuckDrawIndex = function () {
     const SDKyyw = this;
-    if (typeof SDKyyw.getLuckDrawIndexCallback != "function") {
-        console.log("getLuckDrawIndexCallback必须为function");
+    if (typeof SDKyyw.getLuckDrawIndexCallback != b[56070]) {
+        console.log(b[56290]);
     } else {
         const params = {
             app_id: commonParams.gameId,
@@ -1810,7 +1811,7 @@ const getLuckDrawIndex = function () {
         if (!httpLock.httpLuckDrawIndex) {
             httpLock.httpLuckDrawIndex = true;
             wx.request({
-                url: wxRedApi + 'wx/redpackage/luckDrawIndex/',
+                url: wxRedApi + b[56291],
                 data: Tools.buildRedParams(params),
                 success(res) {
                     let ret = res.data;
@@ -1834,7 +1835,7 @@ const getLuckDrawIndex = function () {
                         "msg": err.errMsg,
                         "data": err
                     });
-                    console.log("请求出错", err);
+                    console.log(b[56279], err);
                 },
                 complete(res) {
                     httpLock.httpLuckDrawIndex = false;
@@ -1848,8 +1849,8 @@ const getLuckDrawIndex = function () {
 // 点击抽奖
 const luckyDraw = function () {
     const SDKyyw = this;
-    if (typeof SDKyyw.luckyDrawCallback != "function") {
-        console.log("luckyDrawCallback必须为function");
+    if (typeof SDKyyw.luckyDrawCallback != b[56070]) {
+        console.log(b[56292]);
     } else {
         const params = {
             app_id: commonParams.gameId,
@@ -1859,7 +1860,7 @@ const luckyDraw = function () {
         if (!httpLock.httpLuckDrawFlag) {
             httpLock.httpLuckDrawFlag = true;
             wx.request({
-                url: wxRedApi + 'wx/redpackage/luckDraw/',
+                url: wxRedApi + b[56293],
                 data: Tools.buildRedParams(params),
                 success(res) {
                     let ret = res.data;
@@ -1878,7 +1879,7 @@ const luckyDraw = function () {
                     }
                 },
                 fail(err) {
-                    console.log("请求出错", err);
+                    console.log(b[56279], err);
                     SDKyyw.luckyDrawCallback({
                         "status": '-1',
                         "msg": err.errMsg,
@@ -1897,8 +1898,8 @@ const luckyDraw = function () {
 // 获取矩阵列表
 const getSquareList = function (data) {
     const SDKyyw = this;
-    if (typeof SDKyyw.getSquareListCallback != "function") {
-        console.log("getSquareListCallback必须为function");
+    if (typeof SDKyyw.getSquareListCallback != b[56070]) {
+        console.log(b[56294]);
     } else {
         if (!httpLock.httpSquareListFlag) {
             httpLock.httpSquareListFlag = true;
@@ -1909,11 +1910,11 @@ const getSquareList = function (data) {
             };
             data && data.type ? params.type = data.type : '';
             wx.request({
-                url: wxRedApi + 'v2/wx/square/index',
+                url: wxRedApi + b[56295],
                 data: Tools.buildRedParams(params),
                 success(res) {
                     let ret = res.data;
-                    console.log('getSquareList', ret);
+                    console.log(b[56296], ret);
                     SDKyyw.getSquareListCallback(ret);
                 },
                 complete() {
@@ -1936,10 +1937,10 @@ const squareClick = function (data) {
             union_id: commonParams.unionId
         };
         wx.request({
-            url: wxRedApi + 'v2/wx/square/click/',
+            url: wxRedApi + b[56297],
             data: Tools.buildRedParams(params),
             success(res) {
-                console.log('矩阵点击', res);
+                console.log(b[56298], res);
                 wx.navigateToMiniProgram({
                     appId: data.wxapp_id,
                     extraData: {
@@ -1975,13 +1976,13 @@ const squareBind = function (data) {
                 source_app_id: data.source_app_id,
                 source_open_id: data.source_open_id
             });
-            console.log('squareBind', params);
+            console.log(b[56299], params);
             wx.request({
-                url: wxRedApi + 'v2/wx/square/bind',
+                url: wxRedApi + b[56300],
                 data: params,
                 timeout: 5000,
                 success: res => {
-                    console.log("矩阵绑定", res);
+                    console.log(b[56301], res);
                 }
             });
         }
@@ -1991,8 +1992,8 @@ const squareBind = function (data) {
 // 去提现
 const gameWithdraw = function (data) {
     const SDKyyw = this;
-    if (typeof SDKyyw.gameWithdrawCallback != "function") {
-        console.log("gameWithdrawCallback必须为function");
+    if (typeof SDKyyw.gameWithdrawCallback != b[56070]) {
+        console.log(b[56302]);
     } else {
         const params = {
             app_id: commonParams.gameId,
@@ -2002,11 +2003,11 @@ const gameWithdraw = function (data) {
         if (!httpLock.httpGameWithdraw) {
             httpLock.httpGameWithdraw = true;
             wx.request({
-                url: wxRedApi + 'v2/wx/red_bag/withdraw',
+                url: wxRedApi + b[56303],
                 data: Tools.buildRedParams(params),
-                method: 'post',
+                method: b[33876],
                 header: {
-                    "Content-Type": "application/x-www-form-urlencoded"
+                    "Content-Type": b[56269]
                 },
                 success(res) {
                     let ret = res.data;
@@ -2014,7 +2015,7 @@ const gameWithdraw = function (data) {
                 },
                 fail(err) {
                     SDKyyw.gameWithdrawCallback(err);
-                    console.log("请求出错", err);
+                    console.log(b[56279], err);
                 },
                 complete(res) {
                     httpLock.httpGameWithdraw = false;
@@ -2039,17 +2040,17 @@ const showSquareOn = function () {
 // 微信小游戏壳包配置开关
 const getChangeShellOn = function (appid, appkey) {
     const SDKyyw = this;
-    if (typeof SDKyyw.getChangeShellOnCallback != "function") {
-        console.log("getChangeShellOnCallback必须为function");
+    if (typeof SDKyyw.getChangeShellOnCallback != b[56070]) {
+        console.log(b[56304]);
     } else {
         commonParams.gameId = appid;
         commonParams.gameKey = appkey;
         const accountInfo = wx.getAccountInfoSync();
-        console.log('accountInfo: ', accountInfo);
-        console.log('miniProgram: ', accountInfo.miniProgram.envVersion);
+        console.log(b[56175], accountInfo);
+        console.log(b[56176], accountInfo.miniProgram.envVersion);
         commonParams.envVersion = accountInfo.miniProgram.envVersion;
         wx.request({
-            url: api + '/pay/check/config',
+            url: api + b[56305],
             data: Tools.buildChangeShell({
                 gameid: appid,
                 envVersion: commonParams.envVersion,
@@ -2068,9 +2069,9 @@ const showAppModal = function () {
     if (commonParams.showAppOn) {
         wx.showModal({
             title: commonParams.appTitle,
-            content: commonParams.appContent || '下载并使用手机版游戏，即可享受：\n 1.高价值手机版礼包 \n 2.手机版充值专属福利 \n 3. 沉浸式无干扰游戏体验',
-            cancelText: '残忍拒绝',
-            confirmText: '前往客服',
+            content: commonParams.appContent || b[56306],
+            cancelText: b[56307],
+            confirmText: b[56308],
             success(res) {
                 if (res.confirm) {
                     wx.openCustomerServiceConversation({
@@ -2078,11 +2079,11 @@ const showAppModal = function () {
                         sendMessageTitle: commonParams.sendMessageTitle,
                         sendMessageImg: commonParams.sendMessageImg,
                         complete(res) {
-                            console.log("客服", res);
+                            console.log(b[56309], res);
                         }
                     });
                 } else if (res.cancel) {
-                    console.log('用户点击取消');
+                    console.log(b[56310]);
                 }
             }
         });
@@ -2100,17 +2101,17 @@ const msgSecCheck = function (msg, callback) {
     };
     if (msg) {
         wx.request({
-            url: api + "/pay/Check/msgSecCheck",
+            url: api + b[56311],
             data: Tools.buildCheckMsg(params),
             success(res) {
-                console.log("信息监测=", res);
+                console.log(b[56312], res);
                 callback(res.data);
             }
         });
     } else {
         callback({
             err: 0,
-            msg: "检测信息不能为空"
+            msg: b[56313]
         });
     }
 };
@@ -2119,8 +2120,8 @@ const pushData = function (data) {
     if (data.type != '0') {
         data.accountId = commonParams.uid;
         data.appId = commonParams.gameId;
-        data.appVersion = '1.0.0';
-        data.platform = "wxxyx";
+        data.appVersion = b[56180];
+        data.platform = b[56181];
         data.channel = commonParams.partner;
         data.source = commonParams.query.source ? commonParams.query.source : '';
         data.source_type = commonParams.query.source_type ? commonParams.query.source_type : '';
@@ -2141,85 +2142,85 @@ const pushData = function (data) {
 
     if (data.type == '1') {
         //登录
-        data.logType = "login";
+        data.logType = b[56243];
         data.region = '0';
         data.channelAccid = commonParams.uid;
-        delete data["startLevel"];
-        delete data["endLevel"];
+        delete data[b[56314]];
+        delete data[b[56315]];
         //accountId serverId
     } else if (data.type == '2') {
         //创建角色或者账号
         if (!data.roleId) {
-            console.log("没有传角色ID");
+            console.log(b[56316]);
         }
         if (!data.roleName) {
-            console.log("没有传角色名");
+            console.log(b[56317]);
         }
 
-        data.logType = "roleCreate";
+        data.logType = b[56318];
         data.region = '0';
         data.channelAccid = commonParams.uid;
-        delete data["startLevel"];
-        delete data["endLevel"];
+        delete data[b[56314]];
+        delete data[b[56315]];
         //accountId serverId  roleId roleName level vipLevel
     } else if (data.type == '4') {
         if (!data.roleId) {
-            console.log("没有传角色ID");
+            console.log(b[56316]);
         }
         if (!data.roleName) {
-            console.log("没有传角色名");
+            console.log(b[56317]);
         }
-        data.logType = "levelUp"; //升级
+        data.logType = b[56319]; //升级
         data.region = '0';
         data.levelType = '1';
         data.duration = '0';
         data.channelAccid = commonParams.uid;
-        delete data["serverName"];
+        delete data[b[56320]];
         //accountId00  roleID00   roleName00 level00 vipLevel00   startLevel00 endLevel00
     } else if (data.type == '5') {
-        data.logType = "online"; //在线
-        delete data['resolution'];
-        delete data['deviceType'];
-        delete data['mac'];
-        delete data['sex'];
-        delete data['network'];
-        delete data['country'];
-        delete data['operators'];
+        data.logType = b[56321]; //在线
+        delete data[b[56322]];
+        delete data[b[56323]];
+        delete data[b[56168]];
+        delete data[b[56324]];
+        delete data[b[56325]];
+        delete data[b[56326]];
+        delete data[b[56327]];
         //accountId serverId  roleID  roleName
     } else if (data.type == 6) {
         // 分享
-        data.logType = "share";
-        delete data['resolution'];
-        delete data['deviceType'];
-        delete data['mac'];
-        delete data['sex'];
-        delete data['network'];
-        delete data['country'];
-        delete data['operators'];
+        data.logType = b[56328];
+        delete data[b[56322]];
+        delete data[b[56323]];
+        delete data[b[56168]];
+        delete data[b[56324]];
+        delete data[b[56325]];
+        delete data[b[56326]];
+        delete data[b[56327]];
         // data.channelAccid = commonParams.uid;
         data.shareType = '1';
     } else if (data.type == 9) {
         // 自定义事件
-        data.logType = "event";
-        delete data['resolution'];
-        delete data['deviceType'];
-        delete data['deviceName'];
-        delete data['mac'];
-        delete data['sex'];
-        delete data['network'];
-        delete data['country'];
-        delete data['operators'];
-        delete data['imei'];
+        data.logType = b[30450];
+        delete data[b[56322]];
+        delete data[b[56323]];
+        delete data[b[56329]];
+        delete data[b[56168]];
+        delete data[b[56324]];
+        delete data[b[56325]];
+        delete data[b[56326]];
+        delete data[b[56327]];
+        delete data[b[56169]];
     } else if (data.type == 10) {
-        data.logType = "levelclear"; // 游戏关卡
+        data.logType = b[56330]; // 游戏关卡
         data.channelAccid = commonParams.uid;
     } else if (data.type == 11) {
-        data.logType = "advert"; // 广告
+        data.logType = b[56331]; // 广告
         data.channelAccid = commonParams.uid;
     }
-    delete data["type"];
+    delete data[b[30098]];
     wx.request({
-        url: logApi + '/api',
+        url: logApi + b[56332],
         data: {
             data: JSON.stringify(data)
         },
@@ -2232,13 +2233,13 @@ const pushData = function (data) {
 function setLog(str, level) {
     if (state.debug == true) {
         if (level == state.level.error) {
-            console.log('%cSDK11致命错误:' + str, 'color:red');
+            console.log(b[56333] + str, b[56334]);
         } else if (level == state.level.warn) {
-            console.log('%cSDK11警告错误:' + str, 'color:gray');
+            console.log(b[56335] + str, b[56336]);
         } else if (level == state.level.debug) {
-            console.log('%cSDK11运行日志:' + str, 'color:gray');
+            console.log(b[56337] + str, b[56336]);
         } else {
-            console.log('%cSDK11日志:' + str, 'color:gray');
+            console.log(b[56338] + str, b[56336]);
         }
     }
 }

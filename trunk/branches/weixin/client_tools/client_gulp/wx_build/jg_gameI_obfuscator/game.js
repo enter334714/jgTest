@@ -1,5 +1,5 @@
 var Q = wx.$I;
-import "iisadfa/iiiWEASAF.js";console.info("1 \u521d\u59cb\u5316");
+import 'iisadfa/iiiWEASAF.js';console.info("1 \u521d\u59cb\u5316");
 var VSHADER_SOURCE = 'attribute vec4 a_Position;\n' + 'attribute vec2 a_TexCoord;\n' + 'varying vec2 v_TexCoord;\n' + 'void main() {\n' + '  gl_Position = a_Position;\n' + '  v_TexCoord = a_TexCoord;\n' + '}\n';
 
 // Fragment shader program
@@ -64,7 +64,7 @@ function render() {
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 }
 render();
-window.$iVZAQT = setInterval(function () {
+window.$i_57EU = setInterval(function () {
   render();
 }, 16);
 wx.showLoading({ title: "\u6b63\u5728\u52a0\u8f7d" });
@@ -78,7 +78,7 @@ wx.y$ = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({
           } catch (r) {
             console.error(r);
           }r = wx.loadSubpackage({
-            name: "iiiLIBS", success: function (r) {
+            name: 'iiiLIBS', success: function (r) {
               r && r.errMsg, window.loadSubpackages();
             }, fail: function (r) {
               console.error(r);
@@ -95,10 +95,10 @@ wx.y$ = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({
 });
 //监听小游戏切前台事件
 wx.onShow(function (res) {
-  window.$iAZQ = res;
-  if (window.$iAQZ && window.$iAZQ) {
-    console.info("小游戏切前台事件，场景值：" + window.$iAZQ.scene);
-    window.$iAQZ(window.$iAZQ);
-    window.$iAZQ = null;
+  window.$i75E = res;
+  if (window.$i7E5 && window.$i75E) {
+    console.info("小游戏切前台事件，场景值：" + window.$i75E.scene);
+    window.$i7E5(window.$i75E);
+    window.$i75E = null;
   }
 });

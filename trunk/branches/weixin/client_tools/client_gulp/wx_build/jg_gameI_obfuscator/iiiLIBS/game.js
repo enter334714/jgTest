@@ -1,2 +1,1 @@
-var Q = wx.$I;
-require(Q[27546]);
+require("iiiiGAME.js");

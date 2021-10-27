@@ -1,160 +1,165 @@
-function XMLReader() {}function parse(e, t, r, a, n) {
-  function s(e) {
-    if (e > 65535) {
-      e -= 65536;var t = 55296 + (e >> 10),
-          r = 56320 + (1023 & e);return String.fromCharCode(t, r);
-    }return String.fromCharCode(e);
-  }function c(e) {
-    var t = e.slice(1, -1);return t in r ? r[t] : "#" === t.charAt(0) ? s(parseInt(t.substr(1).replace("x", "0x"))) : (n.error("entity not found:" + e), e);
-  }function i(t) {
-    if (t > p) {
-      var r = e.substring(p, t).replace(/&#?\w+;/g, c);m && o(p), a.characters(r, 0, t - p), p = t;
+var b = wx.$e;
+function ekhlfpi() {}function eijp5kf(w2g1v$, usn4e, u8nsqe, v$0ao, eudq8) {
+  function i59fk(a$0rv) {
+    if (a$0rv > 0xffff) {
+      a$0rv -= 0x10000;var l8dunq = 0xd800 + (a$0rv >> 0xa),
+          ki9jf5 = 0xdc00 + (0x3ff & a$0rv);return String['fromCharCode'](l8dunq, ki9jf5);
+    }return String['fromCharCode'](a$0rv);
+  }function x1w2g(vg1$2) {
+    var w2v1$g = vg1$2['slice'](0x1, -0x1);return w2v1$g in u8nsqe ? u8nsqe[w2v1$g] : '#' === w2v1$g['charAt'](0x0) ? i59fk(parseInt(w2v1$g['substr'](0x1)['replace']('x', '0x'))) : (eudq8['error']('entity not found:' + vg1$2), vg1$2);
+  }function hiqlp(fkj) {
+    if (fkj > r$v0ao) {
+      var dqnlhu = w2g1v$['substring'](r$v0ao, fkj)['replace'](/&#?\w+;/g, x1w2g);i5fjpk && pjhkfi(r$v0ao), v$0ao['characters'](dqnlhu, 0x0, fkj - r$v0ao), r$v0ao = fkj;
     }
-  }function o(t, r) {
-    for (; t >= l && (r = _.exec(e));) u = r.index, l = u + r[0].length, m.lineNumber++;m.columnNumber = t - u + 1;
-  }for (var u = 0, l = 0, _ = /.*(?:\r\n?|\n)|.*$/g, m = a.locator, f = [{ currentNSMap: t }], d = {}, p = 0;;) {
+  }function pjhkfi(j9fi5k, hqldpn) {
+    for (; j9fi5k >= u84te && (hqldpn = f9kjz['exec'](w2g1v$));) j5k9z7 = hqldpn['index'], u84te = j5k9z7 + hqldpn[0x0]['length'], i5fjpk['lineNumber']++;i5fjpk['columnNumber'] = j9fi5k - j5k9z7 + 0x1;
+  }for (var j5k9z7 = 0x0, u84te = 0x0, f9kjz = /.*(?:\r\n?|\n)|.*$/g, i5fjpk = v$0ao['locator'], fhjki = [{ 'currentNSMap': usn4e }], hfijpk = {}, r$v0ao = 0x0;;) {
     try {
-      var T = e.indexOf("<", p);if (0 > T) {
-        if (!e.substr(p).match(/^\s*$/)) {
-          var S = a.doc,
-              h = S.createTextNode(e.substr(p));S.appendChild(h), a.currentElement = h;
+      var w2v1g = w2g1v$['indexOf']('<', r$v0ao);if (0x0 > w2v1g) {
+        if (!w2g1v$['substr'](r$v0ao)['match'](/^\s*$/)) {
+          var su4 = v$0ao['doc'],
+              xzm716 = su4['createTextNode'](w2g1v$['substr'](r$v0ao));su4['appendChild'](xzm716), v$0ao['currentElement'] = xzm716;
         }return;
-      }switch (T > p && i(T), e.charAt(T + 1)) {case "/":
-          var A = e.indexOf(">", T + 3),
-              g = e.substring(T + 2, A),
-              w = f.pop();0 > A ? (g = e.substring(T + 2).replace(/[\s<].*/, ""), n.error("end tag name: " + g + " is not complete:" + w.tagName), A = T + 1 + g.length) : g.match(/\s</) && (g = g.replace(/[\s<].*/, ""), n.error("end tag name: " + g + " maybe not complete"), A = T + 1 + g.length);var E = w.localNSMap,
-              N = w.tagName == g,
-              b = N || w.tagName && w.tagName.toLowerCase() == g.toLowerCase();if (b) {
-            if (a.endElement(w.uri, w.localName, g), E) for (var v in E) a.endPrefixMapping(v);N || n.fatalError("end tag name: " + g + " is not match the current start tagName:" + w.tagName);
-          } else f.push(w);A++;break;case "?":
-          m && o(T), A = parseInstruction(e, T, a);break;case "!":
-          m && o(T), A = parseDCC(e, T, a, n);break;default:
-          m && o(T);var x = new ElementAttributes(),
-              C = f[f.length - 1].currentNSMap,
-              A = parseElementStartPart(e, T, x, C, c, n),
-              R = x.length;if (!x.closed && fixSelfClosed(e, A, x.tagName, d) && (x.closed = !0, r.nbsp || n.warning("unclosed xml attribute")), m && R) {
-            for (var O = copyLocator(m, {}), D = 0; R > D; D++) {
-              var L = x[D];o(L.offset), L.locator = copyLocator(m, {});
-            }a.locator = O, appendElement(x, a, C) && f.push(x), a.locator = m;
-          } else appendElement(x, a, C) && f.push(x);"http://www.w3.org/1999/xhtml" !== x.uri || x.closed ? A++ : A = parseHtmlSpecialContent(e, A, x.tagName, c, a);}
-    } catch (F) {
-      n.error("element parse error: " + F), A = -1;
-    }A > p ? p = A : i(Math.max(T, p) + 1);
+      }switch (w2v1g > r$v0ao && hiqlp(w2v1g), w2g1v$['charAt'](w2v1g + 0x1)) {case '/':
+          var kfplih = w2g1v$['indexOf']('>', w2v1g + 0x3),
+              b34 = w2g1v$['substring'](w2v1g + 0x2, kfplih),
+              nu4es = fhjki['pop']();0x0 > kfplih ? (b34 = w2g1v$['substring'](w2v1g + 0x2)['replace'](/[\s<].*/, ''), eudq8['error']('end tag name: ' + b34 + ' is not complete:' + nu4es['tagName']), kfplih = w2v1g + 0x1 + b34['length']) : b34['match'](/\s</) && (b34 = b34['replace'](/[\s<].*/, ''), eudq8['error']('end tag name: ' + b34 + ' maybe not complete'), kfplih = w2v1g + 0x1 + b34['length']);var nu48s = nu4es['localNSMap'],
+              ildhp = nu4es['tagName'] == b34,
+              lidpfh = ildhp || nu4es['tagName'] && nu4es['tagName']['toLowerCase']() == b34['toLowerCase']();if (lidpfh) {
+            if (v$0ao['endElement'](nu4es['uri'], nu4es['localName'], b34), nu48s) {
+              for (var tsu48 in nu48s) v$0ao['endPrefixMapping'](tsu48);
+            }ildhp || eudq8['fatalError']('end tag name: ' + b34 + ' is not match the current start tagName:' + nu4es['tagName']);
+          } else fhjki['push'](nu4es);kfplih++;break;case '?':
+          i5fjpk && pjhkfi(w2v1g), kfplih = ezjm(w2g1v$, w2v1g, v$0ao);break;case '!':
+          i5fjpk && pjhkfi(w2v1g), kfplih = exm17(w2g1v$, w2v1g, v$0ao, eudq8);break;default:
+          i5fjpk && pjhkfi(w2v1g);var es48ut = new epikl(),
+              equsn = fhjki[fhjki['length'] - 0x1]['currentNSMap'],
+              kfplih = es8n4ue(w2g1v$, w2v1g, es48ut, equsn, x1w2g, eudq8),
+              hkfip = es48ut['length'];if (!es48ut['closed'] && ephikfj(w2g1v$, kfplih, es48ut['tagName'], hfijpk) && (es48ut['closed'] = !0x0, u8nsqe['nbsp'] || eudq8['warning']('unclosed xml attribute')), i5fjpk && hkfip) {
+            for (var eus4n = esetu8(i5fjpk, {}), zmj59 = 0x0; hkfip > zmj59; zmj59++) {
+              var m16xg = es48ut[zmj59];pjhkfi(m16xg['offset']), m16xg['locator'] = esetu8(i5fjpk, {});
+            }v$0ao['locator'] = eus4n, e$2vgw(es48ut, v$0ao, equsn) && fhjki['push'](es48ut), v$0ao['locator'] = i5fjpk;
+          } else e$2vgw(es48ut, v$0ao, equsn) && fhjki['push'](es48ut);'http://www.w3.org/1999/xhtml' !== es48ut['uri'] || es48ut['closed'] ? kfplih++ : kfplih = eg16v2(w2g1v$, kfplih, es48ut['tagName'], x1w2g, v$0ao);}
+    } catch (by34t) {
+      eudq8['error']('element parse error: ' + by34t), kfplih = -0x1;
+    }kfplih > r$v0ao ? r$v0ao = kfplih : hiqlp(Math['max'](w2v1g, r$v0ao) + 0x1);
   }
-}function copyLocator(e, t) {
-  return t.lineNumber = e.lineNumber, t.columnNumber = e.columnNumber, t;
-}function parseElementStartPart(e, t, r, a, n, s) {
-  for (var c, i, o = ++t, u = S_TAG;;) {
-    var l = e.charAt(o);switch (l) {case "=":
-        if (u === S_ATTR) c = e.slice(t, o), u = S_EQ;else {
-          if (u !== S_ATTR_SPACE) throw new Error("attribute equal must after attrName");u = S_EQ;
-        }break;case "'":case '"':
-        if (u === S_EQ || u === S_ATTR) {
-          if (u === S_ATTR && (s.warning('attribute value must after "="'), c = e.slice(t, o)), t = o + 1, o = e.indexOf(l, t), !(o > 0)) throw new Error("attribute value no end '" + l + "' match");i = e.slice(t, o).replace(/&#?\w+;/g, n), r.add(c, i, t - 1), u = S_ATTR_END;
+}function esetu8(dhil, ijhp) {
+  return ijhp['lineNumber'] = dhil['lineNumber'], ijhp['columnNumber'] = dhil['columnNumber'], ijhp;
+}function es8n4ue(qnesu, j5k97, z69xm, $02vwg, dquhnl, $0v2w) {
+  for (var lkfhip, $oavr, x9z57 = ++j5k97, t3be4 = eb4ste;;) {
+    var pdnhq = qnesu['charAt'](x9z57);switch (pdnhq) {case '=':
+        if (t3be4 === ehfipl) lkfhip = qnesu['slice'](j5k97, x9z57), t3be4 = euenq8d;else {
+          if (t3be4 !== e$vra0o) throw new Error('attribute equal must after attrName');t3be4 = euenq8d;
+        }break;case '\x27':case '\x22':
+        if (t3be4 === euenq8d || t3be4 === ehfipl) {
+          if (t3be4 === ehfipl && ($0v2w['warning']('attribute value must after "="'), lkfhip = qnesu['slice'](j5k97, x9z57)), j5k97 = x9z57 + 0x1, x9z57 = qnesu['indexOf'](pdnhq, j5k97), !(x9z57 > 0x0)) throw new Error('attribute value no end \'' + pdnhq + '\' match');$oavr = qnesu['slice'](j5k97, x9z57)['replace'](/&#?\w+;/g, dquhnl), z69xm['add'](lkfhip, $oavr, j5k97 - 0x1), t3be4 = eeu8st;
         } else {
-          if (u != S_ATTR_NOQUOT_VALUE) throw new Error('attribute value must after "="');i = e.slice(t, o).replace(/&#?\w+;/g, n), r.add(c, i, t), s.warning('attribute "' + c + '" missed start quot(' + l + ")!!"), t = o + 1, u = S_ATTR_END;
-        }break;case "/":
-        switch (u) {case S_TAG:
-            r.setTagName(e.slice(t, o));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:
-            u = S_TAG_CLOSE, r.closed = !0;case S_ATTR_NOQUOT_VALUE:case S_ATTR:case S_ATTR_SPACE:
+          if (t3be4 != ejkifhp) throw new Error('attribute value must after "="');$oavr = qnesu['slice'](j5k97, x9z57)['replace'](/&#?\w+;/g, dquhnl), z69xm['add'](lkfhip, $oavr, j5k97), $0v2w['warning']('attribute "' + lkfhip + '" missed start quot(' + pdnhq + ')!!'), j5k97 = x9z57 + 0x1, t3be4 = eeu8st;
+        }break;case '/':
+        switch (t3be4) {case eb4ste:
+            z69xm['setTagName'](qnesu['slice'](j5k97, x9z57));case eeu8st:case ednu8eq:case eipkhfl:
+            t3be4 = eipkhfl, z69xm['closed'] = !0x0;case ejkifhp:case ehfipl:case e$vra0o:
             break;default:
-            throw new Error("attribute invalid close char('/')");}break;case "":
-        return s.error("unexpected end of input"), u == S_TAG && r.setTagName(e.slice(t, o)), o;case ">":
-        switch (u) {case S_TAG:
-            r.setTagName(e.slice(t, o));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:
-            break;case S_ATTR_NOQUOT_VALUE:case S_ATTR:
-            i = e.slice(t, o), "/" === i.slice(-1) && (r.closed = !0, i = i.slice(0, -1));case S_ATTR_SPACE:
-            u === S_ATTR_SPACE && (i = c), u == S_ATTR_NOQUOT_VALUE ? (s.warning('attribute "' + i + '" missed quot(")!!'), r.add(c, i.replace(/&#?\w+;/g, n), t)) : ("http://www.w3.org/1999/xhtml" === a[""] && i.match(/^(?:disabled|checked|selected)$/i) || s.warning('attribute "' + i + '" missed value!! "' + i + '" instead!!'), r.add(i, i, t));break;case S_EQ:
-            throw new Error("attribute value missed!!");}return o;case "":
-        l = " ";default:
-        if (" " >= l) switch (u) {case S_TAG:
-            r.setTagName(e.slice(t, o)), u = S_TAG_SPACE;break;case S_ATTR:
-            c = e.slice(t, o), u = S_ATTR_SPACE;break;case S_ATTR_NOQUOT_VALUE:
-            var i = e.slice(t, o).replace(/&#?\w+;/g, n);s.warning('attribute "' + i + '" missed quot(")!!'), r.add(c, i, t);case S_ATTR_END:
-            u = S_TAG_SPACE;} else switch (u) {case S_ATTR_SPACE:
+            throw new Error('attribute invalid close char(\'/\')');}break;case '':
+        return $0v2w['error']('unexpected end of input'), t3be4 == eb4ste && z69xm['setTagName'](qnesu['slice'](j5k97, x9z57)), x9z57;case '>':
+        switch (t3be4) {case eb4ste:
+            z69xm['setTagName'](qnesu['slice'](j5k97, x9z57));case eeu8st:case ednu8eq:case eipkhfl:
+            break;case ejkifhp:case ehfipl:
+            $oavr = qnesu['slice'](j5k97, x9z57), '/' === $oavr['slice'](-0x1) && (z69xm['closed'] = !0x0, $oavr = $oavr['slice'](0x0, -0x1));case e$vra0o:
+            t3be4 === e$vra0o && ($oavr = lkfhip), t3be4 == ejkifhp ? ($0v2w['warning']('attribute "' + $oavr + '" missed quot(")!!'), z69xm['add'](lkfhip, $oavr['replace'](/&#?\w+;/g, dquhnl), j5k97)) : ('http://www.w3.org/1999/xhtml' === $02vwg[''] && $oavr['match'](/^(?:disabled|checked|selected)$/i) || $0v2w['warning']('attribute "' + $oavr + '" missed value!! "' + $oavr + '" instead!!'), z69xm['add']($oavr, $oavr, j5k97));break;case euenq8d:
+            throw new Error('attribute value missed!!');}return x9z57;case '\u0080':
+        pdnhq = '\x20';default:
+        if ('\x20' >= pdnhq) switch (t3be4) {case eb4ste:
+            z69xm['setTagName'](qnesu['slice'](j5k97, x9z57)), t3be4 = ednu8eq;break;case ehfipl:
+            lkfhip = qnesu['slice'](j5k97, x9z57), t3be4 = e$vra0o;break;case ejkifhp:
+            var $oavr = qnesu['slice'](j5k97, x9z57)['replace'](/&#?\w+;/g, dquhnl);$0v2w['warning']('attribute "' + $oavr + '" missed quot(")!!'), z69xm['add'](lkfhip, $oavr, j5k97);case eeu8st:
+            t3be4 = ednu8eq;} else switch (t3be4) {case e$vra0o:
             {
-              r.tagName;
-            }"http://www.w3.org/1999/xhtml" === a[""] && c.match(/^(?:disabled|checked|selected)$/i) || s.warning('attribute "' + c + '" missed value!! "' + c + '" instead2!!'), r.add(c, c, t), t = o, u = S_ATTR;break;case S_ATTR_END:
-            s.warning('attribute space is required"' + c + '"!!');case S_TAG_SPACE:
-            u = S_ATTR, t = o;break;case S_EQ:
-            u = S_ATTR_NOQUOT_VALUE, t = o;break;case S_TAG_CLOSE:
-            throw new Error("elements closed character '/' and '>' must be connected to");}}o++;
+              z69xm['tagName'];
+            }'http://www.w3.org/1999/xhtml' === $02vwg[''] && lkfhip['match'](/^(?:disabled|checked|selected)$/i) || $0v2w['warning']('attribute "' + lkfhip + '" missed value!! "' + lkfhip + '" instead2!!'), z69xm['add'](lkfhip, lkfhip, j5k97), j5k97 = x9z57, t3be4 = ehfipl;break;case eeu8st:
+            $0v2w['warning']('attribute space is required"' + lkfhip + '\x22!!');case ednu8eq:
+            t3be4 = ehfipl, j5k97 = x9z57;break;case euenq8d:
+            t3be4 = ejkifhp, j5k97 = x9z57;break;case eipkhfl:
+            throw new Error('elements closed character \'/\' and \'>\' must be connected to');}}x9z57++;
   }
-}function appendElement(e, t, r) {
-  for (var a = e.tagName, n = null, s = e.length; s--;) {
-    var c = e[s],
-        i = c.qName,
-        o = c.value,
-        u = i.indexOf(":");if (u > 0) var l = c.prefix = i.slice(0, u),
-        _ = i.slice(u + 1),
-        m = "xmlns" === l && _;else _ = i, l = null, m = "xmlns" === i && "";c.localName = _, m !== !1 && (null == n && (n = {}, _copy(r, r = {})), r[m] = n[m] = o, c.uri = "http://www.w3.org/2000/xmlns/", t.startPrefixMapping(m, o));
-  }for (var s = e.length; s--;) {
-    c = e[s];var l = c.prefix;l && ("xml" === l && (c.uri = "http://www.w3.org/XML/1998/namespace"), "xmlns" !== l && (c.uri = r[l || ""]));
-  }var u = a.indexOf(":");u > 0 ? (l = e.prefix = a.slice(0, u), _ = e.localName = a.slice(u + 1)) : (l = null, _ = e.localName = a);var f = e.uri = r[l || ""];if (t.startElement(f, _, a, e), !e.closed) return e.currentNSMap = r, e.localNSMap = n, !0;if (t.endElement(f, _, a), n) for (l in n) t.endPrefixMapping(l);
-}function parseHtmlSpecialContent(e, t, r, a, n) {
-  if (/^(?:script|textarea)$/i.test(r)) {
-    var s = e.indexOf("</" + r + ">", t),
-        c = e.substring(t + 1, s);if (/[&<]/.test(c)) return (/^script$/i.test(r) ? (n.characters(c, 0, c.length), s) : (c = c.replace(/&#?\w+;/g, a), n.characters(c, 0, c.length), s)
+}function e$2vgw(qphidl, fkpj, $vaw0r) {
+  for (var m761z = qphidl['tagName'], wg0$2v = null, dihlf = qphidl['length']; dihlf--;) {
+    var _b4y = qphidl[dihlf],
+        hfpjki = _b4y['qName'],
+        a$vwr0 = _b4y['value'],
+        hlqnud = hfpjki['indexOf'](':');if (hlqnud > 0x0) var hpjfk = _b4y['prefix'] = hfpjki['slice'](0x0, hlqnud),
+        esuqn = hfpjki['slice'](hlqnud + 0x1),
+        zj75k = 'xmlns' === hpjfk && esuqn;else esuqn = hfpjki, hpjfk = null, zj75k = 'xmlns' === hfpjki && '';_b4y['localName'] = esuqn, zj75k !== !0x1 && (null == wg0$2v && (wg0$2v = {}, een8s4($vaw0r, $vaw0r = {})), $vaw0r[zj75k] = wg0$2v[zj75k] = a$vwr0, _b4y['uri'] = 'http://www.w3.org/2000/xmlns/', fkpj['startPrefixMapping'](zj75k, a$vwr0));
+  }for (var dihlf = qphidl['length']; dihlf--;) {
+    _b4y = qphidl[dihlf];var hpjfk = _b4y['prefix'];hpjfk && ('xml' === hpjfk && (_b4y['uri'] = 'http://www.w3.org/XML/1998/namespace'), 'xmlns' !== hpjfk && (_b4y['uri'] = $vaw0r[hpjfk || '']));
+  }var hlqnud = m761z['indexOf'](':');hlqnud > 0x0 ? (hpjfk = qphidl['prefix'] = m761z['slice'](0x0, hlqnud), esuqn = qphidl['localName'] = m761z['slice'](hlqnud + 0x1)) : (hpjfk = null, esuqn = qphidl['localName'] = m761z);var $rv0wa = qphidl['uri'] = $vaw0r[hpjfk || ''];if (fkpj['startElement']($rv0wa, esuqn, m761z, qphidl), !qphidl['closed']) return qphidl['currentNSMap'] = $vaw0r, qphidl['localNSMap'] = wg0$2v, !0x0;if (fkpj['endElement']($rv0wa, esuqn, m761z), wg0$2v) {
+    for (hpjfk in wg0$2v) fkpj['endPrefixMapping'](hpjfk);
+  }
+}function eg16v2(jkhi, su4en8, u84ne, fpihjk, $0rvw) {
+  if (/^(?:script|textarea)$/i['test'](u84ne)) {
+    var $g20v = jkhi['indexOf']('</' + u84ne + '>', su4en8),
+        qudnl8 = jkhi['substring'](su4en8 + 0x1, $g20v);if (/[&<]/['test'](qudnl8)) return (/^script$/i['test'](u84ne) ? ($0rvw['characters'](qudnl8, 0x0, qudnl8['length']), $g20v) : (qudnl8 = qudnl8['replace'](/&#?\w+;/g, fpihjk), $0rvw['characters'](qudnl8, 0x0, qudnl8['length']), $g20v)
     );
-  }return t + 1;
-}function fixSelfClosed(e, t, r, a) {
-  var n = a[r];return null == n && (n = e.lastIndexOf("</" + r + ">"), t > n && (n = e.lastIndexOf("</" + r)), a[r] = n), t > n;
-}function _copy(e, t) {
-  for (var r in e) t[r] = e[r];
-}function parseDCC(e, t, r, a) {
-  var n = e.charAt(t + 2);switch (n) {case "-":
-      if ("-" === e.charAt(t + 3)) {
-        var s = e.indexOf("-->", t + 4);return s > t ? (r.comment(e, t + 4, s - t - 4), s + 3) : (a.error("Unclosed comment"), -1);
-      }return -1;default:
-      if ("CDATA[" == e.substr(t + 3, 6)) {
-        var s = e.indexOf("]]>", t + 9);return r.startCDATA(), r.characters(e, t + 9, s - t - 9), r.endCDATA(), s + 3;
-      }var c = split(e, t),
-          i = c.length;if (i > 1 && /!doctype/i.test(c[0][0])) {
-        var o = c[1][0],
-            u = i > 3 && /^public$/i.test(c[2][0]) && c[3][0],
-            l = i > 4 && c[4][0],
-            _ = c[i - 1];return r.startDTD(o, u && u.replace(/^(['"])(.*?)\1$/, "$2"), l && l.replace(/^(['"])(.*?)\1$/, "$2")), r.endDTD(), _.index + _[0].length;
-      }}return -1;
-}function parseInstruction(e, t, r) {
-  var a = e.indexOf("?>", t);if (a) {
-    var n = e.substring(t, a).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/);if (n) {
+  }return su4en8 + 0x1;
+}function ephikfj(qdnl8u, tu8e4s, f5j9ik, jihfk) {
+  var rv0wa = jihfk[f5j9ik];return null == rv0wa && (rv0wa = qdnl8u['lastIndexOf']('</' + f5j9ik + '>'), tu8e4s > rv0wa && (rv0wa = qdnl8u['lastIndexOf']('</' + f5j9ik)), jihfk[f5j9ik] = rv0wa), tu8e4s > rv0wa;
+}function een8s4(ty_b3, t4s8ue) {
+  for (var ijf9k5 in ty_b3) t4s8ue[ijf9k5] = ty_b3[ijf9k5];
+}function exm17(f5pkji, aov$0r, w2gv0$, ut8e4) {
+  var w62xg1 = f5pkji['charAt'](aov$0r + 0x2);switch (w62xg1) {case '-':
+      if ('-' === f5pkji['charAt'](aov$0r + 0x3)) {
+        var hpdlnq = f5pkji['indexOf']('-->', aov$0r + 0x4);return hpdlnq > aov$0r ? (w2gv0$['comment'](f5pkji, aov$0r + 0x4, hpdlnq - aov$0r - 0x4), hpdlnq + 0x3) : (ut8e4['error']('Unclosed comment'), -0x1);
+      }return -0x1;default:
+      if ('CDATA[' == f5pkji['substr'](aov$0r + 0x3, 0x6)) {
+        var hpdlnq = f5pkji['indexOf'](']]>', aov$0r + 0x9);return w2gv0$['startCDATA'](), w2gv0$['characters'](f5pkji, aov$0r + 0x9, hpdlnq - aov$0r - 0x9), w2gv0$['endCDATA'](), hpdlnq + 0x3;
+      }var fpklh = ewg6v21(f5pkji, aov$0r),
+          gw$1 = fpklh['length'];if (gw$1 > 0x1 && /!doctype/i['test'](fpklh[0x0][0x0])) {
+        var p5kji = fpklh[0x1][0x0],
+            hnpdq = gw$1 > 0x3 && /^public$/i['test'](fpklh[0x2][0x0]) && fpklh[0x3][0x0],
+            dpqlnh = gw$1 > 0x4 && fpklh[0x4][0x0],
+            o$0arv = fpklh[gw$1 - 0x1];return w2gv0$['startDTD'](p5kji, hnpdq && hnpdq['replace'](/^(['"])(.*?)\1$/, '$2'), dpqlnh && dpqlnh['replace'](/^(['"])(.*?)\1$/, '$2')), w2gv0$['endDTD'](), o$0arv['index'] + o$0arv[0x0]['length'];
+      }}return -0x1;
+}function ezjm(qdl8, $0vwr, r$avw0) {
+  var lfhki = qdl8['indexOf']('?>', $0vwr);if (lfhki) {
+    var te84su = qdl8['substring']($0vwr, lfhki)['match'](/^<\?(\S*)\s*([\s\S]*?)\s*$/);if (te84su) {
       {
-        n[0].length;
-      }return r.processingInstruction(n[1], n[2]), a + 2;
-    }return -1;
-  }return -1;
-}function ElementAttributes() {}function _set_proto_(e, t) {
-  return e.__proto__ = t, e;
-}function split(e, t) {
-  var r,
-      a = [],
-      n = /'[^']+'|"[^"]+"|[^\s<>\/=]+=?|(\/?\s*>|<)/g;for (n.lastIndex = t, n.exec(e); r = n.exec(e);) if (a.push(r), r[1]) return a;
-}var nameStartChar = /[A-Z_a-z\xC0-\xD6\xD8-\xF6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]/,
-    nameChar = new RegExp("[\\-\\.0-9" + nameStartChar.source.slice(1, -1) + "\\u00B7\\u0300-\\u036F\\u203F-\\u2040]"),
-    tagNamePattern = new RegExp("^" + nameStartChar.source + nameChar.source + "*(?::" + nameStartChar.source + nameChar.source + "*)?$"),
-    S_TAG = 0,
-    S_ATTR = 1,
-    S_ATTR_SPACE = 2,
-    S_EQ = 3,
-    S_ATTR_NOQUOT_VALUE = 4,
-    S_ATTR_END = 5,
-    S_TAG_SPACE = 6,
-    S_TAG_CLOSE = 7;XMLReader.prototype = { parse: function (e, t, r) {
-    var a = this.domBuilder;a.startDocument(), _copy(t, t = {}), parse(e, t, r, a, this.errorHandler), a.endDocument();
-  } }, ElementAttributes.prototype = { setTagName: function (e) {
-    if (!tagNamePattern.test(e)) throw new Error("invalid tagName:" + e);this.tagName = e;
-  }, add: function (e, t, r) {
-    if (!tagNamePattern.test(e)) throw new Error("invalid attribute:" + e);this[this.length++] = { qName: e, value: t, offset: r };
-  }, length: 0, getLocalName: function (e) {
-    return this[e].localName;
-  }, getLocator: function (e) {
-    return this[e].locator;
-  }, getQName: function (e) {
-    return this[e].qName;
-  }, getURI: function (e) {
-    return this[e].uri;
-  }, getValue: function (e) {
-    return this[e].value;
-  } }, _set_proto_({}, _set_proto_.prototype) instanceof _set_proto_ || (_set_proto_ = function (e, t) {
-  function r() {}r.prototype = t, r = new r();for (t in e) r[t] = e[t];return r;
-}), exports.XMLReader = XMLReader;
+        te84su[0x0]['length'];
+      }return r$avw0['processingInstruction'](te84su[0x1], te84su[0x2]), lfhki + 0x2;
+    }return -0x1;
+  }return -0x1;
+}function epikl() {}function eqhnl(vwg20$, b34_ty) {
+  return vwg20$['__proto__'] = b34_ty, vwg20$;
+}function ewg6v21(nse84, if5pj) {
+  var quen8,
+      dqlhpi = [],
+      r$w0v2 = /'[^']+'|"[^"]+"|[^\s<>\/=]+=?|(\/?\s*>|<)/g;for (r$w0v2['lastIndex'] = if5pj, r$w0v2['exec'](nse84); quen8 = r$w0v2['exec'](nse84);) if (dqlhpi['push'](quen8), quen8[0x1]) return dqlhpi;
+}var eplik = /[A-Z_a-z\xC0-\xD6\xD8-\xF6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]/,
+    eikp5jf = new RegExp('[\\-\\.0-9' + eplik['source']['slice'](0x1, -0x1) + '\\u00B7\\u0300-\\u036F\\u203F-\\u2040]'),
+    eqn8eud = new RegExp('^' + eplik['source'] + eikp5jf['source'] + '*(?::' + eplik['source'] + eikp5jf['source'] + '*)?$'),
+    eb4ste = 0x0,
+    ehfipl = 0x1,
+    e$vra0o = 0x2,
+    euenq8d = 0x3,
+    ejkifhp = 0x4,
+    eeu8st = 0x5,
+    ednu8eq = 0x6,
+    eipkhfl = 0x7;ekhlfpi['prototype'] = { 'parse': function (ldunh, pif5kj, ji9k5f) {
+    var ifdlhp = this['domBuilder'];ifdlhp['startDocument'](), een8s4(pif5kj, pif5kj = {}), eijp5kf(ldunh, pif5kj, ji9k5f, ifdlhp, this['errorHandler']), ifdlhp['endDocument']();
+  } }, epikl['prototype'] = { 'setTagName': function (s38et) {
+    if (!eqn8eud['test'](s38et)) throw new Error('invalid tagName:' + s38et);this['tagName'] = s38et;
+  }, 'add': function (v0$2w, $0vra, fikj5) {
+    if (!eqn8eud['test'](v0$2w)) throw new Error('invalid attribute:' + v0$2w);this[this['length']++] = { 'qName': v0$2w, 'value': $0vra, 'offset': fikj5 };
+  }, 'length': 0x0, 'getLocalName': function (teb3) {
+    return this[teb3]['localName'];
+  }, 'getLocator': function (ipkfhj) {
+    return this[ipkfhj]['locator'];
+  }, 'getQName': function (fjk5pi) {
+    return this[fjk5pi]['qName'];
+  }, 'getURI': function (pkhlfi) {
+    return this[pkhlfi]['uri'];
+  }, 'getValue': function (s84tu) {
+    return this[s84tu]['value'];
+  } }, eqhnl({}, eqhnl['prototype']) instanceof eqhnl || (eqhnl = function (nsequ, b_4y3) {
+  function zk5j97() {}zk5j97['prototype'] = b_4y3, zk5j97 = new zk5j97();for (b_4y3 in nsequ) zk5j97[b_4y3] = nsequ[b_4y3];return zk5j97;
+}), exports['XMLReader'] = ekhlfpi;
