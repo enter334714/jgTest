@@ -5,7 +5,7 @@ var config = {
     game_id: b[56339],
     game_pkg: b[56340], //有一 --飞剑 --侠义九州
     partner_id: b[56341],
-    game_ver: b[56342],
+    game_ver: "5.0.10",
     is_auth: false, //授权登录   
     from: null, //来源
     tmpId: {} // 订阅的类型 和 模板id

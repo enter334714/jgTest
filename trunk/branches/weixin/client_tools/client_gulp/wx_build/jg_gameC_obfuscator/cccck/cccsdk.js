@@ -7,7 +7,7 @@ var config = {
     game_pkg: p[27565],
     partner_label: p[27566],
     partner_id: p[27567],
-    game_ver: p[27568], //C包为3.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: "3.0.22", //C包为3.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false, //授权登录
     from: null, //来源
     tmpId: {} // 订阅的类型 和 模板id

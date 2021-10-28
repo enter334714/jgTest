@@ -6,7 +6,7 @@ var config = {
     game_pkg: 'tjqy_tjqylmfb_FK',
     partner_label: 'GNWX',
     partner_id: '443',
-    game_ver: '3.0.18',//C包为3.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '3.0.20',//C包为3.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false, //授权登录
     from: null, //来源
     tmpId: {}  // 订阅的类型 和 模板id
@@ -19,6 +19,9 @@ var user_game_info = null;
 var user_invite_info = null;
 var sysInfo = wx.getSystemInfoSync();
 var platform = sysInfo.platform;
+var checkHandler = null;
+var loginHandler = null;
+var requestCallback = false;
 
 function mainSDK() {
     var callbacks = {};
@@ -111,6 +114,7 @@ function mainSDK() {
                 }
             }
 
+            var lastTime = Date.now();
             wx.request({
                 url: 'https://' + HOST + '/partner/auth',
                 method: 'POST',
@@ -121,7 +125,9 @@ function mainSDK() {
                 data: public_data,
                 success: function (res) {
                     console.log("[SDK]登录结果：" + JSON.stringify(res));
-
+                    requestCallback = true;
+                    if (loginHandler) clearTimeout(loginHandler);
+                    loginHandler = null;
                     if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
@@ -149,9 +155,7 @@ function mainSDK() {
                             };
                             callbacks['login'] && callbacks['login'](0, userData);
                         } else {
-                            callbacks['login'] && callbacks['login'](1, {
-                                errMsg: data.msg
-                            });
+                            callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: data.msg, time: (Date.now()-lastTime), res: res});
                         }
 
                         self.getShareInfo('menu', function (data) {
@@ -167,12 +171,28 @@ function mainSDK() {
                             });
                         });
                     } else {
-                        callbacks['login'] && callbacks['login'](1, {
-                            errMsg: '请求平台服务器失败！'
-                        });
+                        callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: '请求平台服务器失败！', time: (Date.now()-lastTime), res: res});
                     }
+                },
+                fail: function(res){
+                    console.log("[SDK]登录失败");
+                    console.log(res);
+
+                    requestCallback = true;
+                    if (loginHandler) clearTimeout(loginHandler);
+                    loginHandler = null;
+                    callbacks['login'] && callbacks['login'](1, {type: "wx.request.fail", errMsg: res.errMsg, time: (Date.now()-lastTime), res: res});
                 }
             });
+            if (!requestCallback) {
+                var timeOutFunc = function() {
+                    console.log("[SDK]登录超时");
+
+                    callbacks['login'] && callbacks['login'](1, {type: "wx.request", errMsg: "登录超时20秒无返回", time: (Date.now()-lastTime)});
+                    callbacks['login'] = null; //回调后置空，以免success或fail里重复回调
+                }
+                loginHandler = setTimeout(timeOutFunc, 20000);
+            }
         },
 
         share: function (data) {
@@ -218,6 +238,7 @@ function mainSDK() {
 
         checkGameVersion: function (game_ver, callback) {
             console.log("[SDK]检查游戏版本");
+            callbacks['check'] = typeof callback == 'function' ? callback : null;
             var sdk_token = wx.getStorageSync('9130_plat_sdk_token');
             wx.request({
                 url: 'https://' + HOST + '/game/min/?ac=checkGameVersion',
@@ -232,24 +253,39 @@ function mainSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[SDK]获取游戏版本结果" + JSON.stringify(res));
-
-                    if (res.statusCode == 200) {
+                    console.log("[SDK]获取游戏版本成功");
+                    console.log(res);
+                    requestCallback = true;
+                    if (checkHandler) clearTimeout(checkHandler);
+                    checkHandler = null;
+                    if(res.statusCode == 200){
                         var data = res.data;
-                        if (data.state) {
-                            callback && callback(data.data);
-                        } else {
-                            callback && callback({
-                                develop: 0
-                            });
+                        if(data.state){
+                            callbacks['check'] && callbacks['check'](data.data);
+                        }else{
+                            callbacks['check'] && callbacks['check']({develop: 0});
                         }
-                    } else {
-                        callback && callback({
-                            develop: 0
-                        });
+                    }else{
+                        callbacks['check'] && callbacks['check']({develop: 0});
                     }
+                },
+                fail: function(res){
+                    console.log("[SDK]获取游戏版本失败");
+                    console.log(res);
+                    requestCallback = true;
+                    if (checkHandler) clearTimeout(checkHandler);
+                    checkHandler = null;
+                    callbacks['check'] && callbacks['check']({develop: 0});
                 }
             });
+            if (!requestCallback) {
+                var timeOutFunc = function() {
+                    console.log("[SDK]获取游戏版本超时");
+                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
+                }
+                checkHandler = setTimeout(timeOutFunc, 10000);
+            }
         },
 
         getShareInfo: function (type, callback) {
