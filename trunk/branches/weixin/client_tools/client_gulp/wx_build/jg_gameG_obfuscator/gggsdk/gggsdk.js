@@ -14,7 +14,7 @@ var config = {
     game_pkg: m[26923], //疯狂微信小游戏-无双服-星聚
     partner_label: m[26924],
     partner_id: m[26925],
-    game_ver: m[26926],
+    game_ver:"7.0.8",
     partner_game_id: m[26927],
     is_auth: false //授权登录
 };
