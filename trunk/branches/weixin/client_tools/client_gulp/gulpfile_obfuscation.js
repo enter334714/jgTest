@@ -540,7 +540,9 @@ var set_param_b = function () {
         arrIndex = 0;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
-        needShuffle = false;
+        // needShuffle = false;
+        str_leading1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789";
+        str_leading2 = "abcdefghijklmnopqrstuvwxyz$_0123456789";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -777,10 +779,12 @@ var set_param_c = function () {
         packageName1 = "ccclibs";
         packageName2 = "cccccf";
         packageName3 = "cccccccc";
-        arrIndex = 0;
+        arrIndex = 20000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
-        needShuffle = true;
+        // needShuffle = true;
+        str_leading1 = "H53QV1S8BO_6MUXE4KA2ZJ$0PLD7CTY9NIRWFG";
+        str_leading2 = "qz9uobyie$6k8h0g_vx2nrwpa473fjt1sc5dml";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -1013,7 +1017,9 @@ var set_param_d = function () {
         arrIndex = 0;
         globleArrs = new Array(arrIndex);
         numberToHex = true;
-        needShuffle = true;
+        // needShuffle = true;
+        str_leading1 = "YSALZE8C$P2F5RI619O3U7KMQ4XH0DVN_JGBTW";
+        str_leading2 = "25oc39_4njh6mediutfkgq0zabx81srw$pv7yl";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -1245,10 +1251,12 @@ var set_param_e = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$e", "b", "c", "E$", "e"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 30000;
+        arrIndex = 40000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
-        needShuffle = true;
+        // needShuffle = true;
+        str_leading1 = "NOCVEH3_U7YXDA$P6SG19RLFKI8M5TBW4Z0JQ2";
+        str_leading2 = "pbyi2qet9fzs4_hlgxkav3umw6$ndo5r01c7j8";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -1483,10 +1491,12 @@ var set_param_f = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$f", "k", "l", "F$", "f"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 0;
+        arrIndex = 60000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
-        needShuffle = true;
+        // needShuffle = true;
+        str_leading1 = "I08L67U_HZP$X41QRWA39KM2VE5NDSYGBTOCFJ";
+        str_leading2 = "pay3$7r8zexnwsdjco624_k5q0htfmlibvu19g";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -1722,10 +1732,12 @@ var set_param_g = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$g", "m", "n", "G$", "g"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 0;
+        arrIndex = 80000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
-        needShuffle = true;
+        // needShuffle = true;
+        str_leading1 = "V203J9SIW8A65BGQDZTL$FKRNC7OUHPM14_YEX";
+        str_leading2 = "mu$jr6n2zdo34tf_0pb5iaxh1kwyev7qgcs8l9";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -1959,10 +1971,12 @@ var set_param_h = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$C", "O", "_p", "$h", "h_"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 0;
+        arrIndex = 100000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
-        needShuffle = true;
+        // needShuffle = true;
+        str_leading1 = "XYU6RHS90AQ3CP7LOM1BKW4$V2NZF85E_IJDGT";
+        str_leading2 = "kmto5lcpu$8rz9jdhw0xq7134fgv_nsya62ibe";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -2198,10 +2212,12 @@ var set_param_i = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$I", "Q", "_r", "$i", "i_"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 0;
+        arrIndex = 120000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
-        needShuffle = true;
+        // needShuffle = true;
+        str_leading1 = "EXDGRUYZVS6F_$CABKH5TNMIPL91Q7420OW8J3";
+        str_leading2 = "dyog0zl$irt9vm1cpf_8ja637besukq2n5w4hx";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -2440,7 +2456,9 @@ var set_param_j = function () {
         arrIndex = 0;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
-        needShuffle = true;
+        // needShuffle = true;
+        str_leading1 = "I3S9A2B6V$LNEZP1KUCROGFT8MH0D7WJY4XQ5_";
+        str_leading2 = "_t$haz9xi82dq1mfr76ksyog0clu4bepn5j3wv";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -2679,10 +2697,12 @@ var set_param_k = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$k", "U", "_V", "$K", "K1_"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 40000;
+        arrIndex = 140000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
-        needShuffle = true;
+        // needShuffle = true;
+        str_leading1 = "TP7E2FJROQ81MK35ADV_YUC$G9H0NSBXZW64IL";
+        str_leading2 = "4mj7tieh6ks9280qn1vowbzxaul$d_rp53gfcy";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -2918,10 +2938,12 @@ var set_param_l = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$l", "W", "_X", "$L", "L9"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 0;
+        arrIndex = 160000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
-        needShuffle = true;
+        // needShuffle = true;
+        str_leading1 = "BT0HDPSKYCNUFLQI78_WM24RE$3V6GJZ1A5OX9";
+        str_leading2 = "wimcr30yxn_48s$d2bakjhzqlt5f9o7v1egu6p";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -3159,10 +3181,12 @@ var set_param_m = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$M", "Y", "_z", "$m", "M_"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 0;
+        arrIndex = 180000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
-        needShuffle = true;
+        // needShuffle = true;
+        str_leading1 = "540127$DEUPNAJV_8GF9CQIXOLMKSHZYBR36TW";
+        str_leading2 = "pzt2e8cago6s4_7jmhni5l0$dbwfvr91kxuyq3";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -3396,10 +3420,12 @@ var set_param_n = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$N", "A", "_B", "n$", "n_"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 0;
+        arrIndex = 200000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
-        needShuffle = true;
+        // needShuffle = true;
+        str_leading1 = "K58WZ0QA$XOBM_J29PLHRNG7YEDVF36SUC14IT";
+        str_leading2 = "tbw62aoe83rvgfyijq9p057csnzdxlmhk_$4u1";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -3518,7 +3544,9 @@ var packageName1 = "";  //包名1
 var packageName2 = "";  //包名2
 var packageName3 = "";  //包名3
 var numberToHex=false;  //提取的字符串数组下标是否转化为16进制
-var needShuffle = false; //是否打乱替换的字符串
+// var needShuffle = false; //是否打乱替换的字符串
+var str_leading1 = "";
+var str_leading2 = "";
 var mainJsName = ""; //主文件的名字
 var imgRes1 = "wxloading_atlas";//图片资源文件夹1
 var imgRes2 = "wxlogin_atlas";//图片资源文件夹2
@@ -3670,20 +3698,21 @@ var identifier_create = function (rate) {
             return result;
         };
 
-        var shuffle =  function (array) {
-            for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-            return array;
-        };
-        leading = "ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789";
-        console.log("是否打乱数组：ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789",needShuffle)
-        if(needShuffle){
-            leading = shuffle(Array.from(leading)).join("")
-        }
+        // var shuffle =  function (array) {
+        //     for (var i = array.length - 1; i > 0; i--) {
+        //         var j = Math.floor(Math.random() * (i + 1));
+        //         var temp = array[i];
+        //         array[i] = array[j];
+        //         array[j] = temp;
+        //     }
+        //     return array;
+        // };
+        // leading = "ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789";
+
+        // if(needShuffle){
+            leading = str_leading1;
+        // }
+        console.log("是否打乱数组", leading)
         for (var n = 5; n < 6; n++) {
             for (var m = 0; m < leading.length; m++) {
                 perm(leading.slice(m, m + n), reNameArrObj, globleKeys[3]);
@@ -3707,13 +3736,13 @@ var identifier_create = function (rate) {
         // console.info("全局变量映射关系："+ identifiersRenameMapStr);
 
 
-        leading = "abcdefghijklmnopqrstuvwxyz$_0123456789";
-        console.log("是否打乱数组：abcdefghijklmnopqrstuvwxyz$_0123456789",needShuffle)
+        // leading = "abcdefghijklmnopqrstuvwxyz$_0123456789";
+        leading = str_leading2;
         leading = leading.replace(globleKeys[2], '');
-        if(needShuffle){
-            leading = shuffle(Array.from(leading)).join("")
-        }
-
+        // if(needShuffle){
+        //     leading = shuffle(Array.from(leading)).join("")
+        // }
+        console.log("是否打乱数组",leading)
         //生成混淆用的标识符
         for (var n = 1; n < 7; n++) { //字符数量
             for (var m = 0; m < leading.length; m++) {
@@ -5048,3 +5077,46 @@ gulp.task('imgName', function () {
         .pipe(gulp.dest(sourceUrl + '/'));
 });
 
+var randomstr = function (){
+    function onFile(file, enc, cb) {
+
+        var shuffle =  function (array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        };
+        var leading1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789";
+        var leading2 =  "abcdefghijklmnopqrstuvwxyz$_0123456789";
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
+        cb();
+        this.emit("data", file);
+
+    }
+
+    // 不处理end 使用默认的end
+    return through.obj(onFile)
+}
+
+gulp.task('生成混淆字符串', function () {
+    var sourceUrl = BUILD+ PACK;
+    return gulp.src("")
+        .pipe(randomstr())
+        .pipe(gulp.dest(""));
+})
