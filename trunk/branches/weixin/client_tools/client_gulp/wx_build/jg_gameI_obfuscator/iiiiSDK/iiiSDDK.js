@@ -7,7 +7,7 @@ var config = {
     game_pkg: Q[27543], //布咕微信小程序2包-问道服-林盛典H5
     partner_label: Q[27544],
     partner_id: Q[27545],
-    game_ver: Q[27546],
+    game_ver: "9.0.4",
     is_auth: false, //授权登录
     partner_app_id: 26, // 渠道游戏的标识ID
     partner_mp_id: Q[27547] // 小程序ID，来自微信官方平台
