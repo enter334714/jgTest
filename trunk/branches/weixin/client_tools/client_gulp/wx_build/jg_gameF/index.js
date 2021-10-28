@@ -233,10 +233,12 @@ window.sdkInit = function () {
   AKSDK.init(initData, this.sdkOnInited.bind(this));
 }
 /*sdk初始化回调*/
+var wx_develop = false;
 window.sdkOnInited = function (res) {
   var develop = res.develop;
   // res.game_ver = "1.0.86";
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
+  wx_develop = develop == 1;
   console.log("#初始化成功   提审状态:" + develop + "   是否提审:" + (develop == 1) + "   提审版本号:" + res.game_ver + "   当前版本号:" + window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
   if (!res.game_ver || window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
     console.log("#正式版=============================");
@@ -1074,7 +1076,13 @@ window.enterToGame = function () {
       }
 
       window.MainWX.instance.initPlatdata(platData);
-      new minitool();
+      setTimeout(() => {
+        if(!wx_develop){
+          new minitool();
+        }
+        
+      }, 10000);
+    
     }
   } else {
     console.info("【登录】loadProbPkg:" + window.loadProbPkg + ",loadMainPkg:" + window.loadMainPkg + ",loadServerRes:" + window.loadServerRes + ",loadLoadingRes:" + window.loadLoadingRes + ",loadVersion:" + window.loadVersion + ",loadServer:" + window.loadServer + ",isCheckBan:" + window.isCheckBan + ",loadOption:" + window.loadOption);
