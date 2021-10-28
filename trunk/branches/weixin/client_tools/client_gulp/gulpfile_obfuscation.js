@@ -3418,7 +3418,7 @@ var set_param_n = function () {
         strFilePath = "/nres";
         strFileName = "/nfiles.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
-        globleKeys = ["$N", "A", "_B", "n$", "n_"];
+        globleKeys = ["$N", "A", "_B", "_n", "n_"];
         noReplaceJs = packageName1+"/game.js";
         arrIndex = 200000;
         globleArrs = new Array(arrIndex);
@@ -4075,7 +4075,7 @@ var js_babel = function () {
 
                         //J包 不需要自动创建角色 修改自动创角函数 返回false;
                         if((PREFIX == "k$" || PREFIX == "J_") && name == "isAutoCreRole" && right.type == "FunctionExpression" && right.body.body[0].argument.type != "NumericLiteral"){
-                            console.log("name:",name);
+                            console.log("替换isAutoCreRole name:",name);
                             var resultStatement = babel_types.returnStatement(babel_types.numericLiteral(0));
                             var block = babel_types.blockStatement([resultStatement]);
                             var func= babel_types.functionExpression(null,[],block);//;//arrowFunctionExpression([],block)
@@ -5091,19 +5091,6 @@ var randomstr = function (){
         };
         var leading1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789";
         var leading2 =  "abcdefghijklmnopqrstuvwxyz$_0123456789";
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
-        console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
         console.log("leading1:",shuffle(Array.from(leading1)).join(""),"leading2:",shuffle(Array.from(leading2)).join(""))
         cb();
         this.emit("data", file);
