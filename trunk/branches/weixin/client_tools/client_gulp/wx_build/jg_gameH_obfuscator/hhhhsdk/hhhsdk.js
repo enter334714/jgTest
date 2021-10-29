@@ -7,7 +7,7 @@ var config = {
     game_pkg: O[96], //布咕--问道服-武林盛典online
     partner_label: O[97],
     partner_id: O[98],
-    game_ver: O[99],
+    game_ver: "8.0.10",
     is_auth: false, //授权登录
     partner_app_id: 28, // 渠道游戏的标识ID
     partner_mp_id: O[100] // 小程序ID，来自微信官方平台

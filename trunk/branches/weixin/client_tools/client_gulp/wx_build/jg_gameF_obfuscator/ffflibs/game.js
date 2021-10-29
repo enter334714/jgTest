@@ -1,2 +1,2 @@
 var k = wx.$f;
-require("fffgame.js");
+require(k[86637]);
