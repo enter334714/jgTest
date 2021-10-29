@@ -1,2 +1,2 @@
 var b = wx.$e;
-require("eeegame.js");
+require(b[66891]);
