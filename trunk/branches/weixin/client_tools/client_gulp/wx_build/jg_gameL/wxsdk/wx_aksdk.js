@@ -933,7 +933,7 @@ function mainSDK() {
         // 微端小助手
         weiduanHelper: function() {
             var da = new Dall()
-            da.stebutonanimation(config.partner_id,config.game_pkg);
+            da.stebutonanimation(config.partner_id,config.game_pkg,config.game_id);
         },
     }
 }
