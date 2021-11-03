@@ -1,2 +1,2 @@
 var W = wx.$l;
-require("LLLLGAME.js");
+require(W[0]);

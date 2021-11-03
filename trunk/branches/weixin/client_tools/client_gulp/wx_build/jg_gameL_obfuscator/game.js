@@ -1,4 +1,4 @@
-﻿var W = wx.$l;
+var W = wx.$l;
 import 'srcds312/lllWEASAF.js';console.info("1 \u521d\u59cb\u5316");
 var VSHADER_SOURCE = 'attribute vec4 a_Position;\n' + 'attribute vec2 a_TexCoord;\n' + 'varying vec2 v_TexCoord;\n' + 'void main() {\n' + '  gl_Position = a_Position;\n' + '  v_TexCoord = a_TexCoord;\n' + '}\n';
 
@@ -64,7 +64,7 @@ function render() {
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 }
 render();
-window.$LVTG_C = setInterval(function () {
+window.$LBTD0H = setInterval(function () {
   render();
 }, 16);
 wx.showLoading({ title: "\u6b63\u5728\u52a0\u8f7d" });
@@ -95,10 +95,10 @@ wx.y$ = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({
 });
 //监听小游戏切前台事件
 wx.onShow(function (res) {
-  window.$LGT_ = res;
-  if (window.$LG_T && window.$LGT_) {
-    console.info("小游戏切前台事件，场景值：" + window.$LGT_.scene);
-    window.$LG_T(window.$LGT_);
-    window.$LGT_ = null;
+  window.$LDT0 = res;
+  if (window.$LD0T && window.$LDT0) {
+    console.info("小游戏切前台事件，场景值：" + window.$LDT0.scene);
+    window.$LD0T(window.$LDT0);
+    window.$LDT0 = null;
   }
 });
