@@ -5276,6 +5276,23 @@ gulp.task('DEL_REFUSEFILE_N', function (cb) {
     sequence("set-param-n","DEL_REFUSEFILE",cb)
 });
 
+gulp.task('CREATE_REFUSEFILE_O', function (cb) {
+    sequence("set-param-O","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_O', function (cb) {
+    sequence("set-param-O","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_P', function (cb) {
+    sequence("set-param-P","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_P', function (cb) {
+    sequence("set-param-P","DEL_REFUSEFILE",cb)
+});
+
+
 //无网络 使用这个图片压缩
 gulp.task('gulp-imagemin', function (cb) {
     sourceProject = "wx_build/jg_gameE_new";

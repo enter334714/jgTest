@@ -1,2 +1,2 @@
 var W = wx.$l;
-require(W[0]);
+require(W[27223]);
