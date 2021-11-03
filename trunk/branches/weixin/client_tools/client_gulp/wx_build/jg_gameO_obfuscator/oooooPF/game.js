@@ -1,0 +1,2 @@
+var c = wx.$o;
+require('oobBF.js'), window['protobuf'][c[237800]]['Long'] = null, window['client_pb'] = require('oooCLIENTPB.js'), window['protobufRoot'] = window['protobuf']['Root']['fromJSON'](client_pb);
