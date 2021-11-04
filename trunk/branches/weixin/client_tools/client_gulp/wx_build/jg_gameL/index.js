@@ -11,8 +11,8 @@ window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
 window.PF_INFO = {
-  base_cdn: "https://cdn-gz-jg.sh9130.com/weixin_0/",
-  cdn: "https://cdn-gz-jg.sh9130.com/weixin_0/",
+  base_cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
+  cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
 }
 
 PF_INFO.pay_infos = {}
@@ -154,11 +154,27 @@ window.toEnterGame = function(value) {
   window.ServerLoading.instance.closeLoading();
 }
 
-window.onApiError = function(info) {
-  console.log('on api error');
+window.onApiError = function(str) {
+  // console.log('on api error');
   // AKSDK.logout(function(){});
   window.loginAlert('on api error');
-  clientlog(info ? info : '{"error": "on api error"}');
+  var info = {
+    id: window.PF_INFO.roleId,
+    role: window.PF_INFO.roleName,
+    level: window.PF_INFO.roleLevel,
+    account: window.PF_INFO.account,
+    version: window.PF_INFO.lastVersion,
+    cdn: window.PF_INFO.cdn,
+    pkgName: window.PF_INFO.pkgName,
+    gamever: window.config.game_ver,
+    serverid: (window.PF_INFO.selectedServer ? window.PF_INFO.selectedServer.server_id : 0),
+    systemInfo: window.systemInfo,
+    error: "onApiError",
+    stack: str ? str : "on api error",
+  }
+  var infostr = JSON.stringify(info);
+  console.error("API错误："+ infostr);
+  window.clientlog(infostr);
 }
 window.reqRecordError = function(str) {
   var info = JSON.parse(str);
@@ -167,21 +183,22 @@ window.reqRecordError = function(str) {
   info.systemInfo = window.systemInfo;
   var infostr = JSON.stringify(info);
   console.error("上报错误："+ infostr);
-  clientlog(infostr);
+  window.clientlog(infostr);
 }
-window.reqRecordInfo = function(str) {
+window.reqRecordInfo = function(error, stack) {
   var info = {
     id: window.PF_INFO.roleId,
     role: window.PF_INFO.roleName,
     level: window.PF_INFO.roleLevel,
-    user: window.PF_INFO.account,
+    account: window.PF_INFO.account,
     version: window.PF_INFO.lastVersion,
     cdn: window.PF_INFO.cdn,
     pkgName: window.PF_INFO.pkgName,
     gamever: window.config.game_ver,
     serverid: (window.PF_INFO.selectedServer ? window.PF_INFO.selectedServer.server_id : 0),
     systemInfo: window.systemInfo,
-    error: str,
+    error: error,
+    stack: stack,
   }
   var infostr = JSON.stringify(info);
   console.warn("上报信息："+ infostr);
@@ -218,7 +235,7 @@ window.guild = function() {
 }
 /*sdk初始化*/
 window.sdkInit = function() {
-  console.log("#SDK 初始化：")
+  console.log("#SDK 初始化：");
   var cfg = AKSDK.getConfig();
   PF_INFO.channel = cfg.partner_id;
   PF_INFO.channelNum = cfg.partner_id;
@@ -271,15 +288,17 @@ window.sdkOnInited = function(res) {
   this.loadVersionConfig();
   this.reqPkgOptions();
 
+  window.sdkLoginRetry = 5;
   wxShowLoading({ title: '正在登录账号' });
   AKSDK.login(this.sdkOnLogin.bind(this));
 }
+window.sdkLoginRetry = 5;
 /*sdk登录回调*/
 window.sdkOnLogin = function(status, data) {
-  wxShowLoading({ title: '正在验证账号' });
-  if (status === 0 && data && data.token) {
+  if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
     var self = this;
+    wxShowLoading({ title: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {
       'platform': PF_INFO.sdk_name,
       'partner_id': PF_INFO.partnerId,
@@ -289,16 +308,19 @@ window.sdkOnLogin = function(status, data) {
       'scene': 'WX_'+ PF_INFO.from_scene,
     }, this.onUserLogin.bind(this), apiRetryAmount, onApiError);
   } else {
-    clientlog(JSON.stringify({
-      account: PF_INFO.account,
-      pkgName: PF_INFO.pkgName,
-      error: "sdkOnLoginError",
-      stack: JSON.stringify({
-        status: status,
-        data: data
-      })
-    }));
-    window.loginAlert("登录/注册失败" + (data&&data.errMsg ? "，"+data.errMsg : ""));
+    if (data && data.errMsg && window.sdkLoginRetry > 0 && (
+      data.errMsg.indexOf("fail interrupted") != -1 || 
+      data.errMsg.indexOf("network api interrupted") != -1 || 
+      data.errMsg.indexOf("Network Error") != -1 || 
+      data.errMsg.indexOf("ERR_TIMED_OUT") != -1 || 
+      data.errMsg.indexOf("ERR_CONNECTION_ABORTED") != -1 || 
+      data.errMsg.indexOf("ERR_CONNECTION_RESET") != -1)) { //可以自动重试的失败  network api interrupted in suspend state(小程序退后台之后发起网络请求)
+      window.sdkLoginRetry--;
+      AKSDK.login(this.sdkOnLogin.bind(this));
+    } else {
+      window.reqRecordInfo("sdkOnLoginError", JSON.stringify({ status: status, data: data }));
+      window.loginAlert("登录/注册失败" + (data&&data.errMsg ? "，"+data.errMsg : ""));
+    }
   }
 }
 
@@ -396,9 +418,13 @@ window.loadVersionConfig = function() {
       window.loginAlert('User.getCdnVersion failed: version=' + (response.data&&response.data.version));
       return;
     }
-    PF_INFO.base_cdn = (response.data.cdn_url&&response.data.cdn_url.length ? response.data.cdn_url : PF_INFO.base_cdn);
-    PF_INFO.cdn = (response.data.cdn_url&&response.data.cdn_url.length ? response.data.cdn_url : PF_INFO.cdn);
-    PF_INFO.lastVersion = response.data.version || PF_INFO.lastVersion;
+    if (response.data.cdn_url && response.data.cdn_url.length > 10) {
+        PF_INFO.base_cdn = response.data.cdn_url;
+        PF_INFO.cdn = response.data.cdn_url;
+    }
+    if (response.data.version) {
+        PF_INFO.lastVersion = response.data.version;
+    }
     console.info("lastVersion:"+PF_INFO.lastVersion+", version_name:"+PF_INFO.version_name);
     window.loadVersion = true;
     window.initMain();
@@ -406,7 +432,7 @@ window.loadVersionConfig = function() {
   });
 }
 
-// 请求隐私、超级VIP、微信公众号信息
+// 请求隐私、超级VIP、公众号信息
 window.pkgOptions
 window.reqPkgOptions = function() {
   sendApi(PF_INFO.apiurl, 'Common.get_option_pkg', { 
@@ -553,10 +579,10 @@ window.toRealName = function(callback) {
 
 }
 
-//调起分享（微信）
+//调起分享
 window.openShare = function(callback){
   AKSDK.share('share', function (data) {
-      callback(data);
+      callback && callback(data);
   }); 
 }
 //调起客服
@@ -580,7 +606,7 @@ window.onShow = function(callback){
     window.onShowData = null;
   }
 }
-//微信获取邀请者
+//获取邀请者
 window.reqPlayerAskInfo = function(packageName, role_id, serverId, callBack) {
   window.send('https://sdk.sh9130.com/game/?ct=min&ac=getInviter', {
     'game_pkg': window.PF_INFO.pkgName, 
@@ -718,16 +744,11 @@ window.send = function(url, data, callBack, retryAmount, errorCB, checkSuccess, 
       } else {
         if (errorCB) {
           errorCB(JSON.stringify({
-            account: PF_INFO.account,
-            pkgName: PF_INFO.pkgName,
-            error: "onApiError",
-            stack: JSON.stringify({
               url: url,
               status: xhr.status,
               response: xhr.response,
               responseType: xhr.responseType
-            })
-          }));
+            }));
         }
       }
     }
@@ -830,6 +851,15 @@ window.reqServerOwnerCallBack = function(data) {
   } else {
     window.loginAlert("reqServerOwnerCallBack " + data.state);
   }
+}
+window.req_server_owner_status = function(callback) {
+  sendApi(PF_INFO.apiurl, 'Server.getServerByUid', {
+    'partner_id': PF_INFO.partnerId,
+    'uid': PF_INFO.account,
+    'version': PF_INFO.version,
+    'game_pkg': PF_INFO.pkgName,
+    'device': PF_INFO.device_id,
+  }, callback, apiRetryAmount, onApiError);
 }
 
 window.req_server_list = function(step, group_id) {
@@ -1050,7 +1080,6 @@ window.enterToGame = function() {
         channel: window.PF_INFO.channel,
         account: window.PF_INFO.account,
         userId: window.PF_INFO.userId,
-        serverId: selectedServer.server_id,
         cdn: window.PF_INFO.cdn,
         data: window.PF_INFO.data,
         package: window.PF_INFO.package,

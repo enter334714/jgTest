@@ -3,8 +3,9 @@ var config = {
     game_id: '256', //伏魔西游 -官包
     game_pkg: 'tjqy_tjqyfmxy_GR',
     partner_id: '19',
-    game_ver: '11.0.3',  //B包11.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '11.0.7',  //L包11.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false,  //授权登录
+    from: null, //来源
     //1活动开启通知 2.活动状态提醒 3.离线收益上限提醒
     tmpId: {1:'L7OrwbNJkcOJhe5iikwV6QQubLUeFgGHG0SO6rpLdvo', 2:'06f-cBAmoX_GIJ0VlVHNVpmFO8avojaRor6-alzpBBg', 3:'DLW3vyySJD-DZ7P0BT2q00NAtzuPZMkzuf1EARmrsBM'},  // 订阅的类型 和 模板id
     min_app_id: '',
@@ -19,6 +20,9 @@ var t_max = 300;
 var user_game_info = null;
 var user_invite_info = null;
 var this_order_id = null;
+var checkHandler = null;
+var loginHandler = null;
+var requestCallback = false;
 
 function mainSDK() {
     var callbacks = {};
@@ -45,14 +49,27 @@ function mainSDK() {
                 wx.setStorageSync('plat_idfv', idfv);
             }
 
+
             var info = wx.getLaunchOptionsSync();
             var scene = info.scene ? info.scene : '';
-
+            console.log("[SDK]小游戏启动参数");
+            console.log(info);
 
             //判断今天是否已经上报过
             if(is_new && info.query && info.query.ad_code){
                 wx.setStorageSync('plat_ad_code', info.query.ad_code);
             }
+
+            //用户来源，如："txcps"
+            if(info.query && info.query.from && info.query.from!=""){
+                if (is_new) wx.setStorageSync('plat_from', info.query.from);
+                config.from = info.query.from;
+            } else {
+                var from = wx.getStorageSync('plat_from');
+                if(!from && from!="") config.from = from;
+            }
+            // config.from = "txcps"
+            console.log("from: "+ config.from);
 
             var data = {
                 install: is_new,
@@ -60,8 +77,10 @@ function mainSDK() {
             };
             self.log('start', data);
 
+
             //显示右上角分享按钮
             wx.showShareMenu();
+
 
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
@@ -89,7 +108,7 @@ function mainSDK() {
             console.log("[SDK]调起登录");
             var self = this;
             callbacks['login'] = typeof callback == 'function' ? callback : null;
-
+            
             //授权登录
             if(config.is_auth){
                 wx.getSetting({
@@ -100,9 +119,6 @@ function mainSDK() {
                         }else{
                             console.log("[SDK]获得授权设置：未授权");
                             wx.hideLoading({});
-                            // setTimeout(() => {
-                            //     wx.hideLoading();
-                            // }, 1000);
                             var system_info = wx.getSystemInfoSync();
                             var screen_width = system_info.screenWidth;
                             var screen_height = system_info.screenHeight;
@@ -161,7 +177,6 @@ function mainSDK() {
                     console.log("微信登录成功返回" + JSON.stringify(res));
                     if (res.code) {
                         //发起网络请求
-
                         var public_data = self.getPublicData();
                         public_data['is_from_min'] = 1;
                         public_data['code'] = res.code;
@@ -250,6 +265,7 @@ function mainSDK() {
                                 }
                             });
                         } else {
+                            var lastTime = Date.now();
                             wx.request({
                                 url: 'https://' + HOST + '/partner/auth',
                                 method: 'POST',
@@ -261,6 +277,9 @@ function mainSDK() {
                                 success: function (res) {
                                     console.log("[SDK]登录结果：");
                                     console.log(res);
+                                    requestCallback = true;
+                                    if (loginHandler) clearTimeout(loginHandler);
+                                    loginHandler = null;
                                     if(res.statusCode == 200){
                                         var data = res.data;
                                         if(data.state){
@@ -288,7 +307,7 @@ function mainSDK() {
 
                                             callbacks['login'] && callbacks['login'](0, userData);
                                         }else{
-                                            callbacks['login'] && callbacks['login'](1, {errMsg: data.msg});
+                                            callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: data.msg, time: (Date.now()-lastTime), res: res});
                                         }
 
                                         //登录成功，加载右上角分享数据
@@ -305,21 +324,41 @@ function mainSDK() {
                                             });
                                         });
                                     }else{
-                                        callbacks['login'] && callbacks['login'](1, {errMsg: '请求平台服务器失败！'});
+                                        callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: '请求平台服务器失败！', time: (Date.now()-lastTime), res: res});
                                     }
+                                },
+                                fail: function(res){
+                                    console.log("[SDK]登录失败");
+                                    console.log(res);
+                                    self.log('event', {event: 'login_exception'});
+                                    requestCallback = true;
+                                    if (loginHandler) clearTimeout(loginHandler);
+                                    loginHandler = null;
+                                    callbacks['login'] && callbacks['login'](1, {type: "wx.request.fail", errMsg: res.errMsg, time: (Date.now()-lastTime), res: res});
                                 }
                             });
+                            if (!requestCallback) {
+                                var timeOutFunc = function() {
+                                    console.log("[SDK]登录超时");
+                                    self.log('event', {event: 'login_time_out'});
+                                    callbacks['login'] && callbacks['login'](1, {type: "wx.request", errMsg: "登录超时20秒无返回", time: (Date.now()-lastTime)});
+                                    callbacks['login'] = null; //回调后置空，以免success或fail里重复回调
+                                }
+                                loginHandler = setTimeout(timeOutFunc, 20000);
+                            }
                         }
                     } else {
-                        callbacks['login'] && callbacks['login'](1, {errMsg: res.errMsg});
+                        callbacks['login'] && callbacks['login'](1, {type: "wx.login.success", errMsg: res.errMsg, res: res});
                     }
                 },
                 fail: function (res) {
                     console.log("微信登录失败" + JSON.stringify(res));
                     // iOS 和 Android 对于拒绝授权的回调 errMsg 没有统一，需要做一下兼容处理
-                    if (res.errMsg.indexOf('auth deny') > -1 ||     res.errMsg.indexOf('auth denied') > -1 ) {
+                    if (res.errMsg.indexOf('auth deny') > -1 || res.errMsg.indexOf('auth denied') > -1 ) {
                         // 处理用户拒绝授权的情况
-                        callbacks['login'] && callbacks['login'](1, {errMsg: res.errMsg});
+                        callbacks['login'] && callbacks['login'](1, {type: "wx.login.fail", errMsg: res.errMsg, res: res});
+                    } else {
+                        callbacks['login'] && callbacks['login'](1, {type: "wx.login.fail", errMsg: res.errMsg, res: res});
                     }
                 }
             });
@@ -370,6 +409,7 @@ function mainSDK() {
 
         checkGameVersion: function (game_ver, callback) {
             console.log("[SDK]检查游戏版本");
+            callbacks['check'] = typeof callback == 'function' ? callback : null;
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
                 url: 'https://' + HOST + '/game/min/?ac=checkGameVersion',
@@ -384,24 +424,40 @@ function mainSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[SDK]获取游戏版本结果");
+                    console.log("[SDK]获取游戏版本成功");
                     console.log(res);
+                    requestCallback = true;
+                    if (checkHandler) clearTimeout(checkHandler);
+                    checkHandler = null;
                     if(res.statusCode == 200){
                         var data = res.data;
                         config.min_app_id = data.data.min_app_id;
                         if(data.state){
-                            callback && callback(data.data);
+                            callbacks['check'] && callbacks['check'](data.data);
                         }else{
-                            callback && callback({develop: 0});
+                            callbacks['check'] && callbacks['check']({develop: 0});
                         }
                     }else{
-                        callback && callback({develop: 0});
+                        callbacks['check'] && callbacks['check']({develop: 0});
                     }
                 },
                 fail: function(res){
+                    console.log("[SDK]获取游戏版本失败");
                     console.log(res);
+                    requestCallback = true;
+                    if (checkHandler) clearTimeout(checkHandler);
+                    checkHandler = null;
+                    callbacks['check'] && callbacks['check']({develop: 0});
                 }
             });
+            if (!requestCallback) {
+                var timeOutFunc = function() {
+                    console.log("[SDK]获取游戏版本超时");
+                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
+                }
+                checkHandler = setTimeout(timeOutFunc, 10000);
+            }
         },
 
         getShareInfo: function (type, callback) {
@@ -525,8 +581,6 @@ function mainSDK() {
             }
 
             var sysInfo = wx.getSystemInfoSync();
-
-
             var order_data = {
                 cpbill: data.cpbill,
                 productid: data.productid,
@@ -597,17 +651,15 @@ function mainSDK() {
                             }else{
                                 self.minPay(data.data);
                             }
-
                         }else{
                             callbacks['pay'] && callbacks['pay'](1, {errMsg: data.msg});
                         }
                     }else{
-                        callbacks['login'] && callbacks['login'](1, {errMsg: '请求平台服务器失败！'});
+                        callbacks['pay'] && callbacks['pay'](1, {errMsg: '请求平台服务器失败！'});
                     }
                 }
             });
         },
-
         xiaoPay: function(data){
             var self = this;
             wx.navigateToMiniProgram({
@@ -622,7 +674,6 @@ function mainSDK() {
                 }
             })
         },
-
         //小程序支付
         minPay: function (data) {
             //正式调起微信支付
@@ -898,7 +949,15 @@ function mainSDK() {
             console.log(public_data);
 
             wx.request({
-                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data))
+                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data)),
+                success: function (res) {
+                    // console.log("[SDK]上报数据成功");
+                    // console.log(res);
+                },
+                fail: function(res){
+                    // console.log("[SDK]上报数据失败");
+                    // console.log(res);
+                }
             });
         },
 
