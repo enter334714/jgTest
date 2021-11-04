@@ -3892,7 +3892,7 @@ var set_param_P = function () {
         strFilePath = "/pres";
         strFileName = "/pfiles.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
-        globleKeys = ["$p", "e", "_f", "_p", "p_"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        globleKeys = ["$p", "E", "_F", "_p", "p_"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
         noReplaceJs = packageName1+"/game.js";
         arrIndex = 240000;
         globleArrs = new Array(arrIndex);
@@ -4975,7 +4975,7 @@ gulp.task('MT1_build_minify', function () {
         srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/utils/**/*.js',"!" + sourceUrl + '/**/'+mainJsName];
     }
     var stream = gulp.src(srcs)
-        .pipe(js_minify())
+        // .pipe(js_minify())
         .pipe(gulp.dest(sourceUrl + '/'))
     return stream;
 });
