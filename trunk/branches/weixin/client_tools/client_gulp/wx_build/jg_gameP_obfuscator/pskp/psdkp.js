@@ -492,7 +492,7 @@ function _pX32$F() {
             var role_info = {};
             role_info[E[264177]] = uid;
             role_info[E[264178]] = username;
-            role_info[E[251316]] = data.roleid;
+            role_info[E[251991]] = data.roleid;
             role_info[E[264179]] = data.rolelevel;
             role_info[E[264180]] = data.rolename;
             role_info[E[240089]] = data.serverid;
@@ -554,7 +554,7 @@ function _pX32$F() {
             var role_info = {};
             role_info[E[264177]] = uid;
             role_info[E[264178]] = username;
-            role_info[E[251316]] = data.roleid;
+            role_info[E[251991]] = data.roleid;
             role_info[E[264179]] = data.rolelevel;
             role_info[E[264180]] = data.rolename;
             role_info[E[240089]] = data.serverid;
@@ -584,7 +584,7 @@ function _pX32$F() {
             var role_info = {};
             role_info[E[264177]] = uid;
             role_info[E[264178]] = username;
-            role_info[E[251316]] = data.roleid;
+            role_info[E[251991]] = data.roleid;
             role_info[E[264179]] = data.rolelevel;
             role_info[E[264180]] = data.rolename;
             role_info[E[240089]] = data.serverid;
@@ -621,7 +621,7 @@ function _pX32$F() {
         shareConfig: function (callback) {
             var data = {
                 'code': 1,
-                'msg': E[261804],
+                'msg': E[262469],
                 'data': {
                     is_push: true
                 }
@@ -650,7 +650,7 @@ function _pX32$F() {
                             game_list[i] = Object();
                             game_list[i]['jump_path'] = game_list_init[i]['jump_path'];
                             game_list[i]['panel'] = i + 1;
-                            game_list[i]['pic'] = game_list_init[i][E[255659]];
+                            game_list[i]['pic'] = game_list_init[i][E[256333]];
                             game_list[i]['to_appid'] = game_list_init[i]['jump_appid'];
                             game_list[i][E[264185]] = game_list_init[i][E[240191]];
                             game_list[i]['jump_type'] = game_list_init[i]['jump_type'];

@@ -125,8 +125,8 @@ const Sygame = {
                 wx.showModal({
                   title: ret.data.jump_title_tip ? ret.data.jump_title_tip : E[264103],
                   content: ret.data.jump_tip ? ret.data.jump_tip.replace(/\\n/g, '\n') : E[264104],
-                  confirmText: ret.data.jump_button_tip ? ret.data.jump_button_tip : E[250271],
-                  cancelText: ret.data.jump_cancel_tip ? ret.data.jump_cancel_tip : E[250272],
+                  confirmText: ret.data.jump_button_tip ? ret.data.jump_button_tip : E[250946],
+                  cancelText: ret.data.jump_cancel_tip ? ret.data.jump_cancel_tip : E[250947],
                   showCancel: showCancelType,
                   success: res => {
                     if (res.cancel) {
@@ -164,7 +164,7 @@ const Sygame = {
                           wx.showModal({
                             title: E[264103],
                             content: ret.data.jump_tip ? ret.data.jump_tip : E[264104],
-                            confirmText: E[250271],
+                            confirmText: E[250946],
                             showCancel: false,
                             success: () => {
                               wx.previewImage({
@@ -184,7 +184,7 @@ const Sygame = {
                           wx.showModal({
                             title: E[264103],
                             content: ret.data.jump_tip ? ret.data.jump_tip : E[264104],
-                            confirmText: E[250271],
+                            confirmText: E[250946],
                             showCancel: false,
                             success: () => {
                               wx.setClipboardData({
@@ -221,7 +221,7 @@ const Sygame = {
                 wx.showModal({
                   title: E[264105],
                   content: ret.data.game_tip ? ret.data.game_tip : E[264106],
-                  confirmText: E[250271],
+                  confirmText: E[250946],
                   showCancel: false,
                   success: () => {
                     console.log(E[264107], ret);
@@ -231,7 +231,7 @@ const Sygame = {
                   wx.showModal({
                     title: E[264105],
                     content: ret.data.game_tip ? ret.data.game_tip : E[264106],
-                    confirmText: E[250271],
+                    confirmText: E[250946],
                     showCancel: false,
                     success: () => {
                       console.log(E[264107], ret);
@@ -246,7 +246,7 @@ const Sygame = {
         }
       },
       fail: function () {
-        console.log(E[261537]);
+        console.log(E[262203]);
       }
     });
   }),
@@ -305,8 +305,8 @@ const Sygame = {
                 wx.showModal({
                   title: E[264110],
                   content: res.data.midas_pay_tip,
-                  confirmText: E[250271],
-                  showCancel: E[250272],
+                  confirmText: E[250946],
+                  showCancel: E[250947],
                   success: ret => {
                     if (ret.confirm) {
                       data.is_buckle_pay = 1;
@@ -368,8 +368,8 @@ const Sygame = {
         wx.showModal({
           title: E[240317],
           content: res.data.tip,
-          confirmText: E[250271],
-          showCancel: E[250272],
+          confirmText: E[250946],
+          showCancel: E[250947],
           success: ret => {
             if (ret.confirm) {}
           }
@@ -512,7 +512,7 @@ const Sygame = {
    */
   syClickBox: data => new Promise(function (reslove, reject) {
     // 判断用户是否点击
-    var clickBox = E[259864] + data.game_id;
+    var clickBox = E[260537] + data.game_id;
     var isClick = Sygame.cookieData({ type: E[240507], 'key': clickBox });
     var uv = isClick ? 0 : 1;
     wx.request({
