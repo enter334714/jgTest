@@ -3946,7 +3946,7 @@ var set_param_Q = function () {
 
         DEST = '../../client/wx_dist/packageQ/';
         BUILD = 'wx_build/';
-        PACK = 'jg_gameQ;
+        PACK = 'jg_gameQ';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
         PREFIX = 'q';
