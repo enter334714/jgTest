@@ -1,0 +1,2 @@
+var K = wx.$S;
+require('sBFss.js'), window[K[318424]][K[318425]][K[318426]] = null, window['client_pb'] = require('sCLIENTss.js'), window[K[316618]] = window[K[318424]][K[316578]][K[316579]](client_pb);

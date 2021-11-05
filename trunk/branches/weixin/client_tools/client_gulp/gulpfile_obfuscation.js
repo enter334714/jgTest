@@ -4597,14 +4597,14 @@ var set_param_S = function () {
         strFilePath = "/sses";
         strFileName = "/ssiles.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
-        globleKeys = ["$S", "K", "_L", "_s", "s_"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        globleKeys = ["$S", "K", "_L", "s$", "s"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
         noReplaceJs = packageName1+"/game.js";
         arrIndex = 300000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         // needShuffle = true;
-        str_leading1 = "4IJSTB0OD5G$LR6A_K9Q2MXZP7F8CVNHWEYU31";
-        str_leading2 = "hoz6rnqsdvtce1wlpauy8g_kfmbx2i43705$j9";
+        str_leading1 = "MTPX4H3IZUCJWO7L9DV25B6N$EK_YRAS0G81FQ";
+        str_leading2 = "7tn2mxi_c0w9kzvo3rue4$ad5hyspqgj18b6lf";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
