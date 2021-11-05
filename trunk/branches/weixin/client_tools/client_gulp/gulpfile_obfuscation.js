@@ -4205,7 +4205,7 @@ var set_param_R = function () {
             "libs/libs.min.js":  {url:packageName1+"/rrLIB12r.js",extractStr:false,count:5,strLen:3},
             "libs/md5.min.js":  {url:packageName1+"/rsfs32r.js"},
             "libs/sax.js":  {url:packageName1+"/rS12r.js"},
-            "libs/weapp-adapter.js":  {url:"pa1/rWE41r.js"},
+            "libs/weapp-adapter.js":  {url:"r2a1/rWE41r.js"},
             "libs/zlib.js":  {url:packageName1+"/rr12rr.js"},
             "wxsdk":  {url:"RskRR"},
             "wxsdk/wx_aksdk.js":  {url:"RskRR/rs6kr.js",extractStr:true,count:1,strLen:3},
