@@ -4403,7 +4403,7 @@ gulp.task('build-babel-obfuscator-R', function (cb) {
 
 /**-------------------------------------------------微信小游戏--R包 盛也-王女异闻录online  END-----------------------------------------------------------*/
 
-/**-------------------------------------------------微信小游戏--S包  盛也-王女异闻录HD start-----------------------------------------------------------*/
+/**-------------------------------------------------微信小游戏--T包  盛也-王女异闻录HD start-----------------------------------------------------------*/
 
 /**S包参数*/
 var set_param_S = function () {
@@ -4638,6 +4638,239 @@ gulp.task('build-babel-obfuscator-S', function (cb) {
 
 /**-------------------------------------------------微信小游戏--S包 盛也-王女异闻录HD end-----------------------------------------------------------*/
 
+/**-------------------------------------------------微信小游戏--T包 官方-苍月之戒 start-----------------------------------------------------------*/
+
+/**T包参数*/
+var set_param_S = function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = '../../client/wx_dist/packageT/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameT';
+        INIT_PATH = '/';
+        // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
+        PREFIX = 't';
+        sourceProject = "wx_build/jg_gameT_new";
+        targetProject = "wx_build/jg_gameT_obfuscator";
+        targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
+        mainJsName = "ttMAItttt.js";
+        libsMainJs = "tGAMEtt.js";
+        packageName1 = "tIBSt";
+        packageName2 = "tpft";
+        packageName3 = "ttttttt";
+        var clinetPbName = "tCLIENTtt.js";
+        filesMap = {
+            //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
+            "libs": {url:packageName1},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
+            "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
+            "index.js": {url:packageName1+"/tINDtt.js",extractStr:true,count:1,strLen:3},
+            "init.min.js":  {url:packageName1+"/ttINItt.js",extractStr:true,count:1,strLen:3,replace:true},
+            "libs/dom.js":  {url:packageName1+"/ttDOtt.js"},
+            "libs/dom_parser.js":  {url:packageName1+"/ttparstt.js"},
+            "libs/laya.wxmini.js":  {url:packageName1+"/tWXMtadtt.js"},
+            "libs/libs.min.js":  {url:packageName1+"/ttLIB23tt.js",extractStr:false,count:5,strLen:3},
+            "libs/md5.min.js":  {url:packageName1+"/ttfttt.js"},
+            "libs/sax.js":  {url:packageName1+"/tT12tt.js"},
+            "libs/weapp-adapter.js":  {url:"ta11/stE4tt.js"},
+            "libs/zlib.js":  {url:packageName1+"/tt12tt.js"},
+            "wxsdk":  {url:"ttkttt"},
+            "wxsdk/wx_aksdk.js":  {url:"ttkttt/t6ktgt.js",extractStr:true,count:1,strLen:3},
+            "wxsdk/helper.js":  {url:"ttkttt/ttsstt.js",extractStr:true,count:1,strLen:3},
+            "protobuf":  {url:packageName2},
+            "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:2,strLen:3},
+            "protobuf/protobuf.js":  {url: packageName2 + "/tBFtt.js",extractStr:true,count:2,strLen:3},
+            "protobuf/game.js":  {url: packageName2 + "/game.js",extractStr:true,count:5,strLen:3},
+            "subPackage":  {url:packageName3},
+            "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
+            "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
+
+            //随机创建名字和文件夹
+            "wxloading_atlas": {url:"ttdt"},
+            "wxlogin_atlas": {url:"ttlgrtt"},
+            "wxeff_btn_atlas":{url:"tft"},
+
+
+            "wxloading_atlas/btn_loding_abcelq0.png": {url:"ttdt/t1a.png"},
+            "wxloading_atlas/btn_loding_abcelq1.png": {url:"ttdt/t2a.png"},
+            "wxloading_atlas/image_loading_bg.jpg": {url:"ttdt/t3a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom.jpg": {url:"ttdt/t4a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom2.jpg": {url:"ttdt/t5a.jpg"},
+            "wxloading_atlas/image_loading_bg_left.jpg": {url:"ttdt/t6a.jpg"},
+            "wxloading_atlas/image_loading_bg_left2.jpg": {url:"ttdt/t7a.jpg"},
+            "wxloading_atlas/image_loading_bg_right.jpg": {url:"ttdt/t8a.jpg"},
+            "wxloading_atlas/image_loading_bg_right2.jpg": {url:"ttdt/t9a.jpg"},
+            "wxloading_atlas/image_loading_bg_top.jpg": {url:"ttdt/t10a.jpg"},
+            "wxloading_atlas/image_loading_bg_top2.jpg": {url:"ttdt/t11a.jpg"},
+            "wxloading_atlas/image_loading_bg2.jpg": {url:"ttdt/t12a.jpg"},
+
+
+            "wxloading_atlas/image_loding_bar0.png": {url:"ttdt/t13a.png"},
+            "wxloading_atlas/image_loding_bar1.png": {url:"ttdt/t14a.png"},
+            "wxloading_atlas/image_loding_bar02.png": {url:"ttdt/t15a.png"},
+            "wxloading_atlas/image_loding_bar2.png": {url:"ttdt/t16a.png"},
+            "wxloading_atlas/image_loding_bar3.png": {url:"ttdt/t17a.png"},
+            "wxloading_atlas/image_login_point1.png": {url:"ttdt/t18a.png"},
+            "wxloading_atlas/image_login_point2.png": {url:"ttdt/t19a.png"},
+            "wxloading_atlas/image_login_point3.png": {url:"ttdt/t20a.png"},
+
+
+            "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ttlgrtt/t1b.png"},
+            "wxlogin_atlas/image_login_loginbg.jpg": {url:"ttlgrtt/t2b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_bottom.jpg": {url:"ttlgrtt/t3b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_left.jpg": {url:"ttlgrtt/t4b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_right.jpg": {url:"ttlgrtt/t5b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_top.jpg": {url:"ttlgrtt/t6b.jpg"},
+            "wxlogin_atlas/image_login_logo.png": {url:"ttlgrtt/t7b.png"},
+            "wxlogin_atlas/image_login_notice.png": {url:"ttlgrtt/t8b.png"},
+            "wxlogin_atlas/image_xuanfu_xfbg.png": {url:"ttlgrtt/t9b.png"},
+
+            "wxlogin_atlas/btn_com_chuangback.png": {url:"ttlgrtt/t10b.png"},
+            "wxlogin_atlas/btn_login_gonggao.png": {url:"ttlgrtt/t11b.png"},
+            "wxlogin_atlas/btn_login_loginanniu.png": {url:"ttlgrtt/t12b.png"},
+            "wxlogin_atlas/btn_login_yingsi.png": {url:"ttlgrtt/t13b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniuhuang.png": {url:"ttlgrtt/t14b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniulan.png": {url:"ttlgrtt/t15b.png"},
+            "wxlogin_atlas/btn_xuanqu_quanniu.png": {url:"ttlgrtt/t16b.png"},
+            "wxlogin_atlas/image_com_tuichu.png": {url:"ttlgrtt/t17b.png"},
+            "wxlogin_atlas/image_login_changtong.png": {url:"ttlgrtt/t18b.png"},
+            "wxlogin_atlas/image_login_fanmang.png": {url:"ttlgrtt/t19b.png"},
+            "wxlogin_atlas/image_login_weihu.png": {url:"ttlgrtt/t20b.png"},
+            "wxlogin_atlas/image_login_xuanqubg.png": {url:"ttlgrtt/t21b.png"},
+            "wxlogin_atlas/image_login_init.png": {url:"ttlgrtt/t22b.png"},
+            "wxlogin_atlas/btn_com_chuangback1.png": {url:"ttlgrtt/t23b.png"},
+            "wxlogin_atlas/btn_com_long0.png": {url:"ttlgrtt/t24b.png"},
+            "wxlogin_atlas/btn_com_long1.png": {url:"ttlgrtt/t25b.png"},
+            "wxlogin_atlas/image_login_notice1.png": {url:"ttlgrtt/t26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"ttlgrtt/t27b.png"},
+
+            "wxeff_btn_atlas/0.png": {url:"tft/t1c.png"},
+            "wxeff_btn_atlas/1.png": {url:"tft/t2c.png"},
+            "wxeff_btn_atlas/2.png": {url:"tft/t3c.png"},
+            "wxeff_btn_atlas/3.png": {url:"tft/t4c.png"},
+            "wxeff_btn_atlas/4.png": {url:"tft/t5c.png"},
+        };
+        mt1Replace = {
+            "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
+            "./helper": "./" + "ttsstt",
+            "./sax": "./tT12tt",
+            "./dom": "./ttDOtt",
+            "client_pb.js": clinetPbName,
+            "protobuf.js": "tBFtt.js",
+            "main.min.js": mainJsName,
+            "wxlogin_atlas": "ttlgrtt",
+            "wxeff_btn_atlas": "tft",
+            "wxloading_atlas": "ttdt",
+            // "res/atlas/": "gafda/",
+
+            "btn_loding_abcelq0.png": "t1a.png",
+            "btn_loding_abcelq1.png": "t2a.png",
+            "image_loading_bg.jpg": "t3a.jpg",
+            "image_loading_bg_bottom.jpg": "t4a.jpg",
+            "image_loading_bg_bottom2.jpg": "t5a.jpg",
+            "image_loading_bg_left.jpg": "t6a.jpg",
+            "image_loading_bg_left2.jpg": "t7a.jpg",
+            "image_loading_bg_right.jpg": "t8a.jpg",
+            "image_loading_bg_right2.jpg": "t9a.jpg",
+            "image_loading_bg_top.jpg": "t10a.jpg",
+            "image_loading_bg_top2.jpg": "t11a.jpg",
+            "image_loading_bg2.jpg": "t12a.jpg",
+
+
+            "image_loding_bar0.png": "t13a.png",
+            "image_loding_bar1.png": "t14a.png",
+            "image_loding_bar02.png": "t15a.png",
+            "image_loding_bar2.png": "t16a.png",
+            "image_loding_bar3.png": "t17a.png",
+            "image_login_point1.png": "t18a.png",
+            "image_login_point2.png":"t19a.png",
+            "image_login_point3.png": "t20a.png",
+
+
+
+            "image_denglu_txtshenpi.png": "t1b.png",
+            "image_login_loginbg.jpg": "t2b.jpg",
+            "image_login_loginbg_bottom.jpg": "t3b.jpg",
+            "image_login_loginbg_left.jpg": "t4b.jpg",
+            "image_login_loginbg_right.jpg": "t5b.jpg",
+            "image_login_loginbg_top.jpg": "t6b.jpg",
+            "image_login_logo.png": "t7b.png",
+            "image_login_notice.png": "t8b.png",
+            "image_xuanfu_xfbg.png": "t9b.png",
+
+            "btn_com_chuangback.png": "t10b.png",
+            "btn_login_gonggao.png": "t11b.png",
+            "btn_login_loginanniu.png": "t12b.png",
+            "btn_login_yingsi.png": "t13b.png",
+            "btn_xuanqu_anniuhuang.png": "t14b.png",
+            "btn_xuanqu_anniulan.png": "t15b.png",
+            "btn_xuanqu_quanniu.png": "t16b.png",
+            "image_com_tuichu.png": "t17b.png",
+            "image_login_changtong.png": "t18b.png",
+            "image_login_fanmang.png": "t19b.png",
+            "image_login_weihu.png": "t20b.png",
+            "image_login_xuanqubg.png": "t21b.png",
+            "image_login_init.png": "t22b.png",
+            "btn_com_chuangback1.png": "t23b.png",
+            "btn_com_long0.png":"t24b.png",
+            "btn_com_long1.png":"t25b.png",
+            "image_login_notice1.png":"t26b.png",
+            "image_loding_txtbhcc.png":"t27b.png",
+
+            "0.png": "t1c.png",
+            "1.png": "t2c.png",
+            "2.png": "t3c.png",
+            "3.png": "t4c.png",
+            "4.png": "t5c.png",
+
+        }
+        strFilePath = "/ttes";
+        strFileName = "/ttiles.zip";
+        // globleKeys = ["$e", "w", "x", "E$", "y"];
+        globleKeys = ["$T", "M", "_n", "t$", "t"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        noReplaceJs = packageName1+"/game.js";
+        arrIndex = 320000;
+        globleArrs = new Array(arrIndex);
+        numberToHex = false;
+        // needShuffle = true;
+        str_leading1 = "FM6ZKUSR93APEW47_VJBI05TQNYODLX$GCH128";
+        str_leading2 = "l42tci9v$dpfz7oeq0xy_mhw56183ngrjbaksu";
+        for(var key in  filesMap){
+            var item = filesMap[key];
+            var url = item.url;
+            targetFileMap[url] = item;
+            var repalce = item.replace;
+            if(repalce){
+                replaceMap[url] = true;
+            }
+        }
+        replaceMap[targetGameJs] = true;
+        cb();
+        this.emit("data", file);
+    }
+
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-T', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_T())
+    return stream;
+});
+
+//混淆
+gulp.task('build-babel-obfuscator-T', function (cb) {
+    sequence("set-param-T","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
+
+});
+
+/**-------------------------------------------------微信小游戏--T包 官方-苍月之戒 end-----------------------------------------------------------*/
 
 
 /**文件压缩*/
