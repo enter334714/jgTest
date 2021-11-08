@@ -4641,7 +4641,7 @@ gulp.task('build-babel-obfuscator-S', function (cb) {
 /**-------------------------------------------------微信小游戏--T包 官方-苍月之戒 start-----------------------------------------------------------*/
 
 /**T包参数*/
-var set_param_S = function () {
+var set_param_T = function () {
     function onFile(file, enc, cb) {
         if (file.isStream()) {
             this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
@@ -6254,6 +6254,15 @@ gulp.task('CREATE_REFUSEFILE_S', function (cb) {
 
 gulp.task('DEL_REFUSEFILE_S', function (cb) {
     sequence("set-param-S","DEL_REFUSEFILE",cb)
+});
+
+
+gulp.task('CREATE_REFUSEFILE_T', function (cb) {
+    sequence("set-param-T","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_T', function (cb) {
+    sequence("set-param-T","DEL_REFUSEFILE",cb)
 });
 
 
