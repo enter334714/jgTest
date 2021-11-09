@@ -1732,7 +1732,7 @@ var set_param_g = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$g", "m", "n", "G$", "g"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 80000;
+        arrIndex = 0;//80000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         // needShuffle = true;
@@ -3477,7 +3477,7 @@ var set_param_O = function () {
         PACK = 'jg_gameO';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
-        PREFIX = 'o';
+        PREFIX = 'o$';
         sourceProject = "wx_build/jg_gameO_new";
         targetProject = "wx_build/jg_gameO_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
@@ -3713,7 +3713,7 @@ var set_param_P = function () {
         PACK = 'jg_gameP';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
-        PREFIX = 'p';
+        PREFIX = 'p$';
         sourceProject = "wx_build/jg_gameP_new";
         targetProject = "wx_build/jg_gameP_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
@@ -3949,7 +3949,7 @@ var set_param_Q = function () {
         PACK = 'jg_gameQ';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
-        PREFIX = 'q';
+        PREFIX = 'q$';
         sourceProject = "wx_build/jg_gameQ_new";
         targetProject = "wx_build/jg_gameQ_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
@@ -4183,7 +4183,7 @@ var set_param_R = function () {
         PACK = 'jg_gameR';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
-        PREFIX = 'r';
+        PREFIX = 'r$';
         sourceProject = "wx_build/jg_gameR_new";
         targetProject = "wx_build/jg_gameR_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
@@ -4418,7 +4418,7 @@ var set_param_S = function () {
         PACK = 'jg_gameS';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
-        PREFIX = 's';
+        PREFIX = 's$';
         sourceProject = "wx_build/jg_gameS_new";
         targetProject = "wx_build/jg_gameS_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
@@ -4653,7 +4653,7 @@ var set_param_T = function () {
         PACK = 'jg_gameT';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
-        PREFIX = 't';
+        PREFIX = 't$';
         sourceProject = "wx_build/jg_gameT_new";
         targetProject = "wx_build/jg_gameT_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
@@ -4887,7 +4887,7 @@ var set_param_U = function () {
         PACK = 'jg_gameU';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
-        PREFIX = 'u';
+        PREFIX = 'u$';
         sourceProject = "wx_build/jg_gameU_new";
         targetProject = "wx_build/jg_gameU_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
@@ -5091,7 +5091,7 @@ var set_param_U = function () {
     return through.obj(onFile);
 };
 
-gulp.task('set-param-T', function () {
+gulp.task('set-param-U', function () {
     var stream = gulp.src("")
         .pipe(set_param_U())
     return stream;
@@ -5462,9 +5462,7 @@ var js_checkStrCount =  function () {
                     if(globleKeys.indexOf(tempstr)!= -1){//不需要提取
                         return;
                     }
-                    if(tempstr.indexOf(PREFIX)!= -1){ //不需要提取
-                        return;
-                    }
+
                     var extractStr = config.extractStr || false;
                     if(!extractStr){
                         return;
@@ -5473,6 +5471,9 @@ var js_checkStrCount =  function () {
                     var reg = /[\u4e00-\u9fa5]+/g;
                     var isChinese = reg.test(tempstr);
                     if(!isChinese &&  tempstr.length < strLen){
+                        return;
+                    }
+                    if(tempstr.indexOf(PREFIX)!= -1 && !isChinese){ //不需要提取
                         return;
                     }
                     if(tempstr.length>=1000){
@@ -5587,9 +5588,6 @@ var js_babel = function () {
                     if(globleKeys.indexOf(tempstr)!= -1){//不需要提取
                         return;
                     }
-                    if(tempstr.indexOf(PREFIX)!= -1){ //不需要提取
-                        return;
-                    }
                     var extractStr = config.extractStr || false;
                     if(!extractStr){
                         return;
@@ -5598,6 +5596,9 @@ var js_babel = function () {
                     var isChinese = reg.test(tempstr);
                     var strLen = config.strLen || 0;
                     if(tempstr.length < strLen && !isChinese){
+                        return;
+                    }
+                    if(tempstr.indexOf(PREFIX)!= -1 && !isChinese){ //不需要提取
                         return;
                     }
                     var count = config.count || 0;
@@ -5822,9 +5823,7 @@ var js_babel_str = function () {
                     if(globleKeys.indexOf(tempstr)!= -1){
                         return;
                     }
-                    if(tempstr.indexOf(PREFIX)!= -1){ //不需要提取
-                        return;
-                    }
+
                     var extractStr = config.extractStr || false;
                     if(!extractStr){
                         return;
@@ -5834,6 +5833,9 @@ var js_babel_str = function () {
                     var strLen = config.strLen || 0;
                     if(tempstr.length < strLen && !isChinese)
                         return;
+                    if(tempstr.indexOf(PREFIX)!= -1 && !isChinese){ //不需要提取
+                        return;
+                    }
                     var count = config.count || 0;
                     if(!globleStrStat[tempstr] && !isChinese){
                         return;
