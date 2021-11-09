@@ -1,73 +1,79 @@
 var A = wx.$N;
-function n_tbw62(m$h_lk) {
-  this['options'] = m$h_lk || { 'locator': {} };
-}function n_fyirv(c57z, u$_hk4, ji9pq) {
-  function ifqyg(dxcsz) {
-    var aor3e8 = c57z[dxcsz];!aor3e8 && yirvf && (aor3e8 = 0x2 == c57z['length'] ? function (xncdsz) {
-      c57z(dxcsz, xncdsz);
-    } : c57z), vijyfg[dxcsz] = aor3e8 ? function (o6ae8) {
-      aor3e8('[xmldom ' + dxcsz + ']\t' + o6ae8 + n_znm(ji9pq));
-    } : function () {};
-  }if (!c57z) {
-    if (u$_hk4 instanceof n_k_$1u4) return u$_hk4;c57z = u$_hk4;
-  }var vijyfg = {},
-      yirvf = c57z instanceof Function;return ji9pq = ji9pq || {}, ifqyg('warning'), ifqyg('error'), ifqyg('fatalError'), vijyfg;
-}function n_k_$1u4() {
+function n_c05ns7(_4hu) {
+  this['options'] = _4hu || { 'locator': {} };
+}function n_mldxnz(lhxm_k, h_k$, iqpj9) {
+  function a3oe82(fiqy9j) {
+    var ldxmk = lhxm_k[fiqy9j];!ldxmk && k4_mh && (ldxmk = 0x2 == lhxm_k['length'] ? function (qpijy) {
+      lhxm_k(fiqy9j, qpijy);
+    } : lhxm_k), w2o6ea[fiqy9j] = ldxmk && function (vf38r) {
+      ldxmk('[xmldom ' + fiqy9j + ']\t' + vf38r + n_viry(iqpj9));
+    } || function () {};
+  }if (!lhxm_k) {
+    if (h_k$ instanceof n_ncd) return h_k$;lhxm_k = h_k$;
+  }var w2o6ea = {},
+      k4_mh = lhxm_k instanceof Function;return iqpj9 = iqpj9 || {}, a3oe82('warning'), a3oe82('error'), a3oe82('fatalError'), w2o6ea;
+}function n_ncd() {
   this['cdata'] = !0x1;
-}function n__h$k(s0p5, hkdx) {
-  hkdx['lineNumber'] = s0p5['lineNumber'], hkdx['columnNumber'] = s0p5['columnNumber'];
-}function n_znm(dnxszl) {
-  return dnxszl ? '\x0a@' + (dnxszl['systemId'] || '') + '#[line:' + dnxszl['lineNumber'] + ',col:' + dnxszl['columnNumber'] + ']' : void 0x0;
-}function n_areo(ldkxh, sn70c, ifjyg) {
-  return 'string' == typeof ldkxh ? ldkxh['substr'](sn70c, ifjyg) : ldkxh['length'] >= sn70c + ifjyg || sn70c ? new java['lang']['String'](ldkxh, sn70c, ifjyg) + '' : ldkxh;
-}function n_ipj(roe83v, zdmh) {
-  (roe83v['currentElement'] || roe83v['doc'])['appendChild'](zdmh);
-}n_tbw62['prototype']['parseFromString'] = function (ivgj, py9qji) {
-  var sn7czd = this['options'],
-      zxdhl = new n_wao62e(),
-      pjqyi = sn7czd['domBuilder'] || new n_k_$1u4(),
-      evr38o = sn7czd['errorHandler'],
-      q097p = sn7czd['locator'],
-      znc5s = sn7czd['xmlns'] || {},
-      e6oaw = { 'lt': '<', 'gt': '>', 'amp': '&', 'quot': '\x22', 'apos': '\x27' };return q097p && pjqyi['setDocumentLocator'](q097p), zxdhl['errorHandler'] = n_fyirv(evr38o, pjqyi, q097p), zxdhl['domBuilder'] = sn7czd['domBuilder'] || pjqyi, /\/x?html?$/['test'](py9qji) && (e6oaw['nbsp'] = '\u00a0', e6oaw['copy'] = '©', znc5s[''] = 'http://www.w3.org/1999/xhtml'), znc5s['xml'] = znc5s['xml'] || 'http://www.w3.org/XML/1998/namespace', ivgj ? zxdhl['parse'](ivgj, znc5s, e6oaw) : zxdhl['errorHandler']['error']('invalid doc source'), pjqyi['doc'];
-}, n_k_$1u4['prototype'] = { 'startDocument': function () {
-    this['doc'] = new n_qygfij()['createDocument'](null, null, null), this['locator'] && (this['doc']['documentURI'] = this['locator']['systemId']);
-  }, 'startElement': function (pq9j0i, dxmlzh, ml_xhk, pjyqi9) {
-    var re8a3 = this['doc'],
-        q07p = re8a3['createElementNS'](pq9j0i, ml_xhk || dxmlzh),
-        q5079 = pjyqi9['length'];n_ipj(this, q07p), this['currentElement'] = q07p, this['locator'] && n__h$k(this['locator'], q07p);for (var gvyf3r = 0x0; gvyf3r < q5079; gvyf3r++) {
-      var pq9j0i = pjyqi9['getURI'](gvyf3r),
-          xzmhld = pjyqi9['getValue'](gvyf3r),
-          ml_xhk = pjyqi9['getQName'](gvyf3r),
-          ao826 = re8a3['createAttributeNS'](pq9j0i, ml_xhk);this['locator'] && n__h$k(pjyqi9['getLocator'](gvyf3r), ao826), ao826['value'] = ao826['nodeValue'] = xzmhld, q07p['setAttributeNode'](ao826);
+}function n_s7nz(w26at, n7zdcs) {
+  n7zdcs['lineNumber'] = w26at['lineNumber'], n7zdcs['columnNumber'] = w26at['columnNumber'];
+}function n_viry(e8aor) {
+  return e8aor ? '\x0a@' + (e8aor['systemId'] || '') + '#[line:' + e8aor['lineNumber'] + ',col:' + e8aor['columnNumber'] + ']' : void 0x0;
+}function n_vrigy(o83era, csnx, mxd) {
+  return 'string' == typeof o83era ? o83era['substr'](csnx, mxd) : o83era['length'] >= csnx + mxd || csnx ? new java['lang']['String'](o83era, csnx, mxd) + '' : o83era;
+}function n_z75c(xdlzmh, _lmxkh) {
+  xdlzmh['currentElement'] ? xdlzmh['currentElement']['appendChild'](_lmxkh) : xdlzmh['doc']['appendChild'](_lmxkh);
+}n_c05ns7['prototype']['parseFromString'] = function (voe3r, fyrg3v) {
+  var u4$h_ = this['options'],
+      szxdl = new n_g3yfv(),
+      c0n57s = u4$h_['domBuilder'] || new n_ncd(),
+      czsn7 = u4$h_['errorHandler'],
+      ro8v3 = u4$h_['locator'],
+      fygqi = u4$h_['xmlns'] || {},
+      orve3 = { 'lt': '<', 'gt': '>', 'amp': '&', 'quot': '\x22', 'apos': '\x27' };return ro8v3 && c0n57s['setDocumentLocator'](ro8v3), szxdl['errorHandler'] = n_mldxnz(czsn7, c0n57s, ro8v3), szxdl['domBuilder'] = u4$h_['domBuilder'] || c0n57s, /\/x?html?$/['test'](fyrg3v) && (orve3['nbsp'] = '\u00a0', orve3['copy'] = '©', fygqi[''] = 'http://www.w3.org/1999/xhtml'), fygqi['xml'] = fygqi['xml'] || 'http://www.w3.org/XML/1998/namespace', voe3r ? szxdl['parse'](voe3r, fygqi, orve3) : szxdl['errorHandler']['error']('invalid doc source'), c0n57s['doc'];
+}, n_ncd['prototype'] = { 'startDocument': function () {
+    this['doc'] = new n_u$4k_()['createDocument'](null, null, null), this['locator'] && (this['doc']['documentURI'] = this['locator']['systemId']);
+  }, 'startElement': function (jfyq, cxs, o8a2e3, zmlxhd) {
+    var kxhdl = this['doc'],
+        $k41_u = kxhdl['createElementNS'](jfyq, o8a2e3 || cxs),
+        qf9i = zmlxhd['length'];n_z75c(this, $k41_u), this['currentElement'] = $k41_u, this['locator'] && n_s7nz(this['locator'], $k41_u);for (var wab26o = 0x0; qf9i > wab26o; wab26o++) {
+      var jfyq = zmlxhd['getURI'](wab26o),
+          yjgifv = zmlxhd['getValue'](wab26o),
+          o8a2e3 = zmlxhd['getQName'](wab26o),
+          cszdnx = kxhdl['createAttributeNS'](jfyq, o8a2e3);this['locator'] && n_s7nz(zmlxhd['getLocator'](wab26o), cszdnx), cszdnx['value'] = cszdnx['nodeValue'] = yjgifv, $k41_u['setAttributeNode'](cszdnx);
     }
   }, 'endElement': function () {
-    var eo382 = this['currentElement'];eo382['tagName'], this['currentElement'] = eo382['parentNode'];
-  }, 'startPrefixMapping': function () {}, 'endPrefixMapping': function () {}, 'processingInstruction': function (dnmzxl, nxdszc) {
-    nxdszc = this['doc']['createProcessingInstruction'](dnmzxl, nxdszc), (this['locator'] && n__h$k(this['locator'], nxdszc), n_ipj(this, nxdszc));
-  }, 'ignorableWhitespace': function () {}, 'characters': function (ldxzm) {
-    var nzdls;(ldxzm = n_areo['apply'](this, arguments)) && (nzdls = this['cdata'] ? this['doc']['createCDATASection'](ldxzm) : this['doc']['createTextNode'](ldxzm), this['currentElement'] ? this['currentElement']['appendChild'](nzdls) : /^\s*$/['test'](ldxzm) && this['doc']['appendChild'](nzdls), this['locator'] && n__h$k(this['locator'], nzdls));
+    {
+      var qiygfj = this['currentElement'];qiygfj['tagName'];
+    }this['currentElement'] = qiygfj['parentNode'];
+  }, 'startPrefixMapping': function () {}, 'endPrefixMapping': function () {}, 'processingInstruction': function (rvoe3, yvigfr) {
+    var a3e8ro = this['doc']['createProcessingInstruction'](rvoe3, yvigfr);this['locator'] && n_s7nz(this['locator'], a3e8ro), n_z75c(this, a3e8ro);
+  }, 'ignorableWhitespace': function () {}, 'characters': function (nzsxl) {
+    if (nzsxl = n_vrigy['apply'](this, arguments)) {
+      if (this['cdata']) var xmkhld = this['doc']['createCDATASection'](nzsxl);else var xmkhld = this['doc']['createTextNode'](nzsxl);this['currentElement'] ? this['currentElement']['appendChild'](xmkhld) : /^\s*$/['test'](nzsxl) && this['doc']['appendChild'](xmkhld), this['locator'] && n_s7nz(this['locator'], xmkhld);
+    }
   }, 'skippedEntity': function () {}, 'endDocument': function () {
     this['doc']['normalize']();
-  }, 'setDocumentLocator': function (irfgvy) {
-    (this['locator'] = irfgvy) && (irfgvy['lineNumber'] = 0x0);
-  }, 'comment': function (zndlxs) {
-    zndlxs = n_areo['apply'](this, arguments);var evrg83 = this['doc']['createComment'](zndlxs);this['locator'] && n__h$k(this['locator'], evrg83), n_ipj(this, evrg83);
+  }, 'setDocumentLocator': function (nczs57) {
+    (this['locator'] = nczs57) && (nczs57['lineNumber'] = 0x0);
+  }, 'comment': function (lmzdnx) {
+    lmzdnx = n_vrigy['apply'](this, arguments);var z5n7cs = this['doc']['createComment'](lmzdnx);this['locator'] && n_s7nz(this['locator'], z5n7cs), n_z75c(this, z5n7cs);
   }, 'startCDATA': function () {
     this['cdata'] = !0x0;
   }, 'endCDATA': function () {
     this['cdata'] = !0x1;
-  }, 'startDTD': function (mdlk, fqj9, oa2wb6) {
-    var cs5n0 = this['doc']['implementation'];cs5n0 && cs5n0['createDocumentType'] && (oa2wb6 = cs5n0['createDocumentType'](mdlk, fqj9, oa2wb6), this['locator'] && n__h$k(this['locator'], oa2wb6), n_ipj(this, oa2wb6));
-  }, 'warning': function (kmh_lx) {
-    console['warn']('[xmldom warning]\t' + kmh_lx, n_znm(this['locator']));
-  }, 'error': function (n7s0c) {
-    console['error']('[xmldom error]\t' + n7s0c, n_znm(this['locator']));
-  }, 'fatalError': function (roe3v) {
-    throw console['error']('[xmldom fatalError]\t' + roe3v, n_znm(this['locator'])), roe3v;
-  } }, 'endDTD,startEntity,endEntity,attributeDecl,elementDecl,externalEntityDecl,internalEntityDecl,resolveEntity,getExternalSubset,notationDecl,unparsedEntityDecl'['replace'](/\w+/g, function (n7csdz) {
-  n_k_$1u4['prototype'][n7csdz] = function () {
+  }, 'startDTD': function (s50pc, ov3r8, h_m4) {
+    var s7d = this['doc']['implementation'];if (s7d && s7d['createDocumentType']) {
+      var p9qiy = s7d['createDocumentType'](s50pc, ov3r8, h_m4);this['locator'] && n_s7nz(this['locator'], p9qiy), n_z75c(this, p9qiy);
+    }
+  }, 'warning': function (eo8rv3) {
+    console['warn']('[xmldom warning]\t' + eo8rv3, n_viry(this['locator']));
+  }, 'error': function (fyvgr) {
+    console['error']('[xmldom error]\t' + fyvgr, n_viry(this['locator']));
+  }, 'fatalError': function (fr38gv) {
+    throw console['error']('[xmldom fatalError]\t' + fr38gv, n_viry(this['locator'])), fr38gv;
+  } }, 'endDTD,startEntity,endEntity,attributeDecl,elementDecl,externalEntityDecl,internalEntityDecl,resolveEntity,getExternalSubset,notationDecl,unparsedEntityDecl'['replace'](/\w+/g, function (e28ao) {
+  n_ncd['prototype'][e28ao] = function () {
     return null;
   };
-});var n_wao62e = require('./nnnSAX')['XMLReader'],
-    n_qygfij = exports['DOMImplementation'] = require('./nnnnDOM')['DOMImplementation'];exports['XMLSerializer'] = require('./nnnnDOM')['XMLSerializer'], exports['DOMParser'] = n_tbw62;
+});var n_g3yfv = require('./nnnSAX')['XMLReader'],
+    n_u$4k_ = exports['DOMImplementation'] = require('./nnnnDOM')['DOMImplementation'];exports['XMLSerializer'] = require('./nnnnDOM')['XMLSerializer'], exports['DOMParser'] = n_c05ns7;
