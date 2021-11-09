@@ -3,10 +3,10 @@ var sdk = require('../utils/sdklib-2.9.4.min.js');
 //TODO 替换对应参数
 var config = {
     game_id: 256,
-    game_pkg: 'tjqy_tjqywwjx_HO',
+    game_pkg: 'tjqy_tjqywwjx_HO', //37-微微剑仙
     partner_label: '37xyx',
     partner_id: '472',
-    game_ver: '1.0.0',
+    game_ver: '20.0.1',
     is_auth: false, //授权登录
     partner_android_pid_id: 442,
     partner_ios_pid_id: 484,
