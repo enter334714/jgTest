@@ -157,7 +157,7 @@ updateManager.onUpdateFailed(function () {
 
 window.loadProbuf = function() {
   console.log("protobuf 分包加载");
-  var loadLibsTask = wx.loadSubpackage({
+  var loadProbufTask = wx.loadSubpackage({
     name: 'probuf',
     success: function(res) {
       console.log("protobuf 分包加载成功");
@@ -180,7 +180,7 @@ window.loadProbuf = function() {
       }, 500);
     },
   });
-  loadLibsTask && loadLibsTask.onProgressUpdate(res => {
+  loadProbufTask && loadProbufTask.onProgressUpdate(res => {
     // console.log('protobuf 下载进度:' + res.progress + '%, 已经下载的数据长度', res.totalBytesWritten, '预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
   });
 }
@@ -221,7 +221,7 @@ window.loadSubpackages = function () {
     window.loadProbuf();
     window.loadMain();
   } else {
-    window.reqRecordInfo("微信基础库版本过低:" + window.SDKVersion);
+    window.reqRecordInfo("微信基础库版本过低", window.SDKVersion);
     wx.showModal({
       title: '提示',
       content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
@@ -246,22 +246,22 @@ wx.getSystemInfo({
     window.PF_INFO.wxPC = system.indexOf("windows") != -1 || system.indexOf("mac") != -1;
     window.PF_INFO.wxPlatform = (res.platform ? res.platform.toLowerCase() : "");
     window.PF_INFO.wxLimitLoad = false; //model.indexOf("iphonex") != -1;
-    window.PF_INFO.wxBenchmarkLevel = 1;
+    window.PF_INFO.wxBenchmarkLevel = 2;
     if (system.indexOf("android") != -1) { //android按设备等级
       if (res.benchmarkLevel >= 24) 
-        window.PF_INFO.wxBenchmarkLevel = 2;
+        window.PF_INFO.wxBenchmarkLevel = 3;
       else 
-        window.PF_INFO.wxBenchmarkLevel = 1;
+        window.PF_INFO.wxBenchmarkLevel = 2;
     } else if (system.indexOf("ios") != -1) { //ios按型号
       if(res.benchmarkLevel && res.benchmarkLevel >= 20)
-        window.PF_INFO.wxBenchmarkLevel = 2;
+        window.PF_INFO.wxBenchmarkLevel = 3;
       else if (model.indexOf("iphone5") != -1 || model.indexOf("iphone6") != -1 || model.indexOf("iphone7") != -1 
         || model.indexOf("iphonese") != -1 || model.indexOf("ipad") != -1) 
-        window.PF_INFO.wxBenchmarkLevel = 1;
-      else 
         window.PF_INFO.wxBenchmarkLevel = 2;
+      else 
+        window.PF_INFO.wxBenchmarkLevel = 3;
     } else { //PC
-      window.PF_INFO.wxBenchmarkLevel = 1;
+      window.PF_INFO.wxBenchmarkLevel = 2;
     }
     console.log("加载限制："+ window.PF_INFO.wxLimitLoad +"，设备限制等级："+ window.PF_INFO.wxBenchmarkLevel);
   }
@@ -306,7 +306,7 @@ wx.onMemoryWarning(function () {
     window.memoryWarningNum = 0;
     console.error('第二次内存警告');
     wx.reportMonitor('0', 1);  //上报微信监控
-    if(window.PF_INFO && window.PF_INFO.wxIOS) window.reqRecordInfo("内存警告");
+    if(window.PF_INFO && window.PF_INFO.wxIOS) window.reqRecordInfo("内存警告", "");
     if (onMemoryWarningCallBack) onMemoryWarningCallBack();//游戏内画质设为“低”
   }
   // wx.showModal({

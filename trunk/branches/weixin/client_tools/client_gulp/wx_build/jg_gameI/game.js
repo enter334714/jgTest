@@ -1,5 +1,4 @@
-﻿
-console.info("0 进入游戏包");
+﻿console.info("0 进入游戏包");
 
 
 
@@ -158,7 +157,7 @@ updateManager.onUpdateFailed(function () {
 
 window.loadProbuf = function() {
   console.log("protobuf 分包加载");
-  var loadLibsTask = wx.loadSubpackage({
+  var loadProbufTask = wx.loadSubpackage({
     name: 'probuf',
     success: function(res) {
       console.log("protobuf 分包加载成功");
@@ -181,7 +180,7 @@ window.loadProbuf = function() {
       }, 500);
     },
   });
-  loadLibsTask && loadLibsTask.onProgressUpdate(res => {
+  loadProbufTask && loadProbufTask.onProgressUpdate(res => {
     // console.log('protobuf 下载进度:' + res.progress + '%, 已经下载的数据长度', res.totalBytesWritten, '预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
   });
 }
@@ -222,7 +221,7 @@ window.loadSubpackages = function () {
     window.loadProbuf();
     window.loadMain();
   } else {
-    window.reqRecordInfo("微信基础库版本过低:" + window.SDKVersion);
+    window.reqRecordInfo("微信基础库版本过低", window.SDKVersion);
     wx.showModal({
       title: '提示',
       content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
@@ -307,7 +306,7 @@ wx.onMemoryWarning(function () {
     window.memoryWarningNum = 0;
     console.error('第二次内存警告');
     wx.reportMonitor('0', 1);  //上报微信监控
-    if(window.PF_INFO && window.PF_INFO.wxIOS) window.reqRecordInfo("内存警告");
+    if(window.PF_INFO && window.PF_INFO.wxIOS) window.reqRecordInfo("内存警告", "");
     if (onMemoryWarningCallBack) onMemoryWarningCallBack();//游戏内画质设为“低”
   }
   // wx.showModal({

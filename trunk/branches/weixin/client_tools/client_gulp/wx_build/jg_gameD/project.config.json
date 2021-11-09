@@ -6,7 +6,7 @@
     "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
-    "minified": false,
+    "minified": true,
     "newFeature": true,
     "coverView": true,
     "nodeModules": false,
@@ -37,7 +37,7 @@
     "minifyWXSS": true
   },
   "compileType": "game",
-  "libVersion": "2.1.0",
+  "libVersion": "2.10.4",
   "appid": "wx65294feeda4c934c",
   "projectname": "jg_gameD",
   "simulatorType": "wechat",

@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_tjqygjhol_FW', //盛也微信小游戏--飞仙服-鬼剑豪
     partner_label: 'shengye2',
     partner_id: '398',
-    game_ver: '6.0.4',
+    game_ver: '6.0.12',
     is_auth: false, //授权登录
 };
 window.config = config;
@@ -15,7 +15,9 @@ var user_game_info = null;
 var user_invite_info = null;
 var partner_user_data={};
 var user_invite_by_activity = null;
-
+var checkHandler = null;
+var loginHandler = null;
+var requestCallback = false;
 
 function mainSDK() {
     var callbacks = {};
@@ -125,7 +127,7 @@ function mainSDK() {
                 }
             }
 
-            //发起网络请求
+            var lastTime = Date.now();
             wx.request({
                 url: 'https://' + HOST + '/partner/auth',
                 method: 'POST',
@@ -135,8 +137,11 @@ function mainSDK() {
                 },
                 data: login_data,
                 success: function (res) {
-                    console.log("[SDK]登录结果：",res);
-                    if (res.statusCode === 200) {
+                    console.log("[SDK]登录结果：" + JSON.stringify(res));
+                    requestCallback = true;
+                    if (loginHandler) clearTimeout(loginHandler);
+                    loginHandler = null;
+                    if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
                             partner_user_data.openid = data.data.ext;
@@ -162,7 +167,7 @@ function mainSDK() {
                             };
                             callbacks['login'] && callbacks['login'](0, userData);
                         } else {
-                            callbacks['login'] && callbacks['login'](1, {errMsg: data.msg});
+                            callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: data.msg, time: (Date.now()-lastTime), res: res});
                         }
 
                         //登录成功，加载右上角分享数据
@@ -180,12 +185,28 @@ function mainSDK() {
                         });
 
                     } else {
-                        callbacks['login'] && callbacks['login'](1, {
-                            errMsg: '请求平台服务器失败！'
-                        });
+                        callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: '请求平台服务器失败！', time: (Date.now()-lastTime), res: res});
                     }
+                },
+                fail: function(res){
+                    console.log("[SDK]登录失败");
+                    console.log(res);
+
+                    requestCallback = true;
+                    if (loginHandler) clearTimeout(loginHandler);
+                    loginHandler = null;
+                    callbacks['login'] && callbacks['login'](1, {type: "wx.request.fail", errMsg: res.errMsg, time: (Date.now()-lastTime), res: res});
                 }
             });
+            if (!requestCallback) {
+                var timeOutFunc = function() {
+                    console.log("[SDK]登录超时");
+
+                    callbacks['login'] && callbacks['login'](1, {type: "wx.request", errMsg: "登录超时20秒无返回", time: (Date.now()-lastTime)});
+                    callbacks['login'] = null; //回调后置空，以免success或fail里重复回调
+                }
+                loginHandler = setTimeout(timeOutFunc, 20000);
+            }
         },
 
         share: function (data) {
@@ -237,6 +258,7 @@ function mainSDK() {
 
         checkGameVersion: function (game_ver, callback) {
             console.log("[SDK]检查游戏版本");
+            callbacks['check'] = typeof callback == 'function' ? callback : null;
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
                 url: 'https://' + HOST + '/game/min/?ac=checkGameVersion',
@@ -251,24 +273,39 @@ function mainSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[SDK]获取游戏版本结果");
+                    console.log("[SDK]获取游戏版本成功");
                     console.log(res);
-                    if (res.statusCode == 200) {
+                    requestCallback = true;
+                    if (checkHandler) clearTimeout(checkHandler);
+                    checkHandler = null;
+                    if(res.statusCode == 200){
                         var data = res.data;
-                        if (data.state) {
-                            callback && callback(data.data);
-                        } else {
-                            callback && callback({
-                                develop: 0
-                            });
+                        if(data.state){
+                            callbacks['check'] && callbacks['check'](data.data);
+                        }else{
+                            callbacks['check'] && callbacks['check']({develop: 0});
                         }
-                    } else {
-                        callback && callback({
-                            develop: 0
-                        });
+                    }else{
+                        callbacks['check'] && callbacks['check']({develop: 0});
                     }
+                },
+                fail: function(res){
+                    console.log("[SDK]获取游戏版本失败");
+                    console.log(res);
+                    requestCallback = true;
+                    if (checkHandler) clearTimeout(checkHandler);
+                    checkHandler = null;
+                    callbacks['check'] && callbacks['check']({develop: 0});
                 }
             });
+            if (!requestCallback) {
+                var timeOutFunc = function() {
+                    console.log("[SDK]获取游戏版本超时");
+                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
+                }
+                checkHandler = setTimeout(timeOutFunc, 10000);
+            }
         },
 
         getShareInfo: function (type, callback) {
@@ -511,55 +548,6 @@ function mainSDK() {
             }
 
             this.upRoleInfo('createrole', data);
-
-            if (user_invite_info && typeof user_invite_info == 'object') {
-                var params = {
-                    pf_uid:uid,
-                    partner_uid:partner_data.openid,
-                    role_id:data.roleid,
-                    role_name:data.rolename,
-                    server_id:data.serverid,
-                    server_name:data.servername,
-                    invite_code:user_invite_info.invite,
-                    user_invite_info:JSON.stringify(user_invite_info),
-                    partner_user_info:JSON.stringify(partner_data)
-                }
-
-                wx.request({
-                    url: 'https://' + HOST + '/partner/data/report_share_info/'+config.partner_id+'/'+config.game_pkg,
-                    method: 'POST',
-                    dataType: 'json',
-                    header: {
-                        'content-type': 'application/x-www-form-urlencoded' // 默认值
-                    },
-                    data: params,
-                    success: function (res) {
-                        console.log('[SDK]分享上报渠道：'+JSON.stringify(params));
-                        console.log('[SDK]分享上报渠道结果：'+JSON.stringify(res));
-                    }
-                });
-            }
-        },
-
-        subscribeMessage : function (tmplIds, callback){
-            console.log('[SDK]订阅消息：'+tmplIds);
-            //获取模板ID
-            callbacks['subscribeMessage'] = typeof callback == 'function' ? callback : null;
-            let data = {
-                template: tmplIds[0], // 模版ID 必填
-                role_id: user_game_info ? user_game_info.role_id : '',
-                tpl_type: 2, // 当前订阅活动分类：1离线收益提醒;2活动提醒
-            }
-             Sygame.syGetSubscribe(data).then((res) => {
-                if(res.status == 1001){
-                    res.errMsg = "requestSubscribeMessage:ok";
-                    res[tmplIds[0]] = res.type;
-                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
-                }else{
-                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
-                }
-               
-            })
         },
 
         //进入游戏
@@ -816,9 +804,6 @@ exports.login = function (callback) {
 
 exports.pay = function (data, callback) {
     run('pay', data, callback);
-};
-exports.subscribeMessage = function (data, callback) {
-    run('subscribeMessage', data, callback);
 };
 
 exports.openService = function () {

@@ -221,7 +221,7 @@ window.loadSubpackages = function () {
     window.loadProbuf();
     window.loadMain();
   } else {
-    window.reqRecordInfo("微信基础库版本过低:" + window.SDKVersion);
+    window.reqRecordInfo("微信基础库版本过低", window.SDKVersion);
     wx.showModal({
       title: '提示',
       content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'

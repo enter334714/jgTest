@@ -545,7 +545,7 @@
                 gameVersion: window["config"].game_ver,
                 vipGameId: window["config"].partner_game_id,
                 env: "Prod",
-                userId: window["PF_INFO"].userId,
+                userId: PF_INFO.userId,
                 icon: {
                     posX: 100,
                     posY: 550,

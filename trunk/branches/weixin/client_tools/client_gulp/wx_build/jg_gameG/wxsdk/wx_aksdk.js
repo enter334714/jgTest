@@ -13,7 +13,7 @@ var config = {
     game_pkg: 'tjqy_tjlywffkxyxmj_FV', //疯狂微信小游戏-无双服-星聚
     partner_label: 'fkxyx',
     partner_id: '222',
-    game_ver: '7.0.4',
+    game_ver: '7.0.8',
     partner_game_id: 'xjtjqymini',
     is_auth: false, //授权登录
 };
@@ -26,6 +26,9 @@ var user_invite_info = null;
 var system = wx.getSystemInfoSync();
 var device = system.platform=='android' ? 'android' : 'ios';
 var userInfoBtn = '';
+var checkHandler = null;
+var loginHandler = null;
+var requestCallback = false;
 
 function mainSDK() {
     var callbacks = {};
@@ -208,6 +211,7 @@ function mainSDK() {
                 }
             }
 
+            var lastTime = Date.now();
             wx.request({
                 url: 'https://' + HOST + '/partner/auth',
                 method: 'POST',
@@ -217,9 +221,11 @@ function mainSDK() {
                 },
                 data: public_data,
                 success: function (res) {
-                    console.log("[SDK]登录结果：");
-                    console.log(res);
-                    if (res.statusCode === 200) {
+                    console.log("[SDK]登录结果：" + JSON.stringify(res));
+                    requestCallback = true;
+                    if (loginHandler) clearTimeout(loginHandler);
+                    loginHandler = null;
+                    if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
                             partner_user_data.uid = data.data.openid;
@@ -249,9 +255,7 @@ function mainSDK() {
                             };
                             callbacks['login'] && callbacks['login'](0, userData);
                         } else {
-                            callbacks['login'] && callbacks['login'](1, {
-                                errMsg: data.msg
-                            });
+                            callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: data.msg, time: (Date.now()-lastTime), res: res});
                         }
 
                         hortorSdk.setGameUserInfo();
@@ -278,13 +282,28 @@ function mainSDK() {
                         });
 
                     } else {
-                        callbacks['login'] && callbacks['login'](1, {
-                            errMsg: '请求平台服务器失败！'
-                        });
+                        callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: '请求平台服务器失败！', time: (Date.now()-lastTime), res: res});
                     }
+                },
+                fail: function(res){
+                    console.log("[SDK]登录失败");
+                    console.log(res);
+
+                    requestCallback = true;
+                    if (loginHandler) clearTimeout(loginHandler);
+                    loginHandler = null;
+                    callbacks['login'] && callbacks['login'](1, {type: "wx.request.fail", errMsg: res.errMsg, time: (Date.now()-lastTime), res: res});
                 }
             });
+            if (!requestCallback) {
+                var timeOutFunc = function() {
+                    console.log("[SDK]登录超时");
 
+                    callbacks['login'] && callbacks['login'](1, {type: "wx.request", errMsg: "登录超时20秒无返回", time: (Date.now()-lastTime)});
+                    callbacks['login'] = null; //回调后置空，以免success或fail里重复回调
+                }
+                loginHandler = setTimeout(timeOutFunc, 20000);
+            }
         },
 
         share: function (data) {
@@ -422,6 +441,7 @@ function mainSDK() {
 
         checkGameVersion: function (game_ver, callback) {
             console.log("[SDK]检查游戏版本");
+            callbacks['check'] = typeof callback == 'function' ? callback : null;
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
                 url: 'https://' + HOST + '/game/min/?ac=checkGameVersion',
@@ -436,24 +456,39 @@ function mainSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[SDK]获取游戏版本结果");
+                    console.log("[SDK]获取游戏版本成功");
                     console.log(res);
-                    if (res.statusCode == 200) {
+                    requestCallback = true;
+                    if (checkHandler) clearTimeout(checkHandler);
+                    checkHandler = null;
+                    if(res.statusCode == 200){
                         var data = res.data;
-                        if (data.state) {
-                            callback && callback(data.data);
-                        } else {
-                            callback && callback({
-                                develop: 0
-                            });
+                        if(data.state){
+                            callbacks['check'] && callbacks['check'](data.data);
+                        }else{
+                            callbacks['check'] && callbacks['check']({develop: 0});
                         }
-                    } else {
-                        callback && callback({
-                            develop: 0
-                        });
+                    }else{
+                        callbacks['check'] && callbacks['check']({develop: 0});
                     }
+                },
+                fail: function(res){
+                    console.log("[SDK]获取游戏版本失败");
+                    console.log(res);
+                    requestCallback = true;
+                    if (checkHandler) clearTimeout(checkHandler);
+                    checkHandler = null;
+                    callbacks['check'] && callbacks['check']({develop: 0});
                 }
             });
+            if (!requestCallback) {
+                var timeOutFunc = function() {
+                    console.log("[SDK]获取游戏版本超时");
+                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
+                }
+                checkHandler = setTimeout(timeOutFunc, 10000);
+            }
         },
 
         getShareInfo: function (type, callback) {
@@ -1010,9 +1045,9 @@ exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleL
         rolename: roleName,
         rolelevel: roleLevel,
         rolecreatetime: rolecreatetime,
-        rolepower: extra.rolepower
+        rolepower: extra?extra.rolepower:""
     };
-    run('logRoleUpLevel', data, extra.callback);
+    run('logRoleUpLevel', data, extra?extra.callback:null);
 };
 
 exports.share = function (type) {

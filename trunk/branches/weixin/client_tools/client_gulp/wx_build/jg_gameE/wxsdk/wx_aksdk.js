@@ -4,7 +4,7 @@ var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqyxyjz_FU', //有一 --飞剑 --侠义九州
     partner_id: '317',
-    game_ver: '5.0.6',
+    game_ver: '5.0.12',
     is_auth: false, //授权登录   
     from: null, //来源
     tmpId: {},  // 订阅的类型 和 模板id
@@ -22,6 +22,9 @@ var user_game_info = null;
 var user_invite_info = null;
 var this_order_id = null;
 var partner_user_info = null;
+var checkHandler = null;
+var loginHandler = null;
+var requestCallback = false;
 
 function mainSDK() {
     var callbacks = {};
@@ -124,7 +127,8 @@ function mainSDK() {
             }
 
             public_data['partner_uid'] = info.uid;
-
+            
+            var lastTime = Date.now();
             wx.request({
                 url: 'https://' + HOST + '/partner/auth',
                 method: 'POST',
@@ -135,9 +139,12 @@ function mainSDK() {
                 data: public_data,
                 success: function (res) {
                     console.log("[SDK]登录结果：" + JSON.stringify(res));
-                    if(res.statusCode == 200){
+                    requestCallback = true;
+                    if (loginHandler) clearTimeout(loginHandler);
+                    loginHandler = null;
+                    if (res.statusCode == 200) {
                         var data = res.data;
-                        if(data.state){
+                        if (data.state) {
                             var userData = {
                                 userid: data.data.user_id,
                                 account: data.data.nick_name,
@@ -160,8 +167,8 @@ function mainSDK() {
                             }
 
                             callbacks['login'] && callbacks['login'](0, userData);
-                        }else{
-                            callbacks['login'] && callbacks['login'](1, {errMsg: data.msg});
+                        } else {
+                            callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: data.msg, time: (Date.now()-lastTime), res: res});
                         }
 
                         //登录成功，加载右上角分享数据
@@ -177,11 +184,29 @@ function mainSDK() {
                                 }
                             });
                         });
-                    }else{
-                        callbacks['login'] && callbacks['login'](1, {errMsg: '请求平台服务器失败！'});
+                    } else {
+                        callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: '请求平台服务器失败！', time: (Date.now()-lastTime), res: res});
                     }
+                },
+                fail: function(res){
+                    console.log("[SDK]登录失败");
+                    console.log(res);
+
+                    requestCallback = true;
+                    if (loginHandler) clearTimeout(loginHandler);
+                    loginHandler = null;
+                    callbacks['login'] && callbacks['login'](1, {type: "wx.request.fail", errMsg: res.errMsg, time: (Date.now()-lastTime), res: res});
                 }
             });
+            if (!requestCallback) {
+                var timeOutFunc = function() {
+                    console.log("[SDK]登录超时");
+
+                    callbacks['login'] && callbacks['login'](1, {type: "wx.request", errMsg: "登录超时20秒无返回", time: (Date.now()-lastTime)});
+                    callbacks['login'] = null; //回调后置空，以免success或fail里重复回调
+                }
+                loginHandler = setTimeout(timeOutFunc, 20000);
+            }
         },
 
         share: function (data) {
@@ -190,7 +215,6 @@ function mainSDK() {
             console.log("[SDK]CP调用分享 type=" + type);
             var self = this;
             this.getShareInfo(type, function (data) {
-
                 //记录开始分享
                 self.logStartShare(type);
                 wx.shareAppMessage({
@@ -229,6 +253,7 @@ function mainSDK() {
 
         checkGameVersion: function (game_ver, callback) {
             console.log("[SDK]检查游戏版本");
+            callbacks['check'] = typeof callback == 'function' ? callback : null;
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
                 url: 'https://' + HOST + '/game/min/?ac=checkGameVersion',
@@ -243,20 +268,39 @@ function mainSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[SDK]获取游戏版本结果");
+                    console.log("[SDK]获取游戏版本成功");
                     console.log(res);
+                    requestCallback = true;
+                    if (checkHandler) clearTimeout(checkHandler);
+                    checkHandler = null;
                     if(res.statusCode == 200){
                         var data = res.data;
                         if(data.state){
-                            callback && callback(data.data);
+                            callbacks['check'] && callbacks['check'](data.data);
                         }else{
-                            callback && callback({develop: 0});
+                            callbacks['check'] && callbacks['check']({develop: 0});
                         }
                     }else{
-                        callback && callback({develop: 0});
+                        callbacks['check'] && callbacks['check']({develop: 0});
                     }
+                },
+                fail: function(res){
+                    console.log("[SDK]获取游戏版本失败");
+                    console.log(res);
+                    requestCallback = true;
+                    if (checkHandler) clearTimeout(checkHandler);
+                    checkHandler = null;
+                    callbacks['check'] && callbacks['check']({develop: 0});
                 }
             });
+            if (!requestCallback) {
+                var timeOutFunc = function() {
+                    console.log("[SDK]获取游戏版本超时");
+                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
+                }
+                checkHandler = setTimeout(timeOutFunc, 10000);
+            }
         },
 
         getShareInfo: function (type, callback) {

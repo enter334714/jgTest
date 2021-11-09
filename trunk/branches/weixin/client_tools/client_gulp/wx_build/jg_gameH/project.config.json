@@ -6,7 +6,7 @@
     "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
-    "minified": false,
+    "minified": true,
     "newFeature": true,
     "coverView": true,
     "nodeModules": false,
@@ -39,7 +39,7 @@
   "compileType": "game",
   "libVersion": "2.10.4",
   "appid": "wx41e26949e9eae873",
-  "projectname": "%E5%B8%83%E5%92%95-%E6%AD%A6%E6%9E%97%E7%9B%9B%E5%85%B8online",
+  "projectname": "布咕-武林盛典online",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {

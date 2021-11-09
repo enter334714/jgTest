@@ -18,7 +18,9 @@ var t_max = 300;
 var user_game_info_9130 = null;
 var user_invite_info_9130 = null;
 var this_order_id = null;
-var timeHandler = null;
+var checkHandler = null;
+var loginHandler = null;
+var requestCallback = false;
 
 function mainUnionSDK() {
     var callbacks = {};
@@ -127,6 +129,7 @@ function mainUnionSDK() {
                 }
             }
 
+            var lastTime = Date.now();
             wx.request({
                 url: 'https://' + PARTNER_HOST + '/partner/auth',
                 method: 'POST',
@@ -138,6 +141,9 @@ function mainUnionSDK() {
                 success: function (res) {
                     console.log("[UNION_SDK]联运登录结果");
                     console.log(res);
+                    requestCallback = true;
+                    if (loginHandler) clearTimeout(loginHandler);
+                    loginHandler = null;
                     if(res.statusCode == 200){
                         var data = res.data;
                         if(data.state){
@@ -161,8 +167,8 @@ function mainUnionSDK() {
                             }
 
                             callbacks['login'] && callbacks['login'](0, userData);
-                        }else{
-                            callbacks['login'] && callbacks['login'](1, {errMsg: data.msg});
+                        } else {
+                            callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: data.msg, time: (Date.now()-lastTime), res: res});
                         }
 
 
@@ -180,11 +186,28 @@ function mainUnionSDK() {
                         //     });
                         // });
                     }else{
-                        callbacks['login'] && callbacks['login'](1, {errMsg: '联运登录失败'});
+                        callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: '联运登录失败', time: (Date.now()-lastTime), res: res});
                     }
+                },
+                fail: function(res){
+                    console.log("[SDK]登录失败");
+                    console.log(res);
+
+                    requestCallback = true;
+                    if (loginHandler) clearTimeout(loginHandler);
+                    loginHandler = null;
+                    callbacks['login'] && callbacks['login'](1, {type: "wx.request.fail", errMsg: res.errMsg, time: (Date.now()-lastTime), res: res});
                 }
             });
+            if (!requestCallback) {
+                var timeOutFunc = function() {
+                    console.log("[SDK]登录超时");
 
+                    callbacks['login'] && callbacks['login'](1, {type: "wx.request", errMsg: "登录超时20秒无返回", time: (Date.now()-lastTime)});
+                    callbacks['login'] = null; //回调后置空，以免success或fail里重复回调
+                }
+                loginHandler = setTimeout(timeOutFunc, 20000);
+            }
         },
 
         share: function (data) {
@@ -234,6 +257,7 @@ function mainUnionSDK() {
 
         checkGameVersion: function (game_ver, callback) {
             console.log("[UNION_SDK]检查游戏版本");
+            callbacks['check'] = typeof callback == 'function' ? callback : null;
             var sdk_token = wx.getStorageSync('9130_plat_sdk_token');
             wx.request({
                 url: 'https://' + PARTNER_HOST + '/game/min/?ac=checkGameVersion',
@@ -248,32 +272,39 @@ function mainUnionSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[UNION_SDK]检查版本结果");
+                    console.log("[UNION_SDK]获取游戏版本成功");
                     console.log(res);
-                    if (timeHandler) clearTimeout(timeHandler);
+                    requestCallback = true;
+                    if (checkHandler) clearTimeout(checkHandler);
+                    checkHandler = null;
                     if(res.statusCode == 200){
                         var data = res.data;
                         if(data.state){
-                            callback && callback(data.data);
+                            callbacks['check'] && callbacks['check'](data.data);
                         }else{
-                            callback && callback({develop: 0});
+                            callbacks['check'] && callbacks['check']({develop: 0});
                         }
                     }else{
-                        callback && callback({develop: 0});
+                        callbacks['check'] && callbacks['check']({develop: 0});
                     }
                 },
                 fail: function(res){
                     console.log("[UNION_SDK]获取游戏版本失败");
                     console.log(res);
-                    if (timeHandler) clearTimeout(timeHandler);
-                    callback && callback({develop: 0});
+                    requestCallback = true;
+                    if (checkHandler) clearTimeout(checkHandler);
+                    checkHandler = null;
+                    callbacks['check'] && callbacks['check']({develop: 0});
                 }
             });
-            var func = function() {
-                console.log("[UNION_SDK]获取游戏版本超时");
-                callback && callback({develop: 0});
+            if (!requestCallback) {
+                var timeOutFunc = function() {
+                    console.log("[SDK]获取游戏版本超时");
+                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
+                }
+                checkHandler = setTimeout(timeOutFunc, 10000);
             }
-            timeHandler = setTimeout(func, 10000);
         },
 
         getShareInfo: function (type, callback) {
