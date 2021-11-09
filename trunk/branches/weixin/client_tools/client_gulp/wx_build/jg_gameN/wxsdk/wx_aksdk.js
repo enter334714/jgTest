@@ -389,6 +389,33 @@ function mainSDK() {
 
         msgCheck: function (content,callback) {
             console.log("[SDK]查看文本是否有违规内容");
+            let ret = {
+                data:{}
+            };
+            getGameInfo(function (res1) {
+                var game_key = res1.game_key;
+                sdk.checkWords({
+                    "game_key":game_key,
+                    "account":partner_user_info.openid,
+                    "scene":4,
+                    "content":content,
+                    "host_url":res1.host_url,
+                },function(res2){
+                    console.log("渠道敏感词结果"+JSON.stringify(res2));
+                    if(res2.code == 0){
+                        ret.statusCode = 200;
+                        ret.data.state = 1;
+                    }else{
+                        ret.statusCode = 0;
+                        ret.data.state = 0;
+                    }
+                    callback && callback(ret);
+                },function(res3){
+                    ret.statusCode = 0;
+                    ret.data.state = 0;
+                    callback && callback(ret);
+                })
+            });
         },
 
         pay: function (data, callback) {
