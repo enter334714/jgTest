@@ -4922,7 +4922,13 @@ var set_param_U = function () {
             "subPackage":  {url:packageName3},
             "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
             "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
-
+            "utils/ACTIVITYSDK3.0.js":{url:"utils/ACTIVITYSDK3.0.js",addGlobleKeys0:false,extractStr:false},
+            "utils/adsdklib-2.0.0.min.js":{url:"utils/adsdklib-2.0.0.min.js",addGlobleKeys0:false,extractStr:false},
+            "utils/huosdk-2.1.0.js":{url:"utils/huosdk-2.1.0.js",addGlobleKeys0:false,extractStr:false},
+            "utils/md5Encryp.js":{url:"utils/md5Encryp.js",addGlobleKeys0:false,extractStr:false},
+            "utils/reportjs.min.js":{url:"utils/reportjs.min.js",addGlobleKeys0:false,extractStr:false},
+            "utils/sdklib-2.9.4.min.js":{url:"utils/sdklib-2.9.4.min.js",addGlobleKeys0:false,extractStr:false},
+            "utils/usingOptionConfig.js":{url:"utils/usingOptionConfig.js",addGlobleKeys0:false,extractStr:false},
             //随机创建名字和文件夹
             "wxloading_atlas": {url:"uudu"},
             "wxlogin_atlas": {url:"uulgruu"},
