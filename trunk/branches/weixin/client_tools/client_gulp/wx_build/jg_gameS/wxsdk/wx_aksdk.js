@@ -548,6 +548,53 @@ function mainSDK() {
             }
 
             this.upRoleInfo('createrole', data);
+            if (user_invite_info && typeof user_invite_info == 'object') {
+                var params = {
+                    pf_uid:uid,
+                    partner_uid:partner_data.openid,
+                    role_id:data.roleid,
+                    role_name:data.rolename,
+                    server_id:data.serverid,
+                    server_name:data.servername,
+                    invite_code:user_invite_info.invite,
+                    user_invite_info:JSON.stringify(user_invite_info),
+                    partner_user_info:JSON.stringify(partner_data)
+                }
+
+                wx.request({
+                    url: 'https://' + HOST + '/partner/data/report_share_info/'+config.partner_id+'/'+config.game_pkg,
+                    method: 'POST',
+                    dataType: 'json',
+                    header: {
+                        'content-type': 'application/x-www-form-urlencoded' // 默认值
+                    },
+                    data: params,
+                    success: function (res) {
+                        console.log('[SDK]分享上报渠道：'+JSON.stringify(params));
+                        console.log('[SDK]分享上报渠道结果：'+JSON.stringify(res));
+                    }
+                });
+            }
+        },
+         subscribeMessage : function (tmplIds, callback){
+            console.log('[SDK]订阅消息：'+tmplIds);
+            //获取模板ID
+            callbacks['subscribeMessage'] = typeof callback == 'function' ? callback : null;
+            let data = {
+                template: tmplIds[0], // 模版ID 必填
+                role_id: user_game_info ? user_game_info.role_id : '',
+                tpl_type: 2, // 当前订阅活动分类：1离线收益提醒;2活动提醒
+            }
+             Sygame.syGetSubscribe(data).then((res) => {
+                if(res.status == 1001){
+                    res.errMsg = "requestSubscribeMessage:ok";
+                    res[tmplIds[0]] = res.type;
+                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+                }else{
+                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+                }
+               
+            })
         },
 
         //进入游戏
@@ -819,6 +866,9 @@ exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLe
         rolelevel: roleLevel,
     };
     run('logCreateRole', data);
+};
+exports.subscribeMessage = function (data, callback) {
+    run('subscribeMessage', data, callback);
 };
 
 exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLevel, rolecreatetime, extra) {
