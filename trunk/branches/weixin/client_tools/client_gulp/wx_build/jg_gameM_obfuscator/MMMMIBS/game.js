@@ -1,2 +1,2 @@
 var Y = wx.$M;
-require(Y[0]);
+require(Y[180000]);
