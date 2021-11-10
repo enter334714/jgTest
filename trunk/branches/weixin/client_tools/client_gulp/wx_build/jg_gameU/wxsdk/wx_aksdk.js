@@ -92,6 +92,7 @@ function mainSDK() {
             var self = this;
             let pid = sysInfo.platform == 'android' ? config.partner_android_pid_id : config.partner_ios_pid_id;
             var params = { pid: pid, gid: config.partner_gid_id }
+            console.log("params::",params)
             sdk.login(params, function (res) {
                 console.log("渠道返回" + JSON.stringify(res));
                 self.do_login(res);
