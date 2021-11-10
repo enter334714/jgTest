@@ -5052,7 +5052,7 @@ var set_param_U = function () {
             "image_com_tuichu.png": "u17b.png",
             "image_login_changtong.png": "u18b.png",
             "image_login_fanmang.png": "u19b.png",
-            "image_login_weihu.png": "t20b.png",
+            "image_login_weihu.png": "u20b.png",
             "image_login_xuanqubg.png": "u21b.png",
             "image_login_init.png": "u22b.png",
             "btn_com_chuangback1.png": "u23b.png",
