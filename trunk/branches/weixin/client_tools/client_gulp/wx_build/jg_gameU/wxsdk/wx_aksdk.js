@@ -1,4 +1,4 @@
-var sdk = require('../utils/sdklib-2.9.4.min.js');
+﻿var sdk = require('../utils/sdklib-2.9.4.min.js');
 
 //TODO 替换对应参数
 var config = {
@@ -10,7 +10,8 @@ var config = {
     is_auth: false, //授权登录
     partner_android_pid_id: 442,
     partner_ios_pid_id: 484,
-    partner_gid_id: 1014883
+    partner_gid_id: 1014883,
+    tmpId: {1:'PJP2iuFkN9fgsQxuMSzC4-fR2p0J1K1E3TBVYVAwasg', 2:'L8EiLRlJGEWYPYgOzA3cqvLfL22OoikRhZii1xdEGsw', 3:'PJP2iuFkN9fgsQxuMSzC4-fR2p0J1K1E3TBVYVAwasg'},  // 订阅的类型 和 模板id
 };
 window.config = config;
 var PARTNER_SDK = mainSDK();
@@ -638,6 +639,25 @@ function mainSDK() {
             wx.openCustomerServiceConversation();
         },
 
+        subscribeMessage: function (tmplIds, callback) {
+            console.log('[SDK]订阅消息：' + tmplIds);
+            //获取模板ID
+            callbacks['subscribeMessage'] = typeof callback == 'function' ? callback : null;
+            wx.requestSubscribeMessage({
+                tmplIds: tmplIds,
+                success(res) {
+                    console.log("[SDK]订阅消息返回：成功");
+                    console.log(res);
+                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+                },
+                fail(res) {
+                    console.log("[SDK]订阅消息返回：失败");
+                    console.log(res);
+                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+                }
+            })
+        },
+
         // 微端小助手
         weiduanHelper: function () {
 
@@ -728,6 +748,10 @@ exports.msgCheck = function (data, callback) {
 
 exports.downloadClient = function () {
     run('downloadClient');
+};
+
+exports.subscribeMessage = function (data, callback) {
+    run('subscribeMessage', data, callback);
 };
 
 exports.getConfig = function () {

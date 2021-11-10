@@ -1,2 +1,2 @@
 var M = wx.$T;
-require('tGAMEtt.js');
+require(M[320000]);

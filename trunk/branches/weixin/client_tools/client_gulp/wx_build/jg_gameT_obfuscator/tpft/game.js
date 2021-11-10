@@ -1,2 +1,2 @@
 var M = wx.$T;
-require('tBFtt.js'), window['protobuf']['util'][M[320435]] = null, window['client_pb'] = require('tCLIENTtt.js'), window['protobufRoot'] = window['protobuf']['Root'][M[320436]](client_pb);
+require('tBFtt.js'), window[M[320777]][M[320778]][M[320779]] = null, window['client_pb'] = require('tCLIENTtt.js'), window[M[320780]] = window[M[320777]][M[320781]][M[320782]](client_pb);
