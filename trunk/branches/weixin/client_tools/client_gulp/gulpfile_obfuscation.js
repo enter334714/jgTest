@@ -5110,7 +5110,242 @@ gulp.task('build-babel-obfuscator-U', function (cb) {
 
 });
 
-/**-------------------------------------------------微信小游戏--U包 趣侬vs37--微微剑仙 end-----------------------------------------------------------*/
+/**-------------------------------------------------微信小游戏--U包 天剑vs卡卡-六玄之苍 end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--V包 天剑vs卡卡-六玄之苍 start-----------------------------------------------------------*/
+
+/**V包参数*/
+var set_param_V = function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = '../../client/wx_dist/packageV/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameV';
+        INIT_PATH = '/';
+        // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
+        PREFIX = 'v$';
+        sourceProject = "wx_build/jg_gameV_new";
+        targetProject = "wx_build/jg_gameV_obfuscator";
+        targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
+        mainJsName = "vvMAIv.js";
+        libsMainJs = "vGAMEv.js";
+        packageName1 = "vIBv";
+        packageName2 = "vpftv";
+        packageName3 = "vvvvvvv";
+        var clinetPbName = "vCLIENvv.js";
+        filesMap = {
+            //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
+            "libs": {url:packageName1},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
+            "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
+            "index.js": {url:packageName1+"/vINDvv.js",extractStr:true,count:1,strLen:3},
+            "init.min.js":  {url:packageName1+"/vvINIvv.js",extractStr:true,count:1,strLen:3,replace:true},
+            "libs/dom.js":  {url:packageName1+"/vvDOvv.js"},
+            "libs/dom_parser.js":  {url:packageName1+"/vvparsvv.js"},
+            "libs/laya.wxmini.js":  {url:packageName1+"/vvMtadvv.js"},
+            "libs/libs.min.js":  {url:packageName1+"/vvIB1vv.js",extractStr:false,count:5,strLen:3},
+            "libs/md5.min.js":  {url:packageName1+"/vvfvv.js"},
+            "libs/sax.js":  {url:packageName1+"/vv12vv.js"},
+            "libs/weapp-adapter.js":  {url:"vv2/vvE4vv.js"},
+            "libs/zlib.js":  {url:packageName1+"/vv11vv.js"},
+            "wxsdk":  {url:"vvavvv"},
+            "wxsdk/wx_aksdk.js":  {url:"vvavvv/v7tvv.js",extractStr:true,count:1,strLen:3},
+            "wxsdk/helper.js":  {url:"vvavvv/vvssvv.js",extractStr:true,count:1,strLen:3},
+            "protobuf":  {url:packageName2},
+            "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:2,strLen:3},
+            "protobuf/protobuf.js":  {url: packageName2 + "/vBFvv.js",extractStr:true,count:2,strLen:3},
+            "protobuf/game.js":  {url: packageName2 + "/game.js",extractStr:true,count:5,strLen:3},
+            "subPackage":  {url:packageName3},
+            "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:false,count:1,strLen:3},
+            "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
+            "utils/huosdk-2.1.0.js":{url:"utils/huosdk-2.1.0.js",addGlobleKeys0:false,extractStr:false},
+            "utils/gameSDK.bundle.js":{url:"utils/gameSDK.bundle.js",addGlobleKeys0:false,extractStr:false},
+            //随机创建名字和文件夹
+            "wxloading_atlas": {url:"vvdv"},
+            "wxlogin_atlas": {url:"vvlgrvv"},
+            "wxeff_btn_atlas":{url:"vtv"},
+
+
+            "wxloading_atlas/btn_loding_abcelq0.png": {url:"vvdv/v1a.png"},
+            "wxloading_atlas/btn_loding_abcelq1.png": {url:"vvdv/v2a.png"},
+            "wxloading_atlas/image_loading_bg.jpg": {url:"vvdv/v3a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom.jpg": {url:"vvdv/v4a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom2.jpg": {url:"vvdv/va.jpg"},
+            "wxloading_atlas/image_loading_bg_left.jpg": {url:"vvdv/v6a.jpg"},
+            "wxloading_atlas/image_loading_bg_left2.jpg": {url:"vvdv/v7a.jpg"},
+            "wxloading_atlas/image_loading_bg_right.jpg": {url:"vvdv/v8a.jpg"},
+            "wxloading_atlas/image_loading_bg_right2.jpg": {url:"vvdv/v9a.jpg"},
+            "wxloading_atlas/image_loading_bg_top.jpg": {url:"vvdv/v10a.jpg"},
+            "wxloading_atlas/image_loading_bg_top2.jpg": {url:"vvdv/v11a.jpg"},
+            "wxloading_atlas/image_loading_bg2.jpg": {url:"vvdv/v12a.jpg"},
+
+
+            "wxloading_atlas/image_loding_bar0.png": {url:"vvdv/v13a.png"},
+            "wxloading_atlas/image_loding_bar1.png": {url:"vvdv/v14a.png"},
+            "wxloading_atlas/image_loding_bar02.png": {url:"vvdv/v15a.png"},
+            "wxloading_atlas/image_loding_bar2.png": {url:"vvdv/v16a.png"},
+            "wxloading_atlas/image_loding_bar3.png": {url:"vvdv/v17a.png"},
+            "wxloading_atlas/image_login_point1.png": {url:"vvdv/v18a.png"},
+            "wxloading_atlas/image_login_point2.png": {url:"vvdv/v19a.png"},
+            "wxloading_atlas/image_login_point3.png": {url:"vvdv/v20a.png"},
+
+
+            "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"vvlgrvv/v1b.png"},
+            "wxlogin_atlas/image_login_loginbg.jpg": {url:"vvlgrvv/v2b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_bottom.jpg": {url:"vvlgrvv/v3b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_left.jpg": {url:"vvlgrvv/v4b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_right.jpg": {url:"vvlgrvv/v5b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_top.jpg": {url:"vvlgrvv/v6b.jpg"},
+            "wxlogin_atlas/image_login_logo.png": {url:"vvlgrvv/v7b.png"},
+            "wxlogin_atlas/image_login_notice.png": {url:"vvlgrvv/v8b.png"},
+            "wxlogin_atlas/image_xuanfu_xfbg.png": {url:"vvlgrvv/v9b.png"},
+
+            "wxlogin_atlas/btn_com_chuangback.png": {url:"vvlgrvv/v10b.png"},
+            "wxlogin_atlas/btn_login_gonggao.png": {url:"vvlgrvv/v11b.png"},
+            "wxlogin_atlas/btn_login_loginanniu.png": {url:"vvlgrvv/v12b.png"},
+            "wxlogin_atlas/btn_login_yingsi.png": {url:"vvlgrvv/v13b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniuhuang.png": {url:"vvlgrvv/v14b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniulan.png": {url:"vvlgrvv/v15b.png"},
+            "wxlogin_atlas/btn_xuanqu_quanniu.png": {url:"vvlgrvv/v16b.png"},
+            "wxlogin_atlas/image_com_tuichu.png": {url:"vvlgrvv/v17b.png"},
+            "wxlogin_atlas/image_login_changtong.png": {url:"vvlgrvv/v18b.png"},
+            "wxlogin_atlas/image_login_fanmang.png": {url:"vvlgrvv/v19b.png"},
+            "wxlogin_atlas/image_login_weihu.png": {url:"vvlgrvv/v20b.png"},
+            "wxlogin_atlas/image_login_xuanqubg.png": {url:"vvlgrvv/v21b.png"},
+            "wxlogin_atlas/image_login_init.png": {url:"vvlgrvv/v22b.png"},
+            "wxlogin_atlas/btn_com_chuangback1.png": {url:"vvlgrvv/v23b.png"},
+            "wxlogin_atlas/btn_com_long0.png": {url:"vvlgrvv/v24b.png"},
+            "wxlogin_atlas/btn_com_long1.png": {url:"vvlgrvv/v25b.png"},
+            "wxlogin_atlas/image_login_notice1.png": {url:"vvlgrvv/v26b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"vvlgrvv/v27b.png"},
+
+            "wxeff_btn_atlas/0.png": {url:"vtv/v1c.png"},
+            "wxeff_btn_atlas/1.png": {url:"vtv/v2c.png"},
+            "wxeff_btn_atlas/2.png": {url:"vtv/v3c.png"},
+            "wxeff_btn_atlas/3.png": {url:"vtv/v4c.png"},
+            "wxeff_btn_atlas/4.png": {url:"vtv/v5c.png"},
+        };
+        mt1Replace = {
+            "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
+            "./helper": "./" + "vvssvv",
+            "./sax": "./vv12vv",
+            "./dom": "./vvDOvv",
+            "client_pb.js": clinetPbName,
+            "protobuf.js": "vBFvv.js",
+            "main.min.js": mainJsName,
+            "wxlogin_atlas": "vvlgrvv",
+            "wxeff_btn_atlas": "vtv",
+            "wxloading_atlas": "vvdv",
+            // "res/atlas/": "gafda/",
+
+            "btn_loding_abcelq0.png": "v1a.png",
+            "btn_loding_abcelq1.png": "v2a.png",
+            "image_loading_bg.jpg": "v3a.jpg",
+            "image_loading_bg_bottom.jpg": "v4a.jpg",
+            "image_loading_bg_bottom2.jpg": "v5a.jpg",
+            "image_loading_bg_left.jpg": "v6a.jpg",
+            "image_loading_bg_left2.jpg": "v7a.jpg",
+            "image_loading_bg_right.jpg": "v8a.jpg",
+            "image_loading_bg_right2.jpg": "v9a.jpg",
+            "image_loading_bg_top.jpg": "v10a.jpg",
+            "image_loading_bg_top2.jpg": "v11a.jpg",
+            "image_loading_bg2.jpg": "v12a.jpg",
+
+
+            "image_loding_bar0.png": "v13a.png",
+            "image_loding_bar1.png": "v14a.png",
+            "image_loding_bar02.png": "v15a.png",
+            "image_loding_bar2.png": "v16a.png",
+            "image_loding_bar3.png": "v17a.png",
+            "image_login_point1.png": "v18a.png",
+            "image_login_point2.png":"v19a.png",
+            "image_login_point3.png": "v20a.png",
+
+
+
+            "image_denglu_txtshenpi.png": "v1b.png",
+            "image_login_loginbg.jpg": "v2b.jpg",
+            "image_login_loginbg_bottom.jpg": "v3b.jpg",
+            "image_login_loginbg_left.jpg": "v4b.jpg",
+            "image_login_loginbg_right.jpg": "v5b.jpg",
+            "image_login_loginbg_top.jpg": "v6b.jpg",
+            "image_login_logo.png": "v7b.png",
+            "image_login_notice.png": "v8b.png",
+            "image_xuanfu_xfbg.png": "v9b.png",
+
+            "btn_com_chuangback.png": "v10b.png",
+            "btn_login_gonggao.png": "v11b.png",
+            "btn_login_loginanniu.png": "v12b.png",
+            "btn_login_yingsi.png": "v13b.png",
+            "btn_xuanqu_anniuhuang.png": "v14b.png",
+            "btn_xuanqu_anniulan.png": "v15b.png",
+            "btn_xuanqu_quanniu.png": "v16b.png",
+            "image_com_tuichu.png": "v17b.png",
+            "image_login_changtong.png": "v18b.png",
+            "image_login_fanmang.png": "v19b.png",
+            "image_login_weihu.png": "v20b.png",
+            "image_login_xuanqubg.png": "v21b.png",
+            "image_login_init.png": "v22b.png",
+            "btn_com_chuangback1.png": "v23b.png",
+            "btn_com_long0.png":"v24b.png",
+            "btn_com_long1.png":"v25b.png",
+            "image_login_notice1.png":"v26b.png",
+            "image_loding_txtbhcc.png":"v27b.png",
+
+            "0.png": "v1c.png",
+            "1.png": "v2c.png",
+            "2.png": "v3c.png",
+            "3.png": "v4c.png",
+            "4.png": "v5c.png",
+
+        }
+        strFilePath = "/vves";
+        strFileName = "/vviles.zip";
+        // globleKeys = ["$e", "w", "x", "E$", "y"];
+        globleKeys = ["$v", "q", "_r", "v$", "v"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        noReplaceJs = packageName1+"/game.js";
+        arrIndex = 360000;
+        globleArrs = new Array(arrIndex);
+        numberToHex = false;
+        // needShuffle = true;
+        str_leading1 = "GFM4UCWXDOHZY07SVKA891QJLBR2_E35P6$INT";
+        str_leading2 = "6h0fibds$amwnc7ju5oeqt29r8px_k1zlvg3y4";
+        for(var key in  filesMap){
+            var item = filesMap[key];
+            var url = item.url;
+            targetFileMap[url] = item;
+            var repalce = item.replace;
+            if(repalce){
+                replaceMap[url] = true;
+            }
+        }
+        replaceMap[targetGameJs] = true;
+        cb();
+        this.emit("data", file);
+    }
+
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-V', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_V())
+    return stream;
+});
+
+//混淆
+gulp.task('build-babel-obfuscator-V', function (cb) {
+    sequence("set-param-V","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
+
+});
+
+/**-------------------------------------------------微信小游戏--V包 趣侬vs37--微微剑仙 end-----------------------------------------------------------*/
 
 
 
