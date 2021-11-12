@@ -1,2 +1,2 @@
 var c = wx.$o;
-require('oooGAME.js');
+require(c[247240]);

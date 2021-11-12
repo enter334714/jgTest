@@ -4833,7 +4833,7 @@ var set_param_T = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$T", "M", "_n", "t_", "t"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 320000;
+        arrIndex = 0;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         // needShuffle = true;
@@ -5160,7 +5160,7 @@ var set_param_V = function () {
             "protobuf/protobuf.js":  {url: packageName2 + "/vBFvv.js",extractStr:true,count:2,strLen:3},
             "protobuf/game.js":  {url: packageName2 + "/game.js",extractStr:true,count:5,strLen:3},
             "subPackage":  {url:packageName3},
-            "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:false,count:1,strLen:3},
+            "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
             "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
             "utils/huosdk-2.1.0.js":{url:"utils/huosdk-2.1.0.js",addGlobleKeys0:false,extractStr:false},
             "utils/gameSDK.bundle.js":{url:"utils/gameSDK.bundle.js",addGlobleKeys0:false,extractStr:false},
@@ -5306,14 +5306,14 @@ var set_param_V = function () {
         strFilePath = "/vves";
         strFileName = "/vviles.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
-        globleKeys = ["$v", "q", "_r", "v$", "v"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        globleKeys = ["$v", "Q", "r_", "_v", "v"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
         noReplaceJs = packageName1+"/game.js";
         arrIndex = 360000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         // needShuffle = true;
-        str_leading1 = "GFM4UCWXDOHZY07SVKA891QJLBR2_E35P6$INT";
-        str_leading2 = "6h0fibds$amwnc7ju5oeqt29r8px_k1zlvg3y4";
+        str_leading1 = "NQCGU8JO$51FRXA9D0_MKHPEV6S3TWZ27BYL4I";
+        str_leading2 = "gxdvw5kf$qe_1i0runz6a4bl793sm2tcj8oyhp";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -6749,6 +6749,14 @@ gulp.task('CREATE_REFUSEFILE_U', function (cb) {
 
 gulp.task('DEL_REFUSEFILE_U', function (cb) {
     sequence("set-param-U","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_V', function (cb) {
+    sequence("set-param-V","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_V', function (cb) {
+    sequence("set-param-V","DEL_REFUSEFILE",cb)
 });
 
 //无网络 使用这个图片压缩

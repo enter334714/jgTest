@@ -1,2 +1,2 @@
 var E = wx.$p;
-require('pppGAME.js');
+require(E[240000]);

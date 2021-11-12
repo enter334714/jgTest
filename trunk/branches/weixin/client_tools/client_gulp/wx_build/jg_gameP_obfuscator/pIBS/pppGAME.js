@@ -1,79 +1,79 @@
 var E = wx.$p;
-console[E[240331]](E[243562]), window[E[243563]], wx[E[241495]](function (ag8qb9) {
-  if (ag8qb9) {
-    if (ag8qb9[E[240813]]) {
-      var mxu = window[E[240290]][E[240291]]['replace'](new RegExp(/\./, 'g'), '_'),
-          tpl4x = ag8qb9[E[240813]],
-          z0vr2 = tpl4x[E[241142]](/(pp\/pppGAME.js:)[0-9]{1,60}(:)/g);if (z0vr2) for (var hijy$k = 0x0; hijy$k < z0vr2[E[240110]]; hijy$k++) {
-        if (z0vr2[hijy$k] && z0vr2[hijy$k][E[240110]] > 0x0) {
-          var lfu_ = parseInt(z0vr2[hijy$k]['replace']('pp/pppGAME.js:', '')['replace'](':', ''));tpl4x = tpl4x['replace'](z0vr2[hijy$k], z0vr2[hijy$k]['replace'](':' + lfu_ + ':', ':' + (lfu_ - 0x2) + ':'));
+console[E[240456]](E[244539]), window[E[244540]], wx[E[241894]](function (v61yi) {
+  if (v61yi) {
+    if (v61yi[E[241067]]) {
+      var r0723 = window[E[240402]][E[240403]][E[240289]](new RegExp(/\./, 'g'), '_'),
+          kjyi = v61yi[E[241067]],
+          utfx_l = kjyi[E[241463]](/(pp\/pppGAME.js:)[0-9]{1,60}(:)/g);if (utfx_l) for (var isk4j = 0x0; isk4j < utfx_l[E[240163]]; isk4j++) {
+        if (utfx_l[isk4j] && utfx_l[isk4j][E[240163]] > 0x0) {
+          var $y1j6 = parseInt(utfx_l[isk4j][E[240289]](E[244541], '')[E[240289]](':', ''));kjyi = kjyi[E[240289]](utfx_l[isk4j], utfx_l[isk4j][E[240289]](':' + $y1j6 + ':', ':' + ($y1j6 - 0x2) + ':'));
         }
-      }tpl4x = tpl4x['replace'](new RegExp('pp/pppGAME.js', 'g'), 'pp/main__' + mxu + E[243564]), tpl4x = tpl4x['replace'](new RegExp('pp/ppppMAIN.js', 'g'), 'pp/main__' + mxu + E[243564]), ag8qb9[E[240813]] = tpl4x;
-    }var gb9 = { 'id': window['_p$3'][E[240336]], 'role': window['_p$3'][E[240337]], 'level': window['_p$3'][E[240338]], 'user': window['_p$3'][E[240339]], 'version': window['_p$3'][E[240125]], 'gamever': window[E[240290]][E[240291]], 'cdn': window['_p$3'][E[240189]], 'serverid': window['_p$3'][E[240088]] ? window['_p$3'][E[240088]][E[240089]] : 0x0, 'systemInfo': window[E[240340]], 'error': E[243565], 'stack': ag8qb9 ? ag8qb9[E[240813]] : '' },
-        y$i16j = JSON[E[240261]](gb9);console[E[240263]](E[243566] + y$i16j), (!window[E[243563]] || window[E[243563]] != gb9[E[240263]]) && (window[E[243563]] = gb9[E[240263]], window['_pF$'](gb9));
+      }kjyi = kjyi[E[240289]](new RegExp(E[244542], 'g'), E[244543] + r0723 + E[244544]), kjyi = kjyi[E[240289]](new RegExp(E[244545], 'g'), E[244543] + r0723 + E[244544]), v61yi[E[241067]] = kjyi;
+    }var e3w59n = { 'id': window['_p$3'][E[240462]], 'role': window['_p$3'][E[240463]], 'level': window['_p$3'][E[240464]], 'user': window['_p$3'][E[240465]], 'version': window['_p$3'][E[240191]], 'gamever': window[E[240402]][E[240403]], 'cdn': window['_p$3'][E[240275]], 'serverid': window['_p$3'][E[240134]] ? window['_p$3'][E[240134]][E[240135]] : 0x0, 'systemInfo': window[E[240466]], 'error': E[244546], 'stack': v61yi ? v61yi[E[241067]] : '' },
+        rv102 = JSON[E[240367]](e3w59n);console[E[240369]](E[244547] + rv102), (!window[E[244540]] || window[E[244540]] != e3w59n[E[240369]]) && (window[E[244540]] = e3w59n[E[240369]], window['_pF$'](e3w59n));
   }
-});import 'ppMDadfap.js';import 'pp12asz.js';window[E[243567]] = require('pppparse.js');import 'pINDEX.js';import 'ppLIBsdsa.js';import 'pppWXMsad.js';import 'ooooINITMIN.js';import 'SyMiniTool.js';console[E[240331]](E[243568]), console[E[240331]](E[243569]), _pF$23({ 'title': E[243570] });var p_tlu4px = { '_pX2F$3': !![] };new window[E[240288]](p_tlu4px), window[E[240288]][E[240085]]['_pX23F$']();if (window['_pXF32$']) clearInterval(window['_pXF32$']);window['_pXF32$'] = null, window['_pX23$F'] = function (w5ne89, n5ezw) {
-  if (!w5ne89 || !n5ezw) return 0x0;w5ne89 = w5ne89['split']('.'), n5ezw = n5ezw['split']('.');const tlxf_ = Math[E[240626]](w5ne89[E[240110]], n5ezw[E[240110]]);while (w5ne89[E[240110]] < tlxf_) {
-    w5ne89['push']('0');
-  }while (n5ezw[E[240110]] < tlxf_) {
-    n5ezw['push']('0');
-  }for (var cdba = 0x0; cdba < tlxf_; cdba++) {
-    const xfpt = parseInt(w5ne89[cdba]),
-          nz3e5 = parseInt(n5ezw[cdba]);if (xfpt > nz3e5) return 0x1;else {
-      if (xfpt < nz3e5) return -0x1;
+});import 'ppMDadfap.js';import 'pp12asz.js';window[E[244548]] = require(E[244549]);import 'pINDEX.js';import 'ppLIBsdsa.js';import 'pppWXMsad.js';import 'ooooINITMIN.js';import 'SyMiniTool.js';console[E[240456]](E[244550]), console[E[240456]](E[244551]), _pF$23({ 'title': E[244552] });var p_i$16y = { '_pX2F$3': !![] };new window[E[240400]](p_i$16y), window[E[240400]][E[240130]]['_pX23F$']();if (window['_pXF32$']) clearInterval(window['_pXF32$']);window['_pXF32$'] = null, window['_pX23$F'] = function (shijky, hskjp) {
+  if (!shijky || !hskjp) return 0x0;shijky = shijky[E[240691]]('.'), hskjp = hskjp[E[240691]]('.');const b8n = Math[E[240836]](shijky[E[240163]], hskjp[E[240163]]);while (shijky[E[240163]] < b8n) {
+    shijky[E[240261]]('0');
+  }while (hskjp[E[240163]] < b8n) {
+    hskjp[E[240261]]('0');
+  }for (var tmxu_f = 0x0; tmxu_f < b8n; tmxu_f++) {
+    const gc8qa = parseInt(shijky[tmxu_f]),
+          lpuxt = parseInt(hskjp[tmxu_f]);if (gc8qa > lpuxt) return 0x1;else {
+      if (gc8qa < lpuxt) return -0x1;
     }
   }return 0x0;
-}, window[E[240423]] = wx[E[243571]]()[E[240423]], console[E[240172]](E[243572] + window[E[240423]]);var p_ftxlu = wx['getUpdateManager']();p_ftxlu['onCheckForUpdate'](function (_futx) {
-  console[E[240172]](E[243573] + _futx['hasUpdate']);
-}), p_ftxlu['onUpdateReady'](function () {
-  wx[E[240316]]({ 'title': E[243574], 'content': E[243575], 'showCancel': ![], 'success': function (pjshk4) {
-      p_ftxlu['applyUpdate']();
+}, window[E[240583]] = wx[E[244553]]()[E[240583]], console[E[240252]](E[244554] + window[E[240583]]);var p_ftpxu = wx[E[244555]]();p_ftpxu[E[244556]](function (z0352) {
+  console[E[240252]](E[244557] + z0352[E[244558]]);
+}), p_ftpxu[E[244559]](function () {
+  wx[E[240441]]({ 'title': E[244560], 'content': E[244561], 'showCancel': ![], 'success': function (sxt4) {
+      p_ftpxu[E[244562]]();
     } });
-}), p_ftxlu['onUpdateFailed'](function () {
-  console[E[240172]](E[243576]);
+}), p_ftpxu[E[244563]](function () {
+  console[E[240252]](E[244564]);
 }), window['_pX$F23'] = function () {
-  console[E[240172]]('protobuf 分包加载');var ac8gbq = wx['loadSubpackage']({ 'name': 'pPF', 'success': function ($ykhj) {
-      console[E[240172]]('protobuf 分包加载成功'), console[E[240172]]($ykhj), $ykhj && $ykhj[E[240378]] == 'loadSubpackage:ok' ? (window['_p32'] = !![], window['_p3$F2'](), window['_p3$2F']()) : setTimeout(function () {
+  console[E[240252]](E[244565]);var q8e5 = wx[E[244566]]({ 'name': E[244567], 'success': function (put4xl) {
+      console[E[240252]](E[244568]), console[E[240252]](put4xl), put4xl && put4xl[E[240516]] == E[244569] ? (window['_p32'] = !![], window['_p3$F2'](), window['_p3$2F']()) : setTimeout(function () {
         window['_pX$F23']();
       }, 0x1f4);
-    }, 'fail': function (a9e8q) {
-      console[E[240172]]('protobuf 分包加载失败'), console[E[240172]](a9e8q), setTimeout(function () {
+    }, 'fail': function (wn98) {
+      console[E[240252]](E[244570]), console[E[240252]](wn98), setTimeout(function () {
         window['_pX$F23']();
       }, 0x1f4);
-    } });ac8gbq && ac8gbq['onProgressUpdate'](_fxtu => {});
+    } });q8e5 && q8e5[E[244571]](rv1267 => {});
 }, window['_pX$2F3'] = function () {
-  console[E[240172]](E[243577]);var m_foux = wx['loadSubpackage']({ 'name': 'pp', 'success': function (_fxtl) {
-      console[E[240172]](E[243578]), console[E[240172]](_fxtl), _fxtl && _fxtl[E[240378]] == 'loadSubpackage:ok' ? (window['_p$23'] = !![], window['_p3$F2'](), window['_p3$2F']()) : setTimeout(function () {
+  console[E[240252]](E[244572]);var hjsp = wx[E[244566]]({ 'name': 'pp', 'success': function (a8gc) {
+      console[E[240252]](E[244573]), console[E[240252]](a8gc), a8gc && a8gc[E[240516]] == E[244569] ? (window['_p$23'] = !![], window['_p3$F2'](), window['_p3$2F']()) : setTimeout(function () {
         window['_pX$2F3']();
       }, 0x1f4);
-    }, 'fail': function (z03w) {
-      console[E[240172]](E[243579]), console[E[240172]](z03w), setTimeout(function () {
+    }, 'fail': function (eb98qa) {
+      console[E[240252]](E[244574]), console[E[240252]](eb98qa), setTimeout(function () {
         window['_pX$2F3']();
       }, 0x1f4);
-    } });m_foux && m_foux['onProgressUpdate'](w5z03n => {});
-}, window['loadSubpackages'] = function () {
-  window['_pX23$F'](window[E[240423]], E[243580]) >= 0x0 ? (console[E[240172]](E[243581] + window[E[240423]] + E[243582]), window['_p$F'](), window['_pX$F23'](), window['_pX$2F3']()) : (window['_p$3F'](E[243583], window[E[240423]]), wx[E[240316]]({ 'title': E[240317], 'content': E[243584] }));
-}, window[E[240340]] = '', wx[E[243585]]({ 'success'(r2v1) {
-    window[E[240340]] = E[243586] + r2v1[E[243587]] + E[243588] + r2v1[E[243589]] + E[243590] + r2v1[E[240295]] + E[243591] + r2v1[E[241832]] + E[243592] + r2v1['platform'] + E[243593] + r2v1[E[240423]] + E[243594] + r2v1[E[243595]], console[E[240172]](window[E[240340]]), console[E[240172]](E[243596] + r2v1['pixelRatio'] + E[243597] + r2v1[E[243598]] + E[243599] + r2v1[E[243600]] + E[243601] + r2v1[E[243602]] + E[243603] + r2v1[E[243604]] + E[243605] + r2v1[E[243606]] + E[243607] + (r2v1[E[243608]] ? r2v1[E[243608]]['top'] + ',' + r2v1[E[243608]][E[240137]] + ',' + r2v1[E[243608]][E[240489]] + ',' + r2v1[E[243608]][E[240039]] : ''));var fxtu_m = r2v1[E[241832]] ? r2v1[E[241832]][E[241385]]() : '',
-        xfp = r2v1[E[243589]] ? r2v1[E[243589]][E[241385]]()['replace']('\x20', '') : '';window['_p$3'][E[240311]] = fxtu_m[E[240279]](E[243609]) != -0x1, window['_p$3'][E[240312]] = fxtu_m[E[240279]](E[243610]) != -0x1, window['_p$3'][E[240486]] = fxtu_m[E[240279]](E[243609]) != -0x1 || fxtu_m[E[240279]](E[243610]) != -0x1, window['_p$3'][E[240313]] = fxtu_m[E[240279]](E[243611]) != -0x1 || fxtu_m[E[240279]](E[240296]) != -0x1, window['_p$3'][E[240346]] = r2v1['platform'] ? r2v1['platform'][E[241385]]() : '', window['_p$3']['_pXF$23'] = ![], window['_p$3']['_pXF$32'] = 0x2;if (fxtu_m[E[240279]](E[243610]) != -0x1) {
-      if (r2v1[E[243595]] >= 0x18) window['_p$3']['_pXF$32'] = 0x3;else window['_p$3']['_pXF$32'] = 0x2;
+    } });hjsp && hjsp[E[244571]](xutlpf => {});
+}, window[E[244575]] = function () {
+  window['_pX23$F'](window[E[240583]], E[244576]) >= 0x0 ? (console[E[240252]](E[244577] + window[E[240583]] + E[244578]), window['_p$F'](), window['_pX$F23'](), window['_pX$2F3']()) : (window['_p$3F'](E[244579], window[E[240583]]), wx[E[240441]]({ 'title': E[240442], 'content': E[244580] }));
+}, window[E[240466]] = '', wx[E[244581]]({ 'success'(fuo_x) {
+    window[E[240466]] = E[244582] + fuo_x[E[244583]] + E[244584] + fuo_x[E[244585]] + E[244586] + fuo_x[E[240410]] + E[244587] + fuo_x[E[242310]] + E[244588] + fuo_x[E[240528]] + E[244589] + fuo_x[E[240583]] + E[244590] + fuo_x[E[244591]], console[E[240252]](window[E[240466]]), console[E[240252]](E[244592] + fuo_x[E[240722]] + E[244593] + fuo_x[E[244594]] + E[244595] + fuo_x[E[244596]] + E[244597] + fuo_x[E[244598]] + E[244599] + fuo_x[E[244600]] + E[244601] + fuo_x[E[244602]] + E[244603] + (fuo_x[E[244604]] ? fuo_x[E[244604]][E[240099]] + ',' + fuo_x[E[244604]][E[240205]] + ',' + fuo_x[E[244604]][E[240668]] + ',' + fuo_x[E[244604]][E[240068]] : ''));var kysi = fuo_x[E[242310]] ? fuo_x[E[242310]][E[241753]]() : '',
+        n3z5 = fuo_x[E[244585]] ? fuo_x[E[244585]][E[241753]]()[E[240289]]('\x20', '') : '';window['_p$3'][E[240436]] = kysi[E[240389]](E[244605]) != -0x1, window['_p$3'][E[240437]] = kysi[E[240389]](E[244606]) != -0x1, window['_p$3'][E[240664]] = kysi[E[240389]](E[244605]) != -0x1 || kysi[E[240389]](E[244606]) != -0x1, window['_p$3'][E[240438]] = kysi[E[240389]](E[244607]) != -0x1 || kysi[E[240389]](E[240411]) != -0x1, window['_p$3'][E[240474]] = fuo_x[E[240528]] ? fuo_x[E[240528]][E[241753]]() : '', window['_p$3']['_pXF$23'] = ![], window['_p$3']['_pXF$32'] = 0x2;if (kysi[E[240389]](E[244606]) != -0x1) {
+      if (fuo_x[E[244591]] >= 0x18) window['_p$3']['_pXF$32'] = 0x3;else window['_p$3']['_pXF$32'] = 0x2;
     } else {
-      if (fxtu_m[E[240279]](E[243609]) != -0x1) {
-        if (r2v1[E[243595]] && r2v1[E[243595]] >= 0x14) window['_p$3']['_pXF$32'] = 0x3;else {
-          if (xfp[E[240279]]('iphone5') != -0x1 || xfp[E[240279]]('iphone6') != -0x1 || xfp[E[240279]]('iphone7') != -0x1 || xfp[E[240279]]('iphonese') != -0x1 || xfp[E[240279]]('ipad') != -0x1) window['_p$3']['_pXF$32'] = 0x2;else window['_p$3']['_pXF$32'] = 0x3;
+      if (kysi[E[240389]](E[244605]) != -0x1) {
+        if (fuo_x[E[244591]] && fuo_x[E[244591]] >= 0x14) window['_p$3']['_pXF$32'] = 0x3;else {
+          if (n3z5[E[240389]](E[244608]) != -0x1 || n3z5[E[240389]](E[244609]) != -0x1 || n3z5[E[240389]](E[244610]) != -0x1 || n3z5[E[240389]](E[244611]) != -0x1 || n3z5[E[240389]](E[244612]) != -0x1) window['_p$3']['_pXF$32'] = 0x2;else window['_p$3']['_pXF$32'] = 0x3;
         }
       } else window['_p$3']['_pXF$32'] = 0x2;
-    }console[E[240172]](E[243612] + window['_p$3']['_pXF$23'] + E[243613] + window['_p$3']['_pXF$32']);
-  } }), wx[E[240440]]({ 'success': function (_ftuxl) {
-    console[E[240172]](E[243614] + _ftuxl[E[240442]] + E[243615] + _ftuxl[E[240444]]);
-  } }), wx['getNetworkType']({ 'success': function (cdbqg) {
-    console[E[240172]](E[243616] + cdbqg['networkType']);
-  } }), wx['setKeepScreenOn']({ 'keepScreenOn': !![] }), wx[E[243617]](function (f_xmut) {
-  console[E[240172]](E[243616] + f_xmut['networkType'] + E[243618] + f_xmut[E[243619]]);
-}), wx[E[243620]](function (pjhs) {
-  window['_p3F2'] = pjhs, window['_p32F'] && window['_p3F2'] && (console[E[240331]](E[240420] + window['_p3F2'][E[240421]]), window['_p32F'](window['_p3F2']), window['_p3F2'] = null);
-}), window['_pX$3F2'] = 0x0, window[E[243621]] = null, wx[E[243622]](function () {
-  window['_pX$3F2']++, wx[E[243623]]();if (window['_pX$3F2'] >= 0x2) {
-    window['_pX$3F2'] = 0x0, console[E[240263]](E[243624]), wx['reportMonitor']('0', 0x1);if (window['_p$3'] && window['_p$3'][E[240311]]) window['_p$3F'](E[243625], '');if (onMemoryWarningCallBack) onMemoryWarningCallBack();
+    }console[E[240252]](E[244613] + window['_p$3']['_pXF$23'] + E[244614] + window['_p$3']['_pXF$32']);
+  } }), wx[E[240602]]({ 'success': function (vzr72) {
+    console[E[240252]](E[244615] + vzr72[E[240604]] + E[244616] + vzr72[E[240606]]);
+  } }), wx[E[244617]]({ 'success': function (ga8b) {
+    console[E[240252]](E[244618] + ga8b[E[244619]]);
+  } }), wx[E[244620]]({ 'keepScreenOn': !![] }), wx[E[244621]](function (j$16y) {
+  console[E[240252]](E[244618] + j$16y[E[244619]] + E[244622] + j$16y[E[244623]]);
+}), wx[E[244624]](function (enz3w) {
+  window['_p3F2'] = enz3w, window['_p32F'] && window['_p3F2'] && (console[E[240456]](E[240578] + window['_p3F2'][E[240579]]), window['_p32F'](window['_p3F2']), window['_p3F2'] = null);
+}), window['_pX$3F2'] = 0x0, window[E[244625]] = null, wx[E[244626]](function () {
+  window['_pX$3F2']++, wx[E[244627]]();if (window['_pX$3F2'] >= 0x2) {
+    window['_pX$3F2'] = 0x0, console[E[240369]](E[244628]), wx[E[244629]]('0', 0x1);if (window['_p$3'] && window['_p$3'][E[240436]]) window['_p$3F'](E[244630], '');if (onMemoryWarningCallBack) onMemoryWarningCallBack();
   }
 });

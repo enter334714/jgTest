@@ -1,0 +1,2 @@
+var Q = wx.$v;
+require('vBFvv.js'), window[Q[360000]][Q[360001]][Q[360002]] = null, window['client_pb'] = require('vCLIENvv.js'), window[Q[360003]] = window[Q[360000]][Q[360004]][Q[360005]](client_pb);
