@@ -5174,7 +5174,7 @@ var set_param_V = function () {
             "wxloading_atlas/btn_loding_abcelq1.png": {url:"vvdv/v2a.png"},
             "wxloading_atlas/image_loading_bg.jpg": {url:"vvdv/v3a.jpg"},
             "wxloading_atlas/image_loading_bg_bottom.jpg": {url:"vvdv/v4a.jpg"},
-            "wxloading_atlas/image_loading_bg_bottom2.jpg": {url:"vvdv/va.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom2.jpg": {url:"vvdv/v5a.jpg"},
             "wxloading_atlas/image_loading_bg_left.jpg": {url:"vvdv/v6a.jpg"},
             "wxloading_atlas/image_loading_bg_left2.jpg": {url:"vvdv/v7a.jpg"},
             "wxloading_atlas/image_loading_bg_right.jpg": {url:"vvdv/v8a.jpg"},
