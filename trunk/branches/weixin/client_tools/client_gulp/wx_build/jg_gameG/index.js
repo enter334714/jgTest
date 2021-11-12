@@ -298,6 +298,7 @@ window.sdkLoginRetry = 5;
 window.sdkOnLogin = function(status, data) {
   if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
+    PF_INFO.openid = data.openid;
     var self = this;
     wxShowLoading({ title: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {

@@ -7,7 +7,7 @@ export class XingJuBoxMain {
 			gameVersion: window["config"].game_ver,      // 游戏版本
 			vipGameId: window["config"].partner_game_id, // 大使功能游戏id，跟平台游戏id保持一致；
 			env: "Prod",             // 运行环境 测试：Test， 正式：Prod
-			userId: window["PF_INFO"].userId,     // 用户平台 uniqueId，没有时可以使用 openId
+			userId: PF_INFO.openid,     // 用户平台 uniqueId，没有时可以使用 openId
 			// vipGameId: "dddjs-test",
 			// env: "Test",
 			// userId: "6497efc2b3ccedf546b5d0cabc697960",
