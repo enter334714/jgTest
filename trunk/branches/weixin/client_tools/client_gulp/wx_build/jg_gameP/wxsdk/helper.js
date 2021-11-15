@@ -5,9 +5,11 @@ const SY_CONF = {
   "APP_VERSION": "1001.0.0",
   "GAME_KEY": "b32f76097750a65a09f81fcaf7c9ee77",
   "offerId": "1450031451"
+ "commitId":"56"，
 };
 const Sygame = {
   // 初始化
+  SY_CONF:SY_CONF,
   appid: '',
   app_version: '1003.2.2',
   openid: '',

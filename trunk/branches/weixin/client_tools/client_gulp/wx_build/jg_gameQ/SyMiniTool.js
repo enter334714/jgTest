@@ -48,7 +48,8 @@ var minitool = /** @class */ (function () {
         this.getIcon = "https://wx.11babay.cn/uploads/f/fkccc1532944783/5/2/c/7/60dc442c4fbc5.png";
         this.copyIcon = "https://wx.11babay.cn/uploads/f/fkccc1532944783/3/0/1/7/60dc4409dce39.png";
         Global.init();
-        this.postSidebarApi();
+
+        this.getBoxCheckoutCode();
     }
     minitool.prototype.send = function (url, complete, error, type, data) {
         if (type === void 0) { type = "get"; }
@@ -62,6 +63,28 @@ var minitool = /** @class */ (function () {
     minitool.prototype.postSidebarApi = function () {
         this.send("https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApi&channel=" + Global.sygame.channel, this.completeHandler, this.errorHandler);
     };
+
+    minitool.prototype.getBoxCheckoutCode = function () {
+        // "POST",{commitId:sygame.SY_CONF.commitId}
+        var commitId = Sygame.SY_CONF.commitId
+        this.send("https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getBoxCheckoutCode", this.getBoxCheckoutCodeRes, this.errorHandler, "post", { commitId: commitId });
+    };
+
+    minitool.prototype.getBoxCheckoutCodeRes = function (e) {
+        var data = JSON.parse(e);
+        console.log("getBoxCheckoutCode:", data)
+        if (data.status == 1001) {
+            var info = data.info;
+            if(info == 4001){
+                this.postSidebarApi();
+            }else{
+                console.error("盛也盒子 不显示" + data)
+            }
+        } else {
+            console.error("盛也盒子 getBoxCheckoutCodeRes 其他错误" + data)
+        }      
+    };
+
     minitool.prototype.completeHandler = function (e) {
         var data = JSON.parse(e);
         console.log(data);
