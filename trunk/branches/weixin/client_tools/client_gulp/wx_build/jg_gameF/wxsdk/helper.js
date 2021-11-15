@@ -4,11 +4,13 @@ const SY_CONF = {
   "APP_ID": "wx4ce69989cfb43218",
   "APP_VERSION": "1001.0.0",
   "GAME_KEY": "98c5dab80922bf0570ea3318900929bd",
-  "offerId": "1450030861"
+  "offerId": "1450030861",
+  "commitId":"52"，
 };
 
 const Sygame = {
   // 初始化
+  SY_CONF:SY_CONF,
   appid: '',
   app_version: '1003.2.2',
   openid: '',
