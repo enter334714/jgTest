@@ -1,2 +1,2 @@
 var W = wx.$l;
-require('llllllBF.js'), window[W[187790]][W[187791]][W[187792]] = null, window['client_pb'] = require('LLLCLIENTPB.js'), window[W[184380]] = window[W[187790]][W[184279]][W[184280]](client_pb);
+require('llllllBF.js'), window[W[187925]][W[187926]][W[187927]] = null, window['client_pb'] = require('LLLCLIENTPB.js'), window[W[185020]] = window[W[187925]][W[184942]][W[184943]](client_pb);
