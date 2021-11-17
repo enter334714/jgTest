@@ -5634,7 +5634,12 @@ var set_param_X = function () {
             "subPackage":  {url:packageName3},
             "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
             "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
-
+            "utils/config.js":{url:"/utils/config.js",addGlobleKeys0:false,extractStr:false},
+            "utils/funsdk_wx_min.js":{url:"/utils/funsdk_wx_min.js",addGlobleKeys0:false,extractStr:false},
+            "utils/qingjs-conf.js":{url:"/utils/qingjs-conf.js",addGlobleKeys0:false,extractStr:false},
+            "utils/qingjs-wxapp.js":{url:"/utils/qingjs-wxapp.js",addGlobleKeys0:false,extractStr:false},
+            "utils/wxsdk_v3.7.js":{url:"/utils/wxsdk_v3.7.js",addGlobleKeys0:false,extractStr:false},
+            "utils/wxsdk_v3.8.js":{url:"/utils/wxsdk_v3.8.js",addGlobleKeys0:false,extractStr:false},
             //随机创建名字和文件夹
             "wxloading_atlas": {url:"xxdx"},
             "wxlogin_atlas": {url:"xxlgrxx"},
@@ -5777,7 +5782,7 @@ var set_param_X = function () {
         strFilePath = "/XXes";
         strFileName = "/XXiles.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
-        globleKeys = ["$W", "s", "_T", "_w", "w"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        globleKeys = ["$x", "u", "v1", "v2", "v"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
         noReplaceJs = packageName1+"/game.js";
         arrIndex = 400000;
         globleArrs = new Array(arrIndex);
