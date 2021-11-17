@@ -1,5 +1,5 @@
-﻿require("../utils/wxsdk_v3.8.js");
-
+﻿// require("../utils/wxsdk_v3.8.js");
+import w_test from "../utils/wxsdk_v3.8.js";
 //TODO 替换对应参数
 var config = {
     game_id: '256',

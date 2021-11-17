@@ -5762,7 +5762,7 @@ var set_param_X = function () {
             "btn_xuanqu_quanniu.png": "x16b.png",
             "image_com_tuichu.png": "x17b.png",
             "image_login_changtong.png": "x18b.png",
-            "image_login_fanmang.png": "w19b.png",
+            "image_login_fanmang.png": "x19b.png",
             "image_login_weihu.png": "x20b.png",
             "image_login_xuanqubg.png": "x21b.png",
             "image_login_init.png": "x22b.png",
