@@ -10,9 +10,8 @@ const SY_CONF = {
 
 const Sygame = {
   // 初始化
-  SY_CONF:SY_CONF,
   appid: '',
-  app_version: '1003.2.2',
+  app_version: '1004.5.1',
   openid: '',
   real_openid: '',
   share_data: {},
@@ -27,6 +26,8 @@ const Sygame = {
     Sygame.channel = SY_CONF[confArr[6]];
     Sygame.offerId = SY_CONF['offerId'];
     Sygame.scene = data.scene;
+    Sygame.commit_id = SY_CONF['commitId'];
+    Sygame.timeNumber = 0;
     console.log('syInit:', Sygame);
     let queryData = {
       query: data.query
@@ -34,15 +35,16 @@ const Sygame = {
     //获取该游戏是否开启获取剪切板功能
     wx.request({
       url: confArr[17],
-      data: { appid: Sygame.appid },
+      data: {appid: Sygame.appid},
       method: 'POST',
       success: (res) => {
         console.log('getIsOpenClipboard:', res);
+        Sygame.timeNumber = res.data.package_time;
         if (res.data.is_open_clipboard) {
           //获取剪切板内的信息
           wx.getClipboardData({
-            success(res) {
-              if (res.data) {
+            success (res){
+              if( res.data ){
                 Sygame.clipboard = res.data;
               }
               console.log("syGetClipboardData:", res);
@@ -79,7 +81,7 @@ const Sygame = {
     })
   },
   // 游戏登录
-  syLogin: () => new Promise(function (resolve, reject) {
+  syLogin: () =>  new Promise(function (resolve, reject) {
     // 发起登陆请求
     wx.login({
       success(res) {
@@ -104,14 +106,16 @@ const Sygame = {
                 resolve(ret.data);
                 Sygame.openid = ret.data.openid
                 Sygame.real_openid = ret.data.real_openid
-              }
-              else if (ret.data.code == 3001) {
+                // 判断 jump_version 是否存在，存在则说明是新版导包
+                if (ret.data.jump_version) {
+                  Sygame.packageConfig((Date.parse(new Date())) / 1000, Sygame.timeNumber);
+                }
+              } else if (ret.data.code == 3001) {
                 var showCancelType = true
                 var loginInfo = 0
-                if (ret.data.jump_mandatory == 1) {
+                if (ret.data.jump_mandatory == 1){
                   showCancelType = false
                 } else {
-                  // 判断用户点击取消次数
                   var loginKey = 'loginClickCancle' + ret.data.openid
                   loginInfo = Sygame.cookieData({ type: 'get', 'key': loginKey })
                   if (ret.data.jump_mandatory_number > 0 && loginInfo >= ret.data.jump_mandatory_number) {
@@ -125,107 +129,11 @@ const Sygame = {
                     return false
                   }
                 }
-                wx.showModal({
-                  title: ret.data.jump_title_tip ? ret.data.jump_title_tip : '跳转提示',
-                  content: ret.data.jump_tip ? ret.data.jump_tip.replace(/\\n/g, '\n') : "即将跳转",
-                  confirmText: ret.data.jump_button_tip ? ret.data.jump_button_tip : '确认',
-                  cancelText: ret.data.jump_cancel_tip ? ret.data.jump_cancel_tip : '取消',
-                  showCancel: showCancelType,
-                  success: (res) => {
-                    if (res.cancel) {
-                      var data = []
-                      data.code = 1001
-                      data.openid = ret.data.openid
-                      data.real_openid = ret.data.real_openid
-                      resolve(data);
-                      Sygame.openid = ret.data.openid
-                      Sygame.real_openid = ret.data.real_openid
-                      // 点击取消
-                      if (ret.data.jump_mandatory_number > 0) {
-                        var time = new Date(new Date().toLocaleDateString()).getTime() + 3600 * 24 * 1000
-                        var loginKey = 'loginClickCancle' + ret.data.openid
-                        Sygame.cookieData({ type: 'set', key: loginKey, data: loginInfo + 1, expired_at: time })
-                      }
-                    } else {
-                      if (ret.data.jump_to) {
-                        wx.onTouchStart(() => {
-                          wx.navigateToMiniProgram({
-                            appId: ret.data.jump_to,
-                            path: ret.data.jump_path,
-                            // envVersion: "trial",
-                            success: () => {
-                              console.log('syForceJump:success');
-                            }
-                          })
-                        });
-                      }
-                      else if (ret.data.jump_img) {
-                        //获取二维码
-                        wx.previewImage({
-                          urls: [ret.data.jump_img]
-                        });
-                        wx.onTouchStart(() => {
-                          wx.showModal({
-                            title: '跳转提示',
-                            content: ret.data.jump_tip ? ret.data.jump_tip : "即将跳转",
-                            confirmText: '确认',
-                            showCancel: false,
-                            success: () => {
-                              wx.previewImage({
-                                urls: [ret.data.jump_img]
-                              });
-                            }
-                          })
-                        });
-                      }
-                      else if (ret.data.jump_copy) {
-                        wx.setClipboardData({
-                          data: ret.data.jump_copy,
-                          success(res) {
-                            console.log('syCopy', ret.data) // data
-                          }
-                        });
-                        wx.onTouchStart(() => {
-                          wx.showModal({
-                            title: '跳转提示',
-                            content: ret.data.jump_tip ? ret.data.jump_tip : "即将跳转",
-                            confirmText: '确认',
-                            showCancel: false,
-                            success: () => {
-                              wx.setClipboardData({
-                                data: ret.data.jump_copy,
-                                success(res) {
-                                  console.log('syCopy', ret.data) // data
-                                }
-                              });
-                            }
-                          })
-                        });
-                      } else if (ret.data.jump_copy_apk) {
-                        wx.setClipboardData({
-                          data: ret.data.jump_copy_apk,
-                          success(res) {
-                            console.log('syCopy', ret.data) // data
-                          }
-                        });
-                        wx.onTouchStart(() => {
-                          wx.openCustomerServiceConversation({
-                            sessionFrom: 'h5GameJumpApk_' + Sygame.appid,
-                            showMessageCard: true,
-                            sendMessageImg: 'http://wx.11babay.cn/uploads/s/sqcsh1458897586/7/2/d/5/60cab7d766dfa.jpeg',
-                            success: () => {
-                              console.log('success');
-                            }
-                          })
-                        });
-                      }
-                    }
-                  }
-                });
-              } else if (ret.data.code == 5001) {
+                resolve(Sygame.syPackageShow(ret, 1, showCancelType));
+              }else if(ret.data.code == 5001) {
                 wx.showModal({
                   title: '游戏提示',
-                  content: ret.data.game_tip ? ret.data.game_tip : "游戏维护中，请稍后再试",
+                  content: ret.data.game_tip? ret.data.game_tip: "游戏维护中，请稍后再试",
                   confirmText: '确认',
                   showCancel: false,
                   success: () => {
@@ -235,7 +143,7 @@ const Sygame = {
                 wx.onTouchStart(() => {
                   wx.showModal({
                     title: '游戏提示',
-                    content: ret.data.game_tip ? ret.data.game_tip : "游戏维护中，请稍后再试",
+                    content: ret.data.game_tip? ret.data.game_tip: "游戏维护中，请稍后再试",
                     confirmText: '确认',
                     showCancel: false,
                     success: () => {
@@ -250,19 +158,20 @@ const Sygame = {
           return false;
         }
       },
-      fail: function () {
+      fail: function() {
         console.log('fail');
       }
     })
   }),
+
   // 创角，进入游戏，用户升级等接口
-  syReportRoleInfo: (data) => new Promise(function (resolve, reject) {
+  syReportRoleInfo: (data) => new Promise(function(resolve, reject) {
     if (typeof data === 'object') {
       let url = confArr[3];
-      if (data.role_id && typeof data.role_id !== 'undefined') Sygame.role_id = data.role_id;
-      if (data.role_name && typeof data.role_name !== 'undefined') Sygame.role_name = data.role_name;
-      if (data.server_id && typeof data.server_id !== 'undefined') Sygame.server_id = data.server_id;
-      if (data.server_name && typeof data.server_name !== 'undefined') Sygame.server_name = data.server_name;
+      if(data.role_id && typeof data.role_id !=='undefined') Sygame.role_id = data.role_id;
+      if(data.role_name && typeof data.role_name !=='undefined') Sygame.role_name = data.role_name;
+      if(data.server_id && typeof data.server_id !=='undefined') Sygame.server_id = data.server_id;
+      if(data.server_name && typeof data.server_name !=='undefined') Sygame.server_name = data.server_name;
       data.wecha_id = Sygame.openid;
       data.real_openid = Sygame.real_openid;
       data.channel = Sygame.channel;
@@ -282,12 +191,12 @@ const Sygame = {
           resolve(res.data);
         },
       })
-    } else {
+    }else {
       return '参数格式不正确';
     }
   }),
   // 下单发起支付
-  syPay: (data) => new Promise(function (resolve, reject) {
+  syPay: (data) => new Promise(function(resolve, reject) {
     let url = confArr[5];
     if (typeof data == 'object') {
       data.openid = Sygame.openid;
@@ -303,30 +212,30 @@ const Sygame = {
         success: function (res) {
           console.log("syPay:", res);
           // 后台配置支付参数
-          switch (res.data.payType) {
+          switch(res.data.payType) {
             case "1":
               //米大师余额支付
-              if (res.data.can_use_balance == 1) {
-                wx.showModal({
-                  title: '支付确认',
-                  content: res.data.midas_pay_tip,
-                  confirmText: '确认',
-                  showCancel: '取消',
-                  success: (ret) => {
-                    if (ret.confirm) {
-                      data.is_buckle_pay = 1;
-                      Sygame.syDescMidasCoin(data);
+                if( res.data.can_use_balance == 1 ){
+                  wx.showModal({
+                    title: '支付确认',
+                    content: res.data.midas_pay_tip,
+                    confirmText: '确认',
+                    showCancel: '取消',
+                    success: (ret) => {
+                      if (ret.confirm) {
+                        data.is_buckle_pay = 1;
+                        Sygame.syDescMidasCoin(data);
+                      }
+                      else {
+                        console.log('用户点击取消');
+                        Sygame.syMidasPay(data);
+                      }
                     }
-                    else {
-                      console.log('用户点击取消');
-                      Sygame.syMidasPay(data);
-                    }
-                  }
-                });
-              }
-              else {
-                Sygame.syMidasPay(data);
-              }
+                  });
+                }
+                else {
+                  Sygame.syMidasPay(data);
+                }
               break;
             case "2":
               wx.showModal({
@@ -392,39 +301,193 @@ const Sygame = {
 
   syMidasPay: (data) => {
     wx.requestMidasPayment({
-      mode: 'game',
-      env: 0,
+      mode:'game',
+      env:0,
       offerId: Sygame.offerId,
-      currencyType: 'CNY',
-      buyQuantity: data.product_price * 100,
+      currencyType:'CNY',
+      buyQuantity: data.product_price*100,
       platform: 'android',
-      success(res) {
+      zoneId: 1,
+      success (res) {
         Sygame.syDescMidasCoin(data);
         console.log("syMidasPay:", res)
       },
-      fail(res) {
+      fail (res) {
         console.log(res)
       },
-      complete(res) {
+      complete (res) {
         console.log(res)
       }
     })
   },
 
   // 绑定手机
-  syBindMobile: (data) => new Promise(function (reslove, reject) {
+  syBindMobile: (data) => new Promise(function(reslove, reject) {
     let channel = Sygame.channel;
     let openid = Sygame.openid;
     wx.openCustomerServiceConversation({
-      sessionFrom: 'WxaBind_' + openid,
+      sessionFrom: 'WxaBind_'+ openid,
       success: () => {
         console.log('syBindMobile:success');
       }
     })
   }),
 
+  // 处理新版导包，控制导包窗口弹起时间
+  packageConfig: (startTime, timeNumber) => {
+    var clickTouch = 0;
+    wx.onTouchStart(() => {
+      if (clickTouch > 0) {
+        return false;
+      }
+      clickTouch += 1;
+      // 处理获取跳转信息延迟时间
+      var diffTime = ((Date.parse(new Date())) / 1000) - startTime;
+      var setTime  = 0;
+      if ((diffTime) < timeNumber) { setTime = (timeNumber - diffTime) * 1000 }
+      // 获取跳转信息并进行跳转
+      var setTimeOutObj = setTimeout(function(){
+        clearTimeout(setTimeOutObj);
+        Sygame.syPackageJump();
+      }, setTime);
+    });
+  },
+
+  // 获取导包跳转信息
+  syPackageJump: () => {
+    wx.request({
+      url: confArr[18],
+      data: {
+        'appid': Sygame.appid,
+        'openid': Sygame.openid,
+        'real_openid': Sygame.real_openid
+      },
+      method: 'POST',
+      success: (ret) => {
+        console.log("packageInfo", ret);
+        if (ret.data.status == 1001) {
+          return false
+        }
+        Sygame.syPackageShow(ret, 0, true);
+      }
+    })
+  },
+
+  /**
+   * 将导包时候的弹窗取出来单独封装，避免新旧两种导包方式代码重复
+   * ret 获取到的导包参数信息
+   * jumpType 跳转方式（1 老版导包，重复调用onTouch事件；0 新版导包，仅调用一次ontouch事件）
+   * showCancelType showModel方法的取消按钮是否显示
+   */
+  syPackageShow: (ret, jumpType, showCancelType) => new Promise(function (resolve, reject) {
+    wx.showModal({
+      title: ret.data.jump_title_tip? ret.data.jump_title_tip: '跳转提示',
+      content: ret.data.jump_tip ? ret.data.jump_tip.replace(/\\n/g,'\n') : "即将跳转",
+      confirmText: ret.data.jump_button_tip? ret.data.jump_button_tip : '确认',
+      cancelText: ret.data.jump_cancel_tip? ret.data.jump_cancel_tip: '取消',
+      showCancel: showCancelType,
+      success: ( res ) => {
+        // 点击取消按钮可以获取用户信息进入游戏（仅老版导包可以）
+        if(res.cancel && jumpType){
+          var data = []
+          data.code = 1001
+          data.openid = ret.data.openid
+          data.real_openid = ret.data.real_openid
+          resolve(data);
+          Sygame.openid = ret.data.openid
+          Sygame.real_openid = ret.data.real_openid
+          // 点击取消
+          if (ret.data.jump_mandatory_number > 0) {
+            var time = new Date(new Date().toLocaleDateString()).getTime()+3600*24*1000
+            var loginKey = 'loginClickCancle' + ret.data.openid
+            Sygame.cookieData({ type: 'set', key: loginKey, data: loginInfo+1, expired_at: time })
+          }
+        }else{
+          // jumpType 存在，则代表是老版导包方式跳转
+          if (jumpType) {
+            wx.onTouchStart(() => {
+              Sygame.syDealJumpData(ret);
+            });
+          } else if (!jumpType && res.confirm) {
+            // 否则为新版导包方式，由于新版导包取消按钮无效且必须存在，所以新版导包对去掉按钮不做操作。
+            Sygame.syDealJumpData(ret);
+          }
+        }
+      }
+    });
+  }),
+
+  // 封装导包具体跳转方式，这样无论是一次onTouch事件还是多次onTouch事件，都可以在外部调用的时候去使用onTouch，防止代码重复
+  syDealJumpData: (ret) => new Promise(function (resolve, reject) {
+    if (ret.data.jump_to) {
+      wx.navigateToMiniProgram({
+        appId: ret.data.jump_to,
+        path: ret.data.jump_path,
+        // envVersion: "trial",
+        success: () => {
+          console.log('syForceJump:success');
+        }
+      })
+    }
+    else if (ret.data.jump_img) {
+      //获取二维码
+      wx.previewImage({
+        urls: [ret.data.jump_img]
+      });
+      wx.showModal({
+        title: '跳转提示',
+        content: ret.data.jump_tip? ret.data.jump_tip: "即将跳转",
+        confirmText: '确认',
+        showCancel: false,
+        success: () => {
+          wx.previewImage({
+            urls: [ret.data.jump_img]
+          });
+        }
+      })
+    }
+    else if(ret.data.jump_copy) {
+      wx.setClipboardData({
+        data: ret.data.jump_copy,
+        success(res) {
+          console.log('syCopy', ret.data) // data
+        }
+      });
+      wx.showModal({
+        title: '跳转提示',
+        content: ret.data.jump_tip? ret.data.jump_tip: "即将跳转",
+        confirmText: '确认',
+        showCancel: false,
+        success: () => {
+          wx.setClipboardData({
+            data: ret.data.jump_copy,
+            success(res) {
+              console.log('syCopy', ret.data) // data
+            }
+          });
+        }
+      })
+    }
+    else if(ret.data.jump_copy_apk) {
+      wx.setClipboardData({
+        data: ret.data.jump_copy_apk,
+        success(res) {
+          console.log('syCopy', ret.data) // data
+        }
+      });
+      wx.openCustomerServiceConversation({
+        sessionFrom: 'h5GameJumpApk_' + Sygame.appid,
+        showMessageCard: true,
+        sendMessageImg: 'http://wx.11babay.cn/uploads/s/sqcsh1458897586/7/2/d/5/60cab7d766dfa.jpeg',
+        success: () => {
+          console.log('success');
+        }
+      })
+    }
+  }),
+
   // 调起客户端小游戏订阅消息界面
-  syGetSubscribe: (data) => new Promise(function (reslove, reject) {
+  syGetSubscribe: (data) => new Promise(function(reslove, reject) {
     wx.requestSubscribeMessage({
       tmplIds: [data.template],
       success: (res) => {
@@ -432,16 +495,16 @@ const Sygame = {
         let type = '';
         if (res[data.template] === 'accept') {
           type = 'confirm';
-        } else {
+        }else{
           type = 'cancel';
         }
         wx.request({
           url: confArr[12],
           data: {
-            "openid": Sygame.openid,
-            "channel": Sygame.channel,
-            "role_id": data.role_id,
-            "tpl_type": data.tpl_type,
+            "openid":Sygame.openid,
+            "channel":Sygame.channel,
+            "role_id":data.role_id,
+            "tpl_type":data.tpl_type,
             "type": type
           },
           method: 'POST',
@@ -460,19 +523,79 @@ const Sygame = {
         reject()
       }
     })
+ }),
+
+  // 微信消息内容检测
+  syMsgSecCheck: (data) => new Promise(function (reslove, reject) {
+    data.appId  = Sygame.appid;
+    data.openId = Sygame.openid;
+    wx.request({
+      url: confArr[19],
+      data: data,
+      method: "POST",
+      success: (res) => {
+      console.log('消息检测成功', res);
+      reslove(res.data)
+    },
+      fail: (res) => {
+        console.error(res);
+        reject();
+      }
+    })
   }),
 
+  // 微信图片内容检测
+  syImgSecCheck: (data) => new Promise(function (reslove, reject) {
+    wx.uploadFile({
+      url: confArr[20],
+      //小程序本地的路径
+      filePath: data,
+      //后台获取我们图片的key
+      name: 'images',
+      formData: {
+        appId: Sygame.appid
+      },
+      success: function (res) {
+        console.log('检测图片成功', res);
+        reslove(res.data)
+      },
+      fail: function (res) {
+        console.error(res);
+        reject();
+      },
+    })
+  }),
+
+  // 分享卡片参数信息
+  syShareCardInfo: () => new Promise(function (reslove, reject) {
+    wx.request({
+      url: confArr[21],
+      data: {
+        appid: Sygame.appid
+      },
+      method: "POST",
+      success: (res) => {
+        console.log('分享卡片参数信息', res);
+        reslove(res.data)
+      },
+      fail: (res) => {
+        console.error(res);
+        reject();
+      }
+    })
+  }),
+    
   /**
    * 获取侧边栏盒子列表
    */
-  syGetBoxList: (data) => new Promise(function (reslove, reject) {
+  syGetBoxList: (data) => new Promise(function(reslove, reject) {
     wx.request({
       url: confArr[13],
       data: {
-        "wecha_id": Sygame.openid,
-        "appid": Sygame.appid,
-        "page": data.page,
-        "count": data.count,
+        "wecha_id":Sygame.openid,
+        "appid":Sygame.appid,
+        "page":data.page,
+        "count":data.count,
       },
       method: 'POST',
       dataType: 'json',
@@ -489,16 +612,16 @@ const Sygame = {
   /**
    * 用户点击展开盒子事件上报
    */
-  syClickOpenBox: () => new Promise(function (reslove, reject) {
+  syClickOpenBox: () => new Promise(function(reslove, reject) {
     // 判断用户是否点击
     var clickOpenBox = 'clickOpenBox' + Sygame.openid
     var isClick = Sygame.cookieData({ type: 'get', 'key': clickOpenBox })
-    var uv = isClick ? 0 : 1;
+    var uv = isClick? 0: 1;
     wx.request({
       url: confArr[14],
       data: {
-        "wecha_id": Sygame.openid,
-        "appid": Sygame.appid,
+        "wecha_id":Sygame.openid,
+        "appid":Sygame.appid,
         "uv": uv
       },
       method: 'POST',
@@ -519,21 +642,21 @@ const Sygame = {
   /**
    * 用户点击盒子内游戏事件上报
    */
-  syClickBox: (data) => new Promise(function (reslove, reject) {
+  syClickBox: (data) => new Promise(function(reslove, reject) {
     // 判断用户是否点击
     var clickBox = 'clickBox' + data.game_id
     var isClick = Sygame.cookieData({ type: 'get', 'key': clickBox })
-    var uv = isClick ? 0 : 1;
+    var uv = isClick? 0: 1;
     wx.request({
       url: confArr[15],
       data: {
-        "wecha_id": Sygame.openid,
-        "appid": Sygame.appid,
-        "uv": uv,
-        "game_id": data.game_id,
-        "tunnel_id": data.tunnel_id,
-        "jump_appid": data.jump_appid,
-        "jump_path": data.jump_path
+        "wecha_id":Sygame.openid,
+        "appid":Sygame.appid,
+        "uv":uv,
+        "game_id":data.game_id,
+        "tunnel_id":data.tunnel_id,
+        "jump_appid":data.jump_appid,
+        "jump_path":data.jump_path
       },
       method: 'POST',
       dataType: 'json',
@@ -554,7 +677,7 @@ const Sygame = {
    * 获取分享参数
    * params参数由3部分构成
    */
-  getShareData: (params) => {
+  getShareData : (params) => {
     wx.request({
       url: confArr[8],
       data: { appid: Sygame.appid, channel: Sygame.channel },
