@@ -5397,6 +5397,10 @@ var set_param_W = function () {
             "subPackage":  {url:packageName3},
             "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
             "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
+            "utils/funsdk_wx_min.js":{url:"utils/funsdk_wx_min.js",addGlobleKeys0:false,extractStr:false},
+            "utils/qingjs-conf.js":{url:"utils/qingjs-conf.js",addGlobleKeys0:false,extractStr:false},
+            "utils/qingjs-wxapp.js":{url:"utils/qingjs-wxapp.js",addGlobleKeys0:false,extractStr:false},
+            "utils/cxui.laya.js":{url:"utils/cxui.laya.js",addGlobleKeys0:false,extractStr:false},
             //随机创建名字和文件夹
             "wxloading_atlas": {url:"wwdw"},
             "wxlogin_atlas": {url:"wwlgrww"},
@@ -5545,8 +5549,8 @@ var set_param_W = function () {
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         // needShuffle = true;
-        str_leading1 = "NQCGU8JO$51FRXA9D0_MKHPEV6S3TWZ27BYL4I";
-        str_leading2 = "gxdvw5kf$qe_1i0runz6a4bl793sm2tcj8oyhp";
+        str_leading1 = "BQ023ODKVI8LUHJT$S47XGEPCNM1W59R_6YZFA";
+        str_leading2 = "i7231zefjwnosmq46phut085cgbkdrxya$v9l_";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
