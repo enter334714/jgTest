@@ -1,4 +1,5 @@
-﻿import AKSDK from "./wxsdk/wx_aksdk.js";
+﻿
+import AKSDK from "./wxsdk/wx_aksdk.js";
 window.versions = { 
   wxVersion: window.config.game_ver,  
 };
@@ -329,10 +330,12 @@ window.sdkOnLogin = function(status, data) {
 
 window.onUserLogin = function (response) {
   if (!response) {
+    window.reqRecordInfo("userLoginError", "response is null");
     window.loginAlert('User.login failed');
     return;
   }
   if (response.state != 'success') {
+    window.reqRecordInfo("userLoginError", JSON.stringify(response));
     window.loginAlert('User.login failed: ' + response.state);
     return;
   }
@@ -404,35 +407,35 @@ window.initComplete = function() {
 
 // 加载version_config版本文件，读取lastVersion号，外网是从后台请求获取
 window.loadVersionConfig = function() {
-  var self = this;
   sendApi(PF_INFO.apiurl, 'User.getCdnVersion', {
     'game_pkg': PF_INFO.pkgName,
     'version_name': PF_INFO.version_name,
-  }, function(response) {
-    if (!response) {
-      window.loginAlert('User.getCdnVersion failed');
-      return;
+  }, this.reqVersionConfigCallBack.bind(this), apiRetryAmount, onApiError);
+}
+window.reqVersionConfigCallBack = function(data) {
+    if (!data) {
+        window.loginAlert('User.getCdnVersion failed');
+        return;
     }
-    if (response.state != 'success') {
-      window.loginAlert('User.getCdnVersion failed: state=' + response.state);
-      return;
+    if (data.state != 'success') {
+        window.loginAlert('User.getCdnVersion failed: state=' + data.state);
+        return;
     }
-    if (!response.data || !response.data.version) {
-      window.loginAlert('User.getCdnVersion failed: version=' + (response.data&&response.data.version));
-      return;
+    if (!data.data || !data.data.version) {
+        window.loginAlert('User.getCdnVersion failed: version=' + (data.data&&data.data.version));
+        return;
     }
-    if (response.data.cdn_url && response.data.cdn_url.length > 10) {
-        PF_INFO.base_cdn = response.data.cdn_url;
-        PF_INFO.cdn = response.data.cdn_url;
+    if (data.data.cdn_url && data.data.cdn_url.length > 10) {
+        PF_INFO.base_cdn = data.data.cdn_url;
+        PF_INFO.cdn = data.data.cdn_url;
     }
-    if (response.data.version) {
-        PF_INFO.lastVersion = response.data.version;
+    if (data.data.version) {
+        PF_INFO.lastVersion = data.data.version;
     }
     console.info("lastVersion:"+PF_INFO.lastVersion+", version_name:"+PF_INFO.version_name);
     window.loadVersion = true;
     window.initMain();
-    window.enterToGame(); 
-  });
+    window.enterToGame();
 }
 
 // 请求隐私、超级VIP、公众号信息
@@ -440,7 +443,7 @@ window.pkgOptions
 window.reqPkgOptions = function() {
   sendApi(PF_INFO.apiurl, 'Common.get_option_pkg', { 
     'game_pkg': PF_INFO.pkgName,
-  }, reqPkgOptionsCallBack);
+  }, this.reqPkgOptionsCallBack.bind(this), apiRetryAmount, onApiError);
 }
 window.reqPkgOptionsCallBack = function(data) {
   if (data.state === "success" && data.data) {
@@ -719,49 +722,51 @@ window.getBatteryInfo = function(callback) {
 }
 
 window.send = function(url, data, callBack, retryAmount, errorCB, checkSuccess, reqType, contentType) {
-  if (retryAmount == undefined) {
-    retryAmount = 1;
-  }
+  if (retryAmount == undefined) retryAmount = 1;
 
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4) {
-      if ((xhr.status == 200 || xhr.status == 301)) {
-        var response = xhr.response;
-        response = JSON.parse(xhr.response);
-
-        if (!checkSuccess || checkSuccess(response, xhr, url)) {
-          if (callBack) {
-            callBack(response);
+  wx.request({
+      url: url,
+      method: (reqType || "GET"),
+      responseType: "text",
+      data: data,
+      header: {
+          "content-type": (contentType || 'application/json'),
+      },
+      success: function(res) {
+          DEBUG && console.log("send.success:", url, info, res);
+          if (res && res.statusCode == 200) {
+              var response = res.data;
+              if (!checkSuccess || checkSuccess(response)) {
+                  if (callBack) {
+                      callBack(response);
+                  }
+              } else {
+                  window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
+              }
+          } else {
+            window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
           }
-          return;
-        } else {
-          console.info(url);
-          console.error(response);
-        }
-      }
-      if (retryAmount - 1 > 0) {
+      },
+      fail: function(res) {
+          DEBUG && console.log("send.fail:", url, info, res);
+          window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
+      },
+      complete: function() {}
+  });
+}
+window.sendFail = function(url, data, callBack, retryAmount, errorCB, checkSuccess, res) {
+    if (retryAmount - 1 > 0) {
         setTimeout(function() {
-          send(url, data, callBack, retryAmount - 1, errorCB, checkSuccess);
+            window.send(url, data, callBack, retryAmount - 1, errorCB, checkSuccess);
         }, 1000);
-      } else {
+    } else {
         if (errorCB) {
-          errorCB(JSON.stringify({
-              url: url,
-              status: xhr.status,
-              response: xhr.response,
-              responseType: xhr.responseType
+            errorCB(JSON.stringify({
+                url: url,
+                response: res,
             }));
         }
-      }
     }
-  };
-  xhr.open(reqType || "GET", url);
-  xhr.responseType = "text";
-  // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  // xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.setRequestHeader('content-type', contentType || 'application/json');
-  xhr.send(data);
 }
 
 window.sendApi = function(apiurl, method, param, callBack, retryAmount, errorCB, checkSuccess) {

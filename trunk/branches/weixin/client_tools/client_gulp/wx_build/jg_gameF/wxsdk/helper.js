@@ -5,11 +5,12 @@ const SY_CONF = {
   "APP_VERSION": "1001.0.0",
   "GAME_KEY": "98c5dab80922bf0570ea3318900929bd",
   "offerId": "1450030861",
-  "commitId":"52"，
+  "commitId":"52",
 };
 
 const Sygame = {
   // 初始化
+  SY_CONF:SY_CONF,
   appid: '',
   app_version: '1004.5.1',
   openid: '',
@@ -280,7 +281,7 @@ const Sygame = {
       method: 'POST',
       dataType: 'json',
       success: function (res) {
-        console.log('syDescMidasCoin:', res);
+        console.log( 'syDescMidasCoin:', res );
         wx.showModal({
           title: '提示',
           content: res.data.tip,
@@ -697,7 +698,7 @@ const Sygame = {
         console.log("请求失败", e)
       }
     })
-  },
+  } ,
 
   /**
    * 分享
@@ -707,7 +708,7 @@ const Sygame = {
    * successCallback----成功分享回调函数
    * errorCallback------失败分享回调函数
    */
-  goShareData: (params) => {
+  goShareData : (params) => {
     var arr = Sygame.share_data[params.type];
     var len = arr.length;
     var ranIndex = Math.floor(Math.random() * len);
@@ -717,12 +718,12 @@ const Sygame = {
       title: shareData.title,
       imageUrlId: shareData.imageUrlId,
       imageUrl: shareData.imageUrl,
-      query: params.shareQuery + "&share_material_id=" + shareData.id
+      query: params.shareQuery+"&share_material_id="+shareData.id
     }
     console.log("分享:", shareData);
     wx.shareAppMessage(data);
     params.successCallback(shareData);
-  },
+  } ,
 
   /**
    * 上报分享
@@ -735,8 +736,8 @@ const Sygame = {
    */
   upShareData: (params) => {
     var key = "sy_share_material:" + params.material_id;
-    var log = Sygame.cookieData({ type: 'get', 'key': key }) ? 1 : 0;//1-已记录，0-未记录
-    if (log == 0) Sygame.cookieData({ type: 'set', key: key, data: (new Date()).getTime() });
+    var log = Sygame.cookieData({ type: 'get', 'key': key })?1:0;//1-已记录，0-未记录
+    if(log==0)Sygame.cookieData({ type: 'set', key: key, data: (new Date()).getTime()});
     params.log = log;
     wx.request({
       url: confArr[9],
@@ -787,26 +788,26 @@ const Sygame = {
    * data---值
    * expired_at——————js的13位毫秒时间戳
    */
-  cookieData: (params) => {
-    switch (params.type) {
+  cookieData : (params) => {
+    switch(params.type){
       case 'get':
         var data = wx.getStorageSync(params.key)
-        try {
+        try{
           data = JSON.parse(data);
-          if ((new Date()).getTime() < data.expired_at) {
+          if ((new Date()).getTime()<data.expired_at){
             return data.data;
           }
-        } catch (e) { }
+        }catch(e){}
         return false;
         break;
       case 'set':
-        if (!params.expired_at) {
-          params.expired_at = new Date(new Date().toLocaleDateString()).getTime() + 3600 * 24 * 1000 * 3650;
+        if(!params.expired_at){
+          params.expired_at = new Date(new Date().toLocaleDateString()).getTime()+3600*24*1000*3650;
         }
         try {
-          wx.setStorageSync(params.key, JSON.stringify({ data: params.data, expired_at: params.expired_at }))
+          wx.setStorageSync(params.key, JSON.stringify({ data: params.data, expired_at: params.expired_at}))
           return true;
-        } catch (e) { }
+        } catch (e) {}
         return false;
         break;
       case 'rm':
@@ -819,9 +820,9 @@ const Sygame = {
   /**
    * 长链接统计在线
    */
-  syUserLoginRecord: ($wecha_id, $time) => {
+  syUserLoginRecord:($wecha_id, $time) => {
     var websocket;
-    var time = $time ? $time : 30;
+    var time = $time? $time: 30;
     createWebSocket();
     // ①开启WebSocket
     function createWebSocket() {
@@ -833,7 +834,7 @@ const Sygame = {
       // 连接成功
       websocket.onopen = function (evt) {
         var data = {
-          'code': 1, // 我们假设code为1时，是登录请求
+          'code':1, // 我们假设code为1时，是登录请求
           'wecha_id': $wecha_id
         };
         // 前端发送json前，必须先转义成字符串
@@ -843,20 +844,20 @@ const Sygame = {
         heartCheck.start();
       };
       // 接收Socket断开时的消息通知
-      websocket.onclose = function (evt) {
+      websocket.onclose = function(evt) {
         createWebSocket();
       };
     }
     // ④定时检测
     var heartCheck = {
-      timeout: time * 1000,
+      timeout: time*1000,
       timeoutObj: null,
-      start: function () {
+      start: function() {
         this.timeoutObj && clearInterval(this.timeoutObj);
-        this.timeoutObj = setInterval(function () {
+        this.timeoutObj = setInterval(function(){
           // 这里发送一个连接，后端收到后，确定为一次通讯，
           var data = {
-            'code': 4, // 我们假设code为4时，为定时检测
+            'code':4, // 我们假设code为4时，为定时检测
             'wecha_id': $wecha_id,
             'timer': time // 通讯间隔
           };

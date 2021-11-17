@@ -1,12 +1,13 @@
 ﻿import Sygame from './helper';
 window["Sygame"] = Sygame;
 var config = {
-    game_id: '88',
+    game_id: '256',
     game_pkg: 'tjqy_rqxsmflb_HK', //盛也马甲包-盛也-柔情小师妹福利版
     partner_label: 'shengye2',
     partner_id: '398',
-    game_ver: '15.0.1',
+    game_ver: '15.0.7',
     is_auth: false, //授权登录
+    tmpId: {1:'VP7N3-OPPKNX_2McZ-AQs8a72qCifA0lVyVKz6RF4KE', 2:'CDP-Z_V_HV31mqcAb88h1YeX0WTMOs-2H4UZZ65rj98', 3:'oXTMkESTOSL-rSgNGvam2V9b3Epa8ypkPz4WEb9DYx8'},  // 订阅的类型 和 模板id
 };
 window.config = config;
 var PARTNER_SDK = mainSDK();
@@ -649,6 +650,7 @@ function mainSDK() {
             }
 
             this.log('levelup', role_info);
+            this.upRoleInfo('roleupgrade', data);
         },
 
         // 角色上报

@@ -1,12 +1,13 @@
 ﻿import Sygame from './helper';
 window["Sygame"] = Sygame;
 var config = {
-    game_id: '88',
+    game_id: '256',
     game_pkg: 'tjqy_tjqygjhol_FW', //盛也微信小游戏--飞仙服-鬼剑豪
     partner_label: 'shengye2',
     partner_id: '398',
-    game_ver: '6.0.12',
+    game_ver: '6.0.18',
     is_auth: false, //授权登录
+    tmpId: {1:'r9EXyfU6PuWuCRkUp7C9ndzw9ak29C7FoEk3-zjJgsk', 2:'hAW1dt8vCojsgnK5EWpAqO6R_8_tN-BuwRSKWN-1zTs', 3:'XX3rRSCxKDWGYhATlC-jj_QTOd5kCzJBXv0HWCYbsMo'},  // 订阅的类型 和 模板id
 };
 window.config = config;
 var PARTNER_SDK = mainSDK();
@@ -650,6 +651,7 @@ function mainSDK() {
             }
 
             this.log('levelup', role_info);
+            this.upRoleInfo('roleupgrade', data);
         },
 
         // 角色上报

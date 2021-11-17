@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_tjqygjhhd_HH', //盛也-马甲包-鬼剑豪hd
     partner_label: 'shengye2',
     partner_id: '398',
-    game_ver: '14.0.3',
+    game_ver: '14.0.7',
     is_auth: false, //授权登录
     tmpId: {1:'WH7LiMUJpTzLn-GBfLpF4LiNe9AYLlqhUNMCdYv_l1s', 2:'qm1G1fvGUJ4ZAGN4n7QGITkh6jwXmp_i-zsxjjpA8bo', 3:'OXJz2K2upWoF9Z_g2QZxcYvsksj9d82nOuHyP2Lr3o4'},  // 订阅的类型 和 模板id
 };
