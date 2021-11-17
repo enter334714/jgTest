@@ -1,5 +1,5 @@
-﻿var qingjs = require("../utils/qingjs-wxapp.js");
-
+﻿
+import qingjs from "../utils/qingjs-wxapp.js"
 //TODO 替换对应参数
 var config = {
     game_id: '256',
