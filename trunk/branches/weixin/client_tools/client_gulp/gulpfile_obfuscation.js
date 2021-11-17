@@ -5400,7 +5400,7 @@ var set_param_W = function () {
             "utils/funsdk_wx_min.js":{url:"utils/funsdk_wx_min.js",addGlobleKeys0:false,extractStr:false},
             "utils/qingjs-conf.js":{url:"utils/qingjs-conf.js",addGlobleKeys0:false,extractStr:false},
             "utils/qingjs-wxapp.js":{url:"utils/qingjs-wxapp.js",addGlobleKeys0:false,extractStr:false},
-            "utils/cxui.laya.js":{url:"utils/cxui.laya.js",addGlobleKeys0:false,extractStr:false},
+            "utils/cxui.laya.js":{url:packageName1+"/utils/cxui.laya.js",addGlobleKeys0:false,extractStr:false},
             //随机创建名字和文件夹
             "wxloading_atlas": {url:"wwdw"},
             "wxlogin_atlas": {url:"wwlgrww"},
@@ -5460,11 +5460,11 @@ var set_param_W = function () {
             "wxlogin_atlas/image_login_notice1.png": {url:"wwlgrww/w26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"wwlgrww/w27b.png"},
 
-            "wxeff_btn_atlas/0.png": {url:"wtw/v1c.png"},
-            "wxeff_btn_atlas/1.png": {url:"wtw/v2c.png"},
-            "wxeff_btn_atlas/2.png": {url:"wtw/v3c.png"},
-            "wxeff_btn_atlas/3.png": {url:"wtw/v4c.png"},
-            "wxeff_btn_atlas/4.png": {url:"wtw/v5c.png"},
+            "wxeff_btn_atlas/0.png": {url:"wtw/w1c.png"},
+            "wxeff_btn_atlas/1.png": {url:"wtw/w2c.png"},
+            "wxeff_btn_atlas/2.png": {url:"wtw/w3c.png"},
+            "wxeff_btn_atlas/3.png": {url:"wtw/w4c.png"},
+            "wxeff_btn_atlas/4.png": {url:"wtw/w5c.png"},
         };
         mt1Replace = {
             "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
@@ -6994,6 +6994,22 @@ gulp.task('CREATE_REFUSEFILE_V', function (cb) {
 
 gulp.task('DEL_REFUSEFILE_V', function (cb) {
     sequence("set-param-V","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_W', function (cb) {
+    sequence("set-param-W","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_W', function (cb) {
+    sequence("set-param-W","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_X', function (cb) {
+    sequence("set-param-X","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_X', function (cb) {
+    sequence("set-param-X","DEL_REFUSEFILE",cb)
 });
 
 //无网络 使用这个图片压缩

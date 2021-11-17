@@ -1,4 +1,4 @@
-﻿var k = wx.$f;
+var k = wx.$f;
 import Sygame from './fffhelp';
 window[k[86530]] = Sygame;
 var config = {
@@ -6,7 +6,7 @@ var config = {
     game_pkg: 'tjqy_tjqygjhol_FW', //盛也微信小游戏--飞仙服-鬼剑豪
     partner_label: k[86532],
     partner_id: k[86533],
-    game_ver: "6.0.18",
+    game_ver: k[86534],
     is_auth: false, //授权登录
     tmpId: { 1: 'r9EXyfU6PuWuCRkUp7C9ndzw9ak29C7FoEk3-zjJgsk', 2: k[86535], 3: k[86536] // 订阅的类型 和 模板id
     } };
