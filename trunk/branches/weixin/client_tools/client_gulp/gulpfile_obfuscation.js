@@ -448,7 +448,8 @@ var set_param_b = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"bbblogin/b25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"bbblogin/b26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"bbblogin/b27b.png"},
-
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"bbblogin/b28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"bbblogin/b29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"bwxeff/b100b.png"},
             "wxeff_btn_atlas/1.png": {url:"bwxeff/b101b.png"},
@@ -521,6 +522,8 @@ var set_param_b = function () {
             "btn_com_long1.png":"b25b.png",
             "image_login_notice1.png":"b26b.png",
             "image_loding_txtbhcc.png":"b27b.png",
+            "image_xuanfu_gx0.png": "b28b.png",
+            "image_xuanfu_gx1.png": "b29b.png",
 
             "0.png": "b100b.png",
             "1.png": "b101b.png",
@@ -692,6 +695,8 @@ var set_param_c = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"ccclogin/b255c.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"ccclogin/b26c.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"ccclogin/b27c.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"ccclogin/b28c.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"ccclogin/b29c.png"},
 
             "wxeff_btn_atlas/0.png": {url:"cccwxeff/c100c.png"},
             "wxeff_btn_atlas/1.png": {url:"cccwxeff/c101c.png"},
@@ -764,6 +769,8 @@ var set_param_c = function () {
             "btn_com_long1.png":"b255c.png",
             "image_login_notice1.png":"b26c.png",
             "image_loding_txtbhcc.png":"b27c.png",
+            "image_xuanfu_gx0.png": "b28c.png",
+            "image_xuanfu_gx1.png": "b29c.png",
 
             "0.png": "c100c.png",
             "1.png": "c101c.png",
@@ -927,6 +934,8 @@ var set_param_d = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"dddlogin/d25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"dddlogin/d26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"dddlogin/d27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"dddlogin/d28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"dddlogin/d29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"ddwxeff/d1c.png"},
             "wxeff_btn_atlas/1.png": {url:"ddwxeff/d2c.png"},
@@ -999,6 +1008,8 @@ var set_param_d = function () {
             "btn_com_long1.png":"d25b.png",
             "image_login_notice1.png":"d26b.png",
             "image_loding_txtbhcc.png":"d27b.png",
+            "image_xuanfu_gx0.png": "d28b.png",
+            "image_xuanfu_gx1.png": "d29b.png",
 
             "0.png": "d1c.png",
             "1.png": "d2c.png",
@@ -1066,7 +1077,7 @@ var set_param_e = function () {
         BUILD = 'wx_build/';
         PACK = 'jg_gameE';
         INIT_PATH = '/';
-        SCOPE = 'abcdefghklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ij';
+        // SCOPE = 'abcdefghklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ij';
         PREFIX = 'e$';
         sourceProject = "wx_build/jg_gameE_new";
         targetProject = "wx_build/jg_gameE_obfuscator";
@@ -1166,6 +1177,8 @@ var set_param_e = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"eeelogin/e25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"eeelogin/e26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"eeelogin/e27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"eeelogin/e28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"eeelogin/e29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"eewxeff/e1c.png"},
             "wxeff_btn_atlas/1.png": {url:"eewxeff/e2c.png"},
@@ -1238,6 +1251,8 @@ var set_param_e = function () {
             "btn_com_long1.png":"e25b.png",
             "image_login_notice1.png":"e26b.png",
             "image_loding_txtbhcc.png":"e27b.png",
+            "image_xuanfu_gx0.png": "e28b.png",
+            "image_xuanfu_gx1.png": "e29b.png",
 
             "0.png": "e1c.png",
             "1.png": "e2c.png",
@@ -1249,14 +1264,14 @@ var set_param_e = function () {
         strFilePath = "/eres";
         strFileName = "/efiles.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
-        globleKeys = ["$e", "b", "_c", "_E", "e"];
+        globleKeys = ["$e", "b", "c1", "e1", "e"];
         noReplaceJs = packageName1+"/game.js";
         arrIndex = 40000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         // needShuffle = true;
-        str_leading1 = "NOCVEH3_U7YXDA$P6SG19RLFKI8M5TBW4Z0JQ2";
-        str_leading2 = "pbyi2qet9fzs4_hlgxkav3umw6$ndo5r01c7j8";
+        str_leading1 = "I1GU0J3L2R79YDCHTWBF8_NVS4AZKO$PMQ56EX";
+        str_leading2 = "12w85d0b6k9sunq3ji$xgtlhrzyfv4_7amcope";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -1406,6 +1421,8 @@ var set_param_f = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"ffflogin/f25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"ffflogin/f26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"ffflogin/f27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"ffflogin/f28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"ffflogin/f29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"ffwxeff/f1c.png"},
             "wxeff_btn_atlas/1.png": {url:"ffwxeff/f2c.png"},
@@ -1478,6 +1495,8 @@ var set_param_f = function () {
             "btn_com_long1.png":"f25b.png",
             "image_login_notice1.png":"f26b.png",
             "image_loding_txtbhcc.png":"f27b.png",
+            "image_xuanfu_gx0.png": "f28b.png",
+            "image_xuanfu_gx1.png": "f29b.png",
 
             "0.png": "f1c.png",
             "1.png": "f2c.png",
@@ -1647,6 +1666,8 @@ var set_param_g = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"ggglogin/g25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"ggglogin/g26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"ggglogin/g27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"ggglogin/g28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"ggglogin/g29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"gggwxeff/g1c.png"},
             "wxeff_btn_atlas/1.png": {url:"gggwxeff/g2c.png"},
@@ -1719,6 +1740,8 @@ var set_param_g = function () {
             "btn_com_long1.png":"g25b.png",
             "image_login_notice1.png":"g26b.png",
             "image_loding_txtbhcc.png":"g27b.png",
+            "image_xuanfu_gx0.png": "g28b.png",
+            "image_xuanfu_gx1.png": "g29b.png",
 
             "0.png": "g1c.png",
             "1.png": "g2c.png",
@@ -1886,6 +1909,8 @@ var set_param_h = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"hhhlogin/h25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"hhhlogin/h26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"hhhlogin/h27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"hhhlogin/h28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"hhhlogin/h29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"hhhwxeff/h1c.png"},
             "wxeff_btn_atlas/1.png": {url:"hhhwxeff/h2c.png"},
@@ -1958,6 +1983,8 @@ var set_param_h = function () {
             "btn_com_long1.png":"h25b.png",
             "image_login_notice1.png":"h26b.png",
             "image_loding_txtbhcc.png":"h27b.png",
+            "image_xuanfu_gx0.png": "h28b.png",
+            "image_xuanfu_gx1.png": "h29b.png",
 
             "0.png": "h1c.png",
             "1.png": "h2c.png",
@@ -2126,6 +2153,8 @@ var set_param_i = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"IIILOGIN/I25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"IIILOGIN/I26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"IIILOGIN/I27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"IIILOGIN/I28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"IIILOGIN/I29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"IIIWXEFF/I1c.png"},
             "wxeff_btn_atlas/1.png": {url:"IIIWXEFF/I2c.png"},
@@ -2199,6 +2228,8 @@ var set_param_i = function () {
             "btn_com_long1.png":"I25b.png",
             "image_login_notice1.png":"I26b.png",
             "image_loding_txtbhcc.png":"I27b.png",
+            "image_xuanfu_gx0.png": "I28b.png",
+            "image_xuanfu_gx1.png": "I29b.png",
 
             "0.png": "I1c.png",
             "1.png": "I2c.png",
@@ -2368,6 +2399,8 @@ var set_param_j = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"JJJLOGIN/J25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"JJJLOGIN/J26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"JJJLOGIN/J27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"JJJLOGIN/J28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"JJJLOGIN/J29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"JJJWXEFF/J1c.png"},
             "wxeff_btn_atlas/1.png": {url:"JJJWXEFF/J2c.png"},
@@ -2440,6 +2473,8 @@ var set_param_j = function () {
             "btn_com_long1.png":"J25b.png",
             "image_login_notice1.png":"J26b.png",
             "image_loding_txtbhcc.png":"J27b.png",
+            "image_xuanfu_gx0.png": "J28b.png",
+            "image_xuanfu_gx1.png": "J29b.png",
 
             "0.png": "J1c.png",
             "1.png": "J2c.png",
@@ -2612,6 +2647,8 @@ var set_param_k = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"KKKLOGIN/K25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"KKKLOGIN/K26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"KKKLOGIN/K27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"KKKLOGIN/K28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"KKKLOGIN/K29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"KKKWXEFF/K1c.png"},
             "wxeff_btn_atlas/1.png": {url:"KKKWXEFF/K2c.png"},
@@ -2684,6 +2721,8 @@ var set_param_k = function () {
             "btn_com_long1.png":"K25b.png",
             "image_login_notice1.png":"K26b.png",
             "image_loding_txtbhcc.png":"K27b.png",
+            "image_xuanfu_gx0.png": "K28b.png",
+            "image_xuanfu_gx1.png": "K29b.png",
 
             "0.png": "K1c.png",
             "1.png": "K2c.png",
@@ -2853,6 +2892,8 @@ var set_param_l = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"llllLOGIN/l25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"llllLOGIN/l26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"llllLOGIN/l27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"llllLOGIN/l28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"llllLOGIN/l29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"llllWXEFF/l1c.png"},
             "wxeff_btn_atlas/1.png": {url:"llllWXEFF/l2c.png"},
@@ -2925,6 +2966,8 @@ var set_param_l = function () {
             "btn_com_long1.png":"l25b.png",
             "image_login_notice1.png":"l26b.png",
             "image_loding_txtbhcc.png":"l27b.png",
+            "image_xuanfu_gx0.png": "l28b.png",
+            "image_xuanfu_gx1.png": "l29b.png",
 
             "0.png": "l1c.png",
             "1.png": "l2c.png",
@@ -2938,7 +2981,7 @@ var set_param_l = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$l", "W", "_X", "$L", "L9"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 160000;
+        arrIndex = 0;//160000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         // needShuffle = true;
@@ -3095,6 +3138,8 @@ var set_param_m = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"mmmmmLOGIN/m25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"mmmmmLOGIN/m26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"mmmmmLOGIN/m27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"mmmmmLOGIN/m28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"mmmmmLOGIN/m29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"mmmmmWXEFF/m1c.png"},
             "wxeff_btn_atlas/1.png": {url:"mmmmmWXEFF/m2c.png"},
@@ -3168,6 +3213,8 @@ var set_param_m = function () {
             "btn_com_long1.png":"m25b.png",
             "image_login_notice1.png":"m26b.png",
             "image_loding_txtbhcc.png":"m27b.png",
+            "image_xuanfu_gx0.png": "m28b.png",
+            "image_xuanfu_gx1.png": "m29b.png",
 
             "0.png": "m1c.png",
             "1.png": "m2c.png",
@@ -3334,6 +3381,8 @@ var set_param_n = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"nlgn/n25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"nlgn/n26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"nlgn/n27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"nlgn/n28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"nlgn/n29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"nff/n1c.png"},
             "wxeff_btn_atlas/1.png": {url:"nff/n2c.png"},
@@ -3407,6 +3456,8 @@ var set_param_n = function () {
             "btn_com_long1.png":"n25b.png",
             "image_login_notice1.png":"n26b.png",
             "image_loding_txtbhcc.png":"n27b.png",
+            "image_xuanfu_gx0.png": "n28b.png",
+            "image_xuanfu_gx1.png": "n29b.png",
 
             "0.png": "n1c.png",
             "1.png": "n2c.png",
@@ -3572,6 +3623,8 @@ var set_param_O = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"oolgo/o25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"oolgo/o26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"oolgo/o27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"oolgo/o28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"oolgo/o29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"ofo/o1c.png"},
             "wxeff_btn_atlas/1.png": {url:"ofo/o2c.png"},
@@ -3645,6 +3698,8 @@ var set_param_O = function () {
             "btn_com_long1.png":"o25b.png",
             "image_login_notice1.png":"o26b.png",
             "image_loding_txtbhcc.png":"o27b.png",
+            "image_xuanfu_gx0.png": "o28b.png",
+            "image_xuanfu_gx1.png": "o29b.png",
 
             "0.png": "o1c.png",
             "1.png": "o2c.png",
@@ -3808,6 +3863,8 @@ var set_param_P = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"plgop/p25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"plgop/p26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"plgop/p27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"plgop/p28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"plgop/p29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"pfp/p1c.png"},
             "wxeff_btn_atlas/1.png": {url:"pfp/p2c.png"},
@@ -3881,6 +3938,8 @@ var set_param_P = function () {
             "btn_com_long1.png":"p25b.png",
             "image_login_notice1.png":"p26b.png",
             "image_loding_txtbhcc.png":"p27b.png",
+            "image_xuanfu_gx0.png": "p28b.png",
+            "image_xuanfu_gx1.png": "p29b.png",
 
             "0.png": "p1c.png",
             "1.png": "p2c.png",
@@ -4044,6 +4103,8 @@ var set_param_Q = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"qlgqq/q25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"qlgqq/q26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"qlgqq/q27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"qlgqq/q28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"qlgqq/q29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"qfq/q1c.png"},
             "wxeff_btn_atlas/1.png": {url:"qfq/q2c.png"},
@@ -4117,6 +4178,8 @@ var set_param_Q = function () {
             "btn_com_long1.png":"q25b.png",
             "image_login_notice1.png":"q26b.png",
             "image_loding_txtbhcc.png":"q27b.png",
+            "image_xuanfu_gx0.png": "q28b.png",
+            "image_xuanfu_gx1.png": "q29b.png",
 
             "0.png": "q1c.png",
             "1.png": "q2c.png",
@@ -4278,6 +4341,8 @@ var set_param_R = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"rrlgr/r25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"rrlgr/r26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"rrlgr/r27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"rrlgr/r28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"rrlgr/r29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"rfr/r1c.png"},
             "wxeff_btn_atlas/1.png": {url:"rfr/r2c.png"},
@@ -4351,6 +4416,8 @@ var set_param_R = function () {
             "btn_com_long1.png":"r25b.png",
             "image_login_notice1.png":"r26b.png",
             "image_loding_txtbhcc.png":"r27b.png",
+            "image_xuanfu_gx0.png": "r28b.png",
+            "image_xuanfu_gx1.png": "r29b.png",
 
             "0.png": "r1c.png",
             "1.png": "r2c.png",
@@ -4513,6 +4580,8 @@ var set_param_S = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"sslgrss/s25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"sslgrss/s26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"sslgrss/s27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"sslgrss/s28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"sslgrss/s29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"sfs/s1c.png"},
             "wxeff_btn_atlas/1.png": {url:"sfs/s2c.png"},
@@ -4586,6 +4655,8 @@ var set_param_S = function () {
             "btn_com_long1.png":"s25b.png",
             "image_login_notice1.png":"s26b.png",
             "image_loding_txtbhcc.png":"s27b.png",
+            "image_xuanfu_gx0.png": "s28b.png",
+            "image_xuanfu_gx1.png": "s29b.png",
 
             "0.png": "s1c.png",
             "1.png": "s2c.png",
@@ -4747,6 +4818,8 @@ var set_param_T = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"ttlgrtt/t25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"ttlgrtt/t26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"ttlgrtt/t27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"ttlgrtt/t28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"ttlgrtt/t29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"tft/t1c.png"},
             "wxeff_btn_atlas/1.png": {url:"tft/t2c.png"},
@@ -4820,6 +4893,8 @@ var set_param_T = function () {
             "btn_com_long1.png":"t25b.png",
             "image_login_notice1.png":"t26b.png",
             "image_loding_txtbhcc.png":"t27b.png",
+            "image_xuanfu_gx0.png": "t28b.png",
+            "image_xuanfu_gx1.png": "t29b.png",
 
             "0.png": "t1c.png",
             "1.png": "t2c.png",
@@ -4987,6 +5062,8 @@ var set_param_U = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"uulgruu/u25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"uulgruu/u26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"uulgruu/u27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"uulgruu/u28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"uulgruu/u29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"utu/u1c.png"},
             "wxeff_btn_atlas/1.png": {url:"utu/u2c.png"},
@@ -5060,6 +5137,8 @@ var set_param_U = function () {
             "btn_com_long1.png":"u25b.png",
             "image_login_notice1.png":"u26b.png",
             "image_loding_txtbhcc.png":"u27b.png",
+            "image_xuanfu_gx0.png": "u28b.png",
+            "image_xuanfu_gx1.png": "u29b.png",
 
             "0.png": "u1c.png",
             "1.png": "u2c.png",
@@ -5222,6 +5301,8 @@ var set_param_V = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"vvlgrvv/v25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"vvlgrvv/v26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"vvlgrvv/v27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"vvlgrvv/v28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"vvlgrvv/v29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"vtv/v1c.png"},
             "wxeff_btn_atlas/1.png": {url:"vtv/v2c.png"},
@@ -5295,6 +5376,8 @@ var set_param_V = function () {
             "btn_com_long1.png":"v25b.png",
             "image_login_notice1.png":"v26b.png",
             "image_loding_txtbhcc.png":"v27b.png",
+            "image_xuanfu_gx0.png": "v28b.png",
+            "image_xuanfu_gx1.png": "v29b.png",
 
             "0.png": "v1c.png",
             "1.png": "v2c.png",
@@ -5312,8 +5395,8 @@ var set_param_V = function () {
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         // needShuffle = true;
-        str_leading1 = "NQCGU8JO$51FRXA9D0_MKHPEV6S3TWZ27BYL4I";
-        str_leading2 = "gxdvw5kf$qe_1i0runz6a4bl793sm2tcj8oyhp";
+        str_leading1 = "6O$KD8V05RXQICHMA7L3T1NEZG492BSJ_FUPYW";
+        str_leading2 = "r9fis$o43nt2_1hy6zlu8beqwgxpv57k0cmdja";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -5459,6 +5542,8 @@ var set_param_W = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"wwlgrww/w25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"wwlgrww/w26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"wwlgrww/w27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"wwlgrww/w28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"wwlgrww/w29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"wtw/w1c.png"},
             "wxeff_btn_atlas/1.png": {url:"wtw/w2c.png"},
@@ -5532,6 +5617,8 @@ var set_param_W = function () {
             "btn_com_long1.png":"w25b.png",
             "image_login_notice1.png":"w26b.png",
             "image_loding_txtbhcc.png":"w27b.png",
+            "image_xuanfu_gx0.png": "w28b.png",
+            "image_xuanfu_gx1.png": "w29b.png",
 
             "0.png": "w1c.png",
             "1.png": "w2c.png",
@@ -5698,6 +5785,8 @@ var set_param_X = function () {
             "wxlogin_atlas/btn_com_long1.png": {url:"xxlgrxx/x25b.png"},
             "wxlogin_atlas/image_login_notice1.png": {url:"xxlgrxx/x26b.png"},
             "wxlogin_atlas/image_loding_txtbhcc.png": {url:"xxlgrxx/x27b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"xxlgrxx/x28b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"xxlgrxx/x29b.png"},
 
             "wxeff_btn_atlas/0.png": {url:"xtx/x1c.png"},
             "wxeff_btn_atlas/1.png": {url:"xtx/x2c.png"},
@@ -5771,6 +5860,8 @@ var set_param_X = function () {
             "btn_com_long1.png":"x25b.png",
             "image_login_notice1.png":"x26b.png",
             "image_loding_txtbhcc.png":"x27b.png",
+            "image_xuanfu_gx0.png": "x28b.png",
+            "image_xuanfu_gx1.png": "x29b.png",
 
             "0.png": "x1c.png",
             "1.png": "x2c.png",
@@ -6964,7 +7055,7 @@ gulp.task('MT1_COPY', function () {
             // console.log('Found ' + match + ' with param ' + p1,"替换为:", mt1Replace[match]);
             return mt1Replace[match];
         }))
-        .pipe(replace(/(wxlogin_atlas)|(wxeff_btn_atlas)|(wxloading_atlas)|(btn_loding_abcelq0.png)|(btn_loding_abcelq1.png)|(image_loading_bg.jpg)|(image_loading_bg_bottom.jpg)|(image_loading_bg_bottom2.jpg)|(image_loading_bg_left.jpg)|(image_loading_bg_left2.jpg)|(image_loading_bg_right.jpg)|(image_loading_bg_right2.jpg)|(image_loading_bg_top.jpg)|(image_loading_bg_top2.jpg)|(image_loading_bg2.jpg)|(image_loding_bar0.png)|(image_loding_bar1.png)|(image_loding_bar02.png)|(image_loding_bar2.png)|(image_loding_bar3.png)|(image_login_point1.png)|(image_login_point2.png)|(image_login_point3.png)|(image_loding_txtbhcc.png)/g, function (match, p1, offset, string) {
+        .pipe(replace(/(wxlogin_atlas)|(wxeff_btn_atlas)|(wxloading_atlas)|(btn_loding_abcelq0.png)|(btn_loding_abcelq1.png)|(image_loading_bg.jpg)|(image_loading_bg_bottom.jpg)|(image_loading_bg_bottom2.jpg)|(image_loading_bg_left.jpg)|(image_loading_bg_left2.jpg)|(image_loading_bg_right.jpg)|(image_loading_bg_right2.jpg)|(image_loading_bg_top.jpg)|(image_loading_bg_top2.jpg)|(image_loading_bg2.jpg)|(image_loding_bar0.png)|(image_loding_bar1.png)|(image_loding_bar02.png)|(image_loding_bar2.png)|(image_loding_bar3.png)|(image_login_point1.png)|(image_login_point2.png)|(image_login_point3.png)|(image_loding_txtbhcc.png)|(image_xuanfu_gx0.png)|{image_xuanfu_gx1.png}/g, function (match, p1, offset, string) {
             var relative = this.file.relative.replace(/\\/g, "/");
             if (replaceMap[relative]) { //登录界面才替换
                 console.log("relative1:",relative,'Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);
