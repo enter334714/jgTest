@@ -5919,7 +5919,7 @@ gulp.task('build-babel-obfuscator-X', function (cb) {
 /**-------------------------------------------------微信小游戏--Y包 点完-斗战仙魔-盈月服 start-----------------------------------------------------------*/
 
 /**Y包参数*/
-var set_param_X = function () {
+var set_param_Y = function () {
     function onFile(file, enc, cb) {
         if (file.isStream()) {
             this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
