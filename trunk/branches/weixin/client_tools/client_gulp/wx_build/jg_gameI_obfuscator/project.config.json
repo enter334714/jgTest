@@ -29,6 +29,7 @@
     },
     "enableEngineNative": false,
     "useIsolateContext": false,
+    "userConfirmedUseIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -40,7 +41,7 @@
   "compileType": "game",
   "libVersion": "2.10.4",
   "appid": "wx4966038c5b5290b0",
-  "projectname": "武林盛典h5",
+  "projectname": "%E6%AD%A6%E6%9E%97%E7%9B%9B%E5%85%B8h5",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {

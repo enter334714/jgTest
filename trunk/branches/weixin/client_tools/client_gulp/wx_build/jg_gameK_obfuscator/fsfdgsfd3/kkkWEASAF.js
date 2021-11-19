@@ -933,6 +933,9 @@ var U = wx.$k;
 	exports.default = Image;
 	function Image() {
 		var image = wx.createImage();
+		image.destroy = function () {
+			image.src = "";
+		};
 
 		return image;
 	}
@@ -1576,11 +1579,12 @@ var U = wx.$k;
 
 							if (data instanceof ArrayBuffer) {
 								_this.responseText = '';
-								var bytes = new Uint8Array(data);
-								var len = bytes.byteLength;
-
-								for (var i = 0; i < len; i++) {
-									_this.responseText += String.fromCharCode(bytes[i]);
+								if (_this.responseType != "arraybuffer") {
+									var bytes = new Uint8Array(data);
+									var len = bytes.byteLength;
+									for (var i = 0; i < len; i++) {
+										_this.responseText += String.fromCharCode(bytes[i]);
+									}
 								}
 							} else {
 								_this.responseText = data;

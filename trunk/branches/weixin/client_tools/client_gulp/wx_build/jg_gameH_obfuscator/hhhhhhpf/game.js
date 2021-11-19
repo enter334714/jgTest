@@ -1,2 +1,2 @@
 var O = wx.$C;
-require('hhhhBuff.js'), window[O[27241]][O[27242]][O[27243]] = null, window['client_pb'] = require('hhhhcleintpb.js'), window[O[24417]] = window[O[27241]][O[24316]][O[24317]](client_pb);
+require('hhhhBuff.js'), window[O[127584]][O[127585]][O[127586]] = null, window['client_pb'] = require('hhhhcleintpb.js'), window[O[124512]] = window[O[127584]][O[124402]][O[124403]](client_pb);

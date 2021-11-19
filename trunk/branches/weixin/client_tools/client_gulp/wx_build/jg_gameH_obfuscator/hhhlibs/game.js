@@ -1,2 +1,2 @@
 var O = wx.$C;
-require("hhhhgame.js");
+require(O[127963]);
