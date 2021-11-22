@@ -1,2 +1,2 @@
 var K = wx.$S;
-require('sGAMEss.js');
+require(K[300000]);

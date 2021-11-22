@@ -61,7 +61,9 @@ var minitool = /** @class */ (function () {
         xhr.send(url, data, type, "text");
     };
     minitool.prototype.postSidebarApi = function () {
-        this.send("https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApi&channel=" + Global.sygame.channel, this.completeHandler, this.errorHandler);
+        var openId = Global.sygame.openid;
+        var param = `&channel=${Global.sygame.channel}&wecha_id=${openId}`
+        this.send("https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApi"+param, this.completeHandler, this.errorHandler);
     };
 
     minitool.prototype.getBoxCheckoutCode = function () {
@@ -91,14 +93,14 @@ var minitool = /** @class */ (function () {
         switch (data.status) {
             case 1001:
                 var srcArray = [
-                // { url: data.msg.basics_image_url, type: Laya.Loader.IMAGE },
-                // { url: data.msg.public_code, type: Laya.Loader.IMAGE },
-                // { url: data.msg.vip_customer_service, type: Laya.Loader.IMAGE },
-                // { url: data.msg.vip_customer_service_not_add, type: Laya.Loader.IMAGE },
-                // { url: data.msg.game_center_image_url, type: Laya.Loader.IMAGE },
-                // { url: data.msg.vip_qrcode, type: Laya.Loader.IMAGE },
-                // { url: this.getIcon, type: Laya.Loader.IMAGE },
-                // { url: this.copyIcon, type: Laya.Loader.IMAGE }
+                    // { url: data.msg.basics_image_url, type: Laya.Loader.IMAGE },
+                    // { url: data.msg.public_code, type: Laya.Loader.IMAGE },
+                    // { url: data.msg.vip_customer_service, type: Laya.Loader.IMAGE },
+                    // { url: data.msg.vip_customer_service_not_add, type: Laya.Loader.IMAGE },
+                    // { url: data.msg.game_center_image_url, type: Laya.Loader.IMAGE },
+                    // { url: data.msg.vip_qrcode, type: Laya.Loader.IMAGE },
+                    // { url: this.getIcon, type: Laya.Loader.IMAGE },
+                    // { url: this.copyIcon, type: Laya.Loader.IMAGE }
                 ];
                 data.msg.basics_image_url && srcArray.push({ url: data.msg.basics_image_url, type: Laya.Loader.IMAGE });
                 data.msg.public_code && srcArray.push({ url: data.msg.public_code, type: Laya.Loader.IMAGE });
@@ -217,15 +219,16 @@ var MainController = /** @class */ (function () {
                 Toast.msg("请先获取vip资格");
                 return;
             }
-            _this.main.box_2_lab_wx.text = _this.tool.data.vip_wx;
+            _this.main.box_2_lab_wx.text = this.rolePriceData.vip_wx;
             _this.main.box_2_btn_copy.visible = true;
         });
         this.main.box_2_btn_copy.on(Laya.Event.CLICK, this, function () {
-            _this.copyText(_this.tool.data.vip_wx);
+            _this.copyText(this.rolePriceData.vip_wx);
         });
         this.main.box_2_addclick.on(Laya.Event.CLICK, this, function () {
             if (_this.rolePriceData.is_vip == 0)
                 return;
+            this.main.box_help_qrcode.skin =_this.rolePriceData.vip_qrcode;
             _this.main.box_help.visible = true;
         });
         this.main.box_help_close.on(Laya.Event.CLICK, this, function () {
@@ -233,7 +236,7 @@ var MainController = /** @class */ (function () {
         });
         //二维码界面
         this.main.box_help_bg.skin = this.tool.data.vip_customer_service_not_add; //Laya.loader.getRes(Global.getResMap(this.tool.data.vip_customer_service_not_add));
-        this.main.box_help_qrcode.skin = this.tool.data.vip_qrcode; //Laya.loader.getRes(Global.getResMap(this.tool.data.vip_qrcode));
+        this.main.box_help_qrcode.skin =_this.rolePriceData.vip_qrcode; //Laya.loader.getRes(Global.getResMap(this.tool.data.vip_qrcode));
         this.main.box_help_qrcode.scaleX = 160 / this.main.box_help_qrcode.width;
         this.main.box_help_qrcode.scaleY = 160 / this.main.box_help_qrcode.width;
         //page_3
@@ -286,7 +289,13 @@ var MainController = /** @class */ (function () {
         this.main.bg.x = 0;
         // TweenJS.create(this.main.bg).to({ x: 0 }, 300);
         this.icon.visible = false;
-        this.tool.send("https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApiRoleId&role_id=" + Global.sygame.role_id + "&channel=" + Global.sygame.channel, this.rolePriceHandler.bind(this), this.roleError.bind(this));
+        var serverId = PF_INFO.selectedServer.server_id;
+        var serverName = PF_INFO.selectedServer.server_name;       
+        var roleId = PF_INFO.roleId;
+        var roleName = PF_INFO.roleName;
+        var openId = Global.sygame.openid;
+        var param = `&role_id=${Global.sygame.role_id}&channel=${Global.sygame.channel}&server_id=${serverId}&server_name=${serverName}&wecha_id=${openId}&role_id=${roleId}&role_name=${roleName}`;
+        this.tool.send("https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApiRoleId"+param, this.rolePriceHandler.bind(this), this.roleError.bind(this));
     };
     MainController.prototype.page1 = function () {
         this.page = 1;

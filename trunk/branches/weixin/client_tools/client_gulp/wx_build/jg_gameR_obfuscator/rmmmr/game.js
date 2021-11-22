@@ -1,2 +1,2 @@
-var i = wx.$R;
+var I = wx.$R;
 import 'rrMAINrr.js';

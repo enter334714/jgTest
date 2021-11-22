@@ -1,4 +1,4 @@
-var i = wx.$R;
+var I = wx.$R;
 import 'r2a1/rWE41r.js';console.info("1 \u521d\u59cb\u5316");
 var VSHADER_SOURCE = 'attribute vec4 a_Position;\n' + 'attribute vec2 a_TexCoord;\n' + 'varying vec2 v_TexCoord;\n' + 'void main() {\n' + '  gl_Position = a_Position;\n' + '  v_TexCoord = a_TexCoord;\n' + '}\n';
 

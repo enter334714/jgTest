@@ -1,2 +1,2 @@
-var i = wx.$R;
-require('rBFrr.js'), window['protobuf'][i[298190]][i[298191]] = null, window['client_pb'] = require('rCLIENTPrr.js'), window['protobufRoot'] = window['protobuf'][i[296168]]['fromJSON'](client_pb);
+var I = wx.$R;
+require('rBFrr.js'), window[I[307618]][I[307619]][I[307620]] = null, window['client_pb'] = require('rCLIENTPrr.js'), window[I[304232]] = window[I[307618]][I[304122]][I[304123]](client_pb);
