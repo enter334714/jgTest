@@ -2,7 +2,7 @@
 import SDKyyw from './helper'
 var config = {
     game_id: '256',
-    game_pkg: 'tjqy_tjqyxyjz_FU', //有一 --飞剑 --萌神战姬
+    game_pkg: 'tjqy_tjqymszj_IF', //有一 --飞剑 --萌神战姬
     partner_id: '317',
     game_ver: '25.0.1',
     is_auth: false, //授权登录   
@@ -12,8 +12,8 @@ var config = {
 window.config = config;
 // 渠道配置
 var partner_config = {
-    app_id : 1000207,
-    app_key : '9a784f02d527218cd7869f368a265116'
+    app_id : 1000220,
+    app_key : '90b41e2b6072437f1ffb0c7d50accfc5'
 };
 
 var PARTNER_SDK = mainSDK();
