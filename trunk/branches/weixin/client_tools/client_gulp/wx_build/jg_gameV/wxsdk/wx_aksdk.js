@@ -96,6 +96,7 @@ function mainSDK() {
                     // 获取登录信息
                     console.log('获取登录后的 开始调用loginUserInfo，当前时间戳：', Date.parse(new Date()) / 1000)
                     sdk.cpSDK.loginUserInfo((res) => {
+                        wx.setStorageSync('partner_openid', res.openid);
                         partner_user_info = res;
                        self.do_login(res);
                     })
@@ -343,8 +344,9 @@ function mainSDK() {
             let ret = {
                 data:{}
             };
+            var openid = wx.getStorageSync("partner_openid");
             wx.request({
-                url: 'https://' + HOST + '/partner/data/msgSecCheck/'+config.partner_id+'/'+config.game_pkg,
+                url: 'https://' + HOST + '/partner/data/msgSecCheck2/'+config.partner_id+'/'+config.game_pkg,
                 method: 'POST',
                 dataType: 'json',
                 header: {
@@ -354,6 +356,7 @@ function mainSDK() {
                     game_pkg: config.game_pkg,
                     partner_id: config.partner_id,
                     content:content,
+                    open_id:openid,
                 },
                 success: function (res) {
                     if(res.data.state == 1){
@@ -595,7 +598,7 @@ function mainSDK() {
                 uuid: uuid,
                 idfv: idfv,
                 mac: '0000',
-                is_from_min: 1,
+                is_from_min:1,
                 dname: sysInfo.model,
                 net_type: sysInfo.wifiSignal == 0 ? '4G' : 'WIFI',
                 os_ver: sysInfo.system,
