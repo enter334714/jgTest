@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_rqxsmflb_HK', //盛也马甲包-盛也-柔情小师妹福利版
     partner_label: 'shengye2',
     partner_id: '398',
-    game_ver: '15.0.7',
+    game_ver: '15.0.9',
     is_auth: false, //授权登录
     tmpId: {1:'VP7N3-OPPKNX_2McZ-AQs8a72qCifA0lVyVKz6RF4KE', 2:'CDP-Z_V_HV31mqcAb88h1YeX0WTMOs-2H4UZZ65rj98', 3:'oXTMkESTOSL-rSgNGvam2V9b3Epa8ypkPz4WEb9DYx8'},  // 订阅的类型 和 模板id
 };
@@ -379,26 +379,25 @@ function mainSDK() {
 
         msgCheck: function (content, callback) {
             console.log("[SDK]查看文本是否有违规内容");
-            var sdk_token = wx.getStorageSync('plat_sdk_token');
-            wx.request({
-                url: 'https://' + HOST + '/partner/data/msgSecCheck/'+config.partner_id+'/'+config.game_pkg,
-                method: 'POST',
-                dataType: 'json',
-                header: {
-                    'content-type': 'application/x-www-form-urlencoded' // 默认值
-                },
-                data: {
-                    game_pkg: config.game_pkg,
-                    partner_id: config.partner_id,
-                    sdk_token: sdk_token,
-                    content:content,
-                },
-                success: function (res) {
-                    console.log("[SDK]查看文本是否有违规内容结果返回:");
-                    console.log(res);
-                    callback && callback(res);
+            let ret = {
+                data:{}
+            };
+            let data = {
+                content: content,
+                scene: 2 // 场景枚举值（1 资料；2 评论；3 论坛；4 社交⽇志）
+            }
+            Sygame.syMsgSecCheck( data ).then((res) => {
+                if(res.status==1001){
+                    ret.statusCode = 200;
+                    ret.data.state = 1;
+                    console.log("正确"+JSON.stringify(res));
+                }else{
+                    ret.statusCode = 0;
+                    ret.data.state = 0;
+                    console.log("不正确"+JSON.stringify(res));
                 }
-            });
+                callback && callback(ret);
+            })
         },
 
         pay: function (data, callback) {

@@ -1,2 +1,2 @@
 var I = wx.$R;
-require('rBFrr.js'), window[I[307618]][I[307619]][I[307620]] = null, window['client_pb'] = require('rCLIENTPrr.js'), window[I[304232]] = window[I[307618]][I[304122]][I[304123]](client_pb);
+require('rBFrr.js'), window[I[307625]][I[307626]][I[307627]] = null, window['client_pb'] = require('rCLIENTPrr.js'), window[I[304753]] = window[I[307625]][I[304667]][I[304668]](client_pb);

@@ -1,6 +1,5 @@
-var g = wx.$Q;
-let confArr = ['', g[287503], g[287504], g[287505], g[287506], g[287507], g[287508], g[287509], g[287510], g[287511], g[287512], g[287513], g[287514], g[287515], g[287516], g[287517], g[287518], g[287519]];
-
+﻿var g = wx.$Q;
+let confArr = ['', 'APP_ID', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=login', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportRoleInfo', 'APP_VERSION', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=canPay', 'GAME_KEY', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=setTunnelClick', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getMaterials', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportShare', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportClick', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=descMidasCoin', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=send_tpl_msg', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=get_box_list', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=open_box', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=click_box', 'wss://ws.docater1.cn', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getOpenClipboard', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getDealPackageInfo', 'https://docater1.cn/index.php?g=Wap&m=WxSecCheck&a=msgSecCheck', 'https://docater1.cn/index.php?g=Wap&m=WxSecCheck&a=imgSecCheck', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getGameShareCardData'];
 const SY_CONF = {
   "APP_ID": g[287520],
   "APP_VERSION": g[287521],

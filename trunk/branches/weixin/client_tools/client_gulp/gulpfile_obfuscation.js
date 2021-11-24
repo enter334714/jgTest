@@ -6859,15 +6859,15 @@ var set_param_Z_2 = function () {
     return through.obj(onFile);
 };
 
-gulp.task('set-param-Z_1', function () {
+gulp.task('set-param-Z_2', function () {
     var stream = gulp.src("")
-        .pipe(set_param_Z_1())
+        .pipe(set_param_Z_2())
     return stream;
 });
 
 //混淆
-gulp.task('build-babel-obfuscator-Z_1', function (cb) {
-    sequence("set-param-Z_1","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+gulp.task('build-babel-obfuscator-Z_2', function (cb) {
+    sequence("set-param-Z_2","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 
@@ -8321,11 +8321,19 @@ gulp.task('DEL_REFUSEFILE_Z', function (cb) {
 });
 
 gulp.task('CREATE_REFUSEFILE_Z1', function (cb) {
-    sequence("set-param-Z1","CREATE_REFUSEFILE",cb)
+    sequence("set-param-Z_1","CREATE_REFUSEFILE",cb)
 });
 
 gulp.task('DEL_REFUSEFILE_Z1', function (cb) {
-    sequence("set-param-Z1","DEL_REFUSEFILE",cb)
+    sequence("set-param-Z_1","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_Z2', function (cb) {
+    sequence("set-param-Z_2","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_Z2', function (cb) {
+    sequence("set-param-Z_2","DEL_REFUSEFILE",cb)
 });
 
 //无网络 使用这个图片压缩

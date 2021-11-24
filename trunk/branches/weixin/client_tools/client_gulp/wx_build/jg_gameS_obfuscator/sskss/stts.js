@@ -1,11 +1,10 @@
-var K = wx.$S;
-let confArr = ['', K[328770], K[328771], K[328772], K[328773], K[328774], K[328775], K[328776], K[328777], K[328778], K[328779], K[328780], K[328781], K[328782], K[328783], K[328784], K[328785], K[328786]];
-
+﻿var K = wx.$S;
+let confArr = ['', 'APP_ID', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=login', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportRoleInfo', 'APP_VERSION', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=canPay', 'GAME_KEY', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=setTunnelClick', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getMaterials', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportShare', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportClick', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=descMidasCoin', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=send_tpl_msg', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=get_box_list', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=open_box', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=click_box', 'wss://ws.docater1.cn', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getOpenClipboard', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getDealPackageInfo', 'https://docater1.cn/index.php?g=Wap&m=WxSecCheck&a=msgSecCheck', 'https://docater1.cn/index.php?g=Wap&m=WxSecCheck&a=imgSecCheck', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getGameShareCardData'];
 const SY_CONF = {
-  "APP_ID": K[328787],
-  "APP_VERSION": K[328788],
-  "GAME_KEY": K[328789],
-  "offerId": K[328790],
+  "APP_ID": K[328795],
+  "APP_VERSION": K[328796],
+  "GAME_KEY": K[328797],
+  "offerId": K[328798],
   "commitId": "54"
 };
 
@@ -13,7 +12,7 @@ const Sygame = {
   // 初始化
   SY_CONF: SY_CONF,
   appid: '',
-  app_version: K[328791],
+  app_version: K[328799],
   openid: '',
   real_openid: '',
   share_data: {},
@@ -26,11 +25,12 @@ const Sygame = {
     Sygame.appid = SY_CONF[confArr[1]];
     Sygame.query = data.query;
     Sygame.channel = SY_CONF[confArr[6]];
-    Sygame.offerId = SY_CONF[K[328792]];
+    Sygame.offerId = SY_CONF[K[328800]];
     Sygame.scene = data.scene;
-    Sygame.commit_id = SY_CONF[K[328793]];
-    Sygame.timeNumber = 0;
-    console.log(K[328794], Sygame);
+    Sygame.commit_id = SY_CONF[K[328801]];
+    Sygame.touchNumber = 0;
+    Sygame.jumpVersion = 0;
+    console.log(K[328802], Sygame);
     let queryData = {
       query: data.query
     };
@@ -38,10 +38,9 @@ const Sygame = {
     wx.request({
       url: confArr[17],
       data: { appid: Sygame.appid },
-      method: K[300218],
+      method: K[327570],
       success: res => {
-        console.log(K[328795], res);
-        Sygame.timeNumber = res.data.package_time;
+        console.log(K[328803], res);
         if (res.data.is_open_clipboard) {
           //获取剪切板内的信息
           wx.getClipboardData({
@@ -49,7 +48,7 @@ const Sygame = {
               if (res.data) {
                 Sygame.clipboard = res.data;
               }
-              console.log(K[328796], res);
+              console.log(K[328804], res);
             }
           });
         }
@@ -57,9 +56,9 @@ const Sygame = {
         wx.request({
           url: confArr[7],
           data: queryData,
-          method: K[300218],
+          method: K[327570],
           success: res => {
-            console.log(K[328797], res);
+            console.log(K[328805], res);
           }
         });
       }
@@ -72,13 +71,13 @@ const Sygame = {
       var len = arr.length;
       var ranIndex = Math.floor(Math.random() * len);
       var shareData = arr[ranIndex];
-      console.log(K[328798], shareData);
+      console.log(K[328806], shareData);
       var data = {
         title: shareData.title,
         imageUrlId: shareData.imageUrlId,
         imageUrl: shareData.imageUrl
       };
-      console.log(K[328799], shareData);
+      console.log(K[328807], shareData);
       return data;
     });
   },
@@ -87,7 +86,7 @@ const Sygame = {
     // 发起登陆请求
     wx.login({
       success(res) {
-        console.log(K[328800], res);
+        console.log(K[328808], res);
         if (res.code) {
           // 到服务器去换取openId和用户信息
           let url = confArr[2];
@@ -103,23 +102,21 @@ const Sygame = {
               clipboard: Sygame.clipboard
             },
             success(ret) {
-              console.log(K[328801], ret);
+              console.log(K[328809], ret);
               if (ret.data.code == 1001) {
                 resolve(ret.data);
                 Sygame.openid = ret.data.openid;
                 Sygame.real_openid = ret.data.real_openid;
                 // 判断 jump_version 是否存在，存在则说明是新版导包
-                if (ret.data.jump_version) {
-                  Sygame.packageConfig(Date.parse(new Date()) / 1000, Sygame.timeNumber);
-                }
+                Sygame.jumpVersion = ret.data.jump_version;
               } else if (ret.data.code == 3001) {
                 var showCancelType = true;
                 var loginInfo = 0;
                 if (ret.data.jump_mandatory == 1) {
                   showCancelType = false;
                 } else {
-                  var loginKey = K[328802] + ret.data.openid;
-                  loginInfo = Sygame.cookieData({ type: K[301164], 'key': loginKey });
+                  var loginKey = K[328810] + ret.data.openid;
+                  loginInfo = Sygame.cookieData({ type: K[300450], 'key': loginKey });
                   if (ret.data.jump_mandatory_number > 0 && loginInfo >= ret.data.jump_mandatory_number) {
                     var data = [];
                     data.code = 1001;
@@ -134,22 +131,22 @@ const Sygame = {
                 resolve(Sygame.syPackageShow(ret, 1, showCancelType));
               } else if (ret.data.code == 5001) {
                 wx.showModal({
-                  title: K[328803],
-                  content: ret.data.game_tip ? ret.data.game_tip : K[328804],
-                  confirmText: K[309854],
+                  title: K[328811],
+                  content: ret.data.game_tip ? ret.data.game_tip : K[328812],
+                  confirmText: K[309265],
                   showCancel: false,
                   success: () => {
-                    console.log(K[328805], ret);
+                    console.log(K[328813], ret);
                   }
                 });
                 wx.onTouchStart(() => {
                   wx.showModal({
-                    title: K[328803],
-                    content: ret.data.game_tip ? ret.data.game_tip : K[328804],
-                    confirmText: K[309854],
+                    title: K[328811],
+                    content: ret.data.game_tip ? ret.data.game_tip : K[328812],
+                    confirmText: K[309265],
                     showCancel: false,
                     success: () => {
-                      console.log(K[328805], ret);
+                      console.log(K[328813], ret);
                     }
                   });
                 });
@@ -161,19 +158,19 @@ const Sygame = {
         }
       },
       fail: function () {
-        console.log(K[325109]);
+        console.log(K[324624]);
       }
     });
   }),
 
   // 创角，进入游戏，用户升级等接口
   syReportRoleInfo: data => new Promise(function (resolve, reject) {
-    if (typeof data === K[300999]) {
+    if (typeof data === K[300279]) {
       let url = confArr[3];
-      if (data.role_id && typeof data.role_id !== K[327897]) Sygame.role_id = data.role_id;
-      if (data.role_name && typeof data.role_name !== K[327897]) Sygame.role_name = data.role_name;
-      if (data.server_id && typeof data.server_id !== K[327897]) Sygame.server_id = data.server_id;
-      if (data.server_name && typeof data.server_name !== K[327897]) Sygame.server_name = data.server_name;
+      if (data.role_id && typeof data.role_id !== K[327905]) Sygame.role_id = data.role_id;
+      if (data.role_name && typeof data.role_name !== K[327905]) Sygame.role_name = data.role_name;
+      if (data.server_id && typeof data.server_id !== K[327905]) Sygame.server_id = data.server_id;
+      if (data.server_name && typeof data.server_name !== K[327905]) Sygame.server_name = data.server_name;
       data.wecha_id = Sygame.openid;
       data.real_openid = Sygame.real_openid;
       data.channel = Sygame.channel;
@@ -184,9 +181,9 @@ const Sygame = {
       wx.request({
         url: url,
         data: data,
-        method: K[300218],
+        method: K[327570],
         success: res => {
-          console.log(K[328806], res);
+          console.log(K[328814], res);
           if (res.data.is_gs_login) {
             Sygame.syUserLoginRecord(Sygame.openid, res.data.request_time);
           }
@@ -194,13 +191,30 @@ const Sygame = {
         }
       });
     } else {
-      return K[328807];
+      return K[328815];
     }
   }),
   // 下单发起支付
   syPay: data => new Promise(function (resolve, reject) {
+    // jumpVersion存在为新版导包，导包条件获取为支付之前
+    if (Sygame.jumpVersion) {
+      // 是否确定导包但是没导过去
+      if (Sygame.touchNumber > 0) {
+        return false;
+      }
+      // 获取导包信息
+      Sygame.syPackageJump().then(() => {
+        resolve(Sygame.syRealPay(data));
+      });
+    } else {
+      resolve(Sygame.syRealPay(data));
+    }
+  }),
+
+  // 真实支付方法
+  syRealPay: data => new Promise(function (resolve, reject) {
     let url = confArr[5];
-    if (typeof data == K[300999]) {
+    if (typeof data == K[300279]) {
       data.openid = Sygame.openid;
       data.real_openid = Sygame.real_openid;
       data.appid = Sygame.appid;
@@ -209,26 +223,26 @@ const Sygame = {
       data.is_buckle_pay = 0;
       wx.request({
         url: url,
-        method: K[300218],
+        method: K[327570],
         data: data,
         success: function (res) {
-          console.log(K[328808], res);
+          console.log(K[328816], res);
           // 后台配置支付参数
           switch (res.data.payType) {
             case "1":
               //米大师余额支付
               if (res.data.can_use_balance == 1) {
                 wx.showModal({
-                  title: K[328809],
+                  title: K[328817],
                   content: res.data.midas_pay_tip,
-                  confirmText: K[309854],
-                  showCancel: K[309855],
+                  confirmText: K[309265],
+                  showCancel: K[309266],
                   success: ret => {
                     if (ret.confirm) {
                       data.is_buckle_pay = 1;
                       Sygame.syDescMidasCoin(data);
                     } else {
-                      console.log(K[300187]);
+                      console.log(K[327549]);
                       Sygame.syMidasPay(data);
                     }
                   }
@@ -239,18 +253,18 @@ const Sygame = {
               break;
             case "2":
               wx.showModal({
-                title: K[328810],
-                content: K[328811],
-                confirmText: K[328812],
+                title: K[328818],
+                content: K[328819],
+                confirmText: K[328820],
                 showCancel: false,
                 success: ret => {
                   if (ret.confirm) {
                     wx.openCustomerServiceConversation({
-                      sessionFrom: K[328813] + res.data.payId,
+                      sessionFrom: K[328821] + res.data.payId,
                       showMessageCard: true,
-                      sendMessageImg: K[328814],
+                      sendMessageImg: K[328822],
                       success: () => {
-                        console.log(K[300271]);
+                        console.log(K[309687]);
                       }
                     });
                   }
@@ -268,7 +282,7 @@ const Sygame = {
         }
       });
     } else {
-      reject(K[328815]);
+      reject(K[328823]);
     }
   }),
 
@@ -277,38 +291,38 @@ const Sygame = {
     wx.request({
       url: confArr[11],
       data: data,
-      method: K[300218],
-      dataType: K[306364],
+      method: K[327570],
+      dataType: K[305766],
       success: function (res) {
-        console.log(K[328816], res);
+        console.log(K[328824], res);
         wx.showModal({
-          title: K[300071],
+          title: K[306337],
           content: res.data.tip,
-          confirmText: K[309854],
-          showCancel: K[309855],
+          confirmText: K[309265],
+          showCancel: K[309266],
           success: ret => {
             if (ret.confirm) {}
           }
         });
       },
       fail: function (e) {
-        console.log(K[328817], e);
+        console.log(K[328825], e);
       }
     });
   },
 
   syMidasPay: data => {
     wx.requestMidasPayment({
-      mode: K[328818],
+      mode: K[328826],
       env: 0,
       offerId: Sygame.offerId,
-      currencyType: K[328819],
+      currencyType: K[328827],
       buyQuantity: data.product_price * 100,
-      platform: K[300110],
+      platform: K[327490],
       zoneId: 1,
       success(res) {
         Sygame.syDescMidasCoin(data);
-        console.log(K[328820], res);
+        console.log(K[328828], res);
       },
       fail(res) {
         console.log(res);
@@ -324,37 +338,15 @@ const Sygame = {
     let channel = Sygame.channel;
     let openid = Sygame.openid;
     wx.openCustomerServiceConversation({
-      sessionFrom: K[328821] + openid,
+      sessionFrom: K[328829] + openid,
       success: () => {
-        console.log(K[328822]);
+        console.log(K[328830]);
       }
     });
   }),
 
-  // 处理新版导包，控制导包窗口弹起时间
-  packageConfig: (startTime, timeNumber) => {
-    var clickTouch = 0;
-    wx.onTouchStart(() => {
-      if (clickTouch > 0) {
-        return false;
-      }
-      clickTouch += 1;
-      // 处理获取跳转信息延迟时间
-      var diffTime = Date.parse(new Date()) / 1000 - startTime;
-      var setTime = 0;
-      if (diffTime < timeNumber) {
-        setTime = (timeNumber - diffTime) * 1000;
-      }
-      // 获取跳转信息并进行跳转
-      var setTimeOutObj = setTimeout(function () {
-        clearTimeout(setTimeOutObj);
-        Sygame.syPackageJump();
-      }, setTime);
-    });
-  },
-
   // 获取导包跳转信息
-  syPackageJump: () => {
+  syPackageJump: () => new Promise(function (resolve, reject) {
     wx.request({
       url: confArr[18],
       data: {
@@ -362,16 +354,21 @@ const Sygame = {
         'openid': Sygame.openid,
         'real_openid': Sygame.real_openid
       },
-      method: K[300218],
+      method: K[327570],
       success: ret => {
-        console.log(K[328823], ret);
+        console.log(K[328831], ret);
         if (ret.data.status == 1001) {
-          return false;
+          resolve(true);
+        } else {
+          var showCancelType = true;
+          if (ret.data.jump_mandatory == 1) {
+            showCancelType = false;
+          }
+          resolve(Sygame.syPackageShow(ret, 0, showCancelType));
         }
-        Sygame.syPackageShow(ret, 0, true);
       }
     });
-  },
+  }),
 
   /**
    * 将导包时候的弹窗取出来单独封装，避免新旧两种导包方式代码重复
@@ -381,10 +378,10 @@ const Sygame = {
    */
   syPackageShow: (ret, jumpType, showCancelType) => new Promise(function (resolve, reject) {
     wx.showModal({
-      title: ret.data.jump_title_tip ? ret.data.jump_title_tip : K[328824],
-      content: ret.data.jump_tip ? ret.data.jump_tip.replace(/\\n/g, '\n') : K[328825],
-      confirmText: ret.data.jump_button_tip ? ret.data.jump_button_tip : K[309854],
-      cancelText: ret.data.jump_cancel_tip ? ret.data.jump_cancel_tip : K[309855],
+      title: ret.data.jump_title_tip ? ret.data.jump_title_tip : K[328832],
+      content: ret.data.jump_tip ? ret.data.jump_tip.replace(/\\n/g, '\n') : K[328833],
+      confirmText: ret.data.jump_button_tip ? ret.data.jump_button_tip : K[309265],
+      cancelText: ret.data.jump_cancel_tip ? ret.data.jump_cancel_tip : K[309266],
       showCancel: showCancelType,
       success: res => {
         // 点击取消按钮可以获取用户信息进入游戏（仅老版导包可以）
@@ -399,19 +396,16 @@ const Sygame = {
           // 点击取消
           if (ret.data.jump_mandatory_number > 0) {
             var time = new Date(new Date().toLocaleDateString()).getTime() + 3600 * 24 * 1000;
-            var loginKey = K[328802] + ret.data.openid;
-            Sygame.cookieData({ type: K[300772], key: loginKey, data: loginInfo + 1, expired_at: time });
+            var loginKey = K[328810] + ret.data.openid;
+            Sygame.cookieData({ type: K[300019], key: loginKey, data: loginInfo + 1, expired_at: time });
           }
+        } else if (res.cancel) {
+          resolve(true);
         } else {
-          // jumpType 存在，则代表是老版导包方式跳转
-          if (jumpType) {
-            wx.onTouchStart(() => {
-              Sygame.syDealJumpData(ret);
-            });
-          } else if (!jumpType && res.confirm) {
-            // 否则为新版导包方式，由于新版导包取消按钮无效且必须存在，所以新版导包对去掉按钮不做操作。
+          Sygame.touchNumber += 1;
+          wx.onTouchStart(() => {
             Sygame.syDealJumpData(ret);
-          }
+          });
         }
       }
     });
@@ -425,7 +419,7 @@ const Sygame = {
         path: ret.data.jump_path,
         // envVersion: "trial",
         success: () => {
-          console.log(K[328826]);
+          console.log(K[328834]);
         }
       });
     } else if (ret.data.jump_img) {
@@ -434,9 +428,9 @@ const Sygame = {
         urls: [ret.data.jump_img]
       });
       wx.showModal({
-        title: K[328824],
-        content: ret.data.jump_tip ? ret.data.jump_tip : K[328825],
-        confirmText: K[309854],
+        title: K[328832],
+        content: ret.data.jump_tip ? ret.data.jump_tip : K[328833],
+        confirmText: K[309265],
         showCancel: false,
         success: () => {
           wx.previewImage({
@@ -448,19 +442,19 @@ const Sygame = {
       wx.setClipboardData({
         data: ret.data.jump_copy,
         success(res) {
-          console.log(K[328827], ret.data); // data
+          console.log(K[328835], ret.data); // data
         }
       });
       wx.showModal({
-        title: K[328824],
-        content: ret.data.jump_tip ? ret.data.jump_tip : K[328825],
-        confirmText: K[309854],
+        title: K[328832],
+        content: ret.data.jump_tip ? ret.data.jump_tip : K[328833],
+        confirmText: K[309265],
         showCancel: false,
         success: () => {
           wx.setClipboardData({
             data: ret.data.jump_copy,
             success(res) {
-              console.log(K[328827], ret.data); // data
+              console.log(K[328835], ret.data); // data
             }
           });
         }
@@ -469,15 +463,15 @@ const Sygame = {
       wx.setClipboardData({
         data: ret.data.jump_copy_apk,
         success(res) {
-          console.log(K[328827], ret.data); // data
+          console.log(K[328835], ret.data); // data
         }
       });
       wx.openCustomerServiceConversation({
-        sessionFrom: K[328828] + Sygame.appid,
+        sessionFrom: K[328836] + Sygame.appid,
         showMessageCard: true,
-        sendMessageImg: K[328829],
+        sendMessageImg: K[328837],
         success: () => {
-          console.log(K[300271]);
+          console.log(K[309687]);
         }
       });
     }
@@ -488,12 +482,12 @@ const Sygame = {
     wx.requestSubscribeMessage({
       tmplIds: [data.template],
       success: res => {
-        console.log(K[328830], res);
+        console.log(K[328838], res);
         let type = '';
-        if (res[data.template] === K[300339]) {
-          type = K[300184];
+        if (res[data.template] === K[327670]) {
+          type = K[327547];
         } else {
-          type = K[300186];
+          type = K[300549];
         }
         wx.request({
           url: confArr[12],
@@ -504,13 +498,13 @@ const Sygame = {
             "tpl_type": data.tpl_type,
             "type": type
           },
-          method: K[300218],
-          dataType: K[306364],
+          method: K[327570],
+          dataType: K[305766],
           success: function (res) {
             reslove(res);
           },
           fail: function (e) {
-            console.log(K[328817], e);
+            console.log(K[328825], e);
           }
         });
       },
@@ -525,13 +519,13 @@ const Sygame = {
   // 微信消息内容检测
   syMsgSecCheck: data => new Promise(function (reslove, reject) {
     data.appId = Sygame.appid;
-    data.openId = Sygame.openid;
+    data.openId = Sygame.real_openid;
     wx.request({
       url: confArr[19],
       data: data,
-      method: K[300218],
+      method: K[327570],
       success: res => {
-        console.log(K[328831], res);
+        console.log(K[328839], res);
         reslove(res.data);
       },
       fail: res => {
@@ -548,12 +542,12 @@ const Sygame = {
       //小程序本地的路径
       filePath: data,
       //后台获取我们图片的key
-      name: K[328832],
+      name: K[328840],
       formData: {
         appId: Sygame.appid
       },
       success: function (res) {
-        console.log(K[328833], res);
+        console.log(K[328841], res);
         reslove(res.data);
       },
       fail: function (res) {
@@ -570,9 +564,9 @@ const Sygame = {
       data: {
         appid: Sygame.appid
       },
-      method: K[300218],
+      method: K[327570],
       success: res => {
-        console.log(K[328834], res);
+        console.log(K[328842], res);
         reslove(res.data);
       },
       fail: res => {
@@ -594,14 +588,14 @@ const Sygame = {
         "page": data.page,
         "count": data.count
       },
-      method: K[300218],
-      dataType: K[306364],
+      method: K[327570],
+      dataType: K[305766],
       success: function (res) {
-        console.log(K[328835], res);
+        console.log(K[328843], res);
         reslove(res);
       },
       fail: function (e) {
-        console.log(K[328817], e);
+        console.log(K[328825], e);
       }
     });
   }),
@@ -611,8 +605,8 @@ const Sygame = {
    */
   syClickOpenBox: () => new Promise(function (reslove, reject) {
     // 判断用户是否点击
-    var clickOpenBox = K[328836] + Sygame.openid;
-    var isClick = Sygame.cookieData({ type: K[301164], 'key': clickOpenBox });
+    var clickOpenBox = K[328844] + Sygame.openid;
+    var isClick = Sygame.cookieData({ type: K[300450], 'key': clickOpenBox });
     var uv = isClick ? 0 : 1;
     wx.request({
       url: confArr[14],
@@ -621,17 +615,17 @@ const Sygame = {
         "appid": Sygame.appid,
         "uv": uv
       },
-      method: K[300218],
-      dataType: K[306364],
+      method: K[327570],
+      dataType: K[305766],
       success: function (res) {
         if (uv == 1) {
-          Sygame.cookieData({ type: K[300772], key: clickOpenBox, data: 1 });
+          Sygame.cookieData({ type: K[300019], key: clickOpenBox, data: 1 });
         }
-        console.log(K[328837], res.data);
+        console.log(K[328845], res.data);
         reslove(res.data);
       },
       fail: function (e) {
-        console.log(K[328817], e);
+        console.log(K[328825], e);
       }
     });
   }),
@@ -641,8 +635,8 @@ const Sygame = {
    */
   syClickBox: data => new Promise(function (reslove, reject) {
     // 判断用户是否点击
-    var clickBox = K[322279] + data.game_id;
-    var isClick = Sygame.cookieData({ type: K[301164], 'key': clickBox });
+    var clickBox = K[321738] + data.game_id;
+    var isClick = Sygame.cookieData({ type: K[300450], 'key': clickBox });
     var uv = isClick ? 0 : 1;
     wx.request({
       url: confArr[15],
@@ -655,17 +649,17 @@ const Sygame = {
         "jump_appid": data.jump_appid,
         "jump_path": data.jump_path
       },
-      method: K[300218],
-      dataType: K[306364],
+      method: K[327570],
+      dataType: K[305766],
       success: function (res) {
         if (uv == 1) {
-          Sygame.cookieData({ type: K[300772], key: clickBox, data: 1 });
+          Sygame.cookieData({ type: K[300019], key: clickBox, data: 1 });
         }
-        console.log(K[328838], res.data);
+        console.log(K[328846], res.data);
         reslove(res.data);
       },
       fail: function (e) {
-        console.log(K[328817], e);
+        console.log(K[328825], e);
       }
     });
   }),
@@ -678,20 +672,20 @@ const Sygame = {
     wx.request({
       url: confArr[8],
       data: { appid: Sygame.appid, channel: Sygame.channel },
-      method: K[300218],
-      dataType: K[306364],
+      method: K[327570],
+      dataType: K[305766],
       success: function (res) {
-        console.log(K[328839], res);
+        console.log(K[328847], res);
         if (res.data.status == 1001) {
-          console.log(K[328840], res.data.data);
+          console.log(K[328848], res.data.data);
           Sygame.share_data = res.data.data;
         } else {
-          params && params.errorCallback && params.errorCallback(res);
-          console.log(K[328841], res);
+          params.errorCallback(res);
+          console.log(K[328849], res);
         }
       },
       fail: function (e) {
-        console.log(K[328817], e);
+        console.log(K[328825], e);
       }
     });
   },
@@ -709,14 +703,14 @@ const Sygame = {
     var len = arr.length;
     var ranIndex = Math.floor(Math.random() * len);
     var shareData = arr[ranIndex];
-    console.log(K[328842], shareData);
+    console.log(K[328850], shareData);
     var data = {
       title: shareData.title,
       imageUrlId: shareData.imageUrlId,
       imageUrl: shareData.imageUrl,
-      query: params.shareQuery + K[328843] + shareData.id
+      query: params.shareQuery + K[328851] + shareData.id
     };
-    console.log(K[328840], shareData);
+    console.log(K[328848], shareData);
     wx.shareAppMessage(data);
     params.successCallback(shareData);
   },
@@ -731,20 +725,20 @@ const Sygame = {
    * shareQuery--------（必填，否）用户的分享拼接字符串
    */
   upShareData: params => {
-    var key = K[328844] + params.material_id;
-    var log = Sygame.cookieData({ type: K[301164], 'key': key }) ? 1 : 0; //1-已记录，0-未记录
-    if (log == 0) Sygame.cookieData({ type: K[300772], key: key, data: new Date().getTime() });
+    var key = K[328852] + params.material_id;
+    var log = Sygame.cookieData({ type: K[300450], 'key': key }) ? 1 : 0; //1-已记录，0-未记录
+    if (log == 0) Sygame.cookieData({ type: K[300019], key: key, data: new Date().getTime() });
     params.log = log;
     wx.request({
       url: confArr[9],
       data: params,
-      method: K[300218],
-      dataType: K[306364],
+      method: K[327570],
+      dataType: K[305766],
       success: function (res) {
         console.log(res);
       },
       fail: function (e) {
-        console.log(K[328817], e);
+        console.log(K[328825], e);
       }
     });
   },
@@ -757,20 +751,20 @@ const Sygame = {
    * params.shareData---(必填：否)入口参数。
    */
   upClickData: params => {
-    var key = K[328845] + params.material_id;
-    var log = Sygame.cookieData({ type: K[301164], 'key': key }) ? 1 : 0; //1-已记录，0-未记录
-    if (log == 0) Sygame.cookieData({ type: K[300772], key: key, data: new Date().getTime() });
+    var key = K[328853] + params.material_id;
+    var log = Sygame.cookieData({ type: K[300450], 'key': key }) ? 1 : 0; //1-已记录，0-未记录
+    if (log == 0) Sygame.cookieData({ type: K[300019], key: key, data: new Date().getTime() });
     params.log = log;
     wx.request({
       url: confArr[10],
       data: params,
-      method: K[300218],
-      dataType: K[306364],
+      method: K[327570],
+      dataType: K[305766],
       success: function (res) {
         console.log(res);
       },
       fail: function (e) {
-        console.log(K[328817], e);
+        console.log(K[328825], e);
       }
     });
   },
@@ -786,7 +780,7 @@ const Sygame = {
    */
   cookieData: params => {
     switch (params.type) {
-      case K[301164]:
+      case K[300450]:
         var data = wx.getStorageSync(params.key);
         try {
           data = JSON.parse(data);
@@ -796,7 +790,7 @@ const Sygame = {
         } catch (e) {}
         return false;
         break;
-      case K[300772]:
+      case K[300019]:
         if (!params.expired_at) {
           params.expired_at = new Date(new Date().toLocaleDateString()).getTime() + 3600 * 24 * 1000 * 3650;
         }
@@ -835,7 +829,7 @@ const Sygame = {
         };
         // 前端发送json前，必须先转义成字符串
         websocket.send(JSON.stringify(data));
-        console.log(K[328846]);
+        console.log(K[328854]);
         // 定时请求
         heartCheck.start();
       };
@@ -859,7 +853,7 @@ const Sygame = {
           };
           // 前端发送json前，必须先转义成字符串
           websocket.send(JSON.stringify(data));
-          console.log(K[328847]);
+          console.log(K[328855]);
         }, this.timeout);
       }
     };
