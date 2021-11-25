@@ -358,6 +358,7 @@ var MainController = /** @class */ (function () {
     };
     MainController.prototype.rolePriceHandler = function (e) {
         this.rolePriceData = JSON.parse(e);
+      
         switch (this.rolePriceData.status) {
             case 1001: //成功返回值 - todayPrice=用户今日充值；allPrice=用户总充值；is_vip=是否达到该游戏设置的VIP开关，1-是；0-不是
                 this.main.box_2_lab_v_1.text = (this.rolePriceData.todayPrice || 0) + "/" + +this.tool.data.x + "\u5143";

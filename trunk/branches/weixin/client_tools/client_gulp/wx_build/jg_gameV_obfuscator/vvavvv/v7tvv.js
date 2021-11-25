@@ -93,6 +93,7 @@ function _v6D$KO() {
                     // 获取登录信息
                     console.log(Q[361658], Date.parse(new Date()) / 1000);
                     sdk.cpSDK.loginUserInfo(res => {
+                        wx.setStorageSync('partner_openid', res.openid);
                         partner_user_info = res;
                         self.do_login(res);
                     });
@@ -333,8 +334,9 @@ function _v6D$KO() {
             let ret = {
                 data: {}
             };
+            var openid = wx.getStorageSync("partner_openid");
             wx.request({
-                url: Q[361662] + HOST + Q[361686] + config.partner_id + '/' + config.game_pkg,
+                url: 'https://' + HOST + '/partner/data/msgSecCheck2/'+config.partner_id+'/'+config.game_pkg,
                 method: Q[360217],
                 dataType: Q[361140],
                 header: {
@@ -343,7 +345,8 @@ function _v6D$KO() {
                 data: {
                     game_pkg: config.game_pkg,
                     partner_id: config.partner_id,
-                    content: content
+                    content: content,
+                    open_id:openid,
                 },
                 success: function (res) {
                     if (res.data.state == 1) {

@@ -68,6 +68,8 @@ let httpLock = {
   httpSquareClickFlag: false,
   httpGameWithdraw: false,
   httpToCouponReceiveFlag: false,
+  httpLiveTaskFlag: false,
+  httpToLiveTaskReceiveFlag: false,
 };
 
 var sdkParams = null;
@@ -445,6 +447,8 @@ const sdkLogin = function (SDKyyw, params) {
         commonParams.unionId = ret.data.unionId;
         commonParams.showSquareOn = ret.data.showSquareOn;
         commonParams.QQGroup = ret.data.QQGroup;
+        commonParams.JumpGameState = ret.data.JumpGameState;
+
         console.log("微信跳转信息", commonParams.referrerInfo);
 
         // 直播
@@ -594,6 +598,11 @@ const toBind = function (data) {
       });
     },
   });
+};
+
+// 是否为跳转过来的 true 表示为跳转过来的
+const isJumpGame = function () {
+  return commonParams.JumpGameState;
 };
 
 // 获取手机验证码
@@ -1328,9 +1337,9 @@ const pay = function (payData) {
                 case 3: //官方米大师支付
                   if (payRes.data.errcode == 0) {
                     wx.requestMidasPayment({
-                      zoneId: '1',
+                      zoneId: "1",
                       mode: "game",
-                      env: ret.data.env ,
+                      env: ret.data.env,
                       offerId: ret.data.offerId,
                       currencyType: "CNY",
                       platform: "android",
@@ -2280,19 +2289,41 @@ const toQQGroup = function () {
 
 //敏感词屏蔽
 const msgSecCheck = function (msg, callback) {
-  var params = {
-    gameid: commonParams.gameId,
-    partner: commonParams.partner,
-    deviceno: commonParams.partner,
-    time: Tools.getTimeStamp(),
-    content: msg,
-  };
+  const msgIsString = Object.prototype.toString.call(msg).indexOf('String') > -1
+  const msgIsObject = Object.prototype.toString.call(msg).indexOf('Object') > -1
+  var params = {};
+  if (msgIsString) {
+    params = {
+      gameid: commonParams.gameId,
+      partner: commonParams.partner,
+      deviceno: commonParams.partner,
+      time: Tools.getTimeStamp(),
+      content: msg,
+    };
+  } else if (msgIsObject){
+    // 2.0 版本
+    if (!msg.content) {
+      console.log('content 不能为空')
+      return;
+    }
+    params = {
+      openid: commonParams.uid,
+      gameid: commonParams.gameId,
+      partner: commonParams.partner,
+      deviceno: commonParams.partner,
+      time: Tools.getTimeStamp(),
+      ...msg
+    }
+  } else {
+    console.log('请校验参数格式');
+    return;
+  }
   if (msg) {
     wx.request({
       url: api + "/pay/Check/msgSecCheck",
       data: Tools.buildCheckMsg(params),
       success(res) {
-        console.log("信息监测=", res);
+        console.log("信息监测=", res.data);
         callback(res.data);
       },
     });
@@ -2655,6 +2686,77 @@ const gameLive = {
         });
       },
     });
+  },
+  // 获取任务列表
+  getLiveTask() {
+    const SDKyyw = this;
+    if (typeof SDKyyw.getLiveTaskCallback != "function") {
+      console.log("getLiveTaskCallback必须为function");
+    } else {
+      const params = {
+        app_id: commonParams.gameId,
+        open_id: commonParams.uid,
+        union_id: commonParams.unionId,
+      };
+      if (!httpLock.httpLiveTaskFlag) {
+        httpLock.httpLiveTaskFlag = true;
+        wx.request({
+          url: wxRedApi + "v2/wx/live/index",
+          data: Tools.buildRedParams(params),
+          success(res) {
+            res = res.data;
+            SDKyyw.getLiveTaskCallback(res);
+          },
+          fail(err) {
+            SDKyyw.getLiveTaskCallback(err);
+            console.log("请求出错", err);
+          },
+          complete(res) {
+            httpLock.httpLiveTaskFlag = false;
+          },
+          timeout: 4000,
+        });
+      }
+    }
+  },
+  // 直播任务奖励领取
+  toLiveTaskReceive(data) {
+    const SDKyyw = this;
+    if (typeof SDKyyw.toLiveTaskReceiveCallback != "function") {
+      console.log("toLiveTaskReceiveCallback必须为function");
+    } else {
+      if (!httpLock.httpToLiveTaskReceiveFlag) {
+        httpLock.httpToLiveTaskReceiveFlag = true;
+        const params = {
+          app_id: commonParams.gameId,
+          open_id: commonParams.uid,
+          union_id: commonParams.unionId,
+          live_id: data.live_id,
+          role_id: data.role_id || '',
+          role_name: data.role_name || '',
+          server_id: data.server_id || '',
+          server_name: data.server_name || '',
+          level: data.level || '',
+        };
+        wx.request({
+          url: wxRedApi + "v2/wx/live/receive",
+          data: Tools.buildRedParams(params),
+          method: "post",
+          success(res) {
+            res = res.data;
+            SDKyyw.toLiveTaskReceiveCallback(res);
+          },
+          fail(err) {
+            SDKyyw.toLiveTaskReceiveCallback(err);
+            console.log("请求出错", err);
+          },
+          complete() {
+            httpLock.httpToLiveTaskReceiveFlag = false;
+          },
+          timeout: 10 * 1000,
+        });
+      }
+    }
   },
 };
 
@@ -3023,6 +3125,7 @@ module.exports = {
   subscribeMessage: subscribeMessage,
   shareAppMessage: shareAppMessage,
   state: state,
+  isJumpGame: isJumpGame,
   advertisement: advertisement,
   getLaunchOptionsSync: getLaunchOptionsSync,
   getWhatsNewSubscriptionsSetting: getWhatsNewSubscriptionsSetting,
