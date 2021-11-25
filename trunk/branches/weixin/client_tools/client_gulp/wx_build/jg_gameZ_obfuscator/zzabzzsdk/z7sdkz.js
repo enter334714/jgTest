@@ -653,7 +653,7 @@ function z0RDYJ0() {
                 let ret_res = {
                     data: {}
                 };
-                if (res.errcode == 0) {
+                if (res.status == 1) {
                     ret_res.statusCode = 200;
                     ret_res.data.state = 1;
                 } else {
