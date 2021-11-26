@@ -29,6 +29,7 @@
     },
     "enableEngineNative": false,
     "useIsolateContext": true,
+    "userConfirmedUseIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],

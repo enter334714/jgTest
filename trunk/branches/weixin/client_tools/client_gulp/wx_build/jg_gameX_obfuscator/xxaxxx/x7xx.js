@@ -7,7 +7,7 @@ var config = {
     game_pkg: u[401624], //天剑vs墨阳--御天下
     partner_label: u[401625],
     partner_id: u[401626],
-    game_ver: u[401627],
+    game_ver: "23.0.3",
     is_auth: true //授权登录
 };
 window.config = config;

@@ -1,2 +1,2 @@
 var Y = wx.$M;
-require('mmmmmBF.js'), window[Y[207947]][Y[207948]][Y[207949]] = null, window['client_pb'] = require('MMMCLIENTPB.js'), window[Y[205035]] = window[Y[207947]][Y[204949]][Y[204950]](client_pb);
+require('mmmmmBF.js'), window[Y[180785]][Y[180786]][Y[180787]] = null, window['client_pb'] = require('MMMCLIENTPB.js'), window[Y[180788]] = window[Y[180785]][Y[180789]][Y[180790]](client_pb);
