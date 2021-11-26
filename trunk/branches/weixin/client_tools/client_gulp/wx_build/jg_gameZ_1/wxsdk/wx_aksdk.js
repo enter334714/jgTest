@@ -339,10 +339,10 @@ function mainSDK() {
             AladinSDK.msgCheck(content, function (res) {
                 if (res.ret == 0) {//合法
                     console.log(res.content)//传的内容“123”
-                    callback && callback(1);
+                    callback && callback({data:{state:1}});
                 } else {
                     console.log(res.msg)//不合法
-                    callback && callback(0);
+                    callback && callback({data:{state:0}});
                 }
             });
 
