@@ -1,30 +1,28 @@
-﻿// 引入渠道JS文件
-import SDKyyw from './helper'
+﻿const {AladinSDK} = require('./utils/aladinSDK.js');
+
+//TODO 替换对应参数
 var config = {
     game_id: '256',
-    game_pkg: 'tjqy_tjqymszj_IF', //有一 --飞剑 --萌神战姬
-    partner_id: '317',
-    game_ver: '25.0.1',
-    is_auth: false, //授权登录   
-    from: null, //来源
-    tmpId: {},  // 订阅的类型 和 模板id
-};
-window.config = config;
-// 渠道配置
-var partner_config = {
-    app_id : 1000220,
-    app_key : '90b41e2b6072437f1ffb0c7d50accfc5'
+    game_pkg: 'tjqy_tjqyxc_IG',
+    partner_label: 'mdwxxcx',
+    partner_id: '370',
+    game_ver: '1.0.0',
+    is_auth: false, //授权登录
+    wx_app_id:'wxbc6f6afc7c29c500'
 };
 
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var user_game_info = null;
 var user_invite_info = null;
-var this_order_id = null;
+var sysInfo = wx.getSystemInfoSync();
+var platform = sysInfo.platform;
 var partner_user_info = null;
-var checkHandler = null;
-var loginHandler = null;
-var requestCallback = false;
+
+// 初始化SDK
+AladinSDK.init(config.wx_app_id,config.game_ver);
+// 启动时长上报
+AladinSDK.reportWithAppId(config.wx_app_id, "15_1","");
 
 function mainSDK() {
     var callbacks = {};
@@ -38,15 +36,15 @@ function mainSDK() {
 
             var uuid = wx.getStorageSync('plat_uuid');
             var is_new;
-            if(!uuid){
+            if (!uuid) {
                 uuid = self.uuid(16, 32);
                 wx.setStorageSync('plat_uuid', uuid);
                 is_new = 1;
-            }else{
+            } else {
                 is_new = 0;
             }
             var idfv = wx.getStorageSync('plat_idfv');
-            if(!idfv){
+            if (!idfv) {
                 idfv = self.uuid(16, 32);
                 wx.setStorageSync('plat_idfv', idfv);
             }
@@ -54,9 +52,8 @@ function mainSDK() {
             var info = wx.getLaunchOptionsSync();
             var scene = info.scene ? info.scene : '';
 
-
             //判断今天是否已经上报过
-            if(is_new && info.query && info.query.ad_code){
+            if (is_new && info.query && info.query.ad_code) {
                 wx.setStorageSync('plat_ad_code', info.query.ad_code);
             }
 
@@ -66,14 +63,11 @@ function mainSDK() {
             };
             self.log('start', data);
 
-            //显示右上角分享按钮
-            wx.showShareMenu();
-
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
             var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
 
-            if(invite){
+            if (invite) {
                 user_invite_info = {
                     invite: invite,
                     invite_type: invite_type,
@@ -83,52 +77,47 @@ function mainSDK() {
             }
 
             //判断版本号
-            if(game_ver){
+            if (game_ver) {
                 this.checkGameVersion(game_ver, function (data) {
                     callback && callback(data);
                 });
             }
         },
 
-        //登录接口
-        login: function (data, callback) {
+
+        login: function (data,callback) {
             console.log("[SDK]调起登录");
-            var self = this;
             callbacks['login'] = typeof callback == 'function' ? callback : null;
+            var self = this;
 
-            //初始化参数
-            SDKyyw.initLoginCallback = (res) => {
-                console.log('渠道初始化结果：'+JSON.stringify(res));
-                if(res.status == 0){
-                    console.log('初始化失败');
-                    callback(1, {
-                        errMsg: '渠道初始化返回失败！'
+            AladinSDK.login(function(res) {
+                if(res.code==0){//登录成功
+                    partner_user_info = res;
+                    self.do_login(res);
+
+                    console.log('渠道登录返回成功'+ JSON.stringify(res));
+                }else{
+                    callbacks['login'] && callbacks['login'](1, {
+                        errMsg: res.msg
                     });
-                    return ;
+                    console.log('渠道登录返回失败'+ JSON.stringify(res));
                 }
-
-                partner_user_info =res.data;
-                self.do_login(partner_user_info);
-            } ;
-
-            SDKyyw.init(partner_config.app_id, partner_config.app_key);
+            });
         },
+
 
         do_login: function (info) {
             var self = this;
-            var public_data = self.getPublicData();
-            public_data['nick_name'] = info ? info.nick_name : '';
-            public_data['head_img'] = info ? info.head_img : '';
 
-            if(user_invite_info && typeof user_invite_info == 'object'){
-                for(var key in user_invite_info){
+            //发起网络请求
+            var public_data = self.getPublicData();
+            public_data['user_info'] = JSON.stringify(info);
+            if (user_invite_info && typeof user_invite_info == 'object') {
+                for (var key in user_invite_info) {
                     public_data[key] = user_invite_info[key];
                 }
             }
 
-            public_data['partner_uid'] = info.uid;
-            
-            var lastTime = Date.now();
             wx.request({
                 url: 'https://' + HOST + '/partner/auth',
                 method: 'POST',
@@ -139,39 +128,37 @@ function mainSDK() {
                 data: public_data,
                 success: function (res) {
                     console.log("[SDK]登录结果：" + JSON.stringify(res));
-                    requestCallback = true;
-                    if (loginHandler) clearTimeout(loginHandler);
-                    loginHandler = null;
+
                     if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
-                            var userData = {
-                                userid: data.data.user_id,
-                                account: data.data.nick_name,
-                                token: data.data.token,
-                                invite_uid: data.data.invite_uid || '',
-                                invite_nickname: data.data.invite_nickname || '',
-                                invite_head_img: data.data.invite_head_img || '',
-                                head_img: data.data.head_img || '',
-                                is_client: data.data.is_client || '0',
-                                ios_pay: data.data.ios_pay || '0'
-                            };
                             try {
-                                wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
-                                wx.setStorageSync('plat_uid', data.data.user_id);
-                                wx.setStorageSync('plat_username', data.data.username);
-                                if(data.data.ext){
-                                    wx.setStorageSync('plat_session_key', data.data.ext);
+                                    wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
+                                    wx.setStorageSync('plat_uid', data.data.user_id);
+                                    wx.setStorageSync('plat_username', data.data.username);
+                                    if(data.data.ext){
+                                        wx.setStorageSync('plat_session_key', data.data.ext);
+                                    }
+                                } catch (e) {
                                 }
-                            } catch (e) {
-                            }
-
+                          var userData = {
+                            userid: data.data.user_id,
+                            account: data.data.nick_name,
+                            token: data.data.token,
+                            invite_uid: data.data.invite_uid || '',
+                            invite_nickname: data.data.invite_nickname || '',
+                            invite_head_img: data.data.invite_head_img || '',
+                            head_img: data.data.head_img || '',
+                            is_client: data.data.is_client || '0',
+                            ios_pay: data.data.ios_pay || '0'
+                        };
                             callbacks['login'] && callbacks['login'](0, userData);
                         } else {
-                            callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: data.msg, time: (Date.now()-lastTime), res: res});
+                            callbacks['login'] && callbacks['login'](1, {
+                                errMsg: data.msg
+                            });
                         }
 
-                        //登录成功，加载右上角分享数据
                         self.getShareInfo('menu', function (data) {
                             console.log("[SDK]开始监听右上角菜单分享");
                             wx.onShareAppMessage(function () {
@@ -185,29 +172,14 @@ function mainSDK() {
                             });
                         });
                     } else {
-                        callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: '请求平台服务器失败！', time: (Date.now()-lastTime), res: res});
+                        callbacks['login'] && callbacks['login'](1, {
+                            errMsg: '请求平台服务器失败！'
+                        });
                     }
-                },
-                fail: function(res){
-                    console.log("[SDK]登录失败");
-                    console.log(res);
-
-                    requestCallback = true;
-                    if (loginHandler) clearTimeout(loginHandler);
-                    loginHandler = null;
-                    callbacks['login'] && callbacks['login'](1, {type: "wx.request.fail", errMsg: res.errMsg, time: (Date.now()-lastTime), res: res});
                 }
             });
-            if (!requestCallback) {
-                var timeOutFunc = function() {
-                    console.log("[SDK]登录超时");
-
-                    callbacks['login'] && callbacks['login'](1, {type: "wx.request", errMsg: "登录超时20秒无返回", time: (Date.now()-lastTime)});
-                    callbacks['login'] = null; //回调后置空，以免success或fail里重复回调
-                }
-                loginHandler = setTimeout(timeOutFunc, 20000);
-            }
         },
+
 
         share: function (data) {
             callbacks['share'] = typeof callback == 'function' ? callback : null;
@@ -215,6 +187,7 @@ function mainSDK() {
             console.log("[SDK]CP调用分享 type=" + type);
             var self = this;
             this.getShareInfo(type, function (data) {
+
                 //记录开始分享
                 self.logStartShare(type);
                 wx.shareAppMessage({
@@ -224,6 +197,7 @@ function mainSDK() {
                 });
             });
         },
+
 
         logStartShare: function (type) {
             var sdk_token = wx.getStorageSync('plat_sdk_token');
@@ -242,18 +216,18 @@ function mainSDK() {
                     role_id: user_game_info ? user_game_info.role_id : '',
                     type: type,
                 },
-                success: function (res) {
-                }
+                success: function (res) {}
             });
         },
+
 
         openService: function () {
             wx.openCustomerServiceConversation();
         },
 
+
         checkGameVersion: function (game_ver, callback) {
             console.log("[SDK]检查游戏版本");
-            callbacks['check'] = typeof callback == 'function' ? callback : null;
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
                 url: 'https://' + HOST + '/game/min/?ac=checkGameVersion',
@@ -268,40 +242,26 @@ function mainSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[SDK]获取游戏版本成功");
-                    console.log(res);
-                    requestCallback = true;
-                    if (checkHandler) clearTimeout(checkHandler);
-                    checkHandler = null;
-                    if(res.statusCode == 200){
+                    console.log("[SDK]获取游戏版本结果" + JSON.stringify(res));
+
+                    if (res.statusCode == 200) {
                         var data = res.data;
-                        if(data.state){
-                            callbacks['check'] && callbacks['check'](data.data);
-                        }else{
-                            callbacks['check'] && callbacks['check']({develop: 0});
+                        if (data.state) {
+                            callback && callback(data.data);
+                        } else {
+                            callback && callback({
+                                develop: 0
+                            });
                         }
-                    }else{
-                        callbacks['check'] && callbacks['check']({develop: 0});
+                    } else {
+                        callback && callback({
+                            develop: 0
+                        });
                     }
-                },
-                fail: function(res){
-                    console.log("[SDK]获取游戏版本失败");
-                    console.log(res);
-                    requestCallback = true;
-                    if (checkHandler) clearTimeout(checkHandler);
-                    checkHandler = null;
-                    callbacks['check'] && callbacks['check']({develop: 0});
                 }
             });
-            if (!requestCallback) {
-                var timeOutFunc = function() {
-                    console.log("[SDK]获取游戏版本超时");
-                    callbacks['check'] && callbacks['check']({develop: 0});
-                    callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
-                }
-                checkHandler = setTimeout(timeOutFunc, 10000);
-            }
         },
+
 
         getShareInfo: function (type, callback) {
             console.log("[SDK]获取分享参数");
@@ -325,19 +285,24 @@ function mainSDK() {
                 success: function (res) {
                     console.log("[SDK]获取分享参数结果");
                     console.log(res);
-                    if(res.statusCode == 200){
+                    if (res.statusCode == 200) {
                         var data = res.data;
-                        if(data.state){
+                        if (data.state) {
                             callback && callback(data.data);
-                        }else{
-                            callbacks['share'] && callbacks['share'](1, {errMsg: '分享失败：' + data.msg});
+                        } else {
+                            callbacks['share'] && callbacks['share'](1, {
+                                errMsg: '分享失败：' + data.msg
+                            });
                         }
-                    }else{
-                        callbacks['share'] && callbacks['share'](1, {errMsg: '获取分享数据失败！'});
+                    } else {
+                        callbacks['share'] && callbacks['share'](1, {
+                            errMsg: '获取分享数据失败！'
+                        });
                     }
                 }
             });
         },
+
 
         updateShare: function (invite, invite_type, is_new, role_id, server_id, scene) {
             console.log("[SDK]分享过来的玩家上报给服务器");
@@ -361,32 +326,36 @@ function mainSDK() {
                     scene: scene
                 },
                 success: function (res) {
-                    console.log("[SDK]上报分享结果返回:");
-                    console.log(res);
+                    console.log("[SDK]上报分享结果返回:" + JSON.stringify(res));
                 }
             });
         },
+
+
+        msgCheck: function (content, callback) {
+            console.log("[SDK]查看文本是否有违规内容" + content);
+
+            AladinSDK.msgCheck(content,function(res){
+                if(res.ret==0){//合法
+                    console.log(res.content)//传的内容“123”
+                    callback && callback(1);
+                }else{
+                    console.log(res.msg)//不合法
+                    callback && callback(0);
+                }
+            });
+
+        },
+
 
         pay: function (data, callback) {
-            var self = this;
-
-            wx.checkSession({
-                success: function () {
-                    self.startPay(data, callback);
-                },
-                fail: function () {
-                    console.log("[SDK]session过期需要重新登录");
-                    self.login({}, function () {
-                        self.startPay(data, callback);
-                    });
-                }
-            });
+            this.startPay(data, callback);
         },
 
+
         //支付接口
-        startPay: function(data, callback){
-            console.log("[SDK]调起支付，CP传值：");
-            console.log(data);
+        startPay: function (data, callback) {
+            console.log("[SDK]调起支付，CP传值："+ JSON.stringify(data));
 
             var self = this;
             callbacks['pay'] = typeof callback == 'function' ? callback : null;
@@ -394,12 +363,12 @@ function mainSDK() {
             this_pay_order = 0;
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             var session_key = wx.getStorageSync('plat_session_key');
-            if(!sdk_token && !session_key){
-                callbacks['pay'] && callbacks['pay'](1, {errMsg: "用户未登录，支付失败！"});
+            if (!sdk_token) {
+                callbacks['pay'] && callbacks['pay'](1, {
+                    errMsg: "用户未登录，支付失败！"
+                });
                 return;
             }
-
-            var sysInfo = wx.getSystemInfoSync();
 
             var order_data = {
                 cpbill: data.cpbill,
@@ -415,7 +384,7 @@ function mainSDK() {
                 extension: data.extension,
                 sdk_token: sdk_token,
                 session_key: session_key,
-                platform: sysInfo.platform,
+                platform: platform,
             };
             self.order_data = order_data;
 
@@ -432,41 +401,40 @@ function mainSDK() {
                 },
                 data: public_data,
                 success: function (res) {
-                    console.log("[SDK]完成创建订单" + JSON.stringify(res));
-
-                    if(res.statusCode == 200){
+                    console.log("[SDK]完成创建订单"+JSON.stringify(res));
+                    if (res.statusCode == 200) {
                         var data = res.data;
-                        if(data.state){
-                            //支付回调
-                            SDKyyw.onPayCallback = (data) => {
-                                //不要通过客户端回调来作为充值判断
-                                //支付成功 data = {status:"1", data: {gameOrderid:"this is order id",money:"充值金额",productId:"商品id"}, msg:"支付成功"}
-                            }
-
-                            //拉起支付
-                            let payData = {};
-                            payData.serverId = data.data.pay_data.serverId;//服务器id
-                            payData.serverName = data.data.pay_data.serverName;//服务器名称
-                            payData.roleId = data.data.pay_data.roleId;//角色id
-                            payData.roleName = data.data.pay_data.roleName;//角色名称
-                            payData.roleLevel = data.data.pay_data.roleLevel;//角色等级
-                            payData.gameOrderid = data.data.pay_data.orderId;//cp支付订单id
-                            payData.pext = data.data.pay_data.orderId;//扩展字段，服务端回调原样返回
-                            payData.money = data.data.pay_data.amount;//充值金额 单位元
-                            payData.productName = data.data.pay_data.productName;
-                            payData.productId = data.data.pay_data.productId;
-
-                            console.log('渠道下单数据' + JSON.stringify(payData));
-                            SDKyyw.pay(payData);
-                        }else{
-                            callbacks['pay'] && callbacks['pay'](1, {errMsg: data.msg});
+                        if (data.state) {
+                                var pay_data = {
+                                    appid:config.wx_app_id,
+                                    amount: data.data.pay_data.amount,
+                                    pid:   data.data.pay_data.productId,
+                                    orderTitle:data.data.pay_data.productName,
+                                    orderDesc: data.data.pay_data.productDec,
+                                    imgUrl:"",
+                                    limit:0,
+                                    params:data.data.pay_data.orderId,
+                                    zone_id:0,
+                                    role_id:data.data.pay_data.roleId,
+                                    cb:function(res) {
+                                        console.log("AladinSDK midasPay ret",res)
+                                    }
+                                }
+                                AladinSDK.midasPay(pay_data)
+                        } else {
+                            callbacks['pay'] && callbacks['pay'](1, {
+                                errMsg: data.msg
+                            });
                         }
-                    }else{
-                        callbacks['login'] && callbacks['login'](1, {errMsg: '请求平台服务器失败！'});
+                    } else {
+                        callbacks['login'] && callbacks['login'](1, {
+                            errMsg: '请求平台服务器失败！'
+                        });
                     }
                 }
             });
         },
+
 
         //创建角色
         logCreateRole: function (data) {
@@ -481,22 +449,16 @@ function mainSDK() {
             postData['role_name'] = data.rolename;
             postData['server_id'] = data.serverid;
 
-            if(data.roleid && data.serverid){
+            if (data.roleid && data.serverid) {
                 user_game_info = {
-                    role_id:  data.roleid,
-                    server_id:  data.serverid,
+                    role_id: data.roleid,
+                    server_id: data.serverid,
                 };
             }
 
             this.log('create', postData);
-
-            let report_data = {};
-            report_data.type = 2; //1:登录，2:创建角色
-            report_data.roleId =data.roleid;
-            report_data.roleName =data.rolename;
-            SDKyyw.pushData(report_data);
-
         },
+
 
         //进入游戏
         logEnterGame: function (data) {
@@ -511,32 +473,24 @@ function mainSDK() {
             postData['role_name'] = data.rolename;
             postData['server_id'] = data.serverid;
 
-            if(data.roleid && data.serverid){
+            if (data.roleid && data.serverid) {
                 user_game_info = {
-                    role_id:  data.roleid,
-                    server_id:  data.serverid,
+                    role_id: data.roleid,
+                    server_id: data.serverid,
                 };
             }
 
             this.log('enter', postData);
 
+            // 渠道 openid上报
+            AladinSDK.reportOpenId(partner_user_info.openid);
+
             //进入游戏确认邀请成功
-            if(user_invite_info){
+            if (user_invite_info) {
                 this.updateShare(user_invite_info.invite, user_invite_info.invite_type, user_invite_info.is_new, data.roleid, data.serverid, user_invite_info.scene);
             }
-
-            let report_data1 = {};
-            report_data1.type = 1; //1:登录，2:创建角色
-            report_data1.roleId =data.roleid;
-            report_data1.roleName =data.rolename;
-            SDKyyw.pushData(report_data1);
-
-            let report_data2 = {};
-            report_data2.type = 5; //5:在线
-            report_data2.roleId =data.roleid;
-            report_data2.roleName =data.rolename;
-            SDKyyw.pushData(report_data2);
         },
+
 
         //角色升级
         logRoleUpLevel: function (data) {
@@ -551,24 +505,31 @@ function mainSDK() {
             postData['role_name'] = data.rolename;
             postData['server_id'] = data.serverid;
 
-            if(data.roleid && data.serverid){
+            if (data.roleid && data.serverid) {
                 user_game_info = {
-                    role_id:  data.roleid,
-                    server_id:  data.serverid,
+                    role_id: data.roleid,
+                    server_id: data.serverid,
                 };
             }
 
             this.log('levelup', postData);
+
+            // 渠道上报
+            AladinSDK.reportWithAppId(config.wx_app_id, "16_1",data.rolelevel);
+            AladinSDK.reportCheck() //查看所有上报项的上报情况
+            AladinSDK.reportCheckSingle('level') //查看指定上报项的上报情况
         },
 
+
         //获取唯一设备码（自定义）
-        uuid: function(radix, len){
+        uuid: function (radix, len) {
             var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
-            var uuid = [], i;
+            var uuid = [],
+                i;
             radix = radix || chars.length;
 
             if (len) {
-                for (i = 0; i < len; i++) uuid[i] = chars[0 | Math.random()*radix];
+                for (i = 0; i < len; i++) uuid[i] = chars[0 | Math.random() * radix];
             } else {
                 var r;
 
@@ -577,7 +538,7 @@ function mainSDK() {
 
                 for (i = 0; i < 36; i++) {
                     if (!uuid[i]) {
-                        r = 0 | Math.random()*16;
+                        r = 0 | Math.random() * 16;
                         uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r];
                     }
                 }
@@ -586,9 +547,9 @@ function mainSDK() {
             return uuid.join('');
         },
 
+
         //获取公共参数
         getPublicData: function () {
-            var system = wx.getSystemInfoSync();
             var uuid = wx.getStorageSync('plat_uuid');
             var idfv = wx.getStorageSync('plat_idfv');
             var ad_code = wx.getStorageSync('plat_ad_code');
@@ -597,24 +558,26 @@ function mainSDK() {
                 game_id: config.game_id,
                 game_pkg: config.game_pkg,
                 partner_id: config.partner_id,
-                is_from_min:1,
+                partner_label: config.partner_label,
                 ad_code: ad_code,
                 uuid: uuid,
                 idfv: idfv,
-                dname: system.model,
                 mac: '0000',
-                net_type: system.wifiSignal == 0 ? '4G' : 'WIFI',
-                os_ver: system.system,
-                sdk_ver: system.version,//存放的是微信版本号
-                game_ver: config.game_ver,//存放的是SDK版本号
-                device: system.platform == 'android' ? 1 : 2,
+                is_from_min:1,
+                dname: sysInfo.model,
+                net_type: sysInfo.wifiSignal == 0 ? '4G' : 'WIFI',
+                os_ver: sysInfo.system,
+                sdk_ver: sysInfo.version, //存放的是微信版本号
+                game_ver: config.game_ver, //存放的是SDK版本号
+                device: sysInfo.platform == 'android' ? 1 : 2,
             };
         },
+
 
         //统一发送log
         log: function (type, data) {
             var public_data = this.getPublicData();
-            for(var key in data){
+            for (var key in data) {
                 public_data[key] = data[key];
             }
 
@@ -626,45 +589,32 @@ function mainSDK() {
             });
         },
 
+
         getDate: function () {
             var date = new Date();
             return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
         },
 
+
         downloadClient: function () {
             wx.openCustomerServiceConversation();
         },
 
-        // 获取当前场景值
-        getLaunchOptionsSync: function (callback) {
-            let launchOptions = SDKyyw.getLaunchOptionsSync()
-            callback(launchOptions);
-            console.log('获取场景值'+ JSON.stringify(launchOptions))
 
-            // 返回的数据 {query:{}, scene:1001, shareTicket: '', referrerInfo: {}}        }
-        },
-
-        // 关键字屏蔽
-        msgCheck: function (msg , callback){
-            SDKyyw.msgSecCheck(msg,function(res) {
-                console.log('敏感词检测结果' + JSON.stringify(res))
-                // 返回内容和微信返回内容一样
-                // errcode 0 内容正常 87014 内容有违规内容
-                // errMsg ok 内容正常 risky 内容有违规内容
-
-                let ret_res = {
-                    data:{}
-                };
-                if(res.errcode == 0){
-                    ret_res.statusCode = 200;
-                    ret_res.data.state = 1;
-                }else{
-                    ret_res.statusCode = 0;
-                    ret_res.data.state = 0;
-                }
-                callback && callback(ret_res);
+        // 监听主域接收 wx.shareMessageToFriend 接口的成功失败通知
+        onShareMessageToFriend: function (callback) {
+            wx.onShareMessageToFriend(function (res){
+                callback(res);
             });
         },
+
+
+        // 渠道自定义上报
+        reportAnalytics: function (step) {
+            console.log('自定义上报：'+step);
+            AladinSDK.reportAnalytics(config.wx_app_id,step) //step只能为1-50的数字
+        }
+
     }
 }
 
@@ -733,6 +683,10 @@ exports.share = function (type) {
     run('share', data);
 };
 
+exports.msgCheck = function (data, callback) {
+    run('msgCheck', data, callback);
+};
+
 exports.downloadClient = function () {
     run('downloadClient');
 };
@@ -745,10 +699,14 @@ exports.getConfig = function () {
     }
 };
 
-exports.getLaunchOptionsSync = function (callback){
-    run('getLaunchOptionsSync',callback);
+exports.getPublicData = function () {
+    run('getPublicData');
 };
 
-exports.msgCheck  = function (msg , callback){
-    run('msgCheck',msg ,callback);
+exports.onShareMessageToFriend = function (callback) {
+    run("onShareMessageToFriend",callback);
 };
+
+exports.reportAnalytics = function (step) {
+    run("reportAnalytics",step);
+}

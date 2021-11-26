@@ -4425,6 +4425,36 @@ module ui {
 }
 
 module ui {
+    export class P_anmRongLianViewUI extends BaseView {
+		public smeltBtn:modules.n_common.BtnClkScale;
+		public btn_equip:Laya.Button;
+		public btn_im:Laya.Button;
+		public btn_anm:Laya.Button;
+		public imgImRp:Laya.Image;
+		public imgequpRp:Laya.Image;
+		public imgLvBg:Laya.Image;
+		public imgAnmlRp:Laya.Image;
+		public smeltTip:laya.html.dom.HTMLDivElement;
+		public productsBox:Laya.Box;
+		public propImg1:Laya.Image;
+		public propTxt1:Laya.Label;
+		public propImg2:Laya.Image;
+		public propTxt2:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_anmRongLianView");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_AnnouncementItemUI extends ItemRender {
 		public StatementHTML:laya.html.dom.HTMLDivElement;
 
@@ -4896,6 +4926,7 @@ module ui {
 		public f1Box:Laya.Box;
 		public fimg1:Laya.Image;
 		public f1:Laya.FontClip;
+		public img:Laya.Image;
 		public f2Box:Laya.Box;
 		public fimg2:Laya.Image;
 		public f2:Laya.FontClip;
@@ -4932,6 +4963,7 @@ module ui {
 module ui {
     export class P_BattleBeastcardItemUI extends ItemRender {
 		public avtBox:Laya.Box;
+		public img:Laya.Image;
 		public nameTxt:laya.display.Text;
 		public f1Box:Laya.Box;
 		public fimg1:Laya.Image;
@@ -5068,6 +5100,7 @@ module ui {
 		public continueBase3:modules.n_beibao.RootItem;
 		public continueBase4:modules.n_beibao.RootItem;
 		public scheduleText:laya.display.Text;
+		public img:Laya.Image;
 		public StatementHTML:laya.html.dom.HTMLDivElement;
 		public CanBuyHTML:laya.html.dom.HTMLDivElement;
 
@@ -5088,6 +5121,7 @@ module ui {
 
 module ui {
     export class P_BattleBeastPayViewUI extends BaseView {
+		public titleImg:Laya.Image;
 		public adBg:Laya.Image;
 		public wanChengImg:Laya.Image;
 		public okBtn:modules.n_common.BtnClkScale;
@@ -5153,6 +5187,7 @@ module ui {
 
 module ui {
     export class P_BattleBeastSkillViewUI extends BaseView {
+		public titleImg:Laya.Image;
 		public activityEnd:laya.display.Text;
 		public activityText:laya.display.Text;
 		public imgbg:Laya.Box;
@@ -5163,6 +5198,83 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_BattleBeastSkillView");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_BattleMagicAlertUI extends BaseDialog {
+		public findCard:modules.n_common.BtnClkScale;
+		public closeBtn:Laya.Button;
+		public card1:Laya.Image;
+		public img:Laya.Image;
+		public card2:Laya.Image;
+		public img1:Laya.Image;
+		public card3:Laya.Image;
+		public img2:Laya.Image;
+		public f1Box:Laya.Box;
+		public fimg1:Laya.Image;
+		public f1:Laya.FontClip;
+		public f2Box:Laya.Box;
+		public fimg2:Laya.Image;
+		public f2:Laya.FontClip;
+		public f3Box:Laya.Box;
+		public fimg3:Laya.Image;
+		public f3:Laya.FontClip;
+		public fightValueBox:Laya.Box;
+		public fightImg:Laya.Image;
+		public fightValueTxt:Laya.FontClip;
+		public activeCardTxt:laya.display.Text;
+		public cardName1:Laya.Label;
+		public cardName2:Laya.Label;
+		public cardName3:Laya.Label;
+		public createRoomBtn:modules.n_common.BtnClkScale;
+		public tipsBtn:Laya.Button;
+		public findBtnRp:Laya.Image;
+		public btnBox:Laya.Box;
+		public addTimesBtn:Laya.Button;
+		public challengeCountTxt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_BattleMagicAlert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_BattleMagicMainViewUI extends BaseView {
+		public view1:modules.n_battle_magic.BattleMagicMainViewItem;
+		public view2:modules.n_battle_magic.BattleMagicMainViewItem;
+		public view3:modules.n_battle_magic.BattleMagicMainViewItem;
+		public view4:modules.n_battle_magic.BattleMagicMainViewItem;
+		public carWarehouseBtn:modules.n_common.BtnClkScale;
+		public skill1:modules.n_battle_magic.BattleMagicMainSkillItem;
+		public skill2:modules.n_battle_magic.BattleMagicMainSkillItem;
+		public skill3:modules.n_battle_magic.BattleMagicMainSkillItem;
+		public automaticalBtn:Laya.Button;
+		public countDownTxt:Laya.Label;
+		public bbox:Laya.Box;
+		public q1:Laya.Image;
+		public q2:Laya.FontClip;
+		public q3:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_battle_magic.BattleMagicMainViewItem",modules.n_battle_magic.BattleMagicMainViewItem);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_battle_magic.BattleMagicMainSkillItem",modules.n_battle_magic.BattleMagicMainSkillItem);
+
+            super.createChildren();
+            this.loadUI("P_BattleMagicMainView");
 
         }
 
@@ -5185,6 +5297,7 @@ module ui {
 		public trigramBtn:Laya.Button;
 		public anmlBtn:Laya.Button;
 		public lzbtn:Laya.Button;
+		public exbtn:Laya.Button;
 		public itemPanel:Laya.Panel;
 		public itemRPImg:Laya.Image;
 
@@ -5917,6 +6030,18 @@ module ui {
 		public btnDirectBuy7:Laya.Button;
 		public rpDirectBuy7:Laya.Image;
 		public txtDirectBuy7:laya.display.Text;
+		public boxDirectBuy8:Laya.Box;
+		public btnDirectBuy8:Laya.Button;
+		public rpDirectBuy8:Laya.Image;
+		public txtDirectBuy8:laya.display.Text;
+		public boxDirectBuy9:Laya.Box;
+		public btnDirectBuy9:Laya.Button;
+		public rpDirectBuy9:Laya.Image;
+		public txtDirectBuy9:laya.display.Text;
+		public boxDirectBuy10:Laya.Box;
+		public btnDirectBuy10:Laya.Button;
+		public rpDirectBuy10:Laya.Image;
+		public txtDirectBuy10:laya.display.Text;
 		public boxSyfl:Laya.Box;
 		public btnSyfl:Laya.Button;
 		public imgSyflRD:Laya.Image;
@@ -6091,6 +6216,7 @@ module ui {
 		public btnXslb:Laya.Button;
 		public marryRequestBtn:Laya.Button;
 		public marrypushbtn:Laya.Button;
+		public marrybuybtn:Laya.Button;
 		public marrytipsbtn:Laya.Button;
 		public btnGd:Laya.Button;
 		public btnTransform:modules.n_transforming.TransformingBtnView;
@@ -6255,6 +6381,50 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_BuyMarryCardAlert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_CallBossWinViewUI extends BaseDialog {
+		public ani1:Laya.FrameAnimation;
+		public bgBox:Laya.Box;
+		public bg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public ie1:Laya.Animation;
+		public ie2:Laya.Animation;
+		public ie3:Laya.Animation;
+		public ie4:Laya.Animation;
+		public ie5:Laya.Animation;
+		public ie6:Laya.Animation;
+		public ie7:Laya.Animation;
+		public ie8:Laya.Animation;
+		public ie9:Laya.Animation;
+		public ie10:Laya.Animation;
+		public ie11:Laya.Animation;
+		public ie12:Laya.Animation;
+		public normalAwdBox:Laya.Box;
+		public extraAwdBox:Laya.Box;
+		public extraTimesHtml:laya.html.dom.HTMLDivElement;
+		public effect1_1:ui.P_JingJiHuDie1UI;
+		public effect1_2:ui.P_JingJiHuDie1UI;
+		public effect2_1:ui.P_JingJiHuDie2UI;
+		public effect2_2:ui.P_JingJiHuDie2UI;
+		public topClickBox:Laya.Box;
+		public btmClickBox:Laya.Box;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("ui.P_JingJiHuDie1UI",ui.P_JingJiHuDie1UI);
+			View.regComponent("ui.P_JingJiHuDie2UI",ui.P_JingJiHuDie2UI);
+
+            super.createChildren();
+            this.loadUI("P_CallBossWinView");
 
         }
 
@@ -6900,6 +7070,12 @@ module ui {
 		public txtAttrUpValS:laya.display.Text;
 		public boxNoSpecialAttr:Laya.Box;
 		public boxList:Laya.Box;
+		public btnTab0:Laya.Button;
+		public btnTab1:Laya.Button;
+		public btnTab2:Laya.Button;
+		public imgRp0:Laya.Image;
+		public imgRp1:Laya.Image;
+		public imgRp2:Laya.Image;
 		public boxNotMaxLv:Laya.Box;
 		public btnOperate:modules.n_common.BtnClkScale;
 		public costItem:modules.n_beibao.RootItem;
@@ -7005,6 +7181,97 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_ChengHaoView");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ChildBuyAlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public flpPrice:Laya.FontClip;
+		public flpGiftPri:Laya.FontClip;
+		public buyBtn:modules.n_common.BtnClkScale;
+		public receiveImg:Laya.Image;
+		public tab0:Laya.Box;
+		public fhTopBtn:Laya.Button;
+		public fhTopBtn_light:Laya.Button;
+		public jtfhRP:Laya.Image;
+		public tab1:Laya.Box;
+		public sqTopBtn:Laya.Button;
+		public sqTopBtn_light:Laya.Button;
+		public scsqRP:Laya.Image;
+		public battlepoper:Laya.Box;
+		public fightClip:modules.n_common.CstmBattlePowerFontClip;
+		public boxAwards:Laya.Box;
+		public item1:modules.n_beibao.RootItem;
+		public item2:modules.n_beibao.RootItem;
+		public item3:modules.n_beibao.RootItem;
+		public item4:modules.n_beibao.RootItem;
+		public item5:modules.n_beibao.RootItem;
+		public item6:modules.n_beibao.RootItem;
+		public rebateNum:Laya.FontClip;
+		public timerTxt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ChildBuyAlert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ChildRechargeItemUI extends ItemRender {
+		public sureBox:Laya.Box;
+		public sureBtn:modules.n_common.BtnClkScale;
+		public rechargeBtn:modules.n_common.BtnClkScale;
+		public receivedImg:Laya.Image;
+		public continueBase1:modules.n_beibao.RootItem;
+		public continueBase2:modules.n_beibao.RootItem;
+		public continueBase3:modules.n_beibao.RootItem;
+		public continueBase4:modules.n_beibao.RootItem;
+		public scheduleText:laya.display.Text;
+		public StatementHTML:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_ChildRechargeItem");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ChildRechargeViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public wanChengImg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public activityText1:laya.display.Text;
+		public activityText:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ChildRechargeView");
 
         }
 
@@ -8014,10 +8281,6 @@ module ui {
 		public tower2:Laya.Image;
 		public tower3:Laya.Image;
 		public tower4:Laya.Image;
-		public towerBtn1:Laya.Button;
-		public towerBtn2:Laya.Button;
-		public towerBtn3:Laya.Button;
-		public towerBtn4:Laya.Button;
 		public monsterNumTxt1:Laya.Label;
 		public monsterNumTxt2:Laya.Label;
 		public monsterNumTxt3:Laya.Label;
@@ -8714,6 +8977,21 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_CrossReginCardTypetem");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_CrossReginDBViewUI extends BaseView {
+		public sourceImg:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_CrossReginDBView");
 
         }
 
@@ -9876,6 +10154,8 @@ module ui {
 		public descTxt0:laya.html.dom.HTMLDivElement;
 		public modelShowBox:Laya.Box;
 		public modelShowImg:Laya.Image;
+		public imgTujian:Laya.Image;
+		public imgModTitle:Laya.Image;
 		public skill_box:Laya.Box;
 		public imgIcon:Laya.Image;
 		public redDotImg:Laya.Image;
@@ -9953,13 +10233,12 @@ module ui {
 		public qualityImg:Laya.Image;
 		public fenjieImg:Laya.Image;
 		public lineimage:Laya.Image;
-		public nameTxt:laya.display.Text;
-		public levelTxt:laya.display.Text;
-		public numTxt:laya.display.Text;
-		public closetex:laya.display.Text;
-		public descTxt:laya.html.dom.HTMLDivElement;
-		public getSoureImage:Laya.Image;
-		public getSoureTxt:laya.display.Text;
+		public modelShowBox:Laya.Box;
+		public modelShowImg:Laya.Image;
+		public imgTujian:Laya.Image;
+		public imgModTitle:Laya.Image;
+		public boxDes:Laya.Box;
+		public boxGetWay:Laya.Box;
 		public buttonBox:Laya.Box;
 		public numInputimage:Laya.Image;
 		public addBtn:Laya.Button;
@@ -9970,14 +10249,19 @@ module ui {
 		public boxUse:Laya.Box;
 		public useBtn:modules.n_common.BtnClkScale;
 		public txtUseTime:laya.display.Text;
+		public descTxt:laya.html.dom.HTMLDivElement;
+		public closetex:laya.display.Text;
+		public numTxt:laya.display.Text;
+		public levelTxt:laya.display.Text;
+		public nameTxt:laya.display.Text;
 		public txtImg:laya.display.Text;
 		public shareToChatBtn:Laya.Label;
 
         constructor(){ super()}
         createChildren():void {
         			View.regComponent("Text",laya.display.Text);
-			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
 			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
 
             super.createChildren();
             this.loadUI("P_DaoJuUseAlert");
@@ -10346,6 +10630,299 @@ module ui {
 }
 
 module ui {
+    export class P_DecisiveAttackListItemUI extends ItemRender {
+		public isSelect:modules.n_common.BtnClkScale;
+		public playerName:Laya.Label;
+		public fireNumTxt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_DecisiveAttackListItem");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisiveAttackLstViewUI extends BaseView {
+		public lstBgImg:Laya.Image;
+		public expandPlayerBtn:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("ui.P_DecisiveAttackListItemUI",ui.P_DecisiveAttackListItemUI);
+
+            super.createChildren();
+            this.loadUI("P_DecisiveAttackLstView");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisiveBeginCDViewUI extends BaseView {
+		public imgConutDown:Laya.Image;
+		public countDown:laya.display.Text;
+		public ruleBox:Laya.Box;
+		public ruleTipsHtml:laya.html.dom.HTMLDivElement;
+		public closeRuleBtn:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_DecisiveBeginCDView");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisiveBuffIconViewUI extends BaseView {
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_DecisiveBuffIconView");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisiveCampAwdItemUI extends ItemRender {
+		public itemBox:Laya.Box;
+		public listBg:Laya.Image;
+		public listBox:Laya.Box;
+		public campLabel:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_DecisiveCampAwdItem");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisiveEnterViewUI extends BaseView {
+		public checkRwdBtn:modules.n_common.BtnClkScale;
+		public enterBtn:Laya.Button;
+		public aboutBtn:Laya.Button;
+		public awdRp:Laya.Image;
+		public jzscBtn:Laya.Button;
+		public sjbzBtn:Laya.Button;
+		public jtzdBtn:Laya.Button;
+		public jzscRPImg:Laya.Image;
+		public luckyRPImg:Laya.Image;
+		public actOpenRp:Laya.Image;
+		public lzjsBtn:Laya.Button;
+		public timeTipsHtml:laya.html.dom.HTMLDivElement;
+		public boxAwards:Laya.Box;
+		public enterTimeTxt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_DecisiveEnterView");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisiveMapViewUI extends BaseView {
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_DecisiveMapView");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisiveOperateBtnViewUI extends BaseView {
+		public followLeaderBtn:Laya.Button;
+		public boomSkillBtn:Laya.Button;
+		public changeOutLookBtn:Laya.Button;
+		public myRankHtml:laya.html.dom.HTMLDivElement;
+		public myScoreHtml:laya.html.dom.HTMLDivElement;
+		public ruleBtn:Laya.Button;
+		public checkBtn:Laya.Button;
+		public moIcon:Laya.Image;
+		public shenIcon:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_DecisiveOperateBtnView");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisivePreBossItemUI extends ItemRender {
+		public progressBg:Laya.Image;
+		public progressImg:Laya.Image;
+		public xuanZeImg:modules.n_common.BtnClkScale;
+		public bossName:laya.display.Text;
+		public hasRefreshTxt:laya.display.Text;
+		public remainTime:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_DecisivePreBossItem");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisivePreMainViewUI extends BaseView {
+		public monsterListBg:Laya.Image;
+		public monExpandBtn:Laya.Button;
+		public joinAwdBg:Laya.Image;
+		public joinLvName:laya.display.Text;
+		public dropLimitHtml:laya.html.dom.HTMLDivElement;
+		public dropTipsBtn:Laya.Button;
+		public handBookBtn:Laya.Button;
+		public handbookRPImg:Laya.Image;
+		public BagManTipBox:Laya.Box;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_DecisivePreMainView");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisivePreShouYiAlertUI extends BaseDialog {
+		public listBg1:Laya.Image;
+		public listBg2:Laya.Image;
+		public closeBtn:Laya.Button;
+		public btn:modules.n_common.BtnClkScale;
+		public titleTxt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_DecisivePreShouYiAlert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisiveRankAwdItemUI extends ItemRender {
+		public itemBox:Laya.Box;
+		public listBg:Laya.Image;
+		public listBox:Laya.Box;
+		public rankLabelBg:Laya.Image;
+		public rankLabel:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_DecisiveRankAwdItem");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisiveRwdAlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public campBtn:Laya.Button;
+		public rankBtn:Laya.Button;
+		public scoreBtn:Laya.Button;
+		public scoreRp:Laya.Image;
+		public tab1:Laya.Image;
+		public campBox:Laya.Box;
+		public tab2:Laya.Image;
+		public rankBox:Laya.Box;
+		public tab3:Laya.Image;
+		public scoreBox:Laya.Box;
+		public txttitle:laya.display.Text;
+		public bottomTipsTxt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_DecisiveRwdAlert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_DecisiveScoreAwdItemUI extends ItemRender {
+		public listBox:Laya.Box;
+		public titleHtml:laya.html.dom.HTMLDivElement;
+		public getBtn:modules.n_common.BtnClkScale;
+		public statusImg:Laya.Image;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_DecisiveScoreAwdItem");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_DgBtHelpAlertUI extends BaseDialog {
 		public closeBtn:Laya.Button;
 		public inspireBtn:modules.n_common.BtnClkScale;
@@ -10557,14 +11134,12 @@ module ui {
 		public closeBtn:Laya.Button;
 		public okBtn:modules.n_common.BtnClkScale;
 		public lefttxt:laya.display.Text;
-		public item1:modules.n_beibao.RootItem;
-		public item2:modules.n_beibao.RootItem;
+		public listbox:Laya.Image;
 
         constructor(){ super()}
         createChildren():void {
         			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
 			View.regComponent("Text",laya.display.Text);
-			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
 
             super.createChildren();
             this.loadUI("P_DgBtRewardAlert");
@@ -13288,13 +13863,13 @@ module ui {
 		public aboutBtn:Laya.Button;
 		public rankrp:Laya.Image;
 		public storerp:Laya.Image;
-		public xnhsBtn:Laya.Button;
+		public jzscBtn:Laya.Button;
 		public sjbzBtn:Laya.Button;
 		public jtzdBtn:Laya.Button;
 		public lzjsBtn:Laya.Button;
 		public instructionsHTML:laya.html.dom.HTMLDivElement;
 		public boxAwards:Laya.Box;
-		public fairyRPImg:Laya.Image;
+		public jzscRPImg:Laya.Image;
 		public luckyRPImg:Laya.Image;
 		public hbox:Laya.Box;
 		public htxt:laya.display.Text;
@@ -15212,33 +15787,33 @@ module ui {
 
 module ui {
     export class P_EggexAdventure1AlertUI extends BaseDialog {
-		public imgProg:Laya.Image;
 		public imgBigReward:Laya.Image;
 		public btnBox1:Laya.Box;
 		public imgBoxClose1:Laya.Image;
 		public imgBoxOpen1:Laya.Image;
 		public imgBoxLight1:Laya.Image;
-		public imgBoxBg1:Laya.Image;
 		public imgBoxGet1:Laya.Image;
 		public btnBox2:Laya.Box;
 		public imgBoxClose2:Laya.Image;
 		public imgBoxOpen2:Laya.Image;
 		public imgBoxLight2:Laya.Image;
-		public imgBoxBg2:Laya.Image;
 		public imgBoxGet2:Laya.Image;
 		public btnBox3:Laya.Box;
 		public imgBoxClose3:Laya.Image;
 		public imgBoxOpen3:Laya.Image;
 		public imgBoxLight3:Laya.Image;
-		public imgBoxBg3:Laya.Image;
 		public imgBoxGet3:Laya.Image;
 		public btnBox4:Laya.Box;
 		public imgBoxClose4:Laya.Image;
 		public imgBoxOpen4:Laya.Image;
 		public imgBoxLight4:Laya.Image;
-		public imgBoxBg4:Laya.Image;
 		public imgBoxGet4:Laya.Image;
 		public btnActive:Laya.Button;
+		public imgProg:Laya.Image;
+		public imgBoxBg1:Laya.Image;
+		public imgBoxBg2:Laya.Image;
+		public imgBoxBg3:Laya.Image;
+		public imgBoxBg4:Laya.Image;
 		public btnTaskType1:Laya.Button;
 		public btnTaskType2:Laya.Button;
 		public btnTaskType3:Laya.Button;
@@ -15376,6 +15951,7 @@ module ui {
 
 module ui {
     export class P_EggexAdventure2AlertUI extends BaseDialog {
+		public imgProg:Laya.Image;
 		public imgBigReward:Laya.Image;
 		public btnBox1:Laya.Box;
 		public imgBoxClose1:Laya.Image;
@@ -15398,7 +15974,6 @@ module ui {
 		public imgBoxLight4:Laya.Image;
 		public imgBoxGet4:Laya.Image;
 		public btnActive:Laya.Button;
-		public imgProg:Laya.Image;
 		public imgBoxBg1:Laya.Image;
 		public imgBoxBg2:Laya.Image;
 		public imgBoxBg3:Laya.Image;
@@ -15463,6 +16038,7 @@ module ui {
 module ui {
     export class P_EggexAdventure3AlertUI extends BaseDialog {
 		public imgBigReward:Laya.Image;
+		public imgProg:Laya.Image;
 		public btnBox1:Laya.Box;
 		public imgBoxClose1:Laya.Image;
 		public imgBoxOpen1:Laya.Image;
@@ -15484,7 +16060,6 @@ module ui {
 		public imgBoxLight4:Laya.Image;
 		public imgBoxGet4:Laya.Image;
 		public btnActive:Laya.Button;
-		public imgProg:Laya.Image;
 		public imgBoxBg1:Laya.Image;
 		public imgBoxBg2:Laya.Image;
 		public imgBoxBg3:Laya.Image;
@@ -18795,17 +19370,16 @@ module ui {
 		public helpBtn:Laya.Button;
 		public gotoBtn:modules.n_common.BtnClkScale;
 		public updateBtn:Laya.Button;
-		public jtzdBtn:Laya.Button;
-		public sjbzBtn:Laya.Button;
-		public xnhsBtn:Laya.Button;
-		public lzjsBtn:Laya.Button;
 		public doubleImg:Laya.Image;
 		public wayPanel:Laya.Panel;
 		public mineFairy:modules.n_fairy.FairyItem;
 		public fairybtn:modules.n_common.BtnClkScale;
 		public aboutBtn:Laya.Button;
+		public szwzBtn:Laya.Button;
+		public ladderBtn:Laya.Button;
+		public tianTiRP:Laya.Image;
+		public jingjiRP:Laya.Image;
 		public fairyRPImg:Laya.Image;
-		public luckyRPImg:Laya.Image;
 		public sendTimeTxt:laya.display.Text;
 		public holdupTimeTxt:laya.display.Text;
 
@@ -18863,15 +19437,20 @@ module ui {
 		public btnTabDown:Laya.Button;
 		public helpBox:Laya.Box;
 		public autoBox:Laya.Button;
+		public helpCallTipsHtml:laya.html.dom.HTMLDivElement;
+		public normalAwardLsBox:Laya.Box;
+		public extraAwardLsBox:Laya.Box;
 		public paneltype:Laya.Panel;
 		public timesTxt:laya.display.Text;
 		public legendTxt:laya.display.Text;
 		public commonTxt:laya.display.Text;
+		public extraTimesTxt:laya.display.Text;
 
         constructor(){ super()}
         createChildren():void {
         			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
 			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
 
             super.createChildren();
             this.loadUI("P_ExotBossPanel");
@@ -19149,6 +19728,213 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_ExteriorActiveAlert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ExteriorEquipMasterUI extends BaseDialog {
+		public backImg:Laya.Image;
+		public backImg2:Laya.Image;
+		public backImg3:Laya.Image;
+		public maskImg:Laya.Image;
+		public blankImg:Laya.Image;
+		public closeBtn:Laya.Button;
+		public upGradeBtn:modules.n_common.BtnClkScale;
+		public battlepoper:Laya.Box;
+		public attValueTxt:modules.n_common.CstmBattlePowerFontClip;
+		public titleTxt:Laya.Label;
+		public blankTxt:Laya.Label;
+		public introTxt_1:Laya.Label;
+		public introTxt_2:Laya.Label;
+		public ratioTxt:Laya.Label;
+		public attrTxt_1:Laya.Label;
+		public attrTxt_2:Laya.Label;
+		public attrTxt_4:Laya.Label;
+		public attrTxt_5:Laya.Label;
+		public onceTxt:Laya.Label;
+		public lastOnceTxt:Laya.Label;
+		public attrTxt_3:Laya.Label;
+		public attrTxt_6:Laya.Label;
+		public attrTxt_7:Laya.Label;
+		public attrTxt_9:Laya.Label;
+		public attrTxt_10:Laya.Label;
+		public attrTxt_8:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
+
+            super.createChildren();
+            this.loadUI("P_ExteriorEquipMaster");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ExteriorEquipPanelUI extends BaseView {
+		public battlepoper:Laya.Box;
+		public numPower:modules.n_common.CstmBattlePowerFontClip;
+		public imgPart1:Laya.Image;
+		public imgPart2:Laya.Image;
+		public imgPart3:Laya.Image;
+		public imgPart4:Laya.Image;
+		public imgPart5:Laya.Image;
+		public imgPart6:Laya.Image;
+		public imgPart7:Laya.Image;
+		public imgPart8:Laya.Image;
+		public imgRD1:Laya.Image;
+		public imgRD2:Laya.Image;
+		public imgRD3:Laya.Image;
+		public imgRD4:Laya.Image;
+		public imgRD5:Laya.Image;
+		public imgRD6:Laya.Image;
+		public imgRD7:Laya.Image;
+		public imgRD8:Laya.Image;
+		public btn_suit:Laya.Button;
+		public btn_strong:Laya.Button;
+		public btn_equip:Laya.Button;
+		public imgequpRp:Laya.Image;
+		public imgRfRp:Laya.Image;
+		public helpBtn:Laya.Button;
+		public btnYjzb:modules.n_common.BtnClkScale;
+		public txt_get:laya.display.Text;
+		public timesTxt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ExteriorEquipPanel");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ExteriorEquipRefineViewUI extends BaseView {
+		public equipbox:Laya.Box;
+		public img1:Laya.Image;
+		public img2:Laya.Image;
+		public img3:Laya.Image;
+		public img4:Laya.Image;
+		public img5:Laya.Image;
+		public img6:Laya.Image;
+		public img7:Laya.Image;
+		public img8:Laya.Image;
+		public img9:Laya.Image;
+		public battlepoper:modules.n_common.FtYToLayer;
+		public atkValueMsz:modules.n_common.CstmBattlePowerFontClip;
+		public DSFrameImg:Laya.Image;
+		public conBox1:Laya.Box;
+		public proDotImg_1:Laya.Image;
+		public conTxt1:Laya.Label;
+		public proTxt_1:laya.display.Text;
+		public noEquipBox:Laya.Box;
+		public getImg:Laya.Image;
+		public arrImg_1:Laya.Image;
+		public arrImg_2:Laya.Image;
+		public arrImg_3:Laya.Image;
+		public arrImg_4:Laya.Image;
+		public resolveBtn:modules.n_common.BtnClkScale;
+		public oneInstenBtn:modules.n_common.BtnClkScale;
+		public stoneImg:Laya.Image;
+		public btn_equip:Laya.Button;
+		public btn_strong:Laya.Button;
+		public btn_suit:Laya.Button;
+		public imgRfRp:Laya.Image;
+		public imgequpRp:Laya.Image;
+		public manjiText:Laya.Image;
+		public pro_1:Laya.Label;
+		public pro_2:Laya.Label;
+		public pro_3:Laya.Label;
+		public pro_4:Laya.Label;
+		public stoneTxt:modules.n_common.CstmNum;
+		public getTxt:modules.n_common.CstmNum;
+		public upProNumTxt_1:Laya.Label;
+		public upProNumTxt_2:Laya.Label;
+		public upProNumTxt_3:Laya.Label;
+		public upProNumTxt_4:Laya.Label;
+		public proNumTxt_1:Laya.Label;
+		public proNumTxt_2:Laya.Label;
+		public proNumTxt_3:Laya.Label;
+		public proNumTxt_4:Laya.Label;
+		public getTxtKey:Laya.Label;
+		public txt_resolve:Laya.Label;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.FtYToLayer",modules.n_common.FtYToLayer);
+			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_common.CstmNum",modules.n_common.CstmNum);
+
+            super.createChildren();
+            this.loadUI("P_ExteriorEquipRefineView");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ExteriorEquipSuitItemUI extends ItemRender {
+		public btn:Laya.Button;
+
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.loadUI("P_ExteriorEquipSuitItem");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ExteriorEquipSuitViewUI extends BaseView {
+		public img1:Laya.Image;
+		public img2:Laya.Image;
+		public img3:Laya.Image;
+		public img4:Laya.Image;
+		public img5:Laya.Image;
+		public img6:Laya.Image;
+		public img7:Laya.Image;
+		public img8:Laya.Image;
+		public btn_suit:Laya.Button;
+		public btn_strong:Laya.Button;
+		public btn_equip:Laya.Button;
+		public imgRfRp:Laya.Image;
+		public imgequpRp:Laya.Image;
+		public tabListBox:Laya.Box;
+		public requestTxt:laya.display.Text;
+		public txt_sd_0:laya.display.Text;
+		public txt_sd_1:laya.display.Text;
+		public txt_fr_0:laya.display.Text;
+		public txt_fr_1:laya.display.Text;
+		public txt_sx_0:laya.display.Text;
+		public txt_sx_1:laya.display.Text;
+		public txt_eg_0:laya.display.Text;
+		public txt_eg_1:laya.display.Text;
+		public txt_eg_2:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ExteriorEquipSuitView");
 
         }
 
@@ -21322,6 +22108,7 @@ module ui {
 		public imgRank2:Laya.Image;
 		public imgRank3:Laya.Image;
 		public ladderBtn:Laya.Button;
+		public xnhsBtn:Laya.Button;
 		public rankClip1:Laya.FontClip;
 		public rankClip2:Laya.FontClip;
 		public rankClip3:Laya.FontClip;
@@ -21344,6 +22131,7 @@ module ui {
 		public fightClip3:modules.n_common.CstmBattlePowerFontClip;
 		public tianTiRP:Laya.Image;
 		public jingjiRP:Laya.Image;
+		public fairyRPImg:Laya.Image;
 		public rankrewardRP:Laya.Image;
 		public quickBtn:Laya.Button;
 
@@ -21369,32 +22157,40 @@ module ui {
 		public showBox:Laya.Box;
 		public jtzdBtn:Laya.Button;
 		public sjbzBtn:Laya.Button;
-		public xnhsBtn:Laya.Button;
+		public jzscBtn:Laya.Button;
 		public lzjsBtn:Laya.Button;
-		public rewardBox:Laya.Box;
 		public btnleft:Laya.Button;
 		public btnright:Laya.Button;
-		public fairyRPImg:Laya.Image;
+		public jzscRPImg:Laya.Image;
 		public luckyRPImg:Laya.Image;
 		public luckBtn:modules.n_common.BtnClkScale;
 		public rankimg:Laya.Image;
 		public luckyRPImg2:Laya.Image;
 		public timeTxt:laya.display.Text;
 		public enterTimeTxt:laya.display.Text;
+		public rankitem1:modules.n_localtyrant.LocaltyrantRankItem2;
+		public rankitem2:modules.n_localtyrant.LocaltyrantRankItem2;
+		public luckyRPImg3:Laya.Image;
+		public fbox:Laya.Box;
+		public rewardBox:Laya.Box;
 		public item1:modules.n_beibao.BeiBaoItem;
 		public item2:modules.n_beibao.BeiBaoItem;
 		public item3:modules.n_beibao.BeiBaoItem;
 		public item4:modules.n_beibao.BeiBaoItem;
-		public rankitem1:modules.n_localtyrant.LocaltyrantRankItem2;
-		public rankitem2:modules.n_localtyrant.LocaltyrantRankItem2;
-		public luckyRPImg3:Laya.Image;
+		public tbox:Laya.Box;
+		public item9:modules.n_beibao.BeiBaoItem;
+		public item10:modules.n_beibao.BeiBaoItem;
+		public item5:modules.n_beibao.BeiBaoItem;
+		public item6:modules.n_beibao.BeiBaoItem;
+		public item7:modules.n_beibao.BeiBaoItem;
+		public item8:modules.n_beibao.BeiBaoItem;
 
         constructor(){ super()}
         createChildren():void {
         			View.regComponent("Text",laya.display.Text);
 			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
-			View.regComponent("modules.n_beibao.BeiBaoItem",modules.n_beibao.BeiBaoItem);
 			View.regComponent("modules.n_localtyrant.LocaltyrantRankItem2",modules.n_localtyrant.LocaltyrantRankItem2);
+			View.regComponent("modules.n_beibao.BeiBaoItem",modules.n_beibao.BeiBaoItem);
 
             super.createChildren();
             this.loadUI("P_FightLocalTyrantView");
@@ -21629,18 +22425,20 @@ module ui {
 
 module ui {
     export class P_FightTeamCstItemUI extends ItemRender {
+		public item:modules.n_beibao.RootItem;
+		public comBox:Laya.Box;
 		public btn_cst:modules.n_common.BtnClkScale;
 		public rp:Laya.Image;
-		public item:modules.n_beibao.RootItem;
 		public txt_num:laya.display.Text;
 		public txt_name:laya.display.Text;
 		public txt_ct:laya.display.Text;
 		public txt_desc:laya.html.dom.HTMLDivElement;
+		public txt_tips:laya.display.Text;
 
         constructor(){ super()}
         createChildren():void {
-        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
-			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
 			View.regComponent("Text",laya.display.Text);
 			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
 
@@ -21952,12 +22750,15 @@ module ui {
 		public tabNum3:Laya.FontClip;
 		public payRp3:Laya.Image;
 		public dayBtn1:Laya.Button;
+		public flpDayNum1:Laya.FontClip;
 		public imgDayAd1:Laya.Image;
 		public imgRp1:Laya.Image;
 		public dayBtn2:Laya.Button;
+		public flpDayNum2:Laya.FontClip;
 		public imgDayAd2:Laya.Image;
 		public imgRp2:Laya.Image;
 		public dayBtn3:Laya.Button;
+		public flpDayNum3:Laya.FontClip;
 		public imgDayAd3:Laya.Image;
 		public imgRp3:Laya.Image;
 		public htmLeftTime:laya.html.dom.HTMLDivElement;
@@ -23389,6 +24190,7 @@ module ui {
 		public txt2:laya.display.Text;
 		public txtTime:laya.display.Text;
 		public txtOpenTm:laya.display.Text;
+		public txtOpenDay:laya.display.Text;
 		public gmBox:Laya.Box;
 		public txtInput:Laya.TextInput;
 		public btnInput:modules.n_common.BtnClkScale;
@@ -26975,6 +27777,12 @@ module ui {
 		public txtAttrUpValS:laya.display.Text;
 		public boxNoSpecialAttr:Laya.Box;
 		public boxList:Laya.Box;
+		public btnTab0:Laya.Button;
+		public btnTab1:Laya.Button;
+		public btnTab2:Laya.Button;
+		public imgRp0:Laya.Image;
+		public imgRp1:Laya.Image;
+		public imgRp2:Laya.Image;
 		public boxNotMaxLv:Laya.Box;
 		public btnOperate:modules.n_common.BtnClkScale;
 		public costItem:modules.n_beibao.RootItem;
@@ -29735,6 +30543,12 @@ module ui {
 		public okBtn:Laya.Button;
 		public rpimg:Laya.Image;
 		public needitem:modules.n_beibao.RootItem;
+		public btnTab0:Laya.Button;
+		public btnTab1:Laya.Button;
+		public btnTab2:Laya.Button;
+		public imgRp0:Laya.Image;
+		public imgRp1:Laya.Image;
+		public imgRp2:Laya.Image;
 		public fullLvImg:Laya.Image;
 
         constructor(){ super()}
@@ -30281,6 +31095,47 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_ImmTransItem");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ImRongLianViewUI extends BaseView {
+		public battlepoper:modules.n_common.FtYToLayer;
+		public powerNum:modules.n_common.CstmBattlePowerFontClip;
+		public smeltBtn:modules.n_common.BtnClkScale;
+		public btn_equip:Laya.Button;
+		public btn_im:Laya.Button;
+		public btn_anm:Laya.Button;
+		public imgImRp:Laya.Image;
+		public imgequpRp:Laya.Image;
+		public lookBtn:Laya.Button;
+		public attrArrow2:Laya.Image;
+		public attrArrow1:Laya.Image;
+		public imgLvBg:Laya.Image;
+		public imgAnmlRp:Laya.Image;
+		public attrIcon2:Laya.Image;
+		public attrIcon1:Laya.Image;
+		public autoTxt:laya.display.Text;
+		public levelTxt:laya.display.Text;
+		public attrTxt1:laya.display.Text;
+		public attrIncreaseTxt1:laya.display.Text;
+		public attrTxt2:laya.display.Text;
+		public attrIncreaseTxt2:laya.display.Text;
+		public smeltTip:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.FtYToLayer",modules.n_common.FtYToLayer);
+			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_ImRongLianView");
 
         }
 
@@ -30920,6 +31775,8 @@ module ui {
 		public getBtnPanel:Laya.Panel;
 		public getBtnConBox:Laya.Box;
 		public title:laya.display.Text;
+		public boxTitle2:Laya.Box;
+		public htmTip:laya.html.dom.HTMLDivElement;
 		public shortCutBuyBox:Laya.Box;
 		public numInputimage:Laya.Image;
 		public minusBtn:Laya.Button;
@@ -30940,6 +31797,7 @@ module ui {
         constructor(){ super()}
         createChildren():void {
         			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
 			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
 
             super.createChildren();
@@ -31561,17 +32419,15 @@ module ui {
     export class P_LocalTyrantRankItemUI extends ItemRender {
 		public mcbgimg:Laya.Image;
 		public mcfont:Laya.FontClip;
-		public reward1:modules.n_beibao.RootItem;
-		public reward2:modules.n_beibao.RootItem;
 		public playername:laya.display.Text;
 		public notplaylisttxt:laya.display.Text;
 		public damageTxt:laya.display.Text;
 		public jointxt:laya.display.Text;
+		public listbox:Laya.Box;
 
         constructor(){ super()}
         createChildren():void {
-        			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
-			View.regComponent("Text",laya.display.Text);
+        			View.regComponent("Text",laya.display.Text);
 
             super.createChildren();
             this.loadUI("P_LocalTyrantRankItem");
@@ -32585,6 +33441,56 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_MarryBasePropItem");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_MarryBuyAlertUI extends BaseDialog {
+		public wayBtn:modules.n_common.BtnClkScale;
+		public closeBtn:Laya.Button;
+		public boxList:Laya.Box;
+		public item:modules.n_beibao.RootItem;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_MarryBuyAlert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_MarryBuyItemUI extends ItemRender {
+		public headIconBg:Laya.Image;
+		public headIcon:Laya.Image;
+		public vipBg:Laya.Image;
+		public svipLogo:Laya.Image;
+		public vipIcon:Laya.Image;
+		public vipLvMSZ:Laya.FontClip;
+		public txtName:laya.display.Text;
+		public sureBtn:modules.n_common.BtnClkScale;
+		public item:modules.n_beibao.RootItem;
+		public txtZs:laya.display.Text;
+		public txtLv:laya.display.Text;
+		public txtItemName:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+
+            super.createChildren();
+            this.loadUI("P_MarryBuyItem");
 
         }
 
@@ -35657,10 +36563,10 @@ module ui {
 		public gotoBtn:modules.n_common.BtnClkScale;
 		public topAwardBtn:Laya.Image;
 		public jtzdBtn:Laya.Button;
-		public xnhsBtn:Laya.Button;
+		public jzscBtn:Laya.Button;
 		public sjbzBtn:Laya.Button;
 		public lzjsBtn:Laya.Button;
-		public fairyRPImg:Laya.Image;
+		public jzscRPImg:Laya.Image;
 		public luckyRPImg:Laya.Image;
 		public item1:modules.n_beibao.BeiBaoItem;
 		public item2:modules.n_beibao.BeiBaoItem;
@@ -35802,12 +36708,14 @@ module ui {
 		public hidden_1:Laya.Image;
 		public btnGroup_1:Laya.Button;
 		public btnGroup_2:Laya.Button;
+		public xnhsBtn:Laya.Button;
 		public hidden_6:Laya.Image;
 		public hidden_2:Laya.Image;
 		public tab_3:Laya.Button;
 		public tab_2:Laya.Button;
 		public tab_1:Laya.Button;
 		public rpImg:Laya.Image;
+		public fairyRPImg:Laya.Image;
 		public listBox:Laya.Box;
 		public noBox:Laya.Box;
 		public nameTxt:laya.display.Text;
@@ -35847,8 +36755,10 @@ module ui {
 		public tab_1:Laya.Button;
 		public btnGroup_2:Laya.Button;
 		public btnGroup_1:Laya.Button;
+		public xnhsBtn:Laya.Button;
 		public ruleBtn:Laya.Button;
 		public rpImg:Laya.Image;
+		public fairyRPImg:Laya.Image;
 		public endImg_5:Laya.Image;
 		public endImg_4:Laya.Image;
 		public endImg_3:Laya.Image;
@@ -36892,6 +37802,7 @@ module ui {
 		public imgArrow2:Laya.Image;
 		public imgArrow3:Laya.Image;
 		public imgArrow4:Laya.Image;
+		public xnhsBtn:Laya.Button;
 		public gradeIcon:Laya.Image;
 		public arenaBtn:Laya.Button;
 		public gradeFont1:Laya.FontClip;
@@ -36912,6 +37823,7 @@ module ui {
 		public awardRp1:Laya.Image;
 		public tianTiRP:Laya.Image;
 		public jingjiRP:Laya.Image;
+		public fairyRPImg:Laya.Image;
 		public gotImg4:Laya.Image;
 		public gotImg3:Laya.Image;
 		public gotImg2:Laya.Image;
@@ -37758,6 +38670,45 @@ module ui {
 }
 
 module ui {
+    export class P_RmbReturnTaskAlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public imgbg:Laya.Image;
+		public btn1:modules.n_common.BtnClkScale;
+		public btn2:modules.n_common.BtnClkScale;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_RmbReturnTaskAlert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_RmbReturnTaskItemUI extends ItemRender {
+		public sureBtn:modules.n_common.BtnClkScale;
+		public receivedImg:Laya.Image;
+		public dtxt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_RmbReturnTaskItem");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_RoadBuyAlertUI extends BaseDialog {
 		public titleImg:Laya.Image;
 		public closeBtn:Laya.Button;
@@ -37909,6 +38860,12 @@ module ui {
 		public attrArrow2:Laya.Image;
 		public attrArrow1:Laya.Image;
 		public smeltBtn:modules.n_common.BtnClkScale;
+		public btn_equip:Laya.Button;
+		public btn_im:Laya.Button;
+		public btn_anm:Laya.Button;
+		public imgImRp:Laya.Image;
+		public imgequpRp:Laya.Image;
+		public imgAnmlRp:Laya.Image;
 		public attrIncreaseTxt2:laya.display.Text;
 		public attrIncreaseTxt1:laya.display.Text;
 		public attrTxt2:laya.display.Text;
@@ -43585,6 +44542,8 @@ module ui {
 		public showEffTips:Laya.Image;
 		public boxHigh:Laya.Box;
 		public hightBtn:Laya.Button;
+		public btnTab0:Laya.Button;
+		public btnTab1:Laya.Button;
 		public slider:Laya.HSlider;
 		public powerBtn:modules.n_common.BtnClkScale;
 
@@ -44457,6 +45416,55 @@ module ui {
 }
 
 module ui {
+    export class P_ShengzunRechargeItemUI extends ItemRender {
+		public sureBox:Laya.Box;
+		public sureBtn:modules.n_common.BtnClkScale;
+		public rechargeBtn:modules.n_common.BtnClkScale;
+		public receivedImg:Laya.Image;
+		public continueBase1:modules.n_beibao.RootItem;
+		public continueBase2:modules.n_beibao.RootItem;
+		public continueBase3:modules.n_beibao.RootItem;
+		public continueBase4:modules.n_beibao.RootItem;
+		public scheduleText:laya.display.Text;
+		public StatementHTML:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_ShengzunRechargeItem");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ShengzunRechargeViewUI extends BaseView {
+		public adBg:Laya.Image;
+		public wanChengImg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public activityText1:laya.display.Text;
+		public activityText:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_ShengzunRechargeView");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_ShenshouhutiAlertUI extends BaseDialog {
 		public imgListBg:Laya.Image;
 		public imgShenshou:Laya.Image;
@@ -44678,6 +45686,29 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_ShiBaiView2");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_ShiBaiView3UI extends BaseDialog {
+		public simg:Laya.Image;
+		public okBtn:modules.n_common.BtnClkScale;
+		public txt1:laya.display.Text;
+		public html1:laya.html.dom.HTMLDivElement;
+		public txt2:laya.display.Text;
+		public html2:laya.html.dom.HTMLDivElement;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("Text",laya.display.Text);
+			View.regComponent("HTMLDivElement",laya.html.dom.HTMLDivElement);
+
+            super.createChildren();
+            this.loadUI("P_ShiBaiView3");
 
         }
 
@@ -46585,6 +47616,49 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_SvipView");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_SzBuyAlertUI extends BaseDialog {
+		public imgBigAward:Laya.Image;
+		public closeBtn:Laya.Button;
+		public flpPrice:Laya.FontClip;
+		public flpGiftPri:Laya.FontClip;
+		public buyBtn:modules.n_common.BtnClkScale;
+		public receiveImg:Laya.Image;
+		public tab0:Laya.Box;
+		public fhTopBtn:Laya.Button;
+		public fhTopBtn_light:Laya.Button;
+		public jtfhRP:Laya.Image;
+		public tab1:Laya.Box;
+		public sqTopBtn:Laya.Button;
+		public sqTopBtn_light:Laya.Button;
+		public scsqRP:Laya.Image;
+		public battlepoper:Laya.Box;
+		public fightClip:modules.n_common.CstmBattlePowerFontClip;
+		public boxAwards:Laya.Box;
+		public item1:modules.n_beibao.RootItem;
+		public item2:modules.n_beibao.RootItem;
+		public item3:modules.n_beibao.RootItem;
+		public item4:modules.n_beibao.RootItem;
+		public item5:modules.n_beibao.RootItem;
+		public item6:modules.n_beibao.RootItem;
+		public rebateNum:Laya.FontClip;
+		public timerTxt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_SzBuyAlert");
 
         }
 
@@ -50866,6 +51940,8 @@ module ui {
 		public soulmateOnLineGet:Laya.Button;
 		public soulmateSkillUpGet:Laya.Button;
 		public friendOnlineSend:Laya.Button;
+		public btnTab0:Laya.Button;
+		public btnTab1:Laya.Button;
 
         constructor(){ super()}
         createChildren():void {
@@ -50896,22 +51972,6 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_TmbossItem");
-
-        }
-
-    }
-}
-
-module ui {
-    export class P_TmbossLayerBtnItemUI extends ItemRender {
-		public challengeBtn:Laya.Button;
-		public bossRP:Laya.Image;
-
-        constructor(){ super()}
-        createChildren():void {
-        
-            super.createChildren();
-            this.loadUI("P_TmbossLayerBtnItem");
 
         }
 
@@ -50960,25 +52020,35 @@ module ui {
     export class P_TmbossViewUI extends BaseView {
 		public boxInfoListBox:Laya.Panel;
 		public goBtn:modules.n_common.BtnClkScale;
-		public followBtn:Laya.Button;
 		public tipsBtn:Laya.Button;
-		public addBtn:Laya.Button;
+		public vbg:Laya.Image;
+		public vtxt:laya.display.Text;
 		public rewrdBase1:modules.n_beibao.RootItem;
 		public rewrdBase2:modules.n_beibao.RootItem;
 		public rewrdBase3:modules.n_beibao.RootItem;
 		public rewrdBase4:modules.n_beibao.RootItem;
 		public txtstrength:laya.display.Text;
+		public followBtn:Laya.Button;
+		public addBtn:Laya.Button;
 		public autoCheckBox:Laya.Button;
 		public tmBoss:Laya.Button;
 		public listShow:Laya.Box;
-		public layerlist:Laya.Box;
-		public powertxt:laya.display.Text;
+		public layerbtn1:Laya.Button;
+		public layerbtn2:Laya.Button;
+		public layerbtn3:Laya.Button;
+		public bossRP1:Laya.Image;
+		public bossRP2:Laya.Image;
+		public bossRP3:Laya.Image;
+		public battlepoper:modules.n_common.FtYToLayer;
+		public atkMsz:modules.n_common.CstmBattlePowerFontClip;
 
         constructor(){ super()}
         createChildren():void {
         			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
 			View.regComponent("Text",laya.display.Text);
 			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("modules.n_common.FtYToLayer",modules.n_common.FtYToLayer);
+			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
 
             super.createChildren();
             this.loadUI("P_TmbossView");
@@ -51329,6 +52399,56 @@ module ui {
 
             super.createChildren();
             this.loadUI("P_TranformingThderSuitSkillAlert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TransformBuyAlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public flpPrice:Laya.FontClip;
+		public buyBtn:modules.n_common.BtnClkScale;
+		public receiveImg:Laya.Image;
+		public battlepoper:Laya.Box;
+		public fightClip:modules.n_common.CstmBattlePowerFontClip;
+		public boxAwards:Laya.Box;
+		public item1:modules.n_beibao.RootItem;
+		public item2:modules.n_beibao.RootItem;
+		public item3:modules.n_beibao.RootItem;
+		public item4:modules.n_beibao.RootItem;
+		public item5:modules.n_beibao.RootItem;
+		public item6:modules.n_beibao.RootItem;
+		public tipsTxt:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+			View.regComponent("modules.n_common.CstmBattlePowerFontClip",modules.n_common.CstmBattlePowerFontClip);
+			View.regComponent("modules.n_beibao.RootItem",modules.n_beibao.RootItem);
+			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TransformBuyAlert");
+
+        }
+
+    }
+}
+
+module ui {
+    export class P_TransformBuyEnterViewUI extends BaseView {
+		public boxView:Laya.Box;
+		public imgRp:Laya.Image;
+		public txtBuff:laya.display.Text;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+
+            super.createChildren();
+            this.loadUI("P_TransformBuyEnterView");
 
         }
 
@@ -52676,6 +53796,8 @@ module ui {
 		public btnBox:Laya.Box;
 		public buyBtn:modules.n_common.BtnClkScale;
 		public maxLimit:Laya.Label;
+		public tbox:Laya.Box;
+		public ttxt:Laya.Label;
 
         constructor(){ super()}
         createChildren():void {
@@ -54671,6 +55793,8 @@ module ui {
 		public imgRP1:Laya.Image;
 		public imgRP2:Laya.Image;
 		public imgRP3:Laya.Image;
+		public autoCheckBox:Laya.Button;
+		public dtxt:laya.display.Text;
 
         constructor(){ super()}
         createChildren():void {
@@ -55573,6 +56697,28 @@ module ui {
 }
 
 module ui {
+    export class P_ZGRmbReturnAlertUI extends BaseDialog {
+		public closeBtn:Laya.Button;
+		public imgbg:Laya.Image;
+		public btn1:modules.n_common.BtnClkScale;
+		public btn2:modules.n_common.BtnClkScale;
+		public btn3:modules.n_common.BtnClkScale;
+		public buybtn:modules.n_common.BtnClkScale;
+
+        constructor(){ super()}
+        createChildren():void {
+        			View.regComponent("Text",laya.display.Text);
+			View.regComponent("modules.n_common.BtnClkScale",modules.n_common.BtnClkScale);
+
+            super.createChildren();
+            this.loadUI("P_ZGRmbReturnAlert");
+
+        }
+
+    }
+}
+
+module ui {
     export class P_ZhanLiHuFuAlertUI extends BaseDialog {
 		public closeBtn:Laya.Button;
 		public baseItem:modules.n_beibao.RootItem;
@@ -55820,6 +56966,7 @@ module ui {
 		public starLvHTML:laya.html.dom.HTMLDivElement;
 		public wearBox:Laya.Box;
 		public lvHTML:laya.html.dom.HTMLDivElement;
+		public txt_needWar:laya.display.Text;
 		public shareToChatBtn:Laya.Label;
 		public soaringBox:Laya.Box;
 		public soaringLvHtml:laya.html.dom.HTMLDivElement;
