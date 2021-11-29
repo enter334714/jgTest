@@ -1,5 +1,5 @@
-﻿let XLGame = require('../utils/xlgame-sdk-3.0')
-
+﻿// let XLGame = require('../utils/xlgame-sdk-3.0')
+import XLGame from "../utils/xlgame-sdk-3.0";
 //TODO 替换对应参数
 var config = {
     game_id: '256',
