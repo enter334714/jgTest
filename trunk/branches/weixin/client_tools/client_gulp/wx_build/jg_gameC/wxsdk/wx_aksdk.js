@@ -6,10 +6,10 @@ var config = {
     game_pkg: 'tjqy_tjqylmfb_FK',
     partner_label: 'GNWX',
     partner_id: '443',
-    game_ver: '3.0.22',//C包为3.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '3.0.30',//C包为3.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false, //授权登录
     from: null, //来源
-    tmpId: {}  // 订阅的类型 和 模板id
+    tmpId: {1:'ma84F5QrGuwPvRW5D7JKw3llfnqU_4g_NSg6e5lmomc', 2:'AVCXGtyyfV0Kaqda-UmvUa1-h77VqVnw8lfWuvnn9lo', 3:'RESDLDMvfPONhStzeiyz_50VWISjQGxkN758Hlyw69M'}  // 订阅的类型 和 模板id
 };
 window.config = config;
 
@@ -358,7 +358,7 @@ function mainSDK() {
         msgCheck: function (content, callback) {
             console.log("[SDK]查看文本是否有违规内容：" + content);
 
-            sdk.checkMsg(content,function (res) {
+            sdk.checkMsgV2(content,function (res) {
                 console.log('[SDK]渠道返回文本检测结果：'+JSON.stringify(res))
                 let ret = {
                     data:{}
@@ -622,7 +622,24 @@ function mainSDK() {
         weiduanHelper: function() {
             sdk.downloadClient()
         },
-
+        subscribeMessage : function (tmplIds, callback){
+            console.log('[SDK]订阅消息：'+tmplIds);
+            //获取模板ID
+            callbacks['subscribeMessage'] = typeof callback == 'function' ? callback : null;
+            wx.requestSubscribeMessage({
+                tmplIds: tmplIds,
+                success (res) {
+                    console.log("[SDK]订阅消息返回：成功");
+                    console.log(res);
+                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+                },
+                fail (res) {
+                    console.log("[SDK]订阅消息返回：失败");
+                    console.log(res);
+                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+                }
+            })
+        },
     }
 }
 
@@ -713,4 +730,7 @@ exports.getPublicData = function () {
 
 exports.weiduanHelper = function () {
     run('weiduanHelper');
+};
+exports.subscribeMessage = function (data, callback) {
+    run('subscribeMessage', data, callback);
 };

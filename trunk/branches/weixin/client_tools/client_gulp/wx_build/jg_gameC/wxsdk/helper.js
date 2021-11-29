@@ -707,6 +707,56 @@ function mainSDK() {
                 }
             });
         },
+
+        //新版消息检测接口
+        checkMsgV2: function (msg, callback) {
+            console.log("[SDK]查看文本是否有违规内容");
+            var sdk_token = wx.getStorageSync('plat_sdk_token');
+            wx.request({
+                url: HOST + '/game/min/?ac=msgCheckV2',
+                method: 'POST',
+                dataType: 'json',
+                header: {
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                data: {
+                    game_pkg: config.game_pkg,
+                    partner_id: config.partner_id,
+                    sdk_token: sdk_token,
+                    content: msg,
+                    scene: 1,
+                },
+                success: function (res) {
+                    console.log("[SDK]查看文本是否有违规内容结果返回:");
+                    callback && callback(res.data.code == 0 ? 1 : 0, res.data.msg);
+                }
+            });
+        },
+
+        // 发送订阅消息
+        sendMessage: function (template_id, data, callback) {
+            console.log("[SDK]发送订阅消息");
+            var sdk_token = wx.getStorageSync('plat_sdk_token');
+            wx.request({
+                url: HOST + '/game/min/?ac=sendMessage',
+                method: 'POST',
+                dataType: 'json',
+                header: {
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                data: {
+                    game_pkg: config.game_pkg,
+                    partner_id: config.partner_id,
+                    sdk_token: sdk_token,
+                    template_id: template_id,
+                    data: data,
+                },
+                success: function (res) {
+                    console.log("[SDK]订阅消息发送成功");
+                    callback && callback(res.data.code == 0 ? 1 : 0, res.data.msg);
+                }
+            });
+        },
     }
 }
 
@@ -773,4 +823,12 @@ exports.getPublicData = function(){
 
 exports.checkMsg = function (data, callback) {
     run('checkMsg', data, callback);
+};
+
+exports.checkMsgV2 = function (data, callback) {
+    run('checkMsgV2', data, callback);
+};
+
+exports.sendMessage = function (template_id, data, callback) {
+    run('sendMessage',template_id, data, callback);
 };
