@@ -64,7 +64,7 @@ function render() {
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 }
 render();
-window.z0R0DYJ = setInterval(function () {
+window.z0R0JDY = setInterval(function () {
   render();
 }, 16);
 wx.showLoading({ title: "\u6b63\u5728\u52a0\u8f7d" });
@@ -95,10 +95,10 @@ wx.y$ = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({
 });
 //监听小游戏切前台事件
 wx.onShow(function (res) {
-  window.z0D0Y = res;
-  if (window.z0DY0 && window.z0D0Y) {
-    console.info("小游戏切前台事件，场景值：" + window.z0D0Y.scene);
-    window.z0DY0(window.z0D0Y);
-    window.z0D0Y = null;
+  window.z0Y0 = res;
+  if (window.z0D0Y && window.z0Y0) {
+    console.info("小游戏切前台事件，场景值：" + window.z0Y0.scene);
+    window.z0D0Y(window.z0Y0);
+    window.z0Y0 = null;
   }
 });

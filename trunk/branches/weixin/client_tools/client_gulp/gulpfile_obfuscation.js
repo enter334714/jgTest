@@ -6441,7 +6441,7 @@ var set_param_Z_1 = function () {
             "libs/zlib.js":  {url:packageName1+"/aa11aa.js"},
             "wxsdk":  {url:"aaabasdk"},
             "wxsdk/wx_aksdk.js":  {url:"aaabasdk/a5sdka.js",extractStr:true,count:1,strLen:3},
-            "wxsdk/helper.js":  {url:"aaabasdk/a5ssha.js",extractStr:true,count:1,strLen:3},
+            "wxsdk/helper.js":  {url:"aaabasdk/a5ssha.js",extractStr:false,count:1,strLen:3},
             "protobuf":  {url:packageName2},
             "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:2,strLen:3},
             "protobuf/protobuf.js":  {url: packageName2 + "/aBFaa.js",extractStr:true,count:2,strLen:3},
@@ -6594,7 +6594,7 @@ var set_param_Z_1 = function () {
         strFilePath = "/aaes";
         strFileName = "/aailes.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
-        globleKeys = ["$a", "C", "a", "a1", "a"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        globleKeys = ["$a", "C", "a", "a1", "a",["helper.js"]]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
         noReplaceJs = packageName1+"/game.js";
         arrIndex = 460000;
         globleArrs = new Array(arrIndex);
@@ -6688,6 +6688,10 @@ var set_param_Z_2 = function () {
             "subPackage":  {url:packageName3},
             "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
             "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
+            "utils/SdkFloat.js":  {url:"utils/SdkFloat.js",extractStr:false,count:1,strLen:3},
+            "utils/xlgame-jsdk-promise.js":  {url:"utils/xlgame-jsdk-promise.js",extractStr:false,count:1,strLen:3},
+            "utils/xlgame-sdk-3.0.js":  {url:"utils/xlgame-sdk-3.0.js",extractStr:false,count:1,strLen:3},
+            "utils/xlgame-sdk-util.js":  {url:"utils/xlgame-sdk-util.js",extractStr:false,count:1,strLen:3},
             "wxloading_atlas": {url:"AAdA"},
             "wxlogin_atlas": {url:"AAlgrAA"},
             "wxeff_btn_atlas":{url:"AyA"},
@@ -7032,7 +7036,7 @@ var identifier_create = function (rate) {
             'bEnterGame', 'loginAlert', 'loginAlert', 'isShowLoading', 'wxShowLoading', 'wxHideLoading', 'changeServerLoading', 'getJsURL',
             'toAllProgress', 'toProgress', 'toEnterGame', 'onApiError', 'reqRecordError', 'reqRecordInfo', 'clientlog', 'sdkInit', 'sdkOnInited',
             'sdkOnLogin', 'onUserLogin', 'onUserLoginDefaultServers', 'loadVersionConfig', 'reqPkgOptions', 'reqPkgOptionsCallBack', 'loadCreateRole',
-            'toCreate', 'toLogin', 'toLevelUp', 'toRealName', 'openShare', 'onShow', 'onShowData', 'onShowCallback', 'reqPlayerAskInfo',
+            'toCreate', 'toLogin', 'toLevelUp', 'toRealName', 'openShare', 'onShowData', 'onShowCallback', 'reqPlayerAskInfo',
             'openSubscribeMsg', 'batteryInfo', 'getBatteryInfo', 'onRoleRecordStep', 'req_server_group', 'reqServerGroupCallBack', 'req_server_owner', 'reqServerOwnerCallBack',
             'req_server_list', 'reqServerListCallBack', 'req_server_notice', 'get_status', 'req_server_check_ban', 'reqServerCheckBanCallBack', 'checkBanSuccess',
             'initMain', 'enterToGame', 'initComplete', 'workerJsURL', 'wxLimitLoad', 'wxBenchmarkLevel',
@@ -7791,7 +7795,7 @@ var js_obfuscator = function (rate) {
 
         console.info("混淆提取文件：" + file.path + "  rate=" + rate);
 
-
+        var excludeFiles = globleKeys[5] || [];
         var obfuscationResult = jsobfuscator.obfuscate(contents,
             {
                 compact: true,  //紧凑的代码输出在一行上
@@ -7809,7 +7813,7 @@ var js_obfuscator = function (rate) {
                 splitStrings: false,  //将文字字符串拆分为带有splitStringsChunkLength选项值长度的块
                 splitStringsChunkLength: 1,  //设置splitStrings选项的块长度
                 shuffleStringArray: false,  //随机stringArray排列数组项
-                exclude: [],  //文件名或glob，指示要从混淆中排除的文件
+                exclude: excludeFiles,  //文件名或glob，指示要从混淆中排除的文件
                 reservedStrings: ['wx', 'qq', 'window', 'globle', 'document', 'GameGlobal', 'console', 'exports', 'require', 'module', '\\r', '\\w', '\\t', ']]>', '//', '<!--', '-->', '\\*', '\\?', '\\$', '\\^'],  //禁用字符串文字的转换，该文字与通过的RegExp模式匹配
                 reservedNames: ['wx', 'qq', 'window', 'globle', 'document', 'GameGlobal', 'console', 'exports', 'require', 'module'],  //禁用混淆和标识符的生成，这些标识符与通过的RegExp模式匹配
                 identifierNamesGenerator: "dictionary",  //mangled  dictionary  设置标识符名称生成器。dictionary：identifiersDictionary列表中的标识符名称，hexadecimal：标识符名称，例如 _0xabc123，mangled：短标识符的名称，如a，b，c，mangled-shuffled：与...相同，mangled但字母乱序
@@ -8320,19 +8324,19 @@ gulp.task('DEL_REFUSEFILE_Z', function (cb) {
     sequence("set-param-Z","DEL_REFUSEFILE",cb)
 });
 
-gulp.task('CREATE_REFUSEFILE_Z1', function (cb) {
+gulp.task('CREATE_REFUSEFILE_Z_1', function (cb) {
     sequence("set-param-Z_1","CREATE_REFUSEFILE",cb)
 });
 
-gulp.task('DEL_REFUSEFILE_Z1', function (cb) {
+gulp.task('DEL_REFUSEFILE_Z_1', function (cb) {
     sequence("set-param-Z_1","DEL_REFUSEFILE",cb)
 });
 
-gulp.task('CREATE_REFUSEFILE_Z2', function (cb) {
+gulp.task('CREATE_REFUSEFILE_Z_2', function (cb) {
     sequence("set-param-Z_2","CREATE_REFUSEFILE",cb)
 });
 
-gulp.task('DEL_REFUSEFILE_Z2', function (cb) {
+gulp.task('DEL_REFUSEFILE_Z_2', function (cb) {
     sequence("set-param-Z_2","DEL_REFUSEFILE",cb)
 });
 

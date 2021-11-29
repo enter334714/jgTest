@@ -214,7 +214,7 @@ window.loadMain = function() {
   });
 }
 
-window.loadSubpackages = function () {
+//window.loadSubpackages = function () {
   if (window.compareVersion(window.SDKVersion, '2.1.0') >= 0) {   //分包wx.loadSubpackage：2.1.0，SDk的wx.createUserInfoButton：2.0.1
     console.log("微信基础库版本符合最低版本要求：" + window.SDKVersion + ">=2.1.0");
     window.sdkInit();
@@ -227,7 +227,7 @@ window.loadSubpackages = function () {
       content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
     })
   }
-}
+//}
 
 
 //获取系统信息

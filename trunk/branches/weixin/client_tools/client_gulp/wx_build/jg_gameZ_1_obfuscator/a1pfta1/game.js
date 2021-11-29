@@ -1,0 +1,2 @@
+var C = wx.$a;
+require('aBFaa.js'), window[C[461554]][C[461534]][C[461201]] = null, window['client_pb'] = require('aaCLIENaa.js'), window[C[461619]] = window[C[461554]][C[461384]][C[461252]](client_pb);

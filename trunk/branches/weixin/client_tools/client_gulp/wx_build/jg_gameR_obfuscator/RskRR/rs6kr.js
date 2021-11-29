@@ -6,7 +6,7 @@ var config = {
     game_pkg: I[308405], //盛也马甲包-王女异闻录online
     partner_label: I[308406],
     partner_id: I[308407],
-    game_ver: "17.0.6",
+    game_ver: "17.0.8",
     is_auth: false, //授权登录
     tmpId: { 1: I[308409], 2: I[308410], 3: I[308411] // 订阅的类型 和 模板id
     } };
