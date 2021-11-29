@@ -7943,7 +7943,7 @@ gulp.task('MT1_COPY', function () {
     var targetUrl =  sourceProject;
     return gulp.src(sourceUrl + "/" + '/**/*')
         .pipe(rename(function (path) {
-            // console.log(path);
+            console.log("path:",path);
             var fileName;
             if (path.dirname == ".") {
                 fileName = path.basename + path.extname;
@@ -7997,7 +7997,12 @@ gulp.task('MT1_COPY', function () {
             return "";
         }))
         .pipe(replace(/(subPackage)|(subPackage\/game.js)|(subPackage\/main.min.js)|(libs\/md5.min.js)|(libs\/zlib.js)|(libs\/dom_parser.js)|(index.js)|(libs\/libs.min.js)|(libs\/laya.wxmini.js)|(init.min.js)|(game.js)/g, function (match, p1, offset, string) {
-            var arr = filesMap[match].url.split("/");
+            var reg = filesMap[match];
+            if(!reg || !reg.url){
+                console.info("未匹配的  match:",match);
+                return match;
+            }
+            var arr = reg.url.split("/");
             var relative = this.file.relative.replace(/\\/g, "/");
             if(relative == noReplaceJs){
                 return match;
