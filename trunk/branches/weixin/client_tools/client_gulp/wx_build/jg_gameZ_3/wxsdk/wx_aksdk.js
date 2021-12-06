@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_tjqy666xcx_IS',
     partner_label: 'ddt6',
     partner_id: '489',
-    game_ver: '28.0.1',
+    game_ver: '28.0.1', //666-多梦江湖
     platId: 1000,
     gameId: 272,
     channelVer: 'mxsdk_tjqy_and',
