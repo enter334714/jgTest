@@ -1111,9 +1111,9 @@ window.enterToGame = function() {
 
       window.MainWX.instance.initPlatdata(platData);
       setTimeout(() => {
-        if(!wx_develop){ //非审核状态才有盒子
+        // if(!wx_develop){ //非审核状态才有盒子
           new minitool();
-        }
+        // }
       }, 10000);
       
     }

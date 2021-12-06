@@ -7,7 +7,7 @@ var config = {
     game_pkg: d[508721], //荀鹿小游戏-永夜仙王
     partner_label: d[508722],
     partner_id: d[508723],
-    game_ver: d[508724],
+    game_ver: "27.0.2",
     is_auth: true, //授权登录
     partner_game_id: 2000046,
     partner_game_key: d[508725]

@@ -1,16 +1,17 @@
-﻿var sdk = require('../utils/sdklib-2.9.4.min.js');
-
+﻿//var sdk = require('../utils/sdklib-2.9.4.min.js');
+import sdk from "../utils/sdklib-2.9.4.min.js";
 //TODO 替换对应参数
 var config = {
     game_id: 256,
     game_pkg: 'tjqy_tjqywwjx_HO', //37-微微剑仙
     partner_label: '37xyx',
     partner_id: '472',
-    game_ver: '20.0.1',
+    game_ver: '20.0.9',
     is_auth: false, //授权登录
     partner_android_pid_id: 442,
     partner_ios_pid_id: 484,
     partner_gid_id: 1014883,
+    partner_uid: 0,
     tmpId: {1:'PJP2iuFkN9fgsQxuMSzC4-fR2p0J1K1E3TBVYVAwasg', 2:'L8EiLRlJGEWYPYgOzA3cqvLfL22OoikRhZii1xdEGsw', 3:'PJP2iuFkN9fgsQxuMSzC4-fR2p0J1K1E3TBVYVAwasg'},  // 订阅的类型 和 模板id
 };
 window.config = config;
@@ -20,7 +21,6 @@ var user_game_info = null;
 var user_invite_info = null;
 var sysInfo = wx.getSystemInfoSync();
 var platform = sysInfo.platform;
-var partner_user_info = null;
 
 
 
@@ -126,6 +126,7 @@ function mainSDK() {
                     if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
+                            config.partner_uid = data.data.ext.partner_uid;
                             try {
                                 wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
                                 wx.setStorageSync('plat_uid', data.data.user_id);

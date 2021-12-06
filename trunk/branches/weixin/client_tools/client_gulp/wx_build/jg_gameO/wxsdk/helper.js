@@ -1,4 +1,4 @@
-﻿let confArr = ['', 'APP_ID', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=login', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportRoleInfo', 'APP_VERSION', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=canPay', 'GAME_KEY', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=setTunnelClick', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getMaterials', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportShare', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportClick', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=descMidasCoin', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=send_tpl_msg', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=get_box_list', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=open_box', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=click_box', 'wss://ws.docater1.cn', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getOpenClipboard'];
+﻿let confArr = ['', 'APP_ID', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=login', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportRoleInfo', 'APP_VERSION', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=canPay', 'GAME_KEY', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=setTunnelClick', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getMaterials', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportShare', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportClick', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=descMidasCoin', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=send_tpl_msg', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=get_box_list', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=open_box', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=click_box', 'wss://ws.docater1.cn', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getOpenClipboard', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getDealPackageInfo', 'https://docater1.cn/index.php?g=Wap&m=WxSecCheck&a=msgSecCheck', 'https://docater1.cn/index.php?g=Wap&m=WxSecCheck&a=imgSecCheck', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getGameShareCardData'];
 
 const SY_CONF = {
   "APP_ID": "wxd1d57546843f1edf",
@@ -11,7 +11,7 @@ const Sygame = {
   // 初始化
   SY_CONF:SY_CONF,
   appid: '',
-  app_version: '1004.5.1',
+  app_version: '1005.0.0',
   openid: '',
   real_openid: '',
   share_data: {},
@@ -27,7 +27,8 @@ const Sygame = {
     Sygame.offerId = SY_CONF['offerId'];
     Sygame.scene = data.scene;
     Sygame.commit_id = SY_CONF['commitId'];
-    Sygame.timeNumber = 0;
+    Sygame.touchNumber = 0;
+    Sygame.jumpVersion = 0;
     console.log('syInit:', Sygame);
     let queryData = {
       query: data.query
@@ -39,7 +40,6 @@ const Sygame = {
       method: 'POST',
       success: (res) => {
         console.log('getIsOpenClipboard:', res);
-        Sygame.timeNumber = res.data.package_time;
         if (res.data.is_open_clipboard) {
           //获取剪切板内的信息
           wx.getClipboardData({
@@ -107,9 +107,7 @@ const Sygame = {
                 Sygame.openid = ret.data.openid
                 Sygame.real_openid = ret.data.real_openid
                 // 判断 jump_version 是否存在，存在则说明是新版导包
-                if (ret.data.jump_version) {
-                  Sygame.packageConfig((Date.parse(new Date())) / 1000, Sygame.timeNumber);
-                }
+                Sygame.jumpVersion = ret.data.jump_version;
               } else if (ret.data.code == 3001) {
                 var showCancelType = true
                 var loginInfo = 0
@@ -197,6 +195,23 @@ const Sygame = {
   }),
   // 下单发起支付
   syPay: (data) => new Promise(function(resolve, reject) {
+    // jumpVersion存在为新版导包，导包条件获取为支付之前
+    if (Sygame.jumpVersion) {
+      // 是否确定导包但是没导过去
+      if (Sygame.touchNumber > 0) {
+        return false;
+      }
+      // 获取导包信息
+      Sygame.syPackageJump().then(() => {
+        resolve(Sygame.syRealPay(data));
+      })
+    } else {
+      resolve(Sygame.syRealPay(data));
+    }
+  }),
+
+  // 真实支付方法
+  syRealPay : (data) => new Promise(function(resolve, reject){
     let url = confArr[5];
     if (typeof data == 'object') {
       data.openid = Sygame.openid;
@@ -333,28 +348,8 @@ const Sygame = {
     })
   }),
 
-  // 处理新版导包，控制导包窗口弹起时间
-  packageConfig: (startTime, timeNumber) => {
-    var clickTouch = 0;
-    wx.onTouchStart(() => {
-      if (clickTouch > 0) {
-        return false;
-      }
-      clickTouch += 1;
-      // 处理获取跳转信息延迟时间
-      var diffTime = ((Date.parse(new Date())) / 1000) - startTime;
-      var setTime  = 0;
-      if ((diffTime) < timeNumber) { setTime = (timeNumber - diffTime) * 1000 }
-      // 获取跳转信息并进行跳转
-      var setTimeOutObj = setTimeout(function(){
-        clearTimeout(setTimeOutObj);
-        Sygame.syPackageJump();
-      }, setTime);
-    });
-  },
-
   // 获取导包跳转信息
-  syPackageJump: () => {
+  syPackageJump: () => new Promise(function (resolve, reject){
     wx.request({
       url: confArr[18],
       data: {
@@ -366,12 +361,17 @@ const Sygame = {
       success: (ret) => {
         console.log("packageInfo", ret);
         if (ret.data.status == 1001) {
-          return false
+          resolve(true)
+        } else {
+          var showCancelType = true;
+          if (ret.data.jump_mandatory == 1){
+            showCancelType = false
+          }
+          resolve(Sygame.syPackageShow(ret, 0, showCancelType))
         }
-        Sygame.syPackageShow(ret, 0, true);
       }
     })
-  },
+  }),
 
   /**
    * 将导包时候的弹窗取出来单独封装，避免新旧两种导包方式代码重复
@@ -402,16 +402,13 @@ const Sygame = {
             var loginKey = 'loginClickCancle' + ret.data.openid
             Sygame.cookieData({ type: 'set', key: loginKey, data: loginInfo+1, expired_at: time })
           }
-        }else{
-          // jumpType 存在，则代表是老版导包方式跳转
-          if (jumpType) {
-            wx.onTouchStart(() => {
-              Sygame.syDealJumpData(ret);
-            });
-          } else if (!jumpType && res.confirm) {
-            // 否则为新版导包方式，由于新版导包取消按钮无效且必须存在，所以新版导包对去掉按钮不做操作。
+        } else if (res.cancel){
+          resolve(true);
+        } else {
+          Sygame.touchNumber += 1;
+          wx.onTouchStart(() => {
             Sygame.syDealJumpData(ret);
-          }
+          });
         }
       }
     });
@@ -528,7 +525,7 @@ const Sygame = {
   // 微信消息内容检测
   syMsgSecCheck: (data) => new Promise(function (reslove, reject) {
     data.appId  = Sygame.appid;
-    data.openId = Sygame.openid;
+    data.openId = Sygame.real_openid;
     wx.request({
       url: confArr[19],
       data: data,
@@ -689,7 +686,7 @@ const Sygame = {
           console.log("分享:", res.data.data);
           Sygame.share_data = res.data.data;
         } else {
-          params && params.errorCallback && params.errorCallback(res);
+           params && params.errorCallback && params.errorCallback(res);
           console.log("盛也share失败", res);
         }
       },
