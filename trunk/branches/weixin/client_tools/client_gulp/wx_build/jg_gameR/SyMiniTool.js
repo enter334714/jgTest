@@ -185,6 +185,7 @@ var MainController = /** @class */ (function () {
             this.initEvent();
             this.initView();
             Toast.init();
+            this.main.bg.x = -750;
         }
     };
     MainController.prototype.initView = function () {

@@ -141,8 +141,8 @@ window.msgCheck37 = function(value, callback) {
     value.uid = window.config.partner_uid;
     value.gid = window.config.partner_gid_id;
     value.pid = window.PF_INFO.wxIOS ? window.config.partner_ios_pid_id : window.config.partner_android_pid_id;
-    value.time = (value.time ? value.time : Date.now()) / 1000;
-    value.chat_time = (value.chat_time ? value.chat_time : Date.now()) / 1000;
+    value.time = Math.floor((value.time ? value.time : Date.now()) / 1000);
+    value.chat_time = Math.floor((value.chat_time ? value.chat_time : Date.now()) / 1000);
 
     console.info("敏感字检测=>"+JSON.stringify(value));
     var msgCheck37Success = function(data) {

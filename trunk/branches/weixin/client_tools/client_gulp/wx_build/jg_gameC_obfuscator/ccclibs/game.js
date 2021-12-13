@@ -1,2 +1,2 @@
 var p = wx.$h;
-require(p[48483]);
+require(p[49049]);

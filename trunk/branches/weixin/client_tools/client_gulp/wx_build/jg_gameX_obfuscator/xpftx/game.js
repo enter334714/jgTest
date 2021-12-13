@@ -1,2 +1,2 @@
 var u = wx.$x;
-require('xBFxx.js'), window[u[400760]][u[400761]][u[400762]] = null, window['client_pb'] = require('xxCLIENx.js'), window[u[400763]] = window[u[400760]][u[400764]][u[400765]](client_pb);
+require('xBFxx.js'), window[u[400794]][u[400795]][u[400796]] = null, window['client_pb'] = require('xxCLIENx.js'), window[u[400797]] = window[u[400794]][u[400798]][u[400799]](client_pb);

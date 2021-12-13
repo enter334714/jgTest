@@ -14,14 +14,14 @@ var config = {
     partner_ios_key: A[200045]
 };
 window.config = config;
-var _nKWZ85 = _nKZ8W5();
+var _nKWZ58 = _nKZ85W();
 var HOST = A[200046];
 var t;
 var t_second = 0;
 var t_max = 300;
+var _nKWZ85 = null;
 var _nKZ58W = null;
 var _nKZ5W8 = null;
-var _nKZ85W = null;
 var user_invite_by_activity = null;
 var partner_user_info = null;
 var sys_info = wx.getSystemInfoSync();
@@ -45,7 +45,7 @@ function getGameInfo(callback) {
     });
 }
 
-function _nKZ8W5() {
+function _nKZ85W() {
     var callbacks = {};
     var this_pay_order = 0;
     return {
@@ -113,7 +113,7 @@ function _nKZ8W5() {
 
             // 带邀请码
             if (invite) {
-                _nKZ5W8 = {
+                _nKZ58W = {
                     invite: invite,
                     invite_type: invite_type,
                     is_new: is_new,
@@ -178,9 +178,9 @@ function _nKZ8W5() {
             //发起网络请求
             var public_data = self.getPublicData();
             public_data[A[200064]] = JSON.stringify(info);
-            if (_nKZ5W8 && typeof _nKZ5W8 == A[200065]) {
-                for (var key in _nKZ5W8) {
-                    public_data[key] = _nKZ5W8[key];
+            if (_nKZ58W && typeof _nKZ58W == A[200065]) {
+                for (var key in _nKZ58W) {
+                    public_data[key] = _nKZ58W[key];
                 }
             }
 
@@ -281,8 +281,8 @@ function _nKZ8W5() {
                     game_pkg: config.game_pkg,
                     partner_id: config.partner_id,
                     sdk_token: sdk_token,
-                    server_id: _nKZ58W ? _nKZ58W.server_id : '',
-                    role_id: _nKZ58W ? _nKZ58W.role_id : '',
+                    server_id: _nKWZ85 ? _nKWZ85.server_id : '',
+                    role_id: _nKWZ85 ? _nKWZ85.role_id : '',
                     type: type
                 },
                 success: function (res) {}
@@ -339,8 +339,8 @@ function _nKZ8W5() {
                     partner_id: config.partner_id,
                     sdk_token: sdk_token,
                     type: type,
-                    server_id: _nKZ58W ? _nKZ58W.server_id : '',
-                    role_id: _nKZ58W ? _nKZ58W.role_id : '',
+                    server_id: _nKWZ85 ? _nKWZ85.server_id : '',
+                    role_id: _nKWZ85 ? _nKWZ85.role_id : '',
                     no_log: 1 //设置为1后就不在这个接口打log，交给logStartShare接口
                 },
                 success: function (res) {
@@ -543,7 +543,7 @@ function _nKZ8W5() {
             postData[A[200108]] = data.serverid;
 
             if (data.roleid && data.serverid) {
-                _nKZ58W = {
+                _nKWZ85 = {
                     role_id: data.roleid,
                     server_id: data.serverid
                 };
@@ -621,7 +621,7 @@ function _nKZ8W5() {
             postData[A[200108]] = data.serverid;
 
             if (data.roleid && data.serverid) {
-                _nKZ58W = {
+                _nKWZ85 = {
                     role_id: data.roleid,
                     server_id: data.serverid
                 };
@@ -630,8 +630,8 @@ function _nKZ8W5() {
             this.log(A[200113], postData);
 
             //进入游戏确认邀请成功
-            if (_nKZ5W8) {
-                this.updateShare(_nKZ5W8.invite, _nKZ5W8.invite_type, _nKZ5W8.is_new, data.roleid, data.serverid, _nKZ5W8.scene);
+            if (_nKZ58W) {
+                this.updateShare(_nKZ58W.invite, _nKZ58W.invite_type, _nKZ58W.is_new, data.roleid, data.serverid, _nKZ58W.scene);
             }
 
             // 渠道上报
@@ -712,7 +712,7 @@ function _nKZ8W5() {
             postData[A[200108]] = data.serverid;
 
             if (data.roleid && data.serverid) {
-                _nKZ58W = {
+                _nKWZ85 = {
                     role_id: data.roleid,
                     server_id: data.serverid
                 };
@@ -834,7 +834,7 @@ function _nKZ8W5() {
 }
 
 function run(method, data, callback) {
-    method in _nKWZ85 && _nKWZ85[method](data, callback);
+    method in _nKWZ58 && _nKWZ58[method](data, callback);
 }
 
 exports.init = function (data, callback) {

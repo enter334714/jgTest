@@ -16,19 +16,19 @@ module.exports = function (e) {
             get: r
         });
     }, n.r = function (e) {
-        o[340806] != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
-            value: o[340808]
-        }), Object.defineProperty(e, o[340809], {
+        o[340840] != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
+            value: o[340842]
+        }), Object.defineProperty(e, o[340843], {
             value: !0
         });
     }, n.t = function (e, t) {
         if (1 & t && (e = n(e)), 8 & t) return e;
-        if (4 & t && o[340810] == typeof e && e && e.__esModule) return e;
+        if (4 & t && o[340844] == typeof e && e && e.__esModule) return e;
         var r = Object.create(null);
-        if (n.r(r), Object.defineProperty(r, o[340811], {
+        if (n.r(r), Object.defineProperty(r, o[340845], {
             enumerable: !0,
             value: e
-        }), 2 & t && o[340812] != typeof e) for (var a in e) n.d(r, a, function (t) {
+        }), 2 & t && o[340846] != typeof e) for (var a in e) n.d(r, a, function (t) {
             return e[t];
         }.bind(null, a));
         return r;
@@ -50,7 +50,7 @@ module.exports = function (e) {
         baseParams: {
             app_id: "",
             client_id: "",
-            format: o[341156]
+            format: o[341190]
         },
         gameParams: {
             "game-pkg_name": "",
@@ -116,30 +116,30 @@ module.exports = function (e) {
         setting: {
             showLoading: !0,
             loadingParams: {
-                title: o[341732],
+                title: o[341776],
                 mask: !0
             },
             showToast: !1,
             toastParams: {
-                icon: o[341733]
+                icon: o[341777]
             }
         },
         launchOptions: {},
-        baseUrl: o[341734],
+        baseUrl: o[341778],
         channelId: 536
     };
     try {
-        r.gameParams[o[341735]] = wx.canIUse ? "" : o[341736], wx.getSystemInfo({
+        r.gameParams[o[341779]] = wx.canIUse ? "" : o[341780], wx.getSystemInfo({
             success: function (e) {
-                r.deviceParams[o[341737]] = encodeURIComponent(e.brand), r.deviceParams[o[341738]] = encodeURIComponent(e.model), r.deviceParams[o[341739]] = encodeURIComponent(e.screenWidth + "x" + e.screenHeight), r.deviceParams[o[341740]] = o[340230] === e.platform ? o[340110] : encodeURIComponent(e.platform), r.deviceParams[o[341741]] = encodeURIComponent(e.system), r.extParams.brand = e.brand, r.extParams.model = e.model, r.extParams.pixelRatio = e.pixelRatio, r.extParams.windowWidth = e.windowWidth, r.extParams.windowHeight = e.windowHeight, r.extParams.statusBarHeight = e.statusBarHeight, r.extParams.language = e.language, r.extParams.version = e.version, r.extParams.system = e.system, r.extParams.platform = e.platform, r.extParams.fontSizeSetting = e.fontSizeSetting, r.extParams.SDKVersion = e.SDKVersion, r.extParams.benchmarkLevel = e.benchmarkLevel, r.extParams[o[341742]] = e.albumAuthorized, r.extParams.cameraAuthorized = e.cameraAuthorized, r.extParams.locationAuthorized = e.locationAuthorized, r.extParams.microphoneAuthorized = e.microphoneAuthorized, r.extParams.notificationAuthorized = e.notificationAuthorized, r.extParams.notificationAlertAuthorized = e.notificationAlertAuthorized, r.extParams.notificationBadgeAuthorized = e.notificationBadgeAuthorized, r.extParams.notificationSoundAuthorized = e.notificationSoundAuthorized, r.extParams.bluetoothEnabled = e.bluetoothEnabled, r.extParams.locationEnabled = e.locationEnabled, r.extParams.wifiEnabled = e.wifiEnabled, r.extParams.safeArea = e.safeArea;
+                r.deviceParams[o[341781]] = encodeURIComponent(e.brand), r.deviceParams[o[341782]] = encodeURIComponent(e.model), r.deviceParams[o[341783]] = encodeURIComponent(e.screenWidth + "x" + e.screenHeight), r.deviceParams[o[341784]] = o[340231] === e.platform ? o[340110] : encodeURIComponent(e.platform), r.deviceParams[o[341785]] = encodeURIComponent(e.system), r.extParams.brand = e.brand, r.extParams.model = e.model, r.extParams.pixelRatio = e.pixelRatio, r.extParams.windowWidth = e.windowWidth, r.extParams.windowHeight = e.windowHeight, r.extParams.statusBarHeight = e.statusBarHeight, r.extParams.language = e.language, r.extParams.version = e.version, r.extParams.system = e.system, r.extParams.platform = e.platform, r.extParams.fontSizeSetting = e.fontSizeSetting, r.extParams.SDKVersion = e.SDKVersion, r.extParams.benchmarkLevel = e.benchmarkLevel, r.extParams[o[341786]] = e.albumAuthorized, r.extParams.cameraAuthorized = e.cameraAuthorized, r.extParams.locationAuthorized = e.locationAuthorized, r.extParams.microphoneAuthorized = e.microphoneAuthorized, r.extParams.notificationAuthorized = e.notificationAuthorized, r.extParams.notificationAlertAuthorized = e.notificationAlertAuthorized, r.extParams.notificationBadgeAuthorized = e.notificationBadgeAuthorized, r.extParams.notificationSoundAuthorized = e.notificationSoundAuthorized, r.extParams.bluetoothEnabled = e.bluetoothEnabled, r.extParams.locationEnabled = e.locationEnabled, r.extParams.wifiEnabled = e.wifiEnabled, r.extParams.safeArea = e.safeArea;
             }
         }), r.extParams.userua = window.navigator.userAgent, wx.getNetworkType({
             success: function (e) {
-                r.deviceParams[o[341743]] = encodeURIComponent(e.networkType), r.extParams.net = e.networkType;
+                r.deviceParams[o[341787]] = encodeURIComponent(e.networkType), r.extParams.net = e.networkType;
             }
         }), wx.getScreenBrightness({
             success: function (e) {
-                r.deviceParams[o[341744]] = encodeURIComponent(parseInt(100 * e.value)), r.extParams.screen_luminance = parseInt(100 * e.value);
+                r.deviceParams[o[341788]] = encodeURIComponent(parseInt(100 * e.value)), r.extParams.screen_luminance = parseInt(100 * e.value);
             }
         });
     } catch (e) {}
@@ -179,10 +179,10 @@ module.exports = function (e) {
             });
         },
         params: function (e) {
-            if (e.method = (e.method || o[340938]).toUpperCase(), o[340233] !== e.method || e.header || (e.header = {
+            if (e.method = (e.method || o[340972]).toUpperCase(), o[340234] !== e.method || e.header || (e.header = {
                 "Content-Type": o[340380]
             }), !e.private) {
-                var t = wx.getStorageSync(o[341745]);
+                var t = wx.getStorageSync(o[341789]);
                 e.data = r({}, a.default.baseParams, a.default.gameParams, a.default.agentParams, a.default.deviceParams, e.data, {
                     "device-ext": encodeURIComponent(JSON.stringify(a.default.extParams)),
                     token: t ? t.user_token : "",
@@ -197,7 +197,7 @@ module.exports = function (e) {
         },
         sign: function (e) {
             var t = "";
-            t = e.data.channel_id ? o[341746] : o[341747], e.app_key && (t = o[341748] + e.app_key);
+            t = e.data.channel_id ? o[341790] : o[341791], e.app_key && (t = o[341792] + e.app_key);
             var n = (e.signUrl || e.url).substr(1),
                 r = Object.keys(e.data).sort(),
                 a = "";
@@ -205,22 +205,22 @@ module.exports = function (e) {
                 a += "&" + t + "=" + e.data[t];
             });
             var i = "";
-            return i = e.app_key ? (0, o.default)(a.substr(1) + "&" + t) : (0, o.default)((e.method + "&" + encodeURIComponent(n) + "&" + encodeURIComponent(a.substr(1)) + "&" + t).replace(/\(/g, o[341749]).replace(/\)/g, o[341750])), i;
+            return i = e.app_key ? (0, o.default)(a.substr(1) + "&" + t) : (0, o.default)((e.method + "&" + encodeURIComponent(n) + "&" + encodeURIComponent(a.substr(1)) + "&" + t).replace(/\(/g, o[341793]).replace(/\)/g, o[341794])), i;
         },
         renderQRCode: function (e, t, n) {
             var r = t.getContext("2d"),
                 a = wx.createImage();
             a.src = n.image, a.onload = function () {
-                r.lineJoin = o[341224], r.lineWidth = 30, r.strokeStyle = o[340543], r.strokeRect((window.innerWidth - 240) / 2, (window.innerHeight - 264) / 2, 240, 264), r.fillStyle = o[340543], r.fillRect((window.innerWidth - 220) / 2, (window.innerHeight - 244) / 2, 220, 244), r.fillStyle = o[341751], r.font = o[341752], r.textAlign = o[340491], r.fillText(n.intro, window.innerWidth / 2, (window.innerHeight - 258) / 2 + 218 + 30, 250), r.drawImage(a, (window.innerWidth - 218) / 2, (window.innerHeight - 258) / 2, 218, 218);
+                r.lineJoin = o[341258], r.lineWidth = 30, r.strokeStyle = o[340534], r.strokeRect((window.innerWidth - 240) / 2, (window.innerHeight - 264) / 2, 240, 264), r.fillStyle = o[340534], r.fillRect((window.innerWidth - 220) / 2, (window.innerHeight - 244) / 2, 220, 244), r.fillStyle = o[341795], r.font = o[341796], r.textAlign = o[340491], r.fillText(n.intro, window.innerWidth / 2, (window.innerHeight - 258) / 2 + 218 + 30, 250), r.drawImage(a, (window.innerWidth - 218) / 2, (window.innerHeight - 258) / 2, 218, 218);
             }, u = {
                 canvas: e,
                 qrcvs: t,
                 qrctx: r,
                 data: n
-            }, e.addEventListener(o[341753], c);
+            }, e.addEventListener(o[341797], c);
         },
         removeOffScreen: function () {
-            u && (u.qrctx.clearRect(0, 0, u.qrcvs.width, u.qrcvs.height), u.canvas.removeEventListener(o[341753], c));
+            u && (u.qrctx.clearRect(0, 0, u.qrcvs.width, u.qrcvs.height), u.canvas.removeEventListener(o[341797], c));
         }
     };
     function c(e) {
@@ -230,7 +230,7 @@ module.exports = function (e) {
             r = t.clientY;
         n >= (window.innerWidth - 218) / 2 && n <= (window.innerWidth - 218) / 2 + 218 && r >= (window.innerHeight - 258) / 2 && r <= (window.innerHeight - 258) / 2 + 218 ? wx.previewImage({
             urls: [u.data.image]
-        }) : (u.qrctx.clearRect(0, 0, u.qrcvs.width, u.qrcvs.height), u.canvas.removeEventListener(o[341753], c));
+        }) : (u.qrctx.clearRect(0, 0, u.qrcvs.width, u.qrcvs.height), u.canvas.removeEventListener(o[341797], c));
     }
     e.exports = d;
 }, function (e, t, n) {
@@ -256,7 +256,7 @@ module.exports = function (e) {
             }
             return n;
         }(e, t);
-        throw new TypeError(o[341754]);
+        throw new TypeError(o[341798]);
     },
         a = Object.assign || function (e) {
         for (var t = 1; t < arguments.length; t++) {
@@ -285,9 +285,9 @@ module.exports = function (e) {
         init: function () {
             var e = this,
                 t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
-                n = [o[341755], o[341756], o[340195], o[341757], o[341758], o[341759], o[341760]];
+                n = [o[341799], o[341800], o[340195], o[341801], o[341802], o[341803], o[341804]];
             return n.map(function (e) {
-                void 0 !== t[e] && (o[341755] === e ? i.default.baseParams[e] = t.app_id : o[341756] === e ? i.default.gameParams[o[341761]] = t.mp_id : o[341760] === e ? i.default.debug = t.debug : i.default.setting[e] = t[e]);
+                void 0 !== t[e] && (o[341799] === e ? i.default.baseParams[e] = t.app_id : o[341800] === e ? i.default.gameParams[o[341805]] = t.mp_id : o[341804] === e ? i.default.debug = t.debug : i.default.setting[e] = t[e]);
             }), new Promise(function (n, u) {
                 t.app_id ? o.default.getDNSInfo({
                     data: a({
@@ -319,7 +319,7 @@ module.exports = function (e) {
                                         P = r(y, 2),
                                         x = P[0],
                                         b = P[1];
-                                    o[341762] === x && (s = b);
+                                    o[341806] === x && (s = b);
                                 }
                             } catch (e) {
                                 h = !0, p = e;
@@ -340,14 +340,14 @@ module.exports = function (e) {
                     } else i.default.launchOptions = {
                         state: l || s || ""
                     }, n({
-                        msg: o[340285]
+                        msg: o[340286]
                     });
                 }, function (e) {
                     n({
-                        msg: o[340285]
+                        msg: o[340286]
                     });
                 }) : u({
-                    msg: o[341763]
+                    msg: o[341807]
                 });
             });
         },
@@ -357,7 +357,7 @@ module.exports = function (e) {
                 wx.login({
                     success: function (r) {
                         var a;
-                        r.code ? (e.data = Object.assign({}, e.data, (c(a = {}, o[341764], i.default.extParams), c(a, o[341765], i.default.launchOptions.ext), c(a, o[340198], i.default.launchOptions.state), c(a, o[341766], r.code), a)), t(o.default.reversal(e))) : n(r);
+                        r.code ? (e.data = Object.assign({}, e.data, (c(a = {}, o[341808], i.default.extParams), c(a, o[341809], i.default.launchOptions.ext), c(a, o[340198], i.default.launchOptions.state), c(a, o[341810], r.code), a)), t(o.default.reversal(e))) : n(r);
                     },
                     fail: function (e) {
                         n(e);
@@ -383,16 +383,16 @@ module.exports = function (e) {
                                     url: ""
                                 }
                             }).then(function (e) {
-                                console.log(o[341767], e);
+                                console.log(o[341811], e);
                             }), n(e.getUserInfo(a({}, t)));
                         }, function (e) {
                             r({
-                                msg: e.msg || o[341763]
+                                msg: e.msg || o[341807]
                             });
                         });
                     },
                     fail: function (a) {
-                        console.log(o[341768], t), o.default.wxLogin(t).then(function (r) {
+                        console.log(o[341812], t), o.default.wxLogin(t).then(function (r) {
                             var a = wx.getLaunchOptionsSync();
                             o.default.reportAdClick({
                                 data: {
@@ -400,11 +400,11 @@ module.exports = function (e) {
                                     url: ""
                                 }
                             }).then(function (e) {
-                                console.log(o[341767], e);
+                                console.log(o[341811], e);
                             }), n(e.getUserInfo(t));
                         }, function (e) {
                             r({
-                                msg: e.msg || o[341763]
+                                msg: e.msg || o[341807]
                             });
                         });
                     }
@@ -416,11 +416,11 @@ module.exports = function (e) {
             return new Promise(function (t, n) {
                 o.default.setUserInfo(e).then(function (e) {
                     t(a({}, e, {
-                        msg: o[340285]
+                        msg: o[340286]
                     }));
                 }, function (e) {
                     n({
-                        msg: e.msg || o[341763]
+                        msg: e.msg || o[341807]
                     });
                 });
             });
@@ -453,19 +453,19 @@ module.exports = function (e) {
             return new Promise(function (t, n) {
                 o.default.mpPay(e).then(function (e) {
                     t({
-                        msg: o[340285]
+                        msg: o[340286]
                     });
                 }, function (e) {
                     n({
-                        msg: e.errMsg || o[341763]
+                        msg: e.errMsg || o[341807]
                     });
                 });
             });
         },
         mpPayQuery: function () {
             var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-            if (!e.data || void 0 === e.data[o[341769]]) {
-                var t = wx.getStorageSync(o[341770]);
+            if (!e.data || void 0 === e.data[o[341813]]) {
+                var t = wx.getStorageSync(o[341814]);
                 e.data = a({}, e.data, {
                     "order-order_id": t ? t.order_id : ""
                 });
@@ -488,19 +488,19 @@ module.exports = function (e) {
                         }, function (e) {});
                     }, 15e3);
                     n({
-                        msg: o[340285]
+                        msg: o[340286]
                     });
                 }, function (e) {
                     r({
-                        msg: e.errMsg || o[341763]
+                        msg: e.errMsg || o[341807]
                     });
                 });
             });
         },
         midasPayQuery: function () {
             var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-            if (!e.data || void 0 === e.data[o[341769]]) {
-                var t = wx.getStorageSync(o[341770]);
+            if (!e.data || void 0 === e.data[o[341813]]) {
+                var t = wx.getStorageSync(o[341814]);
                 e.data = a({}, e.data, {
                     "order-order_id": t ? t.order_id : ""
                 });
@@ -545,24 +545,24 @@ module.exports = function (e) {
         checkImg: function () {
             var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
                 t = a({}, i.default.baseParams, i.default.gameParams, i.default.agentParams, i.default.deviceParams, {
-                token: wx.getStorageSync(o[341745]).user_token,
+                token: wx.getStorageSync(o[341789]).user_token,
                 ts: new Date().getTime()
             });
             return t.sign = u.default.sign({
-                url: o[341771],
+                url: o[341815],
                 data: t
             }), new Promise(function (n, r) {
                 wx.uploadFile({
-                    url: i.default.baseUrl + o[341771],
+                    url: i.default.baseUrl + o[341815],
                     filePath: e.data.filePath,
-                    name: o[341772],
+                    name: o[341816],
                     formData: t,
                     success: function (e) {
                         var t = e.data;
                         200 === (t = JSON.parse(t)).code ? n({
-                            msg: o[340285]
+                            msg: o[340286]
                         }) : r({
-                            msg: t.msg || o[341763]
+                            msg: t.msg || o[341807]
                         });
                     }
                 });
@@ -595,9 +595,9 @@ module.exports = function (e) {
             a.default.ajax(e).then(function (e) {
                 e.data && e.data.data ? r({
                     data: e.data.data,
-                    msg: o[340285]
+                    msg: o[340286]
                 }) : r({
-                    msg: o[340285]
+                    msg: o[340286]
                 });
             }, function (e) {
                 if (e.data && 1002 === e.data.code) {
@@ -612,7 +612,7 @@ module.exports = function (e) {
                         });
                     }));
                 } else o({
-                    msg: e.data ? e.data.msg || o[341773] : e.errMsg
+                    msg: e.data ? e.data.msg || o[341817] : e.errMsg
                 });
             });
         });
@@ -620,16 +620,16 @@ module.exports = function (e) {
         c = {
         getDNSInfo: function (e) {
             return d(r({
-                method: o[341774],
-                url: o[341775],
-                signUrl: o[341776],
+                method: o[341818],
+                url: o[341819],
+                signUrl: o[341820],
                 private: !0
             }, e));
         },
         cpUserCheck: function (e) {
             return d(r({
-                method: o[341774],
-                url: o[341777],
+                method: o[341818],
+                url: o[341821],
                 private: !0
             }, e));
         },
@@ -637,10 +637,10 @@ module.exports = function (e) {
             return o.default.launchOptions.ext ? e.data = Object.assign({}, e.data, r({
                 state: o.default.launchOptions.state
             }, e)) : e.data = Object.assign({}, e.data, r({}, e)), o.default.launchOptions && o.default.launchOptions.state && (e.data.state = o.default.launchOptions.state), d(r({
-                method: o[341774],
-                url: o[341778]
+                method: o[341818],
+                url: o[341822]
             }, e)).then(function (e) {
-                return e && wx.setStorageSync(o[341745], e.data), e;
+                return e && wx.setStorageSync(o[341789], e.data), e;
             });
         },
         wxLogin: function (e) {
@@ -661,16 +661,16 @@ module.exports = function (e) {
         },
         reversal: function (e) {
             return d(r({
-                method: o[341774],
-                url: o[341779]
+                method: o[341818],
+                url: o[341823]
             }, e));
         },
         setUserInfo: function (e) {
             return d(r({
-                method: o[341774],
-                url: o[341780]
+                method: o[341818],
+                url: o[341824]
             }, e)).then(function (e) {
-                return wx.setStorageSync(o[341745], e.data), e;
+                return wx.setStorageSync(o[341789], e.data), e;
             });
         },
         upRoleInfo: function (e) {
@@ -678,43 +678,43 @@ module.exports = function (e) {
                 showLoading: !1,
                 showToast: !1
             }, d(r({
-                method: o[341774],
-                url: o[341781]
+                method: o[341818],
+                url: o[341825]
             }, e)).then(function (e) {
                 return e;
             });
         },
         getUserInfo: function (e) {
             return d(r({
-                method: o[341774],
-                url: o[341782]
+                method: o[341818],
+                url: o[341826]
             }, e)).then(function (e) {
                 if (e.data.report_status && 2 == e.data.report_status) try {
-                    require(o[341783]);
+                    require(o[341827]);
                 } catch (e) {}
-                return wx.setStorageSync(o[341745], e.data), e;
+                return wx.setStorageSync(o[341789], e.data), e;
             });
         },
         getShareInfo: function (e) {
             return d(r({
-                url: o[341784]
+                url: o[341828]
             }, e));
         },
         addShareInfo: function (e) {
             return d(r({
-                url: o[341785]
+                url: o[341829]
             }, e));
         },
         getShareQrcode: function (e) {
             return d(r({
-                url: o[341786]
+                url: o[341830]
             }, e));
         },
         mpPay: function (e) {
             var t = this;
             return this.preOrder(e).then(function (n) {
                 return e.data = r({}, e.data, {
-                    payway: o[341787],
+                    payway: o[341831],
                     "order-order_id": n.data.order_id
                 }), t.mpOrder(e);
             });
@@ -744,7 +744,7 @@ module.exports = function (e) {
                     platform: f,
                     zoneId: l,
                     success: function (a) {
-                        t.data[o[341769]] = e.order_id, t.conf = {
+                        t.data[o[341813]] = e.order_id, t.conf = {
                             showLoading: !1,
                             showToast: !1
                         }, n.midasPayQuery(t).then(function (e) {
@@ -757,9 +757,9 @@ module.exports = function (e) {
                         }, function (e) {}), a.errMsg && (a.msg = a.errMsg), r(a);
                     },
                     fail: function (e) {
-                        if (e.errMsg) if (o[341788] === e.errMsg) {
-                            var n = wx.getStorageSync(o[341745]);
-                            e.msg = n && n.ios_text || o[341789], e.duration = 3e3;
+                        if (e.errMsg) if (o[341832] === e.errMsg) {
+                            var n = wx.getStorageSync(o[341789]);
+                            e.msg = n && n.ios_text || o[341833], e.duration = 3e3;
                         } else e.msg = e.errMsg;
                         var r = a.default.setting(t.conf);
                         r.showToast && (e.msg && (r.toastParams.title = e.msg), e.duration && (r.toastParams.duration = e.duration), wx.showToast(r.toastParams)), o(e);
@@ -770,15 +770,15 @@ module.exports = function (e) {
         checkPay: function (e) {
             var t = this;
             return this.preOrder(e).then(function (n) {
-                return 2 === n.data.check ? t.wxMidasPay(n.data, e) : (e.data[o[341769]] = n.data.order_id, t.checkPayInfo(e));
+                return 2 === n.data.check ? t.wxMidasPay(n.data, e) : (e.data[o[341813]] = n.data.order_id, t.checkPayInfo(e));
             });
         },
         preOrder: function (e) {
             return d(r({
-                method: o[341774],
-                url: o[341790]
+                method: o[341818],
+                url: o[341834]
             }, e)).then(function (e) {
-                return wx.setStorageSync(o[341770], e.data), e;
+                return wx.setStorageSync(o[341814], e.data), e;
             }, function (e) {
                 return e;
             });
@@ -786,8 +786,8 @@ module.exports = function (e) {
         mpOrder: function (e) {
             var t = this;
             return d(r({
-                method: o[341774],
-                url: o[341791]
+                method: o[341818],
+                url: o[341835]
             }, e)).then(function (n) {
                 return t.wxMpPay(JSON.parse(n.data.token), e);
             });
@@ -804,8 +804,8 @@ module.exports = function (e) {
                         n.showToast && (e.msg && (n.toastParams.title = e.msg), wx.showToast(n.toastParams)), o(e);
                     },
                     complete: function (e) {
-                        o[341792] === e.errMsg && o({
-                            msg: o[341793]
+                        o[341836] === e.errMsg && o({
+                            msg: o[341837]
                         });
                     }
                 }));
@@ -813,26 +813,26 @@ module.exports = function (e) {
         },
         mpPayQuery: function (e) {
             return d(r({
-                method: o[341774],
-                url: o[341794]
+                method: o[341818],
+                url: o[341838]
             }, e));
         },
         midasPayQuery: function (e) {
             return d(r({
-                url: o[341795]
+                url: o[341839]
             }, e));
         },
         checkPayInfo: function (e) {
             var t = this;
             return d(r({
-                url: o[341796]
+                url: o[341840]
             }, e)).then(function (n) {
-                return n.data.order_id = e.data[o[341769]], new Promise(function (r, o) {
-                    n.data.image && wx.setStorageSync(o[341797], n.data.image);
-                    var i = wx.getStorageSync(o[341797]);
+                return n.data.order_id = e.data[o[341813]], new Promise(function (r, o) {
+                    n.data.image && wx.setStorageSync(o[341841], n.data.image);
+                    var i = wx.getStorageSync(o[341841]);
                     n.data && 4 == +n.data.pay_type ? (wx.showModal({
-                        title: o[341798],
-                        content: o[341799],
+                        title: o[341842],
+                        content: o[341843],
                         success: function (e) {
                             e.confirm && wx.openCustomerServiceConversation();
                         }
@@ -841,13 +841,13 @@ module.exports = function (e) {
                         path: n.data.path
                     }), r(n)) : i ? (e.canvas && e.offscreen && a.default.renderQRCode(e.canvas, e.offscreen, {
                         image: i,
-                        intro: n.data.intro || o[341800]
+                        intro: n.data.intro || o[341844]
                     }), n.data.image = i, r(n)) : t.checkQrcode(e).then(function (t) {
                         var o = t.data.poster_img;
                         e.canvas && e.offscreen && a.default.renderQRCode(e.canvas, e.offscreen, {
                             image: o,
-                            intro: n.data.intro || o[341800]
-                        }), wx.setStorageSync(o[341797], o), n.data.image = o, r(n);
+                            intro: n.data.intro || o[341844]
+                        }), wx.setStorageSync(o[341841], o), n.data.image = o, r(n);
                     }, function (e) {
                         r(n);
                     });
@@ -856,27 +856,27 @@ module.exports = function (e) {
         },
         checkOrderInfo: function (e) {
             return d(r({
-                method: o[341774],
-                url: o[341801]
+                method: o[341818],
+                url: o[341845]
             }, e));
         },
         checkOrder: function (e) {
             var t = this;
             return d(r({
-                method: o[341774],
-                url: o[341802]
+                method: o[341818],
+                url: o[341846]
             }, e)).then(function (n) {
                 return t.wxMpPay(JSON.parse(n.data.token), e);
             });
         },
         checkQrcode: function (e) {
             return e.data && (e.data.is_last = 2), d(r({
-                url: o[341803]
+                url: o[341847]
             }, e));
         },
         reportAdClick: function (e) {
             return d(r({
-                url: o[341804]
+                url: o[341848]
             }, e));
         },
         removeOffScreen: function () {
@@ -884,20 +884,20 @@ module.exports = function (e) {
         },
         checkMsg: function (e) {
             return d(r({
-                method: o[341774],
-                url: o[341805]
+                method: o[341818],
+                url: o[341849]
             }, e));
         },
         gameMinicard: function (e) {
             return d(r({
-                method: o[341774],
-                url: o[341806]
+                method: o[341818],
+                url: o[341850]
             }, e));
         },
         userCheckpay: function (e) {
             return d(r({
-                method: o[341774],
-                url: o[341807]
+                method: o[341818],
+                url: o[341851]
             }, e));
         }
     };
@@ -906,7 +906,7 @@ module.exports = function (e) {
     "use strict";
 
     var r;
-    o[340911] == typeof Symbol && Symbol.iterator;
+    o[340945] == typeof Symbol && Symbol.iterator;
     !function (a) {
         function o(e, t) {
             var n = (65535 & e) + (65535 & t);
@@ -962,7 +962,7 @@ module.exports = function (e) {
             var t,
                 n,
                 r = "";
-            for (n = 0; n < e.length; n += 1) t = e.charCodeAt(n), r += o[341808].charAt(t >>> 4 & 15) + o[341808].charAt(15 & t);
+            for (n = 0; n < e.length; n += 1) t = e.charCodeAt(n), r += o[341852].charAt(t >>> 4 & 15) + o[341852].charAt(15 & t);
             return r;
         }
         function h(e) {

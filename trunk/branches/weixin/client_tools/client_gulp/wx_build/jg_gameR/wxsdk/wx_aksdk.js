@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_wnywlonline_HJ',//盛也马甲包-王女异闻录online
     partner_label: 'shengye2',
     partner_id: '398',
-    game_ver: '17.0.7',
+    game_ver: '17.0.9',
     is_auth: false, //授权登录
     tmpId: {1:'qf4B4BRj7HimmczXWhayynNtwEElwssSwzuE21jXKD0', 2:'y25j6a_dlNkkNpXGiAcOT2lqrCBaec4pjCF52vxv4Mo', 3:'yjMP3I3zuOKeTx4AAcgKaZBLxdcqP6ZaKSVuk8IlZN4'},  // 订阅的类型 和 模板id
 };
