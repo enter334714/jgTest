@@ -197,7 +197,7 @@ function y2905$S() {
                                 return {
                                     title: data.title,
                                     imageUrl: data.img,
-                                    query: data.query + "&" + qingjs.instance.getShareToken()
+                                    query: data.query
                                 };
                             });
                         });
@@ -250,7 +250,8 @@ function y2905$S() {
 
         openService: function () {
             //登录后打开客服页面
-            qingjs.instance.goCustomerService();
+            // qingjs.instance.goCustomerService();
+            dwPlatformSDK.goCs();
         },
 
         checkGameVersion: function (game_ver, callback) {
