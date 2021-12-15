@@ -133,7 +133,7 @@ const Sygame = {
                 wx.showModal({
                   title: E[271983],
                   content: ret.data.game_tip ? ret.data.game_tip : E[271984],
-                  confirmText: E[251023],
+                  confirmText: E[250234],
                   showCancel: false,
                   success: () => {
                     console.log(E[271985], ret);
@@ -143,7 +143,7 @@ const Sygame = {
                   wx.showModal({
                     title: E[271983],
                     content: ret.data.game_tip ? ret.data.game_tip : E[271984],
-                    confirmText: E[251023],
+                    confirmText: E[250234],
                     showCancel: false,
                     success: () => {
                       console.log(E[271985], ret);
@@ -158,7 +158,7 @@ const Sygame = {
         }
       },
       fail: function () {
-        console.log(E[269169]);
+        console.log(E[268393]);
       }
     });
   }),
@@ -235,8 +235,8 @@ const Sygame = {
                 wx.showModal({
                   title: E[271989],
                   content: res.data.midas_pay_tip,
-                  confirmText: E[251023],
-                  showCancel: E[253919],
+                  confirmText: E[250234],
+                  showCancel: E[253132],
                   success: ret => {
                     if (ret.confirm) {
                       data.is_buckle_pay = 1;
@@ -298,8 +298,8 @@ const Sygame = {
         wx.showModal({
           title: E[240474],
           content: res.data.tip,
-          confirmText: E[251023],
-          showCancel: E[253919],
+          confirmText: E[250234],
+          showCancel: E[253132],
           success: ret => {
             if (ret.confirm) {}
           }
@@ -380,8 +380,8 @@ const Sygame = {
     wx.showModal({
       title: ret.data.jump_title_tip ? ret.data.jump_title_tip : E[272004],
       content: ret.data.jump_tip ? ret.data.jump_tip.replace(/\\n/g, '\n') : E[272005],
-      confirmText: ret.data.jump_button_tip ? ret.data.jump_button_tip : E[251023],
-      cancelText: ret.data.jump_cancel_tip ? ret.data.jump_cancel_tip : E[253919],
+      confirmText: ret.data.jump_button_tip ? ret.data.jump_button_tip : E[250234],
+      cancelText: ret.data.jump_cancel_tip ? ret.data.jump_cancel_tip : E[253132],
       showCancel: showCancelType,
       success: res => {
         // 点击取消按钮可以获取用户信息进入游戏（仅老版导包可以）
@@ -430,7 +430,7 @@ const Sygame = {
       wx.showModal({
         title: E[272004],
         content: ret.data.jump_tip ? ret.data.jump_tip : E[272005],
-        confirmText: E[251023],
+        confirmText: E[250234],
         showCancel: false,
         success: () => {
           wx.previewImage({
@@ -448,7 +448,7 @@ const Sygame = {
       wx.showModal({
         title: E[272004],
         content: ret.data.jump_tip ? ret.data.jump_tip : E[272005],
-        confirmText: E[251023],
+        confirmText: E[250234],
         showCancel: false,
         success: () => {
           wx.setClipboardData({
@@ -635,7 +635,7 @@ const Sygame = {
    */
   syClickBox: data => new Promise(function (reslove, reject) {
     // 判断用户是否点击
-    var clickBox = E[266388] + data.game_id;
+    var clickBox = E[265604] + data.game_id;
     var isClick = Sygame.cookieData({ type: E[240721], 'key': clickBox });
     var uv = isClick ? 0 : 1;
     wx.request({

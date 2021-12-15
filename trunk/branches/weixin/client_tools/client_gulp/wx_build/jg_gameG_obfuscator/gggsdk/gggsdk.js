@@ -14,7 +14,7 @@ var config = {
     game_pkg: m[27824], //疯狂微信小游戏-无双服-星聚
     partner_label: m[27825],
     partner_id: m[27826],
-    game_ver: "7.0.14",
+    game_ver: m[27827],
     partner_game_id: m[27828],
     is_auth: false //授权登录
 };
@@ -209,7 +209,7 @@ function G$VJ023() {
 
             var lastTime = Date.now();
             wx.request({
-                url: m[23924] + HOST + m[27853],
+                url: m[23923] + HOST + m[27853],
                 method: m[27408],
                 dataType: m[5411],
                 header: {
@@ -325,7 +325,7 @@ function G$VJ023() {
         logStartShare: function (type) {
             var sdk_token = wx.getStorageSync(m[27855]);
             wx.request({
-                url: m[23924] + HOST + m[27872],
+                url: m[23923] + HOST + m[27872],
                 method: m[27408],
                 dataType: m[5411],
                 header: {
@@ -433,7 +433,7 @@ function G$VJ023() {
             callbacks[m[6606]] = typeof callback == m[27173] ? callback : null;
             var sdk_token = wx.getStorageSync(m[27855]);
             wx.request({
-                url: m[23924] + HOST + '/game/min/?ac=checkGameVersion',
+                url: m[23923] + HOST + '/game/min/?ac=checkGameVersion',
                 method: m[27408],
                 dataType: m[5411],
                 header: {
@@ -484,7 +484,7 @@ function G$VJ023() {
             console.log(m[27887]);
             var sdk_token = wx.getStorageSync(m[27855]);
             wx.request({
-                url: m[23924] + HOST + m[27888],
+                url: m[23923] + HOST + m[27888],
                 method: m[27408],
                 dataType: m[5411],
                 header: {
@@ -524,7 +524,7 @@ function G$VJ023() {
             console.log(m[27892]);
             var sdk_token = wx.getStorageSync(m[27855]);
             wx.request({
-                url: m[23924] + HOST + m[27893],
+                url: m[23923] + HOST + m[27893],
                 method: m[27408],
                 dataType: m[5411],
                 header: {
@@ -553,7 +553,7 @@ function G$VJ023() {
             var sdk_token = wx.getStorageSync(m[27855]);
 
             wx.request({
-                url: m[23924] + HOST + m[27896] + config.partner_id + '/' + config.game_pkg,
+                url: m[23923] + HOST + m[27896] + config.partner_id + '/' + config.game_pkg,
                 method: m[27408],
                 dataType: m[5411],
                 header: {
@@ -578,7 +578,7 @@ function G$VJ023() {
             console.log(m[27898]);
             var ext = wx.getStorageSync(m[27858]);
             wx.request({
-                url: m[23924] + HOST + m[27899] + config.partner_id + '/' + config.game_pkg,
+                url: m[23923] + HOST + m[27899] + config.partner_id + '/' + config.game_pkg,
                 method: m[27408],
                 dataType: m[5411],
                 header: {
@@ -646,7 +646,7 @@ function G$VJ023() {
 
             //发起网络请求
             wx.request({
-                url: m[23924] + HOST + m[27904],
+                url: m[23923] + HOST + m[27904],
                 method: m[27408],
                 dataType: m[5411],
                 header: {
@@ -733,7 +733,7 @@ function G$VJ023() {
         roleCreateReport: function (is_valid = 1) {
 
             wx.request({
-                url: m[23924] + HOST + m[27915] + config.partner_id + '/' + config.game_pkg,
+                url: m[23923] + HOST + m[27915] + config.partner_id + '/' + config.game_pkg,
                 method: m[27408],
                 dataType: m[5411],
                 header: {
@@ -950,7 +950,7 @@ function G$VJ023() {
             console.log(public_data);
 
             wx.request({
-                url: m[23924] + HOST + m[27925] + type + m[27926] + encodeURIComponent(JSON.stringify(public_data))
+                url: m[23923] + HOST + m[27925] + type + m[27926] + encodeURIComponent(JSON.stringify(public_data))
             });
         },
 
@@ -982,7 +982,7 @@ exports.pay = function (data, callback) {
 };
 
 exports.openService = function () {
-    run(m[23407]);
+    run(m[23406]);
 };
 
 exports.goCustomer = function (serverId, serverName, roleId, roleName, roleLevel, rolecreatetime) {
@@ -1042,7 +1042,7 @@ exports.share = function (type) {
 };
 
 exports.msgCheck = function (data, callback) {
-    run(m[11119], data, callback);
+    run(m[11118], data, callback);
 };
 
 exports.downloadClient = function () {

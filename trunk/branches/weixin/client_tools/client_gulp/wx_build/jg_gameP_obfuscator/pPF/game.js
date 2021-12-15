@@ -1,2 +1,2 @@
 var E = wx.$p;
-require('ppBFp.js'), window[E[244660]][E[244661]][E[244662]] = null, window['client_pb'] = require('pCLIENTPB.js'), window[E[244663]] = window[E[244660]][E[244664]][E[244665]](client_pb);
+require('ppBFp.js'), window[E[271180]][E[271181]][E[271182]] = null, window['client_pb'] = require('pCLIENTPB.js'), window[E[268261]] = window[E[271180]][E[268191]][E[268192]](client_pb);

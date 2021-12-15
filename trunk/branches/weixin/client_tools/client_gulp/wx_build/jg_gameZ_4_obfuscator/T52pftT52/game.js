@@ -1,0 +1,2 @@
+var B = wx.$B;
+require('T5T5FT5T5.js'), window[B[520819]][B[520820]][B[520821]] = null, window['client_pb'] = require('T5T5IENT5T5.js'), window[B[520822]] = window[B[520819]][B[520823]][B[520824]](client_pb);

@@ -1,2 +1,2 @@
 var Q = wx.$I;
-require('iiBF.js'), window[Q[147997]][Q[147998]][Q[147999]] = null, window['client_pb'] = require('iiiCLIENTPB.js'), window[Q[144921]] = window[Q[147997]][Q[144811]][Q[144812]](client_pb);
+require('iiBF.js'), window[Q[147997]][Q[147998]][Q[147999]] = null, window['client_pb'] = require('iiiCLIENTPB.js'), window[Q[144920]] = window[Q[147997]][Q[144810]][Q[144811]](client_pb);

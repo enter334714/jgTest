@@ -247,7 +247,7 @@ const Sygame = {
         }
       },
       fail: function () {
-        console.log(m[23995]);
+        console.log(m[23994]);
       }
     });
   }),
@@ -513,7 +513,7 @@ const Sygame = {
    */
   syClickBox: data => new Promise(function (reslove, reject) {
     // 判断用户是否点击
-    var clickBox = m[21040] + data.game_id;
+    var clickBox = m[21039] + data.game_id;
     var isClick = Sygame.cookieData({ type: m[439], 'key': clickBox });
     var uv = isClick ? 0 : 1;
     wx.request({

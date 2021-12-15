@@ -1,319 +1,319 @@
 var m = wx.$g;
-(function (window, document, t34fdo) {
-  var ec7gvq = t34fdo['un'],
-      t3fo_4 = t34fdo['uns'],
-      vqyeg7 = t34fdo['static'],
-      fp5b_0 = t34fdo['class'],
-      ia1x = t34fdo['getset'],
-      o6rdz = t34fdo['__newvec'],
-      ihx5ba = laya['utils']['Browser'],
-      cs7qgv = laya['events']['Event'],
-      v1yewk = laya['events']['EventDispatcher'],
-      axh1i5 = laya['resource']['HTMLImage'],
-      qv7wye = laya['utils']['Handler'],
-      eqy7w = laya['display']['Input'],
-      ihx1ka = laya['net']['Loader'],
-      zor6 = laya['maths']['Matrix'],
-      qwey7 = laya['renders']['Render'],
-      ixab5p = laya['utils']['RunDriver'],
-      p_ib = laya['media']['Sound'],
-      r2j$z6 = laya['media']['SoundChannel'],
-      qg8cs = laya['media']['SoundManager'],
-      ecqg7v = laya['display']['Stage'],
-      gqcs78 = laya['net']['URL'],
-      xwah = laya['utils']['Utils'],
-      rdjz26 = function () {
-    function t_430() {}return fp5b_0(t_430, 'laya.wx.mini.MiniAdpter'), t_430['getJson'] = function (t_3fo4) {
-      return JSON['parse'](t_3fo4);
-    }, t_430['init'] = function (ve1ky, wv1kye) {
-      ve1ky === void 0x0 && (ve1ky = ![]), wv1kye === void 0x0 && (wv1kye = ![]);if (t_430['_inited']) return;t_430['window'] = window;if (t_430['window']['navigator']['userAgent']['indexOf']('MiniGame') < 0x0) return;t_430['_inited'] = !![], t_430['isZiYu'] = wv1kye, t_430['isPosMsgYu'] = ve1ky, t_430['EnvConfig'] = {}, !t_430['isZiYu'] && (_04pt['setNativeFileDir']('/layaairGame'), _04pt['existDir'](_04pt['fileNativeDir'], qv7wye['create'](t_430, t_430['onMkdirCallBack']))), t_430['window']['focus'] = function () {}, t34fdo['getUrlPath'] = function () {}, t_430['window']['logtime'] = function (hb5iax) {}, t_430['window']['alertTimeLog'] = function (o632d) {}, t_430['window']['resetShareInfo'] = function () {}, t_430['window']['CanvasRenderingContext2D'] = function () {}, t_430['window']['CanvasRenderingContext2D']['prototype'] = t_430['window']['wx']['createCanvas']()['getContext']('2d')['__proto__'], t_430['window']['document']['body']['appendChild'] = function () {}, t_430['EnvConfig']['pixelRatioInt'] = 0x0, ixab5p['getPixelRatio'] = t_430['pixelRatio'], t_430['_preCreateElement'] = ihx5ba['createElement'], ihx5ba['createElement'] = t_430['createElement'], ixab5p['createShaderCondition'] = t_430['createShaderCondition'], xwah['parseXMLFromString'] = t_430['parseXMLFromString'], eqy7w['_createInputElement'] = pb5iax['_createInputElement'], t_430['EnvConfig']['load'] = ihx1ka['prototype']['load'], ihx1ka['prototype']['load'] = xwh1ak['prototype']['load'], t_430['isZiYu'] && ve1ky && wx['onMessage'](function (j$umr6) {
-        j$umr6['isLoad'] && (_04pt['ziyuFileData'][j$umr6['url']] = j$umr6['data']);
+(function (window, document, doz263) {
+  var fdot4 = doz263['un'],
+      sgc8l = doz263['uns'],
+      _tf403 = doz263['static'],
+      weq7y = doz263['class'],
+      p_50ib = doz263['getset'],
+      wha1k = doz263['__newvec'],
+      aix1h = laya['utils']['Browser'],
+      ftbp0_ = laya['events']['Event'],
+      ruj26$ = laya['events']['EventDispatcher'],
+      q8slg = laya['resource']['HTMLImage'],
+      p_5b0 = laya['utils']['Handler'],
+      bxi5pa = laya['display']['Input'],
+      zod243 = laya['net']['Loader'],
+      xbha = laya['maths']['Matrix'],
+      $6r2z = laya['renders']['Render'],
+      ozr6d2 = laya['utils']['RunDriver'],
+      pib5x = laya['media']['Sound'],
+      z6odr = laya['media']['SoundChannel'],
+      c87sqg = laya['media']['SoundManager'],
+      qscg7 = laya['display']['Stage'],
+      u2$jr6 = laya['net']['URL'],
+      h1wyxk = laya['utils']['Utils'],
+      t34df = function () {
+    function b05ai() {}return weq7y(b05ai, 'laya.wx.mini.MiniAdpter'), b05ai['getJson'] = function ($6umr) {
+      return JSON['parse']($6umr);
+    }, b05ai['init'] = function (_5fp0b, keh) {
+      _5fp0b === void 0x0 && (_5fp0b = ![]), keh === void 0x0 && (keh = ![]);if (b05ai['_inited']) return;b05ai['window'] = window;if (b05ai['window']['navigator']['userAgent']['indexOf']('MiniGame') < 0x0) return;b05ai['_inited'] = !![], b05ai['isZiYu'] = keh, b05ai['isPosMsgYu'] = _5fp0b, b05ai['EnvConfig'] = {}, !b05ai['isZiYu'] && (o4_t['setNativeFileDir']('/layaairGame'), o4_t['existDir'](o4_t['fileNativeDir'], p_5b0['create'](b05ai, b05ai['onMkdirCallBack']))), b05ai['window']['focus'] = function () {}, doz263['getUrlPath'] = function () {}, b05ai['window']['logtime'] = function (o34tzd) {}, b05ai['window']['alertTimeLog'] = function (tb_0p) {}, b05ai['window']['resetShareInfo'] = function () {}, b05ai['window']['CanvasRenderingContext2D'] = function () {}, b05ai['window']['CanvasRenderingContext2D']['prototype'] = b05ai['window']['wx']['createCanvas']()['getContext']('2d')['__proto__'], b05ai['window']['document']['body']['appendChild'] = function () {}, b05ai['EnvConfig']['pixelRatioInt'] = 0x0, ozr6d2['getPixelRatio'] = b05ai['pixelRatio'], b05ai['_preCreateElement'] = aix1h['createElement'], aix1h['createElement'] = b05ai['createElement'], ozr6d2['createShaderCondition'] = b05ai['createShaderCondition'], h1wyxk['parseXMLFromString'] = b05ai['parseXMLFromString'], bxi5pa['_createInputElement'] = cs7gq['_createInputElement'], b05ai['EnvConfig']['load'] = zod243['prototype']['load'], zod243['prototype']['load'] = iax5hb['prototype']['load'], b05ai['isZiYu'] && _5fp0b && wx['onMessage'](function (c89gl) {
+        c89gl['isLoad'] && (o4_t['ziyuFileData'][c89gl['url']] = c89gl['data']);
       });
-    }, t_430['onMkdirCallBack'] = function (e1wkhy, p50bi_) {
-      if (!e1wkhy) _04pt['filesListObj'] = JSON['parse'](p50bi_['data']);
-    }, t_430['pixelRatio'] = function () {
-      if (!t_430['EnvConfig']['pixelRatioInt']) try {
-        var baix5 = wx['getSystemInfoSync']();return t_430['EnvConfig']['pixelRatioInt'] = baix5['pixelRatio'], baix5 = baix5, baix5['pixelRatio'];
-      } catch (hixak) {}return t_430['EnvConfig']['pixelRatioInt'];
-    }, t_430['createElement'] = function (eg7vqy) {
-      if (eg7vqy == 'canvas') {
-        var h5bix;return t_430['idx'] == 0x1 ? t_430['isZiYu'] ? (h5bix = sharedCanvas, h5bix['style'] = {}) : h5bix = window['canvas'] : h5bix = window['wx']['createCanvas'](), t_430['idx']++, h5bix;
+    }, b05ai['onMkdirCallBack'] = function (vkyw7, p5b_0i) {
+      if (!vkyw7) o4_t['filesListObj'] = JSON['parse'](p5b_0i['data']);
+    }, b05ai['pixelRatio'] = function () {
+      if (!b05ai['EnvConfig']['pixelRatioInt']) try {
+        var s8glc = wx['getSystemInfoSync']();return b05ai['EnvConfig']['pixelRatioInt'] = s8glc['pixelRatio'], s8glc = s8glc, s8glc['pixelRatio'];
+      } catch (hkey1) {}return b05ai['EnvConfig']['pixelRatioInt'];
+    }, b05ai['createElement'] = function (kyve1w) {
+      if (kyve1w == 'canvas') {
+        var qg8;return b05ai['idx'] == 0x1 ? b05ai['isZiYu'] ? (qg8 = sharedCanvas, qg8['style'] = {}) : qg8 = window['canvas'] : qg8 = window['wx']['createCanvas'](), b05ai['idx']++, qg8;
       } else {
-        if (eg7vqy == 'textarea' || eg7vqy == 'input') return t_430['onCreateInput'](eg7vqy);else {
-          if (eg7vqy == 'div') {
-            var l8qcgs = t_430['_preCreateElement'](eg7vqy);return l8qcgs['contains'] = function (jur6$m) {
+        if (kyve1w == 'textarea' || kyve1w == 'input') return b05ai['onCreateInput'](kyve1w);else {
+          if (kyve1w == 'div') {
+            var zd3o2 = b05ai['_preCreateElement'](kyve1w);return zd3o2['contains'] = function (b_5p0i) {
               return null;
-            }, l8qcgs['removeChild'] = function (ihx5a) {}, l8qcgs;
-          } else return t_430['_preCreateElement'](eg7vqy);
+            }, zd3o2['removeChild'] = function (doz432) {}, zd3o2;
+          } else return b05ai['_preCreateElement'](kyve1w);
         }
       }
-    }, t_430['onCreateInput'] = function (dzr2o6) {
-      var slgc98 = t_430['_preCreateElement'](dzr2o6);return slgc98['focus'] = pb5iax['wxinputFocus'], slgc98['blur'] = pb5iax['wxinputblur'], slgc98['style'] = {}, slgc98['value'] = 0x0, slgc98['parentElement'] = {}, slgc98['placeholder'] = {}, slgc98['type'] = {}, slgc98['setColor'] = function (p_0b5f) {}, slgc98['setType'] = function (j62$ur) {}, slgc98['setFontFace'] = function (qegc7) {}, slgc98['addEventListener'] = function (_5p0i) {}, slgc98['contains'] = function (svgc) {
+    }, b05ai['onCreateInput'] = function (d4t3f) {
+      var pf_b0 = b05ai['_preCreateElement'](d4t3f);return pf_b0['focus'] = cs7gq['wxinputFocus'], pf_b0['blur'] = cs7gq['wxinputblur'], pf_b0['style'] = {}, pf_b0['value'] = 0x0, pf_b0['parentElement'] = {}, pf_b0['placeholder'] = {}, pf_b0['type'] = {}, pf_b0['setColor'] = function (qgl) {}, pf_b0['setType'] = function (i5pxba) {}, pf_b0['setFontFace'] = function (vw1yek) {}, pf_b0['addEventListener'] = function (ftdo3) {}, pf_b0['contains'] = function (sg8c) {
         return null;
-      }, slgc98['removeChild'] = function (w1ykh) {}, slgc98;
-    }, t_430['createShaderCondition'] = function (h1wykx) {
-      var e1 = this,
-          b5_fp = function () {
-        var rjz$2 = h1wykx;return e1[h1wykx['replace']('this.', '')];
-      };return b5_fp;
-    }, t_430['EnvConfig'] = null, t_430['window'] = null, t_430['_preCreateElement'] = null, t_430['_inited'] = ![], t_430['wxRequest'] = null, t_430['systemInfo'] = null, t_430['version'] = '0.0.1', t_430['isZiYu'] = ![], t_430['isPosMsgYu'] = ![], t_430['parseXMLFromString'] = function (g9c8l) {
-      var sl8c, eqy7vw;g9c8l = g9c8l['replace'](/>\s+</g, '><');try {
-        sl8c = new window['Parser']['DOMParser']()['parseFromString'](g9c8l, 'text/xml');
-      } catch (pbt_f) {
+      }, pf_b0['removeChild'] = function ($rjm) {}, pf_b0;
+    }, b05ai['createShaderCondition'] = function (ql8s) {
+      var e7ywv = this,
+          rdj = function () {
+        var gqcs8 = ql8s;return e7ywv[ql8s['replace']('this.', '')];
+      };return rdj;
+    }, b05ai['EnvConfig'] = null, b05ai['window'] = null, b05ai['_preCreateElement'] = null, b05ai['_inited'] = ![], b05ai['wxRequest'] = null, b05ai['systemInfo'] = null, b05ai['version'] = '0.0.1', b05ai['isZiYu'] = ![], b05ai['isPosMsgYu'] = ![], b05ai['parseXMLFromString'] = function (ix) {
+      var m$uj6r, sl8c;ix = ix['replace'](/>\s+</g, '><');try {
+        m$uj6r = new window['Parser']['DOMParser']()['parseFromString'](ix, 'text/xml');
+      } catch (sq8cl) {
         throw '需要引入xml解析库文件';
-      }return sl8c;
-    }, t_430['idx'] = 0x1, t_430;
+      }return m$uj6r;
+    }, b05ai['idx'] = 0x1, b05ai;
   }(),
-      ha51i = function () {
-    function aixk1h() {}fp5b_0(aixk1h, 'laya.wx.mini.MiniImage');var y7gv = aixk1h['prototype'];return y7gv['_loadImage'] = function (_pi5b0) {
-      var hik = this,
-          baxpi5 = ![];_pi5b0['indexOf']('layaNativeDir/') == -0x1 && (baxpi5 = !![], _pi5b0 = gqcs78['formatURL'](_pi5b0));if (!_04pt['getFileInfo'](_pi5b0)) {
-        if (_pi5b0['indexOf']('http://') != -0x1 || _pi5b0['indexOf']('https://') != -0x1) _04pt['downImg'](_pi5b0, new qv7wye(aixk1h, aixk1h['onDownImgCallBack'], [_pi5b0, hik]), _pi5b0);else aixk1h['onCreateImage'](_pi5b0, hik, !![]);
-      } else aixk1h['onCreateImage'](_pi5b0, hik, !baxpi5);
-    }, aixk1h['onDownImgCallBack'] = function (q8lcsg, ro6, c98slg) {
-      if (!c98slg) aixk1h['onCreateImage'](q8lcsg, ro6);else ro6['onError'](null);
-    }, aixk1h['onCreateImage'] = function (f50_pb, b5pf_0, mu6rj) {
-      mu6rj === void 0x0 && (mu6rj = ![]);var hw1yke;if (!mu6rj) {
-        var xi5bpa = _04pt['getFileInfo'](f50_pb),
-            lq8sgc = xi5bpa['md5'];hw1yke = _04pt['getFileNativePath'](lq8sgc);
-      } else hw1yke = f50_pb;if (b5pf_0['imgCache'] == null) b5pf_0['imgCache'] = {};var b_p50i;function wkxh() {
-        b_p50i['onload'] = null, b_p50i['onerror'] = null, delete b5pf_0['imgCache'][f50_pb];
-      };var fpb0t_ = function () {
-        wkxh(), b5pf_0['onLoaded'](b_p50i);
+      cqlgs = function () {
+    function w1evky() {}weq7y(w1evky, 'laya.wx.mini.MiniImage');var pb_0f = w1evky['prototype'];return pb_0f['_loadImage'] = function (b_ftp) {
+      var d4tof3 = this,
+          bftp_0 = ![];b_ftp['indexOf']('layaNativeDir/') == -0x1 && (bftp_0 = !![], b_ftp = u2$jr6['formatURL'](b_ftp));if (!o4_t['getFileInfo'](b_ftp)) {
+        if (b_ftp['indexOf']('http://') != -0x1 || b_ftp['indexOf']('https://') != -0x1) o4_t['downImg'](b_ftp, new p_5b0(w1evky, w1evky['onDownImgCallBack'], [b_ftp, d4tof3]), b_ftp);else w1evky['onCreateImage'](b_ftp, d4tof3, !![]);
+      } else w1evky['onCreateImage'](b_ftp, d4tof3, !bftp_0);
+    }, w1evky['onDownImgCallBack'] = function (xwhy, k1ey, z4o2d3) {
+      if (!z4o2d3) w1evky['onCreateImage'](xwhy, k1ey);else k1ey['onError'](null);
+    }, w1evky['onCreateImage'] = function (c7vge, $62ju, vekw1) {
+      vekw1 === void 0x0 && (vekw1 = ![]);var o4dz;if (!vekw1) {
+        var ywke = o4_t['getFileInfo'](c7vge),
+            wyk1e = ywke['md5'];o4dz = o4_t['getFileNativePath'](wyk1e);
+      } else o4dz = c7vge;if ($62ju['imgCache'] == null) $62ju['imgCache'] = {};var gv7eqy;function g7vsqc() {
+        gv7eqy['onload'] = null, gv7eqy['onerror'] = null, delete $62ju['imgCache'][c7vge];
+      };var t3d4z = function () {
+        g7vsqc(), $62ju['onLoaded'](gv7eqy);
       },
-          xia5hb = function () {
-        wkxh(), b5pf_0['event']('error', 'Load image failed');
-      };b5pf_0['_type'] == 'nativeimage' ? (b_p50i = new ihx5ba['window']['Image'](), b_p50i['crossOrigin'] = '', b_p50i['onload'] = fpb0t_, b_p50i['onerror'] = xia5hb, b_p50i['src'] = hw1yke, b5pf_0['imgCache'][f50_pb] = b_p50i) : new axh1i5['create'](hw1yke, { 'onload': fpb0t_, 'onerror': xia5hb, 'onCreate': function (gl9c) {
-          b_p50i = gl9c, b5pf_0['imgCache'][f50_pb] = gl9c;
+          r$j6mu = function () {
+        g7vsqc(), $62ju['event']('error', 'Load image failed');
+      };$62ju['_type'] == 'nativeimage' ? (gv7eqy = new aix1h['window']['Image'](), gv7eqy['crossOrigin'] = '', gv7eqy['onload'] = t3d4z, gv7eqy['onerror'] = r$j6mu, gv7eqy['src'] = o4dz, $62ju['imgCache'][c7vge] = gv7eqy) : new q8slg['create'](o4dz, { 'onload': t3d4z, 'onerror': r$j6mu, 'onCreate': function (tf_4p) {
+          gv7eqy = tf_4p, $62ju['imgCache'][c7vge] = tf_4p;
         } });
-    }, aixk1h;
+    }, w1evky;
   }(),
-      pb5iax = function () {
-    function _to34() {}return fp5b_0(_to34, 'laya.wx.mini.MiniInput'), _to34['_createInputElement'] = function () {
-      eqy7w['_initInput'](eqy7w['area'] = ihx5ba['createElement']('textarea')), eqy7w['_initInput'](eqy7w['input'] = ihx5ba['createElement']('input')), eqy7w['inputContainer'] = ihx5ba['createElement']('div'), eqy7w['inputContainer']['style']['position'] = 'absolute', eqy7w['inputContainer']['style']['zIndex'] = 0x186a0, ihx5ba['container']['appendChild'](eqy7w['inputContainer']), eqy7w['inputContainer']['setPos'] = function (fo34td, cvq7gs) {
-        eqy7w['inputContainer']['style']['left'] = fo34td + 'px', eqy7w['inputContainer']['style']['top'] = cvq7gs + 'px';
-      }, t34fdo['stage']['on']('resize', null, _to34['_onStageResize']), wx['onWindowResize'] && wx['onWindowResize'](function (g7qeyv) {
+      cs7gq = function () {
+    function sqgv() {}return weq7y(sqgv, 'laya.wx.mini.MiniInput'), sqgv['_createInputElement'] = function () {
+      bxi5pa['_initInput'](bxi5pa['area'] = aix1h['createElement']('textarea')), bxi5pa['_initInput'](bxi5pa['input'] = aix1h['createElement']('input')), bxi5pa['inputContainer'] = aix1h['createElement']('div'), bxi5pa['inputContainer']['style']['position'] = 'absolute', bxi5pa['inputContainer']['style']['zIndex'] = 0x186a0, aix1h['container']['appendChild'](bxi5pa['inputContainer']), bxi5pa['inputContainer']['setPos'] = function (f4_03, a0bip) {
+        bxi5pa['inputContainer']['style']['left'] = f4_03 + 'px', bxi5pa['inputContainer']['style']['top'] = a0bip + 'px';
+      }, doz263['stage']['on']('resize', null, sqgv['_onStageResize']), wx['onWindowResize'] && wx['onWindowResize'](function (tbp) {
         window['dispatchEvent'] && window['dispatchEvent']('resize');
-      }), qg8cs['_soundClass'] = a5xibh, qg8cs['_musicClass'] = a5xibh;
-    }, _to34['_onStageResize'] = function () {
-      var eky1vw = t34fdo['stage']['_canvasTransform']['identity']();eky1vw['scale'](ihx5ba['width'] / qwey7['canvas']['width'] / ixab5p['getPixelRatio'](), ihx5ba['height'] / qwey7['canvas']['height'] / ixab5p['getPixelRatio']());
-    }, _to34['wxinputFocus'] = function (_ftbp) {
-      var x1i5h = eqy7w['inputElement']['target'];if (x1i5h && !x1i5h['editable']) return;rdjz26['window']['wx']['offKeyboardConfirm'](), rdjz26['window']['wx']['offKeyboardInput'](), rdjz26['window']['wx']['showKeyboard']({ 'defaultValue': x1i5h['text'], 'maxLength': x1i5h['maxChars'], 'multiple': x1i5h['multiline'], 'confirmHold': !![], 'confirmType': 'done', 'success': function (p0b5ia) {}, 'fail': function (vkwy1e) {} }), rdjz26['window']['wx']['onKeyboardConfirm'](function (df4to3) {
-        var _fo3t4 = df4to3 ? df4to3['value'] : '';x1i5h['text'] = _fo3t4, x1i5h['event']('input'), laya['wx']['mini']['MiniInput']['inputEnter']();
-      }), rdjz26['window']['wx']['onKeyboardInput'](function (vyw7eq) {
-        var r26$ju = vyw7eq ? vyw7eq['value'] : '';if (!x1i5h['multiline']) {
-          if (r26$ju['indexOf']('\x0a') != -0x1) {
+      }), c87sqg['_soundClass'] = cgq87s, c87sqg['_musicClass'] = cgq87s;
+    }, sqgv['_onStageResize'] = function () {
+      var _ft04 = doz263['stage']['_canvasTransform']['identity']();_ft04['scale'](aix1h['width'] / $6r2z['canvas']['width'] / ozr6d2['getPixelRatio'](), aix1h['height'] / $6r2z['canvas']['height'] / ozr6d2['getPixelRatio']());
+    }, sqgv['wxinputFocus'] = function (vkewy7) {
+      var j2$z6 = bxi5pa['inputElement']['target'];if (j2$z6 && !j2$z6['editable']) return;t34df['window']['wx']['offKeyboardConfirm'](), t34df['window']['wx']['offKeyboardInput'](), t34df['window']['wx']['showKeyboard']({ 'defaultValue': j2$z6['text'], 'maxLength': j2$z6['maxChars'], 'multiple': j2$z6['multiline'], 'confirmHold': !![], 'confirmType': 'done', 'success': function (tzo4d3) {}, 'fail': function (xy1whk) {} }), t34df['window']['wx']['onKeyboardConfirm'](function (otdz4) {
+        var cg8q7s = otdz4 ? otdz4['value'] : '';j2$z6['text'] = cg8q7s, j2$z6['event']('input'), laya['wx']['mini']['MiniInput']['inputEnter']();
+      }), t34df['window']['wx']['onKeyboardInput'](function ($z6r) {
+        var bxipa = $z6r ? $z6r['value'] : '';if (!j2$z6['multiline']) {
+          if (bxipa['indexOf']('\x0a') != -0x1) {
             laya['wx']['mini']['MiniInput']['inputEnter']();return;
           }
-        }x1i5h['text'] = r26$ju, x1i5h['event']('input');
+        }j2$z6['text'] = bxipa, j2$z6['event']('input');
       });
-    }, _to34['inputEnter'] = function () {
-      eqy7w['inputElement']['target']['focus'] = ![];
-    }, _to34['wxinputblur'] = function () {
-      _to34['hideKeyboard']();
-    }, _to34['hideKeyboard'] = function () {
-      rdjz26['window']['wx']['offKeyboardConfirm'](), rdjz26['window']['wx']['offKeyboardInput'](), rdjz26['window']['wx']['hideKeyboard']({ 'success': function (vew7ky) {
+    }, sqgv['inputEnter'] = function () {
+      bxi5pa['inputElement']['target']['focus'] = ![];
+    }, sqgv['wxinputblur'] = function () {
+      sqgv['hideKeyboard']();
+    }, sqgv['hideKeyboard'] = function () {
+      t34df['window']['wx']['offKeyboardConfirm'](), t34df['window']['wx']['offKeyboardInput'](), t34df['window']['wx']['hideKeyboard']({ 'success': function (s7gq8) {
           console['log']('隐藏键盘');
-        }, 'fail': function (bhax5i) {
-          console['log']('隐藏键盘出错:' + (bhax5i ? bhax5i['errMsg'] : ''));
+        }, 'fail': function (p0b_t) {
+          console['log']('隐藏键盘出错:' + (p0b_t ? p0b_t['errMsg'] : ''));
         } });
-    }, _to34;
+    }, sqgv;
   }(),
-      xwh1ak = function () {
-    function fd43ot() {}fp5b_0(fd43ot, 'laya.wx.mini.MiniLoader');var j6u$r = fd43ot['prototype'];return j6u$r['load'] = function (vy1ew, eywq7, gscq, hk1ax, $u2j6r) {
-      gscq === void 0x0 && (gscq = !![]), $u2j6r === void 0x0 && ($u2j6r = ![]);var cg89ls = this;cg89ls['_url'] = vy1ew;if (vy1ew['indexOf']('data:image') === 0x0) cg89ls['_type'] = eywq7 = 'image';else cg89ls['_type'] = eywq7 || (eywq7 = cg89ls['getTypeFromUrl'](vy1ew));cg89ls['_cache'] = gscq, cg89ls['_data'] = null;var ewqy7v = 'ascii';if (vy1ew['indexOf']('.fnt') != -0x1) ewqy7v = 'utf8';else eywq7 == 'arraybuffer' && (ewqy7v = '');;var cs7vq = xwah['getFileExtension'](vy1ew);if (fd43ot['_fileTypeArr']['indexOf'](cs7vq) != -0x1) rdjz26['EnvConfig']['load']['call'](this, vy1ew, eywq7, gscq, hk1ax, $u2j6r);else {
-        if (!_04pt['getFileInfo'](vy1ew)) {
-          if (vy1ew['indexOf']('layaNativeDir/') != -0x1) {
-            if (rdjz26['isZiYu']) {
-              var sg8c9l = _04pt['ziyuFileData'][vy1ew];cg89ls['onLoaded'](sg8c9l);return;
+      iax5hb = function () {
+    function csgvq() {}weq7y(csgvq, 'laya.wx.mini.MiniLoader');var heywk = csgvq['prototype'];return heywk['load'] = function (of4d3, dr62jz, rmju$6, yw1ke, vq7ew) {
+      rmju$6 === void 0x0 && (rmju$6 = !![]), vq7ew === void 0x0 && (vq7ew = ![]);var kwyx = this;kwyx['_url'] = of4d3;if (of4d3['indexOf']('data:image') === 0x0) kwyx['_type'] = dr62jz = 'image';else kwyx['_type'] = dr62jz || (dr62jz = kwyx['getTypeFromUrl'](of4d3));kwyx['_cache'] = rmju$6, kwyx['_data'] = null;var gs8cl9 = 'ascii';if (of4d3['indexOf']('.fnt') != -0x1) gs8cl9 = 'utf8';else dr62jz == 'arraybuffer' && (gs8cl9 = '');;var $6rjz2 = h1wyxk['getFileExtension'](of4d3);if (csgvq['_fileTypeArr']['indexOf']($6rjz2) != -0x1) t34df['EnvConfig']['load']['call'](this, of4d3, dr62jz, rmju$6, yw1ke, vq7ew);else {
+        if (!o4_t['getFileInfo'](of4d3)) {
+          if (of4d3['indexOf']('layaNativeDir/') != -0x1) {
+            if (t34df['isZiYu']) {
+              var sglcq = o4_t['ziyuFileData'][of4d3];kwyx['onLoaded'](sglcq);return;
             } else {
-              cosnole['log']('read read'), _04pt['read'](vy1ew, ewqy7v, new qv7wye(fd43ot, fd43ot['onReadNativeCallBack'], [ewqy7v, vy1ew, eywq7, gscq, hk1ax, $u2j6r, cg89ls]));return;
+              cosnole['log']('read read'), o4_t['read'](of4d3, gs8cl9, new p_5b0(csgvq, csgvq['onReadNativeCallBack'], [gs8cl9, of4d3, dr62jz, rmju$6, yw1ke, vq7ew, kwyx]));return;
             }
-          }if (gqcs78['rootPath'] == '') var qwvye7 = vy1ew;else qwvye7 = vy1ew['split'](gqcs78['rootPath'])[0x0];vy1ew['indexOf']('http://') != -0x1 || vy1ew['indexOf']('https://') != -0x1 ? rdjz26['EnvConfig']['load']['call'](cg89ls, vy1ew, eywq7, gscq, hk1ax, $u2j6r) : _04pt['readFile'](qwvye7, ewqy7v, new qv7wye(fd43ot, fd43ot['onReadNativeCallBack'], [ewqy7v, vy1ew, eywq7, gscq, hk1ax, $u2j6r, cg89ls]), vy1ew);
-        } else rdjz26['EnvConfig']['load']['call'](this, vy1ew, eywq7, gscq, hk1ax, $u2j6r);
+          }if (u2$jr6['rootPath'] == '') var pfbt_ = of4d3;else pfbt_ = of4d3['split'](u2$jr6['rootPath'])[0x0];of4d3['indexOf']('http://') != -0x1 || of4d3['indexOf']('https://') != -0x1 ? t34df['EnvConfig']['load']['call'](kwyx, of4d3, dr62jz, rmju$6, yw1ke, vq7ew) : o4_t['readFile'](pfbt_, gs8cl9, new p_5b0(csgvq, csgvq['onReadNativeCallBack'], [gs8cl9, of4d3, dr62jz, rmju$6, yw1ke, vq7ew, kwyx]), of4d3);
+        } else t34df['EnvConfig']['load']['call'](this, of4d3, dr62jz, rmju$6, yw1ke, vq7ew);
       }
-    }, j6u$r['resMgrLoad'] = function (s78g, _3tf, p5ib0_, o32zd4, mur, ew1yhk, o3tdf) {
-      p5ib0_ === void 0x0 && (p5ib0_ = 0x0), o32zd4 === void 0x0 && (o32zd4 = ![]), mur === void 0x0 && (mur = ![]), ew1yhk === void 0x0 && (ew1yhk = 0x0), o3tdf === void 0x0 && (o3tdf = 0x3), s78g['indexOf']('mpack') != -0x1 && console['log']('=============resMgrLoad url:', s78g), rdjz26['EnvConfig']['resMgrLoad'](s78g, (j$6ru, x5ap, $mur6) => {
-        fd43ot['prototype']['resMgrLoadCallBack'](j$6ru, x5ap, $mur6, _3tf);
-      }, p5ib0_, o32zd4, mur, ew1yhk, o3tdf);
-    }, j6u$r['resMgrLoadCallBack'] = function (o6rd2z, vsc, t_b0fp, g7ecq) {
-      console['log']('buff:::', o6rd2z, t_b0fp, _04pt['fileNativeDir'] + '///' + _04pt['fileListName']), g7ecq(o6rd2z, vsc, t_b0fp);
-    }, j6u$r['clearRes'] = function (q8c, t4p0f_) {
-      t4p0f_ === void 0x0 && (t4p0f_ = ![]);var ixap = this;ixap['clearRes'](q8c, t4p0f_);var xp5ab = _04pt['getFileInfo'](q8c);if (xp5ab && (q8c['indexOf']('http://') != -0x1 || q8c['indexOf']('https://') != -0x1)) {
-        var wyv7eq = xp5ab['md5'],
-            r6u2$j = _04pt['getFileNativePath'](wyv7eq);_04pt['remove'](r6u2$j);
+    }, heywk['resMgrLoad'] = function (gq7vc, _05fpb, ju$r62, ikah1x, i50_p, egv7q, e1hwy) {
+      ju$r62 === void 0x0 && (ju$r62 = 0x0), ikah1x === void 0x0 && (ikah1x = ![]), i50_p === void 0x0 && (i50_p = ![]), egv7q === void 0x0 && (egv7q = 0x0), e1hwy === void 0x0 && (e1hwy = 0x3), gq7vc['indexOf']('mpack') != -0x1 && console['log']('=============resMgrLoad url:', gq7vc), t34df['EnvConfig']['resMgrLoad'](gq7vc, (e1vkw, do34zt, cveg) => {
+        csgvq['prototype']['resMgrLoadCallBack'](e1vkw, do34zt, cveg, _05fpb);
+      }, ju$r62, ikah1x, i50_p, egv7q, e1hwy);
+    }, heywk['resMgrLoadCallBack'] = function (jdr, t_fbp, ygqve7, veyw1) {
+      console['log']('buff:::', jdr, ygqve7, o4_t['fileNativeDir'] + '///' + o4_t['fileListName']), veyw1(jdr, t_fbp, ygqve7);
+    }, heywk['clearRes'] = function (kev, rj26u$) {
+      rj26u$ === void 0x0 && (rj26u$ = ![]);var ot_43 = this;ot_43['clearRes'](kev, rj26u$);var fo3 = o4_t['getFileInfo'](kev);if (fo3 && (kev['indexOf']('http://') != -0x1 || kev['indexOf']('https://') != -0x1)) {
+        var hewy = fo3['md5'],
+            yvke1 = o4_t['getFileNativePath'](hewy);o4_t['remove'](yvke1);
       }
-    }, fd43ot['onReadNativeCallBack'] = function (t40_3f, vewy7q, d4zt3, ur$j, um, ehk1y, xh5ai, j26drz, wvkey7) {
-      ur$j === void 0x0 && (ur$j = !![]), ehk1y === void 0x0 && (ehk1y = ![]), j26drz === void 0x0 && (j26drz = 0x0);if (!j26drz) {
-        var rdz6o2;if (d4zt3 == 'json' || d4zt3 == 'atlas') rdz6o2 = rdjz26['getJson'](wvkey7['data']);else d4zt3 == 'xml' ? rdz6o2 = xwah['parseXMLFromString'](wvkey7['data']) : rdz6o2 = wvkey7['data'];xh5ai['onLoaded'](rdz6o2), !rdjz26['isZiYu'] && rdjz26['isPosMsgYu'] && d4zt3 != 'arraybuffer' && wx['postMessage']({ 'url': vewy7q, 'data': rdz6o2, 'isLoad': !![] });
-      } else j26drz == 0x1 && rdjz26['EnvConfig']['load']['call'](xh5ai, vewy7q, d4zt3, ur$j, um, ehk1y);
-    }, vqyeg7(fd43ot, ['_fileTypeArr', function () {
+    }, csgvq['onReadNativeCallBack'] = function (s78qc, _3ot4, xkwhy1, gcsl98, ykewh1, rz$62, cqsl8g, p_05i, ecgqv) {
+      gcsl98 === void 0x0 && (gcsl98 = !![]), rz$62 === void 0x0 && (rz$62 = ![]), p_05i === void 0x0 && (p_05i = 0x0);if (!p_05i) {
+        var $rm6u;if (xkwhy1 == 'json' || xkwhy1 == 'atlas') $rm6u = t34df['getJson'](ecgqv['data']);else xkwhy1 == 'xml' ? $rm6u = h1wyxk['parseXMLFromString'](ecgqv['data']) : $rm6u = ecgqv['data'];cqsl8g['onLoaded']($rm6u), !t34df['isZiYu'] && t34df['isPosMsgYu'] && xkwhy1 != 'arraybuffer' && wx['postMessage']({ 'url': _3ot4, 'data': $rm6u, 'isLoad': !![] });
+      } else p_05i == 0x1 && t34df['EnvConfig']['load']['call'](cqsl8g, _3ot4, xkwhy1, gcsl98, ykewh1, rz$62);
+    }, _tf403(csgvq, ['_fileTypeArr', function () {
       return this['_fileTypeArr'] = ['png', 'jpg', 'bmp', 'jpeg', 'gif'];
-    }]), fd43ot;
+    }]), csgvq;
   }(),
-      _04pt = function (j2r6u) {
-    function qg8lc() {
-      qg8lc['__super']['call'](this);;
-    }return fp5b_0(qg8lc, 'laya.wx.mini.MiniFileMgr', j2r6u), qg8lc['isLoadFile'] = function (ip0a5) {
-      return qg8lc['_fileTypeArr']['indexOf'](ip0a5) != -0x1 ? !![] : ![];
-    }, qg8lc['getFileInfo'] = function (kyhx) {
-      var vqy7 = kyhx['split']('?')[0x0],
-          u26rj$ = qg8lc['filesListObj'][vqy7];if (u26rj$ == null) return null;else return u26rj$;return null;
-    }, qg8lc['onFileUpdate'] = function (sl9gc, qy7eg) {
-      var doft3 = sl9gc['split']('/'),
-          w7yqve = doft3[doft3['length'] - 0x1],
-          ek1yv = qg8lc['getFileInfo'](qy7eg);if (ek1yv == null) qg8lc['onSaveFile'](qy7eg, w7yqve);else {
-        if (ek1yv['readyUrl'] != qy7eg) qg8lc['remove'](w7yqve, qy7eg);
+      o4_t = function (f_50) {
+    function yk1vwe() {
+      yk1vwe['__super']['call'](this);;
+    }return weq7y(yk1vwe, 'laya.wx.mini.MiniFileMgr', f_50), yk1vwe['isLoadFile'] = function (r$ju6) {
+      return yk1vwe['_fileTypeArr']['indexOf'](r$ju6) != -0x1 ? !![] : ![];
+    }, yk1vwe['getFileInfo'] = function (q7gecv) {
+      var xakwh = q7gecv['split']('?')[0x0],
+          t_p4f = yk1vwe['filesListObj'][xakwh];if (t_p4f == null) return null;else return t_p4f;return null;
+    }, yk1vwe['onFileUpdate'] = function (zr6d2o, _fot3) {
+      var wye1h = zr6d2o['split']('/'),
+          pf_b0t = wye1h[wye1h['length'] - 0x1],
+          t34_o = yk1vwe['getFileInfo'](_fot3);if (t34_o == null) yk1vwe['onSaveFile'](_fot3, pf_b0t);else {
+        if (t34_o['readyUrl'] != _fot3) yk1vwe['remove'](pf_b0t, _fot3);
       }
-    }, qg8lc['exits'] = function (gyeq7, g8q7sc) {
-      var vkw1e = qg8lc['getFileNativePath'](gyeq7);qg8lc['fs']['getFileInfo']({ 'filePath': vkw1e, 'success': function (dt4f3) {
-          g8q7sc != null && g8q7sc['runWith']([0x0, dt4f3]);
-        }, 'fail': function (z632do) {
-          g8q7sc != null && g8q7sc['runWith']([0x1, z632do]);
+    }, yk1vwe['exits'] = function (_5pbf, ru2$6) {
+      var _f04pt = yk1vwe['getFileNativePath'](_5pbf);yk1vwe['fs']['getFileInfo']({ 'filePath': _f04pt, 'success': function (b0tpf) {
+          ru2$6 != null && ru2$6['runWith']([0x0, b0tpf]);
+        }, 'fail': function (h1ixa5) {
+          ru2$6 != null && ru2$6['runWith']([0x1, h1ixa5]);
         } });
-    }, qg8lc['read'] = function (jrz6$2, kiaxh1, bpi5_, q7wye) {
-      kiaxh1 === void 0x0 && (kiaxh1 = 'ascill'), q7wye === void 0x0 && (q7wye = '');var gvqec;q7wye != '' ? gvqec = qg8lc['getFileNativePath'](jrz6$2) : gvqec = jrz6$2, qg8lc['fs']['readFile']({ 'filePath': gvqec, 'encoding': kiaxh1, 'success': function (uj62r$) {
-          bpi5_ != null && bpi5_['runWith']([0x0, uj62r$]);
-        }, 'fail': function (xi1) {
-          if (xi1 && q7wye != '') qg8lc['down'](q7wye, kiaxh1, bpi5_, q7wye);else bpi5_ != null && bpi5_['runWith']([0x1]);
+    }, yk1vwe['read'] = function (ykw1hx, xha1wk, r2dj6z, o42zd3) {
+      xha1wk === void 0x0 && (xha1wk = 'ascill'), o42zd3 === void 0x0 && (o42zd3 = '');var csvq7g;o42zd3 != '' ? csvq7g = yk1vwe['getFileNativePath'](ykw1hx) : csvq7g = ykw1hx, yk1vwe['fs']['readFile']({ 'filePath': csvq7g, 'encoding': xha1wk, 'success': function (to4dz) {
+          r2dj6z != null && r2dj6z['runWith']([0x0, to4dz]);
+        }, 'fail': function (k7w) {
+          if (k7w && o42zd3 != '') yk1vwe['down'](o42zd3, xha1wk, r2dj6z, o42zd3);else r2dj6z != null && r2dj6z['runWith']([0x1]);
         } });
-    }, qg8lc['readNativeFile'] = function (ia5hx, vcg7qe) {
-      qg8lc['fs']['readFile']({ 'filePath': ia5hx, 'encoding': '', 'success': function (gvqc7s) {
-          vcg7qe != null && vcg7qe['runWith']([0x0]);
-        }, 'fail': function (r$2ju6) {
-          vcg7qe != null && vcg7qe['runWith']([0x1]);
+    }, yk1vwe['readNativeFile'] = function (d4to3f, k7ev) {
+      yk1vwe['fs']['readFile']({ 'filePath': d4to3f, 'encoding': '', 'success': function (khxi) {
+          k7ev != null && k7ev['runWith']([0x0]);
+        }, 'fail': function (g7cq8) {
+          k7ev != null && k7ev['runWith']([0x1]);
         } });
-    }, qg8lc['down'] = function (p5xbia, yh1xw, a1kihx, ceq7gv) {
-      yh1xw === void 0x0 && (yh1xw = 'ascill'), ceq7gv === void 0x0 && (ceq7gv = '');var p05b_ = qg8lc['getFileNativePath'](ceq7gv),
-          hwk1yx = qg8lc['wxdown']({ 'url': p5xbia, 'filePath': p05b_, 'success': function (zd43) {
-          if (zd43['statusCode'] === 0xc8) qg8lc['readFile'](zd43['filePath'], yh1xw, a1kihx, ceq7gv);
-        }, 'fail': function (ye1wv) {
-          a1kihx != null && a1kihx['runWith']([0x1, ye1wv]);
-        } });hwk1yx['onProgressUpdate'](function (gs8lqc) {
-        a1kihx != null && a1kihx['runWith']([0x2, gs8lqc['progress']]);
+    }, yk1vwe['down'] = function (wykx1h, vgs7cq, hi5abx, wkh) {
+      vgs7cq === void 0x0 && (vgs7cq = 'ascill'), wkh === void 0x0 && (wkh = '');var wy7eq = yk1vwe['getFileNativePath'](wkh),
+          d4z32 = yk1vwe['wxdown']({ 'url': wykx1h, 'filePath': wy7eq, 'success': function (p5i_b0) {
+          if (p5i_b0['statusCode'] === 0xc8) yk1vwe['readFile'](p5i_b0['filePath'], vgs7cq, hi5abx, wkh);
+        }, 'fail': function (ahkxi) {
+          hi5abx != null && hi5abx['runWith']([0x1, ahkxi]);
+        } });d4z32['onProgressUpdate'](function (odz2r) {
+        hi5abx != null && hi5abx['runWith']([0x2, odz2r['progress']]);
       });
-    }, qg8lc['readFile'] = function (bixap5, f3od4, w1kehy, f30t_4) {
-      f3od4 === void 0x0 && (f3od4 = 'ascill'), f30t_4 === void 0x0 && (f30t_4 = ''), qg8lc['fs']['readFile']({ 'filePath': bixap5, 'encoding': f3od4, 'success': function (qcl8sg) {
-          if (bixap5['indexOf']('http://') != -0x1 || bixap5['indexOf']('https://') != -0x1) qg8lc['onFileUpdate'](bixap5, f30t_4);w1kehy != null && w1kehy['runWith']([0x0, qcl8sg]);
-        }, 'fail': function (r$2z6) {
-          if (r$2z6) w1kehy != null && w1kehy['runWith']([0x1, r$2z6]);
+    }, yk1vwe['readFile'] = function (gye7q, $mj6ur, hkwey1, kh1iax) {
+      $mj6ur === void 0x0 && ($mj6ur = 'ascill'), kh1iax === void 0x0 && (kh1iax = ''), yk1vwe['fs']['readFile']({ 'filePath': gye7q, 'encoding': $mj6ur, 'success': function (tf0pb) {
+          if (gye7q['indexOf']('http://') != -0x1 || gye7q['indexOf']('https://') != -0x1) yk1vwe['onFileUpdate'](gye7q, kh1iax);hkwey1 != null && hkwey1['runWith']([0x0, tf0pb]);
+        }, 'fail': function (awhxk) {
+          if (awhxk) hkwey1 != null && hkwey1['runWith']([0x1, awhxk]);
         } });
-    }, qg8lc['downImg'] = function (fp0_t, ey1vk, ju26r) {
-      ju26r === void 0x0 && (ju26r = '');var xh5i = qg8lc['wxdown']({ 'url': fp0_t, 'success': function (p_5b) {
-          p_5b['statusCode'] === 0xc8 && qg8lc['copyFile'](p_5b['tempFilePath'], ju26r, ey1vk);
-        }, 'fail': function (i0_) {
-          ey1vk != null && ey1vk['runWith']([0x1, i0_]);
+    }, yk1vwe['downImg'] = function (tf4_, ftp_, khyx) {
+      khyx === void 0x0 && (khyx = '');var vk1ywe = yk1vwe['wxdown']({ 'url': tf4_, 'success': function (odr6z2) {
+          odr6z2['statusCode'] === 0xc8 && yk1vwe['copyFile'](odr6z2['tempFilePath'], khyx, ftp_);
+        }, 'fail': function (f_t0pb) {
+          ftp_ != null && ftp_['runWith']([0x1, f_t0pb]);
         } });
-    }, qg8lc['copyFile'] = function (xywk1h, wax1k, qeywv) {
-      var v7gye = xywk1h['split']('/'),
-          a5x1hi = v7gye[v7gye['length'] - 0x1],
-          b5haxi = wax1k['split']('?')[0x0],
-          ro2z = qg8lc['getFileInfo'](wax1k),
-          yvw7e = qg8lc['getFileNativePath'](a5x1hi);qg8lc['fs']['copyFile']({ 'srcPath': xywk1h, 'destPath': yvw7e, 'success': function (um6jr) {
-          if (!ro2z) qg8lc['onSaveFile'](wax1k, a5x1hi), qeywv != null && qeywv['runWith']([0x0]);else {
-            if (ro2z['readyUrl'] != wax1k) qg8lc['remove'](a5x1hi, wax1k, qeywv);
+    }, yk1vwe['copyFile'] = function (z342, i5baxh, b_5pf) {
+      var w7ykve = z342['split']('/'),
+          t3dzo = w7ykve[w7ykve['length'] - 0x1],
+          eyv7wk = i5baxh['split']('?')[0x0],
+          zo3td = yk1vwe['getFileInfo'](i5baxh),
+          g7yveq = yk1vwe['getFileNativePath'](t3dzo);yk1vwe['fs']['copyFile']({ 'srcPath': z342, 'destPath': g7yveq, 'success': function (zod62) {
+          if (!zo3td) yk1vwe['onSaveFile'](i5baxh, t3dzo), b_5pf != null && b_5pf['runWith']([0x0]);else {
+            if (zo3td['readyUrl'] != i5baxh) yk1vwe['remove'](t3dzo, i5baxh, b_5pf);
           }
-        }, 'fail': function (qye7g) {
-          qeywv != null && qeywv['runWith']([0x1, qye7g]);
+        }, 'fail': function (gc9s8l) {
+          b_5pf != null && b_5pf['runWith']([0x1, gc9s8l]);
         } });
-    }, qg8lc['getFileNativePath'] = function (td3o4f) {
-      return laya['wx']['mini']['MiniFileMgr']['fileNativeDir'] + '/' + td3o4f;
-    }, qg8lc['remove'] = function (z3do42, dr2j6, yhek) {
-      dr2j6 === void 0x0 && (dr2j6 = '');var $2ruj6 = qg8lc['getFileInfo'](dr2j6),
-          tfd3o = qg8lc['getFileNativePath']($2ruj6['md5']);t34fdo['loader']['clearRes']($2ruj6['readyUrl']), qg8lc['fs']['unlink']({ 'filePath': tfd3o, 'success': function (i05_p) {
-          if (dr2j6 != '') qg8lc['onSaveFile'](dr2j6, z3do42);yhek != null && yhek['runWith']([0x0]);
-        }, 'fail': function (a5ixb) {} });
-    }, qg8lc['onSaveFile'] = function (qg7cev, vecg7) {
-      var kh1axw = qg7cev['split']('?')[0x0];qg8lc['filesListObj'][kh1axw] = { 'md5': vecg7, 'readyUrl': qg7cev }, qg8lc['fs']['writeFile']({ 'filePath': qg8lc['fileNativeDir'] + '/' + qg8lc['fileListName'], 'encoding': 'utf8', 'data': JSON['stringify'](qg8lc['filesListObj']), 'success': function (z$jr6) {
-          console['log']('写入测试测试成功：', z$jr6);
-        }, 'fail': function (qcve7g) {
-          console['log']('写入测试测试失败：', qcve7g);
+    }, yk1vwe['getFileNativePath'] = function (ew7vk) {
+      return laya['wx']['mini']['MiniFileMgr']['fileNativeDir'] + '/' + ew7vk;
+    }, yk1vwe['remove'] = function (j6ur, _5bp0, lgsq8c) {
+      _5bp0 === void 0x0 && (_5bp0 = '');var h1x5i = yk1vwe['getFileInfo'](_5bp0),
+          eyw1kh = yk1vwe['getFileNativePath'](h1x5i['md5']);doz263['loader']['clearRes'](h1x5i['readyUrl']), yk1vwe['fs']['unlink']({ 'filePath': eyw1kh, 'success': function (ai0pb) {
+          if (_5bp0 != '') yk1vwe['onSaveFile'](_5bp0, j6ur);lgsq8c != null && lgsq8c['runWith']([0x0]);
+        }, 'fail': function (d26rjz) {} });
+    }, yk1vwe['onSaveFile'] = function (p5iba, l9sg) {
+      var ba0 = p5iba['split']('?')[0x0];yk1vwe['filesListObj'][ba0] = { 'md5': l9sg, 'readyUrl': p5iba }, yk1vwe['fs']['writeFile']({ 'filePath': yk1vwe['fileNativeDir'] + '/' + yk1vwe['fileListName'], 'encoding': 'utf8', 'data': JSON['stringify'](yk1vwe['filesListObj']), 'success': function (oft3_4) {
+          console['log']('写入测试测试成功：', oft3_4);
+        }, 'fail': function (vc7gqe) {
+          console['log']('写入测试测试失败：', vc7gqe);
         } });
-    }, qg8lc['existDir'] = function (ek1wy, _t4f03) {
-      qg8lc['fs']['mkdir']({ 'dirPath': ek1wy, 'success': function (p04f_t) {
-          _t4f03 != null && _t4f03['runWith']([0x0, { 'data': JSON['stringify']({}) }]);
-        }, 'fail': function (oz342d) {
-          if (oz342d['errMsg']['indexOf']('file already exists') != -0x1) qg8lc['readSync'](qg8lc['fileListName'], 'utf8', _t4f03);else _t4f03 != null && _t4f03['runWith']([0x1, oz342d]);
+    }, yk1vwe['existDir'] = function (t04fp, we7qyv) {
+      yk1vwe['fs']['mkdir']({ 'dirPath': t04fp, 'success': function (ecq7gv) {
+          we7qyv != null && we7qyv['runWith']([0x0, { 'data': JSON['stringify']({}) }]);
+        }, 'fail': function (s7vgqc) {
+          if (s7vgqc['errMsg']['indexOf']('file already exists') != -0x1) yk1vwe['readSync'](yk1vwe['fileListName'], 'utf8', we7qyv);else we7qyv != null && we7qyv['runWith']([0x1, s7vgqc]);
         } });
-    }, qg8lc['readSync'] = function (bi0p_5, q7sgc, cg7sqv, ew7vk) {
-      q7sgc === void 0x0 && (q7sgc = 'ascill'), ew7vk === void 0x0 && (ew7vk = '');var wky7ve = qg8lc['getFileNativePath'](bi0p_5),
-          yqe7v;try {
-        yqe7v = qg8lc['fs']['readFileSync'](wky7ve), cg7sqv != null && cg7sqv['runWith']([0x0, { 'data': yqe7v }]);
-      } catch (sclgq8) {
-        cg7sqv != null && cg7sqv['runWith']([0x1]);
+    }, yk1vwe['readSync'] = function (wykxh1, f_b05p, $6jmru, lqsc8) {
+      f_b05p === void 0x0 && (f_b05p = 'ascill'), lqsc8 === void 0x0 && (lqsc8 = '');var tf = yk1vwe['getFileNativePath'](wykxh1),
+          h1weky;try {
+        h1weky = yk1vwe['fs']['readFileSync'](tf), $6jmru != null && $6jmru['runWith']([0x0, { 'data': h1weky }]);
+      } catch (do3) {
+        $6jmru != null && $6jmru['runWith']([0x1]);
       }
-    }, qg8lc['readCache'] = function () {}, qg8lc['writeCache'] = function ($r62ju) {
-      var rz62od = readyUrl['split']('?')[0x0];qg8lc['filesListObj'][rz62od] = { 'md5': md5Name, 'readyUrl': readyUrl }, qg8lc['fs']['writeFile']({ 'filePath': qg8lc['fileNativeDir'] + '/' + qg8lc['fileListName'], 'encoding': 'utf8', 'data': JSON['stringify'](qg8lc['filesListObj']), 'success': function (eyqgv) {}, 'fail': function (o23d4z) {} });
-    }, qg8lc['setNativeFileDir'] = function (zo263) {
-      qg8lc['fileNativeDir'] = wx['env']['USER_DATA_PATH'] + zo263;
-    }, qg8lc['filesListObj'] = {}, qg8lc['fileNativeDir'] = null, qg8lc['fileListName'] = 'layaairfiles.txt', qg8lc['ziyuFileData'] = {}, vqyeg7(qg8lc, ['_fileTypeArr', function () {
+    }, yk1vwe['readCache'] = function () {}, yk1vwe['writeCache'] = function (ot3d4z) {
+      var w1xh = readyUrl['split']('?')[0x0];yk1vwe['filesListObj'][w1xh] = { 'md5': md5Name, 'readyUrl': readyUrl }, yk1vwe['fs']['writeFile']({ 'filePath': yk1vwe['fileNativeDir'] + '/' + yk1vwe['fileListName'], 'encoding': 'utf8', 'data': JSON['stringify'](yk1vwe['filesListObj']), 'success': function (xhiba) {}, 'fail': function (o3d26) {} });
+    }, yk1vwe['setNativeFileDir'] = function (i5apxb) {
+      yk1vwe['fileNativeDir'] = wx['env']['USER_DATA_PATH'] + i5apxb;
+    }, yk1vwe['filesListObj'] = {}, yk1vwe['fileNativeDir'] = null, yk1vwe['fileListName'] = 'layaairfiles.txt', yk1vwe['ziyuFileData'] = {}, _tf403(yk1vwe, ['_fileTypeArr', function () {
       return this['_fileTypeArr'] = ['json', 'ani', 'xml', 'sk', 'txt', 'atlas', 'swf', 'part', 'fnt', 'proto', 'lh', 'lav', 'lani', 'lmat', 'lm', 'ltc'];
     }, 'fs', function () {
       return this['fs'] = wx['getFileSystemManager']();
     }, 'wxdown', function () {
       return this['wxdown'] = wx['downloadFile'];
-    }]), qg8lc;
-  }(v1yewk),
-      a5xibh = function (h1xkwa) {
-    function m6j$u() {
-      this['_sound'] = null, this['url'] = null, this['loaded'] = ![], m6j$u['__super']['call'](this), this['_sound'] = m6j$u['_createSound']();
-    }fp5b_0(m6j$u, 'laya.wx.mini.MiniSound', h1xkwa);var xbp5i = m6j$u['prototype'];return xbp5i['load'] = function (f0_5pb) {
-      var hwy1ek = this;f0_5pb = gqcs78['formatURL'](f0_5pb), this['url'] = f0_5pb;if (m6j$u['_audioCache'][f0_5pb]) {
+    }]), yk1vwe;
+  }(ruj26$),
+      cgq87s = function (whkx1y) {
+    function drj6z2() {
+      this['_sound'] = null, this['url'] = null, this['loaded'] = ![], drj6z2['__super']['call'](this), this['_sound'] = drj6z2['_createSound']();
+    }weq7y(drj6z2, 'laya.wx.mini.MiniSound', whkx1y);var xi1a = drj6z2['prototype'];return xi1a['load'] = function (r6j2$u) {
+      var kiha1 = this;r6j2$u = u2$jr6['formatURL'](r6j2$u), this['url'] = r6j2$u;if (drj6z2['_audioCache'][r6j2$u]) {
         this['event']('complete');return;
-      }function tdo4z3() {
-        if (m6j$u['_null'] != undefined) hwy1ek['_sound']['onCanplay'](m6j$u['_null']), hwy1ek['_sound']['onError'](m6j$u['_null']);else try {
-          hwy1ek['_sound']['onCanplay'](null), hwy1ek['_sound']['onError'](null), m6j$u['_null'] = null;
-        } catch (cqve7) {
-          console['warn']('[wxmini] _clearSound:' + cqve7), hwy1ek['_sound']['onCanplay'](xpi), hwy1ek['_sound']['onError'](xpi), m6j$u['_null'] = xpi;
+      }function vqwy7e() {
+        if (drj6z2['_null'] != undefined) kiha1['_sound']['onCanplay'](drj6z2['_null']), kiha1['_sound']['onError'](drj6z2['_null']);else try {
+          kiha1['_sound']['onCanplay'](null), kiha1['_sound']['onError'](null), drj6z2['_null'] = null;
+        } catch (pt4_0) {
+          console['warn']('[wxmini] _clearSound:' + pt4_0), kiha1['_sound']['onCanplay'](zt34d), kiha1['_sound']['onError'](zt34d), drj6z2['_null'] = zt34d;
         }
-      }function r62j() {
-        tdo4z3(), do4tf['loaded'] = !![], do4tf['event']('complete'), m6j$u['_audioCache'][do4tf['url']] = do4tf;
-      }function sclq8(e7vky) {
-        console['error']('errCode=' + e7vky['errCode'] + '  errMsg=' + e7vky['errMsg']), tdo4z3(), do4tf['event']('error');
-      }function xpi() {}this['_sound']['onCanplay'](r62j), this['_sound']['onError'](sclq8), this['_sound']['src'] = f0_5pb;var do4tf = this;
-    }, xbp5i['play'] = function (z234o, r6zj$) {
-      z234o === void 0x0 && (z234o = 0x0), r6zj$ === void 0x0 && (r6zj$ = 0x0);var pi05b_;if (this['url'] == qg8cs['_tMusic']) {
-        if (!m6j$u['_musicAudio']) m6j$u['_musicAudio'] = m6j$u['_createSound']();pi05b_ = m6j$u['_musicAudio'];
-      } else pi05b_ = m6j$u['_createSound']();pi05b_['src'] = this['url'];var fdo4t3 = new haxbi5(pi05b_);return fdo4t3['url'] = this['url'], fdo4t3['loops'] = r6zj$, fdo4t3['startTime'] = z234o, fdo4t3['play'](), qg8cs['addChannel'](fdo4t3), fdo4t3;
-    }, xbp5i['dispose'] = function () {
-      var vqgey7 = m6j$u['_audioCache'][this['url']];vqgey7 && (vqgey7['src'] = '', delete m6j$u['_audioCache'][this['url']]);
-    }, ia1x(0x0, xbp5i, 'duration', function () {
+      }function ykweh1() {
+        vqwy7e(), to43f_['loaded'] = !![], to43f_['event']('complete'), drj6z2['_audioCache'][to43f_['url']] = to43f_;
+      }function e7vwy(eyqw7v) {
+        console['error']('errCode=' + eyqw7v['errCode'] + '  errMsg=' + eyqw7v['errMsg']), vqwy7e(), to43f_['event']('error');
+      }function zt34d() {}this['_sound']['onCanplay'](ykweh1), this['_sound']['onError'](e7vwy), this['_sound']['src'] = r6j2$u;var to43f_ = this;
+    }, xi1a['play'] = function (yg7qve, xih5a) {
+      yg7qve === void 0x0 && (yg7qve = 0x0), xih5a === void 0x0 && (xih5a = 0x0);var qeg;if (this['url'] == c87sqg['_tMusic']) {
+        if (!drj6z2['_musicAudio']) drj6z2['_musicAudio'] = drj6z2['_createSound']();qeg = drj6z2['_musicAudio'];
+      } else qeg = drj6z2['_createSound']();qeg['src'] = this['url'];var egq = new d6r2zo(qeg);return egq['url'] = this['url'], egq['loops'] = xih5a, egq['startTime'] = yg7qve, egq['play'](), c87sqg['addChannel'](egq), egq;
+    }, xi1a['dispose'] = function () {
+      var ju6$mr = drj6z2['_audioCache'][this['url']];ju6$mr && (ju6$mr['src'] = '', delete drj6z2['_audioCache'][this['url']]);
+    }, p_50ib(0x0, xi1a, 'duration', function () {
       return this['_sound']['duration'];
-    }), m6j$u['_createSound'] = function () {
-      return m6j$u['_id']++, rdjz26['window']['wx']['createInnerAudioContext']();
-    }, m6j$u['_musicAudio'] = null, m6j$u['_id'] = 0x0, m6j$u['_audioCache'] = {}, m6j$u['_null'] = undefined, m6j$u;
-  }(v1yewk),
-      haxbi5 = function (yx1wk) {
-    function f_t4(r2j6u) {
-      this['_audio'] = null, this['_onEnd'] = null, f_t4['__super']['call'](this), this['_audio'] = r2j6u, this['_onEnd'] = xwah['bind'](this['__onEnd'], this), r2j6u['onEnded'](this['_onEnd']);
-    }fp5b_0(f_t4, 'laya.wx.mini.MiniSoundChannel', yx1wk);var t4f_ = f_t4['prototype'];return t4f_['__onEnd'] = function () {
+    }), drj6z2['_createSound'] = function () {
+      return drj6z2['_id']++, t34df['window']['wx']['createInnerAudioContext']();
+    }, drj6z2['_musicAudio'] = null, drj6z2['_id'] = 0x0, drj6z2['_audioCache'] = {}, drj6z2['_null'] = undefined, drj6z2;
+  }(ruj26$),
+      d6r2zo = function (zt4d3) {
+    function k1hix(hykx1w) {
+      this['_audio'] = null, this['_onEnd'] = null, k1hix['__super']['call'](this), this['_audio'] = hykx1w, this['_onEnd'] = h1wyxk['bind'](this['__onEnd'], this), hykx1w['onEnded'](this['_onEnd']);
+    }weq7y(k1hix, 'laya.wx.mini.MiniSoundChannel', zt4d3);var s9cl8 = k1hix['prototype'];return s9cl8['__onEnd'] = function () {
       if (this['loops'] == 0x1) {
-        this['completeHandler'] && (t34fdo['timer']['once'](0xa, this, this['__runComplete'], [this['completeHandler']], ![]), this['completeHandler'] = null);this['stop'](), this['event']('complete');return;
+        this['completeHandler'] && (doz263['timer']['once'](0xa, this, this['__runComplete'], [this['completeHandler']], ![]), this['completeHandler'] = null);this['stop'](), this['event']('complete');return;
       }this['loops'] > 0x0 && this['loops']--, this['startTime'] = 0x0, this['play']();
-    }, t4f_['__onNull'] = function () {}, t4f_['play'] = function () {
-      this['isStopped'] = ![], qg8cs['addChannel'](this);if (this['_audio']) this['_audio']['play']();
-    }, t4f_['stop'] = function () {
-      this['isStopped'] = !![], qg8cs['removeChannel'](this), this['completeHandler'] = null;if (!this['_audio']) return;this['_audio']['stop']();if (f_t4['_null'] != undefined) this['_audio']['onEnded'](f_t4['_null']);else try {
-        this['_audio']['onEnded'](null), f_t4['_null'] = null;
-      } catch (ib5_) {
-        console['warn']('[wxmini] stop:' + ib5_), this['_audio']['onEnded'](xwah['bind'](this['__onNull'], this)), f_t4['_null'] = xwah['bind'](this['__onNull'], this);
+    }, s9cl8['__onNull'] = function () {}, s9cl8['play'] = function () {
+      this['isStopped'] = ![], c87sqg['addChannel'](this);if (this['_audio']) this['_audio']['play']();
+    }, s9cl8['stop'] = function () {
+      this['isStopped'] = !![], c87sqg['removeChannel'](this), this['completeHandler'] = null;if (!this['_audio']) return;this['_audio']['stop']();if (k1hix['_null'] != undefined) this['_audio']['onEnded'](k1hix['_null']);else try {
+        this['_audio']['onEnded'](null), k1hix['_null'] = null;
+      } catch (ywke1h) {
+        console['warn']('[wxmini] stop:' + ywke1h), this['_audio']['onEnded'](h1wyxk['bind'](this['__onNull'], this)), k1hix['_null'] = h1wyxk['bind'](this['__onNull'], this);
       }this['_audio'] = null;
-    }, t4f_['pause'] = function () {
+    }, s9cl8['pause'] = function () {
       this['isStopped'] = !![], this['_audio']['pause']();
-    }, t4f_['resume'] = function () {
-      if (!this['_audio']) return;this['isStopped'] = ![], qg8cs['addChannel'](this), this['_audio']['play']();
-    }, ia1x(0x0, t4f_, 'position', function () {
+    }, s9cl8['resume'] = function () {
+      if (!this['_audio']) return;this['isStopped'] = ![], c87sqg['addChannel'](this), this['_audio']['play']();
+    }, p_50ib(0x0, s9cl8, 'position', function () {
       if (!this['_audio']) return 0x0;return this['_audio']['currentTime'];
-    }), ia1x(0x0, t4f_, 'duration', function () {
+    }), p_50ib(0x0, s9cl8, 'duration', function () {
       if (!this['_audio']) return 0x0;return this['_audio']['duration'];
-    }), ia1x(0x0, t4f_, 'volume', function () {
+    }), p_50ib(0x0, s9cl8, 'volume', function () {
       return 0x1;
-    }, function (ipbxa) {}), f_t4['_null'] = undefined, f_t4;
-  }(r2j$z6);
+    }, function (e7gqv) {}), k1hix['_null'] = undefined, k1hix;
+  }(z6odr);
 })(window, document, Laya);typeof define === 'function' && define['amd'] && define('laya.core', ['require', 'exports'], function (require, exports) {
   'use strict';
 
-  Object['defineProperty'](exports, '__esModule', { 'value': !![] });for (var wk7yve in Laya) {
-    var a0bip5 = Laya[wk7yve];a0bip5 && a0bip5['__isclass'] && (exports[wk7yve] = a0bip5);
+  Object['defineProperty'](exports, '__esModule', { 'value': !![] });for (var i_5pb in Laya) {
+    var i05ba = Laya[i_5pb];i05ba && i05ba['__isclass'] && (exports[i_5pb] = i05ba);
   }
 });

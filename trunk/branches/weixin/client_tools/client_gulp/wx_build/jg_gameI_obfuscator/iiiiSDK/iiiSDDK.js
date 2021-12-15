@@ -126,7 +126,7 @@ function $iERDXG() {
 
             var lastTime = Date.now();
             wx.request({
-                url: Q[144990] + HOST + Q[148478],
+                url: Q[144989] + HOST + Q[148478],
                 method: Q[148404],
                 dataType: Q[125810],
                 header: {
@@ -249,7 +249,7 @@ function $iERDXG() {
         logStartShare: function (type) {
             var sdk_token = wx.getStorageSync(Q[148480]);
             wx.request({
-                url: Q[144990] + HOST + Q[148496],
+                url: Q[144989] + HOST + Q[148496],
                 method: Q[148404],
                 dataType: Q[125810],
                 header: {
@@ -276,7 +276,7 @@ function $iERDXG() {
             callbacks[Q[127050]] = typeof callback == Q[148051] ? callback : null;
             var sdk_token = wx.getStorageSync(Q[148480]);
             wx.request({
-                url: Q[144990] + HOST + Q[148498],
+                url: Q[144989] + HOST + Q[148498],
                 method: Q[148404],
                 dataType: Q[125810],
                 header: {
@@ -327,7 +327,7 @@ function $iERDXG() {
             console.log(Q[148502]);
             var sdk_token = wx.getStorageSync(Q[148480]);
             wx.request({
-                url: Q[144990] + HOST + Q[148503],
+                url: Q[144989] + HOST + Q[148503],
                 method: Q[148404],
                 dataType: Q[125810],
                 header: {
@@ -367,7 +367,7 @@ function $iERDXG() {
             console.log(Q[148507]);
             var sdk_token = wx.getStorageSync(Q[148480]);
             wx.request({
-                url: Q[144990] + HOST + Q[148508],
+                url: Q[144989] + HOST + Q[148508],
                 method: Q[148404],
                 dataType: Q[125810],
                 header: {
@@ -462,7 +462,7 @@ function $iERDXG() {
 
             //发起网络请求
             wx.request({
-                url: Q[144990] + HOST + Q[148516],
+                url: Q[144989] + HOST + Q[148516],
                 method: Q[148404],
                 dataType: Q[125810],
                 header: {
@@ -700,7 +700,7 @@ function $iERDXG() {
             console.log(public_data);
 
             wx.request({
-                url: Q[144990] + HOST + Q[148529] + type + Q[148530] + encodeURIComponent(JSON.stringify(public_data))
+                url: Q[144989] + HOST + Q[148529] + type + Q[148530] + encodeURIComponent(JSON.stringify(public_data))
             });
         },
 
@@ -748,7 +748,7 @@ exports.pay = function (data, callback) {
 };
 
 exports.openService = function () {
-    run(Q[144452]);
+    run(Q[144451]);
 };
 
 exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLevel) {
@@ -793,7 +793,7 @@ exports.share = function (type) {
 };
 
 exports.msgCheck = function (data, callback) {
-    run(Q[131908], data, callback);
+    run(Q[131907], data, callback);
 };
 
 exports.downloadClient = function () {
@@ -813,7 +813,7 @@ exports.getPublicData = function () {
 };
 
 exports.weiduanHelper = function () {
-    run(Q[143276]);
+    run(Q[143275]);
 };
 
 exports.setMessageToFriendQuery = function (data, callback) {

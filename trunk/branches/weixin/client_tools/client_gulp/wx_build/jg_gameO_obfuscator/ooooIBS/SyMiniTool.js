@@ -1,203 +1,203 @@
 var c = wx.$o;
-var o_ozch = this && this['__extends'] || function () {
-  var hbg4xo = function (hb4g, hrz8cp) {
-    return hbg4xo = Object['setPrototypeOf'] || { '__proto__': [] } instanceof Array && function (_3nvl, y_v3n) {
-      _3nvl['__proto__'] = y_v3n;
-    } || function (zcprh, nal3v6) {
-      for (var pcr85m in nal3v6) if (nal3v6['hasOwnProperty'](pcr85m)) zcprh[pcr85m] = nal3v6[pcr85m];
-    }, hbg4xo(hb4g, hrz8cp);
-  };return function (l3uanv, mpcr85) {
-    hbg4xo(l3uanv, mpcr85);function w192i() {
-      this['constructor'] = l3uanv;
-    }l3uanv['prototype'] = mpcr85 === null ? Object['create'](mpcr85) : (w192i['prototype'] = mpcr85['prototype'], new w192i());
+var o_zhcbp = this && this['__extends'] || function () {
+  var rm5pt = function (fx491w, f1w9i2) {
+    return rm5pt = Object['setPrototypeOf'] || { '__proto__': [] } instanceof Array && function (gb4zo, z8hpr) {
+      gb4zo['__proto__'] = z8hpr;
+    } || function (e_y3u, pc8zb) {
+      for (var lnv_u in pc8zb) if (pc8zb['hasOwnProperty'](lnv_u)) e_y3u[lnv_u] = pc8zb[lnv_u];
+    }, rm5pt(fx491w, f1w9i2);
+  };return function (vl3_n, pmcr5t) {
+    rm5pt(vl3_n, pmcr5t);function y$e0jk() {
+      this['constructor'] = vl3_n;
+    }vl3_n['prototype'] = pmcr5t === null ? Object['create'](pmcr5t) : (y$e0jk['prototype'] = pmcr5t['prototype'], new y$e0jk());
   };
 }(),
-    o_hb4ox = window['Sygame'],
-    o_mrz = ![],
-    o_zr8cpm = function () {
-  function trmqp() {}return trmqp['init'] = function () {
-    o_mrz ? this['sygame'] = { 'channel': '3477d2273abd484ba2a0e04ad4971b3c', 'role_id': undefined, 'openid': 'oxmOf5biumkGash-Xht9FVAlswVk', 'appid': 'wx2936121c4817bf46' } : this['sygame'] = o_hb4ox;
-  }, trmqp['getTimeStamp'] = function () {
+    o_w21fid = window['Sygame'],
+    o_aid126 = ![],
+    o_z8chbp = function () {
+  function _enkyu() {}return _enkyu['init'] = function () {
+    o_aid126 ? this['sygame'] = { 'channel': '3477d2273abd484ba2a0e04ad4971b3c', 'role_id': undefined, 'openid': 'oxmOf5biumkGash-Xht9FVAlswVk', 'appid': 'wx2936121c4817bf46' } : this['sygame'] = o_w21fid;
+  }, _enkyu['getTimeStamp'] = function () {
     return new Date()['getTime']();
-  }, trmqp['setResMap'] = function (c85rmp, zbog8) {
-    this['resMap'][c85rmp] = c85rmp + '?' + zbog8;
-  }, trmqp['getResMap'] = function (f12i9) {
-    return this['resMap'][f12i9];
-  }, trmqp['resMap'] = {}, trmqp;
+  }, _enkyu['setResMap'] = function (og9bx, g9wfx) {
+    this['resMap'][og9bx] = og9bx + '?' + g9wfx;
+  }, _enkyu['getResMap'] = function (an3lu) {
+    return this['resMap'][an3lu];
+  }, _enkyu['resMap'] = {}, _enkyu;
 }(),
-    o_$0yk_ = function () {
-  function obh() {
-    this['getIcon'] = 'https://wx.11babay.cn/uploads/f/fkccc1532944783/5/2/c/7/60dc442c4fbc5.png', this['copyIcon'] = 'https://wx.11babay.cn/uploads/f/fkccc1532944783/3/0/1/7/60dc4409dce39.png', o_zr8cpm['init'](), this['getBoxCheckoutCode']();
-  }return obh['prototype']['send'] = function (fid21, i62dal, f4g9, xfw19, ozg8h) {
-    xfw19 === void 0x0 && (xfw19 = 'get');ozg8h === void 0x0 && (ozg8h = '' || null);var ali6d = new Laya['HttpRequest']();ali6d['http']['timeout'] = 0x2710, ali6d['once'](Laya['Event']['COMPLETE'], this, i62dal), ali6d['once'](Laya['Event']['ERROR'], this, f4g9), ali6d['send'](fid21, ozg8h, xfw19, 'text');
-  }, obh['prototype']['postSidebarApi'] = function () {
-    var u_ekn = o_zr8cpm['sygame']['openid'],
-        pz8m = '&channel=' + o_zr8cpm['sygame']['channel'] + '&wecha_id=' + u_ekn;this['send']('https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApi' + pz8m, this['completeHandler'], this['errorHandler']);
-  }, obh['prototype']['getBoxCheckoutCode'] = function () {
-    var fw1i2 = Sygame['SY_CONF']['commitId'];this['send']('https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getBoxCheckoutCode', this['getBoxCheckoutCodeRes'], this['errorHandler'], 'post', { 'commitId': fw1i2 });
-  }, obh['prototype']['getBoxCheckoutCodeRes'] = function (d3vl) {
-    var $_0ky = JSON['parse'](d3vl);console['log']('getBoxCheckoutCode:', $_0ky);if ($_0ky['status'] == 0x3e9) {
-      var mc5r = $_0ky['info'];mc5r == 0xfa1 ? this['postSidebarApi']() : console['error']('盛也盒子\x20不显示' + $_0ky);
-    } else console['error']('盛也盒子 getBoxCheckoutCodeRes 其他错误' + $_0ky);
-  }, obh['prototype']['completeHandler'] = function (_kyeu) {
-    var qpmtr5 = JSON['parse'](_kyeu);console['log'](qpmtr5);switch (qpmtr5['status']) {case 0x3e9:
-        var aunl3 = [];qpmtr5['msg']['basics_image_url'] && aunl3['push']({ 'url': qpmtr5['msg']['basics_image_url'], 'type': Laya['Loader']['IMAGE'] }), qpmtr5['msg']['public_code'] && aunl3['push']({ 'url': qpmtr5['msg']['public_code'], 'type': Laya['Loader']['IMAGE'] }), qpmtr5['msg']['vip_customer_service'] && aunl3['push']({ 'url': qpmtr5['msg']['vip_customer_service'], 'type': Laya['Loader']['IMAGE'] }), qpmtr5['msg']['vip_customer_service_not_add'] && aunl3['push']({ 'url': qpmtr5['msg']['vip_customer_service_not_add'], 'type': Laya['Loader']['IMAGE'] }), qpmtr5['msg']['game_center_image_url'] && aunl3['push']({ 'url': qpmtr5['msg']['game_center_image_url'], 'type': Laya['Loader']['IMAGE'] }), qpmtr5['msg']['vip_qrcode'] && aunl3['push']({ 'url': qpmtr5['msg']['vip_qrcode'], 'type': Laya['Loader']['IMAGE'] }), qpmtr5['msg']['getIcon'] && aunl3['push']({ 'url': this['getIcon'], 'type': Laya['Loader']['IMAGE'] }), qpmtr5['msg']['copyIcon'] && aunl3['push']({ 'url': this['copyIcon'], 'type': Laya['Loader']['IMAGE'] });for (var i9w12f = 0x0, ad6lv2 = qpmtr5['msg']['follow_gift_list']; i9w12f < ad6lv2['length']; i9w12f++) {
-          var w1f2i9 = ad6lv2[i9w12f];aunl3['push']({ 'url': w1f2i9['url'], 'type': Laya['Loader']['IMAGE'] });
-        }for (var l2dai = 0x0, bp8hcz = qpmtr5['msg']['vip_box_list']; l2dai < bp8hcz['length']; l2dai++) {
-          var w1f2i9 = bp8hcz[l2dai];aunl3['push']({ 'url': w1f2i9['url'], 'type': Laya['Loader']['IMAGE'] });
-        }for (var wf4x9g = 0x0; wf4x9g < aunl3['length']; wf4x9g++) {
-          o_zr8cpm['setResMap'](aunl3[wf4x9g]['url'], o_zr8cpm['getTimeStamp']()), aunl3[wf4x9g]['url'] = o_zr8cpm['getResMap'](aunl3[wf4x9g]['url']);
-        }Laya['loader']['load'](aunl3, Laya['Handler']['create'](this, this['initGame'])), this['data'] = qpmtr5['msg'];break;case 0x3ea:
-        o_mrsq5t['msg']('空的游戏channel');break;case 0x3eb:
-        o_mrsq5t['msg']('错误的游戏channel');break;case 0x3ec:
-        o_mrsq5t['msg']('未找到对应游戏大类');break;case 0x3ed:
-        o_mrsq5t['msg']('未设置侧边栏');break;}
-  }, obh['prototype']['errorHandler'] = function (l3uvan) {}, obh['prototype']['initGame'] = function () {
-    var w9fix = new o_nykeu_(this);w9fix['show']();
-  }, obh;
+    o_of4xg9 = function () {
+  function b8czph() {
+    this['getIcon'] = 'https://wx.11babay.cn/uploads/f/fkccc1532944783/5/2/c/7/60dc442c4fbc5.png', this['copyIcon'] = 'https://wx.11babay.cn/uploads/f/fkccc1532944783/3/0/1/7/60dc4409dce39.png', o_z8chbp['init'](), this['getBoxCheckoutCode']();
+  }return b8czph['prototype']['send'] = function (unvy_3, lai6, _3vlun, rz8mcp, zcbo8h) {
+    rz8mcp === void 0x0 && (rz8mcp = 'get');zcbo8h === void 0x0 && (zcbo8h = '' || null);var oz4b = new Laya['HttpRequest']();oz4b['http']['timeout'] = 0x2710, oz4b['once'](Laya['Event']['COMPLETE'], this, lai6), oz4b['once'](Laya['Event']['ERROR'], this, _3vlun), oz4b['send'](unvy_3, zcbo8h, rz8mcp, 'text');
+  }, b8czph['prototype']['postSidebarApi'] = function () {
+    var u_ye3 = o_z8chbp['sygame']['openid'],
+        _0keyu = '&channel=' + o_z8chbp['sygame']['channel'] + '&wecha_id=' + u_ye3;this['send']('https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApi' + _0keyu, this['completeHandler'], this['errorHandler']);
+  }, b8czph['prototype']['getBoxCheckoutCode'] = function () {
+    var czr8m = Sygame['SY_CONF']['commitId'];this['send']('https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getBoxCheckoutCode', this['getBoxCheckoutCodeRes'], this['errorHandler'], 'post', { 'commitId': czr8m });
+  }, b8czph['prototype']['getBoxCheckoutCodeRes'] = function (gfxo) {
+    var lav36 = JSON['parse'](gfxo);console['log']('getBoxCheckoutCode:', lav36);if (lav36['status'] == 0x3e9) {
+      var qt5rsm = lav36['info'];qt5rsm == 0xfa1 ? this['postSidebarApi']() : console['error']('盛也盒子\x20不显示' + lav36);
+    } else console['error']('盛也盒子 getBoxCheckoutCodeRes 其他错误' + lav36);
+  }, b8czph['prototype']['completeHandler'] = function (_ulvn3) {
+    var f21wi9 = JSON['parse'](_ulvn3);console['log'](f21wi9);switch (f21wi9['status']) {case 0x3e9:
+        var u3ln = [];f21wi9['msg']['basics_image_url'] && u3ln['push']({ 'url': f21wi9['msg']['basics_image_url'], 'type': Laya['Loader']['IMAGE'] }), f21wi9['msg']['public_code'] && u3ln['push']({ 'url': f21wi9['msg']['public_code'], 'type': Laya['Loader']['IMAGE'] }), f21wi9['msg']['vip_customer_service'] && u3ln['push']({ 'url': f21wi9['msg']['vip_customer_service'], 'type': Laya['Loader']['IMAGE'] }), f21wi9['msg']['vip_customer_service_not_add'] && u3ln['push']({ 'url': f21wi9['msg']['vip_customer_service_not_add'], 'type': Laya['Loader']['IMAGE'] }), f21wi9['msg']['game_center_image_url'] && u3ln['push']({ 'url': f21wi9['msg']['game_center_image_url'], 'type': Laya['Loader']['IMAGE'] }), f21wi9['msg']['vip_qrcode'] && u3ln['push']({ 'url': f21wi9['msg']['vip_qrcode'], 'type': Laya['Loader']['IMAGE'] }), f21wi9['msg']['getIcon'] && u3ln['push']({ 'url': this['getIcon'], 'type': Laya['Loader']['IMAGE'] }), f21wi9['msg']['copyIcon'] && u3ln['push']({ 'url': this['copyIcon'], 'type': Laya['Loader']['IMAGE'] });for (var qstr = 0x0, bh8oc = f21wi9['msg']['follow_gift_list']; qstr < bh8oc['length']; qstr++) {
+          var i6da21 = bh8oc[qstr];u3ln['push']({ 'url': i6da21['url'], 'type': Laya['Loader']['IMAGE'] });
+        }for (var gbxo49 = 0x0, lvad3 = f21wi9['msg']['vip_box_list']; gbxo49 < lvad3['length']; gbxo49++) {
+          var i6da21 = lvad3[gbxo49];u3ln['push']({ 'url': i6da21['url'], 'type': Laya['Loader']['IMAGE'] });
+        }for (var kenuy_ = 0x0; kenuy_ < u3ln['length']; kenuy_++) {
+          o_z8chbp['setResMap'](u3ln[kenuy_]['url'], o_z8chbp['getTimeStamp']()), u3ln[kenuy_]['url'] = o_z8chbp['getResMap'](u3ln[kenuy_]['url']);
+        }Laya['loader']['load'](u3ln, Laya['Handler']['create'](this, this['initGame'])), this['data'] = f21wi9['msg'];break;case 0x3ea:
+        o_f4og['msg']('空的游戏channel');break;case 0x3eb:
+        o_f4og['msg']('错误的游戏channel');break;case 0x3ec:
+        o_f4og['msg']('未找到对应游戏大类');break;case 0x3ed:
+        o_f4og['msg']('未设置侧边栏');break;}
+  }, b8czph['prototype']['errorHandler'] = function (w4f9) {}, b8czph['prototype']['initGame'] = function () {
+    var ifw = new o_u3va(this);ifw['show']();
+  }, b8czph;
 }(),
-    o_nykeu_ = function () {
-  function zog4h(l26id) {
-    this['page'] = 0x3, this['rolePriceData'] = {}, this['boxlist'] = [], this['donwX'] = 0x0, this['downY'] = 0x0, this['tool'] = l26id;
-  }return zog4h['prototype']['setChildMouseThroughs'] = function (yu_3n) {
-    var fo49x = yu_3n['_childs'] || [];for (var p8zrhc = 0x0; p8zrhc < fo49x['length']; p8zrhc++) {
-      fo49x[p8zrhc] && (fo49x[p8zrhc]['mouseThrough'] = !![]);
+    o_u3va = function () {
+  function ynk_ue(ny3v) {
+    this['page'] = 0x3, this['rolePriceData'] = {}, this['boxlist'] = [], this['donwX'] = 0x0, this['downY'] = 0x0, this['tool'] = ny3v;
+  }return ynk_ue['prototype']['setChildMouseThroughs'] = function (qtpr5) {
+    var x9g4f = qtpr5['_childs'] || [];for (var zhcob8 = 0x0; zhcob8 < x9g4f['length']; zhcob8++) {
+      x9g4f[zhcob8] && (x9g4f[zhcob8]['mouseThrough'] = !![]);
     }
-  }, zog4h['prototype']['show'] = function () {
+  }, ynk_ue['prototype']['show'] = function () {
     if (this['tool']['data']['on'] === '1') {
-      this['main'] = new o_mq57s['demoui']['MainUI'](), Laya['stage']['addChild'](this['main']), this['main']['mouseThrough'] = !![];var p5c8r = this['main']['_childs'] || [];for (var rmtqp = 0x0; rmtqp < p5c8r['length']; rmtqp++) {
-        p5c8r[rmtqp]['mouseThrough'] = !![];
-      }this['setChildMouseThroughs'](this['main']['_childs']), this['setChildMouseThroughs'](this['main']['_childs'][0x0]), this['initIcon'](), this['initEvent'](), this['initView'](), o_mrsq5t['init'](), this['main']['bg']['x'] = -0x2ee;
+      this['main'] = new o_uyke['demoui']['MainUI'](), Laya['stage']['addChild'](this['main']), this['main']['mouseThrough'] = !![];var fidw12 = this['main']['_childs'] || [];for (var vun_3 = 0x0; vun_3 < fidw12['length']; vun_3++) {
+        fidw12[vun_3]['mouseThrough'] = !![];
+      }this['setChildMouseThroughs'](this['main']['_childs']), this['setChildMouseThroughs'](this['main']['_childs'][0x0]), this['initIcon'](), this['initEvent'](), this['initView'](), o_f4og['init'](), this['main']['bg']['x'] = -0x2ee;
     }
-  }, zog4h['prototype']['initView'] = function () {
-    var f9w21 = this,
-        bzcho = this['tool']['data']['follow_down_words']['replace'](/\\n/g, '\x0a');this['main']['box_1_lab_info']['text'] = bzcho;for (var pzcr8h = 0x1; pzcr8h <= this['tool']['data']['follow_gift_list']['length']; pzcr8h++) {
-      var ct5rmp = this['tool']['data']['follow_gift_list'][pzcr8h - 0x1];this['main']['box_1_img_' + pzcr8h]['skin'] = ct5rmp['url'], this['main']['box_1_lab_' + pzcr8h]['text'] = ct5rmp['name'];
-    }for (var pzcr8h = 0x1; pzcr8h <= this['tool']['data']['vip_box_list']['length']; pzcr8h++) {
-      var ct5rmp = this['tool']['data']['vip_box_list'][pzcr8h - 0x1];this['main']['box_2_img_' + pzcr8h]['skin'] = ct5rmp['url'], this['main']['box_2_lab_' + pzcr8h]['text'] = ct5rmp['name'];
+  }, ynk_ue['prototype']['initView'] = function () {
+    var crt = this,
+        vnul_ = this['tool']['data']['follow_down_words']['replace'](/\\n/g, '\x0a');this['main']['box_1_lab_info']['text'] = vnul_;for (var qm5prt = 0x1; qm5prt <= this['tool']['data']['follow_gift_list']['length']; qm5prt++) {
+      var f12iw = this['tool']['data']['follow_gift_list'][qm5prt - 0x1];this['main']['box_1_img_' + qm5prt]['skin'] = f12iw['url'], this['main']['box_1_lab_' + qm5prt]['text'] = f12iw['name'];
+    }for (var qm5prt = 0x1; qm5prt <= this['tool']['data']['vip_box_list']['length']; qm5prt++) {
+      var f12iw = this['tool']['data']['vip_box_list'][qm5prt - 0x1];this['main']['box_2_img_' + qm5prt]['skin'] = f12iw['url'], this['main']['box_2_lab_' + qm5prt]['text'] = f12iw['name'];
     }this['main']['box_2_lab_m_1']['text'] = '方法一：单日充值' + +this['tool']['data']['x'] + '元', this['main']['box_2_lab_m_2']['text'] = '方法二：历史累计充值' + +this['tool']['data']['y'] + '元', this['main']['box_2_lab_v_1']['text'] = (this['rolePriceData']['todayPrice'] || 0x0) + '/' + +this['tool']['data']['x'] + '元', this['main']['box_2_lab_v_2']['text'] = (this['rolePriceData']['allPrice'] || 0x0) + '/' + +this['tool']['data']['y'] + '元', this['main']['box_2_btn_copy']['skin'] = this['tool']['copyIcon'], this['main']['box_2_btn_get']['skin'] = this['tool']['getIcon'], this['main']['box_2_btn_copy']['visible'] = ![], this['main']['box_2_btn_get']['on'](Laya['Event']['CLICK'], this, function () {
-      if (f9w21['rolePriceData']['is_vip'] == 0x0) {
-        o_mrsq5t['msg']('请先获取vip资格');return;
-      }f9w21['main']['box_2_lab_wx']['text'] = this['rolePriceData']['vip_wx'], f9w21['main']['box_2_btn_copy']['visible'] = !![];
+      if (crt['rolePriceData']['is_vip'] == 0x0) {
+        o_f4og['msg']('请先获取vip资格');return;
+      }crt['main']['box_2_lab_wx']['text'] = this['rolePriceData']['vip_wx'], crt['main']['box_2_btn_copy']['visible'] = !![];
     }), this['main']['box_2_btn_copy']['on'](Laya['Event']['CLICK'], this, function () {
-      f9w21['copyText'](this['rolePriceData']['vip_wx']);
+      crt['copyText'](this['rolePriceData']['vip_wx']);
     }), this['main']['box_2_addclick']['on'](Laya['Event']['CLICK'], this, function () {
-      if (f9w21['rolePriceData']['is_vip'] == 0x0) return;this['main']['box_help_qrcode']['skin'] = f9w21['rolePriceData']['vip_qrcode'], f9w21['main']['box_help']['visible'] = !![];
+      if (crt['rolePriceData']['is_vip'] == 0x0) return;this['main']['box_help_qrcode']['skin'] = crt['rolePriceData']['vip_qrcode'], crt['main']['box_help']['visible'] = !![];
     }), this['main']['box_help_close']['on'](Laya['Event']['CLICK'], this, function () {
-      f9w21['main']['box_help']['visible'] = ![];
-    }), this['main']['box_help_bg']['skin'] = this['tool']['data']['vip_customer_service_not_add'], this['main']['box_help_qrcode']['skin'] = f9w21['rolePriceData']['vip_qrcode'], this['main']['box_help_qrcode']['scaleX'] = 0xa0 / this['main']['box_help_qrcode']['width'], this['main']['box_help_qrcode']['scaleY'] = 0xa0 / this['main']['box_help_qrcode']['width'], this['main']['box_3_panel']['vScrollBar']['visible'] = ![], this['main']['box_3_panel']['vScrollBarSkin'] = 'common_atlas/scrollBar.png';
-  }, zog4h['prototype']['initIcon'] = function () {
+      crt['main']['box_help']['visible'] = ![];
+    }), this['main']['box_help_bg']['skin'] = this['tool']['data']['vip_customer_service_not_add'], this['main']['box_help_qrcode']['skin'] = crt['rolePriceData']['vip_qrcode'], this['main']['box_help_qrcode']['scaleX'] = 0xa0 / this['main']['box_help_qrcode']['width'], this['main']['box_help_qrcode']['scaleY'] = 0xa0 / this['main']['box_help_qrcode']['width'], this['main']['box_3_panel']['vScrollBar']['visible'] = ![], this['main']['box_3_panel']['vScrollBarSkin'] = 'common_atlas/scrollBar.png';
+  }, ynk_ue['prototype']['initIcon'] = function () {
     this['icon'] = new Laya['Image'](), this['icon']['skin'] = this['tool']['data']['basics_image_url'], this['icon']['x'] = 0x0, this['icon']['y'] = 0xc8, this['icon']['width'] = 0x66, this['icon']['height'] = 0x6f, this['main']['addChild'](this['icon']), this['icon']['on'](Laya['Event']['MOUSE_DOWN'], this, this['iconPress']), this['icon']['on'](Laya['Event']['MOUSE_UP'], this, this['iconUp']), this['icon']['on'](Laya['Event']['MOUSE_WHEEL'], this, this['iconMove']), this['dragRect'] = new Laya['Rectangle'](-this['icon']['width'] / 0x2, 0x0, Laya['stage']['width'], Laya['stage']['height'] - this['icon']['height'] / 0x2);
-  }, zog4h['prototype']['initEvent'] = function () {
-    var hozbg = this;this['main']['btn_1']['on'](Laya['Event']['CLICK'], this, function () {
-      if (hozbg['page'] == 0x1) return;hozbg['page1']();
+  }, ynk_ue['prototype']['initEvent'] = function () {
+    var d2li = this;this['main']['btn_1']['on'](Laya['Event']['CLICK'], this, function () {
+      if (d2li['page'] == 0x1) return;d2li['page1']();
     }), this['main']['btn_2']['on'](Laya['Event']['CLICK'], this, function () {
-      if (hozbg['page'] == 0x2) return;hozbg['page2']();
+      if (d2li['page'] == 0x2) return;d2li['page2']();
     }), this['main']['btn_3']['on'](Laya['Event']['CLICK'], this, function () {
-      if (hozbg['page'] == 0x3) return;hozbg['page3']();
+      if (d2li['page'] == 0x3) return;d2li['page3']();
     }), this['main']['btn_close']['on'](Laya['Event']['CLICK'], this, function () {
-      hozbg['main']['bg']['x'] = -0x2ee, hozbg['icon']['visible'] = !![];
+      d2li['main']['bg']['x'] = -0x2ee, d2li['icon']['visible'] = !![];
     });
-  }, zog4h['prototype']['initBoard'] = function () {
+  }, ynk_ue['prototype']['initBoard'] = function () {
     this['isInitBoard'] = !![], this['page1']();
-  }, zog4h['prototype']['showBoard'] = function () {
-    this['main']['bg']['x'] = 0x0, this['icon']['visible'] = ![];var da3v6 = _oAE['selectedServer']['server_id'],
-        pm5tcr = _oAE['selectedServer']['server_name'],
-        wf9i12 = _oAE['roleId'],
-        f2wdi1 = _oAE['roleName'],
-        rqtms = o_zr8cpm['sygame']['openid'],
-        u_y0 = '&role_id=' + o_zr8cpm['sygame']['role_id'] + '&channel=' + o_zr8cpm['sygame']['channel'] + '&server_id=' + da3v6 + '&server_name=' + pm5tcr + '&wecha_id=' + rqtms + '&role_id=' + wf9i12 + '&role_name=' + f2wdi1;this['tool']['send']('https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApiRoleId' + u_y0, this['rolePriceHandler']['bind'](this), this['roleError']['bind'](this));
-  }, zog4h['prototype']['page1'] = function () {
+  }, ynk_ue['prototype']['showBoard'] = function () {
+    this['main']['bg']['x'] = 0x0, this['icon']['visible'] = ![];var b8zog = _oAE['selectedServer']['server_id'],
+        ku0_e = _oAE['selectedServer']['server_name'],
+        hpb8zc = _oAE['roleId'],
+        mrc85 = _oAE['roleName'],
+        ek0_ = o_z8chbp['sygame']['openid'],
+        m8p5 = '&role_id=' + o_z8chbp['sygame']['role_id'] + '&channel=' + o_z8chbp['sygame']['channel'] + '&server_id=' + b8zog + '&server_name=' + ku0_e + '&wecha_id=' + ek0_ + '&role_id=' + hpb8zc + '&role_name=' + mrc85;this['tool']['send']('https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApiRoleId' + m8p5, this['rolePriceHandler']['bind'](this), this['roleError']['bind'](this));
+  }, ynk_ue['prototype']['page1'] = function () {
     this['page'] = 0x1, this['main']['bg']['skin'] = this['tool']['data']['public_code'], this['main']['box_1_show']['visible'] = !![], this['main']['box_2_show']['visible'] = ![], this['main']['box_3_show']['visible'] = ![];
-  }, zog4h['prototype']['page2'] = function () {
+  }, ynk_ue['prototype']['page2'] = function () {
     this['page'] = 0x2, this['main']['bg']['skin'] = this['tool']['data']['vip_customer_service'], this['main']['box_1_show']['visible'] = ![], this['main']['box_2_show']['visible'] = !![], this['main']['box_3_show']['visible'] = ![];
-  }, zog4h['prototype']['page3'] = function () {
-    this['page'] = 0x3, this['main']['bg']['skin'] = this['tool']['data']['game_center_image_url'], this['main']['box_1_show']['visible'] = ![], this['main']['box_2_show']['visible'] = ![], this['main']['box_3_show']['visible'] = !![], this['sendBox'] || this['getBoxList'](0x0), this['sendBox'] = !![], o_hb4ox && o_hb4ox['syClickOpenBox']();
-  }, zog4h['prototype']['getBoxList'] = function (y_u0ek) {
-    var m5rptc = this;o_hb4ox && o_hb4ox['syGetBoxList']({ 'page': y_u0ek, 'count': 0xc })['then'](function (chz8rp) {
-      var n_3uvy = chz8rp['data'];n_3uvy['status'] == 0x3e9 ? n_3uvy['data'] && n_3uvy['data']['length'] && (m5rptc['boxlist'] = m5rptc['boxlist']['concat'](n_3uvy['data']), y_u0ek++, m5rptc['getBoxList'](y_u0ek)) : m5rptc['boxListHandler']();
+  }, ynk_ue['prototype']['page3'] = function () {
+    this['page'] = 0x3, this['main']['bg']['skin'] = this['tool']['data']['game_center_image_url'], this['main']['box_1_show']['visible'] = ![], this['main']['box_2_show']['visible'] = ![], this['main']['box_3_show']['visible'] = !![], this['sendBox'] || this['getBoxList'](0x0), this['sendBox'] = !![], o_w21fid && o_w21fid['syClickOpenBox']();
+  }, ynk_ue['prototype']['getBoxList'] = function (y_kn) {
+    var uekny = this;o_w21fid && o_w21fid['syGetBoxList']({ 'page': y_kn, 'count': 0xc })['then'](function (bgozh4) {
+      var _3yune = bgozh4['data'];_3yune['status'] == 0x3e9 ? _3yune['data'] && _3yune['data']['length'] && (uekny['boxlist'] = uekny['boxlist']['concat'](_3yune['data']), y_kn++, uekny['getBoxList'](y_kn)) : uekny['boxListHandler']();
     });
-  }, zog4h['prototype']['copyText'] = function (prmc) {
+  }, ynk_ue['prototype']['copyText'] = function (r5pcm8) {
     try {
-      wx['setClipboardData']({ 'data': prmc, 'success': function (s5rq) {
-          console['log']('复制成功:', s5rq);
+      wx['setClipboardData']({ 'data': r5pcm8, 'success': function (vla6n3) {
+          console['log']('复制成功:', vla6n3);
         } });
-    } catch (di2w61) {}
-  }, zog4h['prototype']['rolePriceHandler'] = function (je0) {
-    this['rolePriceData'] = JSON['parse'](je0);switch (this['rolePriceData']['status']) {case 0x3e9:
+    } catch (hz8cbp) {}
+  }, ynk_ue['prototype']['rolePriceHandler'] = function (d3vla) {
+    this['rolePriceData'] = JSON['parse'](d3vla);switch (this['rolePriceData']['status']) {case 0x3e9:
         this['main']['box_2_lab_v_1']['text'] = (this['rolePriceData']['todayPrice'] || 0x0) + '/' + +this['tool']['data']['x'] + '元', this['main']['box_2_lab_v_2']['text'] = (this['rolePriceData']['allPrice'] || 0x0) + '/' + +this['tool']['data']['y'] + '元';break;case 0x3ea:
         break;case 0x3eb:
         break;}
-  }, zog4h['prototype']['roleError'] = function () {}, zog4h['prototype']['boxListHandler'] = function () {
-    var bx9go4 = function (bhx4go) {
-      var _kyneu = h8g['boxlist'][bhx4go],
-          cpb8 = new o_mq57s['demoui']['BoxItemUI']();cpb8['icon']['skin'] = _kyneu['icon'], cpb8['title']['text'] = _kyneu['title'], cpb8['x'] = 0xa0 * (bhx4go % 0x3), cpb8['y'] = 0xa0 * (bhx4go / 0x3 ^ 0x0), h8g['main']['box_3_panel']['addChild'](cpb8);var _ek$0 = { 'appid': o_zr8cpm['sygame']['appid'], 'game_id': _kyneu['game_id'], 'jump_appid': _kyneu['jump_appid'], 'jump_path': _kyneu['jump_path'], 'tunnel_id': _kyneu['tunnel_id'], 'uv': 0x0, 'wecha_id': o_zr8cpm['sygame']['openid'] },
-          dv63a = _kyneu['preview_img'],
-          y_0ku = _kyneu['jump_type'],
-          f4gxw = _kyneu['kf_session'];cpb8['on'](Laya['Event']['CLICK'], h8g, function () {
-        o_hb4ox && o_hb4ox['syClickBox']({ 'game_id': _kyneu['game_id'], 'tunnel_id': _kyneu['tunnel_id'], 'jump_appid': _kyneu['jump_appid'], 'jump_path': _kyneu['jump_path'] })['then'](function (hpzrc) {
-          if (y_0ku === '0') wx['navigateToMiniProgram']({ 'appId': _ek$0['jump_appid'], 'path': _ek$0['jump_path'], 'fail': function (y3ue_) {
-              if (!dv63a) return;wx['previewImage']({ 'urls': [dv63a] });
+  }, ynk_ue['prototype']['roleError'] = function () {}, ynk_ue['prototype']['boxListHandler'] = function () {
+    var pmc8r = function ($k_0e) {
+      var b94xo = q57mt['boxlist'][$k_0e],
+          mrz8p = new o_uyke['demoui']['BoxItemUI']();mrz8p['icon']['skin'] = b94xo['icon'], mrz8p['title']['text'] = b94xo['title'], mrz8p['x'] = 0xa0 * ($k_0e % 0x3), mrz8p['y'] = 0xa0 * ($k_0e / 0x3 ^ 0x0), q57mt['main']['box_3_panel']['addChild'](mrz8p);var pzb8hc = { 'appid': o_z8chbp['sygame']['appid'], 'game_id': b94xo['game_id'], 'jump_appid': b94xo['jump_appid'], 'jump_path': b94xo['jump_path'], 'tunnel_id': b94xo['tunnel_id'], 'uv': 0x0, 'wecha_id': o_z8chbp['sygame']['openid'] },
+          l3d6a = b94xo['preview_img'],
+          wif1 = b94xo['jump_type'],
+          z8hog = b94xo['kf_session'];mrz8p['on'](Laya['Event']['CLICK'], q57mt, function () {
+        o_w21fid && o_w21fid['syClickBox']({ 'game_id': b94xo['game_id'], 'tunnel_id': b94xo['tunnel_id'], 'jump_appid': b94xo['jump_appid'], 'jump_path': b94xo['jump_path'] })['then'](function (xi19) {
+          if (wif1 === '0') wx['navigateToMiniProgram']({ 'appId': pzb8hc['jump_appid'], 'path': pzb8hc['jump_path'], 'fail': function (e_kn) {
+              if (!l3d6a) return;wx['previewImage']({ 'urls': [l3d6a] });
             } });else {
-            if (y_0ku === '1') {
-              if (!dv63a) return;wx['previewImage']({ 'urls': [dv63a] });
+            if (wif1 === '1') {
+              if (!l3d6a) return;wx['previewImage']({ 'urls': [l3d6a] });
             } else {
-              if (y_0ku === '2') {
-                if (!f4gxw) return;wx['openCustomerServiceConversation']({ 'sessionFrom': f4gxw, 'showMessageCard': !![], 'sendMessageTitle': '', 'sendMessagePath': '', 'sendMessageImg': '' });
+              if (wif1 === '2') {
+                if (!z8hog) return;wx['openCustomerServiceConversation']({ 'sessionFrom': z8hog, 'showMessageCard': !![], 'sendMessageTitle': '', 'sendMessagePath': '', 'sendMessageImg': '' });
               }
             }
           }
         });
       });
     },
-        h8g = this;for (var lnva = 0x0; lnva < this['boxlist']['length']; lnva++) {
-      bx9go4(lnva);
+        q57mt = this;for (var tprmc5 = 0x0; tprmc5 < this['boxlist']['length']; tprmc5++) {
+      pmc8r(tprmc5);
     }
-  }, zog4h['prototype']['boxListError'] = function () {}, zog4h['prototype']['boxClickHandler'] = function () {}, zog4h['prototype']['iconPress'] = function (fx1w49) {
-    this['donwX'] = fx1w49['target']['x'], this['donwY'] = fx1w49['target']['y'], this['icon']['startDrag'](this['dragRect']), this['isMove'] = ![], this['isPress'] = !![];
-  }, zog4h['prototype']['iconMove'] = function (tpc5m) {
+  }, ynk_ue['prototype']['boxListError'] = function () {}, ynk_ue['prototype']['boxClickHandler'] = function () {}, ynk_ue['prototype']['iconPress'] = function (gozbh4) {
+    this['donwX'] = gozbh4['target']['x'], this['donwY'] = gozbh4['target']['y'], this['icon']['startDrag'](this['dragRect']), this['isMove'] = ![], this['isPress'] = !![];
+  }, ynk_ue['prototype']['iconMove'] = function (dl62ai) {
     this['isMove'] = !![];
-  }, zog4h['prototype']['iconUp'] = function (g9xb) {
-    var fgw9 = g9xb['target']['x'],
-        f192i = g9xb['target']['y'];this['icon']['stopDrag'](), fgw9 == this['donwX'] && this['donwY'] == f192i && (this['isInitBoard'] || this['initBoard'](), this['showBoard']()), this['isMove'] = ![], this['isPress'] = ![];
-  }, zog4h;
+  }, ynk_ue['prototype']['iconUp'] = function (ix1f9) {
+    var $0_k = ix1f9['target']['x'],
+        hpb8cz = ix1f9['target']['y'];this['icon']['stopDrag'](), $0_k == this['donwX'] && this['donwY'] == hpb8cz && (this['isInitBoard'] || this['initBoard'](), this['showBoard']()), this['isMove'] = ![], this['isPress'] = ![];
+  }, ynk_ue;
 }(),
-    o_mq57s;(function (yj$ek0) {
-  var ch8bp;(function (x91fw) {
-    var nu3va = function (dla62v) {
-      o_ozch(r85cmp, dla62v);function r85cmp() {
-        return dla62v['call'](this) || this;
-      }return r85cmp['prototype']['createChildren'] = function () {
-        laya['ui']['View']['regComponent']('Text', laya['display']['Text']), dla62v['prototype']['createChildren']['call'](this), this['createView'](yj$ek0['demoui']['BoxItemUI']['uiView']);
-      }, r85cmp['uiView'] = { 'type': 'View', 'props': { 'width': 0xb4, 'height': 0xa0 }, 'child': [{ 'type': 'Image', 'props': { 'y': 0x3, 'x': 0x20, 'width': 0x73, 'var': 'icon', 'height': 0x73 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x79, 'x': -0x21, 'width': 0xb4, 'var': 'title', 'valign': 'middle', 'height': 0x22, 'fontSize': 0x16, 'color': '#441d1c', 'align': 'center' } }] }] }, r85cmp;
-    }(laya['ui']['View']);x91fw['BoxItemUI'] = nu3va;
-  })(ch8bp = yj$ek0['demoui'] || (yj$ek0['demoui'] = {}));
-})(o_mq57s || (o_mq57s = {})), function (zbhg8) {
-  var ynv3;(function (rzcpm) {
-    var _3unlv = function (ai16d2) {
-      o_ozch(fxog94, ai16d2);function fxog94() {
-        return ai16d2['call'](this) || this;
-      }return fxog94['prototype']['createChildren'] = function () {
-        laya['ui']['View']['regComponent']('Text', laya['display']['Text']), ai16d2['prototype']['createChildren']['call'](this), this['createView'](zbhg8['demoui']['MainUI']['uiView']);
-      }, fxog94['uiView'] = { 'type': 'View', 'props': { 'y': 0x0, 'x': 0x0, 'width': 0x2ee, 'top': 0x0, 'right': 0x0, 'left': 0x0, 'height': 0x536, 'bottom': 0x0 }, 'child': [{ 'type': 'Box', 'props': { 'width': 0x2ee, 'height': 0x536, 'centerY': 0x0 }, 'child': [{ 'type': 'Image', 'props': { 'y': 0x0, 'x': 0x0, 'width': 0x2ee, 'var': 'bg', 'height': 0x536 }, 'child': [{ 'type': 'Image', 'props': { 'width': 0x2ee, 'visible': ![], 'var': 'box_1_show', 'height': 0x536, 'centerY': 0x0 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x253, 'x': 0x2e, 'width': 0x1d0, 'var': 'box_1_lab_info', 'leading': 0xa, 'height': 0x97, 'fontSize': 0x18, 'color': '#a959ee' } }, { 'type': 'HBox', 'props': { 'y': 0x2ee, 'x': 0x14, 'width': 0x1fe, 'space': 0x35, 'height': 0x78, 'align': 'top' }, 'child': [{ 'type': 'Image', 'props': { 'width': 0x58, 'var': 'box_1_img_1', 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x60, 'x': -0x10, 'width': 0x77, 'var': 'box_1_lab_1', 'height': 0x16, 'fontSize': 0x12, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0xa, 'x': 0xa, 'width': 0x58, 'var': 'box_1_img_2', 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x60, 'x': -0x10, 'width': 0x77, 'var': 'box_1_lab_2', 'height': 0x16, 'fontSize': 0x12, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0x14, 'x': 0x14, 'width': 0x58, 'var': 'box_1_img_3', 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x60, 'x': -0x10, 'width': 0x77, 'var': 'box_1_lab_3', 'height': 0x16, 'fontSize': 0x12, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0x1e, 'x': 0x1e, 'width': 0x58, 'var': 'box_1_img_4', 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x60, 'x': -0x10, 'width': 0x77, 'var': 'box_1_lab_4', 'height': 0x16, 'fontSize': 0x12, 'color': '#a959ee', 'align': 'center' } }] }] }] }, { 'type': 'Image', 'props': { 'y': 0x0, 'x': 0x0, 'visible': ![], 'var': 'box_2_show' }, 'child': [{ 'type': 'HBox', 'props': { 'y': 0x220, 'x': 0x18, 'width': 0x1f4, 'space': 0x2c, 'height': 0x56, 'align': 'top' }, 'child': [{ 'type': 'Image', 'props': { 'y': 2.5, 'x': 0x0, 'width': 0x58, 'var': 'box_2_img_1', 'scaleY': 0.74, 'scaleX': 0.74, 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x5f, 'x': -0x1b, 'width': 0x8f, 'var': 'box_2_lab_1', 'height': 0x1a, 'fontSize': 0x1a, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0xc, 'x': 0xa, 'width': 0x58, 'var': 'box_2_img_2', 'scaleY': 0.74, 'scaleX': 0.74, 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x5f, 'x': -0x1b, 'width': 0x8f, 'var': 'box_2_lab_2', 'height': 0x1a, 'fontSize': 0x1a, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0x16, 'x': 0x14, 'width': 0x58, 'var': 'box_2_img_3', 'scaleY': 0.74, 'scaleX': 0.74, 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x5f, 'x': -0x1b, 'width': 0x8f, 'var': 'box_2_lab_3', 'height': 0x1a, 'fontSize': 0x1a, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0x20, 'x': 0x1e, 'width': 0x58, 'var': 'box_2_img_4', 'scaleY': 0.74, 'scaleX': 0.74, 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x5f, 'x': -0x1b, 'width': 0x8f, 'var': 'box_2_lab_4', 'height': 0x1a, 'fontSize': 0x1a, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0x2a, 'x': 0x28, 'width': 0x58, 'var': 'box_2_img_5', 'scaleY': 0.74, 'scaleX': 0.74, 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x5f, 'x': -0x1b, 'width': 0x8f, 'var': 'box_2_lab_5', 'height': 0x1a, 'fontSize': 0x1a, 'color': '#a959ee', 'align': 'center' } }] }] }, { 'type': 'Box', 'props': { 'y': 0x384, 'x': 0x0, 'width': 0x221, 'height': 0x44 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x0, 'x': 0x28, 'width': 0x122, 'var': 'box_2_lab_m_1', 'text': '方法一\uFF1A单日充值1000元', 'height': 0x1d, 'fontSize': 0x14, 'color': '#ff0300' } }, { 'type': 'Text', 'props': { 'y': 0x1e, 'x': 0x28, 'width': 0x122, 'var': 'box_2_lab_m_2', 'text': '方法一\uFF1A历史累计充值1000元', 'height': 0x1d, 'fontSize': 0x14, 'color': '#ff0300' } }, { 'type': 'Text', 'props': { 'y': 0x0, 'x': 0x141, 'width': 0xa4, 'var': 'box_2_lab_v_1', 'text': '1000/1000元', 'height': 0x1d, 'fontSize': 0x14, 'color': '#ff0300', 'align': 'right' } }, { 'type': 'Text', 'props': { 'y': 0x1e, 'x': 0x141, 'width': 0xa4, 'var': 'box_2_lab_v_2', 'text': '1000/1000元', 'height': 0x1d, 'fontSize': 0x14, 'color': '#ff0300', 'align': 'right' } }] }, { 'type': 'Image', 'props': { 'y': 0x1aa, 'x': 0x159, 'width': 0x66, 'var': 'box_2_btn_get', 'stateNum': 0x1, 'height': 0x26 } }, { 'type': 'Image', 'props': { 'y': 0x1aa, 'x': 0x159, 'width': 0x66, 'var': 'box_2_btn_copy', 'stateNum': 0x1, 'height': 0x26 } }, { 'type': 'Button', 'props': { 'y': 0x1d2, 'x': 0x126, 'width': 0xc9, 'var': 'box_2_addclick', 'stateNum': 0x1, 'height': 0x1b } }, { 'type': 'Text', 'props': { 'y': 0x13c, 'x': 0x17a, 'width': 0xa3, 'var': 'box_2_lab_wx', 'height': 0x1f, 'fontSize': 0x1a, 'color': '#a959ee', 'align': 'left' } }] }, { 'type': 'Image', 'props': { 'y': 0x0, 'x': 0x0, 'visible': ![], 'var': 'box_3_show' }, 'child': [{ 'type': 'Panel', 'props': { 'y': 0xf5, 'x': 0x10, 'width': 0x201, 'var': 'box_3_panel', 'vScrollBarSkin': '', 'height': 0x29e } }] }, { 'type': 'Button', 'props': { 'y': 0x3c8, 'x': 0x0, 'width': 0xbb, 'var': 'btn_1', 'height': 0x57 } }, { 'type': 'Button', 'props': { 'y': 0x3c8, 'x': 0xba, 'width': 0xbb, 'var': 'btn_2', 'height': 0x57 } }, { 'type': 'Button', 'props': { 'y': 0x3c8, 'x': 0x177, 'width': 0xbb, 'var': 'btn_3', 'height': 0x57 } }, { 'type': 'Button', 'props': { 'y': 0x203, 'x': 0x22e, 'width': 0x25, 'var': 'btn_close', 'height': 0x8f } }, { 'type': 'Box', 'props': { 'width': 0x2ee, 'visible': ![], 'var': 'box_help', 'height': 0x536 }, 'child': [{ 'type': 'Sprite', 'props': { 'y': 0x0, 'x': 0x0, 'mouseThrough': ![], 'alpha': 0.7 }, 'child': [{ 'type': 'Rect', 'props': { 'width': 0x2ee, 'lineWidth': 0x1, 'height': 0x536, 'fillColor': '#000000' } }] }, { 'type': 'Image', 'props': { 'y': 0x158, 'x': 0x28, 'width': 0x1d2, 'var': 'box_help_bg', 'height': 0x203 }, 'child': [{ 'type': 'Button', 'props': { 'y': -0x1, 'x': 0x1a0, 'width': 0x33, 'var': 'box_help_close', 'height': 0x28 } }, { 'type': 'Image', 'props': { 'y': 0x3f, 'x': 0x98, 'width': 0xa0, 'var': 'box_help_qrcode', 'height': 0xa0 } }] }] }] }] }] }, fxog94;
-    }(laya['ui']['View']);rzcpm['MainUI'] = _3unlv;
-  })(ynv3 = zbhg8['demoui'] || (zbhg8['demoui'] = {}));
-}(o_mq57s || (o_mq57s = {})), function (n3ual) {
-  var nl3va6;(function (kuye_) {
-    var uk_0e = function (l26i) {
-      o_ozch(gox4bh, l26i);function gox4bh() {
-        return l26i['call'](this) || this;
-      }return gox4bh['prototype']['createChildren'] = function () {
-        laya['ui']['View']['regComponent']('Text', laya['display']['Text']), l26i['prototype']['createChildren']['call'](this), this['createView'](n3ual['demoui']['ToastUI']['uiView']);
-      }, gox4bh['uiView'] = { 'type': 'View', 'props': { 'width': 0x2ee, 'height': 0x536 }, 'child': [{ 'type': 'Box', 'props': { 'width': 0x12c, 'height': 0x32, 'centerY': 0x0, 'centerX': 0x0 }, 'child': [{ 'type': 'Box', 'props': { 'width': 0x12c, 'height': 0x32, 'centerX': 0x0, 'alpha': 0.5 }, 'child': [{ 'type': 'Rect', 'props': { 'width': 0x12c, 'lineWidth': 0x1, 'height': 0x32, 'fillColor': '#382f2f' } }] }, { 'type': 'Text', 'props': { 'width': 0x12c, 'var': 'lab_msg', 'valign': 'middle', 'text': 'text', 'height': 0x32, 'fontSize': 0x18, 'color': '#ffffff', 'align': 'center' } }] }] }, gox4bh;
-    }(laya['ui']['View']);kuye_['ToastUI'] = uk_0e;
-  })(nl3va6 = n3ual['demoui'] || (n3ual['demoui'] = {}));
-}(o_mq57s || (o_mq57s = {}));var o_mrsq5t = function () {
-  function e0$jk() {}return e0$jk['init'] = function () {
-    !this['ui'] && (this['ui'] = new o_mq57s['demoui']['ToastUI'](), this['ui']['visible'] = ![], Laya['stage']['addChild'](this['ui']));
-  }, e0$jk['msg'] = function (hxb) {
-    var fi9x1 = this;!this['ui'] && e0$jk['init'](), this['ui']['visible'] = !![], this['ui']['lab_msg']['text'] = hxb, clearTimeout(this['interval']), this['interval'] = setTimeout(function () {
-      fi9x1['ui']['visible'] = ![];
+    o_uyke;(function (tsqm5) {
+  var pq5t;(function (cprzh8) {
+    var $kyje0 = function (a3vdl) {
+      o_zhcbp(g9o4x, a3vdl);function g9o4x() {
+        return a3vdl['call'](this) || this;
+      }return g9o4x['prototype']['createChildren'] = function () {
+        laya['ui']['View']['regComponent']('Text', laya['display']['Text']), a3vdl['prototype']['createChildren']['call'](this), this['createView'](tsqm5['demoui']['BoxItemUI']['uiView']);
+      }, g9o4x['uiView'] = { 'type': 'View', 'props': { 'width': 0xb4, 'height': 0xa0 }, 'child': [{ 'type': 'Image', 'props': { 'y': 0x3, 'x': 0x20, 'width': 0x73, 'var': 'icon', 'height': 0x73 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x79, 'x': -0x21, 'width': 0xb4, 'var': 'title', 'valign': 'middle', 'height': 0x22, 'fontSize': 0x16, 'color': '#441d1c', 'align': 'center' } }] }] }, g9o4x;
+    }(laya['ui']['View']);cprzh8['BoxItemUI'] = $kyje0;
+  })(pq5t = tsqm5['demoui'] || (tsqm5['demoui'] = {}));
+})(o_uyke || (o_uyke = {})), function (lv62d) {
+  var p8hb;(function (o4bgz) {
+    var a3lvd = function (ia2dl) {
+      o_zhcbp(rm5tc, ia2dl);function rm5tc() {
+        return ia2dl['call'](this) || this;
+      }return rm5tc['prototype']['createChildren'] = function () {
+        laya['ui']['View']['regComponent']('Text', laya['display']['Text']), ia2dl['prototype']['createChildren']['call'](this), this['createView'](lv62d['demoui']['MainUI']['uiView']);
+      }, rm5tc['uiView'] = { 'type': 'View', 'props': { 'y': 0x0, 'x': 0x0, 'width': 0x2ee, 'top': 0x0, 'right': 0x0, 'left': 0x0, 'height': 0x536, 'bottom': 0x0 }, 'child': [{ 'type': 'Box', 'props': { 'width': 0x2ee, 'height': 0x536, 'centerY': 0x0 }, 'child': [{ 'type': 'Image', 'props': { 'y': 0x0, 'x': 0x0, 'width': 0x2ee, 'var': 'bg', 'height': 0x536 }, 'child': [{ 'type': 'Image', 'props': { 'width': 0x2ee, 'visible': ![], 'var': 'box_1_show', 'height': 0x536, 'centerY': 0x0 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x253, 'x': 0x2e, 'width': 0x1d0, 'var': 'box_1_lab_info', 'leading': 0xa, 'height': 0x97, 'fontSize': 0x18, 'color': '#a959ee' } }, { 'type': 'HBox', 'props': { 'y': 0x2ee, 'x': 0x14, 'width': 0x1fe, 'space': 0x35, 'height': 0x78, 'align': 'top' }, 'child': [{ 'type': 'Image', 'props': { 'width': 0x58, 'var': 'box_1_img_1', 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x60, 'x': -0x10, 'width': 0x77, 'var': 'box_1_lab_1', 'height': 0x16, 'fontSize': 0x12, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0xa, 'x': 0xa, 'width': 0x58, 'var': 'box_1_img_2', 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x60, 'x': -0x10, 'width': 0x77, 'var': 'box_1_lab_2', 'height': 0x16, 'fontSize': 0x12, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0x14, 'x': 0x14, 'width': 0x58, 'var': 'box_1_img_3', 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x60, 'x': -0x10, 'width': 0x77, 'var': 'box_1_lab_3', 'height': 0x16, 'fontSize': 0x12, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0x1e, 'x': 0x1e, 'width': 0x58, 'var': 'box_1_img_4', 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x60, 'x': -0x10, 'width': 0x77, 'var': 'box_1_lab_4', 'height': 0x16, 'fontSize': 0x12, 'color': '#a959ee', 'align': 'center' } }] }] }] }, { 'type': 'Image', 'props': { 'y': 0x0, 'x': 0x0, 'visible': ![], 'var': 'box_2_show' }, 'child': [{ 'type': 'HBox', 'props': { 'y': 0x220, 'x': 0x18, 'width': 0x1f4, 'space': 0x2c, 'height': 0x56, 'align': 'top' }, 'child': [{ 'type': 'Image', 'props': { 'y': 2.5, 'x': 0x0, 'width': 0x58, 'var': 'box_2_img_1', 'scaleY': 0.74, 'scaleX': 0.74, 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x5f, 'x': -0x1b, 'width': 0x8f, 'var': 'box_2_lab_1', 'height': 0x1a, 'fontSize': 0x1a, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0xc, 'x': 0xa, 'width': 0x58, 'var': 'box_2_img_2', 'scaleY': 0.74, 'scaleX': 0.74, 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x5f, 'x': -0x1b, 'width': 0x8f, 'var': 'box_2_lab_2', 'height': 0x1a, 'fontSize': 0x1a, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0x16, 'x': 0x14, 'width': 0x58, 'var': 'box_2_img_3', 'scaleY': 0.74, 'scaleX': 0.74, 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x5f, 'x': -0x1b, 'width': 0x8f, 'var': 'box_2_lab_3', 'height': 0x1a, 'fontSize': 0x1a, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0x20, 'x': 0x1e, 'width': 0x58, 'var': 'box_2_img_4', 'scaleY': 0.74, 'scaleX': 0.74, 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x5f, 'x': -0x1b, 'width': 0x8f, 'var': 'box_2_lab_4', 'height': 0x1a, 'fontSize': 0x1a, 'color': '#a959ee', 'align': 'center' } }] }, { 'type': 'Image', 'props': { 'y': 0x2a, 'x': 0x28, 'width': 0x58, 'var': 'box_2_img_5', 'scaleY': 0.74, 'scaleX': 0.74, 'height': 0x58 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x5f, 'x': -0x1b, 'width': 0x8f, 'var': 'box_2_lab_5', 'height': 0x1a, 'fontSize': 0x1a, 'color': '#a959ee', 'align': 'center' } }] }] }, { 'type': 'Box', 'props': { 'y': 0x384, 'x': 0x0, 'width': 0x221, 'height': 0x44 }, 'child': [{ 'type': 'Text', 'props': { 'y': 0x0, 'x': 0x28, 'width': 0x122, 'var': 'box_2_lab_m_1', 'text': '方法一\uFF1A单日充值1000元', 'height': 0x1d, 'fontSize': 0x14, 'color': '#ff0300' } }, { 'type': 'Text', 'props': { 'y': 0x1e, 'x': 0x28, 'width': 0x122, 'var': 'box_2_lab_m_2', 'text': '方法一\uFF1A历史累计充值1000元', 'height': 0x1d, 'fontSize': 0x14, 'color': '#ff0300' } }, { 'type': 'Text', 'props': { 'y': 0x0, 'x': 0x141, 'width': 0xa4, 'var': 'box_2_lab_v_1', 'text': '1000/1000元', 'height': 0x1d, 'fontSize': 0x14, 'color': '#ff0300', 'align': 'right' } }, { 'type': 'Text', 'props': { 'y': 0x1e, 'x': 0x141, 'width': 0xa4, 'var': 'box_2_lab_v_2', 'text': '1000/1000元', 'height': 0x1d, 'fontSize': 0x14, 'color': '#ff0300', 'align': 'right' } }] }, { 'type': 'Image', 'props': { 'y': 0x1aa, 'x': 0x159, 'width': 0x66, 'var': 'box_2_btn_get', 'stateNum': 0x1, 'height': 0x26 } }, { 'type': 'Image', 'props': { 'y': 0x1aa, 'x': 0x159, 'width': 0x66, 'var': 'box_2_btn_copy', 'stateNum': 0x1, 'height': 0x26 } }, { 'type': 'Button', 'props': { 'y': 0x1d2, 'x': 0x126, 'width': 0xc9, 'var': 'box_2_addclick', 'stateNum': 0x1, 'height': 0x1b } }, { 'type': 'Text', 'props': { 'y': 0x13c, 'x': 0x17a, 'width': 0xa3, 'var': 'box_2_lab_wx', 'height': 0x1f, 'fontSize': 0x1a, 'color': '#a959ee', 'align': 'left' } }] }, { 'type': 'Image', 'props': { 'y': 0x0, 'x': 0x0, 'visible': ![], 'var': 'box_3_show' }, 'child': [{ 'type': 'Panel', 'props': { 'y': 0xf5, 'x': 0x10, 'width': 0x201, 'var': 'box_3_panel', 'vScrollBarSkin': '', 'height': 0x29e } }] }, { 'type': 'Button', 'props': { 'y': 0x3c8, 'x': 0x0, 'width': 0xbb, 'var': 'btn_1', 'height': 0x57 } }, { 'type': 'Button', 'props': { 'y': 0x3c8, 'x': 0xba, 'width': 0xbb, 'var': 'btn_2', 'height': 0x57 } }, { 'type': 'Button', 'props': { 'y': 0x3c8, 'x': 0x177, 'width': 0xbb, 'var': 'btn_3', 'height': 0x57 } }, { 'type': 'Button', 'props': { 'y': 0x203, 'x': 0x22e, 'width': 0x25, 'var': 'btn_close', 'height': 0x8f } }, { 'type': 'Box', 'props': { 'width': 0x2ee, 'visible': ![], 'var': 'box_help', 'height': 0x536 }, 'child': [{ 'type': 'Sprite', 'props': { 'y': 0x0, 'x': 0x0, 'mouseThrough': ![], 'alpha': 0.7 }, 'child': [{ 'type': 'Rect', 'props': { 'width': 0x2ee, 'lineWidth': 0x1, 'height': 0x536, 'fillColor': '#000000' } }] }, { 'type': 'Image', 'props': { 'y': 0x158, 'x': 0x28, 'width': 0x1d2, 'var': 'box_help_bg', 'height': 0x203 }, 'child': [{ 'type': 'Button', 'props': { 'y': -0x1, 'x': 0x1a0, 'width': 0x33, 'var': 'box_help_close', 'height': 0x28 } }, { 'type': 'Image', 'props': { 'y': 0x3f, 'x': 0x98, 'width': 0xa0, 'var': 'box_help_qrcode', 'height': 0xa0 } }] }] }] }] }] }, rm5tc;
+    }(laya['ui']['View']);o4bgz['MainUI'] = a3lvd;
+  })(p8hb = lv62d['demoui'] || (lv62d['demoui'] = {}));
+}(o_uyke || (o_uyke = {})), function (rt5c) {
+  var yek0$j;(function (nla3uv) {
+    var hbozc = function (vuln_3) {
+      o_zhcbp(_ynkue, vuln_3);function _ynkue() {
+        return vuln_3['call'](this) || this;
+      }return _ynkue['prototype']['createChildren'] = function () {
+        laya['ui']['View']['regComponent']('Text', laya['display']['Text']), vuln_3['prototype']['createChildren']['call'](this), this['createView'](rt5c['demoui']['ToastUI']['uiView']);
+      }, _ynkue['uiView'] = { 'type': 'View', 'props': { 'width': 0x2ee, 'height': 0x536 }, 'child': [{ 'type': 'Box', 'props': { 'width': 0x12c, 'height': 0x32, 'centerY': 0x0, 'centerX': 0x0 }, 'child': [{ 'type': 'Box', 'props': { 'width': 0x12c, 'height': 0x32, 'centerX': 0x0, 'alpha': 0.5 }, 'child': [{ 'type': 'Rect', 'props': { 'width': 0x12c, 'lineWidth': 0x1, 'height': 0x32, 'fillColor': '#382f2f' } }] }, { 'type': 'Text', 'props': { 'width': 0x12c, 'var': 'lab_msg', 'valign': 'middle', 'text': 'text', 'height': 0x32, 'fontSize': 0x18, 'color': '#ffffff', 'align': 'center' } }] }] }, _ynkue;
+    }(laya['ui']['View']);nla3uv['ToastUI'] = hbozc;
+  })(yek0$j = rt5c['demoui'] || (rt5c['demoui'] = {}));
+}(o_uyke || (o_uyke = {}));var o_f4og = function () {
+  function k0_y() {}return k0_y['init'] = function () {
+    !this['ui'] && (this['ui'] = new o_uyke['demoui']['ToastUI'](), this['ui']['visible'] = ![], Laya['stage']['addChild'](this['ui']));
+  }, k0_y['msg'] = function (d2wi1f) {
+    var n3lav = this;!this['ui'] && k0_y['init'](), this['ui']['visible'] = !![], this['ui']['lab_msg']['text'] = d2wi1f, clearTimeout(this['interval']), this['interval'] = setTimeout(function () {
+      n3lav['ui']['visible'] = ![];
     }, 0x7d0);
-  }, e0$jk;
-}();window['minitool'] = o_$0yk_;
+  }, k0_y;
+}();window['minitool'] = o_of4xg9;

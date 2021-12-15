@@ -121,7 +121,7 @@ module.exports = function (e) {
             },
             showToast: !1,
             toastParams: {
-                icon: Q[131795]
+                icon: Q[131794]
             }
         },
         launchOptions: {},
@@ -217,10 +217,10 @@ module.exports = function (e) {
                 qrcvs: t,
                 qrctx: r,
                 data: n
-            }, e.addEventListener(Q[144622], c);
+            }, e.addEventListener(Q[144621], c);
         },
         removeOffScreen: function () {
-            u && (u.qrctx.clearRect(0, 0, u.qrcvs.width, u.qrcvs.height), u.canvas.removeEventListener(Q[144622], c));
+            u && (u.qrctx.clearRect(0, 0, u.qrcvs.width, u.qrcvs.height), u.canvas.removeEventListener(Q[144621], c));
         }
     };
     function c(e) {
@@ -230,7 +230,7 @@ module.exports = function (e) {
             r = t.clientY;
         n >= (window.innerWidth - 218) / 2 && n <= (window.innerWidth - 218) / 2 + 218 && r >= (window.innerHeight - 258) / 2 && r <= (window.innerHeight - 258) / 2 + 218 ? wx.previewImage({
             urls: [u.data.image]
-        }) : (u.qrctx.clearRect(0, 0, u.qrcvs.width, u.qrcvs.height), u.canvas.removeEventListener(Q[144622], c));
+        }) : (u.qrctx.clearRect(0, 0, u.qrcvs.width, u.qrcvs.height), u.canvas.removeEventListener(Q[144621], c));
     }
     e.exports = d;
 }, function (e, t, n) {
@@ -347,7 +347,7 @@ module.exports = function (e) {
                         msg: Q[129742]
                     });
                 }) : u({
-                    msg: Q[145061]
+                    msg: Q[145060]
                 });
             });
         },
@@ -357,7 +357,7 @@ module.exports = function (e) {
                 wx.login({
                     success: function (r) {
                         var a;
-                        r.code ? (e.data = Object.assign({}, e.data, (c(a = {}, Q[148423], i.default.extParams), c(a, Q[129115], i.default.launchOptions.ext), c(a, Q[124084], i.default.launchOptions.state), c(a, Q[143384], r.code), a)), t(o.default.reversal(e))) : n(r);
+                        r.code ? (e.data = Object.assign({}, e.data, (c(a = {}, Q[148423], i.default.extParams), c(a, Q[129115], i.default.launchOptions.ext), c(a, Q[124084], i.default.launchOptions.state), c(a, Q[143383], r.code), a)), t(o.default.reversal(e))) : n(r);
                     },
                     fail: function (e) {
                         n(e);
@@ -387,7 +387,7 @@ module.exports = function (e) {
                             }), n(e.getUserInfo(a({}, t)));
                         }, function (e) {
                             r({
-                                msg: e.msg || Q[145061]
+                                msg: e.msg || Q[145060]
                             });
                         });
                     },
@@ -404,7 +404,7 @@ module.exports = function (e) {
                             }), n(e.getUserInfo(t));
                         }, function (e) {
                             r({
-                                msg: e.msg || Q[145061]
+                                msg: e.msg || Q[145060]
                             });
                         });
                     }
@@ -420,7 +420,7 @@ module.exports = function (e) {
                     }));
                 }, function (e) {
                     n({
-                        msg: e.msg || Q[145061]
+                        msg: e.msg || Q[145060]
                     });
                 });
             });
@@ -457,7 +457,7 @@ module.exports = function (e) {
                     });
                 }, function (e) {
                     n({
-                        msg: e.errMsg || Q[145061]
+                        msg: e.errMsg || Q[145060]
                     });
                 });
             });
@@ -492,7 +492,7 @@ module.exports = function (e) {
                     });
                 }, function (e) {
                     r({
-                        msg: e.errMsg || Q[145061]
+                        msg: e.errMsg || Q[145060]
                     });
                 });
             });
@@ -562,7 +562,7 @@ module.exports = function (e) {
                         200 === (t = JSON.parse(t)).code ? n({
                             msg: Q[129742]
                         }) : r({
-                            msg: t.msg || Q[145061]
+                            msg: t.msg || Q[145060]
                         });
                     }
                 });
