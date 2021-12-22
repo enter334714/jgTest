@@ -1007,27 +1007,32 @@ window.reqServerCheckBanCallBack = function(data) {
 
     checkBanSuccess();
   } else {
-    sendApi(PF_INFO.apiurl, 'User.login', {
-      'platform': PF_INFO.sdk_name,
-      'partner_id': PF_INFO.partnerId,
-      'token': PF_INFO.sdk_token,
-      'game_pkg': PF_INFO.pkgName,
-      'deviceId': PF_INFO.device_id,
-      'scene': 'WX_'+ PF_INFO.from_scene,
-    }, function(response) {
-      if (response.state == "failed") {
-        window.loginAlert('User.login failed: ' + response.state);
-        return;
-      }
-      PF_INFO.php_sign = String(response.sign);
-      PF_INFO.php_signtime = String(response.time);
-
-      setTimeout(function() {
-        req_server_check_ban(PF_INFO.last_check_ban.step, PF_INFO.last_check_ban.server_id);
-      }, 1500);
-    }, apiRetryAmount, onApiError, function(response) {
-      return response.state == 'success' || response.state == 'failed';
-    });
+    if (PF_INFO.last_check_ban.step >= 3) {
+      onApiError(JSON.stringify(data));
+      window.loginAlert('User.checkInfo failed: ' + data.state);
+    } else {
+      sendApi(PF_INFO.apiurl, 'User.login', {
+        'platform': PF_INFO.sdk_name,
+        'partner_id': PF_INFO.partnerId,
+        'token': PF_INFO.sdk_token,
+        'game_pkg': PF_INFO.pkgName,
+        'deviceId': PF_INFO.device_id,
+        'scene': 'WX_'+ PF_INFO.from_scene,
+      }, function(response) {
+        if (!response || response.state != 'success') {
+          window.loginAlert('User.login failed: ' + response&&response.state);
+          return;
+        }
+        PF_INFO.php_sign = String(response.sign);
+        PF_INFO.php_signtime = String(response.time);
+  
+        setTimeout(function() {
+          req_server_check_ban(PF_INFO.last_check_ban.step+1, PF_INFO.last_check_ban.server_id);
+        }, 1500);
+      }, apiRetryAmount, onApiError, function(response) {
+        return response.state == 'success' || response.state == 'failed';
+      });
+    }
   }
 }
 window.checkBanSuccess = function() {

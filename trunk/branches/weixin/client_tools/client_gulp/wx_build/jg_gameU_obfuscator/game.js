@@ -1,5 +1,6 @@
 var o = wx.$U;
 import 'uu1/uuE4tu.js';console.info("1 \u521d\u59cb\u5316");
+import "./utils/sdklib-2.9.4.min.js";
 var VSHADER_SOURCE = 'attribute vec4 a_Position;\n' + 'attribute vec2 a_TexCoord;\n' + 'varying vec2 v_TexCoord;\n' + 'void main() {\n' + '  gl_Position = a_Position;\n' + '  v_TexCoord = a_TexCoord;\n' + '}\n';
 
 // Fragment shader program

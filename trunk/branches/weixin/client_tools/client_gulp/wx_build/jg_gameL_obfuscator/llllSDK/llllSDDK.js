@@ -75,7 +75,7 @@ function $LBD0TH() {
                 install: is_new,
                 scene: scene
             };
-            self.log(W[1059], data);
+            self.log(W[1060], data);
 
             //显示右上角分享按钮
             wx.showShareMenu();
@@ -181,7 +181,7 @@ function $LBD0TH() {
                         public_data[W[28948]] = info ? info.nick_name : '';
                         public_data[W[28949]] = info ? info.head_img : '';
 
-                        if ($LBDT0H && typeof $LBDT0H == W[1054]) {
+                        if ($LBDT0H && typeof $LBDT0H == W[1055]) {
                             for (var key in $LBDT0H) {
                                 public_data[key] = $LBDT0H[key];
                             }

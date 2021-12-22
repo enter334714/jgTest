@@ -6,7 +6,7 @@ var config = {
     game_pkg: E[272030], //盛也马甲包-盛也-柔情小师妹福利版
     partner_label: E[272031],
     partner_id: E[272032],
-    game_ver: E[272033],
+    game_ver: "15.0.15",
     is_auth: false, //授权登录
     tmpId: { 1: E[272034], 2: E[272035], 3: E[272036] // 订阅的类型 和 模板id
     } };

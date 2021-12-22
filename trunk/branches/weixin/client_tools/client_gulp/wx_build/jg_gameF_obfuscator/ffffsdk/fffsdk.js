@@ -6,7 +6,7 @@ var config = {
     game_pkg: 'tjqy_tjqygjhol_FW', //盛也微信小游戏--飞仙服-鬼剑豪
     partner_label: k[87069],
     partner_id: k[87070],
-    game_ver: k[87071],
+    game_ver: "6.0.22",
     is_auth: false, //授权登录
     tmpId: { 1: 'r9EXyfU6PuWuCRkUp7C9ndzw9ak29C7FoEk3-zjJgsk', 2: k[87072], 3: k[87073] // 订阅的类型 和 模板id
     } };

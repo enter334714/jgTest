@@ -6,7 +6,7 @@ var config = {
     game_pkg: c[248865], //盛也-马甲包-鬼剑豪hd
     partner_label: c[248866],
     partner_id: c[248867],
-    game_ver: c[248868],
+    game_ver: "14.0.11",
     is_auth: false, //授权登录
     tmpId: { 1: c[248869], 2: c[248870], 3: c[248871] // 订阅的类型 和 模板id
     } };

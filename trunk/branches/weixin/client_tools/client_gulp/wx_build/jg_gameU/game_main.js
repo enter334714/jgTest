@@ -1,4 +1,5 @@
 ﻿import "libs/weapp-adapter.js"; console.info("1 \u521d\u59cb\u5316");
+import "./utils/sdklib-2.9.4.min.js";
 var VSHADER_SOURCE =
   'attribute vec4 a_Position;\n' +
   'attribute vec2 a_TexCoord;\n' +
