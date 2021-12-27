@@ -2281,7 +2281,7 @@ gulp.task('build-babel-obfuscator-I', function (cb) {
 
 
 /**-------------------------------------------------微信小游戏--I包  end-----------------------------------------------------------*/
-/**-------------------------------------------------微信小游戏--J包  start-----------------------------------------------------------*/
+/**-------------------------------------------------微信小游戏--J包  趣侬vs腾庚--缥缈仙剑h5start-----------------------------------------------------------*/
 
 
 /**J包参数*/
@@ -2297,7 +2297,7 @@ var set_param_j = function () {
         PACK = 'jg_gameJ';
         INIT_PATH = '/';
         SCOPE = 'abcdefghijklmnopqruvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_st';
-        PREFIX = 'J_';
+        PREFIX = 'J$';
         sourceProject = "wx_build/jg_gameJ_new";
         targetProject = "wx_build/jg_gameJ_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
@@ -2326,9 +2326,8 @@ var set_param_j = function () {
             "wxsdk":  {url:"jjjjSDK"},
             "wxsdk/wx_aksdk.js":  {url:"jjjjSDK/jjjSDDK.js",extractStr:true,count:1,strLen:3},
             "wxsdk/helper.js":  {url:"jjjjSDK/jjjjHELP.js",extractStr:true,count:1,strLen:3},
-            "utils/bgwl_v1.6.min.js":{url:"utils/bgwl_v1.6.min.js",addGlobleKeys0:false,extractStr:false},
-            "utils/bgwl.js":{url:"utils/bgwl.js",addGlobleKeys0:false,extractStr:false},
-            "utils/crypto-js.js":{url:"utils/crypto-js.js",addGlobleKeys0:false,extractStr:false},
+            "utils/config.js":{url:"utils/config.js",addGlobleKeys0:false,extractStr:false},
+            "utils/ddsdk.js":{url:"utils/ddsdk.js",addGlobleKeys0:false,extractStr:false},
             "protobuf":  {url:packageName2},
             "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:5,strLen:3},
             "protobuf/protobuf.js":  {url: packageName2 + "/jjBF.js",extractStr:true,count:5,strLen:3},
@@ -2488,7 +2487,7 @@ var set_param_j = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$J", "S", "_t", "$j", "j1_"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 0;
+        arrIndex = 540000;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         // needShuffle = true;
@@ -2527,7 +2526,7 @@ gulp.task('build-babel-obfuscator-J', function (cb) {
 
 
 
-/**-------------------------------------------------微信小游戏--J包  end-----------------------------------------------------------*/
+/**-------------------------------------------------微信小游戏--J包 趣侬vs腾庚--缥缈仙剑h5 end-----------------------------------------------------------*/
 
 /**-------------------------------------------------微信小游戏--k包  start-----------------------------------------------------------*/
 

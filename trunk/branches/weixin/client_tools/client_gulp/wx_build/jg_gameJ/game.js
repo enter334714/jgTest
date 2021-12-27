@@ -1,12 +1,12 @@
-﻿
-console.info("0 进入游戏包");
+﻿console.info("0 进入游戏包");
 
 
 
 //监听小程序错误事件。如脚本错误或 API 调用报错等
 window.lastError;
 wx.onError(function (error) {
-  if (error) {
+  return;
+ if (error) {
     if (error.message) {
       var gamever = window.config.game_ver.replace(new RegExp(/\./, "g"), "_");
       var message = error.message;
@@ -50,50 +50,12 @@ import "libs/weapp-adapter.js";
 import "libs/md5.min.js";
 import "libs/zlib.js";
 window["Parser"] = require("libs/dom_parser.js");
-import "index.js";
 import "libs/libs.min.js";
 import "libs/laya.wxmini.js";
 import "init.min.js";
-
-
-
+import "index.js";
 console.info("1 初始化");
 
-//绘制白色背景
-// const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-// const verts = [1,-1,0, -1,-1,0, 1,1,0, -1,1,0];
-// gl.clearColor(0,0,0,0);
-// gl.clear(gl.COLOR_BUFFER_BIT);
-// gl.viewport(0,0,canvas.width, canvas.height);
-// var vrt_shader = gl.createShader(gl.VERTEX_SHADER);
-// gl.shaderSource(vrt_shader, "attribute vec4 coords; void main() { gl_Position = coords; }");
-// gl.compileShader(vrt_shader);
-// var fra_shader = gl.createShader(gl.FRAGMENT_SHADER);
-// gl.shaderSource(fra_shader, "precision mediump float; void main() { gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0); }");
-// gl.compileShader(fra_shader);
-
-// var shaderProgram = gl.createProgram();
-// gl.attachShader(shaderProgram, vrt_shader);
-// gl.attachShader(shaderProgram, fra_shader);
-// gl.linkProgram(shaderProgram);
-// gl.useProgram(shaderProgram);
-
-// var buffer = gl.createBuffer();
-// gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-// gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(verts), gl.STATIC_DRAW);
-// var coords = gl.getAttribLocation(shaderProgram,'coords');
-// gl.vertexAttribPointer(coords, 3, gl.FLOAT, false, 0,0);
-// gl.enableVertexAttribArray(coords);
-
-// function render() {
-//   gl.clearColor(0.0, 0.0, 0.0, 1.0);
-//   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-//   gl.flush();
-// }
-// render();
-// window.loadingInterval = setInterval(function(){
-//   render();
-// }, 16)
 console.info("2 加载游戏");
 wxShowLoading({ title: '正在加载' });
 
@@ -158,7 +120,7 @@ updateManager.onUpdateFailed(function () {
 
 window.loadProbuf = function() {
   console.log("protobuf 分包加载");
-  var loadLibsTask = wx.loadSubpackage({
+  var loadProbufTask = wx.loadSubpackage({
     name: 'probuf',
     success: function(res) {
       console.log("protobuf 分包加载成功");
@@ -181,7 +143,7 @@ window.loadProbuf = function() {
       }, 500);
     },
   });
-  loadLibsTask && loadLibsTask.onProgressUpdate(res => {
+  loadProbufTask && loadProbufTask.onProgressUpdate(res => {
     // console.log('protobuf 下载进度:' + res.progress + '%, 已经下载的数据长度', res.totalBytesWritten, '预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
   });
 }
@@ -222,7 +184,7 @@ window.loadSubpackages = function () {
     window.loadProbuf();
     window.loadMain();
   } else {
-    window.reqRecordInfo("微信基础库版本过低:" + window.SDKVersion);
+    window.reqRecordInfo("微信基础库版本过低", window.SDKVersion);
     wx.showModal({
       title: '提示',
       content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
@@ -307,7 +269,7 @@ wx.onMemoryWarning(function () {
     window.memoryWarningNum = 0;
     console.error('第二次内存警告');
     wx.reportMonitor('0', 1);  //上报微信监控
-    if(window.PF_INFO && window.PF_INFO.wxIOS) window.reqRecordInfo("内存警告");
+    if(window.PF_INFO && window.PF_INFO.wxIOS) window.reqRecordInfo("内存警告", "");
     if (onMemoryWarningCallBack) onMemoryWarningCallBack();//游戏内画质设为“低”
   }
   // wx.showModal({

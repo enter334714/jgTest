@@ -82,7 +82,7 @@
 	    sharedCanvas.removeEventListener = _window.removeEventListener;
 	  }
 
-	  var _wx$getSystemInfoSync = qq.getSystemInfoSync(),
+	  var _wx$getSystemInfoSync = wx.getSystemInfoSync(),
 	      platform = _wx$getSystemInfoSync.platform;
 
 	  // 开发者工具无法重定义 window
@@ -240,7 +240,7 @@
 	  value: true
 	});
 
-	var _wx$getSystemInfoSync = qq.getSystemInfoSync(),
+	var _wx$getSystemInfoSync = wx.getSystemInfoSync(),
 	    screenWidth = _wx$getSystemInfoSync.screenWidth,
 	    screenHeight = _wx$getSystemInfoSync.screenHeight,
 	    devicePixelRatio = _wx$getSystemInfoSync.devicePixelRatio;
@@ -643,7 +643,7 @@
 	var hasInitWebGLContextConstructor = false;
 
 	function Canvas() {
-	  var canvas = qq.createCanvas();
+	  var canvas = wx.canvas || wx.createCanvas();
 
 	  canvas.type = 'canvas';
 
@@ -807,7 +807,10 @@
 	});
 	exports.default = Image;
 	function Image() {
-	  var image = qq.createImage();
+		var image = wx.createImage();
+		image.destroy = function(){
+			image.src = "";
+		}
 
 	  return image;
 	}
@@ -872,7 +875,7 @@
 
 	    _src.set(_this, '');
 
-	    var innerAudioContext = qq.createInnerAudioContext();
+	    var innerAudioContext = wx.createInnerAudioContext();
 
 	    _innerAudioContext.set(_this, innerAudioContext);
 
@@ -1163,10 +1166,10 @@
 	  };
 	}
 
-	qq.onTouchStart(touchEventHandlerFactory('touchstart'));
-	qq.onTouchMove(touchEventHandlerFactory('touchmove'));
-	qq.onTouchEnd(touchEventHandlerFactory('touchend'));
-	qq.onTouchCancel(touchEventHandlerFactory('touchcancel'));
+	wx.onTouchStart(touchEventHandlerFactory('touchstart'));
+	wx.onTouchMove(touchEventHandlerFactory('touchmove'));
+	wx.onTouchEnd(touchEventHandlerFactory('touchend'));
+	wx.onTouchCancel(touchEventHandlerFactory('touchcancel'));
 
 /***/ }),
 /* 17 */
@@ -1197,8 +1200,8 @@
 
 	var _util = __webpack_require__(8);
 
-	// TODO 需要 qq.getSystemInfo 获取更详细信息
-	var _wx$getSystemInfoSync = qq.getSystemInfoSync(),
+	// TODO 需要 wx.getSystemInfo 获取更详细信息
+	var _wx$getSystemInfoSync = wx.getSystemInfoSync(),
 	    platform = _wx$getSystemInfoSync.platform;
 
 	var navigator = {
@@ -1206,9 +1209,9 @@
 	  language: 'zh-cn',
 	  appVersion: '5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1',
 	  userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E8301 MicroMessenger/6.6.0 MiniGame NetType/WIFI Language/zh_CN',
-	  onLine: true, // TODO 用 qq.getNetworkStateChange 和 qq.onNetworkStateChange 来返回真实的状态
+	  onLine: true, // TODO 用 wx.getNetworkStateChange 和 wx.onNetworkStateChange 来返回真实的状态
 
-	  // TODO 用 qq.getLocation 来封装 geolocation
+	  // TODO 用 wx.getLocation 来封装 geolocation
 	  geolocation: {
 	    getCurrentPosition: _util.noop,
 	    watchPosition: _util.noop,
@@ -1330,7 +1333,7 @@
 	      if (this.readyState !== XMLHttpRequest.OPENED) {
 	        throw new Error("Failed to execute 'send' on 'XMLHttpRequest': The object's state must be OPENED.");
 	      } else {
-	        qq.request({
+	        wx.request({
 	          data: data,
 	          url: _url.get(this),
 	          method: _method.get(this),
@@ -1358,13 +1361,14 @@
 	            _this.response = data;
 
 	            if (data instanceof ArrayBuffer) {
-	              _this.responseText = '';
-	              var bytes = new Uint8Array(data);
-	              var len = bytes.byteLength;
-
-	              for (var i = 0; i < len; i++) {
-	                _this.responseText += String.fromCharCode(bytes[i]);
-	              }
+								_this.responseText = '';
+								if (_this.responseType != "arraybuffer") {
+									var bytes = new Uint8Array(data);
+									var len = bytes.byteLength;
+									for (var i = 0; i < len; i++) {
+										_this.responseText += String.fromCharCode(bytes[i]);
+									}
+								}
 	            } else {
 	              _this.responseText = data;
 	            }
@@ -1374,6 +1378,10 @@
 	          },
 	          fail: function fail(_ref2) {
 	            var errMsg = _ref2.errMsg;
+
+	            _this.status = 404;
+	            _this.response = null;
+	            _changeReadyState.call(_this, XMLHttpRequest.DONE);
 
 	            // TODO 规范错误
 	            if (errMsg.indexOf('abort') !== -1) {
@@ -1456,7 +1464,7 @@
 	    this.url = url;
 	    this.readyState = WebSocket.CONNECTING;
 
-	    var socketTask = qq.connectSocket({
+	    var socketTask = wx.connectSocket({
 	      url: url,
 	      protocols: Array.isArray(protocols) ? protocols : [protocols]
 	    });
@@ -1549,7 +1557,7 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	/*
-	 * TODO 使用 qq.readFile 来封装 FileReader
+	 * TODO 使用 wx.readFile 来封装 FileReader
 	 */
 	var FileReader = function () {
 	  function FileReader() {
@@ -1584,29 +1592,29 @@
 
 	var mainContext = {
 	  get length() {
-	    var _wx$getStorageInfoSyn = qq.getStorageInfoSync(),
+	    var _wx$getStorageInfoSyn = wx.getStorageInfoSync(),
 	        keys = _wx$getStorageInfoSyn.keys;
 
 	    return keys.length;
 	  },
 
 	  key: function key(n) {
-	    var _wx$getStorageInfoSyn2 = qq.getStorageInfoSync(),
+	    var _wx$getStorageInfoSyn2 = wx.getStorageInfoSync(),
 	        keys = _wx$getStorageInfoSyn2.keys;
 
 	    return keys[n];
 	  },
 	  getItem: function getItem(key) {
-	    return qq.getStorageSync(key);
+	    return wx.getStorageSync(key);
 	  },
 	  setItem: function setItem(key, value) {
-	    return qq.setStorageSync(key, value);
+	    return wx.setStorageSync(key, value);
 	  },
 	  removeItem: function removeItem(key) {
-	    qq.removeStorageSync(key);
+	    wx.removeStorageSync(key);
 	  },
 	  clear: function clear() {
-	    qq.clearStorageSync();
+	    wx.clearStorageSync();
 	  }
 	};
 
