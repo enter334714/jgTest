@@ -7974,7 +7974,7 @@ var js_babel = function () {
                         var right = path.node.right;
 
                         //J包 不需要自动创建角色 修改自动创角函数 返回false;
-                        if((PREFIX == "k$" || PREFIX == "J_") && name == "isAutoCreRole" && right.type == "FunctionExpression" && right.body.body[0].argument.type != "NumericLiteral"){
+                        if((PREFIX == "k$") && name == "isAutoCreRole" && right.type == "FunctionExpression" && right.body.body[0].argument.type != "NumericLiteral"){
                             console.log("替换isAutoCreRole name:",name);
                             var resultStatement = babel_types.returnStatement(babel_types.numericLiteral(0));
                             var block = babel_types.blockStatement([resultStatement]);
@@ -8676,6 +8676,15 @@ gulp.task('CREATE_REFUSEFILE_I', function (cb) {
 
 gulp.task('DEL_REFUSEFILE_I', function (cb) {
     sequence("set-param-i","DEL_REFUSEFILE",cb)
+});
+
+
+gulp.task('CREATE_REFUSEFILE_J', function (cb) {
+    sequence("set-param-j","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_J', function (cb) {
+    sequence("set-param-j","DEL_REFUSEFILE",cb)
 });
 
 gulp.task('CREATE_REFUSEFILE_K', function (cb) {

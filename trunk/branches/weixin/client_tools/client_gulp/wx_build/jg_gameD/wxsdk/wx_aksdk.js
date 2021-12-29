@@ -1,60 +1,59 @@
-﻿import dkm from './helper'
+﻿// 引入渠道JS文件
+import SDKyyw from './helper'
+
 var config = {
-    game_id: '285', //9187飘步-九幽幻剑录-闪光服
-    game_pkg: 'tjqy_tjqyjyhjl_FH',
-    partner_id: '249',
-    game_ver: '4.0.3', //D包为4.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
-    partner_label:'pbxyx',
-    is_auth: false,
-    from: null, //来源
-    tmpId: {},  // 订阅的类型 和 模板id
+    game_id: '256',
+    game_pkg: 'tjqy_tjqyzsj_JT',//有一 --飞剑 -战神纪
+    partner_id: '317',
+    game_ver: '31.0.1',
+    is_auth: false, //授权登录
 };
 window.config = config;
-var PARTNER_UNION_SDK = mainUnionSDK();
-var PARTNER_HOST = 'sdk.sh9130.com';
-var t;
-var t_second = 0;
-var t_max = 300;
-var user_game_info_9130 = null;
-var user_invite_info_9130 = null;
-var this_order_id = null;
-var checkHandler = null;
-var loginHandler = null;
-var requestCallback = false;
+// 渠道配置
+var partner_config = {
+    app_id : 1000221,
+    app_key : '263a08ad662ff29813077a7a7a450172'
+};
 
-function mainUnionSDK() {
+var PARTNER_SDK = mainSDK();
+var HOST = 'sdk.sh9130.com';
+var user_game_info = null;
+var user_invite_info = null;
+var this_order_id = null;
+var partner_user_info = null;
+
+function mainSDK() {
     var callbacks = {};
     var this_pay_order = 0;
     return {
         order_data: {},
         init: function (ops, callback) {
             var game_ver = ops && ops.game_ver ? ops.game_ver : 0;
-            console.log("[UNION_SDK]CP init");
+            console.log("[SDK]CP调用init接口");
             var self = this;
 
-            var uuid = wx.getStorageSync('9130_plat_uuid');
+            var uuid = wx.getStorageSync('plat_uuid');
             var is_new;
             if(!uuid){
                 uuid = self.uuid(16, 32);
-                wx.setStorageSync('9130_plat_uuid', uuid);
+                wx.setStorageSync('plat_uuid', uuid);
                 is_new = 1;
             }else{
                 is_new = 0;
             }
-            var idfv = wx.getStorageSync('9130_plat_idfv');
+            var idfv = wx.getStorageSync('plat_idfv');
             if(!idfv){
                 idfv = self.uuid(16, 32);
-                wx.setStorageSync('9130_plat_idfv', idfv);
+                wx.setStorageSync('plat_idfv', idfv);
             }
-
 
             var info = wx.getLaunchOptionsSync();
             var scene = info.scene ? info.scene : '';
-            console.log("[SDK]小游戏启动参数");
-            console.log(info);
 
+
+            //判断今天是否已经上报过
             if(is_new && info.query && info.query.ad_code){
-                wx.setStorageSync('9130_plat_ad_code', info.query.ad_code);
+                wx.setStorageSync('plat_ad_code', info.query.ad_code);
             }
 
             var data = {
@@ -63,87 +62,78 @@ function mainUnionSDK() {
             };
             self.log('start', data);
 
-            dkm.init({game_ver:game_ver},function(data){
-                callback && callback(data);
-            });
+            //显示右上角分享按钮
+            wx.showShareMenu();
 
-            // wx.showShareMenu();
+            //玩家是分享过来的，单独上报给服务器
+            var invite = info.query && info.query.invite ? info.query.invite : '';
+            var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
 
+            if(invite){
+                user_invite_info = {
+                    invite: invite,
+                    invite_type: invite_type,
+                    is_new: is_new,
+                    scene: scene
+                };
+            }
 
-
-            // var invite = info.query && info.query.invite ? info.query.invite : '';
-            // var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
-
-            // if(invite){
-            //     user_invite_info_9130 = {
-            //         invite: invite,
-            //         invite_type: invite_type,
-            //         is_new: is_new,
-            //         scene: scene
-            //     };
-            // }
-
-            // //鍒ゆ柇鐗堟湰鍙�
-            // if(game_ver){
-            //     this.checkGameVersion(game_ver, function (data) {
-            //         callback && callback(data);
-            //     });
-            // }
-
-
+            //判断版本号
+            if(game_ver){
+                this.checkGameVersion(game_ver, function (data) {
+                    callback && callback(data);
+                });
+            }
         },
-        //TODO鐧诲綍鎺ュ彛
+
+        //登录接口
         login: function (data, callback) {
-            console.log("[UNION_SDK]登录");
-            var that = this;
+            console.log("[SDK]调起登录");
+            var self = this;
             callbacks['login'] = typeof callback == 'function' ? callback : null;
-            dkm.login(function (status, data) {
-                console.log("[UNION_SDK]登录返回");
-                console.log(status);
-                console.log(data);
-                if (data.token) {
-                    that.do_login(data);
-                } else {
-                    callbacks['login'] && callbacks['login'](1, {
-                        errMsg: res.errMsg
+
+            //初始化参数
+            SDKyyw.initLoginCallback = (res) => {
+                console.log('渠道初始化结果：'+JSON.stringify(res));
+                if(res.status == 0){
+                    console.log('初始化失败');
+                    callback(1, {
+                        errMsg: '渠道初始化返回失败！'
                     });
+                    return ;
                 }
-            });
+
+                partner_user_info =res.data;
+                self.do_login(partner_user_info);
+            } ;
+
+            SDKyyw.init(partner_config.app_id, partner_config.app_key);
         },
 
         do_login: function (info) {
             var self = this;
             var public_data = self.getPublicData();
-            public_data['token'] = info.token;
-            public_data['uid'] = info.userid;
-            public_data['is_from_min'] = 1;
-            if (user_invite_info_9130 && typeof user_invite_info == 'object') {
-                for (var key in user_invite_info_9130) {
-                    public_data[key] = user_invite_info_9130[key];
+            public_data['nick_name'] = info ? info.nick_name : '';
+            public_data['head_img'] = info ? info.head_img : '';
+
+            if(user_invite_info && typeof user_invite_info == 'object'){
+                for(var key in user_invite_info){
+                    public_data[key] = user_invite_info[key];
                 }
             }
 
-            if(user_invite_info_9130 && typeof user_invite_info_9130 == 'object'){
-                for(var key in user_invite_info_9130){
-                    public_data[key] = user_invite_info_9130[key];
-                }
-            }
+            public_data['partner_uid'] = info.uid;
 
-            var lastTime = Date.now();
             wx.request({
-                url: 'https://' + PARTNER_HOST + '/partner/auth',
+                url: 'https://' + HOST + '/partner/auth',
                 method: 'POST',
                 dataType: 'json',
                 header: {
-                    'content-type': 'application/x-www-form-urlencoded' // 榛樿鍊�
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
                 },
                 data: public_data,
                 success: function (res) {
-                    console.log("[UNION_SDK]联运登录结果");
-                    console.log(res);
-                    requestCallback = true;
-                    if (loginHandler) clearTimeout(loginHandler);
-                    loginHandler = null;
+                    console.log("[SDK]登录结果：" + JSON.stringify(res));
                     if(res.statusCode == 200){
                         var data = res.data;
                         if(data.state){
@@ -159,90 +149,72 @@ function mainUnionSDK() {
                                 ios_pay: data.data.ios_pay || '0'
                             };
                             try {
-                                wx.setStorageSync('9130_plat_sdk_token', data.data.sdk_token);
-                                wx.setStorageSync('9130_plat_uid', data.data.user_id);
-                                wx.setStorageSync('9130_plat_username', data.data.username);
-
+                                wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
+                                wx.setStorageSync('plat_uid', data.data.user_id);
+                                wx.setStorageSync('plat_username', data.data.username);
+                                if(data.data.ext){
+                                    wx.setStorageSync('plat_session_key', data.data.ext);
+                                }
                             } catch (e) {
                             }
 
                             callbacks['login'] && callbacks['login'](0, userData);
-                        } else {
-                            callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: data.msg, time: (Date.now()-lastTime), res: res});
+                        }else{
+                            callbacks['login'] && callbacks['login'](1, {errMsg: data.msg});
                         }
 
-
-
-                        // //鐧诲綍鎴愬姛锛屽姞杞藉彸涓婅鍒嗕韩鏁版嵁
-                        // self.getShareInfo('menu', function (data) {
-                        //     console.log("[UNION_SDK]分享配置");
-                        //     wx.onShareAppMessage(function () {
-                        //         self.logStartShare('menu');
-                        //         return {
-                        //             title: data.title,
-                        //             imageUrl: data.img,
-                        //             query: data.query,
-                        //         }
-                        //     });
-                        // });
+                        //登录成功，加载右上角分享数据
+                        self.getShareInfo('menu', function (data) {
+                            console.log("[SDK]开始监听右上角菜单分享");
+                            wx.onShareAppMessage(function () {
+                                //记录开始分享
+                                self.logStartShare('menu');
+                                return {
+                                    title: data.title,
+                                    imageUrl: data.img,
+                                    query: data.query,
+                                }
+                            });
+                        });
                     }else{
-                        callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: '联运登录失败', time: (Date.now()-lastTime), res: res});
+                        callbacks['login'] && callbacks['login'](1, {errMsg: '请求平台服务器失败！'});
                     }
-                },
-                fail: function(res){
-                    console.log("[SDK]登录失败");
-                    console.log(res);
-
-                    requestCallback = true;
-                    if (loginHandler) clearTimeout(loginHandler);
-                    loginHandler = null;
-                    callbacks['login'] && callbacks['login'](1, {type: "wx.request.fail", errMsg: res.errMsg, time: (Date.now()-lastTime), res: res});
                 }
             });
-            if (!requestCallback) {
-                var timeOutFunc = function() {
-                    console.log("[SDK]登录超时");
-
-                    callbacks['login'] && callbacks['login'](1, {type: "wx.request", errMsg: "登录超时20秒无返回", time: (Date.now()-lastTime)});
-                    callbacks['login'] = null; //回调后置空，以免success或fail里重复回调
-                }
-                loginHandler = setTimeout(timeOutFunc, 20000);
-            }
         },
 
         share: function (data) {
-            dkm.share(data);
-            // callbacks['share'] = typeof callback == 'function' ? callback : null;
-            // var type = data.type || 'share';
-            // console.log("[UNION_SDK]CP调起分享类型 type=" + type);
-            // var self = this;
-            // this.getShareInfo(type, function (data) {
+            callbacks['share'] = typeof callback == 'function' ? callback : null;
+            var type = data.type || 'share';
+            console.log("[SDK]CP调用分享 type=" + type);
+            var self = this;
+            this.getShareInfo(type, function (data) {
 
-
-            //     self.logStartShare(type);
-            //     wx.shareAppMessage({
-            //         title: data.title,
-            //         imageUrl: data.img,
-            //         query: data.query,
-            //     });
-            // });
+                //记录开始分享
+                self.logStartShare(type);
+                wx.shareAppMessage({
+                    title: data.title,
+                    imageUrl: data.img,
+                    query: data.query,
+                });
+            });
         },
 
         logStartShare: function (type) {
-            var sdk_token = wx.getStorageSync('9130_plat_sdk_token');
+            var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
-                url: 'https://' + PARTNER_HOST + '/game/min/?ac=logStartShare',
+                url: 'https://' + HOST + '/game/min/?ac=logStartShare',
                 method: 'POST',
                 dataType: 'json',
                 header: {
-                    'content-type': 'application/x-www-form-urlencoded' // 榛樿鍊�
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
                     partner_id: config.partner_id,
                     sdk_token: sdk_token,
-                    server_id: user_game_info_9130 ? user_game_info_9130.server_id : '',
-                    role_id: user_game_info_9130 ? user_game_info_9130.role_id : '',
+                    server_id: user_game_info ? user_game_info.server_id : '',
+                    role_id: user_game_info ? user_game_info.role_id : '',
                     type: type,
                 },
                 success: function (res) {
@@ -251,20 +223,18 @@ function mainUnionSDK() {
         },
 
         openService: function () {
-            dkm.openService();
-            // wx.openCustomerServiceConversation();
+            wx.openCustomerServiceConversation();
         },
 
         checkGameVersion: function (game_ver, callback) {
-            console.log("[UNION_SDK]检查游戏版本");
-            callbacks['check'] = typeof callback == 'function' ? callback : null;
-            var sdk_token = wx.getStorageSync('9130_plat_sdk_token');
+            console.log("[SDK]检查游戏版本");
+            var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
-                url: 'https://' + PARTNER_HOST + '/game/min/?ac=checkGameVersion',
+                url: 'https://' + HOST + '/game/min/?ac=checkGameVersion',
                 method: 'POST',
                 dataType: 'json',
                 header: {
-                    'content-type': 'application/x-www-form-urlencoded' // 榛樿鍊�
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
@@ -272,83 +242,67 @@ function mainUnionSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[UNION_SDK]获取游戏版本成功");
-                    console.log(res);
-                    requestCallback = true;
-                    if (checkHandler) clearTimeout(checkHandler);
-                    checkHandler = null;
-                    if(res.statusCode == 200){
-                        var data = res.data;
-                        if(data.state){
-                            callbacks['check'] && callbacks['check'](data.data);
-                        }else{
-                            callbacks['check'] && callbacks['check']({develop: 0});
-                        }
-                    }else{
-                        callbacks['check'] && callbacks['check']({develop: 0});
-                    }
-                },
-                fail: function(res){
-                    console.log("[UNION_SDK]获取游戏版本失败");
-                    console.log(res);
-                    requestCallback = true;
-                    if (checkHandler) clearTimeout(checkHandler);
-                    checkHandler = null;
-                    callbacks['check'] && callbacks['check']({develop: 0});
-                }
-            });
-            if (!requestCallback) {
-                var timeOutFunc = function() {
-                    console.log("[SDK]获取游戏版本超时");
-                    callbacks['check'] && callbacks['check']({develop: 0});
-                    callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
-                }
-                checkHandler = setTimeout(timeOutFunc, 10000);
-            }
-        },
-
-        getShareInfo: function (type, callback) {
-            var sdk_token = wx.getStorageSync('9130_plat_sdk_token');
-            wx.request({
-                url: 'https://' + PARTNER_HOST + '/game/min/?ac=shareConfig',
-                method: 'POST',
-                dataType: 'json',
-                header: {
-                    'content-type': 'application/x-www-form-urlencoded' // 榛樿鍊�
-                },
-                data: {
-                    game_pkg: config.game_pkg,
-                    partner_id: config.partner_id,
-                    sdk_token: sdk_token,
-                    type: type,
-                    server_id: user_game_info_9130 ? user_game_info_9130.server_id : '',
-                    role_id: user_game_info_9130 ? user_game_info_9130.role_id : '',
-                    no_log: 1 //璁剧疆涓�1鍚庡氨涓嶅湪杩欎釜鎺ュ彛鎵搇og锛屼氦缁檒ogStartShare鎺ュ彛
-                },
-                success: function (res) {
+                    console.log("[SDK]获取游戏版本结果");
                     console.log(res);
                     if(res.statusCode == 200){
                         var data = res.data;
                         if(data.state){
                             callback && callback(data.data);
                         }else{
-                            callbacks['share'] && callbacks['share'](1, {errMsg: '获取分享失败' + data.msg});
+                            callback && callback({develop: 0});
                         }
                     }else{
-                        callbacks['share'] && callbacks['share'](1, {errMsg: '获取分享失败'});
+                        callback && callback({develop: 0});
+                    }
+                }
+            });
+        },
+
+        getShareInfo: function (type, callback) {
+            console.log("[SDK]获取分享参数");
+            var sdk_token = wx.getStorageSync('plat_sdk_token');
+            wx.request({
+                url: 'https://' + HOST + '/game/min/?ac=shareConfig',
+                method: 'POST',
+                dataType: 'json',
+                header: {
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                data: {
+                    game_pkg: config.game_pkg,
+                    partner_id: config.partner_id,
+                    sdk_token: sdk_token,
+                    type: type,
+                    server_id: user_game_info ? user_game_info.server_id : '',
+                    role_id: user_game_info ? user_game_info.role_id : '',
+                    no_log: 1 //设置为1后就不在这个接口打log，交给logStartShare接口
+                },
+                success: function (res) {
+                    console.log("[SDK]获取分享参数结果");
+                    console.log(res);
+                    if(res.statusCode == 200){
+                        var data = res.data;
+                        if(data.state){
+                            callback && callback(data.data);
+                        }else{
+                            callbacks['share'] && callbacks['share'](1, {errMsg: '分享失败：' + data.msg});
+                        }
+                    }else{
+                        callbacks['share'] && callbacks['share'](1, {errMsg: '获取分享数据失败！'});
                     }
                 }
             });
         },
 
         updateShare: function (invite, invite_type, is_new, role_id, server_id, scene) {
-            var sdk_token = wx.getStorageSync('9130_plat_sdk_token');
+            console.log("[SDK]分享过来的玩家上报给服务器");
+            var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
-                url: 'https://' + PARTNER_HOST + '/game/min/?ac=updateShare',
+                url: 'https://' + HOST + '/game/min/?ac=updateShare',
                 method: 'POST',
                 dataType: 'json',
                 header: {
-                    'content-type': 'application/x-www-form-urlencoded' // 榛樿鍊�
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
@@ -362,38 +316,10 @@ function mainUnionSDK() {
                     scene: scene
                 },
                 success: function (res) {
-                    console.log("[UNION_SDK]:分享数据失败");
+                    console.log("[SDK]上报分享结果返回:");
                     console.log(res);
                 }
             });
-        },
-
-        adClick:function(appid,query){
-            dkm.adClick(appid,query);
-        },
-
-        msgCheck: function (content,callback) {
-            console.log("[UNION_SDK]查看文本是否有违规内容");
-            dkm.msgCheck(content,callback);
-            // var sdk_token = wx.getStorageSync('9130_plat_sdk_token');
-            // wx.request({
-            //     url: 'https://' + PARTNER_HOST + '/game/min/?ac=msgSecCheck',
-            //     method: 'POST',
-            //     dataType: 'json',
-            //     header: {
-            //         'content-type': 'application/x-www-form-urlencoded' // 榛樿鍊�
-            //     },
-            //     data: {
-            //         game_pkg: union_config.game_pkg,
-            //         partner_id: union_config.partner_id,
-            //         sdk_token: sdk_token,
-            //         content:content
-            //     },
-            //     success: function (res) {
-            //         console.log(res);
-            //         callback && callback(res);
-            //     }
-            // });
         },
 
         pay: function (data, callback) {
@@ -404,7 +330,7 @@ function mainUnionSDK() {
                     self.startPay(data, callback);
                 },
                 fail: function () {
-                    console.log("[UNION_SDK]未登录");
+                    console.log("[SDK]session过期需要重新登录");
                     self.login({}, function () {
                         self.startPay(data, callback);
                     });
@@ -412,23 +338,23 @@ function mainUnionSDK() {
             });
         },
 
-        //鏀粯鎺ュ彛
+        //支付接口
         startPay: function(data, callback){
-            console.log("[UNION_SDK]开始支付");
+            console.log("[SDK]调起支付，CP传值：");
             console.log(data);
 
             var self = this;
             callbacks['pay'] = typeof callback == 'function' ? callback : null;
-            //鍏堜笅鍗�
+            //先下单
             this_pay_order = 0;
-            var sdk_token = wx.getStorageSync('9130_plat_sdk_token');
-            if(!sdk_token){
-                callbacks['pay'] && callbacks['pay'](1, {errMsg: "未登录"});
+            var sdk_token = wx.getStorageSync('plat_sdk_token');
+            var session_key = wx.getStorageSync('plat_session_key');
+            if(!sdk_token && !session_key){
+                callbacks['pay'] && callbacks['pay'](1, {errMsg: "用户未登录，支付失败！"});
                 return;
             }
 
             var sysInfo = wx.getSystemInfoSync();
-
 
             var order_data = {
                 cpbill: data.cpbill,
@@ -443,223 +369,64 @@ function mainUnionSDK() {
                 price: data.price,
                 extension: data.extension,
                 sdk_token: sdk_token,
+                session_key: session_key,
                 platform: sysInfo.platform,
             };
             self.order_data = order_data;
 
             var public_data = self.getPublicData();
             public_data['order_data'] = JSON.stringify(order_data);
-            public_data['is_from_min'] = 1;
 
-            //鍙戣捣缃戠粶璇锋眰
+            //发起网络请求
             wx.request({
-                url: 'https://' + PARTNER_HOST + '/partner/order',
+                url: 'https://' + HOST + '/partner/order',
                 method: 'POST',
                 dataType: 'json',
                 header: {
-                    'content-type': 'application/x-www-form-urlencoded' // 榛樿鍊�
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
                 },
                 data: public_data,
                 success: function (res) {
-                    console.log("[UNION_SDK]联运下单");
-                    console.log(res);
+                    console.log("[SDK]完成创建订单" + JSON.stringify(res));
+
                     if(res.statusCode == 200){
                         var data = res.data;
                         if(data.state){
-                            var opts = {
-                                cpbill:order_data.cpbill,
-                                price:data.data.pay_data.price,
-                                currency : 'CNY',
-                                productid : data.data.pay_data.productid,
-                                productname : data.data.pay_data.productname,
-                                productdesc : data.data.pay_data.productdesc,
-                                roleid : data.data.pay_data.roleid,
-                                rolename : data.data.pay_data.rolename,
-                                rolelevel : data.data.pay_data.rolelevel,
-                                serverid : data.data.pay_data.serverid,
-                                servername : data.data.pay_data.servername,
-                                extension : data.data.orderId,
-                                callback : function(res){
+                            //支付回调
+                            SDKyyw.onPayCallback = (data) => {
+                                //不要通过客户端回调来作为充值判断
+                                //支付成功 data = {status:"1", data: {gameOrderid:"this is order id",money:"充值金额",productId:"商品id"}, msg:"支付成功"}
+                            }
 
-                                    if(res.result == '200'){
+                            //拉起支付
+                            let payData = {};
+                            payData.serverId = data.data.pay_data.serverId;//服务器id
+                            payData.serverName = data.data.pay_data.serverName;//服务器名称
+                            payData.roleId = data.data.pay_data.roleId;//角色id
+                            payData.roleName = data.data.pay_data.roleName;//角色名称
+                            payData.roleLevel = data.data.pay_data.roleLevel;//角色等级
+                            payData.gameOrderid = data.data.pay_data.orderId;//cp支付订单id
+                            payData.pext = data.data.pay_data.orderId;//扩展字段，服务端回调原样返回
+                            payData.money = data.data.pay_data.amount;//充值金额 单位元
+                            payData.productName = data.data.pay_data.productName;
+                            payData.productId = data.data.pay_data.productId;
 
-                                    }else{
-                                        callbacks['pay'] && callbacks['pay'](1, {
-                                            errMsg: data.msg
-                                        });
-                                    }
-                                }
-                            };
-                            console.log("[UNION_SDK]联运下单参数"+JSON.stringify(opts));
-                            dkm.pay(opts);
-
+                            console.log('渠道下单数据' + JSON.stringify(payData));
+                            SDKyyw.pay(payData);
                         }else{
                             callbacks['pay'] && callbacks['pay'](1, {errMsg: data.msg});
                         }
                     }else{
-                        callbacks['login'] && callbacks['login'](1, {errMsg: '下单失败'});
+                        callbacks['login'] && callbacks['login'](1, {errMsg: '请求平台服务器失败！'});
                     }
                 }
             });
         },
 
-        xiaoPay: function(data){
-            var self = this;
-            wx.navigateToMiniProgram({
-                appId: 'wxb9e0af496b6bdedf',
-                path: 'pages/pay/pay?order_id='+data.orderId+'&money='+data.money,
-                extraData: {
-
-                },
-                envVersion: 'release',
-                success(res) {
-                    // 鎵撳紑鎴愬姛
-                }
-            })
-        },
-
-        //灏忕▼搴忔敮浠�
-        minPay: function (data) {
-            //姝ｅ紡璋冭捣寰俊鏀粯
-            var self = this;
-            wx.requestPayment({
-                timeStamp: data.timeStamp,
-                nonceStr: data.nonceStr,
-                package: data.package,
-                signType: data.signType,
-                paySign: data.paySign,
-                success: function (res) {
-                    if(res.errMsg == 'requestPayment:ok'){
-                        var ret = {
-                            cpOrderNo: self.order_data.cpbill,
-                            orderNo: data.orderId,
-                            amount: self.order_data.price,
-                            extension: self.order_data.extension
-                        };
-                        callbacks['pay'] && callbacks['pay'](0, ret);
-                    }
-                },
-                fail: function (res) {
-                    if(res.errMsg == 'requestPayment:fail cancel'){
-                        callbacks['pay'] && callbacks['pay'](2, {errMsg: "支付失败"});
-                    }else{
-                        callbacks['pay'] && callbacks['pay'](1, {errMsg: "支付失败:" + res.err_desc});
-                    }
-                },
-                complete: function (res) {
-
-                }
-            });
-        },
-
-        //灏忔父鎴忔敮浠�
-        gamePay: function (data) {
-            var self = this;
-            //娓告垙甯佽冻澶燂紝鐩存帴鎵ｆ
-            if(data.buyQuantity <= data.balance){
-                console.log("[UNION_SDK]game_pay");
-                wx.showModal({
-                    title: "鏀粯鎻愮ず",
-                    content: "鎮ㄨ繕鏈�" + data.balance + "涓父鎴忓竵鏈秷璐癸紝鏈鏀粯灏嗘墸闄�" + data.buyQuantity + '娓告垙甯�',
-                    showCancel: false,
-                    confirmText: "鎴戠煡閬撲簡",
-                    success: function () {
-                        self.gameGoPay(data);
-                    }
-                });
-            }else{
-                console.log("[UNION_SDK]米大师");
-                wx.requestMidasPayment({
-                    mode: 'game',
-                    env: data.env,
-                    offerId: data.offerId,
-                    currencyType: data.currencyType,
-                    platform: data.platform,
-                    buyQuantity: data.buyQuantity,
-                    zoneId: data.zoneId,
-                    success: function (res) {
-                        if(res.errMsg == 'requestMidasPayment:ok'){
-                            self.gameGoPay(data);
-                        }
-                    },
-                    fail: function (res) {
-                        if(res.errMsg.indexOf('鐢ㄦ埛鍙栨秷') !== -1){
-                            callbacks['pay'] && callbacks['pay'](2, {errMsg: "调起米大师失败"});
-                        }else{
-                            callbacks['pay'] && callbacks['pay'](1, {errMsg: "调起米大师失败:" + res.errMsg});
-                        }
-                    },
-                    complete: function (res) {
-
-                    }
-                });
-            }
-        },
-
-        kfPay: function (data) {
-            //妫€鏌ヨ鍗曟敮浠樻槸鍚﹀畬鎴�
-            var self = this;
-            this_order_id = data.orderId;
-            wx.showModal({
-                title: "鏀粯鎻愮ず",
-                content: '鍗冲皢鎵撳紑瀹㈡湇鑱婂ぉ鐣岄潰锛岃緭鍏�"cz"鎴栬€�"鍏呭€�"鍙互鑾峰彇鏀粯閾炬帴',
-                showCancel: false,
-                confirmText: "鎴戠煡閬撲簡",
-                success: function () {
-                    var obj = {
-                        showMessageCard:true,
-                        sendMessageTitle:"鐐规垜鍏呭€�",
-                        sendMessageImg:"https://static.sh9130.com/gw/images/WechatIMG700.png"
-                    };
-                    wx.openCustomerServiceConversation(obj);
-                }
-            });
-
-        },
-
-        gameGoPay: function (data, retry) {
-            console.log("[UNION_SDK]绫冲ぇ甯堟敮浠樺畬姣曪紝閫氱煡鏈嶅姟鍣ㄥ彂璐�");
-            //璇锋眰pay鎺ュ彛
-            var self = this;
-            wx.request({
-                url: 'https://' + PARTNER_HOST + '/partner/pay/' + config.partner_id + '/' + config.game_pkg + '/',
-                method: 'POST',
-                dataType: 'json',
-                header: {
-                    'content-type': 'application/x-www-form-urlencoded' // 榛樿鍊�
-                },
-                data: {
-                    order_id: data.orderId,
-                    time: data.time,
-                    sign: data.sign,
-                },
-                success: function (res) {
-                    console.log("[UNION_SDK]绫冲ぇ甯堟敮浠樼粨鏋�");
-                    console.log(res);
-                    if(res.statusCode == 200){
-                        if(res.data.state == 1){
-                            var ret = {
-                                cpOrderNo: self.order_data.cpbill,
-                                orderNo: data.orderId,
-                                amount: self.order_data.price,
-                                extension: self.order_data.extension
-                            };
-                            callbacks['pay'] && callbacks['pay'](0, ret);
-                        }else {
-                            callbacks['pay'] && callbacks['pay'](1, {errMsg: "鏀粯澶辫触"});
-                        }
-                    }
-                },
-                fail: function () {
-
-                }
-            });
-        },
-
-        //鍒涘缓瑙掕壊
+        //创建角色
         logCreateRole: function (data) {
-            var uid = wx.getStorageSync('9130_plat_uid');
-            var username = wx.getStorageSync('9130_plat_username');
+            var uid = wx.getStorageSync('plat_uid');
+            var username = wx.getStorageSync('plat_username');
 
             var postData = {};
             postData['user_id'] = uid;
@@ -670,20 +437,26 @@ function mainUnionSDK() {
             postData['server_id'] = data.serverid;
 
             if(data.roleid && data.serverid){
-                user_game_info_9130 = {
+                user_game_info = {
                     role_id:  data.roleid,
                     server_id:  data.serverid,
                 };
             }
 
             this.log('create', postData);
-            dkm.logCreateRole(data.serverid,data.servername,data.serverid,data.rolename,data.rolelevel);
+
+            let report_data = {};
+            report_data.type = 2; //1:登录，2:创建角色
+            report_data.roleId =data.roleid;
+            report_data.roleName =data.rolename;
+            SDKyyw.pushData(report_data);
+
         },
 
-        //杩涘叆娓告垙
+        //进入游戏
         logEnterGame: function (data) {
-            var uid = wx.getStorageSync('9130_plat_uid');
-            var username = wx.getStorageSync('9130_plat_username');
+            var uid = wx.getStorageSync('plat_uid');
+            var username = wx.getStorageSync('plat_username');
 
             var postData = {};
             postData['user_id'] = uid;
@@ -694,24 +467,36 @@ function mainUnionSDK() {
             postData['server_id'] = data.serverid;
 
             if(data.roleid && data.serverid){
-                user_game_info_9130 = {
+                user_game_info = {
                     role_id:  data.roleid,
                     server_id:  data.serverid,
                 };
             }
 
             this.log('enter', postData);
-            dkm.logEnterGame(data.serverid,data.servername,data.serverid,data.rolename,data.rolelevel);
-            //杩涘叆娓告垙纭閭€璇锋垚鍔�
-            if(user_invite_info_9130){
-                this.updateShare(user_invite_info_9130.invite, user_invite_info_9130.invite_type, user_invite_info_9130.is_new, data.roleid, data.serverid, user_invite_info_9130.scene);
+
+            //进入游戏确认邀请成功
+            if(user_invite_info){
+                this.updateShare(user_invite_info.invite, user_invite_info.invite_type, user_invite_info.is_new, data.roleid, data.serverid, user_invite_info.scene);
             }
+
+            let report_data1 = {};
+            report_data1.type = 1; //1:登录，2:创建角色
+            report_data1.roleId =data.roleid;
+            report_data1.roleName =data.rolename;
+            SDKyyw.pushData(report_data1);
+
+            let report_data2 = {};
+            report_data2.type = 5; //5:在线
+            report_data2.roleId =data.roleid;
+            report_data2.roleName =data.rolename;
+            SDKyyw.pushData(report_data2);
         },
 
-        //瑙掕壊鍗囩骇
+        //角色升级
         logRoleUpLevel: function (data) {
-            var uid = wx.getStorageSync('9130_plat_uid');
-            var username = wx.getStorageSync('9130_plat_username');
+            var uid = wx.getStorageSync('plat_uid');
+            var username = wx.getStorageSync('plat_username');
 
             var postData = {};
             postData['user_id'] = uid;
@@ -722,22 +507,16 @@ function mainUnionSDK() {
             postData['server_id'] = data.serverid;
 
             if(data.roleid && data.serverid){
-                user_game_info_9130 = {
+                user_game_info = {
                     role_id:  data.roleid,
                     server_id:  data.serverid,
                 };
             }
 
             this.log('levelup', postData);
-            dkm.logRoleUpLevel(data.serverid,data.servername,data.serverid,data.rolename,data.rolelevel);
         },
 
-        //微端
-        weiduanHelper: function () {
-            dkm.downloadClient();
-        },
-
-        //鑾峰彇鍞竴璁惧鐮侊紙鑷畾涔夛級
+        //获取唯一设备码（自定义）
         uuid: function(radix, len){
             var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
             var uuid = [], i;
@@ -762,17 +541,18 @@ function mainUnionSDK() {
             return uuid.join('');
         },
 
-        //鑾峰彇鍏叡鍙傛暟
+        //获取公共参数
         getPublicData: function () {
             var system = wx.getSystemInfoSync();
-            var uuid = wx.getStorageSync('9130_plat_uuid');
-            var idfv = wx.getStorageSync('9130_plat_idfv');
-            var ad_code = wx.getStorageSync('9130_plat_ad_code');
+            var uuid = wx.getStorageSync('plat_uuid');
+            var idfv = wx.getStorageSync('plat_idfv');
+            var ad_code = wx.getStorageSync('plat_ad_code');
 
             return {
                 game_id: config.game_id,
                 game_pkg: config.game_pkg,
                 partner_id: config.partner_id,
+                is_from_min:1,
                 ad_code: ad_code,
                 uuid: uuid,
                 idfv: idfv,
@@ -780,24 +560,24 @@ function mainUnionSDK() {
                 mac: '0000',
                 net_type: system.wifiSignal == 0 ? '4G' : 'WIFI',
                 os_ver: system.system,
-                sdk_ver: system.version,//瀛樻斁鐨勬槸寰俊鐗堟湰鍙�
-                game_ver: config.game_ver,//瀛樻斁鐨勬槸SDK鐗堟湰鍙�
+                sdk_ver: system.version,//存放的是微信版本号
+                game_ver: config.game_ver,//存放的是SDK版本号
                 device: system.platform == 'android' ? 1 : 2,
             };
         },
 
-        //缁熶竴鍙戦€乴og
+        //统一发送log
         log: function (type, data) {
             var public_data = this.getPublicData();
             for(var key in data){
                 public_data[key] = data[key];
             }
 
-            console.log("[UNION_SDK]日志上报" + type);
+            console.log("[SDK]上报数据：" + type);
             console.log(public_data);
 
             wx.request({
-                url: 'https://' + PARTNER_HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data))
+                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data))
             });
         },
 
@@ -808,32 +588,63 @@ function mainUnionSDK() {
 
         downloadClient: function () {
             wx.openCustomerServiceConversation();
-        }
+        },
+
+        // 获取当前场景值
+        getLaunchOptionsSync: function (callback) {
+            let launchOptions = SDKyyw.getLaunchOptionsSync()
+            callback(launchOptions);
+            console.log('获取场景值'+ JSON.stringify(launchOptions))
+
+            // 返回的数据 {query:{}, scene:1001, shareTicket: '', referrerInfo: {}}        }
+        },
+
+        // 关键字屏蔽
+        msgCheck: function (msg , callback){
+            SDKyyw.msgSecCheck(msg,function(res) {
+                console.log('敏感词检测结果' + JSON.stringify(res))
+                // 返回内容和微信返回内容一样
+                // errcode 0 内容正常 87014 内容有违规内容
+                // errMsg ok 内容正常 risky 内容有违规内容
+
+                let ret_res = {
+                    data:{}
+                };
+                if(res.status == 1){
+                    ret_res.statusCode = 200;
+                    ret_res.data.state = 1;
+                }else{
+                    ret_res.statusCode = 0;
+                    ret_res.data.state = 0;
+                }
+                callback && callback(ret_res);
+            });
+        },
     }
 }
 
-function unionRun(method, data, callback) {
-    (method in PARTNER_UNION_SDK) && PARTNER_UNION_SDK[method](data, callback);
+function run(method, data, callback) {
+    (method in PARTNER_SDK) && PARTNER_SDK[method](data, callback);
 }
 
 exports.init = function (data, callback) {
-    unionRun('init', data, callback);
+    run('init', data, callback);
 };
 
 exports.login = function (callback) {
-    unionRun('login', '', callback);
+    run('login', '', callback);
 };
 
 exports.login = function (callback) {
-    unionRun('login', '', callback);
+    run('login', '', callback);
 };
 
 exports.pay = function (data, callback) {
-    unionRun('pay', data, callback);
+    run('pay', data, callback);
 };
 
 exports.openService = function () {
-    unionRun('openService');
+    run('openService');
 };
 
 exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLevel) {
@@ -844,7 +655,7 @@ exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLe
         rolename: roleName,
         rolelevel: roleLevel,
     };
-    unionRun('logCreateRole', data);
+    run('logCreateRole', data);
 };
 
 exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLevel) {
@@ -856,7 +667,7 @@ exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLev
         rolelevel: roleLevel,
     };
 
-    unionRun('logEnterGame', data);
+    run('logEnterGame', data);
 };
 
 exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleLevel) {
@@ -867,22 +678,18 @@ exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleL
         rolename: roleName,
         rolelevel: roleLevel,
     };
-    unionRun('logRoleUpLevel', data);
+    run('logRoleUpLevel', data);
 };
 
 exports.share = function (type) {
     var data = {
         type: type
     };
-    unionRun('share', type);
-};
-
-exports.msgCheck = function (data, callback) {
-    unionRun('msgCheck', data, callback);
+    run('share', data);
 };
 
 exports.downloadClient = function () {
-    unionRun('downloadClient');
+    run('downloadClient');
 };
 
 exports.getConfig = function () {
@@ -893,14 +700,10 @@ exports.getConfig = function () {
     }
 };
 
-exports.adClick = function (game_id, query) {
-    var data = {
-        game_id: game_id,
-        query: query
-    };
-    unionRun('adClick', data);
+exports.getLaunchOptionsSync = function (callback){
+    run('getLaunchOptionsSync',callback);
 };
 
-exports.weiduanHelper = function () {
-    unionRun('weiduanHelper');
+exports.msgCheck  = function (msg , callback){
+    run('msgCheck',msg ,callback);
 };

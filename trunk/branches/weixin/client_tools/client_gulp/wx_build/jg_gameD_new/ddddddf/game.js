@@ -1,1 +1,0 @@
-require("ddddBuff.js"), window.protobuf.util.Long = null, window.client_pb = require("dddcleintpb.js"), window.protobufRoot = window.protobuf.Root.fromJSON(client_pb);

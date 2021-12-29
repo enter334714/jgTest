@@ -6,7 +6,7 @@ var config = {
     game_pkg: D[501693],
     partner_label: D[501694],
     partner_id: D[501695],
-    game_ver: D[501696], //666-绝地蛮荒
+    game_ver: "28.0.7", //666-绝地蛮荒
     platId: 1000,
     gameId: 272,
     channelVer: D[501697],

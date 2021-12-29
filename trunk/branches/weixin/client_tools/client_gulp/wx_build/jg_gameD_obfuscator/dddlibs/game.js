@@ -1,2 +1,2 @@
 var v = wx.$d;
-require(v[0x37b7]);
+require(v[0x73ca]);

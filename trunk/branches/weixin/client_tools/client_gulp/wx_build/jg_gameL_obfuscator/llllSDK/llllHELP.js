@@ -1,17 +1,17 @@
 var W = wx.$l;
-var HOST = W[28912];
+var HOST = W[29362];
 var that = this;
 export default class Dall {
     stebutonanimation(partner_id, game_pkg, game_id) {
-        let username = wx.getStorageSync(W[28913]);
+        let username = wx.getStorageSync(W[29363]);
         let sign = "";
         let ts = Date.now();
-        console.log(W[28914] + username);
+        console.log(W[29364] + username);
         let that = this;
         wx.request({
-            url: W[25525] + HOST + W[28915] + partner_id + '/' + game_pkg,
+            url: W[25966] + HOST + W[29365] + partner_id + '/' + game_pkg,
             method: W[625],
-            dataType: W[6466],
+            dataType: W[6505],
             header: {
                 'content-type': W[760] // 默认值
             },
@@ -27,15 +27,15 @@ export default class Dall {
     }
     Getto(username, ts, sign, game_id) {
         wx.navigateToMiniProgram({
-            appId: W[28916],
-            path: W[28917] + username + W[28918] + ts + W[28919] + sign + W[28920] + game_id,
+            appId: W[29366],
+            path: W[29367] + username + W[29368] + ts + W[29369] + sign + W[29370] + game_id,
             extraData: {
-                foo: W[20732]
+                foo: W[20971]
             },
-            envVersion: W[28921],
+            envVersion: W[29371],
             success(res) {
                 wx.showToast({
-                    title: W[28922]
+                    title: W[29372]
                 });
             }
         });

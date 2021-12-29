@@ -1,1 +1,1 @@
-{"deviceOrientation":"portrait","showStatusBar":false,"networkTimeout":{"request":1500000,"connectSocket":1500000,"uploadFile":1500000,"downloadFile":1500000},"subpackages":[{"name":"dddlibs","root":"dddlibs/"},{"name":"ddddddf","root":"ddddddf/"},{"name":"ddddddddd","root":"ddddddddd/"}]}
+{"deviceOrientation":"portrait","showStatusBar":false,"networkTimeout":{"request":15000,"connectSocket":1500000,"uploadFile":1500000,"downloadFile":1500000},"subpackages":[{"name":"dddlibs","root":"dddlibs/"},{"name":"ddddddf","root":"ddddddf/"},{"name":"ddddddddd","root":"ddddddddd/"}]}
