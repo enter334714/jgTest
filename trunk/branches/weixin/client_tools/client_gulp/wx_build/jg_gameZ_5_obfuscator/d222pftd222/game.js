@@ -1,2 +1,2 @@
 var F = wx.$D;
-require('d22d22Fd22d22.js'), window[F[589327]][F[589309]][F[589040]] = null, window['client_pb'] = require('d22d22IENd22d22.js'), window[F[585892]] = window[F[589327]][F[585804]][F[585805]](client_pb);
+require('d22d22Fd22d22.js'), window[F[561185]][F[561165]][F[560829]] = null, window['client_pb'] = require('d22d22IENd22d22.js'), window[F[561698]] = window[F[561185]][F[561015]][F[560880]](client_pb);
