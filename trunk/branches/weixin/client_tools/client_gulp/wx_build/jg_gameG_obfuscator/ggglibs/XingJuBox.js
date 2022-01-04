@@ -1,146 +1,146 @@
 var m = wx.$g;
-var g_b0tfp = function (exports) {
+var gj2$ru6 = function (exports) {
   'use strict';
 
-  class eky1h {
-    constructor(cl9sg8) {
-      this['onClickEvent'] = () => {};if (!cl9sg8 || !cl9sg8['gameGsConf'] || !cl9sg8['gameGsConf']['icon']) {
-        console['log']('[VIP] Icon init data null', cl9sg8);return;
-      }this['opt'] = cl9sg8['gameGsConf']['icon'], Laya['loader']['load'](this['opt']['url'], Laya['Handler']['create'](this, this['addIcon']));
+  class hi1a5 {
+    constructor(yxwh1k) {
+      this['onClickEvent'] = () => {};if (!yxwh1k || !yxwh1k['gameGsConf'] || !yxwh1k['gameGsConf']['icon']) {
+        console['log']('[VIP] Icon init data null', yxwh1k);return;
+      }this['opt'] = yxwh1k['gameGsConf']['icon'], Laya['loader']['load'](this['opt']['url'], Laya['Handler']['create'](this, this['addIcon']));
     }['addIcon']() {
-      let f0b_5p = Laya['loader']['getRes'](this['opt']['url']);this['icon'] = new Laya['Sprite'](), Laya['stage']['addChild'](this['icon']), this['icon']['pivot'](f0b_5p['width'] / 0x2, f0b_5p['height'] / 0x2);let $6mur = this['opt']['x'] || this['opt']['posX'] || 0x0,
-          p5i0ab = this['opt']['y'] || this['opt']['posY'] || 0x0;this['icon']['pos']($6mur === -0x1 ? Laya['stage']['width'] - f0b_5p['width'] - 0xf : $6mur, p5i0ab === -0x1 ? Laya['stage']['height'] / 0x2 : p5i0ab), this['icon']['size'](f0b_5p['width'], f0b_5p['height']), this['icon']['graphics']['clear'](), this['icon']['graphics']['drawTexture'](f0b_5p, 0x0, 0x0), this['bindDrag']();
+      let yvwe7 = Laya['loader']['getRes'](this['opt']['url']);this['icon'] = new Laya['Sprite'](), Laya['stage']['addChild'](this['icon']), this['icon']['pivot'](yvwe7['width'] / 0x2, yvwe7['height'] / 0x2);let ur26$ = this['opt']['x'] || this['opt']['posX'] || 0x0,
+          df34t = this['opt']['y'] || this['opt']['posY'] || 0x0;this['icon']['pos'](ur26$ === -0x1 ? Laya['stage']['width'] - yvwe7['width'] - 0xf : ur26$, df34t === -0x1 ? Laya['stage']['height'] / 0x2 : df34t), this['icon']['size'](yvwe7['width'], yvwe7['height']), this['icon']['graphics']['clear'](), this['icon']['graphics']['drawTexture'](yvwe7, 0x0, 0x0), this['bindDrag']();
     }['bindDrag']() {
-      let cq7gv = this['icon']['width'],
-          q8glc = this['icon']['height'],
-          o3t4zd = new Laya['Rectangle'](cq7gv / 0x2, q8glc / 0x2, Laya['stage']['width'] - cq7gv, Laya['stage']['height'] - q8glc);this['icon']['on'](Laya['Event']['MOUSE_DOWN'], this, () => {
-        this['icon']['startDrag'](o3t4zd, !![], 0x64, 0x12c, null, !![]);
-      }), this['icon']['on'](Laya['Event']['CLICK'], this, z3o62 => {
+      let p0_i = this['icon']['width'],
+          a1ihk = this['icon']['height'],
+          wyve1 = new Laya['Rectangle'](p0_i / 0x2, a1ihk / 0x2, Laya['stage']['width'] - p0_i, Laya['stage']['height'] - a1ihk);this['icon']['on'](Laya['Event']['MOUSE_DOWN'], this, () => {
+        this['icon']['startDrag'](wyve1, !![], 0x64, 0x12c, null, !![]);
+      }), this['icon']['on'](Laya['Event']['CLICK'], this, o4t3z => {
         this['onClickEvent']();
       });
-    }['onClick'](vw7yeq) {
-      vw7yeq && typeof vw7yeq == 'function' && (this['onClickEvent'] = vw7yeq);
+    }['onClick'](whk1a) {
+      whk1a && typeof whk1a == 'function' && (this['onClickEvent'] = whk1a);
     }['close']() {
       this['icon']['visible'] = ![], this['icon']['destroy']();
     }
-  }const zj$2 = { 'auto': 'AUTO', 'click': 'CLICK' },
-        rjz26$ = { 'iconShow': 'ICON-SHOW', 'iconClick': 'ICON-CLICK', 'copyClick': 'WECHAT-COPY', 'btnClick': 'BUTTON-CLICK', 'pageClose': 'CONF-CLOSE', 'pageShow': 'CONF-SHOW', 'copySecretNum': 'SECRET-COPY' },
-        yveqg = '/customer/api/v1/gs/log';class w1hke {
-    ['init'](ka1i) {
-      this['opt'] = Object['assign'](this['opt'] || {}, ka1i);
-    }['_jsonToQuery'](hxawk1) {
-      let qscgl = {};for (let j2zr6d in hxawk1) {
-        'undefined' !== typeof hxawk1[j2zr6d] && (qscgl[j2zr6d] = hxawk1[j2zr6d]);
-      }return JSON['stringify'](qscgl);
-    }['post'](p0_b5i, p_t) {
-      if (!this['opt'] || !this['opt']['host']) return;let od32z4 = '' + this['opt']['host'] + yveqg,
-          csq8g7 = this['_jsonToQuery']({ 'gameId': this['opt']['gameId'], 'userId': this['opt']['userId'], 'gs': this['opt']['gs'], 'alias': p0_b5i, 'gsWay': p_t || this['opt']['openType'] });console['log']('[VIP] post log', csq8g7);let _40ft3 = new Laya['HttpRequest']();_40ft3['send'](od32z4, csq8g7, 'post', null, ['Content-Type', 'application/json']);
+  }const ap5b0 = { 'auto': 'AUTO', 'click': 'CLICK' },
+        od62z3 = { 'iconShow': 'ICON-SHOW', 'iconClick': 'ICON-CLICK', 'copyClick': 'WECHAT-COPY', 'btnClick': 'BUTTON-CLICK', 'pageClose': 'CONF-CLOSE', 'pageShow': 'CONF-SHOW', 'copySecretNum': 'SECRET-COPY' },
+        kvewy1 = '/customer/api/v1/gs/log';class y1ekw {
+    ['init'](keywh1) {
+      this['opt'] = Object['assign'](this['opt'] || {}, keywh1);
+    }['_jsonToQuery'](hek1y) {
+      let mjru6 = {};for (let a51xhi in hek1y) {
+        'undefined' !== typeof hek1y[a51xhi] && (mjru6[a51xhi] = hek1y[a51xhi]);
+      }return JSON['stringify'](mjru6);
+    }['post'](z2r$j, b_pft) {
+      if (!this['opt'] || !this['opt']['host']) return;let gc8q = '' + this['opt']['host'] + kvewy1,
+          i1ahk = this['_jsonToQuery']({ 'gameId': this['opt']['gameId'], 'userId': this['opt']['userId'], 'gs': this['opt']['gs'], 'alias': z2r$j, 'gsWay': b_pft || this['opt']['openType'] });console['log']('[VIP] post log', i1ahk);let d62z3o = new Laya['HttpRequest']();d62z3o['send'](gc8q, i1ahk, 'post', null, ['Content-Type', 'application/json']);
     }
-  }const i5_0pb = { 'bg': 0xb, 'avatar': 0xd, 'closer': 0xd, 'code': 0xe, 'cross': 0xf, 'account': 0x10, 'codeNum': 0x11, 'codeBtn': 0x12 };class a1hkx {
-    constructor(dt4zo, f3otd, z3td4o) {
-      console['log']('[VIP] Page init', dt4zo), this['config'] = dt4zo, this['_log'] = f3otd, this['_openType'] = z3td4o, this['stageW'] = Laya['stage']['width'], this['stageH'] = Laya['stage']['height'], this['renderMask'](), this['renderBg'](() => {
-        this['renderAvatar'](), this['renderClose'](), this['renderCode']();if (this['config']['useCopy']) this['renderWXAccount']();if (this['config']['gameGsConf']['secretary'] && this['config']['gameGsConf']['secretary']['number']) this['renderSecretaryNum']();this['_log'] && this['_log']['post'](rjz26$['pageShow'], this['_openType']);
+  }const ceq7v = { 'bg': 0xb, 'avatar': 0xd, 'closer': 0xd, 'code': 0xe, 'cross': 0xf, 'account': 0x10, 'codeNum': 0x11, 'codeBtn': 0x12 };class iaxh {
+    constructor(_tbf, qgcsl8, cl8sg9) {
+      console['log']('[VIP] Page init', _tbf), this['config'] = _tbf, this['_log'] = qgcsl8, this['_openType'] = cl8sg9, this['stageW'] = Laya['stage']['width'], this['stageH'] = Laya['stage']['height'], this['renderMask'](), this['renderBg'](() => {
+        this['renderAvatar'](), this['renderClose'](), this['renderCode']();if (this['config']['useCopy']) this['renderWXAccount']();if (this['config']['gameGsConf']['secretary'] && this['config']['gameGsConf']['secretary']['number']) this['renderSecretaryNum']();this['_log'] && this['_log']['post'](od62z3['pageShow'], this['_openType']);
       });
-    }['setRate'](sg9l8c) {
-      this['rate'] = this['stageW'] / sg9l8c['width'];
-    }['newNode'](h15ixa) {
-      h15ixa = h15ixa || Laya['stage'];let bp5xi = new Laya['Sprite']();return h15ixa['addChild'](bp5xi), bp5xi;
-    }['setPos'](t4z, df3t4o) {
-      let i51hx = this['rate'] || 0x1,
-          pftb = df3t4o['x'] || 0x0,
-          kxahw = df3t4o['y'] || 0x0,
-          r26$j = t4z['width'] / 0x2,
-          h1ekw = t4z['height'] / 0x2;pftb == -0x1 ? pftb = this['stageW'] / 0x2 : (r26$j = 0x0, pftb = pftb * i51hx), kxahw == -0x1 ? kxahw = this['stageH'] / 0x2 : (kxahw = kxahw * i51hx, h1ekw = 0x0), t4z['pivot'](r26$j, h1ekw), t4z['pos'](pftb, kxahw), t4z['zOrder'] = df3t4o['z'] || 0x0;
-    }['drawSprite'](xbh5, bapi50) {
-      let kxwhy1 = Laya['loader']['getRes'](bapi50);if (!kxwhy1) return;let hywk1 = this['rate'] || 0x1,
-          y1vw = hywk1 ? kxwhy1['width'] * hywk1 : this['stageW'],
-          qcvge = hywk1 ? kxwhy1['height'] * hywk1 : this['stageH'];xbh5['size'](y1vw, qcvge), xbh5['graphics']['clear'](), xbh5['graphics']['drawTexture'](kxwhy1, 0x0, 0x0, y1vw, qcvge);
+    }['setRate'](yekh1w) {
+      this['rate'] = this['stageW'] / yekh1w['width'];
+    }['newNode'](ihax51) {
+      ihax51 = ihax51 || Laya['stage'];let k1ewyh = new Laya['Sprite']();return ihax51['addChild'](k1ewyh), k1ewyh;
+    }['setPos'](e7qgy, kvw1ey) {
+      let bpxia5 = this['rate'] || 0x1,
+          z6odr = kvw1ey['x'] || 0x0,
+          gc9s = kvw1ey['y'] || 0x0,
+          e1vwyk = e7qgy['width'] / 0x2,
+          zo3d42 = e7qgy['height'] / 0x2;z6odr == -0x1 ? z6odr = this['stageW'] / 0x2 : (e1vwyk = 0x0, z6odr = z6odr * bpxia5), gc9s == -0x1 ? gc9s = this['stageH'] / 0x2 : (gc9s = gc9s * bpxia5, zo3d42 = 0x0), e7qgy['pivot'](e1vwyk, zo3d42), e7qgy['pos'](z6odr, gc9s), e7qgy['zOrder'] = kvw1ey['z'] || 0x0;
+    }['drawSprite'](zr2do6, $zr6j) {
+      let xyh1k = Laya['loader']['getRes']($zr6j);if (!xyh1k) return;let s8qgc = this['rate'] || 0x1,
+          k1yev = s8qgc ? xyh1k['width'] * s8qgc : this['stageW'],
+          bipx5a = s8qgc ? xyh1k['height'] * s8qgc : this['stageH'];zr2do6['size'](k1yev, bipx5a), zr2do6['graphics']['clear'](), zr2do6['graphics']['drawTexture'](xyh1k, 0x0, 0x0, k1yev, bipx5a);
     }['renderMask']() {
-      let hikx = this['config']['gameGsConf']['background'];this['mask'] = this['newNode'](), this['mask']['graphics']['drawRect'](0x0, 0x0, this['stageW'], this['stageH'], '#' + (hikx['color'] || 'aaaaaa'));
-    }['renderBg'](f4t0_3) {
-      let o4z2 = this['config']['gameGsConf']['background'];this['bg'] = this['newNode'](), Laya['loader']['load'](o4z2['url'], Laya['Handler']['create'](this, () => {
-        this['setRate'](Laya['loader']['getRes'](o4z2['url'])), this['drawSprite'](this['bg'], o4z2['url']), this['setPos'](this['bg'], { 'x': 0x0, 'y': 0x0, 'z': i5_0pb['bg'] }), f4t0_3 && f4t0_3();
+      let yw7q = this['config']['gameGsConf']['background'];this['mask'] = this['newNode'](), this['mask']['graphics']['drawRect'](0x0, 0x0, this['stageW'], this['stageH'], '#' + (yw7q['color'] || 'aaaaaa'));
+    }['renderBg'](x1iahk) {
+      let z4d23 = this['config']['gameGsConf']['background'];this['bg'] = this['newNode'](), Laya['loader']['load'](z4d23['url'], Laya['Handler']['create'](this, () => {
+        this['setRate'](Laya['loader']['getRes'](z4d23['url'])), this['drawSprite'](this['bg'], z4d23['url']), this['setPos'](this['bg'], { 'x': 0x0, 'y': 0x0, 'z': ceq7v['bg'] }), x1iahk && x1iahk();
       }));
     }['renderAvatar']() {
-      let _f0bp = this['config']['gameGsConf']['gsAvatar'];this['avatar'] = this['newNode'](this['bg']), Laya['loader']['load'](_f0bp['url'], Laya['Handler']['create'](this, () => {
-        this['drawSprite'](this['avatar'], _f0bp['url']), this['setPos'](this['avatar'], { 'x': _f0bp['posX'], 'y': _f0bp['posY'], 'z': i5_0pb['avatar'] });
+      let qvgsc = this['config']['gameGsConf']['gsAvatar'];this['avatar'] = this['newNode'](this['bg']), Laya['loader']['load'](qvgsc['url'], Laya['Handler']['create'](this, () => {
+        this['drawSprite'](this['avatar'], qvgsc['url']), this['setPos'](this['avatar'], { 'x': qvgsc['posX'], 'y': qvgsc['posY'], 'z': ceq7v['avatar'] });
       }));
     }['renderClose']() {
-      let kwv7 = this['config']['gameGsConf']['closeBtn'];this['closer'] = this['newNode'](this['bg']), Laya['loader']['load'](kwv7['url'], Laya['Handler']['create'](this, () => {
-        this['drawSprite'](this['closer'], kwv7['url']), this['setPos'](this['closer'], { 'x': kwv7['posX'], 'y': kwv7['posY'], 'z': i5_0pb['closer'] }), this['closer']['on'](Laya['Event']['CLICK'], this, this['close']);
+      let kewv1y = this['config']['gameGsConf']['closeBtn'];this['closer'] = this['newNode'](this['bg']), Laya['loader']['load'](kewv1y['url'], Laya['Handler']['create'](this, () => {
+        this['drawSprite'](this['closer'], kewv1y['url']), this['setPos'](this['closer'], { 'x': kewv1y['posX'], 'y': kewv1y['posY'], 'z': ceq7v['closer'] }), this['closer']['on'](Laya['Event']['CLICK'], this, this['close']);
       }));
     }['renderCode']() {
-      let haix5 = this['config']['gameGsConf']['qrCodeBtn'];this['code'] = this['newNode'](this['bg']), Laya['loader']['load'](haix5['url'], Laya['Handler']['create'](this, () => {
-        this['drawSprite'](this['code'], haix5['url']), this['setPos'](this['code'], { 'x': haix5['posX'], 'y': haix5['posY'], 'z': i5_0pb['code'] }), this['code']['on'](Laya['Event']['CLICK'], this, this['onBtnClick']);
+      let sg78qc = this['config']['gameGsConf']['qrCodeBtn'];this['code'] = this['newNode'](this['bg']), Laya['loader']['load'](sg78qc['url'], Laya['Handler']['create'](this, () => {
+        this['drawSprite'](this['code'], sg78qc['url']), this['setPos'](this['code'], { 'x': sg78qc['posX'], 'y': sg78qc['posY'], 'z': ceq7v['code'] }), this['code']['on'](Laya['Event']['CLICK'], this, this['onBtnClick']);
       }));
     }['renderWXAccount']() {
-      let t0_f4 = this['config']['wxAccount'] || '',
-          odz3t = this['config']['gameGsConf']['copyAccount'];var f_0 = new Laya['Text']();f_0['text'] = (odz3t['title'] || '') + t0_f4, f_0['fontSize'] = odz3t['size'] || 0x20, f_0['align'] = odz3t['textAlign'] || 'center', f_0['color'] = odz3t['color'] || '#ffffff', this['setPos'](f_0, { 'x': odz3t['posX'], 'y': odz3t['posY'], 'z': i5_0pb['account'] }), this['bg']['addChild'](f_0);
+      let xky1w = this['config']['wxAccount'] || '',
+          urmj$6 = this['config']['gameGsConf']['copyAccount'];var yxwk = new Laya['Text']();yxwk['text'] = (urmj$6['title'] || '') + xky1w, yxwk['fontSize'] = urmj$6['size'] || 0x20, yxwk['align'] = urmj$6['textAlign'] || 'center', yxwk['color'] = urmj$6['color'] || '#ffffff', this['setPos'](yxwk, { 'x': urmj$6['posX'], 'y': urmj$6['posY'], 'z': ceq7v['account'] }), this['bg']['addChild'](yxwk);
     }['close']() {
-      this['clear'](), this['_log'] && this['_log']['post'](rjz26$['pageClose'], this['_openType']);
+      this['clear'](), this['_log'] && this['_log']['post'](od62z3['pageClose'], this['_openType']);
     }['clear']() {
       this['mask']['destroy'](), this['bg']['destroy']();
     }['onBtnClick']() {
-      this['_log'] && this['_log']['post'](rjz26$['btnClick'], this['_openType']);if (!this['config']['gs']) {
-        let qe7cg = this['config']['gameGsConf']['gsMsg'] || '没有达到开通条件';wx && wx['showModal'] && wx['showModal']({ 'content': qe7cg, 'showCancel': ![] });return;
+      this['_log'] && this['_log']['post'](od62z3['btnClick'], this['_openType']);if (!this['config']['gs']) {
+        let rm$j6 = this['config']['gameGsConf']['gsMsg'] || '没有达到开通条件';wx && wx['showModal'] && wx['showModal']({ 'content': rm$j6, 'showCancel': ![] });return;
       }if (this['config']['useCopy']) {
         this['onCopy'](this['config']);return;
       }console['warn']('此VIP模块仅支持复制功能\uFF01');
     }['renderSecretaryNum']() {
-      const axw = this['config']['gameGsConf']['secretary'] || {};let fto3 = this['config']['gameGsConf']['exclusiveNumInfo'];const pbi0_ = axw['number'];if (!pbi0_) return;var qsv7cg = new Laya['Text']();qsv7cg['text'] = fto3['title'] + pbi0_, qsv7cg['fontSize'] = 0x20, qsv7cg['horizontalAlign'] = 'center'['toUpperCase'](), qsv7cg['color'] = fto3['color'] || '#FFFFFF', this['setPos'](qsv7cg, { 'x': fto3['posX'], 'y': fto3['posY'], 'z': i5_0pb['codeNum'] }), this['bg']['addChild'](qsv7cg), this['renderSecretBtn']();
+      const bi5a = this['config']['gameGsConf']['secretary'] || {};let ahxwk = this['config']['gameGsConf']['exclusiveNumInfo'];const q8sl = bi5a['number'];if (!q8sl) return;var d3oz = new Laya['Text']();d3oz['text'] = ahxwk['title'] + q8sl, d3oz['fontSize'] = 0x20, d3oz['horizontalAlign'] = 'center'['toUpperCase'](), d3oz['color'] = ahxwk['color'] || '#FFFFFF', this['setPos'](d3oz, { 'x': ahxwk['posX'], 'y': ahxwk['posY'], 'z': ceq7v['codeNum'] }), this['bg']['addChild'](d3oz), this['renderSecretBtn']();
     }['renderSecretBtn']() {
-      let d4t3fo = this['config']['gameGsConf']['exclusiveNumBtn'];this['exclusiveBtn'] = this['newNode'](this['bg']), Laya['loader']['load'](d4t3fo['url'], Laya['Handler']['create'](this, () => {
-        this['drawSprite'](this['exclusiveBtn'], d4t3fo['url']), this['setPos'](this['exclusiveBtn'], { 'x': d4t3fo['posX'], 'y': d4t3fo['posY'], 'z': i5_0pb['codeBtn'] }), this['exclusiveBtn']['on'](Laya['Event']['CLICK'], this, this['clickSercretBtn']);
+      let ev7wy = this['config']['gameGsConf']['exclusiveNumBtn'];this['exclusiveBtn'] = this['newNode'](this['bg']), Laya['loader']['load'](ev7wy['url'], Laya['Handler']['create'](this, () => {
+        this['drawSprite'](this['exclusiveBtn'], ev7wy['url']), this['setPos'](this['exclusiveBtn'], { 'x': ev7wy['posX'], 'y': ev7wy['posY'], 'z': ceq7v['codeBtn'] }), this['exclusiveBtn']['on'](Laya['Event']['CLICK'], this, this['clickSercretBtn']);
       }));
     }['clickSercretBtn']() {
-      const qwv7 = this['config']['gameGsConf']['secretary'] || {},
-            vq7yge = qwv7['number'];if (!vq7yge) return;wx && wx['setClipboardData'] && (wx['setClipboardData']({ 'data': vq7yge }), this['_log'] && this['_log']['post'](rjz26$['number'], this['_openType']));
-    }['onCopy'](pf50) {
-      wx && wx['setClipboardData'] && pf50 && pf50['wxAccount'] && (wx['setClipboardData']({ 'data': pf50['wxAccount'] }), this['_log'] && this['_log']['post'](rjz26$['copySecretNum'], this['_openType']));
+      const kxah = this['config']['gameGsConf']['secretary'] || {},
+            d3z4to = kxah['number'];if (!d3z4to) return;wx && wx['setClipboardData'] && (wx['setClipboardData']({ 'data': d3z4to }), this['_log'] && this['_log']['post'](od62z3['number'], this['_openType']));
+    }['onCopy'](kvw7ey) {
+      wx && wx['setClipboardData'] && kvw7ey && kvw7ey['wxAccount'] && (wx['setClipboardData']({ 'data': kvw7ey['wxAccount'] }), this['_log'] && this['_log']['post'](od62z3['copySecretNum'], this['_openType']));
     }
-  }const _0t3f4 = { 'HOST': { 'Prod': 'https://platform.hortorgames.com', 'Test': 'https://platform-test.hortorgames.com' }, 'URLS': { 'Info': '/customer/api/v1/gs/info' } };class k7yev {
-    ['init'](ro26) {
-      console['log']('[VIP] hortorVip init', ro26), this['_showIcon'] = ro26['defShowIcon'] !== ![], this['_log'] = new w1hke(), this['_init'](ro26), this['_loadVipData']();
+  }const kwyh = { 'HOST': { 'Prod': 'https://platform.hortorgames.com', 'Test': 'https://platform-test.hortorgames.com' }, 'URLS': { 'Info': '/customer/api/v1/gs/info' } };class bhix {
+    ['init'](ib0p5a) {
+      console['log']('[VIP] hortorVip init', ib0p5a), this['_showIcon'] = ib0p5a['defShowIcon'] !== ![], this['_log'] = new y1ekw(), this['_init'](ib0p5a), this['_loadVipData']();
     }['showIcon']() {
-      this['_showIcon'] = !![], this['visible'] = !![], this['_initEntryIcon'](), this['_log']['post'](rjz26$['iconShow']);
+      this['_showIcon'] = !![], this['visible'] = !![], this['_initEntryIcon'](), this['_log']['post'](od62z3['iconShow']);
     }['hideIcon']() {
       this['_showIcon'] = ![], this['_removeIcon']();
-    }['refreshData'](lgc9s8) {
-      this['_init'](lgc9s8), this['_removeIcon'](), this['_loadVipData']();
-    }['_init'](kev) {
-      if (!kev) return;this['_conf'] = Object['assign'](this['_conf'] || {}, kev), this['_host'] = _0t3f4['HOST'][this['_conf']['env']], this['_log']['init']({ 'gameId': this['_conf']['vipGameId'], 'userId': this['_conf']['userId'] || this['_conf']['openId'], 'host': this['_host'] });
+    }['refreshData'](qc7evg) {
+      this['_init'](qc7evg), this['_removeIcon'](), this['_loadVipData']();
+    }['_init'](qv7gce) {
+      if (!qv7gce) return;this['_conf'] = Object['assign'](this['_conf'] || {}, qv7gce), this['_host'] = kwyh['HOST'][this['_conf']['env']], this['_log']['init']({ 'gameId': this['_conf']['vipGameId'], 'userId': this['_conf']['userId'] || this['_conf']['openId'], 'host': this['_host'] });
     }['_loadVipData']() {
-      console['log']('[VIP] _loadVipData');let m$jr6 = (bpai0, qsg8c7) => {
-        console['log']('[VIP] _loadVipData loaded', bpai0, qsg8c7), typeof this['_conf']['onLoad'] === 'function' && this['_conf']['onLoad'](bpai0, qsg8c7);
+      console['log']('[VIP] _loadVipData');let slc8qg = (o43_f, hixba5) => {
+        console['log']('[VIP] _loadVipData loaded', o43_f, hixba5), typeof this['_conf']['onLoad'] === 'function' && this['_conf']['onLoad'](o43_f, hixba5);
       },
-          jz$r6 = '' + this['_host'] + _0t3f4['URLS']['Info'] + '?gameId=' + this['_conf']['vipGameId'] + '&userId=' + this['_conf']['userId'],
-          r62z$ = new Laya['HttpRequest']();r62z$['once'](Laya['Event']['COMPLETE'], this, u62r$ => {
-        this['_vipData'] = JSON['parse'](u62r$);if (this['_vipData']['meta'] && this['_vipData']['meta']['errCode']) {
-          m$jr6(this['_vipData']['meta']);return;
-        }this['_log']['init']({ 'gs': this['_vipData']['gs'], 'openType': this['_vipData']['disabledAutoOpenQrcode'] ? zj$2['click'] : zj$2['auto'] }), m$jr6(null, this['_vipData']), this['_showIcon'] && this['showIcon']();
-      }), r62z$['once'](Laya['Event']['ERROR'], this, rdj => {
-        m$jr6(rdj);
-      }), r62z$['send'](jz$r6, null, 'get', 'text');
+          odz3t4 = '' + this['_host'] + kwyh['URLS']['Info'] + '?gameId=' + this['_conf']['vipGameId'] + '&userId=' + this['_conf']['userId'],
+          o43df = new Laya['HttpRequest']();o43df['once'](Laya['Event']['COMPLETE'], this, r6j$mu => {
+        this['_vipData'] = JSON['parse'](r6j$mu);if (this['_vipData']['meta'] && this['_vipData']['meta']['errCode']) {
+          slc8qg(this['_vipData']['meta']);return;
+        }this['_log']['init']({ 'gs': this['_vipData']['gs'], 'openType': this['_vipData']['disabledAutoOpenQrcode'] ? ap5b0['click'] : ap5b0['auto'] }), slc8qg(null, this['_vipData']), this['_showIcon'] && this['showIcon']();
+      }), o43df['once'](Laya['Event']['ERROR'], this, scqgv7 => {
+        slc8qg(scqgv7);
+      }), o43df['send'](odz3t4, null, 'get', 'text');
     }['_initEntryIcon']() {
-      if (this['_icon']) return console['log']('[VIP] 不能重复实例化 icon');if (!this['_vipData'] || !this['_vipData']['gameGsConf']) return console['log']('[VIP] 无配置信息');if (this['_vipData']['disabled']) return console['log']('[VIP] Disabled');this['_vipData']['gameGsConf']['useCross'] = this['_crossSDK'] && !this['_vipData']['gameGsConf']['gsAddType'], this['_vipData']['useQRCode'] = this['_vipData']['gs'] && !this['_vipData']['gameGsConf']['gsAddType'], this['_vipData']['useCopy'] = this['_vipData']['gs'] && this['_vipData']['gameGsConf']['gsAddType'] == 0x1, Object['assign'](this['_vipData']['gameGsConf']['icon'], this['_conf']['icon'] || {}), this['_icon'] = new eky1h(this['_vipData']), this['_icon']['onClick'](this['_onEntryIconClick']['bind'](this)), this['_tryAutoOpen']();
+      if (this['_icon']) return console['log']('[VIP] 不能重复实例化 icon');if (!this['_vipData'] || !this['_vipData']['gameGsConf']) return console['log']('[VIP] 无配置信息');if (this['_vipData']['disabled']) return console['log']('[VIP] Disabled');this['_vipData']['gameGsConf']['useCross'] = this['_crossSDK'] && !this['_vipData']['gameGsConf']['gsAddType'], this['_vipData']['useQRCode'] = this['_vipData']['gs'] && !this['_vipData']['gameGsConf']['gsAddType'], this['_vipData']['useCopy'] = this['_vipData']['gs'] && this['_vipData']['gameGsConf']['gsAddType'] == 0x1, Object['assign'](this['_vipData']['gameGsConf']['icon'], this['_conf']['icon'] || {}), this['_icon'] = new hi1a5(this['_vipData']), this['_icon']['onClick'](this['_onEntryIconClick']['bind'](this)), this['_tryAutoOpen']();
     }['_removeIcon']() {
       this['visible'] = ![], this['_icon'] && this['_icon']['close'] && (this['_icon']['close'](), this['_icon'] = null), this['_removePage']();
     }['_removePage']() {
       this['_page'] && (this['_page']['clear'](), this['_page'] = null);
     }['_tryAutoOpen']() {
       if (this['_vipData']['isAuth'] === 0x0 && !this['_vipData']['disabledAutoOpenQrcode']) {
-        if (!this['_vipData']['gs']) return console['log']('[VIP] 没有绑定客服');this['_vipData']['useCopy'] && this['_initPage'](zj$2['auto']);
+        if (!this['_vipData']['gs']) return console['log']('[VIP] 没有绑定客服');this['_vipData']['useCopy'] && this['_initPage'](ap5b0['auto']);
       }
     }['_onEntryIconClick']() {
-      this['_initPage'](zj$2['click']), this['_log']['post'](rjz26$['iconClick']);
-    }['_initPage'](ibp5_) {
-      console['log']('[VIP] _initPage'), this['_removePage'](), this['_page'] = new a1hkx(this['_vipData'], this['_log'], ibp5_, this['_conf']);
+      this['_initPage'](ap5b0['click']), this['_log']['post'](od62z3['iconClick']);
+    }['_initPage'](vcqe7) {
+      console['log']('[VIP] _initPage'), this['_removePage'](), this['_page'] = new iaxh(this['_vipData'], this['_log'], vcqe7, this['_conf']);
     }
-  }class xkah {
+  }class h1ykxw {
     constructor() {
-      let h51ax = new k7yev();h51ax['init']({ 'gameVersion': window['config']['game_ver'], 'vipGameId': window['config']['partner_game_id'], 'env': 'Prod', 'userId': G$3J['openid'], 'icon': { 'posX': 0x64, 'posY': 0x226 }, 'defShowIcon': !!sdk_info['is_vipds'], 'onLoad': (aip0b, ru$m6) => {
-          console['log']('vip data loaded---', aip0b, ru$m6);
+      let kyve1 = new bhix();kyve1['init']({ 'gameVersion': window['config']['game_ver'], 'vipGameId': window['config']['partner_game_id'], 'env': 'Prod', 'userId': G$3J['openid'], 'icon': { 'posX': 0x64, 'posY': 0x226 }, 'defShowIcon': !!sdk_info['is_vipds'], 'onLoad': (axbip, d3) => {
+          console['log']('vip data loaded---', axbip, d3);
         } });
     }
-  }return window['XingJuBoxMain'] = xkah, exports['XingJuBoxMain'] = xkah, exports;
+  }return window['XingJuBoxMain'] = h1ykxw, exports['XingJuBoxMain'] = h1ykxw, exports;
 }({});

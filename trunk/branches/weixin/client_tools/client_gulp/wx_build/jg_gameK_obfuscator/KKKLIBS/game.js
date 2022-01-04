@@ -1,2 +1,2 @@
 var U = wx.$k;
-require(U[168469]);
+require(U[168918]);

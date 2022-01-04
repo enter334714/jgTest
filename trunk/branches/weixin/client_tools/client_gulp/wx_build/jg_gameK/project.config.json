@@ -29,7 +29,6 @@
     },
     "enableEngineNative": false,
     "useIsolateContext": false,
-    "userConfirmedUseIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -41,7 +40,7 @@
   "compileType": "game",
   "libVersion": "2.10.4",
   "appid": "wx538953a4f1a3a954",
-  "projectname": "%E5%87%A1%E4%BA%BA%E4%BC%8F%E9%AD%94%E5%BD%95",
+  "projectname": "凡人伏魔录",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {

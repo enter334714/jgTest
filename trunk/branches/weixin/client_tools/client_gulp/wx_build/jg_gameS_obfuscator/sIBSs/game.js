@@ -1,2 +1,2 @@
 var K = wx.$S;
-require(K[327968]);
+require(K[300000]);

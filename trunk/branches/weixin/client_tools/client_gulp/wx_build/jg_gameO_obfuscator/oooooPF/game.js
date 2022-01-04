@@ -1,2 +1,2 @@
 var c = wx.$o;
-require('oobBF.js'), window[c[248475]][c[248476]][c[248477]] = null, window['client_pb'] = require('oooCLIENTPB.js'), window[c[245421]] = window[c[248475]][c[245335]][c[245336]](client_pb);
+require('oobBF.js'), window[c[248923]][c[248924]][c[248925]] = null, window['client_pb'] = require('oooCLIENTPB.js'), window[c[245326]] = window[c[248923]][c[245214]][c[245215]](client_pb);

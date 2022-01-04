@@ -1,4 +1,5 @@
-﻿const sdk = require("../utils/bgwl_v1.6.min.js");
+﻿
+import sdk from "../utils/bgwl_v1.7.min.js";
 // 初始化sdk，引入sdk时候需要最先调用
 sdk.getFyhd().startSdk();
 
@@ -6,7 +7,7 @@ var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqyjx_GS',
     partner_id: '330',
-    game_ver: '10.0.5', //天剑奇缘-凡人附魔录-风云微信小程序-GS
+    game_ver: '10.0.13', //天剑奇缘-凡人附魔录-风云微信小程序-GS
     is_auth: false, //授权登录
 };
 window.config = config;
@@ -609,6 +610,9 @@ function mainSDK() {
                 content: content
             }
             sdk.getFyhd().msgSecCheck(param, function (res) {
+                if(res.data.result.suggest != "pass"){
+                    res.data.errcode = 1;
+                }
                 callback(res);
             });
         },

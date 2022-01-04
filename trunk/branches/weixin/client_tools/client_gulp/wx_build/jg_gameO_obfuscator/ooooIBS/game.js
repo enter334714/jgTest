@@ -1,2 +1,2 @@
 var c = wx.$o;
-require(c[220000]);
+require(c[248401]);

@@ -251,12 +251,11 @@ window.sdkInit = function() {
   AKSDK.init(initData, this.sdkOnInited.bind(this));
 }
 
-var wx_develop = false;
+
 /*sdk初始化回调*/
 window.sdkOnInited = function(res) {
   var develop = res.develop;
-  // res.game_ver = "1.0.86";
-  wx_develop = develop == 1;
+  // res.game_ver = "1.0.86"; 
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
   console.log("#初始化成功   提审状态:"+ develop +"   是否提审:"+ (develop == 1) +"   提审版本号:"+res.game_ver +"   当前版本号:"+window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
   if (!res.game_ver || window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
@@ -1011,27 +1010,32 @@ window.reqServerCheckBanCallBack = function(data) {
 
     checkBanSuccess();
   } else {
-    sendApi(PF_INFO.apiurl, 'User.login', {
-      'platform': PF_INFO.sdk_name,
-      'partner_id': PF_INFO.partnerId,
-      'token': PF_INFO.sdk_token,
-      'game_pkg': PF_INFO.pkgName,
-      'deviceId': PF_INFO.device_id,
-      'scene': 'WX_'+ PF_INFO.from_scene,
-    }, function(response) {
-      if (response.state == "failed") {
-        window.loginAlert('User.login failed: ' + response.state);
-        return;
-      }
-      PF_INFO.php_sign = String(response.sign);
-      PF_INFO.php_signtime = String(response.time);
-
-      setTimeout(function() {
-        req_server_check_ban(PF_INFO.last_check_ban.step, PF_INFO.last_check_ban.server_id);
-      }, 1500);
-    }, apiRetryAmount, onApiError, function(response) {
-      return response.state == 'success' || response.state == 'failed';
-    });
+    if (PF_INFO.last_check_ban.step >= 3) {
+      onApiError(JSON.stringify(data));
+      window.loginAlert('User.checkInfo failed: ' + data.state);
+    } else {
+      sendApi(PF_INFO.apiurl, 'User.login', {
+        'platform': PF_INFO.sdk_name,
+        'partner_id': PF_INFO.partnerId,
+        'token': PF_INFO.sdk_token,
+        'game_pkg': PF_INFO.pkgName,
+        'deviceId': PF_INFO.device_id,
+        'scene': 'WX_'+ PF_INFO.from_scene,
+      }, function(response) {
+        if (!response || response.state != 'success') {
+          window.loginAlert('User.login failed: ' + response&&response.state);
+          return;
+        }
+        PF_INFO.php_sign = String(response.sign);
+        PF_INFO.php_signtime = String(response.time);
+  
+        setTimeout(function() {
+          req_server_check_ban(PF_INFO.last_check_ban.step+1, PF_INFO.last_check_ban.server_id);
+        }, 1500);
+      }, apiRetryAmount, onApiError, function(response) {
+        return response.state == 'success' || response.state == 'failed';
+      });
+    }
   }
 }
 window.checkBanSuccess = function() {
@@ -1112,7 +1116,7 @@ window.enterToGame = function() {
 
       window.MainWX.instance.initPlatdata(platData);
       setTimeout(() => {
-        if(!wx_develop){ //非审核状态才有盒子
+        if(!PF_INFO.wxShield){ //非审核状态才有盒子
           new minitool();
         }
       }, 10000);

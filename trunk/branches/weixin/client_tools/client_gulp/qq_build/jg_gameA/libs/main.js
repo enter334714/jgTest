@@ -50,8 +50,9 @@ qq.onError(function (error) {
       level: window.PF_INFO.roleLevel,
       user: window.PF_INFO.account,
       version: window.PF_INFO.lastVersion,
-      gamever: window.sdk_config.game_ver,
       cdn: window.PF_INFO.cdn,
+      pkgName: window.PF_INFO.pkgName,
+      gamever: window.sdk_config.game_ver,
       serverid: (window.PF_INFO.selectedServer ? window.PF_INFO.selectedServer.server_id : 0),
       systemInfo: window.systemInfo,
       error: "MiniProgramError",
@@ -160,38 +161,22 @@ qq.onNetworkStatusChange(function (res) {
 
 
 // 内存警告相关，基础库 2.0.2 开始支持
+window.memoryGCTime = 0;
 window.memoryWarningNum = 0;
 window.onMemoryWarningCallBack = null;
 qq.onMemoryWarning(function () {
   window.memoryWarningNum++;
-  qq.triggerGC(); //QQ小游戏垃圾回收;
+  var now = Date.now();
+  if (window.memoryGCTime==0 || (now-window.memoryGCTime)>120000) { //2分钟
+    console.warn('内存警告触发GC');
+    qq.triggerGC(); //QQ小游戏垃圾回收;
+  }
   if (window.memoryWarningNum >= 2) {
     window.memoryWarningNum = 0;
     console.error('第二次内存警告');
     if(window.PF_INFO && window.PF_INFO.wxIOS) window.reqRecordInfo("内存警告", "");
     if (onMemoryWarningCallBack) onMemoryWarningCallBack();//游戏内画质设为“低”
   }
-  // qq.showModal({
-  //   title: '提示',
-  //   content: "内存偏低，请重启QQ，并重新打开小游戏",
-  //   showCancel : false, 
-  //   success(res) {
-  //     if (window.memoryWarningNum >= 2) {
-  //       window.memoryWarningNum = 0;
-
-  //       qq.reportMonitor('0', 1);  //上报QQ监控
-        
-  //       qq.exitMiniProgram({
-  //         success: function () {
-  //           console.error('退出游戏成功！');
-  //         },
-  //         fail: function () {
-  //           console.error('退出游戏失败！');
-  //         }
-  //       })
-  //     }
-  //   }
-  // })
 })
 
 

@@ -1,4 +1,5 @@
 ﻿let confArr = ['', 'APP_ID', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=login', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportRoleInfo', 'APP_VERSION', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=canPay', 'GAME_KEY', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=setTunnelClick', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getMaterials', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportShare', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=reportClick', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=descMidasCoin', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=send_tpl_msg', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=get_box_list', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=open_box', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=click_box', 'wss://ws.docater1.cn', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getOpenClipboard', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getDealPackageInfo', 'https://docater1.cn/index.php?g=Wap&m=WxSecCheck&a=msgSecCheck', 'https://docater1.cn/index.php?g=Wap&m=WxSecCheck&a=imgSecCheck', 'https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getGameShareCardData'];
+
 const SY_CONF = {
   "APP_ID": "wx4ce69989cfb43218",
   "APP_VERSION": "1001.0.0",
@@ -11,7 +12,7 @@ const Sygame = {
   // 初始化
   SY_CONF:SY_CONF,
   appid: '',
-  app_version: '1005.0.0',
+  app_version: '1005.1.0',
   openid: '',
   real_openid: '',
   share_data: {},
@@ -328,10 +329,31 @@ const Sygame = {
         console.log("syMidasPay:", res)
       },
       fail (res) {
+        // 上报失败信息、取消支付不上报
+        if (res.errCode != 1) {
+          Sygame.syReportMidasErrorInfo(res);
+        }
         console.log(res)
       },
       complete (res) {
         console.log(res)
+      }
+    })
+  },
+
+  // 上报米大师错误信息
+  syReportMidasErrorInfo: function(info){
+    wx.request({
+      url: confArr[22],
+      data: {
+        'appid': Sygame.appid,
+        'info': JSON.stringify(info),
+        'openid': Sygame.openid,
+        'real_openid': Sygame.real_openid
+      },
+      method: 'POST',
+      success: (ret) => {
+        console.log("report Midas error info success", ret);
       }
     })
   },
@@ -686,7 +708,9 @@ const Sygame = {
           console.log("分享:", res.data.data);
           Sygame.share_data = res.data.data;
         } else {
-          params.errorCallback(res);
+          if (params) {
+            params.errorCallback(res);
+          }
           console.log("盛也share失败", res);
         }
       },

@@ -185,6 +185,7 @@ var MainController = /** @class */ (function () {
             this.initEvent();
             this.initView();
             Toast.init();
+            this.main.bg.x = -750;
         }
     };
     MainController.prototype.initView = function () {
@@ -299,20 +300,42 @@ var MainController = /** @class */ (function () {
     };
     MainController.prototype.page1 = function () {
         this.page = 1;
-        this.main.bg.skin = this.tool.data.public_code; //Laya.loader.getRes(Global.getResMap(this.tool.data.public_code));
+        if(!MainController.prototype.page1Bg){
+            MainController.prototype.page1Bg = new Laya.Image(this.tool.data.public_code);
+            this.main.bg.addChildAt(MainController.prototype.page1Bg,0)
+        }
+        if(MainController.prototype.page1Bg) MainController.prototype.page1Bg.visible = true; 
+        if(MainController.prototype.page2Bg) MainController.prototype.page2Bg.visible = false; 
+        if(MainController.prototype.page3Bg) MainController.prototype.page3Bg.visible = false;       
+        //  this.main.bg.skin =  this.tool.data.public_code; //Laya.loader.getRes(Global.getResMap(this.tool.data.public_code));
         this.main.box_1_show.visible = true;
         this.main.box_2_show.visible = false;
         this.main.box_3_show.visible = false;
     };
     MainController.prototype.page2 = function () {
         this.page = 2;
-        this.main.bg.skin = this.tool.data.vip_customer_service; //Laya.loader.getRes(Global.getResMap(this.tool.data.vip_customer_service));
+        if(!MainController.prototype.page2Bg){
+            MainController.prototype.page2Bg = new Laya.Image(this.tool.data.vip_customer_service);
+            this.main.bg.addChildAt(MainController.prototype.page2Bg,0)
+        }
+        if(MainController.prototype.page1Bg) MainController.prototype.page1Bg.visible = false; 
+        if(MainController.prototype.page2Bg) MainController.prototype.page2Bg.visible = true; 
+        if(MainController.prototype.page3Bg) MainController.prototype.page3Bg.visible = false;    
+        // this.main.bg.skin = this.tool.data.vip_customer_service; //Laya.loader.getRes(Global.getResMap(this.tool.data.vip_customer_service));
         this.main.box_1_show.visible = false;
         this.main.box_2_show.visible = true;
         this.main.box_3_show.visible = false;
     };
     MainController.prototype.page3 = function () {
         this.page = 3;
+        if(!MainController.prototype.page3Bg){
+            MainController.prototype.page3Bg = new Laya.Image(this.tool.data.game_center_image_url);
+            this.main.bg.addChildAt(MainController.prototype.page3Bg,0)
+        }
+        if(MainController.prototype.page1Bg) MainController.prototype.page1Bg.visible = false; 
+        if(MainController.prototype.page2Bg) MainController.prototype.page2Bg.visible = false; 
+        if(MainController.prototype.page3Bg) MainController.prototype.page3Bg.visible = true;    
+        MainController.prototype.page1Bg.visible = false;
         this.main.bg.skin = this.tool.data.game_center_image_url; //Laya.loader.getRes(Global.getResMap(this.tool.data.game_center_image_url));
         this.main.box_1_show.visible = false;
         this.main.box_2_show.visible = false;
@@ -358,7 +381,6 @@ var MainController = /** @class */ (function () {
     };
     MainController.prototype.rolePriceHandler = function (e) {
         this.rolePriceData = JSON.parse(e);
-      
         switch (this.rolePriceData.status) {
             case 1001: //成功返回值 - todayPrice=用户今日充值；allPrice=用户总充值；is_vip=是否达到该游戏设置的VIP开关，1-是；0-不是
                 this.main.box_2_lab_v_1.text = (this.rolePriceData.todayPrice || 0) + "/" + +this.tool.data.x + "\u5143";

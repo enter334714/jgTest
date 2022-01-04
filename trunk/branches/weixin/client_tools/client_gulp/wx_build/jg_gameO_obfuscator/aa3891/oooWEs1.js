@@ -1596,6 +1596,10 @@ var c = wx.$o;
 						fail: function fail(_ref2) {
 							var errMsg = _ref2.errMsg;
 
+							_this.status = 404;
+							_this.response = null;
+							_changeReadyState.call(_this, XMLHttpRequest.DONE);
+
 							// TODO 规范错误
 							if (errMsg.indexOf('abort') !== -1) {
 								_triggerEvent.call(_this, 'abort');

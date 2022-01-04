@@ -3,17 +3,13 @@ var a = wx.$y;
   var t = { 3592: function (t, e, r) {
       t.exports = r(7385);
     }, 8363: function (t, e, r) {
-      t.exports = r(1522);
+      r(1522);
     }, 9996: function (t, e, r) {
       t.exports = r(2209);
     }, 8066: function (t, e, r) {
       t.exports = r(1086);
     }, 699: function (t, e, r) {
       t.exports = r(4442);
-    }, 4721: function (t, e, r) {
-      t.exports = r(1408);
-    }, 47: function (t, e, r) {
-      t.exports = r(6942);
     }, 1515: function (t, e, r) {
       t.exports = r(6594);
     }, 5238: function (t, e, r) {
@@ -50,8 +46,10 @@ var a = wx.$y;
       t.exports = r(1524);
     }, 6019: function (t, e, r) {
       t.exports = r(1490);
+    }, 4579: function (t, e, r) {
+      t.exports = r(4803);
     }, 7997: function (t, e, r) {
-      t.exports = r(5743);
+      r(5743);
     }, 1446: function (t, e, r) {
       t.exports = r(6600);
     }, 3882: function (t, e, r) {
@@ -64,10 +62,6 @@ var a = wx.$y;
       r(5906);var n = r(5703);t.exports = n("Array").concat;
     }, 2383: function (t, e, r) {
       r(1501);var n = r(5703);t.exports = n("Array").filter;
-    }, 991: function (t, e, r) {
-      r(7690);var n = r(5703);t.exports = n("Array").includes;
-    }, 3866: function (t, e, r) {
-      r(8787);var n = r(5703);t.exports = n("Array").map;
     }, 4900: function (t, e, r) {
       r(186);var n = r(5703);t.exports = n("Array").slice;
     }, 2948: function (t, e, r) {
@@ -85,18 +79,6 @@ var a = wx.$y;
       var n = r(2383),
           o = Array.prototype;t.exports = function (t) {
         var e = t.filter;return t === o || t instanceof Array && e === o.filter ? n : e;
-      };
-    }, 8557: function (t, e, r) {
-      var n = r(991),
-          o = r(1631),
-          i = Array.prototype,
-          a = String.prototype;t.exports = function (t) {
-        var e = t.includes;return t === i || t instanceof Array && e === i.includes ? n : "string" == typeof t || t === a || t instanceof String && e === a.includes ? o : e;
-      };
-    }, 8287: function (t, e, r) {
-      var n = r(3866),
-          o = Array.prototype;t.exports = function (t) {
-        var e = t.map;return t === o || t instanceof Array && e === o.map ? n : e;
       };
     }, 1337: function (t, e, r) {
       var n = r(9335),
@@ -156,8 +138,6 @@ var a = wx.$y;
       r(2355);var n = r(4058);t.exports = n.Reflect.get;
     }, 6998: function (t, e, r) {
       r(6274), r(5967), r(9008), r(7971);var n = r(4058);t.exports = n.Set;
-    }, 1631: function (t, e, r) {
-      r(1035);var n = r(5703);t.exports = n("String").includes;
     }, 9335: function (t, e, r) {
       r(2075);var n = r(5703);t.exports = n("String").padStart;
     }, 7473: function (t, e, r) {
@@ -174,10 +154,6 @@ var a = wx.$y;
       var n = r(8065);t.exports = n;
     }, 4442: function (t, e, r) {
       var n = r(1955);t.exports = n;
-    }, 1408: function (t, e, r) {
-      var n = r(3778);t.exports = n;
-    }, 6942: function (t, e, r) {
-      var n = r(1798);t.exports = n;
     }, 6594: function (t, e, r) {
       var n = r(8906);t.exports = n;
     }, 1493: function (t, e, r) {
@@ -214,6 +190,8 @@ var a = wx.$y;
       var n = r(8254);t.exports = n;
     }, 1490: function (t, e, r) {
       var n = r(3474);t.exports = n;
+    }, 4803: function (t, e, r) {
+      var n = r(7989);t.exports = n;
     }, 5743: function (t, e, r) {
       var n = r(5519);r(5800), r(3676), r(2645), r(2578), r(4573), r(7421), r(3787), r(256), r(2032), r(1873), r(6566), r(987), r(1892), r(3352), r(6988), r(6875), r(3859), r(6690), t.exports = n;
     }, 6600: function (t, e, r) {
@@ -538,16 +516,6 @@ var a = wx.$y;
             } });
         } else y = r.getConstructor(e, t, m, x), i.enable();return p(y, t, !1, !0), k[t] = y, n({ global: !0, forced: !0 }, k), S || r.setStrong(y, t, m), y;
       };
-    }, 7772: function (t, e, r) {
-      var n = r(9813)("match");t.exports = function (t) {
-        var e = /./;try {
-          "/./"[t](e);
-        } catch (r) {
-          try {
-            return e[n] = !1, "/./"[t](e);
-          } catch (t) {}
-        }return !1;
-      };
     }, 4160: function (t, e, r) {
       var n = r(5981);t.exports = !n(function () {
         function t() {}return t.prototype.constructor = null, Object.getPrototypeOf(new t()) !== t.prototype;
@@ -613,8 +581,8 @@ var a = wx.$y;
         return this;
       };t.exports = function (t, e, r, i, d, v, I) {
         c(r, e, i);var O,
-            A,
             P,
+            A,
             E = function (t) {
           if (t === d && T) return T;if (!m && t in R) return R[t];switch (t) {case x:case w:case b:
               return function () {
@@ -630,7 +598,7 @@ var a = wx.$y;
             T = !m && D || E(d),
             j = "Array" == e && R.entries || D;if (j && (O = s(j.call(new t()))) !== Object.prototype && O.next && (o || s(O) === _ || (u ? u(O, _) : a(O[S]) || p(O, S, k)), f(O, C, !0, !0), o && (h[C] = k)), y && d == w && D && D.name !== w && (!o && g ? l(R, "name", w) : (B = !0, T = function () {
           return D.call(this);
-        })), d) if (A = { values: E(w), keys: v ? T : E(x), entries: E(b) }, I) for (P in A) (m || B || !(P in R)) && p(R, P, A[P]);else n({ target: e, proto: !0, forced: m || B }, A);return o && !I || R[S] === T || p(R, S, T, { name: d }), h[e] = T, A;
+        })), d) if (P = { values: E(w), keys: v ? T : E(x), entries: E(b) }, I) for (A in P) (m || B || !(A in R)) && p(R, A, P[A]);else n({ target: e, proto: !0, forced: m || B }, P);return o && !I || R[S] === T || p(R, S, T, { name: d }), h[e] = T, P;
       };
     }, 6349: function (t, e, r) {
       var n = r(4058),
@@ -975,12 +943,6 @@ var a = wx.$y;
       };
     }, 2529: function (t) {
       t.exports = !0;
-    }, 685: function (t, e, r) {
-      var n = r(941),
-          o = r(2532),
-          i = r(9813)("match");t.exports = function (t) {
-        var e;return n(t) && (void 0 !== (e = t[i]) ? !!e : "RegExp" == o(t));
-      };
     }, 6664: function (t, e, r) {
       var n = r(7475),
           o = r(626),
@@ -1071,10 +1033,6 @@ var a = wx.$y;
           o = r(7475),
           i = r(1302),
           a = n.WeakMap;t.exports = o(a) && /native code/.test(i(a));
-    }, 344: function (t, e, r) {
-      var n = r(685);t.exports = function (t) {
-        if (n(t)) throw TypeError("The method doesn't accept regular expressions");return t;
-      };
     }, 9806: function (t, e, r) {
       var n = r(1899),
           o = r(5981),
@@ -1499,14 +1457,6 @@ var a = wx.$y;
           o = r(1354);n({ target: "Array", stat: !0, forced: !r(1385)(function (t) {
           Array.from(t);
         }) }, { from: o });
-    }, 7690: function (t, e, r) {
-      "use strict";
-
-      var n = r(6887),
-          o = r(1692).includes,
-          i = r(8479);n({ target: "Array", proto: !0 }, { includes: function (t) {
-          return o(this, t, arguments.length > 1 ? arguments[1] : void 0);
-        } }), i("includes");
     }, 2988: function (t, e, r) {
       r(6887)({ target: "Array", stat: !0 }, { isArray: r(1052) });
     }, 6274: function (t, e, r) {
@@ -1527,13 +1477,6 @@ var a = wx.$y;
             r = t.kind,
             n = t.index++;return !e || n >= e.length ? (t.target = void 0, { value: void 0, done: !0 }) : "keys" == r ? { value: n, done: !1 } : "values" == r ? { value: e[n], done: !1 } : { value: [n, e[n]], done: !1 };
       }, "values"), i.Arguments = i.Array, o("keys"), o("values"), o("entries");
-    }, 8787: function (t, e, r) {
-      "use strict";
-
-      var n = r(6887),
-          o = r(3610).map;n({ target: "Array", proto: !0, forced: !r(568)("map") }, { map: function (t) {
-          return o(this, t, arguments.length > 1 ? arguments[1] : void 0);
-        } });
     }, 186: function (t, e, r) {
       "use strict";
 
@@ -1753,15 +1696,6 @@ var a = wx.$y;
           return t(this, arguments.length ? arguments[0] : void 0);
         };
       }, o);
-    }, 1035: function (t, e, r) {
-      "use strict";
-
-      var n = r(6887),
-          o = r(344),
-          i = r(8219),
-          a = r(5803);n({ target: "String", proto: !0, forced: !r(7772)("includes") }, { includes: function (t) {
-          return !!~a(i(this)).indexOf(a(o(t)), arguments.length > 1 ? arguments[1] : void 0);
-        } });
     }, 7971: function (t, e, r) {
       "use strict";
 
@@ -1821,8 +1755,8 @@ var a = wx.$y;
           k = r(684),
           I = r(7857),
           O = r(9677),
-          A = r(5988),
-          P = r(6760),
+          P = r(5988),
+          A = r(6760),
           E = r(9754),
           C = r(8726),
           B = r(4262),
@@ -1837,34 +1771,34 @@ var a = wx.$y;
           H = B("hidden"),
           z = "Symbol",
           K = T("toPrimitive"),
-          U = F.set,
-          W = F.getterFor(z),
+          W = F.set,
+          U = F.getterFor(z),
           G = Object.prototype,
           V = o.Symbol,
           X = i("JSON", "stringify"),
-          Y = O.f,
-          J = A.f,
+          J = O.f,
+          Y = P.f,
           q = k.f,
-          Q = P.f,
+          Z = A.f,
           $ = C("symbols"),
-          Z = C("op-symbols"),
+          Q = C("op-symbols"),
           tt = C("string-to-symbol-registry"),
           et = C("symbol-to-string-registry"),
           rt = C("wks"),
           nt = o.QObject,
           ot = !nt || !nt.prototype || !nt.prototype.findChild,
           it = c && u(function () {
-        return 7 != x(J({}, "a", { get: function () {
-            return J(this, "a", { value: 7 }).a;
+        return 7 != x(Y({}, "a", { get: function () {
+            return Y(this, "a", { value: 7 }).a;
           } })).a;
       }) ? function (t, e, r) {
-        var n = Y(G, e);n && delete G[e], J(t, e, r), n && t !== G && J(G, e, n);
-      } : J,
+        var n = J(G, e);n && delete G[e], Y(t, e, r), n && t !== G && Y(G, e, n);
+      } : Y,
           at = function (t, e) {
-        var r = $[t] = x(V.prototype);return U(r, { type: z, tag: t, description: e }), c || (r.description = e), r;
+        var r = $[t] = x(V.prototype);return W(r, { type: z, tag: t, description: e }), c || (r.description = e), r;
       },
           ct = function (t, e, r) {
-        t === G && ct(Z, e, r), v(t);var n = _(e);return v(r), f($, n) ? (r.enumerable ? (f(t, H) && t[H][n] && (t[H][n] = !1), r = x(r, { enumerable: S(0, !1) })) : (f(t, H) || J(t, H, S(1, {})), t[H][n] = !0), it(t, n, r)) : J(t, n, r);
+        t === G && ct(Q, e, r), v(t);var n = _(e);return v(r), f($, n) ? (r.enumerable ? (f(t, H) && t[H][n] && (t[H][n] = !1), r = x(r, { enumerable: S(0, !1) })) : (f(t, H) || Y(t, H, S(1, {})), t[H][n] = !0), it(t, n, r)) : Y(t, n, r);
       },
           st = function (t, e) {
         v(t);var r = g(e),
@@ -1874,12 +1808,12 @@ var a = wx.$y;
       },
           ut = function (t) {
         var e = _(t),
-            r = Q.call(this, e);return !(this === G && f($, e) && !f(Z, e)) && (!(r || !f(this, e) || !f($, e) || f(this, H) && this[H][e]) || r);
+            r = Z.call(this, e);return !(this === G && f($, e) && !f(Q, e)) && (!(r || !f(this, e) || !f($, e) || f(this, H) && this[H][e]) || r);
       },
           ft = function (t, e) {
         var r = g(t),
-            n = _(e);if (r !== G || !f($, n) || f(Z, n)) {
-          var o = Y(r, n);return !o || !f($, n) || f(r, H) && r[H][n] || (o.enumerable = !0), o;
+            n = _(e);if (r !== G || !f($, n) || f(Q, n)) {
+          var o = J(r, n);return !o || !f($, n) || f(r, H) && r[H][n] || (o.enumerable = !0), o;
         }
       },
           lt = function (t) {
@@ -1890,7 +1824,7 @@ var a = wx.$y;
       },
           pt = function (t) {
         var e = t === G,
-            r = q(e ? Z : g(t)),
+            r = q(e ? Q : g(t)),
             n = [];return L(r, function (t) {
           !f($, t) || e && !f(G, t) || n.push($[t]);
         }), n;
@@ -1898,16 +1832,16 @@ var a = wx.$y;
         if (this instanceof V) throw TypeError("Symbol is not a constructor");var t = arguments.length && void 0 !== arguments[0] ? m(arguments[0]) : void 0,
             e = D(t),
             r = function (t) {
-          this === G && r.call(Z, t), f(this, H) && f(this[H], e) && (this[H][e] = !1), it(this, e, S(1, t));
+          this === G && r.call(Q, t), f(this, H) && f(this[H], e) && (this[H][e] = !1), it(this, e, S(1, t));
         };return c && ot && it(G, e, { configurable: !0, set: r }), at(e, t);
       }, E(V.prototype, "toString", function () {
-        return W(this).tag;
+        return U(this).tag;
       }), E(V, "withoutSetter", function (t) {
         return at(D(t), t);
-      }), P.f = ut, A.f = ct, O.f = ft, b.f = k.f = lt, I.f = pt, j.f = function (t) {
+      }), A.f = ut, P.f = ct, O.f = ft, b.f = k.f = lt, I.f = pt, j.f = function (t) {
         return at(T(t), t);
-      }, c && (J(V.prototype, "description", { configurable: !0, get: function () {
-          return W(this).description;
+      }, c && (Y(V.prototype, "description", { configurable: !0, get: function () {
+          return U(this).description;
         } }), a || E(G, "propertyIsEnumerable", ut, { unsafe: !0 }))), n({ global: !0, wrap: !0, forced: !s, sham: !s }, { Symbol: V }), L(w(rt), function (t) {
         M(t);
       }), n({ target: z, stat: !0, forced: !s }, { for: function (t) {
@@ -2241,10 +2175,6 @@ var a = wx.$y;
       var n = r(6043);t.exports = n;
     }, 1955: function (t, e, r) {
       var n = r(2480);t.exports = n;
-    }, 3778: function (t, e, r) {
-      var n = r(8557);t.exports = n;
-    }, 1798: function (t, e, r) {
-      var n = r(8287);t.exports = n;
     }, 8906: function (t, e, r) {
       var n = r(1337);t.exports = n;
     }, 2073: function (t, e, r) {
@@ -2281,6 +2211,8 @@ var a = wx.$y;
       var n = r(7095);t.exports = n;
     }, 3474: function (t, e, r) {
       r(1249);var n = r(4058);t.exports = n.setInterval;
+    }, 7989: function (t, e, r) {
+      r(1249);var n = r(4058);t.exports = n.setTimeout;
     }, 5519: function (t, e, r) {
       var n = r(6998);r(7634), t.exports = n;
     }, 2547: function (t, e, r) {
@@ -2677,10 +2609,10 @@ var a = wx.$y;
                 k = t[e + 13],
                 I = t[e + 14],
                 O = t[e + 15],
-                A = i[0],
-                P = i[1],
+                P = i[0],
+                A = i[1],
                 E = i[2],
-                C = i[3];A = u(A, P, E, C, a, 7, c[0]), C = u(C, A, P, E, s, 12, c[1]), E = u(E, C, A, P, d, 17, c[2]), P = u(P, E, C, A, h, 22, c[3]), A = u(A, P, E, C, v, 7, c[4]), C = u(C, A, P, E, y, 12, c[5]), E = u(E, C, A, P, g, 17, c[6]), P = u(P, E, C, A, _, 22, c[7]), A = u(A, P, E, C, m, 7, c[8]), C = u(C, A, P, E, S, 12, c[9]), E = u(E, C, A, P, x, 17, c[10]), P = u(P, E, C, A, w, 22, c[11]), A = u(A, P, E, C, b, 7, c[12]), C = u(C, A, P, E, k, 12, c[13]), E = u(E, C, A, P, I, 17, c[14]), A = f(A, P = u(P, E, C, A, O, 22, c[15]), E, C, s, 5, c[16]), C = f(C, A, P, E, g, 9, c[17]), E = f(E, C, A, P, w, 14, c[18]), P = f(P, E, C, A, a, 20, c[19]), A = f(A, P, E, C, y, 5, c[20]), C = f(C, A, P, E, x, 9, c[21]), E = f(E, C, A, P, O, 14, c[22]), P = f(P, E, C, A, v, 20, c[23]), A = f(A, P, E, C, S, 5, c[24]), C = f(C, A, P, E, I, 9, c[25]), E = f(E, C, A, P, h, 14, c[26]), P = f(P, E, C, A, m, 20, c[27]), A = f(A, P, E, C, k, 5, c[28]), C = f(C, A, P, E, d, 9, c[29]), E = f(E, C, A, P, _, 14, c[30]), A = l(A, P = f(P, E, C, A, b, 20, c[31]), E, C, y, 4, c[32]), C = l(C, A, P, E, m, 11, c[33]), E = l(E, C, A, P, w, 16, c[34]), P = l(P, E, C, A, I, 23, c[35]), A = l(A, P, E, C, s, 4, c[36]), C = l(C, A, P, E, v, 11, c[37]), E = l(E, C, A, P, _, 16, c[38]), P = l(P, E, C, A, x, 23, c[39]), A = l(A, P, E, C, k, 4, c[40]), C = l(C, A, P, E, a, 11, c[41]), E = l(E, C, A, P, h, 16, c[42]), P = l(P, E, C, A, g, 23, c[43]), A = l(A, P, E, C, S, 4, c[44]), C = l(C, A, P, E, b, 11, c[45]), E = l(E, C, A, P, O, 16, c[46]), A = p(A, P = l(P, E, C, A, d, 23, c[47]), E, C, a, 6, c[48]), C = p(C, A, P, E, _, 10, c[49]), E = p(E, C, A, P, I, 15, c[50]), P = p(P, E, C, A, y, 21, c[51]), A = p(A, P, E, C, b, 6, c[52]), C = p(C, A, P, E, h, 10, c[53]), E = p(E, C, A, P, x, 15, c[54]), P = p(P, E, C, A, s, 21, c[55]), A = p(A, P, E, C, m, 6, c[56]), C = p(C, A, P, E, O, 10, c[57]), E = p(E, C, A, P, g, 15, c[58]), P = p(P, E, C, A, k, 21, c[59]), A = p(A, P, E, C, v, 6, c[60]), C = p(C, A, P, E, w, 10, c[61]), E = p(E, C, A, P, d, 15, c[62]), P = p(P, E, C, A, S, 21, c[63]), i[0] = i[0] + A | 0, i[1] = i[1] + P | 0, i[2] = i[2] + E | 0, i[3] = i[3] + C | 0;
+                C = i[3];P = u(P, A, E, C, a, 7, c[0]), C = u(C, P, A, E, s, 12, c[1]), E = u(E, C, P, A, d, 17, c[2]), A = u(A, E, C, P, h, 22, c[3]), P = u(P, A, E, C, v, 7, c[4]), C = u(C, P, A, E, y, 12, c[5]), E = u(E, C, P, A, g, 17, c[6]), A = u(A, E, C, P, _, 22, c[7]), P = u(P, A, E, C, m, 7, c[8]), C = u(C, P, A, E, S, 12, c[9]), E = u(E, C, P, A, x, 17, c[10]), A = u(A, E, C, P, w, 22, c[11]), P = u(P, A, E, C, b, 7, c[12]), C = u(C, P, A, E, k, 12, c[13]), E = u(E, C, P, A, I, 17, c[14]), P = f(P, A = u(A, E, C, P, O, 22, c[15]), E, C, s, 5, c[16]), C = f(C, P, A, E, g, 9, c[17]), E = f(E, C, P, A, w, 14, c[18]), A = f(A, E, C, P, a, 20, c[19]), P = f(P, A, E, C, y, 5, c[20]), C = f(C, P, A, E, x, 9, c[21]), E = f(E, C, P, A, O, 14, c[22]), A = f(A, E, C, P, v, 20, c[23]), P = f(P, A, E, C, S, 5, c[24]), C = f(C, P, A, E, I, 9, c[25]), E = f(E, C, P, A, h, 14, c[26]), A = f(A, E, C, P, m, 20, c[27]), P = f(P, A, E, C, k, 5, c[28]), C = f(C, P, A, E, d, 9, c[29]), E = f(E, C, P, A, _, 14, c[30]), P = l(P, A = f(A, E, C, P, b, 20, c[31]), E, C, y, 4, c[32]), C = l(C, P, A, E, m, 11, c[33]), E = l(E, C, P, A, w, 16, c[34]), A = l(A, E, C, P, I, 23, c[35]), P = l(P, A, E, C, s, 4, c[36]), C = l(C, P, A, E, v, 11, c[37]), E = l(E, C, P, A, _, 16, c[38]), A = l(A, E, C, P, x, 23, c[39]), P = l(P, A, E, C, k, 4, c[40]), C = l(C, P, A, E, a, 11, c[41]), E = l(E, C, P, A, h, 16, c[42]), A = l(A, E, C, P, g, 23, c[43]), P = l(P, A, E, C, S, 4, c[44]), C = l(C, P, A, E, b, 11, c[45]), E = l(E, C, P, A, O, 16, c[46]), P = p(P, A = l(A, E, C, P, d, 23, c[47]), E, C, a, 6, c[48]), C = p(C, P, A, E, _, 10, c[49]), E = p(E, C, P, A, I, 15, c[50]), A = p(A, E, C, P, y, 21, c[51]), P = p(P, A, E, C, b, 6, c[52]), C = p(C, P, A, E, h, 10, c[53]), E = p(E, C, P, A, x, 15, c[54]), A = p(A, E, C, P, s, 21, c[55]), P = p(P, A, E, C, m, 6, c[56]), C = p(C, P, A, E, O, 10, c[57]), E = p(E, C, P, A, g, 15, c[58]), A = p(A, E, C, P, k, 21, c[59]), P = p(P, A, E, C, v, 6, c[60]), C = p(C, P, A, E, w, 10, c[61]), E = p(E, C, P, A, d, 15, c[62]), A = p(A, E, C, P, S, 21, c[63]), i[0] = i[0] + P | 0, i[1] = i[1] + A | 0, i[2] = i[2] + E | 0, i[3] = i[3] + C | 0;
           }, _doFinalize: function () {
             var e = this._data,
                 r = e.words,
@@ -2910,14 +2842,14 @@ var a = wx.$y;
                 k,
                 I,
                 O,
-                A,
-                P = this._hash.words,
+                P,
+                A = this._hash.words,
                 E = l.words,
                 C = p.words,
                 B = c.words,
                 R = s.words,
                 D = u.words,
-                T = f.words;for (w = i = P[0], b = a = P[1], k = d = P[2], I = S = P[3], O = x = P[4], r = 0; r < 80; r += 1) A = i + t[e + B[r]] | 0, A += r < 16 ? h(a, d, S) + E[0] : r < 32 ? v(a, d, S) + E[1] : r < 48 ? y(a, d, S) + E[2] : r < 64 ? g(a, d, S) + E[3] : _(a, d, S) + E[4], A = (A = m(A |= 0, D[r])) + x | 0, i = x, x = S, S = m(d, 10), d = a, a = A, A = w + t[e + R[r]] | 0, A += r < 16 ? _(b, k, I) + C[0] : r < 32 ? g(b, k, I) + C[1] : r < 48 ? y(b, k, I) + C[2] : r < 64 ? v(b, k, I) + C[3] : h(b, k, I) + C[4], A = (A = m(A |= 0, T[r])) + O | 0, w = O, O = I, I = m(k, 10), k = b, b = A;A = P[1] + d + I | 0, P[1] = P[2] + S + O | 0, P[2] = P[3] + x + w | 0, P[3] = P[4] + i + b | 0, P[4] = P[0] + a + k | 0, P[0] = A;
+                T = f.words;for (w = i = A[0], b = a = A[1], k = d = A[2], I = S = A[3], O = x = A[4], r = 0; r < 80; r += 1) P = i + t[e + B[r]] | 0, P += r < 16 ? h(a, d, S) + E[0] : r < 32 ? v(a, d, S) + E[1] : r < 48 ? y(a, d, S) + E[2] : r < 64 ? g(a, d, S) + E[3] : _(a, d, S) + E[4], P = (P = m(P |= 0, D[r])) + x | 0, i = x, x = S, S = m(d, 10), d = a, a = P, P = w + t[e + R[r]] | 0, P += r < 16 ? _(b, k, I) + C[0] : r < 32 ? g(b, k, I) + C[1] : r < 48 ? y(b, k, I) + C[2] : r < 64 ? v(b, k, I) + C[3] : h(b, k, I) + C[4], P = (P = m(P |= 0, T[r])) + O | 0, w = O, O = I, I = m(k, 10), k = b, b = P;P = A[1] + d + I | 0, A[1] = A[2] + S + O | 0, A[2] = A[3] + x + w | 0, A[3] = A[4] + i + b | 0, A[4] = A[0] + a + k | 0, A[0] = P;
           }, _doFinalize: function () {
             var t = this._data,
                 e = t.words,
@@ -3028,26 +2960,26 @@ var a = wx.$y;
           }, _doProcessBlock: function (t, e) {
             for (var r = this._state, n = this.blockSize / 2, o = 0; o < n; o++) {
               var i = t[e + 2 * o],
-                  a = t[e + 2 * o + 1];i = 16711935 & (i << 8 | i >>> 24) | 4278255360 & (i << 24 | i >>> 8), a = 16711935 & (a << 8 | a >>> 24) | 4278255360 & (a << 24 | a >>> 8), (P = r[o]).high ^= a, P.low ^= i;
+                  a = t[e + 2 * o + 1];i = 16711935 & (i << 8 | i >>> 24) | 4278255360 & (i << 24 | i >>> 8), a = 16711935 & (a << 8 | a >>> 24) | 4278255360 & (a << 24 | a >>> 8), (A = r[o]).high ^= a, A.low ^= i;
             }for (var c = 0; c < 24; c++) {
               for (var p = 0; p < 5; p++) {
-                for (var d = 0, h = 0, v = 0; v < 5; v++) d ^= (P = r[p + 5 * v]).high, h ^= P.low;var y = l[p];y.high = d, y.low = h;
+                for (var d = 0, h = 0, v = 0; v < 5; v++) d ^= (A = r[p + 5 * v]).high, h ^= A.low;var y = l[p];y.high = d, y.low = h;
               }for (p = 0; p < 5; p++) {
                 var g = l[(p + 4) % 5],
                     _ = l[(p + 1) % 5],
                     m = _.high,
-                    S = _.low;for (d = g.high ^ (m << 1 | S >>> 31), h = g.low ^ (S << 1 | m >>> 31), v = 0; v < 5; v++) (P = r[p + 5 * v]).high ^= d, P.low ^= h;
+                    S = _.low;for (d = g.high ^ (m << 1 | S >>> 31), h = g.low ^ (S << 1 | m >>> 31), v = 0; v < 5; v++) (A = r[p + 5 * v]).high ^= d, A.low ^= h;
               }for (var x = 1; x < 25; x++) {
-                var w = (P = r[x]).high,
-                    b = P.low,
+                var w = (A = r[x]).high,
+                    b = A.low,
                     k = s[x];k < 32 ? (d = w << k | b >>> 32 - k, h = b << k | w >>> 32 - k) : (d = b << k - 32 | w >>> 64 - k, h = w << k - 32 | b >>> 64 - k);var I = l[u[x]];I.high = d, I.low = h;
               }var O = l[0],
-                  A = r[0];for (O.high = A.high, O.low = A.low, p = 0; p < 5; p++) for (v = 0; v < 5; v++) {
-                var P = r[x = p + 5 * v],
+                  P = r[0];for (O.high = P.high, O.low = P.low, p = 0; p < 5; p++) for (v = 0; v < 5; v++) {
+                var A = r[x = p + 5 * v],
                     E = l[x],
                     C = l[(p + 1) % 5 + 5 * v],
-                    B = l[(p + 2) % 5 + 5 * v];P.high = E.high ^ ~C.high & B.high, P.low = E.low ^ ~C.low & B.low;
-              }P = r[0];var R = f[c];P.high ^= R.high, P.low ^= R.low;
+                    B = l[(p + 2) % 5 + 5 * v];A.high = E.high ^ ~C.high & B.high, A.low = E.low ^ ~C.low & B.low;
+              }A = r[0];var R = f[c];A.high ^= R.high, A.low ^= R.low;
             }
           }, _doFinalize: function () {
             var e = this._data,
@@ -3083,15 +3015,15 @@ var a = wx.$y;
         }();var f = a.SHA512 = e.extend({ _doReset: function () {
             this._hash = new i.init([new o.init(1779033703, 4089235720), new o.init(3144134277, 2227873595), new o.init(1013904242, 4271175723), new o.init(2773480762, 1595750129), new o.init(1359893119, 2917565137), new o.init(2600822924, 725511199), new o.init(528734635, 4215389547), new o.init(1541459225, 327033209)]);
           }, _doProcessBlock: function (t, e) {
-            for (var r = this._hash.words, n = r[0], o = r[1], i = r[2], a = r[3], c = r[4], f = r[5], l = r[6], p = r[7], d = n.high, h = n.low, v = o.high, y = o.low, g = i.high, _ = i.low, m = a.high, S = a.low, x = c.high, w = c.low, b = f.high, k = f.low, I = l.high, O = l.low, A = p.high, P = p.low, E = d, C = h, B = v, R = y, D = g, T = _, j = m, M = S, N = x, F = w, L = b, H = k, z = I, K = O, U = A, W = P, G = 0; G < 80; G++) {
+            for (var r = this._hash.words, n = r[0], o = r[1], i = r[2], a = r[3], c = r[4], f = r[5], l = r[6], p = r[7], d = n.high, h = n.low, v = o.high, y = o.low, g = i.high, _ = i.low, m = a.high, S = a.low, x = c.high, w = c.low, b = f.high, k = f.low, I = l.high, O = l.low, P = p.high, A = p.low, E = d, C = h, B = v, R = y, D = g, T = _, j = m, M = S, N = x, F = w, L = b, H = k, z = I, K = O, W = P, U = A, G = 0; G < 80; G++) {
               var V,
                   X,
-                  Y = u[G];if (G < 16) X = Y.high = 0 | t[e + 2 * G], V = Y.low = 0 | t[e + 2 * G + 1];else {
-                var J = u[G - 15],
-                    q = J.high,
-                    Q = J.low,
-                    $ = (q >>> 1 | Q << 31) ^ (q >>> 8 | Q << 24) ^ q >>> 7,
-                    Z = (Q >>> 1 | q << 31) ^ (Q >>> 8 | q << 24) ^ (Q >>> 7 | q << 25),
+                  J = u[G];if (G < 16) X = J.high = 0 | t[e + 2 * G], V = J.low = 0 | t[e + 2 * G + 1];else {
+                var Y = u[G - 15],
+                    q = Y.high,
+                    Z = Y.low,
+                    $ = (q >>> 1 | Z << 31) ^ (q >>> 8 | Z << 24) ^ q >>> 7,
+                    Q = (Z >>> 1 | q << 31) ^ (Z >>> 8 | q << 24) ^ (Z >>> 7 | q << 25),
                     tt = u[G - 2],
                     et = tt.high,
                     rt = tt.low,
@@ -3102,7 +3034,7 @@ var a = wx.$y;
                     ct = it.low,
                     st = u[G - 16],
                     ut = st.high,
-                    ft = st.low;X = (X = (X = $ + at + ((V = Z + ct) >>> 0 < Z >>> 0 ? 1 : 0)) + nt + ((V += ot) >>> 0 < ot >>> 0 ? 1 : 0)) + ut + ((V += ft) >>> 0 < ft >>> 0 ? 1 : 0), Y.high = X, Y.low = V;
+                    ft = st.low;X = (X = (X = $ + at + ((V = Q + ct) >>> 0 < Q >>> 0 ? 1 : 0)) + nt + ((V += ot) >>> 0 < ot >>> 0 ? 1 : 0)) + ut + ((V += ft) >>> 0 < ft >>> 0 ? 1 : 0), J.high = X, J.low = V;
               }var lt,
                   pt = N & L ^ ~N & z,
                   dt = F & H ^ ~F & K,
@@ -3115,9 +3047,9 @@ var a = wx.$y;
                   St = s[G],
                   xt = St.high,
                   wt = St.low,
-                  bt = U + _t + ((lt = W + mt) >>> 0 < W >>> 0 ? 1 : 0),
-                  kt = gt + vt;U = z, W = K, z = L, K = H, L = N, H = F, N = j + (bt = (bt = (bt = bt + pt + ((lt += dt) >>> 0 < dt >>> 0 ? 1 : 0)) + xt + ((lt += wt) >>> 0 < wt >>> 0 ? 1 : 0)) + X + ((lt += V) >>> 0 < V >>> 0 ? 1 : 0)) + ((F = M + lt | 0) >>> 0 < M >>> 0 ? 1 : 0) | 0, j = D, M = T, D = B, T = R, B = E, R = C, E = bt + (yt + ht + (kt >>> 0 < gt >>> 0 ? 1 : 0)) + ((C = lt + kt | 0) >>> 0 < lt >>> 0 ? 1 : 0) | 0;
-            }h = n.low = h + C, n.high = d + E + (h >>> 0 < C >>> 0 ? 1 : 0), y = o.low = y + R, o.high = v + B + (y >>> 0 < R >>> 0 ? 1 : 0), _ = i.low = _ + T, i.high = g + D + (_ >>> 0 < T >>> 0 ? 1 : 0), S = a.low = S + M, a.high = m + j + (S >>> 0 < M >>> 0 ? 1 : 0), w = c.low = w + F, c.high = x + N + (w >>> 0 < F >>> 0 ? 1 : 0), k = f.low = k + H, f.high = b + L + (k >>> 0 < H >>> 0 ? 1 : 0), O = l.low = O + K, l.high = I + z + (O >>> 0 < K >>> 0 ? 1 : 0), P = p.low = P + W, p.high = A + U + (P >>> 0 < W >>> 0 ? 1 : 0);
+                  bt = W + _t + ((lt = U + mt) >>> 0 < U >>> 0 ? 1 : 0),
+                  kt = gt + vt;W = z, U = K, z = L, K = H, L = N, H = F, N = j + (bt = (bt = (bt = bt + pt + ((lt += dt) >>> 0 < dt >>> 0 ? 1 : 0)) + xt + ((lt += wt) >>> 0 < wt >>> 0 ? 1 : 0)) + X + ((lt += V) >>> 0 < V >>> 0 ? 1 : 0)) + ((F = M + lt | 0) >>> 0 < M >>> 0 ? 1 : 0) | 0, j = D, M = T, D = B, T = R, B = E, R = C, E = bt + (yt + ht + (kt >>> 0 < gt >>> 0 ? 1 : 0)) + ((C = lt + kt | 0) >>> 0 < lt >>> 0 ? 1 : 0) | 0;
+            }h = n.low = h + C, n.high = d + E + (h >>> 0 < C >>> 0 ? 1 : 0), y = o.low = y + R, o.high = v + B + (y >>> 0 < R >>> 0 ? 1 : 0), _ = i.low = _ + T, i.high = g + D + (_ >>> 0 < T >>> 0 ? 1 : 0), S = a.low = S + M, a.high = m + j + (S >>> 0 < M >>> 0 ? 1 : 0), w = c.low = w + F, c.high = x + N + (w >>> 0 < F >>> 0 ? 1 : 0), k = f.low = k + H, f.high = b + L + (k >>> 0 < H >>> 0 ? 1 : 0), O = l.low = O + K, l.high = I + z + (O >>> 0 < K >>> 0 ? 1 : 0), A = p.low = A + U, p.high = P + W + (A >>> 0 < U >>> 0 ? 1 : 0);
           }, _doFinalize: function () {
             var t = this._data,
                 e = t.words,
@@ -3253,75 +3185,58 @@ var a = wx.$y;
       t[t.close = 0] = "close", t[t.open = 1] = "open";
     }(h || (h = {}));var m = function e() {
       t(this, e);
-    };_(m, "request_prefix", "/v1/api"), _(m, "prod_sdk_base_url", "https://sdk.020dianwan.com"), _(m, "dev_sdk_base_url", ""), _(m, "static_resources_url", "https://cdn.020dianwan.com"), _(m, "pay_tips_img_url", "/wxgame/img/migamem.jpg"), _(m, "sdk_config_url", "/config_key"), _(m, "sdk_env_url", "/oauth/wx_get_gameinfo"), _(m, "sdk_game_config_url", "/config"), _(m, "data_up_url", "/log"), _(m, "role_online_duration_up_url", "/oauth/wx_get_roleinfo"), _(m, "login_url", "/oauth/wx_mini_login"), _(m, "place_order_url", "/pay/order"), _(m, "check_order_status_url", "/pay/check"), _(m, "reply_order_url", "/oauth/wx_mini_pay"), _(m, "reply_balance_url", "/oauth/wx_mini_get_balance"), _(m, "platExtInfo", {}), _(m, "cmmPlatPayInfo", {}), _(m, "extendParams", { platform: {}, device: {}, game: {}, other: {} }), _(m, "platStorageDataOps", {}), _(m, "entityPayWays", (_(o = {}, i.WXMG, (_(e = {}, f.enterprise, [u.midas, u.wechat, u.nowWechat]), _(e, f.individual, [u.wechat, u.nowWechat]), e)), _(o, i.WXMINI, (_(n = {}, f.enterprise, [u.midas, u.wechat, u.nowWechat]), _(n, f.individual, [u.wechat, u.nowWechat]), n)), o)), _(m, "platAdParams", {});var S = r(8066),
+    };_(m, "request_prefix", "/v1/api"), _(m, "prod_sdk_base_url", "https://sdk.020dianwan.com"), _(m, "dev_sdk_base_url", ""), _(m, "static_resources_url", "https://cdn.020dianwan.com"), _(m, "pay_tips_img_url", "/wxgame/img/migamem.jpg"), _(m, "cs_img_url", "/wxgame/img/wx-cs.jpeg"), _(m, "sdk_config_url", "/config_key"), _(m, "sdk_env_url", "/oauth/wx_get_gameinfo"), _(m, "sdk_game_config_url", "/config"), _(m, "data_up_url", "/log"), _(m, "role_online_duration_up_url", "/oauth/wx_get_roleinfo"), _(m, "login_url", "/oauth/wx_mini_login"), _(m, "place_order_url", "/pay/wx_order"), _(m, "check_order_status_url", "/pay/check"), _(m, "reply_order_url", "/oauth/wx_mini_pay"), _(m, "reply_balance_url", "/oauth/wx_mini_get_balance"), _(m, "initNum", 1), _(m, "initMax", 10), _(m, "loginNum", 1), _(m, "loginMax", 10), _(m, "platExtInfo", {}), _(m, "cmmPlatPayInfo", {}), _(m, "extendParams", { platform: {}, device: {}, game: {}, other: {} }), _(m, "platStorageDataOps", {}), _(m, "entityPayWays", (_(o = {}, i.WXMG, (_(e = {}, f.enterprise, [u.midas, u.wechat, u.nowWechat]), _(e, f.individual, [u.wechat, u.nowWechat]), e)), _(o, i.WXMINI, (_(n = {}, f.enterprise, [u.midas, u.wechat, u.nowWechat]), _(n, f.individual, [u.wechat, u.nowWechat]), n)), o)), _(m, "platAdParams", {});var S = r(8066),
         x = r.n(S),
         w = r(5238),
         b = r.n(w),
         k = r(3592),
         I = r.n(k),
         O = r(1446),
-        A = r.n(O),
-        P = r(9996),
-        E = r.n(P),
+        P = r.n(O),
+        A = r(9996),
+        E = r.n(A),
         C = r(3263),
         B = r.n(C),
         R = r(8377),
         D = r.n(R),
         T = r(3038),
-        j = r.n(T),
-        M = r(8363);function N(t, e) {
-      (null == e || e > t.length) && (e = t.length);for (var r = 0, n = new Array(e); r < e; r++) n[r] = t[r];return n;
-    }function F(t) {
-      return function (t) {
-        if (M(t)) return N(t);
-      }(t) || function (t) {
-        if (void 0 !== O && null != P(t) || null != t["@@iterator"]) return k(t);
-      }(t) || function (t, e) {
-        var r;if (t) {
-          if ("string" == typeof t) return N(t, e);var n = w(r = Object.prototype.toString.call(t)).call(r, 8, -1);return "Object" === n && t.constructor && (n = t.constructor.name), "Map" === n || "Set" === n ? k(t) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? N(t, e) : void 0;
-        }
-      }(t) || function () {
-        throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-      }();
-    }var L = r(3882);function H(t) {
-      return H = "function" == typeof O && "symbol" == typeof L ? function (t) {
+        j = r.n(T);r(8363);var M = r(3882);function N(t) {
+      return N = "function" == typeof O && "symbol" == typeof M ? function (t) {
         return typeof t;
       } : function (t) {
         return t && "function" == typeof O && t.constructor === O && t !== O.prototype ? "symbol" : typeof t;
-      }, H(t);
-    }var z = r(2825),
-        K = r.n(z),
-        U = r(2088),
-        W = r.n(U),
-        G = r(7648),
-        V = r.n(G),
-        X = r(9356),
-        Y = r.n(X),
-        J = r(6397),
-        q = r.n(J),
-        Q = r(1515),
-        $ = r.n(Q),
-        Z = r(7997),
-        tt = r.n(Z),
-        et = r(699),
-        rt = r.n(et);function nt(t, e) {
-      var r = Y()(t);if (B()) {
-        var n = B()(t);e && (n = rt()(n).call(n, function (e) {
+      }, N(t);
+    }var F = r(2825),
+        L = r.n(F),
+        H = r(2088),
+        z = r.n(H),
+        K = r(7648),
+        W = r.n(K),
+        U = r(9356),
+        G = r.n(U),
+        V = r(6397),
+        X = r.n(V),
+        J = r(1515),
+        Y = r.n(J),
+        q = (r(7997), r(699)),
+        Z = r.n(q);function $(t, e) {
+      var r = G()(t);if (B()) {
+        var n = B()(t);e && (n = Z()(n).call(n, function (e) {
           return D()(t, e).enumerable;
         })), r.push.apply(r, n);
       }return r;
-    }function ot(t) {
+    }function Q(t) {
       for (var e = 1; e < arguments.length; e++) {
-        var r = null != arguments[e] ? arguments[e] : {};e % 2 ? nt(Object(r), !0).forEach(function (e) {
+        var r = null != arguments[e] ? arguments[e] : {};e % 2 ? $(Object(r), !0).forEach(function (e) {
           _(t, e, r[e]);
-        }) : j() ? Object.defineProperties(t, j()(r)) : nt(Object(r)).forEach(function (e) {
+        }) : j() ? Object.defineProperties(t, j()(r)) : $(Object(r)).forEach(function (e) {
           Object.defineProperty(t, e, D()(r, e));
         });
       }return t;
-    }function it(t, e) {
-      var r = void 0 !== A() && E()(t) || t["@@iterator"];if (!r) {
+    }function tt(t, e) {
+      var r = void 0 !== P() && E()(t) || t["@@iterator"];if (!r) {
         if (Array.isArray(t) || (r = function (t, e) {
-          var r;if (!t) return;if ("string" == typeof t) return at(t, e);var n = b()(r = Object.prototype.toString.call(t)).call(r, 8, -1);"Object" === n && t.constructor && (n = t.constructor.name);if ("Map" === n || "Set" === n) return I()(t);if ("Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return at(t, e);
+          var r;if (!t) return;if ("string" == typeof t) return et(t, e);var n = b()(r = Object.prototype.toString.call(t)).call(r, 8, -1);"Object" === n && t.constructor && (n = t.constructor.name);if ("Map" === n || "Set" === n) return I()(t);if ("Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return et(t, e);
         }(t)) || e && t && "number" == typeof t.length) {
           r && (t = r);var n = 0,
               o = function () {};return { s: o, n: function () {
@@ -3345,23 +3260,23 @@ var a = wx.$y;
             if (c) throw i;
           }
         } };
-    }function at(t, e) {
+    }function et(t, e) {
       (null == e || e > t.length) && (e = t.length);for (var r = 0, n = new Array(e); r < e; r++) n[r] = t[r];return n;
-    }var ct = r(7203);function st() {
+    }var rt = r(7203);function nt() {
       var t;return (/ios/gi.test(null === (t = m.platExtInfo.systemInfo) || void 0 === t ? void 0 : t.system) ? "ios" : "android"
       );
-    }function ut(t, e) {
+    }function ot(t, e) {
       return Object.prototype.toString.call(t) === "[object ".concat(e, "]");
-    }function ft() {
+    }function it() {
       var t = m.platStorageDataOps,
           e = t.openid,
           r = t.osType,
-          n = { device: { device_id: e || "00000000-0000-0000-0000-000000000000", os_type: st() || r || "unknown", sdk_version: m.sdkVersion }, platform: { ad: m.platAdParams.adver || m.initOps.ad, partner_id: m.initOps.partnerId }, game: { game_id: String(m.initOps.gameId), game_name: m.initOps.gameName, game_version: m.initOps.gameVersion }, other: { client_time_zone: "GMT+08", client_ts: Date.now(), ad_params: K()(m.platAdParams) } };W()(m.extendParams, n);
-    }function lt(t) {
+          n = { device: { device_id: e || "00000000-0000-0000-0000-000000000000", os_type: nt() || r || "unknown", sdk_version: m.sdkVersion }, platform: { ad: m.platAdParams.adver || m.initOps.ad, partner_id: m.initOps.partnerId, scene: m.platAdParams.scene, app_id: m.platAdParams.appId, env_version: m.platAdParams.envVersion }, game: { game_id: String(m.initOps.gameId), game_name: m.initOps.gameName, game_version: m.initOps.gameVersion }, other: { client_time_zone: "GMT+08", client_ts: Date.now(), ad_params: L()(m.platAdParams) } };z()(m.extendParams, n);
+    }function at(t) {
       var e,
           r,
           n = {},
-          o = it(V()(e = Y()(t)).call(e));try {
+          o = tt(W()(e = G()(t)).call(e));try {
         for (o.s(); !(r = o.n()).done;) {
           var i = r.value;n[i] = t[i];
         }
@@ -3370,181 +3285,179 @@ var a = wx.$y;
       } finally {
         o.f();
       }return n;
-    }function pt(t) {
+    }function ct(t) {
       var e,
-          r = V()(e = Y()(t)).call(e),
+          r = W()(e = G()(t)).call(e),
           n = [];for (var o in r) if (void 0 !== t[r[o]]) {
         var i,
-            a = encodeURIComponent(ut(t[r[o]], "Object") ? K()(t[r[o]]) : t[r[o]]);a = (a = (a = (a = (a = a.replace(/!/g, "%21")).replace(/\*/g, "%2A")).replace(/'/g, "%27")).replace(/\(/g, "%28")).replace(/\)/g, "%29"), n.push(x()(i = "".concat(r[o], "=")).call(i, a));
+            a = encodeURIComponent(ot(t[r[o]], "Object") ? L()(t[r[o]]) : t[r[o]]);a = (a = (a = (a = (a = a.replace(/!/g, "%21")).replace(/\*/g, "%2A")).replace(/'/g, "%27")).replace(/\(/g, "%28")).replace(/\)/g, "%29"), n.push(x()(i = "".concat(r[o], "=")).call(i, a));
       } else n.push("".concat(r[o], "="));return n.join("&");
-    }function dt(t, e) {
+    }function st(t, e) {
       if (0 === arguments.length || !t) return null;var r,
           n = "",
-          o = t;n = e || "{y}-{m}-{d} {h}:{i}:{s}", "object" === H(t) ? r = t : ("string" == typeof t && (o = /^\d+$/.test(t) ? q()(t, 10) : t.replace(new RegExp(/-/gm), "/")), "number" == typeof t && 10 === t.toString().length && (o *= 1e3), r = new Date(o));var i = { y: r.getFullYear(), m: r.getMonth() + 1, d: r.getDate(), h: r.getHours(), i: r.getMinutes(), s: r.getSeconds(), a: r.getDay() },
+          o = t;n = e || "{y}-{m}-{d} {h}:{i}:{s}", "object" === N(t) ? r = t : ("string" == typeof t && (o = /^\d+$/.test(t) ? X()(t, 10) : t.replace(new RegExp(/-/gm), "/")), "number" == typeof t && 10 === t.toString().length && (o *= 1e3), r = new Date(o));var i = { y: r.getFullYear(), m: r.getMonth() + 1, d: r.getDate(), h: r.getHours(), i: r.getMinutes(), s: r.getSeconds(), a: r.getDay() },
           a = n.replace(/{([adhimsy])+}/g, function (t, e) {
         var r,
-            n = i[e];return "a" === e ? ["日", "一", "二", "三", "四", "五", "六"][n] : $()(r = n.toString()).call(r, 2, "0");
+            n = i[e];return "a" === e ? ["日", "一", "二", "三", "四", "五", "六"][n] : Y()(r = n.toString()).call(r, 2, "0");
       });return a;
-    }function ht(t) {
+    }function ut(t) {
       var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "1011727321978575",
-          r = ct.AES.decrypt(t, ct.enc.Utf8.parse(e), { iv: ct.enc.Utf8.parse("3798581010304207"), mode: ct.mode.CBC, padding: ct.pad.Pkcs7 });return ct.enc.Utf8.stringify(r);
-    }function vt(t) {
+          r = rt.AES.decrypt(t, rt.enc.Utf8.parse(e), { iv: rt.enc.Utf8.parse("3798581010304207"), mode: rt.mode.CBC, padding: rt.pad.Pkcs7 });return console.log("Aes解密", rt.enc.Utf8.stringify(r)), rt.enc.Utf8.stringify(r);
+    }function ft(t) {
       var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "1011727321978575",
           r = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "3798581010304207",
-          n = ct.enc.Utf8.parse(e),
-          o = ct.enc.Utf8.parse(r),
-          i = ct.AES.encrypt(t, n, { iv: o, mode: ct.mode.CBC, padding: ct.pad.Pkcs7 });return i.toString();
-    }function yt(t) {
-      return ct.MD5(t).toString();
-    }function gt(t) {
-      ft();var e = ot({}, t),
-          r = pt(lt(ot(ot({}, m.extendParams), {}, { params: e })));return ct.MD5(decodeURIComponent(r) + m.platSecretKey.game_secret_key).toString();
-    }function _t(t, e) {
-      ft();var r = ot({}, t),
-          n = pt(lt(ot(ot({}, m.extendParams), {}, { params: r, role: e })));return ct.MD5(decodeURIComponent(n) + m.platSecretKey.pay_secret_key).toString();
-    }function mt() {
-      var t;return (/ios/gi.test(null === (t = m.platExtInfo.systemInfo) || void 0 === t ? void 0 : t.system)
-      );
-    }function St(t, e) {
-      var r,
-          n = new (tt())(e);return rt()(r = F(t)).call(r, function (t) {
-        return n.has(t);
-      });
-    }function xt(t) {
-      if (t) if (ut(t, "Function")) {
+          n = rt.enc.Utf8.parse(e),
+          o = rt.enc.Utf8.parse(r),
+          i = rt.AES.encrypt(t, n, { iv: o, mode: rt.mode.CBC, padding: rt.pad.Pkcs7 });return i.toString();
+    }function lt(t) {
+      return rt.MD5(t).toString();
+    }function pt(t) {
+      it();var e = Q({}, t),
+          r = ct(at(Q(Q({}, m.extendParams), {}, { params: e })));return rt.MD5(decodeURIComponent(r) + m.platSecretKey.game_secret_key).toString();
+    }function dt(t, e) {
+      it();var r = Q({}, t),
+          n = ct(at(Q(Q({}, m.extendParams), {}, { params: r, role: e })));return rt.MD5(decodeURIComponent(n) + m.platSecretKey.pay_secret_key).toString();
+    }function ht(t) {
+      if (t) if (ot(t, "Function")) {
         for (var e = arguments.length, r = new Array(e > 1 ? e - 1 : 0), n = 1; n < e; n++) r[n - 1] = arguments[n];t.apply(void 0, r);
-      } else wt.inst.error("callback非函数类型", t);
-    }var wt = function () {
+      } else vt.inst.error("callback非函数类型", t);
+    }var vt = function () {
       function e() {
         t(this, e), _(this, "isShowLog", !1);
       }return g(e, [{ key: "init", value: function (t) {
           this.isShowLog = t || !1;
         } }, { key: "error", value: function (t) {
           if (this.isShowLog) {
-            for (var e, r = arguments.length, n = new Array(r > 1 ? r - 1 : 0), o = 1; o < r; o++) n[o - 1] = arguments[o];console.error(x()(e = "dwPlatformSDK：".concat(dt(Date.now(), null), "：")).call(e, t), n);
+            for (var e, r = arguments.length, n = new Array(r > 1 ? r - 1 : 0), o = 1; o < r; o++) n[o - 1] = arguments[o];console.error(x()(e = "dwPlatformSDK：".concat(st(Date.now(), null), "：")).call(e, t), n);
           }
         } }, { key: "log", value: function (t) {
           if (this.isShowLog) {
-            for (var e, r = arguments.length, n = new Array(r > 1 ? r - 1 : 0), o = 1; o < r; o++) n[o - 1] = arguments[o];console.log(x()(e = "dwPlatformSDK：".concat(dt(Date.now(), null), "：")).call(e, t), n);
+            for (var e, r = arguments.length, n = new Array(r > 1 ? r - 1 : 0), o = 1; o < r; o++) n[o - 1] = arguments[o];console.log(x()(e = "dwPlatformSDK：".concat(st(Date.now(), null), "：")).call(e, t), n);
           }
         } }, { key: "warn", value: function (t) {
           if (this.isShowLog) {
-            for (var e, r = arguments.length, n = new Array(r > 1 ? r - 1 : 0), o = 1; o < r; o++) n[o - 1] = arguments[o];console.warn(x()(e = "dwPlatformSDK：".concat(dt(Date.now(), null), "：")).call(e, t), n);
+            for (var e, r = arguments.length, n = new Array(r > 1 ? r - 1 : 0), o = 1; o < r; o++) n[o - 1] = arguments[o];console.warn(x()(e = "dwPlatformSDK：".concat(st(Date.now(), null), "：")).call(e, t), n);
           }
         } }], [{ key: "inst", get: function () {
           return e._inst || (e._inst = new e()), e._inst;
         } }]), e;
     }(),
-        bt = r(3535),
-        kt = r.n(bt);function It(t) {
+        yt = r(3535),
+        gt = r.n(yt);function _t(t) {
       if (void 0 === t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t;
-    }var Ot = r(3863),
-        At = r(9542),
-        Pt = r(4889);function Et(t) {
-      return Et = At ? Pt : function (t) {
-        return t.__proto__ || Pt(t);
-      }, Et(t);
-    }function Ct(t, e, r) {
-      return Ct = "undefined" != typeof Reflect && Ot ? Ot : function (t, e, r) {
+    }var mt = r(3863),
+        St = r(9542),
+        xt = r(4889);function wt(t) {
+      return wt = St ? xt : function (t) {
+        return t.__proto__ || xt(t);
+      }, wt(t);
+    }function bt(t, e, r) {
+      return bt = "undefined" != typeof Reflect && mt ? mt : function (t, e, r) {
         var n = function (t, e) {
-          for (; !Object.prototype.hasOwnProperty.call(t, e) && null !== (t = Et(t)););return t;
+          for (; !Object.prototype.hasOwnProperty.call(t, e) && null !== (t = wt(t)););return t;
         }(t, e);if (n) {
           var o = R(n, e);return o.get ? o.get.call(r) : o.value;
         }
-      }, Ct(t, e, r || t);
-    }var Bt = r(189);function Rt(t, e) {
-      return Rt = At || function (t, e) {
+      }, bt(t, e, r || t);
+    }var kt = r(189);function It(t, e) {
+      return It = St || function (t, e) {
         return t.__proto__ = e, t;
-      }, Rt(t, e);
-    }function Dt(t, e) {
-      if (e && ("object" === H(e) || "function" == typeof e)) return e;if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");return It(t);
-    }var Tt = r(3662),
-        jt = r.n(Tt),
-        Mt = r(4721),
-        Nt = r.n(Mt),
-        Ft = r(6019),
-        Lt = r.n(Ft),
-        Ht = r(47),
-        zt = r.n(Ht);function Kt(t, e) {
-      var r = Y()(t);if (B()) {
-        var n = B()(t);e && (n = rt()(n).call(n, function (e) {
+      }, It(t, e);
+    }function Ot(t, e) {
+      if (e && ("object" === N(e) || "function" == typeof e)) return e;if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");return _t(t);
+    }var Pt = r(3662),
+        At = r.n(Pt),
+        Et = r(4579),
+        Ct = r.n(Et),
+        Bt = r(6019),
+        Rt = r.n(Bt);function Dt(t, e) {
+      var r = G()(t);if (B()) {
+        var n = B()(t);e && (n = Z()(n).call(n, function (e) {
           return D()(t, e).enumerable;
         })), r.push.apply(r, n);
       }return r;
-    }function Ut(t) {
+    }function Tt(t) {
       for (var e = 1; e < arguments.length; e++) {
-        var r = null != arguments[e] ? arguments[e] : {};e % 2 ? Kt(Object(r), !0).forEach(function (e) {
+        var r = null != arguments[e] ? arguments[e] : {};e % 2 ? Dt(Object(r), !0).forEach(function (e) {
           _(t, e, r[e]);
-        }) : j() ? Object.defineProperties(t, j()(r)) : Kt(Object(r)).forEach(function (e) {
+        }) : j() ? Object.defineProperties(t, j()(r)) : Dt(Object(r)).forEach(function (e) {
           Object.defineProperty(t, e, D()(r, e));
         });
       }return t;
-    }var Wt = function () {
+    }var jt = function () {
       function e() {
         t(this, e);
       }return g(e, null, [{ key: "postData", value: function (t, e, r) {
-          var n = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : "POST",
-              o = !(arguments.length > 4 && void 0 !== arguments[4]) || arguments[4],
-              a = Ut(Ut({}, e), o ? m.extendParams : {}),
-              c = m.prod_sdk_base_url + m.request_prefix + t;if (i.WXMINI !== m.initOps.platId) {
-            var s = new XMLHttpRequest();s.open(n, c, !0), s.setRequestHeader("Content-Type", "application/json;charset=UTF-8"), s.onreadystatechange = function () {
-              4 !== s.readyState || 200 !== s.status && 304 !== s.status || r.call(this, JSON.parse(s.responseText));
-            }, s.send(a);
-          } else wx.request({ url: c, method: n, header: { "Content-Type": "application/json;charset=UTF-8" }, data: a, success: function (t) {
+          var n = this,
+              o = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : "POST",
+              a = !(arguments.length > 4 && void 0 !== arguments[4]) || arguments[4],
+              c = Tt(Tt({}, e), a ? m.extendParams : {}),
+              s = m.prod_sdk_base_url + m.request_prefix + t;if (i.WXMINI !== m.initOps.platId) {
+            var u = new XMLHttpRequest();u.open(o, s, !0), u.setRequestHeader("Content-Type", "application/json;charset=UTF-8"), u.onreadystatechange = function () {
+              4 !== u.readyState || 200 !== u.status && 304 !== u.status || r.call(this, JSON.parse(u.responseText));
+            }, u.send(c);
+          } else wx.request({ url: s, method: o, header: { "Content-Type": "application/json;charset=UTF-8" }, data: c, timeout: 2e3, success: function (t) {
               r.call(this, t.data);
+            }, fail: function (t) {
+              r.call(n, t);
             } });
         } }]), e;
-    }();function Gt(t, e) {
-      var r = Y()(t);if (B()) {
-        var n = B()(t);e && (n = rt()(n).call(n, function (e) {
+    }();function Mt(t, e) {
+      var r = G()(t);if (B()) {
+        var n = B()(t);e && (n = Z()(n).call(n, function (e) {
           return D()(t, e).enumerable;
         })), r.push.apply(r, n);
       }return r;
-    }function Vt(t) {
+    }function Nt(t) {
       for (var e = 1; e < arguments.length; e++) {
-        var r = null != arguments[e] ? arguments[e] : {};e % 2 ? Gt(Object(r), !0).forEach(function (e) {
+        var r = null != arguments[e] ? arguments[e] : {};e % 2 ? Mt(Object(r), !0).forEach(function (e) {
           _(t, e, r[e]);
-        }) : j() ? Object.defineProperties(t, j()(r)) : Gt(Object(r)).forEach(function (e) {
+        }) : j() ? Object.defineProperties(t, j()(r)) : Mt(Object(r)).forEach(function (e) {
           Object.defineProperty(t, e, D()(r, e));
         });
       }return t;
-    }var Xt = function () {
+    }var Ft = function () {
       function e() {
         t(this, e);
       }return g(e, [{ key: "getPlatformSystemInfo", value: function () {
           try {
-            xt(m.checkInfoCallback, d.CHECK_INFO_SUCCESS, Vt(Vt({}, m.platExtInfo), {}, { platAdParams: Vt({}, m.platAdParams) }));
+            ht(m.checkInfoCallback, d.CHECK_INFO_SUCCESS, Nt(Nt({}, m.platExtInfo), {}, { platAdParams: Nt({}, m.platAdParams) }));
           } catch (t) {
-            xt(m.checkInfoCallback, d.CHECK_INFO_FAIL, t);
+            ht(m.checkInfoCallback, d.CHECK_INFO_FAIL, t);
           }
         } }, { key: "checkSDKEnv", value: function (t) {
-          var e = { game_id: Number(m.initOps.gameId), client_ts: Date.now(), version: m.sdkVersion };t && W()(e, { params: t });var r = function (t) {
-            var e = ot({}, t),
-                r = pt(lt(ot({}, e)));return ct.MD5(decodeURIComponent(r) + m.platSecretKey.game_secret_key).toString();
-          }(e);Wt.postData(m.sdk_env_url, Vt(Vt({}, e), {}, { sign: r }), function (t) {
-            if (0 !== t.code && "success" !== t.status) return wt.inst.error("查询AB面失败", t), void xt(m.checkGameInfoCallback, d.CHECK_GAME_INFO_FAIL, t.data);xt(m.checkGameInfoCallback, d.CHECK_GAME_INFO_SUCCESS, t.data);
+          var e = { game_id: Number(m.initOps.gameId), client_ts: Date.now(), version: m.sdkVersion };t && z()(e, { params: t });var r = function (t) {
+            var e = Q({}, t),
+                r = ct(at(Q({}, e)));return rt.MD5(decodeURIComponent(r) + m.platSecretKey.game_secret_key).toString();
+          }(e);jt.postData(m.sdk_env_url, Nt(Nt({}, e), {}, { sign: r }), function (t) {
+            if (0 !== t.code && "success" !== t.status) return vt.inst.error("查询AB面失败", t), void ht(m.checkGameInfoCallback, d.CHECK_GAME_INFO_FAIL, t.data);ht(m.checkGameInfoCallback, d.CHECK_GAME_INFO_SUCCESS, t.data);
           }, "POST", !1);
         } }, { key: "init", value: function () {
           var t,
-              e = this;this.initStorageData();var r = { time: b()(t = Date.now().toString()).call(t, 0, 10), game_id: String(m.initOps.gameId) };Wt.postData(m.sdk_config_url, { params: r }, function (t) {
-            if (0 !== t.code && "success" !== t.status) return wt.inst.error("获取游戏KEY失败", t), void xt(m.callback, d.INIT_FAIL, "初始化失败");var r = t.data;try {
+              e = this;this.initStorageData();var r = { time: b()(t = Date.now().toString()).call(t, 0, 10), game_id: String(m.initOps.gameId) };jt.postData(m.sdk_config_url, { params: r }, function (t) {
+            if (vt.inst.log("初始化", t), 0 !== t.code && "success" !== t.status) return vt.inst.error("获取游戏KEY失败", t), ht(m.callback, d.INIT_FAIL, "初始化失败"), void (m.initNum < m.initMax && Ct()(function () {
+              vt.inst.log("重新调起初始化", t), e.init(), m.initNum++;
+            }, 2e3));var r = t.data;try {
               var n = r.key,
                   o = JSON.parse(function (t) {
-                var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "dianwan".concat(dt(new Date(), "{y}{m}{d}")),
-                    r = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "".concat(dt(new Date(), "{y}{m}{d}")),
-                    n = ct.enc.Utf8.parse(e),
-                    o = ct.enc.Utf8.parse(r);return ct.DES.decrypt({ ciphertext: ct.enc.Hex.parse(t) }, n, { iv: o, mode: ct.mode.CBC, padding: ct.pad.Pkcs7 }).toString(ct.enc.Utf8);
-              }(n));o.game_id && (m.initOps = Vt(Vt({}, m.initOps), {}, { gameId: String(o.game_id) }), delete o.game_id), m.platSecretKey = o;
+                var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "dianwan".concat(st(new Date(), "{y}{m}{d}")),
+                    r = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "".concat(st(new Date(), "{y}{m}{d}")),
+                    n = rt.enc.Utf8.parse(e),
+                    o = rt.enc.Utf8.parse(r),
+                    i = rt.DES.decrypt({ ciphertext: rt.enc.Hex.parse(t) }, n, { iv: o, mode: rt.mode.CBC, padding: rt.pad.Pkcs7 });return console.log("DES解密", i.toString(rt.enc.Utf8)), i.toString(rt.enc.Utf8);
+              }(n));o.game_id && (m.initOps = Nt(Nt({}, m.initOps), {}, { gameId: String(o.game_id) }), delete o.game_id), m.platSecretKey = o;
             } catch (t) {
-              return wt.inst.error("获取游戏KEY失败", t), void xt(m.callback, d.INIT_FAIL, "初始化失败");
+              return vt.inst.error("获取游戏KEY失败", t), void ht(m.callback, d.INIT_FAIL, "初始化失败");
             }e.getGameConfig();
           }, "POST", !1);
         } }, { key: "login", value: function () {
           var t = this,
               e = { code: m.platExtInfo.code },
-              r = gt(e);Wt.postData(m.login_url, { params: e, sign: r }, function (e) {
-            if (0 !== e.code && "success" !== e.status) return wt.inst.error("登录失败", e), void xt(m.loginCallback, d.LOGIN_FAIL, "登录失败");var r = JSON.parse(ht(e.data.code));m.uid = r.user_id, m.dwPlatExtInfo = Vt({}, r);var n = { token: r.oauth_token, userId: r.user_id, ad: r.ad },
-                o = { openid: r.openid };W()(m.platExtInfo, { userInfo: o }), W()(m.extendParams, { device: Vt(Vt({}, m.extendParams.device), {}, { device_id: r.openid }) }), W()(m.platStorageDataOps, { openid: r.openid, osType: st() }), t.setStorageData(), t.submitActiveLog(), xt(m.loginCallback, d.LOGIN_SUCCESS, n);
+              r = pt(e);jt.postData(m.login_url, { params: e, sign: r }, function (e) {
+            if (0 !== e.code && "success" !== e.status) return vt.inst.error("登录失败", e), ht(m.loginCallback, d.LOGIN_FAIL, "登录失败"), void (m.loginNum < m.loginMax && Ct()(function () {
+              vt.inst.log("重新调起初始化", e), t.login(), m.loginNum++;
+            }, 2e3));var r = JSON.parse(ut(e.data.code));m.uid = r.user_id, m.dwPlatExtInfo = Nt({}, r);var n = { token: r.oauth_token, userId: r.user_id, ad: r.ad, mobile_phone: r.mobile_phone, bind_phone: r.bind_phone },
+                o = { openid: r.openid };z()(m.platExtInfo, { userInfo: o }), z()(m.extendParams, { device: Nt(Nt({}, m.extendParams.device), {}, { device_id: r.openid }) }), z()(m.platStorageDataOps, { openid: r.openid, osType: nt() }), t.setStorageData(), t.submitActiveLog(), ht(m.loginCallback, d.LOGIN_SUCCESS, n);
           });
         } }, { key: "uploadGameRoleInfo", value: function (t, e) {
           var r,
@@ -3560,17 +3473,17 @@ var a = wx.$y;
               h = p ? x()(r = "".concat(m.data_up_url, "/")).call(r, t) : m.role_online_duration_up_url,
               v = { openid: m.dwPlatExtInfo.openid, server_id: String(u), user_level: String(a), role_id: String(i) },
               y = p ? function (t, e) {
-            ft();var r = ot({}, t),
-                n = pt(lt(ot(ot({}, m.extendParams), {}, { params: r, role: e })));return ct.MD5(decodeURIComponent(n) + m.platSecretKey.game_secret_key).toString();
-          }(o, l) : gt(v),
-              g = p ? { params: o, role: l, sign: y } : { params: v, sign: y };m.roleInfo = e, Wt.postData(h, g, function (e) {
-            if (t == s.upRoleLevel && 1 != m.dwPlatExtInfo.pay_open && 0 != m.dwPlatExtInfo.continue && n.uploadGameRoleInfoOnline(), 0 !== e.code && "success" !== e.status) return wt.inst.error("日志上报失败，类型：".concat(t), e), void xt(m.uploadGameRoleInfoCallback, d.POST_FAIL, { type: t, data: e });if (!p) {
-              var r = JSON.parse(ht(e.data.code));wt.inst.log("是否开启支付：", r), m.dwPlatExtInfo.pay_open = r.pay_open, m.dwPlatExtInfo.continue = r.continue;
-            }wt.inst.log("日志上报成功，类型：".concat(t), e), xt(m.uploadGameRoleInfoCallback, d.POST_SUCCESS, { type: t, data: e });
+            it();var r = Q({}, t),
+                n = ct(at(Q(Q({}, m.extendParams), {}, { params: r, role: e })));return rt.MD5(decodeURIComponent(n) + m.platSecretKey.game_secret_key).toString();
+          }(o, l) : pt(v),
+              g = p ? { params: o, role: l, sign: y } : { params: v, sign: y };m.roleInfo = e, jt.postData(h, g, function (e) {
+            if (t == s.upRoleLevel && 1 != m.dwPlatExtInfo.pay_open && 0 != m.dwPlatExtInfo.continue && n.uploadGameRoleInfoOnline(), 0 !== e.code && "success" !== e.status) return vt.inst.error("日志上报失败，类型：".concat(t), e), void ht(m.uploadGameRoleInfoCallback, d.POST_FAIL, { type: t, data: e });if (!p) {
+              var r = JSON.parse(ut(e.data.code));vt.inst.log("是否开启支付：", r), m.dwPlatExtInfo.pay_open = r.pay_open, m.dwPlatExtInfo.continue = r.continue;
+            }vt.inst.log("日志上报成功，类型：".concat(t), e), ht(m.uploadGameRoleInfoCallback, d.POST_SUCCESS, { type: t, data: e });
           });
         } }, { key: "uploadGameRoleInfoOnline", value: function () {
           var t = this,
-              e = Lt()(function () {
+              e = Rt()(function () {
             1 == m.dwPlatExtInfo.pay_open && clearInterval(e);var r = m.roleInfo,
                 n = r.roleId,
                 o = r.roleLevel,
@@ -3591,37 +3504,37 @@ var a = wx.$y;
               f = t.serverId,
               l = t.serverName,
               p = t.extension,
-              d = { access_token: m.dwPlatExtInfo.access_token, cp_order_sn: r, product_id: i, product_name: a, product_desc: o, product_price: n, extension: void 0 !== p && "string" != typeof p ? K()(p) : p },
+              d = { access_token: m.dwPlatExtInfo.access_token, cp_order_sn: r, product_id: i, product_name: a, product_desc: o, product_price: m.sdkConfigInfoStore.midas_pay_price ? n / m.sdkConfigInfoStore.midas_pay_price * 100 : n, extension: void 0 !== p && "string" != typeof p ? L()(p) : p },
               h = { role_id: String(c), role_name: String(s), role_level: String(u), role_server_id: String(f), role_server_name: String(l) },
-              v = _t(d, h);Wt.postData(m.place_order_url, { params: d, role: h, sign: v }, function (r) {
-            var n;0 === r.code || "success" === r.status ? (m.cmmPlatPayInfo = Vt({ orderId: r.data.order_id, payWays: zt()(n = r.data.ways).call(n, function (t) {
-                return t.code;
-              }) || [] }, t), e.pay()) : wt.inst.error("下单失败", r);
+              v = dt(d, h);jt.postData(m.place_order_url, { params: d, role: h, sign: v }, function (r) {
+            0 === r.code || "success" === r.status ? (m.cmmPlatPayInfo = Nt({ orderId: r.data.order_id, payWays: r.data.pay_way || [] }, t), e.pay()) : vt.inst.error("下单失败", r);
           });
         } }, { key: "pay", value: function () {
-          wt.inst.log("Base", "pay");
+          vt.inst.log("Base", "pay");
         } }, { key: "goCs", value: function () {
-          wt.inst.log("Base", "goCs");
+          vt.inst.log("Base", "goCs");
+        } }, { key: "goCsBindphone", value: function () {
+          vt.inst.log("Base", "goCsBindphone");
         } }, { key: "getGameConfig", value: function () {
           var t,
               e = { time: b()(t = Date.now().toString()).call(t, 0, 10) },
-              r = gt(e);Wt.postData(m.sdk_game_config_url, { params: e, sign: r }, function (t) {
-            if (0 !== t.code && "success" !== t.status) return wt.inst.error("查询游戏配置信息失败", t), void xt(m.callback, d.INIT_FAIL, "初始化失败");m.sdkConfigInfoStore = t.data, xt(m.callback, d.INIT_SUCCESS, "初始化成功");
+              r = pt(e);jt.postData(m.sdk_game_config_url, { params: e, sign: r }, function (t) {
+            if (0 !== t.code && "success" !== t.status) return vt.inst.error("查询游戏配置信息失败", t), void ht(m.callback, d.INIT_FAIL, "初始化失败");m.sdkConfigInfoStore = t.data, ht(m.callback, d.INIT_SUCCESS, "初始化成功");
           });
         } }, { key: "submitActiveLog", value: function () {
           var t,
               e = { time: b()(t = Date.now().toString()).call(t, 0, 10) },
-              r = gt(e);Wt.postData("".concat(m.data_up_url, "/active"), { params: e, sign: r }, function (t) {
-            0 === t.code || "success" === t.status ? wt.inst.log("日志上报成功，类型：active", t) : wt.inst.error("日志上报失败，类型：active", t);
+              r = pt(e);jt.postData("".concat(m.data_up_url, "/active"), { params: e, sign: r }, function (t) {
+            0 === t.code || "success" === t.status ? vt.inst.log("日志上报成功，类型：active", t) : vt.inst.error("日志上报失败，类型：active", t);
           });
         } }, { key: "initStorageData", value: function () {
           this.getStorageData();
         } }, { key: "setStorageData", value: function () {
-          wt.inst.log("Base", "setStorageData");
+          vt.inst.log("Base", "setStorageData");
         } }, { key: "getStorageData", value: function () {
-          wt.inst.log("Base", "getStorageData");
-        } }, { key: "onVerifiedWin", value: function () {
-          console.log("onVerifiedWin");
+          vt.inst.log("Base", "getStorageData");
+        } }, { key: "midasGetBalance", value: function () {
+          console.log("Define.cmmPlatPayInfo", m.roleInfo);
         } }, { key: "checkOrderStatus", value: function (t) {
           var e = t.orderId,
               r = t.roleId,
@@ -3631,193 +3544,214 @@ var a = wx.$y;
               a = t.serverName,
               c = { access_token: m.dwPlatExtInfo.access_token, order_id: e },
               s = { role_id: String(r), role_name: String(n), role_level: String(o), role_server_id: String(i), role_server_name: String(a) },
-              u = _t(c, s);Wt.postData(m.check_order_status_url, { params: c, role: s, sign: u }, function (t) {
-            if (0 === t.code || "success" === t.status) switch (wt.inst.log("查询订单状态成功", t), t.data.pay_status) {case p.SUCCESS:
-                xt(m.payCallback, d.PAY_SUCCESS, "支付成功"), wt.inst.log("支付成功", t);break;case p.FAIL:
-                xt(m.payCallback, d.PAY_FAIL, "支付失败"), wt.inst.error("支付失败", t);break;default:
-                wt.inst.error("支付状态：", "未知");} else wt.inst.error("查询订单状态失败", t);
+              u = dt(c, s);jt.postData(m.check_order_status_url, { params: c, role: s, sign: u }, function (t) {
+            if (0 === t.code || "success" === t.status) switch (vt.inst.log("查询订单状态成功", t), t.data.pay_status) {case p.SUCCESS:
+                ht(m.payCallback, d.PAY_SUCCESS, "支付成功"), vt.inst.log("支付成功", t);break;case p.FAIL:
+                ht(m.payCallback, d.PAY_FAIL, "支付失败"), vt.inst.error("支付失败", t);break;default:
+                vt.inst.error("支付状态：", "未知");} else vt.inst.error("查询订单状态失败", t);
           });
         } }]), e;
-    }();function Yt(t, e) {
-      var r = Y()(t);if (B()) {
-        var n = B()(t);e && (n = rt()(n).call(n, function (e) {
+    }();function Lt(t, e) {
+      var r = G()(t);if (B()) {
+        var n = B()(t);e && (n = Z()(n).call(n, function (e) {
           return D()(t, e).enumerable;
         })), r.push.apply(r, n);
       }return r;
-    }function Jt(t) {
+    }function Ht(t) {
       for (var e = 1; e < arguments.length; e++) {
-        var r = null != arguments[e] ? arguments[e] : {};e % 2 ? Yt(Object(r), !0).forEach(function (e) {
+        var r = null != arguments[e] ? arguments[e] : {};e % 2 ? Lt(Object(r), !0).forEach(function (e) {
           _(t, e, r[e]);
-        }) : j() ? Object.defineProperties(t, j()(r)) : Yt(Object(r)).forEach(function (e) {
+        }) : j() ? Object.defineProperties(t, j()(r)) : Lt(Object(r)).forEach(function (e) {
           Object.defineProperty(t, e, D()(r, e));
         });
       }return t;
-    }function qt(t) {
+    }function zt(t) {
       var e = function () {
-        if ("undefined" == typeof Reflect || !kt()) return !1;if (kt().sham) return !1;if ("function" == typeof Proxy) return !0;try {
-          return Boolean.prototype.valueOf.call(kt()(Boolean, [], function () {})), !0;
+        if ("undefined" == typeof Reflect || !gt()) return !1;if (gt().sham) return !1;if ("function" == typeof Proxy) return !0;try {
+          return Boolean.prototype.valueOf.call(gt()(Boolean, [], function () {})), !0;
         } catch (t) {
           return !1;
         }
       }();return function () {
         var r,
-            n = Et(t);if (e) {
-          var o = Et(this).constructor;r = kt()(n, arguments, o);
-        } else r = n.apply(this, arguments);return Dt(this, r);
+            n = wt(t);if (e) {
+          var o = wt(this).constructor;r = gt()(n, arguments, o);
+        } else r = n.apply(this, arguments);return Ot(this, r);
       };
-    }var Qt = function (e) {
+    }var Kt = function (e) {
       !function (t, e) {
-        if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function");t.prototype = Bt(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } }), e && Rt(t, e);
-      }(n, e);var r = qt(n);function n() {
-        var e;return t(this, n), _(It(e = r.call(this)), "lostOrderId", []), _(It(e), "RANDOM_STR", "cmm_random_uuid"), _(It(e), "CHANNEL_VER_STR", "cmm_channel_ver_str_uuid"), _(It(e), "GDT_VID_STR", "cmm_gdt_vid_uuid"), _(It(e), "WEIXINADINFO_STR", "cmm_weixinadinfo_uuid"), _(It(e), "PAY_ORDER_LOGS_RANDOM_STR", "cmm_pay_order_logs_random_uuid"), _(It(e), "PLAT_USER_INFO_RANDOM_STR", "plat_user_info_random_uuid"), _(It(e), "soleKey", ""), _(It(e), "channelVerKey", ""), _(It(e), "gdtVidKey", ""), _(It(e), "weixinadinfoKey", ""), _(It(e), "payLogsSoleKey", ""), _(It(e), "platUserInfoSoleKey", ""), _(It(e), "gdt_vid", ""), _(It(e), "weixinadinfo", ""), _(It(e), "adver", ""), _(It(e), "channel_ver", ""), e.getWxSystemInfo(), e.createSole(), e.getADParams(), e;
+        if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function");t.prototype = kt(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } }), e && It(t, e);
+      }(n, e);var r = zt(n);function n() {
+        var e;return t(this, n), _(_t(e = r.call(this)), "lostOrderId", []), _(_t(e), "RANDOM_STR", "cmm_random_uuid"), _(_t(e), "CHANNEL_VER_STR", "cmm_channel_ver_str_uuid"), _(_t(e), "GDT_VID_STR", "cmm_gdt_vid_uuid"), _(_t(e), "WEIXINADINFO_STR", "cmm_weixinadinfo_uuid"), _(_t(e), "PAY_ORDER_LOGS_RANDOM_STR", "cmm_pay_order_logs_random_uuid"), _(_t(e), "PLAT_USER_INFO_RANDOM_STR", "plat_user_info_random_uuid"), _(_t(e), "soleKey", ""), _(_t(e), "channelVerKey", ""), _(_t(e), "gdtVidKey", ""), _(_t(e), "weixinadinfoKey", ""), _(_t(e), "payLogsSoleKey", ""), _(_t(e), "platUserInfoSoleKey", ""), _(_t(e), "gdt_vid", ""), _(_t(e), "weixinadinfo", ""), _(_t(e), "adver", ""), _(_t(e), "channel_ver", ""), e.getWxSystemInfo(), e.createSole(), e.getADParams(), e;
       }return g(n, [{ key: "createSole", value: function () {
           var t = m.initOps.gameId.toString(),
               e = m.initOps.partnerId.toString(),
-              r = m.initOps.platId.toString() + e + t;this.soleKey = yt(r + this.RANDOM_STR), this.payLogsSoleKey = yt(r + this.RANDOM_STR + this.PAY_ORDER_LOGS_RANDOM_STR), this.platUserInfoSoleKey = yt(r + this.RANDOM_STR + this.PLAT_USER_INFO_RANDOM_STR), this.channelVerKey = yt(r + this.RANDOM_STR + this.CHANNEL_VER_STR), this.gdtVidKey = yt(r + this.RANDOM_STR + this.GDT_VID_STR), this.weixinadinfoKey = yt(r + this.RANDOM_STR + this.WEIXINADINFO_STR), wt.inst.log("MP:KEYS", this.soleKey, this.channelVerKey, this.gdtVidKey, this.weixinadinfoKey);
+              r = m.initOps.platId.toString() + e + t;this.soleKey = lt(r + this.RANDOM_STR), this.payLogsSoleKey = lt(r + this.RANDOM_STR + this.PAY_ORDER_LOGS_RANDOM_STR), this.platUserInfoSoleKey = lt(r + this.RANDOM_STR + this.PLAT_USER_INFO_RANDOM_STR), this.channelVerKey = lt(r + this.RANDOM_STR + this.CHANNEL_VER_STR), this.gdtVidKey = lt(r + this.RANDOM_STR + this.GDT_VID_STR), this.weixinadinfoKey = lt(r + this.RANDOM_STR + this.WEIXINADINFO_STR), vt.inst.log("MP:KEYS", this.soleKey, this.channelVerKey, this.gdtVidKey, this.weixinadinfoKey);
         } }, { key: "getADParams", value: function () {
           var t = this;if ("function" == typeof wx.onShow && wx.onShow(function (e) {
             t.handleSetAdParams(e, "onShow");
           }), "function" == typeof wx.getLaunchOptionsSync) {
             var e = wx.getLaunchOptionsSync();this.handleSetAdParams(e, "getLaunchOptionsSync");
+          }if ("function" == typeof wx.getAccountInfoSync) {
+            var r = wx.getAccountInfoSync();this.handleSetAdParams(r, "getAccountInfoSync");
           }if ("function" == typeof wx.getEnterOptionsSync) {
-            var r = wx.getEnterOptionsSync();this.handleSetAdParams(r, "getEnterOptionsSync");
+            var n = wx.getEnterOptionsSync();this.handleSetAdParams(n, "getEnterOptionsSync");
           }
         } }, { key: "handleSetAndGetAdValues", value: function (t, e, r) {
           var n = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : "";r ? (this[t] = r, wx.setStorageSync(this[e], r)) : this[t] = wx.getStorageSync(this[e]) || n;
         } }, { key: "handleSetAdParams", value: function (t, e) {
-          wt.inst.log("执行了".concat(e, "方法"), t);var r = t.query,
-              n = r.adver,
-              o = r.gdt_vid,
-              i = r.weixinadinfo,
-              a = r.channel_ver;this.handleSetAndGetAdValues("adver", "soleKey", n, "1"), this.handleSetAndGetAdValues("channel_ver", "channelVerKey", a, ""), this.handleSetAndGetAdValues("gdt_vid", "gdtVidKey", o, ""), this.handleSetAndGetAdValues("weixinadinfo", "weixinadinfoKey", i, ""), W()(m.platAdParams, { gdt_vid: this.gdt_vid, weixinadinfo: this.weixinadinfo, adver: this.adver, channel_ver: this.channel_ver }), wt.inst.log("platAdParams", m.platAdParams);
+          if (vt.inst.log("执行了".concat(e, "方法"), t), "getAccountInfoSync" != e) {
+            var r = t.query,
+                n = r.adver,
+                o = r.gdt_vid,
+                i = r.weixinadinfo,
+                a = r.channel_ver,
+                c = t.scene;this.handleSetAndGetAdValues("adver", "soleKey", n, "1"), this.handleSetAndGetAdValues("channel_ver", "channelVerKey", a, ""), this.handleSetAndGetAdValues("gdt_vid", "gdtVidKey", o, ""), this.handleSetAndGetAdValues("weixinadinfo", "weixinadinfoKey", i, ""), z()(m.platAdParams, { gdt_vid: this.gdt_vid, weixinadinfo: this.weixinadinfo, adver: this.adver, channel_ver: this.channel_ver, scene: c });
+          } else {
+            var s = t.miniProgram;z()(m.platAdParams, { appId: s.appId, envVersion: s.envVersion });
+          }vt.inst.log("platAdParams", m.platAdParams);
         } }, { key: "init", value: function () {
-          Ct(Et(n.prototype), "init", this).call(this);
+          bt(wt(n.prototype), "init", this).call(this);
         } }, { key: "checkSDKEnv", value: function (t) {
-          Ct(Et(n.prototype), "checkSDKEnv", this).call(this, t);
-        } }, { key: "onVerifiedWin", value: function (t) {
-          console.log("onVerifiedWin2");
+          bt(wt(n.prototype), "checkSDKEnv", this).call(this, t);
         } }, { key: "getWxSystemInfo", value: function () {
           var t = wx.getSystemInfoSync(),
-              e = Jt(Jt({}, t), {}, { cmmSdkVersion: m.sdkVersion, cmmOsType: /ios/gi.test(t.system) ? "ios" : "android" }),
-              r = Jt({}, m.initOps);W()(m.platExtInfo, { systemInfo: e, initOps: r });
+              e = Ht(Ht({}, t), {}, { cmmSdkVersion: m.sdkVersion, cmmOsType: /ios/gi.test(t.system) ? "ios" : "android" }),
+              r = Ht({}, m.initOps);z()(m.platExtInfo, { systemInfo: e, initOps: r });
         } }, { key: "getPlatformSystemInfo", value: function () {
-          Ct(Et(n.prototype), "getPlatformSystemInfo", this).call(this);
+          bt(wt(n.prototype), "getPlatformSystemInfo", this).call(this);
         } }, { key: "login", value: function () {
           this.loginAuth();
         } }, { key: "createOrder", value: function (t) {
-          try {
-            var e;if (this.lostOrderId = wx.getStorageSync(this.payLogsSoleKey) || [], wt.inst.log("缓存漏单列表", this.lostOrderId), this.lostOrderId && null !== this.lostOrderId && this.lostOrderId.length > 0) this.replyOrder(this.lostOrderId[0]), jt()(e = this.lostOrderId).call(e, 0, 1);
+          var e,
+              r = this;try {
+            var o;if (this.lostOrderId = wx.getStorageSync(this.payLogsSoleKey) || [], vt.inst.log("缓存漏单列表", this.lostOrderId), this.lostOrderId && null !== this.lostOrderId && this.lostOrderId.length > 0) this.replyOrder(this.lostOrderId[0]), At()(o = this.lostOrderId).call(o, 0, 1);
           } catch (t) {
-            wt.inst.error("查询漏单补单", t);
-          }mt() && (wt.inst.log("是IOS设备", m.dwPlatExtInfo), m.dwPlatExtInfo.pay_open === l.close) || Ct(Et(n.prototype), "createOrder", this).call(this, t);
+            vt.inst.error("查询漏单补单", t);
+          }/ios/gi.test(null === (e = m.platExtInfo.systemInfo) || void 0 === e ? void 0 : e.system) && m.dwPlatExtInfo.pay_open === l.close || (Ct()(function () {
+            r.midasGetBalance();
+          }, 6e4), bt(wt(n.prototype), "createOrder", this).call(this, t));
+        } }, { key: "midasGetBalance", value: function () {
+          var t = this,
+              e = { server_id: m.cmmPlatPayInfo.serverId, userid: m.uid, openid: m.dwPlatExtInfo.openid },
+              r = pt(e),
+              n = Ht(Ht({}, m.extendParams), {}, { params: e, sign: r });jt.postData(m.reply_balance_url, n, function (e) {
+            var r;0 !== e.code && "success" !== e.status ? vt.inst.error("查询失败", e) : 0 != JSON.parse(ut(e.data.code)).balance && (t.lostOrderId = wx.getStorageSync(t.payLogsSoleKey) || [], vt.inst.log("缓存漏单列表", t.lostOrderId), t.lostOrderId && null !== t.lostOrderId && t.lostOrderId.length > 0 && (t.replyOrder(t.lostOrderId[0]), At()(r = t.lostOrderId).call(r, 0, 1)));
+          });
         } }, { key: "pay", value: function () {
-          Ct(Et(n.prototype), "pay", this).call(this), this.platPay();
+          bt(wt(n.prototype), "pay", this).call(this), this.platPay();
         } }, { key: "platPay", value: function () {
           switch (m.sdkConfigInfoStore.account_type) {case f.enterprise:
               this.platPayEnterprise();break;case f.individual:
               this.platPayIndividual();break;default:
-              wt.inst.error("暂无此账号类型");}
+              vt.inst.error("暂无此账号类型");}
         } }, { key: "goCs", value: function () {
           wx.openCustomerServiceConversation();
+        } }, { key: "goCsBindphone", value: function () {
+          wx.showModal({ title: "绑定提示", content: '即将进入客服聊天界面，输入"手机绑定"可以获取绑定链接', showCancel: !1, confirmText: "我知道了", success: function (t) {
+              if (t.confirm) {
+                var e = { openid: m.dwPlatExtInfo.openid, gameId: m.initOps.gameId, userId: m.uid, app_id: m.platAdParams.appId };vt.inst.log("客服PostData", e);var r = { showMessageCard: !0, sendMessagePath: L()(e), sendMessageTitle: "绑定手机", sendMessageImg: m.static_resources_url + m.cs_img_url, complete: function () {
+                    vt.inst.log("客服调起绑定手机接口参数 完成", r);
+                  } };wx.openCustomerServiceConversation(r);
+              } else t.cancel && console.log("用户点击取消");
+            } });
         } }, { key: "loginAuth", value: function () {
           var t = this;wx.login({ success: function (e) {
-              var r = { code: e.code };W()(m.platExtInfo, r), Ct(Et(n.prototype), "login", t).call(t);
+              var r = { code: e.code };z()(m.platExtInfo, r), bt(wt(n.prototype), "login", t).call(t);
             }, fail: function (t) {
-              wt.inst.log("微信授权登录失败", t);
+              vt.inst.log("微信授权登录失败", t);
             } });
         } }, { key: "replyOrder", value: function (t) {
           var e = this,
               r = t.orderId,
               n = t.params,
-              o = n ? Jt(Jt({}, n), {}, { repost: 1 }) : { server_id: m.cmmPlatPayInfo.serverId, userid: m.uid, openid: m.dwPlatExtInfo.openid, order_no: r, amount: m.cmmPlatPayInfo.price },
-              i = gt(o),
-              a = Jt(Jt({}, m.extendParams), {}, { params: o, sign: i });wt.inst.log("扣款发货请求参数", a), wx.request({ url: m.prod_sdk_base_url + m.request_prefix + m.reply_order_url, data: a, method: "POST", header: { "Content-Type": "application/json;charset=UTF-8;" }, success: function (t) {
-              var n = t.data;0 !== n.code && "success" !== n.status ? (wt.inst.error("扣款发货失败", n, n.message), e.lostOrderId.unshift({ orderId: r, params: o }), wx.setStorageSync(e.payLogsSoleKey, e.lostOrderId)) : (wt.inst.log("扣款发货成功", t), wx.setStorageSync(e.payLogsSoleKey, e.lostOrderId));
+              o = n ? Ht(Ht({}, n), {}, { repost: 1 }) : { server_id: m.cmmPlatPayInfo.serverId, userid: m.uid, openid: m.dwPlatExtInfo.openid, order_no: r, amount: m.cmmPlatPayInfo.price },
+              i = pt(o),
+              a = Ht(Ht({}, m.extendParams), {}, { params: o, sign: i });vt.inst.log("扣款发货请求参数", a), wx.request({ url: m.prod_sdk_base_url + m.request_prefix + m.reply_order_url, data: a, method: "POST", header: { "Content-Type": "application/json;charset=UTF-8;" }, success: function (t) {
+              var n = t.data;0 !== n.code && "success" !== n.status ? (vt.inst.error("扣款发货失败", n, n.message), e.lostOrderId.unshift({ orderId: r, params: o }), wx.setStorageSync(e.payLogsSoleKey, e.lostOrderId)) : (vt.inst.log("扣款发货成功", t), wx.setStorageSync(e.payLogsSoleKey, e.lostOrderId));
             }, fail: function (t) {
-              wt.inst.error("扣款发货请求失败", t.data.msg), e.lostOrderId.unshift({ orderId: r, params: o }), wx.setStorageSync(e.payLogsSoleKey, e.lostOrderId);
+              vt.inst.error("扣款发货响应失败", t.data.msg), e.lostOrderId.unshift({ orderId: r, params: o }), wx.setStorageSync(e.payLogsSoleKey, e.lostOrderId);
             } });
         } }, { key: "setStorageData", value: function () {
-          Ct(Et(n.prototype), "setStorageData", this).call(this), this.platSetStorageData();
+          bt(wt(n.prototype), "setStorageData", this).call(this), this.platSetStorageData();
         } }, { key: "platSetStorageData", value: function () {
           try {
-            wx.setStorageSync(this.platUserInfoSoleKey, K()(m.platStorageDataOps));
+            wx.setStorageSync(this.platUserInfoSoleKey, L()(m.platStorageDataOps));
           } catch (t) {
-            wt.inst.error("wx本地缓存数据出错", t);
+            vt.inst.error("wx本地缓存数据出错", t);
           }
         } }, { key: "getStorageData", value: function () {
-          Ct(Et(n.prototype), "getStorageData", this).call(this), this.platGetStorageData();
+          bt(wt(n.prototype), "getStorageData", this).call(this), this.platGetStorageData();
         } }, { key: "platGetStorageData", value: function () {
           try {
-            var t = wx.getStorageSync(this.platUserInfoSoleKey);W()(m.platStorageDataOps, t ? Jt({}, JSON.parse(t)) : {});
+            var t = wx.getStorageSync(this.platUserInfoSoleKey);z()(m.platStorageDataOps, t ? Ht({}, JSON.parse(t)) : {});
           } catch (t) {
-            wt.inst.error("wx获取本地缓存数据出错", t);
+            vt.inst.error("wx获取本地缓存数据出错", t);
           }
         } }, { key: "checkOrderStatus", value: function (t) {
-          Ct(Et(n.prototype), "checkOrderStatus", this).call(this, t);
+          bt(wt(n.prototype), "checkOrderStatus", this).call(this, t);
         } }, { key: "platPayMidas", value: function () {
-          var t = this;if (m.sdkConfigInfoStore.account_type === f.enterprise) {
-            var e,
-                r = m.cmmPlatPayInfo.price / 100;if (m.cmmPlatPayInfo.payWays && Nt()(e = m.cmmPlatPayInfo.payWays).call(e, u.midas)) {
-              var n = [1, 3, 6, 8, 12, 18, 25, 30, 40, 45, 50, 60, 68, 73, 78, 88, 98, 108, 118, 128, 148, 168, 188, 198, 328, 648, 998, 1998, 2998];if (!Nt()(n).call(n, r)) return void wt.inst.error("无效金额", "".concat(r, "：内部已将支付金额(分)转为buyQuantity，具体请参考米大师支付 buyQuantity 限制说明"));W()(m.cmmPlatPayInfo, { price: r / .1 }), wt.inst.log("已转为米大师buyQuantity", m.cmmPlatPayInfo);
-            }
-          }wx.requestMidasPayment({ mode: "game", env: 1 === m.sdkConfigInfoStore.midas_env ? 1 : 0, offerId: m.sdkConfigInfoStore.midashi_offer_id, platform: "android", currencyType: "CNY", buyQuantity: m.cmmPlatPayInfo.price, zoneId: "1", success: function (e) {
-              wt.inst.log("wx支付成功", e), xt(m.payCallback, d.PAY_SUCCESS, "支付成功");var r = m.cmmPlatPayInfo.orderId;t.replyOrder({ orderId: r });
+          var t = this;vt.inst.log("支付参数", m.cmmPlatPayInfo), m.cmmPlatPayInfo.payWays.midas ? (vt.inst.log("支付参数", m.cmmPlatPayInfo.payWays.midas), wx.requestMidasPayment({ mode: "game", env: m.cmmPlatPayInfo.payWays.midas.env, offerId: m.cmmPlatPayInfo.payWays.midas.offer_id, platform: m.cmmPlatPayInfo.payWays.midas.platform, currencyType: m.cmmPlatPayInfo.payWays.midas.currency_type, buyQuantity: m.cmmPlatPayInfo.payWays.midas.price, zoneId: m.cmmPlatPayInfo.payWays.midas.zone_id, success: function (e) {
+              vt.inst.log("wx支付成功", e), ht(m.payCallback, d.PAY_SUCCESS, "支付成功");var r = m.cmmPlatPayInfo.orderId;t.replyOrder({ orderId: r });
             }, fail: function (t) {
-              wt.inst.log("wx支付失败", t), xt(m.payCallback, d.PAY_FAIL, "支付失败");
+              vt.inst.log("wx支付失败", t), ht(m.payCallback, d.PAY_FAIL, "支付失败");
             }, complete: function (t) {
-              wt.inst.log("支付完成", t);
-            } });
+              vt.inst.log("支付环境", m.sdkConfigInfoStore.midas_env), vt.inst.log("支付完成", t);
+            } })) : vt.inst.log("缺少支付参数pay_way.midas", m.cmmPlatPayInfo);
         } }, { key: "platPayCs", value: function () {
           var t = this,
               e = m.cmmPlatPayInfo.orderId,
-              r = { openid: m.dwPlatExtInfo.openid, gameId: m.initOps.gameId, orderId: e, userId: m.uid, adParams: m.platAdParams };wt.inst.log("客服PostData", r);var n = { showMessageCard: !0, sendMessagePath: vt(K()(r)), sendMessageTitle: "您好,回复任意消息继续", sendMessageImg: m.static_resources_url + m.pay_tips_img_url, complete: function () {
-              wt.inst.log("客服：complete！查询订单状态", m.cmmPlatPayInfo), t.checkOrderStatus(m.cmmPlatPayInfo);
-            } };wx.openCustomerServiceConversation(n);
+              r = { openid: m.dwPlatExtInfo.openid, gameId: m.initOps.gameId, orderId: e, userId: m.uid, adParams: m.platAdParams };vt.inst.log("支付参数", m.cmmPlatPayInfo), vt.inst.log("客服PostData", r);var n = { showMessageCard: !0, sendMessagePath: ft(L()(r)), sendMessageTitle: "您好,回复任意消息继续", sendMessageImg: m.static_resources_url + m.pay_tips_img_url, complete: function () {
+              vt.inst.log("客服：complete！查询订单状态", m.cmmPlatPayInfo), t.checkOrderStatus(m.cmmPlatPayInfo);
+            } };vt.inst.log("客服卡片", n), wx.openCustomerServiceConversation(n);
+        } }, { key: "platPayMiniProgram", value: function () {
+          var t = { appId: m.cmmPlatPayInfo.payWays.jump.appid, path: m.cmmPlatPayInfo.payWays.jump.path, extraData: m.cmmPlatPayInfo.payWays.jump.extra_data, envVersion: m.cmmPlatPayInfo.payWays.jump.env_version, complete: function () {
+              vt.inst.log("小程序支付1", m.cmmPlatPayInfo);
+            } };vt.inst.log("小程序支付2", t), wx.navigateToMiniProgram(t);
         } }, { key: "platPayEnterprise", value: function () {
-          var t,
-              e = St(m.cmmPlatPayInfo.payWays || [], m.entityPayWays[m.initOps.platId][f.enterprise]),
-              r = mt();e.length > 0 ? r ? m.dwPlatExtInfo.pay_open === l.open && this.platPayCs() : m.cmmPlatPayInfo.payWays && Nt()(t = m.cmmPlatPayInfo.payWays).call(t, u.midas) ? this.platPayMidas() : this.platPayCs() : wt.inst.error("该支付方式暂不支持");
+          1 === m.cmmPlatPayInfo.payWays.pay_type ? this.platPayMidas() : 2 === m.cmmPlatPayInfo.payWays.pay_type ? this.platPayCs() : 3 === m.cmmPlatPayInfo.payWays.pay_type ? this.platPayMiniProgram() : vt.inst.error("该支付方式暂不支持");
         } }, { key: "platPayIndividual", value: function () {
-          var t = St(m.cmmPlatPayInfo.payWays || [], m.entityPayWays[m.initOps.platId][f.individual]),
-              e = mt();t.length > 0 ? e ? m.dwPlatExtInfo.pay_open === l.open && this.platPayCs() : this.platPayCs() : wt.inst.error("该支付方式暂不支持");
+          1 === m.cmmPlatPayInfo.payWays.pay_type || 2 === m.cmmPlatPayInfo.payWays.pay_type ? this.platPayCs() : vt.inst.error("该支付方式暂不支持");
         } }]), n;
-    }(Xt),
-        $t = function (t) {
+    }(Ft),
+        Wt = function (t) {
       var e = null;switch (t) {case i.WXMG:case i.WXMINI:
-          e = new Qt();break;default:
-          e = null;}return e || (wt.inst.error("该平台ID不存在", t), null);
+          e = new Kt();break;default:
+          e = null;}return e || (vt.inst.error("该平台ID不存在", t), null);
     },
-        Zt = function (t, e) {
+        Ut = function (t, e) {
       switch (t) {case s.createRole:
           m.mPlat && m.mPlat.uploadGameRoleInfo(s.createRole, e);break;case s.upRoleLevel:
           m.mPlat && m.mPlat.uploadGameRoleInfo(s.upRoleLevel, e);break;case s.enterGame:
           m.mPlat && m.mPlat.uploadGameRoleInfo(s.enterGame, e);break;case s.online:
           m.mPlat && m.mPlat.uploadGameRoleInfo(s.online, e);break;default:
-          wt.inst.error("该数据上报类型不存在", t);}
+          vt.inst.error("该数据上报类型不存在", t);}
     },
-        te = function () {
+        Gt = function () {
       function e() {
-        t(this, e), _(this, "_version", "1.0.0");
+        t(this, e), _(this, "_version", "1.5.0");
       }return g(e, [{ key: "init", value: function (t, e) {
           var r = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
-              n = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 1;m.initOps = t, m.callback = e, m.pkgName = t.pkgName || "", m.gameVersion = t.gameVersion || "", m.engineType = n, wt.inst.init(r), (m.mPlat = $t(t.platId) || void 0) && m.mPlat.init();
+              n = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 1;m.initOps = t, m.callback = e, m.pkgName = t.pkgName || "", m.gameVersion = t.gameVersion || "", m.engineType = n, vt.inst.init(r), (m.mPlat = Wt(t.platId) || void 0) && m.mPlat.init();
         } }, { key: "login", value: function (t) {
           m.loginCallback = t, m.mPlat && m.mPlat.login();
         } }, { key: "getPlatformSystemInfo", value: function (t) {
           m.checkInfoCallback = t, m.mPlat && m.mPlat.getPlatformSystemInfo();
         } }, { key: "uploadGameRoleInfo", value: function (t, e, r) {
-          r && (m.uploadGameRoleInfoCallback = r), Zt(t, e);
+          r && (m.uploadGameRoleInfoCallback = r), Ut(t, e);
         } }, { key: "pay", value: function (t, e) {
           e && (m.payCallback = e), m.mPlat && m.mPlat.createOrder(t);
         } }, { key: "goCs", value: function () {
           m.mPlat && m.mPlat.goCs();
+        } }, { key: "goCsBindphone", value: function () {
+          m.mPlat && m.mPlat.goCsBindphone();
         } }, { key: "checkSDKEnv", value: function (t, e) {
           m.checkGameInfoCallback = t, m.mPlat && m.mPlat.checkSDKEnv(e);
-        } }, { key: "onVerifiedWin", value: function () {
-          console.log("查询用户游戏币余额");
+        } }, { key: "midasGetBalance", value: function () {
+          console.log("查询用户游戏币余额"), m.mPlat && m.mPlat.midasGetBalance();
         } }, { key: "version", get: function () {
           return this._version;
         } }]), e;
-    }();window && (window.dwPlatformSDK = te);var ee = new te();m.sdkVersion = ee.version, window && (window.dwPlatformSDK = ee);
+    }();window && (window.dwPlatformSDK = Gt);var Vt = new Gt();m.sdkVersion = Vt.version, window && (window.dwPlatformSDK = Vt);
   }();
 }();

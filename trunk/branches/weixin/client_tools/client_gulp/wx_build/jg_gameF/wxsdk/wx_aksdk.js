@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_tjqygjhol_FW', //盛也微信小游戏--飞仙服-鬼剑豪
     partner_label: 'shengye2',
     partner_id: '398',
-    game_ver: '6.0.20',
+    game_ver: '6.0.26',
     is_auth: false, //授权登录
     tmpId: {1:'r9EXyfU6PuWuCRkUp7C9ndzw9ak29C7FoEk3-zjJgsk', 2:'hAW1dt8vCojsgnK5EWpAqO6R_8_tN-BuwRSKWN-1zTs', 3:'XX3rRSCxKDWGYhATlC-jj_QTOd5kCzJBXv0HWCYbsMo'},  // 订阅的类型 和 模板id
 };
@@ -224,11 +224,32 @@ function mainSDK() {
 
                 //记录开始分享
                 self.logStartShare(type);
+                self.logSheyeShare();
                 wx.shareAppMessage({
                     title: data.title,
                     imageUrl: data.img,
                     query: data.query,
                 });
+            });
+        },
+
+        logSheyeShare:function(){
+            var params = {
+                openid:partner_user_data.openid,
+                server_id:user_game_info.server_id
+            }
+            wx.request({
+                url: 'https://' + HOST + '/partner/data/report_share/'+config.partner_id+'/'+config.game_pkg,
+                method: 'POST',
+                dataType: 'json',
+                header: {
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                data: params,
+                success: function (res) {
+                    console.log('[SDK]分享上报渠道：'+JSON.stringify(params));
+                    console.log('[SDK]分享上报渠道结果：'+JSON.stringify(res));
+                }
             });
         },
 
