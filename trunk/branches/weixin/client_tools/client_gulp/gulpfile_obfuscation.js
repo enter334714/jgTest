@@ -7596,6 +7596,244 @@ gulp.task('build-babel-obfuscator-Z_5', function (cb) {
 
 /**-------------------------------------------------微信小游戏--Z5包 诗淇-主宰领域 end-----------------------------------------------------------*/
 
+/**-------------------------------------------------微信小游戏--Z6 天剑vs千禧--天命传说 start-----------------------------------------------------------*/
+
+
+/**Z_6包参数*/
+var set_param_Z_6 = function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = '../../client/wx_dist/packageZ_6/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameZ_6';
+        INIT_PATH = '/';
+        // SCOPE = 'abcdefghklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ij';
+        PREFIX = 'C$';
+        sourceProject = "wx_build/jg_gameZ_6_new";
+        targetProject = "wx_build/jg_gameZ_6_obfuscator";
+        targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
+        mainJsName = "DD882MDD88IDD882.js";
+        libsMainJs = "DD882GDD88MEDD882.js";
+        packageName1 = "DD882IDD882";
+        packageName2 = "DD882pftDD882";
+        packageName3 = "DD88DD88DD88DD88DD88";
+        var clinetPbName = "DD88DD88IENDD88DD88.js";
+        filesMap = {
+            //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
+            "libs": {url:packageName1},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
+            "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
+            "index.js": {url:packageName1+"/DD88INDDD88DD88.js",extractStr:true,count:1,strLen:3},
+            "init.min.js":  {url:packageName1+"/DD88DD88INIDD88aDD88.js",extractStr:true,count:1,strLen:3,replace:true},
+            "libs/dom.js":  {url:packageName1+"/DD88DD88DODD88DD88.js"},
+            "libs/dom_parser.js":  {url:packageName1+"/DD88DD88parsaDD88.js"},
+            "libs/laya.wxmini.js":  {url:packageName1+"/DD88DD88MtadDD88DD88.js"},
+            "libs/libs.min.js":  {url:packageName1+"/DD88DD88IDD881DD88DD88.js",extractStr:false,count:5,strLen:3},
+            "libs/md5.min.js":  {url:packageName1+"/DD88DD88bfDD88DD88.js"},
+            "libs/sax.js":  {url:packageName1+"/DD88DD88cDD88DD88.js"},
+            "libs/weapp-adapter.js":  {url:"xv2/DD88DD88E4DD88DD88.js"},
+            "libs/zlib.js":  {url:packageName1+"/DD88DD8811DD88DD88.js"},
+            "wxsdk":  {url:"DD88DD88basdDD88"},
+            "wxsdk/wx_aksdk.js":  {url:"DD88DD88basdDD88/DD885sdkDD88.js",extractStr:true,count:1,strLen:3},
+            "wxsdk/helper.js":  {url:"DD88DD88basdDD88/a5sshDD88DD88.js",extractStr:true,count:1,strLen:3},
+            "protobuf":  {url:packageName2},
+            "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:2,strLen:3},
+            "protobuf/protobuf.js":  {url: packageName2 + "/DD88DD88FDD88DD88.js",extractStr:true,count:2,strLen:3},
+            "protobuf/game.js":  {url: packageName2 + "/game.js",extractStr:true,count:5,strLen:3},
+            "subPackage":  {url:packageName3},
+            "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
+            "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
+            "untils/ddtSDKPlat.js":  {url:"untils/ddtSDKPlat.js",extractStr:false,count:1,strLen:3},
+            "wxloading_atlas": {url:"DD88DD88dDD88"},
+            "wxlogin_atlas": {url:"DD88DD88lgrDD88DD88"},
+            "wxeff_btn_atlas":{url:"DD88yDD88"},
+
+
+            "wxloading_atlas/btn_loding_abcelq0.png": {url:"DD88DD88dDD88/DD88DD881a.png"},
+            "wxloading_atlas/btn_loding_abcelq1.png": {url:"DD88DD88dDD88/DD88DD882a.png"},
+            "wxloading_atlas/image_loading_bg.jpg": {url:"DD88DD88dDD88/DD88DD883a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom.jpg": {url:"DD88DD88dDD88/DD88DD884a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom2.jpg": {url:"DD88DD88dDD88/DD88DD885a.jpg"},
+            "wxloading_atlas/image_loading_bg_left.jpg": {url:"DD88DD88dDD88/DD88DD886a.jpg"},
+            "wxloading_atlas/image_loading_bg_left2.jpg": {url:"DD88DD88dDD88/DD88DD887a.jpg"},
+            "wxloading_atlas/image_loading_bg_right.jpg": {url:"DD88DD88dDD88/DD88DD888a.jpg"},
+            "wxloading_atlas/image_loading_bg_right2.jpg": {url:"DD88DD88dDD88/DD88DD889a.jpg"},
+            "wxloading_atlas/image_loading_bg_top.jpg": {url:"DD88DD88dDD88/DD88DD8810a.jpg"},
+            "wxloading_atlas/image_loading_bg_top2.jpg": {url:"DD88DD88dDD88/DD88DD8811a.jpg"},
+            "wxloading_atlas/image_loading_bg2.jpg": {url:"DD88DD88dDD88/DD88DD8812a.jpg"},
+
+
+            "wxloading_atlas/image_loding_bar0.png": {url:"DD88DD88dDD88/DD88DD8813a.png"},
+            "wxloading_atlas/image_loding_bar1.png": {url:"DD88DD88dDD88/DD88DD8814a.png"},
+            "wxloading_atlas/image_loding_bar02.png": {url:"DD88DD88dDD88/DD88DD8815a.png"},
+            "wxloading_atlas/image_loding_bar2.png": {url:"DD88DD88dDD88/DD88DD8816a.png"},
+            "wxloading_atlas/image_loding_bar3.png": {url:"DD88DD88dDD88/DD88DD8817a.png"},
+            "wxloading_atlas/image_login_point1.png": {url:"DD88DD88dDD88/DD88DD8818a.png"},
+            "wxloading_atlas/image_login_point2.png": {url:"DD88DD88dDD88/DD88DD8819a.png"},
+            "wxloading_atlas/image_login_point3.png": {url:"DD88DD88dDD88/DD88DD8820a.png"},
+
+
+            "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"DD88DD88lgrDD88DD88/DD88DD881b.png"},
+            "wxlogin_atlas/image_login_loginbg.jpg": {url:"DD88DD88lgrDD88DD88/DD88DD882b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_bottom.jpg": {url:"DD88DD88lgrDD88DD88/DD88DD883b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_left.jpg": {url:"DD88DD88lgrDD88DD88/DD88DD884b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_right.jpg": {url:"DD88DD88lgrDD88DD88/DD88DD885b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_top.jpg": {url:"DD88DD88lgrDD88DD88/DD88DD886b.jpg"},
+            "wxlogin_atlas/image_login_logo.png": {url:"DD88DD88lgrDD88DD88/DD88DD887b.png"},
+            "wxlogin_atlas/image_login_notice.png": {url:"DD88DD88lgrDD88DD88/DD88DD888b.png"},
+            "wxlogin_atlas/image_xuanfu_xfbg.png": {url:"DD88DD88lgrDD88DD88/DD88DD889b.png"},
+
+            "wxlogin_atlas/btn_com_chuangback.png": {url:"DD88DD88lgrDD88DD88/DD88DD8810b.png"},
+            "wxlogin_atlas/btn_login_gonggao.png": {url:"DD88DD88lgrDD88DD88/DD88DD8811b.png"},
+            "wxlogin_atlas/btn_login_loginanniu.png": {url:"DD88DD88lgrDD88DD88/DD88DD8812b.png"},
+            "wxlogin_atlas/btn_login_yingsi.png": {url:"DD88DD88lgrDD88DD88/DD88DD8813b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniuhuang.png": {url:"DD88DD88lgrDD88DD88/DD88DD8814b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniulan.png": {url:"DD88DD88lgrDD88DD88/DD88DD8815b.png"},
+            "wxlogin_atlas/btn_xuanqu_quanniu.png": {url:"DD88DD88lgrDD88DD88/DD88DD8816b.png"},
+            "wxlogin_atlas/image_com_tuichu.png": {url:"DD88DD88lgrDD88DD88/DD88DD8817b.png"},
+            "wxlogin_atlas/image_login_changtong.png": {url:"DD88DD88lgrDD88DD88/DD88DD8818b.png"},
+            "wxlogin_atlas/image_login_fanmang.png": {url:"DD88DD88lgrDD88DD88/DD88DD8819b.png"},
+            "wxlogin_atlas/image_login_weihu.png": {url:"DD88DD88lgrDD88DD88/DD88DD8820b.png"},
+            "wxlogin_atlas/image_login_xuanqubg.png": {url:"DD88DD88lgrDD88DD88/DD88DD8821b.png"},
+            "wxlogin_atlas/image_login_init.png": {url:"DD88DD88lgrDD88DD88/DD88DD8822b.png"},
+            "wxlogin_atlas/btn_com_chuangback1.png": {url:"DD88DD88lgrDD88DD88/DD88DD8823b.png"},
+            "wxlogin_atlas/btn_com_long0.png": {url:"DD88DD88lgrDD88DD88/DD88DD8824b.png"},
+            "wxlogin_atlas/btn_com_long1.png": {url:"DD88DD88lgrDD88DD88/DD88DD8825b.png"},
+            "wxlogin_atlas/image_login_notice1.png": {url:"DD88DD88lgrDD88DD88/DD88DD8826b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"DD88DD88lgrDD88DD88/DD88DD8827b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"DD88DD88lgrDD88DD88/DD88DD8828b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"DD88DD88lgrDD88DD88/DD88DD8829b.png"},
+
+            "wxeff_btn_atlas/0.png": {url:"DD88yDD88/DD88DD881c.png"},
+            "wxeff_btn_atlas/1.png": {url:"DD88yDD88/DD88DD882c.png"},
+            "wxeff_btn_atlas/2.png": {url:"DD88yDD88/DD88DD883c.png"},
+            "wxeff_btn_atlas/3.png": {url:"DD88yDD88/DD88DD884c.png"},
+            "wxeff_btn_atlas/4.png": {url:"DD88yDD88/DD88DD885c.png"},
+        };
+        mt1Replace = {
+            "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
+            "./helper": "./" + "a5sshDD88DD88",
+            "./sax": "./DD88DD88cDD88DD88",
+            "./dom": "./DD88DD88DODD88DD88",
+            "client_pb.js": clinetPbName,
+            "protobuf.js": "DD88DD88FDD88DD88.js",
+            "main.min.js": mainJsName,
+            "wxlogin_atlas": "DD88DD88lgrDD88DD88",
+            "wxeff_btn_atlas": "DD88yDD88",
+            "wxloading_atlas": "DD88DD88dDD88",
+            // "res/atlas/": "gafda/",
+
+            "btn_loding_abcelq0.png": "DD88DD881a.png",
+            "btn_loding_abcelq1.png": "DD88DD882a.png",
+            "image_loading_bg.jpg": "DD88DD883a.jpg",
+            "image_loading_bg_bottom.jpg": "DD88DD884a.jpg",
+            "image_loading_bg_bottom2.jpg": "DD88DD885a.jpg",
+            "image_loading_bg_left.jpg": "DD88DD886a.jpg",
+            "image_loading_bg_left2.jpg": "DD88DD887a.jpg",
+            "image_loading_bg_right.jpg": "DD88DD888a.jpg",
+            "image_loading_bg_right2.jpg": "DD88DD889a.jpg",
+            "image_loading_bg_top.jpg": "DD88DD8810a.jpg",
+            "image_loading_bg_top2.jpg": "DD88DD8811a.jpg",
+            "image_loading_bg2.jpg": "DD88DD8812a.jpg",
+
+
+            "image_loding_bar0.png": "DD88DD8813a.png",
+            "image_loding_bar1.png": "DD88DD8814a.png",
+            "image_loding_bar02.png": "DD88DD8815a.png",
+            "image_loding_bar2.png": "DD88DD8816a.png",
+            "image_loding_bar3.png": "DD88DD8817a.png",
+            "image_login_point1.png": "DD88DD8818a.png",
+            "image_login_point2.png":"DD88DD8819a.png",
+            "image_login_point3.png": "DD88DD8820a.png",
+
+
+
+            "image_denglu_txtshenpi.png": "DD88DD881b.png",
+            "image_login_loginbg.jpg": "DD88DD882b.jpg",
+            "image_login_loginbg_bottom.jpg": "DD88DD883b.jpg",
+            "image_login_loginbg_left.jpg": "DD88DD884b.jpg",
+            "image_login_loginbg_right.jpg": "DD88DD885b.jpg",
+            "image_login_loginbg_top.jpg": "DD88DD886b.jpg",
+            "image_login_logo.png": "DD88DD887b.png",
+            "image_login_notice.png": "DD88DD888b.png",
+            "image_xuanfu_xfbg.png": "DD88DD889b.png",
+
+            "btn_com_chuangback.png": "DD88DD8810b.png",
+            "btn_login_gonggao.png": "DD88DD8811b.png",
+            "btn_login_loginanniu.png": "DD88DD8812b.png",
+            "btn_login_yingsi.png": "DD88DD8813b.png",
+            "btn_xuanqu_anniuhuang.png": "DD88DD8814b.png",
+            "btn_xuanqu_anniulan.png": "DD88DD8815b.png",
+            "btn_xuanqu_quanniu.png": "DD88DD8816b.png",
+            "image_com_tuichu.png": "DD88DD8817b.png",
+            "image_login_changtong.png": "DD88DD8818b.png",
+            "image_login_fanmang.png": "DD88DD8819b.png",
+            "image_login_weihu.png": "DD88DD8820b.png",
+            "image_login_xuanqubg.png": "DD88DD8821b.png",
+            "image_login_init.png": "DD88DD8822b.png",
+            "btn_com_chuangback1.png": "DD88DD8823b.png",
+            "btn_com_long0.png":"DD88DD8824b.png",
+            "btn_com_long1.png":"DD88DD8825b.png",
+            "image_login_notice1.png":"DD88DD8826b.png",
+            "image_loding_txtbhcc.png":"DD88DD8827b.png",
+            "image_xuanfu_gx0.png": "DD88DD8828b.png",
+            "image_xuanfu_gx1.png": "DD88DD8829b.png",
+
+            "0.png": "DD88DD881c.png",
+            "1.png": "DD88DD882c.png",
+            "2.png": "DD88DD883c.png",
+            "3.png": "DD88DD884c.png",
+            "4.png": "DD88DD885c.png",
+
+        }
+        strFilePath = "Z6es";
+        strFileName = "/Z6iles.zip";
+        // globleKeys = ["$e", "w", "x", "E$", "y"];
+        globleKeys = ["$E", "G", "e", "E1", "E"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        noReplaceJs = packageName1+"/game.js";
+        arrIndex = 580000;
+        globleArrs = new Array(arrIndex);
+        numberToHex = false;
+        // needShuffle = true;
+        str_leading1 = "CD6R_3TWJBL$KPMZ985NOQ1IVUGYHFS24EA07X";
+        str_leading2 = "oxlnypgh9uaqrvw8f7mb4c$k65jdi1e_ts230z";
+        for(var key in  filesMap){
+            var item = filesMap[key];
+            var url = item.url;
+            targetFileMap[url] = item;
+            var repalce = item.replace;
+            if(repalce){
+                replaceMap[url] = true;
+            }
+        }
+        replaceMap[targetGameJs] = true;
+        cb();
+        this.emit("data", file);
+    }
+
+// 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-Z_6', function () {
+
+    var stream = gulp.src("")
+        .pipe(set_param_Z_6())
+    return stream;
+});
+
+//混淆
+gulp.task('build-babel-obfuscator-Z_6', function (cb) {
+    sequence("set-param-Z_6","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+});
+
+
+
+/**-------------------------------------------------微信小游戏--Z6包 天剑vs千禧--天命传说 end-----------------------------------------------------------*/
 
 
 /**文件压缩*/
@@ -9093,6 +9331,14 @@ gulp.task('CREATE_REFUSEFILE_Z_5', function (cb) {
 
 gulp.task('DEL_REFUSEFILE_Z_5', function (cb) {
     sequence("set-param-Z_5","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_Z_6', function (cb) {
+    sequence("set-param-Z_6","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_Z_6', function (cb) {
+    sequence("set-param-Z_6","DEL_REFUSEFILE",cb)
 });
 
 //无网络 使用这个图片压缩
