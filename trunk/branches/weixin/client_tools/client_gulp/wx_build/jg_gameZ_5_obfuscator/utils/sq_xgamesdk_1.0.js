@@ -1,28 +1,24 @@
 var F = wx.$D;
 // ** sq_xgamesdk v1.0
-var config = { game_id: '', /*10003*/package_name: '', /*cq_wxmin_1*/package_version: '1', chanel_id: 50 };
+var config = { game_id: '', /*10003*/package_name: '', /*cq_wxmin_1*/package_version: '1', channel_id: 50 };
 var SQ_XGAMESDK = xgamesdk();var HOST = 'https://xzsdk.wdiyi.com';var game_version = '';var D1W4I2X = null;var is_init = 0;
 function xgamesdk() {
-  var a = {};return { order_info: {}, init: function (g, i) {
+  var a = {};return { order_info: {}, init: function (g, h) {
       console.log("SQ_XGAMESDK:CP调用init接口");game_version = g && g.game_version ? g.game_version : 0;var b = g && g.game_id ? g.game_id : "";var d = g && g.package_name ? g.package_name : "";var e = g && g.package_version ? g.package_version : "";if (b == "" || d == "" || e == "") {
-        i && i(0, {}, "初始化失败");return;
+        h && h(0, {}, "初始化失败");return;
       }config.game_id = b;config.package_name = d;config.package_version = e;var f = wx.getStorageSync("xz_pt_uuid");var c;if (!f) {
         f = this.uuid(16, 32);wx.setStorageSync("xz_pt_uuid", f);c = 1;
       } else {
         c = 0;
-      }var h = wx.getLaunchOptionsSync();console.log("SQ_XGAMESDK:小游戏启动参数");console.log(JSON.stringify(h));if (c && h.query) {
-        if (h.query.adcode) {
-          wx.setStorageSync("xz_pt_adcode", h.query.adcode);
-        }
-      }this.active({ is_first_active: c });if (game_version) {
-        this.checkDev(game_version, function (j) {
-          i && i(1, j, "初始化成功");
+      }this.active({ is_first_active: c });wx.showShareMenu();if (game_version) {
+        this.checkDev(game_version, function (i) {
+          h && h(1, i, "初始化成功");
         });
       } else {
-        i && i(1, g, "初始化成功");
+        h && h(1, g, "初始化成功");
       }is_init = 1;
     }, checkDev: function (b, c) {
-      console.log("SQ_XGAMESDK:检查游戏版本");wx.request({ url: HOST + "/?ct=xgame&ac=checkDev", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: { game_id: config.game_id, game_version: b, package_version: config.package_version, chanel_id: config.chanel_id, package_name: config.package_name }, success: function (d) {
+      console.log("SQ_XGAMESDK:检查游戏版本");wx.request({ url: HOST + "/?ct=xgame&ac=checkDev", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: { game_id: config.game_id, game_version: b, package_version: config.package_version, channel_id: config.channel_id, package_name: config.package_name }, success: function (d) {
           console.log("SQ_XGAMESDK:获取游戏版本结果");console.log(d.data);if (d.statusCode == 200) {
             var e = d.data;if (e.state) {
               c && c({ develop: e.data.develop });
@@ -35,34 +31,38 @@ function xgamesdk() {
         }, fail: function (d) {
           console.log(d);
         } });
-    }, active: function (c, e) {
-      var d = this;var b = d.getCommonParams();b.is_first_active = c.is_first_active;wx.request({ url: HOST + "/?ct=xgame&ac=active", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: b, success: function (f) {
-          console.log("SQ_XGAMESDK:初始化接口结果：");console.log(f.data);
+    }, active: function (d, g) {
+      var f = this;var e = wx.getLaunchOptionsSync();var c = JSON.stringify(e);console.log("SQ_XGAMESDK:小游戏启动参数");console.log(JSON.stringify(e));if (d.is_first_active && e.query) {
+        if (e.query.adcode) {
+          wx.setStorageSync("xz_pt_adcode", e.query.adcode);
+        }
+      }var b = f.getCommonParams();b.launch_options = c;b.is_first_active = d.is_first_active;wx.request({ url: HOST + "/?ct=xgame&ac=active", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: b, success: function (h) {
+          console.log("SQ_XGAMESDK:初始化接口结果：");console.log(h.data);
         } });
-    }, login: function (b, d) {
-      var c = this;console.log("SQ_XGAMESDK:调起登录");a["login"] = typeof d == "function" ? d : null;if (!is_init) {
+    }, login: function (c, f) {
+      var e = this;console.log("SQ_XGAMESDK:调起登录");a["login"] = typeof f == "function" ? f : null;if (!is_init) {
         a["login"] && a["login"](0, {}, "请先初始化平台sdk");return;
-      }wx.login({ success: function (e) {
-          console.log("微信登录成功返回" + JSON.stringify(e));if (e.code) {
-            var f = c.getCommonParams();f["code"] = e.code;wx.request({ url: HOST + "/?ct=xgame&ac=login", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: f, success: function (h) {
-                console.log("SQ_XGAMESDK:登录接口结果：");console.log(h.data);if (h.statusCode == 200) {
-                  var i = h.data;if (i.state) {
-                    var g = { uid: i.data.uid, code: i.data.code };try {
-                      wx.setStorageSync("xz_pt_uid", i.data.uid);wx.setStorageSync("xz_pt_sdk_token", i.data.sdk_token);wx.setStorageSync("xz_pt_sk", i.data.sk);
-                    } catch (j) {}a["login"] && a["login"](1, g);
+      }var d = wx.getLaunchOptionsSync();var b = JSON.stringify(d);wx.login({ success: function (g) {
+          console.log("微信登录成功返回" + JSON.stringify(g));if (g.code) {
+            var h = e.getCommonParams();h["code"] = g.code;h["launch_options"] = b;wx.request({ url: HOST + "/?ct=xgame&ac=login", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: h, success: function (j) {
+                console.log("SQ_XGAMESDK:登录接口结果：");console.log(j.data);if (j.statusCode == 200) {
+                  var k = j.data;if (k.state) {
+                    var i = { uid: k.data.uid, code: k.data.code };try {
+                      wx.setStorageSync("xz_pt_uid", k.data.uid);wx.setStorageSync("xz_pt_sdk_token", k.data.sdk_token);wx.setStorageSync("xz_pt_sk", k.data.sk);
+                    } catch (l) {}a["login"] && a["login"](1, i);
                   } else {
-                    a["login"] && a["login"](0, {}, i.msg);
+                    a["login"] && a["login"](0, {}, k.msg);
                   }
                 } else {
                   a["login"] && a["login"](0, {}, "平台服务器请求错误");
                 }
               } });
           } else {
-            a["login"] && a["login"](0, {}, e.errMsg);
+            a["login"] && a["login"](0, {}, g.errMsg);
           }
-        }, fail: function (e) {
-          console.log("微信登录失败" + JSON.stringify(e));if (e.errMsg.indexOf("auth deny") > -1 || e.errMsg.indexOf("auth denied") > -1) {
-            a["login"] && a["login"](0, {}, e.errMsg);
+        }, fail: function (g) {
+          console.log("微信登录失败" + JSON.stringify(g));if (g.errMsg.indexOf("auth deny") > -1 || g.errMsg.indexOf("auth denied") > -1) {
+            a["login"] && a["login"](0, {}, g.errMsg);
           }
         } });
     }, role: function (d) {
@@ -157,7 +157,7 @@ function xgamesdk() {
         }
       }return d.join("");
     }, getCommonParams: function () {
-      var d = wx.getSystemInfoSync();var c = wx.getStorageSync("xz_pt_adcode");var b = wx.getStorageSync("xz_pt_uuid");return { game_id: config.game_id, package_name: config.package_name, package_version: config.package_version, channel_id: config.chanel_id, uuid: b, device_name: d.model, device_version: d.system, game_version: game_version, platform: d.platform, device_type: d.platform == "android" ? 2 : 1, adcode: c };
+      var d = wx.getSystemInfoSync();var c = wx.getStorageSync("xz_pt_adcode");var b = wx.getStorageSync("xz_pt_uuid");return { game_id: config.game_id, package_name: config.package_name, package_version: config.package_version, channel_id: config.channel_id, uuid: b, device_name: d.model, device_version: d.system, game_version: game_version, platform: d.platform, device_type: d.platform == "android" ? 2 : 1, adcode: c };
     }, msgCheck: function (d, e) {
       console.log("[SQ_XGAMESDK]查看文本是否有违规内容");d = d || "";var c = wx.getStorageSync("xz_pt_uid");if (!is_init) {
         return;
