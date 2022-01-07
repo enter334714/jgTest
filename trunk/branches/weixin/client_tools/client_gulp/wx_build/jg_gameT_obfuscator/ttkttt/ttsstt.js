@@ -10,10 +10,10 @@ export default class Dall {
         let that = this;
         wx.request({
             url: M[1720] + HOST + M[1808] + partner_id + '/' + game_pkg,
-            method: M[1119],
-            dataType: M[393],
+            method: M[220],
+            dataType: M[1171],
             header: {
-                'content-type': M[1255] // 默认值
+                'content-type': M[364] // 默认值
             },
             data: {
                 username: username,

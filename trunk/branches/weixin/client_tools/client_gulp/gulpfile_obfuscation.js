@@ -7647,9 +7647,10 @@ var set_param_Z_6 = function () {
             "subPackage":  {url:packageName3},
             "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
             "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
-            "untils/ddtSDKPlat.js":  {url:"untils/ddtSDKPlat.js",extractStr:false,count:1,strLen:3},
+            "utils/qxMiniSDK.js":{url:"utils/qxMiniSDK.js",addGlobleKeys0:false,extractStr:false},
             "wxloading_atlas": {url:"DD88DD88dDD88"},
             "wxlogin_atlas": {url:"DD88DD88lgrDD88DD88"},
+
             "wxeff_btn_atlas":{url:"DD88yDD88"},
 
 

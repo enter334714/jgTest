@@ -1,0 +1,93 @@
+var G = wx.$E;
+const a = ['./base64/qx_base64.min.js', 'encode', 'replace', 'decode', 'test', 'length', 'floor', 'push', 'substr', 'join', 'forEach', 'max'];const b = function (c, d) {
+  c = c - 0x0;let e = a[c];return e;
+};const z = function (c, d) {
+  return b(c - -'0x2e7', d);
+},
+      { Base64 } = require(z(-'0x2e7'));let requestKey = '',
+    returnKey = '';function _base64Encode(c) {
+  const A = function (c, d) {
+    return z(c - -'0x259', d);
+  };let d = Base64[A(-'0x53f')](c);return d[A(-'0x53e')](/\+/g, '-')[A(-'0x53e')](/\//g, '_')[A(-'0x53e')](/=/g, '');
+}function _base64Decode(c) {
+  const B = function (c, d) {
+    return z(c - -'0x205', d);
+  };return Base64[B(-'0x4e9')](c[B(-'0x4ea')](/-/g, '+')[B(-'0x4ea')](/_/g, '/'));
+}export function requestEncrypt(c, d = '') {
+  const C = function (c, d) {
+    return z(c - '0x65', d);
+  };requestKey = d;if (!/^[0-9a-zA-Z]{1,}$/[C(-'0x27e')](requestKey)) return;let e = _base64Encode(c),
+      f = e + requestKey,
+      g = f[C(-'0x27d')],
+      h = Math[C(-'0x27c')](g / 0x6);if (h < 0x2) return { 'base64_encode': e, 'e': f };let j = h - 0x1,
+      k = 0x0,
+      l = g,
+      m = [],
+      n = [],
+      o = [],
+      p = 0x0;while (!![]) {
+    if (k % 0x2 === 0x0) {
+      if (l / j > 0x1) n[C(-'0x27b')](f[C(-'0x27a')](p, j));else {
+        o[C(-'0x27b')](f[C(-'0x27a')](p));break;
+      }p += j, l = l - j;
+    } else {
+      if (l / h > 0x1) m[C(-'0x27b')](f[C(-'0x27a')](p, h));else {
+        o[C(-'0x27b')](f[C(-'0x27a')](p));break;
+      }p += h, l = l - h;
+    }k++;
+  }return { 'base64_encode': e, 'e': o[C(-'0x279')]('') + m[C(-'0x279')]('') + n[C(-'0x279')]('') };
+}export function requestDecrypt(c, d = '') {
+  const D = function (c, d) {
+    return z(c - -'0x1da', d);
+  };requestKey = d;if (!/^[0-9a-zA-Z]{1,}$/[D(-'0x4bd')](requestKey)) return;let e = decodeURI(c),
+      f = e[D(-'0x4bc')],
+      g = Math[D(-'0x4bb')](f / 0x6),
+      h = g - 0x1,
+      j = 0x0,
+      k = f,
+      l = [],
+      m = [],
+      n,
+      o;if (g < 0x2) return n = requestKey[D(-'0x4bc')], o = e[D(-'0x4b9')](0x0, f - n), { 'base64_encode': o, 'd': _base64Decode(o) };while (!![]) {
+    if (j % 0x2 === 0x0) {
+      if (k / h > 0x1) l[D(-'0x4ba')](h);else break;k = k - h;
+    } else {
+      if (k / g > 0x1) m[D(-'0x4ba')](g);else break;k = k - g;
+    }j++;
+  }let p = [],
+      q = [],
+      r = 0x0,
+      s = l[D(-'0x4bc')];l[D(-'0x4b7')]((x, y) => {
+    const E = function (c, d) {
+      return D(c - -'0x26c', d);
+    };r -= h, p[s - 0x1 - y] = e[E(-'0x725')](r, h);
+  }), s = m[D(-'0x4bc')], m[D(-'0x4b7')]((x, y) => {
+    const F = function (c, d) {
+      return D(c - '0x72', d);
+    };r -= g, q[s - 0x1 - y] = e[F(-'0x447')](r, g);
+  });let u = e[D(-'0x4b9')](0x0, f + r);j = 0x0;let v = Math[D(-'0x4b6')](p[D(-'0x4bc')], q[D(-'0x4bc')]),
+      w = '';for (j = 0x0; j < v; j++) {
+    p[j] && (w += p[j]), q[j] && (w += q[j]);
+  }return w += u, n = requestKey[D(-'0x4bc')], w = w[D(-'0x4b9')](0x0, f - n), { 'base64_encode': w, 'd': _base64Decode(w) };
+}export function returnDecrypt(c, d = '') {
+  const G = function (c, d) {
+    return z(c - '0x367', d);
+  };returnKey = d;if (!/^[0-9a-zA-Z]{1,}$/[G('0x84')](returnKey)) return;let e = c,
+      f = e[G('0x85')],
+      g = Math[G('0x86')](f / 0x4),
+      h,
+      j;if (g < 0x2) return h = returnKey[G('0x85')], j = e[G('0x88')](0x0, f - h), { 'base64_encode': j, 'd': _base64Decode(j) };let k = 0x0,
+      l = f,
+      m = [];while (!![]) {
+    if (l / g > 0x1) m[G('0x87')](g);else break;l = l - g, k++;
+  }let n = [],
+      o = 0x0,
+      p = m[G('0x85')];m[G('0x8a')]((u, w) => {
+    const H = function (c, d) {
+      return G(c - -'0x214', d);
+    };o -= g, n[p - 0x1 - w] = e[H(-'0x18c')](o, g);
+  });let q = e[G('0x88')](0x0, f + o);k = 0x0;let r = n[G('0x85')],
+      s = '';for (k = 0x0; k < r; k++) {
+    n[k] && (s += n[k]);
+  }return s += q, h = returnKey[G('0x85')], s = s[G('0x88')](0x0, f - h), { 'base64_encode': s, 'd': _base64Decode(s) };
+}

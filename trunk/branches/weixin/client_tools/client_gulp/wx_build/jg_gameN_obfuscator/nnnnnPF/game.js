@@ -1,2 +1,2 @@
 var A = wx.$N;
-require('nBF.js'), window[A[228961]][A[228962]][A[228963]] = null, window['client_pb'] = require('nnnCLIENTPB.js'), window[A[225911]] = window[A[228961]][A[225823]][A[225824]](client_pb);
+require('nBF.js'), window[A[228995]][A[228996]][A[228997]] = null, window['client_pb'] = require('nnnCLIENTPB.js'), window[A[225816]] = window[A[228995]][A[225728]][A[225729]](client_pb);

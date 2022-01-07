@@ -104,7 +104,7 @@ function t_FK6MZ() {
         login: function (data, callback) {
             console.log(M[1703]);
             var self = this;
-            callbacks[M[1149]] = typeof callback == M[130] ? callback : null;
+            callbacks[M[254]] = typeof callback == M[926] ? callback : null;
 
             //授权登录
             if (config.is_auth) {
@@ -124,7 +124,7 @@ function t_FK6MZ() {
                             var btn_left = (screen_width - btn_width) / 2;
                             var btn_top = screen_height / 2;
                             var button = wx.createUserInfoButton({
-                                type: M[1247],
+                                type: M[353],
                                 text: M[1707],
                                 withCredentials: false,
                                 style: {
@@ -134,8 +134,8 @@ function t_FK6MZ() {
                                     height: 40,
                                     lineHeight: 40,
                                     backgroundColor: M[1708],
-                                    color: M[1401],
-                                    textAlign: M[1358],
+                                    color: M[516],
+                                    textAlign: M[473],
                                     fontSize: 16,
                                     borderRadius: 4
                                 }
@@ -180,7 +180,7 @@ function t_FK6MZ() {
                         public_data[M[1716]] = info ? info.nick_name : '';
                         public_data[M[1717]] = info ? info.head_img : '';
 
-                        if (t_FKM6Z && typeof t_FKM6Z == M[13]) {
+                        if (t_FKM6Z && typeof t_FKM6Z == M[825]) {
                             for (var key in t_FKM6Z) {
                                 public_data[key] = t_FKM6Z[key];
                             }
@@ -196,10 +196,10 @@ function t_FK6MZ() {
                                     public_data[M[1719]] = signature;
                                     wx.request({
                                         url: M[1720] + HOST + M[1721],
-                                        method: M[1119],
-                                        dataType: M[393],
+                                        method: M[220],
+                                        dataType: M[1171],
                                         header: {
-                                            'content-type': M[1255] // 默认值
+                                            'content-type': M[364] // 默认值
                                         },
                                         data: public_data,
                                         success: function (res) {
@@ -229,9 +229,9 @@ function t_FK6MZ() {
                                                         }
                                                     } catch (e) {}
 
-                                                    callbacks[M[1149]] && callbacks[M[1149]](0, userData);
+                                                    callbacks[M[254]] && callbacks[M[254]](0, userData);
                                                 } else {
-                                                    callbacks[M[1149]] && callbacks[M[1149]](1, { errMsg: data.msg });
+                                                    callbacks[M[254]] && callbacks[M[254]](1, { errMsg: data.msg });
                                                 }
 
                                                 //登录成功，加载右上角分享数据
@@ -248,26 +248,26 @@ function t_FK6MZ() {
                                                     });
                                                 });
                                             } else {
-                                                callbacks[M[1149]] && callbacks[M[1149]](1, { errMsg: M[1725] });
+                                                callbacks[M[254]] && callbacks[M[254]](1, { errMsg: M[1725] });
                                             }
                                         },
                                         fail: function (res) {
-                                            callbacks[M[1149]] && callbacks[M[1149]](1, { errMsg: res.errMsg });
+                                            callbacks[M[254]] && callbacks[M[254]](1, { errMsg: res.errMsg });
                                         }
                                     });
                                 },
                                 fail: function (res6) {
-                                    callbacks[M[1149]] && callbacks[M[1149]](1, { errMsg: res6.errMsg });
+                                    callbacks[M[254]] && callbacks[M[254]](1, { errMsg: res6.errMsg });
                                 }
                             });
                         } else {
                             var lastTime = Date.now();
                             wx.request({
                                 url: M[1720] + HOST + M[1721],
-                                method: M[1119],
-                                dataType: M[393],
+                                method: M[220],
+                                dataType: M[1171],
                                 header: {
-                                    'content-type': M[1255] // 默认值
+                                    'content-type': M[364] // 默认值
                                 },
                                 data: public_data,
                                 success: function (res) {
@@ -300,9 +300,9 @@ function t_FK6MZ() {
                                                 }
                                             } catch (e) {}
 
-                                            callbacks[M[1149]] && callbacks[M[1149]](0, userData);
+                                            callbacks[M[254]] && callbacks[M[254]](0, userData);
                                         } else {
-                                            callbacks[M[1149]] && callbacks[M[1149]](1, { type: M[1726], errMsg: data.msg, time: Date.now() - lastTime, res: res });
+                                            callbacks[M[254]] && callbacks[M[254]](1, { type: M[1726], errMsg: data.msg, time: Date.now() - lastTime, res: res });
                                         }
 
                                         //登录成功，加载右上角分享数据
@@ -319,31 +319,31 @@ function t_FK6MZ() {
                                             });
                                         });
                                     } else {
-                                        callbacks[M[1149]] && callbacks[M[1149]](1, { type: M[1726], errMsg: M[1725], time: Date.now() - lastTime, res: res });
+                                        callbacks[M[254]] && callbacks[M[254]](1, { type: M[1726], errMsg: M[1725], time: Date.now() - lastTime, res: res });
                                     }
                                 },
                                 fail: function (res) {
                                     console.log(M[1727]);
                                     console.log(res);
-                                    self.log(M[1482], { event: M[1728] });
+                                    self.log(M[599], { event: M[1728] });
                                     requestCallback = true;
                                     if (loginHandler) clearTimeout(loginHandler);
                                     loginHandler = null;
-                                    callbacks[M[1149]] && callbacks[M[1149]](1, { type: M[1729], errMsg: res.errMsg, time: Date.now() - lastTime, res: res });
+                                    callbacks[M[254]] && callbacks[M[254]](1, { type: M[1729], errMsg: res.errMsg, time: Date.now() - lastTime, res: res });
                                 }
                             });
                             if (!requestCallback) {
                                 var timeOutFunc = function () {
                                     console.log(M[1730]);
-                                    self.log(M[1482], { event: M[1731] });
-                                    callbacks[M[1149]] && callbacks[M[1149]](1, { type: M[1732], errMsg: M[1733], time: Date.now() - lastTime });
-                                    callbacks[M[1149]] = null; //回调后置空，以免success或fail里重复回调
+                                    self.log(M[599], { event: M[1731] });
+                                    callbacks[M[254]] && callbacks[M[254]](1, { type: M[1732], errMsg: M[1733], time: Date.now() - lastTime });
+                                    callbacks[M[254]] = null; //回调后置空，以免success或fail里重复回调
                                 };
                                 loginHandler = setTimeout(timeOutFunc, 20000);
                             }
                         }
                     } else {
-                        callbacks[M[1149]] && callbacks[M[1149]](1, { type: M[1734], errMsg: res.errMsg, res: res });
+                        callbacks[M[254]] && callbacks[M[254]](1, { type: M[1734], errMsg: res.errMsg, res: res });
                     }
                 },
                 fail: function (res) {
@@ -351,17 +351,17 @@ function t_FK6MZ() {
                     // iOS 和 Android 对于拒绝授权的回调 errMsg 没有统一，需要做一下兼容处理
                     if (res.errMsg.indexOf(M[1736]) > -1 || res.errMsg.indexOf(M[1737]) > -1) {
                         // 处理用户拒绝授权的情况
-                        callbacks[M[1149]] && callbacks[M[1149]](1, { type: M[1738], errMsg: res.errMsg, res: res });
+                        callbacks[M[254]] && callbacks[M[254]](1, { type: M[1738], errMsg: res.errMsg, res: res });
                     } else {
-                        callbacks[M[1149]] && callbacks[M[1149]](1, { type: M[1738], errMsg: res.errMsg, res: res });
+                        callbacks[M[254]] && callbacks[M[254]](1, { type: M[1738], errMsg: res.errMsg, res: res });
                     }
                 }
             });
         },
 
         share: function (data) {
-            callbacks[M[1218]] = typeof callback == M[130] ? callback : null;
-            var type = data.type || M[1218];
+            callbacks[M[324]] = typeof callback == M[926] ? callback : null;
+            var type = data.type || M[324];
             console.log(M[1739] + type);
             var self = this;
             this.getShareInfo(type, function (data) {
@@ -380,10 +380,10 @@ function t_FK6MZ() {
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
                 url: M[1720] + HOST + M[1740],
-                method: M[1119],
-                dataType: M[393],
+                method: M[220],
+                dataType: M[1171],
                 header: {
-                    'content-type': M[1255] // 默认值
+                    'content-type': M[364] // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
@@ -403,14 +403,14 @@ function t_FK6MZ() {
 
         checkGameVersion: function (game_ver, callback) {
             console.log(M[1741]);
-            callbacks[M[1742]] = typeof callback == M[130] ? callback : null;
+            callbacks[M[1742]] = typeof callback == M[926] ? callback : null;
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
                 url: M[1720] + HOST + M[1743],
-                method: M[1119],
-                dataType: M[393],
+                method: M[220],
+                dataType: M[1171],
                 header: {
-                    'content-type': M[1255] // 默认值
+                    'content-type': M[364] // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
@@ -459,10 +459,10 @@ function t_FK6MZ() {
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
                 url: M[1720] + HOST + M[1748],
-                method: M[1119],
-                dataType: M[393],
+                method: M[220],
+                dataType: M[1171],
                 header: {
-                    'content-type': M[1255] // 默认值
+                    'content-type': M[364] // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
@@ -481,10 +481,10 @@ function t_FK6MZ() {
                         if (data.state) {
                             callback && callback(data.data);
                         } else {
-                            callbacks[M[1218]] && callbacks[M[1218]](1, { errMsg: M[1750] + data.msg });
+                            callbacks[M[324]] && callbacks[M[324]](1, { errMsg: M[1750] + data.msg });
                         }
                     } else {
-                        callbacks[M[1218]] && callbacks[M[1218]](1, { errMsg: M[1751] });
+                        callbacks[M[324]] && callbacks[M[324]](1, { errMsg: M[1751] });
                     }
                 }
             });
@@ -495,10 +495,10 @@ function t_FK6MZ() {
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
                 url: M[1720] + HOST + M[1753],
-                method: M[1119],
-                dataType: M[393],
+                method: M[220],
+                dataType: M[1171],
                 header: {
-                    'content-type': M[1255] // 默认值
+                    'content-type': M[364] // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
@@ -523,10 +523,10 @@ function t_FK6MZ() {
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
                 url: M[1720] + HOST + M[1756],
-                method: M[1119],
-                dataType: M[393],
+                method: M[220],
+                dataType: M[1171],
                 header: {
-                    'content-type': M[1255] // 默认值
+                    'content-type': M[364] // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
@@ -564,13 +564,13 @@ function t_FK6MZ() {
             console.log(data);
 
             var self = this;
-            callbacks[M[1205]] = typeof callback == M[130] ? callback : null;
+            callbacks[M[311]] = typeof callback == M[926] ? callback : null;
             //先下单
             this_pay_order = 0;
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             var session_key = wx.getStorageSync('plat_session_key');
             if (!sdk_token || !session_key) {
-                callbacks[M[1205]] && callbacks[M[1205]](1, { errMsg: M[1760] });
+                callbacks[M[311]] && callbacks[M[311]](1, { errMsg: M[1760] });
                 return;
             }
 
@@ -600,10 +600,10 @@ function t_FK6MZ() {
             //发起网络请求
             wx.request({
                 url: M[1720] + HOST + M[1762],
-                method: M[1119],
-                dataType: M[393],
+                method: M[220],
+                dataType: M[1171],
                 header: {
-                    'content-type': M[1255] // 默认值
+                    'content-type': M[364] // 默认值
                 },
                 data: public_data,
                 success: function (res) {
@@ -613,9 +613,9 @@ function t_FK6MZ() {
                         var data = res.data;
                         if (data.state) {
                             //小程序
-                            if (typeof wx.requestPayment == M[9]) {
+                            if (typeof wx.requestPayment == M[821]) {
                                 // if(data.data.platform == 'android'){
-                                if (sysInfo.platform == M[1014] || sysInfo.platform == M[1017]) {
+                                if (sysInfo.platform == M[111] || sysInfo.platform == M[114]) {
                                     if (data.data.is_android_pay) {
                                         if (data.data.ios_pay_type == 1) {
                                             self.kfPay(data.data);
@@ -645,10 +645,10 @@ function t_FK6MZ() {
                                 self.minPay(data.data);
                             }
                         } else {
-                            callbacks[M[1205]] && callbacks[M[1205]](1, { errMsg: data.msg });
+                            callbacks[M[311]] && callbacks[M[311]](1, { errMsg: data.msg });
                         }
                     } else {
-                        callbacks[M[1149]] && callbacks[M[1149]](1, { errMsg: M[1725] });
+                        callbacks[M[254]] && callbacks[M[254]](1, { errMsg: M[1725] });
                     }
                 }
             });
@@ -683,14 +683,14 @@ function t_FK6MZ() {
                             amount: self.order_data.price,
                             extension: self.order_data.extension
                         };
-                        callbacks[M[1205]] && callbacks[M[1205]](0, ret);
+                        callbacks[M[311]] && callbacks[M[311]](0, ret);
                     }
                 },
                 fail: function (res) {
                     if (res.errMsg == M[1771]) {
-                        callbacks[M[1205]] && callbacks[M[1205]](2, { errMsg: M[1772] });
+                        callbacks[M[311]] && callbacks[M[311]](2, { errMsg: M[1772] });
                     } else {
-                        callbacks[M[1205]] && callbacks[M[1205]](1, { errMsg: M[1773] + res.err_desc });
+                        callbacks[M[311]] && callbacks[M[311]](1, { errMsg: M[1773] + res.err_desc });
                     }
                 },
                 complete: function (res) {}
@@ -729,9 +729,9 @@ function t_FK6MZ() {
                     },
                     fail: function (res) {
                         if (res.errMsg.indexOf(M[1781]) !== -1) {
-                            callbacks[M[1205]] && callbacks[M[1205]](2, { errMsg: M[1772] });
+                            callbacks[M[311]] && callbacks[M[311]](2, { errMsg: M[1772] });
                         } else {
-                            callbacks[M[1205]] && callbacks[M[1205]](1, { errMsg: M[1773] + res.errMsg });
+                            callbacks[M[311]] && callbacks[M[311]](1, { errMsg: M[1773] + res.errMsg });
                         }
                     },
                     complete: function (res) {}
@@ -766,10 +766,10 @@ function t_FK6MZ() {
             var session_key = wx.getStorageSync('plat_session_key');
             wx.request({
                 url: M[1720] + HOST + M[1786] + config.partner_id + '/' + config.game_pkg + '/',
-                method: M[1119],
-                dataType: M[393],
+                method: M[220],
+                dataType: M[1171],
                 header: {
-                    'content-type': M[1255] // 默认值
+                    'content-type': M[364] // 默认值
                 },
                 data: {
                     order_id: data.orderId,
@@ -788,9 +788,9 @@ function t_FK6MZ() {
                                 amount: self.order_data.price,
                                 extension: self.order_data.extension
                             };
-                            callbacks[M[1205]] && callbacks[M[1205]](0, ret);
+                            callbacks[M[311]] && callbacks[M[311]](0, ret);
                         } else {
-                            callbacks[M[1205]] && callbacks[M[1205]](1, { errMsg: M[1788] });
+                            callbacks[M[311]] && callbacks[M[311]](1, { errMsg: M[1788] });
                         }
                     }
                 },
@@ -809,7 +809,7 @@ function t_FK6MZ() {
             postData[M[1791]] = data.roleid;
             postData[M[1792]] = data.rolelevel;
             postData[M[1793]] = data.rolename;
-            postData[M[934]] = data.serverid;
+            postData[M[24]] = data.serverid;
 
             if (data.roleid && data.serverid) {
                 t_FZK6M = {
@@ -818,7 +818,7 @@ function t_FK6MZ() {
                 };
             }
 
-            this.log(M[14], postData);
+            this.log(M[435], postData);
         },
 
         //进入游戏
@@ -832,7 +832,7 @@ function t_FK6MZ() {
             postData[M[1791]] = data.roleid;
             postData[M[1792]] = data.rolelevel;
             postData[M[1793]] = data.rolename;
-            postData[M[934]] = data.serverid;
+            postData[M[24]] = data.serverid;
 
             if (data.roleid && data.serverid) {
                 t_FZK6M = {
@@ -860,7 +860,7 @@ function t_FK6MZ() {
             postData[M[1791]] = data.roleid;
             postData[M[1792]] = data.rolelevel;
             postData[M[1793]] = data.rolename;
-            postData[M[934]] = data.serverid;
+            postData[M[24]] = data.serverid;
 
             if (data.roleid && data.serverid) {
                 t_FZK6M = {
@@ -918,7 +918,7 @@ function t_FK6MZ() {
                 os_ver: system.system,
                 sdk_ver: system.version, //存放的是微信版本号
                 game_ver: config.game_ver, //存放的是SDK版本号
-                device: system.platform == M[1014] ? 1 : 2
+                device: system.platform == M[111] ? 1 : 2
             };
         },
 
@@ -956,18 +956,18 @@ function t_FK6MZ() {
         subscribeMessage: function (tmplIds, callback) {
             console.log(M[1802] + tmplIds);
             //获取模板ID
-            callbacks[M[1227]] = typeof callback == M[130] ? callback : null;
+            callbacks[M[333]] = typeof callback == M[926] ? callback : null;
             wx.requestSubscribeMessage({
                 tmplIds: tmplIds,
                 success(res) {
                     console.log(M[1803]);
                     console.log(res);
-                    callbacks[M[1227]] && callbacks[M[1227]](res);
+                    callbacks[M[333]] && callbacks[M[333]](res);
                 },
                 fail(res) {
                     console.log(M[1804]);
                     console.log(res);
-                    callbacks[M[1227]] && callbacks[M[1227]](res);
+                    callbacks[M[333]] && callbacks[M[333]](res);
                 }
             });
         },
@@ -985,16 +985,16 @@ function run(method, data, callback) {
 }
 
 exports.init = function (data, callback) {
-    run(M[1130], data, callback);
+    run(M[233], data, callback);
 };
 exports.login = function (callback) {
-    run(M[1149], '', callback);
+    run(M[254], '', callback);
 };
 exports.pay = function (data, callback) {
-    run(M[1205], data, callback);
+    run(M[311], data, callback);
 };
 exports.openService = function () {
-    run(M[1219]);
+    run(M[325]);
 };
 exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLevel) {
     var data = {
@@ -1004,7 +1004,7 @@ exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLe
         rolename: roleName,
         rolelevel: roleLevel
     };
-    run(M[1213], data);
+    run(M[319], data);
 };
 exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLevel) {
     var data = {
@@ -1015,7 +1015,7 @@ exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLev
         rolelevel: roleLevel
     };
 
-    run(M[1215], data);
+    run(M[321], data);
 };
 exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleLevel) {
     var data = {
@@ -1025,22 +1025,22 @@ exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleL
         rolename: roleName,
         rolelevel: roleLevel
     };
-    run(M[1217], data);
+    run(M[323], data);
 };
 exports.share = function (type) {
     var data = {
         type: type
     };
-    run(M[1218], data);
+    run(M[324], data);
 };
 exports.msgCheck = function (data, callback) {
-    run(M[1100], data, callback);
+    run(M[199], data, callback);
 };
 exports.downloadClient = function () {
     run(M[1805]);
 };
 exports.subscribeMessage = function (data, callback) {
-    run(M[1227], data, callback);
+    run(M[333], data, callback);
 };
 exports.getConfig = function () {
     return {
@@ -1053,5 +1053,5 @@ exports.getPublicData = function () {
     run(M[1806]);
 };
 exports.weiduanHelper = function () {
-    run(M[1221]);
+    run(M[327]);
 };

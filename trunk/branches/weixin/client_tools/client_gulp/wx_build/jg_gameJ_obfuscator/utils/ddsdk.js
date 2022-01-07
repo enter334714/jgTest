@@ -1,12 +1,12 @@
 !function (t) {
   var e = null,
-      i = { m_Ver: "0.0.21.6beta", m_LogServer: "https://stat.chiji-h5.com/statwx_common.php", m_JsonUrl: "https://jsonconfig.chiji-h5.com/json/", m_IPInfoUrl: "https://wxgame.chiji-h5.com/wxgs_sdk/getcity.action", m_PayUrl: "https://lk-hzres.chiji-h5.com/bgsys/report/", m_RegionObj: null, m_Appid: "", m_Openid: "", m_UnionID: "", m_LogKey: "", m_LogObj: null, m_Channel: "default", m_bLog: !0, m_bPub: !0, m_Data: null, m_PayData: null, m_ShareCB: null, m_OpenAppCB: null, m_RewardCB: null, m_Render: null, m_ShareCBTime: 3e3, m_OpenAppCBTime: 3e3, m_OpenAppCBTime: 3e3, m_RewardSceneIOS: 1038, m_RewardSceneDroid: 1038, m_chkRewardSceneDroid: !1, m_chkRewardSceneIOS: !1, m_bInit: !1, V_CloseCB: null, m_city: null, m_getPayData: null, payDataGroup: [], m_AccessToken: null, m_logLevel: 3, m_userData: null, m_login: !0, m_DlgFailCB: null, official_openid: "", official_appid: "", officialScene: [1020, 1035, 1043, 1058, 1067, 1074, 1082, 1091, 1102, 1144], init: function (a) {
+      i = { m_Ver: "0.0.21.6beta", m_LogServer: "https://stat.tg-wangpai.com/statwx_common.php", m_JsonUrl: "https://jsonconfig.tg-wangpai.com/json/", m_IPInfoUrl: "https://wxgame.tg-wangpai.com/wxgs_sdk/getcity.action", m_PayUrl: "https://lk-hzres.tg-wangpai.com/bgsys/report/", m_RegionObj: null, m_Appid: "", m_Openid: "", m_UnionID: "", m_LogKey: "", m_LogObj: null, m_Channel: "default", m_bLog: !0, m_bPub: !0, m_VersionStatus: null, m_Data: null, m_PayData: null, m_ShareCB: null, m_OpenAppCB: null, m_RewardCB: null, m_Render: null, m_ShareCBTime: 3e3, m_OpenAppCBTime: 3e3, m_OpenAppCBTime: 3e3, m_RewardSceneIOS: 1038, m_RewardSceneDroid: 1038, m_chkRewardSceneDroid: !1, m_chkRewardSceneIOS: !1, m_bInit: !1, V_CloseCB: null, m_city: null, m_getPayData: null, payDataGroup: [], m_AccessToken: null, m_logLevel: 3, m_userData: null, m_login: !0, m_DlgFailCB: null, official_openid: "", official_appid: "", officialScene: [1020, 1035, 1043, 1058, 1067, 1074, 1082, 1091, 1102, 1144], init: function (a) {
       if (this.m_bInit) t.DDSDK.log("sdk===ddsdk already init...");else {
         var n = window.DDSDK_APPKEY,
             o = window.DDSDK_GNAME;if (n.length < 1 || o.length < 1) t.DDSDK.log("sdk===please init config file...");else if (this.m_bInit = !0, this.m_Appid = n, this.m_LogKey = o, "DDSDK_InitRender" in window) {
           if (window.DDSDK_InitRender(), this.m_Render = window.DDSDK_Render, e = window.DDSDK_Render, i.ajax = e.ajax, i.setTimeout = e.setTimeout, i.getItem = e.getItem, i.setItem = e.setItem, i.removeItem = e.removeItem, this.isWx() ? "LJ_LOGEVENT" in window ? this.m_LogObj = window.LJ_LOGEVENT : t.DDSDK.log("sdk===LJ_EVENT load fail...") : "DDW" in window && (window.DDSDK.logEvent = window.DDW.logEvent), this.m_bPub) {
             var s = n;"DDSDK_CONFIG" in window && (s = window.DDSDK_CONFIG), this.m_JsonUrl = this.m_JsonUrl + o + "/" + s + ".json", t.DDSDK.log("m_JsonUrl::" + this.m_JsonUrl), this.m_PayUrl = this.m_PayUrl + s + "/json/" + s + "_pay.json", t.DDSDK.log(this.m_PayUrl);
-          }if (this.m_ResTime = new Date().getTime(), this.m_LoadCompleteCallback = a, this.m_JsonUrl = this.m_JsonUrl, n && o ? (this.loadRes(), t.DDSDK.log(this.m_JsonUrl), this.getIPInfo(this.getAnyData.bind(this))) : t.DDSDK.log("sdk===DDSDK log mode..."), this.isWx()) {
+          }if (this.m_ResTime = new Date().getTime(), this.m_LoadCompleteCallback = a, this.m_JsonUrl = this.m_JsonUrl, n && o ? (this.loadRes(), this.loadVersionStatus(o), t.DDSDK.log(this.m_JsonUrl), this.getIPInfo(this.getAnyData.bind(this))) : t.DDSDK.log("sdk===DDSDK log mode..."), this.isWx()) {
             var r = wx.getLaunchOptionsSync();t.DDSDK.log("--options--:", r), setTimeout(function () {
               localStorage.getItem("show") || (t.DDSDK.warn("------show-------\x3e>"), window.onshow(r));
             }, 1e3), "channel" in r.query && i.setChannel(r.query.channel), e && wx.onShow(function (t) {
@@ -30,7 +30,7 @@
         let t = i.getData("jump_config");if (i.log("sdk===跳转配置", t), !t.jump_switch) return;localStorage.getItem("jumpTimes") || localStorage.setItem("jumpTimes", 0);let e = localStorage.getItem("jumpTimes");i.log("sdk===登录开关：", this.m_login), 0 == t.jump_num ? this.showUpdateDlg(t) : 1 == this.m_login ? (e++, localStorage.setItem("jumpTimes", e), i.log("sdk===次数：", e), e <= t.jump_num ? this.showUpdateDlg(t) : i.log("sdk===弹框次数超过限定次数！")) : i.log("sdk===非登录状态");
       }
     }, showUpdateDlg: function (e) {
-      if (!this.isWx()) return;var a = { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: this.m_userData.role_id, server_id: this.m_userData.server_id, amount: e.jump_amount };i.log("sdk===传输数据", a);window.wx.request({ url: "https://sdkpoint.chiji-h5.com/record-receive/fun/api/check_subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: this.m_userData.role_id, server_id: this.m_userData.server_id, amount: e.jump_amount }, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(a) {
+      if (!this.isWx()) return;var a = { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: this.m_userData.role_id, server_id: this.m_userData.server_id, amount: e.jump_amount };i.log("sdk===传输数据", a);window.wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/check_subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: this.m_userData.role_id, server_id: this.m_userData.server_id, amount: e.jump_amount }, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(a) {
           a.data && a.data.success && 1 == a.data.success && 1 == a.data.data.subcontract ? (t.DDSDK.log("sdk===成功：", a), wx.showModal({ title: e.jump_title, content: e.jump_desc, showCancel: !1, success(t) {
               if (t.confirm) {
                 var a = function (t, e) {
@@ -108,8 +108,8 @@
       a = a || 1, n = n || e;var o,
           s,
           r,
-          d = [];if (t[e]) {
-        for (o = 0; o < t[e].length; o++) r = !0, "showmode" in (s = t[e][o]) && (i ? 2 == s.showmode && (r = !1) : 1 == s.showmode && (r = !1), 0 == s.showmode && (r = !1)), r && (s._kind = n, s._page = a, s._idx = o + 1, d.push(s));t[e] = d;
+          l = [];if (t[e]) {
+        for (o = 0; o < t[e].length; o++) r = !0, "showmode" in (s = t[e][o]) && (i ? 2 == s.showmode && (r = !1) : 1 == s.showmode && (r = !1), 0 == s.showmode && (r = !1)), r && (s._kind = n, s._page = a, s._idx = o + 1, l.push(s));t[e] = l;
       }
     }, filterData: function () {
       var t = this.m_Data,
@@ -146,7 +146,7 @@
         var o = n[0].bkRewardList;if (e) {
           if (o && o.length > 0) {
             if (e.length > 0) {
-              var s = e;if (s && s.length > 0) for (var r = 0; r < s.length; r++) for (var d = 0; d < o.length; d++) s[r].gameid && s[r].gameid == o[d].gameid && (o[d].reward = s[r]);t.DDSDK.log("sdk===rewards update to list:", o);
+              var s = e;if (s && s.length > 0) for (var r = 0; r < s.length; r++) for (var l = 0; l < o.length; l++) s[r].gameid && s[r].gameid == o[l].gameid && (o[l].reward = s[r]);t.DDSDK.log("sdk===rewards update to list:", o);
             }a(o);
           }
         } else t.DDSDK.log("ddsdk can't get rewards list from server");
@@ -156,7 +156,7 @@
         t.DDSDK.log(n);var o = new Date().getTime(),
             s = { appid: i.m_Appid, openid: i.m_Openid, gameid: a.gameid },
             r = { url: n, data: s, item: a, now: o },
-            d = JSON.stringify(r);t.DDSDK.log("sdk===cacheStr:", d), e.setItem("bkRewardCache", d), e.setRewardCB(function (i) {
+            l = JSON.stringify(r);t.DDSDK.log("sdk===cacheStr:", l), e.setItem("bkRewardCache", l), e.setRewardCB(function (i) {
           e.removeItem("bkRewardCache");t.DDSDK.log("--------RewardCB----------"), t.DDSDK.log(i);
         }), e.ajax(n, s, function (n) {
           if (t.DDSDK.log("post:", s), n && 0 == n.ret) {
@@ -180,6 +180,14 @@
       return !(t.everyday && t.reward && t.reward.datecount > 0) && !(t.onlyonce && t.reward && t.reward.allcount > 0);
     }, giveReward: function (t, e) {
       this.m_RewardCB && this.m_RewardCB(t, e);
+    }, loadVersionStatus: function (t) {
+      var i = this;e.ajax("https://jsonconfig.tg-wangpai.com/question/json/nzkp/game_version.json", null, function (t) {
+        console.log("版本调整后台配置读取"), console.log(t), i.m_VersionStatus = t;
+      }, function (t) {
+        e.setTimeout(function () {
+          i.loadVersionStatus();
+        }, 5e3);
+      });
     }, loadRes: function () {
       t.DDSDK.log("sdk===ddsdk loadRes json...");var a = this;if (!this.m_JsonUrl) return i.error("sdk===m_JsonUrl 未配置");e.ajax(this.m_JsonUrl, null, function (t) {
         a.m_Data = t, a.initLoad();
@@ -210,7 +218,7 @@
       } catch (e) {
         t.DDSDK.log(e);
       } else if ("DDW" in window) {
-        var d = { gameUrl: a.url, gameId: a.gameid, gameName: a.name, landScape: a.landScape };t.DDSDK.log("sdk=== :" + a.url + " : " + a.gameid + " : " + a.name + " : " + a.landScape), window.DDW.playGame(d), t.DDSDK.log("sdk===playGame success...");
+        var l = { gameUrl: a.url, gameId: a.gameid, gameName: a.name, landScape: a.landScape };t.DDSDK.log("sdk=== :" + a.url + " : " + a.gameid + " : " + a.name + " : " + a.landScape), window.DDW.playGame(l), t.DDSDK.log("sdk===playGame success...");
       }
     }, playWxVideo: function (e, a, n) {
       if (i.isWx()) {
@@ -320,7 +328,7 @@
           n = wx.getLaunchOptionsSync().scene,
           o = i.getData("sceneList") || [],
           s = !0;if ("iOS" === a && -1 != o.indexOf(n) && (s = !1), !s) return void wx.showToast({ title: "苹果系统暂不支持充值,请转至安卓系统进行充值。", icon: "none", duration: 2e3 });let r = parseInt(e.roleId),
-          d = "";"" != e.notifyMinUrl ? d = encodeURIComponent(e.notifyMinUrl) : t.DDSDK.log("sdk====小程序支付回调地址不存在");var l = "gameid=" + e.gameId + "&serverid=" + e.serverId + "&productid=" + e.productId + "&gameuid=" + r + "&game_openid=" + e.openId + "&channel=" + e.channel + "&is_new_user=" + e.isNewUser + "&notify_url=" + d + "&role_id=" + e.roleId + "&account_id=" + e.accountId + "&unionid=" + e.unionId + "&extra=" + e.extra + "&payData=" + JSON.stringify(e.payData);t.DDSDK.log("sdk====小程序支付path", l), wx.navigateToMiniProgram({ appId: e.appId, path: "pages/pay/index?" + l });
+          l = "";"" != e.notifyMinUrl ? l = encodeURIComponent(e.notifyMinUrl) : t.DDSDK.log("sdk====小程序支付回调地址不存在");var d = "gameid=" + e.gameId + "&serverid=" + e.serverId + "&productid=" + e.productId + "&gameuid=" + r + "&game_openid=" + e.openId + "&channel=" + e.channel + "&is_new_user=" + e.isNewUser + "&notify_url=" + l + "&role_id=" + e.roleId + "&account_id=" + e.accountId + "&unionid=" + e.unionId + "&product_desc=" + e.product_desc + "&pay_amount=" + e.pay_amount + "&extra=" + e.extra + "&payData=" + JSON.stringify(e.payData);t.DDSDK.log("sdk====小程序支付path", d), wx.navigateToMiniProgram({ appId: e.appId, path: "pages/pay/index?" + d });
     }, getMidasPay: function (t) {
       let e = t.env + 1,
           a = t.roleId;i.logEvent("createPay", { orderid: t.cpOrderNumber, gameuid: a, openid: t.openId, productid: t.productId, product_num: t.productNum, amount: t.amount, issendbox: e, unionid: t.unionId, paytype: "wxgame", userchannel: t.channel, account_id: t.accountId, is_new_user: t.isNewUser, serverid: t.serverId, cp_order: t.cpOrder });let n = t;n.midas_payed = !1, this.createPay(n, this.getWxMiDas.bind(this));
@@ -333,7 +341,7 @@
         } });
     }, createPay: function (e, a) {
       var n = e,
-          o = this;let s;var r = (s = "midas_pay_url" in o.m_Data && null != o.m_Data.midas_pay_url ? o.m_Data.midas_pay_url : "https://isdk.chiji-h5.com") + "/server/s/" + e.gameName + "/pay/web_create";let d;d = window.DDSDK_MD5KEY && "" != window.DDSDK_MD5KEY ? window.DDSDK_MD5KEY : window.DDSDK_APPKEY, t.DDSDK.log("sdk====获取到米大师余额url", r), window.wx.request({ url: r, data: { nonce_str: "", sign_type: "", sign: "", type: "midas", cp_order_no: n.cpOrderNumber, product_id: n.productId, product_desc: n.productDesc, amount: n.amount, server_id: n.serverId, role_id: n.roleId, notify_url: n.notifyUrl, return_url: "", pay_type: "2", extra: n.extra, user_id: n.openId, account_id: n.accountId, cp_order: n.cpOrder, midas_payed: n.midas_payed, is_new_user: n.isNewUser, channel: n.channel, ak: d, app_id: n.gameName, unionid: n.unionId }, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success: e => {
+          o = this;let s;var r = (s = "midas_pay_url" in o.m_Data && null != o.m_Data.midas_pay_url ? o.m_Data.midas_pay_url : "https://isdk.tg-wangpai.com") + "/server/s/" + e.gameName + "/pay/web_create";let l;l = window.DDSDK_MD5KEY && "" != window.DDSDK_MD5KEY ? window.DDSDK_MD5KEY : window.DDSDK_APPKEY, t.DDSDK.log("sdk====获取到米大师余额url", r), window.wx.request({ url: r, data: { nonce_str: "", sign_type: "", sign: "", type: "midas", cp_order_no: n.cpOrderNumber, product_id: n.productId, product_desc: n.productDesc, amount: n.amount, server_id: n.serverId, role_id: n.roleId, notify_url: n.notifyUrl, return_url: "", pay_type: "2", extra: n.extra, user_id: n.openId, account_id: n.accountId, cp_order: n.cpOrder, midas_payed: n.midas_payed, is_new_user: n.isNewUser, channel: n.channel, ak: l, app_id: n.gameName, unionid: n.unionId }, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success: e => {
           if (t.DDSDK.log("sdk====零境米大师返回数据", e), null != e.data.data && 90013 == e.data.data.status) t.DDSDK.log("sdk====米大师余额不足"), o.getWxMiDas(n);else if (null != e.data.data && 0 == e.data.data.status) i.logEvent("successPay", { orderid: n.cpOrderNumber });else if (null != e.data.data) {
             let t = "充值状态: " + e.data.data.status + " 请联系客服！！！";wx.showToast({ title: t, icon: "none", duration: 2e3 });
           }
@@ -363,7 +371,7 @@
         } });
     }, createPayV2: function (e, a) {
       var n = e,
-          o = this;let s;var r = (s = "midas_pay_url" in o.m_Data && null != o.m_Data.midas_pay_url ? o.m_Data.midas_pay_url : "https://wxgame.chiji-h5.com") + "/boxpay/" + e.gameName;let d;d = window.DDSDK_MD5KEY && "" != window.DDSDK_MD5KEY ? window.DDSDK_MD5KEY : window.DDSDK_APPKEY, t.DDSDK.log("sdk====获取到米大师余额url", r);n.cpOrderNumber, n.productId, n.productDesc, n.amount, n.serverId, n.roleId, n.notifyUrl, n.extra, n.openId, n.accountId, n.cpOrder, n.midas_payed, n.isNewUser, n.channel, n.gameName, n.gameName, n.openId, n.roleId, n.unionId;window.wx.request({ url: r, data: { nonce_str: "", sign_type: "", sign: "", type: "midas", cp_order_no: n.cpOrderNumber, productid: n.productId, product_desc: n.productDesc, amount: n.amount, server_id: n.serverId, role_id: n.roleId, notify_url: n.notifyUrl, return_url: "", pay_type: "2", extra: n.extra, game_openid: n.openId, account_id: n.accountId, cp_order: n.cpOrder, midas_payed: n.midas_payed, is_new_user: n.isNewUser, userchannel: n.channel, ak: d, app_id: n.gameName, gameid: n.gameName, service: "MidasOrderService", device: "android", openid: n.openId, gameuid: n.roleId, unionid: n.unionId }, method: "post", header: { "content-type": "application/json;charset=UTF-8" }, success: e => {
+          o = this;let s;var r = (s = "midas_pay_url" in o.m_Data && null != o.m_Data.midas_pay_url ? o.m_Data.midas_pay_url : "https://wxgame.tg-wangpai.com") + "/boxpay/" + e.gameName;let l;l = window.DDSDK_MD5KEY && "" != window.DDSDK_MD5KEY ? window.DDSDK_MD5KEY : window.DDSDK_APPKEY, t.DDSDK.log("sdk====获取到米大师余额url", r);n.cpOrderNumber, n.productId, n.amount, n.serverId, n.roleId, n.notifyUrl, n.extra, n.openId, n.accountId, n.cpOrder, n.midas_payed, n.isNewUser, n.channel, n.gameName, n.gameName, n.openId, n.roleId, n.unionId, e.product_desc, product_name, pay_amount;window.wx.request({ url: r, data: { nonce_str: "", sign_type: "", sign: "", type: "midas", cp_order_no: n.cpOrderNumber, productid: n.productId, amount: n.amount, server_id: n.serverId, role_id: n.roleId, notify_url: n.notifyUrl, return_url: "", pay_type: "2", extra: n.extra, game_openid: n.openId, account_id: n.accountId, cp_order: n.cpOrder, midas_payed: n.midas_payed, is_new_user: n.isNewUser, userchannel: n.channel, ak: l, app_id: n.gameName, gameid: n.gameName, service: "MidasOrderService", device: "android", openid: n.openId, gameuid: n.roleId, unionid: n.unionId, product_desc: e.product_desc, product_name: product_name, pay_amount: pay_amount }, method: "post", header: { "content-type": "application/json;charset=UTF-8" }, success: e => {
           if (t.DDSDK.log("sdk====零境米大师返回数据", e), null != e.data && 90013 == e.data.state) t.DDSDK.log("sdk====米大师余额不足"), o.startGetWxMiDas(n);else if (null != e.data && 0 == e.data.state) "point_switch" in o.m_Data && null != o.m_Data.point_switch ? 1 == o.m_Data.point_switch ? i.logEvent("successPay", { orderid: n.cpOrderNumber }) : t.DDSDK.log("sdk====客户端支付成功打点关闭") : t.DDSDK.log("sdk====支付打点参数不存在或为空");else if (null != e.data) {
             let t = "充值状态: " + e.data.state + " 请联系客服！！！";wx.showToast({ title: t, icon: "none", duration: 2e3 });
           }
@@ -371,7 +379,7 @@
           t.DDSDK.log("sdk====零境米大师请求失败", e);
         } });
     }, adData(e) {
-      var i;i = e.openid ? e.openid : e.openId, e.gname ? e.gname : e.gameName, t.DDSDK.log("sdk===数据回传：", e), window.wx.request({ url: "https://wechat-tools.chiji-h5.com/server/s/' + game_name + '/api/user_action", data: { url: "http://www.qq.com", type: e.type, name: "webuser_action_set", description: e.description, openid: i, value: e.value, source: "web", claim_type: "0", nonce_str: "", sign_type: "", sign: "" }, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(e) {
+      var i;i = e.openid ? e.openid : e.openId, e.gname ? e.gname : e.gameName, t.DDSDK.log("sdk===数据回传：", e), window.wx.request({ url: "https://wechat-tools.tg-wangpai.com/server/s/' + game_name + '/api/user_action", data: { url: "http://www.qq.com", type: e.type, name: "webuser_action_set", description: e.description, openid: i, value: e.value, source: "web", claim_type: "0", nonce_str: "", sign_type: "", sign: "" }, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(e) {
           t.DDSDK.log("sdk===数据回传成功：", e);
         }, fail(e) {
           t.DDSDK.log("sdk===数据回传失败：", e);
@@ -411,13 +419,13 @@
     }, createFeedbackButton: function (t) {
       var e;if (i.isWx()) return "text" == t.type ? e = wx.createFeedbackButton({ type: "text", text: t.text || "打开意见反馈页面", style: { left: t.left, top: t.top, width: t.width, height: t.height, lineHeight: t.lineHeight, backgroundColor: t.backgroundColor || "#ffff0000", color: t.color || "#ffffff", textAlign: t.textAlign || "center", fontSize: t.fontSize || 16, borderRadius: t.borderRadius || 4, borderWidth: t.borderWidth || 1, borderColor: t.borderColor || "" } }) : "image" == t.type && (e = wx.createFeedbackButton({ type: "image", image: t.image || "", style: { left: t.left, top: t.top, width: t.width, height: t.height, lineHeight: t.lineHeight || "", backgroundColor: t.backgroundColor || "", color: t.color || "", textAlign: t.textAlign || "", fontSize: t.fontSize || 16, borderRadius: t.borderRadius || 4, borderWidth: t.borderWidth || 1, borderColor: t.borderColor || "" } })), e;
     }, checkPackage(e) {
-      wx.request({ url: "https://sdkpoint.chiji-h5.com/record-receive/fun/api/v2/check_subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: this.m_userData.role_id, server_id: this.m_userData.server_id, amount: e.jump_amount, union_id: i.m_UnionID }, method: "POST", success: function (e) {
+      wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/v2/check_subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: this.m_userData.role_id, server_id: this.m_userData.server_id, amount: e.jump_amount, union_id: i.m_UnionID }, method: "POST", success: function (e) {
           e.data && t.DDSDK.log(e.data);
         }, fail: function (e) {
           e.data && t.DDSDK.log(e.data);
         } });
     }, setPackage(e) {
-      i.log("提交分包参数：" + e), wx.request({ url: "https://sdkpoint.chiji-h5.com/record-receive/fun/api/v2/subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, union_id: e.unionId }, method: "POST", success: function (e) {
+      i.log("提交分包参数：" + e), wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/v2/subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, union_id: e.unionId }, method: "POST", success: function (e) {
           e.data && t.DDSDK.log(e.data);
         }, fail: function (e) {
           e.data && t.DDSDK.log(e.data);
@@ -428,18 +436,18 @@
           o = i.getData("sceneList") || [],
           s = !0;if ("iOS" === a && -1 != o.indexOf(n) && (s = !1), s) {
         var r = encodeURI(JSON.stringify(e.extra)),
-            d = "game_id=" + e.gameName + "&product_id=" + e.productId + "&game_user_id=" + e.accountId + "&role_id=" + e.roleId + "&order_id=" + r + "&server_id=" + e.serverId + "&user_channel=" + e.channel + "&is_new_user=" + e.isNewUser + "&product_amount=" + e.pay_amount + "&product_name=" + e.product_name + "&product_desc=" + e.product_desc + "&union_id=" + e.unionId;wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageImg: i.getData("cardImg") || "", sendMessageTitle: "", sendMessagePath: "", sessionFrom: `{"receive_param":"ios","params":"${d}"}` || "", success: function (e) {
+            l = "game_id=" + e.gameName + "&product_id=" + e.productId + "&game_user_id=" + e.accountId + "&role_id=" + e.roleId + "&order_id=" + r + "&server_id=" + e.serverId + "&user_channel=" + e.channel + "&is_new_user=" + e.isNewUser + "&product_amount=" + e.pay_amount + "&product_name=" + e.product_name + "&product_desc=" + e.product_desc + "&union_id=" + e.unionId;wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageImg: i.getData("cardImg") || "", sendMessageTitle: "", sendMessagePath: "", sessionFrom: `{"receive_param":"ios","params":"${l}"}` || "", success: function (e) {
             t.DDSDK.log("getCustomerPay:" + e);
           }, fail: function (e) {
             t.DDSDK.log("getCustomerPay:cancel...");
-          } }), t.DDSDK.log("客服支付参数：", d);
+          } }), t.DDSDK.log("客服支付参数：", l);
       } else wx.showToast({ title: "苹果系统暂不支持充值,请转至安卓系统进行充值。", icon: "none", duration: 2e3 });
     }, getCustomerServiceByFB: function (e) {
       if (!this.isWx()) return;var a = i.getData("jump_amount") || 0;t.DDSDK.log("客服参数：", e, a);var n = {};var o = e && e.phone || "";if (0 == a) {
         var s;n.isCard = !0;var r,
-            d = `game_id=${window.DDSDK_GNAME}web&phone=${o}&channel=${i.getChannel()}`;return r = `{"phone": ${o},"channel": "${i.getChannel()}"}`, wx.setClipboardData({ data: r }), s = `{"open_param":"wd","params":"${d}"}`, n.open_param = "wd", n.cardImg = "https://commcdn.chiji-h5.com/ljsdk/test/libao.jpg", n.sessionFrom = s, t.DDSDK.log("客服分包：", n), void t.DDSDK.customerFB(n);
-      }var l = { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: e.roleId || this.m_userData && this.m_userData.role_id || "", server_id: e.serverId || this.m_userData && this.m_userData.server_id || "", amount: a || 0, union_id: e.unionId || this.m_UnionID || "" };t.DDSDK.log("悬浮客服参数：", l), window.wx.request({ url: "https://sdkpoint.chiji-h5.com/record-receive/fun/api/v2/check_subcontract", data: l, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(e) {
-          i.log("sdk===分包: ", e), n.isCard = !0;var a;a = `{"phone": ${o},"channel": "${i.getChannel()}"}`, wx.setClipboardData({ data: a });var s = "";e.data && e.data.success && 1 == e.data.success && 1 == e.data.data.subcontract && (s = `{"open_param":"wd","params":"${`game_id=${window.DDSDK_GNAME}web&phone=${o}&channel=${i.getChannel()}`}"}`, n.open_param = "wd", n.cardImg = "https://commcdn.chiji-h5.com/ljsdk/test/libao.jpg");n.sessionFrom = s, t.DDSDK.log("sdk===客服 跳转 分包：", n), t.DDSDK.customerFB(n);
+            l = `game_id=${window.DDSDK_GNAME}web&phone=${o}&channel=${i.getChannel()}`;return r = `{"phone": ${o},"channel": "${i.getChannel()}"}`, wx.setClipboardData({ data: r }), s = `{"open_param":"wd","params":"${l}"}`, n.open_param = "wd", n.cardImg = "https://commcdn.tg-wangpai.com/ljsdk/test/libao.jpg", n.sessionFrom = s, t.DDSDK.log("客服分包：", n), void t.DDSDK.customerFB(n);
+      }var d = { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: e.roleId || this.m_userData && this.m_userData.role_id || "", server_id: e.serverId || this.m_userData && this.m_userData.server_id || "", amount: a || 0, union_id: e.unionId || this.m_UnionID || "" };t.DDSDK.log("悬浮客服参数：", d), window.wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/v2/check_subcontract", data: d, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(e) {
+          i.log("sdk===分包: ", e), n.isCard = !0;var a;a = `{"phone": ${o},"channel": "${i.getChannel()}"}`, wx.setClipboardData({ data: a });var s = "";e.data && e.data.success && 1 == e.data.success && 1 == e.data.data.subcontract && (s = `{"open_param":"wd","params":"${`game_id=${window.DDSDK_GNAME}web&phone=${o}&channel=${i.getChannel()}`}"}`, n.open_param = "wd", n.cardImg = "https://commcdn.tg-wangpai.com/ljsdk/test/libao.jpg");n.sessionFrom = s, t.DDSDK.log("sdk===客服 跳转 分包：", n), t.DDSDK.customerFB(n);
         }, fail(e) {
           n.isCard = !0, t.DDSDK.log("sdk===失败：", e), t.DDSDK.customerFB(n);
         } });
@@ -455,7 +463,7 @@
       i.log("客服绑定手机号弹窗参数：" + e);let a = this.getData("pop_config") || {};if (a) {
         if (!a.pop_window) return;let n = a.pop_amount,
             o = a.pop_times,
-            s = 1e3 * a.pop_time;wx.request({ url: "https://sdkpoint.chiji-h5.com/record-receive/fun/api/v2/check_subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: e.roleId, server_id: e.serverId, amount: n, union_id: e.unionId }, method: "POST", success: function (a) {
+            s = 1e3 * a.pop_time;wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/v2/check_subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: e.roleId, server_id: e.serverId, amount: n, union_id: e.unionId }, method: "POST", success: function (a) {
             if (a.data && (i.log("getCustomPopUI额度判断:", a.data), a.data.data.subcontract)) {
               let i = localStorage.getItem("_has_pop_times") || 0;if (0 == i) localStorage.setItem("_has_pop_time", new Date().getTime());else if (i >= o) {
                 let e = localStorage.getItem("_has_pop_time"),
@@ -471,6 +479,12 @@
     }, checkIsSameDay: function (t, e) {
       let i = new Date(t),
           a = new Date(e);return i.setHours(0, 0, 0, 0) == a.setHours(0, 0, 0, 0);
+    }, loginCheckV: function (t, e, i) {
+      var a = this.m_VersionStatus.default_version,
+          n = this.m_VersionStatus;return t < n.login_pay_amount && 2 == n.status && 2 == n.login_pay_amount_status && (a = n.login_pay_amount_version, console.log(n.login_pay_amount_version)), e == n.login_scene && 2 == n.status && 2 == n.login_scene_status && (a = n.login_scene_version, console.log(n.login_scene_version)), i != n.login_region && 2 == n.status && 2 == n.login_region_status && (a = n.login_region_version, console.log(n.login_region_version)), a;
+    }, iosPayCheckV: function (t, e, i, a) {
+      var n = this.m_VersionStatus.default_version,
+          o = this.m_VersionStatus;return t < o.ios_pay_amount && 2 == o.status && 2 == o.ios_pay_amount_status && (n = o.ios_pay_amount_version, console.log(o.ios_pay_amount_version)), e == o.ios_scene && 2 == o.status && 2 == o.ios_scene_status && (n = o.ios_scene_version, console.log(o.ios_scene_version)), i != o.ios_region && 2 == o.status && 2 == o.ios_region_status && (n = o.ios_region_version, console.log(o.ios_region_version)), a < o.ios_level && 2 == o.status && 2 == o.ios_level_status && (n = o.ios_level_version, console.log(o.ios_level_version)), n;
     }, log: function (t) {
       if (this.m_logLevel >= 3) {
         var e = Array.prototype.slice.call(arguments);e.unshift("DDSDKLOG:"), console.log.apply(null, e);
@@ -484,7 +498,7 @@
         var e = Array.prototype.slice.call(arguments);e.unshift("DDSDKERROR:"), console.error.apply(null, e);
       }
     }, getOpenId(t) {
-      i.isWx() && wx.request({ url: "https://payh5crown.chiji-h5.com/index.php/index/applet/get_open_id", data: { code: t.code, game_id: t.gameId }, method: "POST", success: e => {
+      i.isWx() && wx.request({ url: "https://payh5crown.tg-wangpai.com/index.php/index/applet/get_open_id", data: { code: t.code, game_id: t.gameId }, method: "POST", success: e => {
           i.log("sdk===", e), t.cb && t.cb(e);
         }, fail: e => {
           i.log("sdk===", e), t.cb && t.cb(e);
@@ -523,14 +537,14 @@
           this.showTryGame(!0);}
     }, e.ajax = function (e, i, a, n) {
       if (e && !(e.length < 1)) {
-        var o = null;if (i) for (var s in o = "", i) o += "&" + s + "=" + i[s];var r = "post";i || (r = "get");var d = new Laya.HttpRequest(),
-            l = e;t.DDSDK.log("ajax:", l), d.send(l, o, r, "text"), d.once(Laya.Event.COMPLETE, this, function (e) {
-          var i = d.data;try {
+        var o = null;if (i) for (var s in o = "", i) o += "&" + s + "=" + i[s];var r = "post";i || (r = "get");var l = new Laya.HttpRequest(),
+            d = e;t.DDSDK.log("ajax:", d), l.send(d, o, r, "text"), l.once(Laya.Event.COMPLETE, this, function (e) {
+          var i = l.data;try {
             i = JSON.parse(i);
           } catch (e) {
-            i = d.data;
+            i = l.data;
           }t.DDSDK.log("ajax succ", i), a(i);
-        }), d.once(Laya.Event.ERROR, this, function (e) {
+        }), l.once(Laya.Event.ERROR, this, function (e) {
           t.DDSDK.log("ajax fail", e), n(e);
         });
       }
@@ -582,16 +596,16 @@
         }return t;
       }(),
           r = {},
-          d = "",
           l = "",
+          d = "",
           c = !1,
           h = "",
           m = "",
           u = "",
           D = "",
-          p = 0,
-          g = "",
-          _ = wx.getLaunchOptionsSync(),
+          _ = 0,
+          p = "",
+          g = wx.getLaunchOptionsSync(),
           f = Date.now(),
           y = "" + Date.now() + Math.floor(1e7 * Math.random()),
           w = "" + Date.now() + Math.floor(1e7 * Math.random()),
@@ -632,9 +646,9 @@
       })]).then(function (t) {
         "" !== t[2] ? (r.lat = t[2].latitude || "", r.lng = t[2].longitude || "", r.spd = t[2].speed || "") : (r.lat = "", r.lng = "", r.spd = ""), "" !== t[1] ? r.nt = t[1].networkType || "" : r.nt = "";var e = j(r);e.tp = "Init", "" !== t[0] && (e.ufo = t[0], v = t[0]), C(e, "Init");
       }), window.onshow = function (t) {
-        localStorage.setItem("show", 1), t.channel = _.query.channel, g = 0, _ = t, S = Date.now(), I || (y = "" + Date.now() + Math.floor(1e7 * Math.random()), o = !1, wx.setStorageSync("lj_ifo", !1)), I = !1;var e = j(r),
-            i = j(r);e.sm = S - f, e.tp = "Show", !t.query.lj_share_src || "1044" !== t.scene && "1007" !== t.scene && "1008" !== t.scene ? t.query.lj_share_src && (i.tp = "ShareClick", t.time = Date.now(), t.channel = _.query.channel, i.ct = "1", C(i, "Event")) : (i.tp = "ShareClick", new Promise(function (t, e) {
-          "1044" == _.scene ? wx.getShareInfo({ shareTicket: _.shareTicket, success: function (e) {
+        localStorage.setItem("show", 1), t.channel = g.query.channel, p = 0, g = t, S = Date.now(), I || (y = "" + Date.now() + Math.floor(1e7 * Math.random()), o = !1, wx.setStorageSync("lj_ifo", !1)), I = !1;var e = j(r),
+            i = j(r);e.sm = S - f, e.tp = "Show", !t.query.lj_share_src || "1044" !== t.scene && "1007" !== t.scene && "1008" !== t.scene ? t.query.lj_share_src && (i.tp = "ShareClick", t.time = Date.now(), t.channel = g.query.channel, i.ct = "1", C(i, "Event")) : (i.tp = "ShareClick", new Promise(function (t, e) {
+          "1044" == g.scene ? wx.getShareInfo({ shareTicket: g.shareTicket, success: function (e) {
               t(e);
             }, fail: function () {
               t("");
@@ -649,32 +663,32 @@
               } }) : C(t, "Hide");
           } }) : C(t, "Hide");
       }), wx.onError(function (t) {
-        var e = j(r);e.tp = "lj_error_message", e.ct = t, p++, C(e, "Event");
+        var e = j(r);e.tp = "lj_error_message", e.ct = t, _++, C(e, "Event");
       });for (var P = { ljSendEvent: function (e, i) {
           var a = j(r);"" !== e && "string" == typeof e && e.length <= 2048 ? (a.tp = e, "string" == typeof i && i.length <= 2048 ? (a.ct = String(i), C(a, "Event")) : "object" == typeof i ? (JSON.stringify(i).length >= 2048 && t.DDSDK.error("自定义事件参数不能超过2048个字符"), a.ct = JSON.stringify(i), C(a, "Event")) : void 0 === i || "" === i ? C(a, "Event") : t.DDSDK.error("事件参数必须为String,Object类型,且参数长度不能超过2048个字符")) : t.DDSDK.error("事件名称必须为String类型且不能超过2048个字符");
         }, ljOnShareAppMessage: function (e) {
           wx.updateShareMenu({ withShareTicket: !0, complete: function () {
               wx.onShareAppMessage(function () {
-                t.DDSDK.log("----------\x3e>>>>>>>>", _);var i = e(),
+                t.DDSDK.log("----------\x3e>>>>>>>>", g);var i = e(),
                     a = "",
-                    n = "";a = void 0 !== i.success ? i.success : "", n = void 0 !== i.fail ? i.fail : "";i.st = Date.now();var o = "lj_share_src=" + s + "&lj_share_img=" + i.imageUrl + "&lj_share_title=" + i.title + "&lj_share_openid=" + l + "&" + _ + "&lj_share_time=" + i.st + "&lj_share_isnew=" + c + "&lj_share_unionid=" + h + "&lj_share_account_id=" + u + "&lj_share_role_id=" + m + "&lj_share_server_id=" + D,
-                    d = j(r);return i.channel = _.query.channel, i.query = o, i.is_new = c, i.unionID = h, d.ct = i, d.tp = "ShareChain", C(d, "Event"), i.success = function (t) {
-                  d.tp = "lj_share_status", C(d, "Event"), "" !== a && a(t);
+                    n = "";a = void 0 !== i.success ? i.success : "", n = void 0 !== i.fail ? i.fail : "";i.st = Date.now();var o = "lj_share_src=" + s + "&lj_share_img=" + i.imageUrl + "&lj_share_title=" + i.title + "&lj_share_openid=" + d + "&" + g + "&lj_share_time=" + i.st + "&lj_share_isnew=" + c + "&lj_share_unionid=" + h + "&lj_share_account_id=" + u + "&lj_share_role_id=" + m + "&lj_share_server_id=" + D,
+                    l = j(r);return i.channel = g.query.channel, i.query = o, i.is_new = c, i.unionID = h, l.ct = i, l.tp = "ShareChain", C(l, "Event"), i.success = function (t) {
+                  l.tp = "lj_share_status", C(l, "Event"), "" !== a && a(t);
                 }, i.fail = function (t) {
-                  d.tp = "lj_share_fail", C(d, "Event"), "" !== n && n(t);
+                  l.tp = "lj_share_fail", C(l, "Event"), "" !== n && n(t);
                 }, i;
               });
             } });
         }, ljOnShareTimeline: function (e) {
           wx.updateShareMenu({ withShareTicket: !0, complete: function () {
               wx.onShareTimeline(function () {
-                t.DDSDK.log("----------\x3e>>>>>>>>", _);var i = e(),
+                t.DDSDK.log("----------\x3e>>>>>>>>", g);var i = e(),
                     a = "",
-                    n = "";a = void 0 !== i.success ? i.success : "", n = void 0 !== i.fail ? i.fail : "";i.st = Date.now();var o = "lj_share_src=" + s + "&lj_share_img=" + i.imageUrl + "&lj_share_title=" + i.title + "&lj_share_openid=" + l + "&" + _ + "&lj_share_time=" + i.st + "&lj_share_isnew=" + c + "&lj_share_unionid=" + h + "&lj_share_account_id=" + u + "&lj_share_role_id=" + m + "&lj_share_server_id=" + D,
-                    d = j(r);return i.channel = _.query.channel, i.query = o, i.is_new = c, i.unionID = h, d.ct = i, d.tp = "ShareChainFriends", C(d, "Event"), i.success = function (t) {
-                  d.tp = "lj_share_status", C(d, "Event"), "" !== a && a(t);
+                    n = "";a = void 0 !== i.success ? i.success : "", n = void 0 !== i.fail ? i.fail : "";i.st = Date.now();var o = "lj_share_src=" + s + "&lj_share_img=" + i.imageUrl + "&lj_share_title=" + i.title + "&lj_share_openid=" + d + "&" + g + "&lj_share_time=" + i.st + "&lj_share_isnew=" + c + "&lj_share_unionid=" + h + "&lj_share_account_id=" + u + "&lj_share_role_id=" + m + "&lj_share_server_id=" + D,
+                    l = j(r);return i.channel = g.query.channel, i.query = o, i.is_new = c, i.unionID = h, l.ct = i, l.tp = "ShareChainFriends", C(l, "Event"), i.success = function (t) {
+                  l.tp = "lj_share_status", C(l, "Event"), "" !== a && a(t);
                 }, i.fail = function (t) {
-                  d.tp = "lj_share_fail", C(d, "Event"), "" !== n && n(t);
+                  l.tp = "lj_share_fail", C(l, "Event"), "" !== n && n(t);
                 }, i;
               });
             } });
@@ -682,16 +696,16 @@
           var i = e,
               a = "",
               n = "",
-              o = (a = void 0 !== i.success ? i.success : "", n = void 0 !== i.fail ? i.fail : "", "");for (var d in i) "function" != typeof i[d] && (o += "query" === d ? i[d] + "&" : d + "=" + i[d] + "&");t.DDSDK.log("----------\x3e>>>>>>>>", _.query.channel), i.st = Date.now(), o += "lj_share_src=" + s + "&lj_share_img=" + i.imageUrl + "&lj_share_title=" + i.title + "&lj_share_openid=" + l + "&lj_share_time=" + i.st + "&lj_share_is_new=" + c + "&lj_share_unionid=" + h + "&lj_share_account_id=" + u + "&lj_share_role_id=" + m + "&lj_share_server_id=" + D;var p = j(r);i.query = o, i.channel = _.query.channel, i.is_new = c, i.unionID = h, p.ct = i, p.tp = "ShareChain", C(p, "Event"), i.success = function (t) {
-            p.tp = "lj_share_status", C(p, "Event"), "" !== a && a(t);
+              o = (a = void 0 !== i.success ? i.success : "", n = void 0 !== i.fail ? i.fail : "", "");for (var l in i) "function" != typeof i[l] && (o += "query" === l ? i[l] + "&" : l + "=" + i[l] + "&");t.DDSDK.log("----------\x3e>>>>>>>>", g.query.channel), i.st = Date.now(), o += "lj_share_src=" + s + "&lj_share_img=" + i.imageUrl + "&lj_share_title=" + i.title + "&lj_share_openid=" + d + "&lj_share_time=" + i.st + "&lj_share_is_new=" + c + "&lj_share_unionid=" + h + "&lj_share_account_id=" + u + "&lj_share_role_id=" + m + "&lj_share_server_id=" + D;var _ = j(r);i.query = o, i.channel = g.query.channel, i.is_new = c, i.unionID = h, _.ct = i, _.tp = "ShareChain", C(_, "Event"), i.success = function (t) {
+            _.tp = "lj_share_status", C(_, "Event"), "" !== a && a(t);
           }, i.fail = function (t) {
-            p.tp = "lj_share_fail", C(p, "Event"), "" !== n && n(t);
+            _.tp = "lj_share_fail", C(_, "Event"), "" !== n && n(t);
           }, wx.updateShareMenu({ withShareTicket: !0, complete: function () {
               wx.shareAppMessage(i);
             } });
         }, ljSendSession: function (e) {
           if ("" !== e && e) {
-            var i = j(r);i.tp = "session", i.ct = "session", d = e, "" === v ? wx.getSetting({ success: function (t) {
+            var i = j(r);i.tp = "session", i.ct = "session", l = e, "" === v ? wx.getSetting({ success: function (t) {
                 t.authSetting["scope.userInfo"] ? wx.getUserInfo({ success: function (t) {
                     i.ufo = t, C(i, "Event");
                   } }) : C(i, "Event");
@@ -699,21 +713,21 @@
           } else t.DDSDK.error("请传入从后台获取的session_key");
         }, ljSendOpenid: function (e) {
           if ("" !== e.openId && e.openId) {
-            l = e.openId, c = e.isNewUser;var i = j(r);i.openid = e.openId, i.new = e.isNewUser, e.adId && (i.ad_id = e.adId), e.adChannel && (i.ad_channel = e.adChannel), e.unionId && (i.unionID = e.unionId, h = e.unionId), i.tp = "Openid", i.ct = e, C(i, "Event");
+            d = e.openId, c = e.isNewUser;var i = j(r);i.openid = e.openId, i.new = e.isNewUser, e.adId && (i.ad_id = e.adId), e.adChannel && (i.ad_channel = e.adChannel), e.unionId && (i.unionID = e.unionId, h = e.unionId), i.tp = "Openid", i.ct = e, C(i, "Event");
           } else t.DDSDK.error("openID不能为空");
         }, ljSetUseInfo: function (t) {
-          t.role_id && (m = t.role_id), t.account_id && (u = t.account_id), t.server_id && (D = t.server_id), t.openId && (l = t.openId);var e = j(r);e.tp = "UserInfo", e.ct = t, C(e, "Event");
+          t.role_id && (m = t.role_id), t.account_id && (u = t.account_id), t.server_id && (D = t.server_id), t.openId && (d = t.openId);var e = j(r);e.tp = "UserInfo", e.ct = t, C(e, "Event");
         } }, k = 0; k < b.length; k++) !function (t, e) {
         Object.defineProperty(a, t, { value: e, writable: !1, enumerable: !0, configurable: !0 });
       }(b[k], P[b[k]]);try {
         var K = wx.getSystemInfoSync();r.br = K.brand || "", r.md = K.model, r.pr = K.pixelRatio, r.sw = K.screenWidth, r.sh = K.screenHeight, r.ww = K.windowWidth, r.wh = K.windowHeight, r.lang = K.language, r.wv = K.version, r.sv = K.system, r.wvv = K.platform, r.fs = K.fontSizeSetting, r.wsdk = K.SDKVersion, r.bh = K.benchmarkLevel || "", r.bt = K.battery || "", r.wf = K.wifiSignal || "", r.lng = "", r.lat = "", r.nt = "", r.spd = "", r.ufo = null;
       } catch (t) {}
     }function C(e, a) {
-      e.openid = l, e.role_id = m, e.account_id = u, e.server_id = D, e.app_id = window.DDSDK_GNAME, e.union_id = h, g++, e.as = w, e.at = y, e.rq_c = g, e.ifo = o, e.ak = i.app_key, e.uu = s, e.v = n, e.st = Date.now(), e.ev = a, e.channel = _.query.channel, e.wsr = _, e.ufo = function (t) {
+      e.openid = d, e.role_id = m, e.account_id = u, e.server_id = D, e.app_id = window.DDSDK_GNAME, e.union_id = h, p++, e.as = w, e.at = y, e.rq_c = p, e.ifo = o, e.ak = i.app_key, e.uu = s, e.v = n, e.st = Date.now(), e.ev = a, e.channel = g.query.channel, e.wsr = g, e.ufo = function (t) {
         if (void 0 === t || "" === t) return "";var e = {};for (var i in t) "rawData" != i && "errMsg" != i && (e[i] = t[i]);return e;
-      }(e.ufo), e.ec = p, wx.Queue.push(function () {
+      }(e.ufo), e.ec = _, wx.Queue.push(function () {
         return e.ct && ("openid" == e.ct && (e.ct = '{"openid":"openid"}'), "string" == typeof e.ct && (e.ct = e.ct.replace(/\\/g, ""), e.ct = JSON.parse(e.ct))), new Promise(function (i, a) {
-          t.DDSDK.log("request---------\x3e"), t.DDSDK.log(e), wx.request({ url: "https://sdkpoint.chiji-h5.com/record-receive/api/game", data: e, header: { se: d || "", op: l || "", img: x || "" }, method: "POST", success: function (a) {
+          t.DDSDK.log("request---------\x3e"), t.DDSDK.log(e), wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/api/game", data: e, header: { se: l || "", op: d || "", img: x || "" }, method: "POST", success: function (a) {
               a.data && (t.DDSDK.log(a.data), 1 == a.data.success && DDSDK.m_Data && "isStartLog" in DDSDK.m_Data && 1 == DDSDK.m_Data.isStartLog && t.DDSDK.warn("日志打点：", e.tp)), i("");
             }, fail: function () {
               i("");
@@ -753,14 +767,14 @@
           this.showTryGame(!0);}
     }, e.ajax = function (e, i, a, n) {
       if (e && !(e.length < 1)) {
-        var o = null;if (i) for (var s in o = "", i) o += "&" + s + "=" + i[s];var r = "post";i || (r = "get");var d = new Laya.HttpRequest(),
-            l = e;t.DDSDK.log("ajax:", l), d.send(l, o, r, "text"), d.once(Laya.Event.COMPLETE, this, function (e) {
-          var i = d.data;try {
+        var o = null;if (i) for (var s in o = "", i) o += "&" + s + "=" + i[s];var r = "post";i || (r = "get");var l = new Laya.HttpRequest(),
+            d = e;t.DDSDK.log("ajax:", d), l.send(d, o, r, "text"), l.once(Laya.Event.COMPLETE, this, function (e) {
+          var i = l.data;try {
             i = JSON.parse(i);
           } catch (e) {
-            i = d.data;
+            i = l.data;
           }t.DDSDK.log("ajax succ", i), a(i);
-        }), d.once(Laya.Event.ERROR, this, function (e) {
+        }), l.once(Laya.Event.ERROR, this, function (e) {
           t.DDSDK.log("ajax fail", e), n(e);
         });
       }
@@ -817,7 +831,7 @@
         var e = t.DDSDK.createFeedbackButton({ type: "text", text: "反馈", left: 0, top: 0, width: 20, height: 40, lineHeight: 10, backgroundColor: "#00000000", color: "#ffffff00", textAlign: "center", fontSize: 16, borderRadius: 4 });this.m_feedback = e;
       }
     }
-  }e.uiView = { type: "View", props: { y: 42, x: 200, width: 400, height: 84, anchorY: .5, anchorX: .5 }, child: [{ type: "Image", props: { y: 0, x: 200, width: 197, var: "m_popbg", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/fball_5.png", height: 88 } }, { type: "Box", props: { y: 0, x: 160, width: 84, var: "m_pop", height: 84 }, child: [{ type: "Box", props: { y: 12, x: 84, width: 120, var: "m_btns", height: 60 }, child: [{ type: "Image", props: { y: 5, x: 22, width: 42, var: "m_popbtn1", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/fball_1.png", height: 37 }, child: [{ type: "Text", props: { y: 40, x: 3, var: "m_popbtn1lbl", text: "客服", fontSize: 18, color: "#000000" } }] }, { type: "Image", props: { y: 6, x: 88, width: 42, var: "m_popbtn2", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/fball_3.png", height: 37 }, child: [{ type: "Text", props: { y: 40, x: 3, var: "m_popbtn2lbl", text: "反馈", fontSize: 18, color: "#000000" } }] }] }] }, { type: "Image", props: { y: 0, x: 160, width: 84, var: "m_btn", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/fball_4.png", height: 84 } }] }, t.DDSDK_Component.floatballUI = e;
+  }e.uiView = { type: "View", props: { y: 42, x: 200, width: 400, height: 84, anchorY: .5, anchorX: .5 }, child: [{ type: "Image", props: { y: 0, x: 200, width: 197, var: "m_popbg", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/fball_5.png", height: 88 } }, { type: "Box", props: { y: 0, x: 160, width: 84, var: "m_pop", height: 84 }, child: [{ type: "Box", props: { y: 12, x: 84, width: 120, var: "m_btns", height: 60 }, child: [{ type: "Image", props: { y: 5, x: 22, width: 42, var: "m_popbtn1", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/fball_1.png", height: 37 }, child: [{ type: "Text", props: { y: 40, x: 3, var: "m_popbtn1lbl", text: "客服", fontSize: 18, color: "#000000" } }] }, { type: "Image", props: { y: 6, x: 88, width: 42, var: "m_popbtn2", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/fball_3.png", height: 37 }, child: [{ type: "Text", props: { y: 40, x: 3, var: "m_popbtn2lbl", text: "反馈", fontSize: 18, color: "#000000" } }] }] }] }, { type: "Image", props: { y: 0, x: 160, width: 84, var: "m_btn", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/fball_4.png", height: 84 } }] }, t.DDSDK_Component.floatballUI = e;
 }("undefined" != typeof window ? window : this), function (t) {
   class e extends Laya.View {
     constructor(t) {
@@ -845,5 +859,5 @@
         }
       }, this);
     }
-  }e.uiView = { x: 0, type: "View", selectedBox: 3, selecteID: 5, props: { top: 0, sceneColor: "#000000", right: 0, left: 0, bottom: 0 }, nodeParent: -1, label: "View", isOpen: !0, isDirectory: !0, hasChild: !0, compId: 1, child: [{ x: 15, type: "Image", props: { var: "m_bg", top: 0, skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/186x186_mask.png", right: 0, name: "m_bg", mouseEnabled: !0, left: 0, bottom: 0, alpha: .6 }, nodeParent: 1, label: "Image(m_bg)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 2, child: [] }, { x: 15, type: "Box", props: { var: "m_pop", centerY: -64, centerX: -31, anchorY: .5, anchorX: .5 }, nodeParent: 1, label: "Box(m_pop)", isOpen: !0, isDirectory: !0, isAniNode: !0, hasChild: !0, compId: 3, child: [{ x: 30, type: "Image", props: { y: 10, x: 10, var: "m_popbg2", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/ui_tishi_02.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbg2)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 5, child: [] }, { x: 30, type: "Image", props: { var: "m_popbg", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbg)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 4, child: [] }, { x: 30, type: "Image", props: { y: 20, x: 20, var: "m_popbtn3", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbtn3)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 6, child: [] }, { x: 30, type: "Image", props: { y: 30, x: 30, var: "m_popbtn2", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbtn2)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 7, child: [] }, { x: 30, type: "Image", props: { y: 40, x: 40, var: "m_popbtn1", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbtn1)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 8, child: [] }] }] }, t.DDSDK_Component.customPopUI = e;
+  }e.uiView = { x: 0, type: "View", selectedBox: 3, selecteID: 5, props: { top: 0, sceneColor: "#000000", right: 0, left: 0, bottom: 0 }, nodeParent: -1, label: "View", isOpen: !0, isDirectory: !0, hasChild: !0, compId: 1, child: [{ x: 15, type: "Image", props: { var: "m_bg", top: 0, skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/186x186_mask.png", right: 0, name: "m_bg", mouseEnabled: !0, left: 0, bottom: 0, alpha: .6 }, nodeParent: 1, label: "Image(m_bg)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 2, child: [] }, { x: 15, type: "Box", props: { var: "m_pop", centerY: -64, centerX: -31, anchorY: .5, anchorX: .5 }, nodeParent: 1, label: "Box(m_pop)", isOpen: !0, isDirectory: !0, isAniNode: !0, hasChild: !0, compId: 3, child: [{ x: 30, type: "Image", props: { y: 10, x: 10, var: "m_popbg2", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/ui_tishi_02.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbg2)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 5, child: [] }, { x: 30, type: "Image", props: { var: "m_popbg", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbg)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 4, child: [] }, { x: 30, type: "Image", props: { y: 20, x: 20, var: "m_popbtn3", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbtn3)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 6, child: [] }, { x: 30, type: "Image", props: { y: 30, x: 30, var: "m_popbtn2", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbtn2)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 7, child: [] }, { x: 30, type: "Image", props: { y: 40, x: 40, var: "m_popbtn1", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbtn1)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 8, child: [] }] }] }, t.DDSDK_Component.customPopUI = e;
 }("undefined" != typeof window ? window : this);

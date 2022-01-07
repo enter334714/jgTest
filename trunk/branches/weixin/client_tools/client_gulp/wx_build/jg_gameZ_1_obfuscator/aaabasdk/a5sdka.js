@@ -4,18 +4,18 @@ import helper from "./a5ssha.js";
 var AladinSDK = helper.AladinSDK;
 //TODO 替换对应参数
 var config = {
-    game_id: C[489685],
-    game_pkg: C[489686], //萌蛋-仙尘-九阳服
-    partner_label: C[489687],
-    partner_id: C[489688],
-    game_ver: C[489689],
+    game_id: C[489703],
+    game_pkg: C[489704], //萌蛋-仙尘-九阳服
+    partner_label: C[489705],
+    partner_id: C[489706],
+    game_ver: C[489707],
     is_auth: false, //授权登录
-    wx_app_id: C[489690],
-    tmpId: { 1: C[489691], 2: C[489692], 3: C[489693] // 订阅的类型 和 模板id
+    wx_app_id: C[489708],
+    tmpId: { 1: C[489709], 2: C[489710], 3: C[489711] // 订阅的类型 和 模板id
     } };
 window.config = config;
 var a1C4MJ8 = a1CM8J4();
-var HOST = C[489694];
+var HOST = C[489712];
 var a1C4M8J = null;
 var a1CMJ84 = null;
 var sysInfo = wx.getSystemInfoSync();
@@ -25,7 +25,7 @@ var partner_user_info = null;
 // 初始化SDK
 AladinSDK.init(config.wx_app_id, config.game_ver);
 // 启动时长上报
-AladinSDK.reportWithAppId(config.wx_app_id, C[489695], "");
+AladinSDK.reportWithAppId(config.wx_app_id, C[489713], "");
 
 function a1CM8J4() {
     var callbacks = {};
@@ -34,22 +34,22 @@ function a1CM8J4() {
         order_data: {},
         init: function (ops, callback) {
             var game_ver = ops && ops.game_ver ? ops.game_ver : 0;
-            console.log(C[489696]);
+            console.log(C[489714]);
             var self = this;
 
-            var uuid = wx.getStorageSync(C[489697]);
+            var uuid = wx.getStorageSync(C[489715]);
             var is_new;
             if (!uuid) {
                 uuid = self.uuid(16, 32);
-                wx.setStorageSync(C[489697], uuid);
+                wx.setStorageSync(C[489715], uuid);
                 is_new = 1;
             } else {
                 is_new = 0;
             }
-            var idfv = wx.getStorageSync(C[489698]);
+            var idfv = wx.getStorageSync(C[489716]);
             if (!idfv) {
                 idfv = self.uuid(16, 32);
-                wx.setStorageSync(C[489698], idfv);
+                wx.setStorageSync(C[489716], idfv);
             }
 
             var info = wx.getLaunchOptionsSync();
@@ -57,7 +57,7 @@ function a1CM8J4() {
 
             //判断今天是否已经上报过
             if (is_new && info.query && info.query.ad_code) {
-                wx.setStorageSync(C[489699], info.query.ad_code);
+                wx.setStorageSync(C[489717], info.query.ad_code);
             }
 
             var data = {
@@ -88,7 +88,7 @@ function a1CM8J4() {
         },
 
         login: function (data, callback) {
-            console.log(C[489700]);
+            console.log(C[489718]);
             callbacks[C[460632]] = typeof callback == C[461353] ? callback : null;
             var self = this;
 
@@ -98,12 +98,12 @@ function a1CM8J4() {
                     partner_user_info = res;
                     self.do_login(res);
 
-                    console.log(C[489701] + JSON.stringify(res));
+                    console.log(C[489719] + JSON.stringify(res));
                 } else {
                     callbacks[C[460632]] && callbacks[C[460632]](1, {
                         errMsg: res.msg
                     });
-                    console.log(C[489702] + JSON.stringify(res));
+                    console.log(C[489720] + JSON.stringify(res));
                 }
             });
         },
@@ -113,7 +113,7 @@ function a1CM8J4() {
 
             //发起网络请求
             var public_data = self.getPublicData();
-            public_data[C[489703]] = JSON.stringify(info);
+            public_data[C[489721]] = JSON.stringify(info);
             if (a1CMJ84 && typeof a1CMJ84 == C[461252]) {
                 for (var key in a1CMJ84) {
                     public_data[key] = a1CMJ84[key];
@@ -121,7 +121,7 @@ function a1CM8J4() {
             }
 
             wx.request({
-                url: C[486705] + HOST + C[489704],
+                url: C[486723] + HOST + C[489722],
                 method: C[460600],
                 dataType: C[461598],
                 header: {
@@ -129,17 +129,17 @@ function a1CM8J4() {
                 },
                 data: public_data,
                 success: function (res) {
-                    console.log(C[489705] + JSON.stringify(res));
+                    console.log(C[489723] + JSON.stringify(res));
 
                     if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
                             try {
-                                wx.setStorageSync(C[489706], data.data.sdk_token);
-                                wx.setStorageSync(C[489707], data.data.user_id);
-                                wx.setStorageSync(C[489708], data.data.username);
+                                wx.setStorageSync(C[489724], data.data.sdk_token);
+                                wx.setStorageSync(C[489725], data.data.user_id);
+                                wx.setStorageSync(C[489726], data.data.username);
                                 if (data.data.ext) {
-                                    wx.setStorageSync(C[489709], data.data.ext);
+                                    wx.setStorageSync(C[489727], data.data.ext);
                                 }
                             } catch (e) {}
                             var userData = {
@@ -160,11 +160,11 @@ function a1CM8J4() {
                             });
                         }
 
-                        self.getShareInfo(C[489710], function (data) {
-                            console.log(C[489711]);
+                        self.getShareInfo(C[489728], function (data) {
+                            console.log(C[489729]);
                             wx.onShareAppMessage(function () {
                                 //记录开始分享
-                                self.logStartShare(C[489710]);
+                                self.logStartShare(C[489728]);
                                 return {
                                     title: data.title,
                                     imageUrl: data.img,
@@ -174,7 +174,7 @@ function a1CM8J4() {
                         });
                     } else {
                         callbacks[C[460632]] && callbacks[C[460632]](1, {
-                            errMsg: C[489712]
+                            errMsg: C[489730]
                         });
                     }
                 }
@@ -184,7 +184,7 @@ function a1CM8J4() {
         share: function (data) {
             callbacks[C[460699]] = typeof callback == C[461353] ? callback : null;
             var type = data.type || C[460699];
-            console.log(C[489713] + type);
+            console.log(C[489731] + type);
             var self = this;
             this.getShareInfo(type, function (data) {
 
@@ -199,9 +199,9 @@ function a1CM8J4() {
         },
 
         logStartShare: function (type) {
-            var sdk_token = wx.getStorageSync(C[489706]);
+            var sdk_token = wx.getStorageSync(C[489724]);
             wx.request({
-                url: C[486705] + HOST + C[489714],
+                url: C[486723] + HOST + C[489732],
                 method: C[460600],
                 dataType: C[461598],
                 header: {
@@ -224,10 +224,10 @@ function a1CM8J4() {
         },
 
         checkGameVersion: function (game_ver, callback) {
-            console.log(C[489715]);
-            var sdk_token = wx.getStorageSync(C[489706]);
+            console.log(C[489733]);
+            var sdk_token = wx.getStorageSync(C[489724]);
             wx.request({
-                url: C[486705] + HOST + C[489716],
+                url: C[486723] + HOST + C[489734],
                 method: C[460600],
                 dataType: C[461598],
                 header: {
@@ -239,7 +239,7 @@ function a1CM8J4() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log(C[489717] + JSON.stringify(res));
+                    console.log(C[489735] + JSON.stringify(res));
 
                     if (res.statusCode == 200) {
                         var data = res.data;
@@ -260,10 +260,10 @@ function a1CM8J4() {
         },
 
         getShareInfo: function (type, callback) {
-            console.log(C[489718]);
-            var sdk_token = wx.getStorageSync(C[489706]);
+            console.log(C[489736]);
+            var sdk_token = wx.getStorageSync(C[489724]);
             wx.request({
-                url: C[486705] + HOST + C[489719],
+                url: C[486723] + HOST + C[489737],
                 method: C[460600],
                 dataType: C[461598],
                 header: {
@@ -279,7 +279,7 @@ function a1CM8J4() {
                     no_log: 1 //设置为1后就不在这个接口打log，交给logStartShare接口
                 },
                 success: function (res) {
-                    console.log(C[489720]);
+                    console.log(C[489738]);
                     console.log(res);
                     if (res.statusCode == 200) {
                         var data = res.data;
@@ -287,12 +287,12 @@ function a1CM8J4() {
                             callback && callback(data.data);
                         } else {
                             callbacks[C[460699]] && callbacks[C[460699]](1, {
-                                errMsg: C[489721] + data.msg
+                                errMsg: C[489739] + data.msg
                             });
                         }
                     } else {
                         callbacks[C[460699]] && callbacks[C[460699]](1, {
-                            errMsg: C[489722]
+                            errMsg: C[489740]
                         });
                     }
                 }
@@ -300,10 +300,10 @@ function a1CM8J4() {
         },
 
         updateShare: function (invite, invite_type, is_new, role_id, server_id, scene) {
-            console.log(C[489723]);
-            var sdk_token = wx.getStorageSync(C[489706]);
+            console.log(C[489741]);
+            var sdk_token = wx.getStorageSync(C[489724]);
             wx.request({
-                url: C[486705] + HOST + C[489724],
+                url: C[486723] + HOST + C[489742],
                 method: C[460600],
                 dataType: C[461598],
                 header: {
@@ -321,13 +321,13 @@ function a1CM8J4() {
                     scene: scene
                 },
                 success: function (res) {
-                    console.log(C[489725] + JSON.stringify(res));
+                    console.log(C[489743] + JSON.stringify(res));
                 }
             });
         },
 
         msgCheck: function (content, callback) {
-            console.log(C[489726] + content);
+            console.log(C[489744] + content);
 
             AladinSDK.msgCheck(content, function (res) {
                 if (res.ret == 0) {
@@ -347,17 +347,17 @@ function a1CM8J4() {
 
         //支付接口
         startPay: function (data, callback) {
-            console.log(C[489727] + JSON.stringify(data));
+            console.log(C[489745] + JSON.stringify(data));
 
             var self = this;
             callbacks[C[460686]] = typeof callback == C[461353] ? callback : null;
             //先下单
             this_pay_order = 0;
-            var sdk_token = wx.getStorageSync(C[489706]);
-            var session_key = wx.getStorageSync(C[489709]);
+            var sdk_token = wx.getStorageSync(C[489724]);
+            var session_key = wx.getStorageSync(C[489727]);
             if (!sdk_token) {
                 callbacks[C[460686]] && callbacks[C[460686]](1, {
-                    errMsg: C[489728]
+                    errMsg: C[489746]
                 });
                 return;
             }
@@ -381,11 +381,11 @@ function a1CM8J4() {
             self.order_data = order_data;
 
             var public_data = self.getPublicData();
-            public_data[C[489729]] = JSON.stringify(order_data);
+            public_data[C[489747]] = JSON.stringify(order_data);
 
             //发起网络请求
             wx.request({
-                url: C[486705] + HOST + C[489730],
+                url: C[486723] + HOST + C[489748],
                 method: C[460600],
                 dataType: C[461598],
                 header: {
@@ -393,7 +393,7 @@ function a1CM8J4() {
                 },
                 data: public_data,
                 success: function (res) {
-                    console.log(C[489731] + JSON.stringify(res));
+                    console.log(C[489749] + JSON.stringify(res));
                     if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
@@ -409,7 +409,7 @@ function a1CM8J4() {
                                 zone_id: 0,
                                 role_id: data.data.pay_data.roleId,
                                 cb: function (res) {
-                                    console.log(C[489732], res);
+                                    console.log(C[489750], res);
                                 }
                             };
                             AladinSDK.midasPay(pay_data);
@@ -420,7 +420,7 @@ function a1CM8J4() {
                         }
                     } else {
                         callbacks[C[460632]] && callbacks[C[460632]](1, {
-                            errMsg: C[489712]
+                            errMsg: C[489730]
                         });
                     }
                 }
@@ -429,15 +429,15 @@ function a1CM8J4() {
 
         //创建角色
         logCreateRole: function (data) {
-            var uid = wx.getStorageSync(C[489707]);
-            var username = wx.getStorageSync(C[489708]);
+            var uid = wx.getStorageSync(C[489725]);
+            var username = wx.getStorageSync(C[489726]);
 
             var postData = {};
-            postData[C[489733]] = uid;
-            postData[C[489734]] = username;
-            postData[C[472256]] = data.roleid;
-            postData[C[489735]] = data.rolelevel;
-            postData[C[489736]] = data.rolename;
+            postData[C[489751]] = uid;
+            postData[C[489752]] = username;
+            postData[C[472255]] = data.roleid;
+            postData[C[489753]] = data.rolelevel;
+            postData[C[489754]] = data.rolename;
             postData[C[460020]] = data.serverid;
 
             if (data.roleid && data.serverid) {
@@ -452,15 +452,15 @@ function a1CM8J4() {
 
         //进入游戏
         logEnterGame: function (data) {
-            var uid = wx.getStorageSync(C[489707]);
-            var username = wx.getStorageSync(C[489708]);
+            var uid = wx.getStorageSync(C[489725]);
+            var username = wx.getStorageSync(C[489726]);
 
             var postData = {};
-            postData[C[489733]] = uid;
-            postData[C[489734]] = username;
-            postData[C[472256]] = data.roleid;
-            postData[C[489735]] = data.rolelevel;
-            postData[C[489736]] = data.rolename;
+            postData[C[489751]] = uid;
+            postData[C[489752]] = username;
+            postData[C[472255]] = data.roleid;
+            postData[C[489753]] = data.rolelevel;
+            postData[C[489754]] = data.rolename;
             postData[C[460020]] = data.serverid;
 
             if (data.roleid && data.serverid) {
@@ -470,7 +470,7 @@ function a1CM8J4() {
                 };
             }
 
-            this.log(C[467185], postData);
+            this.log(C[467184], postData);
 
             // 渠道 openid上报
             AladinSDK.reportOpenId(partner_user_info.openid);
@@ -483,15 +483,15 @@ function a1CM8J4() {
 
         //角色升级
         logRoleUpLevel: function (data) {
-            var uid = wx.getStorageSync(C[489707]);
-            var username = wx.getStorageSync(C[489708]);
+            var uid = wx.getStorageSync(C[489725]);
+            var username = wx.getStorageSync(C[489726]);
 
             var postData = {};
-            postData[C[489733]] = uid;
-            postData[C[489734]] = username;
-            postData[C[472256]] = data.roleid;
-            postData[C[489735]] = data.rolelevel;
-            postData[C[489736]] = data.rolename;
+            postData[C[489751]] = uid;
+            postData[C[489752]] = username;
+            postData[C[472255]] = data.roleid;
+            postData[C[489753]] = data.rolelevel;
+            postData[C[489754]] = data.rolename;
             postData[C[460020]] = data.serverid;
 
             if (data.roleid && data.serverid) {
@@ -501,17 +501,17 @@ function a1CM8J4() {
                 };
             }
 
-            this.log(C[489737], postData);
+            this.log(C[489755], postData);
 
             // 渠道上报
-            AladinSDK.reportWithAppId(config.wx_app_id, C[489738], data.rolelevel);
+            AladinSDK.reportWithAppId(config.wx_app_id, C[489756], data.rolelevel);
             AladinSDK.reportCheck(); //查看所有上报项的上报情况
             AladinSDK.reportCheckSingle(C[460121]); //查看指定上报项的上报情况
         },
 
         //获取唯一设备码（自定义）
         uuid: function (radix, len) {
-            var chars = C[489739].split('');
+            var chars = C[489757].split('');
             var uuid = [],
                 i;
             radix = radix || chars.length;
@@ -537,9 +537,9 @@ function a1CM8J4() {
 
         //获取公共参数
         getPublicData: function () {
-            var uuid = wx.getStorageSync(C[489697]);
-            var idfv = wx.getStorageSync(C[489698]);
-            var ad_code = wx.getStorageSync(C[489699]);
+            var uuid = wx.getStorageSync(C[489715]);
+            var idfv = wx.getStorageSync(C[489716]);
+            var ad_code = wx.getStorageSync(C[489717]);
 
             return {
                 game_id: config.game_id,
@@ -549,10 +549,10 @@ function a1CM8J4() {
                 ad_code: ad_code,
                 uuid: uuid,
                 idfv: idfv,
-                mac: C[489740],
+                mac: C[489758],
                 is_from_min: 1,
                 dname: sysInfo.model,
-                net_type: sysInfo.wifiSignal == 0 ? '4G' : C[489741],
+                net_type: sysInfo.wifiSignal == 0 ? '4G' : C[489759],
                 os_ver: sysInfo.system,
                 sdk_ver: sysInfo.version, //存放的是微信版本号
                 game_ver: config.game_ver, //存放的是SDK版本号
@@ -567,11 +567,11 @@ function a1CM8J4() {
                 public_data[key] = data[key];
             }
 
-            console.log(C[489742] + type);
+            console.log(C[489760] + type);
             console.log(public_data);
 
             wx.request({
-                url: C[486705] + HOST + C[489743] + type + C[489744] + encodeURIComponent(JSON.stringify(public_data))
+                url: C[486723] + HOST + C[489761] + type + C[489762] + encodeURIComponent(JSON.stringify(public_data))
             });
         },
 
@@ -593,7 +593,7 @@ function a1CM8J4() {
 
         // 渠道自定义上报
         reportAnalytics: function (step) {
-            console.log(C[489745] + step);
+            console.log(C[489763] + step);
             AladinSDK.reportAnalytics(config.wx_app_id, step); //step只能为1-50的数字
         }
 
@@ -670,7 +670,7 @@ exports.msgCheck = function (data, callback) {
 };
 
 exports.downloadClient = function () {
-    run(C[489746]);
+    run(C[489764]);
 };
 
 exports.getConfig = function () {
@@ -682,13 +682,13 @@ exports.getConfig = function () {
 };
 
 exports.getPublicData = function () {
-    run(C[489747]);
+    run(C[489765]);
 };
 
 exports.onShareMessageToFriend = function (callback) {
-    run(C[489748], callback);
+    run(C[489766], callback);
 };
 
 exports.reportAnalytics = function (step) {
-    run(C[489749], step);
+    run(C[489767], step);
 };
