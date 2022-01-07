@@ -7791,7 +7791,7 @@ var set_param_Z_6 = function () {
             "4.png": "DD88DD885c.png",
 
         }
-        strFilePath = "Z6es";
+        strFilePath = "/Z6es";
         strFileName = "/Z6iles.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$E", "G", "e", "E1", "E"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
