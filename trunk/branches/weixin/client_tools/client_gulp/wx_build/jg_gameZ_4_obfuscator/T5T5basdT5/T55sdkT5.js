@@ -7,7 +7,7 @@ var config = {
     game_pkg: B[521699], //9130vs掌上-我和我的影子
     partner_label: B[521700],
     partner_id: B[521701],
-    game_ver: B[521702],
+    game_ver: "29.0.9",
     is_auth: false, //授权登录
 
     partner_app_id: B[521703],
@@ -422,10 +422,19 @@ function B12LS_N() {
                     if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
+                            if(data && data.data && data.data.pay_data){
+                                data.data.pay_data.orderAmount = data.data.pay_data.orderAmount+"";
+                                data.data.pay_data.roleId = data.data.pay_data.roleId+"";
+                                data.data.pay_data.roleLevel = data.data.pay_data.roleLevel+"";
+                            }
                             sdk.payCheck({
                                 data: data.data.pay_data,
-                                success: function () {},
-                                fail: function () {}
+                                success: function (res) {
+                                    console.log("支付成功：",res)
+                                },
+                                fail: function (res) {
+                                    console.log("支付错误：",res)
+                                }
                             });
                         } else {
                             callbacks[B[520313]] && callbacks[B[520313]](1, {

@@ -9,11 +9,11 @@ export default class Dall {
         console.log(W[29384] + username);
         let that = this;
         wx.request({
-            url: W[25986] + HOST + W[29385] + partner_id + '/' + game_pkg,
-            method: W[627],
-            dataType: W[6506],
+            url: W[25450] + HOST + W[29385] + partner_id + '/' + game_pkg,
+            method: W[28821],
+            dataType: W[5847],
             header: {
-                'content-type': W[762] // 默认值
+                'content-type': W[28936] // 默认值
             },
             data: {
                 username: username,
@@ -30,7 +30,7 @@ export default class Dall {
             appId: W[29386],
             path: W[29387] + username + W[29388] + ts + W[29389] + sign + W[29390] + game_id,
             extraData: {
-                foo: W[20972]
+                foo: W[20381]
             },
             envVersion: W[29391],
             success(res) {

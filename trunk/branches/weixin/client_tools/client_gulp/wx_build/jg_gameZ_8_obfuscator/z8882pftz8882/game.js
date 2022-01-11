@@ -1,0 +1,2 @@
+var G = wx.$G;
+require('z888z888Fz888z888.js'), window[G[620592]][G[620593]]['Long'] = null, window['client_pb'] = require('z888z888IENz888z888.js'), window[G[620594]] = window[G[620592]][G[620595]][G[620596]](client_pb);
