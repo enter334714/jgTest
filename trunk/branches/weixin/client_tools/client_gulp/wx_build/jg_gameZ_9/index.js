@@ -260,16 +260,16 @@ window.sdkOnInited = function(res) {
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
     PF_INFO.logurl = "https://log-tjqy.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy-xc.shzbkj.com/weixin_1/";
+    PF_INFO.cdn = "https://cdn-tjqy-cg.shzbkj.com/weixin_1/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
-    PF_INFO.version_name = "xc";
+    PF_INFO.version_name = "cg";
     PF_INFO.wxShield = false;
   } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0){  //当前版本 == 后台版本
     console.log("#审核版=============================");
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（审核版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy-wd.shzbkj.com/weixin_0/";
+    PF_INFO.cdn = "https://cdn-tjqy-cg.shzbkj.com/weixin_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
     PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = true;                          //屏蔽活动
@@ -278,7 +278,7 @@ window.sdkOnInited = function(res) {
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（开发版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy-wd.shzbkj.com/weixin_0/";
+    PF_INFO.cdn = "https://cdn-tjqy-cg.shzbkj.com/weixin_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
     PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = false;
@@ -1112,6 +1112,9 @@ window.enterToGame = function() {
       }
 
       window.MainWX.instance.initPlatdata(platData);
+      setTimeout(() => {
+        new MxFc();
+      }, 10000);    
     }
   } else {
     console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadServerRes:"+window.loadServerRes+",loadLoadingRes:"+window.loadLoadingRes+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);
