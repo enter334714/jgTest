@@ -52,6 +52,10 @@ var gameSDK = function (n) {
 }, function (e, t, n) {
   "use strict";
 
+  Object.defineProperty(t, "__esModule", { value: !0 });var o = { GAME_NAME: "风之旅迹", APPID: 267, APPID_IOS: 269, APP_KEY: "ddda8f1083bbef53a2cba230fc4550ac", SHARE_QUERY: "agent_id=2503&site_id=116929", IOS_SHARE_QUERY: "agent_id=2503&site_id=116929", AGENT_ID: 2503, SITE_ID: 116928, IOS_SITE_ID: 116927, adInfo: { gdt_vid: "", weixinadinfo: "" } };t.default = o;
+}, function (e, t, n) {
+  "use strict";
+
   Object.defineProperty(t, "__esModule", { value: !0 });var o = function () {
     function o(e, t) {
       for (var n = 0; n < t.length; n++) {
@@ -109,9 +113,9 @@ var gameSDK = function (n) {
     };
   }(),
       s = r(n(8)),
-      c = r(n(3)),
+      c = r(n(1)),
       l = r(n(0)),
-      d = r(n(1));function r(e) {
+      d = r(n(2));function r(e) {
     return e && e.__esModule ? e : { default: e };
   }var a = function () {
     function e() {
@@ -121,9 +125,9 @@ var gameSDK = function (n) {
     }return o(e, [{ key: "api", value: function (a, i) {
         var u = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : "post",
             f = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : "";return new Promise(function (t, n) {
-          var e = l.default.getItem("adQuery"),
-              o = l.default.getItem("is_ad_user");f || i.appid || (i.appid = c.default.APPID), i.agent_id = !1 !== e ? e.agent_id : c.default.AGENT_ID, i.site_id = !1 !== e ? e.site_id : c.default.SITE_ID, console.log("query,is_ad_user", e, o), !1 === e && !1 === o && (i.agent_id = 1e5, i.site_id = 1e5), i.launchScene = l.default.getItem("launchScene");var r = a in s.default && s.default[a];!1 === r && n("type error"), d.default.getSystemInfo("platform").then(function (e) {
-            i.env = e, wx.request({ url: r, header: { "Content-Type": "application/x-www-form-urlencoded" }, method: u, data: i, success: function (e) {
+          var o = l.default.getItem("adQuery"),
+              e = l.default.getItem("is_ad_user");f || i.appid || (i.appid = c.default.APPID), i.agent_id = !1 !== o ? o.agent_id : c.default.AGENT_ID, i.site_id = !1 !== o ? o.site_id : c.default.SITE_ID, console.log("query,is_ad_user", o, e), !1 === o && !1 === e && (i.agent_id = 1e5, i.site_id = 1e5), i.launchScene = l.default.getItem("launchScene");var r = a in s.default && s.default[a];!1 === r && n("type error"), d.default.getSystemInfo("platform").then(function (e) {
+            "ios" === e && !1 === o && (i.site_id = c.default.IOS_SITE_ID), i.ad_click_id = c.default.adInfo.gdt_vid, i.weixinadinfo = c.default.adInfo.weixinadinfo, i.env = e, wx.request({ url: r, header: { "Content-Type": "application/x-www-form-urlencoded" }, method: u, data: i, success: function (e) {
                 200 === e.statusCode ? 1 === e.data.ret || "ok" === e.data ? t(e.data.data) : n(e.data.msg) : n("network error " + e.statusCode);
               }, fail: function (e) {
                 n(e.errMsg);
@@ -132,10 +136,6 @@ var gameSDK = function (n) {
         });
       } }]), e;
   }();t.default = new a();
-}, function (e, t, n) {
-  "use strict";
-
-  Object.defineProperty(t, "__esModule", { value: !0 });var o = { GAME_NAME: "六玄之苍", APPID: 267, APPID_IOS: 269, APP_KEY: "50b06498d09e61e225274a1e654a1e79", SHARE_QUERY: "agent_id=2422&site_id=116929", IOS_SHARE_QUERY: "agent_id=2422&site_id=116929", AGENT_ID: 2422, SITE_ID: 116928, IOS_SITE_ID: 116927 };t.default = o;
 }, function (e, t, n) {
   "use strict";
 
@@ -149,8 +149,8 @@ var gameSDK = function (n) {
     };
   }(),
       r = f(n(0)),
-      a = f(n(2)),
-      i = f(n(1)),
+      a = f(n(3)),
+      i = f(n(2)),
       u = f(n(5));function f(e) {
     return e && e.__esModule ? e : { default: e };
   }var s = function () {
@@ -232,9 +232,9 @@ var gameSDK = function (n) {
     };
   }(),
       r = f(n(0)),
-      a = f(n(2)),
-      i = f(n(3)),
-      u = f(n(1));function f(e) {
+      a = f(n(3)),
+      i = f(n(1)),
+      u = f(n(2));function f(e) {
     return e && e.__esModule ? e : { default: e };
   }var s = function () {
     function e() {
@@ -291,26 +291,27 @@ var gameSDK = function (n) {
       return t && o(e.prototype, t), n && o(e, n), e;
     };
   }(),
-      r = u(n(4)),
-      a = u(n(9)),
-      i = (u(n(5)), u(n(0)));function u(e) {
+      r = f(n(4)),
+      a = f(n(9)),
+      i = f(n(0)),
+      u = f(n(1));function f(e) {
     return e && e.__esModule ? e : { default: e };
-  }var f = { gdt_vid: !1, weixinadinfo: !1, scene: !1, referrerInfo: !1, site_id: !1, agent_id: !1 },
-      s = function () {
+  }var s = { gdt_vid: !1, weixinadinfo: !1, scene: !1, referrerInfo: !1, site_id: !1, agent_id: !1 },
+      c = function () {
     function e() {
       !function (e, t) {
         if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
       }(this, e), this.cpSDK = a.default;
     }return o(e, [{ key: "init", value: function (e, t) {
-        var n, o;n = wx.getLaunchOptionsSync(), o = n.query, i.default.destroyItem("adQuery"), o.agent_id && o.site_id && i.default.setItem("adQuery", { agent_id: o.agent_id, site_id: o.site_id }), i.default.setItem("launchScene", n.scene ? n.scene : 0), o.gdt_vid && o.weixinadinfo && (f.gdt_vid = o.gdt_vid, f.weixinadinfo = o.weixinadinfo, f.scene = n.scene, f.referrerInfo = n.referrerInfo, f.wx_agent_id = o.agent_id, f.wx_site_id = o.site_id), r.default.reportAdInfo(f, !1), e();
+        var n, o;n = wx.getLaunchOptionsSync(), o = n.query, i.default.destroyItem("adQuery"), o.agent_id && o.site_id && i.default.setItem("adQuery", { agent_id: o.agent_id, site_id: o.site_id }), i.default.setItem("launchScene", n.scene ? n.scene : 0), o.gdt_vid && o.weixinadinfo && (s.gdt_vid = o.gdt_vid, s.weixinadinfo = o.weixinadinfo, s.scene = n.scene, s.referrerInfo = n.referrerInfo, s.wx_agent_id = o.agent_id, s.wx_site_id = o.site_id, u.default.adInfo.gdt_vid = o.gdt_vid, u.default.adInfo.weixinadinfo = o.weixinadinfo), r.default.reportAdInfo(s, !1), e();
       } }, { key: "entryGame", value: function (e, t) {
         r.default.checkLoginStatus(function () {
-          wx.hideLoading(), r.default.reportAdInfo(f, !0, e, t), e();
+          wx.hideLoading(), r.default.reportAdInfo(s, !0, e, t), e();
         }, function (e) {
           wx.hideLoading(), t(e);
         });
       } }]), e;
-  }();t.default = new s();
+  }();t.default = new c();
 }, function (e, t, n) {
   "use strict";
 
@@ -329,13 +330,13 @@ var gameSDK = function (n) {
     };
   }(),
       s = a(n(0)),
-      f = a(n(2)),
-      c = a(n(3)),
+      f = a(n(3)),
+      c = a(n(1)),
       l = a(n(10)),
       r = a(n(5)),
       d = a(n(4)),
       g = a(n(11)),
-      h = a(n(1)),
+      h = a(n(2)),
       y = a(n(12));function a(e) {
     return e && e.__esModule ? e : { default: e };
   }var i = function () {
@@ -429,10 +430,10 @@ var gameSDK = function (n) {
       return t && o(e.prototype, t), n && o(e, n), e;
     };
   }(),
-      a = f(n(2)),
+      a = f(n(3)),
       i = f(n(0)),
       u = f(n(4)),
-      r = f(n(1));f(n(3));function f(e) {
+      r = f(n(2));f(n(1));function f(e) {
     return e && e.__esModule ? e : { default: e };
   }var s = function () {
     function e() {
@@ -484,6 +485,8 @@ var gameSDK = function (n) {
               });
             }, fail: function (e) {
               n(e);
+            }, complete: function (e) {
+              console.log(e);
             } });
         });
       } }, { key: "payCallback", value: function () {
@@ -505,26 +508,28 @@ var gameSDK = function (n) {
       } }]), e;
   }();t.default = new s();
 }, function (e, t, n) {
-  var m, v, _, I, S;m = n(13), v = n(6).utf8, _ = n(14), I = n(6).bin, (S = function (e, t) {
-    e.constructor == String ? e = t && "binary" === t.encoding ? I.stringToBytes(e) : v.stringToBytes(e) : _(e) ? e = Array.prototype.slice.call(e, 0) : Array.isArray(e) || (e = e.toString());for (var n = m.bytesToWords(e), o = 8 * e.length, r = 1732584193, a = -271733879, i = -1732584194, u = 271733878, f = 0; f < n.length; f++) n[f] = 16711935 & (n[f] << 8 | n[f] >>> 24) | 4278255360 & (n[f] << 24 | n[f] >>> 8);n[o >>> 5] |= 128 << o % 32, n[14 + (o + 64 >>> 9 << 4)] = o;var s = S._ff,
-        c = S._gg,
-        l = S._hh,
-        d = S._ii;for (f = 0; f < n.length; f += 16) {
-      var g = r,
-          h = a,
+  "use strict";
+
+  var _, v, I, w, o;_ = n(13), v = n(6).utf8, I = n(14), w = n(6).bin, (o = function e(t, n) {
+    t.constructor == String ? t = n && "binary" === n.encoding ? w.stringToBytes(t) : v.stringToBytes(t) : I(t) ? t = Array.prototype.slice.call(t, 0) : Array.isArray(t) || (t = t.toString());for (var o = _.bytesToWords(t), r = 8 * t.length, a = 1732584193, i = -271733879, u = -1732584194, f = 271733878, s = 0; s < o.length; s++) o[s] = 16711935 & (o[s] << 8 | o[s] >>> 24) | 4278255360 & (o[s] << 24 | o[s] >>> 8);o[r >>> 5] |= 128 << r % 32, o[14 + (r + 64 >>> 9 << 4)] = r;var c = e._ff,
+        l = e._gg,
+        d = e._hh,
+        g = e._ii;for (s = 0; s < o.length; s += 16) {
+      var h = a,
           y = i,
-          p = u;a = d(a = d(a = d(a = d(a = l(a = l(a = l(a = l(a = c(a = c(a = c(a = c(a = s(a = s(a = s(a = s(a, i = s(i, u = s(u, r = s(r, a, i, u, n[f + 0], 7, -680876936), a, i, n[f + 1], 12, -389564586), r, a, n[f + 2], 17, 606105819), u, r, n[f + 3], 22, -1044525330), i = s(i, u = s(u, r = s(r, a, i, u, n[f + 4], 7, -176418897), a, i, n[f + 5], 12, 1200080426), r, a, n[f + 6], 17, -1473231341), u, r, n[f + 7], 22, -45705983), i = s(i, u = s(u, r = s(r, a, i, u, n[f + 8], 7, 1770035416), a, i, n[f + 9], 12, -1958414417), r, a, n[f + 10], 17, -42063), u, r, n[f + 11], 22, -1990404162), i = s(i, u = s(u, r = s(r, a, i, u, n[f + 12], 7, 1804603682), a, i, n[f + 13], 12, -40341101), r, a, n[f + 14], 17, -1502002290), u, r, n[f + 15], 22, 1236535329), i = c(i, u = c(u, r = c(r, a, i, u, n[f + 1], 5, -165796510), a, i, n[f + 6], 9, -1069501632), r, a, n[f + 11], 14, 643717713), u, r, n[f + 0], 20, -373897302), i = c(i, u = c(u, r = c(r, a, i, u, n[f + 5], 5, -701558691), a, i, n[f + 10], 9, 38016083), r, a, n[f + 15], 14, -660478335), u, r, n[f + 4], 20, -405537848), i = c(i, u = c(u, r = c(r, a, i, u, n[f + 9], 5, 568446438), a, i, n[f + 14], 9, -1019803690), r, a, n[f + 3], 14, -187363961), u, r, n[f + 8], 20, 1163531501), i = c(i, u = c(u, r = c(r, a, i, u, n[f + 13], 5, -1444681467), a, i, n[f + 2], 9, -51403784), r, a, n[f + 7], 14, 1735328473), u, r, n[f + 12], 20, -1926607734), i = l(i, u = l(u, r = l(r, a, i, u, n[f + 5], 4, -378558), a, i, n[f + 8], 11, -2022574463), r, a, n[f + 11], 16, 1839030562), u, r, n[f + 14], 23, -35309556), i = l(i, u = l(u, r = l(r, a, i, u, n[f + 1], 4, -1530992060), a, i, n[f + 4], 11, 1272893353), r, a, n[f + 7], 16, -155497632), u, r, n[f + 10], 23, -1094730640), i = l(i, u = l(u, r = l(r, a, i, u, n[f + 13], 4, 681279174), a, i, n[f + 0], 11, -358537222), r, a, n[f + 3], 16, -722521979), u, r, n[f + 6], 23, 76029189), i = l(i, u = l(u, r = l(r, a, i, u, n[f + 9], 4, -640364487), a, i, n[f + 12], 11, -421815835), r, a, n[f + 15], 16, 530742520), u, r, n[f + 2], 23, -995338651), i = d(i, u = d(u, r = d(r, a, i, u, n[f + 0], 6, -198630844), a, i, n[f + 7], 10, 1126891415), r, a, n[f + 14], 15, -1416354905), u, r, n[f + 5], 21, -57434055), i = d(i, u = d(u, r = d(r, a, i, u, n[f + 12], 6, 1700485571), a, i, n[f + 3], 10, -1894986606), r, a, n[f + 10], 15, -1051523), u, r, n[f + 1], 21, -2054922799), i = d(i, u = d(u, r = d(r, a, i, u, n[f + 8], 6, 1873313359), a, i, n[f + 15], 10, -30611744), r, a, n[f + 6], 15, -1560198380), u, r, n[f + 13], 21, 1309151649), i = d(i, u = d(u, r = d(r, a, i, u, n[f + 4], 6, -145523070), a, i, n[f + 11], 10, -1120210379), r, a, n[f + 2], 15, 718787259), u, r, n[f + 9], 21, -343485551), r = r + g >>> 0, a = a + h >>> 0, i = i + y >>> 0, u = u + p >>> 0;
-    }return m.endian([r, a, i, u]);
+          p = u,
+          m = f;i = g(i = g(i = g(i = g(i = d(i = d(i = d(i = d(i = l(i = l(i = l(i = l(i = c(i = c(i = c(i = c(i, u = c(u, f = c(f, a = c(a, i, u, f, o[s + 0], 7, -680876936), i, u, o[s + 1], 12, -389564586), a, i, o[s + 2], 17, 606105819), f, a, o[s + 3], 22, -1044525330), u = c(u, f = c(f, a = c(a, i, u, f, o[s + 4], 7, -176418897), i, u, o[s + 5], 12, 1200080426), a, i, o[s + 6], 17, -1473231341), f, a, o[s + 7], 22, -45705983), u = c(u, f = c(f, a = c(a, i, u, f, o[s + 8], 7, 1770035416), i, u, o[s + 9], 12, -1958414417), a, i, o[s + 10], 17, -42063), f, a, o[s + 11], 22, -1990404162), u = c(u, f = c(f, a = c(a, i, u, f, o[s + 12], 7, 1804603682), i, u, o[s + 13], 12, -40341101), a, i, o[s + 14], 17, -1502002290), f, a, o[s + 15], 22, 1236535329), u = l(u, f = l(f, a = l(a, i, u, f, o[s + 1], 5, -165796510), i, u, o[s + 6], 9, -1069501632), a, i, o[s + 11], 14, 643717713), f, a, o[s + 0], 20, -373897302), u = l(u, f = l(f, a = l(a, i, u, f, o[s + 5], 5, -701558691), i, u, o[s + 10], 9, 38016083), a, i, o[s + 15], 14, -660478335), f, a, o[s + 4], 20, -405537848), u = l(u, f = l(f, a = l(a, i, u, f, o[s + 9], 5, 568446438), i, u, o[s + 14], 9, -1019803690), a, i, o[s + 3], 14, -187363961), f, a, o[s + 8], 20, 1163531501), u = l(u, f = l(f, a = l(a, i, u, f, o[s + 13], 5, -1444681467), i, u, o[s + 2], 9, -51403784), a, i, o[s + 7], 14, 1735328473), f, a, o[s + 12], 20, -1926607734), u = d(u, f = d(f, a = d(a, i, u, f, o[s + 5], 4, -378558), i, u, o[s + 8], 11, -2022574463), a, i, o[s + 11], 16, 1839030562), f, a, o[s + 14], 23, -35309556), u = d(u, f = d(f, a = d(a, i, u, f, o[s + 1], 4, -1530992060), i, u, o[s + 4], 11, 1272893353), a, i, o[s + 7], 16, -155497632), f, a, o[s + 10], 23, -1094730640), u = d(u, f = d(f, a = d(a, i, u, f, o[s + 13], 4, 681279174), i, u, o[s + 0], 11, -358537222), a, i, o[s + 3], 16, -722521979), f, a, o[s + 6], 23, 76029189), u = d(u, f = d(f, a = d(a, i, u, f, o[s + 9], 4, -640364487), i, u, o[s + 12], 11, -421815835), a, i, o[s + 15], 16, 530742520), f, a, o[s + 2], 23, -995338651), u = g(u, f = g(f, a = g(a, i, u, f, o[s + 0], 6, -198630844), i, u, o[s + 7], 10, 1126891415), a, i, o[s + 14], 15, -1416354905), f, a, o[s + 5], 21, -57434055), u = g(u, f = g(f, a = g(a, i, u, f, o[s + 12], 6, 1700485571), i, u, o[s + 3], 10, -1894986606), a, i, o[s + 10], 15, -1051523), f, a, o[s + 1], 21, -2054922799), u = g(u, f = g(f, a = g(a, i, u, f, o[s + 8], 6, 1873313359), i, u, o[s + 15], 10, -30611744), a, i, o[s + 6], 15, -1560198380), f, a, o[s + 13], 21, 1309151649), u = g(u, f = g(f, a = g(a, i, u, f, o[s + 4], 6, -145523070), i, u, o[s + 11], 10, -1120210379), a, i, o[s + 2], 15, 718787259), f, a, o[s + 9], 21, -343485551), a = a + h >>> 0, i = i + y >>> 0, u = u + p >>> 0, f = f + m >>> 0;
+    }return _.endian([a, i, u, f]);
   })._ff = function (e, t, n, o, r, a, i) {
     var u = e + (t & n | ~t & o) + (r >>> 0) + i;return (u << a | u >>> 32 - a) + t;
-  }, S._gg = function (e, t, n, o, r, a, i) {
+  }, o._gg = function (e, t, n, o, r, a, i) {
     var u = e + (t & o | n & ~o) + (r >>> 0) + i;return (u << a | u >>> 32 - a) + t;
-  }, S._hh = function (e, t, n, o, r, a, i) {
+  }, o._hh = function (e, t, n, o, r, a, i) {
     var u = e + (t ^ n ^ o) + (r >>> 0) + i;return (u << a | u >>> 32 - a) + t;
-  }, S._ii = function (e, t, n, o, r, a, i) {
+  }, o._ii = function (e, t, n, o, r, a, i) {
     var u = e + (n ^ (t | ~o)) + (r >>> 0) + i;return (u << a | u >>> 32 - a) + t;
-  }, S._blocksize = 16, S._digestsize = 16, e.exports = function (e, t) {
-    if (null == e) throw new Error("Illegal argument " + e);var n = m.wordsToBytes(S(e, t));return t && t.asBytes ? n : t && t.asString ? I.bytesToString(n) : m.bytesToHex(n);
+  }, o._blocksize = 16, o._digestsize = 16, e.exports = function (e, t) {
+    if (null == e) throw new Error("Illegal argument " + e);var n = _.wordsToBytes(o(e, t));return t && t.asBytes ? n : t && t.asString ? w.bytesToString(n) : _.bytesToHex(n);
   };
 }, function (e, t) {
   var a, n;a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", n = { rotl: function (e, t) {
@@ -548,18 +553,19 @@ var gameSDK = function (n) {
     }, base64ToBytes: function (e) {
       e = e.replace(/[^A-Z0-9+\/]/gi, "");for (var t = [], n = 0, o = 0; n < e.length; o = ++n % 4) 0 != o && t.push((a.indexOf(e.charAt(n - 1)) & Math.pow(2, -2 * o + 8) - 1) << 2 * o | a.indexOf(e.charAt(n)) >>> 6 - 2 * o);return t;
     } }, e.exports = n;
-}, function (e, t) {
-  function n(e) {
-    return !!e.constructor && "function" == typeof e.constructor.isBuffer && e.constructor.isBuffer(e);
-  }
+}, function (e, t, n) {
+  "use strict";
   /*!
    * Determine if an object is a Buffer
    *
    * @author   Feross Aboukhadijeh <https://feross.org>
    * @license  MIT
    */
-  e.exports = function (e) {
-    return null != e && (n(e) || "function" == typeof (t = e).readFloatLE && "function" == typeof t.slice && n(t.slice(0, 0)) || !!e._isBuffer);var t;
+
+  function o(e) {
+    return !!e.constructor && "function" == typeof e.constructor.isBuffer && e.constructor.isBuffer(e);
+  }e.exports = function (e) {
+    return null != e && (o(e) || "function" == typeof (t = e).readFloatLE && "function" == typeof t.slice && o(t.slice(0, 0)) || !!e._isBuffer);var t;
   };
 }]);
 

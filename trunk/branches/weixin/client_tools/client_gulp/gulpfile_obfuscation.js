@@ -8366,7 +8366,8 @@ var set_param_Z_9 = function () {
             "subPackage":  {url:packageName3},
             "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
             "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
-            "untils/ddtSDKPlat.js":  {url:"untils/ddtSDKPlat.js",extractStr:false,count:1,strLen:3},
+            // "untils/ddtSDKPlat.js":  {url:"untils/ddtSDKPlat.js",extractStr:false,count:1,strLen:3},
+            "mx.laya.fc.js":  {url:packageName1+"/mx.laya.fc.js",extractStr:false,count:1,strLen:3},
             "wxloading_atlas": {url:"z999z999dz999"},
             "wxlogin_atlas": {url:"z999z999lgrz999z999"},
             "wxeff_btn_atlas":{url:"z999yz999"},
@@ -8553,6 +8554,11 @@ gulp.task('build-babel-obfuscator-Z_9', function (cb) {
 
 
 /**-------------------------------------------------微信小游戏--Z9包 天剑vs墨雪--蜀山御剑仙 end-----------------------------------------------------------*/
+
+
+
+
+
 
 
 

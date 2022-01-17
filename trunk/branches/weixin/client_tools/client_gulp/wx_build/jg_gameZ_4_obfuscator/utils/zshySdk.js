@@ -1,4 +1,5 @@
 var B = wx.$B;
+
 export default class zshySdk {
 
 	constructor() {
@@ -15,6 +16,8 @@ export default class zshySdk {
 		this.ducBalanceUrl = "https://api.yifu188.com/api/third/weChatGame/v1/pay";
 		// 客服支付下单
 		this.customerOrderUrl = "https://api.yifu188.com/api/third/weChatGame/v1/jsapi/createOrder";
+		// 获取配置
+		this.getConfigUrl = "https://api.yifu188.com/api/third/weChatGame/v1/getConfig";
 
 		// 请求参数
 		this.req = {
@@ -41,11 +44,17 @@ export default class zshySdk {
 			// 米大师的应用id
 		};this.mchId = "1450031826";
 
-		this.env = 1, // 0:正式 1：沙箱
+		this.env = 0, // 0:正式 1：沙箱
 		this.uid = "";
 		this.pf = "";
+
+		wx.showShareMenu({ menus: ['shareAppMessage'] });
+
+		// 红包
+		this.act;
 	}
 
+	// 初始化
 	init({
 		data: data,
 		success: success,
@@ -77,6 +86,22 @@ export default class zshySdk {
 		that.req.head.adId = data.adId;
 		that.req.head.adFlag = data.adFlag;
 
+		// 获取分享配置参数
+		this.postJosn({
+			data: {},
+			url: this.getConfigUrl,
+			success: function (res) {
+				wx.onShareAppMessage(() => {
+					return {
+						title: res.title,
+						imageUrl: res.photoUrl // 图片 URL
+					};
+				});
+			},
+			fail: function () {}
+		});
+
+		// 进行初始化
 		this.postJosn({
 			data: {
 				adId: data.adId
@@ -110,10 +135,14 @@ export default class zshySdk {
 						success: function (res) {
 							that.uid = res.uid;
 							that.req.head.token = res.token;
+							//that.act = new zshyAct(that.req.head);
 							success({
 								uid: res.uid,
 								token: res.token
 							});
+							//登录成功之后显示图片
+							//that.showSkipImg();
+							//wind_flag = true;
 						},
 						fail: fail
 					});
@@ -131,8 +160,12 @@ export default class zshySdk {
   */
 	sendRoleInfo(roleData = {}) {
 		const that = this;
-		//发起网络请求
 
+		// 存本地信息
+		// 是否开启红包任务
+
+
+		//发起网络请求		
 		this.postJosn({
 			data: roleData.data,
 			url: that.roleUrl,
@@ -168,8 +201,15 @@ export default class zshySdk {
 		p.data.orderType = "1"; //订单类型，1直充游戏，默认为1
 		p.data.orderPlatform = "0"; //订单平台，默认为0，暂无其他平台
 		p.data.remark = "wx_mini_game"; //备注
+		p.data.cpBillNo = p.data.cpBillNo + ""; //cp订单号
+		p.data.orderAmount = p.data.orderAmount + ""; //订单金额，单位元
+		p.data.extraInfo = p.data.extraInfo + ""; //透传信息
+		p.data.subject = p.data.subject + ""; //商品名
+		p.data.serverId = p.data.serverId + ""; //string	区服id
+		p.data.roleName = p.data.roleName + ""; //string	//角色名
+		p.data.roleId = p.data.roleId + ""; //string	角色id
+		p.data.roleLevel = p.data.roleLevel + ""; //string	角色等级
 
-		console.log(p.data);
 		if (that.req.head.osType == "1") {
 			// Android
 			//that.modelPay(p);
