@@ -126,8 +126,9 @@ window.loadProbuf = function() {
       console.log(res);
       if (res && res.errMsg == "loadSubpackage: ok") {
         window.loadProbPkg = true;
-        window.initMain();
-        window.enterToGame(); 
+        window.loadMain()
+        // window.initMain();
+        // window.enterToGame(); 
       } else {
         setTimeout(function() {
           window.loadProbuf();
@@ -181,7 +182,7 @@ tt.loadSubpackages = function() {
       console.log("微信基础库版本符合最低版本要求："+window.SDKVersion+">=2.1.0");
       window.sdkInit();
       window.loadProbuf();
-      window.loadMain();
+      // window.loadMain();
   } else {
       window.reqRecordInfo("微信基础库版本过低", window.SDKVersion);
       wx.showModal({
