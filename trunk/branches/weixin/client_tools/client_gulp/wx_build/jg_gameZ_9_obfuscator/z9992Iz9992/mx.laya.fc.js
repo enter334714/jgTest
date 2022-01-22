@@ -2,25 +2,25 @@ var H = wx.$F;
 (function (exports) {
   'use strict';
 
-  class r9t18 extends Laya['Sprite'] {
+  class lwg extends Laya['Sprite'] {
     constructor() {
       super(), this['owner'] = this, this['btn'] = null, this['allSpr'] = null, this['btnSpr'] = null, this['back'] = null, this['btn0'] = null, this['btn1'] = null, this['btn2'] = null, this['btnRed'] = null, this['_secMaskbg'] = null, this['_secPage'] = null, this['secPageCloseBtn'] = null, this['secPagePic'] = null, this['isMove'] = ![], this['stageX'] = null, this['stageY'] = null, this['staW'] = null, this['staH'] = null, this['startPos'] = { 'x': 0x0, 'y': 0x0 }, this['noTouchTime'] = null, this['noTouchFunId'] = null, this['url_zskf'] = null, this['url_gzh'] = null, this['appId'] = null, this['btnClicked'] = ![], this['hongdianSec'] = -0x1, this['tihuanFlag'] = 0x1, this['redTouchFunId'] = -0x1, this['zOrder'] = 0x3e7, window['moosnowHeavy2'] = window['moosnowHeavy'] || window['moosnowH5Sdk'], this['baseUrl'] = 'https://liteplay-1253992229.cos.ap-guangzhou.myqcloud.com/', this['init'](), Laya['stage']['addChild'](this);
     }['__winResize']() {
       this['staW'] = Laya['stage']['width'], this['staH'] = Laya['stage']['height'], this['allSpr']['x'] = this['startPos']['x'], this['allSpr']['y'] = this['startPos']['y'], this['_secMaskbg']['graphics']['clear'](Laya['stage']['width'], Laya['stage']['height']), this['_secMaskbg']['graphics']['drawRect'](0x0, 0x0, Laya['stage']['width'], Laya['stage']['height'], '#585858');
     }get ['mx_Image']() {
       return this['owner'];
-    }['getResConfigData'](a3ine) {
-      window['moosnowHeavy2']['getConfigData']($jdqms => {
-        a3ine && a3ine($jdqms);
+    }['getResConfigData'](y_pi96) {
+      window['moosnowHeavy2']['getConfigData'](o_6i9 => {
+        y_pi96 && y_pi96(o_6i9);
       });
     }['init']() {
-      var s_5vd = this;this['appId'] = window['moosnowHeavy2']['getAppId'](), this['staW'] = Laya['stage']['width'], this['staH'] = Laya['stage']['height'], console['log']('init 初始化的时候 ------', this['staW'], this['staH']), this['getResConfigData'](a_i3 => {
-        a_i3 && (s_5vd['url_zskf'] = a_i3['kefuQrcode'], s_5vd['url_gzh'] = a_i3['wxgzh'], s_5vd['startPos']['x'] = a_i3['fbcswz'][0x0], s_5vd['startPos']['y'] = a_i3['fbcswz'][0x1], s_5vd['noTouchTime'] = Number(a_i3['caidanmiaoshu']), s_5vd['hongdianSec'] = Number(a_i3['hodianmiaoshui']), s_5vd['tihuanFlag'] = Number(a_i3['tihuan']), s_5vd['createImg'](), s_5vd['addEventListener'](), s_5vd['_secMaskbg']['on'](Laya['Event']['CLICK'], s_5vd, s_5vd['onSecMaskBgBtnClick']), s_5vd['secPageCloseBtn']['on'](Laya['Event']['CLICK'], s_5vd, s_5vd['onclicksecPageCloseBtn']), s_5vd['__winResize'](), setTimeout(() => {
-          s_5vd['btn']['alpha'] = 0x1;if (s_5vd['hongdianSec'] == -0x1) {} else {
-            if (s_5vd['hongdianSec'] == 0x0) s_5vd['btnRed']['visible'] = !![];else s_5vd['hongdianSec'] > 0x0 && (s_5vd['redTouchFunId'] = setTimeout(() => {
-              s_5vd['btnRed']['visible'] = !![];
-            }, 0x3c * 0x3e8 * s_5vd['hongdianSec']));
-          }s_5vd['tihuanFlag'] == 0x0 && (s_5vd['noTouchFunId'] = setTimeout(s_5vd['noTouchHide']['bind'](s_5vd), 0x3e8 * s_5vd['noTouchTime']));
+      var nz5v = this;this['appId'] = window['moosnowHeavy2']['getAppId'](), this['staW'] = Laya['stage']['width'], this['staH'] = Laya['stage']['height'], console['log']('init 初始化的时候 ------', this['staW'], this['staH']), this['getResConfigData'](kcsl4d => {
+        kcsl4d && (nz5v['url_zskf'] = kcsl4d['kefuQrcode'], nz5v['url_gzh'] = kcsl4d['wxgzh'], nz5v['startPos']['x'] = kcsl4d['fbcswz'][0x0], nz5v['startPos']['y'] = kcsl4d['fbcswz'][0x1], nz5v['noTouchTime'] = Number(kcsl4d['caidanmiaoshu']), nz5v['hongdianSec'] = Number(kcsl4d['hodianmiaoshui']), nz5v['tihuanFlag'] = Number(kcsl4d['tihuan']), nz5v['createImg'](), nz5v['addEventListener'](), nz5v['_secMaskbg']['on'](Laya['Event']['CLICK'], nz5v, nz5v['onSecMaskBgBtnClick']), nz5v['secPageCloseBtn']['on'](Laya['Event']['CLICK'], nz5v, nz5v['onclicksecPageCloseBtn']), nz5v['__winResize'](), setTimeout(() => {
+          nz5v['btn']['alpha'] = 0x1;if (nz5v['hongdianSec'] == -0x1) {} else {
+            if (nz5v['hongdianSec'] == 0x0) nz5v['btnRed']['visible'] = !![];else nz5v['hongdianSec'] > 0x0 && (nz5v['redTouchFunId'] = setTimeout(() => {
+              nz5v['btnRed']['visible'] = !![];
+            }, 0x3c * 0x3e8 * nz5v['hongdianSec']));
+          }nz5v['tihuanFlag'] == 0x0 && (nz5v['noTouchFunId'] = setTimeout(nz5v['noTouchHide']['bind'](nz5v), 0x3e8 * nz5v['noTouchTime']));
         }, 0x1f4));
       });
     }['addEventListener']() {
@@ -31,26 +31,26 @@ var H = wx.$F;
       this['_secPage']['visible'] = ![], this['addEventListener']();
     }['onclicksecPageCloseBtn']() {
       this['_secPage']['visible'] = ![], this['addEventListener']();
-    }['onclickBtn'](u46pr) {
-      console['log']('点击了btn按钮88888-------', u46pr['stageX'], u46pr['stageY']);switch (u46pr['currentTarget']) {case this['btn0']:
-          console['log']('点击了在线客服333333333----');var svd$j = navigator['userAgent'],
-              nx3lwe = /MicroMessenger/gi['test'](svd$j);window['wx'] && window['wx']['openCustomerServiceConversation'] ? window['wx']['openCustomerServiceConversation']({ 'sessionFrom': '', 'showMessageCard': ![], 'sendMessageTitle': '点击-返回游戏', 'sendMessageImg': 'http://www.qq.com/shareicon/kefu.jpg', 'success': () => {}, 'fail': () => {}, 'complete': () => {} }) : window['injectedObject']['openCustomerServiceChat']();break;case this['btn1']:
-          console['log']('点击了专属客服44444444----');var jsvd = this;this['getResConfigData'](welnx => {
-            welnx && (jsvd['url_zskf'] = welnx['kefuQrcode'], jsvd['secPagePic']['skin'] = '', jsvd['secPagePic']['skin'] = jsvd['url_zskf'], null != jsvd['secPagePic'] && !jsvd['secPagePic']['destroyed'] && (jsvd['secPagePic']['pos'](Laya['stage']['width'] / 0x2, Laya['stage']['height'] * 0.5), jsvd['secPagePic']['visible'] = !![], jsvd['_secPage']['visible'] = !![], jsvd['removeEventListener']()));
+    }['onclickBtn'](bq3m0) {
+      console['log']('点击了btn按钮88888-------', bq3m0['stageX'], bq3m0['stageY']);switch (bq3m0['currentTarget']) {case this['btn0']:
+          console['log']('点击了在线客服333333333----');var g1hwc2 = navigator['userAgent'],
+              gckw = /MicroMessenger/gi['test'](g1hwc2);window['wx'] && window['wx']['openCustomerServiceConversation'] ? window['wx']['openCustomerServiceConversation']({ 'sessionFrom': '', 'showMessageCard': ![], 'sendMessageTitle': '点击-返回游戏', 'sendMessageImg': 'http://www.qq.com/shareicon/kefu.jpg', 'success': () => {}, 'fail': () => {}, 'complete': () => {} }) : window['injectedObject']['openCustomerServiceChat']();break;case this['btn1']:
+          console['log']('点击了专属客服44444444----');var _o9y6 = this;this['getResConfigData'](lukd4s => {
+            lukd4s && (_o9y6['url_zskf'] = lukd4s['kefuQrcode'], _o9y6['secPagePic']['skin'] = '', _o9y6['secPagePic']['skin'] = _o9y6['url_zskf'], null != _o9y6['secPagePic'] && !_o9y6['secPagePic']['destroyed'] && (_o9y6['secPagePic']['pos'](Laya['stage']['width'] / 0x2, Laya['stage']['height'] * 0.5), _o9y6['secPagePic']['visible'] = !![], _o9y6['_secPage']['visible'] = !![], _o9y6['removeEventListener']()));
           });break;case this['btn2']:
-          console['log']('点击了公众号55555555----');var jsvd = this;this['getResConfigData'](x4lu => {
-            x4lu && (jsvd['url_gzh'] = x4lu['wxgzh'], jsvd['secPagePic']['skin'] = '', jsvd['secPagePic']['skin'] = jsvd['url_gzh'], null != jsvd['secPagePic'] && !jsvd['secPagePic']['destroyed'] && (jsvd['secPagePic']['pos'](Laya['stage']['width'] / 0x2, Laya['stage']['height'] * 0.5), jsvd['secPagePic']['visible'] = !![], jsvd['_secPage']['visible'] = !![], jsvd['removeEventListener']()));
+          console['log']('点击了公众号55555555----');var _o9y6 = this;this['getResConfigData'](nax7z => {
+            nax7z && (_o9y6['url_gzh'] = nax7z['wxgzh'], _o9y6['secPagePic']['skin'] = '', _o9y6['secPagePic']['skin'] = _o9y6['url_gzh'], null != _o9y6['secPagePic'] && !_o9y6['secPagePic']['destroyed'] && (_o9y6['secPagePic']['pos'](Laya['stage']['width'] / 0x2, Laya['stage']['height'] * 0.5), _o9y6['secPagePic']['visible'] = !![], _o9y6['_secPage']['visible'] = !![], _o9y6['removeEventListener']()));
           });break;}
     }['noTouchHide']() {
       this['allSpr']['x'] < this['staW'] / 0x2 - 0x3c ? (this['allSpr']['x'] = -0x3c, this['btnRed']['x'] = 0x39, this['btnRed']['y'] = 0x48) : (this['allSpr']['x'] = this['staW'] - 0x28, this['btnRed']['x'] = 0xd, this['btnRed']['y'] = 0x48);if (this['allSpr']['y'] < -0x3c) this['allSpr']['y'] = -0x3c;else this['allSpr']['y'] > this['staH'] - 0x3c && (this['allSpr']['y'] = this['staH'] - 0x3c);this['btnSpr']['visible'] = ![], this['btn']['alpha'] = 0.5, console['log']('666666666 noTouchHide----------', this['allSpr']['x'], this['allSpr']['y']);
-    }['touch']($dmsjq) {
-      if ($dmsjq['type'] == 'mousedown') this['isMove'] = !![], this['stageX'] = $dmsjq['stageX'], this['stageY'] = $dmsjq['stageY'], clearTimeout(this['noTouchFunId']);else {
-        if ($dmsjq['type'] == 'mousemove') clearTimeout(this['noTouchFunId']), this['isMove'] && (this['btn']['alpha'] = 0x1, this['allSpr']['x'] = $dmsjq['stageX'] - 0x36, this['allSpr']['y'] = $dmsjq['stageY'] - 0x36, this['allSpr']['x'] > this['staW'] / 0x2 ? this['btnSpr']['x'] = -this['staW'] / 0x2 + 0x8 : this['btnSpr']['x'] = 0x0);else {
-          this['isMove'] = ![], console['log'](' Math.abs(this.stageX - e.stageX) Math.abs(this.stageY - e.stageY) --------', Math['abs'](this['stageX'] - $dmsjq['stageX']), Math['abs'](this['stageY'] - $dmsjq['stageY']), $dmsjq['type']);Math['abs'](this['stageX'] - $dmsjq['stageX']) < 0x1 && Math['abs'](this['stageY'] - $dmsjq['stageY']) < 0x1 && ($dmsjq['type'] == 'mouseup' && (this['btnSpr']['visible'] = !this['btnSpr']['visible'], this['btnSpr']['visible'] ? this['btn']['alpha'] = 0x1 : this['btn']['alpha'] = 0.5), this['btnRed']['visible'] = ![], this['redTouchFunId'] != -0x1 && (this['redTouchFunId'] = -0x1, clearTimeout(this['redTouchFunId'])));this['allSpr']['x'] < this['staW'] / 0x2 ? this['allSpr']['x'] = 0x0 : this['allSpr']['x'] = this['staW'] - 0x6c;this['btnRed']['x'] = 0x2d, this['btnRed']['y'] = 0x48;if (this['allSpr']['y'] < 0x0) this['allSpr']['y'] = 0x0;else this['allSpr']['y'] > this['staH'] - 0x6c && (this['allSpr']['y'] = this['staH'] - 0x6c);clearTimeout(this['noTouchFunId']), this['noTouchFunId'] = setTimeout(this['noTouchHide']['bind'](this), 0x3e8 * this['noTouchTime']);
+    }['touch'](yio_69) {
+      if (yio_69['type'] == 'mousedown') this['isMove'] = !![], this['stageX'] = yio_69['stageX'], this['stageY'] = yio_69['stageY'], clearTimeout(this['noTouchFunId']);else {
+        if (yio_69['type'] == 'mousemove') clearTimeout(this['noTouchFunId']), this['isMove'] && (this['btn']['alpha'] = 0x1, this['allSpr']['x'] = yio_69['stageX'] - 0x36, this['allSpr']['y'] = yio_69['stageY'] - 0x36, this['allSpr']['x'] > this['staW'] / 0x2 ? this['btnSpr']['x'] = -this['staW'] / 0x2 + 0x8 : this['btnSpr']['x'] = 0x0);else {
+          this['isMove'] = ![], console['log'](' Math.abs(this.stageX - e.stageX) Math.abs(this.stageY - e.stageY) --------', Math['abs'](this['stageX'] - yio_69['stageX']), Math['abs'](this['stageY'] - yio_69['stageY']), yio_69['type']);Math['abs'](this['stageX'] - yio_69['stageX']) < 0x1 && Math['abs'](this['stageY'] - yio_69['stageY']) < 0x1 && (yio_69['type'] == 'mouseup' && (this['btnSpr']['visible'] = !this['btnSpr']['visible'], this['btnSpr']['visible'] ? this['btn']['alpha'] = 0x1 : this['btn']['alpha'] = 0.5), this['btnRed']['visible'] = ![], this['redTouchFunId'] != -0x1 && (this['redTouchFunId'] = -0x1, clearTimeout(this['redTouchFunId'])));this['allSpr']['x'] < this['staW'] / 0x2 ? this['allSpr']['x'] = 0x0 : this['allSpr']['x'] = this['staW'] - 0x6c;this['btnRed']['x'] = 0x2d, this['btnRed']['y'] = 0x48;if (this['allSpr']['y'] < 0x0) this['allSpr']['y'] = 0x0;else this['allSpr']['y'] > this['staH'] - 0x6c && (this['allSpr']['y'] = this['staH'] - 0x6c);clearTimeout(this['noTouchFunId']), this['noTouchFunId'] = setTimeout(this['noTouchHide']['bind'](this), 0x3e8 * this['noTouchTime']);
         }
       }
     }['createImg']() {
       this['allSpr'] = new Laya['Sprite'](), this['addChild'](this['allSpr']), this['allSpr']['x'] = this['startPos']['x'], this['allSpr']['y'] = this['startPos']['y'], this['btnSpr'] = new Laya['Sprite'](), this['allSpr']['addChild'](this['btnSpr']), this['btnSpr']['visible'] = ![], this['back'] = new Laya['Sprite'](), this['back']['loadImage'](this['baseUrl'] + 'mx_fc/fc_back.png'), this['back']['x'] = 0x64, this['back']['y'] = 0xc, this['btnSpr']['addChild'](this['back']), this['btn'] = new Laya['Sprite'](), this['btn']['loadImage'](this['baseUrl'] + 'mx_fc/fc_btn.png'), this['allSpr']['addChild'](this['btn']), this['btnRed'] = new Laya['Sprite'](), this['btnRed']['loadImage'](this['baseUrl'] + 'mx_fc/fc_redpoint.png'), this['allSpr']['addChild'](this['btnRed']), this['btnRed']['x'] = 0x2d, this['btnRed']['y'] = 0x48, this['btnRed']['visible'] = ![], this['btn0'] = new Laya['Sprite'](), this['btn0']['loadImage'](this['baseUrl'] + 'mx_fc/fc_icon0.png'), this['btn0']['x'] = 0x78, this['btn0']['y'] = 0x13, this['btnSpr']['addChild'](this['btn0']), this['btn1'] = new Laya['Sprite'](), this['btn1']['loadImage'](this['baseUrl'] + 'mx_fc/fc_icon1.png'), this['btn1']['x'] = 0xce, this['btn1']['y'] = 0x11, this['btnSpr']['addChild'](this['btn1']), this['btn2'] = new Laya['Sprite'](), this['btn2']['loadImage'](this['baseUrl'] + 'mx_fc/fc_icon2.png'), this['btn2']['x'] = 0x123, this['btn2']['y'] = 0x17, this['btnSpr']['addChild'](this['btn2']), this['_secPage'] = new Laya['Sprite'](), this['_secPage']['x'] = 0x0, this['_secPage']['y'] = 0x0, this['_secPage']['size'](Laya['stage']['width'], Laya['stage']['height']), this['_secPage']['visible'] = ![], this['_secPage']['zOrder'] = 0x3e8, Laya['stage']['addChild'](this['_secPage']), this['_secMaskbg'] = new Laya['Sprite'](), this['_secMaskbg']['x'] = 0x0, this['_secMaskbg']['y'] = 0x0, this['_secMaskbg']['size'](Laya['stage']['width'], Laya['stage']['height']), this['_secMaskbg']['mouseEnable'] = !![], this['_secMaskbg']['mouseThrough'] = ![], this['_secMaskbg']['graphics']['clear'](Laya['stage']['width'], Laya['stage']['height']), this['_secMaskbg']['graphics']['drawRect'](0x0, 0x0, Laya['stage']['width'], Laya['stage']['height'], '#585858'), this['_secMaskbg']['alpha'] = 0.5, this['_secPage']['addChild'](this['_secMaskbg']), this['secPagePic'] = new Laya['Image'](), this['secPagePic']['anchorX'] = 0.5, this['secPagePic']['anchorY'] = 0.5, this['_secPage']['addChild'](this['secPagePic']), this['secPageCloseBtn'] = new Laya['Sprite'](), this['secPageCloseBtn']['loadImage'](this['baseUrl'] + 'mx_fc/close_btn.png'), this['secPageCloseBtn']['x'] = Laya['stage']['width'] - 0x5a, this['secPageCloseBtn']['y'] = Laya['stage']['height'] / 0x2 - 0x15e, this['_secPage']['addChild'](this['secPageCloseBtn']);
     }
-  }exports['MxFc'] = r9t18;
+  }exports['MxFc'] = lwg;
 })(window);

@@ -1,79 +1,79 @@
 var v = wx.$d;
-console[v[0x4e]](v[0x71e0]), window[v[0x71e1]], wx[v[0x71e2]](function (oc_395) {
-  if (oc_395) {
-    if (oc_395[v[0x11ac]]) {
-      var _4j6 = window[v[0x22b]][v[0x71e3]][v[0x125e]](new RegExp(/\./, 'g'), '_'),
-          h9j_4 = oc_395[v[0x11ac]],
-          fkitgu = h9j_4[v[0x2f13]](/(ddddddddd\/dddgame.js:)[0-9]{1,60}(:)/g);if (fkitgu) for (var p1rw8$ = 0x0; p1rw8$ < fkitgu[v[0xd]]; p1rw8$++) {
-        if (fkitgu[p1rw8$] && fkitgu[p1rw8$][v[0xd]] > 0x0) {
-          var pw$y7 = parseInt(fkitgu[p1rw8$][v[0x125e]](v[0x71e4], '')[v[0x125e]](':', ''));h9j_4 = h9j_4[v[0x125e]](fkitgu[p1rw8$], fkitgu[p1rw8$][v[0x125e]](':' + pw$y7 + ':', ':' + (pw$y7 - 0x2) + ':'));
+console[v[0x4e]](v[0x7278]), window[v[0x7279]], wx[v[0x727a]](function (ie6dh) {
+  if (ie6dh) {
+    if (ie6dh[v[0x11c5]]) {
+      var y$v7wp = window[v[0x22d]][v[0x727b]][v[0x1278]](new RegExp(/\./, 'g'), '_'),
+          h4j_ = ie6dh[v[0x11c5]],
+          uife = h4j_[v[0x2f43]](/(ddddddddd\/dddgame.js:)[0-9]{1,60}(:)/g);if (uife) for (var q0gtkf = 0x0; q0gtkf < uife[v[0xd]]; q0gtkf++) {
+        if (uife[q0gtkf] && uife[q0gtkf][v[0xd]] > 0x0) {
+          var ylp7$ = parseInt(uife[q0gtkf][v[0x1278]](v[0x727c], '')[v[0x1278]](':', ''));h4j_ = h4j_[v[0x1278]](uife[q0gtkf], uife[q0gtkf][v[0x1278]](':' + ylp7$ + ':', ':' + (ylp7$ - 0x2) + ':'));
         }
-      }h9j_4 = h9j_4[v[0x125e]](new RegExp(v[0x71e5], 'g'), v[0x71e6] + _4j6 + v[0x62fb]), h9j_4 = h9j_4[v[0x125e]](new RegExp(v[0x71e7], 'g'), v[0x71e6] + _4j6 + v[0x62fb]), oc_395[v[0x11ac]] = h9j_4;
-    }var n6me = { 'id': window['D$LZ'][v[0x71e8]], 'role': window['D$LZ'][v[0x1224]], 'level': window['D$LZ'][v[0x71e9]], 'user': window['D$LZ'][v[0x6297]], 'version': window['D$LZ'][v[0x65]], 'cdn': window['D$LZ'][v[0x11ab]], 'pkgName': window['D$LZ'][v[0x6298]], 'gamever': window[v[0x22b]][v[0x71e3]], 'serverid': window['D$LZ'][v[0x6292]] ? window['D$LZ'][v[0x6292]][v[0x2cf6]] : 0x0, 'systemInfo': window[v[0x71ea]], 'error': v[0x71eb], 'stack': oc_395 ? oc_395[v[0x11ac]] : '' },
-        o4c3_ = JSON[v[0x119d]](n6me);console[v[0x7d]](v[0x71ec] + o4c3_), (!window[v[0x71e1]] || window[v[0x71e1]] != n6me[v[0x7d]]) && (window[v[0x71e1]] = n6me[v[0x7d]], window['D$SL'](n6me));
+      }h4j_ = h4j_[v[0x1278]](new RegExp(v[0x727d], 'g'), v[0x727e] + y$v7wp + v[0x6367]), h4j_ = h4j_[v[0x1278]](new RegExp(v[0x727f], 'g'), v[0x727e] + y$v7wp + v[0x6367]), ie6dh[v[0x11c5]] = h4j_;
+    }var xabr1 = { 'id': window['D$LZ'][v[0x7280]], 'role': window['D$LZ'][v[0x123e]], 'level': window['D$LZ'][v[0x7281]], 'user': window['D$LZ'][v[0x6303]], 'version': window['D$LZ'][v[0x65]], 'cdn': window['D$LZ'][v[0x11c3]], 'pkgName': window['D$LZ'][v[0x6304]], 'gamever': window[v[0x22d]][v[0x727b]], 'serverid': window['D$LZ'][v[0x62fe]] ? window['D$LZ'][v[0x62fe]][v[0x2d21]] : 0x0, 'systemInfo': window[v[0x7282]], 'error': v[0x7283], 'stack': ie6dh ? ie6dh[v[0x11c5]] : '' },
+        n4h9j_ = JSON[v[0x11b5]](xabr1);console[v[0x7d]](v[0x7284] + n4h9j_), (!window[v[0x7279]] || window[v[0x7279]] != xabr1[v[0x7d]]) && (window[v[0x7279]] = xabr1[v[0x7d]], window['D$SL'](xabr1));
   }
-});import 'dddmd5min.js';import 'dddzlibs.js';window[v[0x71ed]] = require(v[0x71ee]);import 'dddindex.js';import 'dddlibsmin.js';import 'dddwxmini.js';import 'dddinitmin.js';console[v[0x4e]](v[0x71ef]), console[v[0x4e]](v[0x71f0]), D$SLAZ({ 'title': v[0x71f1] });var zzqk0fg = { 'D$YSZLA': !![] };new window[v[0x71f2]](zzqk0fg), window[v[0x71f2]][v[0x94]]['D$YALZS']();if (window['D$YSLZA']) clearInterval(window['D$YSLZA']);window['D$YSLZA'] = null, window['D$YAZSL'] = function (zx0a8b, ej6nhm) {
-  if (!zx0a8b || !ej6nhm) return 0x0;zx0a8b = zx0a8b[v[0xf]]('.'), ej6nhm = ej6nhm[v[0xf]]('.');const fiktg = Math[v[0x353]](zx0a8b[v[0xd]], ej6nhm[v[0xd]]);while (zx0a8b[v[0xd]] < fiktg) {
-    zx0a8b[v[0x1d]]('0');
-  }while (ej6nhm[v[0xd]] < fiktg) {
-    ej6nhm[v[0x1d]]('0');
-  }for (var eumid6 = 0x0; eumid6 < fiktg; eumid6++) {
-    const r8xa = parseInt(zx0a8b[eumid6]),
-          uftk = parseInt(ej6nhm[eumid6]);if (r8xa > uftk) return 0x1;else {
-      if (r8xa < uftk) return -0x1;
+});import 'dddmd5min.js';import 'dddzlibs.js';window[v[0x7285]] = require(v[0x7286]);import 'dddindex.js';import 'dddlibsmin.js';import 'dddwxmini.js';import 'dddinitmin.js';console[v[0x4e]](v[0x7287]), console[v[0x4e]](v[0x7288]), D$SLAZ({ 'title': v[0x7289] });var zfdeuit = { 'D$YSZLA': !![] };new window[v[0x728a]](zfdeuit), window[v[0x728a]][v[0x94]]['D$YALZS']();if (window['D$YSLZA']) clearInterval(window['D$YSLZA']);window['D$YSLZA'] = null, window['D$YAZSL'] = function (h6j4nm, jhn_46) {
+  if (!h6j4nm || !jhn_46) return 0x0;h6j4nm = h6j4nm[v[0xf]]('.'), jhn_46 = jhn_46[v[0xf]]('.');const c592o3 = Math[v[0x355]](h6j4nm[v[0xd]], jhn_46[v[0xd]]);while (h6j4nm[v[0xd]] < c592o3) {
+    h6j4nm[v[0x1d]]('0');
+  }while (jhn_46[v[0xd]] < c592o3) {
+    jhn_46[v[0x1d]]('0');
+  }for (var tkduif = 0x0; tkduif < c592o3; tkduif++) {
+    const rp$w81 = parseInt(h6j4nm[tkduif]),
+          mdt = parseInt(jhn_46[tkduif]);if (rp$w81 > mdt) return 0x1;else {
+      if (rp$w81 < mdt) return -0x1;
     }
   }return 0x0;
-}, window[v[0x71f3]] = wx[v[0x71f4]]()[v[0x71f3]], console[v[0x1e0]](v[0x71f5] + window[v[0x71f3]]);var zhdime = wx[v[0x71f6]]();zhdime[v[0x71f7]](function (_jn439) {
-  console[v[0x1e0]](v[0x71f8] + _jn439[v[0x71f9]]);
-}), zhdime[v[0x71fa]](function () {
-  wx[v[0x71fb]]({ 'title': v[0x71fc], 'content': v[0x71fd], 'showCancel': ![], 'success': function (pyw$7) {
-      zhdime[v[0x71fe]]();
+}, window[v[0x728b]] = wx[v[0x728c]]()[v[0x728b]], console[v[0x1e2]](v[0x728d] + window[v[0x728b]]);var zmhed6i = wx[v[0x728e]]();zmhed6i[v[0x728f]](function (kfit) {
+  console[v[0x1e2]](v[0x7290] + kfit[v[0x7291]]);
+}), zmhed6i[v[0x7292]](function () {
+  wx[v[0x7293]]({ 'title': v[0x7294], 'content': v[0x7295], 'showCancel': ![], 'success': function (jn4h6) {
+      zmhed6i[v[0x7296]]();
     } });
-}), zhdime[v[0x71ff]](function () {
-  console[v[0x1e0]](v[0x7200]);
+}), zmhed6i[v[0x7297]](function () {
+  console[v[0x1e2]](v[0x7298]);
 }), window['D$YAZLS'] = function () {
-  console[v[0x1e0]](v[0x7201]);var wp7r$ = wx[v[0x7202]]({ 'name': v[0x7203], 'success': function (pw$r1) {
-      console[v[0x1e0]](v[0x7204]), console[v[0x1e0]](pw$r1), pw$r1 && pw$r1[v[0x634f]] == v[0x7205] ? (window['D$ZA'] = !![], window['D$ZALS'](), window['D$ZLSA']()) : setTimeout(function () {
+  console[v[0x1e2]](v[0x7299]);var tki = wx[v[0x729a]]({ 'name': v[0x729b], 'success': function (a0qxb) {
+      console[v[0x1e2]](v[0x729c]), console[v[0x1e2]](a0qxb), a0qxb && a0qxb[v[0x63bb]] == v[0x729d] ? (window['D$ZA'] = !![], window['D$ZALS'](), window['D$ZLSA']()) : setTimeout(function () {
         window['D$YAZLS']();
       }, 0x1f4);
-    }, 'fail': function (r$p) {
-      console[v[0x1e0]](v[0x7206]), console[v[0x1e0]](r$p), setTimeout(function () {
+    }, 'fail': function (x18azb) {
+      console[v[0x1e2]](v[0x729e]), console[v[0x1e2]](x18azb), setTimeout(function () {
         window['D$YAZLS']();
       }, 0x1f4);
-    } });wp7r$ && wp7r$[v[0x7207]](kgqu => {});
+    } });tki && tki[v[0x729f]](giuf => {});
 }, window['D$YLSZA'] = function () {
-  console[v[0x1e0]](v[0x7208]);var _4j9hn = wx[v[0x7202]]({ 'name': v[0x7209], 'success': function (akz0gq) {
-      console[v[0x1e0]](v[0x720a]), console[v[0x1e0]](akz0gq), akz0gq && akz0gq[v[0x634f]] == v[0x7205] ? (window['D$LAZ'] = !![], window['D$ZALS'](), window['D$ZLSA']()) : setTimeout(function () {
+  console[v[0x1e2]](v[0x72a0]);var _nh49j = wx[v[0x729a]]({ 'name': v[0x72a1], 'success': function (idhm6) {
+      console[v[0x1e2]](v[0x72a2]), console[v[0x1e2]](idhm6), idhm6 && idhm6[v[0x63bb]] == v[0x729d] ? (window['D$LAZ'] = !![], window['D$ZALS'](), window['D$ZLSA']()) : setTimeout(function () {
         window['D$YLSZA']();
       }, 0x1f4);
-    }, 'fail': function (h6mn4j) {
-      console[v[0x1e0]](v[0x720b]), console[v[0x1e0]](h6mn4j), setTimeout(function () {
+    }, 'fail': function (r8xb) {
+      console[v[0x1e2]](v[0x72a3]), console[v[0x1e2]](r8xb), setTimeout(function () {
         window['D$YLSZA']();
       }, 0x1f4);
-    } });_4j9hn && _4j9hn[v[0x7207]](hejm6d => {});
-}, window[v[0x720c]] = function () {
-  window['D$YAZSL'](window[v[0x71f3]], v[0x720d]) >= 0x0 ? (console[v[0x1e0]](v[0x720e] + window[v[0x71f3]] + v[0x720f]), window['D$LS'](), window['D$YAZLS'](), window['D$YLSZA']()) : (window['D$LZS'](v[0x7210], window[v[0x71f3]]), wx[v[0x71fb]]({ 'title': v[0x18d8], 'content': v[0x7211] }));
-}, window[v[0x71ea]] = '', wx[v[0x7212]]({ 'success'(n6jemh) {
-    window[v[0x71ea]] = v[0x7213] + n6jemh[v[0x7214]] + v[0x7215] + n6jemh[v[0x7216]] + v[0x7217] + n6jemh[v[0x126b]] + v[0x7218] + n6jemh[v[0x1d9]] + v[0x7219] + n6jemh[v[0x627b]] + v[0x721a] + n6jemh[v[0x71f3]] + v[0x721b] + n6jemh[v[0x245c]], console[v[0x1e0]](window[v[0x71ea]]), console[v[0x1e0]](v[0x721c] + n6jemh[v[0x721d]] + v[0x721e] + n6jemh[v[0x721f]] + v[0x7220] + n6jemh[v[0x7221]] + v[0x7222] + n6jemh[v[0x7223]] + v[0x7224] + n6jemh[v[0x7225]] + v[0x7226] + n6jemh[v[0x7227]] + v[0x7228] + (n6jemh[v[0x7229]] ? n6jemh[v[0x7229]][v[0x140]] + ',' + n6jemh[v[0x7229]][v[0x4bd]] + ',' + n6jemh[v[0x7229]][v[0x4bf]] + ',' + n6jemh[v[0x7229]][v[0x4be]] : ''));var zbq0x = n6jemh[v[0x1d9]] ? n6jemh[v[0x1d9]][v[0x3032]]() : '',
-        ikduf = n6jemh[v[0x7216]] ? n6jemh[v[0x7216]][v[0x3032]]()[v[0x125e]]('\x20', '') : '';window['D$LZ'][v[0x430]] = zbq0x[v[0x73]](v[0x70c3]) != -0x1, window['D$LZ'][v[0x2c44]] = zbq0x[v[0x73]](v[0x70c2]) != -0x1, window['D$LZ'][v[0x722a]] = zbq0x[v[0x73]](v[0x70c3]) != -0x1 || zbq0x[v[0x73]](v[0x70c2]) != -0x1, window['D$LZ'][v[0x6154]] = zbq0x[v[0x73]](v[0x722b]) != -0x1 || zbq0x[v[0x73]](v[0x70c8]) != -0x1, window['D$LZ'][v[0x722c]] = n6jemh[v[0x627b]] ? n6jemh[v[0x627b]][v[0x3032]]() : '', window['D$LZ']['D$YSAZL'] = ![], window['D$LZ']['D$YSLAZ'] = 0x2;if (zbq0x[v[0x73]](v[0x70c2]) != -0x1) {
-      if (n6jemh[v[0x245c]] >= 0x18) window['D$LZ']['D$YSLAZ'] = 0x3;else window['D$LZ']['D$YSLAZ'] = 0x2;
+    } });_nh49j && _nh49j[v[0x729f]](ih6dme => {});
+}, window[v[0x72a4]] = function () {
+  window['D$YAZSL'](window[v[0x728b]], v[0x72a5]) >= 0x0 ? (console[v[0x1e2]](v[0x72a6] + window[v[0x728b]] + v[0x72a7]), window['D$LS'](), window['D$YAZLS'](), window['D$YLSZA']()) : (window['D$LZS'](v[0x72a8], window[v[0x728b]]), wx[v[0x7293]]({ 'title': v[0x18fb], 'content': v[0x72a9] }));
+}, window[v[0x7282]] = '', wx[v[0x72aa]]({ 'success'(qa0bgz) {
+    window[v[0x7282]] = v[0x72ab] + qa0bgz[v[0x72ac]] + v[0x72ad] + qa0bgz[v[0x72ae]] + v[0x72af] + qa0bgz[v[0x1285]] + v[0x72b0] + qa0bgz[v[0x1db]] + v[0x72b1] + qa0bgz[v[0x62e7]] + v[0x72b2] + qa0bgz[v[0x728b]] + v[0x72b3] + qa0bgz[v[0x2486]], console[v[0x1e2]](window[v[0x7282]]), console[v[0x1e2]](v[0x72b4] + qa0bgz[v[0x72b5]] + v[0x72b6] + qa0bgz[v[0x72b7]] + v[0x72b8] + qa0bgz[v[0x72b9]] + v[0x72ba] + qa0bgz[v[0x72bb]] + v[0x72bc] + qa0bgz[v[0x72bd]] + v[0x72be] + qa0bgz[v[0x72bf]] + v[0x72c0] + (qa0bgz[v[0x72c1]] ? qa0bgz[v[0x72c1]][v[0x143]] + ',' + qa0bgz[v[0x72c1]][v[0x4c0]] + ',' + qa0bgz[v[0x72c1]][v[0x4c2]] + ',' + qa0bgz[v[0x72c1]][v[0x4c1]] : ''));var x8rb = qa0bgz[v[0x1db]] ? qa0bgz[v[0x1db]][v[0x306c]]() : '',
+        _3oc95 = qa0bgz[v[0x72ae]] ? qa0bgz[v[0x72ae]][v[0x306c]]()[v[0x1278]]('\x20', '') : '';window['D$LZ'][v[0x432]] = x8rb[v[0x73]](v[0x6fce]) != -0x1, window['D$LZ'][v[0x2c6f]] = x8rb[v[0x73]](v[0x6fcd]) != -0x1, window['D$LZ'][v[0x72c2]] = x8rb[v[0x73]](v[0x6fce]) != -0x1 || x8rb[v[0x73]](v[0x6fcd]) != -0x1, window['D$LZ'][v[0x61df]] = x8rb[v[0x73]](v[0x72c3]) != -0x1 || x8rb[v[0x73]](v[0x6fd3]) != -0x1, window['D$LZ'][v[0x72c4]] = qa0bgz[v[0x62e7]] ? qa0bgz[v[0x62e7]][v[0x306c]]() : '', window['D$LZ']['D$YSAZL'] = ![], window['D$LZ']['D$YSLAZ'] = 0x2;if (x8rb[v[0x73]](v[0x6fcd]) != -0x1) {
+      if (qa0bgz[v[0x2486]] >= 0x18) window['D$LZ']['D$YSLAZ'] = 0x3;else window['D$LZ']['D$YSLAZ'] = 0x2;
     } else {
-      if (zbq0x[v[0x73]](v[0x70c3]) != -0x1) {
-        if (n6jemh[v[0x245c]] && n6jemh[v[0x245c]] >= 0x14) window['D$LZ']['D$YSLAZ'] = 0x3;else {
-          if (ikduf[v[0x73]](v[0x722d]) != -0x1 || ikduf[v[0x73]](v[0x722e]) != -0x1 || ikduf[v[0x73]](v[0x722f]) != -0x1 || ikduf[v[0x73]](v[0x7230]) != -0x1 || ikduf[v[0x73]](v[0x7231]) != -0x1) window['D$LZ']['D$YSLAZ'] = 0x2;else window['D$LZ']['D$YSLAZ'] = 0x3;
+      if (x8rb[v[0x73]](v[0x6fce]) != -0x1) {
+        if (qa0bgz[v[0x2486]] && qa0bgz[v[0x2486]] >= 0x14) window['D$LZ']['D$YSLAZ'] = 0x3;else {
+          if (_3oc95[v[0x73]](v[0x72c5]) != -0x1 || _3oc95[v[0x73]](v[0x72c6]) != -0x1 || _3oc95[v[0x73]](v[0x72c7]) != -0x1 || _3oc95[v[0x73]](v[0x72c8]) != -0x1 || _3oc95[v[0x73]](v[0x72c9]) != -0x1) window['D$LZ']['D$YSLAZ'] = 0x2;else window['D$LZ']['D$YSLAZ'] = 0x3;
         }
       } else window['D$LZ']['D$YSLAZ'] = 0x2;
-    }console[v[0x1e0]](v[0x7232] + window['D$LZ']['D$YSAZL'] + v[0x7233] + window['D$LZ']['D$YSLAZ']);
-  } }), wx[v[0x7234]]({ 'success': function (tuikd) {
-    console[v[0x1e0]](v[0x7235] + tuikd[v[0x120c]] + v[0x7236] + tuikd[v[0x7237]]);
-  } }), wx[v[0x7238]]({ 'success': function (b8zax1) {
-    console[v[0x1e0]](v[0x7239] + b8zax1[v[0x723a]]);
-  } }), wx[v[0x723b]]({ 'keepScreenOn': !![] }), wx[v[0x723c]](function (b1xza) {
-  console[v[0x1e0]](v[0x7239] + b1xza[v[0x723a]] + v[0x723d] + b1xza[v[0x723e]]);
-}), wx[v[0x2a5a]](function (w$xr) {
-  window['D$AS'] = w$xr, window['D$ZSA'] && window['D$AS'] && (console[v[0x4e]](v[0x723f] + window['D$AS'][v[0x306]]), window['D$ZSA'](window['D$AS']), window['D$AS'] = null);
-}), window[v[0x7240]] = 0x0, window['D$YLAZS'] = 0x0, window[v[0x7241]] = null, wx[v[0x7242]](function () {
-  window['D$YLAZS']++;var vrw$p7 = Date[v[0x53]]();(window[v[0x7240]] == 0x0 || vrw$p7 - window[v[0x7240]] > 0x1d4c0) && (console[v[0x60]](v[0x7243]), wx[v[0x2e80]]());if (window['D$YLAZS'] >= 0x2) {
-    window['D$YLAZS'] = 0x0, console[v[0x7d]](v[0x7244]), wx[v[0x7245]]('0', 0x1);if (window['D$LZ'] && window['D$LZ'][v[0x430]]) window['D$LZS'](v[0x7246], '');if (onMemoryWarningCallBack) onMemoryWarningCallBack();
+    }console[v[0x1e2]](v[0x72ca] + window['D$LZ']['D$YSAZL'] + v[0x72cb] + window['D$LZ']['D$YSLAZ']);
+  } }), wx[v[0x72cc]]({ 'success': function ($w8r1x) {
+    console[v[0x1e2]](v[0x72cd] + $w8r1x[v[0x1226]] + v[0x72ce] + $w8r1x[v[0x72cf]]);
+  } }), wx[v[0x72d0]]({ 'success': function (qk0zfg) {
+    console[v[0x1e2]](v[0x72d1] + qk0zfg[v[0x72d2]]);
+  } }), wx[v[0x72d3]]({ 'keepScreenOn': !![] }), wx[v[0x72d4]](function (emjhn) {
+  console[v[0x1e2]](v[0x72d1] + emjhn[v[0x72d2]] + v[0x72d5] + emjhn[v[0x72d6]]);
+}), wx[v[0x2a85]](function (ra8bx) {
+  window['D$AS'] = ra8bx, window['D$ZSA'] && window['D$AS'] && (console[v[0x4e]](v[0x72d7] + window['D$AS'][v[0x308]]), window['D$ZSA'](window['D$AS']), window['D$AS'] = null);
+}), window[v[0x72d8]] = 0x0, window['D$YLAZS'] = 0x0, window[v[0x72d9]] = null, wx[v[0x72da]](function () {
+  window['D$YLAZS']++;var itugf = Date[v[0x53]]();(window[v[0x72d8]] == 0x0 || itugf - window[v[0x72d8]] > 0x1d4c0) && (console[v[0x60]](v[0x72db]), wx[v[0x2eb0]]());if (window['D$YLAZS'] >= 0x2) {
+    window['D$YLAZS'] = 0x0, console[v[0x7d]](v[0x72dc]), wx[v[0x72dd]]('0', 0x1);if (window['D$LZ'] && window['D$LZ'][v[0x432]]) window['D$LZS'](v[0x72de], '');if (onMemoryWarningCallBack) onMemoryWarningCallBack();
   }
 });

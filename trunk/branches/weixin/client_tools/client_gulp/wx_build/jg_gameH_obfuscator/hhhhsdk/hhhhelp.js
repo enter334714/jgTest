@@ -16,19 +16,19 @@ module.exports = function (e) {
             get: r
         });
     }, n.r = function (e) {
-        O[128464] != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
-            value: O[128465]
-        }), Object.defineProperty(e, O[128466], {
+        O[128613] != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
+            value: O[128614]
+        }), Object.defineProperty(e, O[128615], {
             value: !0
         });
     }, n.t = function (e, t) {
         if (1 & t && (e = n(e)), 8 & t) return e;
-        if (4 & t && O[100279] == typeof e && e && e.__esModule) return e;
+        if (4 & t && O[100282] == typeof e && e && e.__esModule) return e;
         var r = Object.create(null);
-        if (n.r(r), Object.defineProperty(r, O[100328], {
+        if (n.r(r), Object.defineProperty(r, O[100331], {
             enumerable: !0,
             value: e
-        }), 2 & t && O[100297] != typeof e) for (var a in e) n.d(r, a, function (t) {
+        }), 2 & t && O[100300] != typeof e) for (var a in e) n.d(r, a, function (t) {
             return e[t];
         }.bind(null, a));
         return r;
@@ -50,7 +50,7 @@ module.exports = function (e) {
         baseParams: {
             app_id: "",
             client_id: "",
-            format: O[105843]
+            format: O[105869]
         },
         gameParams: {
             "game-pkg_name": "",
@@ -116,30 +116,30 @@ module.exports = function (e) {
         setting: {
             showLoading: !0,
             loadingParams: {
-                title: O[128856],
+                title: O[129008],
                 mask: !0
             },
             showToast: !1,
             toastParams: {
-                icon: O[112006]
+                icon: O[112054]
             }
         },
         launchOptions: {},
-        baseUrl: O[128857],
+        baseUrl: O[129009],
         channelId: 536
     };
     try {
-        r.gameParams[O[128858]] = wx.canIUse ? "" : O[128859], wx.getSystemInfo({
+        r.gameParams[O[129010]] = wx.canIUse ? "" : O[129011], wx.getSystemInfo({
             success: function (e) {
-                r.deviceParams[O[128860]] = encodeURIComponent(e.brand), r.deviceParams[O[128861]] = encodeURIComponent(e.model), r.deviceParams[O[128862]] = encodeURIComponent(e.screenWidth + "x" + e.screenHeight), r.deviceParams[O[128863]] = O[128864] === e.platform ? O[128865] : encodeURIComponent(e.platform), r.deviceParams[O[128866]] = encodeURIComponent(e.system), r.extParams.brand = e.brand, r.extParams.model = e.model, r.extParams.pixelRatio = e.pixelRatio, r.extParams.windowWidth = e.windowWidth, r.extParams.windowHeight = e.windowHeight, r.extParams.statusBarHeight = e.statusBarHeight, r.extParams.language = e.language, r.extParams.version = e.version, r.extParams.system = e.system, r.extParams.platform = e.platform, r.extParams.fontSizeSetting = e.fontSizeSetting, r.extParams.SDKVersion = e.SDKVersion, r.extParams.benchmarkLevel = e.benchmarkLevel, r.extParams[O[128867]] = e.albumAuthorized, r.extParams.cameraAuthorized = e.cameraAuthorized, r.extParams.locationAuthorized = e.locationAuthorized, r.extParams.microphoneAuthorized = e.microphoneAuthorized, r.extParams.notificationAuthorized = e.notificationAuthorized, r.extParams.notificationAlertAuthorized = e.notificationAlertAuthorized, r.extParams.notificationBadgeAuthorized = e.notificationBadgeAuthorized, r.extParams.notificationSoundAuthorized = e.notificationSoundAuthorized, r.extParams.bluetoothEnabled = e.bluetoothEnabled, r.extParams.locationEnabled = e.locationEnabled, r.extParams.wifiEnabled = e.wifiEnabled, r.extParams.safeArea = e.safeArea;
+                r.deviceParams[O[129012]] = encodeURIComponent(e.brand), r.deviceParams[O[129013]] = encodeURIComponent(e.model), r.deviceParams[O[129014]] = encodeURIComponent(e.screenWidth + "x" + e.screenHeight), r.deviceParams[O[129015]] = O[129016] === e.platform ? O[129017] : encodeURIComponent(e.platform), r.deviceParams[O[129018]] = encodeURIComponent(e.system), r.extParams.brand = e.brand, r.extParams.model = e.model, r.extParams.pixelRatio = e.pixelRatio, r.extParams.windowWidth = e.windowWidth, r.extParams.windowHeight = e.windowHeight, r.extParams.statusBarHeight = e.statusBarHeight, r.extParams.language = e.language, r.extParams.version = e.version, r.extParams.system = e.system, r.extParams.platform = e.platform, r.extParams.fontSizeSetting = e.fontSizeSetting, r.extParams.SDKVersion = e.SDKVersion, r.extParams.benchmarkLevel = e.benchmarkLevel, r.extParams[O[129019]] = e.albumAuthorized, r.extParams.cameraAuthorized = e.cameraAuthorized, r.extParams.locationAuthorized = e.locationAuthorized, r.extParams.microphoneAuthorized = e.microphoneAuthorized, r.extParams.notificationAuthorized = e.notificationAuthorized, r.extParams.notificationAlertAuthorized = e.notificationAlertAuthorized, r.extParams.notificationBadgeAuthorized = e.notificationBadgeAuthorized, r.extParams.notificationSoundAuthorized = e.notificationSoundAuthorized, r.extParams.bluetoothEnabled = e.bluetoothEnabled, r.extParams.locationEnabled = e.locationEnabled, r.extParams.wifiEnabled = e.wifiEnabled, r.extParams.safeArea = e.safeArea;
             }
         }), r.extParams.userua = window.navigator.userAgent, wx.getNetworkType({
             success: function (e) {
-                r.deviceParams[O[128868]] = encodeURIComponent(e.networkType), r.extParams.net = e.networkType;
+                r.deviceParams[O[129020]] = encodeURIComponent(e.networkType), r.extParams.net = e.networkType;
             }
         }), wx.getScreenBrightness({
             success: function (e) {
-                r.deviceParams[O[128869]] = encodeURIComponent(parseInt(100 * e.value)), r.extParams.screen_luminance = parseInt(100 * e.value);
+                r.deviceParams[O[129021]] = encodeURIComponent(parseInt(100 * e.value)), r.extParams.screen_luminance = parseInt(100 * e.value);
             }
         });
     } catch (e) {}
@@ -179,10 +179,10 @@ module.exports = function (e) {
             });
         },
         params: function (e) {
-            if (e.method = (e.method || O[100459]).toUpperCase(), O[128870] !== e.method || e.header || (e.header = {
-                "Content-Type": O[128871]
+            if (e.method = (e.method || O[100461]).toUpperCase(), O[129022] !== e.method || e.header || (e.header = {
+                "Content-Type": O[129023]
             }), !e.private) {
-                var t = wx.getStorageSync(O[128872]);
+                var t = wx.getStorageSync(O[129024]);
                 e.data = r({}, a.default.baseParams, a.default.gameParams, a.default.agentParams, a.default.deviceParams, e.data, {
                     "device-ext": encodeURIComponent(JSON.stringify(a.default.extParams)),
                     token: t ? t.user_token : "",
@@ -197,7 +197,7 @@ module.exports = function (e) {
         },
         sign: function (e) {
             var t = "";
-            t = e.data.channel_id ? O[128873] : O[128874], e.app_key && (t = O[128875] + e.app_key);
+            t = e.data.channel_id ? O[129025] : O[129026], e.app_key && (t = O[129027] + e.app_key);
             var n = (e.signUrl || e.url).substr(1),
                 r = Object.keys(e.data).sort(),
                 a = "";
@@ -205,22 +205,22 @@ module.exports = function (e) {
                 a += "&" + t + "=" + e.data[t];
             });
             var i = "";
-            return i = e.app_key ? (0, o.default)(a.substr(1) + "&" + t) : (0, o.default)((e.method + "&" + encodeURIComponent(n) + "&" + encodeURIComponent(a.substr(1)) + "&" + t).replace(/\(/g, O[128876]).replace(/\)/g, O[128877])), i;
+            return i = e.app_key ? (0, o.default)(a.substr(1) + "&" + t) : (0, o.default)((e.method + "&" + encodeURIComponent(n) + "&" + encodeURIComponent(a.substr(1)) + "&" + t).replace(/\(/g, O[129028]).replace(/\)/g, O[129029])), i;
         },
         renderQRCode: function (e, t, n) {
             var r = t.getContext("2d"),
                 a = wx.createImage();
             a.src = n.image, a.onload = function () {
-                r.lineJoin = O[103901], r.lineWidth = 30, r.strokeStyle = O[104454], r.strokeRect((window.innerWidth - 240) / 2, (window.innerHeight - 264) / 2, 240, 264), r.fillStyle = O[104454], r.fillRect((window.innerWidth - 220) / 2, (window.innerHeight - 244) / 2, 220, 244), r.fillStyle = O[128878], r.font = O[128879], r.textAlign = O[101562], r.fillText(n.intro, window.innerWidth / 2, (window.innerHeight - 258) / 2 + 218 + 30, 250), r.drawImage(a, (window.innerWidth - 218) / 2, (window.innerHeight - 258) / 2, 218, 218);
+                r.lineJoin = O[103924], r.lineWidth = 30, r.strokeStyle = O[104478], r.strokeRect((window.innerWidth - 240) / 2, (window.innerHeight - 264) / 2, 240, 264), r.fillStyle = O[104478], r.fillRect((window.innerWidth - 220) / 2, (window.innerHeight - 244) / 2, 220, 244), r.fillStyle = O[129030], r.font = O[129031], r.textAlign = O[101572], r.fillText(n.intro, window.innerWidth / 2, (window.innerHeight - 258) / 2 + 218 + 30, 250), r.drawImage(a, (window.innerWidth - 218) / 2, (window.innerHeight - 258) / 2, 218, 218);
             }, u = {
                 canvas: e,
                 qrcvs: t,
                 qrctx: r,
                 data: n
-            }, e.addEventListener(O[125077], c);
+            }, e.addEventListener(O[125184], c);
         },
         removeOffScreen: function () {
-            u && (u.qrctx.clearRect(0, 0, u.qrcvs.width, u.qrcvs.height), u.canvas.removeEventListener(O[125077], c));
+            u && (u.qrctx.clearRect(0, 0, u.qrcvs.width, u.qrcvs.height), u.canvas.removeEventListener(O[125184], c));
         }
     };
     function c(e) {
@@ -230,7 +230,7 @@ module.exports = function (e) {
             r = t.clientY;
         n >= (window.innerWidth - 218) / 2 && n <= (window.innerWidth - 218) / 2 + 218 && r >= (window.innerHeight - 258) / 2 && r <= (window.innerHeight - 258) / 2 + 218 ? wx.previewImage({
             urls: [u.data.image]
-        }) : (u.qrctx.clearRect(0, 0, u.qrcvs.width, u.qrcvs.height), u.canvas.removeEventListener(O[125077], c));
+        }) : (u.qrctx.clearRect(0, 0, u.qrcvs.width, u.qrcvs.height), u.canvas.removeEventListener(O[125184], c));
     }
     e.exports = d;
 }, function (e, t, n) {
@@ -256,7 +256,7 @@ module.exports = function (e) {
             }
             return n;
         }(e, t);
-        throw new TypeError(O[128880]);
+        throw new TypeError(O[129032]);
     },
         a = Object.assign || function (e) {
         for (var t = 1; t < arguments.length; t++) {
@@ -285,9 +285,9 @@ module.exports = function (e) {
         init: function () {
             var e = this,
                 t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
-                n = [O[128881], O[128882], O[104993], O[128883], O[128884], O[128885], O[128886]];
+                n = [O[129033], O[129034], O[105020], O[129035], O[129036], O[129037], O[129038]];
             return n.map(function (e) {
-                void 0 !== t[e] && (O[128881] === e ? i.default.baseParams[e] = t.app_id : O[128882] === e ? i.default.gameParams[O[128887]] = t.mp_id : O[128886] === e ? i.default.debug = t.debug : i.default.setting[e] = t[e]);
+                void 0 !== t[e] && (O[129033] === e ? i.default.baseParams[e] = t.app_id : O[129034] === e ? i.default.gameParams[O[129039]] = t.mp_id : O[129038] === e ? i.default.debug = t.debug : i.default.setting[e] = t[e]);
             }), new Promise(function (n, u) {
                 t.app_id ? o.default.getDNSInfo({
                     data: a({
@@ -319,7 +319,7 @@ module.exports = function (e) {
                                         P = r(y, 2),
                                         x = P[0],
                                         b = P[1];
-                                    O[128888] === x && (s = b);
+                                    O[129040] === x && (s = b);
                                 }
                             } catch (e) {
                                 h = !0, p = e;
@@ -340,14 +340,14 @@ module.exports = function (e) {
                     } else i.default.launchOptions = {
                         state: l || s || ""
                     }, n({
-                        msg: O[109917]
+                        msg: O[109959]
                     });
                 }, function (e) {
                     n({
-                        msg: O[109917]
+                        msg: O[109959]
                     });
                 }) : u({
-                    msg: O[125514]
+                    msg: O[125628]
                 });
             });
         },
@@ -357,7 +357,7 @@ module.exports = function (e) {
                 wx.login({
                     success: function (r) {
                         var a;
-                        r.code ? (e.data = Object.assign({}, e.data, (c(a = {}, O[128889], i.default.extParams), c(a, O[109289], i.default.launchOptions.ext), c(a, O[104118], i.default.launchOptions.state), c(a, O[123638], r.code), a)), t(o.default.reversal(e))) : n(r);
+                        r.code ? (e.data = Object.assign({}, e.data, (c(a = {}, O[129041], i.default.extParams), c(a, O[109331], i.default.launchOptions.ext), c(a, O[104142], i.default.launchOptions.state), c(a, O[123751], r.code), a)), t(o.default.reversal(e))) : n(r);
                     },
                     fail: function (e) {
                         n(e);
@@ -383,16 +383,16 @@ module.exports = function (e) {
                                     url: ""
                                 }
                             }).then(function (e) {
-                                console.log(O[128890], e);
+                                console.log(O[129042], e);
                             }), n(e.getUserInfo(a({}, t)));
                         }, function (e) {
                             r({
-                                msg: e.msg || O[125514]
+                                msg: e.msg || O[125628]
                             });
                         });
                     },
                     fail: function (a) {
-                        console.log(O[128891], t), o.default.wxLogin(t).then(function (r) {
+                        console.log(O[129043], t), o.default.wxLogin(t).then(function (r) {
                             var a = wx.getLaunchOptionsSync();
                             o.default.reportAdClick({
                                 data: {
@@ -400,11 +400,11 @@ module.exports = function (e) {
                                     url: ""
                                 }
                             }).then(function (e) {
-                                console.log(O[128890], e);
+                                console.log(O[129042], e);
                             }), n(e.getUserInfo(t));
                         }, function (e) {
                             r({
-                                msg: e.msg || O[125514]
+                                msg: e.msg || O[125628]
                             });
                         });
                     }
@@ -416,11 +416,11 @@ module.exports = function (e) {
             return new Promise(function (t, n) {
                 o.default.setUserInfo(e).then(function (e) {
                     t(a({}, e, {
-                        msg: O[109917]
+                        msg: O[109959]
                     }));
                 }, function (e) {
                     n({
-                        msg: e.msg || O[125514]
+                        msg: e.msg || O[125628]
                     });
                 });
             });
@@ -453,19 +453,19 @@ module.exports = function (e) {
             return new Promise(function (t, n) {
                 o.default.mpPay(e).then(function (e) {
                     t({
-                        msg: O[109917]
+                        msg: O[109959]
                     });
                 }, function (e) {
                     n({
-                        msg: e.errMsg || O[125514]
+                        msg: e.errMsg || O[125628]
                     });
                 });
             });
         },
         mpPayQuery: function () {
             var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-            if (!e.data || void 0 === e.data[O[128892]]) {
-                var t = wx.getStorageSync(O[128893]);
+            if (!e.data || void 0 === e.data[O[129044]]) {
+                var t = wx.getStorageSync(O[129045]);
                 e.data = a({}, e.data, {
                     "order-order_id": t ? t.order_id : ""
                 });
@@ -488,19 +488,19 @@ module.exports = function (e) {
                         }, function (e) {});
                     }, 15e3);
                     n({
-                        msg: O[109917]
+                        msg: O[109959]
                     });
                 }, function (e) {
                     r({
-                        msg: e.errMsg || O[125514]
+                        msg: e.errMsg || O[125628]
                     });
                 });
             });
         },
         midasPayQuery: function () {
             var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-            if (!e.data || void 0 === e.data[O[128892]]) {
-                var t = wx.getStorageSync(O[128893]);
+            if (!e.data || void 0 === e.data[O[129044]]) {
+                var t = wx.getStorageSync(O[129045]);
                 e.data = a({}, e.data, {
                     "order-order_id": t ? t.order_id : ""
                 });
@@ -545,24 +545,24 @@ module.exports = function (e) {
         checkImg: function () {
             var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
                 t = a({}, i.default.baseParams, i.default.gameParams, i.default.agentParams, i.default.deviceParams, {
-                token: wx.getStorageSync(O[128872]).user_token,
+                token: wx.getStorageSync(O[129024]).user_token,
                 ts: new Date().getTime()
             });
             return t.sign = u.default.sign({
-                url: O[128894],
+                url: O[129046],
                 data: t
             }), new Promise(function (n, r) {
                 wx.uploadFile({
-                    url: i.default.baseUrl + O[128894],
+                    url: i.default.baseUrl + O[129046],
                     filePath: e.data.filePath,
-                    name: O[104701],
+                    name: O[104727],
                     formData: t,
                     success: function (e) {
                         var t = e.data;
                         200 === (t = JSON.parse(t)).code ? n({
-                            msg: O[109917]
+                            msg: O[109959]
                         }) : r({
-                            msg: t.msg || O[125514]
+                            msg: t.msg || O[125628]
                         });
                     }
                 });
@@ -595,9 +595,9 @@ module.exports = function (e) {
             a.default.ajax(e).then(function (e) {
                 e.data && e.data.data ? r({
                     data: e.data.data,
-                    msg: O[109917]
+                    msg: O[109959]
                 }) : r({
-                    msg: O[109917]
+                    msg: O[109959]
                 });
             }, function (e) {
                 if (e.data && 1002 === e.data.code) {
@@ -612,7 +612,7 @@ module.exports = function (e) {
                         });
                     }));
                 } else o({
-                    msg: e.data ? e.data.msg || O[128895] : e.errMsg
+                    msg: e.data ? e.data.msg || O[129047] : e.errMsg
                 });
             });
         });
@@ -620,16 +620,16 @@ module.exports = function (e) {
         c = {
         getDNSInfo: function (e) {
             return d(r({
-                method: O[104561],
-                url: O[128896],
-                signUrl: O[128897],
+                method: O[104587],
+                url: O[129048],
+                signUrl: O[129049],
                 private: !0
             }, e));
         },
         cpUserCheck: function (e) {
             return d(r({
-                method: O[104561],
-                url: O[128898],
+                method: O[104587],
+                url: O[129050],
                 private: !0
             }, e));
         },
@@ -637,10 +637,10 @@ module.exports = function (e) {
             return o.default.launchOptions.ext ? e.data = Object.assign({}, e.data, r({
                 state: o.default.launchOptions.state
             }, e)) : e.data = Object.assign({}, e.data, r({}, e)), o.default.launchOptions && o.default.launchOptions.state && (e.data.state = o.default.launchOptions.state), d(r({
-                method: O[104561],
-                url: O[128899]
+                method: O[104587],
+                url: O[129051]
             }, e)).then(function (e) {
-                return e && wx.setStorageSync(O[128872], e.data), e;
+                return e && wx.setStorageSync(O[129024], e.data), e;
             });
         },
         wxLogin: function (e) {
@@ -661,16 +661,16 @@ module.exports = function (e) {
         },
         reversal: function (e) {
             return d(r({
-                method: O[104561],
-                url: O[128900]
+                method: O[104587],
+                url: O[129052]
             }, e));
         },
         setUserInfo: function (e) {
             return d(r({
-                method: O[104561],
-                url: O[128901]
+                method: O[104587],
+                url: O[129053]
             }, e)).then(function (e) {
-                return wx.setStorageSync(O[128872], e.data), e;
+                return wx.setStorageSync(O[129024], e.data), e;
             });
         },
         upRoleInfo: function (e) {
@@ -678,43 +678,43 @@ module.exports = function (e) {
                 showLoading: !1,
                 showToast: !1
             }, d(r({
-                method: O[104561],
-                url: O[128902]
+                method: O[104587],
+                url: O[129054]
             }, e)).then(function (e) {
                 return e;
             });
         },
         getUserInfo: function (e) {
             return d(r({
-                method: O[104561],
-                url: O[128903]
+                method: O[104587],
+                url: O[129055]
             }, e)).then(function (e) {
                 if (e.data.report_status && 2 == e.data.report_status) try {
-                    require(O[128904]);
+                    require(O[129056]);
                 } catch (e) {}
-                return wx.setStorageSync(O[128872], e.data), e;
+                return wx.setStorageSync(O[129024], e.data), e;
             });
         },
         getShareInfo: function (e) {
             return d(r({
-                url: O[128905]
+                url: O[129057]
             }, e));
         },
         addShareInfo: function (e) {
             return d(r({
-                url: O[128906]
+                url: O[129058]
             }, e));
         },
         getShareQrcode: function (e) {
             return d(r({
-                url: O[128907]
+                url: O[129059]
             }, e));
         },
         mpPay: function (e) {
             var t = this;
             return this.preOrder(e).then(function (n) {
                 return e.data = r({}, e.data, {
-                    payway: O[128908],
+                    payway: O[129060],
                     "order-order_id": n.data.order_id
                 }), t.mpOrder(e);
             });
@@ -744,7 +744,7 @@ module.exports = function (e) {
                     platform: f,
                     zoneId: l,
                     success: function (a) {
-                        t.data[O[128892]] = e.order_id, t.conf = {
+                        t.data[O[129044]] = e.order_id, t.conf = {
                             showLoading: !1,
                             showToast: !1
                         }, n.midasPayQuery(t).then(function (e) {
@@ -757,9 +757,9 @@ module.exports = function (e) {
                         }, function (e) {}), a.errMsg && (a.msg = a.errMsg), r(a);
                     },
                     fail: function (e) {
-                        if (e.errMsg) if (O[128909] === e.errMsg) {
-                            var n = wx.getStorageSync(O[128872]);
-                            e.msg = n && n.ios_text || O[128910], e.duration = 3e3;
+                        if (e.errMsg) if (O[129061] === e.errMsg) {
+                            var n = wx.getStorageSync(O[129024]);
+                            e.msg = n && n.ios_text || O[129062], e.duration = 3e3;
                         } else e.msg = e.errMsg;
                         var r = a.default.setting(t.conf);
                         r.showToast && (e.msg && (r.toastParams.title = e.msg), e.duration && (r.toastParams.duration = e.duration), wx.showToast(r.toastParams)), o(e);
@@ -770,15 +770,15 @@ module.exports = function (e) {
         checkPay: function (e) {
             var t = this;
             return this.preOrder(e).then(function (n) {
-                return 2 === n.data.check ? t.wxMidasPay(n.data, e) : (e.data[O[128892]] = n.data.order_id, t.checkPayInfo(e));
+                return 2 === n.data.check ? t.wxMidasPay(n.data, e) : (e.data[O[129044]] = n.data.order_id, t.checkPayInfo(e));
             });
         },
         preOrder: function (e) {
             return d(r({
-                method: O[104561],
-                url: O[128911]
+                method: O[104587],
+                url: O[129063]
             }, e)).then(function (e) {
-                return wx.setStorageSync(O[128893], e.data), e;
+                return wx.setStorageSync(O[129045], e.data), e;
             }, function (e) {
                 return e;
             });
@@ -786,8 +786,8 @@ module.exports = function (e) {
         mpOrder: function (e) {
             var t = this;
             return d(r({
-                method: O[104561],
-                url: O[128912]
+                method: O[104587],
+                url: O[129064]
             }, e)).then(function (n) {
                 return t.wxMpPay(JSON.parse(n.data.token), e);
             });
@@ -804,8 +804,8 @@ module.exports = function (e) {
                         n.showToast && (e.msg && (n.toastParams.title = e.msg), wx.showToast(n.toastParams)), o(e);
                     },
                     complete: function (e) {
-                        O[128913] === e.errMsg && o({
-                            msg: O[128914]
+                        O[129065] === e.errMsg && o({
+                            msg: O[129066]
                         });
                     }
                 }));
@@ -813,26 +813,26 @@ module.exports = function (e) {
         },
         mpPayQuery: function (e) {
             return d(r({
-                method: O[104561],
-                url: O[128915]
+                method: O[104587],
+                url: O[129067]
             }, e));
         },
         midasPayQuery: function (e) {
             return d(r({
-                url: O[128916]
+                url: O[129068]
             }, e));
         },
         checkPayInfo: function (e) {
             var t = this;
             return d(r({
-                url: O[128917]
+                url: O[129069]
             }, e)).then(function (n) {
-                return n.data.order_id = e.data[O[128892]], new Promise(function (r, o) {
-                    n.data.image && wx.setStorageSync(O[128918], n.data.image);
-                    var i = wx.getStorageSync(O[128918]);
+                return n.data.order_id = e.data[O[129044]], new Promise(function (r, o) {
+                    n.data.image && wx.setStorageSync(O[129070], n.data.image);
+                    var i = wx.getStorageSync(O[129070]);
                     n.data && 4 == +n.data.pay_type ? (wx.showModal({
-                        title: O[128919],
-                        content: O[128920],
+                        title: O[129071],
+                        content: O[129072],
                         success: function (e) {
                             e.confirm && wx.openCustomerServiceConversation();
                         }
@@ -841,13 +841,13 @@ module.exports = function (e) {
                         path: n.data.path
                     }), r(n)) : i ? (e.canvas && e.offscreen && a.default.renderQRCode(e.canvas, e.offscreen, {
                         image: i,
-                        intro: n.data.intro || O[128921]
+                        intro: n.data.intro || O[129073]
                     }), n.data.image = i, r(n)) : t.checkQrcode(e).then(function (t) {
                         var o = t.data.poster_img;
                         e.canvas && e.offscreen && a.default.renderQRCode(e.canvas, e.offscreen, {
                             image: o,
-                            intro: n.data.intro || O[128921]
-                        }), wx.setStorageSync(O[128918], o), n.data.image = o, r(n);
+                            intro: n.data.intro || O[129073]
+                        }), wx.setStorageSync(O[129070], o), n.data.image = o, r(n);
                     }, function (e) {
                         r(n);
                     });
@@ -856,27 +856,27 @@ module.exports = function (e) {
         },
         checkOrderInfo: function (e) {
             return d(r({
-                method: O[104561],
-                url: O[128922]
+                method: O[104587],
+                url: O[129074]
             }, e));
         },
         checkOrder: function (e) {
             var t = this;
             return d(r({
-                method: O[104561],
-                url: O[128923]
+                method: O[104587],
+                url: O[129075]
             }, e)).then(function (n) {
                 return t.wxMpPay(JSON.parse(n.data.token), e);
             });
         },
         checkQrcode: function (e) {
             return e.data && (e.data.is_last = 2), d(r({
-                url: O[128924]
+                url: O[129076]
             }, e));
         },
         reportAdClick: function (e) {
             return d(r({
-                url: O[128925]
+                url: O[129077]
             }, e));
         },
         removeOffScreen: function () {
@@ -884,20 +884,20 @@ module.exports = function (e) {
         },
         checkMsg: function (e) {
             return d(r({
-                method: O[104561],
-                url: O[128926]
+                method: O[104587],
+                url: O[129078]
             }, e));
         },
         gameMinicard: function (e) {
             return d(r({
-                method: O[104561],
-                url: O[128927]
+                method: O[104587],
+                url: O[129079]
             }, e));
         },
         userCheckpay: function (e) {
             return d(r({
-                method: O[104561],
-                url: O[128928]
+                method: O[104587],
+                url: O[129080]
             }, e));
         }
     };
@@ -906,7 +906,7 @@ module.exports = function (e) {
     "use strict";
 
     var r;
-    O[128514] == typeof Symbol && Symbol.iterator;
+    O[128663] == typeof Symbol && Symbol.iterator;
     !function (a) {
         function o(e, t) {
             var n = (65535 & e) + (65535 & t);
@@ -962,7 +962,7 @@ module.exports = function (e) {
             var t,
                 n,
                 r = "";
-            for (n = 0; n < e.length; n += 1) t = e.charCodeAt(n), r += O[128929].charAt(t >>> 4 & 15) + O[128929].charAt(15 & t);
+            for (n = 0; n < e.length; n += 1) t = e.charCodeAt(n), r += O[129081].charAt(t >>> 4 & 15) + O[129081].charAt(15 & t);
             return r;
         }
         function h(e) {

@@ -1,2 +1,2 @@
 var s = wx.$W;
-require(s[380000]);
+require(s[0x0]);

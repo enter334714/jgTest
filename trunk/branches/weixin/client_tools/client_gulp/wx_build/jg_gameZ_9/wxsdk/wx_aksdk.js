@@ -1,4 +1,4 @@
-require("../utils/moosnow.Heavy.sdk.js");
+﻿require("../utils/moosnow.Heavy.sdk.js");
 require("../utils/moosnowHeavyGame.conf.js");
 
 //TODO 替换对应参数
@@ -7,7 +7,7 @@ var config = {
     game_pkg: 'tjqy_tjqyssyjx_KJ', //天剑vs墨雪--蜀山御剑仙
     partner_label: 'moxuexyx',
     partner_id: '510',
-    game_ver: '36.0.1',
+    game_ver: '36.0.3',
     is_auth: true, //授权登录
 };
 window.config = config;

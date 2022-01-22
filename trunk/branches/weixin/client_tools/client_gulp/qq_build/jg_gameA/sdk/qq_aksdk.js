@@ -1,10 +1,10 @@
-const {AladinSDK} = require('./aladinSDK.js');
+﻿const {AladinSDK} = require('./aladinSDK.js');
 
 var config = {
     game_id: 256,
     game_pkg: 'tjqy_tjqymd_AM',
     partner_id: 382,
-    game_ver: '1.0.251',
+    game_ver: '1.0.257',
     is_auth: false, //授权登录
     tmpId: {1:'bb41de3973a0bb03d81a76e0d154c7ed', 2:'3cdf7298bad846a426569a9f4b1f0d8a', 3:'f124251e8b576c0f9a8349321b97f279'},  // 订阅的类型 和 模板id
     qq_app_id: '1111683091'

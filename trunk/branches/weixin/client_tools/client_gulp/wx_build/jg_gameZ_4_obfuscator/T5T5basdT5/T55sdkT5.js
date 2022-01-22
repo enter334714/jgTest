@@ -4,20 +4,20 @@ import zshySdk from '../utils/zshySdk.js';
 //TODO 替换对应参数
 var config = {
     game_id: 256,
-    game_pkg: B[521699], //9130vs掌上-我和我的影子
-    partner_label: B[521700],
-    partner_id: B[521701],
-    game_ver: "29.0.11",
+    game_pkg: B[521700], //9130vs掌上-我和我的影子
+    partner_label: B[521701],
+    partner_id: B[521702],
+    game_ver: B[521703],
     is_auth: false, //授权登录
 
-    partner_app_id: B[521703],
-    partner_channel_id: B[521704],
-    partner_ad_id: B[521705],
-    partner_ad_flag: B[521706]
+    partner_app_id: B[521704],
+    partner_channel_id: B[521705],
+    partner_ad_id: B[521706],
+    partner_ad_flag: B[521707]
 };
 window.config = config;
 var B12NL_S = B12LS_N();
-var HOST = B[521707];
+var HOST = B[521708];
 var B12NLS_ = null;
 var B12L_SN = null;
 var sysInfo = wx.getSystemInfoSync();
@@ -33,22 +33,22 @@ function B12LS_N() {
         order_data: {},
         init: function (ops, callback) {
             var game_ver = ops && ops.game_ver ? ops.game_ver : 0;
-            console.log(B[521708]);
+            console.log(B[521709]);
             var self = this;
 
-            var uuid = wx.getStorageSync(B[521709]);
+            var uuid = wx.getStorageSync(B[521710]);
             var is_new;
             if (!uuid) {
                 uuid = self.uuid(16, 32);
-                wx.setStorageSync(B[521709], uuid);
+                wx.setStorageSync(B[521710], uuid);
                 is_new = 1;
             } else {
                 is_new = 0;
             }
-            var idfv = wx.getStorageSync(B[521710]);
+            var idfv = wx.getStorageSync(B[521711]);
             if (!idfv) {
                 idfv = self.uuid(16, 32);
-                wx.setStorageSync(B[521710], idfv);
+                wx.setStorageSync(B[521711], idfv);
             }
 
             var info = wx.getLaunchOptionsSync();
@@ -57,14 +57,14 @@ function B12LS_N() {
             wx.showShareMenu();
             //判断今天是否已经上报过
             if (is_new && info.query && info.query.ad_code) {
-                wx.setStorageSync(B[521711], info.query.ad_code);
+                wx.setStorageSync(B[521712], info.query.ad_code);
             }
 
             var data = {
                 install: is_new,
                 scene: scene
             };
-            self.log(B[521712], data);
+            self.log(B[521713], data);
 
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
@@ -88,7 +88,7 @@ function B12LS_N() {
         },
 
         login: function (data, callback) {
-            console.log(B[521713]);
+            console.log(B[521714]);
             callbacks[B[520253]] = typeof callback == B[520932] ? callback : null;
             var self = this;
             sdk.init({
@@ -103,20 +103,20 @@ function B12LS_N() {
                     sdk.login({
                         success: function (res) {
                             // sdk登陆成功
-                            console.log(B[521714] + res.uid + B[521715] + res.token);
+                            console.log(B[521715] + res.uid + B[521716] + res.token);
                             partner_user_info = res;
                             self.do_login(res);
                         },
                         fail: function () {
                             callbacks[B[520253]] && callbacks[B[520253]](1, {
-                                errMsg: B[521716]
+                                errMsg: B[521717]
                             });
                         }
                     });
                 },
                 fail: function () {
                     callbacks[B[520253]] && callbacks[B[520253]](1, {
-                        errMsg: B[521717]
+                        errMsg: B[521718]
                     });
                 }
             });
@@ -126,7 +126,7 @@ function B12LS_N() {
             var self = this;
             //发起网络请求
             var public_data = self.getPublicData();
-            public_data[B[521718]] = JSON.stringify(info);
+            public_data[B[521719]] = JSON.stringify(info);
             if (B12L_SN && typeof B12L_SN == B[520831]) {
                 for (var key in B12L_SN) {
                     public_data[key] = B12L_SN[key];
@@ -134,25 +134,25 @@ function B12LS_N() {
             }
 
             wx.request({
-                url: B[521719] + HOST + B[521720],
+                url: B[521720] + HOST + B[521721],
                 method: B[520218],
                 dataType: B[521177],
                 header: {
-                    'content-type': B[520366] // 默认值
+                    'content-type': B[520368] // 默认值
                 },
                 data: public_data,
                 success: function (res) {
-                    console.log(B[521721] + JSON.stringify(res));
+                    console.log(B[521722] + JSON.stringify(res));
 
                     if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
                             try {
-                                wx.setStorageSync(B[521722], data.data.sdk_token);
-                                wx.setStorageSync(B[521723], data.data.user_id);
-                                wx.setStorageSync(B[521724], data.data.username);
+                                wx.setStorageSync(B[521723], data.data.sdk_token);
+                                wx.setStorageSync(B[521724], data.data.user_id);
+                                wx.setStorageSync(B[521725], data.data.username);
                                 if (data.data.ext) {
-                                    wx.setStorageSync(B[521725], data.data.ext);
+                                    wx.setStorageSync(B[521726], data.data.ext);
                                 }
                             } catch (e) {}
 
@@ -174,11 +174,11 @@ function B12LS_N() {
                             });
                         }
 
-                        self.getShareInfo(B[521726], function (data) {
-                            console.log(B[521727]);
+                        self.getShareInfo(B[521727], function (data) {
+                            console.log(B[521728]);
                             wx.onShareAppMessage(function () {
                                 //记录开始分享
-                                self.logStartShare(B[521726]);
+                                self.logStartShare(B[521727]);
                                 return {
                                     title: data.title,
                                     imageUrl: data.img,
@@ -188,7 +188,7 @@ function B12LS_N() {
                         });
                     } else {
                         callbacks[B[520253]] && callbacks[B[520253]](1, {
-                            errMsg: B[521728]
+                            errMsg: B[521729]
                         });
                     }
                 }
@@ -198,7 +198,7 @@ function B12LS_N() {
         share: function (data) {
             callbacks[B[520326]] = typeof callback == B[520932] ? callback : null;
             var type = data.type || B[520326];
-            console.log(B[521729] + type);
+            console.log(B[521730] + type);
             var self = this;
             this.getShareInfo(type, function (data) {
                 //记录开始分享
@@ -212,13 +212,13 @@ function B12LS_N() {
         },
 
         logStartShare: function (type) {
-            var sdk_token = wx.getStorageSync(B[521722]);
+            var sdk_token = wx.getStorageSync(B[521723]);
             wx.request({
-                url: B[521719] + HOST + B[521730],
+                url: B[521720] + HOST + B[521731],
                 method: B[520218],
                 dataType: B[521177],
                 header: {
-                    'content-type': B[520366] // 默认值
+                    'content-type': B[520368] // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
@@ -237,14 +237,14 @@ function B12LS_N() {
         },
 
         checkGameVersion: function (game_ver, callback) {
-            console.log(B[521731]);
-            var sdk_token = wx.getStorageSync(B[521722]);
+            console.log(B[521732]);
+            var sdk_token = wx.getStorageSync(B[521723]);
             wx.request({
-                url: B[521719] + HOST + B[521732],
+                url: B[521720] + HOST + B[521733],
                 method: B[520218],
                 dataType: B[521177],
                 header: {
-                    'content-type': B[520366] // 默认值
+                    'content-type': B[520368] // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
@@ -252,7 +252,7 @@ function B12LS_N() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log(B[521733] + JSON.stringify(res));
+                    console.log(B[521734] + JSON.stringify(res));
 
                     if (res.statusCode == 200) {
                         var data = res.data;
@@ -273,14 +273,14 @@ function B12LS_N() {
         },
 
         getShareInfo: function (type, callback) {
-            console.log(B[521734]);
-            var sdk_token = wx.getStorageSync(B[521722]);
+            console.log(B[521735]);
+            var sdk_token = wx.getStorageSync(B[521723]);
             wx.request({
-                url: B[521719] + HOST + B[521735],
+                url: B[521720] + HOST + B[521736],
                 method: B[520218],
                 dataType: B[521177],
                 header: {
-                    'content-type': B[520366] // 默认值
+                    'content-type': B[520368] // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
@@ -292,7 +292,7 @@ function B12LS_N() {
                     no_log: 1 //设置为1后就不在这个接口打log，交给logStartShare接口
                 },
                 success: function (res) {
-                    console.log(B[521736]);
+                    console.log(B[521737]);
                     console.log(res);
                     if (res.statusCode == 200) {
                         var data = res.data;
@@ -300,12 +300,12 @@ function B12LS_N() {
                             callback && callback(data.data);
                         } else {
                             callbacks[B[520326]] && callbacks[B[520326]](1, {
-                                errMsg: B[521737] + data.msg
+                                errMsg: B[521738] + data.msg
                             });
                         }
                     } else {
                         callbacks[B[520326]] && callbacks[B[520326]](1, {
-                            errMsg: B[521738]
+                            errMsg: B[521739]
                         });
                     }
                 }
@@ -313,14 +313,14 @@ function B12LS_N() {
         },
 
         updateShare: function (invite, invite_type, is_new, role_id, server_id, scene) {
-            console.log(B[521739]);
-            var sdk_token = wx.getStorageSync(B[521722]);
+            console.log(B[521740]);
+            var sdk_token = wx.getStorageSync(B[521723]);
             wx.request({
-                url: B[521719] + HOST + B[521740],
+                url: B[521720] + HOST + B[521741],
                 method: B[520218],
                 dataType: B[521177],
                 header: {
-                    'content-type': B[520366] // 默认值
+                    'content-type': B[520368] // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
@@ -334,21 +334,21 @@ function B12LS_N() {
                     scene: scene
                 },
                 success: function (res) {
-                    console.log(B[521741] + JSON.stringify(res));
+                    console.log(B[521742] + JSON.stringify(res));
                 }
             });
         },
 
         msgCheck: function (content, callback) {
-            console.log(B[521742] + content);
-            var sdk_token = wx.getStorageSync(B[521722]);
+            console.log(B[521743] + content);
+            var sdk_token = wx.getStorageSync(B[521723]);
 
             wx.request({
-                url: B[521719] + HOST + B[521743] + config.partner_id + '/' + config.game_pkg,
+                url: B[521720] + HOST + B[521744] + config.partner_id + '/' + config.game_pkg,
                 method: B[520218],
                 dataType: B[521177],
                 header: {
-                    'content-type': B[520366] // 默认值
+                    'content-type': B[520368] // 默认值
                 },
                 data: {
                     game_pkg: config.game_pkg,
@@ -359,7 +359,7 @@ function B12LS_N() {
                     content: content
                 },
                 success: function (res) {
-                    console.log(B[521744]);
+                    console.log(B[521745]);
                     console.log(res);
                     callback && callback(res);
                 }
@@ -372,17 +372,17 @@ function B12LS_N() {
 
         //支付接口
         startPay: function (data, callback) {
-            console.log(B[521745] + JSON.stringify(data));
+            console.log(B[521746] + JSON.stringify(data));
 
             var self = this;
             callbacks[B[520313]] = typeof callback == B[520932] ? callback : null;
             //先下单
             this_pay_order = 0;
-            var sdk_token = wx.getStorageSync(B[521722]);
-            var session_key = wx.getStorageSync(B[521725]);
+            var sdk_token = wx.getStorageSync(B[521723]);
+            var session_key = wx.getStorageSync(B[521726]);
             if (!sdk_token) {
                 callbacks[B[520313]] && callbacks[B[520313]](1, {
-                    errMsg: B[521746]
+                    errMsg: B[521747]
                 });
                 return;
             }
@@ -406,19 +406,19 @@ function B12LS_N() {
             self.order_data = order_data;
 
             var public_data = self.getPublicData();
-            public_data[B[521747]] = JSON.stringify(order_data);
+            public_data[B[521748]] = JSON.stringify(order_data);
 
             //发起网络请求
             wx.request({
-                url: B[521719] + HOST + B[521748],
+                url: B[521720] + HOST + B[521749],
                 method: B[520218],
                 dataType: B[521177],
                 header: {
-                    'content-type': B[520366] // 默认值
+                    'content-type': B[520368] // 默认值
                 },
                 data: public_data,
                 success: function (res) {
-                    console.log(B[521749] + JSON.stringify(res));
+                    console.log(B[521750] + JSON.stringify(res));
                     if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
@@ -439,7 +439,7 @@ function B12LS_N() {
                         }
                     } else {
                         callbacks[B[520253]] && callbacks[B[520253]](1, {
-                            errMsg: B[521728]
+                            errMsg: B[521729]
                         });
                     }
                 }
@@ -448,15 +448,15 @@ function B12LS_N() {
 
         //创建角色
         logCreateRole: function (data, callback) {
-            var uid = wx.getStorageSync(B[521723]);
-            var username = wx.getStorageSync(B[521724]);
+            var uid = wx.getStorageSync(B[521724]);
+            var username = wx.getStorageSync(B[521725]);
 
             var postData = {};
-            postData[B[521750]] = uid;
-            postData[B[521751]] = username;
-            postData[B[521752]] = data.roleid;
-            postData[B[521753]] = data.rolelevel;
-            postData[B[521754]] = data.rolename;
+            postData[B[521751]] = uid;
+            postData[B[521752]] = username;
+            postData[B[521753]] = data.roleid;
+            postData[B[521754]] = data.rolelevel;
+            postData[B[521755]] = data.rolename;
             postData[B[520023]] = data.serverid;
 
             if (data.roleid && data.serverid) {
@@ -466,7 +466,7 @@ function B12LS_N() {
                 };
             }
 
-            this.log(B[520439], postData);
+            this.log(B[520441], postData);
             // 渠道上报
             sdk.sendRoleInfo({
                 data: {
@@ -477,25 +477,25 @@ function B12LS_N() {
                     roleId: data.roleid + '' // 角色id
                 },
                 success: function () {
-                    console.log(B[521755]);
+                    console.log(B[521756]);
                 },
                 fail: function () {
-                    console.log(B[521756]);
+                    console.log(B[521757]);
                 }
             });
         },
 
         //进入游戏
         logEnterGame: function (data, callback) {
-            var uid = wx.getStorageSync(B[521723]);
-            var username = wx.getStorageSync(B[521724]);
+            var uid = wx.getStorageSync(B[521724]);
+            var username = wx.getStorageSync(B[521725]);
 
             var postData = {};
-            postData[B[521750]] = uid;
-            postData[B[521751]] = username;
-            postData[B[521752]] = data.roleid;
-            postData[B[521753]] = data.rolelevel;
-            postData[B[521754]] = data.rolename;
+            postData[B[521751]] = uid;
+            postData[B[521752]] = username;
+            postData[B[521753]] = data.roleid;
+            postData[B[521754]] = data.rolelevel;
+            postData[B[521755]] = data.rolename;
             postData[B[520023]] = data.serverid;
 
             if (data.roleid && data.serverid) {
@@ -505,7 +505,7 @@ function B12LS_N() {
                 };
             }
 
-            this.log(B[521757], postData);
+            this.log(B[521758], postData);
 
             //进入游戏确认邀请成功
             if (B12L_SN) {
@@ -522,25 +522,25 @@ function B12LS_N() {
                     roleId: data.roleid + '' // 角色id
                 },
                 success: function () {
-                    console.log(B[521755]);
+                    console.log(B[521756]);
                 },
                 fail: function () {
-                    console.log(B[521756]);
+                    console.log(B[521757]);
                 }
             });
         },
 
         //角色升级
         logRoleUpLevel: function (data, callback) {
-            var uid = wx.getStorageSync(B[521723]);
-            var username = wx.getStorageSync(B[521724]);
+            var uid = wx.getStorageSync(B[521724]);
+            var username = wx.getStorageSync(B[521725]);
 
             var postData = {};
-            postData[B[521750]] = uid;
-            postData[B[521751]] = username;
-            postData[B[521752]] = data.roleid;
-            postData[B[521753]] = data.rolelevel;
-            postData[B[521754]] = data.rolename;
+            postData[B[521751]] = uid;
+            postData[B[521752]] = username;
+            postData[B[521753]] = data.roleid;
+            postData[B[521754]] = data.rolelevel;
+            postData[B[521755]] = data.rolename;
             postData[B[520023]] = data.serverid;
 
             if (data.roleid && data.serverid) {
@@ -550,7 +550,7 @@ function B12LS_N() {
                 };
             }
 
-            this.log(B[521758], postData);
+            this.log(B[521759], postData);
 
             // 渠道上报
             sdk.sendRoleInfo({
@@ -562,17 +562,17 @@ function B12LS_N() {
                     roleId: data.roleid + '' // 角色id
                 },
                 success: function () {
-                    console.log(B[521755]);
+                    console.log(B[521756]);
                 },
                 fail: function () {
-                    console.log(B[521756]);
+                    console.log(B[521757]);
                 }
             });
         },
 
         //获取唯一设备码（自定义）
         uuid: function (radix, len) {
-            var chars = B[521759].split('');
+            var chars = B[521760].split('');
             var uuid = [],
                 i;
             radix = radix || chars.length;
@@ -598,9 +598,9 @@ function B12LS_N() {
 
         //获取公共参数
         getPublicData: function () {
-            var uuid = wx.getStorageSync(B[521709]);
-            var idfv = wx.getStorageSync(B[521710]);
-            var ad_code = wx.getStorageSync(B[521711]);
+            var uuid = wx.getStorageSync(B[521710]);
+            var idfv = wx.getStorageSync(B[521711]);
+            var ad_code = wx.getStorageSync(B[521712]);
 
             return {
                 game_id: config.game_id,
@@ -610,10 +610,10 @@ function B12LS_N() {
                 ad_code: ad_code,
                 uuid: uuid,
                 idfv: idfv,
-                mac: B[521760],
+                mac: B[521761],
                 is_from_min: 1,
                 dname: sysInfo.model,
-                net_type: sysInfo.wifiSignal == 0 ? '4G' : B[521761],
+                net_type: sysInfo.wifiSignal == 0 ? '4G' : B[521762],
                 os_ver: sysInfo.system,
                 sdk_ver: sysInfo.version, //存放的是微信版本号
                 game_ver: config.game_ver, //存放的是SDK版本号
@@ -628,11 +628,11 @@ function B12LS_N() {
                 public_data[key] = data[key];
             }
 
-            console.log(B[521762] + type);
+            console.log(B[521763] + type);
             console.log(public_data);
 
             wx.request({
-                url: B[521719] + HOST + B[521763] + type + B[521764] + encodeURIComponent(JSON.stringify(public_data))
+                url: B[521720] + HOST + B[521764] + type + B[521765] + encodeURIComponent(JSON.stringify(public_data))
             });
         },
 
@@ -659,7 +659,7 @@ function B12LS_N() {
         // 获取互推游戏列表
         getGameList: function (callback) {
             sdk.getGameList(function (res) {
-                console.log(B[521765] + JSON.stringify(res));
+                console.log(B[521766] + JSON.stringify(res));
                 callback && callback(res);
             });
         }
@@ -743,7 +743,7 @@ exports.msgCheck = function (data, callback) {
 };
 
 exports.downloadClient = function () {
-    run(B[521766]);
+    run(B[521767]);
 };
 
 exports.getConfig = function () {
@@ -755,7 +755,7 @@ exports.getConfig = function () {
 };
 
 exports.getPublicData = function () {
-    run(B[521767]);
+    run(B[521768]);
 };
 
 exports.weiduanHelper = function () {
@@ -763,9 +763,9 @@ exports.weiduanHelper = function () {
 };
 
 exports.setMessageToFriendQuery = function (data, callback) {
-    run(B[521768], data, callback);
+    run(B[521769], data, callback);
 };
 
 exports.getGameList = function (callback) {
-    run(B[521769], callback);
+    run(B[521770], callback);
 };

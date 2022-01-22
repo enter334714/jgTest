@@ -28,8 +28,8 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "useIsolateContext": false,
-    "userConfirmedUseIsolateContext": true,
+    "useIsolateContext": true,
+    "userConfirmedUseIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -41,7 +41,7 @@
   "compileType": "game",
   "libVersion": "2.10.4",
   "appid": "wxb3e5c32fdb9f4b34",
-  "projectname": "%E7%81%AB%E9%80%9F-%E4%B9%9D%E5%B7%9E%E4%BF%AE%E4%BB%99%E8%AE%B0(%E6%B7%B7%E5%A2%A8%E9%98%B3%E4%BB%99%E5%B0%98%E6%9C%8D)",
+  "projectname": "火速-九州修仙记(混墨阳仙尘服)",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {

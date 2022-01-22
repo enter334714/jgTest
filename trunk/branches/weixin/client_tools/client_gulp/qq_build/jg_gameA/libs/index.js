@@ -45,8 +45,8 @@ window.get_status = WX_MAIN.get_status;
 
 var sysInfo = qq.getSystemInfoSync();
 window.SDKVersion = sysInfo.SDKVersion;
-window.AppPlatform = sysInfo.AppPlatform;
-console.log("QQ基础库版本："+window.SDKVersion+"  联盟平台："+window.AppPlatform);
+window.qqAppPlatform = sysInfo.AppPlatform;
+console.log("QQ基础库版本："+window.SDKVersion+"  联盟平台："+window.qqAppPlatform);
 
 
 window.changeServerLoading = function(value) {
@@ -319,6 +319,19 @@ window.microPortGuide = function(){
   AKSDK.weiduanHelper();
 }
 
+//绑定有礼请求短信验证码
+window.reqSMSCode = function(phone, role_id, uid, game_pkg, partner_id, sign, callback, server_id) {
+  server_id = server_id || PF_INFO.selectedServer.server_id;
+  sendApi(PF_INFO.apiurl, 'User.get_code', {
+    'phone': phone,
+    'role_id': role_id,
+    'uid': PF_INFO.account,
+    'game_pkg': PF_INFO.pkgName,
+    'partner_id': PF_INFO.partnerId,
+    'server_id': server_id,
+  }, callback);
+}
+
 //调起组队分享（QQ）
 window.shareInvite = function(callback){
   console.info("调起组队分享");
@@ -537,6 +550,8 @@ window.openSubscribeMsg = function(ids, callback) {
       qq.offTouchEnd(onTouchEnd);
     }
     qq.onTouchEnd(onTouchEnd);
+  } else {
+    console.log("不支持订阅 "+window.qqAppPlatform);
   }
 }
 //获取电池信息
@@ -792,7 +807,7 @@ window.initMain = function() {
         wxPC: window.PF_INFO.wxPC,
         wxIOS: window.PF_INFO.wxIOS,
         wxAndroid: window.PF_INFO.wxAndroid,
-        wxParam: {limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.sdk_config.from ? 1: 0), qqAppPlatform: window.AppPlatform},
+        wxParam: {limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.sdk_config.from ? 1: 0), qqAppPlatform: window.qqAppPlatform},
         configType: window.PF_INFO.configType, 
         exposeType: window.PF_INFO.exposeType,
         scene:scene

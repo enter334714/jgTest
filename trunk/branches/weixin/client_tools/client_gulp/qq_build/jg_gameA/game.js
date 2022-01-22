@@ -5,7 +5,7 @@ var gl = qq.wx_gl = canvas.getContext('webgl');
 
 import "./md5.min.js";
 
-qq.ShowReportTips = false;
+qq.ShowReportTips = true;
 import AKSDK from "./sdk/qq_aksdk.js";
 qq.AKSDK = AKSDK;
 

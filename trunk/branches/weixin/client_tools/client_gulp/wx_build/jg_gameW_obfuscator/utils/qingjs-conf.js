@@ -1,4 +1,4 @@
-module.exports.APP_VERSION = "0.0.6"; // 填写小程序版本 不能为空
+module.exports.APP_VERSION = "0.0.8"; // 填写小程序版本 不能为空
 
 
 module.exports.APP_ID = "wx707bce3bbf832771"; //  必填 填写微信appid  wx00000000000 微信开放后台获取 不可为空

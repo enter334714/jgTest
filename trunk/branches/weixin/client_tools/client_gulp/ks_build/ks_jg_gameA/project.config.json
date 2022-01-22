@@ -1,0 +1,37 @@
+{
+	"description": "快手小游戏项目配置文件",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"newFeature": false,
+		"postcss": false,
+		"mockUpdate": false,
+		"minified": false,
+		"nodeModules": false,
+		"scripts": false,
+		"mockLogin": false
+	},
+	"compileType": "game",
+	"libVersion": "2.1.0",
+	"appid": "ks675821421853140657",
+	"projectname": "天剑奇缘",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"list": []
+		},
+		"conversation": {
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": [],
+			"current": -1
+		},
+		"miniprogram": {
+			"list": []
+		}
+	},
+	"engine_type": "frog"
+}
