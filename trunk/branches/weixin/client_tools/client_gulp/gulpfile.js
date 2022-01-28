@@ -35,7 +35,7 @@ var initName = 'init.min.js';
 var mainName = 'main.min.js';
 var sourceProject = "wx_build1/jg_gameB_new";
 var targetProject = "wx_build1/jg_gameB_obfuscator";
-
+var define_ENV = -1;
 
 /**scope.js文件处理*/
 var modify_scope = function () {
@@ -54,6 +54,23 @@ var modify_scope = function () {
         //替换 var leading = init("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_");
         var reg = /(var leading = init\(\")[a-zA-Z\$_]{30,60}(\"\);)/g;
         var mch = contents.match(reg);
+
+        var scoreCheck = false;
+        for(var i = 0;i<SCOPE.length;i++){
+            var str = SCOPE[i];
+            var tempScope = SCOPE.replace(str,"");
+            var index = tempScope.indexOf(str);
+            if(index != -1){
+                console.error("----------------------替换混淆参数相同了：" + str,"不能相同请修改");
+                scoreCheck = true;
+            }
+        }
+
+        if(scoreCheck){
+            throw Error("替换混淆参数相同了,设置失败");
+            return;
+        }
+
         if (mch && mch.length == 1) {
             let repl = 'var leading = init("' + SCOPE + '");';
             contents = contents.replace(mch[0], repl);
@@ -188,10 +205,14 @@ var minify_main = function () {
         var contents = "" + file.contents;
 
         console.info("minify文件："+ file.path);
-
+        var global_defsParam = {DEBUG: false}
+        if(define_ENV != -1){
+            global_defsParam.ENV = define_ENV;
+        }
+        console.log("条件编译参数：",global_defsParam)
         var options = {
             compress: {
-                global_defs: {DEBUG: false},            //使用debug.html测试时不能打开
+                global_defs: global_defsParam,            //使用debug.html测试时不能打开
                 drop_debugger: true,
                 toplevel: true,
                 if_return: true,
@@ -485,12 +506,12 @@ var set_param_a = function () {
         DEST = 'wx_dist/packageA/';
         BUILD = 'wx_build/';
         PACK = 'jg_gameA';
-        INIT_PATH = '/';
+        INIT_PATH = '/libs';
         SCOPE = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_';
         PREFIX = '';
         sourceProject = "wx_build1/jg_gameA_new";
         targetProject = "wx_build1/jg_gameA_obfuscator";
-
+        define_ENV = 1,
         cb();
         this.emit("data", file);
     }
@@ -508,7 +529,7 @@ gulp.task('scope-A', function (cb) {
 });
 //打包所有（A包）
 gulp.task('build-all-A', function (cb) {
-    sequence('set-param-a', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+    sequence('scope-A', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
 });
 /**-------------------------------------------------微信小游戏--A包 end-----------------------------------------------------------*/
 
@@ -530,7 +551,7 @@ var set_param_b = function () {
         PREFIX = '$';
         sourceProject = "wx_build1/jg_gameB_new";
         targetProject = "wx_build1/jg_gameB_obfuscator";
-
+        define_ENV = 1,
         cb();
         this.emit("data", file);
     }
@@ -551,8 +572,10 @@ gulp.task('scope-B', function (cb) {
 
 //打包所有（B包）
 gulp.task('build-all-B', function (cb) {
-    sequence('set-param-b', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+    sequence('scope-B', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
 });
+
+
 /**-------------------------------------------------微信小游戏--B包  end-----------------------------------------------------------*/
 
 
@@ -595,7 +618,7 @@ gulp.task('scope-C', function (cb) {
 
 //打包所有（C包）
 gulp.task('build-all-C', function (cb) {
-    sequence('set-param-C', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+    sequence('scope-C', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
 });
 
 /**-------------------------------------------------微信小游戏--C包  end-----------------------------------------------------------*/
@@ -643,7 +666,7 @@ gulp.task('scope-D', function (cb) {
 
 //打包所有（D包）
 gulp.task('build-all-D', function (cb) {
-    sequence('set-param-d', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+    sequence('scope-D', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
 });
 
 /**-------------------------------------------------微信小游戏--D包  end-----------------------------------------------------------*/
@@ -663,7 +686,7 @@ var set_param_e= function () {
         BUILD = 'wx_build/';
         PACK = 'jg_gameE';
         INIT_PATH = '/';
-        SCOPE = 'abcdefghklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ij';
+        SCOPE = 'dtlkWiABoIbfJcYwDzegHRGqL$pMTrSjCKxnQyVZUENuhsPXmOFa_v';
         PREFIX = 'e$';
         sourceProject = "wx_build1/jg_gameE_new";
         targetProject = "wx_build1/jg_gameE_obfuscator";
@@ -689,7 +712,7 @@ gulp.task('scope-E', function (cb) {
 
 //打包所有（E包）
 gulp.task('build-all-E', function (cb) {
-    sequence('set-param-e', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+    sequence('scope-E', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
 });
 
 /**-------------------------------------------------微信小游戏--E包  end-----------------------------------------------------------*/
@@ -697,32 +720,1186 @@ gulp.task('build-all-E', function (cb) {
 
 
 
+/**-------------------------------------------------微信小游戏--F包  start-----------------------------------------------------------*/
+
+/**F包参数*/
+var set_param_f= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageF/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameF';
+        INIT_PATH = '/';
+        SCOPE = 'abcdefghijmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_kl';
+        PREFIX = 'F';
+        sourceProject = "wx_build1/jg_gameF_new";
+        targetProject = "wx_build1/jg_gameF_obfuscator";
+
+        cb();
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-f', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_f()
+        )
+    return stream;
+});
+
+//设置混淆参数（F包）
+gulp.task('scope-F', function (cb) {
+    sequence('set-param-f', 'scope-modify', cb)
+});
+
+//打包所有（F包）
+gulp.task('build-all-F', function (cb) {
+    sequence('scope-F', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--F包  end-----------------------------------------------------------*/
+
+
+/**-------------------------------------------------微信小游戏--G包  start-----------------------------------------------------------*/
+
+/**G包参数*/
+var set_param_g= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageG/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameG';
+        INIT_PATH = '/';
+        SCOPE = 'abcdefghijklopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_mn';
+        PREFIX = 'G';
+        sourceProject = "wx_build1/jg_gameG_new";
+        targetProject = "wx_build1/jg_gameG_obfuscator";
+
+        cb();
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-g', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_g()
+        )
+    return stream;
+});
+
+//设置混淆参数（G包）
+gulp.task('scope-G', function (cb) {
+    sequence('set-param-g', 'scope-modify', cb)
+});
+
+//打包所有（G包）
+gulp.task('build-all-G', function (cb) {
+    sequence('scope-G', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--G包  end-----------------------------------------------------------*/
+
+
+
+/**-------------------------------------------------微信小游戏--H包  start-----------------------------------------------------------*/
+
+/**H包参数*/
+var set_param_h= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageH/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameH';
+        INIT_PATH = '/';
+        SCOPE = 'abcdefghijklmnqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_op';
+        PREFIX = 'H_';
+        sourceProject = "wx_build1/jg_gameH_new";
+        targetProject = "wx_build1/jg_gameH_obfuscator";
+
+        cb();
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-h', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_h()
+        )
+    return stream;
+});
+
+//设置混淆参数（H包）
+gulp.task('scope-H', function (cb) {
+    sequence('set-param-h', 'scope-modify', cb)
+});
+
+//打包所有（H包）
+gulp.task('build-all-H', function (cb) {
+    sequence('scope-H', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--I包  end-----------------------------------------------------------*/
+/**I包参数*/
+var set_param_i= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageI/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameI';
+        INIT_PATH = '/';
+        SCOPE = 'abcdefghijklmnopstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_qr';
+        PREFIX = 'I_';
+        sourceProject = "wx_build1/jg_gameI_new";
+        targetProject = "wx_build1/jg_gameI_obfuscator";
+
+        cb();
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-i', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_i()
+        )
+    return stream;
+});
+
+//设置混淆参数（I包）
+gulp.task('scope-I', function (cb) {
+    sequence('set-param-i', 'scope-modify', cb)
+});
+
+//打包所有（I包）
+gulp.task('build-all-I', function (cb) {
+    sequence('scope-I', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--I包  end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--J包  腾庚-缥缈仙剑H5 start-----------------------------------------------------------*/
+/**J包参数*/
+var set_param_j= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageJ/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameJ';
+        INIT_PATH = '/';
+        SCOPE = 'abcdefghijklmnopqruvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_st';
+        PREFIX = 'J$';
+        sourceProject = "wx_build1/jg_gameJ_new";
+        targetProject = "wx_build1/jg_gameJ_obfuscator";
+
+        cb();
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-j', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_j()
+        )
+    return stream;
+});
+
+//设置混淆参数（J包）
+gulp.task('scope-J', function (cb) {
+    sequence('set-param-j', 'scope-modify', cb)
+});
+
+//打包所有（J包）
+gulp.task('build-all-J', function (cb) {
+    sequence('scope-J', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--J包  腾庚-缥缈仙剑H5 end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--K包  start-----------------------------------------------------------*/
+/**K包参数*/
+var set_param_k= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageK/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameK';
+        INIT_PATH = '/';
+        SCOPE = 'abcdefghijklmnopqrstwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_uv';
+        PREFIX = 'k$';
+        sourceProject = "wx_build1/jg_gamek_new";
+        targetProject = "wx_build1/jg_gameK_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-k', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_k()
+        )
+    return stream;
+});
+
+//设置混淆参数（K包）
+gulp.task('scope-K', function (cb) {
+    sequence('set-param-k', 'scope-modify', cb)
+});
+
+//打包所有（K包）
+gulp.task('build-all-K', function (cb) {
+    sequence('scope-K', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--K包  end-----------------------------------------------------------*/
+
+
+
+/**-------------------------------------------------微信小游戏--l包  end-----------------------------------------------------------*/
+/**L包参数*/
+var set_param_l= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageL/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameL';
+        INIT_PATH = '/';
+        SCOPE = 'abcdefghijklmnopqrstuvyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_wx';
+        PREFIX = 'L$';
+        sourceProject = "wx_build1/jg_gameL_new";
+        targetProject = "wx_build1/jg_gameL_obfuscator";
+        define_ENV = 1,
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-l', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_l()
+        )
+    return stream;
+});
+
+//设置混淆参数（L包）
+gulp.task('scope-L', function (cb) {
+    sequence('set-param-l', 'scope-modify', cb)
+});
+
+//打包所有（L包）
+gulp.task('build-all-L', function (cb) {
+    sequence('scope-L', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--L包  end-----------------------------------------------------------*/
 
 
 
 
+/**-------------------------------------------------微信小游戏--M包  end-----------------------------------------------------------*/
+/**M包参数*/
+var set_param_m= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageM/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameM';
+        INIT_PATH = '/';
+        SCOPE = 'abcdefghijklmnopqrstuvwxABCDEFGHIJKLMNOPQRSTUVWXYZ$_yz';
+        PREFIX = 'M$';
+        sourceProject = "wx_build1/jg_gameM_new";
+        targetProject = "wx_build1/jg_gameM_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-m', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_m()
+        )
+    return stream;
+});
+
+//设置混淆参数（M包）
+gulp.task('scope-M', function (cb) {
+    sequence('set-param-m', 'scope-modify', cb)
+});
+
+//打包所有（M包）
+gulp.task('build-all-M', function (cb) {
+    sequence('scope-M', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--M包  end-----------------------------------------------------------*/
 
 
 
+/**-------------------------------------------------微信小游戏--N包  end-----------------------------------------------------------*/
+/**N包参数*/
+var set_param_n= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageN/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameN';
+        INIT_PATH = '/';
+        SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
+        PREFIX = 'n$';
+        sourceProject = "wx_build1/jg_gameN_new";
+        targetProject = "wx_build1/jg_gameN_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-n', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_n()
+        )
+    return stream;
+});
+
+//设置混淆参数（N包）
+gulp.task('scope-N', function (cb) {
+    sequence('set-param-n', 'scope-modify', cb)
+});
+
+//打包所有（N包）
+gulp.task('build-all-N', function (cb) {
+    sequence('scope-N', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--N包  end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--O包  盛也鬼剑豪HD end-----------------------------------------------------------*/
+/**O包参数*/
+var set_param_O = function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageO/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameO';
+        INIT_PATH = '/';
+        SCOPE = 'orTkWDnVLUhpivxj_K$ylSqbFPtHRuszmCXOMceJYAINfaGwZQgBEd';// CD
+        PREFIX = 'o$';
+        sourceProject = "wx_build1/jg_gameO_new";
+        targetProject = "wx_build1/jg_gameO_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-O', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_O()
+        )
+    return stream;
+});
+
+//设置混淆参数（O包）
+gulp.task('scope-O', function (cb) {
+    sequence('set-param-O', 'scope-modify', cb)
+});
+
+//打包所有（O包）
+gulp.task('build-all-O', function (cb) {
+    sequence('scope-O', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--O包 盛也鬼剑豪HD end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--P包  柔情小师妹福利版 end-----------------------------------------------------------*/
+/**P包参数*/
+var set_param_P= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageP/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameP';
+        INIT_PATH = '/';
+        SCOPE = 'hqfg$PSBrYCUuvLel_NGmERtXnJpAdbizcMWTIwkHDsVKyFZQoOjxa'; //EF
+        PREFIX = 'p$';
+        sourceProject = "wx_build1/jg_gameP_new";
+        targetProject = "wx_build1/jg_gameP_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-P', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_P()
+        )
+    return stream;
+});
+
+//设置混淆参数（P包）
+gulp.task('scope-P', function (cb) {
+    sequence('set-param-P', 'scope-modify', cb)
+});
+
+//打包所有（P包）
+gulp.task('build-all-P', function (cb) {
+    sequence('scope-P', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--P包 柔情小师妹福利版 end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--Q包  战神荣耀online end-----------------------------------------------------------*/
+/**Q包参数*/
+var set_param_Q= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageQ/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameQ';
+        INIT_PATH = '/';
+        SCOPE = 'S_aRJVWkzbHLCGto$FTDjQmqNnlBIAXhuKPMregxsUfYiZpcyEOwvd'; //GH
+        PREFIX = 'q$';
+        sourceProject = "wx_build1/jg_gameQ_new";
+        targetProject = "wx_build1/jg_gameQ_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-Q', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_Q()
+        )
+    return stream;
+});
+
+//设置混淆参数（Q包）
+gulp.task('scope-Q', function (cb) {
+    sequence('set-param-Q', 'scope-modify', cb)
+});
+
+//打包所有（Q包）
+gulp.task('build-all-Q', function (cb) {
+    sequence('scope-Q', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--Q包 战神荣耀online end-----------------------------------------------------------*/
 
 
+/**-------------------------------------------------微信小游戏--R包  王女异闻录online end-----------------------------------------------------------*/
+/**R包参数*/
+var set_param_R= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageR/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameR';
+        INIT_PATH = '/';
+        SCOPE = 'SQelMdTUiRoYpJLjcGzAvDBOHgIEtkXhbm$nPafwurWxFqZNCKV_sy'; //IJ
+        PREFIX = 'r$';
+        sourceProject = "wx_build1/jg_gameR_new";
+        targetProject = "wx_build1/jg_gameR_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-R', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_R()
+        )
+    return stream;
+});
+
+//设置混淆参数（R包）
+gulp.task('scope-R', function (cb) {
+    sequence('set-param-R', 'scope-modify', cb)
+});
+
+//打包所有（R包）
+gulp.task('build-all-R', function (cb) {
+    sequence('scope-R', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--R包 王女异闻录online end-----------------------------------------------------------*/
 
 
+/**-------------------------------------------------微信小游戏--S包  王女异闻录HD end-----------------------------------------------------------*/
+/**S包参数*/
+var set_param_S= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageS/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameS';
+        INIT_PATH = '/';
+        SCOPE = 'dLlZh_NmuxtbqYcrakewsAy$OnVQgFEIpHXjRoiSBCPTzDGKvJfUWM'; //kl
+        PREFIX = 's$';
+        sourceProject = "wx_build1/jg_gameS_new";
+        targetProject = "wx_build1/jg_gameS_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-S', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_S()
+        )
+    return stream;
+});
+
+//设置混淆参数（S包）
+gulp.task('scope-S', function (cb) {
+    sequence('set-param-S', 'scope-modify', cb)
+});
+
+//打包所有（S包）
+gulp.task('build-all-S', function (cb) {
+    sequence('scope-S', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--S包  王女异闻录HD end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--T包  官方-苍月之戒 start-----------------------------------------------------------*/
+/**T包参数*/
+var set_param_T= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageT/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameT';
+        INIT_PATH = '/';
+        SCOPE = 'DYgTrsaWMEIOCN$dJxjZplt_AqbGXzmhiPBHvSUFVcfekwKoRQLyun'; //MN
+        PREFIX = 't$';
+        sourceProject = "wx_build1/jg_gameT_new";
+        targetProject = "wx_build1/jg_gameT_obfuscator";
+        define_ENV = 1,
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-T', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_T()
+        )
+    return stream;
+});
+
+//设置混淆参数（T包）
+gulp.task('scope-T', function (cb) {
+    sequence('set-param-T', 'scope-modify', cb)
+});
+
+//打包所有（T包）
+gulp.task('build-all-T', function (cb) {
+    sequence('scope-T', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--T包  官方-苍月之戒 end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--u包  37-微微剑仙 start-----------------------------------------------------------*/
+/**U包参数*/
+var set_param_U= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageU/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameU';
+        INIT_PATH = '/';
+        SCOPE = 'WjtdbEOqAcRmQT$eKoSMZX_NzCLVxGlhvyauDsYHIgfwUJrPiBnkpF'; //OP
+        PREFIX = 'u$';
+        sourceProject = "wx_build1/jg_gameU_new";
+        targetProject = "wx_build1/jg_gameU_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-U', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_U()
+        )
+    return stream;
+});
+
+//设置混淆参数（V包）
+gulp.task('scope-U', function (cb) {
+    sequence('set-param-U', 'scope-modify', cb)
+});
+
+//打包所有（U包）
+gulp.task('build-all-U', function (cb) {
+    sequence('scope-U', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--u包  37-微微剑仙 end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--V包  卡卡-六玄之苍 start-----------------------------------------------------------*/
+/**V包参数*/
+var set_param_V= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageV/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameV';
+        INIT_PATH = '/';
+        SCOPE = 'naUxDpQVyRXziqEmbPATKYWkN_$MZucHGIvljhfFgoBOLdSwsCtrJe'; //QR
+        PREFIX = 'v$';
+        sourceProject = "wx_build1/jg_gameV_new";
+        targetProject = "wx_build1/jg_gameV_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-V', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_V()
+        )
+    return stream;
+});
+
+//设置混淆参数（V包）
+gulp.task('scope-V', function (cb) {
+    sequence('set-param-V', 'scope-modify', cb)
+});
+
+//打包所有（V包）
+gulp.task('build-all-V', function (cb) {
+    sequence('scope-V', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--V包  卡卡-六玄之苍 end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--W包  雷霆-仙侠决 start-----------------------------------------------------------*/
+/**W包参数*/
+var set_param_W= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageW/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameW';
+        INIT_PATH = '/';
+        SCOPE = 'vlLAxmZOe$_oKrGcdCJBXfwHgThVkQMPItaquRNbjFpYDSyWEsinUz'; //ST
+        PREFIX = 'w$';
+        sourceProject = "wx_build1/jg_gameW_new";
+        targetProject = "wx_build1/jg_gameW_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-W', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_W()
+        )
+    return stream;
+});
+
+//设置混淆参数（W包）
+gulp.task('scope-W', function (cb) {
+    sequence('set-param-W', 'scope-modify', cb)
+});
+
+//打包所有（W包）
+gulp.task('build-all-W', function (cb) {
+    sequence('scope-W', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--W包  雷霆-仙侠决 end-----------------------------------------------------------*/
 
 
+/**-------------------------------------------------微信小游戏--X包  墨阳-御天下 start-----------------------------------------------------------*/
+/**X包参数*/
+var set_param_X= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageX/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameX';
+        INIT_PATH = '/';
+        SCOPE = 'b_shxnECOLfpPVQywiRtc$DoMrkBSZJWTqUGzaKdIgFAulNXYmevHj'; //UV
+        PREFIX = 'x$';
+        sourceProject = "wx_build1/jg_gameX_new";
+        targetProject = "wx_build1/jg_gameX_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-X', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_X()
+        )
+    return stream;
+});
+
+//设置混淆参数（X包）
+gulp.task('scope-X', function (cb) {
+    sequence('set-param-X', 'scope-modify', cb)
+});
+
+//打包所有（X包）
+gulp.task('build-all-X', function (cb) {
+    sequence('scope-X', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--X包  墨阳-御天下 end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--Y包  点完-斗战仙魔 start-----------------------------------------------------------*/
+/**Y包参数*/
+var set_param_Y= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageY/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameY';
+        INIT_PATH = '/';
+        SCOPE = '_ceZXuPOsnmHBDUkaGwzLqKMfAvrCy$ThRixFYpoQJjtbNVgSEWldI'; //WX
+        PREFIX = 'y$';
+        sourceProject = "wx_build1/jg_gameY_new";
+        targetProject = "wx_build1/jg_gameY_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-Y', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_Y()
+        )
+    return stream;
+});
+
+//设置混淆参数（Y包）
+gulp.task('scope-Y', function (cb) {
+    sequence('set-param-Y', 'scope-modify', cb)
+});
+
+//打包所有（Y包）
+gulp.task('build-all-Y', function (cb) {
+    sequence('scope-Y', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--Y包  点完-斗战仙魔 end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--  Z包  有一-萌神战姬 start-----------------------------------------------------------*/
+/**Z包参数*/
+var set_param_Z= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageZ/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameZ';
+        INIT_PATH = '/';
+        SCOPE = 'VUrspcRTNtbS_GquhlWOLdkyDnIQHwzEKmaZx$joJiBPMAXeFgvYCf'; //WX
+        PREFIX = 'z$';
+        sourceProject = "wx_build1/jg_gameZ_new";
+        targetProject = "wx_build1/jg_gameZ_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-Z', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_Z()
+        )
+    return stream;
+});
+
+//设置混淆参数（Z包）
+gulp.task('scope-Z', function (cb) {
+    sequence('set-param-Z', 'scope-modify', cb)
+});
+
+//打包所有（Z包）
+gulp.task('build-all-Z', function (cb) {
+    sequence('scope-Z', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--Z包  有一-萌神战姬 end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--  Z_1包  萌蛋-仙尘 start-----------------------------------------------------------*/
+/**Z_1包参数*/
+var set_param_Z_1= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageZ_1/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameZ_1';
+        INIT_PATH = '/';
+        SCOPE = 'tkvjQuSVJWwMHEARhloYfXFdmZsKUNazGcTpOn_xIiDBbqCLerg$yP'; //WX
+        PREFIX = 'a$';
+        sourceProject = "wx_build1/jg_gameZ_1_new";
+        targetProject = "wx_build1/jg_gameZ_1_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-Z_1', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_Z_1()
+        )
+    return stream;
+});
+
+//设置混淆参数（Z_1包）
+gulp.task('scope-Z_1', function (cb) {
+    sequence('set-param-Z_1', 'scope-modify', cb)
+});
+
+//打包所有（Z_1包）
+gulp.task('build-all-Z_1', function (cb) {
+    sequence('scope-Z_1', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--Z1包   萌蛋-仙尘 end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--  Z_2包  荀鹿-永夜君王 start-----------------------------------------------------------*/
+/**Z_2包参数*/
+var set_param_Z_2= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageZ_2/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameZ_2';
+        INIT_PATH = '/';
+        SCOPE = 'CRjwTGoUtIeHMKFLDQZSbfphxW$ArEPJNanymkVzlgBi_uscXYdOqv'; //WX
+        PREFIX = 'A$';
+        sourceProject = "wx_build1/jg_gameZ_2_new";
+        targetProject = "wx_build1/jg_gameZ_2_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-Z_2', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_Z_2()
+        )
+    return stream;
+});
+
+//设置混淆参数（Z_2包）
+gulp.task('scope-Z_2', function (cb) {
+    sequence('set-param-Z_2', 'scope-modify', cb)
+});
+
+//打包所有（Z_2包）
+gulp.task('build-all-Z_2', function (cb) {
+    sequence('scope-Z_2', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--Z_2包  荀鹿-永夜君王 end-----------------------------------------------------------*/
 
 
+/**-------------------------------------------------微信小游戏--  Z_3-666-多梦江湖_混淆 start-----------------------------------------------------------*/
+/**Z_3包参数*/
+var set_param_Z_3= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageZ_3/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameZ_3';
+        INIT_PATH = '/';
+        SCOPE = 'MyiHSfVKkXFodPlJhCvRAGIUQWcnaTmesDzwqtupBZE_bYrN$xgjOL'; //WX
+        PREFIX = 'b$';
+        sourceProject = "wx_build1/jg_gameZ_3_new";
+        targetProject = "wx_build1/jg_gameZ_3_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-Z_3', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_Z_3()
+        )
+    return stream;
+});
+
+//设置混淆参数（Z_3包）
+gulp.task('scope-Z_3', function (cb) {
+    sequence('set-param-Z_3', 'scope-modify', cb)
+});
+
+//打包所有（Z_3包）
+gulp.task('build-all-Z_3', function (cb) {
+    sequence('scope-Z_3', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--Z_3-666-多梦江湖_混淆 end-----------------------------------------------------------*/
 
 
+/**-------------------------------------------------微信小游戏--  Z_4-掌上-我和我的影子_混淆 start-----------------------------------------------------------*/
+/**Z_4包参数*/
+var set_param_Z_4= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
 
+        DEST = 'wx_dist/packageZ_4/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameZ_4';
+        INIT_PATH = '/';
+        SCOPE = 'OJDpmCik_LrHYGXchyvAqdMaetzgsPEoWNFRjul$xVTIwUZnBSQbKf'; //WX
+        PREFIX = 'B$';
+        sourceProject = "wx_build1/jg_gameZ_4_new";
+        targetProject = "wx_build1/jg_gameZ_4_obfuscator";
 
+        cb();
 
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
 
+gulp.task('set-param-Z_4', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_Z_4()
+        )
+    return stream;
+});
 
+//设置混淆参数（Z_4包）
+gulp.task('scope-Z_4', function (cb) {
+    sequence('set-param-Z_4', 'scope-modify', cb)
+});
 
+//打包所有（Z_4包）
+gulp.task('build-all-Z_4', function (cb) {
+    sequence('scope-Z_4', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
 
+/**-------------------------------------------------微信小游戏--Z_4-掌上-我和我的影子_混淆 end-----------------------------------------------------------*/
 
+/**-------------------------------------------------微信小游戏--  Z_5-斯琪_主宰领域_混淆  start-----------------------------------------------------------*/
+/**Z_5包参数*/
+var set_param_Z_5= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
 
+        DEST = 'wx_dist/packageZ_5/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameZ_5';
+        INIT_PATH = '/';
+        SCOPE = 'sMTXxcluEOUp_RqGgfJPtrNwkADhQvzBoCmYIyeVbLSKZn$FWajiHd'; //WX
+        PREFIX = 'C$';
+        sourceProject = "wx_build1/jg_gameZ_5_new";
+        targetProject = "wx_build1/jg_gameZ_5_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-Z_5', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_Z_5()
+        )
+    return stream;
+});
+
+//设置混淆参数（Z_5包）
+gulp.task('scope-Z_5', function (cb) {
+    sequence('set-param-Z_5', 'scope-modify', cb)
+});
+
+//打包所有（Z_5包）
+gulp.task('build-all-Z_5', function (cb) {
+    sequence('scope-Z_5', 'scope-check', 'init-modify', 'init-mini', 'libs-modify', 'libs-mini', 'main-modify', 'main-mini', 'main-backup', 'build-protobuf', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--Z_5-斯琪_主宰领域_混淆  end-----------------------------------------------------------*/
 
 
 
@@ -2836,4 +4013,40 @@ gulp.task('build_webpack', function() {
 
 
 
+var randomstr1 = function (){
+    function onFile(file, enc, cb) {
+
+        var shuffle =  function (array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        };
+        var leading1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_";
+        // var split1Index = Math.floor(Math.random()*(leading1.length+1));
+        // var split1Str = leading1[split1Index];
+        // leading1 = leading1.replace(split1Str,"")
+        // var split2Index = Math.floor(Math.random()*(leading1.length+1));
+        // var split2Str = leading1[split2Index];
+        // leading1 = leading1.replace(split2Str,"")
+        var str = shuffle(Array.from(leading1)).join("");
+        console.log("SOCRE:",str, "长度:"+str.length," 请对比下是否和其他包相同，如果相同，请重新生成")
+        cb();
+        this.emit("data", file);
+
+    }
+
+    // 不处理end 使用默认的end
+    return through.obj(onFile)
+}
+
+gulp.task('生成混淆SCOPE', function () {
+    var sourceUrl = BUILD+ PACK;
+    return gulp.src("")
+        .pipe(randomstr1())
+        .pipe(gulp.dest(""));
+})
 
