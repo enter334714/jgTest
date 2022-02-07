@@ -1,104 +1,37 @@
 var H = wx.$F;
-const fileutil = require('./file-util');
-const path = fileutil.path;
-const fs = fileutil.fs;
-const WXFS = wx.getFileSystemManager();
-
-/**
- * 重写的文本加载器，代替引擎默认的文本加载器
- * 该代码中包含了大量日志用于辅助开发者调试
- * 正式上线时请开发者手动删除这些注释
- */
-class TextProcessor {
-
-    onLoadStart(host, resource) {
-
-        const {
-            root,
-            url
-        } = resource;
-
-        return new Promise((resolve, reject) => {
-            let xhrURL = url.indexOf('://') >= 0 ? url : root + url; //获取网络加载url
-            if (RES['getVirtualUrl']) {
-                xhrURL = RES['getVirtualUrl'](xhrURL);
-            }
-            if (!path.isRemotePath(xhrURL)) {
-                //判断是本地加载还是网络加载
-                //本地加载
-                const content = WXFS.readFileSync(xhrURL, 'utf-8');
-                resolve(content);
-                return;
-            }
-            if (needCache(root, url)) {
-                //通过缓存机制判断是否本地加载
-                const targetFilename = path.getLocalFilePath(xhrURL);
-                if (fs.existsSync(targetFilename)) {
-                    //缓存命中
-                    // console.log('缓存命中');
-                    let data = fs.readSync(targetFilename, 'utf-8');
-                    resolve(data);
-                    return;
-                }
-                //通过url加载，加载成功后加入本地缓存
-                loadText(xhrURL).then(content => {
-                    const dirname = path.dirname(targetFilename);
-                    fs.mkdirsSync(dirname);
-                    fs.writeSync(targetFilename, content);
-                    resolve(content);
-                }).catch(e => {
-                    reject(e);
-                });
-            } else {
-                //无需缓存，正常url加载
-                loadText(xhrURL).then(content => {
-                    resolve(content);
-                }).catch(e => {
-                    reject(e);
-                });
-            }
+var fqsm$dj = wx['$F'];const fxne3lw = require(H[0]),
+      f$5sjd = fxne3lw[H[1]],
+      ftlp0 = fxne3lw['fs'],
+      f$smqdj = wx[H[2]]();class fu0lp4t {
+  [H[3]]($gym7q, put64r) {
+    const { root: nb3ka, url: r8z96 } = put64r;return new Promise((s_kj5, dsjv$) => {
+      let dv$5js = 0x0 <= r8z96[H[4]](H[5]) ? r8z96 : nb3ka + r8z96;if (RES[H[6]] && (dv$5js = RES[H[6]](dv$5js)), f$5sjd[H[7]](dv$5js)) {
+        if (fn3wei(nb3ka, r8z96)) {
+          const _a5jk = f$5sjd[H[8]](dv$5js);ftlp0[H[9]](_a5jk) ? (ptul40 = ftlp0[H[86]](_a5jk, H[48]), s_kj5(ptul40)) : f$qmsd(dv$5js)[H[12]](b_akv5 => {
+            var lxpu = f$5sjd[H[13]](_a5jk);ftlp0[H[14]](lxpu), ftlp0[H[15]](_a5jk, b_akv5), s_kj5(b_akv5);
+          })[H[16]](ew0xu => {
+            dsjv$(ew0xu);
+          });
+        } else f$qmsd(dv$5js)[H[12]](ul0p4t => {
+          s_kj5(ul0p4t);
+        })[H[16]](m$y7gq => {
+          dsjv$(m$y7gq);
         });
-    }
-
-    onRemoveStart(host, resource) {
-        return Promise.resolve();
-    }
-}
-
-function loadText(xhrURL) {
-    return new Promise((resolve, reject) => {
-
-        const xhr = new XMLHttpRequest();
-        xhr.onload = () => {
-            if (xhr.status >= 400) {
-                const message = `加载失败:${xhrURL}`;
-                console.error(message);
-                reject(message);
-            } else {
-                resolve(xhr.responseText);
-            }
-        };
-        xhr.onerror = e => {
-            const error = new RES.ResourceManagerError(1001, xhrURL);
-            console.error(e);
-            reject(error);
-        };
-        xhr.open("get", xhrURL);
-        xhr.send();
+      } else {
+        var ptul40 = f$smqdj[H[10]](dv$5js, H[48]);s_kj5(ptul40);
+      }
     });
-}
-
-/**
- * 由于微信小游戏限制只有50M的资源可以本地存储，
- * 所以开发者应根据URL进行判断，将特定资源进行本地缓存
- */
-function needCache(root, url) {
-    if (root.indexOf("miniGame/resource/") >= 0) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-const processor = new TextProcessor();
-RES.processor.map("text", processor);
+  }[H[17]](jqs$m, ebni3) {
+    return Promise[H[18]]();
+  }
+}function f$qmsd(gydqm) {
+  return new Promise((pr6ut4, zo9r1) => {
+    const oh2z = new XMLHttpRequest();oh2z[H[65]] = () => {
+      var ab_i3;0x190 <= oh2z[H[87]] ? (ab_i3 = H[76] + gydqm, console[H[31]](ab_i3), zo9r1(ab_i3)) : pr6ut4(oh2z[H[88]]);
+    }, oh2z[H[72]] = mqsd$j => {
+      var p4u60 = new RES[H[30]](0x3e9, gydqm);console[H[31]](mqsd$j), zo9r1(p4u60);
+    }, oh2z[H[89]](H[27], gydqm), oh2z[H[90]]();
+  });
+}function fn3wei($yq7mg, jd5$) {
+  return 0x0 <= $yq7mg[H[4]](H[33]);
+}const fjsvk_ = new fu0lp4t();RES[H[34]][H[35]](H[91], fjsvk_);

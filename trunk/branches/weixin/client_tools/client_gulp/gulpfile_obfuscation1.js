@@ -343,7 +343,7 @@ gulp.task('build-debug', function (cb) {
 //混淆
 gulp.task('build-babel-obfuscator-Z_999', function (cb) {
     // sequence("set-param-Z_999","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
-    sequence("set-param-Z_999","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-myDebugthm-obfuscator',  'build-myDebugMainJs-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_999","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-myDebugthm-obfuscator',  'build-myDebugMainJs-obfuscator','build-libs-obfuscator',"build-library-obfuscator","build-releaseJs-obfuscator",'build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 
 });
 
@@ -373,8 +373,27 @@ var set_param_Z_999 = function () {
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
             "libs": {url:packageName1},
-            "myDebugMainJs/main.js": {url:"myDebugMainJs/main.js",extractStr:true,count:1,strLen:3},
-            "myDebugthm/default.thm.js": {url:"myDebugthm/default.thm.js",extractStr:true,count:1,strLen:3},
+            "releaseMainJs/main.min.js": {url:"releaseMainJs/main.min.js",extractStr:true,count:1,strLen:3},
+            "releasethm/default.thm.min.js": {url:"releasethm/default.thm.min.js",extractStr:true,count:1,strLen:3},
+            "library/binary.js": {url:"library/binary.js",extractStr:true,count:1,strLen:3},
+            "library/file-util.js": {url:"library/file-util.js",extractStr:true,count:1,strLen:3},
+            "library/image.js": {url:"library/image.js",extractStr:true,count:1,strLen:3},
+            "library/sound.js": {url:"library/sound.js",extractStr:true,count:1,strLen:3},
+            "library/text.js": {url:"library/text.js",extractStr:true,count:1,strLen:3},
+            "libs/assetsmanager.js": {url:"libs/assetsmanager.js",extractStr:true,count:1,strLen:3},
+            "libs/egret.js": {url:"libs/egret.js",extractStr:true,count:1,strLen:3},
+            "libs/eui.js": {url:"libs/eui.js",extractStr:true,count:1,strLen:3},
+            "libs/game.js": {url:"libs/game.js",extractStr:true,count:1,strLen:3},
+            "libs/jszip.js": {url:"libs/jszip.js",extractStr:true,count:1,strLen:3},
+            "libs/socket.js": {url:"libs/socket.js",extractStr:true,count:1,strLen:3},
+            "libs/tween.js": {url:"libs/tween.js",extractStr:true,count:1,strLen:3},
+            "libs/zlib.min.js": {url:"libs/zlib.min.js",extractStr:true,count:1,strLen:3},
+            "releaseJs/index.js": {url:"releaseJs/index.js",extractStr:true,count:1,strLen:3},
+            "releaseJs/indexLogin.js": {url:"releaseJs/indexLogin.js",extractStr:true,count:1,strLen:3},
+            "releaseJs/login.min.js": {url:"releaseJs/login.min.js",extractStr:true,count:1,strLen:3},
+            "releaseJs/myWXSDK.js": {url:"releaseJs/myWXSDK.js",extractStr:true,count:1,strLen:3},
+
+
             // "main.js": {url:"main.js",extractStr:true,count:1,strLen:3},
             // "init.min.js":  {url:packageName1+"/z999z999INIz999az999.js",extractStr:true,count:1,strLen:3,replace:true},
             // "libs/dom.js":  {url:packageName1+"/z999z999DOz999z999.js"},
@@ -449,7 +468,7 @@ var js_minify = function () {
 
         var options = {
             compress: {
-                global_defs: {DEBUG: false},
+                global_defs: {DEBUG: true},
                 drop_debugger: true,
                 toplevel: false, //干掉顶层作用域中没有被引用的函数 ("funcs")和/或变量("vars")
                 if_return: true,
@@ -627,21 +646,21 @@ var identifier_create = function (rate) {
         ]
 
 
-        var ui = fs.readFileSync("../../client/src/ui/layaUI.max.all.ts", {encoding: "utf8"});
-        var reg = /(public )[a-zA-Z0-9\$_]{10,60}(:)/g;
-        // var reg = /(var leading = init\(\")[a-zA-Z\$_]{1,60}(\"\);)/g;
-
-        var mch = ui.match(reg);
-        if (mch && mch.length > 0) {
-            console.error("获取UI的标识符：" + mch.length);
-            for (var i = 0; i < mch.length; i++) {
-                var uiide = mch[i].replace("public ", "").replace(":", "");
-                identifiersUIMap[uiide] = true;
-                // console.error("获取UI的标识符：" + uiide);
-            }
-        } else {
-            console.error("获取UI的标识符出错：");
-        }
+        // var ui = fs.readFileSync("../../client/src/ui/layaUI.max.all.ts", {encoding: "utf8"});
+        // var reg = /(public )[a-zA-Z0-9\$_]{10,60}(:)/g;
+        // // var reg = /(var leading = init\(\")[a-zA-Z\$_]{1,60}(\"\);)/g;
+        //
+        // var mch = ui.match(reg);
+        // if (mch && mch.length > 0) {
+        //     console.error("获取UI的标识符：" + mch.length);
+        //     for (var i = 0; i < mch.length; i++) {
+        //         var uiide = mch[i].replace("public ", "").replace(":", "");
+        //         identifiersUIMap[uiide] = true;
+        //         // console.error("获取UI的标识符：" + uiide);
+        //     }
+        // } else {
+        //     console.error("获取UI的标识符出错：");
+        // }
 
 
         var digits = "0123456789";
@@ -1426,23 +1445,40 @@ var js_obfuscator = function (rate) {
 };
 gulp.task("build-libs-obfuscator", function () {
     var stream = gulp
-        .src(targetProject + '/' + filesMap["libs"].url + '/**/*.js')
+        .src(targetProject + '/' + "libs" + '/**/*.js')
         .pipe(js_obfuscator(1))
-        .pipe(gulp.dest(targetProject + '/' + filesMap["libs"].url))
+        .pipe(gulp.dest(targetProject + '/' + "libs/"))
     return stream;
 });
+
+gulp.task("build-library-obfuscator", function () {
+    var stream = gulp
+        .src(targetProject + '/' + "library" + '/**/*.js')
+        .pipe(js_obfuscator(1))
+        .pipe(gulp.dest(targetProject + '/' + "library/"))
+    return stream;
+});
+
+gulp.task("build-releaseJs-obfuscator", function () {
+    var stream = gulp
+        .src(targetProject + '/' + "releaseJs" + '/**/*.js')
+        .pipe(js_obfuscator(1))
+        .pipe(gulp.dest(targetProject + '/' + "releaseJs/"))
+    return stream;
+});
+
 gulp.task("build-myDebugthm-obfuscator", function () {
     var stream = gulp
-        .src(targetProject + '/' +"myDebugthm" + '/**/*.js')
+        .src(targetProject + '/' +"releasethm" + '/**/*.js')
         .pipe(js_obfuscator(1))
-        .pipe(gulp.dest(targetProject + '/' + "myDebugthm/"))
+        .pipe(gulp.dest(targetProject + '/' + "releasethm/"))
     return stream;
 });
 gulp.task("build-myDebugMainJs-obfuscator", function () {
     var stream = gulp
-        .src(targetProject + '/' + "myDebugMainJs"+ '/**/*.js')
+        .src(targetProject + '/' + "releaseMainJs"+ '/**/*.js')
         .pipe(js_obfuscator(1))
-        .pipe(gulp.dest(targetProject + '/' + "myDebugMainJs/"))
+        .pipe(gulp.dest(targetProject + '/' + "releaseMainJs/"))
     return stream;
 });
 gulp.task("build-workers-obfuscator", function () {
@@ -1480,7 +1516,7 @@ gulp.task('MT1_build_minify', function () {
         srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/utils/**/*.js',"!" + sourceUrl + '/**/'+mainJsName];
     }
     var stream = gulp.src(srcs)
-        // .pipe(js_minify())
+        .pipe(js_minify())
         .pipe(gulp.dest(sourceUrl + '/'))
     return stream;
 });
@@ -1621,20 +1657,20 @@ gulp.task('MT1_COPY', function () {
                 var result = file.contents.toString();
                 var json = JSON.parse(result);
                 console.log("修改game.json：修改分包")
-                json.subpackages = [
-                    {
-                        "name": packageName1,
-                        "root": packageName1+"/"
-                    },
-                    {
-                        "name": packageName2,
-                        "root": packageName2+"/"
-                    },
-                    {
-                        "name": packageName3,
-                        "root": packageName3+"/"
-                    }
-                ];
+                // json.subpackages = [
+                //     {
+                //         "name": packageName1,
+                //         "root": packageName1+"/"
+                //     },
+                //     {
+                //         "name": packageName2,
+                //         "root": packageName2+"/"
+                //     },
+                //     {
+                //         "name": packageName3,
+                //         "root": packageName3+"/"
+                //     }
+                // ];
                 console.log(json)
                 file.contents = Buffer.from(JSON.stringify(json), "utf-8")
 

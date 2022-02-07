@@ -7,7 +7,7 @@ var config = {
     partner_label: 'manfangwx',
     game_pkg: 'tjqy_tjqymx_GW', //天剑奇缘-空灵服-萌仙-漫方微信小程序-GW
     partner_id: '425',
-    game_ver: '13.0.3',
+    game_ver: '13.0.21',
     is_auth: false, //授权登录
     partner_and_key:'400E6BKDR6',
     partner_ios_key:'400pNvt6G5',

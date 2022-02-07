@@ -7,7 +7,7 @@
 		"minified": false,
 		"newFeature": true,
 		"nodeModules": true,
-		"autoAudits": false,
+		"autoAudits": true,
 		"uploadWithSourceMap": false,
 		"uglifyFileName": false,
 		"remoteDebugLogEnable": false,

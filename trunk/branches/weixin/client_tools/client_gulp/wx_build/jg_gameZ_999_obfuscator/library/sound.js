@@ -1,112 +1,37 @@
 var H = wx.$F;
-const fileutil = require('./file-util');
-const path = fileutil.path;
-const fs = fileutil.fs;
-const WXFS = wx.getFileSystemManager();
-
-/**
- * 重写的声音加载器，代替引擎默认的声音加载器
- * 该代码中包含了大量日志用于辅助开发者调试
- * 正式上线时请开发者手动删除这些注释
- */
-class SoundProcessor {
-
-    onLoadStart(host, resource) {
-        const {
-            root,
-            url
-        } = resource;
-        let soundSrc = root + url;
-        if (RES['getVirtualUrl']) {
-            soundSrc = RES['getVirtualUrl'](soundSrc);
-        }
-        if (!path.isRemotePath(soundSrc)) {
-            //判断是本地加载还是网络加载
-            //正常本地加载
-            return loadSound(soundSrc);
-        }
-        if (!needCache(root, url)) {
-            //无需缓存加载
-            return loadSound(soundSrc);
-        } else {
-            //通过缓存机制加载
-            const fullname = path.getLocalFilePath(soundSrc);
-            if (fs.existsSync(fullname)) {
-                //缓存命中
-                return loadSound(path.getWxUserPath(fullname));
-            }
-            return download(soundSrc, fullname).then(filePath => {
-                fs.setFsCache(fullname, 1);
-                return loadSound(filePath);
-            }, error => {
-                console.error(error);
-                return;
-            });
-        }
-    }
-
-    onRemoveStart(host, resource) {
-        return Promise.resolve();
-    }
-}
-
-function loadSound(soundURL) {
-    return new Promise((resolve, reject) => {
-        let sound = new egret.Sound();
-        let onSuccess = () => {
-            resolve(sound);
-        };
-
-        let onError = () => {
-            const e = new RES.ResourceManagerError(1001, soundURL);
-            reject(e);
-        };
-        sound.addEventListener(egret.Event.COMPLETE, onSuccess, this);
-        sound.addEventListener(egret.IOErrorEvent.IO_ERROR, onError, this);
-        sound.load(soundURL);
-    });
-}
-
-function download(url, target) {
-
-    return new Promise((resolve, reject) => {
-        const dirname = path.dirname(target);
-        fs.mkdirsSync(dirname);
-        const file_target = path.getWxUserPath(target);
-        wx.downloadFile({
-            url: url,
-            filePath: file_target,
-            success: v => {
-                if (v.statusCode >= 400) {
-                    try {
-                        WXFS.accessSync(file_target);
-                        WXFS.unlinkSync(file_target);
-                    } catch (e) {}
-                    const message = `加载失败:${url}`;
-                    reject(message);
-                } else {
-                    resolve(file_target);
-                }
-            },
-            fail: e => {
-                const error = new RES.ResourceManagerError(1001, url);
-                reject(error);
-            }
-        });
-    });
-}
-
-/**
- * 由于微信小游戏限制只有50M的资源可以本地存储，
- * 所以开发者应根据URL进行判断，将特定资源进行本地缓存
- */
-function needCache(root, url) {
-    if (root.indexOf("miniGame/resource/") >= 0) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-const processor = new SoundProcessor();
-RES.processor.map("sound", processor);
+var fina3k = wx['$F'];const fbvika_ = require(H[0]),
+      fxlew3n = fbvika_[H[1]],
+      fb3a_k = fbvika_['fs'],
+      fsjvd = wx[H[2]]();class fz6r891 {
+  [H[3]](l40uxw, o1hc2) {
+    var { root: r4p6t9, url: o1hc2 } = o1hc2;let r91z68 = r4p6t9 + o1hc2;if (RES[H[6]] && (r91z68 = RES[H[6]](r91z68)), !fxlew3n[H[7]](r91z68)) return fs$dvj(r91z68);if (fpt68r(r4p6t9, o1hc2)) {
+      const bv_ika = fxlew3n[H[8]](r91z68);return fb3a_k[H[9]](bv_ika) ? fs$dvj(fxlew3n[H[11]](bv_ika)) : fpt4u06(r91z68, bv_ika)[H[12]](vs5d_ => (fb3a_k[H[62]](bv_ika, 0x1), fs$dvj(vs5d_)), $5djm => {
+        console[H[31]]($5djm);
+      });
+    }return fs$dvj(r91z68);
+  }[H[17]](sm, c9o1) {
+    return Promise[H[18]]();
+  }
+}function fs$dvj(ikab3_) {
+  return new Promise((t96r8, ulxp04) => {
+    let $m7gqy = new egret[H[78]]();$m7gqy[H[79]](egret[H[80]][H[81]], () => {
+      t96r8($m7gqy);
+    }, this), $m7gqy[H[79]](egret[H[82]][H[83]], () => {
+      var a3_bik = new RES[H[30]](0x3e9, ikab3_);ulxp04(a3_bik);
+    }, this), $m7gqy[H[84]](ikab3_);
+  });
+}function fpt4u06(tr49p, bv_5ak) {
+  return new Promise(($dygq, ka_3ib) => {
+    var l0xn = fxlew3n[H[13]](bv_5ak);fb3a_k[H[14]](l0xn);const sdm$j5 = fxlew3n[H[11]](bv_5ak);wx[H[74]]({ 'url': tr49p, 'filePath': sdm$j5, 'success': mqyd$s => {
+        if (0x190 <= mqyd$s[H[75]]) {
+          try {
+            fsjvd[H[46]](sdm$j5), fsjvd[H[42]](sdm$j5);
+          } catch (ba_5kv) {}ka_3ib(H[76] + tr49p);
+        } else $dygq(sdm$j5);
+      }, 'fail': r81z => {
+        var zo89 = new RES[H[30]](0x3e9, tr49p);ka_3ib(zo89);
+      } });
+  });
+}function fpt68r(o1czh2, k_avb) {
+  return 0x0 <= o1czh2[H[4]](H[33]);
+}const fb_aki = new fz6r891();RES[H[34]][H[35]](H[85], fb_aki);

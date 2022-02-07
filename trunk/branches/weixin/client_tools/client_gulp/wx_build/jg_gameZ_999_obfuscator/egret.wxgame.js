@@ -1,6251 +1,1197 @@
 var H = wx.$F;
-var __reflect = this && this.__reflect || function (p, c, t) {
-    p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
-};
-var __extends = this && this.__extends || function __extends(t, e) {
-    function r() {
-        this.constructor = t;
+var H = wx.$F;var __reflect = this && this.__reflect || function (e, t, r) {
+  e.__class__ = t, r ? r.push(t) : r = [t], e.__types__ = e.__types__ ? r.concat(e.__types__) : r;
+};var __extends = this && this.__extends || function (e, t) {
+  function r() {
+    this.constructor = e;
+  }for (var a in t) t.hasOwnProperty(a) && (e[a] = t[a]);r.prototype = t.prototype, e.prototype = new r();
+};egret = egret || {}, function (n) {
+  function WebGeolocation(e) {
+    var a = r.call(this) || this;return a.onUpdate = function (e) {
+      var t = new n.GeolocationEvent(n.Event.CHANGE);e = e.coords;t.altitude = e.altitude, t.heading = e.heading, t.accuracy = e.accuracy, t.latitude = e.latitude, t.longitude = e.longitude, t.speed = e.speed, t.altitudeAccuracy = e.altitudeAccuracy, a.dispatchEvent(t);
+    }, a.onError = function (e) {
+      var t = n.GeolocationEvent.UNAVAILABLE;e.code == e.PERMISSION_DENIED && (t = n.GeolocationEvent.PERMISSION_DENIED);var r = new n.GeolocationEvent(n.IOErrorEvent.IO_ERROR);r.errorType = t, r.errorMessage = e.message, a.dispatchEvent(r);
+    }, a.geolocation = navigator.geolocation, a;
+  }var e, t, r;e = n.wxgame || (n.wxgame = {}), r = n.EventDispatcher, __extends(WebGeolocation, r), WebGeolocation.prototype.start = function () {
+    var e = this.geolocation;e ? this.watchId = e.watchPosition(this.onUpdate, this.onError) : this.onError({ code: 2, message: n.sys.tr(3004), PERMISSION_DENIED: 1, POSITION_UNAVAILABLE: 2 });
+  }, WebGeolocation.prototype.stop = function () {
+    this.geolocation.clearWatch(this.watchId);
+  }, t = WebGeolocation, e.WebGeolocation = t, __reflect(t.prototype, "egret.wxgame.WebGeolocation", ["egret.Geolocation"]);
+}(egret = egret || {}), function (i) {
+  function WebMotion() {
+    var n = null !== r && r.apply(this, arguments) || this;return n.onChange = function (e) {
+      var t = new i.MotionEvent(i.Event.CHANGE);var r = { x: e.acceleration.x, y: e.acceleration.y, z: e.acceleration.z };var a = { x: e.accelerationIncludingGravity.x, y: e.accelerationIncludingGravity.y, z: e.accelerationIncludingGravity.z };e = { alpha: e.rotationRate.alpha, beta: e.rotationRate.beta, gamma: e.rotationRate.gamma };t.acceleration = r, t.accelerationIncludingGravity = a, t.rotationRate = e, n.dispatchEvent(t);
+    }, n;
+  }var e, t, r;e = i.wxgame || (i.wxgame = {}), r = i.EventDispatcher, __extends(WebMotion, r), WebMotion.prototype.start = function () {
+    window.addEventListener("devicemotion", this.onChange);
+  }, WebMotion.prototype.stop = function () {
+    window.removeEventListener("devicemotion", this.onChange);
+  }, t = WebMotion, e.WebMotion = t, __reflect(t.prototype, "egret.wxgame.WebMotion", ["egret.Motion"]);
+}(egret = egret || {}), function (t) {
+  !function (e) {
+    function M(e, t) {
+      this.nodeType = e, this.parent = t;
+    }e.XMLNode = M, __reflect(M.prototype, "egret.wxgame.XMLNode");var p = (__extends(XML, i = M), XML);function XML(e, t, r, a, n) {
+      t = i.call(this, 1, t) || this;return t.attributes = {}, t.children = [], t.localName = e, t.prefix = r, t.namespace = a, t.name = n, t;
+    }var i;e.XML = p, __reflect(p.prototype, "egret.wxgame.XML");var g = (__extends(XMLText, r = M), XMLText);function XMLText(e, t) {
+      t = r.call(this, 3, t) || this;return t.text = e, t;
+    }var r;var o;e.XMLText = g, __reflect(g.prototype, "egret.wxgame.XMLText"), t.XML = { parse: function (e) {
+        o || (window.DOMParser ? o = new DOMParser() : console.error("\u6ca1\u6709 XML \u652f\u6301\u5e93\uff0c\u8bf7\u8bbf\u95ee http://developer.egret.com/cn/github/egret-docs/Engine2D/minigame/minigameFAQ/index.html#xml \u4e86\u89e3\u8be6\u60c5"));var t = o.parseFromString(e, "text/xml");var r = t.childNodes.length;for (var a = 0; a < r; a++) {
+          var n = t.childNodes[a];if (1 == n.nodeType) return function parseNode(e, t) {
+            if ("parsererror" == e.localName) throw new Error(e.textContent);var r = new p(e.localName, t, e.prefix, e.namespaceURI, e.nodeName);var a = e.attributes;var n = r.attributes;var i = a.length;for (var o = 0; o < i; o++) {
+              var s = a[o];var c = s.name;0 != c.indexOf("xmlns:") && (n[c] = s.value, r["$" + c] = s.value);
+            }var h = e.childNodes;i = h.length;var l = r.children;for (o = 0; o < i; o++) {
+              var d = h[o];var u = d.nodeType;var f = null;1 == u ? f = parseNode(d, r) : 3 != u || (d = d.textContent.trim()) && (f = new g(d, r)), f && l.push(f);
+            }return r;
+          }(n, null);
+        }return null;
+      } };
+  }(t.wxgame || (t.wxgame = {}));
+}(egret = egret || {}), function (r) {
+  function HtmlSoundChannel(e) {
+    var t = a.call(this) || this;return t.$startTime = 0, t.audio = null, t.isStopped = !1, t.isEventdAdded = !1, t.onPlayEnd = function () {
+      if (1 == t.$loops) return t.stop(), void t.dispatchEventWith(r.Event.SOUND_COMPLETE);0 < t.$loops && t.$loops--, t.audio.stop(), t.$play();
+    }, t._volume = 1, t.audio = e, t;
+  }var e, t, a;e = r.wxgame || (r.wxgame = {}), a = r.EventDispatcher, __extends(HtmlSoundChannel, a), HtmlSoundChannel.prototype.addEvent = function () {
+    this.isEventdAdded || (this.isEventdAdded = !0, this.audio.onEnded(this.onPlayEnd));
+  }, HtmlSoundChannel.prototype.removeEvent = function () {
+    this.isEventdAdded && (this.isEventdAdded = !1, this.audio.offEnded(this.onPlayEnd));
+  }, HtmlSoundChannel.prototype.$play = function () {
+    var e;this.isStopped ? r.$warn(1036) : (this.addEvent(), (e = this.audio).volume = this._volume, e.seek(this.$startTime), e.play());
+  }, HtmlSoundChannel.prototype.stop = function () {
+    this.audio && (this.isStopped = !0, this.audio.stop(), this.removeEvent(), this.audio = null);
+  }, Object.defineProperty(HtmlSoundChannel.prototype, "volume", { get: function () {
+      return this._volume;
+    }, set: function (e) {
+      this.isStopped ? r.$warn(1036) : (this._volume = e, this.audio && (this.audio.volume = e));
+    }, enumerable: !0, configurable: !0 }), Object.defineProperty(HtmlSoundChannel.prototype, "position", { get: function () {
+      return this.audio ? this.audio.currentTime : 0;
+    }, enumerable: !0, configurable: !0 }), t = HtmlSoundChannel, e.HtmlSoundChannel = t, __reflect(t.prototype, "egret.wxgame.HtmlSoundChannel", ["egret.SoundChannel", "egret.IEventDispatcher"]);
+}(egret = egret || {}), function (i) {
+  function WebVideo(e, t) {
+    void 0 === t && (t = !0);var r = a.call(this) || this;return r.loaded = !1, r.closed = !1, r.heightSet = NaN, r.widthSet = NaN, r.waiting = !1, r.userPause = !1, r.userPlay = !1, r.isPlayed = !1, r.screenChanged = function (e) {
+      var t = document.fullscreenEnabled || document.webkitIsFullScreen;t || (r.checkFullScreen(!1), i.Capabilities.isMobile || (r._fullscreen = t));
+    }, r._fullscreen = !0, r.onVideoLoaded = function () {
+      r.video.removeEventListener("canplay", r.onVideoLoaded);var e = r.video;r.loaded = !0, r.posterData && (r.posterData.width = r.getPlayWidth(), r.posterData.height = r.getPlayHeight()), e.width = e.videoWidth, e.height = e.videoHeight, window.setTimeout(function () {
+        r.dispatchEventWith(i.Event.COMPLETE);
+      }, 200);
+    }, r.$renderNode = new i.sys.BitmapNode(), r.src = e, r.once(i.Event.ADDED_TO_STAGE, r.loadPoster, r), e && r.load(), r;
+  }var r, e, a;r = i.wxgame || (i.wxgame = {}), a = i.DisplayObject, __extends(WebVideo, a), WebVideo.prototype.load = function (e, t) {
+    var r = this;var a, n;void 0 === t && (t = !0), e = e || this.src, (this.src = e) || i.$error(3002), this.video && this.video.src == e || (!this.video || i.Capabilities.isMobile ? (a = document.createElement("video"), (this.video = a).controls = null) : a = this.video, a.src = e, a.setAttribute("autoplay", "autoplay"), a.setAttribute("webkit-playsinline", "true"), a.addEventListener("canplay", this.onVideoLoaded), a.addEventListener("error", function () {
+      return r.onVideoError();
+    }), a.addEventListener("ended", function () {
+      return r.onVideoEnded();
+    }), n = !1, a.addEventListener("canplay", function () {
+      r.waiting = !1, n ? r.userPause ? r.pause() : r.userPlay && r.play() : (n = !0, a.pause());
+    }), a.addEventListener("waiting", function () {
+      r.waiting = !0;
+    }), a.load(), this.videoPlay(), a.style.position = "absolute", a.style.top = "0px", a.style.zIndex = "-88888", a.style.left = "0px", a.height = 1, a.width = 1);
+  }, WebVideo.prototype.play = function (t, r) {
+    var a = this;if (void 0 === r && (r = !1), 0 == this.loaded) return this.load(this.src), void this.once(i.Event.COMPLETE, function (e) {
+      return a.play(t, r);
+    }, this);this.isPlayed = !0;var e = this.video;null != t && (e.currentTime = +t || 0), e.loop = !!r, i.Capabilities.isMobile ? e.style.zIndex = "-88888" : e.style.zIndex = "9999", e.style.position = "absolute", e.style.top = "0px", e.style.left = "0px", e.height = e.videoHeight, e.width = e.videoWidth, "Windows PC" != i.Capabilities.os && "Mac OS" != i.Capabilities.os && window.setTimeout(function () {
+      e.width = 0;
+    }, 1e3), this.checkFullScreen(this._fullscreen);
+  }, WebVideo.prototype.videoPlay = function () {
+    this.userPause = !1, this.waiting ? this.userPlay = !0 : (this.userPlay = !1, this.video.play());
+  }, WebVideo.prototype.checkFullScreen = function (e) {
+    var t = this.video;if (e) null == t.parentElement && (t.removeAttribute("webkit-playsinline"), document.body.appendChild(t)), i.stopTick(this.markDirty, this), this.goFullscreen();else if (null != t.parentElement && t.parentElement.removeChild(t), t.setAttribute("webkit-playsinline", "true"), this.setFullScreenMonitor(!1), i.startTick(this.markDirty, this), i.Capabilities.isMobile) return this.video.currentTime = 0, void this.onVideoEnded();this.videoPlay();
+  }, WebVideo.prototype.goFullscreen = function () {
+    var e = this.video;var t;return (e[t = r.getPrefixStyleName("requestFullscreen", e)] || e[t = r.getPrefixStyleName("requestFullScreen", e)]) && (e.removeAttribute("webkit-playsinline"), e[t](), this.setFullScreenMonitor(!0)), !0;
+  }, WebVideo.prototype.setFullScreenMonitor = function (e) {
+    var t = this.video;e ? (t.addEventListener("mozfullscreenchange", this.screenChanged), t.addEventListener("webkitfullscreenchange", this.screenChanged), t.addEventListener("mozfullscreenerror", this.screenError), t.addEventListener("webkitfullscreenerror", this.screenError)) : (t.removeEventListener("mozfullscreenchange", this.screenChanged), t.removeEventListener("webkitfullscreenchange", this.screenChanged), t.removeEventListener("mozfullscreenerror", this.screenError), t.removeEventListener("webkitfullscreenerror", this.screenError));
+  }, WebVideo.prototype.screenError = function () {
+    i.$error(3014);
+  }, WebVideo.prototype.exitFullscreen = function () {
+    document.exitFullscreen ? document.exitFullscreen() : document.msExitFullscreen ? document.msExitFullscreen() : document.mozCancelFullScreen ? document.mozCancelFullScreen() : document.oCancelFullScreen ? document.oCancelFullScreen() : document.webkitExitFullscreen && document.webkitExitFullscreen();
+  }, WebVideo.prototype.onVideoEnded = function () {
+    this.pause(), this.isPlayed = !1, this.dispatchEventWith(i.Event.ENDED);
+  }, WebVideo.prototype.onVideoError = function () {
+    this.dispatchEventWith(i.IOErrorEvent.IO_ERROR);
+  }, WebVideo.prototype.close = function () {
+    var e = this;this.closed = !0, this.video.removeEventListener("canplay", this.onVideoLoaded), this.video.removeEventListener("error", function () {
+      return e.onVideoError();
+    }), this.video.removeEventListener("ended", function () {
+      return e.onVideoEnded();
+    }), this.pause(), 0 == this.loaded && this.video && (this.video.src = ""), this.video && this.video.parentElement && (this.video.parentElement.removeChild(this.video), this.video = null), this.loaded = !1;
+  }, WebVideo.prototype.pause = function () {
+    this.userPlay = !1, this.waiting ? this.userPause = !0 : (this.userPause = !1, i.stopTick(this.markDirty, this));
+  }, Object.defineProperty(WebVideo.prototype, "volume", { get: function () {
+      return this.video ? this.video.volume : 1;
+    }, set: function (e) {
+      this.video && (this.video.volume = e);
+    }, enumerable: !0, configurable: !0 }), Object.defineProperty(WebVideo.prototype, "position", { get: function () {
+      return this.video ? this.video.currentTime : 0;
+    }, set: function (e) {
+      this.video && (this.video.currentTime = e);
+    }, enumerable: !0, configurable: !0 }), Object.defineProperty(WebVideo.prototype, "fullscreen", { get: function () {
+      return this._fullscreen;
+    }, set: function (e) {
+      i.Capabilities.isMobile || (this._fullscreen = !!e, this.video && 0 == this.video.paused && this.checkFullScreen(this._fullscreen));
+    }, enumerable: !0, configurable: !0 }), Object.defineProperty(WebVideo.prototype, "bitmapData", { get: function () {
+      return this.video && this.loaded ? (this._bitmapData || (this.video.width = this.video.videoWidth, this.video.height = this.video.videoHeight, this._bitmapData = new i.BitmapData(this.video), this._bitmapData.$deleteSource = !1), this._bitmapData) : null;
+    }, enumerable: !0, configurable: !0 }), WebVideo.prototype.loadPoster = function () {
+    var t = this;var e = this.poster;var r;e && ((r = new i.ImageLoader()).once(i.Event.COMPLETE, function (e) {
+      r.data;t.posterData = r.data, t.posterData.width = t.getPlayWidth(), t.posterData.height = t.getPlayHeight();
+    }, this), r.load(e));
+  }, WebVideo.prototype.$measureContentBounds = function (e) {
+    var t = this.bitmapData;var r = this.posterData;t || r ? e.setTo(0, 0, this.getPlayWidth(), this.getPlayHeight()) : e.setEmpty();
+  }, WebVideo.prototype.getPlayWidth = function () {
+    return isNaN(this.widthSet) ? this.bitmapData ? this.bitmapData.width : this.posterData ? this.posterData.width : NaN : this.widthSet;
+  }, WebVideo.prototype.getPlayHeight = function () {
+    return isNaN(this.heightSet) ? this.bitmapData ? this.bitmapData.height : this.posterData ? this.posterData.height : NaN : this.heightSet;
+  }, WebVideo.prototype.$updateRenderNode = function () {
+    var e = this.$renderNode;var t = this.bitmapData;var r = this.posterData;var a = this.getPlayWidth();var n = this.getPlayHeight();this.isPlayed && !i.Capabilities.isMobile || !r ? this.isPlayed && t && (e.image = t, e.imageWidth = t.width, e.imageHeight = t.height, i.WebGLUtils.deleteWebGLTexture(t.webGLTexture), t.webGLTexture = null, e.drawImage(0, 0, t.width, t.height, 0, 0, a, n)) : (e.image = r, e.imageWidth = a, e.imageHeight = n, e.drawImage(0, 0, r.width, r.height, 0, 0, a, n));
+  }, WebVideo.prototype.markDirty = function () {
+    return this.$renderDirty = !0;
+  }, WebVideo.prototype.$setHeight = function (e) {
+    this.heightSet = +e || 0, a.prototype.$setHeight.call(this, e);
+  }, WebVideo.prototype.$setWidth = function (e) {
+    this.widthSet = +e || 0, a.prototype.$setWidth.call(this, e);
+  }, Object.defineProperty(WebVideo.prototype, "paused", { get: function () {
+      return !this.video || this.video.paused;
+    }, enumerable: !0, configurable: !0 }), Object.defineProperty(WebVideo.prototype, "length", { get: function () {
+      if (this.video) return this.video.duration;throw new Error("Video not loaded!");
+    }, enumerable: !0, configurable: !0 }), e = WebVideo, r.WebVideo = e, __reflect(e.prototype, "egret.wxgame.WebVideo", ["egret.Video", "egret.DisplayObject"]), i.Video = e;
+}(egret = egret || {}), function (n) {
+  function WebHttpRequest() {
+    var e = r.call(this) || this;return e.timeout = 0, e._url = "", e._method = "", e;
+  }var e, t, r;e = n.wxgame || (n.wxgame = {}), r = n.EventDispatcher, __extends(WebHttpRequest, r), Object.defineProperty(WebHttpRequest.prototype, "response", { get: function () {
+      return this._response || null;
+    }, enumerable: !0, configurable: !0 }), Object.defineProperty(WebHttpRequest.prototype, "responseType", { get: function () {
+      return this._responseType;
+    }, set: function (e) {
+      this._responseType = e;
+    }, enumerable: !0, configurable: !0 }), Object.defineProperty(WebHttpRequest.prototype, "withCredentials", { get: function () {
+      return this._withCredentials;
+    }, set: function (e) {
+      this._withCredentials = e;
+    }, enumerable: !0, configurable: !0 }), WebHttpRequest.prototype.open = function (e, t) {
+    void 0 === t && (t = "GET"), this._url = e, this._method = t;
+  }, WebHttpRequest.prototype.readFileAsync = function () {
+    var t = this;function I0(e) {
+      t._response = e, t.dispatchEventWith(n.Event.COMPLETE);
+    }function J0() {
+      t.dispatchEventWith(n.IOErrorEvent.IO_ERROR);
+    }var e = wx.getFileSystemManager();"arraybuffer" == t.responseType ? e.readFile({ filePath: t._url, success: function (e) {
+        e = e.data;I0(e);
+      }, fail: function () {
+        J0();
+      } }) : e.readFile({ filePath: t._url, encoding: "utf8", success: function (e) {
+        e = e.data;"json" == t.responseType && (e = JSON.parse(e)), I0(e);
+      }, fail: function () {
+        J0();
+      } });
+  }, WebHttpRequest.prototype.send = function (e) {
+    var a;this._response = void 0, this.isNetUrl(this._url) ? (a = this, wx.request({ data: e, url: this._url, method: this._method, header: this.headerObj, responseType: this.responseType, success: function (e) {
+        var t = e.data,
+            r = e.statusCode,
+            e = e.header;if (200 == r) {
+          if ("string" != typeof t && !(t instanceof ArrayBuffer)) try {
+            t = JSON.stringify(t);
+          } catch (e) {}a._responseHeader = e, a._response = t, a.dispatchEventWith(n.Event.COMPLETE);
+        } else a.dispatchEventWith(n.IOErrorEvent.IO_ERROR);
+      }, fail: function (e) {
+        a.dispatchEventWith(n.IOErrorEvent.IO_ERROR);
+      } })) : this.readFileAsync();
+  }, WebHttpRequest.prototype.isNetUrl = function (e) {
+    return -1 != e.indexOf("http://") || -1 != e.indexOf("HTTP://") || -1 != e.indexOf("https://") || -1 != e.indexOf("HTTPS://");
+  }, WebHttpRequest.prototype.abort = function () {}, WebHttpRequest.prototype.getAllResponseHeaders = function () {
+    var t = this._responseHeader;return t ? Object.keys(t).map(function (e) {
+      return e + ": " + t[e];
+    }).join("\n") : null;
+  }, WebHttpRequest.prototype.setRequestHeader = function (e, t) {
+    this.headerObj || (this.headerObj = {}), this.headerObj[e] = t;
+  }, WebHttpRequest.prototype.getResponseHeader = function (e) {
+    if (!this._responseHeader) return null;e = this._responseHeader[e];return e || "";
+  }, WebHttpRequest.prototype.updateProgress = function (e) {
+    e.lengthComputable && n.ProgressEvent.dispatchProgressEvent(this, n.ProgressEvent.PROGRESS, e.loaded, e.total);
+  }, t = WebHttpRequest, e.WebHttpRequest = t, __reflect(t.prototype, "egret.wxgame.WebHttpRequest", ["egret.HttpRequest"]), n.HttpRequest = t;
+}(egret = egret || {}), function (a) {
+  !function (r) {
+    window.URL || window.webkitURL;var e = (t = a.EventDispatcher, __extends(WebImageLoader, t), Object.defineProperty(WebImageLoader.prototype, "crossOrigin", { get: function () {
+        return this._crossOrigin;
+      }, set: function (e) {
+        this._hasCrossOriginSet = !0, this._crossOrigin = e;
+      }, enumerable: !0, configurable: !0 }), WebImageLoader.prototype.load = function (e) {
+      this.loadImage(e);
+    }, WebImageLoader.prototype.loadImage = function (e) {
+      var t = new Image();this.data = null, this.currentImage = t, this._hasCrossOriginSet ? this._crossOrigin && (t.crossOrigin = this._crossOrigin) : WebImageLoader.crossOrigin && (t.crossOrigin = WebImageLoader.crossOrigin), t.onload = this.onImageComplete.bind(this), t.onerror = this.onLoadError.bind(this), t.src = e;
+    }, WebImageLoader.prototype.onImageComplete = function (e) {
+      var t = this;e = this.getImage(e);e && (this.data = new a.BitmapData(e), r.preUploadTexture && "webgl" == a.Capabilities.renderMode && r.WebGLRenderContext.getInstance(null, null).getWebGLTexture(this.data), window.setTimeout(function () {
+        t.dispatchEventWith(a.Event.COMPLETE);
+      }, 0));
+    }, WebImageLoader.prototype.onLoadError = function (e) {
+      e = this.getImage(e);e && this.dispatchIOError(e.src);
+    }, WebImageLoader.prototype.dispatchIOError = function (e) {
+      var t = this;window.setTimeout(function () {
+        t.hasEventListener(a.IOErrorEvent.IO_ERROR) || a.warn(1011, e), t.dispatchEventWith(a.IOErrorEvent.IO_ERROR);
+      }, 0);
+    }, WebImageLoader.prototype.getImage = function (e) {
+      e = e.target;e.src;return e.onerror = null, e.onload = null, this.currentImage !== e ? null : (this.currentImage = null, e);
+    }, WebImageLoader.crossOrigin = null, WebImageLoader);function WebImageLoader() {
+      var e = null !== t && t.apply(this, arguments) || this;return e.data = null, e._crossOrigin = null, e._hasCrossOriginSet = !1, e.currentImage = null, e.request = null, e;
+    }var t;r.WebImageLoader = e, __reflect(e.prototype, "egret.wxgame.WebImageLoader", ["egret.ImageLoader"]), a.ImageLoader = e;
+  }(a.wxgame || (a.wxgame = {}));
+}(egret = egret || {}), function (t) {
+  function HTML5StageText() {
+    var e = a.call(this) || this;return e.textValue = "", e.onKeyboardComplete = e.onKeyboardComplete.bind(e), e.onKeyboardInput = e.onKeyboardInput.bind(e), e;
+  }var e, r, a;e = t.wxgame || (t.wxgame = {}), a = t.EventDispatcher, __extends(HTML5StageText, a), HTML5StageText.prototype.$setTextField = function (e) {
+    return this.$textfield = e, !0;
+  }, HTML5StageText.prototype.$addToStage = function () {}, HTML5StageText.prototype.$show = function () {
+    var e = { defaultValue: this.$textfield.text, maxLength: 9999, multiple: this.$textfield.multiline, confirmHold: !0, confirmType: "done", fail: function (e) {
+        console.log(e.errMsg);
+      } };this.$textfield.maxChars && (e.maxLength = this.$textfield.maxChars), wx.showKeyboard(e), wx.onKeyboardConfirm(this.onKeyboardComplete), wx.onKeyboardComplete(this.onKeyboardComplete), wx.onKeyboardInput(this.onKeyboardInput), this.dispatchEvent(new t.Event("focus"));
+  }, HTML5StageText.prototype.onKeyboardInput = function (e) {
+    this.textValue = e.value, t.Event.dispatchEvent(this, "updateText", !1);
+  }, HTML5StageText.prototype.onKeyboardComplete = function (e) {
+    this.$textfield.text = e.value, this.$hide();
+  }, HTML5StageText.prototype.$hide = function () {
+    wx.offKeyboardComplete(), wx.offKeyboardConfirm(), wx.offKeyboardInput(), wx.hideKeyboard({}), this.dispatchEvent(new t.Event("blur"));
+  }, HTML5StageText.prototype.$getText = function () {
+    return this.textValue || (this.textValue = ""), this.textValue;
+  }, HTML5StageText.prototype.$setText = function (e) {
+    return this.textValue = e, !0;
+  }, HTML5StageText.prototype.$setColor = function (e) {
+    return !0;
+  }, HTML5StageText.prototype.$onBlur = function () {}, HTML5StageText.prototype.$removeFromStage = function () {}, HTML5StageText.prototype.$resetStageText = function () {}, r = HTML5StageText, e.HTML5StageText = r, __reflect(r.prototype, "egret.wxgame.HTML5StageText", ["egret.StageText"]), t.StageText = r;
+}(egret = egret || {}), function (o) {
+  var s;o.wxgame || (o.wxgame = {}), s = null, o.sys.measureText = function (e, t, r, a, n) {
+    s || ((s = o.sys.canvasHitTestBuffer.context).textAlign = "left", s.textBaseline = "middle");var i = "";return n && (i += "italic "), a && (i += "bold "), i += (r || 12) + "px ", s.font = i += t || "Arial", o.sys.measureTextWith(s, e);
+  };
+}(egret = egret || {}), function (o) {
+  function __createCanvas__(e, t) {
+    t = o.sys.createCanvas(e, t);var r = t.getContext("2d");if (void 0 === r.imageSmoothingEnabled) {
+      var a = ["webkitImageSmoothingEnabled", "mozImageSmoothingEnabled", "msImageSmoothingEnabled"];var n;for (var i = a.length - 1; 0 <= i && void 0 === r[n = a[i]]; i--);try {
+        Object.defineProperty(r, "imageSmoothingEnabled", { get: function () {
+            return this[n];
+          }, set: function (e) {
+            this[n] = e;
+          } });
+      } catch (e) {
+        r.imageSmoothingEnabled = r[n];
+      }
+    }return t;
+  }function CanvasRenderBuffer(e, t, r) {
+    this.surface = o.sys.createCanvasRenderBufferSurface(__createCanvas__, e, t, r), this.context = this.surface.getContext("2d"), this.context && (this.context.$offsetX = 0, this.context.$offsetY = 0), this.resize(e, t);
+  }var e, t;e = o.wxgame || (o.wxgame = {}), Object.defineProperty(CanvasRenderBuffer.prototype, "width", { get: function () {
+      return this.surface.width;
+    }, enumerable: !0, configurable: !0 }), Object.defineProperty(CanvasRenderBuffer.prototype, "height", { get: function () {
+      return this.surface.height;
+    }, enumerable: !0, configurable: !0 }), CanvasRenderBuffer.prototype.resize = function (e, t, r) {
+    o.sys.resizeCanvasRenderBuffer(this, e, t, r);
+  }, CanvasRenderBuffer.prototype.getPixels = function (e, t, r, a) {
+    return this.context.getImageData(e, t, r = void 0 === r ? 1 : r, a = void 0 === a ? 1 : a).data;
+  }, CanvasRenderBuffer.prototype.toDataURL = function (e, t) {
+    return this.surface.toDataURL(e, t);
+  }, CanvasRenderBuffer.prototype.clear = function () {
+    this.context.setTransform(1, 0, 0, 1, 0, 0), this.context.clearRect(0, 0, this.surface.width, this.surface.height);
+  }, CanvasRenderBuffer.prototype.destroy = function () {
+    this.surface.width = this.surface.height = 0;
+  }, t = CanvasRenderBuffer, e.CanvasRenderBuffer = t, __reflect(t.prototype, "egret.wxgame.CanvasRenderBuffer", ["egret.sys.RenderBuffer"]);
+}(egret = egret || {}), function (i) {
+  function WebTouchHandler(e, t) {
+    var r = a.call(this) || this;return r.onTouchBegin = function (e) {
+      var t = r.getLocation(e);r.touch.onTouchBegin(t.x, t.y, e.identifier);
+    }, r.onTouchMove = function (e) {
+      var t = r.getLocation(e);r.touch.onTouchMove(t.x, t.y, e.identifier);
+    }, r.onTouchEnd = function (e) {
+      var t = r.getLocation(e);r.touch.onTouchEnd(t.x, t.y, e.identifier);
+    }, r.scaleX = 1, r.scaleY = 1, r.rotation = 0, r.canvas = t, r.touch = new i.sys.TouchHandler(e), r.addTouchListener(), r;
+  }var e, t, a;e = i.wxgame || (i.wxgame = {}), a = i.HashObject, __extends(WebTouchHandler, a), WebTouchHandler.prototype.addTouchListener = function () {
+    var a = this;e.isSubContext ? (wx.onTouchStart(function (e) {
+      var t = e.changedTouches.length;for (var r = 0; r < t; r++) a.onTouchBegin(e.changedTouches[r]);
+    }), wx.onTouchMove(function (e) {
+      var t = e.changedTouches.length;for (var r = 0; r < t; r++) a.onTouchMove(e.changedTouches[r]);
+    }), wx.onTouchEnd(function (e) {
+      var t = e.changedTouches.length;for (var r = 0; r < t; r++) a.onTouchEnd(e.changedTouches[r]);
+    }), wx.onTouchCancel(function (e) {
+      var t = e.changedTouches.length;for (var r = 0; r < t; r++) a.onTouchEnd(e.changedTouches[r]);
+    })) : (a.canvas.addEventListener("touchstart", function (e) {
+      var t = e.changedTouches.length;for (var r = 0; r < t; r++) a.onTouchBegin(e.changedTouches[r]);a.prevent(e);
+    }, !1), a.canvas.addEventListener("touchmove", function (e) {
+      var t = e.changedTouches.length;for (var r = 0; r < t; r++) a.onTouchMove(e.changedTouches[r]);a.prevent(e);
+    }, !1), a.canvas.addEventListener("touchend", function (e) {
+      var t = e.changedTouches.length;for (var r = 0; r < t; r++) a.onTouchEnd(e.changedTouches[r]);a.prevent(e);
+    }, !1), a.canvas.addEventListener("touchcancel", function (e) {
+      var t = e.changedTouches.length;for (var r = 0; r < t; r++) a.onTouchEnd(e.changedTouches[r]);a.prevent(e);
+    }, !1));
+  }, WebTouchHandler.prototype.prevent = function (e) {
+    e.stopPropagation(), 1 == e.isScroll || this.canvas.userTyping || e.preventDefault();
+  }, WebTouchHandler.prototype.getLocation = function (e) {
+    document.documentElement;var t = this.canvas.getBoundingClientRect();var r = t.left;var a = t.top;var n = e.pageX - r,
+        r = n;e = e.pageY - a, a = e;return 90 == this.rotation ? (r = e, a = t.width - n) : -90 == this.rotation && (r = t.height - e, a = n), r /= this.scaleX, a /= this.scaleY, i.$TempPoint.setTo(Math.round(r), Math.round(a));
+  }, WebTouchHandler.prototype.updateScaleMode = function (e, t, r) {
+    this.scaleX = e, this.scaleY = t, this.rotation = r;
+  }, WebTouchHandler.prototype.$updateMaxTouches = function () {
+    this.touch.$initMaxTouches();
+  }, t = WebTouchHandler, e.WebTouchHandler = t, __reflect(t.prototype, "egret.wxgame.WebTouchHandler");
+}(egret = egret || {}), function (e) {
+  var t;e = e.wxgame || (e.wxgame = {}), t = !0, e.WebLifeCycleHandler = function (e) {
+    wx.onShow && wx.onShow(function () {
+      t || (e.resume(), t = !0);
+    }), wx.onHide && wx.onHide(function () {
+      t && (e.pause(), t = !1);
+    });
+  };
+}(egret = egret || {}), function (n) {
+  !function (e) {
+    var t = (AudioType.WEB_AUDIO = 2, AudioType.HTML5_AUDIO = 3, AudioType);function AudioType() {}e.AudioType = t, __reflect(t.prototype, "egret.wxgame.AudioType");r = n.HashObject, __extends(Html5Capatibility, r), Html5Capatibility.$init = function () {
+      n.Sound = e.HtmlSound;
+    }, t = Html5Capatibility;function Html5Capatibility() {
+      return r.call(this) || this;
+    }var r;e.Html5Capatibility = t, __reflect(t.prototype, "egret.wxgame.Html5Capatibility");var a = null;function getPrefix(e, t) {
+      if (e in t) return "";e = e.charAt(0).toUpperCase() + e.substring(1, e.length);var r = ["webkit", "ms", "Moz", "O"];for (var a = 0; a < r.length; a++) if (r[a] + e in t) return r[a];return "";
+    }e.getPrefixStyleName = function (e, t) {
+      var r = "";return "" == (r = null != t ? getPrefix(e, t) : (null == a && (t = document.createElement("div").style, a = getPrefix("transform", t)), a)) ? e : r + e.charAt(0).toUpperCase() + e.substring(1, e.length);
+    }, e.getPrefix = getPrefix;
+  }(n.wxgame || (n.wxgame = {}));
+}(egret = egret || {}), function (e) {
+  (e = e.wxgame || (e.wxgame = {})).version = "1.3.7", e.isSubContext = !1, e.preUploadTexture = !1;
+}(egret = egret || {}), function (o) {
+  !function (a) {
+    var n = !1;function setRenderMode(e) {
+      "webgl" === e ? (e = !1, wx.createCanvas().getContext("webgl").wxBindCanvasTexture && (e = -1 < window.wx.getSystemInfoSync().system.indexOf("iOS 10")), o.Capabilities.renderMode = "webgl", o.sys.RenderBuffer = a.WebGLRenderBuffer, o.sys.systemRenderer = new a.WebGLRenderer(), o.sys.systemRenderer.wxiOS10 = e, o.sys.canvasRenderer = new o.CanvasRenderer(), o.sys.customHitTestBuffer = new a.WebGLRenderBuffer(3, 3), o.sys.canvasHitTestBuffer = new a.CanvasRenderBuffer(3, 3)) : (o.Capabilities.renderMode = "canvas", o.sys.RenderBuffer = a.CanvasRenderBuffer, o.sys.systemRenderer = new o.CanvasRenderer(), o.sys.canvasRenderer = o.sys.systemRenderer, o.sys.customHitTestBuffer = new a.CanvasRenderBuffer(3, 3), o.sys.canvasHitTestBuffer = o.sys.customHitTestBuffer);
+    }o.sys.setRenderMode = setRenderMode, o.runEgret = function (e) {
+      if (n && (o.sys.screenAdapter = null, o.MainContext.instance = null, o.sys.$TempStage = null), n = !0, (e = e || {}).pro) {
+        null != o.pro && (o.pro.egret2dDriveMode = !0);try {
+          window.startup ? window.startup() : console.error("EgretPro.js don't has function:window.startup");
+        } catch (e) {
+          console.error(e);
+        }
+      }var t;var r;a.Html5Capatibility.$init(), "webgl" == e.renderMode && (t = e.antialias, a.WebGLRenderContext.antialias = !!t), o.sys.CanvasRenderBuffer = a.CanvasRenderBuffer, setRenderMode(e.renderMode), r = e.canvasScaleFactor || (e.calculateCanvasScaleFactor ? e.calculateCanvasScaleFactor(o.sys.canvasHitTestBuffer.context) : (r = (r = o.sys.canvasHitTestBuffer.context).backingStorePixelRatio || r.webkitBackingStorePixelRatio || r.mozBackingStorePixelRatio || r.msBackingStorePixelRatio || r.oBackingStorePixelRatio || r.backingStorePixelRatio || 1, (window.devicePixelRatio || 1) / r)), o.sys.DisplayList.$canvasScaleFactor = r, function (e) {
+        var t = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame;t = t || function (e) {
+          return window.setTimeout(e, 1e3 / 60);
+        };t(function onTick() {
+          t(onTick), e.update(!0);
+        });
+      }(o.ticker), e.screenAdapter ? o.sys.screenAdapter = e.screenAdapter : o.sys.screenAdapter || (o.sys.screenAdapter = new o.sys.DefaultScreenAdapter()), e = new a.WebPlayer({}, e), window.player = e, window.addEventListener("resize", function () {
+        isNaN(i) && (i = window.setTimeout(doResize, 300));
+      });
+    }, o.reInit = function () {
+      window.playerTest && window.playerTest.initialize();
+    }, o.updateAllScreens = function () {
+      n && window.player.updateScreenSize();
+    };var i = NaN;function doResize() {
+      i = NaN, o.updateAllScreens();
     }
-    for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
-    r.prototype = e.prototype, t.prototype = new r();
-};
-
-(function (egret) {})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebGeolocation = function (_super) {
-            __extends(WebGeolocation, _super);
-            function WebGeolocation(option) {
-                var _this = _super.call(this) || this;
-                _this.onUpdate = function (position) {
-                    var event = new egret.GeolocationEvent(egret.Event.CHANGE);
-                    var coords = position.coords;
-                    event.altitude = coords.altitude;
-                    event.heading = coords.heading;
-                    event.accuracy = coords.accuracy;
-                    event.latitude = coords.latitude;
-                    event.longitude = coords.longitude;
-                    event.speed = coords.speed;
-                    event.altitudeAccuracy = coords.altitudeAccuracy;
-                    _this.dispatchEvent(event);
-                };
-                _this.onError = function (error) {
-                    var errorType = egret.GeolocationEvent.UNAVAILABLE;
-                    if (error.code == error.PERMISSION_DENIED) errorType = egret.GeolocationEvent.PERMISSION_DENIED;
-                    var event = new egret.GeolocationEvent(egret.IOErrorEvent.IO_ERROR);
-                    event.errorType = errorType;
-                    event.errorMessage = error.message;
-                    _this.dispatchEvent(event);
-                };
-                _this.geolocation = navigator.geolocation;
-                return _this;
-            }
-            WebGeolocation.prototype.start = function () {
-                var geo = this.geolocation;
-                if (geo) this.watchId = geo.watchPosition(this.onUpdate, this.onError);else this.onError({
-                    code: 2,
-                    message: egret.sys.tr(3004),
-                    PERMISSION_DENIED: 1,
-                    POSITION_UNAVAILABLE: 2
-                });
-            };
-            WebGeolocation.prototype.stop = function () {
-                var geo = this.geolocation;
-                geo.clearWatch(this.watchId);
-            };
-            return WebGeolocation;
-        }(egret.EventDispatcher);
-        wxgame.WebGeolocation = WebGeolocation;
-        __reflect(WebGeolocation.prototype, "egret.wxgame.WebGeolocation", ["egret.Geolocation"]);
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebMotion = function (_super) {
-            __extends(WebMotion, _super);
-            function WebMotion() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.onChange = function (e) {
-                    var event = new egret.MotionEvent(egret.Event.CHANGE);
-                    var acceleration = {
-                        x: e.acceleration.x,
-                        y: e.acceleration.y,
-                        z: e.acceleration.z
-                    };
-                    var accelerationIncludingGravity = {
-                        x: e.accelerationIncludingGravity.x,
-                        y: e.accelerationIncludingGravity.y,
-                        z: e.accelerationIncludingGravity.z
-                    };
-                    var rotation = {
-                        alpha: e.rotationRate.alpha,
-                        beta: e.rotationRate.beta,
-                        gamma: e.rotationRate.gamma
-                    };
-                    event.acceleration = acceleration;
-                    event.accelerationIncludingGravity = accelerationIncludingGravity;
-                    event.rotationRate = rotation;
-                    _this.dispatchEvent(event);
-                };
-                return _this;
-            }
-            WebMotion.prototype.start = function () {
-                window.addEventListener("devicemotion", this.onChange);
-            };
-            WebMotion.prototype.stop = function () {
-                window.removeEventListener("devicemotion", this.onChange);
-            };
-            return WebMotion;
-        }(egret.EventDispatcher);
-        wxgame.WebMotion = WebMotion;
-        __reflect(WebMotion.prototype, "egret.wxgame.WebMotion", ["egret.Motion"]);
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var XMLNode = function () {
-            function XMLNode(nodeType, parent) {
-                this.nodeType = nodeType;
-                this.parent = parent;
-            }
-            return XMLNode;
-        }();
-        wxgame.XMLNode = XMLNode;
-        __reflect(XMLNode.prototype, "egret.wxgame.XMLNode");
-        var XML = function (_super) {
-            __extends(XML, _super);
-            function XML(localName, parent, prefix, namespace, name) {
-                var _this = _super.call(this, 1, parent) || this;
-                _this.attributes = {};
-                _this.children = [];
-                _this.localName = localName;
-                _this.prefix = prefix;
-                _this.namespace = namespace;
-                _this.name = name;
-                return _this;
-            }
-            return XML;
-        }(XMLNode);
-        wxgame.XML = XML;
-        __reflect(XML.prototype, "egret.wxgame.XML");
-        var XMLText = function (_super) {
-            __extends(XMLText, _super);
-            function XMLText(text, parent) {
-                var _this = _super.call(this, 3, parent) || this;
-                _this.text = text;
-                return _this;
-            }
-            return XMLText;
-        }(XMLNode);
-        wxgame.XMLText = XMLText;
-        __reflect(XMLText.prototype, "egret.wxgame.XMLText");
-        var parser;
-        function parse(text) {
-            if (!parser) {
-                if (!window["DOMParser"]) {
-                    console.error("没有 XML 支持库，请访问 http://developer.egret.com/cn/github/egret-docs/Engine2D/minigame/minigameFAQ/index.html#xml 了解详情");
-                } else {
-                    parser = new DOMParser();
-                }
-            }
-            var xmlDoc = parser.parseFromString(text, "text/xml");
-            var length = xmlDoc.childNodes.length;
-            for (var i = 0; i < length; i++) {
-                var node = xmlDoc.childNodes[i];
-                if (node.nodeType == 1) {
-                    return parseNode(node, null);
-                }
-            }
-            return null;
+  }(o.wxgame || (o.wxgame = {}));
+}(egret = egret || {});var systemInfo = wx.getSystemInfoSync();var language = systemInfo.language.toLowerCase();(language = -1 < language.indexOf("zh") ? "zh_CN" : "en_US") in egret.$locale_strings && (egret.$language = language), egret.Capabilities.runtimeType = egret.RuntimeType.WXGAME, function (a) {
+  function WebCapability() {}var e, t;e = a.wxgame || (a.wxgame = {}), WebCapability.detect = function () {
+    var e = a.Capabilities;e.isMobile = !0;var t = wx.getSystemInfoSync();var r = t.system.toLowerCase();-1 < r.indexOf("ios") ? e.os = "iOS" : -1 < r.indexOf("android") && (e.os = "Android");t = t.language;t = -1 < t.indexOf("zh") ? "zh-CN" : "en-US", e.language = t;
+  }, t = WebCapability, e.WebCapability = t, __reflect(t.prototype, "egret.wxgame.WebCapability"), t.detect();
+}(egret = egret || {}), function (d) {
+  function WebFps(e, t, r, a, n) {
+    var i = p.call(this) || this;if (i.arrFps = [], i.arrCost = [], i.arrLog = [], !t && !r) return i;i.showFPS = t, i.showLog = r, i.arrFps = [], i.arrCost = [];var o = null == n.x ? 0 : parseInt(n.x);var s = null == n.y ? 0 : parseInt(n.y);var c = null == n.bgAlpha ? 1 : Number(n.bgAlpha);var h = null == n.size ? 12 : parseInt(n.size);var l = void 0 === n.textColor ? 0 : parseInt(n.textColor.replace("#", "0x"));n = new d.Shape();return (i.bg = n).graphics.beginFill(0, c), n.graphics.drawRect(0, 0, 10, 10), n.graphics.endFill(), n.x = o, n.y = s, t && (u.x = o + 4, u.y = s + 4, u.textColor = l, u.size = h), r && (f.x = o + 4, f.y = s + 4, f.textColor = l, f.size = h), i;
+  }var e, u, f, t, p;e = d.wxgame || (d.wxgame = {}), u = new d.TextField(), f = new d.TextField(), p = d.DisplayObject, __extends(WebFps, p), WebFps.prototype.addText = function () {
+    d.sys.$TempStage.addChild(this.bg), this.showFPS && d.sys.$TempStage.addChild(u), this.showLog && d.sys.$TempStage.addChild(f);
+  }, WebFps.prototype.addFps = function () {}, WebFps.prototype.addLog = function () {}, WebFps.prototype.update = function (e, t) {
+    var r;var a;var n;(t = void 0 === t ? !1 : t) ? (r = this.arrFps[this.arrFps.length - 1], a = this.arrCost[this.arrCost.length - 1][0], n = this.arrCost[this.arrCost.length - 1][1]) : (r = e.fps, a = e.costTicker, n = e.costRender, this.lastNumDraw = e.draw, this.arrFps.push(r), this.arrCost.push([a, n]));var i = 0;var o = this.arrFps.length;101 < o && (o = 101, this.arrFps.shift(), this.arrCost.shift());var s = this.arrFps[0];var c = this.arrFps[0];for (var h = 0; h < o; h++) {
+      var l = this.arrFps[h];i += l, l < s ? s = l : c < l && (c = l);
+    }e = Math.floor(i / o);u.text = r + " FPS \nmin:" + s + " max:" + c + " avg:" + e + "\nDraw " + this.lastNumDraw + "\nCost " + a + " " + n, this.resizeBG();
+  }, WebFps.prototype.resizeBG = function () {
+    this.addText();var e = 0;var t = 0;this.showFPS && this.showLog ? (e = Math.ceil((Math.max(u.width, f.width) + 8) / 10), t = Math.ceil((u.height + f.height + 8) / 10), f.y = this.bg.y + 4 + u.height) : this.showFPS ? (e = Math.ceil((u.width + 8) / 10), t = Math.ceil((u.height + 8) / 10)) : (e = Math.ceil((f.width + 8) / 10), t = Math.ceil((f.height + 8) / 10), f.y = this.bg.y + 4), this.bg.scaleX = e, this.bg.scaleY = t;
+  }, WebFps.prototype.updateInfo = function (e) {
+    this.arrLog.push(e), this.updateLogLayout();
+  }, WebFps.prototype.updateWarn = function (e) {
+    this.arrLog.push("[Warning]" + e), this.updateLogLayout();
+  }, WebFps.prototype.updateError = function (e) {
+    this.arrLog.push("[Error]" + e), this.updateLogLayout();
+  }, WebFps.prototype.updateLogLayout = function () {
+    f.text = this.arrLog.join("\n"), d.sys.$TempStage.height < f.y + f.height + 2 * f.size && (this.arrLog.shift(), f.text = this.arrLog.join("\n")), this.resizeBG();
+  }, t = WebFps, e.WebFps = t, __reflect(t.prototype, "egret.wxgame.WebFps", ["egret.FPSDisplay"]), d.FPSDisplay = t;
+}(egret = egret || {}), function (e) {
+  function getOption(e) {
+    var t = wx.getLaunchOptionsSync();return t.query[e] || t[e];
+  }(e.wxgame || (e.wxgame = {})).getOption = getOption, e.getOption = getOption;
+}(egret = egret || {}), function (d) {
+  function WebPlayer(e, t) {
+    var r = a.call(this) || this;return r.init(e, t), r.initOrientation(), r;
+  }var u, e, a;u = d.wxgame || (d.wxgame = {}), a = d.HashObject, __extends(WebPlayer, a), WebPlayer.prototype.init = function (e, t) {
+    console.log("Egret Engine Version:", d.Capabilities.engineVersion);var r = this.readOption(e, t);var a = new d.Stage();(d.sys.stage2d = a).$screen = this, a.$scaleMode = r.scaleMode, a.$orientation = r.orientation, a.$maxTouches = r.maxTouches, a.frameRate = r.frameRate, wx.setPreferredFramesPerSecond(a.frameRate), a.textureScaleFactor = r.textureScaleFactor;var n = new d.sys.RenderBuffer(void 0, void 0, !0);var i = n.surface;this.attachCanvas(e, i);t = new u.WebTouchHandler(a, i);n = new d.sys.Player(n, a, r.entryClassName);d.lifecycle.stage = a, d.lifecycle.addLifecycleListener(u.WebLifeCycleHandler), (r.showFPS || r.showLog) && n.displayFPS(r.showFPS, r.showLog, r.logFilter, r.fpsStyles), this.playerOption = r, this.container = e, this.canvas = i, this.stage = a, this.player = n, this.webTouchHandler = t, this.updateScreenSize(), this.updateMaxTouches(), n.start(), window.playerTest = n;
+  }, WebPlayer.prototype.initOrientation = function () {
+    var e = this;window.addEventListener("orientationchange", function () {
+      window.setTimeout(function () {
+        d.StageOrientationEvent.dispatchStageOrientationEvent(e.stage, d.StageOrientationEvent.ORIENTATION_CHANGE);
+      }, 350);
+    });
+  }, WebPlayer.prototype.readOption = function (e, t) {
+    var r = {};var a;r.entryClassName = t.entryClassName || "Main", r.scaleMode = t.scaleMode || d.StageScaleMode.FIXED_WIDTH, r.scaleMode && r.scaleMode != d.StageScaleMode.SHOW_ALL || (r.scaleMode = d.StageScaleMode.FIXED_WIDTH, a = d.sys.tr(4500, "showAll", "fixedWidth"), console.warn(a)), r.frameRate = t.frameRate || 30, r.contentWidth = t.contentWidth || 640, r.contentHeight = t.contentHeight || 1136, r.orientation = t.orientation || d.OrientationMode.AUTO, r.maxTouches = t.maxTouches, r.textureScaleFactor = 1, r.showFPS = t.showFPS;var n = (t.fpsStyles || "x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9").split(",");var i = {};for (var o = 0; o < n.length; o++) {
+      var s = n[o].split(":");i[s[0]] = s[1];
+    }return r.fpsStyles = i, r.showLog = t.showLog, r.logFilter = "", r;
+  }, WebPlayer.prototype.attachCanvas = function (e, t) {
+    t = t.style;t.cursor = "inherit", t.position = "absolute", t.top = "0", t.bottom = "0", t.left = "0", t.right = "0";
+  }, WebPlayer.prototype.updateScreenSize = function () {
+    var e = this.canvas;var t, r, a, n, i, o, s, c, h, l;e.userTyping || (l = this.playerOption, h = (i = e.getBoundingClientRect()).width, r = i.height, i.top < (t = 0) && (r += i.top, t = -i.top), a = !1, o = (a = (n = this.stage.$orientation) != d.OrientationMode.AUTO ? n != d.OrientationMode.PORTRAIT && h < r || n == d.OrientationMode.PORTRAIT && r < h : a) ? r : h, c = a ? h : r, d.Capabilities.boundingClientWidth = o, d.Capabilities.boundingClientHeight = c, i = (s = d.sys.screenAdapter.calculateStageSize(this.stage.$scaleMode, o, c, l.contentWidth, l.contentHeight)).stageWidth, o = s.stageHeight, c = s.displayWidth, l = s.displayHeight, e.style[u.getPrefixStyleName("transformOrigin")] = "0% 0% 0px", e.width != i && (u.isSubContext || (window.sharedCanvas && (window.sharedCanvas.width = i), e.width = i)), e.height != o && (u.isSubContext || (window.sharedCanvas && (window.sharedCanvas.height = o), e.height = o)), s = 0, a ? n == d.OrientationMode.LANDSCAPE ? (s = 90, e.style.top = t + (r - c) / 2 + "px", e.style.left = (h + l) / 2 + "px") : (s = -90, e.style.top = t + (r + c) / 2 + "px", e.style.left = (h - l) / 2 + "px") : (e.style.top = t + (r - l) / 2 + "px", e.style.left = (h - c) / 2 + "px"), h = (e = c / i) * d.sys.DisplayList.$canvasScaleFactor, l = (c = l / o) * d.sys.DisplayList.$canvasScaleFactor, h = Math.ceil(h), l = Math.ceil(l), d.sys.DisplayList.$setCanvasScale(h, l), this.webTouchHandler.updateScaleMode(e, c, s), this.player.updateStageSize(i, o));
+  }, WebPlayer.prototype.setContentSize = function (e, t) {
+    var r = this.playerOption;r.contentWidth = e, r.contentHeight = t, this.updateScreenSize();
+  }, WebPlayer.prototype.updateMaxTouches = function () {
+    this.webTouchHandler.$updateMaxTouches();
+  }, e = WebPlayer, u.WebPlayer = e, __reflect(e.prototype, "egret.wxgame.WebPlayer", ["egret.sys.Screen"]);
+}(egret = egret || {}), function (p) {
+  function convertImageToCanvas(e, t) {
+    g || (g = p.sys.createCanvas(), v = g.getContext("2d"));var r = e.$getTextureWidth();var a = e.$getTextureHeight();null == t && ((t = p.$TempRectangle).x = 0, t.y = 0, t.width = r, t.height = a), t.x = Math.min(t.x, r - 1), t.y = Math.min(t.y, a - 1), t.width = Math.min(t.width, r - t.x), t.height = Math.min(t.height, a - t.y);var n = Math.floor(t.width);var i = Math.floor(t.height);var o = g;if (o.style.width = n + "px", o.style.height = i + "px", g.width = n, g.height = i, "webgl" == p.Capabilities.renderMode) {
+      var s = void 0;e.$renderBuffer ? s = e : (p.sys.systemRenderer.renderClear && p.sys.systemRenderer.renderClear(), (s = new p.RenderTexture()).drawToTexture(new p.Bitmap(e)));var c = s.$renderBuffer.getPixels(t.x, t.y, n, i);var h = 0;var l = 0;for (var d = 0; d < c.length; d += 4) v.fillStyle = "rgba(" + c[d] + "," + c[d + 1] + "," + c[d + 2] + "," + c[d + 3] / 255 + ")", v.fillRect(h, l, 1, 1), ++h == n && (h = 0, l++);return e.$renderBuffer || s.dispose(), o;
+    }var u = e;var f = Math.round(u.$offsetX);i = Math.round(u.$offsetY);s = u.$bitmapWidth;e = u.$bitmapHeight;return v.drawImage(u.$bitmapData.source, u.$bitmapX + t.x / p.$TextureScaleFactor, u.$bitmapY + t.y / p.$TextureScaleFactor, s * t.width / r, e * t.height / a, f, i, t.width, t.height), o;
+  }var g, v;p.wxgame || (p.wxgame = {}), p.Texture.prototype.toDataURL = function (e, t, r) {
+    try {
+      return convertImageToCanvas(this, t).toDataURL(e, r);
+    } catch (e) {
+      p.$error(1033);
+    }return null;
+  }, p.Texture.prototype.saveToFile = function (e, t, r, a) {
+    return e = convertImageToCanvas(this, r).toTempFilePathSync({ fileType: 0 <= e.indexOf("png") ? "png" : "jpg" }), wx.getFileSystemManager().saveFile({ tempFilePath: e, filePath: wx.env.USER_DATA_PATH + "/" + t, success: function (e) {} }), e;
+  }, p.Texture.prototype.getPixel32 = function (e, t) {
+    return p.$warn(1041, "getPixel32", "getPixels"), this.getPixels(e, t);
+  }, p.Texture.prototype.getPixels = function (e, t, r, a) {
+    if (void 0 === r && (r = 1), void 0 === a && (a = 1), "webgl" == p.Capabilities.renderMode) {
+      var n = void 0;return this.$renderBuffer ? n = this : (n = new p.RenderTexture()).drawToTexture(new p.Bitmap(this)), n.$renderBuffer.getPixels(e, t, r, a);
+    }try {
+      convertImageToCanvas(this);return v.getImageData(e, t, r, a).data;
+    } catch (e) {
+      p.$error(1039);
+    }
+  };
+}(egret = egret || {}), function (e) {
+  function WebExternalInterface() {}var t, r;t = e.wxgame || (e.wxgame = {}), WebExternalInterface.call = function (e, t) {}, WebExternalInterface.addCallback = function (e, t) {}, r = WebExternalInterface, t.WebExternalInterface = r, __reflect(r.prototype, "egret.wxgame.WebExternalInterface", ["egret.ExternalInterface"]), e.ExternalInterface = r;
+}(egret = egret || {}), function (a) {
+  function WebDeviceOrientation() {
+    var r = null !== n && n.apply(this, arguments) || this;return r.isStart = !1, r.onChange = function (e) {
+      var t;r.isStart && ((t = new a.OrientationEvent(a.Event.CHANGE)).beta = e.beta, t.gamma = e.gamma, t.alpha = e.alpha, r.dispatchEvent(t));
+    }, r;
+  }var e, t, n;e = a.wxgame || (a.wxgame = {}), n = a.EventDispatcher, __extends(WebDeviceOrientation, n), WebDeviceOrientation.prototype.start = function () {
+    this.isStart = !0, wx.startDeviceMotionListening({ interval: "normal" }), wx.onDeviceMotionChange(this.onChange);
+  }, WebDeviceOrientation.prototype.stop = function () {
+    this.isStart = !1, wx.stopDeviceMotionListening();
+  }, t = WebDeviceOrientation, e.WebDeviceOrientation = t, __reflect(t.prototype, "egret.wxgame.WebDeviceOrientation", ["egret.DeviceOrientation"]);
+}(egret = egret || {}), egret.DeviceOrientation = egret.wxgame.WebDeviceOrientation, function (e) {
+  var t = (WXSocket.prototype.addCallBacks = function (e, t, r, a, n) {
+    this.onConnect = e, this.onClose = t, this.onSocketData = r, this.onError = a, this.thisObject = n;
+  }, WXSocket.prototype.connect = function (e, t) {
+    this.host = e, this.port = t;t = "ws://" + this.host + ":" + this.port;this.socketTask = wx.connectSocket({ url: t }), this._bindEvent();
+  }, WXSocket.prototype.connectByUrl = function (e) {
+    this.socketTask = wx.connectSocket({ url: e }), this._bindEvent();
+  }, WXSocket.prototype._bindEvent = function () {
+    var t = this;this.socketTask.onOpen(function () {
+      t.onConnect.call(t.thisObject);
+    }), this.socketTask.onClose(function () {
+      e.callLater(function () {
+        t.onClose.call(t.thisObject);
+      }, t);
+    }), this.socketTask.onError(function () {
+      t.onError.call(t.thisObject);
+    }), this.socketTask.onMessage(function (e) {
+      t.onSocketData.call(t.thisObject, e.data);
+    });
+  }, WXSocket.prototype.send = function (e) {
+    this.socketTask.send({ data: e });
+  }, WXSocket.prototype.close = function () {
+    this.socketTask.close();
+  }, WXSocket.prototype.disconnect = function () {
+    this.close();
+  }, WXSocket);function WXSocket() {
+    this.host = "", this.port = 0;
+  }e.WXSocket = t, __reflect(t.prototype, "egret.WXSocket", ["egret.ISocket"]), e.ISocket = t;
+}(egret = egret || {}), null == window.HTMLDivElement && (window.HTMLDivElement = HTMLElement), null == window.HTMLVideoElement && (window.HTMLVideoElement = HTMLDivElement), function (e) {
+  var t;e.wxgame || (e.wxgame = {}), t = "egret.BitmapData", e.registerClass(HTMLImageElement, t), e.registerClass(HTMLCanvasElement, t), e.registerClass(HTMLVideoElement, t);
+}(egret = egret || {}), function (t) {
+  t.$toBitmapData = function (e) {
+    return e.hashCode = e.$hashCode = t.$hashCount++, e;
+  };
+}(egret = egret || {}), function (n) {
+  var e = (WebGLUtils.compileProgram = function (e, t, r) {
+    var a = WebGLUtils.compileFragmentShader(e, r);r = WebGLUtils.compileVertexShader(e, t);t = e.createProgram();return e.attachShader(t, r), e.attachShader(t, a), e.linkProgram(t), e.getProgramParameter(t, e.LINK_STATUS) || n.$warn(1020), t;
+  }, WebGLUtils.compileFragmentShader = function (e, t) {
+    return WebGLUtils._compileShader(e, t, e.FRAGMENT_SHADER);
+  }, WebGLUtils.compileVertexShader = function (e, t) {
+    return WebGLUtils._compileShader(e, t, e.VERTEX_SHADER);
+  }, WebGLUtils._compileShader = function (e, t, r) {
+    r = e.createShader(r);return e.shaderSource(r, t), e.compileShader(r), e.getShaderParameter(r, e.COMPILE_STATUS) ? r : null;
+  }, WebGLUtils.checkCanUseWebGL = function () {
+    if (null == WebGLUtils.canUseWebGL) try {
+      var e = document.createElement("canvas");WebGLUtils.canUseWebGL = !(!window.WebGLRenderingContext || !e.getContext("webgl") && !e.getContext("experimental-webgl"));
+    } catch (e) {
+      WebGLUtils.canUseWebGL = !1;
+    }return WebGLUtils.canUseWebGL;
+  }, WebGLUtils.deleteWebGLTexture = function (e) {
+    var t;e && (e[n.engine_default_empty_texture] ? console.warn("deleteWebGLTexture:" + n.engine_default_empty_texture) : (t = e[n.glContext]) ? t.deleteTexture(e) : console.error("deleteWebGLTexture gl = " + t));
+  }, WebGLUtils.premultiplyTint = function (e, t) {
+    return 1 === t ? (255 * t << 24) + e : 0 === t ? 0 : (255 * t << 24) + (((e >> 16 & 255) * t + .5 | 0) << 16) + (((e >> 8 & 255) * t + .5 | 0) << 8) + ((255 & e) * t + .5 | 0);
+  }, WebGLUtils);function WebGLUtils() {}n.WebGLUtils = e, __reflect(e.prototype, "egret.WebGLUtils");
+}(egret = egret || {}), function (a) {
+  var e;(e = a.localStorage || (a.localStorage = {})).wxgame || (e.wxgame = {}), e.getItem = function (e) {
+    return window.localStorage.getItem(e);
+  }, e.setItem = function (t, r) {
+    try {
+      return window.localStorage.setItem(t, r), !0;
+    } catch (e) {
+      return a.$warn(1047, t, r), !1;
+    }
+  }, e.removeItem = function (e) {
+    window.localStorage.removeItem(e);
+  }, e.clear = function () {
+    window.localStorage.clear();
+  };
+}(egret = egret || {}), function (a) {
+  function HtmlSound() {
+    var e = t.call(this) || this;return e.loaded = !1, e;
+  }var n, e, t;n = a.wxgame || (a.wxgame = {}), t = a.EventDispatcher, __extends(HtmlSound, t), Object.defineProperty(HtmlSound.prototype, "length", { get: function () {
+      if (this.originAudio) return this.originAudio.duration;throw new Error("sound not loaded!");
+    }, enumerable: !0, configurable: !0 }), HtmlSound.prototype.load = function (e) {
+    var t = this;(this.url = e) || a.$warn(3002);var r = wx.createInnerAudioContext();function onAudioLoaded() {
+      removeListeners(), t.loaded = !0, t.dispatchEventWith(a.Event.COMPLETE);
+    }function onAudioError() {
+      removeListeners(), t.dispatchEventWith(a.IOErrorEvent.IO_ERROR);
+    }function removeListeners() {
+      r.offCanplay(onAudioLoaded), r.offError(onAudioError);
+    }r.onCanplay(onAudioLoaded), r.onError(onAudioError), r.src = e, this.originAudio = r;
+  }, HtmlSound.prototype.play = function (e, t) {
+    e = +e || 0, t = +t || 0, 0 == this.loaded && a.$warn(1049);var r = new n.HtmlSoundChannel(this.originAudio);return r.$url = this.url, r.$loops = t, r.$startTime = e, r.$play(), r;
+  }, HtmlSound.prototype.close = function () {
+    this.originAudio && (this.originAudio.destroy(), this.originAudio = null), this.loaded = !1;
+  }, HtmlSound.MUSIC = "music", HtmlSound.EFFECT = "effect", e = HtmlSound, n.HtmlSound = e, __reflect(e.prototype, "egret.wxgame.HtmlSound", ["egret.Sound"]);
+}(egret = egret || {}), function (t) {
+  var r;t.wxgame || (t.wxgame = {}), Object.defineProperty(t.Logger, "logLevel", { set: function (e) {
+      switch (null == r && (r = { error: console.error, debug: console.debug, warn: console.warn, info: console.info, log: console.log }), e) {case t.Logger.OFF:
+          console.error = function () {};case t.Logger.ERROR:
+          console.warn = function () {};case t.Logger.WARN:
+          console.info = function () {}, console.log = function () {};case t.Logger.INFO:
+          console.debug = function () {};}switch (e) {case t.Logger.ALL:case t.Logger.DEBUG:
+          console.debug = r.debug;case t.Logger.INFO:
+          console.log = r.log, console.info = r.info;case t.Logger.WARN:
+          console.warn = r.warn;case t.Logger.ERROR:
+          console.error = r.error;}
+    }, enumerable: !0, configurable: !0 });
+}(egret = egret || {}), function (e) {
+  function WebGLDrawCmdManager() {
+    this.drawData = [], this.drawDataLen = 0;
+  }var t;t = e.wxgame || (e.wxgame = {}), WebGLDrawCmdManager.prototype.pushDrawRect = function () {
+    var e;0 != this.drawDataLen && 1 == this.drawData[this.drawDataLen - 1].type || ((e = this.drawData[this.drawDataLen] || {}).type = 1, e.count = 0, this.drawData[this.drawDataLen] = e, this.drawDataLen++), this.drawData[this.drawDataLen - 1].count += 2;
+  }, WebGLDrawCmdManager.prototype.pushDrawTexture = function (e, t, r, a, n) {
+    var i;void 0 === t && (t = 2), r ? ((i = this.drawData[this.drawDataLen] || {}).type = 0, i.texture = e, i.filter = r, i.count = t, i.textureWidth = a, i.textureHeight = n, this.drawData[this.drawDataLen] = i, this.drawDataLen++) : (0 != this.drawDataLen && 0 == this.drawData[this.drawDataLen - 1].type && e == this.drawData[this.drawDataLen - 1].texture && !this.drawData[this.drawDataLen - 1].filter || ((i = this.drawData[this.drawDataLen] || {}).type = 0, i.texture = e, i.count = 0, this.drawData[this.drawDataLen] = i, this.drawDataLen++), this.drawData[this.drawDataLen - 1].count += t);
+  }, WebGLDrawCmdManager.prototype.pushChangeSmoothing = function (e, t) {
+    e.smoothing = t;var r = this.drawData[this.drawDataLen] || {};r.type = 10, r.texture = e, r.smoothing = t, this.drawData[this.drawDataLen] = r, this.drawDataLen++;
+  }, WebGLDrawCmdManager.prototype.pushPushMask = function (e) {
+    void 0 === e && (e = 1);var t = this.drawData[this.drawDataLen] || {};t.type = 2, t.count = 2 * e, this.drawData[this.drawDataLen] = t, this.drawDataLen++;
+  }, WebGLDrawCmdManager.prototype.pushPopMask = function (e) {
+    void 0 === e && (e = 1);var t = this.drawData[this.drawDataLen] || {};t.type = 3, t.count = 2 * e, this.drawData[this.drawDataLen] = t, this.drawDataLen++;
+  }, WebGLDrawCmdManager.prototype.pushSetBlend = function (e) {
+    var t = !1;for (var r = this.drawDataLen - 1; 0 <= r; r--) {
+      var a = this.drawData[r];if (a) if ((t = 0 == a.type || 1 == a.type ? !0 : t) || 4 != a.type) {
+        if (4 == a.type) {
+          if (a.value == e) return;break;
         }
-        function parseNode(node, parent) {
-            if (node.localName == "parsererror") {
-                throw new Error(node.textContent);
-            }
-            var xml = new XML(node.localName, parent, node["prefix"], node.namespaceURI, node.nodeName);
-            var nodeAttributes = node.attributes;
-            var attributes = xml.attributes;
-            var length = nodeAttributes.length;
-            for (var i = 0; i < length; i++) {
-                var attributeNode = nodeAttributes[i];
-                var name_1 = attributeNode.name;
-                if (name_1.indexOf("xmlns:") == 0) {
-                    continue;
-                }
-                attributes[name_1] = attributeNode.value;
-                xml["$" + name_1] = attributeNode.value;
-            }
-            var childNodes = node.childNodes;
-            length = childNodes.length;
-            var children = xml.children;
-            for (var i = 0; i < length; i++) {
-                var childNode = childNodes[i];
-                var nodeType = childNode.nodeType;
-                var childXML = null;
-                if (nodeType == 1) {
-                    childXML = parseNode(childNode, xml);
-                } else if (nodeType == 3) {
-                    var text = childNode.textContent.trim();
-                    if (text) {
-                        childXML = new XMLText(text, xml);
-                    }
-                }
-                if (childXML) {
-                    children.push(childXML);
-                }
-            }
-            return xml;
-        }
-        egret.XML = { parse: parse };
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var HtmlSoundChannel = function (_super) {
-            __extends(HtmlSoundChannel, _super);
-            function HtmlSoundChannel(audio) {
-                var _this = _super.call(this) || this;
-                _this.$startTime = 0;
-                _this.audio = null;
-                _this.isStopped = false;
-                _this.isEventdAdded = false;
-                _this.onPlayEnd = function () {
-                    if (_this.$loops == 1) {
-                        _this.stop();
-                        _this.dispatchEventWith(egret.Event.SOUND_COMPLETE);
-                        return;
-                    }
-                    if (_this.$loops > 0) {
-                        _this.$loops--;
-                    }
-                    _this.audio.stop();
-                    _this.$play();
-                };
-                _this._volume = 1;
-                _this.audio = audio;
-                return _this;
-            }
-            HtmlSoundChannel.prototype.addEvent = function () {
-                if (!this.isEventdAdded) {
-                    this.isEventdAdded = true;
-                    this.audio.onEnded(this.onPlayEnd);
-                }
-            };
-            HtmlSoundChannel.prototype.removeEvent = function () {
-                if (this.isEventdAdded) {
-                    this.isEventdAdded = false;
-                    this.audio.offEnded(this.onPlayEnd);
-                }
-            };
-            HtmlSoundChannel.prototype.$play = function () {
-                if (this.isStopped) {
-                    egret.$warn(1036);
-                    return;
-                }
-                this.addEvent();
-                var audio = this.audio;
-                audio.volume = this._volume;
-                audio.seek(this.$startTime);
-                audio.play();
-            };
-            HtmlSoundChannel.prototype.stop = function () {
-                if (!this.audio) return;
-                this.isStopped = true;
-                var audio = this.audio;
-                audio.stop();
-                this.removeEvent();
-                this.audio = null;
-                audio = null;
-            };
-            Object.defineProperty(HtmlSoundChannel.prototype, "volume", {
-                get: function () {
-                    return this._volume;
-                },
-                set: function (value) {
-                    if (this.isStopped) {
-                        egret.$warn(1036);
-                        return;
-                    }
-                    this._volume = value;
-                    if (!this.audio) return;
-                    this.audio.volume = value;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(HtmlSoundChannel.prototype, "position", {
-                get: function () {
-                    if (!this.audio) return 0;
-                    return this.audio.currentTime;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            return HtmlSoundChannel;
-        }(egret.EventDispatcher);
-        wxgame.HtmlSoundChannel = HtmlSoundChannel;
-        __reflect(HtmlSoundChannel.prototype, "egret.wxgame.HtmlSoundChannel", ["egret.SoundChannel", "egret.IEventDispatcher"]);
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebVideo = function (_super) {
-            __extends(WebVideo, _super);
-            function WebVideo(url, cache) {
-                if (cache === void 0) {
-                    cache = true;
-                }
-                var _this = _super.call(this) || this;
-                _this.loaded = false;
-                _this.closed = false;
-                _this.heightSet = NaN;
-                _this.widthSet = NaN;
-                _this.waiting = false;
-                _this.userPause = false;
-                _this.userPlay = false;
-                _this.isPlayed = false;
-                _this.screenChanged = function (e) {
-                    var isfullscreen = document.fullscreenEnabled || document.webkitIsFullScreen;
-                    if (!isfullscreen) {
-                        _this.checkFullScreen(false);
-                        if (!egret.Capabilities.isMobile) {
-                            _this._fullscreen = isfullscreen;
-                        }
-                    }
-                };
-                _this._fullscreen = true;
-                _this.onVideoLoaded = function () {
-                    _this.video.removeEventListener("canplay", _this.onVideoLoaded);
-                    var video = _this.video;
-                    _this.loaded = true;
-                    if (_this.posterData) {
-                        _this.posterData.width = _this.getPlayWidth();
-                        _this.posterData.height = _this.getPlayHeight();
-                    }
-                    video.width = video.videoWidth;
-                    video.height = video.videoHeight;
-                    window.setTimeout(function () {
-                        _this.dispatchEventWith(egret.Event.COMPLETE);
-                    }, 200);
-                };
-                _this.$renderNode = new egret.sys.BitmapNode();
-                _this.src = url;
-                _this.once(egret.Event.ADDED_TO_STAGE, _this.loadPoster, _this);
-                if (url) {
-                    _this.load();
-                }
-                return _this;
-            }
-            WebVideo.prototype.load = function (url, cache) {
-                var _this = this;
-                if (cache === void 0) {
-                    cache = true;
-                }
-                url = url || this.src;
-                this.src = url;
-                if (true && !url) {
-                    egret.$error(3002);
-                }
-                if (this.video && this.video.src == url) {
-                    return;
-                }
-                var video;
-                if (!this.video || egret.Capabilities.isMobile) {
-                    video = document.createElement("video");
-                    this.video = video;
-                    video.controls = null;
-                } else {
-                    video = this.video;
-                }
-                video.src = url;
-                video.setAttribute("autoplay", "autoplay");
-                video.setAttribute("webkit-playsinline", "true");
-                video.addEventListener("canplay", this.onVideoLoaded);
-                video.addEventListener("error", function () {
-                    return _this.onVideoError();
-                });
-                video.addEventListener("ended", function () {
-                    return _this.onVideoEnded();
-                });
-                var firstPause = false;
-                video.addEventListener("canplay", function () {
-                    _this.waiting = false;
-                    if (!firstPause) {
-                        firstPause = true;
-                        video.pause();
-                    } else {
-                        if (_this.userPause) {
-                            _this.pause();
-                        } else if (_this.userPlay) {
-                            _this.play();
-                        }
-                    }
-                });
-                video.addEventListener("waiting", function () {
-                    _this.waiting = true;
-                });
-                video.load();
-                this.videoPlay();
-                video.style.position = "absolute";
-                video.style.top = "0px";
-                video.style.zIndex = "-88888";
-                video.style.left = "0px";
-                video.height = 1;
-                video.width = 1;
-            };
-            WebVideo.prototype.play = function (startTime, loop) {
-                var _this = this;
-                if (loop === void 0) {
-                    loop = false;
-                }
-                if (this.loaded == false) {
-                    this.load(this.src);
-                    this.once(egret.Event.COMPLETE, function (e) {
-                        return _this.play(startTime, loop);
-                    }, this);
-                    return;
-                }
-                this.isPlayed = true;
-                var video = this.video;
-                if (startTime != undefined) video.currentTime = +startTime || 0;
-                video.loop = !!loop;
-                if (egret.Capabilities.isMobile) {
-                    video.style.zIndex = "-88888";
-                } else {
-                    video.style.zIndex = "9999";
-                }
-                video.style.position = "absolute";
-                video.style.top = "0px";
-                video.style.left = "0px";
-                video.height = video.videoHeight;
-                video.width = video.videoWidth;
-                if (egret.Capabilities.os != "Windows PC" && egret.Capabilities.os != "Mac OS") {
-                    window.setTimeout(function () {
-                        video.width = 0;
-                    }, 1000);
-                }
-                this.checkFullScreen(this._fullscreen);
-            };
-            WebVideo.prototype.videoPlay = function () {
-                this.userPause = false;
-                if (this.waiting) {
-                    this.userPlay = true;
-                    return;
-                }
-                this.userPlay = false;
-                this.video.play();
-            };
-            WebVideo.prototype.checkFullScreen = function (playFullScreen) {
-                var video = this.video;
-                if (playFullScreen) {
-                    if (video.parentElement == null) {
-                        video.removeAttribute("webkit-playsinline");
-                        document.body.appendChild(video);
-                    }
-                    egret.stopTick(this.markDirty, this);
-                    this.goFullscreen();
-                } else {
-                    if (video.parentElement != null) {
-                        video.parentElement.removeChild(video);
-                    }
-                    video.setAttribute("webkit-playsinline", "true");
-                    this.setFullScreenMonitor(false);
-                    egret.startTick(this.markDirty, this);
-                    if (egret.Capabilities.isMobile) {
-                        this.video.currentTime = 0;
-                        this.onVideoEnded();
-                        return;
-                    }
-                }
-                this.videoPlay();
-            };
-            WebVideo.prototype.goFullscreen = function () {
-                var video = this.video;
-                var fullscreenType;
-                fullscreenType = wxgame.getPrefixStyleName('requestFullscreen', video);
-                if (!video[fullscreenType]) {
-                    fullscreenType = wxgame.getPrefixStyleName('requestFullScreen', video);
-                    if (!video[fullscreenType]) {
-                        return true;
-                    }
-                }
-                video.removeAttribute("webkit-playsinline");
-                video[fullscreenType]();
-                this.setFullScreenMonitor(true);
-                return true;
-            };
-            WebVideo.prototype.setFullScreenMonitor = function (use) {
-                var video = this.video;
-                if (use) {
-                    video.addEventListener("mozfullscreenchange", this.screenChanged);
-                    video.addEventListener("webkitfullscreenchange", this.screenChanged);
-                    video.addEventListener("mozfullscreenerror", this.screenError);
-                    video.addEventListener("webkitfullscreenerror", this.screenError);
-                } else {
-                    video.removeEventListener("mozfullscreenchange", this.screenChanged);
-                    video.removeEventListener("webkitfullscreenchange", this.screenChanged);
-                    video.removeEventListener("mozfullscreenerror", this.screenError);
-                    video.removeEventListener("webkitfullscreenerror", this.screenError);
-                }
-            };
-            WebVideo.prototype.screenError = function () {
-                egret.$error(3014);
-            };
-            WebVideo.prototype.exitFullscreen = function () {
-                if (document['exitFullscreen']) {
-                    document['exitFullscreen']();
-                } else if (document['msExitFullscreen']) {
-                    document['msExitFullscreen']();
-                } else if (document['mozCancelFullScreen']) {
-                    document['mozCancelFullScreen']();
-                } else if (document['oCancelFullScreen']) {
-                    document['oCancelFullScreen']();
-                } else if (document['webkitExitFullscreen']) {
-                    document['webkitExitFullscreen']();
-                } else {}
-            };
-            WebVideo.prototype.onVideoEnded = function () {
-                this.pause();
-                this.isPlayed = false;
-                this.dispatchEventWith(egret.Event.ENDED);
-            };
-            WebVideo.prototype.onVideoError = function () {
-                this.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
-            };
-            WebVideo.prototype.close = function () {
-                var _this = this;
-                this.closed = true;
-                this.video.removeEventListener("canplay", this.onVideoLoaded);
-                this.video.removeEventListener("error", function () {
-                    return _this.onVideoError();
-                });
-                this.video.removeEventListener("ended", function () {
-                    return _this.onVideoEnded();
-                });
-                this.pause();
-                if (this.loaded == false && this.video) this.video.src = "";
-                if (this.video && this.video.parentElement) {
-                    this.video.parentElement.removeChild(this.video);
-                    this.video = null;
-                }
-                this.loaded = false;
-            };
-            WebVideo.prototype.pause = function () {
-                this.userPlay = false;
-                if (this.waiting) {
-                    this.userPause = true;
-                    return;
-                }
-                this.userPause = false;
-                egret.stopTick(this.markDirty, this);
-            };
-            Object.defineProperty(WebVideo.prototype, "volume", {
-                get: function () {
-                    if (!this.video) return 1;
-                    return this.video.volume;
-                },
-                set: function (value) {
-                    if (!this.video) return;
-                    this.video.volume = value;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(WebVideo.prototype, "position", {
-                get: function () {
-                    if (!this.video) return 0;
-                    return this.video.currentTime;
-                },
-                set: function (value) {
-                    if (!this.video) return;
-                    this.video.currentTime = value;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(WebVideo.prototype, "fullscreen", {
-                get: function () {
-                    return this._fullscreen;
-                },
-                set: function (value) {
-                    if (egret.Capabilities.isMobile) {
-                        return;
-                    }
-                    this._fullscreen = !!value;
-                    if (this.video && this.video.paused == false) {
-                        this.checkFullScreen(this._fullscreen);
-                    }
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(WebVideo.prototype, "bitmapData", {
-                get: function () {
-                    if (!this.video || !this.loaded) return null;
-                    if (!this._bitmapData) {
-                        this.video.width = this.video.videoWidth;
-                        this.video.height = this.video.videoHeight;
-                        this._bitmapData = new egret.BitmapData(this.video);
-                        this._bitmapData.$deleteSource = false;
-                    }
-                    return this._bitmapData;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            WebVideo.prototype.loadPoster = function () {
-                var _this = this;
-                var poster = this.poster;
-                if (!poster) return;
-                var imageLoader = new egret.ImageLoader();
-                imageLoader.once(egret.Event.COMPLETE, function (e) {
-                    var posterData = imageLoader.data;
-                    _this.posterData = imageLoader.data;
-                    _this.posterData.width = _this.getPlayWidth();
-                    _this.posterData.height = _this.getPlayHeight();
-                }, this);
-                imageLoader.load(poster);
-            };
-            WebVideo.prototype.$measureContentBounds = function (bounds) {
-                var bitmapData = this.bitmapData;
-                var posterData = this.posterData;
-                if (bitmapData) {
-                    bounds.setTo(0, 0, this.getPlayWidth(), this.getPlayHeight());
-                } else if (posterData) {
-                    bounds.setTo(0, 0, this.getPlayWidth(), this.getPlayHeight());
-                } else {
-                    bounds.setEmpty();
-                }
-            };
-            WebVideo.prototype.getPlayWidth = function () {
-                if (!isNaN(this.widthSet)) {
-                    return this.widthSet;
-                }
-                if (this.bitmapData) {
-                    return this.bitmapData.width;
-                }
-                if (this.posterData) {
-                    return this.posterData.width;
-                }
-                return NaN;
-            };
-            WebVideo.prototype.getPlayHeight = function () {
-                if (!isNaN(this.heightSet)) {
-                    return this.heightSet;
-                }
-                if (this.bitmapData) {
-                    return this.bitmapData.height;
-                }
-                if (this.posterData) {
-                    return this.posterData.height;
-                }
-                return NaN;
-            };
-            WebVideo.prototype.$updateRenderNode = function () {
-                var node = this.$renderNode;
-                var bitmapData = this.bitmapData;
-                var posterData = this.posterData;
-                var width = this.getPlayWidth();
-                var height = this.getPlayHeight();
-                if ((!this.isPlayed || egret.Capabilities.isMobile) && posterData) {
-                    node.image = posterData;
-                    node.imageWidth = width;
-                    node.imageHeight = height;
-                    node.drawImage(0, 0, posterData.width, posterData.height, 0, 0, width, height);
-                } else if (this.isPlayed && bitmapData) {
-                    node.image = bitmapData;
-                    node.imageWidth = bitmapData.width;
-                    node.imageHeight = bitmapData.height;
-                    egret.WebGLUtils.deleteWebGLTexture(bitmapData.webGLTexture);
-                    bitmapData.webGLTexture = null;
-                    node.drawImage(0, 0, bitmapData.width, bitmapData.height, 0, 0, width, height);
-                }
-            };
-            WebVideo.prototype.markDirty = function () {
-                this.$renderDirty = true;
-                return true;
-            };
-            WebVideo.prototype.$setHeight = function (value) {
-                this.heightSet = +value || 0;
-                _super.prototype.$setHeight.call(this, value);
-            };
-            WebVideo.prototype.$setWidth = function (value) {
-                this.widthSet = +value || 0;
-                _super.prototype.$setWidth.call(this, value);
-            };
-            Object.defineProperty(WebVideo.prototype, "paused", {
-                get: function () {
-                    if (this.video) {
-                        return this.video.paused;
-                    }
-                    return true;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(WebVideo.prototype, "length", {
-                get: function () {
-                    if (this.video) {
-                        return this.video.duration;
-                    }
-                    throw new Error("Video not loaded!");
-                },
-                enumerable: true,
-                configurable: true
-            });
-            return WebVideo;
-        }(egret.DisplayObject);
-        wxgame.WebVideo = WebVideo;
-        __reflect(WebVideo.prototype, "egret.wxgame.WebVideo", ["egret.Video", "egret.DisplayObject"]);
-        egret.Video = WebVideo;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebHttpRequest = function (_super) {
-            __extends(WebHttpRequest, _super);
-            function WebHttpRequest() {
-                var _this = _super.call(this) || this;
-                _this.timeout = 0;
-                _this._url = "";
-                _this._method = "";
-                return _this;
-            }
-            Object.defineProperty(WebHttpRequest.prototype, "response", {
-                get: function () {
-                    if (this._response) {
-                        return this._response;
-                    }
-                    return null;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(WebHttpRequest.prototype, "responseType", {
-                get: function () {
-                    return this._responseType;
-                },
-                set: function (value) {
-                    this._responseType = value;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(WebHttpRequest.prototype, "withCredentials", {
-                get: function () {
-                    return this._withCredentials;
-                },
-                set: function (value) {
-                    this._withCredentials = value;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            WebHttpRequest.prototype.open = function (url, method) {
-                if (method === void 0) {
-                    method = "GET";
-                }
-                this._url = url;
-                this._method = method;
-            };
-            WebHttpRequest.prototype.readFileAsync = function () {
-                var self = this;
-                var onSuccessFunc = function (content) {
-                    self._response = content;
-                    self.dispatchEventWith(egret.Event.COMPLETE);
-                };
-                var onErrorFunc = function () {
-                    self.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
-                };
-                var fs = wx.getFileSystemManager();
-                if (self.responseType == "arraybuffer") {
-                    fs.readFile({
-                        filePath: self._url,
-                        success: function (_a) {
-                            var data = _a.data;
-                            onSuccessFunc(data);
-                        },
-                        fail: function () {
-                            onErrorFunc();
-                        }
-                    });
-                } else {
-                    fs.readFile({
-                        filePath: self._url,
-                        encoding: 'utf8',
-                        success: function (_a) {
-                            var data = _a.data;
-                            if (self.responseType == "json") {
-                                data = JSON.parse(data);
-                            }
-                            onSuccessFunc(data);
-                        },
-                        fail: function () {
-                            onErrorFunc();
-                        }
-                    });
-                }
-            };
-            WebHttpRequest.prototype.send = function (data) {
-                this._response = undefined;
-                if (!this.isNetUrl(this._url)) {
-                    this.readFileAsync();
-                } else {
-                    var self_1 = this;
-                    wx.request({
-                        data: data,
-                        url: this._url,
-                        method: this._method,
-                        header: this.headerObj,
-                        responseType: this.responseType,
-                        success: function success(_ref) {
-                            var data = _ref.data,
-                                statusCode = _ref.statusCode,
-                                header = _ref.header;
-                            if (statusCode != 200) {
-                                self_1.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
-                                return;
-                            }
-                            if (typeof data !== 'string' && !(data instanceof ArrayBuffer)) {
-                                try {
-                                    data = JSON.stringify(data);
-                                } catch (e) {
-                                    data = data;
-                                }
-                            }
-                            self_1._responseHeader = header;
-                            self_1._response = data;
-                            self_1.dispatchEventWith(egret.Event.COMPLETE);
-                        },
-                        fail: function fail(_ref2) {
-                            self_1.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
-                        }
-                    });
-                }
-            };
-            WebHttpRequest.prototype.isNetUrl = function (url) {
-                return url.indexOf("http://") != -1 || url.indexOf("HTTP://") != -1 || url.indexOf("https://") != -1 || url.indexOf("HTTPS://") != -1;
-            };
-            WebHttpRequest.prototype.abort = function () {};
-            WebHttpRequest.prototype.getAllResponseHeaders = function () {
-                var responseHeader = this._responseHeader;
-                if (!responseHeader) {
-                    return null;
-                }
-                return Object.keys(responseHeader).map(function (header) {
-                    return header + ': ' + responseHeader[header];
-                }).join('\n');
-            };
-            WebHttpRequest.prototype.setRequestHeader = function (header, value) {
-                if (!this.headerObj) {
-                    this.headerObj = {};
-                }
-                this.headerObj[header] = value;
-            };
-            WebHttpRequest.prototype.getResponseHeader = function (header) {
-                if (!this._responseHeader) {
-                    return null;
-                }
-                var result = this._responseHeader[header];
-                return result ? result : "";
-            };
-            WebHttpRequest.prototype.updateProgress = function (event) {
-                if (event.lengthComputable) {
-                    egret.ProgressEvent.dispatchProgressEvent(this, egret.ProgressEvent.PROGRESS, event.loaded, event.total);
-                }
-            };
-            return WebHttpRequest;
-        }(egret.EventDispatcher);
-        wxgame.WebHttpRequest = WebHttpRequest;
-        __reflect(WebHttpRequest.prototype, "egret.wxgame.WebHttpRequest", ["egret.HttpRequest"]);
-        egret.HttpRequest = WebHttpRequest;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var winURL = window["URL"] || window["webkitURL"];
-        var WebImageLoader = function (_super) {
-            __extends(WebImageLoader, _super);
-            function WebImageLoader() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.data = null;
-                _this._crossOrigin = null;
-                _this._hasCrossOriginSet = false;
-                _this.currentImage = null;
-                _this.request = null;
-                return _this;
-            }
-            Object.defineProperty(WebImageLoader.prototype, "crossOrigin", {
-                get: function () {
-                    return this._crossOrigin;
-                },
-                set: function (value) {
-                    this._hasCrossOriginSet = true;
-                    this._crossOrigin = value;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            WebImageLoader.prototype.load = function (url) {
-                this.loadImage(url);
-            };
-            WebImageLoader.prototype.loadImage = function (src) {
-                var image = new Image();
-                this.data = null;
-                this.currentImage = image;
-                if (this._hasCrossOriginSet) {
-                    if (this._crossOrigin) {
-                        image.crossOrigin = this._crossOrigin;
-                    }
-                } else {
-                    if (WebImageLoader.crossOrigin) {
-                        image.crossOrigin = WebImageLoader.crossOrigin;
-                    }
-                }
-                image.onload = this.onImageComplete.bind(this);
-                image.onerror = this.onLoadError.bind(this);
-                image.src = src;
-            };
-            WebImageLoader.prototype.onImageComplete = function (event) {
-                var _this = this;
-                var image = this.getImage(event);
-                if (!image) {
-                    return;
-                }
-                this.data = new egret.BitmapData(image);
-                if (wxgame.preUploadTexture && egret.Capabilities.renderMode == "webgl") {
-                    wxgame.WebGLRenderContext.getInstance(null, null).getWebGLTexture(this.data);
-                }
-                window.setTimeout(function () {
-                    _this.dispatchEventWith(egret.Event.COMPLETE);
-                }, 0);
-            };
-            WebImageLoader.prototype.onLoadError = function (event) {
-                var image = this.getImage(event);
-                if (!image) {
-                    return;
-                }
-                this.dispatchIOError(image.src);
-            };
-            WebImageLoader.prototype.dispatchIOError = function (url) {
-                var _this = this;
-                window.setTimeout(function () {
-                    if (!_this.hasEventListener(egret.IOErrorEvent.IO_ERROR)) {
-                        egret.warn(1011, url);
-                    }
-                    _this.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
-                }, 0);
-            };
-            WebImageLoader.prototype.getImage = function (event) {
-                var image = event.target;
-                var url = image.src;
-                image.onerror = null;
-                image.onload = null;
-                if (this.currentImage !== image) {
-                    return null;
-                }
-                this.currentImage = null;
-                return image;
-            };
-            WebImageLoader.crossOrigin = null;
-            return WebImageLoader;
-        }(egret.EventDispatcher);
-        wxgame.WebImageLoader = WebImageLoader;
-        __reflect(WebImageLoader.prototype, "egret.wxgame.WebImageLoader", ["egret.ImageLoader"]);
-        egret.ImageLoader = WebImageLoader;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var HTML5StageText = function (_super) {
-            __extends(HTML5StageText, _super);
-            function HTML5StageText() {
-                var _this = _super.call(this) || this;
-                _this.textValue = "";
-                _this.onKeyboardComplete = _this.onKeyboardComplete.bind(_this);
-                _this.onKeyboardInput = _this.onKeyboardInput.bind(_this);
-                return _this;
-            }
-            HTML5StageText.prototype.$setTextField = function (textfield) {
-                this.$textfield = textfield;
-                return true;
-            };
-            HTML5StageText.prototype.$addToStage = function () {};
-            HTML5StageText.prototype.$show = function () {
-                var info = {
-                    defaultValue: this.$textfield.text,
-                    maxLength: 9999,
-                    multiple: this.$textfield.multiline,
-                    confirmHold: true,
-                    confirmType: 'done',
-                    fail: function (res) {
-                        console.log(res.errMsg);
-                    }
-                };
-                if (this.$textfield.maxChars) {
-                    info.maxLength = this.$textfield.maxChars;
-                }
-                wx.showKeyboard(info);
-                wx.onKeyboardConfirm(this.onKeyboardComplete);
-                wx.onKeyboardComplete(this.onKeyboardComplete);
-                wx.onKeyboardInput(this.onKeyboardInput);
-                this.dispatchEvent(new egret.Event("focus"));
-            };
-            HTML5StageText.prototype.onKeyboardInput = function (data) {
-                this.textValue = data.value;
-                egret.Event.dispatchEvent(this, "updateText", false);
-            };
-            HTML5StageText.prototype.onKeyboardComplete = function (res) {
-                this.$textfield.text = res.value;
-                this.$hide();
-            };
-            HTML5StageText.prototype.$hide = function () {
-                wx.offKeyboardComplete();
-                wx.offKeyboardConfirm();
-                wx.offKeyboardInput();
-                wx.hideKeyboard({});
-                this.dispatchEvent(new egret.Event("blur"));
-            };
-            HTML5StageText.prototype.$getText = function () {
-                if (!this.textValue) {
-                    this.textValue = "";
-                }
-                return this.textValue;
-            };
-            HTML5StageText.prototype.$setText = function (value) {
-                this.textValue = value;
-                return true;
-            };
-            HTML5StageText.prototype.$setColor = function (value) {
-                return true;
-            };
-            HTML5StageText.prototype.$onBlur = function () {};
-            HTML5StageText.prototype.$removeFromStage = function () {};
-            HTML5StageText.prototype.$resetStageText = function () {};
-            return HTML5StageText;
-        }(egret.EventDispatcher);
-        wxgame.HTML5StageText = HTML5StageText;
-        __reflect(HTML5StageText.prototype, "egret.wxgame.HTML5StageText", ["egret.StageText"]);
-        egret.StageText = HTML5StageText;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var context = null;
-        var fontCache = {};
-        function measureText(text, fontFamily, fontSize, bold, italic) {
-            if (!context) {
-                createContext();
-            }
-            var font = "";
-            if (italic) font += "italic ";
-            if (bold) font += "bold ";
-            font += (fontSize || 12) + "px ";
-            font += fontFamily || "Arial";
-            context.font = font;
-            return egret.sys.measureTextWith(context, text);
-        }
-        function createContext() {
-            context = egret.sys.canvasHitTestBuffer.context;
-            context.textAlign = "left";
-            context.textBaseline = "middle";
-        }
-        egret.sys.measureText = measureText;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        function __createCanvas__(width, height) {
-            var canvas = egret.sys.createCanvas(width, height);
-            var context = canvas.getContext("2d");
-            if (context["imageSmoothingEnabled"] === undefined) {
-                var keys = ["webkitImageSmoothingEnabled", "mozImageSmoothingEnabled", "msImageSmoothingEnabled"];
-                var key_1;
-                for (var i = keys.length - 1; i >= 0; i--) {
-                    key_1 = keys[i];
-                    if (context[key_1] !== void 0) {
-                        break;
-                    }
-                }
-                try {
-                    Object.defineProperty(context, "imageSmoothingEnabled", {
-                        get: function () {
-                            return this[key_1];
-                        },
-                        set: function (value) {
-                            this[key_1] = value;
-                        }
-                    });
-                } catch (e) {
-                    context["imageSmoothingEnabled"] = context[key_1];
-                }
-            }
-            return canvas;
-        }
-        var sharedCanvas;
-        var CanvasRenderBuffer = function () {
-            function CanvasRenderBuffer(width, height, root) {
-                this.surface = egret.sys.createCanvasRenderBufferSurface(__createCanvas__, width, height, root);
-                this.context = this.surface.getContext("2d");
-                if (this.context) {
-                    this.context.$offsetX = 0;
-                    this.context.$offsetY = 0;
-                }
-                this.resize(width, height);
-            }
-            Object.defineProperty(CanvasRenderBuffer.prototype, "width", {
-                get: function () {
-                    return this.surface.width;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(CanvasRenderBuffer.prototype, "height", {
-                get: function () {
-                    return this.surface.height;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            CanvasRenderBuffer.prototype.resize = function (width, height, useMaxSize) {
-                egret.sys.resizeCanvasRenderBuffer(this, width, height, useMaxSize);
-            };
-            CanvasRenderBuffer.prototype.getPixels = function (x, y, width, height) {
-                if (width === void 0) {
-                    width = 1;
-                }
-                if (height === void 0) {
-                    height = 1;
-                }
-                return this.context.getImageData(x, y, width, height).data;
-            };
-            CanvasRenderBuffer.prototype.toDataURL = function (type, encoderOptions) {
-                return this.surface.toDataURL(type, encoderOptions);
-            };
-            CanvasRenderBuffer.prototype.clear = function () {
-                this.context.setTransform(1, 0, 0, 1, 0, 0);
-                this.context.clearRect(0, 0, this.surface.width, this.surface.height);
-            };
-            CanvasRenderBuffer.prototype.destroy = function () {
-                this.surface.width = this.surface.height = 0;
-            };
-            return CanvasRenderBuffer;
-        }();
-        wxgame.CanvasRenderBuffer = CanvasRenderBuffer;
-        __reflect(CanvasRenderBuffer.prototype, "egret.wxgame.CanvasRenderBuffer", ["egret.sys.RenderBuffer"]);
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebTouchHandler = function (_super) {
-            __extends(WebTouchHandler, _super);
-            function WebTouchHandler(stage, canvas) {
-                var _this = _super.call(this) || this;
-                _this.onTouchBegin = function (event) {
-                    var location = _this.getLocation(event);
-                    _this.touch.onTouchBegin(location.x, location.y, event.identifier);
-                };
-                _this.onTouchMove = function (event) {
-                    var location = _this.getLocation(event);
-                    _this.touch.onTouchMove(location.x, location.y, event.identifier);
-                };
-                _this.onTouchEnd = function (event) {
-                    var location = _this.getLocation(event);
-                    _this.touch.onTouchEnd(location.x, location.y, event.identifier);
-                };
-                _this.scaleX = 1;
-                _this.scaleY = 1;
-                _this.rotation = 0;
-                _this.canvas = canvas;
-                _this.touch = new egret.sys.TouchHandler(stage);
-                _this.addTouchListener();
-                return _this;
-            }
-            WebTouchHandler.prototype.addTouchListener = function () {
-                var self = this;
-                if (wxgame.isSubContext) {
-                    wx.onTouchStart(function (event) {
-                        var l = event.changedTouches.length;
-                        for (var i = 0; i < l; i++) {
-                            self.onTouchBegin(event.changedTouches[i]);
-                        }
-                    });
-                    wx.onTouchMove(function (event) {
-                        var l = event.changedTouches.length;
-                        for (var i = 0; i < l; i++) {
-                            self.onTouchMove(event.changedTouches[i]);
-                        }
-                    });
-                    wx.onTouchEnd(function (event) {
-                        var l = event.changedTouches.length;
-                        for (var i = 0; i < l; i++) {
-                            self.onTouchEnd(event.changedTouches[i]);
-                        }
-                    });
-                    wx.onTouchCancel(function (event) {
-                        var l = event.changedTouches.length;
-                        for (var i = 0; i < l; i++) {
-                            self.onTouchEnd(event.changedTouches[i]);
-                        }
-                    });
-                } else {
-                    self.canvas.addEventListener("touchstart", function (event) {
-                        var l = event.changedTouches.length;
-                        for (var i = 0; i < l; i++) {
-                            self.onTouchBegin(event.changedTouches[i]);
-                        }
-                        self.prevent(event);
-                    }, false);
-                    self.canvas.addEventListener("touchmove", function (event) {
-                        var l = event.changedTouches.length;
-                        for (var i = 0; i < l; i++) {
-                            self.onTouchMove(event.changedTouches[i]);
-                        }
-                        self.prevent(event);
-                    }, false);
-                    self.canvas.addEventListener("touchend", function (event) {
-                        var l = event.changedTouches.length;
-                        for (var i = 0; i < l; i++) {
-                            self.onTouchEnd(event.changedTouches[i]);
-                        }
-                        self.prevent(event);
-                    }, false);
-                    self.canvas.addEventListener("touchcancel", function (event) {
-                        var l = event.changedTouches.length;
-                        for (var i = 0; i < l; i++) {
-                            self.onTouchEnd(event.changedTouches[i]);
-                        }
-                        self.prevent(event);
-                    }, false);
-                }
-            };
-            WebTouchHandler.prototype.prevent = function (event) {
-                event.stopPropagation();
-                if (event["isScroll"] != true && !this.canvas['userTyping']) {
-                    event.preventDefault();
-                }
-            };
-            WebTouchHandler.prototype.getLocation = function (event) {
-                var doc = document.documentElement;
-                var box = this.canvas.getBoundingClientRect();
-                var left = box.left;
-                var top = box.top;
-                var x = event.pageX - left,
-                    newx = x;
-                var y = event.pageY - top,
-                    newy = y;
-                if (this.rotation == 90) {
-                    newx = y;
-                    newy = box.width - x;
-                } else if (this.rotation == -90) {
-                    newx = box.height - y;
-                    newy = x;
-                }
-                newx = newx / this.scaleX;
-                newy = newy / this.scaleY;
-                return egret.$TempPoint.setTo(Math.round(newx), Math.round(newy));
-            };
-            WebTouchHandler.prototype.updateScaleMode = function (scaleX, scaleY, rotation) {
-                this.scaleX = scaleX;
-                this.scaleY = scaleY;
-                this.rotation = rotation;
-            };
-            WebTouchHandler.prototype.$updateMaxTouches = function () {
-                this.touch.$initMaxTouches();
-            };
-            return WebTouchHandler;
-        }(egret.HashObject);
-        wxgame.WebTouchHandler = WebTouchHandler;
-        __reflect(WebTouchHandler.prototype, "egret.wxgame.WebTouchHandler");
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var isShow = true;
-        wxgame.WebLifeCycleHandler = function (context) {
-            if (wx.onShow) {
-                wx.onShow(function () {
-                    if (!isShow) {
-                        context.resume();
-                        isShow = true;
-                    }
-                });
-            }
-            if (wx.onHide) {
-                wx.onHide(function () {
-                    if (isShow) {
-                        context.pause();
-                        isShow = false;
-                    }
-                });
-            }
-        };
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var AudioType = function () {
-            function AudioType() {}
-            AudioType.WEB_AUDIO = 2;
-            AudioType.HTML5_AUDIO = 3;
-            return AudioType;
-        }();
-        wxgame.AudioType = AudioType;
-        __reflect(AudioType.prototype, "egret.wxgame.AudioType");
-        var Html5Capatibility = function (_super) {
-            __extends(Html5Capatibility, _super);
-            function Html5Capatibility() {
-                return _super.call(this) || this;
-            }
-            Html5Capatibility.$init = function () {
-                egret.Sound = wxgame.HtmlSound;
-            };
-            return Html5Capatibility;
-        }(egret.HashObject);
-        wxgame.Html5Capatibility = Html5Capatibility;
-        __reflect(Html5Capatibility.prototype, "egret.wxgame.Html5Capatibility");
-        var currentPrefix = null;
-        function getPrefixStyleName(name, element) {
-            var header = "";
-            if (element != null) {
-                header = getPrefix(name, element);
-            } else {
-                if (currentPrefix == null) {
-                    var tempStyle = document.createElement('div').style;
-                    currentPrefix = getPrefix("transform", tempStyle);
-                }
-                header = currentPrefix;
-            }
-            if (header == "") {
-                return name;
-            }
-            return header + name.charAt(0).toUpperCase() + name.substring(1, name.length);
-        }
-        wxgame.getPrefixStyleName = getPrefixStyleName;
-        function getPrefix(name, element) {
-            if (name in element) {
-                return "";
-            }
-            name = name.charAt(0).toUpperCase() + name.substring(1, name.length);
-            var transArr = ["webkit", "ms", "Moz", "O"];
-            for (var i = 0; i < transArr.length; i++) {
-                var tempStyle = transArr[i] + name;
-                if (tempStyle in element) {
-                    return transArr[i];
-                }
-            }
-            return "";
-        }
-        wxgame.getPrefix = getPrefix;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        wxgame.version = "1.3.7";
-        wxgame.isSubContext = false;
-        wxgame.preUploadTexture = false;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        function updateAllScreens() {
-            if (!isRunning) {
-                return;
-            }
-            window['player'].updateScreenSize();
-        }
-        var isRunning = false;
-        function runEgret(options) {
-            //if (isRunning) {
-            //    return;
-            //}
-
-            if (isRunning) {
-                egret.sys.screenAdapter = null;
-                egret.MainContext.instance = null;
-                egret.sys.$TempStage = null;
-            }
-
-            isRunning = true;
-            if (!options) {
-                options = {};
-            }
-            if (options.pro) {
-                if (egret.pro != undefined) {
-                    egret.pro.egret2dDriveMode = true;
-                }
-                try {
-                    if (window['startup']) {
-                        window['startup']();
-                    } else {
-                        console.error("EgretPro.js don't has function:window.startup");
-                    }
-                } catch (e) {
-                    console.error(e);
-                }
-            }
-            wxgame.Html5Capatibility.$init();
-            if (options.renderMode == "webgl") {
-                var antialias = options.antialias;
-                wxgame.WebGLRenderContext.antialias = !!antialias;
-            }
-            egret.sys.CanvasRenderBuffer = wxgame.CanvasRenderBuffer;
-            setRenderMode(options.renderMode);
-            var canvasScaleFactor;
-            if (options.canvasScaleFactor) {
-                canvasScaleFactor = options.canvasScaleFactor;
-            } else if (options.calculateCanvasScaleFactor) {
-                canvasScaleFactor = options.calculateCanvasScaleFactor(egret.sys.canvasHitTestBuffer.context);
-            } else {
-                var context = egret.sys.canvasHitTestBuffer.context;
-                var backingStore = context.backingStorePixelRatio || context.webkitBackingStorePixelRatio || context.mozBackingStorePixelRatio || context.msBackingStorePixelRatio || context.oBackingStorePixelRatio || context.backingStorePixelRatio || 1;
-                canvasScaleFactor = (window.devicePixelRatio || 1) / backingStore;
-            }
-            egret.sys.DisplayList.$canvasScaleFactor = canvasScaleFactor;
-            var ticker = egret.ticker;
-            startTicker(ticker);
-            if (options.screenAdapter) {
-                egret.sys.screenAdapter = options.screenAdapter;
-            } else if (!egret.sys.screenAdapter) {
-                egret.sys.screenAdapter = new egret.sys.DefaultScreenAdapter();
-            }
-            var container = {};
-            var player = new wxgame.WebPlayer(container, options);
-            window['player'] = player;
-            window.addEventListener("resize", function () {
-                if (isNaN(resizeTimer)) {
-                    resizeTimer = window.setTimeout(doResize, 300);
-                }
-            });
-        }
-        function setRenderMode(renderMode) {
-            if (renderMode === "webgl") {
-                var wxiOS10 = false;
-                if (wx.createCanvas().getContext('webgl').wxBindCanvasTexture) {
-                    var systemInfo = window['wx'].getSystemInfoSync();
-                    wxiOS10 = systemInfo.system.indexOf('iOS 10') > -1 ? true : false;
-                }
-                egret.Capabilities["renderMode" + ""] = "webgl";
-                egret.sys.RenderBuffer = wxgame.WebGLRenderBuffer;
-                egret.sys.systemRenderer = new wxgame.WebGLRenderer();
-                egret.sys.systemRenderer.wxiOS10 = wxiOS10;
-                egret.sys.canvasRenderer = new egret.CanvasRenderer();
-                egret.sys.customHitTestBuffer = new wxgame.WebGLRenderBuffer(3, 3);
-                egret.sys.canvasHitTestBuffer = new wxgame.CanvasRenderBuffer(3, 3);
-            } else {
-                egret.Capabilities["renderMode" + ""] = "canvas";
-                egret.sys.RenderBuffer = wxgame.CanvasRenderBuffer;
-                egret.sys.systemRenderer = new egret.CanvasRenderer();
-                egret.sys.canvasRenderer = egret.sys.systemRenderer;
-                egret.sys.customHitTestBuffer = new wxgame.CanvasRenderBuffer(3, 3);
-                egret.sys.canvasHitTestBuffer = egret.sys.customHitTestBuffer;
-            }
-        }
-        egret.sys.setRenderMode = setRenderMode;
-        function startTicker(ticker) {
-            var requestAnimationFrame = window["requestAnimationFrame"] || window["webkitRequestAnimationFrame"] || window["mozRequestAnimationFrame"] || window["oRequestAnimationFrame"] || window["msRequestAnimationFrame"];
-            if (!requestAnimationFrame) {
-                requestAnimationFrame = function (callback) {
-                    return window.setTimeout(callback, 1000 / 60);
-                };
-            }
-            requestAnimationFrame(onTick);
-            function onTick() {
-                requestAnimationFrame(onTick);
-                ticker.update(true);
-            }
-        }
-        function reInit() {
-            if (window.playerTest) {
-                window.playerTest.initialize();
-            }
-        }
-
-        egret.runEgret = runEgret;
-        egret.reInit = reInit;
-        egret.updateAllScreens = updateAllScreens;
-        var resizeTimer = NaN;
-        function doResize() {
-            resizeTimer = NaN;
-            egret.updateAllScreens();
-        }
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-if (true) {
-    var systemInfo = wx.getSystemInfoSync();
-    var language = systemInfo.language.toLowerCase();
-    if (language.indexOf('zh') > -1) {
-        language = "zh_CN";
+      } else this.drawData.splice(r, 1), this.drawDataLen--;
+    }var n = this.drawData[this.drawDataLen] || {};n.type = 4, n.value = e, this.drawData[this.drawDataLen] = n, this.drawDataLen++;
+  }, WebGLDrawCmdManager.prototype.pushResize = function (e, t, r) {
+    var a = this.drawData[this.drawDataLen] || {};a.type = 5, a.buffer = e, a.width = t, a.height = r, this.drawData[this.drawDataLen] = a, this.drawDataLen++;
+  }, WebGLDrawCmdManager.prototype.pushClearColor = function () {
+    var e = this.drawData[this.drawDataLen] || {};e.type = 6, this.drawData[this.drawDataLen] = e, this.drawDataLen++;
+  }, WebGLDrawCmdManager.prototype.pushActivateBuffer = function (e) {
+    var t = !1;for (var r = this.drawDataLen - 1; 0 <= r; r--) {
+      var a = this.drawData[r];a && ((t = 4 != a.type && 7 != a.type ? !0 : t) || 7 != a.type || (this.drawData.splice(r, 1), this.drawDataLen--));
+    }var n = this.drawData[this.drawDataLen] || {};n.type = 7, n.buffer = e, n.width = e.rootRenderTarget.width, n.height = e.rootRenderTarget.height, this.drawData[this.drawDataLen] = n, this.drawDataLen++;
+  }, WebGLDrawCmdManager.prototype.pushEnableScissor = function (e, t, r, a) {
+    var n = this.drawData[this.drawDataLen] || {};n.type = 8, n.x = e, n.y = t, n.width = r, n.height = a, this.drawData[this.drawDataLen] = n, this.drawDataLen++;
+  }, WebGLDrawCmdManager.prototype.pushDisableScissor = function () {
+    var e = this.drawData[this.drawDataLen] || {};e.type = 9, this.drawData[this.drawDataLen] = e, this.drawDataLen++;
+  }, WebGLDrawCmdManager.prototype.clear = function () {
+    for (var e = 0; e < this.drawDataLen; e++) {
+      var t = this.drawData[e];t.type = 0, t.count = 0, t.texture = null, t.filter = null, t.value = "", t.buffer = null, t.width = 0, t.height = 0, t.textureWidth = 0, t.textureHeight = 0, t.smoothing = !1, t.x = 0, t.y = 0;
+    }this.drawDataLen = 0;
+  }, e = WebGLDrawCmdManager, t.WebGLDrawCmdManager = e, __reflect(e.prototype, "egret.wxgame.WebGLDrawCmdManager");
+}(egret = egret || {}), function (k) {
+  function WebGLVertexArrayObject() {
+    this.vertSize = 5, this.vertByteSize = 4 * this.vertSize, this.maxQuadsCount = 2048, this.maxVertexCount = 4 * this.maxQuadsCount, this.maxIndicesCount = 6 * this.maxQuadsCount, this.vertices = null, this.indices = null, this.indicesForMesh = null, this.vertexIndex = 0, this.indexIndex = 0, this.hasMesh = !1, this._vertices = null, this._verticesFloat32View = null, this._verticesUint32View = null;var e = this.maxVertexCount * this.vertSize;this.vertices = new Float32Array(e), this._vertices = new ArrayBuffer(this.maxVertexCount * this.vertByteSize), this._verticesFloat32View = new Float32Array(this._vertices), this._verticesUint32View = new Uint32Array(this._vertices), this.vertices = this._verticesFloat32View;var t = this.maxIndicesCount;this.indices = new Uint16Array(t), this.indicesForMesh = new Uint16Array(t);for (var r = 0, a = 0; r < t; r += 6, a += 4) this.indices[r + 0] = a + 0, this.indices[r + 1] = a + 1, this.indices[r + 2] = a + 2, this.indices[r + 3] = a + 0, this.indices[r + 4] = a + 2, this.indices[r + 5] = a + 3;
+  }function isIOS14Device() {
+    return k.Capabilities.runtimeType == k.RuntimeType.WEB && "iOS" == k.Capabilities.os && k.Capabilities.isMobile && /iPhone OS 14/.test(window.navigator.userAgent);
+  }var e, t;e = k.wxgame || (k.wxgame = {}), WebGLVertexArrayObject.prototype.reachMaxSize = function (e, t) {
+    return void 0 === t && (t = 6), this.vertexIndex > this.maxVertexCount - (e = void 0 === e ? 4 : e) || this.indexIndex > this.maxIndicesCount - t;
+  }, WebGLVertexArrayObject.prototype.getVertices = function () {
+    return this.vertices.subarray(0, this.vertexIndex * this.vertSize);
+  }, WebGLVertexArrayObject.prototype.getIndices = function () {
+    return this.indices;
+  }, WebGLVertexArrayObject.prototype.getMeshIndices = function () {
+    return this.indicesForMesh;
+  }, WebGLVertexArrayObject.prototype.changeToMeshIndices = function () {
+    if (!this.hasMesh) {
+      for (var e = 0, t = this.indexIndex; e < t; ++e) this.indicesForMesh[e] = this.indices[e];this.hasMesh = !0;
+    }
+  }, WebGLVertexArrayObject.prototype.isMesh = function () {
+    return this.hasMesh;
+  }, WebGLVertexArrayObject.prototype.cacheArrays = function (e, t, r, a, n, i, o, s, c, h, l, d, u, f, p) {
+    var g = e.globalAlpha;g = Math.min(g, 1);var v = e.globalTintColor || 16777215;var x = e.currentTexture;g = g < 1 && x && x[k.UNPACK_PREMULTIPLY_ALPHA_WEBGL] ? k.WebGLUtils.premultiplyTint(v, g) : v + (255 * g << 24);v = e.globalMatrix;var b = v.a;var m = v.b;var T = v.c;var y = v.d;var w = v.tx;var E = v.ty;v = e.$offsetX;e = e.$offsetY;if (0 == v && 0 == e || (w = v * b + e * T + w, E = v * m + e * y + E), u || (0 == i && 0 == o || (w = i * b + o * T + w, E = i * m + o * y + E), 1 != (U = s / a) && (b *= U, m *= U), 1 != (N = c / n) && (T *= N, y *= N)), u) {
+      if (isIOS14Device()) {
+        var L = [];var _ = this.vertices;var R = this._verticesUint32View;var C = this.vertexIndex * this.vertSize;var W = 0,
+            S = 0,
+            G = 0;var B = 0,
+            M = 0,
+            O = 0,
+            A = 0;for (W = 0, G = d.length; W < G; W += 2) S = C + 5 * W / 2, O = u[W], A = u[W + 1], B = d[W], M = d[W + 1], p ? L.push([b * O + T * A + w, m * O + y * A + E, (t + (1 - M) * n) / h, (r + B * a) / l]) : L.push([b * O + T * A + w, m * O + y * A + E, (t + B * a) / h, (r + M * n) / l]), R[S + 4] = g;for (var I = 0; I < f.length; I += 3) {
+          var D = L[f[I]];_[C++] = D[0], _[C++] = D[1], _[C++] = D[2], _[C++] = D[3], R[C++] = g;D = L[f[I + 1]];_[C++] = D[0], _[C++] = D[1], _[C++] = D[2], _[C++] = D[3], R[C++] = g;D = L[f[I + 2]];_[C++] = D[0], _[C++] = D[1], _[C++] = D[2], _[C++] = D[3], R[C++] = g, _[C++] = D[0], _[C++] = D[1], _[C++] = D[2], _[C++] = D[3], R[C++] = g;
+        }var P = f.length / 3;this.vertexIndex += 4 * P, this.indexIndex += 6 * P;
+      } else {
+        _ = this.vertices;R = this._verticesUint32View;C = this.vertexIndex * this.vertSize;W = 0, S = 0, G = 0;B = 0, M = 0, O = 0, A = 0;for (W = 0, G = d.length; W < G; W += 2) O = u[W], A = u[W + 1], B = d[W], M = d[W + 1], _[(S = C + 5 * W / 2) + 0] = b * O + T * A + w, _[S + 1] = m * O + y * A + E, p ? (_[S + 2] = (t + (1 - M) * n) / h, _[S + 3] = (r + B * a) / l) : (_[S + 2] = (t + B * a) / h, _[S + 3] = (r + M * n) / l), R[S + 4] = g;if (this.hasMesh) for (var F = 0, $ = f.length; F < $; ++F) this.indicesForMesh[this.indexIndex + F] = f[F] + this.vertexIndex;this.vertexIndex += d.length / 2, this.indexIndex += f.length;
+      }
     } else {
-        language = "en_US";
+      s = h;var U = l;c = a;var N = n;t /= s, r /= U;_ = this.vertices;R = this._verticesUint32View;C = this.vertexIndex * this.vertSize;p ? (P = a, a = n / s, n = P / U, _[C++] = w, _[C++] = E, _[C++] = a + t, _[C++] = r, R[C++] = g, _[C++] = b * c + w, _[C++] = m * c + E, _[C++] = a + t, _[C++] = n + r, R[C++] = g, _[C++] = b * c + T * N + w, _[C++] = y * N + m * c + E, _[C++] = t, _[C++] = n + r, R[C++] = g, _[C++] = T * N + w, _[C++] = y * N + E, _[C++] = t, _[C++] = r) : (a /= s, n /= U, _[C++] = w, _[C++] = E, _[C++] = t, _[C++] = r, R[C++] = g, _[C++] = b * c + w, _[C++] = m * c + E, _[C++] = a + t, _[C++] = r, R[C++] = g, _[C++] = b * c + T * N + w, _[C++] = y * N + m * c + E, _[C++] = a + t, _[C++] = n + r, R[C++] = g, _[C++] = T * N + w, _[C++] = y * N + E, _[C++] = t, _[C++] = n + r), R[C++] = g, this.hasMesh && ((N = this.indicesForMesh)[this.indexIndex + 0] = 0 + this.vertexIndex, N[this.indexIndex + 1] = 1 + this.vertexIndex, N[this.indexIndex + 2] = 2 + this.vertexIndex, N[this.indexIndex + 3] = 0 + this.vertexIndex, N[this.indexIndex + 4] = 2 + this.vertexIndex, N[this.indexIndex + 5] = 3 + this.vertexIndex), this.vertexIndex += 4, this.indexIndex += 6;
     }
-    if (language in egret.$locale_strings) {
-        egret.$language = language;
+  }, WebGLVertexArrayObject.prototype.clear = function () {
+    this.hasMesh = !1, this.vertexIndex = 0, this.indexIndex = 0;
+  }, t = WebGLVertexArrayObject, e.WebGLVertexArrayObject = t, __reflect(t.prototype, "egret.wxgame.WebGLVertexArrayObject"), e.isIOS14Device = isIOS14Device;
+}(egret = egret || {}), function (r) {
+  function WebGLRenderTarget(e, t, r) {
+    var a = n.call(this) || this;return a.clearColor = [0, 0, 0, 0], a.useFrameBuffer = !0, a.gl = e, a._resize(t, r), a;
+  }var t, e, n;t = r.wxgame || (r.wxgame = {}), n = r.HashObject, __extends(WebGLRenderTarget, n), WebGLRenderTarget.prototype._resize = function (e, t) {
+    t = t || 1, (e = e || 1) < 1 && (r.warn("WebGLRenderTarget _resize width = " + e), e = 1), t < 1 && (r.warn("WebGLRenderTarget _resize height = " + t), t = 1), this.width = e, this.height = t;
+  }, WebGLRenderTarget.prototype.resize = function (e, t) {
+    this._resize(e, t);t = this.gl;this.frameBuffer && (t.bindTexture(t.TEXTURE_2D, this.texture), t.texImage2D(t.TEXTURE_2D, 0, t.RGBA, this.width, this.height, 0, t.RGBA, t.UNSIGNED_BYTE, null)), this.stencilBuffer && (t.deleteRenderbuffer(this.stencilBuffer), this.stencilBuffer = null);
+  }, WebGLRenderTarget.prototype.activate = function () {
+    var e = this.gl;e.bindFramebuffer(e.FRAMEBUFFER, this.getFrameBuffer());
+  }, WebGLRenderTarget.prototype.getFrameBuffer = function () {
+    return this.useFrameBuffer ? this.frameBuffer : null;
+  }, WebGLRenderTarget.prototype.initFrameBuffer = function () {
+    var e;this.frameBuffer || (e = this.gl, this.texture = this.createTexture(), this.frameBuffer = e.createFramebuffer(), e.bindFramebuffer(e.FRAMEBUFFER, this.frameBuffer), e.framebufferTexture2D(e.FRAMEBUFFER, e.COLOR_ATTACHMENT0, e.TEXTURE_2D, this.texture, 0));
+  }, WebGLRenderTarget.prototype.createTexture = function () {
+    var e = t.WebGLRenderContext.getInstance(0, 0);return r.sys._createTexture(e, this.width, this.height, null);
+  }, WebGLRenderTarget.prototype.clear = function (e) {
+    var t = this.gl;e && this.activate(), t.colorMask(!0, !0, !0, !0), t.clearColor(this.clearColor[0], this.clearColor[1], this.clearColor[2], this.clearColor[3]), t.clear(t.COLOR_BUFFER_BIT);
+  }, WebGLRenderTarget.prototype.enabledStencil = function () {
+    var e;this.frameBuffer && !this.stencilBuffer && ((e = this.gl).bindFramebuffer(e.FRAMEBUFFER, this.frameBuffer), this.stencilBuffer = e.createRenderbuffer(), e.bindRenderbuffer(e.RENDERBUFFER, this.stencilBuffer), e.renderbufferStorage(e.RENDERBUFFER, e.DEPTH_STENCIL, this.width, this.height), e.framebufferRenderbuffer(e.FRAMEBUFFER, e.DEPTH_STENCIL_ATTACHMENT, e.RENDERBUFFER, this.stencilBuffer));
+  }, WebGLRenderTarget.prototype.dispose = function () {
+    r.WebGLUtils.deleteWebGLTexture(this.texture);
+  }, e = WebGLRenderTarget, t.WebGLRenderTarget = e, __reflect(e.prototype, "egret.wxgame.WebGLRenderTarget");
+}(egret = egret || {}), function (l) {
+  function WebGLRenderContext(e, t, r) {
+    this._defaultEmptyTexture = null, this.glID = null, this.projectionX = NaN, this.projectionY = NaN, this.contextLost = !1, this._supportedCompressedTextureInfo = [], this.$scissorState = !1, this.vertSize = 5, this.$beforeRender = function () {
+      var e = this.context;e.bindBuffer(e.ARRAY_BUFFER, this.vertexBuffer), e.bindBuffer(e.ELEMENT_ARRAY_BUFFER, this.indexBuffer), e.disable(e.DEPTH_TEST), e.disable(e.CULL_FACE), e.enable(e.BLEND), e.disable(e.STENCIL_TEST), e.colorMask(!0, !0, !0, !0), this.setBlendMode("source-over"), e.activeTexture(e.TEXTURE0), this.currentProgram = null;
+    }, this.surface = l.sys.mainCanvas(e, t), l.nativeRender || (this.initWebGL(r), this.getSupportedCompressedTexture(), this.$bufferStack = [], r = this.context, this.vertexBuffer = r.createBuffer(), this.indexBuffer = r.createBuffer(), r.bindBuffer(r.ARRAY_BUFFER, this.vertexBuffer), r.bindBuffer(r.ELEMENT_ARRAY_BUFFER, this.indexBuffer), this.drawCmdManager = new m.WebGLDrawCmdManager(), this.vao = new m.WebGLVertexArrayObject(), this.setGlobalCompositeOperation("source-over"));
+  }var m, c, e;m = l.wxgame || (l.wxgame = {}), c = {}, WebGLRenderContext.getInstance = function (e, t, r) {
+    return this.instance || (this.instance = new WebGLRenderContext(e, t, r), this.instance);
+  }, WebGLRenderContext.prototype.pushBuffer = function (e) {
+    this.$bufferStack.push(e), e != this.currentBuffer && (this.currentBuffer, this.drawCmdManager.pushActivateBuffer(e)), this.currentBuffer = e;
+  }, WebGLRenderContext.prototype.popBuffer = function () {
+    var e;this.$bufferStack.length <= 1 || (this.$bufferStack.pop() != (e = this.$bufferStack[this.$bufferStack.length - 1]) && this.drawCmdManager.pushActivateBuffer(e), this.currentBuffer = e);
+  }, WebGLRenderContext.prototype.activateBuffer = function (e, t, r) {
+    e.rootRenderTarget.activate(), this.bindIndices || this.uploadIndicesArray(this.vao.getIndices()), e.restoreStencil(), e.restoreScissor(), this.onResize(t, r);
+  }, WebGLRenderContext.prototype.uploadVerticesArray = function (e) {
+    var t = this.context;t.bufferData(t.ARRAY_BUFFER, e, t.STREAM_DRAW);
+  }, WebGLRenderContext.prototype.uploadIndicesArray = function (e) {
+    var t = this.context;t.bufferData(t.ELEMENT_ARRAY_BUFFER, e, t.STATIC_DRAW), this.bindIndices = !0;
+  }, WebGLRenderContext.prototype.destroy = function () {
+    this.surface.width = this.surface.height = 0;
+  }, WebGLRenderContext.prototype.onResize = function (e, t) {
+    e = e || this.surface.width, t = t || this.surface.height, this.projectionX = e / 2, this.projectionY = -t / 2, this.context && this.context.viewport(0, 0, e, t);
+  }, WebGLRenderContext.prototype.resize = function (e, t, r) {
+    l.sys.resizeContext(this, e, t, r);
+  }, WebGLRenderContext.prototype._buildSupportedCompressedTextureInfo = function (e) {
+    var t = [];for (var r = 0, a = e; r < a.length; r++) {
+      var n = a[r];if (n) {
+        var i = { extensionName: n.name, supportedFormats: [] };for (var o in n) i.supportedFormats.push([o, n[o]]);if (1, 0 === i.supportedFormats.length) console.error("buildSupportedCompressedTextureInfo failed = " + n.name);else for (var o in l.log("support: " + n.name), n) l.log(o, n[o], "0x" + n[o].toString(16));t.push(i);
+      }
+    }return t;
+  }, WebGLRenderContext.prototype.initWebGL = function (e) {
+    this.onResize(), this.surface.addEventListener("webglcontextlost", this.handleContextLost.bind(this), !1), this.surface.addEventListener("webglcontextrestored", this.handleContextRestored.bind(this), !1), e ? this.setContext(e) : this.getWebGLContext();e = this.context;this.$maxTextureSize = e.getParameter(e.MAX_TEXTURE_SIZE);
+  }, WebGLRenderContext.prototype.getSupportedCompressedTexture = function () {
+    var e = this.context || l.sys.getContextWebGL(this.surface);this.pvrtc = e.getExtension("WEBGL_compressed_texture_pvrtc") || e.getExtension("WEBKIT_WEBGL_compressed_texture_pvrtc"), this.pvrtc && (this.pvrtc.name = "WEBGL_compressed_texture_pvrtc"), this.etc1 = e.getExtension("WEBGL_compressed_texture_etc1") || e.getExtension("WEBKIT_WEBGL_compressed_texture_etc1"), this.etc1 && (this.etc1.name = "WEBGL_compressed_texture_etc1"), l.Capabilities._supportedCompressedTexture ? (l.Capabilities._supportedCompressedTexture = l.Capabilities._supportedCompressedTexture || {}, l.Capabilities._supportedCompressedTexture.pvrtc = !!this.pvrtc, l.Capabilities._supportedCompressedTexture.etc1 = !!this.etc1) : (l.Capabilities.supportedCompressedTexture = l.Capabilities._supportedCompressedTexture || {}, l.Capabilities.supportedCompressedTexture.pvrtc = !!this.pvrtc, l.Capabilities.supportedCompressedTexture.etc1 = !!this.etc1), this._supportedCompressedTextureInfo = this._buildSupportedCompressedTextureInfo([this.etc1, this.pvrtc]);
+  }, WebGLRenderContext.prototype.handleContextLost = function () {
+    this.contextLost = !0;
+  }, WebGLRenderContext.prototype.handleContextRestored = function () {
+    this.initWebGL(), this.contextLost = !1;
+  }, WebGLRenderContext.prototype.getWebGLContext = function () {
+    var e = l.sys.getContextWebGL(this.surface);return this.setContext(e), e;
+  }, WebGLRenderContext.prototype.setContext = function (e) {
+    (this.context = e).id = WebGLRenderContext.glContextId++, this.glID = e.id, e.disable(e.DEPTH_TEST), e.disable(e.CULL_FACE), e.enable(e.BLEND), e.colorMask(!0, !0, !0, !0), e.activeTexture(e.TEXTURE0);
+  }, WebGLRenderContext.prototype.enableStencilTest = function () {
+    var e = this.context;e.enable(e.STENCIL_TEST);
+  }, WebGLRenderContext.prototype.disableStencilTest = function () {
+    var e = this.context;e.disable(e.STENCIL_TEST);
+  }, WebGLRenderContext.prototype.enableScissorTest = function (e) {
+    var t = this.context;t.enable(t.SCISSOR_TEST), t.scissor(e.x, e.y, e.width, e.height);
+  }, WebGLRenderContext.prototype.disableScissorTest = function () {
+    var e = this.context;e.disable(e.SCISSOR_TEST);
+  }, WebGLRenderContext.prototype.getPixels = function (e, t, r, a, n) {
+    var i = this.context;i.readPixels(e, t, r, a, i.RGBA, i.UNSIGNED_BYTE, n);
+  }, WebGLRenderContext.prototype.createTexture = function (e) {
+    return l.sys.createTexture(this, e);
+  }, WebGLRenderContext.prototype.checkCompressedTextureInternalFormat = function (e, t) {
+    for (var r = 0, a = e.length; r < a; ++r) {
+      var n = e[r].supportedFormats;for (var i = 0, o = n.length; i < o; ++i) if (n[i][1] === t) return !0;
+    }return !1;
+  }, WebGLRenderContext.prototype.$debugLogCompressedTextureNotSupported = function (e, t) {
+    if (!c[t]) {
+      c[t] = !0, l.log("internalFormat = " + t + ":0x" + t.toString(16) + ", the current hardware does not support the corresponding compression format.");for (var r = 0, a = e.length; r < a; ++r) {
+        var n = e[r];if (0 < n.supportedFormats.length) {
+          l.log("support = " + n.extensionName);for (var i = 0, o = n.supportedFormats.length; i < o; ++i) {
+            var s = n.supportedFormats[i];l.log(s[0] + " : " + s[1] + " : 0x" + s[1].toString(16));
+          }
+        }
+      }
     }
-}
-egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebCapability = function () {
-            function WebCapability() {}
-            WebCapability.detect = function () {
-                var capabilities = egret.Capabilities;
-                capabilities["isMobile" + ""] = true;
-                var systemInfo = wx.getSystemInfoSync();
-                var systemStr = systemInfo.system.toLowerCase();
-                if (systemStr.indexOf("ios") > -1) {
-                    capabilities["os" + ""] = "iOS";
-                } else if (systemStr.indexOf("android") > -1) {
-                    capabilities["os" + ""] = "Android";
-                }
-                var language = systemInfo.language;
-                if (language.indexOf('zh') > -1) {
-                    language = "zh-CN";
-                } else {
-                    language = "en-US";
-                }
-                capabilities["language" + ""] = language;
-            };
-            return WebCapability;
-        }();
-        wxgame.WebCapability = WebCapability;
-        __reflect(WebCapability.prototype, "egret.wxgame.WebCapability");
-        WebCapability.detect();
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var fpsText = new egret.TextField();
-        var logText = new egret.TextField();
-        var WebFps = function (_super) {
-            __extends(WebFps, _super);
-            function WebFps(stage, showFPS, showLog, logFilter, styles) {
-                var _this = _super.call(this) || this;
-                _this.arrFps = [];
-                _this.arrCost = [];
-                _this.arrLog = [];
-                if (!showFPS && !showLog) {
-                    return _this;
-                }
-                _this.showFPS = showFPS;
-                _this.showLog = showLog;
-                _this.arrFps = [];
-                _this.arrCost = [];
-                var tx = styles["x"] == undefined ? 0 : parseInt(styles["x"]);
-                var ty = styles["y"] == undefined ? 0 : parseInt(styles["y"]);
-                var bgAlpha = styles["bgAlpha"] == undefined ? 1 : Number(styles["bgAlpha"]);
-                var fontSize = styles["size"] == undefined ? 12 : parseInt(styles['size']);
-                var fontColor = styles["textColor"] === undefined ? 0x000000 : parseInt(styles['textColor'].replace("#", "0x"));
-                var bg = new egret.Shape();
-                _this.bg = bg;
-                bg.graphics.beginFill(0x000000, bgAlpha);
-                bg.graphics.drawRect(0, 0, 10, 10);
-                bg.graphics.endFill();
-                bg.x = tx;
-                bg.y = ty;
-                if (showFPS) {
-                    fpsText.x = tx + 4;
-                    fpsText.y = ty + 4;
-                    fpsText.textColor = fontColor;
-                    fpsText.size = fontSize;
-                }
-                if (showLog) {
-                    logText.x = tx + 4;
-                    logText.y = ty + 4;
-                    logText.textColor = fontColor;
-                    logText.size = fontSize;
-                }
-                return _this;
-            }
-            WebFps.prototype.addText = function () {
-                egret.sys.$TempStage.addChild(this.bg);
-                if (this.showFPS) {
-                    egret.sys.$TempStage.addChild(fpsText);
-                }
-                if (this.showLog) {
-                    egret.sys.$TempStage.addChild(logText);
-                }
-            };
-            WebFps.prototype.addFps = function () {};
-            WebFps.prototype.addLog = function () {};
-            WebFps.prototype.update = function (datas, showLastData) {
-                if (showLastData === void 0) {
-                    showLastData = false;
-                }
-                var numFps;
-                var numCostTicker;
-                var numCostRender;
-                if (!showLastData) {
-                    numFps = datas.fps;
-                    numCostTicker = datas.costTicker;
-                    numCostRender = datas.costRender;
-                    this.lastNumDraw = datas.draw;
-                    this.arrFps.push(numFps);
-                    this.arrCost.push([numCostTicker, numCostRender]);
-                } else {
-                    numFps = this.arrFps[this.arrFps.length - 1];
-                    numCostTicker = this.arrCost[this.arrCost.length - 1][0];
-                    numCostRender = this.arrCost[this.arrCost.length - 1][1];
-                }
-                var fpsTotal = 0;
-                var lenFps = this.arrFps.length;
-                if (lenFps > 101) {
-                    lenFps = 101;
-                    this.arrFps.shift();
-                    this.arrCost.shift();
-                }
-                var fpsMin = this.arrFps[0];
-                var fpsMax = this.arrFps[0];
-                for (var i = 0; i < lenFps; i++) {
-                    var num = this.arrFps[i];
-                    fpsTotal += num;
-                    if (num < fpsMin) fpsMin = num;else if (num > fpsMax) fpsMax = num;
-                }
-                var fpsAvg = Math.floor(fpsTotal / lenFps);
-                fpsText.text = numFps + " FPS \n" + ("min:" + fpsMin + " max:" + fpsMax + " avg:" + fpsAvg + "\n") + ("Draw " + this.lastNumDraw + "\n") + ("Cost " + numCostTicker + " " + numCostRender);
-                this.resizeBG();
-            };
-            WebFps.prototype.resizeBG = function () {
-                this.addText();
-                var bgScaleX = 0;
-                var bgScaclY = 0;
-                if (this.showFPS && this.showLog) {
-                    bgScaleX = Math.ceil((Math.max(fpsText.width, logText.width) + 8) / 10);
-                    bgScaclY = Math.ceil((fpsText.height + logText.height + 8) / 10);
-                    logText.y = this.bg.y + 4 + fpsText.height;
-                } else if (this.showFPS) {
-                    bgScaleX = Math.ceil((fpsText.width + 8) / 10);
-                    bgScaclY = Math.ceil((fpsText.height + 8) / 10);
-                } else {
-                    bgScaleX = Math.ceil((logText.width + 8) / 10);
-                    bgScaclY = Math.ceil((logText.height + 8) / 10);
-                    logText.y = this.bg.y + 4;
-                }
-                this.bg.scaleX = bgScaleX;
-                this.bg.scaleY = bgScaclY;
-            };
-            WebFps.prototype.updateInfo = function (info) {
-                this.arrLog.push(info);
-                this.updateLogLayout();
-            };
-            WebFps.prototype.updateWarn = function (info) {
-                this.arrLog.push("[Warning]" + info);
-                this.updateLogLayout();
-            };
-            WebFps.prototype.updateError = function (info) {
-                this.arrLog.push("[Error]" + info);
-                this.updateLogLayout();
-            };
-            WebFps.prototype.updateLogLayout = function () {
-                logText.text = this.arrLog.join('\n');
-                if (egret.sys.$TempStage.height < logText.y + logText.height + logText.size * 2) {
-                    this.arrLog.shift();
-                    logText.text = this.arrLog.join('\n');
-                }
-                this.resizeBG();
-            };
-            return WebFps;
-        }(egret.DisplayObject);
-        wxgame.WebFps = WebFps;
-        __reflect(WebFps.prototype, "egret.wxgame.WebFps", ["egret.FPSDisplay"]);
-        egret.FPSDisplay = WebFps;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        function getOption(key) {
-            var launchOptions = wx.getLaunchOptionsSync();
-            return launchOptions.query[key] || launchOptions[key];
-        }
-        wxgame.getOption = getOption;
-        egret.getOption = getOption;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebPlayer = function (_super) {
-            __extends(WebPlayer, _super);
-            function WebPlayer(container, options) {
-                var _this = _super.call(this) || this;
-                _this.init(container, options);
-                _this.initOrientation();
-                return _this;
-            }
-            WebPlayer.prototype.init = function (container, options) {
-                console.log("Egret Engine Version:", egret.Capabilities.engineVersion);
-                var option = this.readOption(container, options);
-                var stage = new egret.Stage();
-                egret.sys['stage2d'] = stage;
-                stage.$screen = this;
-                stage.$scaleMode = option.scaleMode;
-                stage.$orientation = option.orientation;
-                stage.$maxTouches = option.maxTouches;
-                stage.frameRate = option.frameRate;
-                wx.setPreferredFramesPerSecond(stage.frameRate);
-                stage.textureScaleFactor = option.textureScaleFactor;
-                var buffer = new egret.sys.RenderBuffer(undefined, undefined, true);
-                var canvas = buffer.surface;
-                this.attachCanvas(container, canvas);
-                var webTouch = new wxgame.WebTouchHandler(stage, canvas);
-                var player = new egret.sys.Player(buffer, stage, option.entryClassName);
-                egret.lifecycle.stage = stage;
-                egret.lifecycle.addLifecycleListener(wxgame.WebLifeCycleHandler);
-                if (option.showFPS || option.showLog) {
-                    player.displayFPS(option.showFPS, option.showLog, option.logFilter, option.fpsStyles);
-                }
-                this.playerOption = option;
-                this.container = container;
-                this.canvas = canvas;
-                this.stage = stage;
-                this.player = player;
-                this.webTouchHandler = webTouch;
-                this.updateScreenSize();
-                this.updateMaxTouches();
-                player.start();
-                window["playerTest"] = player;
-            };
-            WebPlayer.prototype.initOrientation = function () {
-                var self = this;
-                window.addEventListener("orientationchange", function () {
-                    window.setTimeout(function () {
-                        egret.StageOrientationEvent.dispatchStageOrientationEvent(self.stage, egret.StageOrientationEvent.ORIENTATION_CHANGE);
-                    }, 350);
-                });
-            };
-            WebPlayer.prototype.readOption = function (container, options) {
-                var option = {};
-                option.entryClassName = options.entryClassName || "Main";
-                option.scaleMode = options.scaleMode || egret.StageScaleMode.FIXED_WIDTH;
-                if (!option.scaleMode || option.scaleMode == egret.StageScaleMode.SHOW_ALL) {
-                    option.scaleMode = egret.StageScaleMode.FIXED_WIDTH;
-                    var message = egret.sys.tr(4500, "showAll", "fixedWidth");
-                    console.warn(message);
-                }
-                option.frameRate = options.frameRate || 30;
-                option.contentWidth = options.contentWidth || 640;
-                option.contentHeight = options.contentHeight || 1136;
-                option.orientation = options.orientation || egret.OrientationMode.AUTO;
-                option.maxTouches = options.maxTouches;
-                option.textureScaleFactor = 1;
-                option.showFPS = options.showFPS;
-                var styleStr = options.fpsStyles || "x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9";
-                var stylesArr = styleStr.split(",");
-                var styles = {};
-                for (var i = 0; i < stylesArr.length; i++) {
-                    var tempStyleArr = stylesArr[i].split(":");
-                    styles[tempStyleArr[0]] = tempStyleArr[1];
-                }
-                option.fpsStyles = styles;
-                option.showLog = options.showLog;
-                option.logFilter = "";
-                return option;
-            };
-            WebPlayer.prototype.attachCanvas = function (container, canvas) {
-                var style = canvas.style;
-                style.cursor = "inherit";
-                style.position = "absolute";
-                style.top = "0";
-                style.bottom = "0";
-                style.left = "0";
-                style.right = "0";
-            };
-            WebPlayer.prototype.updateScreenSize = function () {
-                var canvas = this.canvas;
-                if (canvas['userTyping']) return;
-                var option = this.playerOption;
-                var screenRect = canvas.getBoundingClientRect();
-                var top = 0;
-                var boundingClientWidth = screenRect.width;
-                var boundingClientHeight = screenRect.height;
-                if (screenRect.top < 0) {
-                    boundingClientHeight += screenRect.top;
-                    top = -screenRect.top;
-                }
-                var shouldRotate = false;
-                var orientation = this.stage.$orientation;
-                if (orientation != egret.OrientationMode.AUTO) {
-                    shouldRotate = orientation != egret.OrientationMode.PORTRAIT && boundingClientHeight > boundingClientWidth || orientation == egret.OrientationMode.PORTRAIT && boundingClientWidth > boundingClientHeight;
-                }
-                var screenWidth = shouldRotate ? boundingClientHeight : boundingClientWidth;
-                var screenHeight = shouldRotate ? boundingClientWidth : boundingClientHeight;
-                egret.Capabilities["boundingClientWidth" + ""] = screenWidth;
-                egret.Capabilities["boundingClientHeight" + ""] = screenHeight;
-                var stageSize = egret.sys.screenAdapter.calculateStageSize(this.stage.$scaleMode, screenWidth, screenHeight, option.contentWidth, option.contentHeight);
-                var stageWidth = stageSize.stageWidth;
-                var stageHeight = stageSize.stageHeight;
-                var displayWidth = stageSize.displayWidth;
-                var displayHeight = stageSize.displayHeight;
-                canvas.style[wxgame.getPrefixStyleName("transformOrigin")] = "0% 0% 0px";
-                if (canvas.width != stageWidth) {
-                    if (!wxgame.isSubContext) {
-                        if (window["sharedCanvas"]) {
-                            window["sharedCanvas"].width = stageWidth;
-                        }
-                        canvas.width = stageWidth;
-                    }
-                }
-                if (canvas.height != stageHeight) {
-                    if (!wxgame.isSubContext) {
-                        if (window["sharedCanvas"]) {
-                            window["sharedCanvas"].height = stageHeight;
-                        }
-                        canvas.height = stageHeight;
-                    }
-                }
-                var rotation = 0;
-                if (shouldRotate) {
-                    if (orientation == egret.OrientationMode.LANDSCAPE) {
-                        rotation = 90;
-                        canvas.style.top = top + (boundingClientHeight - displayWidth) / 2 + "px";
-                        canvas.style.left = (boundingClientWidth + displayHeight) / 2 + "px";
-                    } else {
-                        rotation = -90;
-                        canvas.style.top = top + (boundingClientHeight + displayWidth) / 2 + "px";
-                        canvas.style.left = (boundingClientWidth - displayHeight) / 2 + "px";
-                    }
-                } else {
-                    canvas.style.top = top + (boundingClientHeight - displayHeight) / 2 + "px";
-                    canvas.style.left = (boundingClientWidth - displayWidth) / 2 + "px";
-                }
-                var scalex = displayWidth / stageWidth,
-                    scaley = displayHeight / stageHeight;
-                var canvasScaleX = scalex * egret.sys.DisplayList.$canvasScaleFactor;
-                var canvasScaleY = scaley * egret.sys.DisplayList.$canvasScaleFactor;
-                canvasScaleX = Math.ceil(canvasScaleX);
-                canvasScaleY = Math.ceil(canvasScaleY);
-                egret.sys.DisplayList.$setCanvasScale(canvasScaleX, canvasScaleY);
-                this.webTouchHandler.updateScaleMode(scalex, scaley, rotation);
-                this.player.updateStageSize(stageWidth, stageHeight);
-            };
-            WebPlayer.prototype.setContentSize = function (width, height) {
-                var option = this.playerOption;
-                option.contentWidth = width;
-                option.contentHeight = height;
-                this.updateScreenSize();
-            };
-            WebPlayer.prototype.updateMaxTouches = function () {
-                this.webTouchHandler.$updateMaxTouches();
-            };
-            return WebPlayer;
-        }(egret.HashObject);
-        wxgame.WebPlayer = WebPlayer;
-        __reflect(WebPlayer.prototype, "egret.wxgame.WebPlayer", ["egret.sys.Screen"]);
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var sharedCanvas;
-        var sharedContext;
-        function convertImageToCanvas(texture, rect) {
-            if (!sharedCanvas) {
-                sharedCanvas = egret.sys.createCanvas();
-                sharedContext = sharedCanvas.getContext("2d");
-            }
-            var w = texture.$getTextureWidth();
-            var h = texture.$getTextureHeight();
-            if (rect == null) {
-                rect = egret.$TempRectangle;
-                rect.x = 0;
-                rect.y = 0;
-                rect.width = w;
-                rect.height = h;
-            }
-            rect.x = Math.min(rect.x, w - 1);
-            rect.y = Math.min(rect.y, h - 1);
-            rect.width = Math.min(rect.width, w - rect.x);
-            rect.height = Math.min(rect.height, h - rect.y);
-            var iWidth = Math.floor(rect.width);
-            var iHeight = Math.floor(rect.height);
-            var surface = sharedCanvas;
-            surface["style"]["width"] = iWidth + "px";
-            surface["style"]["height"] = iHeight + "px";
-            sharedCanvas.width = iWidth;
-            sharedCanvas.height = iHeight;
-            if (egret.Capabilities.renderMode == "webgl") {
-                var renderTexture = void 0;
-                if (!texture.$renderBuffer) {
-                    if (egret.sys.systemRenderer.renderClear) {
-                        egret.sys.systemRenderer.renderClear();
-                    }
-                    renderTexture = new egret.RenderTexture();
-                    renderTexture.drawToTexture(new egret.Bitmap(texture));
-                } else {
-                    renderTexture = texture;
-                }
-                var pixels = renderTexture.$renderBuffer.getPixels(rect.x, rect.y, iWidth, iHeight);
-                var x = 0;
-                var y = 0;
-                for (var i = 0; i < pixels.length; i += 4) {
-                    sharedContext.fillStyle = 'rgba(' + pixels[i] + ',' + pixels[i + 1] + ',' + pixels[i + 2] + ',' + pixels[i + 3] / 255 + ')';
-                    sharedContext.fillRect(x, y, 1, 1);
-                    x++;
-                    if (x == iWidth) {
-                        x = 0;
-                        y++;
-                    }
-                }
-                if (!texture.$renderBuffer) {
-                    renderTexture.dispose();
-                }
-                return surface;
-            } else {
-                var bitmapData = texture;
-                var offsetX = Math.round(bitmapData.$offsetX);
-                var offsetY = Math.round(bitmapData.$offsetY);
-                var bitmapWidth = bitmapData.$bitmapWidth;
-                var bitmapHeight = bitmapData.$bitmapHeight;
-                sharedContext.drawImage(bitmapData.$bitmapData.source, bitmapData.$bitmapX + rect.x / egret.$TextureScaleFactor, bitmapData.$bitmapY + rect.y / egret.$TextureScaleFactor, bitmapWidth * rect.width / w, bitmapHeight * rect.height / h, offsetX, offsetY, rect.width, rect.height);
-                return surface;
-            }
-        }
-        function toDataURL(type, rect, encoderOptions) {
-            try {
-                var surface = convertImageToCanvas(this, rect);
-                var result = surface.toDataURL(type, encoderOptions);
-                return result;
-            } catch (e) {
-                egret.$error(1033);
-            }
-            return null;
-        }
-        function eliFoTevas(type, filePath, rect, encoderOptions) {
-            var surface = convertImageToCanvas(this, rect);
-            var result = surface.toTempFilePathSync({
-                fileType: type.indexOf("png") >= 0 ? "png" : "jpg"
-            });
-            wx.getFileSystemManager().saveFile({
-                tempFilePath: result,
-                filePath: wx.env.USER_DATA_PATH + "/" + filePath,
-                success: function (res) {}
-            });
-            return result;
-        }
-        function getPixel32(x, y) {
-            egret.$warn(1041, "getPixel32", "getPixels");
-            return this.getPixels(x, y);
-        }
-        function getPixels(x, y, width, height) {
-            if (width === void 0) {
-                width = 1;
-            }
-            if (height === void 0) {
-                height = 1;
-            }
-            if (egret.Capabilities.renderMode == "webgl") {
-                var renderTexture = void 0;
-                if (!this.$renderBuffer) {
-                    renderTexture = new egret.RenderTexture();
-                    renderTexture.drawToTexture(new egret.Bitmap(this));
-                } else {
-                    renderTexture = this;
-                }
-                var pixels = renderTexture.$renderBuffer.getPixels(x, y, width, height);
-                return pixels;
-            }
-            try {
-                var surface = convertImageToCanvas(this);
-                var result = sharedContext.getImageData(x, y, width, height).data;
-                return result;
-            } catch (e) {
-                egret.$error(1039);
-            }
-        }
-        egret.Texture.prototype.toDataURL = toDataURL;
-        egret.Texture.prototype.saveToFile = eliFoTevas;
-        egret.Texture.prototype.getPixel32 = getPixel32;
-        egret.Texture.prototype.getPixels = getPixels;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebExternalInterface = function () {
-            function WebExternalInterface() {}
-            WebExternalInterface.call = function (functionName, value) {};
-            WebExternalInterface.addCallback = function (functionName, listener) {};
-            return WebExternalInterface;
-        }();
-        wxgame.WebExternalInterface = WebExternalInterface;
-        __reflect(WebExternalInterface.prototype, "egret.wxgame.WebExternalInterface", ["egret.ExternalInterface"]);
-        egret.ExternalInterface = WebExternalInterface;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebDeviceOrientation = function (_super) {
-            __extends(WebDeviceOrientation, _super);
-            function WebDeviceOrientation() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.isStart = false;
-                _this.onChange = function (e) {
-                    if (!_this.isStart) {
-                        return;
-                    }
-                    var event = new egret.OrientationEvent(egret.Event.CHANGE);
-                    event.beta = e.beta;
-                    event.gamma = e.gamma;
-                    event.alpha = e.alpha;
-                    _this.dispatchEvent(event);
-                };
-                return _this;
-            }
-            WebDeviceOrientation.prototype.start = function () {
-                this.isStart = true;
-                wx.startDeviceMotionListening({ interval: "normal" });
-                wx.onDeviceMotionChange(this.onChange);
-            };
-            WebDeviceOrientation.prototype.stop = function () {
-                this.isStart = false;
-                wx.stopDeviceMotionListening();
-            };
-            return WebDeviceOrientation;
-        }(egret.EventDispatcher);
-        wxgame.WebDeviceOrientation = WebDeviceOrientation;
-        __reflect(WebDeviceOrientation.prototype, "egret.wxgame.WebDeviceOrientation", ["egret.DeviceOrientation"]);
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-egret.DeviceOrientation = egret.wxgame.WebDeviceOrientation;
-
-(function (egret) {
-    var WXSocket = function () {
-        function WXSocket() {
-            this.host = "";
-            this.port = 0;
-        }
-        WXSocket.prototype.addCallBacks = function (onConnect, onClose, onSocketData, onError, thisObject) {
-            this.onConnect = onConnect;
-            this.onClose = onClose;
-            this.onSocketData = onSocketData;
-            this.onError = onError;
-            this.thisObject = thisObject;
-        };
-        WXSocket.prototype.connect = function (host, port) {
-            this.host = host;
-            this.port = port;
-            var socketServerUrl = "ws://" + this.host + ":" + this.port;
-            this.socketTask = wx.connectSocket({
-                url: socketServerUrl
-            });
-            this._bindEvent();
-        };
-        WXSocket.prototype.connectByUrl = function (url) {
-            this.socketTask = wx.connectSocket({
-                url: url
-            });
-            this._bindEvent();
-        };
-        WXSocket.prototype._bindEvent = function () {
-            var _this = this;
-            this.socketTask.onOpen(function () {
-                _this.onConnect.call(_this.thisObject);
-            });
-            this.socketTask.onClose(function () {
-                egret.callLater(function () {
-                    _this.onClose.call(_this.thisObject);
-                }, _this);
-            });
-            this.socketTask.onError(function () {
-                _this.onError.call(_this.thisObject);
-            });
-            this.socketTask.onMessage(function (res) {
-                _this.onSocketData.call(_this.thisObject, res.data);
-            });
-        };
-        WXSocket.prototype.send = function (message) {
-            this.socketTask.send({
-                data: message
-            });
-        };
-        WXSocket.prototype.close = function () {
-            this.socketTask.close();
-        };
-        WXSocket.prototype.disconnect = function () {
-            this.close();
-        };
-        return WXSocket;
-    }();
-    egret.WXSocket = WXSocket;
-    __reflect(WXSocket.prototype, "egret.WXSocket", ["egret.ISocket"]);
-    egret.ISocket = WXSocket;
-})(egret || (egret = {}));
-if (window['HTMLDivElement'] == undefined) {
-    window['HTMLDivElement'] = HTMLElement;
-}
-if (window['HTMLVideoElement'] == undefined) {
-    window['HTMLVideoElement'] = HTMLDivElement;
-}
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var className = "egret.BitmapData";
-        egret.registerClass(HTMLImageElement, className);
-        egret.registerClass(HTMLCanvasElement, className);
-        egret.registerClass(HTMLVideoElement, className);
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-(function (egret) {
-    function $toBitmapData(data) {
-        data["hashCode"] = data["$hashCode"] = egret.$hashCount++;
-        return data;
+  }, WebGLRenderContext.prototype.createCompressedTexture = function (e, t, r, a, n) {
+    if (!this.checkCompressedTextureInternalFormat(this._supportedCompressedTextureInfo, n)) return this.$debugLogCompressedTextureNotSupported(this._supportedCompressedTextureInfo, n), this.defaultEmptyTexture;var i = this.context;var o = i.createTexture();if (o) return o[l.glContext] = i, o[l.is_compressed_texture] = !0, i.bindTexture(i.TEXTURE_2D, o), i.pixelStorei(i.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1), o[l.UNPACK_PREMULTIPLY_ALPHA_WEBGL] = !0, i.compressedTexImage2D(i.TEXTURE_2D, a, n, t, r, 0, e), i.texParameteri(i.TEXTURE_2D, i.TEXTURE_MAG_FILTER, i.LINEAR), i.texParameteri(i.TEXTURE_2D, i.TEXTURE_MIN_FILTER, i.LINEAR), i.texParameteri(i.TEXTURE_2D, i.TEXTURE_WRAP_S, i.CLAMP_TO_EDGE), i.texParameteri(i.TEXTURE_2D, i.TEXTURE_WRAP_T, i.CLAMP_TO_EDGE), i.bindTexture(i.TEXTURE_2D, null), o;this.contextLost = !0;
+  }, WebGLRenderContext.prototype.updateTexture = function (e, t) {
+    var r = this.context;r.bindTexture(r.TEXTURE_2D, e), r.pixelStorei(r.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1), r.texImage2D(r.TEXTURE_2D, 0, r.RGBA, r.RGBA, r.UNSIGNED_BYTE, t);
+  }, Object.defineProperty(WebGLRenderContext.prototype, "defaultEmptyTexture", { get: function () {
+      var e, t;return this._defaultEmptyTexture || (e = l.sys.createCanvas(16, 16), (t = l.sys.getContext2d(e)).fillStyle = "white", t.fillRect(0, 0, 16, 16), this._defaultEmptyTexture = this.createTexture(e), this._defaultEmptyTexture[l.engine_default_empty_texture] = !0), this._defaultEmptyTexture;
+    }, enumerable: !0, configurable: !0 }), WebGLRenderContext.prototype.getWebGLTexture = function (e) {
+    var t;return e.webGLTexture || ("image" != e.format || e.hasCompressed2d() ? e.hasCompressed2d() && (t = e.getCompressed2dTextureData(), e.webGLTexture = this.createCompressedTexture(t.byteArray, t.width, t.height, t.level, t.glInternalFormat), !(t = e.etcAlphaMask) || (t = this.getWebGLTexture(t)) && (e.webGLTexture[l.etc_alpha_mask] = t)) : e.webGLTexture = this.createTexture(e.source), e.$deleteSource && e.webGLTexture && (e.source && (e.source.src = "", e.source = null), e.clearCompressedTextureData()), e.webGLTexture && (e.webGLTexture.smoothing = !0)), e.webGLTexture;
+  }, WebGLRenderContext.prototype.clearRect = function (e, t, r, a) {
+    var n, i;0 != e || 0 != t || r != this.surface.width || a != this.surface.height ? !(n = this.currentBuffer).$hasScissor && 0 == (i = n.globalMatrix).b && 0 == i.c ? (e = e * i.a + i.tx, t = t * i.d + i.ty, r *= i.a, a *= i.d, this.enableScissor(e, -t - a + n.height, r, a), this.clear(), this.disableScissor()) : (this.setGlobalCompositeOperation("destination-out"), this.drawRect(e, t, r, a), this.setGlobalCompositeOperation("source-over")) : this.clear();
+  }, WebGLRenderContext.prototype.setGlobalCompositeOperation = function (e) {
+    this.drawCmdManager.pushSetBlend(e);
+  }, WebGLRenderContext.prototype.drawImage = function (e, t, r, a, n, i, o, s, c, h, l, d, u) {
+    var f = this.currentBuffer;if (!this.contextLost && e && f) {
+      var p;var g;var v;if (e.texture || e.source && e.source.texture) p = e.texture || e.source.texture, f.saveTransform(), g = f.$offsetX, v = f.$offsetY, f.useOffset(), f.transform(1, 0, 0, -1, 0, c + 2 * o);else {
+        if (!e.source && !e.webGLTexture) return;p = this.getWebGLTexture(e);
+      }p && (this.drawTexture(p, t, r, a, n, i, o, s, c, h, l, void 0, void 0, void 0, void 0, d, u), e.source && e.source.texture && (f.$offsetX = g, f.$offsetY = v, f.restoreTransform()));
     }
-    egret.$toBitmapData = $toBitmapData;
-})(egret || (egret = {}));
-
-(function (egret) {
-    var WebGLUtils = function () {
-        function WebGLUtils() {}
-        WebGLUtils.compileProgram = function (gl, vertexSrc, fragmentSrc) {
-            var fragmentShader = WebGLUtils.compileFragmentShader(gl, fragmentSrc);
-            var vertexShader = WebGLUtils.compileVertexShader(gl, vertexSrc);
-            var shaderProgram = gl.createProgram();
-            gl.attachShader(shaderProgram, vertexShader);
-            gl.attachShader(shaderProgram, fragmentShader);
-            gl.linkProgram(shaderProgram);
-            if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
-                egret.$warn(1020);
-            }
-            return shaderProgram;
-        };
-        WebGLUtils.compileFragmentShader = function (gl, shaderSrc) {
-            return WebGLUtils._compileShader(gl, shaderSrc, gl.FRAGMENT_SHADER);
-        };
-        WebGLUtils.compileVertexShader = function (gl, shaderSrc) {
-            return WebGLUtils._compileShader(gl, shaderSrc, gl.VERTEX_SHADER);
-        };
-        WebGLUtils._compileShader = function (gl, shaderSrc, shaderType) {
-            var shader = gl.createShader(shaderType);
-            gl.shaderSource(shader, shaderSrc);
-            gl.compileShader(shader);
-            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-                return null;
-            }
-            return shader;
-        };
-        WebGLUtils.checkCanUseWebGL = function () {
-            if (WebGLUtils.canUseWebGL == undefined) {
-                try {
-                    var canvas = document.createElement("canvas");
-                    WebGLUtils.canUseWebGL = !!window["WebGLRenderingContext"] && !!(canvas.getContext("webgl") || canvas.getContext("experimental-webgl"));
-                } catch (e) {
-                    WebGLUtils.canUseWebGL = false;
-                }
-            }
-            return WebGLUtils.canUseWebGL;
-        };
-        WebGLUtils.deleteWebGLTexture = function (webglTexture) {
-            if (!webglTexture) {
-                return;
-            }
-            if (webglTexture[egret.engine_default_empty_texture]) {
-                if (true) {
-                    console.warn('deleteWebGLTexture:' + egret.engine_default_empty_texture);
-                }
-                return;
-            }
-            var gl = webglTexture[egret.glContext];
-            if (gl) {
-                gl.deleteTexture(webglTexture);
-            } else {
-                if (true) {
-                    console.error('deleteWebGLTexture gl = ' + gl);
-                }
-            }
-        };
-        WebGLUtils.premultiplyTint = function (tint, alpha) {
-            if (alpha === 1.0) {
-                return (alpha * 255 << 24) + tint;
-            }
-            if (alpha === 0.0) {
-                return 0;
-            }
-            var R = tint >> 16 & 0xFF;
-            var G = tint >> 8 & 0xFF;
-            var B = tint & 0xFF;
-            R = R * alpha + 0.5 | 0;
-            G = G * alpha + 0.5 | 0;
-            B = B * alpha + 0.5 | 0;
-            return (alpha * 255 << 24) + (R << 16) + (G << 8) + B;
-        };
-        return WebGLUtils;
-    }();
-    egret.WebGLUtils = WebGLUtils;
-    __reflect(WebGLUtils.prototype, "egret.WebGLUtils");
-})(egret || (egret = {}));
-
-(function (egret) {
-    var localStorage;
-    (function (localStorage) {
-        var wxgame;
-        (function (wxgame) {
-            function getItem(key) {
-                return window.localStorage.getItem(key);
-            }
-            function setItem(key, value) {
-                try {
-                    window.localStorage.setItem(key, value);
-                    return true;
-                } catch (e) {
-                    egret.$warn(1047, key, value);
-                    return false;
-                }
-            }
-            function removeItem(key) {
-                window.localStorage.removeItem(key);
-            }
-            function clear() {
-                window.localStorage.clear();
-            }
-            localStorage.getItem = getItem;
-            localStorage.setItem = setItem;
-            localStorage.removeItem = removeItem;
-            localStorage.clear = clear;
-        })(wxgame = localStorage.wxgame || (localStorage.wxgame = {}));
-    })(localStorage = egret.localStorage || (egret.localStorage = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var HtmlSound = function (_super) {
-            __extends(HtmlSound, _super);
-            function HtmlSound() {
-                var _this = _super.call(this) || this;
-                _this.loaded = false;
-                return _this;
-            }
-            Object.defineProperty(HtmlSound.prototype, "length", {
-                get: function () {
-                    if (this.originAudio) {
-                        return this.originAudio.duration;
-                    }
-                    throw new Error("sound not loaded!");
-                },
-                enumerable: true,
-                configurable: true
-            });
-            HtmlSound.prototype.load = function (url) {
-                var self = this;
-                this.url = url;
-                if (!url) {
-                    egret.$warn(3002);
-                }
-                var audio = wx.createInnerAudioContext();
-                audio.onCanplay(onAudioLoaded);
-                audio.onError(onAudioError);
-                audio.src = url;
-                this.originAudio = audio;
-                function onAudioLoaded() {
-                    removeListeners();
-                    self.loaded = true;
-                    self.dispatchEventWith(egret.Event.COMPLETE);
-                }
-                function onAudioError() {
-                    removeListeners();
-                    self.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
-                }
-                function removeListeners() {
-                    audio.offCanplay(onAudioLoaded);
-                    audio.offError(onAudioError);
-                }
-            };
-            HtmlSound.prototype.play = function (startTime, loops) {
-                startTime = +startTime || 0;
-                loops = +loops || 0;
-                if (true && this.loaded == false) {
-                    egret.$warn(1049);
-                }
-                var channel = new wxgame.HtmlSoundChannel(this.originAudio);
-                channel.$url = this.url;
-                channel.$loops = loops;
-                channel.$startTime = startTime;
-                channel.$play();
-                return channel;
-            };
-            HtmlSound.prototype.close = function () {
-                if (this.originAudio) {
-                    this.originAudio.destroy();
-                    this.originAudio = null;
-                }
-                this.loaded = false;
-            };
-            HtmlSound.MUSIC = "music";
-            HtmlSound.EFFECT = "effect";
-            return HtmlSound;
-        }(egret.EventDispatcher);
-        wxgame.HtmlSound = HtmlSound;
-        __reflect(HtmlSound.prototype, "egret.wxgame.HtmlSound", ["egret.Sound"]);
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        if (true) {
-            var logFuncs_1;
-            function setLogLevel(logType) {
-                if (logFuncs_1 == null) {
-                    logFuncs_1 = {
-                        "error": console.error,
-                        "debug": console.debug,
-                        "warn": console.warn,
-                        "info": console.info,
-                        "log": console.log
-                    };
-                }
-                switch (logType) {
-                    case egret.Logger.OFF:
-                        console.error = function () {};
-                    case egret.Logger.ERROR:
-                        console.warn = function () {};
-                    case egret.Logger.WARN:
-                        console.info = function () {};
-                        console.log = function () {};
-                    case egret.Logger.INFO:
-                        console.debug = function () {};
-                    default:
-                        break;
-                }
-                switch (logType) {
-                    case egret.Logger.ALL:
-                    case egret.Logger.DEBUG:
-                        console.debug = logFuncs_1["debug"];
-                    case egret.Logger.INFO:
-                        console.log = logFuncs_1["log"];
-                        console.info = logFuncs_1["info"];
-                    case egret.Logger.WARN:
-                        console.warn = logFuncs_1["warn"];
-                    case egret.Logger.ERROR:
-                        console.error = logFuncs_1["error"];
-                    default:
-                        break;
-                }
-            }
-            Object.defineProperty(egret.Logger, "logLevel", {
-                set: setLogLevel,
-                enumerable: true,
-                configurable: true
-            });
-        }
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebGLDrawCmdManager = function () {
-            function WebGLDrawCmdManager() {
-                this.drawData = [];
-                this.drawDataLen = 0;
-            }
-            WebGLDrawCmdManager.prototype.pushDrawRect = function () {
-                if (this.drawDataLen == 0 || this.drawData[this.drawDataLen - 1].type != 1) {
-                    var data = this.drawData[this.drawDataLen] || {};
-                    data.type = 1;
-                    data.count = 0;
-                    this.drawData[this.drawDataLen] = data;
-                    this.drawDataLen++;
-                }
-                this.drawData[this.drawDataLen - 1].count += 2;
-            };
-            WebGLDrawCmdManager.prototype.pushDrawTexture = function (texture, count, filter, textureWidth, textureHeight) {
-                if (count === void 0) {
-                    count = 2;
-                }
-                if (filter) {
-                    var data = this.drawData[this.drawDataLen] || {};
-                    data.type = 0;
-                    data.texture = texture;
-                    data.filter = filter;
-                    data.count = count;
-                    data.textureWidth = textureWidth;
-                    data.textureHeight = textureHeight;
-                    this.drawData[this.drawDataLen] = data;
-                    this.drawDataLen++;
-                } else {
-                    if (this.drawDataLen == 0 || this.drawData[this.drawDataLen - 1].type != 0 || texture != this.drawData[this.drawDataLen - 1].texture || this.drawData[this.drawDataLen - 1].filter) {
-                        var data = this.drawData[this.drawDataLen] || {};
-                        data.type = 0;
-                        data.texture = texture;
-                        data.count = 0;
-                        this.drawData[this.drawDataLen] = data;
-                        this.drawDataLen++;
-                    }
-                    this.drawData[this.drawDataLen - 1].count += count;
-                }
-            };
-            WebGLDrawCmdManager.prototype.pushChangeSmoothing = function (texture, smoothing) {
-                texture["smoothing"] = smoothing;
-                var data = this.drawData[this.drawDataLen] || {};
-                data.type = 10;
-                data.texture = texture;
-                data.smoothing = smoothing;
-                this.drawData[this.drawDataLen] = data;
-                this.drawDataLen++;
-            };
-            WebGLDrawCmdManager.prototype.pushPushMask = function (count) {
-                if (count === void 0) {
-                    count = 1;
-                }
-                var data = this.drawData[this.drawDataLen] || {};
-                data.type = 2;
-                data.count = count * 2;
-                this.drawData[this.drawDataLen] = data;
-                this.drawDataLen++;
-            };
-            WebGLDrawCmdManager.prototype.pushPopMask = function (count) {
-                if (count === void 0) {
-                    count = 1;
-                }
-                var data = this.drawData[this.drawDataLen] || {};
-                data.type = 3;
-                data.count = count * 2;
-                this.drawData[this.drawDataLen] = data;
-                this.drawDataLen++;
-            };
-            WebGLDrawCmdManager.prototype.pushSetBlend = function (value) {
-                var len = this.drawDataLen;
-                var drawState = false;
-                for (var i = len - 1; i >= 0; i--) {
-                    var data = this.drawData[i];
-                    if (data) {
-                        if (data.type == 0 || data.type == 1) {
-                            drawState = true;
-                        }
-                        if (!drawState && data.type == 4) {
-                            this.drawData.splice(i, 1);
-                            this.drawDataLen--;
-                            continue;
-                        }
-                        if (data.type == 4) {
-                            if (data.value == value) {
-                                return;
-                            } else {
-                                break;
-                            }
-                        }
-                    }
-                }
-                var _data = this.drawData[this.drawDataLen] || {};
-                _data.type = 4;
-                _data.value = value;
-                this.drawData[this.drawDataLen] = _data;
-                this.drawDataLen++;
-            };
-            WebGLDrawCmdManager.prototype.pushResize = function (buffer, width, height) {
-                var data = this.drawData[this.drawDataLen] || {};
-                data.type = 5;
-                data.buffer = buffer;
-                data.width = width;
-                data.height = height;
-                this.drawData[this.drawDataLen] = data;
-                this.drawDataLen++;
-            };
-            WebGLDrawCmdManager.prototype.pushClearColor = function () {
-                var data = this.drawData[this.drawDataLen] || {};
-                data.type = 6;
-                this.drawData[this.drawDataLen] = data;
-                this.drawDataLen++;
-            };
-            WebGLDrawCmdManager.prototype.pushActivateBuffer = function (buffer) {
-                var len = this.drawDataLen;
-                var drawState = false;
-                for (var i = len - 1; i >= 0; i--) {
-                    var data = this.drawData[i];
-                    if (data) {
-                        if (data.type != 4 && data.type != 7) {
-                            drawState = true;
-                        }
-                        if (!drawState && data.type == 7) {
-                            this.drawData.splice(i, 1);
-                            this.drawDataLen--;
-                            continue;
-                        }
-                    }
-                }
-                var _data = this.drawData[this.drawDataLen] || {};
-                _data.type = 7;
-                _data.buffer = buffer;
-                _data.width = buffer.rootRenderTarget.width;
-                _data.height = buffer.rootRenderTarget.height;
-                this.drawData[this.drawDataLen] = _data;
-                this.drawDataLen++;
-            };
-            WebGLDrawCmdManager.prototype.pushEnableScissor = function (x, y, width, height) {
-                var data = this.drawData[this.drawDataLen] || {};
-                data.type = 8;
-                data.x = x;
-                data.y = y;
-                data.width = width;
-                data.height = height;
-                this.drawData[this.drawDataLen] = data;
-                this.drawDataLen++;
-            };
-            WebGLDrawCmdManager.prototype.pushDisableScissor = function () {
-                var data = this.drawData[this.drawDataLen] || {};
-                data.type = 9;
-                this.drawData[this.drawDataLen] = data;
-                this.drawDataLen++;
-            };
-            WebGLDrawCmdManager.prototype.clear = function () {
-                for (var i = 0; i < this.drawDataLen; i++) {
-                    var data = this.drawData[i];
-                    data.type = 0;
-                    data.count = 0;
-                    data.texture = null;
-                    data.filter = null;
-                    data.value = "";
-                    data.buffer = null;
-                    data.width = 0;
-                    data.height = 0;
-                    data.textureWidth = 0;
-                    data.textureHeight = 0;
-                    data.smoothing = false;
-                    data.x = 0;
-                    data.y = 0;
-                }
-                this.drawDataLen = 0;
-            };
-            return WebGLDrawCmdManager;
-        }();
-        wxgame.WebGLDrawCmdManager = WebGLDrawCmdManager;
-        __reflect(WebGLDrawCmdManager.prototype, "egret.wxgame.WebGLDrawCmdManager");
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebGLVertexArrayObject = function () {
-            function WebGLVertexArrayObject() {
-                this.vertSize = 5;
-                this.vertByteSize = this.vertSize * 4;
-                this.maxQuadsCount = 2048;
-                this.maxVertexCount = this.maxQuadsCount * 4;
-                this.maxIndicesCount = this.maxQuadsCount * 6;
-                this.vertices = null;
-                this.indices = null;
-                this.indicesForMesh = null;
-                this.vertexIndex = 0;
-                this.indexIndex = 0;
-                this.hasMesh = false;
-                this._vertices = null;
-                this._verticesFloat32View = null;
-                this._verticesUint32View = null;
-                var numVerts = this.maxVertexCount * this.vertSize;
-                this.vertices = new Float32Array(numVerts);
-                this._vertices = new ArrayBuffer(this.maxVertexCount * this.vertByteSize);
-                this._verticesFloat32View = new Float32Array(this._vertices);
-                this._verticesUint32View = new Uint32Array(this._vertices);
-                this.vertices = this._verticesFloat32View;
-                var maxIndicesCount = this.maxIndicesCount;
-                this.indices = new Uint16Array(maxIndicesCount);
-                this.indicesForMesh = new Uint16Array(maxIndicesCount);
-                for (var i = 0, j = 0; i < maxIndicesCount; i += 6, j += 4) {
-                    this.indices[i + 0] = j + 0;
-                    this.indices[i + 1] = j + 1;
-                    this.indices[i + 2] = j + 2;
-                    this.indices[i + 3] = j + 0;
-                    this.indices[i + 4] = j + 2;
-                    this.indices[i + 5] = j + 3;
-                }
-            }
-            WebGLVertexArrayObject.prototype.reachMaxSize = function (vertexCount, indexCount) {
-                if (vertexCount === void 0) {
-                    vertexCount = 4;
-                }
-                if (indexCount === void 0) {
-                    indexCount = 6;
-                }
-                return this.vertexIndex > this.maxVertexCount - vertexCount || this.indexIndex > this.maxIndicesCount - indexCount;
-            };
-            WebGLVertexArrayObject.prototype.getVertices = function () {
-                var view = this.vertices.subarray(0, this.vertexIndex * this.vertSize);
-                return view;
-            };
-            WebGLVertexArrayObject.prototype.getIndices = function () {
-                return this.indices;
-            };
-            WebGLVertexArrayObject.prototype.getMeshIndices = function () {
-                return this.indicesForMesh;
-            };
-            WebGLVertexArrayObject.prototype.changeToMeshIndices = function () {
-                if (!this.hasMesh) {
-                    for (var i = 0, l = this.indexIndex; i < l; ++i) {
-                        this.indicesForMesh[i] = this.indices[i];
-                    }
-                    this.hasMesh = true;
-                }
-            };
-            WebGLVertexArrayObject.prototype.isMesh = function () {
-                return this.hasMesh;
-            };
-            WebGLVertexArrayObject.prototype.cacheArrays = function (buffer, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, textureSourceWidth, textureSourceHeight, meshUVs, meshVertices, meshIndices, rotated) {
-                var alpha = buffer.globalAlpha;
-                alpha = Math.min(alpha, 1.0);
-                var globalTintColor = buffer.globalTintColor || 0xFFFFFF;
-                var currentTexture = buffer.currentTexture;
-                alpha = alpha < 1.0 && currentTexture && currentTexture[egret.UNPACK_PREMULTIPLY_ALPHA_WEBGL] ? egret.WebGLUtils.premultiplyTint(globalTintColor, alpha) : globalTintColor + (alpha * 255 << 24);
-                var locWorldTransform = buffer.globalMatrix;
-                var a = locWorldTransform.a;
-                var b = locWorldTransform.b;
-                var c = locWorldTransform.c;
-                var d = locWorldTransform.d;
-                var tx = locWorldTransform.tx;
-                var ty = locWorldTransform.ty;
-                var offsetX = buffer.$offsetX;
-                var offsetY = buffer.$offsetY;
-                if (offsetX != 0 || offsetY != 0) {
-                    tx = offsetX * a + offsetY * c + tx;
-                    ty = offsetX * b + offsetY * d + ty;
-                }
-                if (!meshVertices) {
-                    if (destX != 0 || destY != 0) {
-                        tx = destX * a + destY * c + tx;
-                        ty = destX * b + destY * d + ty;
-                    }
-                    var a1 = destWidth / sourceWidth;
-                    if (a1 != 1) {
-                        a = a1 * a;
-                        b = a1 * b;
-                    }
-                    var d1 = destHeight / sourceHeight;
-                    if (d1 != 1) {
-                        c = d1 * c;
-                        d = d1 * d;
-                    }
-                }
-                if (meshVertices) {
-                    if (isIOS14Device()) {
-                        var vertData = [];
-                        var vertices = this.vertices;
-                        var verticesUint32View = this._verticesUint32View;
-                        var index = this.vertexIndex * this.vertSize;
-                        var i = 0,
-                            iD = 0,
-                            l = 0;
-                        var u = 0,
-                            v = 0,
-                            x = 0,
-                            y = 0;
-                        for (i = 0, l = meshUVs.length; i < l; i += 2) {
-                            iD = index + i * 5 / 2;
-                            x = meshVertices[i];
-                            y = meshVertices[i + 1];
-                            u = meshUVs[i];
-                            v = meshUVs[i + 1];
-                            if (rotated) {
-                                vertData.push([a * x + c * y + tx, b * x + d * y + ty, (sourceX + (1.0 - v) * sourceHeight) / textureSourceWidth, (sourceY + u * sourceWidth) / textureSourceHeight]);
-                            } else {
-                                vertData.push([a * x + c * y + tx, b * x + d * y + ty, (sourceX + u * sourceWidth) / textureSourceWidth, (sourceY + v * sourceHeight) / textureSourceHeight]);
-                            }
-                            verticesUint32View[iD + 4] = alpha;
-                        }
-                        for (var i_1 = 0; i_1 < meshIndices.length; i_1 += 3) {
-                            var data0 = vertData[meshIndices[i_1]];
-                            vertices[index++] = data0[0];
-                            vertices[index++] = data0[1];
-                            vertices[index++] = data0[2];
-                            vertices[index++] = data0[3];
-                            verticesUint32View[index++] = alpha;
-                            var data1 = vertData[meshIndices[i_1 + 1]];
-                            vertices[index++] = data1[0];
-                            vertices[index++] = data1[1];
-                            vertices[index++] = data1[2];
-                            vertices[index++] = data1[3];
-                            verticesUint32View[index++] = alpha;
-                            var data2 = vertData[meshIndices[i_1 + 2]];
-                            vertices[index++] = data2[0];
-                            vertices[index++] = data2[1];
-                            vertices[index++] = data2[2];
-                            vertices[index++] = data2[3];
-                            verticesUint32View[index++] = alpha;
-                            vertices[index++] = data2[0];
-                            vertices[index++] = data2[1];
-                            vertices[index++] = data2[2];
-                            vertices[index++] = data2[3];
-                            verticesUint32View[index++] = alpha;
-                        }
-                        var meshNum = meshIndices.length / 3;
-                        this.vertexIndex += 4 * meshNum;
-                        this.indexIndex += 6 * meshNum;
-                    } else {
-                        var vertices = this.vertices;
-                        var verticesUint32View = this._verticesUint32View;
-                        var index = this.vertexIndex * this.vertSize;
-                        var i = 0,
-                            iD = 0,
-                            l = 0;
-                        var u = 0,
-                            v = 0,
-                            x = 0,
-                            y = 0;
-                        for (i = 0, l = meshUVs.length; i < l; i += 2) {
-                            iD = index + i * 5 / 2;
-                            x = meshVertices[i];
-                            y = meshVertices[i + 1];
-                            u = meshUVs[i];
-                            v = meshUVs[i + 1];
-                            vertices[iD + 0] = a * x + c * y + tx;
-                            vertices[iD + 1] = b * x + d * y + ty;
-                            if (rotated) {
-                                vertices[iD + 2] = (sourceX + (1.0 - v) * sourceHeight) / textureSourceWidth;
-                                vertices[iD + 3] = (sourceY + u * sourceWidth) / textureSourceHeight;
-                            } else {
-                                vertices[iD + 2] = (sourceX + u * sourceWidth) / textureSourceWidth;
-                                vertices[iD + 3] = (sourceY + v * sourceHeight) / textureSourceHeight;
-                            }
-                            verticesUint32View[iD + 4] = alpha;
-                        }
-                        if (this.hasMesh) {
-                            for (var i_2 = 0, l_1 = meshIndices.length; i_2 < l_1; ++i_2) {
-                                this.indicesForMesh[this.indexIndex + i_2] = meshIndices[i_2] + this.vertexIndex;
-                            }
-                        }
-                        this.vertexIndex += meshUVs.length / 2;
-                        this.indexIndex += meshIndices.length;
-                    }
-                } else {
-                    var width = textureSourceWidth;
-                    var height = textureSourceHeight;
-                    var w = sourceWidth;
-                    var h = sourceHeight;
-                    sourceX = sourceX / width;
-                    sourceY = sourceY / height;
-                    var vertices = this.vertices;
-                    var verticesUint32View = this._verticesUint32View;
-                    var index = this.vertexIndex * this.vertSize;
-                    if (rotated) {
-                        var temp = sourceWidth;
-                        sourceWidth = sourceHeight / width;
-                        sourceHeight = temp / height;
-                        vertices[index++] = tx;
-                        vertices[index++] = ty;
-                        vertices[index++] = sourceWidth + sourceX;
-                        vertices[index++] = sourceY;
-                        verticesUint32View[index++] = alpha;
-                        vertices[index++] = a * w + tx;
-                        vertices[index++] = b * w + ty;
-                        vertices[index++] = sourceWidth + sourceX;
-                        vertices[index++] = sourceHeight + sourceY;
-                        verticesUint32View[index++] = alpha;
-                        vertices[index++] = a * w + c * h + tx;
-                        vertices[index++] = d * h + b * w + ty;
-                        vertices[index++] = sourceX;
-                        vertices[index++] = sourceHeight + sourceY;
-                        verticesUint32View[index++] = alpha;
-                        vertices[index++] = c * h + tx;
-                        vertices[index++] = d * h + ty;
-                        vertices[index++] = sourceX;
-                        vertices[index++] = sourceY;
-                        verticesUint32View[index++] = alpha;
-                    } else {
-                        sourceWidth = sourceWidth / width;
-                        sourceHeight = sourceHeight / height;
-                        vertices[index++] = tx;
-                        vertices[index++] = ty;
-                        vertices[index++] = sourceX;
-                        vertices[index++] = sourceY;
-                        verticesUint32View[index++] = alpha;
-                        vertices[index++] = a * w + tx;
-                        vertices[index++] = b * w + ty;
-                        vertices[index++] = sourceWidth + sourceX;
-                        vertices[index++] = sourceY;
-                        verticesUint32View[index++] = alpha;
-                        vertices[index++] = a * w + c * h + tx;
-                        vertices[index++] = d * h + b * w + ty;
-                        vertices[index++] = sourceWidth + sourceX;
-                        vertices[index++] = sourceHeight + sourceY;
-                        verticesUint32View[index++] = alpha;
-                        vertices[index++] = c * h + tx;
-                        vertices[index++] = d * h + ty;
-                        vertices[index++] = sourceX;
-                        vertices[index++] = sourceHeight + sourceY;
-                        verticesUint32View[index++] = alpha;
-                    }
-                    if (this.hasMesh) {
-                        var indicesForMesh = this.indicesForMesh;
-                        indicesForMesh[this.indexIndex + 0] = 0 + this.vertexIndex;
-                        indicesForMesh[this.indexIndex + 1] = 1 + this.vertexIndex;
-                        indicesForMesh[this.indexIndex + 2] = 2 + this.vertexIndex;
-                        indicesForMesh[this.indexIndex + 3] = 0 + this.vertexIndex;
-                        indicesForMesh[this.indexIndex + 4] = 2 + this.vertexIndex;
-                        indicesForMesh[this.indexIndex + 5] = 3 + this.vertexIndex;
-                    }
-                    this.vertexIndex += 4;
-                    this.indexIndex += 6;
-                }
-            };
-            WebGLVertexArrayObject.prototype.clear = function () {
-                this.hasMesh = false;
-                this.vertexIndex = 0;
-                this.indexIndex = 0;
-            };
-            return WebGLVertexArrayObject;
-        }();
-        wxgame.WebGLVertexArrayObject = WebGLVertexArrayObject;
-        __reflect(WebGLVertexArrayObject.prototype, "egret.wxgame.WebGLVertexArrayObject");
-        function isIOS14Device() {
-            return egret.Capabilities.runtimeType == egret.RuntimeType.WEB && egret.Capabilities.os == "iOS" && egret.Capabilities.isMobile && /iPhone OS 14/.test(window.navigator.userAgent);
-        }
-        wxgame.isIOS14Device = isIOS14Device;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebGLRenderTarget = function (_super) {
-            __extends(WebGLRenderTarget, _super);
-            function WebGLRenderTarget(gl, width, height) {
-                var _this = _super.call(this) || this;
-                _this.clearColor = [0, 0, 0, 0];
-                _this.useFrameBuffer = true;
-                _this.gl = gl;
-                _this._resize(width, height);
-                return _this;
-            }
-            WebGLRenderTarget.prototype._resize = function (width, height) {
-                width = width || 1;
-                height = height || 1;
-                if (width < 1) {
-                    if (true) {
-                        egret.warn('WebGLRenderTarget _resize width = ' + width);
-                    }
-                    width = 1;
-                }
-                if (height < 1) {
-                    if (true) {
-                        egret.warn('WebGLRenderTarget _resize height = ' + height);
-                    }
-                    height = 1;
-                }
-                this.width = width;
-                this.height = height;
-            };
-            WebGLRenderTarget.prototype.resize = function (width, height) {
-                this._resize(width, height);
-                var gl = this.gl;
-                if (this.frameBuffer) {
-                    gl.bindTexture(gl.TEXTURE_2D, this.texture);
-                    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, this.width, this.height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
-                }
-                if (this.stencilBuffer) {
-                    gl.deleteRenderbuffer(this.stencilBuffer);
-                    this.stencilBuffer = null;
-                }
-            };
-            WebGLRenderTarget.prototype.activate = function () {
-                var gl = this.gl;
-                gl.bindFramebuffer(gl.FRAMEBUFFER, this.getFrameBuffer());
-            };
-            WebGLRenderTarget.prototype.getFrameBuffer = function () {
-                if (!this.useFrameBuffer) {
-                    return null;
-                }
-                return this.frameBuffer;
-            };
-            WebGLRenderTarget.prototype.initFrameBuffer = function () {
-                if (!this.frameBuffer) {
-                    var gl = this.gl;
-                    this.texture = this.createTexture();
-                    this.frameBuffer = gl.createFramebuffer();
-                    gl.bindFramebuffer(gl.FRAMEBUFFER, this.frameBuffer);
-                    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, this.texture, 0);
-                }
-            };
-            WebGLRenderTarget.prototype.createTexture = function () {
-                var webglrendercontext = wxgame.WebGLRenderContext.getInstance(0, 0);
-                return egret.sys._createTexture(webglrendercontext, this.width, this.height, null);
-            };
-            WebGLRenderTarget.prototype.clear = function (bind) {
-                var gl = this.gl;
-                if (bind) {
-                    this.activate();
-                }
-                gl.colorMask(true, true, true, true);
-                gl.clearColor(this.clearColor[0], this.clearColor[1], this.clearColor[2], this.clearColor[3]);
-                gl.clear(gl.COLOR_BUFFER_BIT);
-            };
-            WebGLRenderTarget.prototype.enabledStencil = function () {
-                if (!this.frameBuffer || this.stencilBuffer) {
-                    return;
-                }
-                var gl = this.gl;
-                gl.bindFramebuffer(gl.FRAMEBUFFER, this.frameBuffer);
-                this.stencilBuffer = gl.createRenderbuffer();
-                gl.bindRenderbuffer(gl.RENDERBUFFER, this.stencilBuffer);
-                gl.renderbufferStorage(gl.RENDERBUFFER, gl.DEPTH_STENCIL, this.width, this.height);
-                gl.framebufferRenderbuffer(gl.FRAMEBUFFER, gl.DEPTH_STENCIL_ATTACHMENT, gl.RENDERBUFFER, this.stencilBuffer);
-            };
-            WebGLRenderTarget.prototype.dispose = function () {
-                egret.WebGLUtils.deleteWebGLTexture(this.texture);
-            };
-            return WebGLRenderTarget;
-        }(egret.HashObject);
-        wxgame.WebGLRenderTarget = WebGLRenderTarget;
-        __reflect(WebGLRenderTarget.prototype, "egret.wxgame.WebGLRenderTarget");
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var debugLogCompressedTextureNotSupported = {};
-        var WebGLRenderContext = function () {
-            function WebGLRenderContext(width, height, context) {
-                this._defaultEmptyTexture = null;
-                this.glID = null;
-                this.projectionX = NaN;
-                this.projectionY = NaN;
-                this.contextLost = false;
-                this._supportedCompressedTextureInfo = [];
-                this.$scissorState = false;
-                this.vertSize = 5;
-                this.$beforeRender = function () {
-                    var gl = this.context;
-                    gl.bindBuffer(gl.ARRAY_BUFFER, this.vertexBuffer);
-                    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.indexBuffer);
-                    gl.disable(gl.DEPTH_TEST);
-                    gl.disable(gl.CULL_FACE);
-                    gl.enable(gl.BLEND);
-                    gl.disable(gl.STENCIL_TEST);
-                    gl.colorMask(true, true, true, true);
-                    this.setBlendMode("source-over");
-                    gl.activeTexture(gl.TEXTURE0);
-                    this.currentProgram = null;
-                };
-                this.surface = egret.sys.mainCanvas(width, height);
-                if (egret.nativeRender) {
-                    return;
-                }
-                this.initWebGL(context);
-                this.getSupportedCompressedTexture();
-                this.$bufferStack = [];
-                var gl = this.context;
-                this.vertexBuffer = gl.createBuffer();
-                this.indexBuffer = gl.createBuffer();
-                gl.bindBuffer(gl.ARRAY_BUFFER, this.vertexBuffer);
-                gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.indexBuffer);
-                this.drawCmdManager = new wxgame.WebGLDrawCmdManager();
-                this.vao = new wxgame.WebGLVertexArrayObject();
-                this.setGlobalCompositeOperation("source-over");
-            }
-            WebGLRenderContext.getInstance = function (width, height, context) {
-                if (this.instance) {
-                    return this.instance;
-                }
-                this.instance = new WebGLRenderContext(width, height, context);
-                return this.instance;
-            };
-            WebGLRenderContext.prototype.pushBuffer = function (buffer) {
-                this.$bufferStack.push(buffer);
-                if (buffer != this.currentBuffer) {
-                    if (this.currentBuffer) {}
-                    this.drawCmdManager.pushActivateBuffer(buffer);
-                }
-                this.currentBuffer = buffer;
-            };
-            WebGLRenderContext.prototype.popBuffer = function () {
-                if (this.$bufferStack.length <= 1) {
-                    return;
-                }
-                var buffer = this.$bufferStack.pop();
-                var lastBuffer = this.$bufferStack[this.$bufferStack.length - 1];
-                if (buffer != lastBuffer) {
-                    this.drawCmdManager.pushActivateBuffer(lastBuffer);
-                }
-                this.currentBuffer = lastBuffer;
-            };
-            WebGLRenderContext.prototype.activateBuffer = function (buffer, width, height) {
-                buffer.rootRenderTarget.activate();
-                if (!this.bindIndices) {
-                    this.uploadIndicesArray(this.vao.getIndices());
-                }
-                buffer.restoreStencil();
-                buffer.restoreScissor();
-                this.onResize(width, height);
-            };
-            WebGLRenderContext.prototype.uploadVerticesArray = function (array) {
-                var gl = this.context;
-                gl.bufferData(gl.ARRAY_BUFFER, array, gl.STREAM_DRAW);
-            };
-            WebGLRenderContext.prototype.uploadIndicesArray = function (array) {
-                var gl = this.context;
-                gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, array, gl.STATIC_DRAW);
-                this.bindIndices = true;
-            };
-            WebGLRenderContext.prototype.destroy = function () {
-                this.surface.width = this.surface.height = 0;
-            };
-            WebGLRenderContext.prototype.onResize = function (width, height) {
-                width = width || this.surface.width;
-                height = height || this.surface.height;
-                this.projectionX = width / 2;
-                this.projectionY = -height / 2;
-                if (this.context) {
-                    this.context.viewport(0, 0, width, height);
-                }
-            };
-            WebGLRenderContext.prototype.resize = function (width, height, useMaxSize) {
-                egret.sys.resizeContext(this, width, height, useMaxSize);
-            };
-            WebGLRenderContext.prototype._buildSupportedCompressedTextureInfo = function (extensions) {
-                var returnValue = [];
-                for (var _i = 0, extensions_1 = extensions; _i < extensions_1.length; _i++) {
-                    var extension = extensions_1[_i];
-                    if (!extension) {
-                        continue;
-                    }
-                    var info = {
-                        extensionName: extension.name,
-                        supportedFormats: []
-                    };
-                    for (var key in extension) {
-                        info.supportedFormats.push([key, extension[key]]);
-                    }
-                    if (true) {
-                        if (info.supportedFormats.length === 0) {
-                            console.error("buildSupportedCompressedTextureInfo failed = " + extension.name);
-                        } else {
-                            egret.log("support: " + extension.name);
-                            for (var key in extension) {
-                                egret.log(key, extension[key], "0x" + extension[key].toString(16));
-                            }
-                        }
-                    }
-                    returnValue.push(info);
-                }
-                return returnValue;
-            };
-            WebGLRenderContext.prototype.initWebGL = function (context) {
-                this.onResize();
-                this.surface.addEventListener("webglcontextlost", this.handleContextLost.bind(this), false);
-                this.surface.addEventListener("webglcontextrestored", this.handleContextRestored.bind(this), false);
-                context ? this.setContext(context) : this.getWebGLContext();
-                var gl = this.context;
-                this.$maxTextureSize = gl.getParameter(gl.MAX_TEXTURE_SIZE);
-            };
-            WebGLRenderContext.prototype.getSupportedCompressedTexture = function () {
-                var gl = this.context ? this.context : egret.sys.getContextWebGL(this.surface);
-                this.pvrtc = gl.getExtension("WEBGL_compressed_texture_pvrtc") || gl.getExtension("WEBKIT_WEBGL_compressed_texture_pvrtc");
-                if (this.pvrtc) {
-                    this.pvrtc.name = "WEBGL_compressed_texture_pvrtc";
-                }
-                this.etc1 = gl.getExtension("WEBGL_compressed_texture_etc1") || gl.getExtension("WEBKIT_WEBGL_compressed_texture_etc1");
-                if (this.etc1) {
-                    this.etc1.name = "WEBGL_compressed_texture_etc1";
-                }
-                if (egret.Capabilities._supportedCompressedTexture) {
-                    egret.Capabilities._supportedCompressedTexture = egret.Capabilities._supportedCompressedTexture || {};
-                    egret.Capabilities._supportedCompressedTexture.pvrtc = !!this.pvrtc;
-                    egret.Capabilities._supportedCompressedTexture.etc1 = !!this.etc1;
-                } else {
-                    egret.Capabilities["supportedCompressedTexture"] = egret.Capabilities._supportedCompressedTexture || {};
-                    egret.Capabilities["supportedCompressedTexture"].pvrtc = !!this.pvrtc;
-                    egret.Capabilities["supportedCompressedTexture"].etc1 = !!this.etc1;
-                }
-                this._supportedCompressedTextureInfo = this._buildSupportedCompressedTextureInfo([this.etc1, this.pvrtc]);
-            };
-            WebGLRenderContext.prototype.handleContextLost = function () {
-                this.contextLost = true;
-            };
-            WebGLRenderContext.prototype.handleContextRestored = function () {
-                this.initWebGL();
-                this.contextLost = false;
-            };
-            WebGLRenderContext.prototype.getWebGLContext = function () {
-                var gl = egret.sys.getContextWebGL(this.surface);
-                this.setContext(gl);
-                return gl;
-            };
-            WebGLRenderContext.prototype.setContext = function (gl) {
-                this.context = gl;
-                gl.id = WebGLRenderContext.glContextId++;
-                this.glID = gl.id;
-                gl.disable(gl.DEPTH_TEST);
-                gl.disable(gl.CULL_FACE);
-                gl.enable(gl.BLEND);
-                gl.colorMask(true, true, true, true);
-                gl.activeTexture(gl.TEXTURE0);
-            };
-            WebGLRenderContext.prototype.enableStencilTest = function () {
-                var gl = this.context;
-                gl.enable(gl.STENCIL_TEST);
-            };
-            WebGLRenderContext.prototype.disableStencilTest = function () {
-                var gl = this.context;
-                gl.disable(gl.STENCIL_TEST);
-            };
-            WebGLRenderContext.prototype.enableScissorTest = function (rect) {
-                var gl = this.context;
-                gl.enable(gl.SCISSOR_TEST);
-                gl.scissor(rect.x, rect.y, rect.width, rect.height);
-            };
-            WebGLRenderContext.prototype.disableScissorTest = function () {
-                var gl = this.context;
-                gl.disable(gl.SCISSOR_TEST);
-            };
-            WebGLRenderContext.prototype.getPixels = function (x, y, width, height, pixels) {
-                var gl = this.context;
-                gl.readPixels(x, y, width, height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
-            };
-            WebGLRenderContext.prototype.createTexture = function (bitmapData) {
-                return egret.sys.createTexture(this, bitmapData);
-            };
-            WebGLRenderContext.prototype.checkCompressedTextureInternalFormat = function (supportedCompressedTextureInfo, internalFormat) {
-                for (var i = 0, length_1 = supportedCompressedTextureInfo.length; i < length_1; ++i) {
-                    var ss = supportedCompressedTextureInfo[i];
-                    var supportedFormats = ss.supportedFormats;
-                    for (var j = 0, length_2 = supportedFormats.length; j < length_2; ++j) {
-                        if (supportedFormats[j][1] === internalFormat) {
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            };
-            WebGLRenderContext.prototype.$debugLogCompressedTextureNotSupported = function (supportedCompressedTextureInfo, internalFormat) {
-                if (!debugLogCompressedTextureNotSupported[internalFormat]) {
-                    debugLogCompressedTextureNotSupported[internalFormat] = true;
-                    egret.log("internalFormat = " + internalFormat + ":" + ("0x" + internalFormat.toString(16)) + ", the current hardware does not support the corresponding compression format.");
-                    for (var i = 0, length_3 = supportedCompressedTextureInfo.length; i < length_3; ++i) {
-                        var ss = supportedCompressedTextureInfo[i];
-                        if (ss.supportedFormats.length > 0) {
-                            egret.log("support = " + ss.extensionName);
-                            for (var j = 0, length_4 = ss.supportedFormats.length; j < length_4; ++j) {
-                                var tp = ss.supportedFormats[j];
-                                egret.log(tp[0] + " : " + tp[1] + " : " + ("0x" + tp[1].toString(16)));
-                            }
-                        }
-                    }
-                }
-            };
-            WebGLRenderContext.prototype.createCompressedTexture = function (data, width, height, levels, internalFormat) {
-                var checkSupported = this.checkCompressedTextureInternalFormat(this._supportedCompressedTextureInfo, internalFormat);
-                if (!checkSupported) {
-                    this.$debugLogCompressedTextureNotSupported(this._supportedCompressedTextureInfo, internalFormat);
-                    return this.defaultEmptyTexture;
-                }
-                var gl = this.context;
-                var texture = gl.createTexture();
-                if (!texture) {
-                    this.contextLost = true;
-                    return;
-                }
-                texture[egret.glContext] = gl;
-                texture[egret.is_compressed_texture] = true;
-                gl.bindTexture(gl.TEXTURE_2D, texture);
-                gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1);
-                texture[egret.UNPACK_PREMULTIPLY_ALPHA_WEBGL] = true;
-                gl.compressedTexImage2D(gl.TEXTURE_2D, levels, internalFormat, width, height, 0, data);
-                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-                gl.bindTexture(gl.TEXTURE_2D, null);
-                return texture;
-            };
-            WebGLRenderContext.prototype.updateTexture = function (texture, bitmapData) {
-                var gl = this.context;
-                gl.bindTexture(gl.TEXTURE_2D, texture);
-                gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1);
-                gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, bitmapData);
-            };
-            Object.defineProperty(WebGLRenderContext.prototype, "defaultEmptyTexture", {
-                get: function () {
-                    if (!this._defaultEmptyTexture) {
-                        var size = 16;
-                        var canvas = egret.sys.createCanvas(size, size);
-                        var context = egret.sys.getContext2d(canvas);
-                        context.fillStyle = "white";
-                        context.fillRect(0, 0, size, size);
-                        this._defaultEmptyTexture = this.createTexture(canvas);
-                        this._defaultEmptyTexture[egret.engine_default_empty_texture] = true;
-                    }
-                    return this._defaultEmptyTexture;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            WebGLRenderContext.prototype.getWebGLTexture = function (bitmapData) {
-                if (!bitmapData.webGLTexture) {
-                    if (bitmapData.format == "image" && !bitmapData.hasCompressed2d()) {
-                        bitmapData.webGLTexture = this.createTexture(bitmapData.source);
-                    } else if (bitmapData.hasCompressed2d()) {
-                        var compressedData = bitmapData.getCompressed2dTextureData();
-                        bitmapData.webGLTexture = this.createCompressedTexture(compressedData.byteArray, compressedData.width, compressedData.height, compressedData.level, compressedData.glInternalFormat);
-                        var etcAlphaMask = bitmapData.etcAlphaMask;
-                        if (etcAlphaMask) {
-                            var maskTexture = this.getWebGLTexture(etcAlphaMask);
-                            if (maskTexture) {
-                                bitmapData.webGLTexture[egret.etc_alpha_mask] = maskTexture;
-                            }
-                        }
-                    }
-                    if (bitmapData.$deleteSource && bitmapData.webGLTexture) {
-                        if (bitmapData.source) {
-                            bitmapData.source.src = "";
-                            bitmapData.source = null;
-                        }
-                        bitmapData.clearCompressedTextureData();
-                    }
-                    if (bitmapData.webGLTexture) {
-                        bitmapData.webGLTexture["smoothing"] = true;
-                    }
-                }
-                return bitmapData.webGLTexture;
-            };
-            WebGLRenderContext.prototype.clearRect = function (x, y, width, height) {
-                if (x != 0 || y != 0 || width != this.surface.width || height != this.surface.height) {
-                    var buffer = this.currentBuffer;
-                    if (buffer.$hasScissor) {
-                        this.setGlobalCompositeOperation("destination-out");
-                        this.drawRect(x, y, width, height);
-                        this.setGlobalCompositeOperation("source-over");
-                    } else {
-                        var m = buffer.globalMatrix;
-                        if (m.b == 0 && m.c == 0) {
-                            x = x * m.a + m.tx;
-                            y = y * m.d + m.ty;
-                            width = width * m.a;
-                            height = height * m.d;
-                            this.enableScissor(x, -y - height + buffer.height, width, height);
-                            this.clear();
-                            this.disableScissor();
-                        } else {
-                            this.setGlobalCompositeOperation("destination-out");
-                            this.drawRect(x, y, width, height);
-                            this.setGlobalCompositeOperation("source-over");
-                        }
-                    }
-                } else {
-                    this.clear();
-                }
-            };
-            WebGLRenderContext.prototype.setGlobalCompositeOperation = function (value) {
-                this.drawCmdManager.pushSetBlend(value);
-            };
-            WebGLRenderContext.prototype.drawImage = function (image, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, imageSourceWidth, imageSourceHeight, rotated, smoothing) {
-                var buffer = this.currentBuffer;
-                if (this.contextLost || !image || !buffer) {
-                    return;
-                }
-                var texture;
-                var offsetX;
-                var offsetY;
-                if (image["texture"] || image.source && image.source["texture"]) {
-                    texture = image["texture"] || image.source["texture"];
-                    buffer.saveTransform();
-                    offsetX = buffer.$offsetX;
-                    offsetY = buffer.$offsetY;
-                    buffer.useOffset();
-                    buffer.transform(1, 0, 0, -1, 0, destHeight + destY * 2);
-                } else if (!image.source && !image.webGLTexture) {
-                    return;
-                } else {
-                    texture = this.getWebGLTexture(image);
-                }
-                if (!texture) {
-                    return;
-                }
-                this.drawTexture(texture, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, imageSourceWidth, imageSourceHeight, undefined, undefined, undefined, undefined, rotated, smoothing);
-                if (image.source && image.source["texture"]) {
-                    buffer.$offsetX = offsetX;
-                    buffer.$offsetY = offsetY;
-                    buffer.restoreTransform();
-                }
-            };
-            WebGLRenderContext.prototype.drawMesh = function (image, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, imageSourceWidth, imageSourceHeight, meshUVs, meshVertices, meshIndices, bounds, rotated, smoothing) {
-                var buffer = this.currentBuffer;
-                if (this.contextLost || !image || !buffer) {
-                    return;
-                }
-                var texture;
-                var offsetX;
-                var offsetY;
-                if (image["texture"] || image.source && image.source["texture"]) {
-                    texture = image["texture"] || image.source["texture"];
-                    buffer.saveTransform();
-                    offsetX = buffer.$offsetX;
-                    offsetY = buffer.$offsetY;
-                    buffer.useOffset();
-                    buffer.transform(1, 0, 0, -1, 0, destHeight + destY * 2);
-                } else if (!image.source && !image.webGLTexture) {
-                    return;
-                } else {
-                    texture = this.getWebGLTexture(image);
-                }
-                if (!texture) {
-                    return;
-                }
-                this.drawTexture(texture, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, imageSourceWidth, imageSourceHeight, meshUVs, meshVertices, meshIndices, bounds, rotated, smoothing);
-                if (image["texture"] || image.source && image.source["texture"]) {
-                    buffer.$offsetX = offsetX;
-                    buffer.$offsetY = offsetY;
-                    buffer.restoreTransform();
-                }
-            };
-            WebGLRenderContext.prototype.drawTexture = function (texture, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, textureWidth, textureHeight, meshUVs, meshVertices, meshIndices, bounds, rotated, smoothing) {
-                var buffer = this.currentBuffer;
-                if (this.contextLost || !texture || !buffer) {
-                    return;
-                }
-                var count;
-                if (wxgame.isIOS14Device()) {
-                    var meshNum = meshIndices && meshIndices.length / 3 || 0;
-                    if (meshIndices) {
-                        if (this.vao.reachMaxSize(meshNum * 4, meshNum * 6)) {
-                            this.$drawWebGL();
-                        }
-                    } else {
-                        if (this.vao.reachMaxSize()) {
-                            this.$drawWebGL();
-                        }
-                    }
-                    if (smoothing != undefined && texture["smoothing"] != smoothing) {
-                        this.drawCmdManager.pushChangeSmoothing(texture, smoothing);
-                    }
-                    count = meshIndices ? meshNum * 2 : 2;
-                } else {
-                    if (meshVertices && meshIndices) {
-                        if (this.vao.reachMaxSize(meshVertices.length / 2, meshIndices.length)) {
-                            this.$drawWebGL();
-                        }
-                    } else {
-                        if (this.vao.reachMaxSize()) {
-                            this.$drawWebGL();
-                        }
-                    }
-                    if (smoothing != undefined && texture["smoothing"] != smoothing) {
-                        this.drawCmdManager.pushChangeSmoothing(texture, smoothing);
-                    }
-                    if (meshUVs) {
-                        this.vao.changeToMeshIndices();
-                    }
-                    count = meshIndices ? meshIndices.length / 3 : 2;
-                }
-                this.drawCmdManager.pushDrawTexture(texture, count, this.$filter, textureWidth, textureHeight);
-                buffer.currentTexture = texture;
-                this.vao.cacheArrays(buffer, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, textureWidth, textureHeight, meshUVs, meshVertices, meshIndices, rotated);
-            };
-            WebGLRenderContext.prototype.drawRect = function (x, y, width, height) {
-                var buffer = this.currentBuffer;
-                if (this.contextLost || !buffer) {
-                    return;
-                }
-                if (this.vao.reachMaxSize()) {
-                    this.$drawWebGL();
-                }
-                this.drawCmdManager.pushDrawRect();
-                buffer.currentTexture = null;
-                this.vao.cacheArrays(buffer, 0, 0, width, height, x, y, width, height, width, height);
-            };
-            WebGLRenderContext.prototype.pushMask = function (x, y, width, height) {
-                var buffer = this.currentBuffer;
-                if (this.contextLost || !buffer) {
-                    return;
-                }
-                buffer.$stencilList.push({ x: x, y: y, width: width, height: height });
-                if (this.vao.reachMaxSize()) {
-                    this.$drawWebGL();
-                }
-                this.drawCmdManager.pushPushMask();
-                buffer.currentTexture = null;
-                this.vao.cacheArrays(buffer, 0, 0, width, height, x, y, width, height, width, height);
-            };
-            WebGLRenderContext.prototype.popMask = function () {
-                var buffer = this.currentBuffer;
-                if (this.contextLost || !buffer) {
-                    return;
-                }
-                var mask = buffer.$stencilList.pop();
-                if (this.vao.reachMaxSize()) {
-                    this.$drawWebGL();
-                }
-                this.drawCmdManager.pushPopMask();
-                buffer.currentTexture = null;
-                this.vao.cacheArrays(buffer, 0, 0, mask.width, mask.height, mask.x, mask.y, mask.width, mask.height, mask.width, mask.height);
-            };
-            WebGLRenderContext.prototype.clear = function () {
-                this.drawCmdManager.pushClearColor();
-            };
-            WebGLRenderContext.prototype.enableScissor = function (x, y, width, height) {
-                var buffer = this.currentBuffer;
-                this.drawCmdManager.pushEnableScissor(x, y, width, height);
-                buffer.$hasScissor = true;
-            };
-            WebGLRenderContext.prototype.disableScissor = function () {
-                var buffer = this.currentBuffer;
-                this.drawCmdManager.pushDisableScissor();
-                buffer.$hasScissor = false;
-            };
-            WebGLRenderContext.prototype.$drawWebGL = function () {
-                if (this.drawCmdManager.drawDataLen == 0 || this.contextLost) {
-                    return;
-                }
-                this.uploadVerticesArray(this.vao.getVertices());
-                if (this.vao.isMesh()) {
-                    this.uploadIndicesArray(this.vao.getMeshIndices());
-                }
-                var length = this.drawCmdManager.drawDataLen;
-                var offset = 0;
-                for (var i = 0; i < length; i++) {
-                    var data = this.drawCmdManager.drawData[i];
-                    offset = this.drawData(data, offset);
-                    if (data.type == 7) {
-                        this.activatedBuffer = data.buffer;
-                    }
-                    if (data.type == 0 || data.type == 1 || data.type == 2 || data.type == 3) {
-                        if (this.activatedBuffer && this.activatedBuffer.$computeDrawCall) {
-                            this.activatedBuffer.$drawCalls++;
-                        }
-                    }
-                }
-                if (this.vao.isMesh()) {
-                    this.uploadIndicesArray(this.vao.getIndices());
-                }
-                this.drawCmdManager.clear();
-                this.vao.clear();
-            };
-            WebGLRenderContext.prototype.drawData = function (data, offset) {
-                if (!data) {
-                    return;
-                }
-                var gl = this.context;
-                var program;
-                var filter = data.filter;
-                switch (data.type) {
-                    case 0:
-                        if (filter) {
-                            if (filter.type === "custom") {
-                                program = wxgame.EgretWebGLProgram.getProgram(gl, filter.$vertexSrc, filter.$fragmentSrc, filter.$shaderKey);
-                            } else if (filter.type === "colorTransform") {
-                                if (data.texture[egret.etc_alpha_mask]) {
-                                    gl.activeTexture(gl.TEXTURE1);
-                                    gl.bindTexture(gl.TEXTURE_2D, data.texture[egret.etc_alpha_mask]);
-                                    program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.colorTransform_frag_etc_alphamask_frag, "colorTransform_frag_etc_alphamask_frag");
-                                } else {
-                                    program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.colorTransform_frag, "colorTransform");
-                                }
-                            } else if (filter.type === "blurX") {
-                                program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.blur_frag, "blur");
-                            } else if (filter.type === "blurY") {
-                                program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.blur_frag, "blur");
-                            } else if (filter.type === "glow") {
-                                program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.glow_frag, "glow");
-                            }
-                        } else {
-                            if (data.texture[egret.etc_alpha_mask]) {
-                                program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.texture_etc_alphamask_frag, egret.etc_alpha_mask);
-                                gl.activeTexture(gl.TEXTURE1);
-                                gl.bindTexture(gl.TEXTURE_2D, data.texture[egret.etc_alpha_mask]);
-                            } else {
-                                program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.texture_frag, "texture");
-                            }
-                        }
-                        this.activeProgram(gl, program);
-                        this.syncUniforms(program, filter, data.textureWidth, data.textureHeight);
-                        offset += this.drawTextureElements(data, offset);
-                        break;
-                    case 1:
-                        program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.primitive_frag, "primitive");
-                        this.activeProgram(gl, program);
-                        this.syncUniforms(program, filter, data.textureWidth, data.textureHeight);
-                        offset += this.drawRectElements(data, offset);
-                        break;
-                    case 2:
-                        program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.primitive_frag, "primitive");
-                        this.activeProgram(gl, program);
-                        this.syncUniforms(program, filter, data.textureWidth, data.textureHeight);
-                        offset += this.drawPushMaskElements(data, offset);
-                        break;
-                    case 3:
-                        program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.primitive_frag, "primitive");
-                        this.activeProgram(gl, program);
-                        this.syncUniforms(program, filter, data.textureWidth, data.textureHeight);
-                        offset += this.drawPopMaskElements(data, offset);
-                        break;
-                    case 4:
-                        this.setBlendMode(data.value);
-                        break;
-                    case 5:
-                        data.buffer.rootRenderTarget.resize(data.width, data.height);
-                        this.onResize(data.width, data.height);
-                        break;
-                    case 6:
-                        if (this.activatedBuffer) {
-                            var target = this.activatedBuffer.rootRenderTarget;
-                            if (target.width != 0 || target.height != 0) {
-                                target.clear(true);
-                            }
-                        }
-                        break;
-                    case 7:
-                        this.activateBuffer(data.buffer, data.width, data.height);
-                        break;
-                    case 8:
-                        var buffer = this.activatedBuffer;
-                        if (buffer) {
-                            if (buffer.rootRenderTarget) {
-                                buffer.rootRenderTarget.enabledStencil();
-                            }
-                            buffer.enableScissor(data.x, data.y, data.width, data.height);
-                        }
-                        break;
-                    case 9:
-                        buffer = this.activatedBuffer;
-                        if (buffer) {
-                            buffer.disableScissor();
-                        }
-                        break;
-                    case 10:
-                        gl.bindTexture(gl.TEXTURE_2D, data.texture);
-                        if (data.smoothing) {
-                            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-                            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-                        } else {
-                            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-                            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                return offset;
-            };
-            WebGLRenderContext.prototype.activeProgram = function (gl, program) {
-                if (egret.pro && egret.pro.egret2dDriveMode || program != this.currentProgram) {
-                    gl.useProgram(program.id);
-                    var attribute = program.attributes;
-                    for (var key in attribute) {
-                        if (key === "aVertexPosition") {
-                            gl.vertexAttribPointer(attribute["aVertexPosition"].location, 2, gl.FLOAT, false, 5 * 4, 0);
-                            gl.enableVertexAttribArray(attribute["aVertexPosition"].location);
-                        } else if (key === "aTextureCoord") {
-                            gl.vertexAttribPointer(attribute["aTextureCoord"].location, 2, gl.FLOAT, false, 5 * 4, 2 * 4);
-                            gl.enableVertexAttribArray(attribute["aTextureCoord"].location);
-                        } else if (key === "aColor") {
-                            gl.vertexAttribPointer(attribute["aColor"].location, 4, gl.UNSIGNED_BYTE, true, 5 * 4, 4 * 4);
-                            gl.enableVertexAttribArray(attribute["aColor"].location);
-                        }
-                    }
-                    this.currentProgram = program;
-                }
-            };
-            WebGLRenderContext.prototype.syncUniforms = function (program, filter, textureWidth, textureHeight) {
-                var uniforms = program.uniforms;
-                var isCustomFilter = filter && filter.type === "custom";
-                for (var key in uniforms) {
-                    if (key == "$filterScale") {
-                        continue;
-                    }
-                    if (key === "projectionVector") {
-                        uniforms[key].setValue({ x: this.projectionX, y: this.projectionY });
-                    } else if (key === "uTextureSize") {
-                        uniforms[key].setValue({ x: textureWidth, y: textureHeight });
-                    } else if (key === "uSampler") {
-                        uniforms[key].setValue(0);
-                    } else if (key === "uSamplerAlphaMask") {
-                        uniforms[key].setValue(1);
-                    } else {
-                        var value = filter.$uniforms[key];
-                        if (value !== undefined) {
-                            if (filter.type == "glow" || filter.type.indexOf("blur") == 0) {
-                                if (key == "blurX" || key == "blurY" || key == "dist") {
-                                    value = value * (filter.$uniforms.$filterScale || 1);
-                                } else if (key == "blur" && value.x != undefined && value.y != undefined) {
-                                    var newValue = { x: 0, y: 0 };
-                                    newValue.x = value.x * (filter.$uniforms.$filterScale != undefined ? filter.$uniforms.$filterScale : 1);
-                                    newValue.y = value.y * (filter.$uniforms.$filterScale != undefined ? filter.$uniforms.$filterScale : 1);
-                                    uniforms[key].setValue(newValue);
-                                    continue;
-                                }
-                            }
-                            uniforms[key].setValue(value);
-                        } else {}
-                    }
-                }
-            };
-            WebGLRenderContext.prototype.drawTextureElements = function (data, offset) {
-                return egret.sys.drawTextureElements(this, data, offset);
-            };
-            WebGLRenderContext.prototype.drawRectElements = function (data, offset) {
-                var gl = this.context;
-                var size = data.count * 3;
-                gl.drawElements(gl.TRIANGLES, size, gl.UNSIGNED_SHORT, offset * 2);
-                return size;
-            };
-            WebGLRenderContext.prototype.drawPushMaskElements = function (data, offset) {
-                var gl = this.context;
-                var size = data.count * 3;
-                var buffer = this.activatedBuffer;
-                if (buffer) {
-                    if (buffer.rootRenderTarget) {
-                        buffer.rootRenderTarget.enabledStencil();
-                    }
-                    if (buffer.stencilHandleCount == 0) {
-                        buffer.enableStencil();
-                        gl.clear(gl.STENCIL_BUFFER_BIT);
-                    }
-                    var level = buffer.stencilHandleCount;
-                    buffer.stencilHandleCount++;
-                    gl.colorMask(false, false, false, false);
-                    gl.stencilFunc(gl.EQUAL, level, 0xff);
-                    gl.stencilOp(gl.KEEP, gl.KEEP, gl.INCR);
-                    gl.drawElements(gl.TRIANGLES, size, gl.UNSIGNED_SHORT, offset * 2);
-                    gl.stencilFunc(gl.EQUAL, level + 1, 0xff);
-                    gl.colorMask(true, true, true, true);
-                    gl.stencilOp(gl.KEEP, gl.KEEP, gl.KEEP);
-                }
-                return size;
-            };
-            WebGLRenderContext.prototype.drawPopMaskElements = function (data, offset) {
-                var gl = this.context;
-                var size = data.count * 3;
-                var buffer = this.activatedBuffer;
-                if (buffer) {
-                    buffer.stencilHandleCount--;
-                    if (buffer.stencilHandleCount == 0) {
-                        buffer.disableStencil();
-                    } else {
-                        var level = buffer.stencilHandleCount;
-                        gl.colorMask(false, false, false, false);
-                        gl.stencilFunc(gl.EQUAL, level + 1, 0xff);
-                        gl.stencilOp(gl.KEEP, gl.KEEP, gl.DECR);
-                        gl.drawElements(gl.TRIANGLES, size, gl.UNSIGNED_SHORT, offset * 2);
-                        gl.stencilFunc(gl.EQUAL, level, 0xff);
-                        gl.colorMask(true, true, true, true);
-                        gl.stencilOp(gl.KEEP, gl.KEEP, gl.KEEP);
-                    }
-                }
-                return size;
-            };
-            WebGLRenderContext.prototype.setBlendMode = function (value) {
-                var gl = this.context;
-                var blendModeWebGL = WebGLRenderContext.blendModesForGL[value];
-                if (blendModeWebGL) {
-                    gl.blendFunc(blendModeWebGL[0], blendModeWebGL[1]);
-                }
-            };
-            WebGLRenderContext.prototype.drawTargetWidthFilters = function (filters, input) {
-                var originInput = input,
-                    filtersLen = filters.length,
-                    output;
-                if (filtersLen > 1) {
-                    for (var i = 0; i < filtersLen - 1; i++) {
-                        var filter_1 = filters[i];
-                        var width = input.rootRenderTarget.width;
-                        var height = input.rootRenderTarget.height;
-                        output = wxgame.WebGLRenderBuffer.create(width, height);
-                        var scale = Math.max(egret.sys.DisplayList.$canvasScaleFactor, 2);
-                        output.setTransform(scale, 0, 0, scale, 0, 0);
-                        output.globalAlpha = 1;
-                        this.drawToRenderTarget(filter_1, input, output);
-                        if (input != originInput) {
-                            wxgame.WebGLRenderBuffer.release(input);
-                        }
-                        input = output;
-                    }
-                }
-                var filter = filters[filtersLen - 1];
-                this.drawToRenderTarget(filter, input, this.currentBuffer);
-                if (input != originInput) {
-                    wxgame.WebGLRenderBuffer.release(input);
-                }
-            };
-            WebGLRenderContext.prototype.drawToRenderTarget = function (filter, input, output) {
-                if (this.contextLost) {
-                    return;
-                }
-                if (this.vao.reachMaxSize()) {
-                    this.$drawWebGL();
-                }
-                this.pushBuffer(output);
-                var originInput = input,
-                    temp,
-                    width = input.rootRenderTarget.width,
-                    height = input.rootRenderTarget.height;
-                if (filter.type == "blur") {
-                    var blurXFilter = filter.blurXFilter;
-                    var blurYFilter = filter.blurYFilter;
-                    if (blurXFilter.blurX != 0 && blurYFilter.blurY != 0) {
-                        temp = wxgame.WebGLRenderBuffer.create(width, height);
-                        var scale_1 = Math.max(egret.sys.DisplayList.$canvasScaleFactor, 2);
-                        temp.setTransform(1, 0, 0, 1, 0, 0);
-                        temp.transform(scale_1, 0, 0, scale_1, 0, 0);
-                        temp.globalAlpha = 1;
-                        this.drawToRenderTarget(filter.blurXFilter, input, temp);
-                        if (input != originInput) {
-                            wxgame.WebGLRenderBuffer.release(input);
-                        }
-                        input = temp;
-                        filter = blurYFilter;
-                    } else {
-                        filter = blurXFilter.blurX === 0 ? blurYFilter : blurXFilter;
-                    }
-                }
-                output.saveTransform();
-                var scale = Math.max(egret.sys.DisplayList.$canvasScaleFactor, 2);
-                output.transform(1 / scale, 0, 0, 1 / scale, 0, 0);
-                output.transform(1, 0, 0, -1, 0, height);
-                output.currentTexture = input.rootRenderTarget.texture;
-                this.vao.cacheArrays(output, 0, 0, width, height, 0, 0, width, height, width, height);
-                output.restoreTransform();
-                this.drawCmdManager.pushDrawTexture(input.rootRenderTarget.texture, 2, filter, width, height);
-                if (input != originInput) {
-                    wxgame.WebGLRenderBuffer.release(input);
-                }
-                this.popBuffer();
-            };
-            WebGLRenderContext.initBlendMode = function () {
-                WebGLRenderContext.blendModesForGL = {};
-                WebGLRenderContext.blendModesForGL["source-over"] = [1, 771];
-                WebGLRenderContext.blendModesForGL["lighter"] = [1, 1];
-                WebGLRenderContext.blendModesForGL["lighter-in"] = [770, 771];
-                WebGLRenderContext.blendModesForGL["destination-out"] = [0, 771];
-                WebGLRenderContext.blendModesForGL["destination-in"] = [0, 770];
-            };
-            WebGLRenderContext.glContextId = 0;
-            WebGLRenderContext.blendModesForGL = null;
-            return WebGLRenderContext;
-        }();
-        wxgame.WebGLRenderContext = WebGLRenderContext;
-        __reflect(WebGLRenderContext.prototype, "egret.wxgame.WebGLRenderContext", ["egret.sys.RenderContext"]);
-        WebGLRenderContext.initBlendMode();
-        egret.sys.WebGLRenderContext = WebGLRenderContext;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WebGLRenderBuffer = function (_super) {
-            __extends(WebGLRenderBuffer, _super);
-            function WebGLRenderBuffer(width, height, root) {
-                var _this = _super.call(this) || this;
-                _this.currentTexture = null;
-                _this.globalAlpha = 1;
-                _this.globalTintColor = 0xFFFFFF;
-                _this.stencilState = false;
-                _this.$stencilList = [];
-                _this.stencilHandleCount = 0;
-                _this.$scissorState = false;
-                _this.scissorRect = new egret.Rectangle();
-                _this.$hasScissor = false;
-                _this.$drawCalls = 0;
-                _this.$computeDrawCall = false;
-                _this.globalMatrix = new egret.Matrix();
-                _this.savedGlobalMatrix = new egret.Matrix();
-                _this.$offsetX = 0;
-                _this.$offsetY = 0;
-                _this.context = wxgame.WebGLRenderContext.getInstance(width, height);
-                if (egret.nativeRender) {
-                    if (root) {
-                        _this.surface = _this.context.surface;
-                    } else {
-                        _this.surface = new egret_native.NativeRenderSurface(_this, width, height, root);
-                    }
-                    _this.rootRenderTarget = null;
-                    return _this;
-                }
-                _this.rootRenderTarget = new wxgame.WebGLRenderTarget(_this.context.context, 3, 3);
-                if (width && height) {
-                    _this.resize(width, height);
-                }
-                _this.root = root;
-                if (_this.root) {
-                    _this.context.pushBuffer(_this);
-                    _this.surface = _this.context.surface;
-                    _this.$computeDrawCall = true;
-                } else {
-                    var lastBuffer = _this.context.activatedBuffer;
-                    if (lastBuffer) {
-                        lastBuffer.rootRenderTarget.activate();
-                    }
-                    _this.rootRenderTarget.initFrameBuffer();
-                    _this.surface = _this.rootRenderTarget;
-                }
-                return _this;
-            }
-            WebGLRenderBuffer.prototype.enableStencil = function () {
-                if (!this.stencilState) {
-                    this.context.enableStencilTest();
-                    this.stencilState = true;
-                }
-            };
-            WebGLRenderBuffer.prototype.disableStencil = function () {
-                if (this.stencilState) {
-                    this.context.disableStencilTest();
-                    this.stencilState = false;
-                }
-            };
-            WebGLRenderBuffer.prototype.restoreStencil = function () {
-                if (this.stencilState) {
-                    this.context.enableStencilTest();
-                } else {
-                    this.context.disableStencilTest();
-                }
-            };
-            WebGLRenderBuffer.prototype.enableScissor = function (x, y, width, height) {
-                if (!this.$scissorState) {
-                    this.$scissorState = true;
-                    this.scissorRect.setTo(x, y, width, height);
-                    this.context.enableScissorTest(this.scissorRect);
-                }
-            };
-            WebGLRenderBuffer.prototype.disableScissor = function () {
-                if (this.$scissorState) {
-                    this.$scissorState = false;
-                    this.scissorRect.setEmpty();
-                    this.context.disableScissorTest();
-                }
-            };
-            WebGLRenderBuffer.prototype.restoreScissor = function () {
-                if (this.$scissorState) {
-                    this.context.enableScissorTest(this.scissorRect);
-                } else {
-                    this.context.disableScissorTest();
-                }
-            };
-            Object.defineProperty(WebGLRenderBuffer.prototype, "width", {
-                get: function () {
-                    if (egret.nativeRender) {
-                        return this.surface.width;
-                    } else {
-                        return this.rootRenderTarget.width;
-                    }
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(WebGLRenderBuffer.prototype, "height", {
-                get: function () {
-                    if (egret.nativeRender) {
-                        return this.surface.height;
-                    } else {
-                        return this.rootRenderTarget.height;
-                    }
-                },
-                enumerable: true,
-                configurable: true
-            });
-            WebGLRenderBuffer.prototype.resize = function (width, height, useMaxSize) {
-                width = width || 1;
-                height = height || 1;
-                if (egret.nativeRender) {
-                    this.surface.resize(width, height);
-                    return;
-                }
-                this.context.pushBuffer(this);
-                if (width != this.rootRenderTarget.width || height != this.rootRenderTarget.height) {
-                    this.context.drawCmdManager.pushResize(this, width, height);
-                    this.rootRenderTarget.width = width;
-                    this.rootRenderTarget.height = height;
-                }
-                if (this.root) {
-                    this.context.resize(width, height, useMaxSize);
-                }
-                this.context.clear();
-                this.context.popBuffer();
-            };
-            WebGLRenderBuffer.prototype.getPixels = function (x, y, width, height) {
-                if (width === void 0) {
-                    width = 1;
-                }
-                if (height === void 0) {
-                    height = 1;
-                }
-                var pixels = new Uint8Array(4 * width * height);
-                if (egret.nativeRender) {
-                    egret_native.activateBuffer(this);
-                    egret_native.nrGetPixels(x, y, width, height, pixels);
-                    egret_native.activateBuffer(null);
-                } else {
-                    var useFrameBuffer = this.rootRenderTarget.useFrameBuffer;
-                    this.rootRenderTarget.useFrameBuffer = true;
-                    this.rootRenderTarget.activate();
-                    this.context.getPixels(x, y, width, height, pixels);
-                    this.rootRenderTarget.useFrameBuffer = useFrameBuffer;
-                    this.rootRenderTarget.activate();
-                }
-                var result = new Uint8Array(4 * width * height);
-                for (var i = 0; i < height; i++) {
-                    for (var j = 0; j < width; j++) {
-                        var index1 = (width * (height - i - 1) + j) * 4;
-                        var index2 = (width * i + j) * 4;
-                        var a = pixels[index2 + 3];
-                        result[index1] = Math.round(pixels[index2] / a * 255);
-                        result[index1 + 1] = Math.round(pixels[index2 + 1] / a * 255);
-                        result[index1 + 2] = Math.round(pixels[index2 + 2] / a * 255);
-                        result[index1 + 3] = pixels[index2 + 3];
-                    }
-                }
-                return result;
-            };
-            WebGLRenderBuffer.prototype.toDataURL = function (type, encoderOptions) {
-                return this.context.surface.toDataURL(type, encoderOptions);
-            };
-            WebGLRenderBuffer.prototype.destroy = function () {
-                this.context.destroy();
-            };
-            WebGLRenderBuffer.prototype.onRenderFinish = function () {
-                this.$drawCalls = 0;
-            };
-            WebGLRenderBuffer.prototype.drawFrameBufferToSurface = function (sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, clear) {
-                if (clear === void 0) {
-                    clear = false;
-                }
-                this.rootRenderTarget.useFrameBuffer = false;
-                this.rootRenderTarget.activate();
-                this.context.disableStencilTest();
-                this.context.disableScissorTest();
-                this.setTransform(1, 0, 0, 1, 0, 0);
-                this.globalAlpha = 1;
-                this.context.setGlobalCompositeOperation("source-over");
-                clear && this.context.clear();
-                this.context.drawImage(this.rootRenderTarget, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, sourceWidth, sourceHeight, false);
-                this.context.$drawWebGL();
-                this.rootRenderTarget.useFrameBuffer = true;
-                this.rootRenderTarget.activate();
-                this.restoreStencil();
-                this.restoreScissor();
-            };
-            WebGLRenderBuffer.prototype.drawSurfaceToFrameBuffer = function (sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, clear) {
-                if (clear === void 0) {
-                    clear = false;
-                }
-                this.rootRenderTarget.useFrameBuffer = true;
-                this.rootRenderTarget.activate();
-                this.context.disableStencilTest();
-                this.context.disableScissorTest();
-                this.setTransform(1, 0, 0, 1, 0, 0);
-                this.globalAlpha = 1;
-                this.context.setGlobalCompositeOperation("source-over");
-                clear && this.context.clear();
-                this.context.drawImage(this.context.surface, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, sourceWidth, sourceHeight, false);
-                this.context.$drawWebGL();
-                this.rootRenderTarget.useFrameBuffer = false;
-                this.rootRenderTarget.activate();
-                this.restoreStencil();
-                this.restoreScissor();
-            };
-            WebGLRenderBuffer.prototype.clear = function () {
-                this.context.pushBuffer(this);
-                this.context.clear();
-                this.context.popBuffer();
-            };
-            WebGLRenderBuffer.prototype.setTransform = function (a, b, c, d, tx, ty) {
-                var matrix = this.globalMatrix;
-                matrix.a = a;
-                matrix.b = b;
-                matrix.c = c;
-                matrix.d = d;
-                matrix.tx = tx;
-                matrix.ty = ty;
-            };
-            WebGLRenderBuffer.prototype.transform = function (a, b, c, d, tx, ty) {
-                var matrix = this.globalMatrix;
-                var a1 = matrix.a;
-                var b1 = matrix.b;
-                var c1 = matrix.c;
-                var d1 = matrix.d;
-                if (a != 1 || b != 0 || c != 0 || d != 1) {
-                    matrix.a = a * a1 + b * c1;
-                    matrix.b = a * b1 + b * d1;
-                    matrix.c = c * a1 + d * c1;
-                    matrix.d = c * b1 + d * d1;
-                }
-                matrix.tx = tx * a1 + ty * c1 + matrix.tx;
-                matrix.ty = tx * b1 + ty * d1 + matrix.ty;
-            };
-            WebGLRenderBuffer.prototype.useOffset = function () {
-                var self = this;
-                if (self.$offsetX != 0 || self.$offsetY != 0) {
-                    self.globalMatrix.append(1, 0, 0, 1, self.$offsetX, self.$offsetY);
-                    self.$offsetX = self.$offsetY = 0;
-                }
-            };
-            WebGLRenderBuffer.prototype.saveTransform = function () {
-                var matrix = this.globalMatrix;
-                var sMatrix = this.savedGlobalMatrix;
-                sMatrix.a = matrix.a;
-                sMatrix.b = matrix.b;
-                sMatrix.c = matrix.c;
-                sMatrix.d = matrix.d;
-                sMatrix.tx = matrix.tx;
-                sMatrix.ty = matrix.ty;
-            };
-            WebGLRenderBuffer.prototype.restoreTransform = function () {
-                var matrix = this.globalMatrix;
-                var sMatrix = this.savedGlobalMatrix;
-                matrix.a = sMatrix.a;
-                matrix.b = sMatrix.b;
-                matrix.c = sMatrix.c;
-                matrix.d = sMatrix.d;
-                matrix.tx = sMatrix.tx;
-                matrix.ty = sMatrix.ty;
-            };
-            WebGLRenderBuffer.create = function (width, height) {
-                var buffer = renderBufferPool.pop();
-                if (buffer) {
-                    buffer.resize(width, height);
-                    var matrix = buffer.globalMatrix;
-                    matrix.a = 1;
-                    matrix.b = 0;
-                    matrix.c = 0;
-                    matrix.d = 1;
-                    matrix.tx = 0;
-                    matrix.ty = 0;
-                    buffer.globalAlpha = 1;
-                    buffer.$offsetX = 0;
-                    buffer.$offsetY = 0;
-                } else {
-                    buffer = new WebGLRenderBuffer(width, height);
-                    buffer.$computeDrawCall = false;
-                }
-                return buffer;
-            };
-            WebGLRenderBuffer.release = function (buffer) {
-                renderBufferPool.push(buffer);
-            };
-            WebGLRenderBuffer.autoClear = true;
-            return WebGLRenderBuffer;
-        }(egret.HashObject);
-        wxgame.WebGLRenderBuffer = WebGLRenderBuffer;
-        __reflect(WebGLRenderBuffer.prototype, "egret.wxgame.WebGLRenderBuffer", ["egret.sys.RenderBuffer"]);
-        var renderBufferPool = [];
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var blendModes = ["source-over", "lighter", "destination-out"];
-        var defaultCompositeOp = "source-over";
-        var BLACK_COLOR = "#000000";
-        var CAPS_STYLES = { none: 'butt', square: 'square', round: 'round' };
-        var renderBufferPool = [];
-        var WebGLRenderer = function () {
-            function WebGLRenderer() {
-                this.wxiOS10 = false;
-                this.nestLevel = 0;
-            }
-            WebGLRenderer.prototype.render = function (displayObject, buffer, matrix, forRenderTexture) {
-                this.nestLevel++;
-                var webglBuffer = buffer;
-                var webglBufferContext = webglBuffer.context;
-                var root = forRenderTexture ? displayObject : null;
-                webglBufferContext.pushBuffer(webglBuffer);
-                webglBuffer.transform(matrix.a, matrix.b, matrix.c, matrix.d, 0, 0);
-                this.drawDisplayObject(displayObject, webglBuffer, matrix.tx, matrix.ty, true);
-                webglBufferContext.$drawWebGL();
-                var drawCall = webglBuffer.$drawCalls;
-                webglBuffer.onRenderFinish();
-                webglBufferContext.popBuffer();
-                var invert = egret.Matrix.create();
-                matrix.$invertInto(invert);
-                webglBuffer.transform(invert.a, invert.b, invert.c, invert.d, 0, 0);
-                egret.Matrix.release(invert);
-                this.nestLevel--;
-                if (this.nestLevel === 0) {
-                    if (renderBufferPool.length > 6) {
-                        renderBufferPool.length = 6;
-                    }
-                    var length_5 = renderBufferPool.length;
-                    for (var i = 0; i < length_5; i++) {
-                        renderBufferPool[i].resize(0, 0);
-                    }
-                }
-                return drawCall;
-            };
-            WebGLRenderer.prototype.drawDisplayObject = function (displayObject, buffer, offsetX, offsetY, isStage) {
-                var drawCalls = 0;
-                var node;
-                var displayList = displayObject.$displayList;
-                if (displayList && !isStage) {
-                    if (displayObject.$cacheDirty || displayObject.$renderDirty || displayList.$canvasScaleX != egret.sys.DisplayList.$canvasScaleX || displayList.$canvasScaleY != egret.sys.DisplayList.$canvasScaleY) {
-                        drawCalls += displayList.drawToSurface();
-                    }
-                    node = displayList.$renderNode;
-                } else {
-                    if (displayObject.$renderDirty) {
-                        node = displayObject.$getRenderNode();
-                    } else {
-                        node = displayObject.$renderNode;
-                    }
-                }
-                displayObject.$cacheDirty = false;
-                if (node) {
-                    drawCalls++;
-                    buffer.$offsetX = offsetX;
-                    buffer.$offsetY = offsetY;
-                    switch (node.type) {
-                        case 1:
-                            this.renderBitmap(node, buffer);
-                            break;
-                        case 2:
-                            this.renderText(node, buffer);
-                            break;
-                        case 3:
-                            this.renderGraphics(node, buffer);
-                            break;
-                        case 4:
-                            this.renderGroup(node, buffer);
-                            break;
-                        case 5:
-                            this.renderMesh(node, buffer);
-                            break;
-                        case 6:
-                            this.renderNormalBitmap(node, buffer);
-                            break;
-                    }
-                    buffer.$offsetX = 0;
-                    buffer.$offsetY = 0;
-                }
-                if (displayList && !isStage) {
-                    return drawCalls;
-                }
-                var children = displayObject.$children;
-                if (children) {
-                    if (displayObject.sortableChildren && displayObject.$sortDirty) {
-                        displayObject.sortChildren();
-                    }
-                    var length_6 = children.length;
-                    for (var i = 0; i < length_6; i++) {
-                        var child = children[i];
-                        var offsetX2 = void 0;
-                        var offsetY2 = void 0;
-                        var tempAlpha = void 0;
-                        var tempTintColor = void 0;
-                        if (child.$alpha != 1) {
-                            tempAlpha = buffer.globalAlpha;
-                            buffer.globalAlpha *= child.$alpha;
-                        }
-                        if (child.tint !== 0xFFFFFF) {
-                            tempTintColor = buffer.globalTintColor;
-                            buffer.globalTintColor = child.$tintRGB;
-                        }
-                        var savedMatrix = void 0;
-                        if (child.$useTranslate) {
-                            var m = child.$getMatrix();
-                            offsetX2 = offsetX + child.$x;
-                            offsetY2 = offsetY + child.$y;
-                            var m2 = buffer.globalMatrix;
-                            savedMatrix = egret.Matrix.create();
-                            savedMatrix.a = m2.a;
-                            savedMatrix.b = m2.b;
-                            savedMatrix.c = m2.c;
-                            savedMatrix.d = m2.d;
-                            savedMatrix.tx = m2.tx;
-                            savedMatrix.ty = m2.ty;
-                            buffer.transform(m.a, m.b, m.c, m.d, offsetX2, offsetY2);
-                            offsetX2 = -child.$anchorOffsetX;
-                            offsetY2 = -child.$anchorOffsetY;
-                        } else {
-                            offsetX2 = offsetX + child.$x - child.$anchorOffsetX;
-                            offsetY2 = offsetY + child.$y - child.$anchorOffsetY;
-                        }
-                        switch (child.$renderMode) {
-                            case 1:
-                                break;
-                            case 2:
-                                drawCalls += this.drawWithFilter(child, buffer, offsetX2, offsetY2);
-                                break;
-                            case 3:
-                                drawCalls += this.drawWithClip(child, buffer, offsetX2, offsetY2);
-                                break;
-                            case 4:
-                                drawCalls += this.drawWithScrollRect(child, buffer, offsetX2, offsetY2);
-                                break;
-                            default:
-                                drawCalls += this.drawDisplayObject(child, buffer, offsetX2, offsetY2);
-                                break;
-                        }
-                        if (tempAlpha) {
-                            buffer.globalAlpha = tempAlpha;
-                        }
-                        if (tempTintColor) {
-                            buffer.globalTintColor = tempTintColor;
-                        }
-                        if (savedMatrix) {
-                            var m = buffer.globalMatrix;
-                            m.a = savedMatrix.a;
-                            m.b = savedMatrix.b;
-                            m.c = savedMatrix.c;
-                            m.d = savedMatrix.d;
-                            m.tx = savedMatrix.tx;
-                            m.ty = savedMatrix.ty;
-                            egret.Matrix.release(savedMatrix);
-                        }
-                    }
-                }
-                return drawCalls;
-            };
-            WebGLRenderer.prototype.drawWithFilter = function (displayObject, buffer, offsetX, offsetY) {
-                var drawCalls = 0;
-                if (displayObject.$children && displayObject.$children.length == 0 && (!displayObject.$renderNode || displayObject.$renderNode.$getRenderCount() == 0)) {
-                    return drawCalls;
-                }
-                var filters = displayObject.$filters;
-                var hasBlendMode = displayObject.$blendMode !== 0;
-                var compositeOp;
-                if (hasBlendMode) {
-                    compositeOp = blendModes[displayObject.$blendMode];
-                    if (!compositeOp) {
-                        compositeOp = defaultCompositeOp;
-                    }
-                }
-                var displayBounds = displayObject.$getOriginalBounds();
-                var displayBoundsX = displayBounds.x;
-                var displayBoundsY = displayBounds.y;
-                var displayBoundsWidth = displayBounds.width;
-                var displayBoundsHeight = displayBounds.height;
-                if (displayBoundsWidth <= 0 || displayBoundsHeight <= 0) {
-                    return drawCalls;
-                }
-                if (!displayObject.mask && filters.length == 1 && (filters[0].type == "colorTransform" || filters[0].type === "custom" && filters[0].padding === 0)) {
-                    var childrenDrawCount = this.getRenderCount(displayObject);
-                    if (!displayObject.$children || childrenDrawCount == 1) {
-                        if (hasBlendMode) {
-                            buffer.context.setGlobalCompositeOperation(compositeOp);
-                        }
-                        buffer.context.$filter = filters[0];
-                        if (displayObject.$mask) {
-                            drawCalls += this.drawWithClip(displayObject, buffer, offsetX, offsetY);
-                        } else if (displayObject.$scrollRect || displayObject.$maskRect) {
-                            drawCalls += this.drawWithScrollRect(displayObject, buffer, offsetX, offsetY);
-                        } else {
-                            drawCalls += this.drawDisplayObject(displayObject, buffer, offsetX, offsetY);
-                        }
-                        buffer.context.$filter = null;
-                        if (hasBlendMode) {
-                            buffer.context.setGlobalCompositeOperation(defaultCompositeOp);
-                        }
-                        return drawCalls;
-                    }
-                }
-                var scale = Math.max(egret.sys.DisplayList.$canvasScaleFactor, 2);
-                filters.forEach(function (filter) {
-                    if (filter instanceof egret.GlowFilter || filter instanceof egret.BlurFilter) {
-                        filter.$uniforms.$filterScale = scale;
-                        if (filter.type == 'blur') {
-                            var blurFilter = filter;
-                            blurFilter.blurXFilter.$uniforms.$filterScale = scale;
-                            blurFilter.blurYFilter.$uniforms.$filterScale = scale;
-                        }
-                    }
-                });
-                var displayBuffer = this.createRenderBuffer(scale * displayBoundsWidth, scale * displayBoundsHeight);
-                displayBuffer.saveTransform();
-                displayBuffer.transform(scale, 0, 0, scale, 0, 0);
-                displayBuffer.context.pushBuffer(displayBuffer);
-                if (displayObject.$mask) {
-                    drawCalls += this.drawWithClip(displayObject, displayBuffer, -displayBoundsX, -displayBoundsY);
-                } else if (displayObject.$scrollRect || displayObject.$maskRect) {
-                    drawCalls += this.drawWithScrollRect(displayObject, displayBuffer, -displayBoundsX, -displayBoundsY);
-                } else {
-                    drawCalls += this.drawDisplayObject(displayObject, displayBuffer, -displayBoundsX, -displayBoundsY);
-                }
-                displayBuffer.context.popBuffer();
-                displayBuffer.restoreTransform();
-                if (drawCalls > 0) {
-                    if (hasBlendMode) {
-                        buffer.context.setGlobalCompositeOperation(compositeOp);
-                    }
-                    drawCalls++;
-                    buffer.$offsetX = offsetX + displayBoundsX;
-                    buffer.$offsetY = offsetY + displayBoundsY;
-                    var savedMatrix = egret.Matrix.create();
-                    var curMatrix = buffer.globalMatrix;
-                    savedMatrix.a = curMatrix.a;
-                    savedMatrix.b = curMatrix.b;
-                    savedMatrix.c = curMatrix.c;
-                    savedMatrix.d = curMatrix.d;
-                    savedMatrix.tx = curMatrix.tx;
-                    savedMatrix.ty = curMatrix.ty;
-                    buffer.useOffset();
-                    buffer.context.drawTargetWidthFilters(filters, displayBuffer);
-                    curMatrix.a = savedMatrix.a;
-                    curMatrix.b = savedMatrix.b;
-                    curMatrix.c = savedMatrix.c;
-                    curMatrix.d = savedMatrix.d;
-                    curMatrix.tx = savedMatrix.tx;
-                    curMatrix.ty = savedMatrix.ty;
-                    egret.Matrix.release(savedMatrix);
-                    if (hasBlendMode) {
-                        buffer.context.setGlobalCompositeOperation(defaultCompositeOp);
-                    }
-                }
-                renderBufferPool.push(displayBuffer);
-                return drawCalls;
-            };
-            WebGLRenderer.prototype.getRenderCount = function (displayObject) {
-                var drawCount = 0;
-                var node = displayObject.$getRenderNode();
-                if (node) {
-                    drawCount += node.$getRenderCount();
-                }
-                if (displayObject.$children) {
-                    for (var _i = 0, _a = displayObject.$children; _i < _a.length; _i++) {
-                        var child = _a[_i];
-                        var filters = child.$filters;
-                        if (filters && filters.length > 0) {
-                            return 2;
-                        } else if (child.$children) {
-                            drawCount += this.getRenderCount(child);
-                        } else {
-                            var node_1 = child.$getRenderNode();
-                            if (node_1) {
-                                drawCount += node_1.$getRenderCount();
-                            }
-                        }
-                    }
-                }
-                return drawCount;
-            };
-            WebGLRenderer.prototype.drawWithClip = function (displayObject, buffer, offsetX, offsetY) {
-                var drawCalls = 0;
-                var hasBlendMode = displayObject.$blendMode !== 0;
-                var compositeOp;
-                if (hasBlendMode) {
-                    compositeOp = blendModes[displayObject.$blendMode];
-                    if (!compositeOp) {
-                        compositeOp = defaultCompositeOp;
-                    }
-                }
-                var scrollRect = displayObject.$scrollRect ? displayObject.$scrollRect : displayObject.$maskRect;
-                var mask = displayObject.$mask;
-                if (mask) {
-                    var maskRenderMatrix = mask.$getMatrix();
-                    if (maskRenderMatrix.a == 0 && maskRenderMatrix.b == 0 || maskRenderMatrix.c == 0 && maskRenderMatrix.d == 0) {
-                        return drawCalls;
-                    }
-                }
-                if (!mask && (!displayObject.$children || displayObject.$children.length == 0)) {
-                    if (scrollRect) {
-                        buffer.context.pushMask(scrollRect.x + offsetX, scrollRect.y + offsetY, scrollRect.width, scrollRect.height);
-                    }
-                    if (hasBlendMode) {
-                        buffer.context.setGlobalCompositeOperation(compositeOp);
-                    }
-                    drawCalls += this.drawDisplayObject(displayObject, buffer, offsetX, offsetY);
-                    if (hasBlendMode) {
-                        buffer.context.setGlobalCompositeOperation(defaultCompositeOp);
-                    }
-                    if (scrollRect) {
-                        buffer.context.popMask();
-                    }
-                    return drawCalls;
-                } else {
-                    var displayBounds = displayObject.$getOriginalBounds();
-                    var displayBoundsX = displayBounds.x;
-                    var displayBoundsY = displayBounds.y;
-                    var displayBoundsWidth = displayBounds.width;
-                    var displayBoundsHeight = displayBounds.height;
-                    if (displayBoundsWidth <= 0 || displayBoundsHeight <= 0) {
-                        return drawCalls;
-                    }
-                    var displayBuffer = this.createRenderBuffer(displayBoundsWidth, displayBoundsHeight);
-                    displayBuffer.context.pushBuffer(displayBuffer);
-                    drawCalls += this.drawDisplayObject(displayObject, displayBuffer, -displayBoundsX, -displayBoundsY);
-                    if (mask) {
-                        var maskBuffer = this.createRenderBuffer(displayBoundsWidth, displayBoundsHeight);
-                        maskBuffer.context.pushBuffer(maskBuffer);
-                        var maskMatrix = egret.Matrix.create();
-                        maskMatrix.copyFrom(mask.$getConcatenatedMatrix());
-                        mask.$getConcatenatedMatrixAt(displayObject, maskMatrix);
-                        maskMatrix.translate(-displayBoundsX, -displayBoundsY);
-                        maskBuffer.setTransform(maskMatrix.a, maskMatrix.b, maskMatrix.c, maskMatrix.d, maskMatrix.tx, maskMatrix.ty);
-                        egret.Matrix.release(maskMatrix);
-                        drawCalls += this.drawDisplayObject(mask, maskBuffer, 0, 0);
-                        maskBuffer.context.popBuffer();
-                        displayBuffer.context.setGlobalCompositeOperation("destination-in");
-                        displayBuffer.setTransform(1, 0, 0, -1, 0, maskBuffer.height);
-                        var maskBufferWidth = maskBuffer.rootRenderTarget.width;
-                        var maskBufferHeight = maskBuffer.rootRenderTarget.height;
-                        displayBuffer.context.drawTexture(maskBuffer.rootRenderTarget.texture, 0, 0, maskBufferWidth, maskBufferHeight, 0, 0, maskBufferWidth, maskBufferHeight, maskBufferWidth, maskBufferHeight);
-                        displayBuffer.setTransform(1, 0, 0, 1, 0, 0);
-                        displayBuffer.context.setGlobalCompositeOperation("source-over");
-                        maskBuffer.setTransform(1, 0, 0, 1, 0, 0);
-                        renderBufferPool.push(maskBuffer);
-                    }
-                    displayBuffer.context.setGlobalCompositeOperation(defaultCompositeOp);
-                    displayBuffer.context.popBuffer();
-                    if (drawCalls > 0) {
-                        drawCalls++;
-                        if (hasBlendMode) {
-                            buffer.context.setGlobalCompositeOperation(compositeOp);
-                        }
-                        if (scrollRect) {
-                            buffer.context.pushMask(scrollRect.x + offsetX, scrollRect.y + offsetY, scrollRect.width, scrollRect.height);
-                        }
-                        var savedMatrix = egret.Matrix.create();
-                        var curMatrix = buffer.globalMatrix;
-                        savedMatrix.a = curMatrix.a;
-                        savedMatrix.b = curMatrix.b;
-                        savedMatrix.c = curMatrix.c;
-                        savedMatrix.d = curMatrix.d;
-                        savedMatrix.tx = curMatrix.tx;
-                        savedMatrix.ty = curMatrix.ty;
-                        curMatrix.append(1, 0, 0, -1, offsetX + displayBoundsX, offsetY + displayBoundsY + displayBuffer.height);
-                        var displayBufferWidth = displayBuffer.rootRenderTarget.width;
-                        var displayBufferHeight = displayBuffer.rootRenderTarget.height;
-                        buffer.context.drawTexture(displayBuffer.rootRenderTarget.texture, 0, 0, displayBufferWidth, displayBufferHeight, 0, 0, displayBufferWidth, displayBufferHeight, displayBufferWidth, displayBufferHeight);
-                        if (scrollRect) {
-                            displayBuffer.context.popMask();
-                        }
-                        if (hasBlendMode) {
-                            buffer.context.setGlobalCompositeOperation(defaultCompositeOp);
-                        }
-                        var matrix = buffer.globalMatrix;
-                        matrix.a = savedMatrix.a;
-                        matrix.b = savedMatrix.b;
-                        matrix.c = savedMatrix.c;
-                        matrix.d = savedMatrix.d;
-                        matrix.tx = savedMatrix.tx;
-                        matrix.ty = savedMatrix.ty;
-                        egret.Matrix.release(savedMatrix);
-                    }
-                    renderBufferPool.push(displayBuffer);
-                    return drawCalls;
-                }
-            };
-            WebGLRenderer.prototype.drawWithScrollRect = function (displayObject, buffer, offsetX, offsetY) {
-                var drawCalls = 0;
-                var scrollRect = displayObject.$scrollRect ? displayObject.$scrollRect : displayObject.$maskRect;
-                if (scrollRect.isEmpty()) {
-                    return drawCalls;
-                }
-                if (displayObject.$scrollRect) {
-                    offsetX -= scrollRect.x;
-                    offsetY -= scrollRect.y;
-                }
-                var m = buffer.globalMatrix;
-                var context = buffer.context;
-                var scissor = false;
-                if (buffer.$hasScissor || m.b != 0 || m.c != 0) {
-                    buffer.context.pushMask(scrollRect.x + offsetX, scrollRect.y + offsetY, scrollRect.width, scrollRect.height);
-                } else {
-                    var a = m.a;
-                    var d = m.d;
-                    var tx = m.tx;
-                    var ty = m.ty;
-                    var x = scrollRect.x + offsetX;
-                    var y = scrollRect.y + offsetY;
-                    var xMax = x + scrollRect.width;
-                    var yMax = y + scrollRect.height;
-                    var minX = void 0,
-                        minY = void 0,
-                        maxX = void 0,
-                        maxY = void 0;
-                    if (a == 1.0 && d == 1.0) {
-                        minX = x + tx;
-                        minY = y + ty;
-                        maxX = xMax + tx;
-                        maxY = yMax + ty;
-                    } else {
-                        var x0 = a * x + tx;
-                        var y0 = d * y + ty;
-                        var x1 = a * xMax + tx;
-                        var y1 = d * y + ty;
-                        var x2 = a * xMax + tx;
-                        var y2 = d * yMax + ty;
-                        var x3 = a * x + tx;
-                        var y3 = d * yMax + ty;
-                        var tmp = 0;
-                        if (x0 > x1) {
-                            tmp = x0;
-                            x0 = x1;
-                            x1 = tmp;
-                        }
-                        if (x2 > x3) {
-                            tmp = x2;
-                            x2 = x3;
-                            x3 = tmp;
-                        }
-                        minX = x0 < x2 ? x0 : x2;
-                        maxX = x1 > x3 ? x1 : x3;
-                        if (y0 > y1) {
-                            tmp = y0;
-                            y0 = y1;
-                            y1 = tmp;
-                        }
-                        if (y2 > y3) {
-                            tmp = y2;
-                            y2 = y3;
-                            y3 = tmp;
-                        }
-                        minY = y0 < y2 ? y0 : y2;
-                        maxY = y1 > y3 ? y1 : y3;
-                    }
-                    context.enableScissor(minX, -maxY + buffer.height, maxX - minX, maxY - minY);
-                    scissor = true;
-                }
-                drawCalls += this.drawDisplayObject(displayObject, buffer, offsetX, offsetY);
-                if (scissor) {
-                    context.disableScissor();
-                } else {
-                    context.popMask();
-                }
-                return drawCalls;
-            };
-            WebGLRenderer.prototype.drawNodeToBuffer = function (node, buffer, matrix, forHitTest) {
-                var webglBuffer = buffer;
-                webglBuffer.context.pushBuffer(webglBuffer);
-                webglBuffer.setTransform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
-                this.renderNode(node, buffer, 0, 0, forHitTest);
-                webglBuffer.context.$drawWebGL();
-                webglBuffer.onRenderFinish();
-                webglBuffer.context.popBuffer();
-            };
-            WebGLRenderer.prototype.drawDisplayToBuffer = function (displayObject, buffer, matrix) {
-                buffer.context.pushBuffer(buffer);
-                if (matrix) {
-                    buffer.setTransform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
-                }
-                var node;
-                if (displayObject.$renderDirty) {
-                    node = displayObject.$getRenderNode();
-                } else {
-                    node = displayObject.$renderNode;
-                }
-                var drawCalls = 0;
-                if (node) {
-                    drawCalls++;
-                    switch (node.type) {
-                        case 1:
-                            this.renderBitmap(node, buffer);
-                            break;
-                        case 2:
-                            this.renderText(node, buffer);
-                            break;
-                        case 3:
-                            this.renderGraphics(node, buffer);
-                            break;
-                        case 4:
-                            this.renderGroup(node, buffer);
-                            break;
-                        case 5:
-                            this.renderMesh(node, buffer);
-                            break;
-                        case 6:
-                            this.renderNormalBitmap(node, buffer);
-                            break;
-                    }
-                }
-                var children = displayObject.$children;
-                if (children) {
-                    var length_7 = children.length;
-                    for (var i = 0; i < length_7; i++) {
-                        var child = children[i];
-                        switch (child.$renderMode) {
-                            case 1:
-                                break;
-                            case 2:
-                                drawCalls += this.drawWithFilter(child, buffer, 0, 0);
-                                break;
-                            case 3:
-                                drawCalls += this.drawWithClip(child, buffer, 0, 0);
-                                break;
-                            case 4:
-                                drawCalls += this.drawWithScrollRect(child, buffer, 0, 0);
-                                break;
-                            default:
-                                drawCalls += this.drawDisplayObject(child, buffer, 0, 0);
-                                break;
-                        }
-                    }
-                }
-                buffer.context.$drawWebGL();
-                buffer.onRenderFinish();
-                buffer.context.popBuffer();
-                return drawCalls;
-            };
-            WebGLRenderer.prototype.renderNode = function (node, buffer, offsetX, offsetY, forHitTest) {
-                buffer.$offsetX = offsetX;
-                buffer.$offsetY = offsetY;
-                switch (node.type) {
-                    case 1:
-                        this.renderBitmap(node, buffer);
-                        break;
-                    case 2:
-                        this.renderText(node, buffer);
-                        break;
-                    case 3:
-                        this.renderGraphics(node, buffer, forHitTest);
-                        break;
-                    case 4:
-                        this.renderGroup(node, buffer);
-                        break;
-                    case 5:
-                        this.renderMesh(node, buffer);
-                        break;
-                    case 6:
-                        this.renderNormalBitmap(node, buffer);
-                        break;
-                }
-            };
-            WebGLRenderer.prototype.renderNormalBitmap = function (node, buffer) {
-                var image = node.image;
-                if (!image) {
-                    return;
-                }
-                buffer.context.drawImage(image, node.sourceX, node.sourceY, node.sourceW, node.sourceH, node.drawX, node.drawY, node.drawW, node.drawH, node.imageWidth, node.imageHeight, node.rotated, node.smoothing);
-            };
-            WebGLRenderer.prototype.renderBitmap = function (node, buffer) {
-                var image = node.image;
-                if (!image) {
-                    return;
-                }
-                var data = node.drawData;
-                var length = data.length;
-                var pos = 0;
-                var m = node.matrix;
-                var blendMode = node.blendMode;
-                var alpha = node.alpha;
-                var savedMatrix;
-                var offsetX;
-                var offsetY;
-                if (m) {
-                    savedMatrix = egret.Matrix.create();
-                    var curMatrix = buffer.globalMatrix;
-                    savedMatrix.a = curMatrix.a;
-                    savedMatrix.b = curMatrix.b;
-                    savedMatrix.c = curMatrix.c;
-                    savedMatrix.d = curMatrix.d;
-                    savedMatrix.tx = curMatrix.tx;
-                    savedMatrix.ty = curMatrix.ty;
-                    offsetX = buffer.$offsetX;
-                    offsetY = buffer.$offsetY;
-                    buffer.useOffset();
-                    buffer.transform(m.a, m.b, m.c, m.d, m.tx, m.ty);
-                }
-                if (blendMode) {
-                    buffer.context.setGlobalCompositeOperation(blendModes[blendMode]);
-                }
-                var originAlpha;
-                if (alpha == alpha) {
-                    originAlpha = buffer.globalAlpha;
-                    buffer.globalAlpha *= alpha;
-                }
-                if (node.filter) {
-                    buffer.context.$filter = node.filter;
-                    while (pos < length) {
-                        buffer.context.drawImage(image, data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], node.imageWidth, node.imageHeight, node.rotated, node.smoothing);
-                    }
-                    buffer.context.$filter = null;
-                } else {
-                    while (pos < length) {
-                        buffer.context.drawImage(image, data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], node.imageWidth, node.imageHeight, node.rotated, node.smoothing);
-                    }
-                }
-                if (blendMode) {
-                    buffer.context.setGlobalCompositeOperation(defaultCompositeOp);
-                }
-                if (alpha == alpha) {
-                    buffer.globalAlpha = originAlpha;
-                }
-                if (m) {
-                    var matrix = buffer.globalMatrix;
-                    matrix.a = savedMatrix.a;
-                    matrix.b = savedMatrix.b;
-                    matrix.c = savedMatrix.c;
-                    matrix.d = savedMatrix.d;
-                    matrix.tx = savedMatrix.tx;
-                    matrix.ty = savedMatrix.ty;
-                    buffer.$offsetX = offsetX;
-                    buffer.$offsetY = offsetY;
-                    egret.Matrix.release(savedMatrix);
-                }
-            };
-            WebGLRenderer.prototype.renderMesh = function (node, buffer) {
-                var image = node.image;
-                var data = node.drawData;
-                var length = data.length;
-                var pos = 0;
-                var m = node.matrix;
-                var blendMode = node.blendMode;
-                var alpha = node.alpha;
-                var savedMatrix;
-                var offsetX;
-                var offsetY;
-                if (m) {
-                    savedMatrix = egret.Matrix.create();
-                    var curMatrix = buffer.globalMatrix;
-                    savedMatrix.a = curMatrix.a;
-                    savedMatrix.b = curMatrix.b;
-                    savedMatrix.c = curMatrix.c;
-                    savedMatrix.d = curMatrix.d;
-                    savedMatrix.tx = curMatrix.tx;
-                    savedMatrix.ty = curMatrix.ty;
-                    offsetX = buffer.$offsetX;
-                    offsetY = buffer.$offsetY;
-                    buffer.useOffset();
-                    buffer.transform(m.a, m.b, m.c, m.d, m.tx, m.ty);
-                }
-                if (blendMode) {
-                    buffer.context.setGlobalCompositeOperation(blendModes[blendMode]);
-                }
-                var originAlpha;
-                if (alpha == alpha) {
-                    originAlpha = buffer.globalAlpha;
-                    buffer.globalAlpha *= alpha;
-                }
-                if (node.filter) {
-                    buffer.context.$filter = node.filter;
-                    while (pos < length) {
-                        buffer.context.drawMesh(image, data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], node.imageWidth, node.imageHeight, node.uvs, node.vertices, node.indices, node.bounds, node.rotated, node.smoothing);
-                    }
-                    buffer.context.$filter = null;
-                } else {
-                    while (pos < length) {
-                        buffer.context.drawMesh(image, data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], node.imageWidth, node.imageHeight, node.uvs, node.vertices, node.indices, node.bounds, node.rotated, node.smoothing);
-                    }
-                }
-                if (blendMode) {
-                    buffer.context.setGlobalCompositeOperation(defaultCompositeOp);
-                }
-                if (alpha == alpha) {
-                    buffer.globalAlpha = originAlpha;
-                }
-                if (m) {
-                    var matrix = buffer.globalMatrix;
-                    matrix.a = savedMatrix.a;
-                    matrix.b = savedMatrix.b;
-                    matrix.c = savedMatrix.c;
-                    matrix.d = savedMatrix.d;
-                    matrix.tx = savedMatrix.tx;
-                    matrix.ty = savedMatrix.ty;
-                    buffer.$offsetX = offsetX;
-                    buffer.$offsetY = offsetY;
-                    egret.Matrix.release(savedMatrix);
-                }
-            };
-            WebGLRenderer.prototype.___renderText____ = function (node, buffer) {
-                var width = node.width - node.x;
-                var height = node.height - node.y;
-                if (width <= 0 || height <= 0 || !width || !height || node.drawData.length === 0) {
-                    return;
-                }
-                var canvasScaleX = egret.sys.DisplayList.$canvasScaleX;
-                var canvasScaleY = egret.sys.DisplayList.$canvasScaleY;
-                var maxTextureSize = buffer.context.$maxTextureSize;
-                if (width * canvasScaleX > maxTextureSize) {
-                    canvasScaleX *= maxTextureSize / (width * canvasScaleX);
-                }
-                if (height * canvasScaleY > maxTextureSize) {
-                    canvasScaleY *= maxTextureSize / (height * canvasScaleY);
-                }
-                width *= canvasScaleX;
-                height *= canvasScaleY;
-                var x = node.x * canvasScaleX;
-                var y = node.y * canvasScaleY;
-                if (node.$canvasScaleX !== canvasScaleX || node.$canvasScaleY !== canvasScaleY) {
-                    node.$canvasScaleX = canvasScaleX;
-                    node.$canvasScaleY = canvasScaleY;
-                    node.dirtyRender = true;
-                }
-                if (x || y) {
-                    buffer.transform(1, 0, 0, 1, x / canvasScaleX, y / canvasScaleY);
-                }
-                if (node.dirtyRender) {
-                    wxgame.TextAtlasRender.analysisTextNodeAndFlushDrawLabel(node);
-                }
-                var drawCommands = node[wxgame.property_drawLabel];
-                if (drawCommands && drawCommands.length > 0) {
-                    var saveOffsetX = buffer.$offsetX;
-                    var saveOffsetY = buffer.$offsetY;
-                    var cmd = null;
-                    var anchorX = 0;
-                    var anchorY = 0;
-                    var textBlocks = null;
-                    var tb = null;
-                    var page = null;
-                    for (var i = 0, length_8 = drawCommands.length; i < length_8; ++i) {
-                        cmd = drawCommands[i];
-                        anchorX = cmd.anchorX;
-                        anchorY = cmd.anchorY;
-                        textBlocks = cmd.textBlocks;
-                        buffer.$offsetX = saveOffsetX + anchorX;
-                        for (var j = 0, length1 = textBlocks.length; j < length1; ++j) {
-                            tb = textBlocks[j];
-                            if (j > 0) {
-                                buffer.$offsetX -= tb.canvasWidthOffset;
-                            }
-                            buffer.$offsetY = saveOffsetY + anchorY - (tb.measureHeight + (tb.stroke2 ? tb.canvasHeightOffset : 0)) / 2;
-                            page = tb.line.page;
-                            buffer.context.drawTexture(page.webGLTexture, tb.u, tb.v, tb.contentWidth, tb.contentHeight, 0, 0, tb.contentWidth, tb.contentHeight, page.pageWidth, page.pageHeight);
-                            buffer.$offsetX += tb.contentWidth - tb.canvasWidthOffset;
-                        }
-                    }
-                    buffer.$offsetX = saveOffsetX;
-                    buffer.$offsetY = saveOffsetY;
-                }
-                if (x || y) {
-                    buffer.transform(1, 0, 0, 1, -x / canvasScaleX, -y / canvasScaleY);
-                }
-                node.dirtyRender = false;
-            };
-            WebGLRenderer.prototype.renderText = function (node, buffer) {
-                if (wxgame.textAtlasRenderEnable) {
-                    this.___renderText____(node, buffer);
-                    return;
-                }
-                var width = node.width - node.x;
-                var height = node.height - node.y;
-                if (width <= 0 || height <= 0 || !width || !height || node.drawData.length == 0) {
-                    return;
-                }
-                var canvasScaleX = egret.sys.DisplayList.$canvasScaleX;
-                var canvasScaleY = egret.sys.DisplayList.$canvasScaleY;
-                var maxTextureSize = buffer.context.$maxTextureSize;
-                if (width * canvasScaleX > maxTextureSize) {
-                    canvasScaleX *= maxTextureSize / (width * canvasScaleX);
-                }
-                if (height * canvasScaleY > maxTextureSize) {
-                    canvasScaleY *= maxTextureSize / (height * canvasScaleY);
-                }
-                width *= canvasScaleX;
-                height *= canvasScaleY;
-                var x = node.x * canvasScaleX;
-                var y = node.y * canvasScaleY;
-                if (node.$canvasScaleX != canvasScaleX || node.$canvasScaleY != canvasScaleY) {
-                    node.$canvasScaleX = canvasScaleX;
-                    node.$canvasScaleY = canvasScaleY;
-                    node.dirtyRender = true;
-                }
-                if (this.wxiOS10) {
-                    if (!this.canvasRenderer) {
-                        this.canvasRenderer = new egret.CanvasRenderer();
-                    }
-                    if (node.dirtyRender) {
-                        this.canvasRenderBuffer = new wxgame.CanvasRenderBuffer(width, height);
-                    }
-                } else {
-                    if (!this.canvasRenderBuffer || !this.canvasRenderBuffer.context) {
-                        this.canvasRenderer = new egret.CanvasRenderer();
-                        this.canvasRenderBuffer = new wxgame.CanvasRenderBuffer(width, height);
-                    } else if (node.dirtyRender) {
-                        this.canvasRenderBuffer.resize(width, height);
-                    }
-                }
-                if (!this.canvasRenderBuffer.context) {
-                    return;
-                }
-                if (canvasScaleX != 1 || canvasScaleY != 1) {
-                    this.canvasRenderBuffer.context.setTransform(canvasScaleX, 0, 0, canvasScaleY, 0, 0);
-                }
-                if (x || y) {
-                    if (node.dirtyRender) {
-                        this.canvasRenderBuffer.context.setTransform(canvasScaleX, 0, 0, canvasScaleY, -x, -y);
-                    }
-                    buffer.transform(1, 0, 0, 1, x / canvasScaleX, y / canvasScaleY);
-                } else if (canvasScaleX != 1 || canvasScaleY != 1) {
-                    this.canvasRenderBuffer.context.setTransform(canvasScaleX, 0, 0, canvasScaleY, 0, 0);
-                }
-                if (node.dirtyRender) {
-                    var surface = this.canvasRenderBuffer.surface;
-                    this.canvasRenderer.renderText(node, this.canvasRenderBuffer.context);
-                    if (this.wxiOS10) {
-                        surface["isCanvas"] = true;
-                        node.$texture = surface;
-                    } else {
-                        var texture = node.$texture;
-                        if (!texture) {
-                            texture = buffer.context.createTexture(surface);
-                            node.$texture = texture;
-                        } else {
-                            buffer.context.updateTexture(texture, surface);
-                        }
-                    }
-                    node.$textureWidth = surface.width;
-                    node.$textureHeight = surface.height;
-                }
-                var textureWidth = node.$textureWidth;
-                var textureHeight = node.$textureHeight;
-                buffer.context.drawTexture(node.$texture, 0, 0, textureWidth, textureHeight, 0, 0, textureWidth / canvasScaleX, textureHeight / canvasScaleY, textureWidth, textureHeight);
-                if (x || y) {
-                    if (node.dirtyRender) {
-                        this.canvasRenderBuffer.context.setTransform(canvasScaleX, 0, 0, canvasScaleY, 0, 0);
-                    }
-                    buffer.transform(1, 0, 0, 1, -x / canvasScaleX, -y / canvasScaleY);
-                }
-                node.dirtyRender = false;
-            };
-            WebGLRenderer.prototype.renderGraphics = function (node, buffer, forHitTest) {
-                var width = node.width;
-                var height = node.height;
-                if (width <= 0 || height <= 0 || !width || !height || node.drawData.length == 0) {
-                    return;
-                }
-                var canvasScaleX = egret.sys.DisplayList.$canvasScaleX;
-                var canvasScaleY = egret.sys.DisplayList.$canvasScaleY;
-                if (width * canvasScaleX < 1 || height * canvasScaleY < 1) {
-                    canvasScaleX = canvasScaleY = 1;
-                }
-                if (node.$canvasScaleX != canvasScaleX || node.$canvasScaleY != canvasScaleY) {
-                    node.$canvasScaleX = canvasScaleX;
-                    node.$canvasScaleY = canvasScaleY;
-                    node.dirtyRender = true;
-                }
-                width = width * canvasScaleX;
-                height = height * canvasScaleY;
-                var width2 = Math.ceil(width);
-                var height2 = Math.ceil(height);
-                canvasScaleX *= width2 / width;
-                canvasScaleY *= height2 / height;
-                width = width2;
-                height = height2;
-                if (this.wxiOS10) {
-                    if (!this.canvasRenderer) {
-                        this.canvasRenderer = new egret.CanvasRenderer();
-                    }
-                    if (node.dirtyRender) {
-                        this.canvasRenderBuffer = new wxgame.CanvasRenderBuffer(width, height);
-                    }
-                } else {
-                    if (!this.canvasRenderBuffer || !this.canvasRenderBuffer.context) {
-                        this.canvasRenderer = new egret.CanvasRenderer();
-                        this.canvasRenderBuffer = new wxgame.CanvasRenderBuffer(width, height);
-                    } else if (node.dirtyRender) {
-                        this.canvasRenderBuffer.resize(width, height);
-                    }
-                }
-                if (!this.canvasRenderBuffer.context) {
-                    return;
-                }
-                if (canvasScaleX != 1 || canvasScaleY != 1) {
-                    this.canvasRenderBuffer.context.setTransform(canvasScaleX, 0, 0, canvasScaleY, 0, 0);
-                }
-                if (node.x || node.y) {
-                    if (node.dirtyRender || forHitTest) {
-                        this.canvasRenderBuffer.context.translate(-node.x, -node.y);
-                    }
-                    buffer.transform(1, 0, 0, 1, node.x, node.y);
-                }
-                var surface = this.canvasRenderBuffer.surface;
-                if (forHitTest) {
-                    this.canvasRenderer.renderGraphics(node, this.canvasRenderBuffer.context, true);
-                    var texture = void 0;
-                    if (this.wxiOS10) {
-                        surface["isCanvas"] = true;
-                        texture = surface;
-                    } else {
-                        egret.WebGLUtils.deleteWebGLTexture(surface);
-                        texture = buffer.context.getWebGLTexture(surface);
-                    }
-                    buffer.context.drawTexture(texture, 0, 0, width, height, 0, 0, width, height, surface.width, surface.height);
-                } else {
-                    if (node.dirtyRender) {
-                        this.canvasRenderer.renderGraphics(node, this.canvasRenderBuffer.context);
-                        if (this.wxiOS10) {
-                            surface["isCanvas"] = true;
-                            node.$texture = surface;
-                        } else {
-                            var texture = node.$texture;
-                            if (!texture) {
-                                texture = buffer.context.createTexture(surface);
-                                node.$texture = texture;
-                            } else {
-                                buffer.context.updateTexture(texture, surface);
-                            }
-                        }
-                        node.$textureWidth = surface.width;
-                        node.$textureHeight = surface.height;
-                    }
-                    var textureWidth = node.$textureWidth;
-                    var textureHeight = node.$textureHeight;
-                    buffer.context.drawTexture(node.$texture, 0, 0, textureWidth, textureHeight, 0, 0, textureWidth / canvasScaleX, textureHeight / canvasScaleY, textureWidth, textureHeight);
-                }
-                if (node.x || node.y) {
-                    if (node.dirtyRender || forHitTest) {
-                        this.canvasRenderBuffer.context.translate(node.x, node.y);
-                    }
-                    buffer.transform(1, 0, 0, 1, -node.x, -node.y);
-                }
-                if (!forHitTest) {
-                    node.dirtyRender = false;
-                }
-            };
-            WebGLRenderer.prototype.renderGroup = function (groupNode, buffer) {
-                var m = groupNode.matrix;
-                var savedMatrix;
-                var offsetX;
-                var offsetY;
-                if (m) {
-                    savedMatrix = egret.Matrix.create();
-                    var curMatrix = buffer.globalMatrix;
-                    savedMatrix.a = curMatrix.a;
-                    savedMatrix.b = curMatrix.b;
-                    savedMatrix.c = curMatrix.c;
-                    savedMatrix.d = curMatrix.d;
-                    savedMatrix.tx = curMatrix.tx;
-                    savedMatrix.ty = curMatrix.ty;
-                    offsetX = buffer.$offsetX;
-                    offsetY = buffer.$offsetY;
-                    buffer.useOffset();
-                    buffer.transform(m.a, m.b, m.c, m.d, m.tx, m.ty);
-                }
-                var children = groupNode.drawData;
-                var length = children.length;
-                for (var i = 0; i < length; i++) {
-                    var node = children[i];
-                    this.renderNode(node, buffer, buffer.$offsetX, buffer.$offsetY);
-                }
-                if (m) {
-                    var matrix = buffer.globalMatrix;
-                    matrix.a = savedMatrix.a;
-                    matrix.b = savedMatrix.b;
-                    matrix.c = savedMatrix.c;
-                    matrix.d = savedMatrix.d;
-                    matrix.tx = savedMatrix.tx;
-                    matrix.ty = savedMatrix.ty;
-                    buffer.$offsetX = offsetX;
-                    buffer.$offsetY = offsetY;
-                    egret.Matrix.release(savedMatrix);
-                }
-            };
-            WebGLRenderer.prototype.createRenderBuffer = function (width, height) {
-                var buffer = renderBufferPool.pop();
-                if (buffer) {
-                    buffer.resize(width, height);
-                    buffer.setTransform(1, 0, 0, 1, 0, 0);
-                } else {
-                    buffer = new wxgame.WebGLRenderBuffer(width, height);
-                    buffer.$computeDrawCall = false;
-                }
-                return buffer;
-            };
-            WebGLRenderer.prototype.renderClear = function () {
-                var renderContext = wxgame.WebGLRenderContext.getInstance();
-                var gl = renderContext.context;
-                renderContext.$beforeRender();
-                var width = renderContext.surface.width;
-                var height = renderContext.surface.height;
-                gl.viewport(0, 0, width, height);
-            };
-            return WebGLRenderer;
-        }();
-        wxgame.WebGLRenderer = WebGLRenderer;
-        __reflect(WebGLRenderer.prototype, "egret.wxgame.WebGLRenderer", ["egret.sys.SystemRenderer"]);
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var EgretWebGLAttribute = function () {
-            function EgretWebGLAttribute(gl, program, attributeData) {
-                this.gl = gl;
-                this.name = attributeData.name;
-                this.type = attributeData.type;
-                this.size = attributeData.size;
-                this.location = gl.getAttribLocation(program, this.name);
-                this.count = 0;
-                this.initCount(gl);
-                this.format = gl.FLOAT;
-                this.initFormat(gl);
-            }
-            EgretWebGLAttribute.prototype.initCount = function (gl) {
-                var type = this.type;
-                switch (type) {
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.FLOAT:
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.BYTE:
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.UNSIGNED_BYTE:
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.UNSIGNED_SHORT:
-                        this.count = 1;
-                        break;
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.FLOAT_VEC2:
-                        this.count = 2;
-                        break;
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.FLOAT_VEC3:
-                        this.count = 3;
-                        break;
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.FLOAT_VEC4:
-                        this.count = 4;
-                        break;
-                }
-            };
-            EgretWebGLAttribute.prototype.initFormat = function (gl) {
-                var type = this.type;
-                switch (type) {
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.FLOAT:
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.FLOAT_VEC2:
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.FLOAT_VEC3:
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.FLOAT_VEC4:
-                        this.format = gl.FLOAT;
-                        break;
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.UNSIGNED_BYTE:
-                        this.format = gl.UNSIGNED_BYTE;
-                        break;
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.UNSIGNED_SHORT:
-                        this.format = gl.UNSIGNED_SHORT;
-                        break;
-                    case wxgame.WEBGL_ATTRIBUTE_TYPE.BYTE:
-                        this.format = gl.BYTE;
-                        break;
-                }
-            };
-            return EgretWebGLAttribute;
-        }();
-        wxgame.EgretWebGLAttribute = EgretWebGLAttribute;
-        __reflect(EgretWebGLAttribute.prototype, "egret.wxgame.EgretWebGLAttribute");
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        function loadShader(gl, type, source) {
-            var shader = gl.createShader(type);
-            gl.shaderSource(shader, source);
-            gl.compileShader(shader);
-            var compiled = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
-            if (!compiled) {
-                console.log("shader not compiled!");
-                console.log(gl.getShaderInfoLog(shader));
-            }
-            return shader;
-        }
-        function createWebGLProgram(gl, vertexShader, fragmentShader) {
-            var program = gl.createProgram();
-            gl.attachShader(program, vertexShader);
-            gl.attachShader(program, fragmentShader);
-            gl.linkProgram(program);
-            return program;
-        }
-        function extractAttributes(gl, program) {
-            var attributes = {};
-            var totalAttributes = gl.getProgramParameter(program, gl.ACTIVE_ATTRIBUTES);
-            for (var i = 0; i < totalAttributes; i++) {
-                var attribData = gl.getActiveAttrib(program, i);
-                var name_2 = attribData.name;
-                var attribute = new wxgame.EgretWebGLAttribute(gl, program, attribData);
-                attributes[name_2] = attribute;
-            }
-            return attributes;
-        }
-        function extractUniforms(gl, program) {
-            var uniforms = {};
-            var totalUniforms = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
-            for (var i = 0; i < totalUniforms; i++) {
-                var uniformData = gl.getActiveUniform(program, i);
-                var name_3 = uniformData.name;
-                var uniform = new wxgame.EgretWebGLUniform(gl, program, uniformData);
-                uniforms[name_3] = uniform;
-            }
-            return uniforms;
-        }
-        var EgretWebGLProgram = function () {
-            function EgretWebGLProgram(gl, vertSource, fragSource) {
-                this.vshaderSource = vertSource;
-                this.fshaderSource = fragSource;
-                this.vertexShader = loadShader(gl, gl.VERTEX_SHADER, this.vshaderSource);
-                this.fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, this.fshaderSource);
-                this.id = createWebGLProgram(gl, this.vertexShader, this.fragmentShader);
-                this.uniforms = extractUniforms(gl, this.id);
-                this.attributes = extractAttributes(gl, this.id);
-            }
-            EgretWebGLProgram.getProgram = function (gl, vertSource, fragSource, key) {
-                if (!this.programCache[key]) {
-                    this.programCache[key] = new EgretWebGLProgram(gl, vertSource, fragSource);
-                }
-                return this.programCache[key];
-            };
-            EgretWebGLProgram.deleteProgram = function (gl, vertSource, fragSource, key) {};
-            EgretWebGLProgram.programCache = {};
-            return EgretWebGLProgram;
-        }();
-        wxgame.EgretWebGLProgram = EgretWebGLProgram;
-        __reflect(EgretWebGLProgram.prototype, "egret.wxgame.EgretWebGLProgram");
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var EgretWebGLUniform = function () {
-            function EgretWebGLUniform(gl, program, uniformData) {
-                this.gl = gl;
-                this.name = uniformData.name;
-                this.type = uniformData.type;
-                this.size = uniformData.size;
-                this.location = gl.getUniformLocation(program, this.name);
-                this.setDefaultValue();
-                this.generateSetValue();
-                this.generateUpload();
-            }
-            EgretWebGLUniform.prototype.setDefaultValue = function () {
-                var type = this.type;
-                switch (type) {
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT:
-                    case wxgame.WEBGL_UNIFORM_TYPE.SAMPLER_2D:
-                    case wxgame.WEBGL_UNIFORM_TYPE.SAMPLER_CUBE:
-                    case wxgame.WEBGL_UNIFORM_TYPE.BOOL:
-                    case wxgame.WEBGL_UNIFORM_TYPE.INT:
-                        this.value = 0;
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_VEC2:
-                    case wxgame.WEBGL_UNIFORM_TYPE.BOOL_VEC2:
-                    case wxgame.WEBGL_UNIFORM_TYPE.INT_VEC2:
-                        this.value = [0, 0];
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_VEC3:
-                    case wxgame.WEBGL_UNIFORM_TYPE.BOOL_VEC3:
-                    case wxgame.WEBGL_UNIFORM_TYPE.INT_VEC3:
-                        this.value = [0, 0, 0];
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_VEC4:
-                    case wxgame.WEBGL_UNIFORM_TYPE.BOOL_VEC4:
-                    case wxgame.WEBGL_UNIFORM_TYPE.INT_VEC4:
-                        this.value = [0, 0, 0, 0];
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_MAT2:
-                        this.value = new Float32Array([1, 0, 0, 1]);
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_MAT3:
-                        this.value = new Float32Array([1, 0, 0, 0, 1, 0, 0, 0, 1]);
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_MAT4:
-                        this.value = new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
-                        break;
-                }
-            };
-            EgretWebGLUniform.prototype.generateSetValue = function () {
-                var type = this.type;
-                switch (type) {
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT:
-                    case wxgame.WEBGL_UNIFORM_TYPE.SAMPLER_2D:
-                    case wxgame.WEBGL_UNIFORM_TYPE.SAMPLER_CUBE:
-                    case wxgame.WEBGL_UNIFORM_TYPE.BOOL:
-                    case wxgame.WEBGL_UNIFORM_TYPE.INT:
-                        this.setValue = function (value) {
-                            var notEqual = this.value !== value;
-                            this.value = value;
-                            notEqual && this.upload();
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_VEC2:
-                    case wxgame.WEBGL_UNIFORM_TYPE.BOOL_VEC2:
-                    case wxgame.WEBGL_UNIFORM_TYPE.INT_VEC2:
-                        this.setValue = function (value) {
-                            var notEqual = this.value[0] !== value.x || this.value[1] !== value.y;
-                            this.value[0] = value.x;
-                            this.value[1] = value.y;
-                            notEqual && this.upload();
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_VEC3:
-                    case wxgame.WEBGL_UNIFORM_TYPE.BOOL_VEC3:
-                    case wxgame.WEBGL_UNIFORM_TYPE.INT_VEC3:
-                        this.setValue = function (value) {
-                            this.value[0] = value.x;
-                            this.value[1] = value.y;
-                            this.value[2] = value.z;
-                            this.upload();
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_VEC4:
-                    case wxgame.WEBGL_UNIFORM_TYPE.BOOL_VEC4:
-                    case wxgame.WEBGL_UNIFORM_TYPE.INT_VEC4:
-                        this.setValue = function (value) {
-                            this.value[0] = value.x;
-                            this.value[1] = value.y;
-                            this.value[2] = value.z;
-                            this.value[3] = value.w;
-                            this.upload();
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_MAT2:
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_MAT3:
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_MAT4:
-                        this.setValue = function (value) {
-                            this.value.set(value);
-                            this.upload();
-                        };
-                        break;
-                }
-            };
-            EgretWebGLUniform.prototype.generateUpload = function () {
-                var gl = this.gl;
-                var type = this.type;
-                var location = this.location;
-                switch (type) {
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT:
-                        this.upload = function () {
-                            var value = this.value;
-                            gl.uniform1f(location, value);
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_VEC2:
-                        this.upload = function () {
-                            var value = this.value;
-                            gl.uniform2f(location, value[0], value[1]);
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_VEC3:
-                        this.upload = function () {
-                            var value = this.value;
-                            gl.uniform3f(location, value[0], value[1], value[2]);
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_VEC4:
-                        this.upload = function () {
-                            var value = this.value;
-                            gl.uniform4f(location, value[0], value[1], value[2], value[3]);
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.SAMPLER_2D:
-                    case wxgame.WEBGL_UNIFORM_TYPE.SAMPLER_CUBE:
-                    case wxgame.WEBGL_UNIFORM_TYPE.BOOL:
-                    case wxgame.WEBGL_UNIFORM_TYPE.INT:
-                        this.upload = function () {
-                            var value = this.value;
-                            gl.uniform1i(location, value);
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.BOOL_VEC2:
-                    case wxgame.WEBGL_UNIFORM_TYPE.INT_VEC2:
-                        this.upload = function () {
-                            var value = this.value;
-                            gl.uniform2i(location, value[0], value[1]);
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.BOOL_VEC3:
-                    case wxgame.WEBGL_UNIFORM_TYPE.INT_VEC3:
-                        this.upload = function () {
-                            var value = this.value;
-                            gl.uniform3i(location, value[0], value[1], value[2]);
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.BOOL_VEC4:
-                    case wxgame.WEBGL_UNIFORM_TYPE.INT_VEC4:
-                        this.upload = function () {
-                            var value = this.value;
-                            gl.uniform4i(location, value[0], value[1], value[2], value[3]);
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_MAT2:
-                        this.upload = function () {
-                            var value = this.value;
-                            gl.uniformMatrix2fv(location, false, value);
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_MAT3:
-                        this.upload = function () {
-                            var value = this.value;
-                            gl.uniformMatrix3fv(location, false, value);
-                        };
-                        break;
-                    case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_MAT4:
-                        this.upload = function () {
-                            var value = this.value;
-                            gl.uniformMatrix4fv(location, false, value);
-                        };
-                        break;
-                }
-            };
-            return EgretWebGLUniform;
-        }();
-        wxgame.EgretWebGLUniform = EgretWebGLUniform;
-        __reflect(EgretWebGLUniform.prototype, "egret.wxgame.EgretWebGLUniform");
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var EgretShaderLib = function () {
-            function EgretShaderLib() {}
-            EgretShaderLib.blur_frag = "precision mediump float;\r\nuniform vec2 blur;\r\nuniform sampler2D uSampler;\r\nvarying vec2 vTextureCoord;\r\nuniform vec2 uTextureSize;\r\nvoid main()\r\n{\r\n    const int sampleRadius = 5;\r\n    const int samples = sampleRadius * 2 + 1;\r\n    vec2 blurUv = blur / uTextureSize;\r\n    vec4 color = vec4(0, 0, 0, 0);\r\n    vec2 uv = vec2(0.0, 0.0);\r\n    blurUv /= float(sampleRadius);\r\n\r\n    for (int i = -sampleRadius; i <= sampleRadius; i++) {\r\n        uv.x = vTextureCoord.x + float(i) * blurUv.x;\r\n        uv.y = vTextureCoord.y + float(i) * blurUv.y;\r\n        color += texture2D(uSampler, uv);\r\n    }\r\n\r\n    color /= float(samples);\r\n    gl_FragColor = color;\r\n}";
-            EgretShaderLib.colorTransform_frag = "precision mediump float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\nuniform mat4 matrix;\r\nuniform vec4 colorAdd;\r\nuniform sampler2D uSampler;\r\n\r\nvoid main(void) {\r\n    vec4 texColor = texture2D(uSampler, vTextureCoord);\r\n    if(texColor.a > 0.) {\r\n        // 抵消预乘的alpha通道\r\n        texColor = vec4(texColor.rgb / texColor.a, texColor.a);\r\n    }\r\n    vec4 locColor = clamp(texColor * matrix + colorAdd, 0., 1.);\r\n    gl_FragColor = vColor * vec4(locColor.rgb * locColor.a, locColor.a);\r\n}";
-            EgretShaderLib.default_vert = "attribute vec2 aVertexPosition;\r\nattribute vec2 aTextureCoord;\r\nattribute vec4 aColor;\r\n\r\nuniform vec2 projectionVector;\r\n// uniform vec2 offsetVector;\r\n\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\n\r\nconst vec2 center = vec2(-1.0, 1.0);\r\n\r\nvoid main(void) {\r\n   gl_Position = vec4( (aVertexPosition / projectionVector) + center , 0.0, 1.0);\r\n   vTextureCoord = aTextureCoord;\r\n   vColor = aColor;\r\n}";
-            EgretShaderLib.glow_frag = "precision highp float;\r\nvarying vec2 vTextureCoord;\r\n\r\nuniform sampler2D uSampler;\r\n\r\nuniform float dist;\r\nuniform float angle;\r\nuniform vec4 color;\r\nuniform float alpha;\r\nuniform float blurX;\r\nuniform float blurY;\r\n// uniform vec4 quality;\r\nuniform float strength;\r\nuniform float inner;\r\nuniform float knockout;\r\nuniform float hideObject;\r\n\r\nuniform vec2 uTextureSize;\r\n\r\nfloat random(vec2 scale)\r\n{\r\n    return fract(sin(dot(gl_FragCoord.xy, scale)) * 43758.5453);\r\n}\r\n\r\nvoid main(void) {\r\n    vec2 px = vec2(1.0 / uTextureSize.x, 1.0 / uTextureSize.y);\r\n    // TODO 自动调节采样次数？\r\n    const float linearSamplingTimes = 7.0;\r\n    const float circleSamplingTimes = 12.0;\r\n    vec4 ownColor = texture2D(uSampler, vTextureCoord);\r\n    vec4 curColor;\r\n    float totalAlpha = 0.0;\r\n    float maxTotalAlpha = 0.0;\r\n    float curDistanceX = 0.0;\r\n    float curDistanceY = 0.0;\r\n    float offsetX = dist * cos(angle) * px.x;\r\n    float offsetY = dist * sin(angle) * px.y;\r\n\r\n    const float PI = 3.14159265358979323846264;\r\n    float cosAngle;\r\n    float sinAngle;\r\n    float offset = PI * 2.0 / circleSamplingTimes * random(vec2(12.9898, 78.233));\r\n    float stepX = blurX * px.x / linearSamplingTimes;\r\n    float stepY = blurY * px.y / linearSamplingTimes;\r\n    for (float a = 0.0; a <= PI * 2.0; a += PI * 2.0 / circleSamplingTimes) {\r\n        cosAngle = cos(a + offset);\r\n        sinAngle = sin(a + offset);\r\n        for (float i = 1.0; i <= linearSamplingTimes; i++) {\r\n            curDistanceX = i * stepX * cosAngle;\r\n            curDistanceY = i * stepY * sinAngle;\r\n            if (vTextureCoord.x + curDistanceX - offsetX >= 0.0 && vTextureCoord.y + curDistanceY + offsetY <= 1.0){\r\n                curColor = texture2D(uSampler, vec2(vTextureCoord.x + curDistanceX - offsetX, vTextureCoord.y + curDistanceY + offsetY));\r\n                totalAlpha += (linearSamplingTimes - i) * curColor.a;\r\n            }\r\n            maxTotalAlpha += (linearSamplingTimes - i);\r\n        }\r\n    }\r\n\r\n    ownColor.a = max(ownColor.a, 0.0001);\r\n    ownColor.rgb = ownColor.rgb / ownColor.a;\r\n\r\n    float outerGlowAlpha = (totalAlpha / maxTotalAlpha) * strength * alpha * (1. - inner) * max(min(hideObject, knockout), 1. - ownColor.a);\r\n    float innerGlowAlpha = ((maxTotalAlpha - totalAlpha) / maxTotalAlpha) * strength * alpha * inner * ownColor.a;\r\n\r\n    ownColor.a = max(ownColor.a * knockout * (1. - hideObject), 0.0001);\r\n    vec3 mix1 = mix(ownColor.rgb, color.rgb, innerGlowAlpha / (innerGlowAlpha + ownColor.a));\r\n    vec3 mix2 = mix(mix1, color.rgb, outerGlowAlpha / (innerGlowAlpha + ownColor.a + outerGlowAlpha));\r\n    float resultAlpha = min(ownColor.a + outerGlowAlpha + innerGlowAlpha, 1.);\r\n    gl_FragColor = vec4(mix2 * resultAlpha, resultAlpha);\r\n}";
-            EgretShaderLib.primitive_frag = "precision lowp float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\n\r\nvoid main(void) {\r\n    gl_FragColor = vColor;\r\n}";
-            EgretShaderLib.texture_frag = "precision lowp float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\nuniform sampler2D uSampler;\r\n\r\nvoid main(void) {\r\n    gl_FragColor = texture2D(uSampler, vTextureCoord) * vColor;\r\n}";
-            EgretShaderLib.texture_etc_alphamask_frag = "precision lowp float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\nuniform sampler2D uSampler;\r\nuniform sampler2D uSamplerAlphaMask;\r\nvoid main(void) {\r\nfloat alpha = texture2D(uSamplerAlphaMask, vTextureCoord).r;\r\nif (alpha < 0.0039) { discard; }\r\nvec4 v4Color = texture2D(uSampler, vTextureCoord);\r\nv4Color.rgb = v4Color.rgb * alpha;\r\nv4Color.a = alpha;\r\ngl_FragColor = v4Color * vColor;\r\n}";
-            EgretShaderLib.colorTransform_frag_etc_alphamask_frag = "precision mediump float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\nuniform mat4 matrix;\r\nuniform vec4 colorAdd;\r\nuniform sampler2D uSampler;\r\nuniform sampler2D uSamplerAlphaMask;\r\n\r\nvoid main(void){\r\nfloat alpha = texture2D(uSamplerAlphaMask, vTextureCoord).r;\r\nif (alpha < 0.0039) { discard; }\r\nvec4 texColor = texture2D(uSampler, vTextureCoord);\r\nif(texColor.a > 0.0) {\r\n // 抵消预乘的alpha通道\r\ntexColor = vec4(texColor.rgb / texColor.a, texColor.a);\r\n}\r\nvec4 v4Color = clamp(texColor * matrix + colorAdd, 0.0, 1.0);\r\nv4Color.rgb = v4Color.rgb * alpha;\r\nv4Color.a = alpha;\r\ngl_FragColor = v4Color * vColor;\r\n}";
-            return EgretShaderLib;
-        }();
-        wxgame.EgretShaderLib = EgretShaderLib;
-        __reflect(EgretShaderLib.prototype, "egret.wxgame.EgretShaderLib");
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-;
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var TextBlock = function (_super) {
-            __extends(TextBlock, _super);
-            function TextBlock(width, height, measureWidth, measureHeight, canvasWidthOffset, canvasHeightOffset, stroke2, border) {
-                var _this = _super.call(this) || this;
-                _this._width = 0;
-                _this._height = 0;
-                _this._border = 0;
-                _this.line = null;
-                _this.x = 0;
-                _this.y = 0;
-                _this.u = 0;
-                _this.v = 0;
-                _this.tag = '';
-                _this.measureWidth = 0;
-                _this.measureHeight = 0;
-                _this.canvasWidthOffset = 0;
-                _this.canvasHeightOffset = 0;
-                _this.stroke2 = 0;
-                _this._width = width;
-                _this._height = height;
-                _this._border = border;
-                _this.measureWidth = measureWidth;
-                _this.measureHeight = measureHeight;
-                _this.canvasWidthOffset = canvasWidthOffset;
-                _this.canvasHeightOffset = canvasHeightOffset;
-                _this.stroke2 = stroke2;
-                return _this;
-            }
-            Object.defineProperty(TextBlock.prototype, "border", {
-                get: function () {
-                    return this._border;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(TextBlock.prototype, "width", {
-                get: function () {
-                    return this._width + this.border * 2;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(TextBlock.prototype, "height", {
-                get: function () {
-                    return this._height + this.border * 2;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(TextBlock.prototype, "contentWidth", {
-                get: function () {
-                    return this._width;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(TextBlock.prototype, "contentHeight", {
-                get: function () {
-                    return this._height;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(TextBlock.prototype, "page", {
-                get: function () {
-                    return this.line ? this.line.page : null;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            TextBlock.prototype.updateUV = function () {
-                var line = this.line;
-                if (!line) {
-                    return false;
-                }
-                this.u = line.x + this.x + this.border * 1;
-                this.v = line.y + this.y + this.border * 1;
-                return true;
-            };
-            Object.defineProperty(TextBlock.prototype, "subImageOffsetX", {
-                get: function () {
-                    var line = this.line;
-                    if (!line) {
-                        return 0;
-                    }
-                    return line.x + this.x + this.border;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(TextBlock.prototype, "subImageOffsetY", {
-                get: function () {
-                    var line = this.line;
-                    if (!line) {
-                        return 0;
-                    }
-                    return line.y + this.y + this.border;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            return TextBlock;
-        }(egret.HashObject);
-        wxgame.TextBlock = TextBlock;
-        __reflect(TextBlock.prototype, "egret.wxgame.TextBlock");
-        var Line = function (_super) {
-            __extends(Line, _super);
-            function Line(maxWidth) {
-                var _this = _super.call(this) || this;
-                _this.page = null;
-                _this.textBlocks = [];
-                _this.dynamicMaxHeight = 0;
-                _this.maxWidth = 0;
-                _this.x = 0;
-                _this.y = 0;
-                _this.maxWidth = maxWidth;
-                return _this;
-            }
-            Line.prototype.isCapacityOf = function (textBlock) {
-                if (!textBlock) {
-                    return false;
-                }
-                var posx = 0;
-                var posy = 0;
-                var lastTxtBlock = this.lastTextBlock();
-                if (lastTxtBlock) {
-                    posx = lastTxtBlock.x + lastTxtBlock.width;
-                    posy = lastTxtBlock.y;
-                }
-                if (posx + textBlock.width > this.maxWidth) {
-                    return false;
-                }
-                if (this.dynamicMaxHeight > 0) {
-                    if (textBlock.height > this.dynamicMaxHeight || textBlock.height / this.dynamicMaxHeight < 0.5) {
-                        return false;
-                    }
-                }
-                return true;
-            };
-            Line.prototype.lastTextBlock = function () {
-                var textBlocks = this.textBlocks;
-                if (textBlocks.length > 0) {
-                    return textBlocks[textBlocks.length - 1];
-                }
-                return null;
-            };
-            Line.prototype.addTextBlock = function (textBlock, needCheck) {
-                if (!textBlock) {
-                    return false;
-                }
-                if (needCheck) {
-                    if (!this.isCapacityOf(textBlock)) {
-                        return false;
-                    }
-                }
-                var posx = 0;
-                var posy = 0;
-                var lastTxtBlock = this.lastTextBlock();
-                if (lastTxtBlock) {
-                    posx = lastTxtBlock.x + lastTxtBlock.width;
-                    posy = lastTxtBlock.y;
-                }
-                textBlock.x = posx;
-                textBlock.y = posy;
-                textBlock.line = this;
-                this.textBlocks.push(textBlock);
-                this.dynamicMaxHeight = Math.max(this.dynamicMaxHeight, textBlock.height);
-                return true;
-            };
-            return Line;
-        }(egret.HashObject);
-        wxgame.Line = Line;
-        __reflect(Line.prototype, "egret.wxgame.Line");
-        var Page = function (_super) {
-            __extends(Page, _super);
-            function Page(pageWidth, pageHeight) {
-                var _this = _super.call(this) || this;
-                _this.lines = [];
-                _this.pageWidth = 0;
-                _this.pageHeight = 0;
-                _this.webGLTexture = null;
-                _this.pageWidth = pageWidth;
-                _this.pageHeight = pageHeight;
-                return _this;
-            }
-            Page.prototype.addLine = function (line) {
-                if (!line) {
-                    return false;
-                }
-                var posx = 0;
-                var posy = 0;
-                var lines = this.lines;
-                if (lines.length > 0) {
-                    var lastLine = lines[lines.length - 1];
-                    posx = lastLine.x;
-                    posy = lastLine.y + lastLine.dynamicMaxHeight;
-                }
-                if (line.maxWidth > this.pageWidth) {
-                    console.error('line.maxWidth = ' + line.maxWidth + ', ' + 'this.pageWidth = ' + this.pageWidth);
-                    return false;
-                }
-                if (posy + line.dynamicMaxHeight > this.pageHeight) {
-                    return false;
-                }
-                line.x = posx;
-                line.y = posy;
-                line.page = this;
-                this.lines.push(line);
-                return true;
-            };
-            return Page;
-        }(egret.HashObject);
-        wxgame.Page = Page;
-        __reflect(Page.prototype, "egret.wxgame.Page");
-        var Book = function (_super) {
-            __extends(Book, _super);
-            function Book(maxSize, border) {
-                var _this = _super.call(this) || this;
-                _this._pages = [];
-                _this._sortLines = [];
-                _this._maxSize = 1024;
-                _this._border = 1;
-                _this._maxSize = maxSize;
-                _this._border = border;
-                return _this;
-            }
-            Book.prototype.addTextBlock = function (textBlock) {
-                var result = this._addTextBlock(textBlock);
-                if (!result) {
-                    return false;
-                }
-                textBlock.updateUV();
-                var exist = false;
-                var cast = result;
-                var _sortLines = this._sortLines;
-                for (var _i = 0, _sortLines_1 = _sortLines; _i < _sortLines_1.length; _i++) {
-                    var line = _sortLines_1[_i];
-                    if (line === cast[1]) {
-                        exist = true;
-                        break;
-                    }
-                }
-                if (!exist) {
-                    _sortLines.push(cast[1]);
-                }
-                this.sort();
-                return true;
-            };
-            Book.prototype._addTextBlock = function (textBlock) {
-                if (!textBlock) {
-                    return null;
-                }
-                if (textBlock.width > this._maxSize || textBlock.height > this._maxSize) {
-                    return null;
-                }
-                var _sortLines = this._sortLines;
-                for (var i = 0, length_9 = _sortLines.length; i < length_9; ++i) {
-                    var line = _sortLines[i];
-                    if (!line.isCapacityOf(textBlock)) {
-                        continue;
-                    }
-                    if (line.addTextBlock(textBlock, false)) {
-                        return [line.page, line];
-                    }
-                }
-                var newLine = new Line(this._maxSize);
-                if (!newLine.addTextBlock(textBlock, true)) {
-                    console.error('_addTextBlock !newLine.addTextBlock(textBlock, true)');
-                    return null;
-                }
-                var _pages = this._pages;
-                for (var i = 0, length_10 = _pages.length; i < length_10; ++i) {
-                    var page = _pages[i];
-                    if (page.addLine(newLine)) {
-                        return [page, newLine];
-                    }
-                }
-                var newPage = this.createPage(this._maxSize, this._maxSize);
-                if (!newPage.addLine(newLine)) {
-                    console.error('_addText newPage.addLine failed');
-                    return null;
-                }
-                return [newPage, newLine];
-            };
-            Book.prototype.createPage = function (pageWidth, pageHeight) {
-                var newPage = new Page(pageWidth, pageHeight);
-                this._pages.push(newPage);
-                return newPage;
-            };
-            Book.prototype.sort = function () {
-                if (this._sortLines.length <= 1) {
-                    return;
-                }
-                var sortFunc = function (a, b) {
-                    return a.dynamicMaxHeight < b.dynamicMaxHeight ? -1 : 1;
-                };
-                this._sortLines = this._sortLines.sort(sortFunc);
-            };
-            Book.prototype.createTextBlock = function (tag, width, height, measureWidth, measureHeight, canvasWidthOffset, canvasHeightOffset, stroke2) {
-                var txtBlock = new TextBlock(width, height, measureWidth, measureHeight, canvasWidthOffset, canvasHeightOffset, stroke2, this._border);
-                if (!this.addTextBlock(txtBlock)) {
-                    return null;
-                }
-                txtBlock.tag = tag;
-                return txtBlock;
-            };
-            return Book;
-        }(egret.HashObject);
-        wxgame.Book = Book;
-        __reflect(Book.prototype, "egret.wxgame.Book");
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        wxgame.textAtlasRenderEnable = false;
-        wxgame.__textAtlasRender__ = null;
-        wxgame.property_drawLabel = 'DrawLabel';
-        var textAtlasDebug = false;
-        var DrawLabel = function (_super) {
-            __extends(DrawLabel, _super);
-            function DrawLabel() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.anchorX = 0;
-                _this.anchorY = 0;
-                _this.textBlocks = [];
-                return _this;
-            }
-            DrawLabel.prototype.clear = function () {
-                this.anchorX = 0;
-                this.anchorY = 0;
-                this.textBlocks.length = 0;
-            };
-            DrawLabel.create = function () {
-                var pool = DrawLabel.pool;
-                if (pool.length === 0) {
-                    pool.push(new DrawLabel());
-                }
-                return pool.pop();
-            };
-            DrawLabel.back = function (drawLabel, checkRepeat) {
-                if (!drawLabel) {
-                    return;
-                }
-                var pool = DrawLabel.pool;
-                if (checkRepeat && pool.indexOf(drawLabel) >= 0) {
-                    console.error('DrawLabel.back repeat');
-                    return;
-                }
-                drawLabel.clear();
-                pool.push(drawLabel);
-            };
-            DrawLabel.pool = [];
-            return DrawLabel;
-        }(egret.HashObject);
-        wxgame.DrawLabel = DrawLabel;
-        __reflect(DrawLabel.prototype, "egret.wxgame.DrawLabel");
-        var StyleInfo = function (_super) {
-            __extends(StyleInfo, _super);
-            function StyleInfo(textNode, format) {
-                var _this = _super.call(this) || this;
-                _this.format = null;
-                var saveTextColorForDebug = 0;
-                if (textAtlasDebug) {
-                    saveTextColorForDebug = textNode.textColor;
-                    textNode.textColor = 0xff0000;
-                }
-                _this.textColor = textNode.textColor;
-                _this.strokeColor = textNode.strokeColor;
-                _this.size = textNode.size;
-                _this.stroke = textNode.stroke;
-                _this.bold = textNode.bold;
-                _this.italic = textNode.italic;
-                _this.fontFamily = textNode.fontFamily;
-                _this.format = format;
-                _this.font = egret.getFontString(textNode, _this.format);
-                var textColor = !format.textColor ? textNode.textColor : format.textColor;
-                var strokeColor = !format.strokeColor ? textNode.strokeColor : format.strokeColor;
-                var stroke = !format.stroke ? textNode.stroke : format.stroke;
-                var size = !format.size ? textNode.size : format.size;
-                _this.description = '' + _this.font + '-' + size;
-                _this.description += '-' + egret.toColorString(textColor);
-                _this.description += '-' + egret.toColorString(strokeColor);
-                if (stroke) {
-                    _this.description += '-' + stroke * 2;
-                }
-                if (textAtlasDebug) {
-                    textNode.textColor = saveTextColorForDebug;
-                }
-                return _this;
-            }
-            return StyleInfo;
-        }(egret.HashObject);
-        __reflect(StyleInfo.prototype, "StyleInfo");
-        var CharImageRender = function (_super) {
-            __extends(CharImageRender, _super);
-            function CharImageRender() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
-                _this.char = '';
-                _this.styleInfo = null;
-                _this.hashCodeString = '';
-                _this.charWithStyleHashCode = 0;
-                _this.measureWidth = 0;
-                _this.measureHeight = 0;
-                _this.canvasWidthOffset = 0;
-                _this.canvasHeightOffset = 0;
-                _this.stroke2 = 0;
-                return _this;
-            }
-            CharImageRender.prototype.reset = function (char, styleKey) {
-                this.char = char;
-                this.styleInfo = styleKey;
-                this.hashCodeString = char + ':' + styleKey.description;
-                this.charWithStyleHashCode = egret.NumberUtils.convertStringToHashCode(this.hashCodeString);
-                this.canvasWidthOffset = 0;
-                this.canvasHeightOffset = 0;
-                this.stroke2 = 0;
-                return this;
-            };
-            CharImageRender.prototype.measureAndDraw = function (targetCanvas) {
-                var canvas = targetCanvas;
-                if (!canvas) {
-                    return;
-                }
-                var text = this.char;
-                var format = this.styleInfo.format;
-                var textColor = !format.textColor ? this.styleInfo.textColor : format.textColor;
-                var strokeColor = !format.strokeColor ? this.styleInfo.strokeColor : format.strokeColor;
-                var stroke = !format.stroke ? this.styleInfo.stroke : format.stroke;
-                var size = !format.size ? this.styleInfo.size : format.size;
-                this.measureWidth = this.measure(text, this.styleInfo, size);
-                this.measureHeight = size;
-                var canvasWidth = this.measureWidth;
-                var canvasHeight = this.measureHeight;
-                var _strokeDouble = stroke * 2;
-                if (_strokeDouble > 0) {
-                    canvasWidth += _strokeDouble * 2;
-                    canvasHeight += _strokeDouble * 2;
-                }
-                this.stroke2 = _strokeDouble;
-                canvas.width = canvasWidth = Math.ceil(canvasWidth) + 2 * 2;
-                canvas.height = canvasHeight = Math.ceil(canvasHeight) + 2 * 2;
-                this.canvasWidthOffset = (canvas.width - this.measureWidth) / 2;
-                this.canvasHeightOffset = (canvas.height - this.measureHeight) / 2;
-                var numberOfPrecision = 3;
-                var precision = Math.pow(10, numberOfPrecision);
-                this.canvasWidthOffset = Math.floor(this.canvasWidthOffset * precision) / precision;
-                this.canvasHeightOffset = Math.floor(this.canvasHeightOffset * precision) / precision;
-                var context = egret.sys.getContext2d(canvas);
-                context.save();
-                context.textAlign = 'center';
-                context.textBaseline = 'middle';
-                context.lineJoin = 'round';
-                context.font = this.styleInfo.font;
-                context.fillStyle = egret.toColorString(textColor);
-                context.strokeStyle = egret.toColorString(strokeColor);
-                context.clearRect(0, 0, canvas.width, canvas.height);
-                if (stroke) {
-                    context.lineWidth = stroke * 2;
-                    context.strokeText(text, canvas.width / 2, canvas.height / 2);
-                }
-                context.fillText(text, canvas.width / 2, canvas.height / 2);
-                context.restore();
-            };
-            CharImageRender.prototype.measure = function (text, styleKey, textFlowSize) {
-                var isChinese = CharImageRender.chineseCharactersRegExp.test(text);
-                if (isChinese) {
-                    if (CharImageRender.chineseCharacterMeasureFastMap[styleKey.font]) {
-                        return CharImageRender.chineseCharacterMeasureFastMap[styleKey.font];
-                    }
-                }
-                var measureTextWidth = egret.sys.measureText(text, styleKey.fontFamily, textFlowSize || styleKey.size, styleKey.bold, styleKey.italic);
-                if (isChinese) {
-                    CharImageRender.chineseCharacterMeasureFastMap[styleKey.font] = measureTextWidth;
-                }
-                return measureTextWidth;
-            };
-            CharImageRender.chineseCharactersRegExp = new RegExp("^[\u4E00-\u9FA5]$");
-            CharImageRender.chineseCharacterMeasureFastMap = {};
-            return CharImageRender;
-        }(egret.HashObject);
-        __reflect(CharImageRender.prototype, "CharImageRender");
-        var TextAtlasRender = function (_super) {
-            __extends(TextAtlasRender, _super);
-            function TextAtlasRender(webglRenderContext, maxSize, border) {
-                var _this = _super.call(this) || this;
-                _this.book = null;
-                _this.charImageRender = new CharImageRender();
-                _this.textBlockMap = {};
-                _this._canvas = null;
-                _this.textAtlasTextureCache = [];
-                _this.webglRenderContext = null;
-                _this.webglRenderContext = webglRenderContext;
-                _this.book = new wxgame.Book(maxSize, border);
-                return _this;
-            }
-            TextAtlasRender.analysisTextNodeAndFlushDrawLabel = function (textNode) {
-                if (!textNode) {
-                    return;
-                }
-                if (!wxgame.__textAtlasRender__) {
-                    var webglcontext = egret.wxgame.WebGLRenderContext.getInstance(0, 0);
-                    wxgame.__textAtlasRender__ = new TextAtlasRender(webglcontext, textAtlasDebug ? 512 : 512, textAtlasDebug ? 12 : 1);
-                }
-                textNode[wxgame.property_drawLabel] = textNode[wxgame.property_drawLabel] || [];
-                var drawLabels = textNode[wxgame.property_drawLabel];
-                for (var _i = 0, drawLabels_1 = drawLabels; _i < drawLabels_1.length; _i++) {
-                    var drawLabel = drawLabels_1[_i];
-                    DrawLabel.back(drawLabel, false);
-                }
-                drawLabels.length = 0;
-                var offset = 4;
-                var drawData = textNode.drawData;
-                var anchorX = 0;
-                var anchorY = 0;
-                var labelString = '';
-                var labelFormat = {};
-                var resultAsRenderTextBlocks = [];
-                for (var i = 0, length_11 = drawData.length; i < length_11; i += offset) {
-                    anchorX = drawData[i + 0];
-                    anchorY = drawData[i + 1];
-                    labelString = drawData[i + 2];
-                    labelFormat = drawData[i + 3] || {};
-                    resultAsRenderTextBlocks.length = 0;
-                    wxgame.__textAtlasRender__.convertLabelStringToTextAtlas(labelString, new StyleInfo(textNode, labelFormat), resultAsRenderTextBlocks);
-                    var drawLabel = DrawLabel.create();
-                    drawLabel.anchorX = anchorX;
-                    drawLabel.anchorY = anchorY;
-                    drawLabel.textBlocks = [].concat(resultAsRenderTextBlocks);
-                    drawLabels.push(drawLabel);
-                }
-            };
-            TextAtlasRender.prototype.convertLabelStringToTextAtlas = function (labelstring, styleKey, resultAsRenderTextBlocks) {
-                var canvas = this.canvas;
-                var charImageRender = this.charImageRender;
-                var textBlockMap = this.textBlockMap;
-                for (var _i = 0, labelstring_1 = labelstring; _i < labelstring_1.length; _i++) {
-                    var char = labelstring_1[_i];
-                    charImageRender.reset(char, styleKey);
-                    if (textBlockMap[charImageRender.charWithStyleHashCode]) {
-                        resultAsRenderTextBlocks.push(textBlockMap[charImageRender.charWithStyleHashCode]);
-                        continue;
-                    }
-                    charImageRender.measureAndDraw(canvas);
-                    var txtBlock = this.book.createTextBlock(char, canvas.width, canvas.height, charImageRender.measureWidth, charImageRender.measureHeight, charImageRender.canvasWidthOffset, charImageRender.canvasHeightOffset, charImageRender.stroke2);
-                    if (!txtBlock) {
-                        continue;
-                    }
-                    resultAsRenderTextBlocks.push(txtBlock);
-                    textBlockMap[charImageRender.charWithStyleHashCode] = txtBlock;
-                    var page = txtBlock.page;
-                    if (!page.webGLTexture) {
-                        page.webGLTexture = this.createTextTextureAtlas(page.pageWidth, page.pageHeight, textAtlasDebug);
-                    }
-                    var gl = this.webglRenderContext.context;
-                    page.webGLTexture[egret.glContext] = gl;
-                    gl.bindTexture(gl.TEXTURE_2D, page.webGLTexture);
-                    gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
-                    page.webGLTexture[egret.UNPACK_PREMULTIPLY_ALPHA_WEBGL] = true;
-                    gl.texSubImage2D(gl.TEXTURE_2D, 0, txtBlock.subImageOffsetX, txtBlock.subImageOffsetY, gl.RGBA, gl.UNSIGNED_BYTE, canvas);
-                    gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
-                }
-            };
-            TextAtlasRender.prototype.createTextTextureAtlas = function (width, height, debug) {
-                var texture = null;
-                if (debug) {
-                    var canvas = egret.sys.createCanvas(width, width);
-                    var context = egret.sys.getContext2d(canvas);
-                    context.fillStyle = 'black';
-                    context.fillRect(0, 0, width, width);
-                    texture = egret.sys.createTexture(this.webglRenderContext, canvas);
-                } else {
-                    texture = egret.sys._createTexture(this.webglRenderContext, width, height, null);
-                }
-                if (texture) {
-                    this.textAtlasTextureCache.push(texture);
-                }
-                return texture;
-            };
-            Object.defineProperty(TextAtlasRender.prototype, "canvas", {
-                get: function () {
-                    if (!this._canvas) {
-                        this._canvas = egret.sys.createCanvas(24, 24);
-                    }
-                    return this._canvas;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            return TextAtlasRender;
-        }(egret.HashObject);
-        wxgame.TextAtlasRender = TextAtlasRender;
-        __reflect(TextAtlasRender.prototype, "egret.wxgame.TextAtlasRender");
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-
-(function (egret) {
-    var wxgame;
-    (function (wxgame) {
-        var WEBGL_ATTRIBUTE_TYPE;
-        (function (WEBGL_ATTRIBUTE_TYPE) {
-            WEBGL_ATTRIBUTE_TYPE[WEBGL_ATTRIBUTE_TYPE["FLOAT_VEC2"] = 35664] = "FLOAT_VEC2";
-            WEBGL_ATTRIBUTE_TYPE[WEBGL_ATTRIBUTE_TYPE["FLOAT_VEC3"] = 35665] = "FLOAT_VEC3";
-            WEBGL_ATTRIBUTE_TYPE[WEBGL_ATTRIBUTE_TYPE["FLOAT_VEC4"] = 35666] = "FLOAT_VEC4";
-            WEBGL_ATTRIBUTE_TYPE[WEBGL_ATTRIBUTE_TYPE["FLOAT"] = 5126] = "FLOAT";
-            WEBGL_ATTRIBUTE_TYPE[WEBGL_ATTRIBUTE_TYPE["BYTE"] = 65535] = "BYTE";
-            WEBGL_ATTRIBUTE_TYPE[WEBGL_ATTRIBUTE_TYPE["UNSIGNED_BYTE"] = 5121] = "UNSIGNED_BYTE";
-            WEBGL_ATTRIBUTE_TYPE[WEBGL_ATTRIBUTE_TYPE["UNSIGNED_SHORT"] = 5123] = "UNSIGNED_SHORT";
-        })(WEBGL_ATTRIBUTE_TYPE = wxgame.WEBGL_ATTRIBUTE_TYPE || (wxgame.WEBGL_ATTRIBUTE_TYPE = {}));
-        var WEBGL_UNIFORM_TYPE;
-        (function (WEBGL_UNIFORM_TYPE) {
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["FLOAT_VEC2"] = 35664] = "FLOAT_VEC2";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["FLOAT_VEC3"] = 35665] = "FLOAT_VEC3";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["FLOAT_VEC4"] = 35666] = "FLOAT_VEC4";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["INT_VEC2"] = 35667] = "INT_VEC2";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["INT_VEC3"] = 35668] = "INT_VEC3";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["INT_VEC4"] = 35669] = "INT_VEC4";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["BOOL"] = 35670] = "BOOL";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["BOOL_VEC2"] = 35671] = "BOOL_VEC2";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["BOOL_VEC3"] = 35672] = "BOOL_VEC3";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["BOOL_VEC4"] = 35673] = "BOOL_VEC4";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["FLOAT_MAT2"] = 35674] = "FLOAT_MAT2";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["FLOAT_MAT3"] = 35675] = "FLOAT_MAT3";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["FLOAT_MAT4"] = 35676] = "FLOAT_MAT4";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["SAMPLER_2D"] = 35678] = "SAMPLER_2D";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["SAMPLER_CUBE"] = 35680] = "SAMPLER_CUBE";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["BYTE"] = 65535] = "BYTE";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["UNSIGNED_BYTE"] = 5121] = "UNSIGNED_BYTE";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["SHORT"] = 5122] = "SHORT";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["UNSIGNED_SHORT"] = 5123] = "UNSIGNED_SHORT";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["INT"] = 5124] = "INT";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["UNSIGNED_INT"] = 5125] = "UNSIGNED_INT";
-            WEBGL_UNIFORM_TYPE[WEBGL_UNIFORM_TYPE["FLOAT"] = 5126] = "FLOAT";
-        })(WEBGL_UNIFORM_TYPE = wxgame.WEBGL_UNIFORM_TYPE || (wxgame.WEBGL_UNIFORM_TYPE = {}));
-        function mainCanvas(width, height) {
-            return window['canvas'];
-        }
-        egret.sys.mainCanvas = mainCanvas;
-        function createCanvas(width, height) {
-            var canvas = document.createElement("canvas");
-            if (!isNaN(width) && !isNaN(height)) {
-                canvas.width = width;
-                canvas.height = height;
-            }
-            return canvas;
-        }
-        egret.sys.createCanvas = createCanvas;
-        function resizeContext(renderContext, width, height, useMaxSize) {
-            if (!renderContext) {
-                return;
-            }
-            var webglrendercontext = renderContext;
-            var surface = webglrendercontext.surface;
-            if (useMaxSize) {
-                if (surface.width < width) {
-                    surface.width = width;
-                    if (!wxgame.isSubContext && window["sharedCanvas"]) {
-                        window["sharedCanvas"].width = width;
-                    }
-                }
-                if (surface.height < height) {
-                    surface.height = height;
-                    if (!wxgame.isSubContext && window["sharedCanvas"]) {
-                        window["sharedCanvas"].height = height;
-                    }
-                }
-            } else {
-                if (surface.width !== width) {
-                    surface.width = width;
-                    if (!wxgame.isSubContext && window["sharedCanvas"]) {
-                        window["sharedCanvas"].width = width;
-                    }
-                }
-                if (surface.height !== height) {
-                    surface.height = height;
-                    if (!wxgame.isSubContext && window["sharedCanvas"]) {
-                        window["sharedCanvas"].height = height;
-                    }
-                }
-            }
-            webglrendercontext.onResize();
-        }
-        wxgame.resizeContext = resizeContext;
-        egret.sys.resizeContext = resizeContext;
-        function getContextWebGL(surface) {
-            var options = {
-                antialias: wxgame.WebGLRenderContext.antialias,
-                stencil: true
-            };
-            return surface ? surface.getContext('webgl', options) : null;
-        }
-        egret.sys.getContextWebGL = getContextWebGL;
-        function getContext2d(surface) {
-            return surface ? surface.getContext('2d') : null;
-        }
-        wxgame.getContext2d = getContext2d;
-        egret.sys.getContext2d = getContext2d;
-        function createTexture(renderContext, bitmapData) {
-            var webglrendercontext = renderContext;
-            var gl = webglrendercontext.context;
-            if (bitmapData.isCanvas && gl.wxBindCanvasTexture) {
-                return bitmapData;
-            }
-            var texture = gl.createTexture();
-            if (!texture) {
-                webglrendercontext.contextLost = true;
-                return null;
-            }
-            texture.glContext = gl;
-            gl.bindTexture(gl.TEXTURE_2D, texture);
-            gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1);
-            texture[egret.UNPACK_PREMULTIPLY_ALPHA_WEBGL] = true;
-            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, bitmapData);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-            if (bitmapData.source) {
-                bitmapData.source.src = "";
-            }
-            return texture;
-        }
-        egret.sys.createTexture = createTexture;
-        function _createTexture(renderContext, width, height, data) {
-            var webglrendercontext = renderContext;
-            var gl = webglrendercontext.context;
-            var texture = gl.createTexture();
-            if (!texture) {
-                webglrendercontext.contextLost = true;
-                return null;
-            }
-            texture[egret.glContext] = gl;
-            gl.bindTexture(gl.TEXTURE_2D, texture);
-            gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1);
-            texture[egret.UNPACK_PREMULTIPLY_ALPHA_WEBGL] = true;
-            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, width, height, 0, gl.RGBA, gl.UNSIGNED_BYTE, data);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-            return texture;
-        }
-        egret.sys._createTexture = _createTexture;
-        function drawTextureElements(renderContext, data, offset) {
-            var webglrendercontext = renderContext;
-            var gl = webglrendercontext.context;
-            gl.activeTexture(gl.TEXTURE0);
-            if (data.texture.isCanvas) {
-                gl.wxBindCanvasTexture(gl.TEXTURE_2D, data.texture);
-            } else {
-                gl.bindTexture(gl.TEXTURE_2D, data.texture);
-            }
-            var size = data.count * 3;
-            gl.drawElements(gl.TRIANGLES, size, gl.UNSIGNED_SHORT, offset * 2);
-            return size;
-        }
-        egret.sys.drawTextureElements = drawTextureElements;
-        function measureTextWith(context, text) {
-            var metrics = context.measureText(text);
-            if (!metrics) {
-                egret.warn("wxcontext.measureText result is null or undefined;text is " + text + "; font is " + context.font);
-                return 1;
-            }
-            return metrics.width;
-        }
-        egret.sys.measureTextWith = measureTextWith;
-        function createCanvasRenderBufferSurface(defaultFunc, width, height, root) {
-            if (root) {
-                if (wxgame.isSubContext) {
-                    return window["sharedCanvas"];
-                } else {
-                    return window["canvas"];
-                }
-            } else {
-                return defaultFunc(width, height);
-            }
-        }
-        egret.sys.createCanvasRenderBufferSurface = createCanvasRenderBufferSurface;
-        function resizeCanvasRenderBuffer(renderContext, width, height, useMaxSize) {
-            var canvasRenderBuffer = renderContext;
-            var surface = canvasRenderBuffer.surface;
-            if (wxgame.isSubContext) {
-                return;
-            }
-            if (useMaxSize) {
-                var change = false;
-                if (surface.width < width) {
-                    surface.width = width;
-                    if (egret.Capabilities.renderMode === 'canvas') {
-                        window["sharedCanvas"].width = width;
-                    }
-                    change = true;
-                }
-                if (surface.height < height) {
-                    surface.height = height;
-                    if (egret.Capabilities.renderMode === 'canvas') {
-                        window["sharedCanvas"].height = height;
-                    }
-                    change = true;
-                }
-                if (!change) {
-                    canvasRenderBuffer.context.globalCompositeOperation = "source-over";
-                    canvasRenderBuffer.context.setTransform(1, 0, 0, 1, 0, 0);
-                    canvasRenderBuffer.context.globalAlpha = 1;
-                }
-            } else {
-                if (surface.width != width) {
-                    surface.width = width;
-                    if (egret.Capabilities.renderMode === 'canvas') {
-                        window["sharedCanvas"].width = width;
-                    }
-                }
-                if (surface.height != height) {
-                    surface.height = height;
-                    if (egret.Capabilities.renderMode === 'canvas') {
-                        window["sharedCanvas"].height = height;
-                    }
-                }
-            }
-            canvasRenderBuffer.clear();
-        }
-        egret.sys.resizeCanvasRenderBuffer = resizeCanvasRenderBuffer;
-        egret.Geolocation = egret.wxgame.WebGeolocation;
-        egret.Motion = egret.wxgame.WebMotion;
-    })(wxgame = egret.wxgame || (egret.wxgame = {}));
-})(egret || (egret = {}));
-if (window["sharedCanvas"]) {
-    window["sharedCanvas"].isCanvas = true;
-}
+  }, WebGLRenderContext.prototype.drawMesh = function (e, t, r, a, n, i, o, s, c, h, l, d, u, f, p, g, v) {
+    var x = this.currentBuffer;if (!this.contextLost && e && x) {
+      var b;var m;var T;if (e.texture || e.source && e.source.texture) b = e.texture || e.source.texture, x.saveTransform(), m = x.$offsetX, T = x.$offsetY, x.useOffset(), x.transform(1, 0, 0, -1, 0, c + 2 * o);else {
+        if (!e.source && !e.webGLTexture) return;b = this.getWebGLTexture(e);
+      }b && (this.drawTexture(b, t, r, a, n, i, o, s, c, h, l, d, u, f, p, g, v), (e.texture || e.source && e.source.texture) && (x.$offsetX = m, x.$offsetY = T, x.restoreTransform()));
+    }
+  }, WebGLRenderContext.prototype.drawTexture = function (e, t, r, a, n, i, o, s, c, h, l, d, u, f, p, g, v) {
+    var x = this.currentBuffer;var b;!this.contextLost && e && x && (v = m.isIOS14Device() ? (b = f && f.length / 3 || 0, f ? this.vao.reachMaxSize(4 * b, 6 * b) && this.$drawWebGL() : this.vao.reachMaxSize() && this.$drawWebGL(), null != v && e.smoothing != v && this.drawCmdManager.pushChangeSmoothing(e, v), f ? 2 * b : 2) : (u && f ? this.vao.reachMaxSize(u.length / 2, f.length) && this.$drawWebGL() : this.vao.reachMaxSize() && this.$drawWebGL(), null != v && e.smoothing != v && this.drawCmdManager.pushChangeSmoothing(e, v), d && this.vao.changeToMeshIndices(), f ? f.length / 3 : 2), this.drawCmdManager.pushDrawTexture(e, v, this.$filter, h, l), x.currentTexture = e, this.vao.cacheArrays(x, t, r, a, n, i, o, s, c, h, l, d, u, f, g));
+  }, WebGLRenderContext.prototype.drawRect = function (e, t, r, a) {
+    var n = this.currentBuffer;!this.contextLost && n && (this.vao.reachMaxSize() && this.$drawWebGL(), this.drawCmdManager.pushDrawRect(), n.currentTexture = null, this.vao.cacheArrays(n, 0, 0, r, a, e, t, r, a, r, a));
+  }, WebGLRenderContext.prototype.pushMask = function (e, t, r, a) {
+    var n = this.currentBuffer;!this.contextLost && n && (n.$stencilList.push({ x: e, y: t, width: r, height: a }), this.vao.reachMaxSize() && this.$drawWebGL(), this.drawCmdManager.pushPushMask(), n.currentTexture = null, this.vao.cacheArrays(n, 0, 0, r, a, e, t, r, a, r, a));
+  }, WebGLRenderContext.prototype.popMask = function () {
+    var e = this.currentBuffer;var t;!this.contextLost && e && (t = e.$stencilList.pop(), this.vao.reachMaxSize() && this.$drawWebGL(), this.drawCmdManager.pushPopMask(), e.currentTexture = null, this.vao.cacheArrays(e, 0, 0, t.width, t.height, t.x, t.y, t.width, t.height, t.width, t.height));
+  }, WebGLRenderContext.prototype.clear = function () {
+    this.drawCmdManager.pushClearColor();
+  }, WebGLRenderContext.prototype.enableScissor = function (e, t, r, a) {
+    var n = this.currentBuffer;this.drawCmdManager.pushEnableScissor(e, t, r, a), n.$hasScissor = !0;
+  }, WebGLRenderContext.prototype.disableScissor = function () {
+    var e = this.currentBuffer;this.drawCmdManager.pushDisableScissor(), e.$hasScissor = !1;
+  }, WebGLRenderContext.prototype.$drawWebGL = function () {
+    if (0 != this.drawCmdManager.drawDataLen && !this.contextLost) {
+      this.uploadVerticesArray(this.vao.getVertices()), this.vao.isMesh() && this.uploadIndicesArray(this.vao.getMeshIndices());var e = this.drawCmdManager.drawDataLen;var t = 0;for (var r = 0; r < e; r++) {
+        var a = this.drawCmdManager.drawData[r];t = this.drawData(a, t), 7 == a.type && (this.activatedBuffer = a.buffer), 0 != a.type && 1 != a.type && 2 != a.type && 3 != a.type || this.activatedBuffer && this.activatedBuffer.$computeDrawCall && this.activatedBuffer.$drawCalls++;
+      }this.vao.isMesh() && this.uploadIndicesArray(this.vao.getIndices()), this.drawCmdManager.clear(), this.vao.clear();
+    }
+  }, WebGLRenderContext.prototype.drawData = function (e, t) {
+    if (e) {
+      var r = this.context;var a = e.filter;switch (e.type) {case 0:
+          a ? "custom" === a.type ? n = m.EgretWebGLProgram.getProgram(r, a.$vertexSrc, a.$fragmentSrc, a.$shaderKey) : "colorTransform" === a.type ? n = e.texture[l.etc_alpha_mask] ? (r.activeTexture(r.TEXTURE1), r.bindTexture(r.TEXTURE_2D, e.texture[l.etc_alpha_mask]), m.EgretWebGLProgram.getProgram(r, m.EgretShaderLib.default_vert, m.EgretShaderLib.colorTransform_frag_etc_alphamask_frag, "colorTransform_frag_etc_alphamask_frag")) : m.EgretWebGLProgram.getProgram(r, m.EgretShaderLib.default_vert, m.EgretShaderLib.colorTransform_frag, "colorTransform") : "blurX" === a.type || "blurY" === a.type ? n = m.EgretWebGLProgram.getProgram(r, m.EgretShaderLib.default_vert, m.EgretShaderLib.blur_frag, "blur") : "glow" === a.type && (n = m.EgretWebGLProgram.getProgram(r, m.EgretShaderLib.default_vert, m.EgretShaderLib.glow_frag, "glow")) : e.texture[l.etc_alpha_mask] ? (n = m.EgretWebGLProgram.getProgram(r, m.EgretShaderLib.default_vert, m.EgretShaderLib.texture_etc_alphamask_frag, l.etc_alpha_mask), r.activeTexture(r.TEXTURE1), r.bindTexture(r.TEXTURE_2D, e.texture[l.etc_alpha_mask])) : n = m.EgretWebGLProgram.getProgram(r, m.EgretShaderLib.default_vert, m.EgretShaderLib.texture_frag, "texture"), this.activeProgram(r, n), this.syncUniforms(n, a, e.textureWidth, e.textureHeight), t += this.drawTextureElements(e, t);break;case 1:
+          n = m.EgretWebGLProgram.getProgram(r, m.EgretShaderLib.default_vert, m.EgretShaderLib.primitive_frag, "primitive"), this.activeProgram(r, n), this.syncUniforms(n, a, e.textureWidth, e.textureHeight), t += this.drawRectElements(e, t);break;case 2:
+          n = m.EgretWebGLProgram.getProgram(r, m.EgretShaderLib.default_vert, m.EgretShaderLib.primitive_frag, "primitive"), this.activeProgram(r, n), this.syncUniforms(n, a, e.textureWidth, e.textureHeight), t += this.drawPushMaskElements(e, t);break;case 3:
+          n = m.EgretWebGLProgram.getProgram(r, m.EgretShaderLib.default_vert, m.EgretShaderLib.primitive_frag, "primitive"), this.activeProgram(r, n), this.syncUniforms(n, a, e.textureWidth, e.textureHeight), t += this.drawPopMaskElements(e, t);break;case 4:
+          this.setBlendMode(e.value);break;case 5:
+          e.buffer.rootRenderTarget.resize(e.width, e.height), this.onResize(e.width, e.height);break;case 6:
+          var n;this.activatedBuffer && (0 == (n = this.activatedBuffer.rootRenderTarget).width && 0 == n.height || n.clear(!0));break;case 7:
+          this.activateBuffer(e.buffer, e.width, e.height);break;case 8:
+          var i = this.activatedBuffer;i && (i.rootRenderTarget && i.rootRenderTarget.enabledStencil(), i.enableScissor(e.x, e.y, e.width, e.height));break;case 9:
+          (i = this.activatedBuffer) && i.disableScissor();break;case 10:
+          r.bindTexture(r.TEXTURE_2D, e.texture), e.smoothing ? (r.texParameteri(r.TEXTURE_2D, r.TEXTURE_MAG_FILTER, r.LINEAR), r.texParameteri(r.TEXTURE_2D, r.TEXTURE_MIN_FILTER, r.LINEAR)) : (r.texParameteri(r.TEXTURE_2D, r.TEXTURE_MAG_FILTER, r.NEAREST), r.texParameteri(r.TEXTURE_2D, r.TEXTURE_MIN_FILTER, r.NEAREST));}return t;
+    }
+  }, WebGLRenderContext.prototype.activeProgram = function (e, t) {
+    if (l.pro && l.pro.egret2dDriveMode || t != this.currentProgram) {
+      e.useProgram(t.id);var r = t.attributes;for (var a in r) "aVertexPosition" === a ? (e.vertexAttribPointer(r.aVertexPosition.location, 2, e.FLOAT, !1, 20, 0), e.enableVertexAttribArray(r.aVertexPosition.location)) : "aTextureCoord" === a ? (e.vertexAttribPointer(r.aTextureCoord.location, 2, e.FLOAT, !1, 20, 8), e.enableVertexAttribArray(r.aTextureCoord.location)) : "aColor" === a && (e.vertexAttribPointer(r.aColor.location, 4, e.UNSIGNED_BYTE, !0, 20, 16), e.enableVertexAttribArray(r.aColor.location));this.currentProgram = t;
+    }
+  }, WebGLRenderContext.prototype.syncUniforms = function (e, t, r, a) {
+    var n = e.uniforms;t && t.type;for (var i in n) if ("$filterScale" != i) if ("projectionVector" === i) n[i].setValue({ x: this.projectionX, y: this.projectionY });else if ("uTextureSize" === i) n[i].setValue({ x: r, y: a });else if ("uSampler" === i) n[i].setValue(0);else if ("uSamplerAlphaMask" === i) n[i].setValue(1);else {
+      var o = t.$uniforms[i];if (void 0 !== o) {
+        if ("glow" == t.type || 0 == t.type.indexOf("blur")) if ("blurX" == i || "blurY" == i || "dist" == i) o *= t.$uniforms.$filterScale || 1;else if ("blur" == i && null != o.x && null != o.y) {
+          var s = { x: 0, y: 0 };s.x = o.x * (null != t.$uniforms.$filterScale ? t.$uniforms.$filterScale : 1), s.y = o.y * (null != t.$uniforms.$filterScale ? t.$uniforms.$filterScale : 1), n[i].setValue(s);continue;
+        }n[i].setValue(o);
+      }
+    }
+  }, WebGLRenderContext.prototype.drawTextureElements = function (e, t) {
+    return l.sys.drawTextureElements(this, e, t);
+  }, WebGLRenderContext.prototype.drawRectElements = function (e, t) {
+    var r = this.context;e = 3 * e.count;return r.drawElements(r.TRIANGLES, e, r.UNSIGNED_SHORT, 2 * t), e;
+  }, WebGLRenderContext.prototype.drawPushMaskElements = function (e, t) {
+    var r = this.context;var a = 3 * e.count;var n = this.activatedBuffer;return n && (n.rootRenderTarget && n.rootRenderTarget.enabledStencil(), 0 == n.stencilHandleCount && (n.enableStencil(), r.clear(r.STENCIL_BUFFER_BIT)), e = n.stencilHandleCount, n.stencilHandleCount++, r.colorMask(!1, !1, !1, !1), r.stencilFunc(r.EQUAL, e, 255), r.stencilOp(r.KEEP, r.KEEP, r.INCR), r.drawElements(r.TRIANGLES, a, r.UNSIGNED_SHORT, 2 * t), r.stencilFunc(r.EQUAL, e + 1, 255), r.colorMask(!0, !0, !0, !0), r.stencilOp(r.KEEP, r.KEEP, r.KEEP)), a;
+  }, WebGLRenderContext.prototype.drawPopMaskElements = function (e, t) {
+    var r = this.context;var a = 3 * e.count;e = this.activatedBuffer;return e && (e.stencilHandleCount--, 0 == e.stencilHandleCount ? e.disableStencil() : (e = e.stencilHandleCount, r.colorMask(!1, !1, !1, !1), r.stencilFunc(r.EQUAL, e + 1, 255), r.stencilOp(r.KEEP, r.KEEP, r.DECR), r.drawElements(r.TRIANGLES, a, r.UNSIGNED_SHORT, 2 * t), r.stencilFunc(r.EQUAL, e, 255), r.colorMask(!0, !0, !0, !0), r.stencilOp(r.KEEP, r.KEEP, r.KEEP))), a;
+  }, WebGLRenderContext.prototype.setBlendMode = function (e) {
+    var t = this.context;e = WebGLRenderContext.blendModesForGL[e];e && t.blendFunc(e[0], e[1]);
+  }, WebGLRenderContext.prototype.drawTargetWidthFilters = function (e, t) {
+    var r = t,
+        a = e.length;if (1 < a) for (var n = 0; n < a - 1; n++) {
+      var i = e[n];var o = t.rootRenderTarget.width;var s = t.rootRenderTarget.height;o = m.WebGLRenderBuffer.create(o, s);s = Math.max(l.sys.DisplayList.$canvasScaleFactor, 2);o.setTransform(s, 0, 0, s, 0, 0), o.globalAlpha = 1, this.drawToRenderTarget(i, t, o), t != r && m.WebGLRenderBuffer.release(t), t = o;
+    }var c = e[a - 1];this.drawToRenderTarget(c, t, this.currentBuffer), t != r && m.WebGLRenderBuffer.release(t);
+  }, WebGLRenderContext.prototype.drawToRenderTarget = function (e, t, r) {
+    var a, n, i, o, s, c, h;this.contextLost || (this.vao.reachMaxSize() && this.$drawWebGL(), this.pushBuffer(r), i = (a = t).rootRenderTarget.width, o = t.rootRenderTarget.height, "blur" == e.type && (h = e.blurXFilter, s = e.blurYFilter, e = 0 != h.blurX && 0 != s.blurY ? (n = m.WebGLRenderBuffer.create(i, o), c = Math.max(l.sys.DisplayList.$canvasScaleFactor, 2), n.setTransform(1, 0, 0, 1, 0, 0), n.transform(c, 0, 0, c, 0, 0), n.globalAlpha = 1, this.drawToRenderTarget(e.blurXFilter, t, n), t != a && m.WebGLRenderBuffer.release(t), t = n, s) : 0 === h.blurX ? s : h), r.saveTransform(), h = Math.max(l.sys.DisplayList.$canvasScaleFactor, 2), r.transform(1 / h, 0, 0, 1 / h, 0, 0), r.transform(1, 0, 0, -1, 0, o), r.currentTexture = t.rootRenderTarget.texture, this.vao.cacheArrays(r, 0, 0, i, o, 0, 0, i, o, i, o), r.restoreTransform(), this.drawCmdManager.pushDrawTexture(t.rootRenderTarget.texture, 2, e, i, o), t != a && m.WebGLRenderBuffer.release(t), this.popBuffer());
+  }, WebGLRenderContext.initBlendMode = function () {
+    (WebGLRenderContext.blendModesForGL = {})["source-over"] = [1, 771], WebGLRenderContext.blendModesForGL.lighter = [1, 1], WebGLRenderContext.blendModesForGL["lighter-in"] = [770, 771], WebGLRenderContext.blendModesForGL["destination-out"] = [0, 771], WebGLRenderContext.blendModesForGL["destination-in"] = [0, 770];
+  }, WebGLRenderContext.glContextId = 0, WebGLRenderContext.blendModesForGL = null, e = WebGLRenderContext, m.WebGLRenderContext = e, __reflect(e.prototype, "egret.wxgame.WebGLRenderContext", ["egret.sys.RenderContext"]), e.initBlendMode(), l.sys.WebGLRenderContext = e;
+}(egret = egret || {}), function (u) {
+  !function (n) {
+    var e = (i = u.HashObject, __extends(WebGLRenderBuffer, i), WebGLRenderBuffer.prototype.enableStencil = function () {
+      this.stencilState || (this.context.enableStencilTest(), this.stencilState = !0);
+    }, WebGLRenderBuffer.prototype.disableStencil = function () {
+      this.stencilState && (this.context.disableStencilTest(), this.stencilState = !1);
+    }, WebGLRenderBuffer.prototype.restoreStencil = function () {
+      this.stencilState ? this.context.enableStencilTest() : this.context.disableStencilTest();
+    }, WebGLRenderBuffer.prototype.enableScissor = function (e, t, r, a) {
+      this.$scissorState || (this.$scissorState = !0, this.scissorRect.setTo(e, t, r, a), this.context.enableScissorTest(this.scissorRect));
+    }, WebGLRenderBuffer.prototype.disableScissor = function () {
+      this.$scissorState && (this.$scissorState = !1, this.scissorRect.setEmpty(), this.context.disableScissorTest());
+    }, WebGLRenderBuffer.prototype.restoreScissor = function () {
+      this.$scissorState ? this.context.enableScissorTest(this.scissorRect) : this.context.disableScissorTest();
+    }, Object.defineProperty(WebGLRenderBuffer.prototype, "width", { get: function () {
+        return (u.nativeRender ? this.surface : this.rootRenderTarget).width;
+      }, enumerable: !0, configurable: !0 }), Object.defineProperty(WebGLRenderBuffer.prototype, "height", { get: function () {
+        return (u.nativeRender ? this.surface : this.rootRenderTarget).height;
+      }, enumerable: !0, configurable: !0 }), WebGLRenderBuffer.prototype.resize = function (e, t, r) {
+      e = e || 1, t = t || 1, u.nativeRender ? this.surface.resize(e, t) : (this.context.pushBuffer(this), e == this.rootRenderTarget.width && t == this.rootRenderTarget.height || (this.context.drawCmdManager.pushResize(this, e, t), this.rootRenderTarget.width = e, this.rootRenderTarget.height = t), this.root && this.context.resize(e, t, r), this.context.clear(), this.context.popBuffer());
+    }, WebGLRenderBuffer.prototype.getPixels = function (e, t, r, a) {
+      void 0 === r && (r = 1), void 0 === a && (a = 1);var n = new Uint8Array(4 * r * a);var i;u.nativeRender ? (egret_native.activateBuffer(this), egret_native.nrGetPixels(e, t, r, a, n), egret_native.activateBuffer(null)) : (i = this.rootRenderTarget.useFrameBuffer, this.rootRenderTarget.useFrameBuffer = !0, this.rootRenderTarget.activate(), this.context.getPixels(e, t, r, a, n), this.rootRenderTarget.useFrameBuffer = i, this.rootRenderTarget.activate());var o = new Uint8Array(4 * r * a);for (var s = 0; s < a; s++) for (var c = 0; c < r; c++) {
+        var h = 4 * (r * (a - s - 1) + c);var l = 4 * (r * s + c);var d = n[3 + l];o[h] = Math.round(n[l] / d * 255), o[1 + h] = Math.round(n[1 + l] / d * 255), o[2 + h] = Math.round(n[2 + l] / d * 255), o[3 + h] = n[3 + l];
+      }return o;
+    }, WebGLRenderBuffer.prototype.toDataURL = function (e, t) {
+      return this.context.surface.toDataURL(e, t);
+    }, WebGLRenderBuffer.prototype.destroy = function () {
+      this.context.destroy();
+    }, WebGLRenderBuffer.prototype.onRenderFinish = function () {
+      this.$drawCalls = 0;
+    }, WebGLRenderBuffer.prototype.drawFrameBufferToSurface = function (e, t, r, a, n, i, o, s, c) {
+      void 0 === c && (c = !1), this.rootRenderTarget.useFrameBuffer = !1, this.rootRenderTarget.activate(), this.context.disableStencilTest(), this.context.disableScissorTest(), this.setTransform(1, 0, 0, 1, 0, 0), this.globalAlpha = 1, this.context.setGlobalCompositeOperation("source-over"), c && this.context.clear(), this.context.drawImage(this.rootRenderTarget, e, t, r, a, n, i, o, s, r, a, !1), this.context.$drawWebGL(), this.rootRenderTarget.useFrameBuffer = !0, this.rootRenderTarget.activate(), this.restoreStencil(), this.restoreScissor();
+    }, WebGLRenderBuffer.prototype.drawSurfaceToFrameBuffer = function (e, t, r, a, n, i, o, s, c) {
+      void 0 === c && (c = !1), this.rootRenderTarget.useFrameBuffer = !0, this.rootRenderTarget.activate(), this.context.disableStencilTest(), this.context.disableScissorTest(), this.setTransform(1, 0, 0, 1, 0, 0), this.globalAlpha = 1, this.context.setGlobalCompositeOperation("source-over"), c && this.context.clear(), this.context.drawImage(this.context.surface, e, t, r, a, n, i, o, s, r, a, !1), this.context.$drawWebGL(), this.rootRenderTarget.useFrameBuffer = !1, this.rootRenderTarget.activate(), this.restoreStencil(), this.restoreScissor();
+    }, WebGLRenderBuffer.prototype.clear = function () {
+      this.context.pushBuffer(this), this.context.clear(), this.context.popBuffer();
+    }, WebGLRenderBuffer.prototype.setTransform = function (e, t, r, a, n, i) {
+      var o = this.globalMatrix;o.a = e, o.b = t, o.c = r, o.d = a, o.tx = n, o.ty = i;
+    }, WebGLRenderBuffer.prototype.transform = function (e, t, r, a, n, i) {
+      var o = this.globalMatrix;var s = o.a;var c = o.b;var h = o.c;var l = o.d;1 == e && 0 == t && 0 == r && 1 == a || (o.a = e * s + t * h, o.b = e * c + t * l, o.c = r * s + a * h, o.d = r * c + a * l), o.tx = n * s + i * h + o.tx, o.ty = n * c + i * l + o.ty;
+    }, WebGLRenderBuffer.prototype.useOffset = function () {
+      var e = this;0 == e.$offsetX && 0 == e.$offsetY || (e.globalMatrix.append(1, 0, 0, 1, e.$offsetX, e.$offsetY), e.$offsetX = e.$offsetY = 0);
+    }, WebGLRenderBuffer.prototype.saveTransform = function () {
+      var e = this.globalMatrix;var t = this.savedGlobalMatrix;t.a = e.a, t.b = e.b, t.c = e.c, t.d = e.d, t.tx = e.tx, t.ty = e.ty;
+    }, WebGLRenderBuffer.prototype.restoreTransform = function () {
+      var e = this.globalMatrix;var t = this.savedGlobalMatrix;e.a = t.a, e.b = t.b, e.c = t.c, e.d = t.d, e.tx = t.tx, e.ty = t.ty;
+    }, WebGLRenderBuffer.create = function (e, t) {
+      var r = o.pop();var a;return r ? (r.resize(e, t), (a = r.globalMatrix).a = 1, a.b = 0, a.c = 0, a.d = 1, a.tx = 0, a.ty = 0, r.globalAlpha = 1, r.$offsetX = 0, r.$offsetY = 0) : (r = new WebGLRenderBuffer(e, t)).$computeDrawCall = !1, r;
+    }, WebGLRenderBuffer.release = function (e) {
+      o.push(e);
+    }, WebGLRenderBuffer.autoClear = !0, WebGLRenderBuffer);function WebGLRenderBuffer(e, t, r) {
+      var a = i.call(this) || this;return a.currentTexture = null, a.globalAlpha = 1, a.globalTintColor = 16777215, a.stencilState = !1, a.$stencilList = [], a.stencilHandleCount = 0, a.$scissorState = !1, a.scissorRect = new u.Rectangle(), a.$hasScissor = !1, a.$drawCalls = 0, a.$computeDrawCall = !1, a.globalMatrix = new u.Matrix(), a.savedGlobalMatrix = new u.Matrix(), a.$offsetX = 0, a.$offsetY = 0, a.context = n.WebGLRenderContext.getInstance(e, t), u.nativeRender ? (a.surface = r ? a.context.surface : new egret_native.NativeRenderSurface(a, e, t, r), a.rootRenderTarget = null) : (a.rootRenderTarget = new n.WebGLRenderTarget(a.context.context, 3, 3), e && t && a.resize(e, t), a.root = r, a.root ? (a.context.pushBuffer(a), a.surface = a.context.surface, a.$computeDrawCall = !0) : ((r = a.context.activatedBuffer) && r.rootRenderTarget.activate(), a.rootRenderTarget.initFrameBuffer(), a.surface = a.rootRenderTarget)), a;
+    }var i;n.WebGLRenderBuffer = e, __reflect(e.prototype, "egret.wxgame.WebGLRenderBuffer", ["egret.sys.RenderBuffer"]);var o = [];
+  }(u.wxgame || (u.wxgame = {}));
+}(egret = egret || {}), function (T) {
+  function WebGLRenderer() {
+    this.wxiOS10 = !1, this.nestLevel = 0;
+  }var y, v, x, b, e;y = T.wxgame || (T.wxgame = {}), v = ["source-over", "lighter", "destination-out"], x = "source-over", b = [], WebGLRenderer.prototype.render = function (e, t, r, a) {
+    this.nestLevel++;var n = t;t = n.context;t.pushBuffer(n), n.transform(r.a, r.b, r.c, r.d, 0, 0), this.drawDisplayObject(e, n, r.tx, r.ty, !0), t.$drawWebGL();e = n.$drawCalls;n.onRenderFinish(), t.popBuffer();t = T.Matrix.create();if (r.$invertInto(t), n.transform(t.a, t.b, t.c, t.d, 0, 0), T.Matrix.release(t), this.nestLevel--, 0 === this.nestLevel) {
+      6 < b.length && (b.length = 6);var i = b.length;for (var o = 0; o < i; o++) b[o].resize(0, 0);
+    }return e;
+  }, WebGLRenderer.prototype.drawDisplayObject = function (e, t, r, a, n) {
+    var i = 0;var o;var s = e.$displayList;if (o = s && !n ? ((e.$cacheDirty || e.$renderDirty || s.$canvasScaleX != T.sys.DisplayList.$canvasScaleX || s.$canvasScaleY != T.sys.DisplayList.$canvasScaleY) && (i += s.drawToSurface()), s.$renderNode) : e.$renderDirty ? e.$getRenderNode() : e.$renderNode, e.$cacheDirty = !1, o) {
+      switch (i++, t.$offsetX = r, t.$offsetY = a, o.type) {case 1:
+          this.renderBitmap(o, t);break;case 2:
+          this.renderText(o, t);break;case 3:
+          this.renderGraphics(o, t);break;case 4:
+          this.renderGroup(o, t);break;case 5:
+          this.renderMesh(o, t);break;case 6:
+          this.renderNormalBitmap(o, t);}t.$offsetX = 0, t.$offsetY = 0;
+    }if (s && !n) return i;var c = e.$children;if (c) {
+      e.sortableChildren && e.$sortDirty && e.sortChildren();var h = c.length;for (var l = 0; l < h; l++) {
+        var d = c[l];var u = void 0;var f = void 0;var p = void 0;var g = void 0;1 != d.$alpha && (p = t.globalAlpha, t.globalAlpha *= d.$alpha), 16777215 !== d.tint && (g = t.globalTintColor, t.globalTintColor = d.$tintRGB);var v = void 0;var x;switch (f = d.$useTranslate ? (b = d.$getMatrix(), u = r + d.$x, f = a + d.$y, x = t.globalMatrix, (v = T.Matrix.create()).a = x.a, v.b = x.b, v.c = x.c, v.d = x.d, v.tx = x.tx, v.ty = x.ty, t.transform(b.a, b.b, b.c, b.d, u, f), u = -d.$anchorOffsetX, -d.$anchorOffsetY) : (u = r + d.$x - d.$anchorOffsetX, a + d.$y - d.$anchorOffsetY), d.$renderMode) {case 1:
+            break;case 2:
+            i += this.drawWithFilter(d, t, u, f);break;case 3:
+            i += this.drawWithClip(d, t, u, f);break;case 4:
+            i += this.drawWithScrollRect(d, t, u, f);break;default:
+            i += this.drawDisplayObject(d, t, u, f);}var b;p && (t.globalAlpha = p), g && (t.globalTintColor = g), v && ((b = t.globalMatrix).a = v.a, b.b = v.b, b.c = v.c, b.d = v.d, b.tx = v.tx, b.ty = v.ty, T.Matrix.release(v));
+      }
+    }return i;
+  }, WebGLRenderer.prototype.drawWithFilter = function (e, t, r, a) {
+    var n = 0;if (e.$children && 0 == e.$children.length && (!e.$renderNode || 0 == e.$renderNode.$getRenderCount())) return n;var i = e.$filters;var o = 0 !== e.$blendMode;var s;o && (s = (s = v[e.$blendMode]) || x);var c = e.$getOriginalBounds();var h = c.x;var l = c.y;var d = c.width;var u = c.height;if (d <= 0 || u <= 0) return n;if (!e.mask && 1 == i.length && ("colorTransform" == i[0].type || "custom" === i[0].type && 0 === i[0].padding)) {
+      c = this.getRenderCount(e);if (!e.$children || 1 == c) return o && t.context.setGlobalCompositeOperation(s), t.context.$filter = i[0], e.$mask ? n += this.drawWithClip(e, t, r, a) : e.$scrollRect || e.$maskRect ? n += this.drawWithScrollRect(e, t, r, a) : n += this.drawDisplayObject(e, t, r, a), t.context.$filter = null, o && t.context.setGlobalCompositeOperation(x), n;
+    }var f = Math.max(T.sys.DisplayList.$canvasScaleFactor, 2);i.forEach(function (e) {
+      (e instanceof T.GlowFilter || e instanceof T.BlurFilter) && (e.$uniforms.$filterScale = f, "blur" == e.type && ((e = e).blurXFilter.$uniforms.$filterScale = f, e.blurYFilter.$uniforms.$filterScale = f));
+    });u = this.createRenderBuffer(f * d, f * u);return u.saveTransform(), u.transform(f, 0, 0, f, 0, 0), u.context.pushBuffer(u), e.$mask ? n += this.drawWithClip(e, u, -h, -l) : e.$scrollRect || e.$maskRect ? n += this.drawWithScrollRect(e, u, -h, -l) : n += this.drawDisplayObject(e, u, -h, -l), u.context.popBuffer(), u.restoreTransform(), 0 < n && (o && t.context.setGlobalCompositeOperation(s), n++, t.$offsetX = r + h, t.$offsetY = a + l, a = T.Matrix.create(), l = t.globalMatrix, a.a = l.a, a.b = l.b, a.c = l.c, a.d = l.d, a.tx = l.tx, a.ty = l.ty, t.useOffset(), t.context.drawTargetWidthFilters(i, u), l.a = a.a, l.b = a.b, l.c = a.c, l.d = a.d, l.tx = a.tx, l.ty = a.ty, T.Matrix.release(a), o && t.context.setGlobalCompositeOperation(x)), b.push(u), n;
+  }, WebGLRenderer.prototype.getRenderCount = function (e) {
+    var t = 0;var r = e.$getRenderNode();if (r && (t += r.$getRenderCount()), e.$children) for (var a = 0, n = e.$children; a < n.length; a++) {
+      var i = n[a];var o = i.$filters;if (o && 0 < o.length) return 2;i.$children ? t += this.getRenderCount(i) : (i = i.$getRenderNode()) && (t += i.$getRenderCount());
+    }return t;
+  }, WebGLRenderer.prototype.drawWithClip = function (e, t, r, a) {
+    var n = 0;var i = 0 !== e.$blendMode;var o;i && (o = (o = v[e.$blendMode]) || x);var s = e.$scrollRect || e.$maskRect;var c = e.$mask;if (c) {
+      var h = c.$getMatrix();if (0 == h.a && 0 == h.b || 0 == h.c && 0 == h.d) return n;
+    }if (c || e.$children && 0 != e.$children.length) {
+      var l = e.$getOriginalBounds();var d = l.x;var u = l.y;var f = l.width;h = l.height;if (f <= 0 || h <= 0) return n;l = this.createRenderBuffer(f, h);var p, g;return l.context.pushBuffer(l), n += this.drawDisplayObject(e, l, -d, -u), c && ((g = this.createRenderBuffer(f, h)).context.pushBuffer(g), (p = T.Matrix.create()).copyFrom(c.$getConcatenatedMatrix()), c.$getConcatenatedMatrixAt(e, p), p.translate(-d, -u), g.setTransform(p.a, p.b, p.c, p.d, p.tx, p.ty), T.Matrix.release(p), n += this.drawDisplayObject(c, g, 0, 0), g.context.popBuffer(), l.context.setGlobalCompositeOperation("destination-in"), l.setTransform(1, 0, 0, -1, 0, g.height), c = g.rootRenderTarget.width, p = g.rootRenderTarget.height, l.context.drawTexture(g.rootRenderTarget.texture, 0, 0, c, p, 0, 0, c, p, c, p), l.setTransform(1, 0, 0, 1, 0, 0), l.context.setGlobalCompositeOperation("source-over"), g.setTransform(1, 0, 0, 1, 0, 0), b.push(g)), l.context.setGlobalCompositeOperation(x), l.context.popBuffer(), 0 < n && (n++, i && t.context.setGlobalCompositeOperation(o), s && t.context.pushMask(s.x + r, s.y + a, s.width, s.height), p = T.Matrix.create(), g = t.globalMatrix, p.a = g.a, p.b = g.b, p.c = g.c, p.d = g.d, p.tx = g.tx, p.ty = g.ty, g.append(1, 0, 0, -1, r + d, a + u + l.height), d = l.rootRenderTarget.width, u = l.rootRenderTarget.height, t.context.drawTexture(l.rootRenderTarget.texture, 0, 0, d, u, 0, 0, d, u, d, u), s && l.context.popMask(), i && t.context.setGlobalCompositeOperation(x), (u = t.globalMatrix).a = p.a, u.b = p.b, u.c = p.c, u.d = p.d, u.tx = p.tx, u.ty = p.ty, T.Matrix.release(p)), b.push(l), n;
+    }return s && t.context.pushMask(s.x + r, s.y + a, s.width, s.height), i && t.context.setGlobalCompositeOperation(o), n += this.drawDisplayObject(e, t, r, a), i && t.context.setGlobalCompositeOperation(x), s && t.context.popMask(), n;
+  }, WebGLRenderer.prototype.drawWithScrollRect = function (e, t, r, a) {
+    var n = 0;var i = e.$scrollRect || e.$maskRect;if (i.isEmpty()) return n;e.$scrollRect && (r -= i.x, a -= i.y);var o = t.globalMatrix;var s = t.context;var c = !1;var h, l, d, u, f, p, g, v, x, b, m, T, y;return t.$hasScissor || 0 != o.b || 0 != o.c ? t.context.pushMask(i.x + r, i.y + a, i.width, i.height) : (h = o.a, l = o.d, x = o.tx, T = o.ty, m = i.x + r, v = i.y + a, d = m + i.width, b = v + i.height, g = p = f = u = void 0, g = 1 == h && 1 == l ? (u = m + x, f = v + T, p = d + x, b + T) : (y = 0, (o = h * d + x) < (i = h * m + x) && (y = i, i = o, o = y), (m = h * m + x) < (x = h * d + x) && (y = x, x = m, m = y), u = i < x ? i : x, p = m < o ? o : m, (v = m = l * v + T) < m && (y = m, m = v, v = y), (T = b = l * b + T) < b && (y = b, b = T, T = y), f = m < b ? m : b, T < v ? v : T), s.enableScissor(u, -g + t.height, p - u, g - f), c = !0), n += this.drawDisplayObject(e, t, r, a), c ? s.disableScissor() : s.popMask(), n;
+  }, WebGLRenderer.prototype.drawNodeToBuffer = function (e, t, r, a) {
+    var n = t;n.context.pushBuffer(n), n.setTransform(r.a, r.b, r.c, r.d, r.tx, r.ty), this.renderNode(e, t, 0, 0, a), n.context.$drawWebGL(), n.onRenderFinish(), n.context.popBuffer();
+  }, WebGLRenderer.prototype.drawDisplayToBuffer = function (e, t, r) {
+    var a;t.context.pushBuffer(t), r && t.setTransform(r.a, r.b, r.c, r.d, r.tx, r.ty);var n = 0;if (a = e.$renderDirty ? e.$getRenderNode() : e.$renderNode) switch (n++, a.type) {case 1:
+        this.renderBitmap(a, t);break;case 2:
+        this.renderText(a, t);break;case 3:
+        this.renderGraphics(a, t);break;case 4:
+        this.renderGroup(a, t);break;case 5:
+        this.renderMesh(a, t);break;case 6:
+        this.renderNormalBitmap(a, t);}var i = e.$children;if (i) {
+      var o = i.length;for (var s = 0; s < o; s++) {
+        var c = i[s];switch (c.$renderMode) {case 1:
+            break;case 2:
+            n += this.drawWithFilter(c, t, 0, 0);break;case 3:
+            n += this.drawWithClip(c, t, 0, 0);break;case 4:
+            n += this.drawWithScrollRect(c, t, 0, 0);break;default:
+            n += this.drawDisplayObject(c, t, 0, 0);}
+      }
+    }return t.context.$drawWebGL(), t.onRenderFinish(), t.context.popBuffer(), n;
+  }, WebGLRenderer.prototype.renderNode = function (e, t, r, a, n) {
+    switch (t.$offsetX = r, t.$offsetY = a, e.type) {case 1:
+        this.renderBitmap(e, t);break;case 2:
+        this.renderText(e, t);break;case 3:
+        this.renderGraphics(e, t, n);break;case 4:
+        this.renderGroup(e, t);break;case 5:
+        this.renderMesh(e, t);break;case 6:
+        this.renderNormalBitmap(e, t);}
+  }, WebGLRenderer.prototype.renderNormalBitmap = function (e, t) {
+    var r = e.image;r && t.context.drawImage(r, e.sourceX, e.sourceY, e.sourceW, e.sourceH, e.drawX, e.drawY, e.drawW, e.drawH, e.imageWidth, e.imageHeight, e.rotated, e.smoothing);
+  }, WebGLRenderer.prototype.renderBitmap = function (e, t) {
+    var r = e.image;if (r) {
+      var a = e.drawData;var n = a.length;var i = 0;var o = e.matrix;var s = e.blendMode;var c = e.alpha;var h;var l;var d;var u;if (o && (h = T.Matrix.create(), d = t.globalMatrix, h.a = d.a, h.b = d.b, h.c = d.c, h.d = d.d, h.tx = d.tx, h.ty = d.ty, l = t.$offsetX, d = t.$offsetY, t.useOffset(), t.transform(o.a, o.b, o.c, o.d, o.tx, o.ty)), s && t.context.setGlobalCompositeOperation(v[s]), c == c && (u = t.globalAlpha, t.globalAlpha *= c), e.filter) {
+        for (t.context.$filter = e.filter; i < n;) t.context.drawImage(r, a[i++], a[i++], a[i++], a[i++], a[i++], a[i++], a[i++], a[i++], e.imageWidth, e.imageHeight, e.rotated, e.smoothing);t.context.$filter = null;
+      } else for (; i < n;) t.context.drawImage(r, a[i++], a[i++], a[i++], a[i++], a[i++], a[i++], a[i++], a[i++], e.imageWidth, e.imageHeight, e.rotated, e.smoothing);s && t.context.setGlobalCompositeOperation(x), c == c && (t.globalAlpha = u), o && ((o = t.globalMatrix).a = h.a, o.b = h.b, o.c = h.c, o.d = h.d, o.tx = h.tx, o.ty = h.ty, t.$offsetX = l, t.$offsetY = d, T.Matrix.release(h));
+    }
+  }, WebGLRenderer.prototype.renderMesh = function (e, t) {
+    var r = e.image;var a = e.drawData;var n = a.length;var i = 0;var o = e.matrix;var s = e.blendMode;var c = e.alpha;var h;var l;var d;var u;if (o && (h = T.Matrix.create(), d = t.globalMatrix, h.a = d.a, h.b = d.b, h.c = d.c, h.d = d.d, h.tx = d.tx, h.ty = d.ty, l = t.$offsetX, d = t.$offsetY, t.useOffset(), t.transform(o.a, o.b, o.c, o.d, o.tx, o.ty)), s && t.context.setGlobalCompositeOperation(v[s]), c == c && (u = t.globalAlpha, t.globalAlpha *= c), e.filter) {
+      for (t.context.$filter = e.filter; i < n;) t.context.drawMesh(r, a[i++], a[i++], a[i++], a[i++], a[i++], a[i++], a[i++], a[i++], e.imageWidth, e.imageHeight, e.uvs, e.vertices, e.indices, e.bounds, e.rotated, e.smoothing);t.context.$filter = null;
+    } else for (; i < n;) t.context.drawMesh(r, a[i++], a[i++], a[i++], a[i++], a[i++], a[i++], a[i++], a[i++], e.imageWidth, e.imageHeight, e.uvs, e.vertices, e.indices, e.bounds, e.rotated, e.smoothing);s && t.context.setGlobalCompositeOperation(x), c == c && (t.globalAlpha = u), o && ((o = t.globalMatrix).a = h.a, o.b = h.b, o.c = h.c, o.d = h.d, o.tx = h.tx, o.ty = h.ty, t.$offsetX = l, t.$offsetY = d, T.Matrix.release(h));
+  }, WebGLRenderer.prototype.___renderText____ = function (e, t) {
+    var r = e.width - e.x;var a = e.height - e.y;if (!(r <= 0 || a <= 0) && r && a && 0 !== e.drawData.length) {
+      var n = T.sys.DisplayList.$canvasScaleX;var i = T.sys.DisplayList.$canvasScaleY;var o = t.context.$maxTextureSize;o < r * n && (n *= o / (r * n)), o < a * i && (i *= o / (a * i)), r *= n, a *= i;r = e.x * n;a = e.y * i;e.$canvasScaleX === n && e.$canvasScaleY === i || (e.$canvasScaleX = n, e.$canvasScaleY = i, e.dirtyRender = !0), (r || a) && t.transform(1, 0, 0, 1, r / n, a / i), e.dirtyRender && y.TextAtlasRender.analysisTextNodeAndFlushDrawLabel(e);var s = e[y.property_drawLabel];if (s && 0 < s.length) {
+        var c = t.$offsetX;var h = t.$offsetY;var l;var d;var u;var f;var p;var g;for (var v = 0, x = s.length; v < x; ++v) {
+          d = (l = s[v]).anchorX, u = l.anchorY, f = l.textBlocks, t.$offsetX = c + d;for (var b = 0, m = f.length; b < m; ++b) p = f[b], 0 < b && (t.$offsetX -= p.canvasWidthOffset), t.$offsetY = h + u - (p.measureHeight + (p.stroke2 ? p.canvasHeightOffset : 0)) / 2, g = p.line.page, t.context.drawTexture(g.webGLTexture, p.u, p.v, p.contentWidth, p.contentHeight, 0, 0, p.contentWidth, p.contentHeight, g.pageWidth, g.pageHeight), t.$offsetX += p.contentWidth - p.canvasWidthOffset;
+        }t.$offsetX = c, t.$offsetY = h;
+      }(r || a) && t.transform(1, 0, 0, 1, -r / n, -a / i), e.dirtyRender = !1;
+    }
+  }, WebGLRenderer.prototype.renderText = function (e, t) {
+    var r, a, n, i, o, s, c, h;y.textAtlasRenderEnable ? this.___renderText____(e, t) : (r = e.width - e.x, a = e.height - e.y, r <= 0 || a <= 0 || !r || !a || 0 == e.drawData.length || (n = T.sys.DisplayList.$canvasScaleX, i = T.sys.DisplayList.$canvasScaleY, (s = t.context.$maxTextureSize) < r * n && (n *= s / (r * n)), s < a * i && (i *= s / (a * i)), r *= n, a *= i, o = e.x * n, s = e.y * i, e.$canvasScaleX == n && e.$canvasScaleY == i || (e.$canvasScaleX = n, e.$canvasScaleY = i, e.dirtyRender = !0), this.wxiOS10 ? (this.canvasRenderer || (this.canvasRenderer = new T.CanvasRenderer()), e.dirtyRender && (this.canvasRenderBuffer = new y.CanvasRenderBuffer(r, a))) : this.canvasRenderBuffer && this.canvasRenderBuffer.context ? e.dirtyRender && this.canvasRenderBuffer.resize(r, a) : (this.canvasRenderer = new T.CanvasRenderer(), this.canvasRenderBuffer = new y.CanvasRenderBuffer(r, a)), this.canvasRenderBuffer.context && (1 == n && 1 == i || this.canvasRenderBuffer.context.setTransform(n, 0, 0, i, 0, 0), o || s ? (e.dirtyRender && this.canvasRenderBuffer.context.setTransform(n, 0, 0, i, -o, -s), t.transform(1, 0, 0, 1, o / n, s / i)) : 1 == n && 1 == i || this.canvasRenderBuffer.context.setTransform(n, 0, 0, i, 0, 0), e.dirtyRender && (h = this.canvasRenderBuffer.surface, this.canvasRenderer.renderText(e, this.canvasRenderBuffer.context), this.wxiOS10 ? (h.isCanvas = !0, e.$texture = h) : (c = e.$texture) ? t.context.updateTexture(c, h) : (c = t.context.createTexture(h), e.$texture = c), e.$textureWidth = h.width, e.$textureHeight = h.height), c = e.$textureWidth, h = e.$textureHeight, t.context.drawTexture(e.$texture, 0, 0, c, h, 0, 0, c / n, h / i, c, h), (o || s) && (e.dirtyRender && this.canvasRenderBuffer.context.setTransform(n, 0, 0, i, 0, 0), t.transform(1, 0, 0, 1, -o / n, -s / i)), e.dirtyRender = !1)));
+  }, WebGLRenderer.prototype.renderGraphics = function (e, t, r) {
+    var a = e.width;var n = e.height;var i, o, s, c, h;a <= 0 || n <= 0 || !a || !n || 0 == e.drawData.length || (i = T.sys.DisplayList.$canvasScaleX, o = T.sys.DisplayList.$canvasScaleY, (a * i < 1 || n * o < 1) && (i = o = 1), e.$canvasScaleX == i && e.$canvasScaleY == o || (e.$canvasScaleX = i, e.$canvasScaleY = o, e.dirtyRender = !0), a *= i, n *= o, i *= (s = Math.ceil(a)) / a, o *= (h = Math.ceil(n)) / n, a = s, n = h, this.wxiOS10 ? (this.canvasRenderer || (this.canvasRenderer = new T.CanvasRenderer()), e.dirtyRender && (this.canvasRenderBuffer = new y.CanvasRenderBuffer(a, n))) : this.canvasRenderBuffer && this.canvasRenderBuffer.context ? e.dirtyRender && this.canvasRenderBuffer.resize(a, n) : (this.canvasRenderer = new T.CanvasRenderer(), this.canvasRenderBuffer = new y.CanvasRenderBuffer(a, n)), this.canvasRenderBuffer.context && (1 == i && 1 == o || this.canvasRenderBuffer.context.setTransform(i, 0, 0, o, 0, 0), (e.x || e.y) && ((e.dirtyRender || r) && this.canvasRenderBuffer.context.translate(-e.x, -e.y), t.transform(1, 0, 0, 1, e.x, e.y)), h = this.canvasRenderBuffer.surface, r ? (this.canvasRenderer.renderGraphics(e, this.canvasRenderBuffer.context, !0), c = void 0, c = this.wxiOS10 ? (h.isCanvas = !0, h) : (T.WebGLUtils.deleteWebGLTexture(h), t.context.getWebGLTexture(h)), t.context.drawTexture(c, 0, 0, a, n, 0, 0, a, n, h.width, h.height)) : (e.dirtyRender && (this.canvasRenderer.renderGraphics(e, this.canvasRenderBuffer.context), this.wxiOS10 ? (h.isCanvas = !0, e.$texture = h) : (c = e.$texture) ? t.context.updateTexture(c, h) : (c = t.context.createTexture(h), e.$texture = c), e.$textureWidth = h.width, e.$textureHeight = h.height), c = e.$textureWidth, h = e.$textureHeight, t.context.drawTexture(e.$texture, 0, 0, c, h, 0, 0, c / i, h / o, c, h)), (e.x || e.y) && ((e.dirtyRender || r) && this.canvasRenderBuffer.context.translate(e.x, e.y), t.transform(1, 0, 0, 1, -e.x, -e.y)), r || (e.dirtyRender = !1)));
+  }, WebGLRenderer.prototype.renderGroup = function (e, t) {
+    var r = e.matrix;var a;var n;var i;r && (a = T.Matrix.create(), i = t.globalMatrix, a.a = i.a, a.b = i.b, a.c = i.c, a.d = i.d, a.tx = i.tx, a.ty = i.ty, n = t.$offsetX, i = t.$offsetY, t.useOffset(), t.transform(r.a, r.b, r.c, r.d, r.tx, r.ty));var o = e.drawData;var s = o.length;for (var c = 0; c < s; c++) {
+      var h = o[c];this.renderNode(h, t, t.$offsetX, t.$offsetY);
+    }r && ((r = t.globalMatrix).a = a.a, r.b = a.b, r.c = a.c, r.d = a.d, r.tx = a.tx, r.ty = a.ty, t.$offsetX = n, t.$offsetY = i, T.Matrix.release(a));
+  }, WebGLRenderer.prototype.createRenderBuffer = function (e, t) {
+    var r = b.pop();return r ? (r.resize(e, t), r.setTransform(1, 0, 0, 1, 0, 0)) : (r = new y.WebGLRenderBuffer(e, t)).$computeDrawCall = !1, r;
+  }, WebGLRenderer.prototype.renderClear = function () {
+    var e = y.WebGLRenderContext.getInstance();var t = e.context;e.$beforeRender();var r = e.surface.width;e = e.surface.height;t.viewport(0, 0, r, e);
+  }, e = WebGLRenderer, y.WebGLRenderer = e, __reflect(e.prototype, "egret.wxgame.WebGLRenderer", ["egret.sys.SystemRenderer"]);
+}(egret = egret || {}), function (e) {
+  function EgretWebGLAttribute(e, t, r) {
+    this.gl = e, this.name = r.name, this.type = r.type, this.size = r.size, this.location = e.getAttribLocation(t, this.name), this.count = 0, this.initCount(e), this.format = e.FLOAT, this.initFormat(e);
+  }var t;t = e.wxgame || (e.wxgame = {}), EgretWebGLAttribute.prototype.initCount = function (e) {
+    switch (this.type) {case t.WEBGL_ATTRIBUTE_TYPE.FLOAT:case t.WEBGL_ATTRIBUTE_TYPE.BYTE:case t.WEBGL_ATTRIBUTE_TYPE.UNSIGNED_BYTE:case t.WEBGL_ATTRIBUTE_TYPE.UNSIGNED_SHORT:
+        this.count = 1;break;case t.WEBGL_ATTRIBUTE_TYPE.FLOAT_VEC2:
+        this.count = 2;break;case t.WEBGL_ATTRIBUTE_TYPE.FLOAT_VEC3:
+        this.count = 3;break;case t.WEBGL_ATTRIBUTE_TYPE.FLOAT_VEC4:
+        this.count = 4;}
+  }, EgretWebGLAttribute.prototype.initFormat = function (e) {
+    switch (this.type) {case t.WEBGL_ATTRIBUTE_TYPE.FLOAT:case t.WEBGL_ATTRIBUTE_TYPE.FLOAT_VEC2:case t.WEBGL_ATTRIBUTE_TYPE.FLOAT_VEC3:case t.WEBGL_ATTRIBUTE_TYPE.FLOAT_VEC4:
+        this.format = e.FLOAT;break;case t.WEBGL_ATTRIBUTE_TYPE.UNSIGNED_BYTE:
+        this.format = e.UNSIGNED_BYTE;break;case t.WEBGL_ATTRIBUTE_TYPE.UNSIGNED_SHORT:
+        this.format = e.UNSIGNED_SHORT;break;case t.WEBGL_ATTRIBUTE_TYPE.BYTE:
+        this.format = e.BYTE;}
+  }, e = EgretWebGLAttribute, t.EgretWebGLAttribute = e, __reflect(e.prototype, "egret.wxgame.EgretWebGLAttribute");
+}(egret = egret || {}), function (e) {
+  function loadShader(e, t, r) {
+    t = e.createShader(t);return e.shaderSource(t, r), e.compileShader(t), e.getShaderParameter(t, e.COMPILE_STATUS) || (console.log("shader not compiled!"), console.log(e.getShaderInfoLog(t))), t;
+  }function EgretWebGLProgram(e, t, r) {
+    var a, n;this.vshaderSource = t, this.fshaderSource = r, this.vertexShader = loadShader(e, e.VERTEX_SHADER, this.vshaderSource), this.fragmentShader = loadShader(e, e.FRAGMENT_SHADER, this.fshaderSource), this.id = (a = e, n = this.vertexShader, t = this.fragmentShader, r = a.createProgram(), a.attachShader(r, n), a.attachShader(r, t), a.linkProgram(r), r), this.uniforms = function (e, t) {
+      var r = {};var a = e.getProgramParameter(t, e.ACTIVE_UNIFORMS);for (var n = 0; n < a; n++) {
+        var i = e.getActiveUniform(t, n);var o = i.name;i = new s.EgretWebGLUniform(e, t, i);r[o] = i;
+      }return r;
+    }(e, this.id), this.attributes = function (e, t) {
+      var r = {};var a = e.getProgramParameter(t, e.ACTIVE_ATTRIBUTES);for (var n = 0; n < a; n++) {
+        var i = e.getActiveAttrib(t, n);var o = i.name;i = new s.EgretWebGLAttribute(e, t, i);r[o] = i;
+      }return r;
+    }(e, this.id);
+  }var s;s = e.wxgame || (e.wxgame = {}), EgretWebGLProgram.getProgram = function (e, t, r, a) {
+    return this.programCache[a] || (this.programCache[a] = new EgretWebGLProgram(e, t, r)), this.programCache[a];
+  }, EgretWebGLProgram.deleteProgram = function (e, t, r, a) {}, EgretWebGLProgram.programCache = {}, e = EgretWebGLProgram, s.EgretWebGLProgram = e, __reflect(e.prototype, "egret.wxgame.EgretWebGLProgram");
+}(egret = egret || {}), function (e) {
+  function EgretWebGLUniform(e, t, r) {
+    this.gl = e, this.name = r.name, this.type = r.type, this.size = r.size, this.location = e.getUniformLocation(t, this.name), this.setDefaultValue(), this.generateSetValue(), this.generateUpload();
+  }var a;a = e.wxgame || (e.wxgame = {}), EgretWebGLUniform.prototype.setDefaultValue = function () {
+    switch (this.type) {case a.WEBGL_UNIFORM_TYPE.FLOAT:case a.WEBGL_UNIFORM_TYPE.SAMPLER_2D:case a.WEBGL_UNIFORM_TYPE.SAMPLER_CUBE:case a.WEBGL_UNIFORM_TYPE.BOOL:case a.WEBGL_UNIFORM_TYPE.INT:
+        this.value = 0;break;case a.WEBGL_UNIFORM_TYPE.FLOAT_VEC2:case a.WEBGL_UNIFORM_TYPE.BOOL_VEC2:case a.WEBGL_UNIFORM_TYPE.INT_VEC2:
+        this.value = [0, 0];break;case a.WEBGL_UNIFORM_TYPE.FLOAT_VEC3:case a.WEBGL_UNIFORM_TYPE.BOOL_VEC3:case a.WEBGL_UNIFORM_TYPE.INT_VEC3:
+        this.value = [0, 0, 0];break;case a.WEBGL_UNIFORM_TYPE.FLOAT_VEC4:case a.WEBGL_UNIFORM_TYPE.BOOL_VEC4:case a.WEBGL_UNIFORM_TYPE.INT_VEC4:
+        this.value = [0, 0, 0, 0];break;case a.WEBGL_UNIFORM_TYPE.FLOAT_MAT2:
+        this.value = new Float32Array([1, 0, 0, 1]);break;case a.WEBGL_UNIFORM_TYPE.FLOAT_MAT3:
+        this.value = new Float32Array([1, 0, 0, 0, 1, 0, 0, 0, 1]);break;case a.WEBGL_UNIFORM_TYPE.FLOAT_MAT4:
+        this.value = new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);}
+  }, EgretWebGLUniform.prototype.generateSetValue = function () {
+    switch (this.type) {case a.WEBGL_UNIFORM_TYPE.FLOAT:case a.WEBGL_UNIFORM_TYPE.SAMPLER_2D:case a.WEBGL_UNIFORM_TYPE.SAMPLER_CUBE:case a.WEBGL_UNIFORM_TYPE.BOOL:case a.WEBGL_UNIFORM_TYPE.INT:
+        this.setValue = function (e) {
+          var t = this.value !== e;this.value = e, t && this.upload();
+        };break;case a.WEBGL_UNIFORM_TYPE.FLOAT_VEC2:case a.WEBGL_UNIFORM_TYPE.BOOL_VEC2:case a.WEBGL_UNIFORM_TYPE.INT_VEC2:
+        this.setValue = function (e) {
+          var t = this.value[0] !== e.x || this.value[1] !== e.y;this.value[0] = e.x, this.value[1] = e.y, t && this.upload();
+        };break;case a.WEBGL_UNIFORM_TYPE.FLOAT_VEC3:case a.WEBGL_UNIFORM_TYPE.BOOL_VEC3:case a.WEBGL_UNIFORM_TYPE.INT_VEC3:
+        this.setValue = function (e) {
+          this.value[0] = e.x, this.value[1] = e.y, this.value[2] = e.z, this.upload();
+        };break;case a.WEBGL_UNIFORM_TYPE.FLOAT_VEC4:case a.WEBGL_UNIFORM_TYPE.BOOL_VEC4:case a.WEBGL_UNIFORM_TYPE.INT_VEC4:
+        this.setValue = function (e) {
+          this.value[0] = e.x, this.value[1] = e.y, this.value[2] = e.z, this.value[3] = e.w, this.upload();
+        };break;case a.WEBGL_UNIFORM_TYPE.FLOAT_MAT2:case a.WEBGL_UNIFORM_TYPE.FLOAT_MAT3:case a.WEBGL_UNIFORM_TYPE.FLOAT_MAT4:
+        this.setValue = function (e) {
+          this.value.set(e), this.upload();
+        };}
+  }, EgretWebGLUniform.prototype.generateUpload = function () {
+    var t = this.gl;var e = this.type;var r = this.location;switch (e) {case a.WEBGL_UNIFORM_TYPE.FLOAT:
+        this.upload = function () {
+          var e = this.value;t.uniform1f(r, e);
+        };break;case a.WEBGL_UNIFORM_TYPE.FLOAT_VEC2:
+        this.upload = function () {
+          var e = this.value;t.uniform2f(r, e[0], e[1]);
+        };break;case a.WEBGL_UNIFORM_TYPE.FLOAT_VEC3:
+        this.upload = function () {
+          var e = this.value;t.uniform3f(r, e[0], e[1], e[2]);
+        };break;case a.WEBGL_UNIFORM_TYPE.FLOAT_VEC4:
+        this.upload = function () {
+          var e = this.value;t.uniform4f(r, e[0], e[1], e[2], e[3]);
+        };break;case a.WEBGL_UNIFORM_TYPE.SAMPLER_2D:case a.WEBGL_UNIFORM_TYPE.SAMPLER_CUBE:case a.WEBGL_UNIFORM_TYPE.BOOL:case a.WEBGL_UNIFORM_TYPE.INT:
+        this.upload = function () {
+          var e = this.value;t.uniform1i(r, e);
+        };break;case a.WEBGL_UNIFORM_TYPE.BOOL_VEC2:case a.WEBGL_UNIFORM_TYPE.INT_VEC2:
+        this.upload = function () {
+          var e = this.value;t.uniform2i(r, e[0], e[1]);
+        };break;case a.WEBGL_UNIFORM_TYPE.BOOL_VEC3:case a.WEBGL_UNIFORM_TYPE.INT_VEC3:
+        this.upload = function () {
+          var e = this.value;t.uniform3i(r, e[0], e[1], e[2]);
+        };break;case a.WEBGL_UNIFORM_TYPE.BOOL_VEC4:case a.WEBGL_UNIFORM_TYPE.INT_VEC4:
+        this.upload = function () {
+          var e = this.value;t.uniform4i(r, e[0], e[1], e[2], e[3]);
+        };break;case a.WEBGL_UNIFORM_TYPE.FLOAT_MAT2:
+        this.upload = function () {
+          var e = this.value;t.uniformMatrix2fv(r, !1, e);
+        };break;case a.WEBGL_UNIFORM_TYPE.FLOAT_MAT3:
+        this.upload = function () {
+          var e = this.value;t.uniformMatrix3fv(r, !1, e);
+        };break;case a.WEBGL_UNIFORM_TYPE.FLOAT_MAT4:
+        this.upload = function () {
+          var e = this.value;t.uniformMatrix4fv(r, !1, e);
+        };}
+  }, e = EgretWebGLUniform, a.EgretWebGLUniform = e, __reflect(e.prototype, "egret.wxgame.EgretWebGLUniform");
+}(egret = egret || {}), function (e) {
+  function EgretShaderLib() {}var t;t = e.wxgame || (e.wxgame = {}), EgretShaderLib.blur_frag = "precision mediump float;\r\nuniform vec2 blur;\r\nuniform sampler2D uSampler;\r\nvarying vec2 vTextureCoord;\r\nuniform vec2 uTextureSize;\r\nvoid main()\r\n{\r\n    const int sampleRadius = 5;\r\n    const int samples = sampleRadius * 2 + 1;\r\n    vec2 blurUv = blur / uTextureSize;\r\n    vec4 color = vec4(0, 0, 0, 0);\r\n    vec2 uv = vec2(0.0, 0.0);\r\n    blurUv /= float(sampleRadius);\r\n\r\n    for (int i = -sampleRadius; i <= sampleRadius; i++) {\r\n        uv.x = vTextureCoord.x + float(i) * blurUv.x;\r\n        uv.y = vTextureCoord.y + float(i) * blurUv.y;\r\n        color += texture2D(uSampler, uv);\r\n    }\r\n\r\n    color /= float(samples);\r\n    gl_FragColor = color;\r\n}", EgretShaderLib.colorTransform_frag = "precision mediump float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\nuniform mat4 matrix;\r\nuniform vec4 colorAdd;\r\nuniform sampler2D uSampler;\r\n\r\nvoid main(void) {\r\n    vec4 texColor = texture2D(uSampler, vTextureCoord);\r\n    if(texColor.a > 0.) {\r\n        // \u62b5\u6d88\u9884\u4e58\u7684alpha\u901a\u9053\r\n        texColor = vec4(texColor.rgb / texColor.a, texColor.a);\r\n    }\r\n    vec4 locColor = clamp(texColor * matrix + colorAdd, 0., 1.);\r\n    gl_FragColor = vColor * vec4(locColor.rgb * locColor.a, locColor.a);\r\n}", EgretShaderLib.default_vert = "attribute vec2 aVertexPosition;\r\nattribute vec2 aTextureCoord;\r\nattribute vec4 aColor;\r\n\r\nuniform vec2 projectionVector;\r\n// uniform vec2 offsetVector;\r\n\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\n\r\nconst vec2 center = vec2(-1.0, 1.0);\r\n\r\nvoid main(void) {\r\n   gl_Position = vec4( (aVertexPosition / projectionVector) + center , 0.0, 1.0);\r\n   vTextureCoord = aTextureCoord;\r\n   vColor = aColor;\r\n}", EgretShaderLib.glow_frag = "precision highp float;\r\nvarying vec2 vTextureCoord;\r\n\r\nuniform sampler2D uSampler;\r\n\r\nuniform float dist;\r\nuniform float angle;\r\nuniform vec4 color;\r\nuniform float alpha;\r\nuniform float blurX;\r\nuniform float blurY;\r\n// uniform vec4 quality;\r\nuniform float strength;\r\nuniform float inner;\r\nuniform float knockout;\r\nuniform float hideObject;\r\n\r\nuniform vec2 uTextureSize;\r\n\r\nfloat random(vec2 scale)\r\n{\r\n    return fract(sin(dot(gl_FragCoord.xy, scale)) * 43758.5453);\r\n}\r\n\r\nvoid main(void) {\r\n    vec2 px = vec2(1.0 / uTextureSize.x, 1.0 / uTextureSize.y);\r\n    // TODO \u81ea\u52a8\u8c03\u8282\u91c7\u6837\u6b21\u6570\uff1f\r\n    const float linearSamplingTimes = 7.0;\r\n    const float circleSamplingTimes = 12.0;\r\n    vec4 ownColor = texture2D(uSampler, vTextureCoord);\r\n    vec4 curColor;\r\n    float totalAlpha = 0.0;\r\n    float maxTotalAlpha = 0.0;\r\n    float curDistanceX = 0.0;\r\n    float curDistanceY = 0.0;\r\n    float offsetX = dist * cos(angle) * px.x;\r\n    float offsetY = dist * sin(angle) * px.y;\r\n\r\n    const float PI = 3.14159265358979323846264;\r\n    float cosAngle;\r\n    float sinAngle;\r\n    float offset = PI * 2.0 / circleSamplingTimes * random(vec2(12.9898, 78.233));\r\n    float stepX = blurX * px.x / linearSamplingTimes;\r\n    float stepY = blurY * px.y / linearSamplingTimes;\r\n    for (float a = 0.0; a <= PI * 2.0; a += PI * 2.0 / circleSamplingTimes) {\r\n        cosAngle = cos(a + offset);\r\n        sinAngle = sin(a + offset);\r\n        for (float i = 1.0; i <= linearSamplingTimes; i++) {\r\n            curDistanceX = i * stepX * cosAngle;\r\n            curDistanceY = i * stepY * sinAngle;\r\n            if (vTextureCoord.x + curDistanceX - offsetX >= 0.0 && vTextureCoord.y + curDistanceY + offsetY <= 1.0){\r\n                curColor = texture2D(uSampler, vec2(vTextureCoord.x + curDistanceX - offsetX, vTextureCoord.y + curDistanceY + offsetY));\r\n                totalAlpha += (linearSamplingTimes - i) * curColor.a;\r\n            }\r\n            maxTotalAlpha += (linearSamplingTimes - i);\r\n        }\r\n    }\r\n\r\n    ownColor.a = max(ownColor.a, 0.0001);\r\n    ownColor.rgb = ownColor.rgb / ownColor.a;\r\n\r\n    float outerGlowAlpha = (totalAlpha / maxTotalAlpha) * strength * alpha * (1. - inner) * max(min(hideObject, knockout), 1. - ownColor.a);\r\n    float innerGlowAlpha = ((maxTotalAlpha - totalAlpha) / maxTotalAlpha) * strength * alpha * inner * ownColor.a;\r\n\r\n    ownColor.a = max(ownColor.a * knockout * (1. - hideObject), 0.0001);\r\n    vec3 mix1 = mix(ownColor.rgb, color.rgb, innerGlowAlpha / (innerGlowAlpha + ownColor.a));\r\n    vec3 mix2 = mix(mix1, color.rgb, outerGlowAlpha / (innerGlowAlpha + ownColor.a + outerGlowAlpha));\r\n    float resultAlpha = min(ownColor.a + outerGlowAlpha + innerGlowAlpha, 1.);\r\n    gl_FragColor = vec4(mix2 * resultAlpha, resultAlpha);\r\n}", EgretShaderLib.primitive_frag = "precision lowp float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\n\r\nvoid main(void) {\r\n    gl_FragColor = vColor;\r\n}", EgretShaderLib.texture_frag = "precision lowp float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\nuniform sampler2D uSampler;\r\n\r\nvoid main(void) {\r\n    gl_FragColor = texture2D(uSampler, vTextureCoord) * vColor;\r\n}", EgretShaderLib.texture_etc_alphamask_frag = "precision lowp float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\nuniform sampler2D uSampler;\r\nuniform sampler2D uSamplerAlphaMask;\r\nvoid main(void) {\r\nfloat alpha = texture2D(uSamplerAlphaMask, vTextureCoord).r;\r\nif (alpha < 0.0039) { discard; }\r\nvec4 v4Color = texture2D(uSampler, vTextureCoord);\r\nv4Color.rgb = v4Color.rgb * alpha;\r\nv4Color.a = alpha;\r\ngl_FragColor = v4Color * vColor;\r\n}", EgretShaderLib.colorTransform_frag_etc_alphamask_frag = "precision mediump float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\nuniform mat4 matrix;\r\nuniform vec4 colorAdd;\r\nuniform sampler2D uSampler;\r\nuniform sampler2D uSamplerAlphaMask;\r\n\r\nvoid main(void){\r\nfloat alpha = texture2D(uSamplerAlphaMask, vTextureCoord).r;\r\nif (alpha < 0.0039) { discard; }\r\nvec4 texColor = texture2D(uSampler, vTextureCoord);\r\nif(texColor.a > 0.0) {\r\n // \u62b5\u6d88\u9884\u4e58\u7684alpha\u901a\u9053\r\ntexColor = vec4(texColor.rgb / texColor.a, texColor.a);\r\n}\r\nvec4 v4Color = clamp(texColor * matrix + colorAdd, 0.0, 1.0);\r\nv4Color.rgb = v4Color.rgb * alpha;\r\nv4Color.a = alpha;\r\ngl_FragColor = v4Color * vColor;\r\n}", e = EgretShaderLib, t.EgretShaderLib = e, __reflect(e.prototype, "egret.wxgame.EgretShaderLib");
+}(egret = egret || {}), function (o) {
+  !function (e) {
+    var c = (h = o.HashObject, __extends(TextBlock, h), Object.defineProperty(TextBlock.prototype, "border", { get: function () {
+        return this._border;
+      }, enumerable: !0, configurable: !0 }), Object.defineProperty(TextBlock.prototype, "width", { get: function () {
+        return this._width + 2 * this.border;
+      }, enumerable: !0, configurable: !0 }), Object.defineProperty(TextBlock.prototype, "height", { get: function () {
+        return this._height + 2 * this.border;
+      }, enumerable: !0, configurable: !0 }), Object.defineProperty(TextBlock.prototype, "contentWidth", { get: function () {
+        return this._width;
+      }, enumerable: !0, configurable: !0 }), Object.defineProperty(TextBlock.prototype, "contentHeight", { get: function () {
+        return this._height;
+      }, enumerable: !0, configurable: !0 }), Object.defineProperty(TextBlock.prototype, "page", { get: function () {
+        return this.line ? this.line.page : null;
+      }, enumerable: !0, configurable: !0 }), TextBlock.prototype.updateUV = function () {
+      var e = this.line;return !!e && (this.u = e.x + this.x + +this.border, this.v = e.y + this.y + +this.border, !0);
+    }, Object.defineProperty(TextBlock.prototype, "subImageOffsetX", { get: function () {
+        var e = this.line;return e ? e.x + this.x + this.border : 0;
+      }, enumerable: !0, configurable: !0 }), Object.defineProperty(TextBlock.prototype, "subImageOffsetY", { get: function () {
+        var e = this.line;return e ? e.y + this.y + this.border : 0;
+      }, enumerable: !0, configurable: !0 }), TextBlock);function TextBlock(e, t, r, a, n, i, o, s) {
+      var c = h.call(this) || this;return c._width = 0, c._height = 0, c._border = 0, c.line = null, c.x = 0, c.y = 0, c.u = 0, c.v = 0, c.tag = "", c.measureWidth = 0, c.measureHeight = 0, c.canvasWidthOffset = 0, c.canvasHeightOffset = 0, c.stroke2 = 0, c._width = e, c._height = t, c._border = s, c.measureWidth = r, c.measureHeight = a, c.canvasWidthOffset = n, c.canvasHeightOffset = i, c.stroke2 = o, c;
+    }var h;e.TextBlock = c, __reflect(c.prototype, "egret.wxgame.TextBlock");var l = (r = o.HashObject, __extends(Line, r), Line.prototype.isCapacityOf = function (e) {
+      if (!e) return !1;var t = 0;var r = this.lastTextBlock();return r && (t = r.x + r.width, r.y), !(t + e.width > this.maxWidth) && !(0 < this.dynamicMaxHeight && (e.height > this.dynamicMaxHeight || e.height / this.dynamicMaxHeight < .5));
+    }, Line.prototype.lastTextBlock = function () {
+      var e = this.textBlocks;return 0 < e.length ? e[e.length - 1] : null;
+    }, Line.prototype.addTextBlock = function (e, t) {
+      if (!e) return !1;if (t && !this.isCapacityOf(e)) return !1;var r = 0;var a = 0;t = this.lastTextBlock();return t && (r = t.x + t.width, a = t.y), e.x = r, e.y = a, (e.line = this).textBlocks.push(e), this.dynamicMaxHeight = Math.max(this.dynamicMaxHeight, e.height), !0;
+    }, Line);function Line(e) {
+      var t = r.call(this) || this;return t.page = null, t.textBlocks = [], t.dynamicMaxHeight = 0, t.maxWidth = 0, t.x = 0, t.y = 0, t.maxWidth = e, t;
+    }var r;e.Line = l, __reflect(l.prototype, "egret.wxgame.Line");var a = (n = o.HashObject, __extends(Page, n), Page.prototype.addLine = function (e) {
+      if (!e) return !1;var t = 0;var r = 0;var a = this.lines;return 0 < a.length && (t = (a = a[a.length - 1]).x, r = a.y + a.dynamicMaxHeight), e.maxWidth > this.pageWidth ? (console.error("line.maxWidth = " + e.maxWidth + ", this.pageWidth = " + this.pageWidth), !1) : !(r + e.dynamicMaxHeight > this.pageHeight) && (e.x = t, e.y = r, (e.page = this).lines.push(e), !0);
+    }, Page);function Page(e, t) {
+      var r = n.call(this) || this;return r.lines = [], r.pageWidth = 0, r.pageHeight = 0, r.webGLTexture = null, r.pageWidth = e, r.pageHeight = t, r;
+    }var n;e.Page = a, __reflect(a.prototype, "egret.wxgame.Page");var t = (i = o.HashObject, __extends(Book, i), Book.prototype.addTextBlock = function (e) {
+      var t = this._addTextBlock(e);if (!t) return !1;e.updateUV();var r = !1;var a = t;t = this._sortLines;for (var n = 0, i = t; n < i.length; n++) if (i[n] === a[1]) {
+        r = !0;break;
+      }return r || t.push(a[1]), this.sort(), !0;
+    }, Book.prototype._addTextBlock = function (e) {
+      if (!e) return null;if (e.width > this._maxSize || e.height > this._maxSize) return null;var t = this._sortLines;for (var r = 0, a = t.length; r < a; ++r) {
+        var n = t[r];if (n.isCapacityOf(e) && n.addTextBlock(e, !1)) return [n.page, n];
+      }var i = new l(this._maxSize);if (!i.addTextBlock(e, !0)) return console.error("_addTextBlock !newLine.addTextBlock(textBlock, true)"), null;var o = this._pages;for (var r = 0, s = o.length; r < s; ++r) {
+        var c = o[r];if (c.addLine(i)) return [c, i];
+      }var h = this.createPage(this._maxSize, this._maxSize);return h.addLine(i) ? [h, i] : (console.error("_addText newPage.addLine failed"), null);
+    }, Book.prototype.createPage = function (e, t) {
+      t = new a(e, t);return this._pages.push(t), t;
+    }, Book.prototype.sort = function () {
+      this._sortLines.length <= 1 || (this._sortLines = this._sortLines.sort(function (e, t) {
+        return e.dynamicMaxHeight < t.dynamicMaxHeight ? -1 : 1;
+      }));
+    }, Book.prototype.createTextBlock = function (e, t, r, a, n, i, o, s) {
+      s = new c(t, r, a, n, i, o, s, this._border);return this.addTextBlock(s) ? (s.tag = e, s) : null;
+    }, Book);function Book(e, t) {
+      var r = i.call(this) || this;return r._pages = [], r._sortLines = [], r._maxSize = 1024, r._border = 1, r._maxSize = e, r._border = t, r;
+    }var i;e.Book = t, __reflect(t.prototype, "egret.wxgame.Book");
+  }(o.wxgame || (o.wxgame = {}));
+}(egret = egret || {}), function (x) {
+  !function (p) {
+    p.textAtlasRenderEnable = !1, p.__textAtlasRender__ = null;p.property_drawLabel = "DrawLabel";var g = (t = x.HashObject, __extends(DrawLabel, t), DrawLabel.prototype.clear = function () {
+      this.anchorX = 0, this.anchorY = 0, this.textBlocks.length = 0;
+    }, DrawLabel.create = function () {
+      var e = DrawLabel.pool;return 0 === e.length && e.push(new DrawLabel()), e.pop();
+    }, DrawLabel.back = function (e, t) {
+      var r;e && (r = DrawLabel.pool, t && 0 <= r.indexOf(e) ? console.error("DrawLabel.back repeat") : (e.clear(), r.push(e)));
+    }, DrawLabel.pool = [], DrawLabel);function DrawLabel() {
+      var e = null !== t && t.apply(this, arguments) || this;return e.anchorX = 0, e.anchorY = 0, e.textBlocks = [], e;
+    }var t;p.DrawLabel = g, __reflect(g.prototype, "egret.wxgame.DrawLabel");var v = (o = x.HashObject, __extends(StyleInfo, o), StyleInfo);function StyleInfo(e, t) {
+      var r = o.call(this) || this;r.format = null, r.textColor = e.textColor, r.strokeColor = e.strokeColor, r.size = e.size, r.stroke = e.stroke, r.bold = e.bold, r.italic = e.italic, r.fontFamily = e.fontFamily, r.format = t, r.font = x.getFontString(e, r.format);var a = t.textColor || e.textColor;var n = t.strokeColor || e.strokeColor;var i = t.stroke || e.stroke;e = t.size || e.size;return r.description = r.font + "-" + e, r.description += "-" + x.toColorString(a), r.description += "-" + x.toColorString(n), i && (r.description += "-" + 2 * i), r;
+    }var o;__reflect(v.prototype, "StyleInfo");var n = (r = x.HashObject, __extends(CharImageRender, r), CharImageRender.prototype.reset = function (e, t) {
+      return this.char = e, this.styleInfo = t, this.hashCodeString = e + ":" + t.description, this.charWithStyleHashCode = x.NumberUtils.convertStringToHashCode(this.hashCodeString), this.canvasWidthOffset = 0, this.canvasHeightOffset = 0, this.stroke2 = 0, this;
+    }, CharImageRender.prototype.measureAndDraw = function (e) {
+      var t = e;var r, a, n, i, o, s;t && (r = this.char, a = (s = this.styleInfo.format).textColor || this.styleInfo.textColor, n = s.strokeColor || this.styleInfo.strokeColor, i = s.stroke || this.styleInfo.stroke, o = s.size || this.styleInfo.size, this.measureWidth = this.measure(r, this.styleInfo, o), this.measureHeight = o, e = this.measureWidth, s = this.measureHeight, 0 < (o = 2 * i) && (e += 2 * o, s += 2 * o), this.stroke2 = o, t.width = e = Math.ceil(e) + 4, t.height = s = Math.ceil(s) + 4, this.canvasWidthOffset = (t.width - this.measureWidth) / 2, this.canvasHeightOffset = (t.height - this.measureHeight) / 2, s = Math.pow(10, 3), this.canvasWidthOffset = Math.floor(this.canvasWidthOffset * s) / s, this.canvasHeightOffset = Math.floor(this.canvasHeightOffset * s) / s, (s = x.sys.getContext2d(t)).save(), s.textAlign = "center", s.textBaseline = "middle", s.lineJoin = "round", s.font = this.styleInfo.font, s.fillStyle = x.toColorString(a), s.strokeStyle = x.toColorString(n), s.clearRect(0, 0, t.width, t.height), i && (s.lineWidth = 2 * i, s.strokeText(r, t.width / 2, t.height / 2)), s.fillText(r, t.width / 2, t.height / 2), s.restore());
+    }, CharImageRender.prototype.measure = function (e, t, r) {
+      var a = CharImageRender.chineseCharactersRegExp.test(e);if (a && CharImageRender.chineseCharacterMeasureFastMap[t.font]) return CharImageRender.chineseCharacterMeasureFastMap[t.font];r = x.sys.measureText(e, t.fontFamily, r || t.size, t.bold, t.italic);return a && (CharImageRender.chineseCharacterMeasureFastMap[t.font] = r), r;
+    }, CharImageRender.chineseCharactersRegExp = new RegExp("^[\u4e00-\u9fa5]$"), CharImageRender.chineseCharacterMeasureFastMap = {}, CharImageRender);function CharImageRender() {
+      var e = null !== r && r.apply(this, arguments) || this;return e.char = "", e.styleInfo = null, e.hashCodeString = "", e.charWithStyleHashCode = 0, e.measureWidth = 0, e.measureHeight = 0, e.canvasWidthOffset = 0, e.canvasHeightOffset = 0, e.stroke2 = 0, e;
+    }var r;__reflect(n.prototype, "CharImageRender");var e = (i = x.HashObject, __extends(TextAtlasRender, i), TextAtlasRender.analysisTextNodeAndFlushDrawLabel = function (e) {
+      if (e) {
+        var t;p.__textAtlasRender__ || (t = x.wxgame.WebGLRenderContext.getInstance(0, 0), p.__textAtlasRender__ = new TextAtlasRender(t, 512, 1)), e[p.property_drawLabel] = e[p.property_drawLabel] || [];var r = e[p.property_drawLabel];for (var a = 0, n = r; a < n.length; a++) {
+          var i = n[a];g.back(i, !1);
+        }r.length = 0;var o = e.drawData;var s;var c;var h;var l;var d = [];for (var u = 0, f = o.length; u < f; u += 4) s = o[u + 0], c = o[u + 1], h = o[u + 2], l = o[u + 3] || {}, d.length = 0, p.__textAtlasRender__.convertLabelStringToTextAtlas(h, new v(e, l), d), (i = g.create()).anchorX = s, i.anchorY = c, i.textBlocks = [].concat(d), r.push(i);
+      }
+    }, TextAtlasRender.prototype.convertLabelStringToTextAtlas = function (e, t, r) {
+      var a = this.canvas;var n = this.charImageRender;var i = this.textBlockMap;for (var o = 0, s = e; o < s.length; o++) {
+        var c = s[o];var h, l;n.reset(c, t), i[n.charWithStyleHashCode] ? r.push(i[n.charWithStyleHashCode]) : (n.measureAndDraw(a), (h = this.book.createTextBlock(c, a.width, a.height, n.measureWidth, n.measureHeight, n.canvasWidthOffset, n.canvasHeightOffset, n.stroke2)) && (r.push(h), (l = (i[n.charWithStyleHashCode] = h).page).webGLTexture || (l.webGLTexture = this.createTextTextureAtlas(l.pageWidth, l.pageHeight, !1)), c = this.webglRenderContext.context, (l.webGLTexture[x.glContext] = c).bindTexture(c.TEXTURE_2D, l.webGLTexture), c.pixelStorei(c.UNPACK_PREMULTIPLY_ALPHA_WEBGL, !0), l.webGLTexture[x.UNPACK_PREMULTIPLY_ALPHA_WEBGL] = !0, c.texSubImage2D(c.TEXTURE_2D, 0, h.subImageOffsetX, h.subImageOffsetY, c.RGBA, c.UNSIGNED_BYTE, a), c.pixelStorei(c.UNPACK_PREMULTIPLY_ALPHA_WEBGL, !1)));
+      }
+    }, TextAtlasRender.prototype.createTextTextureAtlas = function (e, t, r) {
+      var a = null;var n;return (a = r ? (n = x.sys.createCanvas(e, e), (r = x.sys.getContext2d(n)).fillStyle = "black", r.fillRect(0, 0, e, e), x.sys.createTexture(this.webglRenderContext, n)) : x.sys._createTexture(this.webglRenderContext, e, t, null)) && this.textAtlasTextureCache.push(a), a;
+    }, Object.defineProperty(TextAtlasRender.prototype, "canvas", { get: function () {
+        return this._canvas || (this._canvas = x.sys.createCanvas(24, 24)), this._canvas;
+      }, enumerable: !0, configurable: !0 }), TextAtlasRender);function TextAtlasRender(e, t, r) {
+      var a = i.call(this) || this;return a.book = null, a.charImageRender = new n(), a.textBlockMap = {}, a._canvas = null, a.textAtlasTextureCache = [], a.webglRenderContext = null, a.webglRenderContext = e, a.book = new p.Book(t, r), a;
+    }var i;p.TextAtlasRender = e, __reflect(e.prototype, "egret.wxgame.TextAtlasRender");
+  }(x.wxgame || (x.wxgame = {}));
+}(egret = egret || {}), function (o) {
+  function resizeContext(e, t, r, a) {
+    var n;e && (e = (n = e).surface, a ? (e.width < t && (e.width = t, !i.isSubContext && window.sharedCanvas && (window.sharedCanvas.width = t)), e.height < r && (e.height = r, !i.isSubContext && window.sharedCanvas && (window.sharedCanvas.height = r))) : (e.width !== t && (e.width = t, !i.isSubContext && window.sharedCanvas && (window.sharedCanvas.width = t)), e.height !== r && (e.height = r, !i.isSubContext && window.sharedCanvas && (window.sharedCanvas.height = r))), n.onResize());
+  }function getContext2d(e) {
+    return e ? e.getContext("2d") : null;
+  }var i, e;i = o.wxgame || (o.wxgame = {}), (e = i.WEBGL_ATTRIBUTE_TYPE || (i.WEBGL_ATTRIBUTE_TYPE = {}))[e.FLOAT_VEC2 = 35664] = "FLOAT_VEC2", e[e.FLOAT_VEC3 = 35665] = "FLOAT_VEC3", e[e.FLOAT_VEC4 = 35666] = "FLOAT_VEC4", e[e.FLOAT = 5126] = "FLOAT", e[e.BYTE = 65535] = "BYTE", e[e.UNSIGNED_BYTE = 5121] = "UNSIGNED_BYTE", e[e.UNSIGNED_SHORT = 5123] = "UNSIGNED_SHORT", (e = i.WEBGL_UNIFORM_TYPE || (i.WEBGL_UNIFORM_TYPE = {}))[e.FLOAT_VEC2 = 35664] = "FLOAT_VEC2", e[e.FLOAT_VEC3 = 35665] = "FLOAT_VEC3", e[e.FLOAT_VEC4 = 35666] = "FLOAT_VEC4", e[e.INT_VEC2 = 35667] = "INT_VEC2", e[e.INT_VEC3 = 35668] = "INT_VEC3", e[e.INT_VEC4 = 35669] = "INT_VEC4", e[e.BOOL = 35670] = "BOOL", e[e.BOOL_VEC2 = 35671] = "BOOL_VEC2", e[e.BOOL_VEC3 = 35672] = "BOOL_VEC3", e[e.BOOL_VEC4 = 35673] = "BOOL_VEC4", e[e.FLOAT_MAT2 = 35674] = "FLOAT_MAT2", e[e.FLOAT_MAT3 = 35675] = "FLOAT_MAT3", e[e.FLOAT_MAT4 = 35676] = "FLOAT_MAT4", e[e.SAMPLER_2D = 35678] = "SAMPLER_2D", e[e.SAMPLER_CUBE = 35680] = "SAMPLER_CUBE", e[e.BYTE = 65535] = "BYTE", e[e.UNSIGNED_BYTE = 5121] = "UNSIGNED_BYTE", e[e.SHORT = 5122] = "SHORT", e[e.UNSIGNED_SHORT = 5123] = "UNSIGNED_SHORT", e[e.INT = 5124] = "INT", e[e.UNSIGNED_INT = 5125] = "UNSIGNED_INT", e[e.FLOAT = 5126] = "FLOAT", o.sys.mainCanvas = function (e, t) {
+    return window.canvas;
+  }, o.sys.createCanvas = function (e, t) {
+    var r = document.createElement("canvas");return isNaN(e) || isNaN(t) || (r.width = e, r.height = t), r;
+  }, i.resizeContext = resizeContext, o.sys.resizeContext = resizeContext, o.sys.getContextWebGL = function (e) {
+    var t = { antialias: i.WebGLRenderContext.antialias, stencil: !0 };return e ? e.getContext("webgl", t) : null;
+  }, i.getContext2d = getContext2d, o.sys.getContext2d = getContext2d, o.sys.createTexture = function (e, t) {
+    var r = e;var a = r.context;return t.isCanvas && a.wxBindCanvasTexture ? t : (e = a.createTexture()) ? ((e.glContext = a).bindTexture(a.TEXTURE_2D, e), a.pixelStorei(a.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1), e[o.UNPACK_PREMULTIPLY_ALPHA_WEBGL] = !0, a.texImage2D(a.TEXTURE_2D, 0, a.RGBA, a.RGBA, a.UNSIGNED_BYTE, t), a.texParameteri(a.TEXTURE_2D, a.TEXTURE_MAG_FILTER, a.LINEAR), a.texParameteri(a.TEXTURE_2D, a.TEXTURE_MIN_FILTER, a.LINEAR), a.texParameteri(a.TEXTURE_2D, a.TEXTURE_WRAP_S, a.CLAMP_TO_EDGE), a.texParameteri(a.TEXTURE_2D, a.TEXTURE_WRAP_T, a.CLAMP_TO_EDGE), t.source && (t.source.src = ""), e) : (r.contextLost = !0, null);
+  }, o.sys._createTexture = function (e, t, r, a) {
+    var n = e;var i = n.context;return (e = i.createTexture()) ? ((e[o.glContext] = i).bindTexture(i.TEXTURE_2D, e), i.pixelStorei(i.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1), e[o.UNPACK_PREMULTIPLY_ALPHA_WEBGL] = !0, i.texImage2D(i.TEXTURE_2D, 0, i.RGBA, t, r, 0, i.RGBA, i.UNSIGNED_BYTE, a), i.texParameteri(i.TEXTURE_2D, i.TEXTURE_MAG_FILTER, i.LINEAR), i.texParameteri(i.TEXTURE_2D, i.TEXTURE_MIN_FILTER, i.LINEAR), i.texParameteri(i.TEXTURE_2D, i.TEXTURE_WRAP_S, i.CLAMP_TO_EDGE), i.texParameteri(i.TEXTURE_2D, i.TEXTURE_WRAP_T, i.CLAMP_TO_EDGE), e) : (n.contextLost = !0, null);
+  }, o.sys.drawTextureElements = function (e, t, r) {
+    return (e = e.context).activeTexture(e.TEXTURE0), t.texture.isCanvas ? e.wxBindCanvasTexture(e.TEXTURE_2D, t.texture) : e.bindTexture(e.TEXTURE_2D, t.texture), t = 3 * t.count, e.drawElements(e.TRIANGLES, t, e.UNSIGNED_SHORT, 2 * r), t;
+  }, o.sys.measureTextWith = function (e, t) {
+    var r = e.measureText(t);return r ? r.width : (o.warn("wxcontext.measureText result is null or undefined;text is " + t + "; font is " + e.font), 1);
+  }, o.sys.createCanvasRenderBufferSurface = function (e, t, r, a) {
+    return a ? i.isSubContext ? window.sharedCanvas : window.canvas : e(t, r);
+  }, o.sys.resizeCanvasRenderBuffer = function (e, t, r, a) {
+    var n = e;e = n.surface, i.isSubContext || (a ? (a = !1, e.width < t && (e.width = t, "canvas" === o.Capabilities.renderMode && (window.sharedCanvas.width = t), a = !0), e.height < r && (e.height = r, "canvas" === o.Capabilities.renderMode && (window.sharedCanvas.height = r), a = !0), a || (n.context.globalCompositeOperation = "source-over", n.context.setTransform(1, 0, 0, 1, 0, 0), n.context.globalAlpha = 1)) : (e.width != t && (e.width = t, "canvas" === o.Capabilities.renderMode && (window.sharedCanvas.width = t)), e.height != r && (e.height = r, "canvas" === o.Capabilities.renderMode && (window.sharedCanvas.height = r))), n.clear());
+  }, o.Geolocation = o.wxgame.WebGeolocation, o.Motion = o.wxgame.WebMotion;
+}(egret = egret || {}), window.sharedCanvas && (window.sharedCanvas.isCanvas = !0);

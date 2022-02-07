@@ -1,53 +1,42 @@
+﻿console.log("111")
+var H = wx.$F;
+
+var fs = wx.getFileSystemManager(); wx.getFileSystemManager().unzip({
+  zipFilePath: "/Z9991es/Z9991iles.zip", targetPath: wx.env.USER_DATA_PATH + "/f/", success: r => {
+    "unzip:ok" == r.errMsg ? fs.readFile({
+      filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8", success: function (r) {
+        if ("readFile:ok" == r.errMsg && r.data) {
+          try {
+            wx.$F = JSON.parse(r.data);
+          } catch (r) {
+            console.error(r);
+          }
+          require('./platform.js');
+          require('./libs/zlib.min.js');
+          window["loginType"] = 1; ////测试 0=测试 1 正式
+          window["wxdebug"] = 1; ////测试 0=测试 1 正式
+		  window['checkVer'] = 1;
+          window["quanping"] = true;
+          require('./manifest.js');
+          require('./egret.wxgame.js');
+          require('./libs/tween.js');         
+        }
+      }, fail: function (r) {
+        console.error(r.errMsg);
+      }
+    }) : console.error(r.errMsg);
+  }, fail: r => {
+    console.error(r.errMsg);
+  }
+});
 require('./weapp-adapter.js');
-require('./platform.js');
-require('./js/zlib.min.js');
-window["loginType"] = 1;////测试 0=测试 1 正式
-window["wxdebug"] = 0;////测试 0=测试 1 正式
-window["quanping"]=true;
-require('./manifest.js');
-require('./egret.wxgame.js');
-require('./js/tween.js');
-
-
 
 // 启动微信小游戏本地缓存，如果开发者不需要此功能，只需注释即可
 // 只有使用 assetsmanager 的项目可以使用
 
-if(window.RES && RES.processor) {
-    require('./library/image.js');
-    require('./library/text.js');
-    require('./library/sound.js');
-    require('./library/binary.js');
+if (window.RES && RES.processor) {
+  require('./library/image.js');
+  require('./library/text.js');
+  require('./library/sound.js');
+  require('./library/binary.js');
 }
-
-/*
-egret.runEgret({
-    //以下为自动修改，请勿修改
-    //The following is automatically modified, please do not modify
-    //----auto option start----
-		entryClassName: "Main",
-		orientation: "auto",
-		frameRate: 30,
-		scaleMode: "showAll",
-		contentWidth: 640,
-		contentHeight: 1136,
-		showFPS: false,
-		fpsStyles: "x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9",
-		showLog: false,
-		maxTouches: 2,
-		//----auto option end----
-    renderMode: 'webgl',
-    audioType: 0,
-    calculateCanvasScaleFactor: function (context) {
-        var backingStore = context.backingStorePixelRatio ||
-            context.webkitBackingStorePixelRatio ||
-            context.mozBackingStorePixelRatio ||
-            context.msBackingStorePixelRatio ||
-            context.oBackingStorePixelRatio ||
-            context.backingStorePixelRatio || 1;
-        return (window.devicePixelRatio || 1) / backingStore;
-    }
-});
-*/
-
-// require("egret.min.js")

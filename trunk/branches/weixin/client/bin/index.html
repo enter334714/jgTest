@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'/>
+    <title>H5仙侠</title>
+    <meta name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' />
+    <meta name="renderer" content="webkit"/>
+    <meta name='apple-mobile-web-app-capable' content='yes'/>
+    <meta name='full-screen' content='true'/>
+    <meta name='x5-fullscreen' content='true'/>
+    <meta name='360-fullscreen' content='true'/>
+    <meta name="laya" screenorientation="landscape"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv='expires' content='0'/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*"/>
+</head>
+
+<body style="margin:0;overflow:hidden;overflow-x:hidden;overflow-y:hidden;background-color: #FFFFFF;">
+<script type="text/javascript">
+    var DEBUG = true;      //在开发模式下改为true
+</script>
+
+<!--二维码-->
+<!--以下引用了常用类库，如果不使用，可以删除-->
+<!--以下引用了常用类库，如果不使用，可以删除-->
+
+<!--以下引用了常用类库，如果不使用，可以删除-->
+
+<!-- <script type="text/javascript" src="qrcode.min.js"></script> -->
+
+<!-- <script type="text/javascript" src="md5.min.js"></script> -->
+<!--以下引用了常用类库，如果不使用，可以删除-->
+
+<script type="text/javascript" src="index_utils.js"></script>
+<form id="login">
+    类型：
+    <br>
+    <select name="type" id="type">
+        <option value="debug">debug</option>
+        <option value="game">game</option>
+        <option value="debug_wx">debug_wx</option>
+    </select>
+    <br><br>
+    <!-- ip:
+    <br>
+    <input type="text" id="ip" value="172.16.70.43">
+    <br>
+    端口:
+    <br>
+    <input type="text" id="port" value="8080">
+    <br>
+    serverid:
+    <br>
+    <input type="text" id="serverid" value="1">
+    <br> -->
+    用户名:
+    <br>
+    <input type="text" id="user" value="">
+    <br><br>
+    <input style="width:150px;height:30px;" type="button" value="登陆" onclick="onEnter()">
+    <br>
+</form>
+<br>
+<div id="qrcode"></div>
+<script type="text/javascript">
+    // 禁用拖动
+    document.addEventListener("touchmove", touchMoveHandler);
+
+    function touchMoveHandler(e) {
+        e.preventDefault();
+    }
+
+    // var qrcode = new QRCode(document.getElementById("qrcode"), {
+    //     text: window.location.href,
+    //     width: 256,
+    //     height: 256,
+    //     colorDark: "#000000",
+    //     colorLight: "#ffffff",
+    //     correctLevel: QRCode.CorrectLevel.H
+    // });
+
+    // console.log("====测试md5====", md5);
+    // console.log("skill", md5("skill"));
+</script>
+</body>
+
+</html>

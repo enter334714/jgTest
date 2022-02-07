@@ -8,7 +8,7 @@ var config = {
     game_id: U[140000],
     game_pkg: U[140001],
     partner_id: U[140002],
-    game_ver: U[140003], //天剑奇缘-凡人附魔录-风云微信小程序-GS
+    game_ver: "10.0.23", //天剑奇缘-凡人附魔录-风云微信小程序-GS
     is_auth: false //授权登录
 };
 window.config = config;

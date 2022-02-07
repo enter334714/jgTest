@@ -1,74 +1,22 @@
 var H = wx.$F;
-/**
- * 请在白鹭引擎的Main.ts中调用 platform.login() 方法调用至此处。
- */
-
-class WxgamePlatform {
-
-    login() {
-        return new Promise((resolve, reject) => {
-            wx.login({
-                success: res => {
-                    resolve(res);
-                }
-            });
-        });
-    }
-
-    getUserInfo() {
-        return new Promise((resolve, reject) => {
-            wx.getUserInfo({
-                withCredentials: true,
-                success: function (res) {
-                    var userInfo = res.userInfo;
-                    var nickName = userInfo.nickName;
-                    var avatarUrl = userInfo.avatarUrl;
-                    var gender = userInfo.gender; //性别 0：未知、1：男、2：女
-                    var province = userInfo.province;
-                    var city = userInfo.city;
-                    var country = userInfo.country;
-                    resolve(userInfo);
-                }
-            });
-        });
-    }
-}
-
-class WxgameOpenDataContext {
-
-    createDisplayObject(type, width, height) {
-        const bitmapdata = new egret.BitmapData(sharedCanvas);
-        bitmapdata.$deleteSource = false;
-        const texture = new egret.Texture();
-        texture._setBitmapData(bitmapdata);
-        const bitmap = new egret.Bitmap(texture);
-        bitmap.width = width;
-        bitmap.height = height;
-
-        if (egret.Capabilities.renderMode == "webgl") {
-            const renderContext = egret.wxgame.WebGLRenderContext.getInstance();
-            const context = renderContext.context;
-            ////需要用到最新的微信版本
-            ////调用其接口WebGLRenderingContext.wxBindCanvasTexture(number texture, Canvas canvas)
-            ////如果没有该接口，会进行如下处理，保证画面渲染正确，但会占用内存。
-            if (!context.wxBindCanvasTexture) {
-                egret.startTick(timeStarmp => {
-                    egret.WebGLUtils.deleteWebGLTexture(bitmapdata.webGLTexture);
-                    bitmapdata.webGLTexture = null;
-                    return false;
-                }, this);
-            }
-        }
-        return bitmap;
-    }
-
-    postMessage(data) {
-        const openDataContext = wx.getOpenDataContext();
-        openDataContext.postMessage(data);
-    }
-}
-
-WxgamePlatform.prototype.name = 'wxgame';
-WxgamePlatform.prototype.openDataContext = new WxgameOpenDataContext();
-
-window.platform = new WxgamePlatform();
+var H = wx.$F;class WxgamePlatform {
+  login() {
+    return new Promise((t, e) => {
+      wx.login({ success: e => {
+          t(e);
+        } });
+    });
+  }getUserInfo() {
+    return new Promise((t, e) => {
+      wx.getUserInfo({ withCredentials: !0, success: function (e) {
+          e = e.userInfo;e.nickName;e.avatarUrl;e.gender;e.province;e.city;e.country;t(e);
+        } });
+    });
+  }
+}class WxgameOpenDataContext {
+  createDisplayObject(e, t, a) {
+    const n = new egret.BitmapData(sharedCanvas);n.$deleteSource = !1;const r = new egret.Texture();r._setBitmapData(n);const s = new egret.Bitmap(r);return s.width = t, s.height = a, "webgl" == egret.Capabilities.renderMode && (egret.wxgame.WebGLRenderContext.getInstance().context.wxBindCanvasTexture || egret.startTick(e => (egret.WebGLUtils.deleteWebGLTexture(n.webGLTexture), n.webGLTexture = null, !1), this)), s;
+  }postMessage(e) {
+    const t = wx.getOpenDataContext();t.postMessage(e);
+  }
+}WxgamePlatform.prototype.name = "wxgame", WxgamePlatform.prototype.openDataContext = new WxgameOpenDataContext(), window.platform = new WxgamePlatform();

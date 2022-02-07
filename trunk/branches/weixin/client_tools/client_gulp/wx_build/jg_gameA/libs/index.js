@@ -1,4 +1,4 @@
-import AKSDK from "./wx_aksdk.js";
+﻿import AKSDK from "./wx_aksdk.js";
 window.versions = { 
   wxVersion: window.config.game_ver,  
 };
@@ -41,7 +41,7 @@ PF_INFO.tick = Date.now();
 
 PF_INFO.configType = "_weixin";
 PF_INFO.exposeType = "_a";
-PF_INFO.loadingType = 1;
+PF_INFO.loadingType = 0;
 PF_INFO.lastVersion = 1985;
 PF_INFO.wxVersion = window.versions.wxVersion;
 PF_INFO.wxShield = false;

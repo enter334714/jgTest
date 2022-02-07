@@ -1,3 +1,4 @@
+var H = wx.$F;
 const fileutil = require('./file-util');
 const path = fileutil.path;
 const fs = fileutil.fs;
@@ -22,7 +23,8 @@ class TextProcessor {
             if (RES['getVirtualUrl']) {
                 xhrURL = RES['getVirtualUrl'](xhrURL);
             }
-            if (!path.isRemotePath(xhrURL)) { //判断是本地加载还是网络加载
+            if (!path.isRemotePath(xhrURL)) {
+                //判断是本地加载还是网络加载
                 //本地加载
                 const content = WXFS.readFileSync(xhrURL, 'utf-8');
                 resolve(content);
@@ -39,21 +41,21 @@ class TextProcessor {
                     return;
                 }
                 //通过url加载，加载成功后加入本地缓存
-                loadText(xhrURL).then((content) => {
+                loadText(xhrURL).then(content => {
                     const dirname = path.dirname(targetFilename);
                     fs.mkdirsSync(dirname);
                     fs.writeSync(targetFilename, content);
                     resolve(content);
-                }).catch((e) => {
+                }).catch(e => {
                     reject(e);
                 });
             } else {
                 //无需缓存，正常url加载
-                loadText(xhrURL).then((content) => {
+                loadText(xhrURL).then(content => {
                     resolve(content);
-                }).catch((e) => {
+                }).catch(e => {
                     reject(e);
-                })
+                });
             }
         });
     }
@@ -62,8 +64,6 @@ class TextProcessor {
         return Promise.resolve();
     }
 }
-
-
 
 function loadText(xhrURL) {
     return new Promise((resolve, reject) => {
@@ -77,17 +77,15 @@ function loadText(xhrURL) {
             } else {
                 resolve(xhr.responseText);
             }
-
-        }
-        xhr.onerror = (e) => {
+        };
+        xhr.onerror = e => {
             const error = new RES.ResourceManagerError(1001, xhrURL);
             console.error(e);
             reject(error);
-        }
+        };
         xhr.open("get", xhrURL);
         xhr.send();
-    })
-
+    });
 }
 
 /**
@@ -101,7 +99,6 @@ function needCache(root, url) {
         return false;
     }
 }
-
 
 const processor = new TextProcessor();
 RES.processor.map("text", processor);

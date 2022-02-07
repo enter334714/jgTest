@@ -7,7 +7,7 @@ var config = {
     game_pkg: B[521700], //9130vs掌上-我和我的影子
     partner_label: B[521701],
     partner_id: B[521702],
-    game_ver: B[521703],
+    game_ver: "29.0.17",
     is_auth: false, //授权登录
 
     partner_app_id: B[521704],

@@ -1,4 +1,4 @@
-﻿const {AladinSDK} = require('./aladinSDK.js');
+const {AladinSDK} = require('./aladinSDK.js');
 
 var config = {
     game_id: 256,

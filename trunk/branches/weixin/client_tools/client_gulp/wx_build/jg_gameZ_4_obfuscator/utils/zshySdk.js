@@ -44,7 +44,7 @@ export default class zshySdk {
 			// 米大师的应用id
 		};this.mchId = "1450031826";
 
-		this.env = 1, // 0:正式 1：沙箱
+		this.env = 0, // 0:正式 1：沙箱
 		this.uid = "";
 		this.pf = "";
 

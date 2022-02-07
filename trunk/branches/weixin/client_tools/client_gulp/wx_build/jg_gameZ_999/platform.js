@@ -1,3 +1,4 @@
+var H = wx.$F;
 /**
  * 请在白鹭引擎的Main.ts中调用 platform.login() 方法调用至此处。
  */
@@ -7,11 +8,11 @@ class WxgamePlatform {
     login() {
         return new Promise((resolve, reject) => {
             wx.login({
-                success: (res) => {
-                    resolve(res)
+                success: res => {
+                    resolve(res);
                 }
-            })
-        })
+            });
+        });
     }
 
     getUserInfo() {
@@ -19,20 +20,19 @@ class WxgamePlatform {
             wx.getUserInfo({
                 withCredentials: true,
                 success: function (res) {
-                    var userInfo = res.userInfo
-                    var nickName = userInfo.nickName
-                    var avatarUrl = userInfo.avatarUrl
-                    var gender = userInfo.gender //性别 0：未知、1：男、2：女
-                    var province = userInfo.province
-                    var city = userInfo.city
-                    var country = userInfo.country
+                    var userInfo = res.userInfo;
+                    var nickName = userInfo.nickName;
+                    var avatarUrl = userInfo.avatarUrl;
+                    var gender = userInfo.gender; //性别 0：未知、1：男、2：女
+                    var province = userInfo.province;
+                    var city = userInfo.city;
+                    var country = userInfo.country;
                     resolve(userInfo);
                 }
-            })
-        })
+            });
+        });
     }
 }
-
 
 class WxgameOpenDataContext {
 
@@ -52,7 +52,7 @@ class WxgameOpenDataContext {
             ////调用其接口WebGLRenderingContext.wxBindCanvasTexture(number texture, Canvas canvas)
             ////如果没有该接口，会进行如下处理，保证画面渲染正确，但会占用内存。
             if (!context.wxBindCanvasTexture) {
-                egret.startTick((timeStarmp) => {
+                egret.startTick(timeStarmp => {
                     egret.WebGLUtils.deleteWebGLTexture(bitmapdata.webGLTexture);
                     bitmapdata.webGLTexture = null;
                     return false;
@@ -61,7 +61,6 @@ class WxgameOpenDataContext {
         }
         return bitmap;
     }
-
 
     postMessage(data) {
         const openDataContext = wx.getOpenDataContext();
