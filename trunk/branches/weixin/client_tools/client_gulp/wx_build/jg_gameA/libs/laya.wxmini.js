@@ -278,7 +278,8 @@
         window.dispatchEvent && /*__JS__ */ window.dispatchEvent("resize");
       });
       SoundManager._soundClass = MiniSound;
-      SoundManager._musicClass = MiniSound;
+      SoundManager._musicClass = MiniSound;     
+      window._videoClass = MiniVideo;
     }
 
     MiniInput._onStageResize = function () {
@@ -1011,6 +1012,199 @@
     return MiniSoundChannel;
   })(SoundChannel)
 
+
+  var MiniVideo = (function () {
+    function MiniVideo() {
+        this.videoend = false;
+        this.videourl = "";
+        this.videoElement = MiniAdpter.window.wx.createVideo({showCenterPlayBtn:false,showProgressInControlMode:false,objectFit:"fill"});
+    }
+    __class(MiniVideo, 'laya.wx.mini.MiniVideo');
+    var __proto = MiniVideo.prototype;
+
+    __proto.on = function (eventType, ths, callBack) {
+        if (eventType == "loadedmetadata") {
+            this.onPlayFunc = callBack.bind(ths);
+            this.videoElement.onPlay = this.onPlayFunction.bind(this);
+        }
+        else if (eventType == "ended") {
+            this.onEndedFunC = callBack.bind(ths);
+            this.videoElement.onEnded = this.onEndedFunction.bind(this);
+        }
+        this.videoElement.onTimeUpdate = this.onTimeUpdateFunc.bind(this);
+    }
+
+    __proto.onTimeUpdateFunc = function (data) {
+        this.position = data.position;
+        this._duration = data.duration;
+    }
+    __proto.onPlayFunction = function () {
+        if (this.videoElement)
+            this.videoElement.readyState = 200;
+        console.log("=====视频加载完成========");
+        this.onPlayFunc != null && this.onPlayFunc();
+    }
+    __proto.onended = function(ths, callBack){
+       this.onEndedFunC = callBack.bind(ths);
+       this.videoElement.onEnded = this.onEndedFunction.bind(this);
+    }
+    __proto.onEndedFunction = function () {
+        if (!this.videoElement)
+            return;
+        this.videoend = true;
+        console.log("=====视频播放完毕========");
+        this.onEndedFunC != null && this.onEndedFunC();
+    }
+    __proto.off = function (eventType, ths, callBack) {
+        if (eventType == "loadedmetadata") {
+            this.onPlayFunc = callBack.bind(ths);
+            this.videoElement.offPlay = this.onPlayFunction.bind(this);
+        }
+        else if (eventType == "ended") {
+            this.onEndedFunC = callBack.bind(ths);
+            this.videoElement.offEnded = this.onEndedFunction.bind(this);
+        }
+    }
+    __proto.load = function (url) {
+        if (!this.videoElement)
+            return;
+        this.videoElement.src = url;
+    }
+    __proto.play = function () {
+        if (!this.videoElement)
+            return;
+        this.videoend = false;
+        this.videoElement.play();
+    }
+    __proto.pause = function () {
+        if (!this.videoElement)
+            return;
+        this.videoend = true;
+        this.videoElement.pause();
+    }
+    __proto.size = function (width, height) {
+      if (!this.videoElement)
+          return;
+      this.videoElement.width = width;
+      this.videoElement.height = height;
+    }
+    __proto.destroy = function () {
+      if (this.videoElement)
+          this.videoElement.destroy();
+      this.videoElement = null;
+      this.onEndedFunC = null;
+      this.onPlayFunc = null;
+      this.videoend = false;
+      this.videourl = null;
+    }
+    __proto.reload = function () {
+        if (!this.videoElement)
+            return;
+        this.videoElement.src = this.videourl;
+    }
+
+    __getset(0, __proto, 'duration', function () {
+      return this._duration;
+    });
+
+    __getset(0, __proto, 'currentTime', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.initialTime;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.initialTime = value;
+    });
+
+    __getset(0, __proto, 'videoWidth', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.width;
+    });
+
+    __getset(0, __proto, 'videoHeight', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.height;
+    });
+
+    __getset(0, __proto, 'ended', function () {
+      return this.videoend;
+    });
+
+    __getset(0, __proto, 'loop', function () {
+      if (!this.videoElement) return false;
+      return this.videoElement.loop;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.loop = value;
+    });
+
+    __getset(0, __proto, 'playbackRate', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.playbackRate;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.playbackRate = value;
+    });
+
+    __getset(0, __proto, 'muted', function () {
+      if (!this.videoElement) return false;
+      return this.videoElement.muted;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.muted = value;
+    });
+
+    __getset(0, __proto, 'paused', function () {
+      if (!this.videoElement) return false;
+      return this.videoElement.paused;
+    });
+
+    __getset(0, __proto, 'x', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.x;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.x = value;
+    });
+
+    __getset(0, __proto, 'y', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.y;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.y = value;
+    });
+
+    __getset(0, __proto, 'currentSrc', function () {
+      return this.videoElement.src;
+    });
+
+ __getset(0, __proto, 'src', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.src;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.src = value;
+  });
+
+  __getset(0, __proto, 'controls', function () {
+      if (!this.videoElement) return;
+      return this.videoElement.controls;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.controls = value;
+  });
+
+   __getset(0, __proto, 'autoplay', function () {
+      if (!this.videoElement) return;
+      return this.videoElement.autoplay;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.autoplay = value;
+  });
+
+
+    return MiniVideo;
+  })()
 
 
 })(window, document, Laya);
