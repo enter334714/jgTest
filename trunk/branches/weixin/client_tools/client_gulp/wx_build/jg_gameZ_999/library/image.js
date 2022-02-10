@@ -1,8 +1,8 @@
-var H = wx.$F;
 const fileutil = require('./file-util');
 const path = fileutil.path;
 const fs = fileutil.fs;
 const WXFS = wx.getFileSystemManager();
+
 
 /**
  * 重写的图片加载器，代替引擎默认的图片加载器
@@ -29,10 +29,10 @@ class ImageProcessor {
             imageSrc = RES['getVirtualUrl'](imageSrc);
         }
 
-        if (!path.isRemotePath(imageSrc)) {
-            //判断是本地加载还是网络加载
+        if (!path.isRemotePath(imageSrc)) { //判断是本地加载还是网络加载
             //正常本地加载
             return loadImage(imageSrc, scale9Grid);
+
         }
         if (!needCache(root, url)) {
             //无需缓存加载
@@ -43,10 +43,10 @@ class ImageProcessor {
         if (fs.existsSync(fullname)) {
             return loadImage(path.getWxUserPath(fullname), scale9Grid);
         } else {
-            return download(imageSrc, fullname).then(filePath => {
+            return download(imageSrc, fullname).then((filePath) => {
                 fs.setFsCache(fullname, 1);
                 return loadImage(filePath, scale9Grid);
-            }, error => {
+            }, (error) => {
                 console.error(error);
                 return;
             });
@@ -66,6 +66,7 @@ function loadImage(imageURL, scale9grid) {
     return new Promise((resolve, reject) => {
         const image = wx.createImage();
 
+
         image.onload = () => {
             const bitmapdata = new egret.BitmapData(image);
             const texture = new egret.Texture();
@@ -83,15 +84,17 @@ function loadImage(imageURL, scale9grid) {
             } else {
                 resolve(texture);
             }
-        };
-        image.onerror = e => {
+
+        }
+        image.onerror = (e) => {
             // console.error(e);
             const error = new RES.ResourceManagerError(1001, imageURL);
             reject(error);
-        };
+        }
         image.src = imageURL;
-    });
+    })
 }
+
 
 function download(url, target) {
 
@@ -103,24 +106,26 @@ function download(url, target) {
         wx.downloadFile({
             url: url,
             filePath: file_target,
-            success: v => {
+            success: (v) => {
                 if (v.statusCode >= 400) {
                     try {
                         WXFS.accessSync(file_target);
                         WXFS.unlinkSync(file_target);
-                    } catch (e) {}
+                    } catch (e) {
+
+                    }
                     const message = `加载失败:${url}`;
                     reject(message);
                 } else {
                     resolve(file_target);
                 }
             },
-            fail: e => {
+            fail: (e) => {
                 const error = new RES.ResourceManagerError(1001, url);
                 reject(error);
             }
-        });
-    });
+        })
+    })
 }
 
 /**
@@ -134,6 +139,7 @@ function needCache(root, url) {
         return false;
     }
 }
+
 
 const processor = new ImageProcessor();
 RES.processor.map("image", processor);

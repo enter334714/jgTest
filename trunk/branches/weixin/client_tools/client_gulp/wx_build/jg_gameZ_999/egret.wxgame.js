@@ -1,21 +1,21 @@
-var H = wx.$F;
-var __reflect = this && this.__reflect || function (p, c, t) {
+var __reflect = (this && this.__reflect) || function (p, c, t) {
     p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
 };
-var __extends = this && this.__extends || function __extends(t, e) {
-    function r() {
-        this.constructor = t;
-    }
-    for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
-    r.prototype = e.prototype, t.prototype = new r();
+var __extends = this && this.__extends || function __extends(t, e) { 
+ function r() { 
+ this.constructor = t;
+}
+for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
+r.prototype = e.prototype, t.prototype = new r();
 };
 
-(function (egret) {})(egret || (egret = {}));
+(function (egret) {
+})(egret || (egret = {}));
 
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebGeolocation = function (_super) {
+        var WebGeolocation = (function (_super) {
             __extends(WebGeolocation, _super);
             function WebGeolocation(option) {
                 var _this = _super.call(this) || this;
@@ -33,7 +33,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 };
                 _this.onError = function (error) {
                     var errorType = egret.GeolocationEvent.UNAVAILABLE;
-                    if (error.code == error.PERMISSION_DENIED) errorType = egret.GeolocationEvent.PERMISSION_DENIED;
+                    if (error.code == error.PERMISSION_DENIED)
+                        errorType = egret.GeolocationEvent.PERMISSION_DENIED;
                     var event = new egret.GeolocationEvent(egret.IOErrorEvent.IO_ERROR);
                     event.errorType = errorType;
                     event.errorMessage = error.message;
@@ -44,19 +45,22 @@ var __extends = this && this.__extends || function __extends(t, e) {
             }
             WebGeolocation.prototype.start = function () {
                 var geo = this.geolocation;
-                if (geo) this.watchId = geo.watchPosition(this.onUpdate, this.onError);else this.onError({
-                    code: 2,
-                    message: egret.sys.tr(3004),
-                    PERMISSION_DENIED: 1,
-                    POSITION_UNAVAILABLE: 2
-                });
+                if (geo)
+                    this.watchId = geo.watchPosition(this.onUpdate, this.onError);
+                else
+                    this.onError({
+                        code: 2,
+                        message: egret.sys.tr(3004),
+                        PERMISSION_DENIED: 1,
+                        POSITION_UNAVAILABLE: 2
+                    });
             };
             WebGeolocation.prototype.stop = function () {
                 var geo = this.geolocation;
                 geo.clearWatch(this.watchId);
             };
             return WebGeolocation;
-        }(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         wxgame.WebGeolocation = WebGeolocation;
         __reflect(WebGeolocation.prototype, "egret.wxgame.WebGeolocation", ["egret.Geolocation"]);
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -65,7 +69,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebMotion = function (_super) {
+        var WebMotion = (function (_super) {
             __extends(WebMotion, _super);
             function WebMotion() {
                 var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -100,7 +104,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 window.removeEventListener("devicemotion", this.onChange);
             };
             return WebMotion;
-        }(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         wxgame.WebMotion = WebMotion;
         __reflect(WebMotion.prototype, "egret.wxgame.WebMotion", ["egret.Motion"]);
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -109,16 +113,16 @@ var __extends = this && this.__extends || function __extends(t, e) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var XMLNode = function () {
+        var XMLNode = (function () {
             function XMLNode(nodeType, parent) {
                 this.nodeType = nodeType;
                 this.parent = parent;
             }
             return XMLNode;
-        }();
+        }());
         wxgame.XMLNode = XMLNode;
         __reflect(XMLNode.prototype, "egret.wxgame.XMLNode");
-        var XML = function (_super) {
+        var XML = (function (_super) {
             __extends(XML, _super);
             function XML(localName, parent, prefix, namespace, name) {
                 var _this = _super.call(this, 1, parent) || this;
@@ -131,10 +135,10 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 return _this;
             }
             return XML;
-        }(XMLNode);
+        }(XMLNode));
         wxgame.XML = XML;
         __reflect(XML.prototype, "egret.wxgame.XML");
-        var XMLText = function (_super) {
+        var XMLText = (function (_super) {
             __extends(XMLText, _super);
             function XMLText(text, parent) {
                 var _this = _super.call(this, 3, parent) || this;
@@ -142,7 +146,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 return _this;
             }
             return XMLText;
-        }(XMLNode);
+        }(XMLNode));
         wxgame.XMLText = XMLText;
         __reflect(XMLText.prototype, "egret.wxgame.XMLText");
         var parser;
@@ -150,7 +154,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
             if (!parser) {
                 if (!window["DOMParser"]) {
                     console.error("没有 XML 支持库，请访问 http://developer.egret.com/cn/github/egret-docs/Engine2D/minigame/minigameFAQ/index.html#xml 了解详情");
-                } else {
+                }
+                else {
                     parser = new DOMParser();
                 }
             }
@@ -190,7 +195,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 var childXML = null;
                 if (nodeType == 1) {
                     childXML = parseNode(childNode, xml);
-                } else if (nodeType == 3) {
+                }
+                else if (nodeType == 3) {
                     var text = childNode.textContent.trim();
                     if (text) {
                         childXML = new XMLText(text, xml);
@@ -209,7 +215,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var HtmlSoundChannel = function (_super) {
+        var HtmlSoundChannel = (function (_super) {
             __extends(HtmlSoundChannel, _super);
             function HtmlSoundChannel(audio) {
                 var _this = _super.call(this) || this;
@@ -257,7 +263,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 audio.play();
             };
             HtmlSoundChannel.prototype.stop = function () {
-                if (!this.audio) return;
+                if (!this.audio)
+                    return;
                 this.isStopped = true;
                 var audio = this.audio;
                 audio.stop();
@@ -275,7 +282,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                         return;
                     }
                     this._volume = value;
-                    if (!this.audio) return;
+                    if (!this.audio)
+                        return;
                     this.audio.volume = value;
                 },
                 enumerable: true,
@@ -283,14 +291,15 @@ var __extends = this && this.__extends || function __extends(t, e) {
             });
             Object.defineProperty(HtmlSoundChannel.prototype, "position", {
                 get: function () {
-                    if (!this.audio) return 0;
+                    if (!this.audio)
+                        return 0;
                     return this.audio.currentTime;
                 },
                 enumerable: true,
                 configurable: true
             });
             return HtmlSoundChannel;
-        }(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         wxgame.HtmlSoundChannel = HtmlSoundChannel;
         __reflect(HtmlSoundChannel.prototype, "egret.wxgame.HtmlSoundChannel", ["egret.SoundChannel", "egret.IEventDispatcher"]);
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -299,12 +308,10 @@ var __extends = this && this.__extends || function __extends(t, e) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebVideo = function (_super) {
+        var WebVideo = (function (_super) {
             __extends(WebVideo, _super);
             function WebVideo(url, cache) {
-                if (cache === void 0) {
-                    cache = true;
-                }
+                if (cache === void 0) { cache = true; }
                 var _this = _super.call(this) || this;
                 _this.loaded = false;
                 _this.closed = false;
@@ -348,9 +355,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
             }
             WebVideo.prototype.load = function (url, cache) {
                 var _this = this;
-                if (cache === void 0) {
-                    cache = true;
-                }
+                if (cache === void 0) { cache = true; }
                 url = url || this.src;
                 this.src = url;
                 if (true && !url) {
@@ -364,29 +369,28 @@ var __extends = this && this.__extends || function __extends(t, e) {
                     video = document.createElement("video");
                     this.video = video;
                     video.controls = null;
-                } else {
+                }
+                else {
                     video = this.video;
                 }
                 video.src = url;
                 video.setAttribute("autoplay", "autoplay");
                 video.setAttribute("webkit-playsinline", "true");
                 video.addEventListener("canplay", this.onVideoLoaded);
-                video.addEventListener("error", function () {
-                    return _this.onVideoError();
-                });
-                video.addEventListener("ended", function () {
-                    return _this.onVideoEnded();
-                });
+                video.addEventListener("error", function () { return _this.onVideoError(); });
+                video.addEventListener("ended", function () { return _this.onVideoEnded(); });
                 var firstPause = false;
                 video.addEventListener("canplay", function () {
                     _this.waiting = false;
                     if (!firstPause) {
                         firstPause = true;
                         video.pause();
-                    } else {
+                    }
+                    else {
                         if (_this.userPause) {
                             _this.pause();
-                        } else if (_this.userPlay) {
+                        }
+                        else if (_this.userPlay) {
                             _this.play();
                         }
                     }
@@ -405,23 +409,21 @@ var __extends = this && this.__extends || function __extends(t, e) {
             };
             WebVideo.prototype.play = function (startTime, loop) {
                 var _this = this;
-                if (loop === void 0) {
-                    loop = false;
-                }
+                if (loop === void 0) { loop = false; }
                 if (this.loaded == false) {
                     this.load(this.src);
-                    this.once(egret.Event.COMPLETE, function (e) {
-                        return _this.play(startTime, loop);
-                    }, this);
+                    this.once(egret.Event.COMPLETE, function (e) { return _this.play(startTime, loop); }, this);
                     return;
                 }
                 this.isPlayed = true;
                 var video = this.video;
-                if (startTime != undefined) video.currentTime = +startTime || 0;
+                if (startTime != undefined)
+                    video.currentTime = +startTime || 0;
                 video.loop = !!loop;
                 if (egret.Capabilities.isMobile) {
                     video.style.zIndex = "-88888";
-                } else {
+                }
+                else {
                     video.style.zIndex = "9999";
                 }
                 video.style.position = "absolute";
@@ -454,7 +456,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                     }
                     egret.stopTick(this.markDirty, this);
                     this.goFullscreen();
-                } else {
+                }
+                else {
                     if (video.parentElement != null) {
                         video.parentElement.removeChild(video);
                     }
@@ -491,7 +494,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                     video.addEventListener("webkitfullscreenchange", this.screenChanged);
                     video.addEventListener("mozfullscreenerror", this.screenError);
                     video.addEventListener("webkitfullscreenerror", this.screenError);
-                } else {
+                }
+                else {
                     video.removeEventListener("mozfullscreenchange", this.screenChanged);
                     video.removeEventListener("webkitfullscreenchange", this.screenChanged);
                     video.removeEventListener("mozfullscreenerror", this.screenError);
@@ -504,15 +508,21 @@ var __extends = this && this.__extends || function __extends(t, e) {
             WebVideo.prototype.exitFullscreen = function () {
                 if (document['exitFullscreen']) {
                     document['exitFullscreen']();
-                } else if (document['msExitFullscreen']) {
+                }
+                else if (document['msExitFullscreen']) {
                     document['msExitFullscreen']();
-                } else if (document['mozCancelFullScreen']) {
+                }
+                else if (document['mozCancelFullScreen']) {
                     document['mozCancelFullScreen']();
-                } else if (document['oCancelFullScreen']) {
+                }
+                else if (document['oCancelFullScreen']) {
                     document['oCancelFullScreen']();
-                } else if (document['webkitExitFullscreen']) {
+                }
+                else if (document['webkitExitFullscreen']) {
                     document['webkitExitFullscreen']();
-                } else {}
+                }
+                else {
+                }
             };
             WebVideo.prototype.onVideoEnded = function () {
                 this.pause();
@@ -526,14 +536,11 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 var _this = this;
                 this.closed = true;
                 this.video.removeEventListener("canplay", this.onVideoLoaded);
-                this.video.removeEventListener("error", function () {
-                    return _this.onVideoError();
-                });
-                this.video.removeEventListener("ended", function () {
-                    return _this.onVideoEnded();
-                });
+                this.video.removeEventListener("error", function () { return _this.onVideoError(); });
+                this.video.removeEventListener("ended", function () { return _this.onVideoEnded(); });
                 this.pause();
-                if (this.loaded == false && this.video) this.video.src = "";
+                if (this.loaded == false && this.video)
+                    this.video.src = "";
                 if (this.video && this.video.parentElement) {
                     this.video.parentElement.removeChild(this.video);
                     this.video = null;
@@ -551,11 +558,13 @@ var __extends = this && this.__extends || function __extends(t, e) {
             };
             Object.defineProperty(WebVideo.prototype, "volume", {
                 get: function () {
-                    if (!this.video) return 1;
+                    if (!this.video)
+                        return 1;
                     return this.video.volume;
                 },
                 set: function (value) {
-                    if (!this.video) return;
+                    if (!this.video)
+                        return;
                     this.video.volume = value;
                 },
                 enumerable: true,
@@ -563,11 +572,13 @@ var __extends = this && this.__extends || function __extends(t, e) {
             });
             Object.defineProperty(WebVideo.prototype, "position", {
                 get: function () {
-                    if (!this.video) return 0;
+                    if (!this.video)
+                        return 0;
                     return this.video.currentTime;
                 },
                 set: function (value) {
-                    if (!this.video) return;
+                    if (!this.video)
+                        return;
                     this.video.currentTime = value;
                 },
                 enumerable: true,
@@ -591,7 +602,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
             });
             Object.defineProperty(WebVideo.prototype, "bitmapData", {
                 get: function () {
-                    if (!this.video || !this.loaded) return null;
+                    if (!this.video || !this.loaded)
+                        return null;
                     if (!this._bitmapData) {
                         this.video.width = this.video.videoWidth;
                         this.video.height = this.video.videoHeight;
@@ -606,7 +618,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
             WebVideo.prototype.loadPoster = function () {
                 var _this = this;
                 var poster = this.poster;
-                if (!poster) return;
+                if (!poster)
+                    return;
                 var imageLoader = new egret.ImageLoader();
                 imageLoader.once(egret.Event.COMPLETE, function (e) {
                     var posterData = imageLoader.data;
@@ -621,9 +634,11 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 var posterData = this.posterData;
                 if (bitmapData) {
                     bounds.setTo(0, 0, this.getPlayWidth(), this.getPlayHeight());
-                } else if (posterData) {
+                }
+                else if (posterData) {
                     bounds.setTo(0, 0, this.getPlayWidth(), this.getPlayHeight());
-                } else {
+                }
+                else {
                     bounds.setEmpty();
                 }
             };
@@ -662,7 +677,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                     node.imageWidth = width;
                     node.imageHeight = height;
                     node.drawImage(0, 0, posterData.width, posterData.height, 0, 0, width, height);
-                } else if (this.isPlayed && bitmapData) {
+                }
+                else if (this.isPlayed && bitmapData) {
                     node.image = bitmapData;
                     node.imageWidth = bitmapData.width;
                     node.imageHeight = bitmapData.height;
@@ -704,7 +720,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 configurable: true
             });
             return WebVideo;
-        }(egret.DisplayObject);
+        }(egret.DisplayObject));
         wxgame.WebVideo = WebVideo;
         __reflect(WebVideo.prototype, "egret.wxgame.WebVideo", ["egret.Video", "egret.DisplayObject"]);
         egret.Video = WebVideo;
@@ -714,7 +730,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebHttpRequest = function (_super) {
+        var WebHttpRequest = (function (_super) {
             __extends(WebHttpRequest, _super);
             function WebHttpRequest() {
                 var _this = _super.call(this) || this;
@@ -754,9 +770,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 configurable: true
             });
             WebHttpRequest.prototype.open = function (url, method) {
-                if (method === void 0) {
-                    method = "GET";
-                }
+                if (method === void 0) { method = "GET"; }
                 this._url = url;
                 this._method = method;
             };
@@ -781,7 +795,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                             onErrorFunc();
                         }
                     });
-                } else {
+                }
+                else {
                     fs.readFile({
                         filePath: self._url,
                         encoding: 'utf8',
@@ -802,7 +817,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 this._response = undefined;
                 if (!this.isNetUrl(this._url)) {
                     this.readFileAsync();
-                } else {
+                }
+                else {
                     var self_1 = this;
                     wx.request({
                         data: data,
@@ -811,9 +827,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
                         header: this.headerObj,
                         responseType: this.responseType,
                         success: function success(_ref) {
-                            var data = _ref.data,
-                                statusCode = _ref.statusCode,
-                                header = _ref.header;
+                            var data = _ref.data, statusCode = _ref.statusCode, header = _ref.header;
                             if (statusCode != 200) {
                                 self_1.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
                                 return;
@@ -821,7 +835,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                             if (typeof data !== 'string' && !(data instanceof ArrayBuffer)) {
                                 try {
                                     data = JSON.stringify(data);
-                                } catch (e) {
+                                }
+                                catch (e) {
                                     data = data;
                                 }
                             }
@@ -838,7 +853,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
             WebHttpRequest.prototype.isNetUrl = function (url) {
                 return url.indexOf("http://") != -1 || url.indexOf("HTTP://") != -1 || url.indexOf("https://") != -1 || url.indexOf("HTTPS://") != -1;
             };
-            WebHttpRequest.prototype.abort = function () {};
+            WebHttpRequest.prototype.abort = function () {
+            };
             WebHttpRequest.prototype.getAllResponseHeaders = function () {
                 var responseHeader = this._responseHeader;
                 if (!responseHeader) {
@@ -867,7 +883,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 }
             };
             return WebHttpRequest;
-        }(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         wxgame.WebHttpRequest = WebHttpRequest;
         __reflect(WebHttpRequest.prototype, "egret.wxgame.WebHttpRequest", ["egret.HttpRequest"]);
         egret.HttpRequest = WebHttpRequest;
@@ -878,7 +894,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
     var wxgame;
     (function (wxgame) {
         var winURL = window["URL"] || window["webkitURL"];
-        var WebImageLoader = function (_super) {
+        var WebImageLoader = (function (_super) {
             __extends(WebImageLoader, _super);
             function WebImageLoader() {
                 var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -911,7 +927,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                     if (this._crossOrigin) {
                         image.crossOrigin = this._crossOrigin;
                     }
-                } else {
+                }
+                else {
                     if (WebImageLoader.crossOrigin) {
                         image.crossOrigin = WebImageLoader.crossOrigin;
                     }
@@ -963,7 +980,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
             };
             WebImageLoader.crossOrigin = null;
             return WebImageLoader;
-        }(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         wxgame.WebImageLoader = WebImageLoader;
         __reflect(WebImageLoader.prototype, "egret.wxgame.WebImageLoader", ["egret.ImageLoader"]);
         egret.ImageLoader = WebImageLoader;
@@ -973,7 +990,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var HTML5StageText = function (_super) {
+        var HTML5StageText = (function (_super) {
             __extends(HTML5StageText, _super);
             function HTML5StageText() {
                 var _this = _super.call(this) || this;
@@ -986,7 +1003,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 this.$textfield = textfield;
                 return true;
             };
-            HTML5StageText.prototype.$addToStage = function () {};
+            HTML5StageText.prototype.$addToStage = function () {
+            };
             HTML5StageText.prototype.$show = function () {
                 var info = {
                     defaultValue: this.$textfield.text,
@@ -1035,11 +1053,14 @@ var __extends = this && this.__extends || function __extends(t, e) {
             HTML5StageText.prototype.$setColor = function (value) {
                 return true;
             };
-            HTML5StageText.prototype.$onBlur = function () {};
-            HTML5StageText.prototype.$removeFromStage = function () {};
-            HTML5StageText.prototype.$resetStageText = function () {};
+            HTML5StageText.prototype.$onBlur = function () {
+            };
+            HTML5StageText.prototype.$removeFromStage = function () {
+            };
+            HTML5StageText.prototype.$resetStageText = function () {
+            };
             return HTML5StageText;
-        }(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         wxgame.HTML5StageText = HTML5StageText;
         __reflect(HTML5StageText.prototype, "egret.wxgame.HTML5StageText", ["egret.StageText"]);
         egret.StageText = HTML5StageText;
@@ -1056,10 +1077,12 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 createContext();
             }
             var font = "";
-            if (italic) font += "italic ";
-            if (bold) font += "bold ";
+            if (italic)
+                font += "italic ";
+            if (bold)
+                font += "bold ";
             font += (fontSize || 12) + "px ";
-            font += fontFamily || "Arial";
+            font += (fontFamily || "Arial");
             context.font = font;
             return egret.sys.measureTextWith(context, text);
         }
@@ -1096,14 +1119,15 @@ var __extends = this && this.__extends || function __extends(t, e) {
                             this[key_1] = value;
                         }
                     });
-                } catch (e) {
+                }
+                catch (e) {
                     context["imageSmoothingEnabled"] = context[key_1];
                 }
             }
             return canvas;
         }
         var sharedCanvas;
-        var CanvasRenderBuffer = function () {
+        var CanvasRenderBuffer = (function () {
             function CanvasRenderBuffer(width, height, root) {
                 this.surface = egret.sys.createCanvasRenderBufferSurface(__createCanvas__, width, height, root);
                 this.context = this.surface.getContext("2d");
@@ -1131,12 +1155,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 egret.sys.resizeCanvasRenderBuffer(this, width, height, useMaxSize);
             };
             CanvasRenderBuffer.prototype.getPixels = function (x, y, width, height) {
-                if (width === void 0) {
-                    width = 1;
-                }
-                if (height === void 0) {
-                    height = 1;
-                }
+                if (width === void 0) { width = 1; }
+                if (height === void 0) { height = 1; }
                 return this.context.getImageData(x, y, width, height).data;
             };
             CanvasRenderBuffer.prototype.toDataURL = function (type, encoderOptions) {
@@ -1150,7 +1170,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 this.surface.width = this.surface.height = 0;
             };
             return CanvasRenderBuffer;
-        }();
+        }());
         wxgame.CanvasRenderBuffer = CanvasRenderBuffer;
         __reflect(CanvasRenderBuffer.prototype, "egret.wxgame.CanvasRenderBuffer", ["egret.sys.RenderBuffer"]);
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -1159,7 +1179,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebTouchHandler = function (_super) {
+        var WebTouchHandler = (function (_super) {
             __extends(WebTouchHandler, _super);
             function WebTouchHandler(stage, canvas) {
                 var _this = _super.call(this) || this;
@@ -1210,7 +1230,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                             self.onTouchEnd(event.changedTouches[i]);
                         }
                     });
-                } else {
+                }
+                else {
                     self.canvas.addEventListener("touchstart", function (event) {
                         var l = event.changedTouches.length;
                         for (var i = 0; i < l; i++) {
@@ -1252,14 +1273,13 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 var box = this.canvas.getBoundingClientRect();
                 var left = box.left;
                 var top = box.top;
-                var x = event.pageX - left,
-                    newx = x;
-                var y = event.pageY - top,
-                    newy = y;
+                var x = event.pageX - left, newx = x;
+                var y = event.pageY - top, newy = y;
                 if (this.rotation == 90) {
                     newx = y;
                     newy = box.width - x;
-                } else if (this.rotation == -90) {
+                }
+                else if (this.rotation == -90) {
                     newx = box.height - y;
                     newy = x;
                 }
@@ -1276,7 +1296,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 this.touch.$initMaxTouches();
             };
             return WebTouchHandler;
-        }(egret.HashObject);
+        }(egret.HashObject));
         wxgame.WebTouchHandler = WebTouchHandler;
         __reflect(WebTouchHandler.prototype, "egret.wxgame.WebTouchHandler");
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -1310,15 +1330,16 @@ var __extends = this && this.__extends || function __extends(t, e) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var AudioType = function () {
-            function AudioType() {}
+        var AudioType = (function () {
+            function AudioType() {
+            }
             AudioType.WEB_AUDIO = 2;
             AudioType.HTML5_AUDIO = 3;
             return AudioType;
-        }();
+        }());
         wxgame.AudioType = AudioType;
         __reflect(AudioType.prototype, "egret.wxgame.AudioType");
-        var Html5Capatibility = function (_super) {
+        var Html5Capatibility = (function (_super) {
             __extends(Html5Capatibility, _super);
             function Html5Capatibility() {
                 return _super.call(this) || this;
@@ -1327,7 +1348,7 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 egret.Sound = wxgame.HtmlSound;
             };
             return Html5Capatibility;
-        }(egret.HashObject);
+        }(egret.HashObject));
         wxgame.Html5Capatibility = Html5Capatibility;
         __reflect(Html5Capatibility.prototype, "egret.wxgame.Html5Capatibility");
         var currentPrefix = null;
@@ -1335,7 +1356,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
             var header = "";
             if (element != null) {
                 header = getPrefix(name, element);
-            } else {
+            }
+            else {
                 if (currentPrefix == null) {
                     var tempStyle = document.createElement('div').style;
                     currentPrefix = getPrefix("transform", tempStyle);
@@ -1389,11 +1411,12 @@ var __extends = this && this.__extends || function __extends(t, e) {
             //    return;
             //}
 
-            if (isRunning) {
-                egret.sys.screenAdapter = null;
-                egret.MainContext.instance = null;
-                egret.sys.$TempStage = null;
-            }
+			if(isRunning)
+			{
+				egret.sys.screenAdapter = null;
+				egret.MainContext.instance = null;
+				egret.sys.$TempStage = null;
+			}
 
             isRunning = true;
             if (!options) {
@@ -1406,10 +1429,12 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 try {
                     if (window['startup']) {
                         window['startup']();
-                    } else {
+                    }
+                    else {
                         console.error("EgretPro.js don't has function:window.startup");
                     }
-                } catch (e) {
+                }
+                catch (e) {
                     console.error(e);
                 }
             }
@@ -1423,11 +1448,18 @@ var __extends = this && this.__extends || function __extends(t, e) {
             var canvasScaleFactor;
             if (options.canvasScaleFactor) {
                 canvasScaleFactor = options.canvasScaleFactor;
-            } else if (options.calculateCanvasScaleFactor) {
+            }
+            else if (options.calculateCanvasScaleFactor) {
                 canvasScaleFactor = options.calculateCanvasScaleFactor(egret.sys.canvasHitTestBuffer.context);
-            } else {
+            }
+            else {
                 var context = egret.sys.canvasHitTestBuffer.context;
-                var backingStore = context.backingStorePixelRatio || context.webkitBackingStorePixelRatio || context.mozBackingStorePixelRatio || context.msBackingStorePixelRatio || context.oBackingStorePixelRatio || context.backingStorePixelRatio || 1;
+                var backingStore = context.backingStorePixelRatio ||
+                    context.webkitBackingStorePixelRatio ||
+                    context.mozBackingStorePixelRatio ||
+                    context.msBackingStorePixelRatio ||
+                    context.oBackingStorePixelRatio ||
+                    context.backingStorePixelRatio || 1;
                 canvasScaleFactor = (window.devicePixelRatio || 1) / backingStore;
             }
             egret.sys.DisplayList.$canvasScaleFactor = canvasScaleFactor;
@@ -1435,7 +1467,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
             startTicker(ticker);
             if (options.screenAdapter) {
                 egret.sys.screenAdapter = options.screenAdapter;
-            } else if (!egret.sys.screenAdapter) {
+            }
+            else if (!egret.sys.screenAdapter) {
                 egret.sys.screenAdapter = new egret.sys.DefaultScreenAdapter();
             }
             var container = {};
@@ -1461,7 +1494,8 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 egret.sys.canvasRenderer = new egret.CanvasRenderer();
                 egret.sys.customHitTestBuffer = new wxgame.WebGLRenderBuffer(3, 3);
                 egret.sys.canvasHitTestBuffer = new wxgame.CanvasRenderBuffer(3, 3);
-            } else {
+            }
+            else {
                 egret.Capabilities["renderMode" + ""] = "canvas";
                 egret.sys.RenderBuffer = wxgame.CanvasRenderBuffer;
                 egret.sys.systemRenderer = new egret.CanvasRenderer();
@@ -1472,7 +1506,11 @@ var __extends = this && this.__extends || function __extends(t, e) {
         }
         egret.sys.setRenderMode = setRenderMode;
         function startTicker(ticker) {
-            var requestAnimationFrame = window["requestAnimationFrame"] || window["webkitRequestAnimationFrame"] || window["mozRequestAnimationFrame"] || window["oRequestAnimationFrame"] || window["msRequestAnimationFrame"];
+            var requestAnimationFrame = window["requestAnimationFrame"] ||
+                window["webkitRequestAnimationFrame"] ||
+                window["mozRequestAnimationFrame"] ||
+                window["oRequestAnimationFrame"] ||
+                window["msRequestAnimationFrame"];
             if (!requestAnimationFrame) {
                 requestAnimationFrame = function (callback) {
                     return window.setTimeout(callback, 1000 / 60);
@@ -1484,14 +1522,16 @@ var __extends = this && this.__extends || function __extends(t, e) {
                 ticker.update(true);
             }
         }
-        function reInit() {
-            if (window.playerTest) {
-                window.playerTest.initialize();
-            }
-        }
+		function reInit()
+		{
+			if( window.playerTest)
+			{
+				window.playerTest.initialize();
+			}
+		}
 
         egret.runEgret = runEgret;
-        egret.reInit = reInit;
+		egret.reInit = reInit;
         egret.updateAllScreens = updateAllScreens;
         var resizeTimer = NaN;
         function doResize() {
@@ -1505,7 +1545,8 @@ if (true) {
     var language = systemInfo.language.toLowerCase();
     if (language.indexOf('zh') > -1) {
         language = "zh_CN";
-    } else {
+    }
+    else {
         language = "en_US";
     }
     if (language in egret.$locale_strings) {
@@ -1517,8 +1558,9 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebCapability = function () {
-            function WebCapability() {}
+        var WebCapability = (function () {
+            function WebCapability() {
+            }
             WebCapability.detect = function () {
                 var capabilities = egret.Capabilities;
                 capabilities["isMobile" + ""] = true;
@@ -1526,19 +1568,21 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                 var systemStr = systemInfo.system.toLowerCase();
                 if (systemStr.indexOf("ios") > -1) {
                     capabilities["os" + ""] = "iOS";
-                } else if (systemStr.indexOf("android") > -1) {
+                }
+                else if (systemStr.indexOf("android") > -1) {
                     capabilities["os" + ""] = "Android";
                 }
                 var language = systemInfo.language;
                 if (language.indexOf('zh') > -1) {
                     language = "zh-CN";
-                } else {
+                }
+                else {
                     language = "en-US";
                 }
                 capabilities["language" + ""] = language;
             };
             return WebCapability;
-        }();
+        }());
         wxgame.WebCapability = WebCapability;
         __reflect(WebCapability.prototype, "egret.wxgame.WebCapability");
         WebCapability.detect();
@@ -1550,7 +1594,7 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
     (function (wxgame) {
         var fpsText = new egret.TextField();
         var logText = new egret.TextField();
-        var WebFps = function (_super) {
+        var WebFps = (function (_super) {
             __extends(WebFps, _super);
             function WebFps(stage, showFPS, showLog, logFilter, styles) {
                 var _this = _super.call(this) || this;
@@ -1599,12 +1643,12 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                     egret.sys.$TempStage.addChild(logText);
                 }
             };
-            WebFps.prototype.addFps = function () {};
-            WebFps.prototype.addLog = function () {};
+            WebFps.prototype.addFps = function () {
+            };
+            WebFps.prototype.addLog = function () {
+            };
             WebFps.prototype.update = function (datas, showLastData) {
-                if (showLastData === void 0) {
-                    showLastData = false;
-                }
+                if (showLastData === void 0) { showLastData = false; }
                 var numFps;
                 var numCostTicker;
                 var numCostRender;
@@ -1615,7 +1659,8 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                     this.lastNumDraw = datas.draw;
                     this.arrFps.push(numFps);
                     this.arrCost.push([numCostTicker, numCostRender]);
-                } else {
+                }
+                else {
                     numFps = this.arrFps[this.arrFps.length - 1];
                     numCostTicker = this.arrCost[this.arrCost.length - 1][0];
                     numCostRender = this.arrCost[this.arrCost.length - 1][1];
@@ -1632,10 +1677,16 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                 for (var i = 0; i < lenFps; i++) {
                     var num = this.arrFps[i];
                     fpsTotal += num;
-                    if (num < fpsMin) fpsMin = num;else if (num > fpsMax) fpsMax = num;
+                    if (num < fpsMin)
+                        fpsMin = num;
+                    else if (num > fpsMax)
+                        fpsMax = num;
                 }
                 var fpsAvg = Math.floor(fpsTotal / lenFps);
-                fpsText.text = numFps + " FPS \n" + ("min:" + fpsMin + " max:" + fpsMax + " avg:" + fpsAvg + "\n") + ("Draw " + this.lastNumDraw + "\n") + ("Cost " + numCostTicker + " " + numCostRender);
+                fpsText.text = numFps + " FPS \n"
+                    + ("min:" + fpsMin + " max:" + fpsMax + " avg:" + fpsAvg + "\n")
+                    + ("Draw " + this.lastNumDraw + "\n")
+                    + ("Cost " + numCostTicker + " " + numCostRender);
                 this.resizeBG();
             };
             WebFps.prototype.resizeBG = function () {
@@ -1646,10 +1697,12 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                     bgScaleX = Math.ceil((Math.max(fpsText.width, logText.width) + 8) / 10);
                     bgScaclY = Math.ceil((fpsText.height + logText.height + 8) / 10);
                     logText.y = this.bg.y + 4 + fpsText.height;
-                } else if (this.showFPS) {
+                }
+                else if (this.showFPS) {
                     bgScaleX = Math.ceil((fpsText.width + 8) / 10);
                     bgScaclY = Math.ceil((fpsText.height + 8) / 10);
-                } else {
+                }
+                else {
                     bgScaleX = Math.ceil((logText.width + 8) / 10);
                     bgScaclY = Math.ceil((logText.height + 8) / 10);
                     logText.y = this.bg.y + 4;
@@ -1671,14 +1724,14 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
             };
             WebFps.prototype.updateLogLayout = function () {
                 logText.text = this.arrLog.join('\n');
-                if (egret.sys.$TempStage.height < logText.y + logText.height + logText.size * 2) {
+                if (egret.sys.$TempStage.height < (logText.y + logText.height + logText.size * 2)) {
                     this.arrLog.shift();
                     logText.text = this.arrLog.join('\n');
                 }
                 this.resizeBG();
             };
             return WebFps;
-        }(egret.DisplayObject);
+        }(egret.DisplayObject));
         wxgame.WebFps = WebFps;
         __reflect(WebFps.prototype, "egret.wxgame.WebFps", ["egret.FPSDisplay"]);
         egret.FPSDisplay = WebFps;
@@ -1700,7 +1753,7 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebPlayer = function (_super) {
+        var WebPlayer = (function (_super) {
             __extends(WebPlayer, _super);
             function WebPlayer(container, options) {
                 var _this = _super.call(this) || this;
@@ -1739,7 +1792,7 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                 this.updateScreenSize();
                 this.updateMaxTouches();
                 player.start();
-                window["playerTest"] = player;
+				window["playerTest"] = player;
             };
             WebPlayer.prototype.initOrientation = function () {
                 var self = this;
@@ -1788,7 +1841,8 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
             };
             WebPlayer.prototype.updateScreenSize = function () {
                 var canvas = this.canvas;
-                if (canvas['userTyping']) return;
+                if (canvas['userTyping'])
+                    return;
                 var option = this.playerOption;
                 var screenRect = canvas.getBoundingClientRect();
                 var top = 0;
@@ -1801,7 +1855,8 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                 var shouldRotate = false;
                 var orientation = this.stage.$orientation;
                 if (orientation != egret.OrientationMode.AUTO) {
-                    shouldRotate = orientation != egret.OrientationMode.PORTRAIT && boundingClientHeight > boundingClientWidth || orientation == egret.OrientationMode.PORTRAIT && boundingClientWidth > boundingClientHeight;
+                    shouldRotate = orientation != egret.OrientationMode.PORTRAIT && boundingClientHeight > boundingClientWidth
+                        || orientation == egret.OrientationMode.PORTRAIT && boundingClientWidth > boundingClientHeight;
                 }
                 var screenWidth = shouldRotate ? boundingClientHeight : boundingClientWidth;
                 var screenHeight = shouldRotate ? boundingClientWidth : boundingClientHeight;
@@ -1835,17 +1890,18 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                         rotation = 90;
                         canvas.style.top = top + (boundingClientHeight - displayWidth) / 2 + "px";
                         canvas.style.left = (boundingClientWidth + displayHeight) / 2 + "px";
-                    } else {
+                    }
+                    else {
                         rotation = -90;
                         canvas.style.top = top + (boundingClientHeight + displayWidth) / 2 + "px";
                         canvas.style.left = (boundingClientWidth - displayHeight) / 2 + "px";
                     }
-                } else {
+                }
+                else {
                     canvas.style.top = top + (boundingClientHeight - displayHeight) / 2 + "px";
                     canvas.style.left = (boundingClientWidth - displayWidth) / 2 + "px";
                 }
-                var scalex = displayWidth / stageWidth,
-                    scaley = displayHeight / stageHeight;
+                var scalex = displayWidth / stageWidth, scaley = displayHeight / stageHeight;
                 var canvasScaleX = scalex * egret.sys.DisplayList.$canvasScaleFactor;
                 var canvasScaleY = scaley * egret.sys.DisplayList.$canvasScaleFactor;
                 canvasScaleX = Math.ceil(canvasScaleX);
@@ -1864,7 +1920,7 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                 this.webTouchHandler.$updateMaxTouches();
             };
             return WebPlayer;
-        }(egret.HashObject);
+        }(egret.HashObject));
         wxgame.WebPlayer = WebPlayer;
         __reflect(WebPlayer.prototype, "egret.wxgame.WebPlayer", ["egret.sys.Screen"]);
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -1908,14 +1964,19 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                     }
                     renderTexture = new egret.RenderTexture();
                     renderTexture.drawToTexture(new egret.Bitmap(texture));
-                } else {
+                }
+                else {
                     renderTexture = texture;
                 }
                 var pixels = renderTexture.$renderBuffer.getPixels(rect.x, rect.y, iWidth, iHeight);
                 var x = 0;
                 var y = 0;
                 for (var i = 0; i < pixels.length; i += 4) {
-                    sharedContext.fillStyle = 'rgba(' + pixels[i] + ',' + pixels[i + 1] + ',' + pixels[i + 2] + ',' + pixels[i + 3] / 255 + ')';
+                    sharedContext.fillStyle =
+                        'rgba(' + pixels[i]
+                            + ',' + pixels[i + 1]
+                            + ',' + pixels[i + 2]
+                            + ',' + (pixels[i + 3] / 255) + ')';
                     sharedContext.fillRect(x, y, 1, 1);
                     x++;
                     if (x == iWidth) {
@@ -1927,7 +1988,8 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                     renderTexture.dispose();
                 }
                 return surface;
-            } else {
+            }
+            else {
                 var bitmapData = texture;
                 var offsetX = Math.round(bitmapData.$offsetX);
                 var offsetY = Math.round(bitmapData.$offsetY);
@@ -1942,7 +2004,8 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                 var surface = convertImageToCanvas(this, rect);
                 var result = surface.toDataURL(type, encoderOptions);
                 return result;
-            } catch (e) {
+            }
+            catch (e) {
                 egret.$error(1033);
             }
             return null;
@@ -1955,7 +2018,8 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
             wx.getFileSystemManager().saveFile({
                 tempFilePath: result,
                 filePath: wx.env.USER_DATA_PATH + "/" + filePath,
-                success: function (res) {}
+                success: function (res) {
+                }
             });
             return result;
         }
@@ -1964,18 +2028,15 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
             return this.getPixels(x, y);
         }
         function getPixels(x, y, width, height) {
-            if (width === void 0) {
-                width = 1;
-            }
-            if (height === void 0) {
-                height = 1;
-            }
+            if (width === void 0) { width = 1; }
+            if (height === void 0) { height = 1; }
             if (egret.Capabilities.renderMode == "webgl") {
                 var renderTexture = void 0;
                 if (!this.$renderBuffer) {
                     renderTexture = new egret.RenderTexture();
                     renderTexture.drawToTexture(new egret.Bitmap(this));
-                } else {
+                }
+                else {
                     renderTexture = this;
                 }
                 var pixels = renderTexture.$renderBuffer.getPixels(x, y, width, height);
@@ -1985,7 +2046,8 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                 var surface = convertImageToCanvas(this);
                 var result = sharedContext.getImageData(x, y, width, height).data;
                 return result;
-            } catch (e) {
+            }
+            catch (e) {
                 egret.$error(1039);
             }
         }
@@ -1999,12 +2061,15 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebExternalInterface = function () {
-            function WebExternalInterface() {}
-            WebExternalInterface.call = function (functionName, value) {};
-            WebExternalInterface.addCallback = function (functionName, listener) {};
+        var WebExternalInterface = (function () {
+            function WebExternalInterface() {
+            }
+            WebExternalInterface.call = function (functionName, value) {
+            };
+            WebExternalInterface.addCallback = function (functionName, listener) {
+            };
             return WebExternalInterface;
-        }();
+        }());
         wxgame.WebExternalInterface = WebExternalInterface;
         __reflect(WebExternalInterface.prototype, "egret.wxgame.WebExternalInterface", ["egret.ExternalInterface"]);
         egret.ExternalInterface = WebExternalInterface;
@@ -2014,7 +2079,7 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebDeviceOrientation = function (_super) {
+        var WebDeviceOrientation = (function (_super) {
             __extends(WebDeviceOrientation, _super);
             function WebDeviceOrientation() {
                 var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -2041,7 +2106,7 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
                 wx.stopDeviceMotionListening();
             };
             return WebDeviceOrientation;
-        }(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         wxgame.WebDeviceOrientation = WebDeviceOrientation;
         __reflect(WebDeviceOrientation.prototype, "egret.wxgame.WebDeviceOrientation", ["egret.DeviceOrientation"]);
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -2049,7 +2114,7 @@ egret.Capabilities["runtimeType" + ""] = egret.RuntimeType.WXGAME;
 egret.DeviceOrientation = egret.wxgame.WebDeviceOrientation;
 
 (function (egret) {
-    var WXSocket = function () {
+    var WXSocket = (function () {
         function WXSocket() {
             this.host = "";
             this.port = 0;
@@ -2105,7 +2170,7 @@ egret.DeviceOrientation = egret.wxgame.WebDeviceOrientation;
             this.close();
         };
         return WXSocket;
-    }();
+    }());
     egret.WXSocket = WXSocket;
     __reflect(WXSocket.prototype, "egret.WXSocket", ["egret.ISocket"]);
     egret.ISocket = WXSocket;
@@ -2135,8 +2200,9 @@ if (window['HTMLVideoElement'] == undefined) {
 })(egret || (egret = {}));
 
 (function (egret) {
-    var WebGLUtils = function () {
-        function WebGLUtils() {}
+    var WebGLUtils = (function () {
+        function WebGLUtils() {
+        }
         WebGLUtils.compileProgram = function (gl, vertexSrc, fragmentSrc) {
             var fragmentShader = WebGLUtils.compileFragmentShader(gl, fragmentSrc);
             var vertexShader = WebGLUtils.compileVertexShader(gl, vertexSrc);
@@ -2168,8 +2234,10 @@ if (window['HTMLVideoElement'] == undefined) {
             if (WebGLUtils.canUseWebGL == undefined) {
                 try {
                     var canvas = document.createElement("canvas");
-                    WebGLUtils.canUseWebGL = !!window["WebGLRenderingContext"] && !!(canvas.getContext("webgl") || canvas.getContext("experimental-webgl"));
-                } catch (e) {
+                    WebGLUtils.canUseWebGL = !!window["WebGLRenderingContext"]
+                        && !!(canvas.getContext("webgl") || canvas.getContext("experimental-webgl"));
+                }
+                catch (e) {
                     WebGLUtils.canUseWebGL = false;
                 }
             }
@@ -2188,7 +2256,8 @@ if (window['HTMLVideoElement'] == undefined) {
             var gl = webglTexture[egret.glContext];
             if (gl) {
                 gl.deleteTexture(webglTexture);
-            } else {
+            }
+            else {
                 if (true) {
                     console.error('deleteWebGLTexture gl = ' + gl);
                 }
@@ -2201,16 +2270,16 @@ if (window['HTMLVideoElement'] == undefined) {
             if (alpha === 0.0) {
                 return 0;
             }
-            var R = tint >> 16 & 0xFF;
-            var G = tint >> 8 & 0xFF;
-            var B = tint & 0xFF;
-            R = R * alpha + 0.5 | 0;
-            G = G * alpha + 0.5 | 0;
-            B = B * alpha + 0.5 | 0;
+            var R = ((tint >> 16) & 0xFF);
+            var G = ((tint >> 8) & 0xFF);
+            var B = (tint & 0xFF);
+            R = ((R * alpha) + 0.5) | 0;
+            G = ((G * alpha) + 0.5) | 0;
+            B = ((B * alpha) + 0.5) | 0;
             return (alpha * 255 << 24) + (R << 16) + (G << 8) + B;
         };
         return WebGLUtils;
-    }();
+    }());
     egret.WebGLUtils = WebGLUtils;
     __reflect(WebGLUtils.prototype, "egret.WebGLUtils");
 })(egret || (egret = {}));
@@ -2227,7 +2296,8 @@ if (window['HTMLVideoElement'] == undefined) {
                 try {
                     window.localStorage.setItem(key, value);
                     return true;
-                } catch (e) {
+                }
+                catch (e) {
                     egret.$warn(1047, key, value);
                     return false;
                 }
@@ -2249,7 +2319,7 @@ if (window['HTMLVideoElement'] == undefined) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var HtmlSound = function (_super) {
+        var HtmlSound = (function (_super) {
             __extends(HtmlSound, _super);
             function HtmlSound() {
                 var _this = _super.call(this) || this;
@@ -2314,7 +2384,7 @@ if (window['HTMLVideoElement'] == undefined) {
             HtmlSound.MUSIC = "music";
             HtmlSound.EFFECT = "effect";
             return HtmlSound;
-        }(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         wxgame.HtmlSound = HtmlSound;
         __reflect(HtmlSound.prototype, "egret.wxgame.HtmlSound", ["egret.Sound"]);
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -2337,14 +2407,19 @@ if (window['HTMLVideoElement'] == undefined) {
                 }
                 switch (logType) {
                     case egret.Logger.OFF:
-                        console.error = function () {};
+                        console.error = function () {
+                        };
                     case egret.Logger.ERROR:
-                        console.warn = function () {};
+                        console.warn = function () {
+                        };
                     case egret.Logger.WARN:
-                        console.info = function () {};
-                        console.log = function () {};
+                        console.info = function () {
+                        };
+                        console.log = function () {
+                        };
                     case egret.Logger.INFO:
-                        console.debug = function () {};
+                        console.debug = function () {
+                        };
                     default:
                         break;
                 }
@@ -2375,7 +2450,7 @@ if (window['HTMLVideoElement'] == undefined) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebGLDrawCmdManager = function () {
+        var WebGLDrawCmdManager = (function () {
             function WebGLDrawCmdManager() {
                 this.drawData = [];
                 this.drawDataLen = 0;
@@ -2391,9 +2466,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 this.drawData[this.drawDataLen - 1].count += 2;
             };
             WebGLDrawCmdManager.prototype.pushDrawTexture = function (texture, count, filter, textureWidth, textureHeight) {
-                if (count === void 0) {
-                    count = 2;
-                }
+                if (count === void 0) { count = 2; }
                 if (filter) {
                     var data = this.drawData[this.drawDataLen] || {};
                     data.type = 0;
@@ -2404,7 +2477,8 @@ if (window['HTMLVideoElement'] == undefined) {
                     data.textureHeight = textureHeight;
                     this.drawData[this.drawDataLen] = data;
                     this.drawDataLen++;
-                } else {
+                }
+                else {
                     if (this.drawDataLen == 0 || this.drawData[this.drawDataLen - 1].type != 0 || texture != this.drawData[this.drawDataLen - 1].texture || this.drawData[this.drawDataLen - 1].filter) {
                         var data = this.drawData[this.drawDataLen] || {};
                         data.type = 0;
@@ -2426,9 +2500,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 this.drawDataLen++;
             };
             WebGLDrawCmdManager.prototype.pushPushMask = function (count) {
-                if (count === void 0) {
-                    count = 1;
-                }
+                if (count === void 0) { count = 1; }
                 var data = this.drawData[this.drawDataLen] || {};
                 data.type = 2;
                 data.count = count * 2;
@@ -2436,9 +2508,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 this.drawDataLen++;
             };
             WebGLDrawCmdManager.prototype.pushPopMask = function (count) {
-                if (count === void 0) {
-                    count = 1;
-                }
+                if (count === void 0) { count = 1; }
                 var data = this.drawData[this.drawDataLen] || {};
                 data.type = 3;
                 data.count = count * 2;
@@ -2462,7 +2532,8 @@ if (window['HTMLVideoElement'] == undefined) {
                         if (data.type == 4) {
                             if (data.value == value) {
                                 return;
-                            } else {
+                            }
+                            else {
                                 break;
                             }
                         }
@@ -2549,7 +2620,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 this.drawDataLen = 0;
             };
             return WebGLDrawCmdManager;
-        }();
+        }());
         wxgame.WebGLDrawCmdManager = WebGLDrawCmdManager;
         __reflect(WebGLDrawCmdManager.prototype, "egret.wxgame.WebGLDrawCmdManager");
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -2558,7 +2629,7 @@ if (window['HTMLVideoElement'] == undefined) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebGLVertexArrayObject = function () {
+        var WebGLVertexArrayObject = (function () {
             function WebGLVertexArrayObject() {
                 this.vertSize = 5;
                 this.vertByteSize = this.vertSize * 4;
@@ -2593,12 +2664,8 @@ if (window['HTMLVideoElement'] == undefined) {
                 }
             }
             WebGLVertexArrayObject.prototype.reachMaxSize = function (vertexCount, indexCount) {
-                if (vertexCount === void 0) {
-                    vertexCount = 4;
-                }
-                if (indexCount === void 0) {
-                    indexCount = 6;
-                }
+                if (vertexCount === void 0) { vertexCount = 4; }
+                if (indexCount === void 0) { indexCount = 6; }
                 return this.vertexIndex > this.maxVertexCount - vertexCount || this.indexIndex > this.maxIndicesCount - indexCount;
             };
             WebGLVertexArrayObject.prototype.getVertices = function () {
@@ -2627,7 +2694,9 @@ if (window['HTMLVideoElement'] == undefined) {
                 alpha = Math.min(alpha, 1.0);
                 var globalTintColor = buffer.globalTintColor || 0xFFFFFF;
                 var currentTexture = buffer.currentTexture;
-                alpha = alpha < 1.0 && currentTexture && currentTexture[egret.UNPACK_PREMULTIPLY_ALPHA_WEBGL] ? egret.WebGLUtils.premultiplyTint(globalTintColor, alpha) : globalTintColor + (alpha * 255 << 24);
+                alpha = ((alpha < 1.0 && currentTexture && currentTexture[egret.UNPACK_PREMULTIPLY_ALPHA_WEBGL]) ?
+                    egret.WebGLUtils.premultiplyTint(globalTintColor, alpha)
+                    : globalTintColor + (alpha * 255 << 24));
                 var locWorldTransform = buffer.globalMatrix;
                 var a = locWorldTransform.a;
                 var b = locWorldTransform.b;
@@ -2663,13 +2732,8 @@ if (window['HTMLVideoElement'] == undefined) {
                         var vertices = this.vertices;
                         var verticesUint32View = this._verticesUint32View;
                         var index = this.vertexIndex * this.vertSize;
-                        var i = 0,
-                            iD = 0,
-                            l = 0;
-                        var u = 0,
-                            v = 0,
-                            x = 0,
-                            y = 0;
+                        var i = 0, iD = 0, l = 0;
+                        var u = 0, v = 0, x = 0, y = 0;
                         for (i = 0, l = meshUVs.length; i < l; i += 2) {
                             iD = index + i * 5 / 2;
                             x = meshVertices[i];
@@ -2677,9 +2741,20 @@ if (window['HTMLVideoElement'] == undefined) {
                             u = meshUVs[i];
                             v = meshUVs[i + 1];
                             if (rotated) {
-                                vertData.push([a * x + c * y + tx, b * x + d * y + ty, (sourceX + (1.0 - v) * sourceHeight) / textureSourceWidth, (sourceY + u * sourceWidth) / textureSourceHeight]);
-                            } else {
-                                vertData.push([a * x + c * y + tx, b * x + d * y + ty, (sourceX + u * sourceWidth) / textureSourceWidth, (sourceY + v * sourceHeight) / textureSourceHeight]);
+                                vertData.push([
+                                    a * x + c * y + tx,
+                                    b * x + d * y + ty,
+                                    (sourceX + (1.0 - v) * sourceHeight) / textureSourceWidth,
+                                    (sourceY + u * sourceWidth) / textureSourceHeight,
+                                ]);
+                            }
+                            else {
+                                vertData.push([
+                                    a * x + c * y + tx,
+                                    b * x + d * y + ty,
+                                    (sourceX + u * sourceWidth) / textureSourceWidth,
+                                    (sourceY + v * sourceHeight) / textureSourceHeight,
+                                ]);
                             }
                             verticesUint32View[iD + 4] = alpha;
                         }
@@ -2711,17 +2786,13 @@ if (window['HTMLVideoElement'] == undefined) {
                         var meshNum = meshIndices.length / 3;
                         this.vertexIndex += 4 * meshNum;
                         this.indexIndex += 6 * meshNum;
-                    } else {
+                    }
+                    else {
                         var vertices = this.vertices;
                         var verticesUint32View = this._verticesUint32View;
                         var index = this.vertexIndex * this.vertSize;
-                        var i = 0,
-                            iD = 0,
-                            l = 0;
-                        var u = 0,
-                            v = 0,
-                            x = 0,
-                            y = 0;
+                        var i = 0, iD = 0, l = 0;
+                        var u = 0, v = 0, x = 0, y = 0;
                         for (i = 0, l = meshUVs.length; i < l; i += 2) {
                             iD = index + i * 5 / 2;
                             x = meshVertices[i];
@@ -2733,7 +2804,8 @@ if (window['HTMLVideoElement'] == undefined) {
                             if (rotated) {
                                 vertices[iD + 2] = (sourceX + (1.0 - v) * sourceHeight) / textureSourceWidth;
                                 vertices[iD + 3] = (sourceY + u * sourceWidth) / textureSourceHeight;
-                            } else {
+                            }
+                            else {
                                 vertices[iD + 2] = (sourceX + u * sourceWidth) / textureSourceWidth;
                                 vertices[iD + 3] = (sourceY + v * sourceHeight) / textureSourceHeight;
                             }
@@ -2747,7 +2819,8 @@ if (window['HTMLVideoElement'] == undefined) {
                         this.vertexIndex += meshUVs.length / 2;
                         this.indexIndex += meshIndices.length;
                     }
-                } else {
+                }
+                else {
                     var width = textureSourceWidth;
                     var height = textureSourceHeight;
                     var w = sourceWidth;
@@ -2781,7 +2854,8 @@ if (window['HTMLVideoElement'] == undefined) {
                         vertices[index++] = sourceX;
                         vertices[index++] = sourceY;
                         verticesUint32View[index++] = alpha;
-                    } else {
+                    }
+                    else {
                         sourceWidth = sourceWidth / width;
                         sourceHeight = sourceHeight / height;
                         vertices[index++] = tx;
@@ -2824,11 +2898,14 @@ if (window['HTMLVideoElement'] == undefined) {
                 this.indexIndex = 0;
             };
             return WebGLVertexArrayObject;
-        }();
+        }());
         wxgame.WebGLVertexArrayObject = WebGLVertexArrayObject;
         __reflect(WebGLVertexArrayObject.prototype, "egret.wxgame.WebGLVertexArrayObject");
         function isIOS14Device() {
-            return egret.Capabilities.runtimeType == egret.RuntimeType.WEB && egret.Capabilities.os == "iOS" && egret.Capabilities.isMobile && /iPhone OS 14/.test(window.navigator.userAgent);
+            return egret.Capabilities.runtimeType == egret.RuntimeType.WEB
+                && egret.Capabilities.os == "iOS"
+                && egret.Capabilities.isMobile
+                && /iPhone OS 14/.test(window.navigator.userAgent);
         }
         wxgame.isIOS14Device = isIOS14Device;
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -2837,7 +2914,7 @@ if (window['HTMLVideoElement'] == undefined) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebGLRenderTarget = function (_super) {
+        var WebGLRenderTarget = (function (_super) {
             __extends(WebGLRenderTarget, _super);
             function WebGLRenderTarget(gl, width, height) {
                 var _this = _super.call(this) || this;
@@ -2924,7 +3001,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 egret.WebGLUtils.deleteWebGLTexture(this.texture);
             };
             return WebGLRenderTarget;
-        }(egret.HashObject);
+        }(egret.HashObject));
         wxgame.WebGLRenderTarget = WebGLRenderTarget;
         __reflect(WebGLRenderTarget.prototype, "egret.wxgame.WebGLRenderTarget");
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -2934,7 +3011,7 @@ if (window['HTMLVideoElement'] == undefined) {
     var wxgame;
     (function (wxgame) {
         var debugLogCompressedTextureNotSupported = {};
-        var WebGLRenderContext = function () {
+        var WebGLRenderContext = (function () {
             function WebGLRenderContext(width, height, context) {
                 this._defaultEmptyTexture = null;
                 this.glID = null;
@@ -2983,7 +3060,8 @@ if (window['HTMLVideoElement'] == undefined) {
             WebGLRenderContext.prototype.pushBuffer = function (buffer) {
                 this.$bufferStack.push(buffer);
                 if (buffer != this.currentBuffer) {
-                    if (this.currentBuffer) {}
+                    if (this.currentBuffer) {
+                    }
                     this.drawCmdManager.pushActivateBuffer(buffer);
                 }
                 this.currentBuffer = buffer;
@@ -3041,7 +3119,7 @@ if (window['HTMLVideoElement'] == undefined) {
                     }
                     var info = {
                         extensionName: extension.name,
-                        supportedFormats: []
+                        supportedFormats: [],
                     };
                     for (var key in extension) {
                         info.supportedFormats.push([key, extension[key]]);
@@ -3049,7 +3127,8 @@ if (window['HTMLVideoElement'] == undefined) {
                     if (true) {
                         if (info.supportedFormats.length === 0) {
                             console.error("buildSupportedCompressedTextureInfo failed = " + extension.name);
-                        } else {
+                        }
+                        else {
                             egret.log("support: " + extension.name);
                             for (var key in extension) {
                                 egret.log(key, extension[key], "0x" + extension[key].toString(16));
@@ -3069,25 +3148,39 @@ if (window['HTMLVideoElement'] == undefined) {
                 this.$maxTextureSize = gl.getParameter(gl.MAX_TEXTURE_SIZE);
             };
             WebGLRenderContext.prototype.getSupportedCompressedTexture = function () {
-                var gl = this.context ? this.context : egret.sys.getContextWebGL(this.surface);
-                this.pvrtc = gl.getExtension("WEBGL_compressed_texture_pvrtc") || gl.getExtension("WEBKIT_WEBGL_compressed_texture_pvrtc");
+                var gl = this.context
+                    ? this.context
+                    : egret.sys.getContextWebGL(this.surface);
+                this.pvrtc =
+                    gl.getExtension("WEBGL_compressed_texture_pvrtc") ||
+                        gl.getExtension("WEBKIT_WEBGL_compressed_texture_pvrtc");
                 if (this.pvrtc) {
                     this.pvrtc.name = "WEBGL_compressed_texture_pvrtc";
                 }
-                this.etc1 = gl.getExtension("WEBGL_compressed_texture_etc1") || gl.getExtension("WEBKIT_WEBGL_compressed_texture_etc1");
+                this.etc1 =
+                    gl.getExtension("WEBGL_compressed_texture_etc1") ||
+                        gl.getExtension("WEBKIT_WEBGL_compressed_texture_etc1");
                 if (this.etc1) {
                     this.etc1.name = "WEBGL_compressed_texture_etc1";
                 }
                 if (egret.Capabilities._supportedCompressedTexture) {
-                    egret.Capabilities._supportedCompressedTexture = egret.Capabilities._supportedCompressedTexture || {};
+                    egret.Capabilities._supportedCompressedTexture =
+                        egret.Capabilities._supportedCompressedTexture ||
+                            {};
                     egret.Capabilities._supportedCompressedTexture.pvrtc = !!this.pvrtc;
                     egret.Capabilities._supportedCompressedTexture.etc1 = !!this.etc1;
-                } else {
-                    egret.Capabilities["supportedCompressedTexture"] = egret.Capabilities._supportedCompressedTexture || {};
-                    egret.Capabilities["supportedCompressedTexture"].pvrtc = !!this.pvrtc;
-                    egret.Capabilities["supportedCompressedTexture"].etc1 = !!this.etc1;
                 }
-                this._supportedCompressedTextureInfo = this._buildSupportedCompressedTextureInfo([this.etc1, this.pvrtc]);
+                else {
+                    egret.Capabilities["supportedCompressedTexture"] =
+                        egret.Capabilities._supportedCompressedTexture ||
+                            {};
+                    egret.Capabilities["supportedCompressedTexture"].pvrtc =
+                        !!this.pvrtc;
+                    egret.Capabilities["supportedCompressedTexture"].etc1 =
+                        !!this.etc1;
+                }
+                this._supportedCompressedTextureInfo =
+                    this._buildSupportedCompressedTextureInfo([this.etc1, this.pvrtc]);
             };
             WebGLRenderContext.prototype.handleContextLost = function () {
                 this.contextLost = true;
@@ -3150,7 +3243,11 @@ if (window['HTMLVideoElement'] == undefined) {
             WebGLRenderContext.prototype.$debugLogCompressedTextureNotSupported = function (supportedCompressedTextureInfo, internalFormat) {
                 if (!debugLogCompressedTextureNotSupported[internalFormat]) {
                     debugLogCompressedTextureNotSupported[internalFormat] = true;
-                    egret.log("internalFormat = " + internalFormat + ":" + ("0x" + internalFormat.toString(16)) + ", the current hardware does not support the corresponding compression format.");
+                    egret.log("internalFormat = " +
+                        internalFormat +
+                        ":" +
+                        ("0x" + internalFormat.toString(16)) +
+                        ", the current hardware does not support the corresponding compression format.");
                     for (var i = 0, length_3 = supportedCompressedTextureInfo.length; i < length_3; ++i) {
                         var ss = supportedCompressedTextureInfo[i];
                         if (ss.supportedFormats.length > 0) {
@@ -3214,7 +3311,8 @@ if (window['HTMLVideoElement'] == undefined) {
                 if (!bitmapData.webGLTexture) {
                     if (bitmapData.format == "image" && !bitmapData.hasCompressed2d()) {
                         bitmapData.webGLTexture = this.createTexture(bitmapData.source);
-                    } else if (bitmapData.hasCompressed2d()) {
+                    }
+                    else if (bitmapData.hasCompressed2d()) {
                         var compressedData = bitmapData.getCompressed2dTextureData();
                         bitmapData.webGLTexture = this.createCompressedTexture(compressedData.byteArray, compressedData.width, compressedData.height, compressedData.level, compressedData.glInternalFormat);
                         var etcAlphaMask = bitmapData.etcAlphaMask;
@@ -3239,13 +3337,17 @@ if (window['HTMLVideoElement'] == undefined) {
                 return bitmapData.webGLTexture;
             };
             WebGLRenderContext.prototype.clearRect = function (x, y, width, height) {
-                if (x != 0 || y != 0 || width != this.surface.width || height != this.surface.height) {
+                if (x != 0 ||
+                    y != 0 ||
+                    width != this.surface.width ||
+                    height != this.surface.height) {
                     var buffer = this.currentBuffer;
                     if (buffer.$hasScissor) {
                         this.setGlobalCompositeOperation("destination-out");
                         this.drawRect(x, y, width, height);
                         this.setGlobalCompositeOperation("source-over");
-                    } else {
+                    }
+                    else {
                         var m = buffer.globalMatrix;
                         if (m.b == 0 && m.c == 0) {
                             x = x * m.a + m.tx;
@@ -3255,13 +3357,15 @@ if (window['HTMLVideoElement'] == undefined) {
                             this.enableScissor(x, -y - height + buffer.height, width, height);
                             this.clear();
                             this.disableScissor();
-                        } else {
+                        }
+                        else {
                             this.setGlobalCompositeOperation("destination-out");
                             this.drawRect(x, y, width, height);
                             this.setGlobalCompositeOperation("source-over");
                         }
                     }
-                } else {
+                }
+                else {
                     this.clear();
                 }
             };
@@ -3276,16 +3380,18 @@ if (window['HTMLVideoElement'] == undefined) {
                 var texture;
                 var offsetX;
                 var offsetY;
-                if (image["texture"] || image.source && image.source["texture"]) {
+                if (image["texture"] || (image.source && image.source["texture"])) {
                     texture = image["texture"] || image.source["texture"];
                     buffer.saveTransform();
                     offsetX = buffer.$offsetX;
                     offsetY = buffer.$offsetY;
                     buffer.useOffset();
                     buffer.transform(1, 0, 0, -1, 0, destHeight + destY * 2);
-                } else if (!image.source && !image.webGLTexture) {
+                }
+                else if (!image.source && !image.webGLTexture) {
                     return;
-                } else {
+                }
+                else {
                     texture = this.getWebGLTexture(image);
                 }
                 if (!texture) {
@@ -3306,23 +3412,25 @@ if (window['HTMLVideoElement'] == undefined) {
                 var texture;
                 var offsetX;
                 var offsetY;
-                if (image["texture"] || image.source && image.source["texture"]) {
+                if (image["texture"] || (image.source && image.source["texture"])) {
                     texture = image["texture"] || image.source["texture"];
                     buffer.saveTransform();
                     offsetX = buffer.$offsetX;
                     offsetY = buffer.$offsetY;
                     buffer.useOffset();
                     buffer.transform(1, 0, 0, -1, 0, destHeight + destY * 2);
-                } else if (!image.source && !image.webGLTexture) {
+                }
+                else if (!image.source && !image.webGLTexture) {
                     return;
-                } else {
+                }
+                else {
                     texture = this.getWebGLTexture(image);
                 }
                 if (!texture) {
                     return;
                 }
                 this.drawTexture(texture, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, imageSourceWidth, imageSourceHeight, meshUVs, meshVertices, meshIndices, bounds, rotated, smoothing);
-                if (image["texture"] || image.source && image.source["texture"]) {
+                if (image["texture"] || (image.source && image.source["texture"])) {
                     buffer.$offsetX = offsetX;
                     buffer.$offsetY = offsetY;
                     buffer.restoreTransform();
@@ -3335,12 +3443,13 @@ if (window['HTMLVideoElement'] == undefined) {
                 }
                 var count;
                 if (wxgame.isIOS14Device()) {
-                    var meshNum = meshIndices && meshIndices.length / 3 || 0;
+                    var meshNum = (meshIndices && meshIndices.length / 3) || 0;
                     if (meshIndices) {
                         if (this.vao.reachMaxSize(meshNum * 4, meshNum * 6)) {
                             this.$drawWebGL();
                         }
-                    } else {
+                    }
+                    else {
                         if (this.vao.reachMaxSize()) {
                             this.$drawWebGL();
                         }
@@ -3349,12 +3458,14 @@ if (window['HTMLVideoElement'] == undefined) {
                         this.drawCmdManager.pushChangeSmoothing(texture, smoothing);
                     }
                     count = meshIndices ? meshNum * 2 : 2;
-                } else {
+                }
+                else {
                     if (meshVertices && meshIndices) {
                         if (this.vao.reachMaxSize(meshVertices.length / 2, meshIndices.length)) {
                             this.$drawWebGL();
                         }
-                    } else {
+                    }
+                    else {
                         if (this.vao.reachMaxSize()) {
                             this.$drawWebGL();
                         }
@@ -3438,7 +3549,10 @@ if (window['HTMLVideoElement'] == undefined) {
                     if (data.type == 7) {
                         this.activatedBuffer = data.buffer;
                     }
-                    if (data.type == 0 || data.type == 1 || data.type == 2 || data.type == 3) {
+                    if (data.type == 0 ||
+                        data.type == 1 ||
+                        data.type == 2 ||
+                        data.type == 3) {
                         if (this.activatedBuffer && this.activatedBuffer.$computeDrawCall) {
                             this.activatedBuffer.$drawCalls++;
                         }
@@ -3462,27 +3576,34 @@ if (window['HTMLVideoElement'] == undefined) {
                         if (filter) {
                             if (filter.type === "custom") {
                                 program = wxgame.EgretWebGLProgram.getProgram(gl, filter.$vertexSrc, filter.$fragmentSrc, filter.$shaderKey);
-                            } else if (filter.type === "colorTransform") {
+                            }
+                            else if (filter.type === "colorTransform") {
                                 if (data.texture[egret.etc_alpha_mask]) {
                                     gl.activeTexture(gl.TEXTURE1);
                                     gl.bindTexture(gl.TEXTURE_2D, data.texture[egret.etc_alpha_mask]);
                                     program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.colorTransform_frag_etc_alphamask_frag, "colorTransform_frag_etc_alphamask_frag");
-                                } else {
+                                }
+                                else {
                                     program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.colorTransform_frag, "colorTransform");
                                 }
-                            } else if (filter.type === "blurX") {
+                            }
+                            else if (filter.type === "blurX") {
                                 program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.blur_frag, "blur");
-                            } else if (filter.type === "blurY") {
+                            }
+                            else if (filter.type === "blurY") {
                                 program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.blur_frag, "blur");
-                            } else if (filter.type === "glow") {
+                            }
+                            else if (filter.type === "glow") {
                                 program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.glow_frag, "glow");
                             }
-                        } else {
+                        }
+                        else {
                             if (data.texture[egret.etc_alpha_mask]) {
                                 program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.texture_etc_alphamask_frag, egret.etc_alpha_mask);
                                 gl.activeTexture(gl.TEXTURE1);
                                 gl.bindTexture(gl.TEXTURE_2D, data.texture[egret.etc_alpha_mask]);
-                            } else {
+                            }
+                            else {
                                 program = wxgame.EgretWebGLProgram.getProgram(gl, wxgame.EgretShaderLib.default_vert, wxgame.EgretShaderLib.texture_frag, "texture");
                             }
                         }
@@ -3546,7 +3667,8 @@ if (window['HTMLVideoElement'] == undefined) {
                         if (data.smoothing) {
                             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
                             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-                        } else {
+                        }
+                        else {
                             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
                             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
                         }
@@ -3557,17 +3679,20 @@ if (window['HTMLVideoElement'] == undefined) {
                 return offset;
             };
             WebGLRenderContext.prototype.activeProgram = function (gl, program) {
-                if (egret.pro && egret.pro.egret2dDriveMode || program != this.currentProgram) {
+                if ((egret.pro && egret.pro.egret2dDriveMode) ||
+                    program != this.currentProgram) {
                     gl.useProgram(program.id);
                     var attribute = program.attributes;
                     for (var key in attribute) {
                         if (key === "aVertexPosition") {
                             gl.vertexAttribPointer(attribute["aVertexPosition"].location, 2, gl.FLOAT, false, 5 * 4, 0);
                             gl.enableVertexAttribArray(attribute["aVertexPosition"].location);
-                        } else if (key === "aTextureCoord") {
+                        }
+                        else if (key === "aTextureCoord") {
                             gl.vertexAttribPointer(attribute["aTextureCoord"].location, 2, gl.FLOAT, false, 5 * 4, 2 * 4);
                             gl.enableVertexAttribArray(attribute["aTextureCoord"].location);
-                        } else if (key === "aColor") {
+                        }
+                        else if (key === "aColor") {
                             gl.vertexAttribPointer(attribute["aColor"].location, 4, gl.UNSIGNED_BYTE, true, 5 * 4, 4 * 4);
                             gl.enableVertexAttribArray(attribute["aColor"].location);
                         }
@@ -3584,28 +3709,45 @@ if (window['HTMLVideoElement'] == undefined) {
                     }
                     if (key === "projectionVector") {
                         uniforms[key].setValue({ x: this.projectionX, y: this.projectionY });
-                    } else if (key === "uTextureSize") {
+                    }
+                    else if (key === "uTextureSize") {
                         uniforms[key].setValue({ x: textureWidth, y: textureHeight });
-                    } else if (key === "uSampler") {
+                    }
+                    else if (key === "uSampler") {
                         uniforms[key].setValue(0);
-                    } else if (key === "uSamplerAlphaMask") {
+                    }
+                    else if (key === "uSamplerAlphaMask") {
                         uniforms[key].setValue(1);
-                    } else {
+                    }
+                    else {
                         var value = filter.$uniforms[key];
                         if (value !== undefined) {
                             if (filter.type == "glow" || filter.type.indexOf("blur") == 0) {
                                 if (key == "blurX" || key == "blurY" || key == "dist") {
                                     value = value * (filter.$uniforms.$filterScale || 1);
-                                } else if (key == "blur" && value.x != undefined && value.y != undefined) {
+                                }
+                                else if (key == "blur" &&
+                                    value.x != undefined &&
+                                    value.y != undefined) {
                                     var newValue = { x: 0, y: 0 };
-                                    newValue.x = value.x * (filter.$uniforms.$filterScale != undefined ? filter.$uniforms.$filterScale : 1);
-                                    newValue.y = value.y * (filter.$uniforms.$filterScale != undefined ? filter.$uniforms.$filterScale : 1);
+                                    newValue.x =
+                                        value.x *
+                                            (filter.$uniforms.$filterScale != undefined
+                                                ? filter.$uniforms.$filterScale
+                                                : 1);
+                                    newValue.y =
+                                        value.y *
+                                            (filter.$uniforms.$filterScale != undefined
+                                                ? filter.$uniforms.$filterScale
+                                                : 1);
                                     uniforms[key].setValue(newValue);
                                     continue;
                                 }
                             }
                             uniforms[key].setValue(value);
-                        } else {}
+                        }
+                        else {
+                        }
                     }
                 }
             };
@@ -3650,7 +3792,8 @@ if (window['HTMLVideoElement'] == undefined) {
                     buffer.stencilHandleCount--;
                     if (buffer.stencilHandleCount == 0) {
                         buffer.disableStencil();
-                    } else {
+                    }
+                    else {
                         var level = buffer.stencilHandleCount;
                         gl.colorMask(false, false, false, false);
                         gl.stencilFunc(gl.EQUAL, level + 1, 0xff);
@@ -3671,9 +3814,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 }
             };
             WebGLRenderContext.prototype.drawTargetWidthFilters = function (filters, input) {
-                var originInput = input,
-                    filtersLen = filters.length,
-                    output;
+                var originInput = input, filtersLen = filters.length, output;
                 if (filtersLen > 1) {
                     for (var i = 0; i < filtersLen - 1; i++) {
                         var filter_1 = filters[i];
@@ -3704,10 +3845,7 @@ if (window['HTMLVideoElement'] == undefined) {
                     this.$drawWebGL();
                 }
                 this.pushBuffer(output);
-                var originInput = input,
-                    temp,
-                    width = input.rootRenderTarget.width,
-                    height = input.rootRenderTarget.height;
+                var originInput = input, temp, width = input.rootRenderTarget.width, height = input.rootRenderTarget.height;
                 if (filter.type == "blur") {
                     var blurXFilter = filter.blurXFilter;
                     var blurYFilter = filter.blurYFilter;
@@ -3723,7 +3861,8 @@ if (window['HTMLVideoElement'] == undefined) {
                         }
                         input = temp;
                         filter = blurYFilter;
-                    } else {
+                    }
+                    else {
                         filter = blurXFilter.blurX === 0 ? blurYFilter : blurXFilter;
                     }
                 }
@@ -3751,7 +3890,7 @@ if (window['HTMLVideoElement'] == undefined) {
             WebGLRenderContext.glContextId = 0;
             WebGLRenderContext.blendModesForGL = null;
             return WebGLRenderContext;
-        }();
+        }());
         wxgame.WebGLRenderContext = WebGLRenderContext;
         __reflect(WebGLRenderContext.prototype, "egret.wxgame.WebGLRenderContext", ["egret.sys.RenderContext"]);
         WebGLRenderContext.initBlendMode();
@@ -3762,7 +3901,7 @@ if (window['HTMLVideoElement'] == undefined) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var WebGLRenderBuffer = function (_super) {
+        var WebGLRenderBuffer = (function (_super) {
             __extends(WebGLRenderBuffer, _super);
             function WebGLRenderBuffer(width, height, root) {
                 var _this = _super.call(this) || this;
@@ -3785,7 +3924,8 @@ if (window['HTMLVideoElement'] == undefined) {
                 if (egret.nativeRender) {
                     if (root) {
                         _this.surface = _this.context.surface;
-                    } else {
+                    }
+                    else {
                         _this.surface = new egret_native.NativeRenderSurface(_this, width, height, root);
                     }
                     _this.rootRenderTarget = null;
@@ -3800,7 +3940,8 @@ if (window['HTMLVideoElement'] == undefined) {
                     _this.context.pushBuffer(_this);
                     _this.surface = _this.context.surface;
                     _this.$computeDrawCall = true;
-                } else {
+                }
+                else {
                     var lastBuffer = _this.context.activatedBuffer;
                     if (lastBuffer) {
                         lastBuffer.rootRenderTarget.activate();
@@ -3825,7 +3966,8 @@ if (window['HTMLVideoElement'] == undefined) {
             WebGLRenderBuffer.prototype.restoreStencil = function () {
                 if (this.stencilState) {
                     this.context.enableStencilTest();
-                } else {
+                }
+                else {
                     this.context.disableStencilTest();
                 }
             };
@@ -3846,7 +3988,8 @@ if (window['HTMLVideoElement'] == undefined) {
             WebGLRenderBuffer.prototype.restoreScissor = function () {
                 if (this.$scissorState) {
                     this.context.enableScissorTest(this.scissorRect);
-                } else {
+                }
+                else {
                     this.context.disableScissorTest();
                 }
             };
@@ -3854,7 +3997,8 @@ if (window['HTMLVideoElement'] == undefined) {
                 get: function () {
                     if (egret.nativeRender) {
                         return this.surface.width;
-                    } else {
+                    }
+                    else {
                         return this.rootRenderTarget.width;
                     }
                 },
@@ -3865,7 +4009,8 @@ if (window['HTMLVideoElement'] == undefined) {
                 get: function () {
                     if (egret.nativeRender) {
                         return this.surface.height;
-                    } else {
+                    }
+                    else {
                         return this.rootRenderTarget.height;
                     }
                 },
@@ -3892,18 +4037,15 @@ if (window['HTMLVideoElement'] == undefined) {
                 this.context.popBuffer();
             };
             WebGLRenderBuffer.prototype.getPixels = function (x, y, width, height) {
-                if (width === void 0) {
-                    width = 1;
-                }
-                if (height === void 0) {
-                    height = 1;
-                }
+                if (width === void 0) { width = 1; }
+                if (height === void 0) { height = 1; }
                 var pixels = new Uint8Array(4 * width * height);
                 if (egret.nativeRender) {
                     egret_native.activateBuffer(this);
                     egret_native.nrGetPixels(x, y, width, height, pixels);
                     egret_native.activateBuffer(null);
-                } else {
+                }
+                else {
                     var useFrameBuffer = this.rootRenderTarget.useFrameBuffer;
                     this.rootRenderTarget.useFrameBuffer = true;
                     this.rootRenderTarget.activate();
@@ -3935,9 +4077,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 this.$drawCalls = 0;
             };
             WebGLRenderBuffer.prototype.drawFrameBufferToSurface = function (sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, clear) {
-                if (clear === void 0) {
-                    clear = false;
-                }
+                if (clear === void 0) { clear = false; }
                 this.rootRenderTarget.useFrameBuffer = false;
                 this.rootRenderTarget.activate();
                 this.context.disableStencilTest();
@@ -3954,9 +4094,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 this.restoreScissor();
             };
             WebGLRenderBuffer.prototype.drawSurfaceToFrameBuffer = function (sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, clear) {
-                if (clear === void 0) {
-                    clear = false;
-                }
+                if (clear === void 0) { clear = false; }
                 this.rootRenderTarget.useFrameBuffer = true;
                 this.rootRenderTarget.activate();
                 this.context.disableStencilTest();
@@ -4042,7 +4180,8 @@ if (window['HTMLVideoElement'] == undefined) {
                     buffer.globalAlpha = 1;
                     buffer.$offsetX = 0;
                     buffer.$offsetY = 0;
-                } else {
+                }
+                else {
                     buffer = new WebGLRenderBuffer(width, height);
                     buffer.$computeDrawCall = false;
                 }
@@ -4053,7 +4192,7 @@ if (window['HTMLVideoElement'] == undefined) {
             };
             WebGLRenderBuffer.autoClear = true;
             return WebGLRenderBuffer;
-        }(egret.HashObject);
+        }(egret.HashObject));
         wxgame.WebGLRenderBuffer = WebGLRenderBuffer;
         __reflect(WebGLRenderBuffer.prototype, "egret.wxgame.WebGLRenderBuffer", ["egret.sys.RenderBuffer"]);
         var renderBufferPool = [];
@@ -4068,7 +4207,7 @@ if (window['HTMLVideoElement'] == undefined) {
         var BLACK_COLOR = "#000000";
         var CAPS_STYLES = { none: 'butt', square: 'square', round: 'round' };
         var renderBufferPool = [];
-        var WebGLRenderer = function () {
+        var WebGLRenderer = (function () {
             function WebGLRenderer() {
                 this.wxiOS10 = false;
                 this.nestLevel = 0;
@@ -4106,14 +4245,18 @@ if (window['HTMLVideoElement'] == undefined) {
                 var node;
                 var displayList = displayObject.$displayList;
                 if (displayList && !isStage) {
-                    if (displayObject.$cacheDirty || displayObject.$renderDirty || displayList.$canvasScaleX != egret.sys.DisplayList.$canvasScaleX || displayList.$canvasScaleY != egret.sys.DisplayList.$canvasScaleY) {
+                    if (displayObject.$cacheDirty || displayObject.$renderDirty ||
+                        displayList.$canvasScaleX != egret.sys.DisplayList.$canvasScaleX ||
+                        displayList.$canvasScaleY != egret.sys.DisplayList.$canvasScaleY) {
                         drawCalls += displayList.drawToSurface();
                     }
                     node = displayList.$renderNode;
-                } else {
+                }
+                else {
                     if (displayObject.$renderDirty) {
                         node = displayObject.$getRenderNode();
-                    } else {
+                    }
+                    else {
                         node = displayObject.$renderNode;
                     }
                 }
@@ -4184,7 +4327,8 @@ if (window['HTMLVideoElement'] == undefined) {
                             buffer.transform(m.a, m.b, m.c, m.d, offsetX2, offsetY2);
                             offsetX2 = -child.$anchorOffsetX;
                             offsetY2 = -child.$anchorOffsetY;
-                        } else {
+                        }
+                        else {
                             offsetX2 = offsetX + child.$x - child.$anchorOffsetX;
                             offsetY2 = offsetY + child.$y - child.$anchorOffsetY;
                         }
@@ -4230,7 +4374,7 @@ if (window['HTMLVideoElement'] == undefined) {
                     return drawCalls;
                 }
                 var filters = displayObject.$filters;
-                var hasBlendMode = displayObject.$blendMode !== 0;
+                var hasBlendMode = (displayObject.$blendMode !== 0);
                 var compositeOp;
                 if (hasBlendMode) {
                     compositeOp = blendModes[displayObject.$blendMode];
@@ -4246,7 +4390,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 if (displayBoundsWidth <= 0 || displayBoundsHeight <= 0) {
                     return drawCalls;
                 }
-                if (!displayObject.mask && filters.length == 1 && (filters[0].type == "colorTransform" || filters[0].type === "custom" && filters[0].padding === 0)) {
+                if (!displayObject.mask && filters.length == 1 && (filters[0].type == "colorTransform" || (filters[0].type === "custom" && filters[0].padding === 0))) {
                     var childrenDrawCount = this.getRenderCount(displayObject);
                     if (!displayObject.$children || childrenDrawCount == 1) {
                         if (hasBlendMode) {
@@ -4255,9 +4399,11 @@ if (window['HTMLVideoElement'] == undefined) {
                         buffer.context.$filter = filters[0];
                         if (displayObject.$mask) {
                             drawCalls += this.drawWithClip(displayObject, buffer, offsetX, offsetY);
-                        } else if (displayObject.$scrollRect || displayObject.$maskRect) {
+                        }
+                        else if (displayObject.$scrollRect || displayObject.$maskRect) {
                             drawCalls += this.drawWithScrollRect(displayObject, buffer, offsetX, offsetY);
-                        } else {
+                        }
+                        else {
                             drawCalls += this.drawDisplayObject(displayObject, buffer, offsetX, offsetY);
                         }
                         buffer.context.$filter = null;
@@ -4284,9 +4430,11 @@ if (window['HTMLVideoElement'] == undefined) {
                 displayBuffer.context.pushBuffer(displayBuffer);
                 if (displayObject.$mask) {
                     drawCalls += this.drawWithClip(displayObject, displayBuffer, -displayBoundsX, -displayBoundsY);
-                } else if (displayObject.$scrollRect || displayObject.$maskRect) {
+                }
+                else if (displayObject.$scrollRect || displayObject.$maskRect) {
                     drawCalls += this.drawWithScrollRect(displayObject, displayBuffer, -displayBoundsX, -displayBoundsY);
-                } else {
+                }
+                else {
                     drawCalls += this.drawDisplayObject(displayObject, displayBuffer, -displayBoundsX, -displayBoundsY);
                 }
                 displayBuffer.context.popBuffer();
@@ -4334,9 +4482,11 @@ if (window['HTMLVideoElement'] == undefined) {
                         var filters = child.$filters;
                         if (filters && filters.length > 0) {
                             return 2;
-                        } else if (child.$children) {
+                        }
+                        else if (child.$children) {
                             drawCount += this.getRenderCount(child);
-                        } else {
+                        }
+                        else {
                             var node_1 = child.$getRenderNode();
                             if (node_1) {
                                 drawCount += node_1.$getRenderCount();
@@ -4348,7 +4498,7 @@ if (window['HTMLVideoElement'] == undefined) {
             };
             WebGLRenderer.prototype.drawWithClip = function (displayObject, buffer, offsetX, offsetY) {
                 var drawCalls = 0;
-                var hasBlendMode = displayObject.$blendMode !== 0;
+                var hasBlendMode = (displayObject.$blendMode !== 0);
                 var compositeOp;
                 if (hasBlendMode) {
                     compositeOp = blendModes[displayObject.$blendMode];
@@ -4360,7 +4510,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 var mask = displayObject.$mask;
                 if (mask) {
                     var maskRenderMatrix = mask.$getMatrix();
-                    if (maskRenderMatrix.a == 0 && maskRenderMatrix.b == 0 || maskRenderMatrix.c == 0 && maskRenderMatrix.d == 0) {
+                    if ((maskRenderMatrix.a == 0 && maskRenderMatrix.b == 0) || (maskRenderMatrix.c == 0 && maskRenderMatrix.d == 0)) {
                         return drawCalls;
                     }
                 }
@@ -4379,7 +4529,8 @@ if (window['HTMLVideoElement'] == undefined) {
                         buffer.context.popMask();
                     }
                     return drawCalls;
-                } else {
+                }
+                else {
                     var displayBounds = displayObject.$getOriginalBounds();
                     var displayBoundsX = displayBounds.x;
                     var displayBoundsY = displayBounds.y;
@@ -4468,7 +4619,8 @@ if (window['HTMLVideoElement'] == undefined) {
                 var scissor = false;
                 if (buffer.$hasScissor || m.b != 0 || m.c != 0) {
                     buffer.context.pushMask(scrollRect.x + offsetX, scrollRect.y + offsetY, scrollRect.width, scrollRect.height);
-                } else {
+                }
+                else {
                     var a = m.a;
                     var d = m.d;
                     var tx = m.tx;
@@ -4477,16 +4629,14 @@ if (window['HTMLVideoElement'] == undefined) {
                     var y = scrollRect.y + offsetY;
                     var xMax = x + scrollRect.width;
                     var yMax = y + scrollRect.height;
-                    var minX = void 0,
-                        minY = void 0,
-                        maxX = void 0,
-                        maxY = void 0;
+                    var minX = void 0, minY = void 0, maxX = void 0, maxY = void 0;
                     if (a == 1.0 && d == 1.0) {
                         minX = x + tx;
                         minY = y + ty;
                         maxX = xMax + tx;
                         maxY = yMax + ty;
-                    } else {
+                    }
+                    else {
                         var x0 = a * x + tx;
                         var y0 = d * y + ty;
                         var x1 = a * xMax + tx;
@@ -4506,8 +4656,8 @@ if (window['HTMLVideoElement'] == undefined) {
                             x2 = x3;
                             x3 = tmp;
                         }
-                        minX = x0 < x2 ? x0 : x2;
-                        maxX = x1 > x3 ? x1 : x3;
+                        minX = (x0 < x2 ? x0 : x2);
+                        maxX = (x1 > x3 ? x1 : x3);
                         if (y0 > y1) {
                             tmp = y0;
                             y0 = y1;
@@ -4518,8 +4668,8 @@ if (window['HTMLVideoElement'] == undefined) {
                             y2 = y3;
                             y3 = tmp;
                         }
-                        minY = y0 < y2 ? y0 : y2;
-                        maxY = y1 > y3 ? y1 : y3;
+                        minY = (y0 < y2 ? y0 : y2);
+                        maxY = (y1 > y3 ? y1 : y3);
                     }
                     context.enableScissor(minX, -maxY + buffer.height, maxX - minX, maxY - minY);
                     scissor = true;
@@ -4527,7 +4677,8 @@ if (window['HTMLVideoElement'] == undefined) {
                 drawCalls += this.drawDisplayObject(displayObject, buffer, offsetX, offsetY);
                 if (scissor) {
                     context.disableScissor();
-                } else {
+                }
+                else {
                     context.popMask();
                 }
                 return drawCalls;
@@ -4549,7 +4700,8 @@ if (window['HTMLVideoElement'] == undefined) {
                 var node;
                 if (displayObject.$renderDirty) {
                     node = displayObject.$getRenderNode();
-                } else {
+                }
+                else {
                     node = displayObject.$renderNode;
                 }
                 var drawCalls = 0;
@@ -4677,7 +4829,8 @@ if (window['HTMLVideoElement'] == undefined) {
                         buffer.context.drawImage(image, data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], node.imageWidth, node.imageHeight, node.rotated, node.smoothing);
                     }
                     buffer.context.$filter = null;
-                } else {
+                }
+                else {
                     while (pos < length) {
                         buffer.context.drawImage(image, data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], node.imageWidth, node.imageHeight, node.rotated, node.smoothing);
                     }
@@ -4740,7 +4893,8 @@ if (window['HTMLVideoElement'] == undefined) {
                         buffer.context.drawMesh(image, data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], node.imageWidth, node.imageHeight, node.uvs, node.vertices, node.indices, node.bounds, node.rotated, node.smoothing);
                     }
                     buffer.context.$filter = null;
-                } else {
+                }
+                else {
                     while (pos < length) {
                         buffer.context.drawMesh(image, data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], node.imageWidth, node.imageHeight, node.uvs, node.vertices, node.indices, node.bounds, node.rotated, node.smoothing);
                     }
@@ -4818,7 +4972,7 @@ if (window['HTMLVideoElement'] == undefined) {
                             buffer.$offsetY = saveOffsetY + anchorY - (tb.measureHeight + (tb.stroke2 ? tb.canvasHeightOffset : 0)) / 2;
                             page = tb.line.page;
                             buffer.context.drawTexture(page.webGLTexture, tb.u, tb.v, tb.contentWidth, tb.contentHeight, 0, 0, tb.contentWidth, tb.contentHeight, page.pageWidth, page.pageHeight);
-                            buffer.$offsetX += tb.contentWidth - tb.canvasWidthOffset;
+                            buffer.$offsetX += (tb.contentWidth - tb.canvasWidthOffset);
                         }
                     }
                     buffer.$offsetX = saveOffsetX;
@@ -4864,11 +5018,13 @@ if (window['HTMLVideoElement'] == undefined) {
                     if (node.dirtyRender) {
                         this.canvasRenderBuffer = new wxgame.CanvasRenderBuffer(width, height);
                     }
-                } else {
+                }
+                else {
                     if (!this.canvasRenderBuffer || !this.canvasRenderBuffer.context) {
                         this.canvasRenderer = new egret.CanvasRenderer();
                         this.canvasRenderBuffer = new wxgame.CanvasRenderBuffer(width, height);
-                    } else if (node.dirtyRender) {
+                    }
+                    else if (node.dirtyRender) {
                         this.canvasRenderBuffer.resize(width, height);
                     }
                 }
@@ -4883,7 +5039,8 @@ if (window['HTMLVideoElement'] == undefined) {
                         this.canvasRenderBuffer.context.setTransform(canvasScaleX, 0, 0, canvasScaleY, -x, -y);
                     }
                     buffer.transform(1, 0, 0, 1, x / canvasScaleX, y / canvasScaleY);
-                } else if (canvasScaleX != 1 || canvasScaleY != 1) {
+                }
+                else if (canvasScaleX != 1 || canvasScaleY != 1) {
                     this.canvasRenderBuffer.context.setTransform(canvasScaleX, 0, 0, canvasScaleY, 0, 0);
                 }
                 if (node.dirtyRender) {
@@ -4892,12 +5049,14 @@ if (window['HTMLVideoElement'] == undefined) {
                     if (this.wxiOS10) {
                         surface["isCanvas"] = true;
                         node.$texture = surface;
-                    } else {
+                    }
+                    else {
                         var texture = node.$texture;
                         if (!texture) {
                             texture = buffer.context.createTexture(surface);
                             node.$texture = texture;
-                        } else {
+                        }
+                        else {
                             buffer.context.updateTexture(texture, surface);
                         }
                     }
@@ -4946,11 +5105,13 @@ if (window['HTMLVideoElement'] == undefined) {
                     if (node.dirtyRender) {
                         this.canvasRenderBuffer = new wxgame.CanvasRenderBuffer(width, height);
                     }
-                } else {
+                }
+                else {
                     if (!this.canvasRenderBuffer || !this.canvasRenderBuffer.context) {
                         this.canvasRenderer = new egret.CanvasRenderer();
                         this.canvasRenderBuffer = new wxgame.CanvasRenderBuffer(width, height);
-                    } else if (node.dirtyRender) {
+                    }
+                    else if (node.dirtyRender) {
                         this.canvasRenderBuffer.resize(width, height);
                     }
                 }
@@ -4973,23 +5134,27 @@ if (window['HTMLVideoElement'] == undefined) {
                     if (this.wxiOS10) {
                         surface["isCanvas"] = true;
                         texture = surface;
-                    } else {
+                    }
+                    else {
                         egret.WebGLUtils.deleteWebGLTexture(surface);
                         texture = buffer.context.getWebGLTexture(surface);
                     }
                     buffer.context.drawTexture(texture, 0, 0, width, height, 0, 0, width, height, surface.width, surface.height);
-                } else {
+                }
+                else {
                     if (node.dirtyRender) {
                         this.canvasRenderer.renderGraphics(node, this.canvasRenderBuffer.context);
                         if (this.wxiOS10) {
                             surface["isCanvas"] = true;
                             node.$texture = surface;
-                        } else {
+                        }
+                        else {
                             var texture = node.$texture;
                             if (!texture) {
                                 texture = buffer.context.createTexture(surface);
                                 node.$texture = texture;
-                            } else {
+                            }
+                            else {
                                 buffer.context.updateTexture(texture, surface);
                             }
                         }
@@ -5053,7 +5218,8 @@ if (window['HTMLVideoElement'] == undefined) {
                 if (buffer) {
                     buffer.resize(width, height);
                     buffer.setTransform(1, 0, 0, 1, 0, 0);
-                } else {
+                }
+                else {
                     buffer = new wxgame.WebGLRenderBuffer(width, height);
                     buffer.$computeDrawCall = false;
                 }
@@ -5068,7 +5234,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 gl.viewport(0, 0, width, height);
             };
             return WebGLRenderer;
-        }();
+        }());
         wxgame.WebGLRenderer = WebGLRenderer;
         __reflect(WebGLRenderer.prototype, "egret.wxgame.WebGLRenderer", ["egret.sys.SystemRenderer"]);
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -5077,7 +5243,7 @@ if (window['HTMLVideoElement'] == undefined) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var EgretWebGLAttribute = function () {
+        var EgretWebGLAttribute = (function () {
             function EgretWebGLAttribute(gl, program, attributeData) {
                 this.gl = gl;
                 this.name = attributeData.name;
@@ -5130,7 +5296,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 }
             };
             return EgretWebGLAttribute;
-        }();
+        }());
         wxgame.EgretWebGLAttribute = EgretWebGLAttribute;
         __reflect(EgretWebGLAttribute.prototype, "egret.wxgame.EgretWebGLAttribute");
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -5179,7 +5345,7 @@ if (window['HTMLVideoElement'] == undefined) {
             }
             return uniforms;
         }
-        var EgretWebGLProgram = function () {
+        var EgretWebGLProgram = (function () {
             function EgretWebGLProgram(gl, vertSource, fragSource) {
                 this.vshaderSource = vertSource;
                 this.fshaderSource = fragSource;
@@ -5195,10 +5361,11 @@ if (window['HTMLVideoElement'] == undefined) {
                 }
                 return this.programCache[key];
             };
-            EgretWebGLProgram.deleteProgram = function (gl, vertSource, fragSource, key) {};
+            EgretWebGLProgram.deleteProgram = function (gl, vertSource, fragSource, key) {
+            };
             EgretWebGLProgram.programCache = {};
             return EgretWebGLProgram;
-        }();
+        }());
         wxgame.EgretWebGLProgram = EgretWebGLProgram;
         __reflect(EgretWebGLProgram.prototype, "egret.wxgame.EgretWebGLProgram");
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -5207,7 +5374,7 @@ if (window['HTMLVideoElement'] == undefined) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var EgretWebGLUniform = function () {
+        var EgretWebGLUniform = (function () {
             function EgretWebGLUniform(gl, program, uniformData) {
                 this.gl = gl;
                 this.name = uniformData.name;
@@ -5244,13 +5411,25 @@ if (window['HTMLVideoElement'] == undefined) {
                         this.value = [0, 0, 0, 0];
                         break;
                     case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_MAT2:
-                        this.value = new Float32Array([1, 0, 0, 1]);
+                        this.value = new Float32Array([
+                            1, 0,
+                            0, 1
+                        ]);
                         break;
                     case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_MAT3:
-                        this.value = new Float32Array([1, 0, 0, 0, 1, 0, 0, 0, 1]);
+                        this.value = new Float32Array([
+                            1, 0, 0,
+                            0, 1, 0,
+                            0, 0, 1
+                        ]);
                         break;
                     case wxgame.WEBGL_UNIFORM_TYPE.FLOAT_MAT4:
-                        this.value = new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+                        this.value = new Float32Array([
+                            1, 0, 0, 0,
+                            0, 1, 0, 0,
+                            0, 0, 1, 0,
+                            0, 0, 0, 1
+                        ]);
                         break;
                 }
             };
@@ -5389,7 +5568,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 }
             };
             return EgretWebGLUniform;
-        }();
+        }());
         wxgame.EgretWebGLUniform = EgretWebGLUniform;
         __reflect(EgretWebGLUniform.prototype, "egret.wxgame.EgretWebGLUniform");
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -5398,8 +5577,9 @@ if (window['HTMLVideoElement'] == undefined) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var EgretShaderLib = function () {
-            function EgretShaderLib() {}
+        var EgretShaderLib = (function () {
+            function EgretShaderLib() {
+            }
             EgretShaderLib.blur_frag = "precision mediump float;\r\nuniform vec2 blur;\r\nuniform sampler2D uSampler;\r\nvarying vec2 vTextureCoord;\r\nuniform vec2 uTextureSize;\r\nvoid main()\r\n{\r\n    const int sampleRadius = 5;\r\n    const int samples = sampleRadius * 2 + 1;\r\n    vec2 blurUv = blur / uTextureSize;\r\n    vec4 color = vec4(0, 0, 0, 0);\r\n    vec2 uv = vec2(0.0, 0.0);\r\n    blurUv /= float(sampleRadius);\r\n\r\n    for (int i = -sampleRadius; i <= sampleRadius; i++) {\r\n        uv.x = vTextureCoord.x + float(i) * blurUv.x;\r\n        uv.y = vTextureCoord.y + float(i) * blurUv.y;\r\n        color += texture2D(uSampler, uv);\r\n    }\r\n\r\n    color /= float(samples);\r\n    gl_FragColor = color;\r\n}";
             EgretShaderLib.colorTransform_frag = "precision mediump float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\nuniform mat4 matrix;\r\nuniform vec4 colorAdd;\r\nuniform sampler2D uSampler;\r\n\r\nvoid main(void) {\r\n    vec4 texColor = texture2D(uSampler, vTextureCoord);\r\n    if(texColor.a > 0.) {\r\n        // 抵消预乘的alpha通道\r\n        texColor = vec4(texColor.rgb / texColor.a, texColor.a);\r\n    }\r\n    vec4 locColor = clamp(texColor * matrix + colorAdd, 0., 1.);\r\n    gl_FragColor = vColor * vec4(locColor.rgb * locColor.a, locColor.a);\r\n}";
             EgretShaderLib.default_vert = "attribute vec2 aVertexPosition;\r\nattribute vec2 aTextureCoord;\r\nattribute vec4 aColor;\r\n\r\nuniform vec2 projectionVector;\r\n// uniform vec2 offsetVector;\r\n\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\n\r\nconst vec2 center = vec2(-1.0, 1.0);\r\n\r\nvoid main(void) {\r\n   gl_Position = vec4( (aVertexPosition / projectionVector) + center , 0.0, 1.0);\r\n   vTextureCoord = aTextureCoord;\r\n   vColor = aColor;\r\n}";
@@ -5409,7 +5589,7 @@ if (window['HTMLVideoElement'] == undefined) {
             EgretShaderLib.texture_etc_alphamask_frag = "precision lowp float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\nuniform sampler2D uSampler;\r\nuniform sampler2D uSamplerAlphaMask;\r\nvoid main(void) {\r\nfloat alpha = texture2D(uSamplerAlphaMask, vTextureCoord).r;\r\nif (alpha < 0.0039) { discard; }\r\nvec4 v4Color = texture2D(uSampler, vTextureCoord);\r\nv4Color.rgb = v4Color.rgb * alpha;\r\nv4Color.a = alpha;\r\ngl_FragColor = v4Color * vColor;\r\n}";
             EgretShaderLib.colorTransform_frag_etc_alphamask_frag = "precision mediump float;\r\nvarying vec2 vTextureCoord;\r\nvarying vec4 vColor;\r\nuniform mat4 matrix;\r\nuniform vec4 colorAdd;\r\nuniform sampler2D uSampler;\r\nuniform sampler2D uSamplerAlphaMask;\r\n\r\nvoid main(void){\r\nfloat alpha = texture2D(uSamplerAlphaMask, vTextureCoord).r;\r\nif (alpha < 0.0039) { discard; }\r\nvec4 texColor = texture2D(uSampler, vTextureCoord);\r\nif(texColor.a > 0.0) {\r\n // 抵消预乘的alpha通道\r\ntexColor = vec4(texColor.rgb / texColor.a, texColor.a);\r\n}\r\nvec4 v4Color = clamp(texColor * matrix + colorAdd, 0.0, 1.0);\r\nv4Color.rgb = v4Color.rgb * alpha;\r\nv4Color.a = alpha;\r\ngl_FragColor = v4Color * vColor;\r\n}";
             return EgretShaderLib;
-        }();
+        }());
         wxgame.EgretShaderLib = EgretShaderLib;
         __reflect(EgretShaderLib.prototype, "egret.wxgame.EgretShaderLib");
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -5419,7 +5599,7 @@ if (window['HTMLVideoElement'] == undefined) {
 (function (egret) {
     var wxgame;
     (function (wxgame) {
-        var TextBlock = function (_super) {
+        var TextBlock = (function (_super) {
             __extends(TextBlock, _super);
             function TextBlock(width, height, measureWidth, measureHeight, canvasWidthOffset, canvasHeightOffset, stroke2, border) {
                 var _this = _super.call(this) || this;
@@ -5521,10 +5701,10 @@ if (window['HTMLVideoElement'] == undefined) {
                 configurable: true
             });
             return TextBlock;
-        }(egret.HashObject);
+        }(egret.HashObject));
         wxgame.TextBlock = TextBlock;
         __reflect(TextBlock.prototype, "egret.wxgame.TextBlock");
-        var Line = function (_super) {
+        var Line = (function (_super) {
             __extends(Line, _super);
             function Line(maxWidth) {
                 var _this = _super.call(this) || this;
@@ -5552,7 +5732,7 @@ if (window['HTMLVideoElement'] == undefined) {
                     return false;
                 }
                 if (this.dynamicMaxHeight > 0) {
-                    if (textBlock.height > this.dynamicMaxHeight || textBlock.height / this.dynamicMaxHeight < 0.5) {
+                    if (textBlock.height > this.dynamicMaxHeight || (textBlock.height / this.dynamicMaxHeight < 0.5)) {
                         return false;
                     }
                 }
@@ -5589,10 +5769,10 @@ if (window['HTMLVideoElement'] == undefined) {
                 return true;
             };
             return Line;
-        }(egret.HashObject);
+        }(egret.HashObject));
         wxgame.Line = Line;
         __reflect(Line.prototype, "egret.wxgame.Line");
-        var Page = function (_super) {
+        var Page = (function (_super) {
             __extends(Page, _super);
             function Page(pageWidth, pageHeight) {
                 var _this = _super.call(this) || this;
@@ -5630,10 +5810,10 @@ if (window['HTMLVideoElement'] == undefined) {
                 return true;
             };
             return Page;
-        }(egret.HashObject);
+        }(egret.HashObject));
         wxgame.Page = Page;
         __reflect(Page.prototype, "egret.wxgame.Page");
-        var Book = function (_super) {
+        var Book = (function (_super) {
             __extends(Book, _super);
             function Book(maxSize, border) {
                 var _this = _super.call(this) || this;
@@ -5713,7 +5893,7 @@ if (window['HTMLVideoElement'] == undefined) {
                     return;
                 }
                 var sortFunc = function (a, b) {
-                    return a.dynamicMaxHeight < b.dynamicMaxHeight ? -1 : 1;
+                    return (a.dynamicMaxHeight < b.dynamicMaxHeight) ? -1 : 1;
                 };
                 this._sortLines = this._sortLines.sort(sortFunc);
             };
@@ -5726,7 +5906,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 return txtBlock;
             };
             return Book;
-        }(egret.HashObject);
+        }(egret.HashObject));
         wxgame.Book = Book;
         __reflect(Book.prototype, "egret.wxgame.Book");
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -5739,7 +5919,7 @@ if (window['HTMLVideoElement'] == undefined) {
         wxgame.__textAtlasRender__ = null;
         wxgame.property_drawLabel = 'DrawLabel';
         var textAtlasDebug = false;
-        var DrawLabel = function (_super) {
+        var DrawLabel = (function (_super) {
             __extends(DrawLabel, _super);
             function DrawLabel() {
                 var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -5756,7 +5936,7 @@ if (window['HTMLVideoElement'] == undefined) {
             DrawLabel.create = function () {
                 var pool = DrawLabel.pool;
                 if (pool.length === 0) {
-                    pool.push(new DrawLabel());
+                    pool.push(new DrawLabel);
                 }
                 return pool.pop();
             };
@@ -5774,10 +5954,10 @@ if (window['HTMLVideoElement'] == undefined) {
             };
             DrawLabel.pool = [];
             return DrawLabel;
-        }(egret.HashObject);
+        }(egret.HashObject));
         wxgame.DrawLabel = DrawLabel;
         __reflect(DrawLabel.prototype, "egret.wxgame.DrawLabel");
-        var StyleInfo = function (_super) {
+        var StyleInfo = (function (_super) {
             __extends(StyleInfo, _super);
             function StyleInfo(textNode, format) {
                 var _this = _super.call(this) || this;
@@ -5796,10 +5976,10 @@ if (window['HTMLVideoElement'] == undefined) {
                 _this.fontFamily = textNode.fontFamily;
                 _this.format = format;
                 _this.font = egret.getFontString(textNode, _this.format);
-                var textColor = !format.textColor ? textNode.textColor : format.textColor;
-                var strokeColor = !format.strokeColor ? textNode.strokeColor : format.strokeColor;
-                var stroke = !format.stroke ? textNode.stroke : format.stroke;
-                var size = !format.size ? textNode.size : format.size;
+                var textColor = (!format.textColor ? textNode.textColor : format.textColor);
+                var strokeColor = (!format.strokeColor ? textNode.strokeColor : format.strokeColor);
+                var stroke = (!format.stroke ? textNode.stroke : format.stroke);
+                var size = (!format.size ? textNode.size : format.size);
                 _this.description = '' + _this.font + '-' + size;
                 _this.description += '-' + egret.toColorString(textColor);
                 _this.description += '-' + egret.toColorString(strokeColor);
@@ -5812,9 +5992,9 @@ if (window['HTMLVideoElement'] == undefined) {
                 return _this;
             }
             return StyleInfo;
-        }(egret.HashObject);
+        }(egret.HashObject));
         __reflect(StyleInfo.prototype, "StyleInfo");
-        var CharImageRender = function (_super) {
+        var CharImageRender = (function (_super) {
             __extends(CharImageRender, _super);
             function CharImageRender() {
                 var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -5846,10 +6026,10 @@ if (window['HTMLVideoElement'] == undefined) {
                 }
                 var text = this.char;
                 var format = this.styleInfo.format;
-                var textColor = !format.textColor ? this.styleInfo.textColor : format.textColor;
-                var strokeColor = !format.strokeColor ? this.styleInfo.strokeColor : format.strokeColor;
-                var stroke = !format.stroke ? this.styleInfo.stroke : format.stroke;
-                var size = !format.size ? this.styleInfo.size : format.size;
+                var textColor = (!format.textColor ? this.styleInfo.textColor : format.textColor);
+                var strokeColor = (!format.strokeColor ? this.styleInfo.strokeColor : format.strokeColor);
+                var stroke = (!format.stroke ? this.styleInfo.stroke : format.stroke);
+                var size = (!format.size ? this.styleInfo.size : format.size);
                 this.measureWidth = this.measure(text, this.styleInfo, size);
                 this.measureHeight = size;
                 var canvasWidth = this.measureWidth;
@@ -5900,14 +6080,14 @@ if (window['HTMLVideoElement'] == undefined) {
             CharImageRender.chineseCharactersRegExp = new RegExp("^[\u4E00-\u9FA5]$");
             CharImageRender.chineseCharacterMeasureFastMap = {};
             return CharImageRender;
-        }(egret.HashObject);
+        }(egret.HashObject));
         __reflect(CharImageRender.prototype, "CharImageRender");
-        var TextAtlasRender = function (_super) {
+        var TextAtlasRender = (function (_super) {
             __extends(TextAtlasRender, _super);
             function TextAtlasRender(webglRenderContext, maxSize, border) {
                 var _this = _super.call(this) || this;
                 _this.book = null;
-                _this.charImageRender = new CharImageRender();
+                _this.charImageRender = new CharImageRender;
                 _this.textBlockMap = {};
                 _this._canvas = null;
                 _this.textAtlasTextureCache = [];
@@ -5991,7 +6171,8 @@ if (window['HTMLVideoElement'] == undefined) {
                     context.fillStyle = 'black';
                     context.fillRect(0, 0, width, width);
                     texture = egret.sys.createTexture(this.webglRenderContext, canvas);
-                } else {
+                }
+                else {
                     texture = egret.sys._createTexture(this.webglRenderContext, width, height, null);
                 }
                 if (texture) {
@@ -6010,7 +6191,7 @@ if (window['HTMLVideoElement'] == undefined) {
                 configurable: true
             });
             return TextAtlasRender;
-        }(egret.HashObject);
+        }(egret.HashObject));
         wxgame.TextAtlasRender = TextAtlasRender;
         __reflect(TextAtlasRender.prototype, "egret.wxgame.TextAtlasRender");
     })(wxgame = egret.wxgame || (egret.wxgame = {}));
@@ -6086,7 +6267,8 @@ if (window['HTMLVideoElement'] == undefined) {
                         window["sharedCanvas"].height = height;
                     }
                 }
-            } else {
+            }
+            else {
                 if (surface.width !== width) {
                     surface.width = width;
                     if (!wxgame.isSubContext && window["sharedCanvas"]) {
@@ -6169,7 +6351,8 @@ if (window['HTMLVideoElement'] == undefined) {
             gl.activeTexture(gl.TEXTURE0);
             if (data.texture.isCanvas) {
                 gl.wxBindCanvasTexture(gl.TEXTURE_2D, data.texture);
-            } else {
+            }
+            else {
                 gl.bindTexture(gl.TEXTURE_2D, data.texture);
             }
             var size = data.count * 3;
@@ -6190,10 +6373,12 @@ if (window['HTMLVideoElement'] == undefined) {
             if (root) {
                 if (wxgame.isSubContext) {
                     return window["sharedCanvas"];
-                } else {
+                }
+                else {
                     return window["canvas"];
                 }
-            } else {
+            }
+            else {
                 return defaultFunc(width, height);
             }
         }
@@ -6225,7 +6410,8 @@ if (window['HTMLVideoElement'] == undefined) {
                     canvasRenderBuffer.context.setTransform(1, 0, 0, 1, 0, 0);
                     canvasRenderBuffer.context.globalAlpha = 1;
                 }
-            } else {
+            }
+            else {
                 if (surface.width != width) {
                     surface.width = width;
                     if (egret.Capabilities.renderMode === 'canvas') {

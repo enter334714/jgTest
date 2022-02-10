@@ -1,3 +1,3 @@
-GameGlobal.wx = ks;
+GameGlobal.wx = ks
 wx.onMessage = function() {}
 wx.getOpenDataContext = function() {}

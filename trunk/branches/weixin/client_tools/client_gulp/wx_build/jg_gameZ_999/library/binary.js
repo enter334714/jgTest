@@ -1,4 +1,3 @@
-var H = wx.$F;
 const fileutil = require('./file-util');
 const path = fileutil.path;
 const fs = fileutil.fs;
@@ -37,7 +36,7 @@ class BinaryProcessor {
                     resolve(data);
                     return;
                 }
-                loadBinary(xhrURL).then(content => {
+                loadBinary(xhrURL).then((content) => {
                     //写入本地
                     const dirname = path.dirname(targetFilename);
                     fs.mkdirsSync(dirname);
@@ -47,14 +46,15 @@ class BinaryProcessor {
                         content = WXFS.readFileSync(path.getWxUserPath(targetFilename));
                     }
                     resolve(content);
-                }).catch(e => {
+                }).catch((e) => {
                     reject(e);
                 });
+
             } else {
                 //不用缓存直接加载
-                loadBinary(xhrURL).then(content => {
+                loadBinary(xhrURL).then((content) => {
                     resolve(content);
-                }).catch(e => {
+                }).catch((e) => {
                     reject(e);
                 });
             }
@@ -74,7 +74,7 @@ function needReadFile() {
     }
     let sdkVersion = wxSystemInfo.SDKVersion;
     let platform = wxSystemInfo.system.split(" ").shift();
-    return sdkVersion <= '2.2.3' && platform == 'iOS';
+    return (sdkVersion <= '2.2.3') && (platform == 'iOS');
 }
 
 function loadBinary(xhrURL) {
@@ -84,15 +84,16 @@ function loadBinary(xhrURL) {
             method: 'get',
             responseType: 'arraybuffer',
             success: function success(_ref) {
-                resolve(_ref.data);
+                resolve(_ref.data)
             },
             fail: function fail(_ref2) {
                 const error = new RES.ResourceManagerError(1001, xhrURL);
                 console.error('load binary error', xhrURL);
-                reject(error);
+                reject(error)
             }
         });
     });
+
 }
 
 /**

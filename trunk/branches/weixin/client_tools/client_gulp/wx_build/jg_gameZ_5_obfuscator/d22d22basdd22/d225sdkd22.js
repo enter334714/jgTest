@@ -6,7 +6,7 @@ var config = {
     game_pkg: F[561702],
     partner_label: F[561703],
     partner_id: F[561704],
-    game_ver: "32.0.11", //诗淇-主宰领域
+    game_ver: F[561705], //诗淇-主宰领域
     is_auth: false, //授权登录
     partner_game_id: 10227,
     partner_package_name: F[561706],

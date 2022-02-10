@@ -1,7 +1,7 @@
 ﻿//TODO 替换对应参数
 var config = {
     game_id: '112',
-    game_pkg: 'tjqy_tjqyksxyx_KE',
+    game_pkg: 'jzxjz_jzlywfksxyx_FEM',
     partner_label: 'kuaishouxyx',
     partner_id: '499',
     game_ver: '1.0.1',

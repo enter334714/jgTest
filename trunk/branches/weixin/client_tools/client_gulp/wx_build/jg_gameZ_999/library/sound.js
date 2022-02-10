@@ -1,8 +1,8 @@
-var H = wx.$F;
 const fileutil = require('./file-util');
 const path = fileutil.path;
 const fs = fileutil.fs;
 const WXFS = wx.getFileSystemManager();
+
 
 /**
  * 重写的声音加载器，代替引擎默认的声音加载器
@@ -20,8 +20,7 @@ class SoundProcessor {
         if (RES['getVirtualUrl']) {
             soundSrc = RES['getVirtualUrl'](soundSrc);
         }
-        if (!path.isRemotePath(soundSrc)) {
-            //判断是本地加载还是网络加载
+        if (!path.isRemotePath(soundSrc)) { //判断是本地加载还是网络加载
             //正常本地加载
             return loadSound(soundSrc);
         }
@@ -35,13 +34,14 @@ class SoundProcessor {
                 //缓存命中
                 return loadSound(path.getWxUserPath(fullname));
             }
-            return download(soundSrc, fullname).then(filePath => {
-                fs.setFsCache(fullname, 1);
-                return loadSound(filePath);
-            }, error => {
-                console.error(error);
-                return;
-            });
+            return download(soundSrc, fullname)
+                .then((filePath) => {
+                    fs.setFsCache(fullname, 1);
+                    return loadSound(filePath);
+                }, (error) => {
+                    console.error(error);
+                    return;
+                });
         }
     }
 
@@ -55,17 +55,18 @@ function loadSound(soundURL) {
         let sound = new egret.Sound();
         let onSuccess = () => {
             resolve(sound);
-        };
+        }
 
         let onError = () => {
             const e = new RES.ResourceManagerError(1001, soundURL);
             reject(e);
-        };
+        }
         sound.addEventListener(egret.Event.COMPLETE, onSuccess, this);
         sound.addEventListener(egret.IOErrorEvent.IO_ERROR, onError, this);
         sound.load(soundURL);
-    });
+    })
 }
+
 
 function download(url, target) {
 
@@ -76,19 +77,21 @@ function download(url, target) {
         wx.downloadFile({
             url: url,
             filePath: file_target,
-            success: v => {
+            success: (v) => {
                 if (v.statusCode >= 400) {
                     try {
                         WXFS.accessSync(file_target);
                         WXFS.unlinkSync(file_target);
-                    } catch (e) {}
+                    } catch (e) {
+
+                    }
                     const message = `加载失败:${url}`;
                     reject(message);
                 } else {
                     resolve(file_target);
                 }
             },
-            fail: e => {
+            fail: (e) => {
                 const error = new RES.ResourceManagerError(1001, url);
                 reject(error);
             }
@@ -107,6 +110,7 @@ function needCache(root, url) {
         return false;
     }
 }
+
 
 const processor = new SoundProcessor();
 RES.processor.map("sound", processor);

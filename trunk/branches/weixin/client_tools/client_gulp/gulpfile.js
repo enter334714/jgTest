@@ -155,7 +155,6 @@ var modify_main = function () {
             this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
             return cb();
         }
-        // var contents = file.contents + "\nwindow.MainWX = MainWX;";
         var contents = file.contents + "\nwindow.MainWX = MainWX;";
         var bf = new Buffer.from( contents );
 		file.contents = bf;		
@@ -208,7 +207,7 @@ var minify_main = function () {
         console.info("minify文件："+ file.path);
         var global_defsParam = {DEBUG: false}
         if(define_ENV != -1){
-            // global_defsParam.ENV = define_ENV;
+            global_defsParam.ENV = define_ENV;
         }
         console.log("条件编译参数：",global_defsParam)
         var options = {
@@ -266,87 +265,6 @@ var minify_main = function () {
     // 不处理end 使用默认的end
     return through.obj(onFile);
 };
-
-/**文件压缩 terser*/
-var minify_main_terser = function () {
-    function onFile(file, enc, cb) {
-        if (file.isStream()) {
-            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
-            return cb();
-        }
-        var contents = "" + file.contents;
-
-        console.info("minify文件："+ file.path);
-        var options = {
-            parse: {
-                // parse options
-            },
-            compress: {
-                global_defs: {DEBUG: false,ENV:4},            //使用debug.html测试时不能打开
-                drop_debugger: true,
-                toplevel: true,  //在顶级作用域中删除未引用的函数（“func”）和/或变量（“vars”）（默认情况下为false，为true则删除未引用的函数和变量）
-                if_return: true, //对if/return和if/continue的优化
-                join_vars: true, //连接连续的var语句
-                booleans: true,//例如，针对布尔上下文的各种优化 !!a ? b : c → a ? b : c
-                dead_code: true,
-                properties: true,
-            },
-            mangle: {
-                toplevel: true,
-                eval: true, //将true传递给在使用eval或with的作用域中可见的名称。
-                keep_fnames: false, //不会损坏函数名。传递一个正则表达式，只保留与该正则表达式匹配的函数名。对于依赖函数的代码很有用。原型名称
-                reserved: ["Main","MainWX","LayaGPU"],
-                properties:{
-                    // debug: true,
-                    ///1.以p_|P_开头，以Cfg结尾；2.大写字母开头，某类词结尾；3. get,set,do方法
-                    regex: /(^((p|P|n|N)_.{3,100})|(.{2,100}Cfg)$)|(^[A-Z].*(Panel|Alert|Model|Mod|Ctrl|Ctl|Item|Itm|View|Mgr)$)|(^(get|set|do)_[A-Z].{3,100})$/,
-                    // reserved: ["LayaGPU"],
-                }
-            },
-            format: {
-                // format options (can also use `output` for backwards compatibility)
-                beautify: true,  //微信小游戏、qq小游戏
-                ascii_only:true
-            },
-            sourceMap: {
-                // source map options
-                filename: "main.js",
-                url: "main.js.map"
-            },
-            // ecma: 5, // specify one of: 5, 2015, 2016, etc.
-            enclose: false, // or specify true, or "args:values"
-            // keep_classnames: false,
-            // keep_fnames: false,
-            ie8: false,
-            // module: false,
-            nameCache: null, // or specify a name cache object
-            safari10: false,
-            toplevel: true
-        }
-        var mainres = terser.minify(contents, options);
-
-        if (mainres.error) {
-            throw Error("Main压缩报错："+ mainres.error);
-        }
-
-        if (mainres.code) {
-            contents = mainres.code;// + "\n//@ sourceMappingURL=js/main.min.map";
-        }
-
-        if (mainres.map) {
-            var mapbuf = Buffer.alloc(Buffer.byteLength(mainres.map), mainres.map);
-            fs.writeFileSync(file.path.replace('.js', '.min.map'), mapbuf);
-        }
-
-        var bf = new Buffer.from( contents );
-        file.contents = bf;
-        cb();
-        this.emit("data", file);
-    }
-    // 不处理end 使用默认的end
-    return through.obj(onFile);
-};
-
 var minify_libs = function () {
     function onFile(file, enc, cb) {
         if (file.isStream()) {

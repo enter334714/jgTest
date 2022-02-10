@@ -3465,14 +3465,14 @@ var set_param_n = function () {
             "4.png": "n5c.png",
 
         }
-        strFilePath = "/nnnnres";
-        strFileName = "/nnnnfiles.zip";
+        strFilePath = "/nres";
+        strFileName = "/nfiles.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$N", "A", "_B", "_n", "n_"];
         noReplaceJs = packageName1+"/game.js";
         arrIndex = 0;
         globleArrs = new Array(arrIndex);
-        numberToHex = true;
+        numberToHex = false;
         // needShuffle = true;
         str_leading1 = "OSC06I4G$HMX21U3FWZAPYQ5DLTKVJB97R_E8N";
         str_leading2 = "a6w$bq9r4yzo3el0jnmu_8hfdt57g1cxsvki2p";
@@ -9841,12 +9841,12 @@ var mt1Replace = {}
 gulp.task('MT1_build_minify', function () {
     var sourceUrl =  sourceProject;// "wx_build/jg_gameMT1_new";
     var srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/**/'+mainJsName];
-    if(PREFIX == "G" || PREFIX=="k$" || PREFIX == "J_" || PREFIX == "w$"){
+    if(PREFIX == "G" || PREFIX=="k$" || PREFIX == "J_"){
         //g,j包SDK都不處理
         srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/utils/**/*.js',"!" + sourceUrl + '/**/'+mainJsName];
     }
     var stream = gulp.src(srcs)
-        .pipe(js_minify())
+        // .pipe(js_minify())
         .pipe(gulp.dest(sourceUrl + '/'))
     return stream;
 });

@@ -1,11 +1,4 @@
-console.log(1);
-
 require('./kwaiadapter.js');
-console.log(2);
-require("./weapp-adapter.js");
-
-console.log(3);
-
 console.info("0 进入游戏包");
 
 
@@ -82,25 +75,47 @@ function render() {
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 }
 render();
-ks.loadingInterval = setInterval(function () {
+wx.loadingInterval = setInterval(function () {
     render();
 }, 16);
 
 
 console.info("1 加载游戏");
-ks.showLoading({ title: '正在加载' });
+wx.showLoading({ title: '正在加载' });
+
 var loadLibs = function () {
     console.log("libs 分包加载");
+    // let launchScene = "sence1"; //您的子包名称
+    // let loadTask = ks.loadSubpackage({
+    //     name: launchScene,
+    //     success: function (res) {
+    //         // .... //执行你需要的逻辑，如加载场景	
+    //     },
+    //     fail: function (err) {
+    //         console.log("加载失败:",err);
+    //     }
+    // });
+
     var loadLibsTask = ks.loadSubpackage({
         name: 'libs',
-        success: function (res) {
-            console.log("libs> 分包加载成功:", res);
-            ks.loadSubpackages();           
-        },
-        fail: function (res) {
-            console.log("libs> 分包加载失败：",res);
+        success: function(res) {
+            console.log("libs 分包加载成功");
             console.log(res);
-            setTimeout(function () {
+            // loadSubpackage: ok
+            if (res && res.errMsg == "loadSubpackage: ok") {
+                wx.loadSubpackages();
+            } 
+            else {
+                console.log("res::",res)
+                setTimeout(function() {
+                    loadLibs();
+                }, 500);
+            }
+        },
+        fail: function(res) {
+            console.log("libs 分包加载失败");
+            console.log(res);
+            setTimeout(function() {
                 loadLibs();
             }, 500);
         },
@@ -111,7 +126,7 @@ var loadLibs = function () {
 }
 
 //监听小游戏切前台事件
-ks.onShow(function (res) {
+wx.onShow(function (res) {
     wx.onShowData = res;
     if (wx.onShowCallback && wx.onShowData) {
         console.info("小游戏切前台事件，场景值：" + wx.onShowData.scene);

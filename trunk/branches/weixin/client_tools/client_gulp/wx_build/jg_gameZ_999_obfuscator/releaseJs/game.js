@@ -1,4 +1,0 @@
-var H = wx.$F;
-var fk5bv_a = wx['$F'];require('./index.js'), require('./indexLogin.js'), require('./login.min.js'), require('./myWXSDK.js'), egret['runEgret']({ 'entryClassName': 'Main', 'orientation': 'auto', 'frameRate': 0x1e, 'scaleMode': 'showAll', 'contentWidth': 0x280, 'contentHeight': 0x470, 'showFPS': !0x1, 'fpsStyles': 'x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9', 'showLog': !0x1, 'maxTouches': 0x2, 'renderMode': 'webgl', 'audioType': 0x0, 'calculateCanvasScaleFactor': function (cz89) {
-        return cz89 = cz89['backingStorePixelRatio'] || cz89['webkitBackingStorePixelRatio'] || cz89['mozBackingStorePixelRatio'] || cz89['msBackingStorePixelRatio'] || cz89['oBackingStorePixelRatio'] || cz89['backingStorePixelRatio'] || 0x1, (window['devicePixelRatio'] || 0x1) / cz89;
-    } });

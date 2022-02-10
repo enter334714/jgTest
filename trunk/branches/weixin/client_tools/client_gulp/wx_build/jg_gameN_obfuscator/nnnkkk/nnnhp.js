@@ -1,56 +1,170 @@
 var A = wx.$N;
-export default class FunGame {
+/** * 漫方SDK * by 陌上老农 2021-06 * version:1.0.9 */!function () {
+  "use strict";
+};export default class FunGame {
   constructor() {
-    this.host = A[0x0];
-  }sign(o) {
-    var s = "";var e = Object.keys(o);return e.sort(), e.forEach(e => {
-      A[0x1] != e && (s += o[e]);
-    }), s;
-  }setParameter(e, o, s) {
-    e = e.replace(/(#.*)/gi, "");var l = new RegExp(A[0x2] + o + "=([^&]*)(?=&|$)", "i");return l.test(e) ? e.replace(l, "$1" + o + "=" + s) : e + (-1 == e.indexOf("?") ? "?" : "&") + o + "=" + s;
-  }ajaxRequest(e, o, s, l) {
-    e = this.setParameter(e, "v", Math.random());wx.request({ url: e, header: { "content-type": A[0x3] }, method: A[0x4], data: o, dataType: A[0x5], success: function (e) {
-        s && s(e.data);
-      }, fail: function (e) {
-        l && l(e);
+    this.host = A[0];
+  }sign(params) {
+    var _sign = "";var keys = Object.keys(params);keys.sort();keys.forEach(key => {
+      if (key != A[1]) {
+        _sign += params[key];
+      }
+    });return _sign;
+  }setParameter(url, name, value) {
+    url = url.replace(/(#.*)/ig, "");var reg = new RegExp(A[2] + name + "=([^&]*)(?=&|$)", "i");if (reg.test(url)) {
+      return url.replace(reg, "$1" + name + "=" + value);
+    } else {
+      return url + (url.indexOf("?") == -1 ? "?" : "&") + name + "=" + value;
+    }
+  }ajaxRequest(request_url, params, success, fail) {
+    request_url = this.setParameter(request_url, "v", Math.random());let _this = this;wx.request({ url: request_url, header: { 'content-type': A[3] }, method: A[4], data: params, dataType: A[5], success: function (res) {
+        success && success(res.data);
+      }, fail: function (res) {
+        fail && fail(res);
       } });
-  }game(e, o, s) {
-    var l;console.log(A[0x6]), e.game_key ? (l = this.host + A[0x7], this.ajaxRequest(l, e, o, s)) : console.log(A[0x8]);
+  }game(data, success, fail) {
+    console.log(A[6]);if (!data.game_key) {
+      console.log(A[7]);return;
+    }var url = this.host + A[8];this.ajaxRequest(url, data, success, fail);
   }wxChannelCode() {
-    console.log(A[0x9]);var e = wx.getLaunchOptionsSync()[A[0xa]];var o = decodeURIComponent(e.query);var s = new Object();if (A[0xb] != o && "" != o) s.code = o, s.type = 1e4;else {
-      const t = decodeURIComponent(e.scene);if (A[0xb] == t) return s;var l = t.split("&");for (var n = 0; n < l.length; n++) s[l[n].split("=")[0]] = l[n].split("=")[1];
-    }return s;
-  }role(e, o, s) {
-    var l;console.log(A[0xc]), e.host_url ? e.game_key ? e.account ? e.server ? e.server_name ? e.role ? e.role_name ? e.level ? (null != e.type && "" != e.type && null != e.type || (e.type = 0), e.sign = this.sign(e), l = e.host_url + A[0xd], this.ajaxRequest(l, e, o, s)) : console.log(A[0xe]) : console.log("\u7f3a\u5c11role_name") : console.log(A[0xf]) : console.log("\u7f3a\u5c11server_name") : console.log(A[0x10]) : console.log(A[0x11]) : console.log(A[0x8]) : console.log(A[0x12]);
-  }order(e, o, s) {
-    var l;console.log(A[0x13]), e.host_url ? e.game_key ? e.account ? e.server ? e.role ? e.amount ? (e.sign = this.sign(e), l = e.host_url + A[0x14], this.ajaxRequest(l, e, o, s)) : console.log(A[0x15]) : console.log(A[0xf]) : console.log(A[0x10]) : console.log(A[0x11]) : console.log(A[0x8]) : console.log(A[0x12]);
-  }gameLogin(e, o, s) {
-    var l;console.log(A[0x16]), e.host_url ? e.game_key ? e.code ? (l = e.host_url + A[0x17], this.ajaxRequest(l, e, o, s)) : console.log(A[0x18]) : console.log(A[0x8]) : console.log(A[0x12]);
-  }gameToken(e, o, s) {
-    var l;console.log(A[0x19]), e.host_url ? e.game_key ? (l = e.host_url + A[0x1a], this.ajaxRequest(l, e, o, s)) : console.log(A[0x8]) : console.log(A[0x12]);
-  }midasNotice(s, l, n) {
-    var t, a;console.log(A[0x1b]), null != s.game_env && "" != s.game_env && null != s.game_env || (s.game_env = 0), s.offer_id ? s.currency_type ? s.amount ? s.server ? s.game_key ? s.host_url ? s.account ? s.role ? (t = this, a = !1, wx.requestMidasPayment({ currencyType: s.currency_type, env: s.game_env, mode: A[0x1c], offerId: s.offer_id, buyQuantity: s.amount, platform: A[0x1d], zoneId: "1", success(e) {
-        a = !0, console.log(A[0x1e]);var o = s.host_url + A[0x1f];t.ajaxRequest(o, s, l, n);
-      }, fail(e) {
-        console.log(e);
-      }, complete(e) {
-        var o;0 == a && (console.log(A[0x20]), o = s.host_url + A[0x1f], t.ajaxRequest(o, s, l, n));
-      } })) : console.log(A[0xf]) : console.log(A[0x11]) : console.log(A[0x12]) : console.log(A[0x8]) : console.log(A[0x10]) : console.log(A[0x15]) : console.log(A[0x21]) : console.log(A[0x22]);
-  }midasOrderSubmit(e, o, s) {
-    var l;console.log(A[0x23]), e.host_url ? e.game_key ? e.account ? e.server ? e.role ? e.extend ? e.amount ? (e.sign = this.sign(e), l = e.host_url + A[0x24], this.ajaxRequest(l, e, o, s)) : console.log(A[0x15]) : console.log(A[0x25]) : console.log(A[0xf]) : console.log(A[0x10]) : console.log(A[0x11]) : console.log(A[0x8]) : console.log(A[0x12]);
-  }checkWords(e, o, s) {
-    var l;console.log(A[0x26]), e.host_url ? e.game_key ? e.account ? e.scene ? e.content ? (l = e.host_url + A[0x27], this.ajaxRequest(l, e, o, s)) : console.log(A[0x28]) : console.log(A[0x29]) : console.log(A[0x11]) : console.log(A[0x8]) : console.log(A[0x12]);
-  }gameCenter(e, o, s) {
-    var l;console.log(A[0x2a]), e.host_url ? e.game_key ? (l = e.host_url + A[0x2b], this.ajaxRequest(l, e, o, s)) : console.log(A[0x8]) : console.log(A[0x12]);
-  }openGame(e, o, s) {
-    console.log(A[0x2c]), e.app_id ? wx.navigateToMiniProgram({ appId: e.app_id, path: e.path, envVersion: e.env_version, success(e) {}, fail(e) {} }) : console.log(A[0x2d]);
-  }vipDesc(e, o, s) {
-    var l;console.log(A[0x2e]), e.host_url ? e.game_key ? (l = e.host_url + A[0x2f], this.ajaxRequest(l, e, o, s)) : console.log(A[0x8]) : console.log(A[0x12]);
-  }wxFollowSteps(e, o, s) {
-    var l;console.log(A[0x30]), e.host_url ? e.game_key ? (l = e.host_url + A[0x31], this.ajaxRequest(l, e, o, s)) : console.log(A[0x8]) : console.log(A[0x12]);
+    console.log(A[9]);const { query } = wx.getLaunchOptionsSync();const query_params = decodeURIComponent(query.query);var channel = new Object();if (query_params != A[10] && query_params != "") {
+      channel[A[11]] = query_params;channel[A[12]] = 10000;
+    } else {
+      const scene_params = decodeURIComponent(query.scene);if (scene_params == A[10]) {
+        return channel;
+      }var strs = scene_params.split("&");for (var i = 0; i < strs.length; i++) {
+        channel[strs[i].split("=")[0]] = strs[i].split("=")[1];
+      }
+    }return channel;
+  }role(data, success, fail) {
+    console.log(A[13]);if (!data.host_url) {
+      console.log(A[14]);return;
+    }if (!data.game_key) {
+      console.log(A[7]);return;
+    }if (!data.account) {
+      console.log(A[15]);return;
+    }if (!data.server) {
+      console.log(A[16]);return;
+    }if (!data.server_name) {
+      console.log("缺少server_name");return;
+    }if (!data.role) {
+      console.log(A[17]);return;
+    }if (!data.role_name) {
+      console.log("缺少role_name");return;
+    }if (!data.level) {
+      console.log(A[18]);return;
+    }if (data.type == undefined || data.type == "" || data.type == null) {
+      data.type = 0;
+    }data[A[19]] = this.sign(data);var url = data.host_url + A[20];this.ajaxRequest(url, data, success, fail);
+  }order(data, success, fail) {
+    console.log(A[21]);if (!data.host_url) {
+      console.log(A[14]);return;
+    }if (!data.game_key) {
+      console.log(A[7]);return;
+    }if (!data.account) {
+      console.log(A[15]);return;
+    }if (!data.server) {
+      console.log(A[16]);return;
+    }if (!data.role) {
+      console.log(A[17]);return;
+    }if (!data.amount) {
+      console.log(A[22]);return;
+    }data[A[19]] = this.sign(data);var url = data.host_url + A[23];this.ajaxRequest(url, data, success, fail);
+  }gameLogin(data, success, fail) {
+    console.log(A[24]);if (!data.host_url) {
+      console.log(A[14]);return;
+    }if (!data.game_key) {
+      console.log(A[7]);return;
+    }if (!data.code) {
+      console.log(A[25]);return;
+    }var url = data.host_url + A[26];this.ajaxRequest(url, data, success, fail);
+  }gameToken(data, success, fail) {
+    console.log(A[27]);if (!data.host_url) {
+      console.log(A[14]);return;
+    }if (!data.game_key) {
+      console.log(A[7]);return;
+    }var url = data.host_url + A[28];this.ajaxRequest(url, data, success, fail);
+  }midasNotice(data, success, fail) {
+    console.log(A[29]);if (data.game_env == undefined || data.game_env == "" || data.game_env == null) {
+      data.game_env = 0;
+    }if (!data.offer_id) {
+      console.log(A[30]);return;
+    }if (!data.currency_type) {
+      console.log(A[31]);return;
+    }if (!data.amount) {
+      console.log(A[22]);return;
+    }if (!data.server) {
+      console.log(A[16]);return;
+    }if (!data.game_key) {
+      console.log(A[7]);return;
+    }if (!data.host_url) {
+      console.log(A[14]);return;
+    }if (!data.account) {
+      console.log(A[15]);return;
+    }if (!data.role) {
+      console.log(A[17]);return;
+    }var _this = this;var _is_success = false;wx.requestMidasPayment({ currencyType: data.currency_type, env: data.game_env, mode: A[32], offerId: data.offer_id, buyQuantity: data.amount, platform: A[33], zoneId: "1", success(res) {
+        _is_success = true;console.log(A[34]);var url = data.host_url + A[35];_this.ajaxRequest(url, data, success, fail);
+      }, fail(f) {
+        console.log(f);
+      }, complete(r) {
+        if (_is_success == false) {
+          console.log(A[36]);var url = data.host_url + A[35];_this.ajaxRequest(url, data, success, fail);
+        }
+      } });
+  }midasOrderSubmit(data, success, fail) {
+    console.log(A[37]);if (!data.host_url) {
+      console.log(A[14]);return;
+    }if (!data.game_key) {
+      console.log(A[7]);return;
+    }if (!data.account) {
+      console.log(A[15]);return;
+    }if (!data.server) {
+      console.log(A[16]);return;
+    }if (!data.role) {
+      console.log(A[17]);return;
+    }if (!data.extend) {
+      console.log(A[38]);return;
+    }if (!data.amount) {
+      console.log(A[22]);return;
+    }data[A[19]] = this.sign(data);var url = data.host_url + A[39];this.ajaxRequest(url, data, success, fail);
+  }checkWords(data, success, fail) {
+    console.log(A[40]);if (!data.host_url) {
+      console.log(A[14]);return;
+    }if (!data.game_key) {
+      console.log(A[7]);return;
+    }if (!data.account) {
+      console.log(A[15]);return;
+    }if (!data.scene) {
+      console.log(A[41]);return;
+    }if (!data.content) {
+      console.log(A[42]);return;
+    }var url = data.host_url + A[43];this.ajaxRequest(url, data, success, fail);
+  }gameCenter(data, success, fail) {
+    console.log(A[44]);if (!data.host_url) {
+      console.log(A[14]);return;
+    }if (!data.game_key) {
+      console.log(A[7]);return;
+    }var url = data.host_url + A[45];this.ajaxRequest(url, data, success, fail);
+  }openGame(data, success, fail) {
+    console.log(A[46]);if (!data.app_id) {
+      console.log(A[47]);return;
+    }wx.navigateToMiniProgram({ appId: data.app_id, path: data.path, envVersion: data.env_version, success(res) {}, fail(f) {} });
+  }vipDesc(data, success, fail) {
+    console.log(A[48]);if (!data.host_url) {
+      console.log(A[14]);return;
+    }if (!data.game_key) {
+      console.log(A[7]);return;
+    }var url = data.host_url + A[49];this.ajaxRequest(url, data, success, fail);
+  }wxFollowSteps(data, success, fail) {
+    console.log(A[50]);if (!data.host_url) {
+      console.log(A[14]);return;
+    }if (!data.game_key) {
+      console.log(A[7]);return;
+    }var url = data.host_url + A[51];this.ajaxRequest(url, data, success, fail);
   }openCustomerService() {
-    wx.showModal({ title: A[0x32], content: A[0x33], showCancel: !1, confirmText: A[0x34], success(e) {
-        wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageTitle: A[0x35], sendMessageImg: A[0x36] });
+    wx.showModal({ title: A[52], content: A[53], showCancel: false, confirmText: A[54], success(res) {
+        wx.openCustomerServiceConversation({ showMessageCard: true, sendMessageTitle: A[55], sendMessageImg: A[56] });
       } });
   }
 }

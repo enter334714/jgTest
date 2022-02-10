@@ -17,9 +17,12 @@
             "root": "protobuf/"
         },
         {
-            "name": "subPackage",
+            "name": "main",
             "root": "subPackage/"
+        },
+        {
+            "name": "sence1", 
+            "root": "sence1/" 
         }
-      
     ]
 }

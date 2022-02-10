@@ -1,12 +1,12 @@
-﻿// var qingjs = require("../utils/qingjs-wxapp.js");
-import qingjs from "../utils/qingjs-wxapp.js";
+﻿
+import qingjs from "../utils/qingjs-wxapp.js"
 //TODO 替换对应参数
 var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqyxxj_HX', //天剑vs霆耀--仙侠决
     partner_label: 'tingyaoxcx',
     partner_id: '476',
-    game_ver: '22.0.17',
+    game_ver: '22.0.1',
     is_auth: true, //授权登录
 };
 window.config = config;
