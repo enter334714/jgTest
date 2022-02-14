@@ -1017,7 +1017,15 @@
     function MiniVideo() {
         this.videoend = false;
         this.videourl = "";
-        this.videoElement = MiniAdpter.window.wx.createVideo({showCenterPlayBtn:false,showProgressInControlMode:false,objectFit:"fill"});
+        this.videoElement = MiniAdpter.window.wx.createVideo({showCenterPlayBtn:false,showProgressInControlMode:false,objectFit:"fill",underGameView:true,muted:true});
+        var gl = canvas.getContext("webgl");
+        Laya.stage._loop = function(){}
+        // window.requestAnimationFrame = function(){};
+        setInterval(function(){
+          gl.clearColor(0,0,0,0)
+          gl.clear(gl.COLOR_BUFFER_BIT);
+        },16)
+       
     }
     __class(MiniVideo, 'laya.wx.mini.MiniVideo');
     var __proto = MiniVideo.prototype;
@@ -1046,7 +1054,7 @@
     }
     __proto.onended = function(ths, callBack){
        this.onEndedFunC = callBack.bind(ths);
-       this.videoElement.onEnded = this.onEndedFunction.bind(this);
+       this.videoElement.onended = this.onEndedFunction.bind(this);
     }
     __proto.onEndedFunction = function () {
         if (!this.videoElement)

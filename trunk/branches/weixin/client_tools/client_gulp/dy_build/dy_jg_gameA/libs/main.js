@@ -53,8 +53,8 @@ import "index.js";
 import "libs.min.js";
 import "laya.wxmini.js";
 import "init.min.js";
-
-
+import  "recorder.js";
+console.log("RecoderVideo:",RecoderVideo)
 console.info("3 libs初始化完成");
 
 
