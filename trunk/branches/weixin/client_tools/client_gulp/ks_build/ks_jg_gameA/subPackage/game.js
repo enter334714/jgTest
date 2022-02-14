@@ -1,1 +1,1 @@
-import 'main.min.js';
+require('./main.min.js');

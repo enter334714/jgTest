@@ -1,4 +1,4 @@
-﻿import AKSDK from "./wx_aksdk.js";
+﻿var AKSDK = require("./wx_aksdk.js");
 window.versions = { 
   wxVersion: window.config.game_ver,  
 };
@@ -6,7 +6,7 @@ window.versions = {
 
 window.DEBUG = false;
 window.PLATFORM = 1;
-window.ENV = 4;
+window.ENV = 5;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
@@ -63,7 +63,7 @@ window.bEnterGame = false;
 
 
 window.alert = function(value) {
-  console.log("alert", value);
+//   console.log("alert", value);
   wx.hideLoading({});
   wx.showModal({
     title: '提示',
@@ -78,7 +78,7 @@ window.alert = function(value) {
   })
 }
 window.loginAlert = function(value) {
-  console.log("loginAlert", value);
+//   console.log("loginAlert", value);
   wxHideLoading();
   wx.showModal({
     title: '提示',
@@ -121,6 +121,7 @@ window.wxHideLoading = function() {
   }
 }
 window.changeServerLoading = function(value) {
+    // console.log("window.ServerLoading.instance.changeServerLoading(value);")
   window.ServerLoading.instance.changeServerLoading(value);
 }
 window.msgCheck = function(value, callback) {
@@ -148,15 +149,12 @@ window.toProgress = function(value, str, currTaskIndex) {
   // console.log("toProgress", value, str, currTaskIndex);
 }
 window.toEnterGame = function(value) {
-  console.log("toEnterGame", value);
   window.ServerLoading.instance.closeAuthor();
   window.ServerLoading.instance.closeServer();
   window.ServerLoading.instance.closeLoading();
 }
 
 window.onApiError = function(str) {
-  // console.log('on api error');
-  // AKSDK.logout(function(){});
   window.loginAlert('on api error');
   var info = {
     id: window.PF_INFO.roleId,
@@ -366,6 +364,7 @@ window.onUserLoginDefaultServers = function(response) {
     return;
   }
   if (!response.data || response.data.length == 0) {
+      console.log("response:",response)
     window.loginAlert('服务器尚未开启');
     return;
   }
@@ -391,14 +390,16 @@ window.initComplete = function() {
       return;
     } 
     req_server_check_ban(0, PF_INFO.selectedServer.server_id);
+     console.log("window.ServerLoading.instance.openLoading(PF_INFO.newRegister);")
     window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
   } else { //老用户，进游戏的选服界面
+     console.log(" window.ServerLoading.instance.openServer();")
     window.ServerLoading.instance.openServer();
     wxHideLoading();
   }
   window.loadServer = true;
   window.initMain();
-  window.enterToGame(); 
+  window.enterToGame("initComplete"); 
 }
 
 // 加载version_config版本文件，读取lastVersion号，外网是从后台请求获取
@@ -431,7 +432,7 @@ window.reqVersionConfigCallBack = function(data) {
     console.info("lastVersion:"+PF_INFO.lastVersion+", version_name:"+PF_INFO.version_name);
     window.loadVersion = true;
     window.initMain();
-    window.enterToGame();
+    window.enterToGame("reqVersionConfigCallBack");
 }
 
 // 请求隐私、超级VIP、公众号信息
@@ -451,7 +452,7 @@ window.reqPkgOptionsCallBack = function(data) {
     console.info("reqPkgOptionsCallBack "+data.state);
   }
   window.loadOption = true;
-  window.enterToGame(); 
+  window.enterToGame("reqPkgOptions"); 
 }
 
 
@@ -1016,6 +1017,7 @@ window.reqServerCheckBanCallBack = function(data) {
 
     if (PF_INFO.newRegister == 1 && server.server_options && server.server_options.show_btn == 1) {
       PF_INFO.showGetBtn = 1;
+      console.log("window.ServerLoading.instance.setShowBtn();")
       window.ServerLoading.instance.setShowBtn();
     }
 
@@ -1049,17 +1051,16 @@ window.reqServerCheckBanCallBack = function(data) {
     }
   }
 }
-window.checkBanSuccess = function() {
+window.checkBanSuccess = function() {    
   ServerLoading.instance.openLoading(PF_INFO.newRegister);
   window.isCheckBan = true;
-  window.enterToGame(); 
+  window.enterToGame("checkBanSuccess"); 
 }
 
 
 window.initMain = function() {
-  if(window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer) {
-    if (!window.MainWX.instance) {
-      console.log("Main 初始化"+window.MainWX.instance);
+  if(window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer) {     
+    if (!window.MainWX.instance) {     
       var info = wx.getLaunchOptionsSync();
       var scene = info.scene?info.scene:0;
       var platData = {
@@ -1079,20 +1080,22 @@ window.initMain = function() {
   }
 }
 
-window.enterToGame = function() {
+window.enterToGame = function(from) {    
   if(window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer && window.isCheckBan && window.loadOption) {
     wxHideLoading();
     if (!bEnterGame) {
       bEnterGame = true;
-      if (!window.MainWX.instance) window.initMain();
-      var top = 0;
-      var rec = wx.getMenuButtonBoundingClientRect(); //基础库 2.1.0 开始支持
-      if (rec) {
-        if (window.PF_INFO.wxPhone) {
-          top = rec.top;
-        }
-        console.info("MenuButton  top:"+rec.top+",bottom:"+rec.bottom+",left:"+rec.left+",right:"+rec.right+",width:"+rec.width+",height:"+rec.height);
+      if (!window.MainWX.instance) {          
+          window.initMain();
       }
+    //   var top = 0;
+    //   var rec = wx.getMenuButtonBoundingClientRect(); //基础库 2.1.0 开始支持
+    //   if (rec) {
+    //     if (window.PF_INFO.wxPhone) {
+    //       top = rec.top;
+    //     }
+    //     console.info("MenuButton  top:"+rec.top+",bottom:"+rec.bottom+",left:"+rec.left+",right:"+rec.right+",width:"+rec.width+",height:"+rec.height);
+    //   }
 
       var selectedServer = {};
       for (const key in PF_INFO.selectedServer) {
@@ -1125,6 +1128,7 @@ window.enterToGame = function() {
         }
       }
 
+    //   console.log("window.MainWX.instance.initPlatdata(platData);")
       window.MainWX.instance.initPlatdata(platData);
     }
   } else {
