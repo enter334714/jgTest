@@ -1088,20 +1088,20 @@ window.enterToGame = function(from) {
       if (!window.MainWX.instance) {          
           window.initMain();
       }
-    //   var top = 0;
-    //   var rec = wx.getMenuButtonBoundingClientRect(); //基础库 2.1.0 开始支持
-    //   if (rec) {
-    //     if (window.PF_INFO.wxPhone) {
-    //       top = rec.top;
-    //     }
-    //     console.info("MenuButton  top:"+rec.top+",bottom:"+rec.bottom+",left:"+rec.left+",right:"+rec.right+",width:"+rec.width+",height:"+rec.height);
-    //   }
-
+      var top = 0;
+    
+      var safeArea = ks.getSystemInfoSync().safeArea;
+      if (safeArea) {
+        if (window.PF_INFO.wxPhone) {
+          top = safeArea.top;
+        }
+        console.info("MenuButton  top:"+safeArea.top+",bottom:"+safeArea.bottom+",left:"+safeArea.left+",right:"+safeArea.right+",width:"+safeArea  .width+",height:"+safeArea.height);
+      }       
       var selectedServer = {};
-      for (const key in PF_INFO.selectedServer) {
+        for (const key in PF_INFO.selectedServer) {
           selectedServer[key] = PF_INFO.selectedServer[key];
       }
-
+      console.info("top:",top)
       var platData = {
         channel: window.PF_INFO.channel,
         account: window.PF_INFO.account,

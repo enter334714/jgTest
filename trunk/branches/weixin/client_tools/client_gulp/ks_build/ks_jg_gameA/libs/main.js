@@ -204,15 +204,16 @@ wx.loadSubpackages = function () {
 window.systemInfo = "";
 wx.getSystemInfo({
     success(res) {
+        console.log("systemInfo:",res)
         window.systemInfo = "品牌：" + res.brand + "，型号：" + res.model + "，微信版本号：" + res.version + "，系统及版本：" + res.system + "，客户端平台：" + res.platform + "，基础库版本：" + res.SDKVersion + "，设备性能等级：" + res.benchmarkLevel;
         console.log(window.systemInfo);
         console.log("设备像素比：" + res.pixelRatio + "，屏幕宽度：" + res.screenWidth + "，屏幕高度：" + res.screenHeight + "，可使用窗口宽度：" + res.windowWidth + "，可使用窗口高度：" + res.windowHeight + "，状态栏的高度：" + res.statusBarHeight + "，安全区域：" + (res.safeArea ? (res.safeArea.top + "," + res.safeArea.bottom + "," + res.safeArea.left + "," + res.safeArea.right) : ""));
 
         var system = (res.system ? res.system.toLowerCase() : "");
         var model = (res.model ? res.model.toLowerCase().replace(" ", "") : "");
-        window.PF_INFO.wxIOS = system.indexOf("ios") != -1;
-        window.PF_INFO.wxAndroid = system.indexOf("android") != -1;
-        window.PF_INFO.wxPhone = system.indexOf("ios") != -1 || system.indexOf("android") != -1;
+        window.PF_INFO.wxIOS = res.platform.indexOf("ios") != -1;
+        window.PF_INFO.wxAndroid = res.platform.indexOf("android") != -1;
+        window.PF_INFO.wxPhone = window.PF_INFO.wxIOS || window.PF_INFO.wxAndroid;
         window.PF_INFO.wxPC = system.indexOf("windows") != -1 || system.indexOf("mac") != -1;
         window.PF_INFO.wxPlatform = (res.platform ? res.platform.toLowerCase() : "");
         window.PF_INFO.wxLimitLoad = false; //model.indexOf("iphonex") != -1;
