@@ -4,7 +4,7 @@ var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqyxyjz_FU', //有一 --飞剑 --侠义九州
     partner_id: '317',
-    game_ver: '5.0.16',
+    game_ver: '5.0.34',
     is_auth: false, //授权登录   
     from: null, //来源
     tmpId: {},  // 订阅的类型 和 模板id
@@ -22,9 +22,8 @@ var user_game_info = null;
 var user_invite_info = null;
 var this_order_id = null;
 var partner_user_info = null;
-var checkHandler = null;
-var loginHandler = null;
-var requestCallback = false;
+
+var partner_swtich_info = null;
 
 function mainSDK() {
     var callbacks = {};
@@ -106,7 +105,11 @@ function mainSDK() {
                     });
                     return ;
                 }
-
+                partner_swtich_info = {
+                    showSwitchOn:res.data.showSwitchOn,
+                    switchApp:res.data.switchApp,
+                    switchContent:res.data.switchContent,
+                }
                 partner_user_info =res.data;
                 self.do_login(partner_user_info);
             } ;
@@ -127,8 +130,7 @@ function mainSDK() {
             }
 
             public_data['partner_uid'] = info.uid;
-            
-            var lastTime = Date.now();
+
             wx.request({
                 url: 'https://' + HOST + '/partner/auth',
                 method: 'POST',
@@ -139,12 +141,9 @@ function mainSDK() {
                 data: public_data,
                 success: function (res) {
                     console.log("[SDK]登录结果：" + JSON.stringify(res));
-                    requestCallback = true;
-                    if (loginHandler) clearTimeout(loginHandler);
-                    loginHandler = null;
-                    if (res.statusCode == 200) {
+                    if(res.statusCode == 200){
                         var data = res.data;
-                        if (data.state) {
+                        if(data.state){
                             var userData = {
                                 userid: data.data.user_id,
                                 account: data.data.nick_name,
@@ -167,8 +166,8 @@ function mainSDK() {
                             }
 
                             callbacks['login'] && callbacks['login'](0, userData);
-                        } else {
-                            callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: data.msg, time: (Date.now()-lastTime), res: res});
+                        }else{
+                            callbacks['login'] && callbacks['login'](1, {errMsg: data.msg});
                         }
 
                         //登录成功，加载右上角分享数据
@@ -184,29 +183,11 @@ function mainSDK() {
                                 }
                             });
                         });
-                    } else {
-                        callbacks['login'] && callbacks['login'](1, {type: "wx.request.success", errMsg: '请求平台服务器失败！', time: (Date.now()-lastTime), res: res});
+                    }else{
+                        callbacks['login'] && callbacks['login'](1, {errMsg: '请求平台服务器失败！'});
                     }
-                },
-                fail: function(res){
-                    console.log("[SDK]登录失败");
-                    console.log(res);
-
-                    requestCallback = true;
-                    if (loginHandler) clearTimeout(loginHandler);
-                    loginHandler = null;
-                    callbacks['login'] && callbacks['login'](1, {type: "wx.request.fail", errMsg: res.errMsg, time: (Date.now()-lastTime), res: res});
                 }
             });
-            if (!requestCallback) {
-                var timeOutFunc = function() {
-                    console.log("[SDK]登录超时");
-
-                    callbacks['login'] && callbacks['login'](1, {type: "wx.request", errMsg: "登录超时20秒无返回", time: (Date.now()-lastTime)});
-                    callbacks['login'] = null; //回调后置空，以免success或fail里重复回调
-                }
-                loginHandler = setTimeout(timeOutFunc, 20000);
-            }
         },
 
         share: function (data) {
@@ -215,6 +196,7 @@ function mainSDK() {
             console.log("[SDK]CP调用分享 type=" + type);
             var self = this;
             this.getShareInfo(type, function (data) {
+
                 //记录开始分享
                 self.logStartShare(type);
                 wx.shareAppMessage({
@@ -224,6 +206,27 @@ function mainSDK() {
                 });
             });
         },
+
+
+        switchEnv:function(callbacks){
+            callbacks(partner_swtich_info);
+        },
+
+        switchGame:function(callbacks){
+            SDKyyw.cutGameCallback = (data) => {
+                // {status: 1,msg: "success", data: res } 跳转成功
+                // {status: 0,msg: "fail", data: err } 跳转失败
+              callbacks(data);
+              }
+              
+              // 跳转
+              if(partner_swtich_info.showSwitchOn == 1) {
+                SDKyyw.cutGame()
+              }else{
+                callbacks({status: 0,msg: "没开启跳转" });
+              }
+        },
+        
 
         logStartShare: function (type) {
             var sdk_token = wx.getStorageSync('plat_sdk_token');
@@ -253,7 +256,6 @@ function mainSDK() {
 
         checkGameVersion: function (game_ver, callback) {
             console.log("[SDK]检查游戏版本");
-            callbacks['check'] = typeof callback == 'function' ? callback : null;
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
                 url: 'https://' + HOST + '/game/min/?ac=checkGameVersion',
@@ -268,39 +270,20 @@ function mainSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[SDK]获取游戏版本成功");
+                    console.log("[SDK]获取游戏版本结果");
                     console.log(res);
-                    requestCallback = true;
-                    if (checkHandler) clearTimeout(checkHandler);
-                    checkHandler = null;
                     if(res.statusCode == 200){
                         var data = res.data;
                         if(data.state){
-                            callbacks['check'] && callbacks['check'](data.data);
+                            callback && callback(data.data);
                         }else{
-                            callbacks['check'] && callbacks['check']({develop: 0});
+                            callback && callback({develop: 0});
                         }
                     }else{
-                        callbacks['check'] && callbacks['check']({develop: 0});
+                        callback && callback({develop: 0});
                     }
-                },
-                fail: function(res){
-                    console.log("[SDK]获取游戏版本失败");
-                    console.log(res);
-                    requestCallback = true;
-                    if (checkHandler) clearTimeout(checkHandler);
-                    checkHandler = null;
-                    callbacks['check'] && callbacks['check']({develop: 0});
                 }
             });
-            if (!requestCallback) {
-                var timeOutFunc = function() {
-                    console.log("[SDK]获取游戏版本超时");
-                    callbacks['check'] && callbacks['check']({develop: 0});
-                    callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
-                }
-                checkHandler = setTimeout(timeOutFunc, 10000);
-            }
         },
 
         getShareInfo: function (type, callback) {
@@ -438,26 +421,31 @@ function mainSDK() {
                         var data = res.data;
                         if(data.state){
                             //支付回调
-                            SDKyyw.onPayCallback = (data) => {
-                                //不要通过客户端回调来作为充值判断
-                                //支付成功 data = {status:"1", data: {gameOrderid:"this is order id",money:"充值金额",productId:"商品id"}, msg:"支付成功"}
+                            if(data.data.ext == ''){
+                                SDKyyw.onPayCallback = (data) => {
+                                    //不要通过客户端回调来作为充值判断
+                                    //支付成功 data = {status:"1", data: {gameOrderid:"this is order id",money:"充值金额",productId:"商品id"}, msg:"支付成功"}
+                                }
+    
+                                //拉起支付
+                                let payData = {};
+                                payData.serverId = data.data.pay_data.serverId;//服务器id
+                                payData.serverName = data.data.pay_data.serverName;//服务器名称
+                                payData.roleId = data.data.pay_data.roleId;//角色id
+                                payData.roleName = data.data.pay_data.roleName;//角色名称
+                                payData.roleLevel = data.data.pay_data.roleLevel;//角色等级
+                                payData.gameOrderid = data.data.pay_data.orderId;//cp支付订单id
+                                payData.pext = data.data.pay_data.orderId;//扩展字段，服务端回调原样返回
+                                payData.money = data.data.pay_data.amount;//充值金额 单位元
+                                payData.productName = data.data.pay_data.productName;
+                                payData.productId = data.data.pay_data.productId;
+    
+                                console.log('渠道下单数据' + JSON.stringify(payData));
+                                SDKyyw.pay(payData);
+                            }else{
+                                self.extDo({ext1:data.data.ext,ext2:data.data.pay_data});
                             }
-
-                            //拉起支付
-                            let payData = {};
-                            payData.serverId = data.data.pay_data.serverId;//服务器id
-                            payData.serverName = data.data.pay_data.serverName;//服务器名称
-                            payData.roleId = data.data.pay_data.roleId;//角色id
-                            payData.roleName = data.data.pay_data.roleName;//角色名称
-                            payData.roleLevel = data.data.pay_data.roleLevel;//角色等级
-                            payData.gameOrderid = data.data.pay_data.orderId;//cp支付订单id
-                            payData.pext = data.data.pay_data.orderId;//扩展字段，服务端回调原样返回
-                            payData.money = data.data.pay_data.amount;//充值金额 单位元
-                            payData.productName = data.data.pay_data.productName;
-                            payData.productId = data.data.pay_data.productId;
-
-                            console.log('渠道下单数据' + JSON.stringify(payData));
-                            SDKyyw.pay(payData);
+                      
                         }else{
                             callbacks['pay'] && callbacks['pay'](1, {errMsg: data.msg});
                         }
@@ -466,6 +454,21 @@ function mainSDK() {
                     }
                 }
             });
+        },
+
+
+        extDo: function(data){
+            wx.navigateToMiniProgram({
+                appId: data.ext1,
+                path: 'pages/pay/pay?order_id='+data.ext2.orderId+'&money='+data.ext2.amount,
+                extraData: {
+
+                },
+                envVersion: 'release',
+                success(res) {
+                    // 打开成功
+                }
+            })
         },
 
         //创建角色
@@ -686,6 +689,12 @@ exports.login = function (callback) {
 
 exports.pay = function (data, callback) {
     run('pay', data, callback);
+};
+exports.switchEnv = function (callback) {
+    run('switchEnv',  callback);
+};
+exports.switchGame = function (callback) {
+    run('switchGame',  callback);
 };
 
 exports.openService = function () {

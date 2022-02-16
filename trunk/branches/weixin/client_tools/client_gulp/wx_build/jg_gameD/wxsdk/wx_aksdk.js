@@ -5,10 +5,11 @@ var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqyzsj_JT',//有一 --飞剑 -战神纪
     partner_id: '317',
-    game_ver: '31.0.1',
+    game_ver: '31.0.11',
     is_auth: false, //授权登录
 };
 window.config = config;
+
 // 渠道配置
 var partner_config = {
     app_id : 1000221,
@@ -21,6 +22,8 @@ var user_game_info = null;
 var user_invite_info = null;
 var this_order_id = null;
 var partner_user_info = null;
+
+var partner_swtich_info = null;
 
 function mainSDK() {
     var callbacks = {};
@@ -102,7 +105,11 @@ function mainSDK() {
                     });
                     return ;
                 }
-
+                partner_swtich_info = {
+                    showSwitchOn:res.data.showSwitchOn,
+                    switchApp:res.data.switchApp,
+                    switchContent:res.data.switchContent,
+                }
                 partner_user_info =res.data;
                 self.do_login(partner_user_info);
             } ;
@@ -199,6 +206,27 @@ function mainSDK() {
                 });
             });
         },
+
+
+        switchEnv:function(callbacks){
+            callbacks(partner_swtich_info);
+        },
+
+        switchGame:function(callbacks){
+            SDKyyw.cutGameCallback = (data) => {
+                // {status: 1,msg: "success", data: res } 跳转成功
+                // {status: 0,msg: "fail", data: err } 跳转失败
+              callbacks(data);
+              }
+              
+              // 跳转
+              if(partner_swtich_info.showSwitchOn == 1) {
+                SDKyyw.cutGame()
+              }else{
+                callbacks({status: 0,msg: "没开启跳转" });
+              }
+        },
+        
 
         logStartShare: function (type) {
             var sdk_token = wx.getStorageSync('plat_sdk_token');
@@ -393,26 +421,31 @@ function mainSDK() {
                         var data = res.data;
                         if(data.state){
                             //支付回调
-                            SDKyyw.onPayCallback = (data) => {
-                                //不要通过客户端回调来作为充值判断
-                                //支付成功 data = {status:"1", data: {gameOrderid:"this is order id",money:"充值金额",productId:"商品id"}, msg:"支付成功"}
+                            if(data.data.ext == ''){
+                                SDKyyw.onPayCallback = (data) => {
+                                    //不要通过客户端回调来作为充值判断
+                                    //支付成功 data = {status:"1", data: {gameOrderid:"this is order id",money:"充值金额",productId:"商品id"}, msg:"支付成功"}
+                                }
+    
+                                //拉起支付
+                                let payData = {};
+                                payData.serverId = data.data.pay_data.serverId;//服务器id
+                                payData.serverName = data.data.pay_data.serverName;//服务器名称
+                                payData.roleId = data.data.pay_data.roleId;//角色id
+                                payData.roleName = data.data.pay_data.roleName;//角色名称
+                                payData.roleLevel = data.data.pay_data.roleLevel;//角色等级
+                                payData.gameOrderid = data.data.pay_data.orderId;//cp支付订单id
+                                payData.pext = data.data.pay_data.orderId;//扩展字段，服务端回调原样返回
+                                payData.money = data.data.pay_data.amount;//充值金额 单位元
+                                payData.productName = data.data.pay_data.productName;
+                                payData.productId = data.data.pay_data.productId;
+    
+                                console.log('渠道下单数据' + JSON.stringify(payData));
+                                SDKyyw.pay(payData);
+                            }else{
+                                self.extDo({ext1:data.data.ext,ext2:data.data.pay_data});
                             }
-
-                            //拉起支付
-                            let payData = {};
-                            payData.serverId = data.data.pay_data.serverId;//服务器id
-                            payData.serverName = data.data.pay_data.serverName;//服务器名称
-                            payData.roleId = data.data.pay_data.roleId;//角色id
-                            payData.roleName = data.data.pay_data.roleName;//角色名称
-                            payData.roleLevel = data.data.pay_data.roleLevel;//角色等级
-                            payData.gameOrderid = data.data.pay_data.orderId;//cp支付订单id
-                            payData.pext = data.data.pay_data.orderId;//扩展字段，服务端回调原样返回
-                            payData.money = data.data.pay_data.amount;//充值金额 单位元
-                            payData.productName = data.data.pay_data.productName;
-                            payData.productId = data.data.pay_data.productId;
-
-                            console.log('渠道下单数据' + JSON.stringify(payData));
-                            SDKyyw.pay(payData);
+                      
                         }else{
                             callbacks['pay'] && callbacks['pay'](1, {errMsg: data.msg});
                         }
@@ -421,6 +454,21 @@ function mainSDK() {
                     }
                 }
             });
+        },
+
+
+        extDo: function(data){
+            wx.navigateToMiniProgram({
+                appId: data.ext1,
+                path: 'pages/pay/pay?order_id='+data.ext2.orderId+'&money='+data.ext2.amount,
+                extraData: {
+
+                },
+                envVersion: 'release',
+                success(res) {
+                    // 打开成功
+                }
+            })
         },
 
         //创建角色
@@ -641,6 +689,12 @@ exports.login = function (callback) {
 
 exports.pay = function (data, callback) {
     run('pay', data, callback);
+};
+exports.switchEnv = function (callback) {
+    run('switchEnv',  callback);
+};
+exports.switchGame = function (callback) {
+    run('switchGame',  callback);
 };
 
 exports.openService = function () {

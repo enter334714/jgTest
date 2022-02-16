@@ -70,6 +70,7 @@ let httpLock = {
   httpToCouponReceiveFlag: false,
   httpLiveTaskFlag: false,
   httpToLiveTaskReceiveFlag: false,
+  httpGetUserLiveInfoFlag: false,
 };
 
 var sdkParams = null;
@@ -83,10 +84,10 @@ state.level = {
 };
 
 // 地址
-const api = "https://sdk-js.rpgmoba.com";
-const wanBaApi = "https://wanba.rpgmoba.com/";
-const logApi = "https://sdk-data.rpgmoba.com";
-const wxRedApi = "https://idk.rpgmoba.com/";
+let api = "https://sdk-js.rpgmoba.com";
+let wanBaApi = "https://wanba.rpgmoba.com/";
+let logApi = "https://sdk-data.rpgmoba.com";
+let wxRedApi = "https://idk.rpgmoba.com/";
 
 const Tools = {
   getDeviceType: () => {
@@ -353,9 +354,28 @@ const active = function (SDKyyw, params, gameId, gameKey) {
       if (commonParams.initTimer) {
         clearTimeout(commonParams.initTimer);
       }
-      commonParams.initTimer = setTimeout(() => {
-        active(SDKyyw, params, gameId, gameKey);
-      }, 2000);
+      wx.request({
+        url: "https://sdk-js.youyigame.com" + "/pay/active/config",
+        timeout: 5000,
+        success: (res) => {
+          res = res.data;
+          if (res.status === 1) {
+            console.log('切换域名', res.data.host);
+            api = `https://sdk-js.${res.data.host}`;
+            wanBaApi = `https://wanba.${res.data.host}/`;
+            logApi = `https://sdk-data.${res.data.host}`;
+            wxRedApi = `https://idk.${res.data.host}/`;
+          }
+          commonParams.initTimer = setTimeout(() => {
+            active(SDKyyw, params, gameId, gameKey);
+          });
+        },
+        fail: () => {
+          commonParams.initTimer = setTimeout(() => {
+            active(SDKyyw, params, gameId, gameKey);
+          }, 2000);
+        }
+      })
     },
   });
 };
@@ -1375,7 +1395,7 @@ const pay = function (payData) {
                       console.log("跳转小程序失败", err);
                       wx.request({
                         url:
-                          "https://sdk-js.rpgmoba.com/pay/order/wxMiniPayBan?appid=" +
+                         api + "/pay/order/wxMiniPayBan?appid=" +
                           commonParams.gameId +
                           "&errMsg=" +
                           err.errMsg,
@@ -2289,8 +2309,10 @@ const toQQGroup = function () {
 
 //敏感词屏蔽
 const msgSecCheck = function (msg, callback) {
-  const msgIsString = Object.prototype.toString.call(msg).indexOf('String') > -1
-  const msgIsObject = Object.prototype.toString.call(msg).indexOf('Object') > -1
+  const msgIsString =
+    Object.prototype.toString.call(msg).indexOf("String") > -1;
+  const msgIsObject =
+    Object.prototype.toString.call(msg).indexOf("Object") > -1;
   var params = {};
   if (msgIsString) {
     params = {
@@ -2300,22 +2322,24 @@ const msgSecCheck = function (msg, callback) {
       time: Tools.getTimeStamp(),
       content: msg,
     };
-  } else if (msgIsObject){
+  } else if (msgIsObject) {
     // 2.0 版本
     if (!msg.content) {
-      console.log('content 不能为空')
+      console.log("content 不能为空");
       return;
     }
-    params = {
-      openid: commonParams.uid,
-      gameid: commonParams.gameId,
-      partner: commonParams.partner,
-      deviceno: commonParams.partner,
-      time: Tools.getTimeStamp(),
-      ...msg
-    }
+    params = Object.assign(
+      {
+        openid: commonParams.uid,
+        gameid: commonParams.gameId,
+        partner: commonParams.partner,
+        deviceno: commonParams.partner,
+        time: Tools.getTimeStamp(),
+      },
+      msg
+    );
   } else {
-    console.log('请校验参数格式');
+    console.log("请校验参数格式");
     return;
   }
   if (msg) {
@@ -2732,11 +2756,11 @@ const gameLive = {
           open_id: commonParams.uid,
           union_id: commonParams.unionId,
           live_id: data.live_id,
-          role_id: data.role_id || '',
-          role_name: data.role_name || '',
-          server_id: data.server_id || '',
-          server_name: data.server_name || '',
-          level: data.level || '',
+          role_id: data.role_id || "",
+          role_name: data.role_name || "",
+          server_id: data.server_id || "",
+          server_name: data.server_name || "",
+          level: data.level || "",
         };
         wx.request({
           url: wxRedApi + "v2/wx/live/receive",
@@ -2758,6 +2782,44 @@ const gameLive = {
       }
     }
   },
+  // 获取用户直播信息
+  getUserLiveInfo(data) {
+    const SDKyyw = this;
+    if (typeof SDKyyw.getUserLiveInfoCallback != "function") {
+      console.log("getUserLiveInfoCallback必须为function");
+    } else {
+      if (!httpLock.httpGetUserLiveInfoFlag) {
+        httpLock.httpGetUserLiveInfoFlag = true;
+        const params = {
+          app_id: commonParams.gameId,
+          open_id: commonParams.uid,
+          union_id: commonParams.unionId,
+          role_id: data.role_id || "",
+          role_name: data.role_name || "",
+          server_id: data.server_id || "",
+          server_name: data.server_name || "",
+          level: data.level || "",
+        };
+        wx.request({
+          url: wxRedApi + "v2/wx/live/info",
+          data: Tools.buildRedParams(params),
+          success(res) {
+            res = res.data;
+            SDKyyw.getUserLiveInfoCallback(res);
+          },
+          fail(err) {
+            SDKyyw.getUserLiveInfoCallback(err);
+            console.log("请求出错", err);
+          },
+          complete() {
+            httpLock.httpGetUserLiveInfoFlag = false;
+          },
+          timeout: 10 * 1000,
+        });
+      }
+    }
+  },
+
 };
 
 const pushData = function (data) {
