@@ -4,7 +4,7 @@ var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqymszj_IF', //有一 --飞剑 --萌神战姬
     partner_id: '317',
-    game_ver: '25.0.23',
+    game_ver: '25.0.25',
     is_auth: false, //授权登录   
     from: null, //来源
     tmpId: {},  // 订阅的类型 和 模板id

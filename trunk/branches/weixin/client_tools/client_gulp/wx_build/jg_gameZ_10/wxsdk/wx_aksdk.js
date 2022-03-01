@@ -6,9 +6,10 @@ var config = {
     game_pkg: 'tjqy_tjqytmld_KN',
     partner_label: '6KW',
     partner_id: '242',
-    game_ver: '37.0.1',
+    game_ver: '37.0.3',
     is_auth: true, //授权登录
 };
+window.config = config;
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var user_game_info = null;

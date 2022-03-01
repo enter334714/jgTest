@@ -360,7 +360,7 @@ function qqmain() {
                     "cache-control": "no-cache"
                 },
                 success: function(res) {
-                    console.log("send.success:", url, data, res);
+                    // console.log("send.success:", url, data, res);
                     if (res && (res.statusCode == 200 || res.statusCode == 301)) {
                         var response = res.data;
                         if (!checkSuccess || checkSuccess(response, res, url)) {

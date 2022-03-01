@@ -8,7 +8,7 @@ var config = {
     partner_label: A[57],
     game_pkg: A[58], //天剑奇缘-空灵服-萌仙-漫方微信小程序-GW
     partner_id: A[59],
-    game_ver: A[60],
+    game_ver: "13.0.25",
     is_auth: false, //授权登录
     partner_and_key: A[61],
     partner_ios_key: A[62]

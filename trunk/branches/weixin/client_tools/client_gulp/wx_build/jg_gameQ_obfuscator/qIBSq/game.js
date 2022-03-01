@@ -1,2 +1,2 @@
 var g = wx.$Q;
-require('qGAMEqq.js');
+require(g[260000]);

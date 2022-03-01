@@ -1,5 +1,5 @@
 var F = wx.$D;
-// ** sq_xgamesdk v1.0
+// ** sq_xgamesdk v1.1
 var config = { game_id: '', /*10003*/package_name: '', /*cq_wxmin_1*/package_version: '1', channel_id: 50 };
 var SQ_XGAMESDK = xgamesdk();var HOST = 'https://xzsdk.wdiyi.com';var game_version = '';var D1W4I2X = null;var is_init = 0;
 function xgamesdk() {
@@ -46,12 +46,14 @@ function xgamesdk() {
           console.log("微信登录成功返回" + JSON.stringify(g));if (g.code) {
             var h = e.getCommonParams();h["code"] = g.code;h["launch_options"] = b;wx.request({ url: HOST + "/?ct=xgame&ac=login", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: h, success: function (j) {
                 console.log("SQ_XGAMESDK:登录接口结果：");console.log(j.data);if (j.statusCode == 200) {
-                  var k = j.data;if (k.state) {
-                    var i = { uid: k.data.uid, code: k.data.code };try {
-                      wx.setStorageSync("xz_pt_uid", k.data.uid);wx.setStorageSync("xz_pt_sdk_token", k.data.sdk_token);wx.setStorageSync("xz_pt_sk", k.data.sk);
-                    } catch (l) {}a["login"] && a["login"](1, i);
+                  var l = j.data;if (l.state) {
+                    var i = { uid: l.data.uid, code: l.data.code };try {
+                      wx.setStorageSync("xz_pt_uid", l.data.uid);wx.setStorageSync("xz_pt_sdk_token", l.data.sdk_token);wx.setStorageSync("xz_pt_sk", l.data.sk);
+                    } catch (m) {}a["login"] && a["login"](1, i);if (l.data.tips && l.data.tips.content) {
+                      var k = l.data.tips.title || "温馨提示";wx.showModal({ title: k, content: l.data.tips.content, confirmText: "我知道了", showCancel: false });
+                    }
                   } else {
-                    a["login"] && a["login"](0, {}, k.msg);
+                    a["login"] && a["login"](0, {}, l.msg);
                   }
                 } else {
                   a["login"] && a["login"](0, {}, "平台服务器请求错误");

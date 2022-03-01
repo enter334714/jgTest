@@ -1,1 +1,1 @@
-import 'main_debug.min.js';
+import 'main.min.js';

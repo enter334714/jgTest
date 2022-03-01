@@ -1,2 +1,2 @@
 var U = wx.$k;
-require('kkkBF.js'), window[U[140090]][U[140091]][U[140092]] = null, window['client_pb'] = require('kkkCLIENTPB.js'), window[U[140093]] = window[U[140090]][U[140094]][U[140095]](client_pb);
+require('kkkBF.js'), window[U[169050]][U[169051]][U[169052]] = null, window['client_pb'] = require('kkkCLIENTPB.js'), window[U[165714]] = window[U[169050]][U[165602]][U[165603]](client_pb);

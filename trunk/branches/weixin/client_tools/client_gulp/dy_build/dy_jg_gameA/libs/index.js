@@ -730,6 +730,25 @@ window.getBatteryInfo = function(callback) {
   //   }
   // });
 }
+//获取网络类型
+window.getNetworkType = function(callback) {
+  // wx.getNetworkType({
+  //   success: function(resSuc) {
+  //     callback && callback(true, resSuc);
+  //   },
+  //   fail: function(resFail) {
+  //     callback && callback(false, resFail);
+  //   }
+  // });
+}
+//添加网络状态变化监听
+window.onNetworkStatusChange = function(func) {
+  // if (func) wx.onNetworkStatusChange(func);
+}
+//移除网络状态变化监听
+window.offNetworkStatusChange = function(func) {
+  // wx.offNetworkStatusChange(func);  
+}
 
 window.send = function(url, data, callBack, retryAmount, errorCB, checkSuccess, reqType, contentType) {
   if (retryAmount == undefined) retryAmount = 1;
@@ -954,6 +973,11 @@ window.req_multi_server_notice = function(type, pkgName, server_id, callback) {
     'server_id': server_id,
   }, callback);
 }
+window.req_privacy = function(pkgName, callback) {
+  sendApi(PF_INFO.apiurl, 'Common.get_option_pkg_detail', {
+    'game_pkg': pkgName,
+  }, callback);
+}
 
 
 window.get_status = function (server) {
@@ -1000,7 +1024,6 @@ window.reqServerCheckBanCallBack = function(data) {
   if (data.state === "success" && data.data) {
     var server = PF_INFO.selectedServer;
     server.channel_num = PF_INFO.channelNum;
-
     server.sign = String(data.data.login_sign);
     server.tick = parseInt(data.data.time);
     if (data.data.server_num)
@@ -1011,6 +1034,8 @@ window.reqServerCheckBanCallBack = function(data) {
     server.cdn = PF_INFO.base_cdn;
     server.resver = data.data.cdn_version;
     server.server_options = data.data.server_options;
+    if (data.data.max_create)
+      server.max_create = parseInt(data.data.max_create);
 
     console.log("server_options："+ JSON.stringify(server.server_options));
 
@@ -1126,6 +1151,9 @@ window.enterToGame = function() {
       }
 
       window.MainWX.instance.initPlatdata(platData);
+      setTimeout(() => {
+        window.ttServiceBtn.createBtn();
+      }, 15000);
     }
   } else {
     console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadServerRes:"+window.loadServerRes+",loadLoadingRes:"+window.loadLoadingRes+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);

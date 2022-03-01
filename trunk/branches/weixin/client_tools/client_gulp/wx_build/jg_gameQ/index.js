@@ -1,4 +1,5 @@
-﻿import AKSDK from "./wxsdk/wx_aksdk.js";
+﻿
+import AKSDK from "./wxsdk/wx_aksdk.js";
 window.versions = { 
   wxVersion: window.config.game_ver,  
 };
@@ -250,12 +251,11 @@ window.sdkInit = function() {
   AKSDK.init(initData, this.sdkOnInited.bind(this));
 }
 
-var wx_develop = false;
+
 /*sdk初始化回调*/
 window.sdkOnInited = function(res) {
   var develop = res.develop;
-  // res.game_ver = "1.0.86";
-  wx_develop = develop == 1;
+  // res.game_ver = "1.0.86"; 
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
   console.log("#初始化成功   提审状态:"+ develop +"   是否提审:"+ (develop == 1) +"   提审版本号:"+res.game_ver +"   当前版本号:"+window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
   if (!res.game_ver || window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
@@ -263,16 +263,16 @@ window.sdkOnInited = function(res) {
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
     PF_INFO.logurl = "https://log-tjqy.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy-fx.shzbkj.com/weixin_1/";
+    PF_INFO.cdn = "https://cdn-tjqy-gzxj.shzbkj.com/weixin_1/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
-    PF_INFO.version_name = "gjh";
+    PF_INFO.version_name = "gzxj";
     PF_INFO.wxShield = false;
   } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0){  //当前版本 == 后台版本
     console.log("#审核版=============================");
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（审核版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy-fx.shzbkj.com/weixin_0/";
+    PF_INFO.cdn = "https://cdn-tjqy-gzxj.shzbkj.com/weixin_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
     PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = true;                          //屏蔽活动
@@ -281,11 +281,12 @@ window.sdkOnInited = function(res) {
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（开发版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy-fx.shzbkj.com/weixin_0/";
+    PF_INFO.cdn = "https://cdn-tjqy-gzxj.shzbkj.com/weixin_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
     PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = false;
   }
+  PF_INFO.wxShield = !res.res_msg.iosPay;
   PF_INFO.from_scene = config.from ? config.from : 0;
 
   this.loadVersionConfig();
@@ -329,10 +330,12 @@ window.sdkOnLogin = function(status, data) {
 
 window.onUserLogin = function (response) {
   if (!response) {
+    window.reqRecordInfo("userLoginError", "response is null");
     window.loginAlert('User.login failed');
     return;
   }
   if (response.state != 'success') {
+    window.reqRecordInfo("userLoginError", JSON.stringify(response));
     window.loginAlert('User.login failed: ' + response.state);
     return;
   }
@@ -348,15 +351,26 @@ window.onUserLogin = function (response) {
 
   var self = this;
   wxShowLoading({ title: '请求服务器' });
+
+  var lastSerStr = localStorage.getItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account);
+  if (lastSerStr && lastSerStr != "") {
+    var lastSerId = Number(lastSerStr);
+    self.getCheckServers(lastSerId);
+  } else {
+    self.getDefaultServers();
+  }
+}
+
+window.getDefaultServers = function() {
+  var self = this;
   sendApi(PF_INFO.apiurl, 'Server.defaultServer', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
     'version': PF_INFO.version,
     'game_pkg': PF_INFO.pkgName,
     'device': PF_INFO.device_id,
-  }, self.onUserLoginDefaultServers.bind(self), apiRetryAmount, onApiError);
+  }, self.onUserLoginDefaultServers.bind(self), apiRetryAmount, onApiError); 
 }
-
 window.onUserLoginDefaultServers = function(response) {
   if (!response) {
     window.loginAlert('Server.defaultServer failed');
@@ -370,8 +384,32 @@ window.onUserLoginDefaultServers = function(response) {
     window.loginAlert('服务器尚未开启');
     return;
   }
-
-  PF_INFO.newRegister = response.is_new;
+  this.updCurServer(response);
+}
+window.getCheckServers = function(lastSerId) {
+  var self = this;
+  sendApi(PF_INFO.apiurl, 'Server.check_server', {
+    'server_id': lastSerId,
+    'time': Date.now() / 1000,
+  }, self.onUserLoginCheckServers.bind(self), apiRetryAmount, onApiError);
+}
+window.onUserLoginCheckServers = function(response) {
+  if (!response) {
+    this.getDefaultServers();
+    return;
+  }
+  if (response.state != 'success') {
+    this.getDefaultServers();
+    return;
+  }
+  if (!response.data || response.data.length == 0) {
+    this.getDefaultServers();
+    return;
+  }
+  this.updCurServer(response);
+}
+window.updCurServer = function(response) {
+  PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;
   PF_INFO.selectedServer = {
     'server_id': String(response.data[0].server_id),
     'server_name': String(response.data[0].server_name),
@@ -404,43 +442,43 @@ window.initComplete = function() {
 
 // 加载version_config版本文件，读取lastVersion号，外网是从后台请求获取
 window.loadVersionConfig = function() {
-  var self = this;
   sendApi(PF_INFO.apiurl, 'User.getCdnVersion', {
     'game_pkg': PF_INFO.pkgName,
     'version_name': PF_INFO.version_name,
-  }, function(response) {
-    if (!response) {
-      window.loginAlert('User.getCdnVersion failed');
-      return;
+  }, this.reqVersionConfigCallBack.bind(this), apiRetryAmount, onApiError);
+}
+window.reqVersionConfigCallBack = function(data) {
+    if (!data) {
+        window.loginAlert('User.getCdnVersion failed');
+        return;
     }
-    if (response.state != 'success') {
-      window.loginAlert('User.getCdnVersion failed: state=' + response.state);
-      return;
+    if (data.state != 'success') {
+        window.loginAlert('User.getCdnVersion failed: state=' + data.state);
+        return;
     }
-    if (!response.data || !response.data.version) {
-      window.loginAlert('User.getCdnVersion failed: version=' + (response.data&&response.data.version));
-      return;
+    if (!data.data || !data.data.version) {
+        window.loginAlert('User.getCdnVersion failed: version=' + (data.data&&data.data.version));
+        return;
     }
-    if (response.data.cdn_url && response.data.cdn_url.length > 10) {
-        PF_INFO.base_cdn = response.data.cdn_url;
-        PF_INFO.cdn = response.data.cdn_url;
+    if (data.data.cdn_url && data.data.cdn_url.length > 10) {
+        PF_INFO.base_cdn = data.data.cdn_url;
+        PF_INFO.cdn = data.data.cdn_url;
     }
-    if (response.data.version) {
-        PF_INFO.lastVersion = response.data.version;
+    if (data.data.version) {
+        PF_INFO.lastVersion = data.data.version;
     }
     console.info("lastVersion:"+PF_INFO.lastVersion+", version_name:"+PF_INFO.version_name);
     window.loadVersion = true;
     window.initMain();
-    window.enterToGame(); 
-  });
+    window.enterToGame();
 }
 
 // 请求隐私、超级VIP、公众号信息
-window.pkgOptions
+window.pkgOptions;
 window.reqPkgOptions = function() {
   sendApi(PF_INFO.apiurl, 'Common.get_option_pkg', { 
     'game_pkg': PF_INFO.pkgName,
-  }, reqPkgOptionsCallBack);
+  }, this.reqPkgOptionsCallBack.bind(this), apiRetryAmount, onApiError);
 }
 window.reqPkgOptionsCallBack = function(data) {
   if (data.state === "success" && data.data) {
@@ -598,6 +636,21 @@ window.microPortGuide = function(){
   AKSDK.weiduanHelper();
 }
 
+//绑定有礼请求短信验证码
+window.reqSMSCode = function(phone, role_id, uid, game_pkg, partner_id, sign, callback, server_id) {
+  server_id = server_id || PF_INFO.selectedServer.server_id;
+  sendApi(PF_INFO.apiurl, 'User.get_code', {
+    'phone': phone,
+    'role_id': role_id,
+    'uid': PF_INFO.account,
+    'game_pkg': PF_INFO.pkgName,
+    'partner_id': PF_INFO.partnerId,
+    'server_id': server_id,
+  }, callback, 2, null, function() {
+    return true;
+  });
+}
+
 //收藏
 //window.onShowData = null;
 //window.onShowCallback = null;
@@ -717,51 +770,72 @@ window.getBatteryInfo = function(callback) {
     }
   });
 }
+//获取网络类型
+window.getNetworkType = function(callback) {
+  wx.getNetworkType({
+    success: function(resSuc) {
+      callback && callback(true, resSuc);
+    },
+    fail: function(resFail) {
+      callback && callback(false, resFail);
+    }
+  });
+}
+//添加网络状态变化监听
+window.onNetworkStatusChange = function(func) {
+  if (func) wx.onNetworkStatusChange(func);
+}
+//移除网络状态变化监听
+window.offNetworkStatusChange = function(func) {
+  wx.offNetworkStatusChange(func);  
+}
 
 window.send = function(url, data, callBack, retryAmount, errorCB, checkSuccess, reqType, contentType) {
-  if (retryAmount == undefined) {
-    retryAmount = 1;
-  }
+  if (retryAmount == undefined) retryAmount = 1;
 
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4) {
-      if ((xhr.status == 200 || xhr.status == 301)) {
-        var response = xhr.response;
-        response = JSON.parse(xhr.response);
-
-        if (!checkSuccess || checkSuccess(response, xhr, url)) {
-          if (callBack) {
-            callBack(response);
+  wx.request({
+      url: url,
+      method: (reqType || "GET"),
+      responseType: "text",
+      data: data,
+      header: {
+          "content-type": (contentType || 'application/json'),
+      },
+      success: function(res) {
+          DEBUG && console.log("send.success:", url, info, res);
+          if (res && res.statusCode == 200) {
+              var response = res.data;
+              if (!checkSuccess || checkSuccess(response)) {
+                  if (callBack) {
+                      callBack(response);
+                  }
+              } else {
+                  window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
+              }
+          } else {
+            window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
           }
-          return;
-        } else {
-          console.info(url);
-          console.error(response);
-        }
-      }
-      if (retryAmount - 1 > 0) {
+      },
+      fail: function(res) {
+          DEBUG && console.log("send.fail:", url, info, res);
+          window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
+      },
+      complete: function() {}
+  });
+}
+window.sendFail = function(url, data, callBack, retryAmount, errorCB, checkSuccess, res) {
+    if (retryAmount - 1 > 0) {
         setTimeout(function() {
-          send(url, data, callBack, retryAmount - 1, errorCB, checkSuccess);
+            window.send(url, data, callBack, retryAmount - 1, errorCB, checkSuccess);
         }, 1000);
-      } else {
+    } else {
         if (errorCB) {
-          errorCB(JSON.stringify({
-              url: url,
-              status: xhr.status,
-              response: xhr.response,
-              responseType: xhr.responseType
+            errorCB(JSON.stringify({
+                url: url,
+                response: res,
             }));
         }
-      }
     }
-  };
-  xhr.open(reqType || "GET", url);
-  xhr.responseType = "text";
-  // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  // xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.setRequestHeader('content-type', contentType || 'application/json');
-  xhr.send(data);
 }
 
 window.sendApi = function(apiurl, method, param, callBack, retryAmount, errorCB, checkSuccess) {
@@ -939,6 +1013,11 @@ window.req_multi_server_notice = function(type, pkgName, server_id, callback) {
     'server_id': server_id,
   }, callback);
 }
+window.req_privacy = function(pkgName, callback) {
+  sendApi(PF_INFO.apiurl, 'Common.get_option_pkg_detail', {
+    'game_pkg': pkgName,
+  }, callback);
+}
 
 
 window.get_status = function (server) {
@@ -985,7 +1064,6 @@ window.reqServerCheckBanCallBack = function(data) {
   if (data.state === "success" && data.data) {
     var server = PF_INFO.selectedServer;
     server.channel_num = PF_INFO.channelNum;
-
     server.sign = String(data.data.login_sign);
     server.tick = parseInt(data.data.time);
     if (data.data.server_num)
@@ -996,6 +1074,8 @@ window.reqServerCheckBanCallBack = function(data) {
     server.cdn = PF_INFO.base_cdn;
     server.resver = data.data.cdn_version;
     server.server_options = data.data.server_options;
+    if (data.data.max_create)
+      server.max_create = parseInt(data.data.max_create);
 
     console.log("server_options："+ JSON.stringify(server.server_options));
 
@@ -1006,27 +1086,32 @@ window.reqServerCheckBanCallBack = function(data) {
 
     checkBanSuccess();
   } else {
-    sendApi(PF_INFO.apiurl, 'User.login', {
-      'platform': PF_INFO.sdk_name,
-      'partner_id': PF_INFO.partnerId,
-      'token': PF_INFO.sdk_token,
-      'game_pkg': PF_INFO.pkgName,
-      'deviceId': PF_INFO.device_id,
-      'scene': 'WX_'+ PF_INFO.from_scene,
-    }, function(response) {
-      if (response.state == "failed") {
-        window.loginAlert('User.login failed: ' + response.state);
-        return;
-      }
-      PF_INFO.php_sign = String(response.sign);
-      PF_INFO.php_signtime = String(response.time);
-
-      setTimeout(function() {
-        req_server_check_ban(PF_INFO.last_check_ban.step, PF_INFO.last_check_ban.server_id);
-      }, 1500);
-    }, apiRetryAmount, onApiError, function(response) {
-      return response.state == 'success' || response.state == 'failed';
-    });
+    if (PF_INFO.last_check_ban.step >= 3) {
+      onApiError(JSON.stringify(data));
+      window.loginAlert('User.checkInfo failed: ' + data.state);
+    } else {
+      sendApi(PF_INFO.apiurl, 'User.login', {
+        'platform': PF_INFO.sdk_name,
+        'partner_id': PF_INFO.partnerId,
+        'token': PF_INFO.sdk_token,
+        'game_pkg': PF_INFO.pkgName,
+        'deviceId': PF_INFO.device_id,
+        'scene': 'WX_'+ PF_INFO.from_scene,
+      }, function(response) {
+        if (!response || response.state != 'success') {
+          window.loginAlert('User.login failed: ' + response&&response.state);
+          return;
+        }
+        PF_INFO.php_sign = String(response.sign);
+        PF_INFO.php_signtime = String(response.time);
+  
+        setTimeout(function() {
+          req_server_check_ban(PF_INFO.last_check_ban.step+1, PF_INFO.last_check_ban.server_id);
+        }, 1500);
+      }, apiRetryAmount, onApiError, function(response) {
+        return response.state == 'success' || response.state == 'failed';
+      });
+    }
   }
 }
 window.checkBanSuccess = function() {
@@ -1105,13 +1190,8 @@ window.enterToGame = function() {
         }
       }
 
-      window.MainWX.instance.initPlatdata(platData);
-      setTimeout(() => {
-        if(!wx_develop){ //非审核状态才有盒子
-          new minitool();
-        }
-      }, 10000);
-      
+      window.MainWX.instance.initPlatdata(platData);      
+      if (PF_INFO.selectedServer && PF_INFO.selectedServer.server_id) localStorage.setItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account, PF_INFO.selectedServer.server_id);
     }
   } else {
     console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadServerRes:"+window.loadServerRes+",loadLoadingRes:"+window.loadLoadingRes+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);

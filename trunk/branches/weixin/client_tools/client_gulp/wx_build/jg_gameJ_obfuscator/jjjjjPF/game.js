@@ -1,2 +1,2 @@
 var S = wx.$J;
-require('jjBF.js'), window[S[568613]][S[568614]][S[568615]] = null, window['client_pb'] = require('jjjCLIENTPB.js'), window[S[565488]] = window[S[568613]][S[565376]][S[565377]](client_pb);
+require('jjBF.js'), window[S[569050]][S[569051]][S[569052]] = null, window['client_pb'] = require('jjjCLIENTPB.js'), window[S[565714]] = window[S[569050]][S[565602]][S[565603]](client_pb);

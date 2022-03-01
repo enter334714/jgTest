@@ -1,2 +1,2 @@
 var H = wx.$F;
-require('z999z999Fz999z999.js'), window[H[640000]][H[640001]][H[640002]] = null, window['client_pb'] = require('z999z999IENz999z999.js'), window[H[640003]] = window[H[640000]][H[640004]][H[640005]](client_pb);
+require('z999z999Fz999z999.js'), window[H[640837]][H[640838]][H[640839]] = null, window['client_pb'] = require('z999z999IENz999z999.js'), window[H[640840]] = window[H[640837]][H[640841]][H[640842]](client_pb);

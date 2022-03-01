@@ -1,1916 +1,415 @@
 var B = wx.$z;
-/******/(function (modules) {
-	// webpackBootstrap
-	/******/ // The module cache
-	/******/var installedModules = {};
-
-	/******/ // The require function
-	/******/function __webpack_require__(moduleId) {
-
-		/******/ // Check if module is in cache
-		/******/if (installedModules[moduleId])
-			/******/return installedModules[moduleId].exports;
-
-		/******/ // Create a new module (and put it into the cache)
-		/******/var module = installedModules[moduleId] = {
-			/******/exports: {},
-			/******/id: moduleId,
-			/******/loaded: false
-			/******/ };
-
-		/******/ // Execute the module function
-		/******/modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
-		/******/ // Flag the module as loaded
-		/******/module.loaded = true;
-
-		/******/ // Return the exports of the module
-		/******/return module.exports;
-		/******/
-	}
-
-	/******/ // expose the modules object (__webpack_modules__)
-	/******/__webpack_require__.m = modules;
-
-	/******/ // expose the module cache
-	/******/__webpack_require__.c = installedModules;
-
-	/******/ // __webpack_public_path__
-	/******/__webpack_require__.p = "";
-
-	/******/ // Load entry module and return exports
-	/******/return __webpack_require__(0);
-	/******/
-})(
-/************************************************************************/
-/******/[
-/* 0 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _window2 = __webpack_require__(1);
-
-	var _window = _interopRequireWildcard(_window2);
-
-	var _HTMLElement = __webpack_require__(4);
-
-	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _interopRequireWildcard(obj) {
-		if (obj && obj.__esModule) {
-			return obj;
-		} else {
-			var newObj = {};if (obj != null) {
-				for (var key in obj) {
-					if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
-				}
-			}newObj.default = obj;return newObj;
-		}
-	}
-
-	var global = GameGlobal;
-
-	function inject() {
-		_window.addEventListener = function (type, listener) {
-			_window.document.addEventListener(type, listener);
-		};
-		_window.removeEventListener = function (type, listener) {
-			_window.document.removeEventListener(type, listener);
-		};
-
-		if (_window.canvas) {
-			_window.canvas.addEventListener = _window.addEventListener;
-			_window.canvas.removeEventListener = _window.removeEventListener;
-		}
-
-		if (global.sharedCanvas) {
-			// eslint-disable-next-line no-undef
-			sharedCanvas.__proto__.__proto__ = new _HTMLElement2.default('canvas');
-			// eslint-disable-next-line no-undef
-			sharedCanvas.addEventListener = _window.addEventListener;
-			// eslint-disable-next-line no-undef
-			sharedCanvas.removeEventListener = _window.removeEventListener;
-		}
-
-		var _wx$getSystemInfoSync = wx.getSystemInfoSync(),
-		    platform = _wx$getSystemInfoSync.platform;
-
-		// 开发者工具无法重定义 window
-
-
-		if (typeof __devtoolssubcontext === 'undefined' && platform === 'devtools') {
-			for (var key in _window) {
-				var descriptor = Object.getOwnPropertyDescriptor(global, key);
-
-				if (!descriptor || descriptor.configurable === true) {
-					Object.defineProperty(window, key, {
-						value: _window[key]
-					});
-				}
-			}
-
-			for (var _key in _window.document) {
-				var _descriptor = Object.getOwnPropertyDescriptor(global.document, _key);
-
-				if (!_descriptor || _descriptor.configurable === true) {
-					Object.defineProperty(global.document, _key, {
-						value: _window.document[_key]
-					});
-				}
-			}
-			window.parent = window;
-		} else {
-			for (var _key2 in _window) {
-				global[_key2] = _window[_key2];
-			}
-			global.window = _window;
-			window = global;
-			window.top = window.parent = window;
-		}
-	}
-
-	if (!GameGlobal.__isAdapterInjected) {
-		GameGlobal.__isAdapterInjected = true;
-		inject();
-	}
-
-	/***/
-},
-/* 1 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.cancelAnimationFrame = exports.requestAnimationFrame = exports.clearInterval = exports.clearTimeout = exports.setInterval = exports.setTimeout = exports.canvas = exports.location = exports.localStorage = exports.HTMLElement = exports.FileReader = exports.Audio = exports.Image = exports.WebSocket = exports.XMLHttpRequest = exports.navigator = exports.document = undefined;
-
-	var _WindowProperties = __webpack_require__(2);
-
-	Object.keys(_WindowProperties).forEach(function (key) {
-		if (key === "default" || key === "__esModule") return;
-		Object.defineProperty(exports, key, {
-			enumerable: true,
-			get: function get() {
-				return _WindowProperties[key];
-			}
-		});
-	});
-
-	var _constructor = __webpack_require__(3);
-
-	Object.keys(_constructor).forEach(function (key) {
-		if (key === "default" || key === "__esModule") return;
-		Object.defineProperty(exports, key, {
-			enumerable: true,
-			get: function get() {
-				return _constructor[key];
-			}
-		});
-	});
-
-	var _Canvas = __webpack_require__(9);
-
-	var _Canvas2 = _interopRequireDefault(_Canvas);
-
-	var _Util = __webpack_require__(17);
-
-	var _document2 = __webpack_require__(10);
-
-	var _document3 = _interopRequireDefault(_document2);
-
-	var _navigator2 = __webpack_require__(18);
-
-	var _navigator3 = _interopRequireDefault(_navigator2);
-
-	var _XMLHttpRequest2 = __webpack_require__(19);
-
-	var _XMLHttpRequest3 = _interopRequireDefault(_XMLHttpRequest2);
-
-	var _WebSocket2 = __webpack_require__(20);
-
-	var _WebSocket3 = _interopRequireDefault(_WebSocket2);
-
-	var _Image2 = __webpack_require__(11);
-
-	var _Image3 = _interopRequireDefault(_Image2);
-
-	var _Audio2 = __webpack_require__(12);
-
-	var _Audio3 = _interopRequireDefault(_Audio2);
-
-	var _FileReader2 = __webpack_require__(21);
-
-	var _FileReader3 = _interopRequireDefault(_FileReader2);
-
-	var _HTMLElement2 = __webpack_require__(4);
-
-	var _HTMLElement3 = _interopRequireDefault(_HTMLElement2);
-
-	var _localStorage2 = __webpack_require__(22);
-
-	var _localStorage3 = _interopRequireDefault(_localStorage2);
-
-	var _location2 = __webpack_require__(23);
-
-	var _location3 = _interopRequireDefault(_location2);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	exports.document = _document3.default;
-	exports.navigator = _navigator3.default;
-	exports.XMLHttpRequest = _XMLHttpRequest3.default;
-	exports.WebSocket = _WebSocket3.default;
-	exports.Image = _Image3.default;
-	exports.Audio = _Audio3.default;
-	exports.FileReader = _FileReader3.default;
-	exports.HTMLElement = _HTMLElement3.default;
-	exports.localStorage = _localStorage3.default;
-	exports.location = _location3.default;
-
-	// 暴露全局的 canvas
-	var canvas = (0, _Util.isSubContext)() ? undefined : new _Canvas2.default();
-
-	exports.canvas = canvas;
-	exports.setTimeout = setTimeout;
-	exports.setInterval = setInterval;
-	exports.clearTimeout = clearTimeout;
-	exports.clearInterval = clearInterval;
-	exports.requestAnimationFrame = requestAnimationFrame;
-	exports.cancelAnimationFrame = cancelAnimationFrame;
-
-	/***/
-},
-/* 2 */
-/***/function (module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _wx$getSystemInfoSync = wx.getSystemInfoSync(),
-	    screenWidth = _wx$getSystemInfoSync.screenWidth,
-	    screenHeight = _wx$getSystemInfoSync.screenHeight,
-	    devicePixelRatio = _wx$getSystemInfoSync.devicePixelRatio;
-
-	var innerWidth = exports.innerWidth = screenWidth;
-	var innerHeight = exports.innerHeight = screenHeight;
-	exports.devicePixelRatio = devicePixelRatio;
-	var screen = exports.screen = {
-		availWidth: innerWidth,
-		availHeight: innerHeight
-	};
-	var performance = exports.performance = {
-		now: function now() {
-			return Date.now() / 1000;
-		}
-	};
-	var ontouchstart = exports.ontouchstart = null;
-	var ontouchmove = exports.ontouchmove = null;
-	var ontouchend = exports.ontouchend = null;
-
-	/***/
-},
-/* 3 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.HTMLCanvasElement = exports.HTMLImageElement = undefined;
-
-	var _HTMLElement3 = __webpack_require__(4);
-
-	var _HTMLElement4 = _interopRequireDefault(_HTMLElement3);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && (typeof call === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var HTMLImageElement = exports.HTMLImageElement = function (_HTMLElement) {
-		_inherits(HTMLImageElement, _HTMLElement);
-
-		function HTMLImageElement() {
-			_classCallCheck(this, HTMLImageElement);
-
-			return _possibleConstructorReturn(this, (HTMLImageElement.__proto__ || Object.getPrototypeOf(HTMLImageElement)).call(this, 'img'));
-		}
-
-		return HTMLImageElement;
-	}(_HTMLElement4.default);
-
-	var HTMLCanvasElement = exports.HTMLCanvasElement = function (_HTMLElement2) {
-		_inherits(HTMLCanvasElement, _HTMLElement2);
-
-		function HTMLCanvasElement() {
-			_classCallCheck(this, HTMLCanvasElement);
-
-			return _possibleConstructorReturn(this, (HTMLCanvasElement.__proto__ || Object.getPrototypeOf(HTMLCanvasElement)).call(this, 'canvas'));
-		}
-
-		return HTMLCanvasElement;
-	}(_HTMLElement4.default);
-
-	/***/
-},
-/* 4 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _Element2 = __webpack_require__(5);
-
-	var _Element3 = _interopRequireDefault(_Element2);
-
-	var _util = __webpack_require__(8);
-
-	var _WindowProperties = __webpack_require__(2);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && (typeof call === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var HTMLElement = function (_Element) {
-		_inherits(HTMLElement, _Element);
-
-		function HTMLElement() {
-			var tagName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-			_classCallCheck(this, HTMLElement);
-
-			var _this = _possibleConstructorReturn(this, (HTMLElement.__proto__ || Object.getPrototypeOf(HTMLElement)).call(this));
-
-			_this.className = '';
-			_this.childern = [];
-			_this.style = {
-				width: _WindowProperties.innerWidth + 'px',
-				height: _WindowProperties.innerHeight + 'px'
-			};
-			_this.insertBefore = _util.noop;
-			_this.innerHTML = '';
-
-			_this.tagName = tagName.toUpperCase();
-			return _this;
-		}
-
-		_createClass(HTMLElement, [{
-			key: 'setAttribute',
-			value: function setAttribute(name, value) {
-				this[name] = value;
-			}
-		}, {
-			key: 'getAttribute',
-			value: function getAttribute(name) {
-				return this[name];
-			}
-		}, {
-			key: 'getBoundingClientRect',
-			value: function getBoundingClientRect() {
-				return {
-					top: 0,
-					left: 0,
-					width: _WindowProperties.innerWidth,
-					height: _WindowProperties.innerHeight
-				};
-			}
-		}, {
-			key: 'focus',
-			value: function focus() {}
-		}, {
-			key: 'clientWidth',
-			get: function get() {
-				var ret = parseInt(this.style.fontSize, 10) * this.innerHTML.length;
-
-				return Number.isNaN(ret) ? 0 : ret;
-			}
-		}, {
-			key: 'clientHeight',
-			get: function get() {
-				var ret = parseInt(this.style.fontSize, 10);
-
-				return Number.isNaN(ret) ? 0 : ret;
-			}
-		}]);
-
-		return HTMLElement;
-	}(_Element3.default);
-
-	exports.default = HTMLElement;
-
-	/***/
-},
-/* 5 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _Node2 = __webpack_require__(6);
-
-	var _Node3 = _interopRequireDefault(_Node2);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && (typeof call === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var ELement = function (_Node) {
-		_inherits(ELement, _Node);
-
-		function ELement() {
-			_classCallCheck(this, ELement);
-
-			var _this = _possibleConstructorReturn(this, (ELement.__proto__ || Object.getPrototypeOf(ELement)).call(this));
-
-			_this.className = '';
-			_this.children = [];
-			return _this;
-		}
-
-		return ELement;
-	}(_Node3.default);
-
-	exports.default = ELement;
-
-	/***/
-},
-/* 6 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _EventTarget2 = __webpack_require__(7);
-
-	var _EventTarget3 = _interopRequireDefault(_EventTarget2);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && (typeof call === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var Node = function (_EventTarget) {
-		_inherits(Node, _EventTarget);
-
-		function Node() {
-			_classCallCheck(this, Node);
-
-			var _this = _possibleConstructorReturn(this, (Node.__proto__ || Object.getPrototypeOf(Node)).call(this));
-
-			_this.childNodes = [];
-			return _this;
-		}
-
-		_createClass(Node, [{
-			key: 'appendChild',
-			value: function appendChild(node) {
-				if (node instanceof Node) {
-					this.childNodes.push(node);
-				} else {
-					throw new TypeError('Failed to executed \'appendChild\' on \'Node\': parameter 1 is not of type \'Node\'.');
-				}
-			}
-		}, {
-			key: 'cloneNode',
-			value: function cloneNode() {
-				var copyNode = Object.create(this);
-
-				Object.assign(copyNode, this);
-				return copyNode;
-			}
-		}, {
-			key: 'removeChild',
-			value: function removeChild(node) {
-				var index = this.childNodes.findIndex(function (child) {
-					return child === node;
-				});
-
-				if (index > -1) {
-					return this.childNodes.splice(index, 1);
-				}
-				return null;
-			}
-		}]);
-
-		return Node;
-	}(_EventTarget3.default);
-
-	exports.default = Node;
-
-	/***/
-},
-/* 7 */
-/***/function (module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	var _events = new WeakMap();
-
-	var EventTarget = function () {
-		function EventTarget() {
-			_classCallCheck(this, EventTarget);
-
-			_events.set(this, {});
-		}
-
-		_createClass(EventTarget, [{
-			key: 'addEventListener',
-			value: function addEventListener(type, listener) {
-				var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-				var events = _events.get(this);
-
-				if (!events) {
-					events = {};
-					_events.set(this, events);
-				}
-				if (!events[type]) {
-					events[type] = [];
-				}
-				events[type].push(listener);
-
-				if (options.capture) {
-					console.warn('EventTarget.addEventListener: options.capture is not implemented.');
-				}
-				if (options.once) {
-					console.warn('EventTarget.addEventListener: options.once is not implemented.');
-				}
-				if (options.passive) {
-					console.warn('EventTarget.addEventListener: options.passive is not implemented.');
-				}
-			}
-		}, {
-			key: 'removeEventListener',
-			value: function removeEventListener(type, listener) {
-				var listeners = _events.get(this)[type];
-
-				if (listeners && listeners.length > 0) {
-					for (var i = listeners.length; i--; i > 0) {
-						if (listeners[i] === listener) {
-							listeners.splice(i, 1);
-							break;
-						}
-					}
-				}
-			}
-		}, {
-			key: 'dispatchEvent',
-			value: function dispatchEvent() {
-				var event = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-				var listeners = _events.get(this)[event.type];
-
-				if (listeners) {
-					for (var i = 0; i < listeners.length; i++) {
-						listeners[i](event);
-					}
-				}
-			}
-		}]);
-
-		return EventTarget;
-	}();
-
-	exports.default = EventTarget;
-
-	/***/
-},
-/* 8 */
-/***/function (module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.noop = noop;
-	exports.isSubContext = isSubContext;
-	function noop() {}
-
-	function isSubContext() {
-		return typeof GameGlobal !== 'undefined' && GameGlobal.__isSubContext === true;
-	}
-
-	/***/
-},
-/* 9 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.default = Canvas;
-
-	var _constructor = __webpack_require__(3);
-
-	var _HTMLElement = __webpack_require__(4);
-
-	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
-
-	var _document = __webpack_require__(10);
-
-	var _document2 = _interopRequireDefault(_document);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	var hasModifiedCanvasPrototype = false;
-	var hasInit2DContextConstructor = false;
-	var hasInitWebGLContextConstructor = false;
-
-	function Canvas() {
-		var canvas = wx.createCanvas();
-
-		canvas.type = 'canvas';
-
-		canvas.__proto__.__proto__ = new _HTMLElement2.default('canvas');
-
-		var _getContext = canvas.getContext;
-
-		canvas.getBoundingClientRect = function () {
-			var ret = {
-				top: 0,
-				left: 0,
-				width: window.innerWidth,
-				height: window.innerHeight
-			};
-			return ret;
-		};
-
-		return canvas;
-	}
-
-	/***/
-},
-/* 10 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _window = __webpack_require__(1);
-
-	var window = _interopRequireWildcard(_window);
-
-	var _HTMLElement = __webpack_require__(4);
-
-	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
-
-	var _Image = __webpack_require__(11);
-
-	var _Image2 = _interopRequireDefault(_Image);
-
-	var _Audio = __webpack_require__(12);
-
-	var _Audio2 = _interopRequireDefault(_Audio);
-
-	var _Canvas = __webpack_require__(9);
-
-	var _Canvas2 = _interopRequireDefault(_Canvas);
-
-	__webpack_require__(15);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _interopRequireWildcard(obj) {
-		if (obj && obj.__esModule) {
-			return obj;
-		} else {
-			var newObj = {};if (obj != null) {
-				for (var key in obj) {
-					if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
-				}
-			}newObj.default = obj;return newObj;
-		}
-	}
-
-	var events = {};
-
-	var document = {
-		readyState: 'complete',
-		visibilityState: 'visible',
-		documentElement: window,
-		hidden: false,
-		style: {},
-		location: window.location,
-		ontouchstart: null,
-		ontouchmove: null,
-		ontouchend: null,
-
-		head: new _HTMLElement2.default('head'),
-		body: new _HTMLElement2.default('body'),
-
-		createElement: function createElement(tagName) {
-			if (tagName === 'canvas') {
-				return new _Canvas2.default();
-			} else if (tagName === 'audio') {
-				return new _Audio2.default();
-			} else if (tagName === 'img') {
-				return new _Image2.default();
-			}
-
-			return new _HTMLElement2.default(tagName);
-		},
-		getElementById: function getElementById(id) {
-			if (id === window.canvas.id) {
-				return window.canvas;
-			}
-			return null;
-		},
-		getElementsByTagName: function getElementsByTagName(tagName) {
-			if (tagName === 'head') {
-				return [document.head];
-			} else if (tagName === 'body') {
-				return [document.body];
-			} else if (tagName === 'canvas') {
-				return [window.canvas];
-			}
-			return [];
-		},
-		querySelector: function querySelector(query) {
-			if (query === 'head') {
-				return document.head;
-			} else if (query === 'body') {
-				return document.body;
-			} else if (query === 'canvas') {
-				return window.canvas;
-			} else if (query === '#' + window.canvas.id) {
-				return window.canvas;
-			}
-			return null;
-		},
-		querySelectorAll: function querySelectorAll(query) {
-			if (query === 'head') {
-				return [document.head];
-			} else if (query === 'body') {
-				return [document.body];
-			} else if (query === 'canvas') {
-				return [window.canvas];
-			}
-			return [];
-		},
-		addEventListener: function addEventListener(type, listener) {
-			if (!events[type]) {
-				events[type] = [];
-			}
-			events[type].push(listener);
-		},
-		removeEventListener: function removeEventListener(type, listener) {
-			var listeners = events[type];
-
-			if (listeners && listeners.length > 0) {
-				for (var i = listeners.length; i--; i > 0) {
-					if (listeners[i] === listener) {
-						listeners.splice(i, 1);
-						break;
-					}
-				}
-			}
-		},
-		dispatchEvent: function dispatchEvent(event) {
-			var listeners = events[event.type];
-
-			if (listeners) {
-				for (var i = 0; i < listeners.length; i++) {
-					listeners[i](event);
-				}
-			}
-		}
-	};
-
-	exports.default = document;
-
-	/***/
-},
-/* 11 */
-/***/function (module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.default = Image;
-	function Image() {
-		var image = wx.createImage();
-		image.destroy = function () {
-			image.src = "";
-		};
-
-		return image;
-	}
-
-	/***/
-},
-/* 12 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _HTMLAudioElement2 = __webpack_require__(13);
-
-	var _HTMLAudioElement3 = _interopRequireDefault(_HTMLAudioElement2);
-
-	var _util = __webpack_require__(8);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && (typeof call === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var HAVE_NOTHING = 0;
-	var HAVE_METADATA = 1;
-	var HAVE_CURRENT_DATA = 2;
-	var HAVE_FUTURE_DATA = 3;
-	var HAVE_ENOUGH_DATA = 4;
-
-	var _innerAudioContext = new WeakMap();
-	var _src = new WeakMap();
-	var _loop = new WeakMap();
-	var _autoplay = new WeakMap();
-
-	var Audio = function (_HTMLAudioElement) {
-		_inherits(Audio, _HTMLAudioElement);
-
-		function Audio(url) {
-			_classCallCheck(this, Audio);
-
-			var _this = _possibleConstructorReturn(this, (Audio.__proto__ || Object.getPrototypeOf(Audio)).call(this));
-
-			_this.HAVE_NOTHING = HAVE_NOTHING;
-			_this.HAVE_METADATA = HAVE_METADATA;
-			_this.HAVE_CURRENT_DATA = HAVE_CURRENT_DATA;
-			_this.HAVE_FUTURE_DATA = HAVE_FUTURE_DATA;
-			_this.HAVE_ENOUGH_DATA = HAVE_ENOUGH_DATA;
-			_this.readyState = HAVE_NOTHING;
-
-			if ((0, _util.isSubContext)()) {
-				console.warn('HTMLAudioElement is not supported in SubContext.');
-				return _possibleConstructorReturn(_this);
-			}
-
-			_src.set(_this, '');
-
-			var innerAudioContext = wx.createInnerAudioContext();
-
-			_innerAudioContext.set(_this, innerAudioContext);
-
-			innerAudioContext.onCanplay(function () {
-				_this.dispatchEvent({ type: 'load' });
-				_this.dispatchEvent({ type: 'loadend' });
-				_this.dispatchEvent({ type: 'canplay' });
-				_this.dispatchEvent({ type: 'canplaythrough' });
-				_this.dispatchEvent({ type: 'loadedmetadata' });
-				_this.readyState = HAVE_CURRENT_DATA;
-			});
-			innerAudioContext.onPlay(function () {
-				_this.dispatchEvent({ type: 'play' });
-			});
-			innerAudioContext.onPause(function () {
-				_this.dispatchEvent({ type: 'pause' });
-			});
-			innerAudioContext.onEnded(function () {
-				_this.dispatchEvent({ type: 'ended' });
-				_this.readyState = HAVE_ENOUGH_DATA;
-			});
-			innerAudioContext.onError(function () {
-				_this.dispatchEvent({ type: 'error' });
-			});
-
-			if (url) {
-				_innerAudioContext.get(_this).src = url;
-			}
-			return _this;
-		}
-
-		_createClass(Audio, [{
-			key: 'load',
-			value: function load() {
-				console.warn('HTMLAudioElement.load() is not implemented.');
-			}
-		}, {
-			key: 'play',
-			value: function play() {
-				if (!(0, _util.isSubContext)()) {
-					_innerAudioContext.get(this).play();
-				}
-			}
-		}, {
-			key: 'pause',
-			value: function pause() {
-				if (!(0, _util.isSubContext)()) {
-					_innerAudioContext.get(this).pause();
-				}
-			}
-		}, {
-			key: 'canPlayType',
-			value: function canPlayType() {
-				var mediaType = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-				if (typeof mediaType !== 'string') {
-					return '';
-				}
-
-				if (mediaType.indexOf('audio/mpeg') > -1 || mediaType.indexOf('audio/mp4')) {
-					return 'probably';
-				}
-				return '';
-			}
-		}, {
-			key: 'cloneNode',
-			value: function cloneNode() {
-				var newAudio = new Audio();
-				if (!(0, _util.isSubContext)()) {
-					newAudio.loop = _innerAudioContext.get(this).loop;
-					newAudio.autoplay = _innerAudioContext.get(this).loop;
-					newAudio.src = this.src;
-				}
-				return newAudio;
-			}
-		}, {
-			key: 'currentTime',
-			get: function get() {
-				if (!(0, _util.isSubContext)()) {
-					return _innerAudioContext.get(this).currentTime;
-				}
-				return 0;
-			},
-			set: function set(value) {
-				if (!(0, _util.isSubContext)()) {
-					_innerAudioContext.get(this).seek(value);
-				}
-			}
-		}, {
-			key: 'src',
-			get: function get() {
-				return _src.get(this);
-			},
-			set: function set(value) {
-				_src.set(this, value);
-				if (!(0, _util.isSubContext)()) {
-					_innerAudioContext.get(this).src = value;
-				}
-			}
-		}, {
-			key: 'loop',
-			get: function get() {
-				if (!(0, _util.isSubContext)()) {
-					return _innerAudioContext.get(this).loop;
-				}
-				return false;
-			},
-			set: function set(value) {
-				if (!(0, _util.isSubContext)()) {
-					_innerAudioContext.get(this).loop = value;
-				}
-			}
-		}, {
-			key: 'autoplay',
-			get: function get() {
-				if (!(0, _util.isSubContext)()) {
-					return _innerAudioContext.get(this).autoplay;
-				}
-				return false;
-			},
-			set: function set(value) {
-				if (!(0, _util.isSubContext)()) {
-					_innerAudioContext.get(this).autoplay = value;
-				}
-			}
-		}, {
-			key: 'paused',
-			get: function get() {
-				if (!(0, _util.isSubContext)()) {
-					return _innerAudioContext.get(this).paused;
-				}
-				return false;
-			}
-		}]);
-
-		return Audio;
-	}(_HTMLAudioElement3.default);
-
-	exports.default = Audio;
-
-	/***/
-},
-/* 13 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _HTMLMediaElement2 = __webpack_require__(14);
-
-	var _HTMLMediaElement3 = _interopRequireDefault(_HTMLMediaElement2);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && (typeof call === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var HTMLAudioElement = function (_HTMLMediaElement) {
-		_inherits(HTMLAudioElement, _HTMLMediaElement);
-
-		function HTMLAudioElement() {
-			_classCallCheck(this, HTMLAudioElement);
-
-			return _possibleConstructorReturn(this, (HTMLAudioElement.__proto__ || Object.getPrototypeOf(HTMLAudioElement)).call(this, 'audio'));
-		}
-
-		return HTMLAudioElement;
-	}(_HTMLMediaElement3.default);
-
-	exports.default = HTMLAudioElement;
-
-	/***/
-},
-/* 14 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _HTMLElement2 = __webpack_require__(4);
-
-	var _HTMLElement3 = _interopRequireDefault(_HTMLElement2);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && (typeof call === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var HTMLMediaElement = function (_HTMLElement) {
-		_inherits(HTMLMediaElement, _HTMLElement);
-
-		function HTMLMediaElement(type) {
-			_classCallCheck(this, HTMLMediaElement);
-
-			return _possibleConstructorReturn(this, (HTMLMediaElement.__proto__ || Object.getPrototypeOf(HTMLMediaElement)).call(this, type));
-		}
-
-		_createClass(HTMLMediaElement, [{
-			key: 'addTextTrack',
-			value: function addTextTrack() {}
-		}, {
-			key: 'captureStream',
-			value: function captureStream() {}
-		}, {
-			key: 'fastSeek',
-			value: function fastSeek() {}
-		}, {
-			key: 'load',
-			value: function load() {}
-		}, {
-			key: 'pause',
-			value: function pause() {}
-		}, {
-			key: 'play',
-			value: function play() {}
-		}]);
-
-		return HTMLMediaElement;
-	}(_HTMLElement3.default);
-
-	exports.default = HTMLMediaElement;
-
-	/***/
-},
-/* 15 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(16);
-
-	/***/
-},
-/* 16 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _window = __webpack_require__(1);
-
-	var window = _interopRequireWildcard(_window);
-
-	var _document = __webpack_require__(10);
-
-	var _document2 = _interopRequireDefault(_document);
-
-	var _util = __webpack_require__(8);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	function _interopRequireWildcard(obj) {
-		if (obj && obj.__esModule) {
-			return obj;
-		} else {
-			var newObj = {};if (obj != null) {
-				for (var key in obj) {
-					if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
-				}
-			}newObj.default = obj;return newObj;
-		}
-	}
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	var TouchEvent = function TouchEvent(type) {
-		_classCallCheck(this, TouchEvent);
-
-		this.target = window.canvas;
-		this.currentTarget = window.canvas;
-		this.touches = [];
-		this.targetTouches = [];
-		this.changedTouches = [];
-		this.preventDefault = _util.noop;
-		this.stopPropagation = _util.noop;
-
-		this.type = type;
-	};
-
-	function touchEventHandlerFactory(type) {
-		return function (event) {
-			var touchEvent = new TouchEvent(type);
-
-			touchEvent.touches = event.touches;
-			touchEvent.targetTouches = Array.prototype.slice.call(event.touches);
-			touchEvent.changedTouches = event.changedTouches;
-			touchEvent.timeStamp = event.timeStamp;
-			_document2.default.dispatchEvent(touchEvent);
-		};
-	}
-
-	wx.onTouchStart(touchEventHandlerFactory('touchstart'));
-	wx.onTouchMove(touchEventHandlerFactory('touchmove'));
-	wx.onTouchEnd(touchEventHandlerFactory('touchend'));
-	wx.onTouchCancel(touchEventHandlerFactory('touchcancel'));
-
-	/***/
-},
-/* 17 */
-/***/function (module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.noop = noop;
-	exports.isSubContext = isSubContext;
-	function noop() {}
-
-	function isSubContext() {
-		return typeof GameGlobal !== 'undefined' && GameGlobal.__isSubContext === true;
-	}
-
-	/***/
-},
-/* 18 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _util = __webpack_require__(8);
-
-	// TODO 需要 wx.getSystemInfo 获取更详细信息
-	var _wx$getSystemInfoSync = wx.getSystemInfoSync(),
-	    platform = _wx$getSystemInfoSync.platform;
-
-	var navigator = {
-		platform: platform,
-		language: 'zh-cn',
-		appVersion: '5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1',
-		userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E8301 MicroMessenger/6.6.0 MiniGame NetType/WIFI Language/zh_CN',
-		onLine: true, // TODO 用 wx.getNetworkStateChange 和 wx.onNetworkStateChange 来返回真实的状态
-
-		// TODO 用 wx.getLocation 来封装 geolocation
-		geolocation: {
-			getCurrentPosition: _util.noop,
-			watchPosition: _util.noop,
-			clearWatch: _util.noop
-		}
-	};
-
-	exports.default = navigator;
-
-	/***/
-},
-/* 19 */
-/***/function (module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	var _url = new WeakMap();
-	var _method = new WeakMap();
-	var _requestHeader = new WeakMap();
-	var _responseHeader = new WeakMap();
-	var _requestTask = new WeakMap();
-
-	function _triggerEvent(type) {
-		if (typeof this['on' + type] === 'function') {
-			for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-				args[_key - 1] = arguments[_key];
-			}
-
-			this['on' + type].apply(this, args);
-		}
-	}
-
-	function _changeReadyState(readyState) {
-		this.readyState = readyState;
-		_triggerEvent.call(this, 'readystatechange');
-	}
-
-	var XMLHttpRequest = function () {
-		// TODO 没法模拟 HEADERS_RECEIVED 和 LOADING 两个状态
-		function XMLHttpRequest() {
-			_classCallCheck(this, XMLHttpRequest);
-
-			this.onabort = null;
-			this.onerror = null;
-			this.onload = null;
-			this.onloadstart = null;
-			this.onprogress = null;
-			this.ontimeout = null;
-			this.onloadend = null;
-			this.onreadystatechange = null;
-			this.readyState = 0;
-			this.response = null;
-			this.responseText = null;
-			this.responseType = '';
-			this.responseXML = null;
-			this.status = 0;
-			this.statusText = '';
-			this.upload = {};
-			this.withCredentials = false;
-
-			_requestHeader.set(this, {
-				'content-type': 'application/x-www-form-urlencoded'
-			});
-			_responseHeader.set(this, {});
-		}
-
-		/*
-   * TODO 这一批事件应该是在 XMLHttpRequestEventTarget.prototype 上面的
-   */
-
-		_createClass(XMLHttpRequest, [{
-			key: 'abort',
-			value: function abort() {
-				var myRequestTask = _requestTask.get(this);
-
-				if (myRequestTask) {
-					myRequestTask.abort();
-				}
-			}
-		}, {
-			key: 'getAllResponseHeaders',
-			value: function getAllResponseHeaders() {
-				var responseHeader = _responseHeader.get(this);
-
-				return Object.keys(responseHeader).map(function (header) {
-					return header + ': ' + responseHeader[header];
-				}).join('\n');
-			}
-		}, {
-			key: 'getResponseHeader',
-			value: function getResponseHeader(header) {
-				return _responseHeader.get(this)[header];
-			}
-		}, {
-			key: 'open',
-			value: function open(method, url /* async, user, password 这几个参数在小程序内不支持*/) {
-				_method.set(this, method);
-				_url.set(this, url);
-				_changeReadyState.call(this, XMLHttpRequest.OPENED);
-			}
-		}, {
-			key: 'overrideMimeType',
-			value: function overrideMimeType() {}
-		}, {
-			key: 'send',
-			value: function send() {
-				var _this = this;
-
-				var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-				if (this.readyState !== XMLHttpRequest.OPENED) {
-					throw new Error("Failed to execute 'send' on 'XMLHttpRequest': The object's state must be OPENED.");
-				} else {
-					wx.request({
-						data: data,
-						url: _url.get(this),
-						method: _method.get(this),
-						header: _requestHeader.get(this),
-						responseType: this.responseType,
-						success: function success(_ref) {
-							var data = _ref.data,
-							    statusCode = _ref.statusCode,
-							    header = _ref.header;
-
-							if (typeof data !== 'string' && !(data instanceof ArrayBuffer)) {
-								try {
-									data = JSON.stringify(data);
-								} catch (e) {
-									data = data;
-								}
-							}
-
-							_this.status = statusCode;
-							_responseHeader.set(_this, header);
-							_triggerEvent.call(_this, 'loadstart');
-							_changeReadyState.call(_this, XMLHttpRequest.HEADERS_RECEIVED);
-							_changeReadyState.call(_this, XMLHttpRequest.LOADING);
-
-							_this.response = data;
-
-							if (data instanceof ArrayBuffer) {
-								_this.responseText = '';
-								if (_this.responseType != "arraybuffer") {
-									var bytes = new Uint8Array(data);
-									var len = bytes.byteLength;
-									for (var i = 0; i < len; i++) {
-										_this.responseText += String.fromCharCode(bytes[i]);
-									}
-								}
-							} else {
-								_this.responseText = data;
-							}
-							_changeReadyState.call(_this, XMLHttpRequest.DONE);
-							_triggerEvent.call(_this, 'load');
-							_triggerEvent.call(_this, 'loadend');
-						},
-						fail: function fail(_ref2) {
-							var errMsg = _ref2.errMsg;
-
-							_this.status = 404;
-							_this.response = null;
-							_changeReadyState.call(_this, XMLHttpRequest.DONE);
-
-							// TODO 规范错误
-							if (errMsg.indexOf('abort') !== -1) {
-								_triggerEvent.call(_this, 'abort');
-							} else {
-								_triggerEvent.call(_this, 'error', errMsg);
-							}
-							_triggerEvent.call(_this, 'loadend');
-						}
-					});
-				}
-			}
-		}, {
-			key: 'setRequestHeader',
-			value: function setRequestHeader(header, value) {
-				var myHeader = _requestHeader.get(this);
-
-				myHeader[header] = value;
-				_requestHeader.set(this, myHeader);
-			}
-		}]);
-
-		return XMLHttpRequest;
-	}();
-
-	XMLHttpRequest.UNSEND = 0;
-	XMLHttpRequest.OPENED = 1;
-	XMLHttpRequest.HEADERS_RECEIVED = 2;
-	XMLHttpRequest.LOADING = 3;
-	XMLHttpRequest.DONE = 4;
-	exports.default = XMLHttpRequest;
-
-	/***/
-},
-/* 20 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _util = __webpack_require__(8);
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	var _socketTask = new WeakMap();
-
-	var WebSocket = function () {
-		// TODO 更新 binaryType
-		// The connection is in the process of closing.
-		// The connection is not yet open.
-		function WebSocket(url) {
-			var _this = this;
-
-			var protocols = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-
-			_classCallCheck(this, WebSocket);
-
-			this.binaryType = '';
-			this.bufferedAmount = 0;
-			this.extensions = '';
-			this.onclose = null;
-			this.onerror = null;
-			this.onmessage = null;
-			this.onopen = null;
-			this.protocol = '';
-			this.readyState = 3;
-
-			if ((0, _util.isSubContext)()) {
-				throw new Error('WebSocket is not supported in SubContext.');
-			}
-
-			if (typeof url !== 'string' || !/(^ws:\/\/)|(^wss:\/\/)/.test(url)) {
-				throw new TypeError('Failed to construct \'WebSocket\': The URL \'' + url + '\' is invalid');
-			}
-
-			this.url = url;
-			this.readyState = WebSocket.CONNECTING;
-
-			var socketTask = wx.connectSocket({
-				url: url,
-				protocols: Array.isArray(protocols) ? protocols : [protocols]
-			});
-
-			_socketTask.set(this, socketTask);
-
-			socketTask.onClose(function (res) {
-				_this.readyState = WebSocket.CLOSED;
-				if (typeof _this.onclose === 'function') {
-					_this.onclose(res);
-				}
-			});
-
-			socketTask.onMessage(function (res) {
-				if (typeof _this.onmessage === 'function') {
-					_this.onmessage(res);
-				}
-			});
-
-			socketTask.onOpen(function () {
-				_this.readyState = WebSocket.OPEN;
-				if (typeof _this.onopen === 'function') {
-					_this.onopen();
-				}
-			});
-
-			socketTask.onError(function (res) {
-				if (typeof _this.onerror === 'function') {
-					_this.onerror(new Error(res.errMsg));
-				}
-			});
-
-			return this;
-		} // TODO 小程序内目前获取不到，实际上需要根据服务器选择的 sub-protocol 返回
-		// TODO 更新 bufferedAmount
-		// The connection is closed or couldn't be opened.
-
-		// The connection is open and ready to communicate.
-
-
-		_createClass(WebSocket, [{
-			key: 'close',
-			value: function close(code, reason) {
-				this.readyState = WebSocket.CLOSING;
-				var socketTask = _socketTask.get(this);
-
-				socketTask.close({
-					code: code,
-					reason: reason
-				});
-			}
-		}, {
-			key: 'send',
-			value: function send(data) {
-				if (typeof data !== 'string' && !(data instanceof ArrayBuffer)) {
-					throw new TypeError('Failed to send message: The data ' + data + ' is invalid');
-				}
-
-				var socketTask = _socketTask.get(this);
-
-				socketTask.send({
-					data: data
-				});
-			}
-		}]);
-
-		return WebSocket;
-	}();
-
-	WebSocket.CONNECTING = 0;
-	WebSocket.OPEN = 1;
-	WebSocket.CLOSING = 2;
-	WebSocket.CLOSED = 3;
-	exports.default = WebSocket;
-
-	/***/
-},
-/* 21 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () {
-		function defineProperties(target, props) {
-			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}return function (Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
-	}();
-
-	var _util = __webpack_require__(8);
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	/*
-  * TODO 使用 wx.readFile 来封装 FileReader
-  */
-	var FileReader = function () {
-		function FileReader() {
-			_classCallCheck(this, FileReader);
-		}
-
-		_createClass(FileReader, [{
-			key: 'construct',
-			value: function construct() {
-				if ((0, _util.isSubContext)()) {
-					throw new Error('FileReader is not supported in SubContext.');
-				}
-			}
-		}]);
-
-		return FileReader;
-	}();
-
-	exports.default = FileReader;
-
-	/***/
-},
-/* 22 */
-/***/function (module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _util = __webpack_require__(8);
-
-	var mainContext = {
-		get length() {
-			var _wx$getStorageInfoSyn = wx.getStorageInfoSync(),
-			    keys = _wx$getStorageInfoSyn.keys;
-
-			return keys.length;
-		},
-
-		key: function key(n) {
-			var _wx$getStorageInfoSyn2 = wx.getStorageInfoSync(),
-			    keys = _wx$getStorageInfoSyn2.keys;
-
-			return keys[n];
-		},
-		getItem: function getItem(key) {
-			return wx.getStorageSync(key);
-		},
-		setItem: function setItem(key, value) {
-			return wx.setStorageSync(key, value);
-		},
-		removeItem: function removeItem(key) {
-			wx.removeStorageSync(key);
-		},
-		clear: function clear() {
-			wx.clearStorageSync();
-		}
-	};
-
-	var memLocalStorage = {};
-
-	var subContext = {
-		get length() {
-			var keys = Object.keys(memLocalStorage);
-
-			return keys.length;
-		},
-
-		key: function key(n) {
-			var keys = Object.keys(memLocalStorage);
-
-			return keys[n];
-		},
-		getItem: function getItem(key) {
-			return memLocalStorage[key];
-		},
-		setItem: function setItem(key, value) {
-			memLocalStorage[key] = value;
-		},
-		removeItem: function removeItem(key) {
-			delete memLocalStorage[key];
-		},
-		clear: function clear() {
-			memLocalStorage = {};
-		}
-	};
-
-	var localStorage = (0, _util.isSubContext)() ? subContext : mainContext;
-
-	exports.default = localStorage;
-
-	/***/
-},
-/* 23 */
-/***/function (module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	var location = {
-		href: 'zzGAMEz.js',
-		reload: function reload() {}
-	};
-
-	exports.default = location;
-
-	/***/
-}]
-/******/);
+!function (n) {
+  var r = {};function __webpack_require__(e) {
+    if (r[e]) return r[e].exports;var t = r[e] = { exports: {}, id: e, loaded: !1 };return n[e].call(t.exports, t, t.exports, __webpack_require__), t.loaded = !0, t.exports;
+  }__webpack_require__.m = n, __webpack_require__.c = r, __webpack_require__.p = "", __webpack_require__(0);
+}([function (e, l, t) {
+  "use strict";
+
+  var n = function (e) {
+    {
+      if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) Object.prototype.hasOwnProperty.call(e, n) && (t[n] = e[n]);return t.default = e, t;
+    }
+  }(t(1));t = t(4);t = (t = t) && t.__esModule ? t : { default: t };var r = GameGlobal;if (!GameGlobal.__isAdapterInjected) {
+    GameGlobal.__isAdapterInjected = !0, n.addEventListener = function (e, t) {
+      n.document.addEventListener(e, t);
+    }, n.removeEventListener = function (e, t) {
+      n.document.removeEventListener(e, t);
+    }, n.canvas && (n.canvas.addEventListener = n.addEventListener, n.canvas.removeEventListener = n.removeEventListener), r.sharedCanvas && (sharedCanvas.__proto__.__proto__ = new t.default("canvas"), sharedCanvas.addEventListener = n.addEventListener, sharedCanvas.removeEventListener = n.removeEventListener);t = wx.getSystemInfoSync().platform;if ("undefined" == typeof __devtoolssubcontext && "devtools" === t) {
+      for (var o in n) {
+        var a = Object.getOwnPropertyDescriptor(r, o);a && !0 !== a.configurable || Object.defineProperty(window, o, { value: n[o] });
+      }for (var i in n.document) {
+        var u = Object.getOwnPropertyDescriptor(r.document, i);u && !0 !== u.configurable || Object.defineProperty(r.document, i, { value: n.document[i] });
+      }window.parent = window;
+    } else {
+      for (var s in n) r[s] = n[s];r.window = n, (window = r).top = window.parent = window;
+    }
+  }
+}, function (l, t, e) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 }), t.cancelAnimationFrame = t.requestAnimationFrame = t.clearInterval = t.clearTimeout = t.setInterval = t.setTimeout = t.canvas = t.location = t.localStorage = t.HTMLElement = t.FileReader = t.Audio = t.Image = t.WebSocket = t.XMLHttpRequest = t.navigator = t.document = void 0;var n = e(2);Object.keys(n).forEach(function (e) {
+    "default" !== e && "__esModule" !== e && Object.defineProperty(t, e, { enumerable: !0, get: function () {
+        return n[e];
+      } });
+  });var r = e(3);Object.keys(r).forEach(function (e) {
+    "default" !== e && "__esModule" !== e && Object.defineProperty(t, e, { enumerable: !0, get: function () {
+        return r[e];
+      } });
+  });var o = _interopRequireDefault(e(9));var a = e(17);var i = _interopRequireDefault(e(10));var u = _interopRequireDefault(e(18));var s = _interopRequireDefault(e(19));var c = _interopRequireDefault(e(20));var f = _interopRequireDefault(e(11));var p = _interopRequireDefault(e(12));var d = _interopRequireDefault(e(21));var h = _interopRequireDefault(e(4));var v = _interopRequireDefault(e(22));e = _interopRequireDefault(e(23));function _interopRequireDefault(e) {
+    return e && e.__esModule ? e : { default: e };
+  }t.document = i.default, t.navigator = u.default, t.XMLHttpRequest = s.default, t.WebSocket = c.default, t.Image = f.default, t.Audio = p.default, t.FileReader = d.default, t.HTMLElement = h.default, t.localStorage = v.default, t.location = e.default;i = (0, a.isSubContext)() ? void 0 : new o.default();t.canvas = i, t.setTimeout = setTimeout, t.setInterval = setInterval, t.clearTimeout = clearTimeout, t.clearInterval = clearInterval, t.requestAnimationFrame = requestAnimationFrame, t.cancelAnimationFrame = cancelAnimationFrame;
+}, function (e, t) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 });var n = wx.getSystemInfoSync(),
+      r = n.screenWidth,
+      o = n.screenHeight,
+      n = n.devicePixelRatio;r = t.innerWidth = r;o = t.innerHeight = o;t.devicePixelRatio = n;t.screen = { availWidth: r, availHeight: o };t.performance = { now: function () {
+      return Date.now() / 1e3;
+    } };t.ontouchstart = null;t.ontouchmove = null;t.ontouchend = null;
+}, function (e, t, n) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 }), t.HTMLCanvasElement = t.HTMLImageElement = void 0;n = n(4);n = (n = n) && n.__esModule ? n : { default: n };function _classCallCheck(e, t) {
+    if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
+  }function _possibleConstructorReturn(e, t) {
+    if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != typeof t && "function" != typeof t ? e : t;
+  }function _inherits(e, t) {
+    if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function, not " + typeof t);e.prototype = Object.create(t && t.prototype, { constructor: { value: e, enumerable: !1, writable: !0, configurable: !0 } }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
+  }t.HTMLImageElement = (_inherits(HTMLImageElement, n.default), HTMLImageElement);function HTMLImageElement() {
+    return _classCallCheck(this, HTMLImageElement), _possibleConstructorReturn(this, (HTMLImageElement.__proto__ || Object.getPrototypeOf(HTMLImageElement)).call(this, "img"));
+  }t.HTMLCanvasElement = (_inherits(HTMLCanvasElement, n.default), HTMLCanvasElement);function HTMLCanvasElement() {
+    return _classCallCheck(this, HTMLCanvasElement), _possibleConstructorReturn(this, (HTMLCanvasElement.__proto__ || Object.getPrototypeOf(HTMLCanvasElement)).call(this, "canvas"));
+  }
+}, function (e, t, n) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 });var r = function (e, t, n) {
+    return t && defineProperties(e.prototype, t), n && defineProperties(e, n), e;
+  };function defineProperties(e, t) {
+    for (var n = 0; n < t.length; n++) {
+      var r = t[n];r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
+    }
+  }var o = n(5);o = (o = o) && o.__esModule ? o : { default: o };var a = n(8);var i = n(2);n = function (e) {
+    var t = HTMLElement;if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function, not " + typeof e);function HTMLElement() {
+      var e = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : "";var t = this;var n = HTMLElement;if (!(t instanceof n)) throw new TypeError("Cannot call a class as a function");t = function (e, t) {
+        if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != typeof t && "function" != typeof t ? e : t;
+      }(this, (HTMLElement.__proto__ || Object.getPrototypeOf(HTMLElement)).call(this));return t.className = "", t.childern = [], t.style = { width: i.innerWidth + "px", height: i.innerHeight + "px" }, t.insertBefore = a.noop, t.innerHTML = "", t.tagName = e.toUpperCase(), t;
+    }return t.prototype = Object.create(e && e.prototype, { constructor: { value: t, enumerable: !1, writable: !0, configurable: !0 } }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e), r(HTMLElement, [{ key: "setAttribute", value: function (e, t) {
+        this[e] = t;
+      } }, { key: "getAttribute", value: function (e) {
+        return this[e];
+      } }, { key: "getBoundingClientRect", value: function () {
+        return { top: 0, left: 0, width: i.innerWidth, height: i.innerHeight };
+      } }, { key: "focus", value: function () {} }, { key: "clientWidth", get: function () {
+        var e = parseInt(this.style.fontSize, 10) * this.innerHTML.length;return Number.isNaN(e) ? 0 : e;
+      } }, { key: "clientHeight", get: function () {
+        var e = parseInt(this.style.fontSize, 10);return Number.isNaN(e) ? 0 : e;
+      } }]), HTMLElement;
+  }(o.default);t.default = n;
+}, function (e, t, n) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 });n = n(6);n = function (e) {
+    var t = ELement;if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function, not " + typeof e);function ELement() {
+      if (!(this instanceof ELement)) throw new TypeError("Cannot call a class as a function");var e = function (e, t) {
+        if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != typeof t && "function" != typeof t ? e : t;
+      }(this, (ELement.__proto__ || Object.getPrototypeOf(ELement)).call(this));return e.className = "", e.children = [], e;
+    }return t.prototype = Object.create(e && e.prototype, { constructor: { value: t, enumerable: !1, writable: !0, configurable: !0 } }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e), ELement;
+  }(((n = n) && n.__esModule ? n : { default: n }).default);t.default = n;
+}, function (e, t, n) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 });var r = function (e, t, n) {
+    return t && defineProperties(e.prototype, t), n && defineProperties(e, n), e;
+  };function defineProperties(e, t) {
+    for (var n = 0; n < t.length; n++) {
+      var r = t[n];r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
+    }
+  }n = n(7);n = function (e) {
+    var t = Node;if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function, not " + typeof e);function Node() {
+      if (!(this instanceof Node)) throw new TypeError("Cannot call a class as a function");var e = function (e, t) {
+        if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != typeof t && "function" != typeof t ? e : t;
+      }(this, (Node.__proto__ || Object.getPrototypeOf(Node)).call(this));return e.childNodes = [], e;
+    }return t.prototype = Object.create(e && e.prototype, { constructor: { value: t, enumerable: !1, writable: !0, configurable: !0 } }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e), r(Node, [{ key: "appendChild", value: function (e) {
+        if (!(e instanceof Node)) throw new TypeError("Failed to executed 'appendChild' on 'Node': parameter 1 is not of type 'Node'.");this.childNodes.push(e);
+      } }, { key: "cloneNode", value: function () {
+        var e = Object.create(this);return Object.assign(e, this), e;
+      } }, { key: "removeChild", value: function (t) {
+        var e = this.childNodes.findIndex(function (e) {
+          return e === t;
+        });return -1 < e ? this.childNodes.splice(e, 1) : null;
+      } }]), Node;
+  }(((n = n) && n.__esModule ? n : { default: n }).default);t.default = n;
+}, function (e, t) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 });var n = function (e, t, n) {
+    return t && defineProperties(e.prototype, t), n && defineProperties(e, n), e;
+  };function defineProperties(e, t) {
+    for (var n = 0; n < t.length; n++) {
+      var r = t[n];r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
+    }
+  }var o = new WeakMap();n(EventTarget, [{ key: "addEventListener", value: function (e, t) {
+      var n = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : {};var r = o.get(this);r || o.set(this, r = {}), r[e] || (r[e] = []), r[e].push(t), n.capture && console.warn("EventTarget.addEventListener: options.capture is not implemented."), n.once && console.warn("EventTarget.addEventListener: options.once is not implemented."), n.passive && console.warn("EventTarget.addEventListener: options.passive is not implemented.");
+    } }, { key: "removeEventListener", value: function (e, t) {
+      var n = o.get(this)[e];if (n && 0 < n.length) for (var r = n.length; r--;) if (n[r] === t) {
+        n.splice(r, 1);break;
+      }
+    } }, { key: "dispatchEvent", value: function () {
+      var e = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : {};var t = o.get(this)[e.type];if (t) for (var n = 0; n < t.length; n++) t[n](e);
+    } }]);n = EventTarget;function EventTarget() {
+    if (!(this instanceof EventTarget)) throw new TypeError("Cannot call a class as a function");o.set(this, {});
+  }t.default = n;
+}, function (e, t) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 }), t.noop = function () {}, t.isSubContext = function () {
+    return "undefined" != typeof GameGlobal && !0 === GameGlobal.__isSubContext;
+  };
+}, function (e, t, n) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 }), t.default = function () {
+    var e = wx.createCanvas();e.type = "canvas", e.__proto__.__proto__ = new r.default("canvas");e.getContext;return e.getBoundingClientRect = function () {
+      return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+    }, e;
+  };n(3);var r = _interopRequireDefault(n(4));_interopRequireDefault(n(10));function _interopRequireDefault(e) {
+    return e && e.__esModule ? e : { default: e };
+  }
+}, function (l, e, t) {
+  "use strict";
+
+  Object.defineProperty(e, "__esModule", { value: !0 });var n = function (e) {
+    {
+      if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) Object.prototype.hasOwnProperty.call(e, n) && (t[n] = e[n]);return t.default = e, t;
+    }
+  }(t(1));var r = _interopRequireDefault(t(4));var o = _interopRequireDefault(t(11));var a = _interopRequireDefault(t(12));var i = _interopRequireDefault(t(9));function _interopRequireDefault(e) {
+    return e && e.__esModule ? e : { default: e };
+  }t(15);var u = {};var s = { readyState: "complete", visibilityState: "visible", documentElement: n, hidden: !1, style: {}, location: n.location, ontouchstart: null, ontouchmove: null, ontouchend: null, head: new r.default("head"), body: new r.default("body"), createElement: function (e) {
+      return "canvas" === e ? new i.default() : "audio" === e ? new a.default() : "img" === e ? new o.default() : new r.default(e);
+    }, getElementById: function (e) {
+      return e === n.canvas.id ? n.canvas : null;
+    }, getElementsByTagName: function (e) {
+      return "head" === e ? [s.head] : "body" === e ? [s.body] : "canvas" === e ? [n.canvas] : [];
+    }, querySelector: function (e) {
+      return "head" === e ? s.head : "body" === e ? s.body : "canvas" === e || e === "#" + n.canvas.id ? n.canvas : null;
+    }, querySelectorAll: function (e) {
+      return "head" === e ? [s.head] : "body" === e ? [s.body] : "canvas" === e ? [n.canvas] : [];
+    }, addEventListener: function (e, t) {
+      u[e] || (u[e] = []), u[e].push(t);
+    }, removeEventListener: function (e, t) {
+      var n = u[e];if (n && 0 < n.length) for (var r = n.length; r--;) if (n[r] === t) {
+        n.splice(r, 1);break;
+      }
+    }, dispatchEvent: function (e) {
+      var t = u[e.type];if (t) for (var n = 0; n < t.length; n++) t[n](e);
+    } };e.default = s;
+}, function (e, t) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 }), t.default = function () {
+    var e = wx.createImage();return e.destroy = function () {
+      e.src = "";
+    }, e;
+  };
+}, function (u, e, t) {
+  "use strict";
+
+  Object.defineProperty(e, "__esModule", { value: !0 });var n = function (e, t, n) {
+    return t && defineProperties(e.prototype, t), n && defineProperties(e, n), e;
+  };function defineProperties(e, t) {
+    for (var n = 0; n < t.length; n++) {
+      var r = t[n];r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
+    }
+  }var r = t(13);r = (r = r) && r.__esModule ? r : { default: r };var o = t(8);function _possibleConstructorReturn(e, t) {
+    if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != typeof t && "function" != typeof t ? e : t;
+  }var a = new WeakMap();var i = new WeakMap();new WeakMap();new WeakMap();t = function (e) {
+    var t = Audio;if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function, not " + typeof e);function Audio(e) {
+      if (!(this instanceof Audio)) throw new TypeError("Cannot call a class as a function");var t = _possibleConstructorReturn(this, (Audio.__proto__ || Object.getPrototypeOf(Audio)).call(this));if (t.HAVE_NOTHING = 0, t.HAVE_METADATA = 1, t.HAVE_CURRENT_DATA = 2, t.HAVE_FUTURE_DATA = 3, t.HAVE_ENOUGH_DATA = 4, (t.readyState = 0, o.isSubContext)()) return console.warn("HTMLAudioElement is not supported in SubContext."), _possibleConstructorReturn(t);i.set(t, "");var n = wx.createInnerAudioContext();return a.set(t, n), n.onCanplay(function () {
+        t.dispatchEvent({ type: "load" }), t.dispatchEvent({ type: "loadend" }), t.dispatchEvent({ type: "canplay" }), t.dispatchEvent({ type: "canplaythrough" }), t.dispatchEvent({ type: "loadedmetadata" }), t.readyState = 2;
+      }), n.onPlay(function () {
+        t.dispatchEvent({ type: "play" });
+      }), n.onPause(function () {
+        t.dispatchEvent({ type: "pause" });
+      }), n.onEnded(function () {
+        t.dispatchEvent({ type: "ended" }), t.readyState = 4;
+      }), n.onError(function () {
+        t.dispatchEvent({ type: "error" });
+      }), e && (a.get(t).src = e), t;
+    }return t.prototype = Object.create(e && e.prototype, { constructor: { value: t, enumerable: !1, writable: !0, configurable: !0 } }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e), n(Audio, [{ key: "load", value: function () {
+        console.warn("HTMLAudioElement.load() is not implemented.");
+      } }, { key: "play", value: function () {
+        (0, o.isSubContext)() || a.get(this).play();
+      } }, { key: "pause", value: function () {
+        (0, o.isSubContext)() || a.get(this).pause();
+      } }, { key: "canPlayType", value: function () {
+        var e = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : "";return "string" == typeof e && (-1 < e.indexOf("audio/mpeg") || e.indexOf("audio/mp4")) ? "probably" : "";
+      } }, { key: "cloneNode", value: function () {
+        var e = new Audio();return (0, o.isSubContext)() || (e.loop = a.get(this).loop, e.autoplay = a.get(this).loop, e.src = this.src), e;
+      } }, { key: "currentTime", get: function () {
+        return (0, o.isSubContext)() ? 0 : a.get(this).currentTime;
+      }, set: function (e) {
+        (0, o.isSubContext)() || a.get(this).seek(e);
+      } }, { key: "src", get: function () {
+        return i.get(this);
+      }, set: function (e) {
+        i.set(this, e), (0, o.isSubContext)() || (a.get(this).src = e);
+      } }, { key: "loop", get: function () {
+        return !(0, o.isSubContext)() && a.get(this).loop;
+      }, set: function (e) {
+        (0, o.isSubContext)() || (a.get(this).loop = e);
+      } }, { key: "autoplay", get: function () {
+        return !(0, o.isSubContext)() && a.get(this).autoplay;
+      }, set: function (e) {
+        (0, o.isSubContext)() || (a.get(this).autoplay = e);
+      } }, { key: "paused", get: function () {
+        return !(0, o.isSubContext)() && a.get(this).paused;
+      } }]), Audio;
+  }(r.default);e.default = t;
+}, function (e, t, n) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 });n = n(14);n = function (e) {
+    var t = HTMLAudioElement;if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function, not " + typeof e);function HTMLAudioElement() {
+      if (!(this instanceof HTMLAudioElement)) throw new TypeError("Cannot call a class as a function");var e = this;var t = (HTMLAudioElement.__proto__ || Object.getPrototypeOf(HTMLAudioElement)).call(this, "audio");if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != typeof t && "function" != typeof t ? e : t;
+    }return t.prototype = Object.create(e && e.prototype, { constructor: { value: t, enumerable: !1, writable: !0, configurable: !0 } }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e), HTMLAudioElement;
+  }(((n = n) && n.__esModule ? n : { default: n }).default);t.default = n;
+}, function (e, t, n) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 });var r = function (e, t, n) {
+    return t && defineProperties(e.prototype, t), n && defineProperties(e, n), e;
+  };function defineProperties(e, t) {
+    for (var n = 0; n < t.length; n++) {
+      var r = t[n];r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
+    }
+  }n = n(4);n = function (e) {
+    var t = HTMLMediaElement;if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function, not " + typeof e);function HTMLMediaElement(e) {
+      if (!(this instanceof HTMLMediaElement)) throw new TypeError("Cannot call a class as a function");var t = this;e = (HTMLMediaElement.__proto__ || Object.getPrototypeOf(HTMLMediaElement)).call(this, e);if (!t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !e || "object" != typeof e && "function" != typeof e ? t : e;
+    }return t.prototype = Object.create(e && e.prototype, { constructor: { value: t, enumerable: !1, writable: !0, configurable: !0 } }), e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e), r(HTMLMediaElement, [{ key: "addTextTrack", value: function () {} }, { key: "captureStream", value: function () {} }, { key: "fastSeek", value: function () {} }, { key: "load", value: function () {} }, { key: "pause", value: function () {} }, { key: "play", value: function () {} }]), HTMLMediaElement;
+  }(((n = n) && n.__esModule ? n : { default: n }).default);t.default = n;
+}, function (e, t, n) {
+  "use strict";
+
+  n(16);
+}, function (e, t, n) {
+  "use strict";
+
+  var r = function (e) {
+    {
+      if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) Object.prototype.hasOwnProperty.call(e, n) && (t[n] = e[n]);return t.default = e, t;
+    }
+  }(n(1));var o = n(10);var a = (o = o) && o.__esModule ? o : { default: o };var i = n(8);function fc(e) {
+    if (!(this instanceof fc)) throw new TypeError("Cannot call a class as a function");this.target = r.canvas, this.currentTarget = r.canvas, this.touches = [], this.targetTouches = [], this.changedTouches = [], this.preventDefault = i.noop, this.stopPropagation = i.noop, this.type = e;
+  }function touchEventHandlerFactory(n) {
+    return function (e) {
+      var t = new fc(n);t.touches = e.touches, t.targetTouches = Array.prototype.slice.call(e.touches), t.changedTouches = e.changedTouches, t.timeStamp = e.timeStamp, a.default.dispatchEvent(t);
+    };
+  }wx.onTouchStart(touchEventHandlerFactory("touchstart")), wx.onTouchMove(touchEventHandlerFactory("touchmove")), wx.onTouchEnd(touchEventHandlerFactory("touchend")), wx.onTouchCancel(touchEventHandlerFactory("touchcancel"));
+}, function (e, t) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 }), t.noop = function () {}, t.isSubContext = function () {
+    return "undefined" != typeof GameGlobal && !0 === GameGlobal.__isSubContext;
+  };
+}, function (e, t, n) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 });n = n(8);n = { platform: wx.getSystemInfoSync().platform, language: "zh-cn", appVersion: "5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1", userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E8301 MicroMessenger/6.6.0 MiniGame NetType/WIFI Language/zh_CN", onLine: !0, geolocation: { getCurrentPosition: n.noop, watchPosition: n.noop, clearWatch: n.noop } };t.default = n;
+}, function (a, e) {
+  "use strict";
+
+  Object.defineProperty(e, "__esModule", { value: !0 });var t = function (e, t, n) {
+    return t && defineProperties(e.prototype, t), n && defineProperties(e, n), e;
+  };function defineProperties(e, t) {
+    for (var n = 0; n < t.length; n++) {
+      var r = t[n];r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
+    }
+  }var n = new WeakMap();var r = new WeakMap();var o = new WeakMap();var u = new WeakMap();var i = new WeakMap();function _triggerEvent(e) {
+    if ("function" == typeof this["on" + e]) {
+      for (var t = arguments.length, n = Array(1 < t ? t - 1 : 0), r = 1; r < t; r++) n[r - 1] = arguments[r];this["on" + e].apply(this, n);
+    }
+  }function _changeReadyState(e) {
+    this.readyState = e, _triggerEvent.call(this, "readystatechange");
+  }t(XMLHttpRequest, [{ key: "abort", value: function () {
+      var e = i.get(this);e && e.abort();
+    } }, { key: "getAllResponseHeaders", value: function () {
+      var t = u.get(this);return Object.keys(t).map(function (e) {
+        return e + ": " + t[e];
+      }).join("\n");
+    } }, { key: "getResponseHeader", value: function (e) {
+      return u.get(this)[e];
+    } }, { key: "open", value: function (e, t) {
+      r.set(this, e), n.set(this, t), _changeReadyState.call(this, XMLHttpRequest.OPENED);
+    } }, { key: "overrideMimeType", value: function () {} }, { key: "send", value: function () {
+      var i = this;var e = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : "";if (this.readyState !== XMLHttpRequest.OPENED) throw new Error("Failed to execute 'send' on 'XMLHttpRequest': The object's state must be OPENED.");wx.request({ data: e, url: n.get(this), method: r.get(this), header: o.get(this), responseType: this.responseType, success: function (e) {
+          var t = e.data,
+              n = e.statusCode,
+              e = e.header;if ("string" != typeof t && !(t instanceof ArrayBuffer)) try {
+            t = JSON.stringify(t);
+          } catch (e) {}if (i.status = n, u.set(i, e), _triggerEvent.call(i, "loadstart"), _changeReadyState.call(i, XMLHttpRequest.HEADERS_RECEIVED), _changeReadyState.call(i, XMLHttpRequest.LOADING), (i.response = t) instanceof ArrayBuffer) {
+            if (i.responseText = "", "arraybuffer" != i.responseType) {
+              var r = new Uint8Array(t);var o = r.byteLength;for (var a = 0; a < o; a++) i.responseText += String.fromCharCode(r[a]);
+            }
+          } else i.responseText = t;_changeReadyState.call(i, XMLHttpRequest.DONE), _triggerEvent.call(i, "load"), _triggerEvent.call(i, "loadend");
+        }, fail: function (e) {
+          e = e.errMsg;i.status = 404, i.response = null, _changeReadyState.call(i, XMLHttpRequest.DONE), -1 !== e.indexOf("abort") ? _triggerEvent.call(i, "abort") : _triggerEvent.call(i, "error", e), _triggerEvent.call(i, "loadend");
+        } });
+    } }, { key: "setRequestHeader", value: function (e, t) {
+      var n = o.get(this);n[e] = t, o.set(this, n);
+    } }]);t = XMLHttpRequest;function XMLHttpRequest() {
+    if (!(this instanceof XMLHttpRequest)) throw new TypeError("Cannot call a class as a function");this.onabort = null, this.onerror = null, this.onload = null, this.onloadstart = null, this.onprogress = null, this.ontimeout = null, this.onloadend = null, this.onreadystatechange = null, this.readyState = 0, this.response = null, this.responseText = null, this.responseType = "", this.responseXML = null, this.status = 0, this.statusText = "", this.upload = {}, this.withCredentials = !1, o.set(this, { "content-type": "application/x-www-form-urlencoded" }), u.set(this, {});
+  }t.UNSEND = 0, t.OPENED = 1, t.HEADERS_RECEIVED = 2, t.LOADING = 3, t.DONE = 4, e.default = t;
+}, function (e, t, n) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 });var r = function (e, t, n) {
+    return t && defineProperties(e.prototype, t), n && defineProperties(e, n), e;
+  };function defineProperties(e, t) {
+    for (var n = 0; n < t.length; n++) {
+      var r = t[n];r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
+    }
+  }var a = n(8);var i = new WeakMap();r(WebSocket, [{ key: "close", value: function (e, t) {
+      this.readyState = WebSocket.CLOSING, i.get(this).close({ code: e, reason: t });
+    } }, { key: "send", value: function (e) {
+      if ("string" != typeof e && !(e instanceof ArrayBuffer)) throw new TypeError("Failed to send message: The data " + e + " is invalid");i.get(this).send({ data: e });
+    } }]);n = WebSocket;function WebSocket(e) {
+    var t = this;var n = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : [];var r = this;var o = WebSocket;if (!(r instanceof o)) throw new TypeError("Cannot call a class as a function");if (this.binaryType = "", this.bufferedAmount = 0, this.extensions = "", this.onclose = null, this.onerror = null, this.onmessage = null, this.onopen = null, this.protocol = "", this.readyState = 3, (0, a.isSubContext)()) throw new Error("WebSocket is not supported in SubContext.");if ("string" != typeof e || !/(^ws:\/\/)|(^wss:\/\/)/.test(e)) throw new TypeError("Failed to construct 'WebSocket': The URL '" + e + "' is invalid");this.url = e, this.readyState = WebSocket.CONNECTING;r = wx.connectSocket({ url: e, protocols: Array.isArray(n) ? n : [n] });return i.set(this, r), r.onClose(function (e) {
+      t.readyState = WebSocket.CLOSED, "function" == typeof t.onclose && t.onclose(e);
+    }), r.onMessage(function (e) {
+      "function" == typeof t.onmessage && t.onmessage(e);
+    }), r.onOpen(function () {
+      t.readyState = WebSocket.OPEN, "function" == typeof t.onopen && t.onopen();
+    }), r.onError(function (e) {
+      "function" == typeof t.onerror && t.onerror(new Error(e.errMsg));
+    }), this;
+  }n.CONNECTING = 0, n.OPEN = 1, n.CLOSING = 2, n.CLOSED = 3, t.default = n;
+}, function (e, t, n) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 });var r = function (e, t, n) {
+    return t && defineProperties(e.prototype, t), n && defineProperties(e, n), e;
+  };function defineProperties(e, t) {
+    for (var n = 0; n < t.length; n++) {
+      var r = t[n];r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
+    }
+  }var o = n(8);function FileReader() {
+    if (!(this instanceof FileReader)) throw new TypeError("Cannot call a class as a function");
+  }r(FileReader, [{ key: "construct", value: function () {
+      if ((0, o.isSubContext)()) throw new Error("FileReader is not supported in SubContext.");
+    } }]), t.default = FileReader;
+}, function (e, t, n) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 });n = n(8);var r = { get length() {
+      return wx.getStorageInfoSync().keys.length;
+    }, key: function (e) {
+      return wx.getStorageInfoSync().keys[e];
+    }, getItem: function (e) {
+      return wx.getStorageSync(e);
+    }, setItem: function (e, t) {
+      return wx.setStorageSync(e, t);
+    }, removeItem: function (e) {
+      wx.removeStorageSync(e);
+    }, clear: function () {
+      wx.clearStorageSync();
+    } };var o = {};var a = { get length() {
+      return Object.keys(o).length;
+    }, key: function (e) {
+      return Object.keys(o)[e];
+    }, getItem: function (e) {
+      return o[e];
+    }, setItem: function (e, t) {
+      o[e] = t;
+    }, removeItem: function (e) {
+      delete o[e];
+    }, clear: function () {
+      o = {};
+    } };n = (0, n.isSubContext)() ? a : r;t.default = n;
+}, function (e, t) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", { value: !0 });t.default = { href: "zzGAMEz.js", reload: function () {} };
+}]);

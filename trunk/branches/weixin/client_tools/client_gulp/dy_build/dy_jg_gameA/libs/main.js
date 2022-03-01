@@ -53,8 +53,8 @@ import "index.js";
 import "libs.min.js";
 import "laya.wxmini.js";
 import "init.min.js";
-import  "recorder.js";
-console.log("RecoderVideo:",RecoderVideo)
+import "recorder.js";
+
 console.info("3 libs初始化完成");
 
 
@@ -67,6 +67,7 @@ window.ServerLoading.instance.openAuthor();
 if (wx.loadingInterval) clearInterval(wx.loadingInterval);
 wx.loadingInterval = null;
 
+import "ServiceButton.js";
 
 //比较版本号
 window.compareVersion = function(v1, v2) {

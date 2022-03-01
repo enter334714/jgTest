@@ -459,6 +459,18 @@ module.exports = {
             "f57": {
               "type": "uint64",
               "id": 57
+            },
+            "f58": {
+              "type": "uint64",
+              "id": 58
+            },
+            "f59": {
+              "type": "uint64",
+              "id": 59
+            },
+            "f60": {
+              "type": "uint64",
+              "id": 60
             }
           }
         },
@@ -1589,6 +1601,18 @@ module.exports = {
             "f11": {
               "type": "uint64",
               "id": 11
+            },
+            "f12": {
+              "type": "uint64",
+              "id": 12
+            },
+            "f13": {
+              "type": "uint64",
+              "id": 13
+            },
+            "f14": {
+              "type": "uint64",
+              "id": 14
             }
           }
         },
@@ -2854,6 +2878,18 @@ module.exports = {
             "f15": {
               "type": "uint64",
               "id": 15
+            },
+            "f16": {
+              "type": "uint64",
+              "id": 16
+            },
+            "f17": {
+              "type": "uint64",
+              "id": 17
+            },
+            "f18": {
+              "type": "uint64",
+              "id": 18
             }
           }
         },
@@ -7066,6 +7102,10 @@ module.exports = {
             "f13": {
               "type": "uint64",
               "id": 13
+            },
+            "f14": {
+              "type": "uint64",
+              "id": 14
             }
           }
         },
@@ -9725,6 +9765,10 @@ module.exports = {
             "f4": {
               "type": "uint64",
               "id": 4
+            },
+            "f5": {
+              "type": "uint64",
+              "id": 5
             }
           }
         },
@@ -9836,6 +9880,11 @@ module.exports = {
               "rule": "repeated",
               "type": "TBtn",
               "id": 2
+            },
+            "f3": {
+              "rule": "repeated",
+              "type": "Tzrt",
+              "id": 3
             }
           }
         },
@@ -9922,6 +9971,18 @@ module.exports = {
             "f8": {
               "type": "string",
               "id": 8
+            },
+            "f9": {
+              "type": "string",
+              "id": 9
+            },
+            "f10": {
+              "type": "string",
+              "id": 10
+            },
+            "f11": {
+              "type": "string",
+              "id": 11
             }
           }
         },
@@ -11205,6 +11266,23 @@ module.exports = {
           "fields": {
             "f0": {
               "type": "bool",
+              "id": 0
+            }
+          }
+        },
+        "TmGT": {
+          "fields": {
+            "f0": {
+              "rule": "repeated",
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "TrBP": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
               "id": 0
             }
           }
@@ -25201,6 +25279,22 @@ module.exports = {
             }
           }
         },
+        "TuVg": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            },
+            "f1": {
+              "type": "uint64",
+              "id": 1
+            },
+            "f2": {
+              "type": "string",
+              "id": 2
+            }
+          }
+        },
         "TXtW": {
           "fields": {
             "f0": {
@@ -25225,12 +25319,17 @@ module.exports = {
             },
             "f5": {
               "rule": "repeated",
-              "type": "string",
+              "type": "TuVg",
               "id": 5
             },
             "f6": {
               "type": "string",
               "id": 6
+            },
+            "f7": {
+              "rule": "repeated",
+              "type": "TuVg",
+              "id": 7
             }
           }
         },
@@ -30578,17 +30677,33 @@ module.exports = {
             }
           }
         },
+        "TMUo": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
         "TzUn": {
           "fields": {
             "f0": {
-              "rule": "repeated",
-              "type": "T0rS",
+              "type": "uint64",
               "id": 0
             },
             "f1": {
+              "type": "uint64",
+              "id": 1
+            },
+            "f2": {
+              "rule": "repeated",
+              "type": "T0rS",
+              "id": 2
+            },
+            "f3": {
               "rule": "repeated",
               "type": "TdPn",
-              "id": 1
+              "id": 3
             }
           }
         },
@@ -30621,6 +30736,26 @@ module.exports = {
             "f2": {
               "type": "TBtn",
               "id": 2
+            },
+            "f3": {
+              "type": "uint64",
+              "id": 3
+            }
+          }
+        },
+        "ToVg": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "TbTo": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
             }
           }
         },
@@ -30999,6 +31134,17 @@ module.exports = {
           "fields": {}
         },
         "TrBj": {
+          "fields": {}
+        },
+        "TzUU": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "TnfT": {
           "fields": {}
         },
         "Tocy": {
@@ -32776,6 +32922,10 @@ module.exports = {
             "f0": {
               "type": "uint64",
               "id": 0
+            },
+            "f1": {
+              "type": "uint64",
+              "id": 1
             }
           }
         },
@@ -37056,6 +37206,9 @@ module.exports = {
               "id": 2
             }
           }
+        },
+        "Tafu": {
+          "fields": {}
         },
         "TqPn": {
           "fields": {}

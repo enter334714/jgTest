@@ -1,76 +1,76 @@
-function XMLReader() {}function parse(r, e, a, n, s) {
+function XMLReader() {}function parse(r, d, p, a, n) {
   function c(e) {
-    var t = e.slice(1, -1);return t in a ? a[t] : "#" === t.charAt(0) ? 65535 < (t = parseInt(t.substr(1).replace("x", "0x"))) ? (t -= 65536, String.fromCharCode(55296 + (t >> 10), 56320 + (1023 & t))) : String.fromCharCode(t) : (s.error("entity not found:" + e), e);
+    var t = e.slice(1, -1);return t in p ? p[t] : "#" === t.charAt(0) ? 65535 < (t = parseInt(t.substr(1).replace("x", "0x"))) ? (t -= 65536, String.fromCharCode(55296 + (t >> 10), 56320 + (1023 & t))) : String.fromCharCode(t) : (n.error("entity not found:" + e), e);
   }function i(e) {
-    var t;p < e && (t = r.substring(p, e).replace(/&#?\w+;/g, c), m && o(p), n.characters(t, 0, e - p), p = e);
+    var t;u < e && (t = r.substring(u, e).replace(/&#?\w+;/g, c), s && o(u), a.characters(t, 0, e - u), u = e);
   }function o(e, t) {
-    for (; l <= e && (t = _.exec(r));) u = t.index, l = u + t[0].length, m.lineNumber++;m.columnNumber = e - u + 1;
-  }for (var u = 0, l = 0, _ = /.*(?:\r\n?|\n)|.*$/g, m = n.locator, t = [{ currentNSMap: e }], d = {}, p = 0;;) {
+    for (; f <= e && (t = S.exec(r));) T = t.index, f = T + t[0].length, s.lineNumber++;s.columnNumber = e - T + 1;
+  }for (var T = 0, f = 0, S = /.*(?:\r\n?|\n)|.*$/g, s = a.locator, A = [{ currentNSMap: d }], h = {}, u = 0;;) {
     try {
-      var f = r.indexOf("<", p);var T, S;if (f < 0) return void (r.substr(p).match(/^\s*$/) || (S = (T = n.doc).createTextNode(r.substr(p)), T.appendChild(S), n.currentElement = S));switch (p < f && i(f), r.charAt(f + 1)) {case "/":
-          var A = r.indexOf(">", f + 3),
-              h = r.substring(f + 2, A),
-              g = t.pop();A < 0 ? (h = r.substring(f + 2).replace(/[\s<].*/, ""), s.error("end tag name: " + h + " is not complete:" + g.tagName), A = f + 1 + h.length) : h.match(/\s</) && (h = h.replace(/[\s<].*/, ""), s.error("end tag name: " + h + " maybe not complete"), A = f + 1 + h.length);var w = g.localNSMap,
-              E = g.tagName == h;if (E || g.tagName && g.tagName.toLowerCase() == h.toLowerCase()) {
-            if (n.endElement(g.uri, g.localName, h), w) for (var N in w) n.endPrefixMapping(N);E || s.fatalError("end tag name: " + h + " is not match the current start tagName:" + g.tagName);
-          } else t.push(g);A++;break;case "?":
-          m && o(f), A = parseInstruction(r, f, n);break;case "!":
-          m && o(f), A = parseDCC(r, f, n, s);break;default:
-          m && o(f);var b = new ElementAttributes(),
-              x = t[t.length - 1].currentNSMap,
-              A = parseElementStartPart(r, f, b, x, c, s),
-              C = b.length;if (!b.closed && fixSelfClosed(r, A, b.tagName, d) && (b.closed = !0, a.nbsp || s.warning("unclosed xml attribute")), m && C) {
-            for (var v = copyLocator(m, {}), R = 0; R < C; R++) {
-              var O = b[R];o(O.offset), O.locator = copyLocator(m, {});
-            }n.locator = v, appendElement(b, n, x) && t.push(b), n.locator = m;
-          } else appendElement(b, n, x) && t.push(b);"http://www.w3.org/1999/xhtml" !== b.uri || b.closed ? A++ : A = parseHtmlSpecialContent(r, A, b.tagName, c, n);}
+      var e = r.indexOf("<", u);var g, w;if (e < 0) return void (r.substr(u).match(/^\s*$/) || (w = (g = a.doc).createTextNode(r.substr(u)), g.appendChild(w), a.currentElement = w));switch (u < e && i(e), r.charAt(e + 1)) {case "/":
+          var t = r.indexOf(">", e + 3),
+              l = r.substring(e + 2, t),
+              _ = A.pop();t < 0 ? (l = r.substring(e + 2).replace(/[\s<].*/, ""), n.error("end tag name: " + l + " is not complete:" + _.tagName), t = e + 1 + l.length) : l.match(/\s</) && (l = l.replace(/[\s<].*/, ""), n.error("end tag name: " + l + " maybe not complete"), t = e + 1 + l.length);var E = _.localNSMap,
+              N = _.tagName == l;if (N || _.tagName && _.tagName.toLowerCase() == l.toLowerCase()) {
+            if (a.endElement(_.uri, _.localName, l), E) for (var b in E) a.endPrefixMapping(b);N || n.fatalError("end tag name: " + l + " is not match the current start tagName:" + _.tagName);
+          } else A.push(_);t++;break;case "?":
+          s && o(e), t = parseInstruction(r, e, a);break;case "!":
+          s && o(e), t = parseDCC(r, e, a, n);break;default:
+          s && o(e);var m = new ElementAttributes(),
+              x = A[A.length - 1].currentNSMap,
+              t = parseElementStartPart(r, e, m, x, c, n),
+              C = m.length;if (!m.closed && fixSelfClosed(r, t, m.tagName, h) && (m.closed = !0, p.nbsp || n.warning("unclosed xml attribute")), s && C) {
+            for (var v = copyLocator(s, {}), R = 0; R < C; R++) {
+              var O = m[R];o(O.offset), O.locator = copyLocator(s, {});
+            }a.locator = v, appendElement(m, a, x) && A.push(m), a.locator = s;
+          } else appendElement(m, a, x) && A.push(m);"http://www.w3.org/1999/xhtml" !== m.uri || m.closed ? t++ : t = parseHtmlSpecialContent(r, t, m.tagName, c, a);}
     } catch (e) {
-      s.error("element parse error: " + e), A = -1;
-    }p < A ? p = A : i(Math.max(f, p) + 1);
+      n.error("element parse error: " + e), t = -1;
+    }u < t ? u = t : i(Math.max(e, u) + 1);
   }
 }function copyLocator(e, t) {
   return t.lineNumber = e.lineNumber, t.columnNumber = e.columnNumber, t;
-}function parseElementStartPart(e, t, r, a, n, s) {
-  for (var c, i = ++t, o = S_TAG;;) {
-    var u = e.charAt(i);switch (u) {case "=":
-        if (o === S_ATTR) c = e.slice(t, i), o = S_EQ;else {
-          if (o !== S_ATTR_SPACE) throw new Error("attribute equal must after attrName");o = S_EQ;
+}function parseElementStartPart(e, t, r, l, a, n) {
+  for (var s, c = ++t, i = S_TAG;;) {
+    var o = e.charAt(c);switch (o) {case "=":
+        if (i === S_ATTR) s = e.slice(t, c), i = S_EQ;else {
+          if (i !== S_ATTR_SPACE) throw new Error("attribute equal must after attrName");i = S_EQ;
         }break;case "'":case '"':
-        if (o === S_EQ || o === S_ATTR) {
-          if (o === S_ATTR && (s.warning('attribute value must after "="'), c = e.slice(t, i)), !(0 < (i = e.indexOf(u, t = i + 1)))) throw new Error("attribute value no end '" + u + "' match");l = e.slice(t, i).replace(/&#?\w+;/g, n), r.add(c, l, t - 1), o = S_ATTR_END;
+        if (i === S_EQ || i === S_ATTR) {
+          if (i === S_ATTR && (n.warning('attribute value must after "="'), s = e.slice(t, c)), !(0 < (c = e.indexOf(o, t = c + 1)))) throw new Error("attribute value no end '" + o + "' match");u = e.slice(t, c).replace(/&#?\w+;/g, a), r.add(s, u, t - 1), i = S_ATTR_END;
         } else {
-          if (o != S_ATTR_NOQUOT_VALUE) throw new Error('attribute value must after "="');l = e.slice(t, i).replace(/&#?\w+;/g, n), r.add(c, l, t), s.warning('attribute "' + c + '" missed start quot(' + u + ")!!"), t = i + 1, o = S_ATTR_END;
+          if (i != S_ATTR_NOQUOT_VALUE) throw new Error('attribute value must after "="');u = e.slice(t, c).replace(/&#?\w+;/g, a), r.add(s, u, t), n.warning('attribute "' + s + '" missed start quot(' + o + ")!!"), t = c + 1, i = S_ATTR_END;
         }break;case "/":
-        switch (o) {case S_TAG:
-            r.setTagName(e.slice(t, i));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:
-            o = S_TAG_CLOSE, r.closed = !0;case S_ATTR_NOQUOT_VALUE:case S_ATTR:case S_ATTR_SPACE:
+        switch (i) {case S_TAG:
+            r.setTagName(e.slice(t, c));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:
+            i = S_TAG_CLOSE, r.closed = !0;case S_ATTR_NOQUOT_VALUE:case S_ATTR:case S_ATTR_SPACE:
             break;default:
             throw new Error("attribute invalid close char('/')");}break;case "":
-        return s.error("unexpected end of input"), o == S_TAG && r.setTagName(e.slice(t, i)), i;case ">":
-        switch (o) {case S_TAG:
-            r.setTagName(e.slice(t, i));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:
+        return n.error("unexpected end of input"), i == S_TAG && r.setTagName(e.slice(t, c)), c;case ">":
+        switch (i) {case S_TAG:
+            r.setTagName(e.slice(t, c));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:
             break;case S_ATTR_NOQUOT_VALUE:case S_ATTR:
-            "/" === (l = e.slice(t, i)).slice(-1) && (r.closed = !0, l = l.slice(0, -1));case S_ATTR_SPACE:
-            o === S_ATTR_SPACE && (l = c), o == S_ATTR_NOQUOT_VALUE ? (s.warning('attribute "' + l + '" missed quot(")!!'), r.add(c, l.replace(/&#?\w+;/g, n), t)) : ("http://www.w3.org/1999/xhtml" === a[""] && l.match(/^(?:disabled|checked|selected)$/i) || s.warning('attribute "' + l + '" missed value!! "' + l + '" instead!!'), r.add(l, l, t));break;case S_EQ:
-            throw new Error("attribute value missed!!");}return i;case "\x80":
-        u = " ";default:
-        if (u <= " ") switch (o) {case S_TAG:
-            r.setTagName(e.slice(t, i)), o = S_TAG_SPACE;break;case S_ATTR:
-            c = e.slice(t, i), o = S_ATTR_SPACE;break;case S_ATTR_NOQUOT_VALUE:
-            var l = e.slice(t, i).replace(/&#?\w+;/g, n);s.warning('attribute "' + l + '" missed quot(")!!'), r.add(c, l, t);case S_ATTR_END:
-            o = S_TAG_SPACE;} else switch (o) {case S_ATTR_SPACE:
-            r.tagName, "http://www.w3.org/1999/xhtml" === a[""] && c.match(/^(?:disabled|checked|selected)$/i) || s.warning('attribute "' + c + '" missed value!! "' + c + '" instead2!!'), r.add(c, c, t), t = i, o = S_ATTR;break;case S_ATTR_END:
-            s.warning('attribute space is required"' + c + '"!!');case S_TAG_SPACE:
-            o = S_ATTR, t = i;break;case S_EQ:
-            o = S_ATTR_NOQUOT_VALUE, t = i;break;case S_TAG_CLOSE:
-            throw new Error("elements closed character '/' and '>' must be connected to");}}i++;
+            "/" === (u = e.slice(t, c)).slice(-1) && (r.closed = !0, u = u.slice(0, -1));case S_ATTR_SPACE:
+            i === S_ATTR_SPACE && (u = s), i == S_ATTR_NOQUOT_VALUE ? (n.warning('attribute "' + u + '" missed quot(")!!'), r.add(s, u.replace(/&#?\w+;/g, a), t)) : ("http://www.w3.org/1999/xhtml" === l[""] && u.match(/^(?:disabled|checked|selected)$/i) || n.warning('attribute "' + u + '" missed value!! "' + u + '" instead!!'), r.add(u, u, t));break;case S_EQ:
+            throw new Error("attribute value missed!!");}return c;case "\x80":
+        o = " ";default:
+        if (o <= " ") switch (i) {case S_TAG:
+            r.setTagName(e.slice(t, c)), i = S_TAG_SPACE;break;case S_ATTR:
+            s = e.slice(t, c), i = S_ATTR_SPACE;break;case S_ATTR_NOQUOT_VALUE:
+            var u = e.slice(t, c).replace(/&#?\w+;/g, a);n.warning('attribute "' + u + '" missed quot(")!!'), r.add(s, u, t);case S_ATTR_END:
+            i = S_TAG_SPACE;} else switch (i) {case S_ATTR_SPACE:
+            r.tagName, "http://www.w3.org/1999/xhtml" === l[""] && s.match(/^(?:disabled|checked|selected)$/i) || n.warning('attribute "' + s + '" missed value!! "' + s + '" instead2!!'), r.add(s, s, t), t = c, i = S_ATTR;break;case S_ATTR_END:
+            n.warning('attribute space is required"' + s + '"!!');case S_TAG_SPACE:
+            i = S_ATTR, t = c;break;case S_EQ:
+            i = S_ATTR_NOQUOT_VALUE, t = c;break;case S_TAG_CLOSE:
+            throw new Error("elements closed character '/' and '>' must be connected to");}}c++;
   }
-}function appendElement(e, t, r) {
-  for (var a = e.tagName, n = null, s = e.length; s--;) {
-    var c = e[s],
-        i = c.qName,
-        o = c.value;var u;i = 0 < (l = i.indexOf(":")) ? (m = c.prefix = i.slice(0, l), u = i.slice(l + 1), "xmlns" === m && u) : (m = null, "xmlns" === (u = i) && ""), c.localName = u, !1 !== i && (null == n && (n = {}, _copy(r, r = {})), r[i] = n[i] = o, c.uri = "http://www.w3.org/2000/xmlns/", t.startPrefixMapping(i, o));
-  }for (s = e.length; s--;) (m = (c = e[s]).prefix) && ("xml" === m && (c.uri = "http://www.w3.org/XML/1998/namespace"), "xmlns" !== m && (c.uri = r[m || ""]));var l;u = 0 < (l = a.indexOf(":")) ? (m = e.prefix = a.slice(0, l), e.localName = a.slice(l + 1)) : (m = null, e.localName = a);var _ = e.uri = r[m || ""];if (t.startElement(_, u, a, e), !e.closed) return e.currentNSMap = r, e.localNSMap = n, !0;if (t.endElement(_, u, a), n) for (var m in n) t.endPrefixMapping(m);
+}function appendElement(e, l, t) {
+  for (var r = e.tagName, a = null, n = e.length; n--;) {
+    var s = e[n],
+        c = s.qName,
+        _ = s.value;var i;c = 0 < (o = c.indexOf(":")) ? (u = s.prefix = c.slice(0, o), i = c.slice(o + 1), "xmlns" === u && i) : (u = null, "xmlns" === (i = c) && ""), s.localName = i, !1 !== c && (null == a && (a = {}, _copy(t, t = {})), t[c] = a[c] = _, s.uri = "http://www.w3.org/2000/xmlns/", l.startPrefixMapping(c, _));
+  }for (n = e.length; n--;) (u = (s = e[n]).prefix) && ("xml" === u && (s.uri = "http://www.w3.org/XML/1998/namespace"), "xmlns" !== u && (s.uri = t[u || ""]));var o;i = 0 < (o = r.indexOf(":")) ? (u = e.prefix = r.slice(0, o), e.localName = r.slice(o + 1)) : (u = null, e.localName = r);var m = e.uri = t[u || ""];if (l.startElement(m, i, r, e), !e.closed) return e.currentNSMap = t, e.localNSMap = a, !0;if (l.endElement(m, i, r), a) for (var u in a) l.endPrefixMapping(u);
 }function parseHtmlSpecialContent(e, t, r, a, n) {
   if (/^(?:script|textarea)$/i.test(r)) {
     var s = e.indexOf("</" + r + ">", t),
@@ -82,15 +82,9 @@ function XMLReader() {}function parse(r, e, a, n, s) {
 }function _copy(e, t) {
   for (var r in e) t[r] = e[r];
 }function parseDCC(e, t, r, a) {
-  var n = e.charAt(t + 2);if ("-" === n) return "-" !== e.charAt(t + 3) ? -1 : t < (s = e.indexOf("--\x3e", t + 4)) ? (r.comment(e, t + 4, s - t - 4), s + 3) : (a.error("Unclosed comment"), -1);if ("CDATA[" == e.substr(t + 3, 6)) {
-    var s = e.indexOf("]]>", t + 9);return r.startCDATA(), r.characters(e, t + 9, s - t - 9), r.endCDATA(), s + 3;
-  }n = split(e, t), a = n.length;if (1 < a && /!doctype/i.test(n[0][0])) {
-    s = n[1][0], e = 3 < a && /^public$/i.test(n[2][0]) && n[3][0], t = 4 < a && n[4][0], a = n[a - 1];return r.startDTD(s, e && e.replace(/^(['"])(.*?)\1$/, "$2"), t && t.replace(/^(['"])(.*?)\1$/, "$2")), r.endDTD(), a.index + a[0].length;
-  }return -1;
+  var n = e.charAt(t + 2);if ("-" === n) return "-" !== e.charAt(t + 3) ? -1 : t < (s = e.indexOf("--\x3e", t + 4)) ? (r.comment(e, t + 4, s - t - 4), s + 3) : (a.error("Unclosed comment"), -1);if ("CDATA[" == e.substr(t + 3, 6)) return s = e.indexOf("]]>", t + 9), r.startCDATA(), r.characters(e, t + 9, s - t - 9), r.endCDATA(), s + 3;n = split(e, t), a = n.length;var s;return 1 < a && /!doctype/i.test(n[0][0]) ? (s = n[1][0], e = 3 < a && /^public$/i.test(n[2][0]) && n[3][0], t = 4 < a && n[4][0], n = n[a - 1], r.startDTD(s, e && e.replace(/^(['"])(.*?)\1$/, "$2"), t && t.replace(/^(['"])(.*?)\1$/, "$2")), r.endDTD(), n.index + n[0].length) : -1;
 }function parseInstruction(e, t, r) {
-  var a = e.indexOf("?>", t);if (a) {
-    t = e.substring(t, a).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/);return t ? (t[0].length, r.processingInstruction(t[1], t[2]), a + 2) : -1;
-  }return -1;
+  var a = e.indexOf("?>", t);return a && (e = e.substring(t, a).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/)) ? (e[0].length, r.processingInstruction(e[1], e[2]), a + 2) : -1;
 }function ElementAttributes() {}function _set_proto_(e, t) {
   return e.__proto__ = t, e;
 }function split(e, t) {

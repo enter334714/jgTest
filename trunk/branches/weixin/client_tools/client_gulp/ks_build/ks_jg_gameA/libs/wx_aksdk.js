@@ -1,10 +1,10 @@
 ﻿//TODO 替换对应参数
 var config = {
-    game_id: '112',
+    game_id: '256',
     game_pkg: 'tjqy_tjqyksxyx_KE',
     partner_label: 'kuaishouxyx',
     partner_id: '499',
-    game_ver: '1.0.4',
+    game_ver: '1.0.14',
     is_auth: false, //授权登录
 
 };
@@ -27,7 +27,7 @@ function mainSDK() {
             console.log("[SDK]CP调用init接口");
             var self = this;
 
-           
+
             var uuid = ks.getStorageSync('plat_uuid');
             var is_new;
             if (!uuid) {
@@ -45,7 +45,7 @@ function mainSDK() {
             if (ks.isLaunchFromApk()) {
                 // 表明游戏从Apk启动
             } else {
-            // 表明游戏不是从Apk启动
+                // 表明游戏不是从Apk启动
             }
 
             var info = ks.getLaunchOptionsSync();
@@ -131,25 +131,25 @@ function mainSDK() {
                         if (data.state) {
                             partner_user_info['templateId'] = data.data.ext;
                             try {
-                                    ks.setStorageSync('plat_sdk_token', data.data.sdk_token);
-                                    ks.setStorageSync('plat_uid', data.data.user_id);
-                                    ks.setStorageSync('plat_username', data.data.username);
-                                    if(data.data.ext){
-                                        ks.setStorageSync('plat_session_key', data.data.ext);
-                                    }
-                                } catch (e) {
+                                ks.setStorageSync('plat_sdk_token', data.data.sdk_token);
+                                ks.setStorageSync('plat_uid', data.data.user_id);
+                                ks.setStorageSync('plat_username', data.data.username);
+                                if(data.data.ext){
+                                    ks.setStorageSync('plat_session_key', data.data.ext);
                                 }
-                          var userData = {
-                            userid: data.data.user_id,
-                            account: data.data.nick_name,
-                            token: data.data.token,
-                            invite_uid: data.data.invite_uid || '',
-                            invite_nickname: data.data.invite_nickname || '',
-                            invite_head_img: data.data.invite_head_img || '',
-                            head_img: data.data.head_img || '',
-                            is_client: data.data.is_client || '0',
-                            ios_pay: data.data.ios_pay || '0'
-                        };
+                            } catch (e) {
+                            }
+                            var userData = {
+                                userid: data.data.user_id,
+                                account: data.data.nick_name,
+                                token: data.data.token,
+                                invite_uid: data.data.invite_uid || '',
+                                invite_nickname: data.data.invite_nickname || '',
+                                invite_head_img: data.data.invite_head_img || '',
+                                head_img: data.data.head_img || '',
+                                is_client: data.data.is_client || '0',
+                                ios_pay: data.data.ios_pay || '0'
+                            };
                             callbacks['login'] && callbacks['login'](0, userData);
                         } else {
                             callbacks['login'] && callbacks['login'](1, {
@@ -389,7 +389,7 @@ function mainSDK() {
                 session_key: session_key,
                 platform: platform,
                 game_user_id:partner_user_info.gameUserId,
-                
+                game_token:partner_user_info.gameToken,
             };
             self.order_data = order_data;
 
@@ -413,21 +413,37 @@ function mainSDK() {
                             console.log("客户端平台"+platform);
                             if(platform == "android"){
                                 var pay_object = data.data.pay_data;
-                                pay_object.success = (result) => {
-                                    console.log("支付结果成功"+JSON.stringify(result));
-                                    self.gameGoPay(order_data,pay_object);
+                                if(data.data.balance > 0){
+                                    ks.showModal({
+                                        title: '余额提示',
+                                        content: data.data.tips,
+                                        success (res) {
+                                            if (res.confirm) {
+                                                console.log('用户点击确定')
+                                                self.gameGoPay(order_data,pay_object);
+                                            } else if (res.cancel) {
+                                                console.log('用户点击取消')
+                                            }
+                                        }
+                                    })
+
+                                }else{
+                                    pay_object.success = (result) => {
+                                        console.log("支付结果成功"+JSON.stringify(result));
+                                        self.gameGoPay(order_data,pay_object);
+                                    }
+                                    pay_object.fail = (result) => {
+                                        console.log("支付结果失败"+JSON.stringify(result));
+                                    }
+                                    ks.requestPayment(data.data.pay_data);
                                 }
-                                pay_object.fail = (result) => {
-                                    console.log("支付结果失败"+JSON.stringify(result));
-                                }
-                                ks.requestPayment(data.data.pay_data);
-                        }else{
-                            ks.showToast({
-                                title: '暂不支持改设备充值',
-                                icon: 'success',
-                                duration: 2000
-                            })
-                        }
+                            }else{
+                                ks.showToast({
+                                    title: '暂不支持该设备充值',
+                                    icon: 'success',
+                                    duration: 2000
+                                })
+                            }
                         } else {
                             callbacks['pay'] && callbacks['pay'](1, {
                                 errMsg: data.msg
@@ -442,10 +458,24 @@ function mainSDK() {
             });
         },
         gameGoPay: function (cpData,androidData) {
-            console.log("[SDK]米大师支付完毕，通知服务器发货");
+            console.log("[SDK]支付完毕，通知服务器发货");
             //请求pay接口
             var self = this;
             var session_key = ks.getStorageSync('plat_session_key');
+            var post_data = {
+                order_id:androidData.third_party_trade_no,
+                game_user_id:partner_user_info.gameUserId,
+                server_id:cpData.serverid,
+                role_id:cpData.roleid,
+                os: sysInfo.system,
+                product_id:cpData.productid,
+                amount:cpData.price,
+                money:cpData.price,
+                product_name:cpData.productname,
+                product_desc:cpData.productdesc,
+                game_token:partner_user_info.gameToken,
+            }
+            console.log(post_data);
             ks.request({
                 url: 'https://' + HOST + '/partner/pay/' + config.partner_id + '/' + config.game_pkg + '/',
                 method: 'POST',
@@ -453,18 +483,7 @@ function mainSDK() {
                 header: {
                     'content-type': 'application/x-www-form-urlencoded' // 默认值
                 },
-                data: {
-                    order_id:cpData.cpbill,
-                    game_user_id:partner_user_info.gameUserId,
-                    server_id:cpData.serverid,
-                    role_id:cpData.roleid,
-                    os: sysInfo.system,
-                    product_id:cpData.productid,
-                    amount:cpData.price,
-                    money:cpData.price,
-                    product_name:cpData.productname,
-                    product_desc:cpData.productdesc
-                },
+                data:post_data,
                 success: function (res) {
                     console.log("[SDK]米大师支付结果");
                     console.log(res);
@@ -559,13 +578,13 @@ function mainSDK() {
 
         },
         inspireVideo:function (videocallback){
-        
+
         },
         sendUrl: function (){
-           
+
         },
         weiduanHelper: function() {
-           
+
         },
 
         //获取唯一设备码（自定义）
@@ -640,7 +659,7 @@ function mainSDK() {
         },
 
         downloadClient: function () {
-           
+
         },
 
         // 设置 wx.shareMessageToFriend 接口 query 字段的值
@@ -654,7 +673,7 @@ function mainSDK() {
             ks.getAPKShortcutInstallStatus((result) => {
                 if (result.code === -10005) {
                     // 表明暂不支持该功能
-                     ks.showToast({
+                    ks.showToast({
                         title: '暂不支持该功能',
                         icon: 'success',
                         duration: 2000
@@ -667,15 +686,15 @@ function mainSDK() {
                         ks.saveAPKShortcut((result) => {
                             if (result.code === -10005) {
                                 // 表明暂不支持该功能
-                                 ks.showToast({
+                                ks.showToast({
                                     title: '暂不支持该功能',
                                     icon: 'success',
                                     duration: 2000
                                 })
-                                 short_callback(1);
+                                short_callback(1);
                             } else if (result.code === 1) {
                                 // 成功，提示安装apk的弹窗展示成功
-                                 ks.showToast({
+                                ks.showToast({
                                     title: '安装成功',
                                     icon: 'success',
                                     duration: 2000
@@ -683,20 +702,20 @@ function mainSDK() {
                                 short_callback(0);
                             } else {
                                 // 失败，提示安装apk的弹窗未弹出，可能是由于已安装桌面apk或者其他原因
-                                 ks.showToast({
+                                ks.showToast({
                                     title: '安装失败',
                                     icon: 'success',
                                     duration: 2000
                                 })
                                 short_callback(1);
                             }
-                    });
+                        });
                     }
                 } else {
                     // 失败
                     short_callback(1);
                 }
-        });
+            });
         }
 
 

@@ -1,4 +1,4 @@
-(function (window, document, Laya) {
+﻿(function (window, document, Laya) {
     var __un = Laya.un,
         __uns = Laya.uns,
         __static = Laya.static,
@@ -836,7 +836,7 @@
             }
             let self = this;
             if (ENV == 5) {
-                console.log("音乐文件：", this.url);
+                //console.log("音乐文件：", this.url);
                 let lastIndex = this.url.lastIndexOf("/");
                 let fileName = this.url.substr(lastIndex + 1);
                 let savaPath = ks.env.USER_DATA_PATH + "/" + fileName;
@@ -844,12 +844,12 @@
                 fs.access({
                     path: savaPath,
                     success: function (res) {
-                        console.log("本地文件存在直接播放:", res);
+                        //console.log("本地文件存在直接播放:", res);
                         let svaeFileUrl = savaPath;
                         self._startPlay(svaeFileUrl)
                     },
                     fail: function (res) {
-                        console.log("本地文件不存在:", res)
+                        //console.log("本地文件不存在:", res)
                         ks.downloadFile(
                             {
                                 url: url,
@@ -858,17 +858,17 @@
                                     if (res.statusCode === 200) {
                                         let fs = ks.getFileSystemManager()
                                         var tempFilePath = res.tempFilePath;
-                                        console.log("临时文件地址：", tempFilePath);
+                                        //console.log("临时文件地址：", tempFilePath);
                                         fs.saveFile({
                                             tempFilePath: tempFilePath,
                                             filePath: savaPath,
                                             success: function (res) {
-                                                console.log("音乐存储成功:", res.savedFilePath);
+                                               // console.log("音乐存储成功:", res.savedFilePath);
                                                 self._startPlay(res.savedFilePath)
 
                                             },
                                             fail: function (res) {
-                                                console.log("音乐存储失败 播放临时文件:", res, "临时文件地址：", tempFilePath);
+                                               // console.log("音乐存储失败 播放临时文件:", res, "临时文件地址：", tempFilePath);
                                                 self._startPlay(tempFilePath)
                                             }
                                         })
@@ -1034,9 +1034,9 @@
         __proto.play = function () {
             this.isStopped = false;
             SoundManager.addChannel(this);
-            console.log("MiniSoundChannel play11")
+           // console.log("MiniSoundChannel play11")
             if (this._audio) {
-                console.log("MiniSoundChannel play222")
+              //  console.log("MiniSoundChannel play222")
                 this._audio.play();
             }
         }

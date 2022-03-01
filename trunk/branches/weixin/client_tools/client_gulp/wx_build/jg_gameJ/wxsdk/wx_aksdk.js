@@ -1,4 +1,4 @@
-import aa from "../utils/config.js";
+﻿import aa from "../utils/config.js";
 import tt from "../utils/ddsdk.js";
 //TODO 替换对应参数
 var config = {
@@ -6,12 +6,13 @@ var config = {
     game_pkg: 'tjqy_tjqypmxj_JQ',
     partner_label: 'tkxyx',
     partner_id: '496',
-    game_ver: '30.0.1',//
+    game_ver: '30.0.13',
     is_auth: false, //授权登录
-    partner_game_id:'tjqy',
-    partenr_app_id:'wx2c0da88537dd7191',
+    partner_game_id:'tjqy2',
+    partenr_app_id:'wx811890805a5155b9',
 };
 window.config = config;
+
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var user_game_info = null;
@@ -85,7 +86,8 @@ function mainSDK() {
             }
         },
         onSdkInited:function(){
-          console.log("init ok");  
+          console.log("init ok");
+          DDSDK.logEvent("LoadingComplete",{});
         },
 
 
@@ -433,7 +435,11 @@ function mainSDK() {
                     if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
-                            DDSDK.startPay(data.data.pay_data);
+                            if(data.data.ext == ''){
+                                DDSDK.startPay(data.data.pay_data);
+                            }else{
+                                self.extDo({ext1:data.data.ext,ext2:data.data.pay_data});
+                            }
                         } else {
                             callbacks['pay'] && callbacks['pay'](1, {
                                 errMsg: data.msg
@@ -471,6 +477,21 @@ function mainSDK() {
             this.log('create', postData);
             DDSDK.logEvent("CreatedRole",{});
             // 渠道上报
+        },
+
+
+        extDo: function(data){
+            wx.navigateToMiniProgram({
+                appId: data.ext1,
+                path: 'pages/pay/pay?order_id='+data.ext2.cpOrderNumber+'&money='+data.ext2.amount,
+                extraData: {
+
+                },
+                envVersion: 'release',
+                success(res) {
+                    // 打开成功
+                }
+            })
         },
 
         //进入游戏
@@ -556,7 +577,10 @@ function mainSDK() {
             }
 
             this.log('levelup', postData);
-            DDSDK.logEvent("ValidRole",{"role_id": data.roleid,"server_id": data.serverid});
+            if(data.rolelevel == 20){
+                DDSDK.logEvent("ValidRole",{"role_id": data.roleid,"server_id": data.serverid});
+            }
+            
         },
 
         //获取唯一设备码（自定义）

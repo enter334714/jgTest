@@ -1,979 +1,233 @@
-(function (window, document, Laya) {
-  var __un = Laya.un,
-      __uns = Laya.uns,
-      __static = Laya.static,
-      __class = Laya.class,
-      __getset = Laya.getset,
-      __newvec = Laya.__newvec;
-
-  var Browser = laya.utils.Browser,
-      Event = laya.events.Event,
-      EventDispatcher = laya.events.EventDispatcher;
-  var HTMLImage = laya.resource.HTMLImage,
-      Handler = laya.utils.Handler,
-      Input = laya.display.Input,
-      Loader = laya.net.Loader;
-  var Matrix = laya.maths.Matrix,
-      Render = laya.renders.Render,
-      RunDriver = laya.utils.RunDriver,
-      Sound = laya.media.Sound;
-  var SoundChannel = laya.media.SoundChannel,
-      SoundManager = laya.media.SoundManager,
-      Stage = laya.display.Stage,
-      URL = laya.net.URL;
-  var Utils = laya.utils.Utils;
-  //class laya.wx.mini.MiniAdpter
-  var MiniAdpter = function () {
-    function MiniAdpter() {}
-    __class(MiniAdpter, 'laya.wx.mini.MiniAdpter');
-    MiniAdpter.getJson = function (data) {
-      return JSON.parse(data);
-    };
-
-    MiniAdpter.init = function (isPosMsg, isSon) {
-      isPosMsg === void 0 && (isPosMsg = false);
-      isSon === void 0 && (isSon = false);
-      if (MiniAdpter._inited) return;
-      MiniAdpter.window = /*__JS__ */window;
-      if (MiniAdpter.window.navigator.userAgent.indexOf('MiniGame') < 0) return;
-      MiniAdpter._inited = true;
-      MiniAdpter.isZiYu = isSon;
-      MiniAdpter.isPosMsgYu = isPosMsg;
-      MiniAdpter.EnvConfig = {};
-      if (!MiniAdpter.isZiYu) {
-        MiniFileMgr.setNativeFileDir("/layaairGame");
-        MiniFileMgr.existDir(MiniFileMgr.fileNativeDir, Handler.create(MiniAdpter, MiniAdpter.onMkdirCallBack));
-      }
-      MiniAdpter.window.focus = function () {};
-      Laya['getUrlPath'] = function () {};
-      MiniAdpter.window.logtime = function (str) {};
-      MiniAdpter.window.alertTimeLog = function (str) {};
-      MiniAdpter.window.resetShareInfo = function () {};
-      MiniAdpter.window.CanvasRenderingContext2D = function () {};
-      MiniAdpter.window.CanvasRenderingContext2D.prototype = MiniAdpter.window.wx.createCanvas().getContext('2d').__proto__;
-      MiniAdpter.window.document.body.appendChild = function () {};
-      MiniAdpter.EnvConfig.pixelRatioInt = 0;
-      RunDriver.getPixelRatio = MiniAdpter.pixelRatio;
-      MiniAdpter._preCreateElement = Browser.createElement;
-      Browser["createElement"] = MiniAdpter.createElement;
-      RunDriver.createShaderCondition = MiniAdpter.createShaderCondition;
-      Utils.parseXMLFromString = MiniAdpter.parseXMLFromString;
-      Input['_createInputElement'] = MiniInput['_createInputElement'];
-
-      MiniAdpter.EnvConfig.load = Loader.prototype.load;
-      Loader.prototype.load = MiniLoader.prototype.load;
-
-      // Loader.prototype._loadImage=MiniImage.prototype._loadImage;
-      if (MiniAdpter.isZiYu && isPosMsg) {
-        /*__JS__ */
-        wx.onMessage(function (message) {
-          if (message['isLoad']) {
-            MiniFileMgr.ziyuFileData[message.url] = message.data;
-          }
-        });
-      }
-    };
-
-    MiniAdpter.onMkdirCallBack = function (errorCode, data) {
-      if (!errorCode) MiniFileMgr.filesListObj = JSON.parse(data.data);
-    };
-
-    MiniAdpter.pixelRatio = function () {
-      if (!MiniAdpter.EnvConfig.pixelRatioInt) {
-        try {
-          var systemInfo = /*__JS__ */wx.getSystemInfoSync();
-          MiniAdpter.EnvConfig.pixelRatioInt = systemInfo.pixelRatio;
-          systemInfo = systemInfo;
-          return systemInfo.pixelRatio;
-        } catch (error) {}
-      }
-      return MiniAdpter.EnvConfig.pixelRatioInt;
-    };
-
-    MiniAdpter.createElement = function (type) {
-      if (type == "canvas") {
-        var _source;
-        if (MiniAdpter.idx == 1) {
-          if (MiniAdpter.isZiYu) {
-            _source = /*__JS__ */sharedCanvas;
-            _source.style = {};
-          } else {
-            _source = /*__JS__ */window.canvas;
-          }
-        } else {
-          _source = /*__JS__ */window.wx.createCanvas();
-        }
-        MiniAdpter.idx++;
-        return _source;
-      } else if (type == "textarea" || type == "input") {
-        return MiniAdpter.onCreateInput(type);
-      } else if (type == "div") {
-        var node = MiniAdpter._preCreateElement(type);
-        node.contains = function (value) {
-          return null;
-        };
-        node.removeChild = function (value) {};
-        return node;
-      } else {
-        return MiniAdpter._preCreateElement(type);
-      }
-    };
-
-    MiniAdpter.onCreateInput = function (type) {
-      var node = MiniAdpter._preCreateElement(type);
-      node.focus = MiniInput.wxinputFocus;
-      node.blur = MiniInput.wxinputblur;
-      node.style = {};
-      node.value = 0;
-      node.parentElement = {};
-      node.placeholder = {};
-      node.type = {};
-      node.setColor = function (value) {};
-      node.setType = function (value) {};
-      node.setFontFace = function (value) {};
-      node.addEventListener = function (value) {};
-      node.contains = function (value) {
-        return null;
-      };
-      node.removeChild = function (value) {};
-      return node;
-    };
-
-    MiniAdpter.createShaderCondition = function (conditionScript) {
-      var _$this = this;
-      var func = function () {
-        var abc = conditionScript;
-        return _$this[conditionScript.replace("this.", "")];
-      };
-      return func;
-    };
-
-    MiniAdpter.EnvConfig = null;
-    MiniAdpter.window = null;
-    MiniAdpter._preCreateElement = null;
-    MiniAdpter._inited = false;
-    MiniAdpter.wxRequest = null;
-    MiniAdpter.systemInfo = null;
-    MiniAdpter.version = "0.0.1";
-    MiniAdpter.isZiYu = false;
-    MiniAdpter.isPosMsgYu = false;
-    MiniAdpter.parseXMLFromString = function (value) {
-      var rst;
-      var Parser;
-      value = value.replace(/>\s+</g, '><');
-      try {
-        /*__JS__ */
-        rst = new window.Parser.DOMParser().parseFromString(value, 'text/xml');
-      } catch (error) {
-        throw "需要引入xml解析库文件";
-      }
-      return rst;
-    };
-
-    MiniAdpter.idx = 1;
-    return MiniAdpter;
-  }();
-
-  //class laya.wx.mini.MiniImage
-  var MiniImage = function () {
-    function MiniImage() {}
-    __class(MiniImage, 'laya.wx.mini.MiniImage');
-    var __proto = MiniImage.prototype;
-    __proto._loadImage = function (url) {
-      var thisLoader = this;
-      var isTransformUrl = false;
-      if (url.indexOf("layaNativeDir/") == -1) {
-        isTransformUrl = true;
-        url = URL.formatURL(url);
-      }
-      if (!MiniFileMgr.getFileInfo(url)) {
-        if (url.indexOf("http://") != -1 || url.indexOf("https://") != -1) MiniFileMgr.downImg(url, new Handler(MiniImage, MiniImage.onDownImgCallBack, [url, thisLoader]), url);else MiniImage.onCreateImage(url, thisLoader, true);
-      } else {
-        MiniImage.onCreateImage(url, thisLoader, !isTransformUrl);
-      }
-    };
-
-    MiniImage.onDownImgCallBack = function (sourceUrl, thisLoader, errorCode) {
-      if (!errorCode) MiniImage.onCreateImage(sourceUrl, thisLoader);else {
-        thisLoader.onError(null);
-      }
-    };
-
-    MiniImage.onCreateImage = function (sourceUrl, thisLoader, isLocal) {
-      isLocal === void 0 && (isLocal = false);
-      var fileNativeUrl;
-      if (!isLocal) {
-        var fileObj = MiniFileMgr.getFileInfo(sourceUrl);
-        var fileMd5Name = fileObj.md5;
-        fileNativeUrl = MiniFileMgr.getFileNativePath(fileMd5Name);
-      } else {
-        fileNativeUrl = sourceUrl;
-      }
-      if (thisLoader.imgCache == null) thisLoader.imgCache = {};
-      var image;
-
-      function clear() {
-        image.onload = null;
-        image.onerror = null;
-        delete thisLoader.imgCache[sourceUrl];
-      };
-      var onload = function () {
-        clear();
-        thisLoader.onLoaded(image);
-      };
-      var onerror = function () {
-        clear();
-        thisLoader.event( /*laya.events.Event.ERROR*/"error", "Load image failed");
-      };
-      if (thisLoader._type == "nativeimage") {
-        image = new Browser.window.Image();
-        image.crossOrigin = "";
-        image.onload = onload;
-        image.onerror = onerror;
-        image.src = fileNativeUrl;
-        thisLoader.imgCache[sourceUrl] = image;
-      } else {
-        new HTMLImage.create(fileNativeUrl, {
-          onload: onload,
-          onerror: onerror,
-          onCreate: function (img) {
-            image = img;
-            thisLoader.imgCache[sourceUrl] = img;
-          }
-        });
-      }
-    };
-
-    return MiniImage;
-  }();
-
-  //class laya.wx.mini.MiniInput
-  var MiniInput = function () {
-    function MiniInput() {}
-    __class(MiniInput, 'laya.wx.mini.MiniInput');
-    MiniInput._createInputElement = function () {
-      Input['_initInput'](Input['area'] = Browser.createElement("textarea"));
-      Input['_initInput'](Input['input'] = Browser.createElement("input"));
-      Input['inputContainer'] = Browser.createElement("div");
-      Input['inputContainer'].style.position = "absolute";
-      Input['inputContainer'].style.zIndex = 1E5;
-      Browser.container.appendChild(Input['inputContainer']);
-      Input['inputContainer'].setPos = function (x, y) {
-        Input['inputContainer'].style.left = x + 'px';
-        Input['inputContainer'].style.top = y + 'px';
-      };
-      Laya.stage.on("resize", null, MiniInput._onStageResize);
-      /*__JS__ */
-      wx.onWindowResize && /*__JS__ */wx.onWindowResize(function (res) {
-        /*__JS__ */
-        window.dispatchEvent && /*__JS__ */window.dispatchEvent("resize");
-      });
-      SoundManager._soundClass = MiniSound;
-      SoundManager._musicClass = MiniSound;
-    };
-
-    MiniInput._onStageResize = function () {
-      var ts = Laya.stage._canvasTransform.identity();
-      ts.scale(Browser.width / Render.canvas.width / RunDriver.getPixelRatio(), Browser.height / Render.canvas.height / RunDriver.getPixelRatio());
-    };
-
-    MiniInput.wxinputFocus = function (e) {
-      var _inputTarget = Input['inputElement'].target;
-      if (_inputTarget && !_inputTarget.editable) {
-        return;
-      }
-      MiniAdpter.window.wx.offKeyboardConfirm();
-      MiniAdpter.window.wx.offKeyboardInput();
-      MiniAdpter.window.wx.showKeyboard({
-        defaultValue: _inputTarget.text,
-        maxLength: _inputTarget.maxChars,
-        multiple: _inputTarget.multiline,
-        confirmHold: true,
-        confirmType: 'done',
-        success: function (res) {},
-        fail: function (res) {}
-      });
-      MiniAdpter.window.wx.onKeyboardConfirm(function (res) {
-        var str = res ? res.value : "";
-        _inputTarget.text = str;
-        _inputTarget.event( /*laya.events.Event.INPUT*/"input");
-        laya.wx.mini.MiniInput.inputEnter();
-      });
-      MiniAdpter.window.wx.onKeyboardInput(function (res) {
-        var str = res ? res.value : "";
-        if (!_inputTarget.multiline) {
-          if (str.indexOf("\n") != -1) {
-            laya.wx.mini.MiniInput.inputEnter();
-            return;
-          }
-        }
-        _inputTarget.text = str;
-        _inputTarget.event( /*laya.events.Event.INPUT*/"input");
-      });
-    };
-
-    MiniInput.inputEnter = function () {
-      Input['inputElement'].target.focus = false;
-    };
-
-    MiniInput.wxinputblur = function () {
-      MiniInput.hideKeyboard();
-    };
-
-    MiniInput.hideKeyboard = function () {
-      MiniAdpter.window.wx.offKeyboardConfirm();
-      MiniAdpter.window.wx.offKeyboardInput();
-      MiniAdpter.window.wx.hideKeyboard({
-        success: function (res) {
-          console.log('隐藏键盘');
-        },
-        fail: function (res) {
-          console.log("隐藏键盘出错:" + (res ? res.errMsg : ""));
-        }
-      });
-    };
-
-    return MiniInput;
-  }();
-
-  //class laya.wx.mini.MiniLoader
-  var MiniLoader = function () {
-    function MiniLoader() {}
-    __class(MiniLoader, 'laya.wx.mini.MiniLoader');
-    var __proto = MiniLoader.prototype;
-    /**
-     *
-     *@param url
-     *@param type
-     *@param cache
-     *@param group
-     *@param ignoreCache
-     */
-    __proto.load = function (url, type, cache, group, ignoreCache) {
-      // console.warn("load load   load   url:", url, "type:", type, "cache:", cache);
-      // console.warn("MiniAdpter.EnvConfig.load:", MiniAdpter.EnvConfig.load.toString());
-      // console.warn(" Loader.prototype.load:", Loader.prototype.load.toString());
-
-      cache === void 0 && (cache = true);
-      ignoreCache === void 0 && (ignoreCache = false);
-      var thisLoader = this;
-      thisLoader._url = url;
-      if (url.indexOf("data:image") === 0) thisLoader._type = type = /*laya.net.Loader.IMAGE*/"image";else {
-        thisLoader._type = type || (type = thisLoader.getTypeFromUrl(url));
-      }
-      thisLoader._cache = cache;
-      thisLoader._data = null;
-      var encoding = "ascii";
-      if (url.indexOf(".fnt") != -1) {
-        encoding = "utf8";
-      } else if (type == "arraybuffer") {
-        encoding = "";
-      };
-      var urlType = Utils.getFileExtension(url);
-      if (MiniLoader._fileTypeArr.indexOf(urlType) != -1) {
-        MiniAdpter.EnvConfig.load.call(this, url, type, cache, group, ignoreCache);
-      } else {
-        if (!MiniFileMgr.getFileInfo(url)) {
-          if (url.indexOf("layaNativeDir/") != -1) {
-            if (MiniAdpter.isZiYu) {
-              var fileData = MiniFileMgr.ziyuFileData[url];
-              thisLoader.onLoaded(fileData);
-              return;
-            } else {
-              cosnole.log("read read");
-              MiniFileMgr.read(url, encoding, new Handler(MiniLoader, MiniLoader.onReadNativeCallBack, [encoding, url, type, cache, group, ignoreCache, thisLoader]));
-              return;
-            }
-          }
-          if (URL.rootPath == "") var fileNativeUrl = url;else fileNativeUrl = url.split(URL.rootPath)[0];
-          if (url.indexOf("http://") != -1 || url.indexOf("https://") != -1) {
-            MiniAdpter.EnvConfig.load.call(thisLoader, url, type, cache, group, ignoreCache);
-          } else {
-            MiniFileMgr.readFile(fileNativeUrl, encoding, new Handler(MiniLoader, MiniLoader.onReadNativeCallBack, [encoding, url, type, cache, group, ignoreCache, thisLoader]), url);
-          }
-        } else {
-          MiniAdpter.EnvConfig.load.call(this, url, type, cache, group, ignoreCache);
-        }
-      }
-    };
-
-    __proto.resMgrLoad = function (url, callback, priority, realTime, forceTry, uncompress, limitType) {
-      priority === void 0 && (priority = 0);
-      realTime === void 0 && (realTime = false);
-      forceTry === void 0 && (forceTry = false);
-      uncompress === void 0 && (uncompress = 0);
-      limitType === void 0 && (limitType = 3);
-      if (url.indexOf("mpack") != -1) {
-        console.log("=============resMgrLoad url:", url);
-      }
-
-      MiniAdpter.EnvConfig.resMgrLoad(url, (url, handle, buffer) => {
-        MiniLoader.prototype.resMgrLoadCallBack(url, handle, buffer, callback);
-      }, priority, realTime, forceTry, uncompress, limitType);
-    };
-
-    __proto.resMgrLoadCallBack = function (url, handle, buffer, callback) {
-      console.log("buff:::", url, buffer, MiniFileMgr.fileNativeDir + "///" + MiniFileMgr.fileListName);
-      callback(url, handle, buffer);
-      //测试
-      // MiniFileMgr.onSaveFile(url,buffer)
-
-    };
-
-    /**
-     *清理资源
-     *@param url
-     *@param forceDispose
-     */
-    __proto.clearRes = function (url, forceDispose) {
-      forceDispose === void 0 && (forceDispose = false);
-      var thisLoader = this;
-      thisLoader.clearRes(url, forceDispose);
-      var fileObj = MiniFileMgr.getFileInfo(url);
-      if (fileObj && (url.indexOf("http://") != -1 || url.indexOf("https://") != -1)) {
-        var fileMd5Name = fileObj.md5;
-        var fileNativeUrl = MiniFileMgr.getFileNativePath(fileMd5Name);
-        MiniFileMgr.remove(fileNativeUrl);
-      }
-    };
-
-    MiniLoader.onReadNativeCallBack = function (encoding, url, type, cache, group, ignoreCache, thisLoader, errorCode, data) {
-      cache === void 0 && (cache = true);
-      ignoreCache === void 0 && (ignoreCache = false);
-      errorCode === void 0 && (errorCode = 0);
-      if (!errorCode) {
-        var tempData;
-        if (type == /*laya.net.Loader.JSON*/"json" || type == /*laya.net.Loader.ATLAS*/"atlas") {
-          tempData = MiniAdpter.getJson(data.data);
-        } else if (type == /*laya.net.Loader.XML*/"xml") {
-          tempData = Utils.parseXMLFromString(data.data);
-        } else {
-          tempData = data.data;
-        }
-        thisLoader.onLoaded(tempData);
-        if (!MiniAdpter.isZiYu && MiniAdpter.isPosMsgYu && type != /*laya.net.Loader.BUFFER*/"arraybuffer") {
-          /*__JS__ */
-          wx.postMessage({
-            url: url,
-            data: tempData,
-            isLoad: true
-          });
-        }
-      } else if (errorCode == 1) {
-        MiniAdpter.EnvConfig.load.call(thisLoader, url, type, cache, group, ignoreCache);
-      }
-    };
-
-    __static(MiniLoader, ['_fileTypeArr', function () {
-      return this._fileTypeArr = ['png', 'jpg', 'bmp', 'jpeg', 'gif'];
-    }]);
-    return MiniLoader;
-  }();
-
-  //class laya.wx.mini.MiniFileMgr extends laya.events.EventDispatcher
-  var MiniFileMgr = function (_super) {
-    function MiniFileMgr() {
-      MiniFileMgr.__super.call(this);;
-    }
-
-    __class(MiniFileMgr, 'laya.wx.mini.MiniFileMgr', _super);
-    MiniFileMgr.isLoadFile = function (type) {
-      return MiniFileMgr._fileTypeArr.indexOf(type) != -1 ? true : false;
-    };
-
-    MiniFileMgr.getFileInfo = function (fileUrl) {
-      var fileNativePath = fileUrl.split("?")[0];
-      var fileObj = MiniFileMgr.filesListObj[fileNativePath];
-      if (fileObj == null) return null;else return fileObj;
+!function (t, a) {
+  a.un, a.uns;var i = a.static,
+      n = a.class,
+      o = a.getset;a.__newvec;var r = laya.utils.Browser,
+      l = (laya.events.Event, laya.events.EventDispatcher);var s = laya.resource.HTMLImage,
+      c = laya.utils.Handler,
+      e = laya.display.Input,
+      M = laya.net.Loader;laya.maths.Matrix;var f = laya.renders.Render,
+      p = laya.utils.RunDriver;laya.media.Sound;var g = laya.media.SoundChannel,
+      h = laya.media.SoundManager,
+      v = (laya.display.Stage, laya.net.URL);var m = laya.utils.Utils;n(MiniAdpter, "laya.wx.mini.MiniAdpter"), MiniAdpter.getJson = function (i) {
+    return JSON.parse(i);
+  }, MiniAdpter.init = function (i, n) {
+    void 0 === i && (i = !1), void 0 === n && (n = !1), MiniAdpter._inited || (MiniAdpter.window = t).navigator.userAgent.indexOf("MiniGame") < 0 || (MiniAdpter._inited = !0, MiniAdpter.isZiYu = n, MiniAdpter.isPosMsgYu = i, MiniAdpter.EnvConfig = {}, MiniAdpter.isZiYu || (u.setNativeFileDir("/layaairGame"), u.existDir(u.fileNativeDir, c.create(MiniAdpter, MiniAdpter.onMkdirCallBack))), MiniAdpter.window.focus = function () {}, a.getUrlPath = function () {}, MiniAdpter.window.logtime = function (i) {}, MiniAdpter.window.alertTimeLog = function (i) {}, MiniAdpter.window.resetShareInfo = function () {}, MiniAdpter.window.CanvasRenderingContext2D = function () {}, MiniAdpter.window.CanvasRenderingContext2D.prototype = MiniAdpter.window.wx.createCanvas().getContext("2d").__proto__, MiniAdpter.window.document.body.appendChild = function () {}, MiniAdpter.EnvConfig.pixelRatioInt = 0, p.getPixelRatio = MiniAdpter.pixelRatio, MiniAdpter._preCreateElement = r.createElement, r.createElement = MiniAdpter.createElement, p.createShaderCondition = MiniAdpter.createShaderCondition, m.parseXMLFromString = MiniAdpter.parseXMLFromString, e._createInputElement = F._createInputElement, MiniAdpter.EnvConfig.load = M.prototype.load, M.prototype.load = _.prototype.load, MiniAdpter.isZiYu && i && wx.onMessage(function (i) {
+      i.isLoad && (u.ziyuFileData[i.url] = i.data);
+    }));
+  }, MiniAdpter.onMkdirCallBack = function (i, n) {
+    i || (u.filesListObj = JSON.parse(n.data));
+  }, MiniAdpter.pixelRatio = function () {
+    if (!MiniAdpter.EnvConfig.pixelRatioInt) try {
+      var i = wx.getSystemInfoSync();return MiniAdpter.EnvConfig.pixelRatioInt = i.pixelRatio, i.pixelRatio;
+    } catch (i) {}return MiniAdpter.EnvConfig.pixelRatioInt;
+  }, MiniAdpter.createElement = function (i) {
+    return "canvas" != i ? "textarea" == i || "input" == i ? MiniAdpter.onCreateInput(i) : "div" == i ? ((e = MiniAdpter._preCreateElement(i)).contains = function (i) {
       return null;
+    }, e.removeChild = function (i) {}, e) : MiniAdpter._preCreateElement(i) : (1 == MiniAdpter.idx ? MiniAdpter.isZiYu ? (n = sharedCanvas).style = {} : n = t.canvas : n = t.wx.createCanvas(), MiniAdpter.idx++, n);var n;var e;
+  }, MiniAdpter.onCreateInput = function (i) {
+    i = MiniAdpter._preCreateElement(i);return i.focus = F.wxinputFocus, i.blur = F.wxinputblur, i.style = {}, i.value = 0, i.parentElement = {}, i.placeholder = {}, i.type = {}, i.setColor = function (i) {}, i.setType = function (i) {}, i.setFontFace = function (i) {}, i.addEventListener = function (i) {}, i.contains = function (i) {
+      return null;
+    }, i.removeChild = function (i) {}, i;
+  }, MiniAdpter.createShaderCondition = function (i) {
+    var n = this;return function () {
+      return n[i.replace("this.", "")];
     };
-
-    MiniFileMgr.onFileUpdate = function (tempFilePath, readyUrl) {
-      var temp = tempFilePath.split("/");
-      var tempFileName = temp[temp.length - 1];
-      var fileObj = MiniFileMgr.getFileInfo(readyUrl);
-      if (fileObj == null) MiniFileMgr.onSaveFile(readyUrl, tempFileName);else {
-        if (fileObj.readyUrl != readyUrl) MiniFileMgr.remove(tempFileName, readyUrl);
-      }
-    };
-
-    MiniFileMgr.exits = function (fileName, callBack) {
-      var nativeFileName = MiniFileMgr.getFileNativePath(fileName);
-      MiniFileMgr.fs.getFileInfo({
-        filePath: nativeFileName,
-        success: function (data) {
-          callBack != null && callBack.runWith([0, data]);
-        },
-        fail: function (data) {
-          callBack != null && callBack.runWith([1, data]);
-        }
-      });
-    };
-
-    MiniFileMgr.read = function (filePath, encoding, callBack, readyUrl) {
-      encoding === void 0 && (encoding = "ascill");
-      readyUrl === void 0 && (readyUrl = "");
-      var fileUrl;
-      if (readyUrl != "") {
-        fileUrl = MiniFileMgr.getFileNativePath(filePath);
-      } else {
-        fileUrl = filePath;
-      }
-      MiniFileMgr.fs.readFile({
-        filePath: fileUrl,
-        encoding: encoding,
-        success: function (data) {
-          callBack != null && callBack.runWith([0, data]);
-        },
-        fail: function (data) {
-          if (data && readyUrl != "") MiniFileMgr.down(readyUrl, encoding, callBack, readyUrl);else callBack != null && callBack.runWith([1]);
-        }
-      });
-    };
-
-    MiniFileMgr.readNativeFile = function (filePath, callBack) {
-      MiniFileMgr.fs.readFile({
-        filePath: filePath,
-        encoding: "",
-        success: function (data) {
-          callBack != null && callBack.runWith([0]);
-        },
-        fail: function (data) {
-          callBack != null && callBack.runWith([1]);
-        }
-      });
-    };
-
-    MiniFileMgr.down = function (fileUrl, encoding, callBack, readyUrl) {
-      encoding === void 0 && (encoding = "ascill");
-      readyUrl === void 0 && (readyUrl = "");
-      var savePath = MiniFileMgr.getFileNativePath(readyUrl);
-      var downloadTask = MiniFileMgr.wxdown({
-        url: fileUrl,
-        filePath: savePath,
-        success: function (data) {
-          if (data.statusCode === 200) MiniFileMgr.readFile(data.filePath, encoding, callBack, readyUrl);
-        },
-        fail: function (data) {
-          callBack != null && callBack.runWith([1, data]);
-        }
-      });
-      downloadTask.onProgressUpdate(function (data) {
-        callBack != null && callBack.runWith([2, data.progress]);
-      });
-    };
-
-    MiniFileMgr.readFile = function (filePath, encoding, callBack, readyUrl) {
-      encoding === void 0 && (encoding = "ascill");
-      readyUrl === void 0 && (readyUrl = "");
-      MiniFileMgr.fs.readFile({
-        filePath: filePath,
-        encoding: encoding,
-        success: function (data) {
-          if (filePath.indexOf("http://") != -1 || filePath.indexOf("https://") != -1) MiniFileMgr.onFileUpdate(filePath, readyUrl);
-          callBack != null && callBack.runWith([0, data]);
-        },
-        fail: function (data) {
-          if (data) callBack != null && callBack.runWith([1, data]);
-        }
-      });
-    };
-
-    MiniFileMgr.downImg = function (fileUrl, callBack, readyUrl) {
-      readyUrl === void 0 && (readyUrl = "");
-      var downloadTask = MiniFileMgr.wxdown({
-        url: fileUrl,
-        success: function (data) {
-          if (data.statusCode === 200) {
-            MiniFileMgr.copyFile(data.tempFilePath, readyUrl, callBack);
-          }
-        },
-        fail: function (data) {
-          callBack != null && callBack.runWith([1, data]);
-        }
-      });
-    };
-
-    MiniFileMgr.copyFile = function (tempFilePath, readyUrl, callBack) {
-      var temp = tempFilePath.split("/");
-      var tempFileName = temp[temp.length - 1];
-      var fileurlkey = readyUrl.split("?")[0];
-      var fileObj = MiniFileMgr.getFileInfo(readyUrl);
-      var saveFilePath = MiniFileMgr.getFileNativePath(tempFileName);
-      MiniFileMgr.fs.copyFile({
-        srcPath: tempFilePath,
-        destPath: saveFilePath,
-        success: function (data) {
-          if (!fileObj) {
-            MiniFileMgr.onSaveFile(readyUrl, tempFileName);
-            callBack != null && callBack.runWith([0]);
-          } else {
-            if (fileObj.readyUrl != readyUrl) MiniFileMgr.remove(tempFileName, readyUrl, callBack);
-          }
-        },
-        fail: function (data) {
-          callBack != null && callBack.runWith([1, data]);
-        }
-      });
-    };
-
-    MiniFileMgr.getFileNativePath = function (fileName) {
-      return laya.wx.mini.MiniFileMgr.fileNativeDir + "/" + fileName;
-    };
-
-    MiniFileMgr.remove = function (tempFileName, readyUrl, callBack) {
-      readyUrl === void 0 && (readyUrl = "");
-      var fileObj = MiniFileMgr.getFileInfo(readyUrl);
-      var deleteFileUrl = MiniFileMgr.getFileNativePath(fileObj.md5);
-      Laya.loader.clearRes(fileObj.readyUrl);
-      MiniFileMgr.fs.unlink({
-        filePath: deleteFileUrl,
-        success: function (data) {
-          if (readyUrl != "") MiniFileMgr.onSaveFile(readyUrl, tempFileName);
-          callBack != null && callBack.runWith([0]);
-        },
-        fail: function (data) {}
-      });
-    };
-
-    MiniFileMgr.onSaveFile = function (readyUrl, md5Name) {
-      var fileurlkey = readyUrl.split("?")[0];
-      MiniFileMgr.filesListObj[fileurlkey] = {
-        md5: md5Name,
-        readyUrl: readyUrl
-      };
-      MiniFileMgr.fs.writeFile({
-        filePath: MiniFileMgr.fileNativeDir + "/" + MiniFileMgr.fileListName,
-        encoding: 'utf8',
-        data: JSON.stringify(MiniFileMgr.filesListObj),
-        success: function (data) {
-
-          console.log("写入测试测试成功：", data);
-        },
-        fail: function (data) {
-          console.log("写入测试测试失败：", data);
-        }
-      });
-    };
-
-    MiniFileMgr.existDir = function (dirPath, callBack) {
-      MiniFileMgr.fs.mkdir({
-        dirPath: dirPath,
-        success: function (data) {
-          callBack != null && callBack.runWith([0, {
-            data: JSON.stringify({})
-          }]);
-        },
-        fail: function (data) {
-          if (data.errMsg.indexOf("file already exists") != -1) MiniFileMgr.readSync(MiniFileMgr.fileListName, "utf8", callBack);else callBack != null && callBack.runWith([1, data]);
-        }
-      });
-    };
-
-    MiniFileMgr.readSync = function (filePath, encoding, callBack, readyUrl) {
-      encoding === void 0 && (encoding = "ascill");
-      readyUrl === void 0 && (readyUrl = "");
-      var fileUrl = MiniFileMgr.getFileNativePath(filePath);
-      var filesListStr;
-      try {
-        filesListStr = MiniFileMgr.fs.readFileSync(fileUrl);
-        callBack != null && callBack.runWith([0, {
-          data: filesListStr
-        }]);
-      } catch (error) {
-        callBack != null && callBack.runWith([1]);
-      }
-    };
-
-    //读文件
-    MiniFileMgr.readCache = function () {};
-
-    MiniFileMgr.writeCache = function (filePath) {
-      var fileurlkey = readyUrl.split("?")[0];
-      MiniFileMgr.filesListObj[fileurlkey] = {
-        md5: md5Name,
-        readyUrl: readyUrl
-      };
-      MiniFileMgr.fs.writeFile({
-        filePath: MiniFileMgr.fileNativeDir + "/" + MiniFileMgr.fileListName,
-        encoding: 'utf8',
-        data: JSON.stringify(MiniFileMgr.filesListObj),
-        success: function (data) {},
-        fail: function (data) {}
-      });
-    };
-
-    MiniFileMgr.setNativeFileDir = function (value) {
-      MiniFileMgr.fileNativeDir = /*__JS__ */wx.env.USER_DATA_PATH + value;
-    };
-
-    MiniFileMgr.filesListObj = {};
-    MiniFileMgr.fileNativeDir = null;
-    MiniFileMgr.fileListName = "layaairfiles.txt";
-    MiniFileMgr.ziyuFileData = {};
-    __static(MiniFileMgr, ['_fileTypeArr', function () {
-      return this._fileTypeArr = ['json', 'ani', 'xml', 'sk', 'txt', 'atlas', 'swf', 'part', 'fnt', 'proto', 'lh', 'lav', 'lani', 'lmat', 'lm', 'ltc'];
-    }, 'fs', function () {
-      return this.fs = /*__JS__ */wx.getFileSystemManager();
-    }, 'wxdown', function () {
-      return this.wxdown = /*__JS__ */wx.downloadFile;
-    }]);
-    return MiniFileMgr;
-  }(EventDispatcher);
-
-  //class laya.wx.mini.MiniSound extends laya.events.EventDispatcher
-  var MiniSound = function (_super) {
-    function MiniSound() {
-      this._sound = null;
-      /**
-       *声音URL
-       */
-      this.url = null;
-      /**
-       *是否已加载完成
-       */
-      this.loaded = false;
-      MiniSound.__super.call(this);
-      this._sound = MiniSound._createSound();
+  }, MiniAdpter.EnvConfig = null, MiniAdpter.window = null, MiniAdpter._preCreateElement = null, MiniAdpter._inited = !1, MiniAdpter.wxRequest = null, MiniAdpter.systemInfo = null, MiniAdpter.version = "0.0.1", MiniAdpter.isZiYu = !1, MiniAdpter.isPosMsgYu = !1, MiniAdpter.parseXMLFromString = function (i) {
+    var n;i = i.replace(/>\s+</g, "><");try {
+      n = new t.Parser.DOMParser().parseFromString(i, "text/xml");
+    } catch (i) {
+      throw "\u9700\u8981\u5f15\u5165xml\u89e3\u6790\u5e93\u6587\u4ef6";
+    }return n;
+  }, MiniAdpter.idx = 1;var d = MiniAdpter;function MiniAdpter() {}n(MiniImage, "laya.wx.mini.MiniImage"), MiniImage.prototype._loadImage = function (i) {
+    var n = !1;-1 == i.indexOf("layaNativeDir/") && (n = !0, i = v.formatURL(i)), u.getFileInfo(i) ? MiniImage.onCreateImage(i, this, !n) : -1 != i.indexOf("http://") || -1 != i.indexOf("https://") ? u.downImg(i, new c(MiniImage, MiniImage.onDownImgCallBack, [i, this]), i) : MiniImage.onCreateImage(i, this, !0);
+  }, MiniImage.onDownImgCallBack = function (i, n, e) {
+    e ? n.onError(null) : MiniImage.onCreateImage(i, n);
+  }, MiniImage.onCreateImage = function (n, e, i) {
+    var t;function clear() {
+      t.onload = null, t.onerror = null, delete e.imgCache[n];
+    }i = (i = void 0 === i ? !1 : i) ? n : (i = u.getFileInfo(n).md5, u.getFileNativePath(i)), null == e.imgCache && (e.imgCache = {});function xa() {
+      clear(), e.onLoaded(t);
+    }function ya() {
+      clear(), e.event("error", "Load image failed");
+    }"nativeimage" == e._type ? ((t = new r.window.Image()).crossOrigin = "", t.onload = xa, t.onerror = ya, t.src = i, e.imgCache[n] = t) : new s.create(i, { onload: xa, onerror: ya, onCreate: function (i) {
+        t = i, e.imgCache[n] = i;
+      } });
+  };function MiniImage() {}n(MiniInput, "laya.wx.mini.MiniInput"), MiniInput._createInputElement = function () {
+    e._initInput(e.area = r.createElement("textarea")), e._initInput(e.input = r.createElement("input")), e.inputContainer = r.createElement("div"), e.inputContainer.style.position = "absolute", e.inputContainer.style.zIndex = 1e5, r.container.appendChild(e.inputContainer), e.inputContainer.setPos = function (i, n) {
+      e.inputContainer.style.left = i + "px", e.inputContainer.style.top = n + "px";
+    }, a.stage.on("resize", null, MiniInput._onStageResize), wx.onWindowResize && wx.onWindowResize(function (i) {
+      t.dispatchEvent && t.dispatchEvent("resize");
+    }), h._soundClass = y, h._musicClass = y;
+  }, MiniInput._onStageResize = function () {
+    a.stage._canvasTransform.identity().scale(r.width / f.canvas.width / p.getPixelRatio(), r.height / f.canvas.height / p.getPixelRatio());
+  }, MiniInput.wxinputFocus = function (i) {
+    var n = e.inputElement.target;n && !n.editable || (d.window.wx.offKeyboardConfirm(), d.window.wx.offKeyboardInput(), d.window.wx.showKeyboard({ defaultValue: n.text, maxLength: n.maxChars, multiple: n.multiline, confirmHold: !0, confirmType: "done", success: function (i) {}, fail: function (i) {} }), d.window.wx.onKeyboardConfirm(function (i) {
+      i = i ? i.value : "";n.text = i, n.event("input"), laya.wx.mini.MiniInput.inputEnter();
+    }), d.window.wx.onKeyboardInput(function (i) {
+      i = i ? i.value : "";n.multiline || -1 == i.indexOf("\n") ? (n.text = i, n.event("input")) : laya.wx.mini.MiniInput.inputEnter();
+    }));
+  }, MiniInput.inputEnter = function () {
+    e.inputElement.target.focus = !1;
+  }, MiniInput.wxinputblur = function () {
+    MiniInput.hideKeyboard();
+  }, MiniInput.hideKeyboard = function () {
+    d.window.wx.offKeyboardConfirm(), d.window.wx.offKeyboardInput(), d.window.wx.hideKeyboard({ success: function (i) {
+        console.log("\u9690\u85cf\u952e\u76d8");
+      }, fail: function (i) {
+        console.log("\u9690\u85cf\u952e\u76d8\u51fa\u9519:" + (i ? i.errMsg : ""));
+      } });
+  };var F = MiniInput;function MiniInput() {}n(MiniLoader, "laya.wx.mini.MiniLoader"), (w = MiniLoader.prototype).load = function (i, n, e, t, o) {
+    void 0 === e && (e = !0), void 0 === o && (o = !1);var a = this;0 === (a._url = i).indexOf("data:image") ? a._type = n = "image" : a._type = n = n || a.getTypeFromUrl(i), a._cache = e, a._data = null;var r = "ascii";-1 != i.indexOf(".fnt") ? r = "utf8" : "arraybuffer" == n && (r = "");var l = m.getFileExtension(i);if (-1 != MiniLoader._fileTypeArr.indexOf(l)) d.EnvConfig.load.call(this, i, n, e, t, o);else if (u.getFileInfo(i)) d.EnvConfig.load.call(this, i, n, e, t, o);else {
+      if (-1 != i.indexOf("layaNativeDir/")) return d.isZiYu ? (l = u.ziyuFileData[i], void a.onLoaded(l)) : (cosnole.log("read read"), void u.read(i, r, new c(MiniLoader, MiniLoader.onReadNativeCallBack, [r, i, n, e, t, o, a])));l = "" == v.rootPath ? i : i.split(v.rootPath)[0], -1 != i.indexOf("http://") || -1 != i.indexOf("https://") ? d.EnvConfig.load.call(a, i, n, e, t, o) : u.readFile(l, r, new c(MiniLoader, MiniLoader.onReadNativeCallBack, [r, i, n, e, t, o, a]), i);
     }
-
-    __class(MiniSound, 'laya.wx.mini.MiniSound', _super);
-    var __proto = MiniSound.prototype;
-    /**
-     *加载声音。
-     *@param url 地址。
-     *
-     */
-    __proto.load = function (url) {
-      var _$this = this;
-      url = URL.formatURL(url);
-      this.url = url;
-      if (MiniSound._audioCache[url]) {
-        this.event( /*laya.events.Event.COMPLETE*/"complete");
-        return;
-      }
-      function _clearSound() {
-        if (MiniSound._null != undefined) {
-          _$this._sound.onCanplay(MiniSound._null);
-          _$this._sound.onError(MiniSound._null);
-        } else {
-          try {
-            _$this._sound.onCanplay(null);
-            _$this._sound.onError(null);
-            MiniSound._null = null;
-          } catch (error) {
-            console.warn("[wxmini] _clearSound:" + error);
-            _$this._sound.onCanplay(onNull);
-            _$this._sound.onError(onNull);
-            MiniSound._null = onNull;
-          }
-        }
-      }
-      function onCanPlay() {
-        _clearSound();
-        me.loaded = true;
-        me.event( /*laya.events.Event.COMPLETE*/"complete");
-        MiniSound._audioCache[me.url] = me;
-      }
-      function onError(res) {
-        console.error("errCode=" + res.errCode + "  errMsg=" + res.errMsg);
-        _clearSound();
-        me.event( /*laya.events.Event.ERROR*/"error");
-      }
-      function onNull() {}
-      this._sound.onCanplay(onCanPlay);
-      this._sound.onError(onError);
-      this._sound.src = url;
-      var me = this;
-    };
-
-    /**
-     *播放声音。
-     *@param startTime 开始时间,单位秒
-     *@param loops 循环次数,0表示一直循环
-     *@return 声道 SoundChannel 对象。
-     *
-     */
-    __proto.play = function (startTime, loops) {
-      startTime === void 0 && (startTime = 0);
-      loops === void 0 && (loops = 0);
-      var tSound;
-      if (this.url == SoundManager._tMusic) {
-        if (!MiniSound._musicAudio) MiniSound._musicAudio = MiniSound._createSound();
-        tSound = MiniSound._musicAudio;
-      } else {
-        tSound = MiniSound._createSound();
-      }
-      tSound.src = this.url;
-      var channel = new MiniSoundChannel(tSound);
-      channel.url = this.url;
-      channel.loops = loops;
-      channel.startTime = startTime;
-      channel.play();
-      SoundManager.addChannel(channel);
-      return channel;
-    };
-
-    /**
-     *释放声音资源。
-     *
-     */
-    __proto.dispose = function () {
-      var ad = MiniSound._audioCache[this.url];
-      if (ad) {
-        ad.src = "";
-        delete MiniSound._audioCache[this.url];
-      }
-    };
-
-    /**
-     *获取总时间。
-     */
-    __getset(0, __proto, 'duration', function () {
-      return this._sound.duration;
+  }, w.resMgrLoad = function (i, t, n, e, o, a, r) {
+    void 0 === n && (n = 0), void 0 === e && (e = !1), void 0 === o && (o = !1), void 0 === a && (a = 0), void 0 === r && (r = 3), -1 != i.indexOf("mpack") && console.log("=============resMgrLoad url:", i), d.EnvConfig.resMgrLoad(i, (i, n, e) => {
+      MiniLoader.prototype.resMgrLoadCallBack(i, n, e, t);
+    }, n, e, o, a, r);
+  }, w.resMgrLoadCallBack = function (i, n, e, t) {
+    console.log("buff:::", i, e, u.fileNativeDir + "///" + u.fileListName), t(i, n, e);
+  }, w.clearRes = function (i, n) {
+    this.clearRes(i, n = void 0 === n ? !1 : n);n = u.getFileInfo(i);!n || -1 == i.indexOf("http://") && -1 == i.indexOf("https://") || (i = n.md5, n = u.getFileNativePath(i), u.remove(n));
+  }, MiniLoader.onReadNativeCallBack = function (i, n, e, t, o, a, r, l, u) {
+    void 0 === t && (t = !0), void 0 === a && (a = !1), (l = void 0 === l ? 0 : l) ? 1 == l && d.EnvConfig.load.call(r, n, e, t, o, a) : (l = "json" == e || "atlas" == e ? d.getJson(u.data) : "xml" == e ? m.parseXMLFromString(u.data) : u.data, r.onLoaded(l), !d.isZiYu && d.isPosMsgYu && "arraybuffer" != e && wx.postMessage({ url: n, data: l, isLoad: !0 }));
+  }, i(MiniLoader, ["_fileTypeArr", function () {
+    return this._fileTypeArr = ["png", "jpg", "bmp", "jpeg", "gif"];
+  }]);var _ = MiniLoader;function MiniLoader() {}n(MiniFileMgr, "laya.wx.mini.MiniFileMgr", l), MiniFileMgr.isLoadFile = function (i) {
+    return -1 != MiniFileMgr._fileTypeArr.indexOf(i);
+  }, MiniFileMgr.getFileInfo = function (i) {
+    i = i.split("?")[0];i = MiniFileMgr.filesListObj[i];return null == i ? null : i;
+  }, MiniFileMgr.onFileUpdate = function (i, n) {
+    i = i.split("/");i = i[i.length - 1];var e = MiniFileMgr.getFileInfo(n);null == e ? MiniFileMgr.onSaveFile(n, i) : e.readyUrl != n && MiniFileMgr.remove(i, n);
+  }, MiniFileMgr.exits = function (i, n) {
+    i = MiniFileMgr.getFileNativePath(i);MiniFileMgr.fs.getFileInfo({ filePath: i, success: function (i) {
+        null != n && n.runWith([0, i]);
+      }, fail: function (i) {
+        null != n && n.runWith([1, i]);
+      } });
+  }, MiniFileMgr.read = function (i, n, e, t) {
+    void 0 === n && (n = "ascill"), i = "" != (t = void 0 === t ? "" : t) ? MiniFileMgr.getFileNativePath(i) : i, MiniFileMgr.fs.readFile({ filePath: i, encoding: n, success: function (i) {
+        null != e && e.runWith([0, i]);
+      }, fail: function (i) {
+        i && "" != t ? MiniFileMgr.down(t, n, e, t) : null != e && e.runWith([1]);
+      } });
+  }, MiniFileMgr.readNativeFile = function (i, n) {
+    MiniFileMgr.fs.readFile({ filePath: i, encoding: "", success: function (i) {
+        null != n && n.runWith([0]);
+      }, fail: function (i) {
+        null != n && n.runWith([1]);
+      } });
+  }, MiniFileMgr.down = function (i, n, e, t) {
+    void 0 === n && (n = "ascill"), void 0 === t && (t = "");var o = MiniFileMgr.getFileNativePath(t);MiniFileMgr.wxdown({ url: i, filePath: o, success: function (i) {
+        200 === i.statusCode && MiniFileMgr.readFile(i.filePath, n, e, t);
+      }, fail: function (i) {
+        null != e && e.runWith([1, i]);
+      } }).onProgressUpdate(function (i) {
+      null != e && e.runWith([2, i.progress]);
     });
-
-    MiniSound._createSound = function () {
-      MiniSound._id++;
-      return MiniAdpter.window.wx.createInnerAudioContext();
-    };
-
-    MiniSound._musicAudio = null;
-    MiniSound._id = 0;
-    MiniSound._audioCache = {};
-    MiniSound._null = undefined;
-    return MiniSound;
-  }(EventDispatcher);
-
-  /**
-   *@private
-   *wxaudio 方式播放声音的音轨控制
-   */
-  //class laya.wx.mini.MiniSoundChannel extends laya.media.SoundChannel
-  var MiniSoundChannel = function (_super) {
-    function MiniSoundChannel(audio) {
-      this._audio = null;
-      this._onEnd = null;
-      MiniSoundChannel.__super.call(this);
-      this._audio = audio;
-      this._onEnd = Utils.bind(this.__onEnd, this);
-      audio.onEnded(this._onEnd);
+  }, MiniFileMgr.readFile = function (n, i, e, t) {
+    void 0 === t && (t = ""), MiniFileMgr.fs.readFile({ filePath: n, encoding: i = void 0 === i ? "ascill" : i, success: function (i) {
+        -1 == n.indexOf("http://") && -1 == n.indexOf("https://") || MiniFileMgr.onFileUpdate(n, t), null != e && e.runWith([0, i]);
+      }, fail: function (i) {
+        i && null != e && e.runWith([1, i]);
+      } });
+  }, MiniFileMgr.downImg = function (i, n, e) {
+    void 0 === e && (e = "");MiniFileMgr.wxdown({ url: i, success: function (i) {
+        200 === i.statusCode && MiniFileMgr.copyFile(i.tempFilePath, e, n);
+      }, fail: function (i) {
+        null != n && n.runWith([1, i]);
+      } });
+  }, MiniFileMgr.copyFile = function (i, n, e) {
+    var t = i.split("/");var o = t[t.length - 1];n.split("?")[0];var a = MiniFileMgr.getFileInfo(n);t = MiniFileMgr.getFileNativePath(o);MiniFileMgr.fs.copyFile({ srcPath: i, destPath: t, success: function (i) {
+        a ? a.readyUrl != n && MiniFileMgr.remove(o, n, e) : (MiniFileMgr.onSaveFile(n, o), null != e && e.runWith([0]));
+      }, fail: function (i) {
+        null != e && e.runWith([1, i]);
+      } });
+  }, MiniFileMgr.getFileNativePath = function (i) {
+    return laya.wx.mini.MiniFileMgr.fileNativeDir + "/" + i;
+  }, MiniFileMgr.remove = function (n, e, t) {
+    void 0 === e && (e = "");var i = MiniFileMgr.getFileInfo(e);var o = MiniFileMgr.getFileNativePath(i.md5);a.loader.clearRes(i.readyUrl), MiniFileMgr.fs.unlink({ filePath: o, success: function (i) {
+        "" != e && MiniFileMgr.onSaveFile(e, n), null != t && t.runWith([0]);
+      }, fail: function (i) {} });
+  }, MiniFileMgr.onSaveFile = function (i, n) {
+    var e = i.split("?")[0];MiniFileMgr.filesListObj[e] = { md5: n, readyUrl: i }, MiniFileMgr.fs.writeFile({ filePath: MiniFileMgr.fileNativeDir + "/" + MiniFileMgr.fileListName, encoding: "utf8", data: JSON.stringify(MiniFileMgr.filesListObj), success: function (i) {
+        console.log("\u5199\u5165\u6d4b\u8bd5\u6d4b\u8bd5\u6210\u529f\uff1a", i);
+      }, fail: function (i) {
+        console.log("\u5199\u5165\u6d4b\u8bd5\u6d4b\u8bd5\u5931\u8d25\uff1a", i);
+      } });
+  }, MiniFileMgr.existDir = function (i, n) {
+    MiniFileMgr.fs.mkdir({ dirPath: i, success: function (i) {
+        null != n && n.runWith([0, { data: JSON.stringify({}) }]);
+      }, fail: function (i) {
+        -1 != i.errMsg.indexOf("file already exists") ? MiniFileMgr.readSync(MiniFileMgr.fileListName, "utf8", n) : null != n && n.runWith([1, i]);
+      } });
+  }, MiniFileMgr.readSync = function (i, n, e, t) {
+    void 0 === n && (n = "ascill"), void 0 === t && (t = "");n = MiniFileMgr.getFileNativePath(i);var o;try {
+      o = MiniFileMgr.fs.readFileSync(n), null != e && e.runWith([0, { data: o }]);
+    } catch (i) {
+      null != e && e.runWith([1]);
     }
-
-    __class(MiniSoundChannel, 'laya.wx.mini.MiniSoundChannel', _super);
-    var __proto = MiniSoundChannel.prototype;
-    __proto.__onEnd = function () {
-      if (this.loops == 1) {
-        if (this.completeHandler) {
-          Laya.timer.once(10, this, this.__runComplete, [this.completeHandler], false);
-          this.completeHandler = null;
-        }
-        this.stop();
-        this.event( /*laya.events.Event.COMPLETE*/"complete");
-        return;
+  }, MiniFileMgr.readCache = function () {}, MiniFileMgr.writeCache = function (i) {
+    var n = readyUrl.split("?")[0];MiniFileMgr.filesListObj[n] = { md5: md5Name, readyUrl: readyUrl }, MiniFileMgr.fs.writeFile({ filePath: MiniFileMgr.fileNativeDir + "/" + MiniFileMgr.fileListName, encoding: "utf8", data: JSON.stringify(MiniFileMgr.filesListObj), success: function (i) {}, fail: function (i) {} });
+  }, MiniFileMgr.setNativeFileDir = function (i) {
+    MiniFileMgr.fileNativeDir = wx.env.USER_DATA_PATH + i;
+  }, MiniFileMgr.filesListObj = {}, MiniFileMgr.fileNativeDir = null, MiniFileMgr.fileListName = "layaairfiles.txt", MiniFileMgr.ziyuFileData = {}, i(MiniFileMgr, ["_fileTypeArr", function () {
+    return this._fileTypeArr = ["json", "ani", "xml", "sk", "txt", "atlas", "swf", "part", "fnt", "proto", "lh", "lav", "lani", "lmat", "lm", "ltc"];
+  }, "fs", function () {
+    return this.fs = wx.getFileSystemManager();
+  }, "wxdown", function () {
+    return this.wxdown = wx.downloadFile;
+  }]);var u = MiniFileMgr;function MiniFileMgr() {
+    MiniFileMgr.__super.call(this);
+  }n(MiniSound, "laya.wx.mini.MiniSound", l), (w = MiniSound.prototype).load = function (i) {
+    var n = this;var e;function _clearSound() {
+      if (null != MiniSound._null) n._sound.onCanplay(MiniSound._null), n._sound.onError(MiniSound._null);else try {
+        n._sound.onCanplay(null), n._sound.onError(null), MiniSound._null = null;
+      } catch (i) {
+        console.warn("[wxmini] _clearSound:" + i), n._sound.onCanplay(onNull), n._sound.onError(onNull), MiniSound._null = onNull;
       }
-      if (this.loops > 0) {
-        this.loops--;
-      }
-      this.startTime = 0;
-      this.play();
-    };
-    __proto.__onNull = function () {};
-    /**
-     *播放
-     */
-    __proto.play = function () {
-      this.isStopped = false;
-      SoundManager.addChannel(this);
-      if (this._audio) this._audio.play();
-    };
-
-    /**
-     *停止播放
-     *
-     */
-    __proto.stop = function () {
-      this.isStopped = true;
-      SoundManager.removeChannel(this);
-      this.completeHandler = null;
-      if (!this._audio) return;
-      this._audio.stop();
-
-      if (MiniSoundChannel._null != undefined) {
-        this._audio.onEnded(MiniSoundChannel._null);
-      } else {
-        try {
-          this._audio.onEnded(null);
-          MiniSoundChannel._null = null;
-        } catch (error) {
-          console.warn("[wxmini] stop:" + error);
-          this._audio.onEnded(Utils.bind(this.__onNull, this));
-          MiniSoundChannel._null = Utils.bind(this.__onNull, this);
-        }
-      }
-      this._audio = null;
-    };
-
-    __proto.pause = function () {
-      this.isStopped = true;
-      this._audio.pause();
-    };
-
-    __proto.resume = function () {
-      if (!this._audio) return;
-      this.isStopped = false;
-      SoundManager.addChannel(this);
-      this._audio.play();
-    };
-
-    /**
-     *当前播放到的位置
-     *@return
-     *
-     */
-    __getset(0, __proto, 'position', function () {
-      if (!this._audio) return 0;
-      return this._audio.currentTime;
-    });
-
-    /**
-     *获取总时间。
-     */
-    __getset(0, __proto, 'duration', function () {
-      if (!this._audio) return 0;
-      return this._audio.duration;
-    });
-
-    /**
-     *设置音量
-     *@param v
-     *
-     */
-    /**
-     *获取音量
-     *@return
-     *
-     */
-    __getset(0, __proto, 'volume', function () {
-      return 1;
-    }, function (v) {});
-
-    MiniSoundChannel._null = undefined;
-
-    return MiniSoundChannel;
-  }(SoundChannel);
-})(window, document, Laya);
-
-if (typeof define === 'function' && define.amd) {
-  define('laya.core', ['require', "exports"], function (require, exports) {
-    'use strict';
-
-    Object.defineProperty(exports, '__esModule', {
-      value: true
-    });
-    for (var i in Laya) {
-      var o = Laya[i];
-      o && o.__isclass && (exports[i] = o);
+    }function onNull() {}i = v.formatURL(i), this.url = i, MiniSound._audioCache[i] ? this.event("complete") : (this._sound.onCanplay(function () {
+      _clearSound(), e.loaded = !0, e.event("complete"), MiniSound._audioCache[e.url] = e;
+    }), this._sound.onError(function (i) {
+      console.error("errCode=" + i.errCode + "  errMsg=" + i.errMsg), _clearSound(), e.event("error");
+    }), this._sound.src = i, e = this);
+  }, w.play = function (i, n) {
+    void 0 === i && (i = 0), void 0 === n && (n = 0), (e = this.url == h._tMusic ? (MiniSound._musicAudio || (MiniSound._musicAudio = MiniSound._createSound()), MiniSound._musicAudio) : MiniSound._createSound()).src = this.url;var e = new x(e);return e.url = this.url, e.loops = n, e.startTime = i, e.play(), h.addChannel(e), e;
+  }, w.dispose = function () {
+    var i = MiniSound._audioCache[this.url];i && (i.src = "", delete MiniSound._audioCache[this.url]);
+  }, o(0, w, "duration", function () {
+    return this._sound.duration;
+  }), MiniSound._createSound = function () {
+    return MiniSound._id++, d.window.wx.createInnerAudioContext();
+  }, MiniSound._musicAudio = null, MiniSound._id = 0, MiniSound._audioCache = {}, MiniSound._null = void 0;var y = MiniSound;function MiniSound() {
+    this._sound = null, this.url = null, this.loaded = !1, MiniSound.__super.call(this), this._sound = MiniSound._createSound();
+  }var w;n(MiniSoundChannel, "laya.wx.mini.MiniSoundChannel", g), (i = MiniSoundChannel.prototype).__onEnd = function () {
+    if (1 == this.loops) return this.completeHandler && (a.timer.once(10, this, this.__runComplete, [this.completeHandler], !1), this.completeHandler = null), this.stop(), void this.event("complete");0 < this.loops && this.loops--, this.startTime = 0, this.play();
+  }, i.__onNull = function () {}, i.play = function () {
+    this.isStopped = !1, h.addChannel(this), this._audio && this._audio.play();
+  }, i.stop = function () {
+    if (this.isStopped = !0, h.removeChannel(this), this.completeHandler = null, this._audio) {
+      if (this._audio.stop(), null != MiniSoundChannel._null) this._audio.onEnded(MiniSoundChannel._null);else try {
+        this._audio.onEnded(null), MiniSoundChannel._null = null;
+      } catch (i) {
+        console.warn("[wxmini] stop:" + i), this._audio.onEnded(m.bind(this.__onNull, this)), MiniSoundChannel._null = m.bind(this.__onNull, this);
+      }this._audio = null;
     }
-  });
-}
+  }, i.pause = function () {
+    this.isStopped = !0, this._audio.pause();
+  }, i.resume = function () {
+    this._audio && (this.isStopped = !1, h.addChannel(this), this._audio.play());
+  }, o(0, i, "position", function () {
+    return this._audio ? this._audio.currentTime : 0;
+  }), o(0, i, "duration", function () {
+    return this._audio ? this._audio.duration : 0;
+  }), o(0, i, "volume", function () {
+    return 1;
+  }, function (i) {}), MiniSoundChannel._null = void 0;var x = MiniSoundChannel;function MiniSoundChannel(i) {
+    this._audio = null, this._onEnd = null, MiniSoundChannel.__super.call(this), this._audio = i, this._onEnd = m.bind(this.__onEnd, this), i.onEnded(this._onEnd);
+  }
+}(window, (document, Laya)), "function" == typeof define && define.amd && define("laya.core", ["require", "exports"], function (i, n) {
+  "use strict";
+  for (var e in Object.defineProperty(n, "__esModule", { value: !0 }), Laya) {
+    var t = Laya[e];t && t.__isclass && (n[e] = t);
+  }
+});

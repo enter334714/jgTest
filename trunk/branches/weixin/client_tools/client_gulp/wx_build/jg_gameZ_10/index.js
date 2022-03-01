@@ -1,6 +1,6 @@
 ﻿import AKSDK from "./wxsdk/wx_aksdk.js";
-window.config = AKSDK.getConfig();
-window.config.game_ver = "37.0.1";
+// window.config = AKSDK.getConfig();
+
 window.versions = { 
   wxVersion: window.config.game_ver,  
 };
@@ -646,7 +646,7 @@ window.openSubscribeMsg = function(ids, callback) {
     }
     if (window.compareVersion(window.SDKVersion, '2.4.4') >= 0) {
         console.log("调用订阅");
-        AKSDK.subscribeMessage(tmpIds, function (res) {
+        AKSDK.subscribeMessage && AKSDK.subscribeMessage(tmpIds, function (res) {
             console.log("订阅回调：");
             console.log(res);
             if (res && res.errMsg == "requestSubscribeMessage:ok") {

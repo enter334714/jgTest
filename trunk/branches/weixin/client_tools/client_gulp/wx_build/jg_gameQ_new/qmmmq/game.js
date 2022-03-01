@@ -1,1 +1,1 @@
-import 'qqMAINqq.js';
+import "qqMAINqq.js";

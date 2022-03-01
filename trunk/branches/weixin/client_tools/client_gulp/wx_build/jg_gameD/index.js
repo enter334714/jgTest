@@ -754,6 +754,25 @@ window.getBatteryInfo = function (callback) {
     }
   });
 }
+//获取网络类型
+window.getNetworkType = function(callback) {
+  wx.getNetworkType({
+    success: function(resSuc) {
+      callback && callback(true, resSuc);
+    },
+    fail: function(resFail) {
+      callback && callback(false, resFail);
+    }
+  });
+}
+//添加网络状态变化监听
+window.onNetworkStatusChange = function(func) {
+  if (func) wx.onNetworkStatusChange(func);
+}
+//移除网络状态变化监听
+window.offNetworkStatusChange = function(func) {
+  wx.offNetworkStatusChange(func);  
+}
 
 window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess, reqType, contentType) {
   if (retryAmount == undefined) retryAmount = 1;

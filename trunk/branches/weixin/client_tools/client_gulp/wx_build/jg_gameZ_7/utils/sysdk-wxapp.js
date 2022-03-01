@@ -6,7 +6,7 @@ const Sygame = {
   // 初始化
   SY_CONF: SY_CONF,
   appid: '',
-  app_version: '1005.0.0',
+  app_version: '1005.5.0',
   openid: '',
   real_openid: '',
   share_data: {},
@@ -15,6 +15,12 @@ const Sygame = {
   role_name: '',   //角色名称
   server_id: '',    //区服id
   server_name: '',    //区服名称
+  commitIdStatus: false,
+  popupNumber: 0,
+  popupStatus: false,
+  popupData: {},
+  userBrand: '',
+  userBrandModel: '',
   init: (data) => {
     Sygame.appid = SY_CONF[confArr[1]];
     Sygame.query = data.query;
@@ -73,7 +79,15 @@ const Sygame = {
       }
       console.log("syShareInit:", shareData);
       return data;
-    })
+    });
+    Sygame.getCommitIdStatus();
+    // 获取手机型号
+    wx.getSystemInfo({
+      success (res) {
+        Sygame.userBrand = res.brand;
+        Sygame.userBrandModel = res.model;
+      }
+    });
   },
   // 游戏登录
   syLogin: () =>  new Promise(function (resolve, reject) {
@@ -172,6 +186,8 @@ const Sygame = {
       data.scene = Sygame.scene;
       data.appid = Sygame.appid;
       data.version = Sygame.app_version;
+      data.brand = Sygame.userBrand;
+      data.model = Sygame.userBrandModel;
       wx.request({
         url: url,
         data: data,
@@ -182,6 +198,10 @@ const Sygame = {
             Sygame.syUserLoginRecord(Sygame.openid, res.data.request_time);
           }
           resolve(res.data);
+          if (!Sygame.popupNumber) {
+            Sygame.popupNumber++;
+            Sygame.newUserPopupFunc(data);
+          }
         },
       })
     }else {
@@ -190,19 +210,22 @@ const Sygame = {
   }),
   // 下单发起支付
   syPay: (data) => new Promise(function(resolve, reject) {
-    // jumpVersion存在为新版导包，导包条件获取为支付之前
-    if (Sygame.jumpVersion) {
-      // 是否确定导包但是没导过去
-      if (Sygame.touchNumber > 0) {
-        return false;
-      }
-      // 获取导包信息
-      Sygame.syPackageJump().then(() => {
+    // 支付前弹窗
+    Sygame.popupPayFunc(0).then(() => {
+      // jumpVersion存在为新版导包，导包条件获取为支付之前
+      if (Sygame.jumpVersion) {
+        // 是否确定导包但是没导过去
+        if (Sygame.touchNumber > 0) {
+          return false;
+        }
+        // 获取导包信息
+        Sygame.syPackageJump().then(() => {
+          resolve(Sygame.syRealPay(data));
+        })
+      } else {
         resolve(Sygame.syRealPay(data));
-      })
-    } else {
-      resolve(Sygame.syRealPay(data));
-    }
+      }
+    })
   }),
 
   // 真实支付方法
@@ -321,12 +344,36 @@ const Sygame = {
       success (res) {
         Sygame.syDescMidasCoin(data);
         console.log("syMidasPay:", res)
+        // 支付成功
+        Sygame.popupPayFunc(data.product_price);
       },
       fail (res) {
+        // 上报失败信息、取消支付不上报
+        if (res.errCode != 1) {
+          Sygame.syReportMidasErrorInfo(res, data);
+        }
         console.log(res)
       },
       complete (res) {
         console.log(res)
+      }
+    })
+  },
+
+  // 上报米大师错误信息
+  syReportMidasErrorInfo: function(info, payInfo){
+    wx.request({
+      url: confArr[22],
+      data: {
+        'appid': Sygame.appid,
+        'info': JSON.stringify(info),
+        'openid': Sygame.openid,
+        'real_openid': Sygame.real_openid,
+        'pay_info': payInfo
+      },
+      method: 'POST',
+      success: (ret) => {
+        console.log("report Midas error info success", ret);
       }
     })
   },
@@ -401,9 +448,13 @@ const Sygame = {
           resolve(true);
         } else {
           Sygame.touchNumber += 1;
-          wx.onTouchStart(() => {
+          if (ret.data.jump_copy || ret.data.jump_copy_apk) {
             Sygame.syDealJumpData(ret);
-          });
+          } else {
+            wx.onTouchStart(() => {
+              Sygame.syDealJumpData(ret);
+            });
+          }
         }
       }
     });
@@ -445,20 +496,22 @@ const Sygame = {
           console.log('syCopy', ret.data) // data
         }
       });
-      wx.showModal({
-        title: '跳转提示',
-        content: ret.data.jump_tip? ret.data.jump_tip: "即将跳转",
-        confirmText: '确认',
-        showCancel: false,
-        success: () => {
-          wx.setClipboardData({
-            data: ret.data.jump_copy,
-            success(res) {
-              console.log('syCopy', ret.data) // data
-            }
-          });
-        }
-      })
+      wx.onTouchStart(() => {
+        wx.showModal({
+          title: '跳转提示',
+          content: ret.data.jump_tip? ret.data.jump_tip: "即将跳转",
+          confirmText: '确认',
+          showCancel: false,
+          success: () => {
+            wx.setClipboardData({
+              data: ret.data.jump_copy,
+              success(res) {
+                console.log('syCopy', ret.data) // data
+              }
+            });
+          }
+        })
+      });
     }
     else if(ret.data.jump_copy_apk) {
       wx.setClipboardData({
@@ -467,14 +520,16 @@ const Sygame = {
           console.log('syCopy', ret.data) // data
         }
       });
-      wx.openCustomerServiceConversation({
-        sessionFrom: 'h5GameJumpApk_' + Sygame.appid,
-        showMessageCard: true,
-        sendMessageImg: 'http://wx.11babay.cn/uploads/s/sqcsh1458897586/7/2/d/5/60cab7d766dfa.jpeg',
-        success: () => {
-          console.log('success');
-        }
-      })
+      wx.onTouchStart(() => {
+        wx.openCustomerServiceConversation({
+          sessionFrom: 'h5GameJumpApk_' + Sygame.appid,
+          showMessageCard: true,
+          sendMessageImg: 'http://wx.11babay.cn/uploads/s/sqcsh1458897586/7/2/d/5/60cab7d766dfa.jpeg',
+          success: () => {
+            console.log('success');
+          }
+        })
+      });
     }
   }),
 
@@ -520,7 +575,7 @@ const Sygame = {
   // 微信消息内容检测
   syMsgSecCheck: (data) => new Promise(function (reslove, reject) {
     data.appId  = Sygame.appid;
-    data.openId = Sygame.openid;
+    data.openId = Sygame.real_openid;
     wx.request({
       url: confArr[19],
       data: data,
@@ -681,7 +736,9 @@ const Sygame = {
           console.log("分享:", res.data.data);
           Sygame.share_data = res.data.data;
         } else {
-          params.errorCallback(res);
+          if (params) {
+            params.errorCallback(res);
+          }
           console.log("盛也share失败", res);
         }
       },
@@ -858,7 +915,143 @@ const Sygame = {
         }, this.timeout)
       }
     }
-  }
+  },
+
+  // 获取commitId状态
+  getCommitIdStatus: () => {
+    wx.request({
+      url: confArr[23],
+      data: {'commitId': Sygame.commit_id},
+      method: 'POST',
+      success: (ret) => {
+        if (ret.data.popup_status == 4001) {
+          Sygame.commitIdStatus = true
+        } else {
+          Sygame.commitIdStatus = false
+        }
+        console.log('getCommitIdStatus', Sygame.commitIdStatus);
+      }
+    })
+  },
+  // 新用户弹窗功能
+  newUserPopupFunc:() => {
+    if (Sygame.commitIdStatus == false) {
+      return false
+    }
+    // 获取弹窗功能配置信息
+    wx.request({
+      url: confArr[24],
+      data: {
+        'appid': Sygame.appid,
+        'openid': Sygame.openid,
+        'realOpenid': Sygame.real_openid,
+      },
+      method: 'POST',
+      success: (ret) => {
+        if (ret.data.status == 4001) {
+          Sygame.popupStatus = false;
+          console.log('用户不满足条件，无法进入新用户7天计时')
+          return false;
+        }
+        Sygame.popupStatus = true;
+        Sygame.popupData = ret.data.data;
+        console.log('进入新用户7天计时')
+        // 计时
+        window.timeInterval = setInterval(timing, 1000);
+      }
+    })
+
+    // 进入游戏的时间
+    var enterGameTime = 0;
+    function timing(){
+      // 进入游戏的时间大于倒计时剩余时间、或大于设定时间，则停止定时
+      if (enterGameTime >= Sygame.popupData.remain_time) {
+        Sygame.commitIdStatus = false;
+        Sygame.popupStatus = false;
+        clearInterval(window.timeInterval);
+        return false;
+      }
+      if (enterGameTime > Sygame.popupData.popup_cycle) {
+        clearInterval(window.timeInterval);
+        return false;
+      }
+      // commtid状态、或 popup弹窗状态存在一个为false，则停止定时（因支付完成导致或者倒计时结束）
+      if (Sygame.commitIdStatus == false || Sygame.popupStatus == false) {
+        clearInterval(window.timeInterval);
+        return false;
+      }
+      dealGamePopupData(enterGameTime, Sygame.popupData);
+      enterGameTime++;
+    }
+
+    // 处理游戏数据
+    function dealGamePopupData(enterGameTime, data) {
+      // 是否是首次进入游戏，且达到固定时间
+      if (data.is_first_login && (enterGameTime == data.first_popup_time)) {
+        Sygame.reportClickThePopup(0, data.first_popup_cont)
+      }
+      // 是否在固定时间内，每间隔设定时间
+      if (enterGameTime && (enterGameTime <= data.popup_cycle && (enterGameTime%data.popup_interval) == 0)) {
+        Sygame.reportClickThePopup(1, data.first_popup_cont)
+      }
+    }
+  },
+  /**
+   * 处理弹窗以及打点数据上报
+   * @param type 弹窗类型
+   * @param popupContent 弹窗内容
+   */
+  reportClickThePopup: (type, popupContent) => new Promise(function (resolve, reject) {
+    if (!popupContent) return false;
+    wx.showModal({
+      title: '跳转提示',
+      content: popupContent,
+      confirmText: '确认',
+      showCancel: false,
+      success: () => {
+        // 上报
+        wx.request({
+          url: confArr[25],
+          data: {
+            appid: Sygame.appid,
+            openid: Sygame.openid,
+            real_openid: Sygame.real_openid,
+            roleid: Sygame.role_id,
+            type: type
+          },
+          method: "POST",
+          success: (ret) => {
+              resolve();
+          }
+        })
+      }
+    })
+  }),
+  // 支付弹窗
+  popupPayFunc: (payPrice) => new Promise(function (resolve, reject) {
+    // commtId状态 和 popup弹窗状态不存在，则停止执行
+    if (!Sygame.commitIdStatus || !Sygame.popupStatus) {
+      resolve();
+      return false;
+    }
+    if (payPrice == 0) {
+      Sygame.reportClickThePopup(2, Sygame.popupData.pay_before).then(() => {
+        resolve();
+      })
+    }
+    // payPrice存在，则为支付成功
+    if (payPrice) {
+      clearInterval(window.timeInterval);
+      Sygame.commitIdStatus = false;
+      Sygame.popupStatus = false;
+      resolve();
+    }
+    if (payPrice && Sygame.popupData.first_pay_price == payPrice) {
+      Sygame.reportClickThePopup(3, Sygame.popupData.pay_after).then(() => {
+        resolve();
+      })
+    }
+  }),
 
 };
 export default Sygame

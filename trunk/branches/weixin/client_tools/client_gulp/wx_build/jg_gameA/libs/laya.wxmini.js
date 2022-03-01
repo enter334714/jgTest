@@ -1017,15 +1017,7 @@
     function MiniVideo() {
         this.videoend = false;
         this.videourl = "";
-        this.videoElement = MiniAdpter.window.wx.createVideo({showCenterPlayBtn:false,showProgressInControlMode:false,objectFit:"fill",underGameView:true,muted:true});
-        var gl = canvas.getContext("webgl");
-        Laya.stage._loop = function(){}
-        // window.requestAnimationFrame = function(){};
-        setInterval(function(){
-          gl.clearColor(0,0,0,0)
-          gl.clear(gl.COLOR_BUFFER_BIT);
-        },16)
-       
+        this.videoElement = MiniAdpter.window.wx.createVideo({showCenterPlayBtn:false,showProgressInControlMode:false,objectFit:"fill"});
     }
     __class(MiniVideo, 'laya.wx.mini.MiniVideo');
     var __proto = MiniVideo.prototype;

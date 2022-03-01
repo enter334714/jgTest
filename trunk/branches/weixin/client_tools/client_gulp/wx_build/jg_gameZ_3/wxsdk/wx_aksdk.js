@@ -5,11 +5,11 @@ var config = {
     game_pkg: 'tjqy_tjqy666xcx_IS',
     partner_label: 'ddt6',
     partner_id: '489',
-    game_ver: '28.0.1', //666-多梦江湖
+    game_ver: '28.0.19', //666-绝地蛮荒
     platId: 1000,
     gameId: 272,
     channelVer: 'mxsdk_tjqy_and',
-    mode: 0,
+    mode: 2,
     is_auth: true, //授权登录
 };
 window.config  = config;
@@ -89,10 +89,10 @@ function mainSDK() {
             };
 
             ddtSDKPlat.init({
-                platId : 1000,
-                gameId : 272,
-                channelVer : 'mxsdk_tjqy_and',
-                mode : 0,
+                platId : config.platId,
+                gameId : config.gameId,
+                channelVer : config.channelVer,
+                mode : config.mode,
             }, sdkCallback, true);
             
             wx.showShareMenu({withShareTicket: true});
@@ -500,17 +500,11 @@ function mainSDK() {
             }
             this.log('create', postData);
             var roleInfo = {
-                roleLevel: data.rolelevel,
-                roleId: data.roleid,
+                roleLevel: data.rolelevel+'',
+                roleId: data.roleid+'',
                 roleName: data.rolename,
                 serverName: data.servername,
-                serverId: data.serverid,
-                rolecreatetime: Date.parse(new Date())/1000,
-                vipLevel: "",
-                power: "",
-                roleSex: "",
-                partyId: "",
-                partyName: ""
+                serverId: data.serverid+'',
             };
 
             ddtSDKPlat.submitData("createRole", roleInfo);
@@ -545,12 +539,7 @@ function mainSDK() {
                 roleName: data.rolename,
                 serverName: data.servername,
                 serverId: data.serverid,
-                rolecreatetime: data.rolecreatetime,
-                vipLevel: "",
-                power: "",
-                roleSex: "",
-                partyId: "",
-                partyName: ""
+               
             };
 
             ddtSDKPlat.submitData("enterGame", roleInfo);
@@ -580,6 +569,9 @@ function mainSDK() {
                 user_game_info = {
                     role_id: data.roleid,
                     server_id: data.serverid,
+                    role_level:data.rolelevel,
+                    role_createtime:data.rolecreatetime,
+
                 };
             }
 
@@ -618,6 +610,55 @@ function mainSDK() {
                 }
               })
         }, 
+        // 微端小助手
+        weiduanHelper: function() {
+            console.log('[SDK]调用微端接口');
+            ddtSDKPlat.jump();
+            // var queryConfig={
+            //     "channelVer" : config.channelVer,
+            //     "gameId" : config.gameId, 
+            //     "gameToken" :partner_data.gameToken , 
+            //     "mode" :config.mode,
+            //     "platId":config.platId,
+            //     "roleId":user_game_info.role_id,
+            //     "roleLevel":user_game_info.role_level,
+            //     "rolecreatetime":user_game_info.role_createtime,
+            //     "sceneId":'enterGame',
+            //     "serverId":user_game_info.server_id,
+            //     "time":Date.parse(new Date()),
+            //     "uid":partner_data.uid,
+            //     "sign":'',
+            //     "partyId":'',
+            //     "partyName":'',
+            //     "power":'',
+            //     "roleSex":'',
+            //     "vipLevel":'',
+            // };
+            // var _str = "";
+            // for(var o in queryConfig){
+            //     if(queryConfig[o] != -1){
+            //         _str += o + "=" + queryConfig[o] + "&";
+            //     }
+            // };
+            //  _str = _str.substr(0, _str.length-1);
+            // var sendMessagePath = _str;
+            // wx.openCustomerServiceConversation({
+            //     sessionFrom: 'turngame',
+            //     showMessageCard:true,
+            //     sendMessageTitle: '多梦江湖',
+            //     sendMessagePath:sendMessagePath,
+            //     sendMessageImg: '',
+            //     success:function(res){
+            //         console.log("weiduan helper success");
+            //     },
+            //     fail:function(res){
+            //         console.log("weiduan helper fail");
+            //     },
+            //     complete:function(res){
+            //         console.log("weiduan helper complete");
+            //     }
+            // })
+            },
 
         //获取唯一设备码（自定义）
         uuid: function (radix, len) {
@@ -780,4 +821,7 @@ exports.getConfig = function () {
 
 exports.getPublicData = function () {
     run('getPublicData');
+};
+exports.weiduanHelper = function () {
+    run('weiduanHelper');
 };

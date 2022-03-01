@@ -1998,9 +1998,9 @@ var set_param_h = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$C", "O", "_p", "$h", "h_"];
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 100000;
+        arrIndex = 0;
         globleArrs = new Array(arrIndex);
-        numberToHex = false;
+        numberToHex = true;
         // needShuffle = true;
         str_leading1 = "XYU6RHS90AQ3CP7LOM1BKW4$V2NZF85E_IJDGT";
         str_leading2 = "kmto5lcpu$8rz9jdhw0xq7134fgv_nsya62ibe";
@@ -3991,7 +3991,7 @@ gulp.task('build-babel-obfuscator-P', function (cb) {
 
 /**-------------------------------------------------微信小游戏--P包  盛也-柔情小师妹福利版 end-----------------------------------------------------------*/
 
-/**-------------------------------------------------微信小游戏--Q包  盛也-柔情小师妹福利版 start-----------------------------------------------------------*/
+/**-------------------------------------------------微信小游戏--Q包  果子-微信 全民来打怪-Q start-----------------------------------------------------------*/
 
 
 /**Q包参数*/
@@ -4034,12 +4034,14 @@ var set_param_Q = function () {
             "libs/zlib.js":  {url:packageName1+"/qq12qq.js"},
             "wxsdk":  {url:"qskqq"},
             "wxsdk/wx_aksdk.js":  {url:"qskqq/qs6kq.js",extractStr:true,count:1,strLen:3},
-            "wxsdk/helper.js":  {url:"qskqq/qttq.js",extractStr:true,count:1,strLen:3},
+            // "wxsdk/helper.js":  {url:"qskqq/qttq.js",extractStr:true,count:1,strLen:3},
             "protobuf":  {url:packageName2},
             "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:2,strLen:3},
             "protobuf/protobuf.js":  {url: packageName2 + "/qBFqq.js",extractStr:true,count:2,strLen:3},
             "protobuf/game.js":  {url: packageName2 + "/game.js",extractStr:true,count:5,strLen:3},
-            "SyMiniTool.js":  {url:packageName1+"/SyMiniTool.js",extractStr:false,count:1,strLen:3},
+            // "SyMiniTool.js":  {url:packageName1+"/SyMiniTool.js",extractStr:false,count:1,strLen:3},
+            "utils/gzsdk.js":  {url:"utils/gzsdk.js",extractStr:false,count:1,strLen:3},
+            "utils/md5.js":  {url:"utils/md5.js",extractStr:false,count:1,strLen:3},
             "subPackage":  {url:packageName3},
             "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
             "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
@@ -4228,7 +4230,8 @@ gulp.task('build-babel-obfuscator-Q', function (cb) {
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
-/**-------------------------------------------------微信小游戏--Q包  盛也-柔情小师妹福利版 end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--Q包  果子-微信 全民来打怪 end-----------------------------------------------------------*/
 
 /**-------------------------------------------------微信小游戏--R包  盛也-王女异闻录online start-----------------------------------------------------------*/
 
@@ -7852,7 +7855,7 @@ var set_param_Z_7 = function () {
         PACK = 'jg_gameZ_7';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ij';
-        PREFIX = '$E';
+        PREFIX = 'E$';
         sourceProject = "wx_build/jg_gameZ_7_new";
         targetProject = "wx_build/jg_gameZ_7_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
@@ -8033,9 +8036,9 @@ var set_param_Z_7 = function () {
         strFilePath = "/Z7es";
         strFileName = "/Z7iles.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
-        globleKeys = ["$F", "e", "h", "k", "l"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        globleKeys = ["$F", "E", "h", "k", "l"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 600000;
+        arrIndex = 0;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         // needShuffle = true;
@@ -8560,6 +8563,7 @@ gulp.task('build-babel-obfuscator-Z_9', function (cb) {
 
 /**Z_10包参数*/
 var set_param_Z_10 = function () {
+
     function onFile(file, enc, cb) {
         if (file.isStream()) {
             this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
@@ -9846,7 +9850,7 @@ gulp.task('MT1_build_minify', function () {
         srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/utils/**/*.js',"!" + sourceUrl + '/**/'+mainJsName];
     }
     var stream = gulp.src(srcs)
-        // .pipe(js_minify())
+        .pipe(js_minify())
         .pipe(gulp.dest(sourceUrl + '/'))
     return stream;
 });

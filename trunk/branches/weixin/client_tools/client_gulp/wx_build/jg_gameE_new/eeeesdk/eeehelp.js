@@ -1,5 +1,5 @@
-const state = { initStatus: "default", loginStatus: "default", videoAd: null, bannerAd: null, gridAd: null, interstitialAd: null, customAd: null };const commonParams = { referer: "00000_0", partner: "309", mac: "", imei: "", gameId: "", gameKey: "", uid: "", unionId: "", code: "", openid: "", wxid: "", ip: "", sign: "", payType: "", encryptedData: "", iv: "", scene: "", query: "", yy_pf: "WxApp", payTip: "\u7531\u4e8e\u653f\u7b56\u539f\u56e0\uff0c\u6682\u65e0\u6cd5\u652f\u4ed8\uff0c\u82e5\u9700\u8981\u5145\u503c\uff0c\u8bf7\u5c06\u6e38\u620f\u5206\u4eab\u5230\u5fae\u4fe1\uff0c\u5728\u5fae\u4fe1PC\u7248\u6253\u5f00\u6e38\u620f\u8fdb\u884c\u5145\u503c", accountInfo: {}, envVersion: "", showAppOn: "", sendMessageImg: "", sendMessageTitle: "", referrerInfo: null, switchApp: "", showSwitchOn: "", showRedPagOn: "", token: "", showSquareOn: "", initTimer: "", sdkLoginTimer: "" };let httpLock = { httpRedListFlag: !1, httpReceiveRedPackageFlag: !1, httpLuckDrawFlag: !1, httpRedLoginFlag: !1, httpToWithdraw: !1, httpLuckDrawIndex: !1, httpSquareListFlag: !1, httpSquareClickFlag: !1, httpGameWithdraw: !1 };var sdkParams = null;state.debug = !0, state.level = { debug: 0, info: 1, warn: 2, error: 3 };const api = "https://sdk-js.rpgmoba.com";const wanBaApi = "https://wanba.rpgmoba.com/";const logApi = "https://sdk-data.rpgmoba.com";const wxRedApi = "https://idk.rpgmoba.com/";const Tools = { getDeviceType: () => {
-    const e = wx.getSystemInfoSync();let a;return a = -1 < e.system.toLowerCase().indexOf("android") ? "android" : -1 < e.system.toLowerCase().indexOf("ios") ? "ios" : -1 < e.system.toLowerCase().indexOf("win") ? "win" : "unknow", a;
+const state = { initStatus: "default", loginStatus: "default", videoAd: null, bannerAd: null, gridAd: null, interstitialAd: null, customAd: null };const commonParams = { referer: "00000_0", partner: "309", mac: "", imei: "", gameId: "", gameKey: "", uid: "", unionId: "", code: "", openid: "", wxid: "", ip: "", sign: "", payType: "", encryptedData: "", iv: "", scene: "", query: "", yy_pf: "WxApp", payTip: "\u7531\u4e8e\u653f\u7b56\u539f\u56e0\uff0c\u6682\u65e0\u6cd5\u652f\u4ed8\uff0c\u82e5\u9700\u8981\u5145\u503c\uff0c\u8bf7\u5c06\u6e38\u620f\u5206\u4eab\u5230\u5fae\u4fe1\uff0c\u5728\u5fae\u4fe1PC\u7248\u6253\u5f00\u6e38\u620f\u8fdb\u884c\u5145\u503c", accountInfo: {}, envVersion: "", showAppOn: "", sendMessageImg: "", sendMessageTitle: "", referrerInfo: null, switchApp: "", showSwitchOn: "", showRedPagOn: "", token: "", showSquareOn: "", initTimer: "", sdkLoginTimer: "", feedId: "", finderUserName: "", QQGroup: {} };let httpLock = { httpRedListFlag: !1, httpReceiveRedPackageFlag: !1, httpLuckDrawFlag: !1, httpRedLoginFlag: !1, httpToWithdraw: !1, httpLuckDrawIndex: !1, httpSquareListFlag: !1, httpSquareClickFlag: !1, httpGameWithdraw: !1, httpToCouponReceiveFlag: !1, httpLiveTaskFlag: !1, httpToLiveTaskReceiveFlag: !1, httpGetUserLiveInfoFlag: !1 };var sdkParams = null;state.debug = !0, state.level = { debug: 0, info: 1, warn: 2, error: 3 };let api = "https://sdk-js.rpgmoba.com";let wanBaApi = "https://wanba.rpgmoba.com/";let logApi = "https://sdk-data.rpgmoba.com";let wxRedApi = "https://idk.rpgmoba.com/";const Tools = { getDeviceType: () => {
+    const e = wx.getSystemInfoSync();let a;return a = -1 < e.system.toLowerCase().indexOf("android") ? "android" : -1 < e.system.toLowerCase().indexOf("ios") ? "ios" : -1 < e.system.toLowerCase().indexOf("win") ? "win" : "unknow";
   }, getTimeStamp: () => Date.parse(new Date()) / 1e3, buildActiveParams: (e, a) => {
     let t = "";for (var o in e) t += e[o];return t += a, e.sign = md5(t), e;
   }, buildChangeShell: (e, a) => {
@@ -19,7 +19,7 @@ const state = { initStatus: "default", loginStatus: "default", videoAd: null, ba
   }, buildRepublish: e => {
     var a = ["uid", "gameid", "deviceno", "partner", "time"];let t = "";for (var o in a) {
       o = a[o];t += e[o];
-    }return t = t + commonParams.gameKey + commonParams.wxid, md5(t).toLowerCase();
+    }return md5(t = t + commonParams.gameKey + commonParams.wxid).toLowerCase();
   }, buildCheckMsg(e) {
     var a = ["gameid", "partner", "deviceno", "time"];let t = "";for (var o in a) {
       o = a[o];t += e[o];
@@ -31,7 +31,7 @@ const state = { initStatus: "default", loginStatus: "default", videoAd: null, ba
   }, serialize: e => {
     var a = [];for (var t in e) e.hasOwnProperty(t) && e[t] && a.push(encodeURIComponent(t) + "=" + encodeURIComponent(e[t]));return a.join("&");
   }, buildRedParams: e => {
-    let a = "";for (var t of Object.keys(e).sort()) a += t + "=" + encodeURIComponent(e[t]) + "&";return a += "key=" + commonParams.gameKey, e.sign = md5(a), e;
+    let a = "";for (var t of Object.keys(e).sort()) e[t] instanceof Array ? a += t + "=" + encodeURIComponent(JSON.stringify(e[t])) + "&" : a += t + "=" + encodeURIComponent(e[t]) + "&";return a += "key=" + commonParams.gameKey, e.sign = md5(a), e;
   }, initLock: e => {
     for (var a in e) e[a] = !1;
   } };const init = function (e, a) {
@@ -39,16 +39,22 @@ const state = { initStatus: "default", loginStatus: "default", videoAd: null, ba
 };const active = function (a, t, o, s) {
   wx.request({ url: api + "/pay/Active", data: t, timeout: 3e3, success: e => {
       e = e.data;if (console.log("active", e), 1 == e.data.code) {
-        if (wx.showToast({ title: "\u6210\u529f", icon: "succes", duration: 500, mask: !0 }), commonParams.gameId = o, commonParams.gameKey = s, state.initStatus = "success", commonParams.gameId) {
+        if (commonParams.gameId = o, commonParams.gameKey = s, state.initStatus = "success", commonParams.gameId) {
           let e = {};e.logType = "active", e.appId = commonParams.gameId, e.appVersion = "1.0.0", e.platform = "wxxyx", e.source = commonParams.query.source || "", e.source_type = commonParams.query.source_type || "", pushData(e);
         }wx.showShareMenu({ withShareTicket: !0 }), wx.setStorageSync("orderList", []), wxLogin(a);
       } else state.initStatus = "fail", console.log("\u4f20\u5165\u7684sdk\u53c2\u6570\u6709\u8bef", "gameId:" + o, "gameKey:" + s), commonParams.initTimer && clearTimeout(commonParams.initTimer), commonParams.initTimer = setTimeout(() => {
         active(a, t, o, s);
       }, 2e3);
     }, fail: e => {
-      console.log("\u91cd\u65b0\u521d\u59cb\u5316"), commonParams.initTimer && clearTimeout(commonParams.initTimer), commonParams.initTimer = setTimeout(() => {
-        active(a, t, o, s);
-      }, 2e3);
+      console.log("\u91cd\u65b0\u521d\u59cb\u5316"), commonParams.initTimer && clearTimeout(commonParams.initTimer), wx.request({ url: "https://sdk-js.youyigame.com/pay/active/config", timeout: 5e3, success: e => {
+          1 === (e = e.data).status && (console.log("\u5207\u6362\u57df\u540d", e.data.host), api = "https://sdk-js." + e.data.host, wanBaApi = `https://wanba.${e.data.host}/`, logApi = "https://sdk-data." + e.data.host, wxRedApi = `https://idk.${e.data.host}/`), commonParams.initTimer = setTimeout(() => {
+            active(a, t, o, s);
+          });
+        }, fail: () => {
+          commonParams.initTimer = setTimeout(() => {
+            active(a, t, o, s);
+          }, 2e3);
+        } });
     } });
 };const wxLogin = function (a) {
   wx.login({ success: e => {
@@ -56,14 +62,14 @@ const state = { initStatus: "default", loginStatus: "default", videoAd: null, ba
           e.authSetting["scope.userInfo"] && wx.getUserInfo({ success(e) {
               console.log("res", e), commonParams.iv = e.iv, commonParams.encryptedData = e.encryptedData;
             } });
-        } }), e = { gameid: commonParams.gameId, referer: commonParams.referer, partner: commonParams.partner, mac: commonParams.mac, imei: commonParams.imei, deviceno: commonParams.imei, time: Tools.getTimeStamp(), code: e, iv: commonParams.iv, osType: "ios" == Tools.getDeviceType() ? "2" : "android" == Tools.getDeviceType() ? "1" : "win" == Tools.getDeviceType() ? "3" : "unknow", os: Tools.getDeviceType(), encryptedData: commonParams.encryptedData, scene: commonParams.scene, query: JSON.stringify(commonParams.query), envVersion: commonParams.envVersion, referrerInfo: commonParams.referrerInfo }, sdkLogin(a, e));
+        } }), e = { gameid: commonParams.gameId, referer: commonParams.referer, partner: commonParams.partner, mac: commonParams.mac, imei: commonParams.imei, deviceno: commonParams.imei, time: Tools.getTimeStamp(), code: e, iv: commonParams.iv, osType: "ios" == Tools.getDeviceType() ? "2" : "android" == Tools.getDeviceType() ? "1" : "win" == Tools.getDeviceType() ? "3" : "unknow", os: Tools.getDeviceType(), encryptedData: commonParams.encryptedData, scene: commonParams.scene, query: JSON.stringify(commonParams.query), envVersion: commonParams.envVersion, referrerInfo: commonParams.referrerInfo }, console.log("sdkLogin", e), sdkLogin(a, e));
     }, fail: e => {
       wxLogin(a), console.log("\u5fae\u4fe1\u767b\u5f55\u5931\u8d25:", e);
     } });
 };const sdkLogin = function (t, e) {
   wx.request({ url: api + "/pay/Login/", data: Tools.buildLoginParams(e), timeout: 3e3, success: e => {
       var a = e.data;if (1 == a.status) {
-        if (commonParams.uid = a.data.uid, commonParams.payType = a.data.payType, commonParams.wxid = a.data.wxid, commonParams.referer = a.data.referer, commonParams.sign = a.data.sign, commonParams.switchApp = a.data.switchApp, commonParams.showSwitchOn = a.data.showSwitchOn, commonParams.switchEnv = a.data.switchEnv, commonParams.showRedPagOn = a.data.showRedPagOn, commonParams.showAppOn = a.data.showAppOn, commonParams.appTitle = a.data.appTitle, commonParams.appContent = a.data.appContent, commonParams.sendMessageImg = a.data.sendMessageImg, commonParams.sendMessageTitle = a.data.sendMessageTitle, commonParams.unionId = a.data.unionId, commonParams.showSquareOn = a.data.showSquareOn, console.log("\u5fae\u4fe1\u8df3\u8f6c\u4fe1\u606f", commonParams.referrerInfo), commonParams.extraData && commonParams.extraData.square && commonParams.extraData.square.square_id && squareBind({ square_id: commonParams.extraData.square.square_id, source_app_id: commonParams.extraData.square.source_app_id, source_open_id: commonParams.extraData.square.source_open_id }), 0 === a.data.payType && (commonParams.payTip = a.data.payTip), state.loginStatus = "success", commonParams.uid) {
+        if (commonParams.uid = a.data.uid, commonParams.payType = a.data.payType, commonParams.wxid = a.data.wxid, commonParams.referer = a.data.referer, commonParams.sign = a.data.sign, commonParams.switchApp = a.data.switchApp, commonParams.showSwitchOn = a.data.showSwitchOn, commonParams.switchEnv = a.data.switchEnv, commonParams.showRedPagOn = a.data.showRedPagOn, commonParams.showAppOn = a.data.showAppOn, commonParams.appTitle = a.data.appTitle, commonParams.appContent = a.data.appContent, commonParams.sendMessageImg = a.data.sendMessageImg, commonParams.sendMessageTitle = a.data.sendMessageTitle, commonParams.unionId = a.data.unionId, commonParams.showSquareOn = a.data.showSquareOn, commonParams.QQGroup = a.data.QQGroup, commonParams.JumpGameState = a.data.JumpGameState, console.log("\u5fae\u4fe1\u8df3\u8f6c\u4fe1\u606f", commonParams.referrerInfo), commonParams.finderUserName = a.data.live && a.data.live.finderUserName, commonParams.extraData && commonParams.extraData.square && commonParams.extraData.square.square_id && squareBind({ square_id: commonParams.extraData.square.square_id, source_app_id: commonParams.extraData.square.source_app_id, source_open_id: commonParams.extraData.square.source_open_id }), 0 === a.data.payType && (commonParams.payTip = a.data.payTip), state.loginStatus = "success", commonParams.uid) {
           let e = {};e.type = "1", pushData(e);
         }if (replenish(), 1 == a.data.isNewUser) {
           let e = {};e.logType = "accountCreate", e.appId = commonParams.gameId, e.appVersion = "1.0.0", e.accountId = commonParams.uid, e.deviceType = Tools.getDeviceTypeId(), e.platform = "wxxyx", e.serverId = "", e.channel = commonParams.partner, e.imei = commonParams.uid, e.sex = "0", e.resolution = wx.getSystemInfoSync().screenWidth + "*" + wx.getSystemInfoSync().screenHeight, e.deviceName = wx.getSystemInfoSync().model, e.systemName = wx.getSystemInfoSync().system, e.source = commonParams.query.source || "", e.source_type = commonParams.query.source_type || "", pushData(e);
@@ -90,18 +96,20 @@ const state = { initStatus: "default", loginStatus: "default", videoAd: null, ba
           console.log("\u7ed1\u5b9a\u4e3b\u6e38\u620f", e.data);
         } });
     } });
+};const isJumpGame = function () {
+  return commonParams.JumpGameState;
 };const getCaptcha = function (e, a, t) {
   const o = this;var s;"function" == typeof a ? (s = Tools.buildParams({ yy_pf: commonParams.yy_pf, app_id: commonParams.gameId, telephone: e, open_id: commonParams.uid, use: "bind", time: Tools.getTimeStamp() }), wx.request({ url: wanBaApi + "/sdk/get_captcha", data: s, timeout: 3e3, success: e => {
       18e3 === e.data.code ? (console.log("\u83b7\u53d6\u77ed\u4fe1\u9a8c\u8bc1\u7801\u6210\u529f", e), a(e)) : (console.log("\u83b7\u53d6\u77ed\u4fe1\u9a8c\u8bc1\u7801\u9519\u8bef", e), t(e));
     }, error: e => {
       console.log("\u83b7\u53d6\u77ed\u4fe1\u9a8c\u8bc1\u7801\u8bf7\u6c42\u8d85\u65f6", e);
-    } })) : "function" != typeof o.getCaptchaCallback ? console.log("getCaptchaCallback\u5fc5\u987b\u662f\u4e00\u4e2afunction") : (e = Tools.buildParams({ yy_pf: commonParams.yy_pf, app_id: commonParams.gameId, telephone: e.telephone, open_id: commonParams.uid, use: "bind", time: Tools.getTimeStamp() }), wx.request({ url: wanBaApi + "/sdk/get_captcha", data: e, timeout: 3e3, success: e => {
+    } })) : "function" != typeof o.getCaptchaCallback ? console.log("getCaptchaCallback\u5fc5\u987b\u662f\u4e00\u4e2afunction") : (s = Tools.buildParams({ yy_pf: commonParams.yy_pf, app_id: commonParams.gameId, telephone: e.telephone, open_id: commonParams.uid, use: "bind", time: Tools.getTimeStamp() }), wx.request({ url: wanBaApi + "/sdk/get_captcha", data: s, timeout: 3e3, success: e => {
       18e3 === e.data.code ? (console.log("\u83b7\u53d6\u77ed\u4fe1\u9a8c\u8bc1\u7801\u6210\u529f", e), o.getCaptchaCallback({ status: 1, msg: "success", data: e })) : (console.log("\u83b7\u53d6\u77ed\u4fe1\u9a8c\u8bc1\u7801\u9519\u8bef", e), o.getCaptchaCallback({ status: 0, msg: "fail", data: e }));
     } }));
 };const bindTelephone = function (e, a, t, o) {
   const s = this;"function" == typeof t ? (a = Tools.buildParams({ yy_pf: commonParams.yy_pf, app_id: commonParams.gameId, telephone: e, open_id: commonParams.uid, captcha: a, time: Tools.getTimeStamp() }), wx.request({ url: wanBaApi + "/sdk/bind_telephone", data: a, timeout: 3e3, success: e => {
       (18e3 === e.data.code ? t : o)(e);
-    } })) : "function" != typeof s.bindTelephoneCallback ? console.log("bindTelephoneCallback\u5fc5\u987b\u662f\u4e00\u4e2afunction") : (e = Tools.buildParams({ yy_pf: commonParams.yy_pf, app_id: commonParams.gameId, telephone: e.telephone, open_id: commonParams.uid, captcha: e.captcha, time: Tools.getTimeStamp() }), wx.request({ url: wanBaApi + "/sdk/bind_telephone", data: e, timeout: 3e3, success: e => {
+    } })) : "function" != typeof s.bindTelephoneCallback ? console.log("bindTelephoneCallback\u5fc5\u987b\u662f\u4e00\u4e2afunction") : (a = Tools.buildParams({ yy_pf: commonParams.yy_pf, app_id: commonParams.gameId, telephone: e.telephone, open_id: commonParams.uid, captcha: e.captcha, time: Tools.getTimeStamp() }), wx.request({ url: wanBaApi + "/sdk/bind_telephone", data: a, timeout: 3e3, success: e => {
       18e3 === e.data.code ? s.bindTelephoneCallback({ status: 1, msg: "success", data: e }) : s.bindTelephoneCallback({ status: 0, msg: "fail", data: e });
     } }));
 };const replenish = function () {
@@ -122,31 +130,61 @@ const state = { initStatus: "default", loginStatus: "default", videoAd: null, ba
   wx.shareAppMessage({ title: e.title || "", imageUrl: e.imageUrl, query: e.query, imageUrlId: e.imageUrlId, toCurrentGroup: e.toCurrentGroup, path: e.path });
 };const advertisement = function (e) {
   const a = this;let t = {};t.type = 11, t.roleId = e.roleId, t.roleName = e.roleName, t.serverId = e.serverId, "createBannerAd" == e.type ? "function" != typeof a.createBannerAdCallback ? console.log("createBannerAdCallback\u5fc5\u987b\u662f\u4e00\u4e2afunction") : (t.adType = 1, state.bannerAd = wx.createBannerAd({ adUnitId: e.adUnitId, style: { left: e.left, top: e.top, width: e.width, height: e.height } }), state.bannerAd.onLoad(e => {
-    console.log("banner \u5e7f\u544a\u52a0\u8f7d\u6210\u529f", e), state.bannerAd.show().then(() => {
+    console.log("banner \u5e7f\u544a\u52a0\u8f7d\u6210\u529f", e);
+  }), state.bannerAd.showBanner = function () {
+    state.bannerAd.show().then(() => {
       console.log("banner \u5e7f\u544a\u663e\u793a\u6210\u529f"), pushData(t), a.createBannerAdCallback({ status: "1", msg: "success", data: {} });
+    }).catch(e => {
+      state.bannerAd.load(), a.createBannerAdCallback({ status: "0", msg: "fail", data: e });
     });
-  }), state.bannerAd.onError(e => {
+  }, state.bannerAd.onError(e => {
     console.log("bannerAd onError", e), a.createBannerAdCallback({ status: "0", msg: "fail", data: e });
-  })) : "createRewardedVideoAd" == e.type ? "function" != typeof a.rewardedVideoAdCallback ? console.log("rewardedVideoAdCallback\u5fc5\u987b\u662f\u4e00\u4e2afunction") : (t.adType = 2, state.videoAd = wx.createRewardedVideoAd({ adUnitId: e.adUnitId }), state.videoAd.show().catch(() => {
-    state.videoAd.load().then(() => state.videoAd.show()).catch(e => {
-      console.log("\u6fc0\u52b1\u89c6\u9891 \u5e7f\u544a\u663e\u793a\u5931\u8d25");
-    }), state.videoAd.onClose(e => {
-      e && e.isEnded || void 0 === e ? (console.log("\u6b63\u5e38\u64ad\u653e\u7ed3\u675f\uff0c\u53ef\u4ee5\u4e0b\u53d1\u6e38\u620f\u5956\u52b1"), pushData(t), a.rewardedVideoAdCallback({ status: "1", msg: "success", data: e })) : (console.log("\u64ad\u653e\u4e2d\u9014\u9000\u51fa\uff0c\u4e0d\u4e0b\u53d1\u6e38\u620f\u5956\u52b1"), a.rewardedVideoAdCallback({ status: "0", msg: "fail", data: e }));
+  })) : "createRewardedVideoAd" == e.type ? "function" != typeof a.rewardedVideoAdCallback ? console.log("rewardedVideoAdCallback\u5fc5\u987b\u662f\u4e00\u4e2afunction") : (t.adType = 2, state.videoAd = wx.createRewardedVideoAd({ adUnitId: e.adUnitId }), state.videoAd.onLoad().then(() => {
+    console.log("\u52a0\u8f7d\u6210\u529f");
+  }), state.videoAd.videoAdShow = function () {
+    state.videoAd.show().then(() => {
+      console.log("videoAd \u5e7f\u544a\u663e\u793a\u6210\u529f");
+    }).catch(e => {
+      state.videoAd.load(), a.rewardedVideoAdCallback({ status: "-1", msg: "fail", data: e });
     });
-  })) : "createInterstitialAd" == e.type ? "function" != typeof a.createInterstitialAdCallback ? console.log("createInterstitialAdCallback\u5fc5\u987b\u662f\u4e00\u4e2afunction") : (t.adType = 3, wx.createInterstitialAd && (state.interstitialAd = wx.createInterstitialAd({ adUnitId: e.adUnitId }), state.interstitialAd.show().then(e => {
-    console.log("\u63d2\u5c4f\u5e7f\u544a\u663e\u793a\u6210\u529f", e), pushData(t), a.createInterstitialAdCallback({ status: "1", msg: "success", data: {} });
-  }).catch(e => {
-    console.log("\u63d2\u5c4f\u5e7f\u544a\u663e\u793a\u5931\u8d25", e), a.createInterstitialAdCallback({ status: "0", msg: "fail", data: e });
+  }, state.videoAd.onClose(e => {
+    e && e.isEnded || void 0 === e ? (console.log("\u6b63\u5e38\u64ad\u653e\u7ed3\u675f\uff0c\u53ef\u4ee5\u4e0b\u53d1\u6e38\u620f\u5956\u52b1"), pushData(t), a.rewardedVideoAdCallback({ status: "1", msg: "success", data: e })) : (console.log("\u64ad\u653e\u4e2d\u9014\u9000\u51fa\uff0c\u4e0d\u4e0b\u53d1\u6e38\u620f\u5956\u52b1"), a.rewardedVideoAdCallback({ status: "0", msg: "fail", data: e }));
+  }), state.videoAd.onError(e => {
+    console.log("videoAd onError", e), a.rewardedVideoAdCallback({ status: "0", msg: "fail", data: e });
+  })) : "createInterstitialAd" == e.type ? "function" != typeof a.createInterstitialAdCallback ? console.log("createInterstitialAdCallback\u5fc5\u987b\u662f\u4e00\u4e2afunction") : (t.adType = 3, wx.createInterstitialAd && (state.interstitialAd = wx.createInterstitialAd({ adUnitId: e.adUnitId }), state.interstitialAd.onLoad(() => {
+    console.log("\u63d2\u5c4f \u5e7f\u544a\u52a0\u8f7d\u6210\u529f");
+  }), state.interstitialAd.interstitialAdShow = function () {
+    state.interstitialAd.show().then(e => {
+      console.log("\u63d2\u5c4f\u5e7f\u544a\u663e\u793a\u6210\u529f", e), pushData(t), a.createInterstitialAdCallback({ status: "1", msg: "success", data: {} });
+    }).catch(e => {
+      a.createInterstitialAdCallback({ status: "-1", msg: "fail", data: e }), state.videoAd.load();
+    });
+  }, state.interstitialAd.onError(e => {
+    console.log("err: ", e), a.createInterstitialAdCallback({ status: "0", msg: "fail", data: e });
   }))) : "createGridAd" == e.type ? "function" != typeof a.createGridAdCallback ? console.log("createGridAdCallback\u5fc5\u987b\u662f\u4e00\u4e2afunction") : (t.adType = 4, state.gridAd = wx.createGridAd({ adUnitId: e.adUnitId, style: { left: e.left, top: e.top, width: e.width, opacity: e.opacity } }), state.gridAd.onLoad(() => {
-    console.log("Grid \u5e7f\u544a\u52a0\u8f7d\u6210\u529f"), a.state.gridAd.show().then(() => {
+    console.log("Grid \u5e7f\u544a\u52a0\u8f7d\u6210\u529f");
+  }), state.gridAd.gridAdShow = function () {
+    a.state.gridAd.show().then(() => {
       console.log("Grid \u5e7f\u544a\u663e\u793a\u6210\u529f"), pushData(t), a.createGridAdCallback({ status: "1", msg: "success", data: {} });
+    }).catch(e => {
+      console.log("Grid \u5e7f\u544a\u663e\u793a\u5931\u8d25", e), state.gridAd.load().then(() => state.gridAd.gridAdShow()).catch(e => {
+        console.log("Grid \u5e7f\u544a\u663e\u793a\u5931\u8d25", e);
+      });
     });
-  }), state.gridAd.onError(e => {
+  }, state.gridAd.onError(e => {
     a.createGridAdCallback({ status: "0", msg: "fail", data: e }), console.log("\u5e7f\u544a\u52a0\u8f7d\u5931\u8d25", e);
-  })) : "createCustomAd" == e.type && ("function" != typeof a.createCustomAdCallback ? console.log("createCustomAdCallback\u5fc5\u987b\u662f\u4e00\u4e2afunction") : (t.adType = 5, state.customAd = wx.createCustomAd({ adUnitId: e.adUnitId, style: { left: e.left, top: e.top, fixed: e.fixed } }), state.customAd.show().then(e => {
-    console.log("customAd\u663e\u793a\u6210\u529f", e), pushData(t), a.createCustomAdCallback({ status: "1", msg: "success", data: e });
-  }).catch(e => {
-    console.log("customAd\u663e\u793a\u5931\u8d25", e), a.createCustomAdCallback({ status: "0", msg: "fail", data: e });
+  })) : "createCustomAd" == e.type && ("function" != typeof a.createCustomAdCallback ? console.log("createCustomAdCallback\u5fc5\u987b\u662f\u4e00\u4e2afunction") : (t.adType = 5, state.customAd = wx.createCustomAd({ adUnitId: e.adUnitId, style: { left: e.left, top: e.top, fixed: e.fixed } }), state.customAd.onLoad(() => {
+    console.log("Grid \u5e7f\u544a\u52a0\u8f7d\u6210\u529f");
+  }), state.customAd.customAdShow = function () {
+    state.customAd.show().then(e => {
+      console.log("customAd\u663e\u793a\u6210\u529f", e), pushData(t), a.createCustomAdCallback({ status: "1", msg: "success", data: e });
+    }).catch(e => {
+      console.log("Grid \u5e7f\u544a\u663e\u793a\u5931\u8d25", e), state.customAd.load().then(() => state.customAd.customAdShow()).catch(e => {
+        console.log("customAd \u5e7f\u544a\u663e\u793a\u5931\u8d25", e);
+      });
+    });
+  }, state.customAd.onError(e => {
+    a.createCustomAdCallback({ status: "0", msg: "fail", data: e }), console.log("\u5e7f\u544a\u52a0\u8f7d\u5931\u8d25", e);
   })));
 };const getLaunchOptionsSync = function () {
   return wx.getLaunchOptionsSync();
@@ -184,7 +222,7 @@ const state = { initStatus: "default", loginStatus: "default", videoAd: null, ba
                         console.log(e);
                       } });
                   } });break;case 3:
-                0 == a.data.errcode && wx.requestMidasPayment({ mode: "game", env: o.data.env, offerId: o.data.offerId, currencyType: "CNY", platform: "android", buyQuantity: o.data.amt, success(e) {
+                0 == a.data.errcode && wx.requestMidasPayment({ zoneId: "1", mode: "game", env: o.data.env, offerId: o.data.offerId, currencyType: "CNY", platform: "android", buyQuantity: o.data.amt, success(e) {
                     wx.setStorageSync("orderList", t), sendResult(n);
                   }, complete(e) {
                     console.log("\u7c73\u7ed3\u679c\u53c2\u6570", e);
@@ -192,7 +230,7 @@ const state = { initStatus: "default", loginStatus: "default", videoAd: null, ba
                 let e = {};e.goods_name = n.productName, e.gameOrderid = o.gameOrderid, e.money = o.money, e.out_code = o.out_code, e.paytype = o.paytype, wx.navigateToMiniProgram({ appId: o.appid, path: "pages/sdk/page", envVersion: "release", extraData: e, success: function (e) {
                     console.log("\u8df3\u8f6c\u5c0f\u7a0b\u5e8f\u6210\u529f", e);
                   }, fail: function (e) {
-                    console.log("\u8df3\u8f6c\u5c0f\u7a0b\u5e8f\u5931\u8d25", e), wx.request({ url: "https://sdk-js.rpgmoba.com/pay/order/wxMiniPayBan?appid=" + commonParams.gameId + "&errMsg=" + e.errMsg, success(e) {
+                    console.log("\u8df3\u8f6c\u5c0f\u7a0b\u5e8f\u5931\u8d25", e), wx.request({ url: api + "/pay/order/wxMiniPayBan?appid=" + commonParams.gameId + "&errMsg=" + e.errMsg, success(e) {
                         console.log("\u8df3\u8f6c\u5c0f\u7a0b\u5e8f\u5931\u8d25=======\u4e0a\u62a5\u6210\u529f", e);
                       } });
                   }, complete: function (e) {
@@ -218,7 +256,7 @@ const state = { initStatus: "default", loginStatus: "default", videoAd: null, ba
       e = e.data;200 == e.status ? (commonParams.luck_draw_on = e.data.luck_draw_on, commonParams.luck_draw_activity_id = e.data.luck_draw_activity_id, a.getRedPagStateCallback({ status: "1", msg: e.msg, data: e.data })) : a.getRedPagStateCallback({ status: "0", msg: e.msg, data: e.data });
     }, fail(e) {
       a.getRedPagStateCallback({ status: "-1", msg: e.errMsg, data: e }), console.log("\u8bf7\u6c42\u9519\u8bef", e);
-    }, timeout: 4e3 }) : a.getRedPagStateCallback({ status: "0", msg: `showRedPagOn为${commonParams.showRedPagOn}`, data: commonParams.showRedPagOn });
+    }, timeout: 4e3 }) : a.getRedPagStateCallback({ status: "0", msg: "showRedPagOn\u4e3a" + commonParams.showRedPagOn, data: commonParams.showRedPagOn });
 };const redLogin = function (t) {
   const o = this;"function" != typeof o.redLoginCallback ? console.log("redLoginCallback\u5fc5\u987b\u4e3afunction") : (Tools.initLock(httpLock), wx.login({ success(e) {
       var a;e.code ? (a = { app_id: commonParams.gameId, code: e.code, server_id: t.server_id, server_name: t.server_name, role_id: t.role_id, role_name: t.role_name }, httpLock.httpRedLoginFlag || (httpLock.httpRedLoginFlag = !0, wx.request({ url: wxRedApi + "auth/wx/login", method: "post", data: Tools.buildRedParams(a), header: { "Content-Type": "application/x-www-form-urlencoded" }, success(e) {
@@ -335,6 +373,14 @@ const state = { initStatus: "default", loginStatus: "default", videoAd: null, ba
     }, complete(e) {
       httpLock.httpGameWithdraw = !1;
     }, timeout: 4e3 })));
+};const toCouponReceive = function (e) {
+  const a = this;if ("function" != typeof a.toCouponReceiveCallback) console.log("toCouponReceiveCallback\u5fc5\u987b\u4e3afunction");else if (!httpLock.httpToCouponReceiveFlag) {
+    httpLock.httpToCouponReceiveFlag = !0;const t = { app_id: commonParams.gameId, openid: commonParams.uid, union_id: commonParams.unionId, os_type: Tools.getDeviceTypeId() };e.tag && (t.tag = e.tag), wx.request({ url: wxRedApi + "v2/wx/coupon/receive", data: Tools.buildRedParams(t), method: "post", success(e) {
+        a.toCouponReceiveCallback(e);
+      }, complete() {
+        httpLock.httpToCouponReceiveFlag = !1;
+      }, timeout: 1e4 });
+  }
 };const getOpenId = function () {
   return commonParams.uid;
 };const showSquareOn = function () {
@@ -349,18 +395,124 @@ const state = { initStatus: "default", loginStatus: "default", videoAd: null, ba
           console.log("\u5ba2\u670d", e);
         } }) : e.cancel && console.log("\u7528\u6237\u70b9\u51fb\u53d6\u6d88");
     } });
+};const toQQGroup = function () {
+  wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageTitle: commonParams.QQGroup.sendMessageTitle, sendMessageImg: commonParams.QQGroup.sendMessageImg, complete(e) {
+      console.log("\u5ba2\u670d", e);
+    } });
 };const msgSecCheck = function (e, a) {
-  var t = { gameid: commonParams.gameId, partner: commonParams.partner, deviceno: commonParams.partner, time: Tools.getTimeStamp(), content: e };e ? wx.request({ url: api + "/pay/Check/msgSecCheck", data: Tools.buildCheckMsg(t), success(e) {
-      console.log("\u4fe1\u606f\u76d1\u6d4b=", e), a(e.data);
+  var t = -1 < Object.prototype.toString.call(e).indexOf("String");var o = -1 < Object.prototype.toString.call(e).indexOf("Object");var s = {};if (t) s = { gameid: commonParams.gameId, partner: commonParams.partner, deviceno: commonParams.partner, time: Tools.getTimeStamp(), content: e };else {
+    if (!o) return void console.log("\u8bf7\u6821\u9a8c\u53c2\u6570\u683c\u5f0f");if (!e.content) return void console.log("content \u4e0d\u80fd\u4e3a\u7a7a");s = Object.assign({ openid: commonParams.uid, gameid: commonParams.gameId, partner: commonParams.partner, deviceno: commonParams.partner, time: Tools.getTimeStamp() }, e);
+  }e ? wx.request({ url: api + "/pay/Check/msgSecCheck", data: Tools.buildCheckMsg(s), success(e) {
+      console.log("\u4fe1\u606f\u76d1\u6d4b=", e.data), a(e.data);
     } }) : a({ err: 0, msg: "\u68c0\u6d4b\u4fe1\u606f\u4e0d\u80fd\u4e3a\u7a7a" });
-};const pushData = function (a) {
+};const gameLive = { startGameLive() {
+    const a = this;"function" == typeof a.startGameLiveCallback ? wx.startGameLive({ success(e) {
+        a.startGameLiveCallback({ status: "1", msg: "", data: e }), console.log("startGameLive", e);
+      }, fail(e) {
+        console.error("startGameLive", e), a.startGameLiveCallback({ status: "0", msg: "", data: e });
+      } }) : console.log("startGameLiveCallback\u5fc5\u987b\u4e3afunction");
+  }, checkGameLiveEnabled() {
+    const a = this;"function" == typeof a.checkGameLiveEnabledCallback ? wx.checkGameLiveEnabled({ success(e) {
+        a.checkGameLiveEnabledCallback({ status: "1", msg: "", data: e }), console.log("\u68c0\u67e5\u8bbe\u5907\u652f\u6301", e);
+      }, fail(e) {
+        a.checkGameLiveEnabledCallback({ status: "0", msg: "", data: e });
+      } }) : console.log("checkGameLiveEnabledCallback\u5fc5\u987b\u4e3afunction");
+  }, onGameLiveStateChange() {
+    const a = this;"function" == typeof a.onGameLiveStateChangeCallback ? wx.onGameLiveStateChange(e => {
+      "end" === e.state && wx.getUserRecentGameLiveInfo({ success(e) {
+          e.feedIdList && (console.log("\u83b7\u53d6\u6700\u8fd1\u7684\u76f4\u64ad\u5217\u8868", e), wx.getUserGameLiveDetails({ feedIdList: [e.feedIdList[0]], success(e) {
+              if (console.log("\u6700\u8fd1\u7ed3\u675f\u7684\u76f4\u64ad\u4fe1\u606f", e), e.cloudID) {
+                const a = { app_id: commonParams.gameId, encrypted_data: e.encryptedData, cloudID: e.cloudID, iv: e.iv };wx.login({ success: e => {
+                    null == e.code || null == e.code || "" == e.code ? console.log("\u5fae\u4fe1\u767b\u5f55\u5931\u8d25code is null:") : (a.code = e.code, wx.request({ url: wxRedApi + "v2/wx/live/details", method: "post", data: Tools.buildRedParams(a), success(e) {
+                        console.log("liveDetails: ", e);
+                      }, fail(e) {
+                        console.log("liveDetails", e);
+                      }, timeout: 1e4 }));
+                  } });
+              }
+            } }));
+        } }), a.onGameLiveStateChangeCallback(e);
+    }) : console.log("onGameLiveStateChangeCallback\u5fc5\u987b\u4e3afunction");
+  }, offGameLiveStateChange() {
+    wx.offGameLiveStateChange();
+  }, getGameLiveState() {
+    var e;"function" == typeof this.getGameLiveStateCallback ? (e = wx.getGameLiveState(), this.getGameLiveStateCallback(e), console.log("getGameLiveState", e)) : console.log("getGameLiveStateCallback\u5fc5\u987b\u4e3afunction");
+  }, getUserCurrentGameliveInfo() {
+    const a = this;"function" == typeof a.getUserCurrentGameliveInfoCallback ? wx.getUserCurrentGameliveInfo({ success(e) {
+        a.getUserCurrentGameliveInfoCallback({ status: "1", msg: "", data: e }), console.log("getUserCurrentGameliveInfo", e);
+      }, fail(e) {
+        console.log("getUserCurrentGameliveInfo", e), a.getUserCurrentGameliveInfoCallback({ status: "0", msg: "", data: e });
+      } }) : console.log("getUserCurrentGameliveInfoCallback\u5fc5\u987b\u4e3afunction");
+  }, getUserRecentGameLiveInfo() {
+    const a = this;"function" == typeof a.getUserRecentGameLiveInfoCallback ? wx.getUserRecentGameLiveInfo({ success(e) {
+        a.getUserRecentGameLiveInfoCallback({ status: "1", msg: "", data: e }), console.log("getUserRecentGameLiveInfoCallback", e);
+      }, fail(e) {
+        a.getUserRecentGameLiveInfoCallback({ status: "0", msg: "", data: e });
+      } }) : console.log("getUserRecentGameLiveInfoCallback\u5fc5\u987b\u4e3afunction");
+  }, getUserGameLiveDetails(e = {}) {
+    const a = this;"function" == typeof a.getUserGameLiveDetailsCallback ? e.feedIdList ? wx.getUserGameLiveDetails({ feedIdList: e.feedIdList, success(e) {
+        console.log("getUserGameLiveDetails", e), a.getUserGameLiveDetailsCallback({ status: "1", msg: "", data: e });
+      }, fail(e) {
+        a.getUserGameLiveDetailsCallback({ status: "0", msg: "", data: e });
+      } }) : console.log("feedIdList\u4e0d\u80fd\u4e3a\u7a7a") : console.log("getUserGameLiveDetailsCallback\u5fc5\u987b\u4e3afunction");
+  }, openChannelsLiveCollection(e = {}) {
+    wx.openChannelsLiveCollection({ openIds: e.openIds || [] });
+  }, getChannelsLiveNoticeInfo(e = {}) {
+    const a = this;"function" == typeof a.getChannelsLiveNoticeInfoCallback ? e.finderUserName ? wx.getChannelsLiveNoticeInfo({ finderUserName: e.finderUserName || "", feedId: e.feedId || "", nonceId: e.nonceId || "", success(e) {
+        console.log("getChannelsLiveNoticeInfo", e), a.getChannelsLiveNoticeInfoCallback({ status: "1", msg: "", data: e });
+      }, fail(e) {
+        console.log("getChannelsLiveNoticeInfo", e), a.getChannelsLiveNoticeInfoCallback({ status: "0", msg: "", data: e });
+      } }) : console.log("finderUserName\u4e0d\u80fd\u4e3a\u7a7a") : console.log("getChannelsLiveNoticeInfoCallback\u5fc5\u987b\u4e3afunction");
+  }, getChannelsLiveInfo(e = {}) {
+    const a = this;"function" == typeof a.getChannelsLiveInfoCallback ? e.finderUserName ? wx.getChannelsLiveInfo({ finderUserName: e.finderUserName, success: function (e) {
+        console.log("getChannelsLiveInfo", e), a.getChannelsLiveInfoCallback({ status: "1", msg: "", data: e });
+      }, fail: function (e) {
+        console.log("getChannelsLiveInfo", e), a.getChannelsLiveInfoCallback({ status: "0", msg: "", data: e });
+      } }) : console.log("finderUserName\u4e0d\u80fd\u4e3a\u7a7a") : console.log("getChannelsLiveInfoCallback\u5fc5\u987b\u4e3afunction");
+  }, openChannelsLive(e = {}) {
+    const a = this;"function" == typeof a.openChannelsLiveCallback ? e.finderUserName ? wx.openChannelsLive({ finderUserName: e.finderUserName, success: function (e) {
+        console.log("openChannelsLive", e), a.openChannelsLiveCallback({ status: "1", msg: "", data: e });
+      }, fail: function (e) {
+        console.log("openChannelsLive", e), a.openChannelsLiveCallback({ status: "0", msg: "", data: e });
+      } }) : console.log("finderUserName\u4e0d\u80fd\u4e3a\u7a7a") : console.log("openChannelsLiveCallback\u5fc5\u987b\u4e3afunction");
+  }, reserveChannelsLive(e = {}) {
+    const a = this;"function" == typeof a.reserveChannelsLiveCallback ? e.noticeId ? wx.reserveChannelsLive({ noticeId: e.noticeId || "", success(e) {
+        console.log("reserveChannelsLive", e), a.reserveChannelsLiveCallback({ status: "1", msg: "", data: e });
+      }, fail(e) {
+        console.log("reserveChannelsLive", e), a.reserveChannelsLiveCallback({ status: "0", msg: "", data: e });
+      } }) : console.log("noticeId\u4e0d\u80fd\u4e3a\u7a7a") : console.log("reserveChannelsLiveCallback\u5fc5\u987b\u4e3afunction");
+  }, getLiveTask() {
+    const a = this;var e;"function" != typeof a.getLiveTaskCallback ? console.log("getLiveTaskCallback\u5fc5\u987b\u4e3afunction") : (e = { app_id: commonParams.gameId, open_id: commonParams.uid, union_id: commonParams.unionId }, httpLock.httpLiveTaskFlag || (httpLock.httpLiveTaskFlag = !0, wx.request({ url: wxRedApi + "v2/wx/live/index", data: Tools.buildRedParams(e), success(e) {
+        e = e.data, a.getLiveTaskCallback(e);
+      }, fail(e) {
+        a.getLiveTaskCallback(e), console.log("\u8bf7\u6c42\u51fa\u9519", e);
+      }, complete(e) {
+        httpLock.httpLiveTaskFlag = !1;
+      }, timeout: 4e3 })));
+  }, toLiveTaskReceive(e) {
+    const a = this;"function" != typeof a.toLiveTaskReceiveCallback ? console.log("toLiveTaskReceiveCallback\u5fc5\u987b\u4e3afunction") : httpLock.httpToLiveTaskReceiveFlag || (httpLock.httpToLiveTaskReceiveFlag = !0, e = { app_id: commonParams.gameId, open_id: commonParams.uid, union_id: commonParams.unionId, live_id: e.live_id, role_id: e.role_id || "", role_name: e.role_name || "", server_id: e.server_id || "", server_name: e.server_name || "", level: e.level || "" }, wx.request({ url: wxRedApi + "v2/wx/live/receive", data: Tools.buildRedParams(e), method: "post", success(e) {
+        e = e.data, a.toLiveTaskReceiveCallback(e);
+      }, fail(e) {
+        a.toLiveTaskReceiveCallback(e), console.log("\u8bf7\u6c42\u51fa\u9519", e);
+      }, complete() {
+        httpLock.httpToLiveTaskReceiveFlag = !1;
+      }, timeout: 1e4 }));
+  }, getUserLiveInfo(e) {
+    const a = this;"function" != typeof a.getUserLiveInfoCallback ? console.log("getUserLiveInfoCallback\u5fc5\u987b\u4e3afunction") : httpLock.httpGetUserLiveInfoFlag || (httpLock.httpGetUserLiveInfoFlag = !0, e = { app_id: commonParams.gameId, open_id: commonParams.uid, union_id: commonParams.unionId, role_id: e.role_id || "", role_name: e.role_name || "", server_id: e.server_id || "", server_name: e.server_name || "", level: e.level || "" }, wx.request({ url: wxRedApi + "v2/wx/live/info", data: Tools.buildRedParams(e), success(e) {
+        e = e.data, a.getUserLiveInfoCallback(e);
+      }, fail(e) {
+        a.getUserLiveInfoCallback(e), console.log("\u8bf7\u6c42\u51fa\u9519", e);
+      }, complete() {
+        httpLock.httpGetUserLiveInfoFlag = !1;
+      }, timeout: 1e4 }));
+  } };const pushData = function (a) {
   "0" != a.type && (a.accountId = commonParams.uid, a.appId = commonParams.gameId, a.appVersion = "1.0.0", a.platform = "wxxyx", a.channel = commonParams.partner, a.source = commonParams.query.source || "", a.source_type = commonParams.query.source_type || "", a.systemName = Tools.getDeviceType(), a.deviceName = wx.getSystemInfoSync().model, a.resolution = wx.getSystemInfoSync().screenWidth + "*" + wx.getSystemInfoSync().screenHeight, a.deviceType = Tools.getDeviceTypeId(), a.referer = commonParams.referer, a.idfa = "", a.ip = "", a.mac = "", a.imei = commonParams.uid, a.sex = "0", a.network = "", a.country = "86", a.operators = ""), "1" == a.type ? (a.logType = "login", a.region = "0", a.channelAccid = commonParams.uid, delete a.startLevel, delete a.endLevel) : "2" == a.type ? (a.roleId || console.log("\u6ca1\u6709\u4f20\u89d2\u8272ID"), a.roleName || console.log("\u6ca1\u6709\u4f20\u89d2\u8272\u540d"), a.logType = "roleCreate", a.region = "0", a.channelAccid = commonParams.uid, delete a.startLevel, delete a.endLevel) : "4" == a.type ? (a.roleId || console.log("\u6ca1\u6709\u4f20\u89d2\u8272ID"), a.roleName || console.log("\u6ca1\u6709\u4f20\u89d2\u8272\u540d"), a.logType = "levelUp", a.region = "0", a.levelType = "1", a.duration = "0", a.channelAccid = commonParams.uid, delete a.serverName) : "5" == a.type ? (a.logType = "online", delete a.resolution, delete a.deviceType, delete a.mac, delete a.sex, delete a.network, delete a.country, delete a.operators) : 6 == a.type ? (a.logType = "share", delete a.resolution, delete a.deviceType, delete a.mac, delete a.sex, delete a.network, delete a.country, delete a.operators, a.shareType = "1") : 9 == a.type ? (a.logType = "event", delete a.resolution, delete a.deviceType, delete a.deviceName, delete a.mac, delete a.sex, delete a.network, delete a.country, delete a.operators, delete a.imei) : 10 == a.type ? (a.logType = "levelclear", a.channelAccid = commonParams.uid) : 11 == a.type && (a.logType = "advert", a.channelAccid = commonParams.uid), delete a.type, wx.request({ url: logApi + "/api", data: { data: JSON.stringify(a) }, success: function (e) {
       console.log(a.logType, e.data);
     } });
 };function setLog(e, a) {
   1 == state.debug && (a == state.level.error ? console.log("%cSDK11\u81f4\u547d\u9519\u8bef:" + e, "color:red") : a == state.level.warn ? console.log("%cSDK11\u8b66\u544a\u9519\u8bef:" + e, "color:gray") : a == state.level.debug ? console.log("%cSDK11\u8fd0\u884c\u65e5\u5fd7:" + e, "color:gray") : console.log("%cSDK11\u65e5\u5fd7:" + e, "color:gray"));
 }function md5(e) {
-  var a;Array();var t, o, s, n, r, c, i, d, m;for (a = ConvertToWordArray(e = Utf8Encode(e)), c = 1732584193, i = 4023233417, d = 2562383102, m = 271733878, t = 0; t < a.length; t += 16) c = FF(o = c, s = i, n = d, r = m, a[t + 0], 7, 3614090360), m = FF(m, c, i, d, a[t + 1], 12, 3905402710), d = FF(d, m, c, i, a[t + 2], 17, 606105819), i = FF(i, d, m, c, a[t + 3], 22, 3250441966), c = FF(c, i, d, m, a[t + 4], 7, 4118548399), m = FF(m, c, i, d, a[t + 5], 12, 1200080426), d = FF(d, m, c, i, a[t + 6], 17, 2821735955), i = FF(i, d, m, c, a[t + 7], 22, 4249261313), c = FF(c, i, d, m, a[t + 8], 7, 1770035416), m = FF(m, c, i, d, a[t + 9], 12, 2336552879), d = FF(d, m, c, i, a[t + 10], 17, 4294925233), i = FF(i, d, m, c, a[t + 11], 22, 2304563134), c = FF(c, i, d, m, a[t + 12], 7, 1804603682), m = FF(m, c, i, d, a[t + 13], 12, 4254626195), d = FF(d, m, c, i, a[t + 14], 17, 2792965006), c = GG(c, i = FF(i, d, m, c, a[t + 15], 22, 1236535329), d, m, a[t + 1], 5, 4129170786), m = GG(m, c, i, d, a[t + 6], 9, 3225465664), d = GG(d, m, c, i, a[t + 11], 14, 643717713), i = GG(i, d, m, c, a[t + 0], 20, 3921069994), c = GG(c, i, d, m, a[t + 5], 5, 3593408605), m = GG(m, c, i, d, a[t + 10], 9, 38016083), d = GG(d, m, c, i, a[t + 15], 14, 3634488961), i = GG(i, d, m, c, a[t + 4], 20, 3889429448), c = GG(c, i, d, m, a[t + 9], 5, 568446438), m = GG(m, c, i, d, a[t + 14], 9, 3275163606), d = GG(d, m, c, i, a[t + 3], 14, 4107603335), i = GG(i, d, m, c, a[t + 8], 20, 1163531501), c = GG(c, i, d, m, a[t + 13], 5, 2850285829), m = GG(m, c, i, d, a[t + 2], 9, 4243563512), d = GG(d, m, c, i, a[t + 7], 14, 1735328473), c = HH(c, i = GG(i, d, m, c, a[t + 12], 20, 2368359562), d, m, a[t + 5], 4, 4294588738), m = HH(m, c, i, d, a[t + 8], 11, 2272392833), d = HH(d, m, c, i, a[t + 11], 16, 1839030562), i = HH(i, d, m, c, a[t + 14], 23, 4259657740), c = HH(c, i, d, m, a[t + 1], 4, 2763975236), m = HH(m, c, i, d, a[t + 4], 11, 1272893353), d = HH(d, m, c, i, a[t + 7], 16, 4139469664), i = HH(i, d, m, c, a[t + 10], 23, 3200236656), c = HH(c, i, d, m, a[t + 13], 4, 681279174), m = HH(m, c, i, d, a[t + 0], 11, 3936430074), d = HH(d, m, c, i, a[t + 3], 16, 3572445317), i = HH(i, d, m, c, a[t + 6], 23, 76029189), c = HH(c, i, d, m, a[t + 9], 4, 3654602809), m = HH(m, c, i, d, a[t + 12], 11, 3873151461), d = HH(d, m, c, i, a[t + 15], 16, 530742520), c = II(c, i = HH(i, d, m, c, a[t + 2], 23, 3299628645), d, m, a[t + 0], 6, 4096336452), m = II(m, c, i, d, a[t + 7], 10, 1126891415), d = II(d, m, c, i, a[t + 14], 15, 2878612391), i = II(i, d, m, c, a[t + 5], 21, 4237533241), c = II(c, i, d, m, a[t + 12], 6, 1700485571), m = II(m, c, i, d, a[t + 3], 10, 2399980690), d = II(d, m, c, i, a[t + 10], 15, 4293915773), i = II(i, d, m, c, a[t + 1], 21, 2240044497), c = II(c, i, d, m, a[t + 8], 6, 1873313359), m = II(m, c, i, d, a[t + 15], 10, 4264355552), d = II(d, m, c, i, a[t + 6], 15, 2734768916), i = II(i, d, m, c, a[t + 13], 21, 1309151649), c = II(c, i, d, m, a[t + 4], 6, 4149444226), m = II(m, c, i, d, a[t + 11], 10, 3174756917), d = II(d, m, c, i, a[t + 2], 15, 718787259), i = II(i, d, m, c, a[t + 9], 21, 3951481745), c = AddUnsigned(c, o), i = AddUnsigned(i, s), d = AddUnsigned(d, n), m = AddUnsigned(m, r);return (WordToHex(c) + WordToHex(i) + WordToHex(d) + WordToHex(m)).toLowerCase();
+  var a;Array();var t, o, s, n, d, c, i, r, l;for (a = ConvertToWordArray(e = Utf8Encode(e)), c = 1732584193, i = 4023233417, r = 2562383102, l = 271733878, t = 0; t < a.length; t += 16) c = FF(o = c, s = i, n = r, d = l, a[t + 0], 7, 3614090360), l = FF(l, c, i, r, a[t + 1], 12, 3905402710), r = FF(r, l, c, i, a[t + 2], 17, 606105819), i = FF(i, r, l, c, a[t + 3], 22, 3250441966), c = FF(c, i, r, l, a[t + 4], 7, 4118548399), l = FF(l, c, i, r, a[t + 5], 12, 1200080426), r = FF(r, l, c, i, a[t + 6], 17, 2821735955), i = FF(i, r, l, c, a[t + 7], 22, 4249261313), c = FF(c, i, r, l, a[t + 8], 7, 1770035416), l = FF(l, c, i, r, a[t + 9], 12, 2336552879), r = FF(r, l, c, i, a[t + 10], 17, 4294925233), i = FF(i, r, l, c, a[t + 11], 22, 2304563134), c = FF(c, i, r, l, a[t + 12], 7, 1804603682), l = FF(l, c, i, r, a[t + 13], 12, 4254626195), r = FF(r, l, c, i, a[t + 14], 17, 2792965006), c = GG(c, i = FF(i, r, l, c, a[t + 15], 22, 1236535329), r, l, a[t + 1], 5, 4129170786), l = GG(l, c, i, r, a[t + 6], 9, 3225465664), r = GG(r, l, c, i, a[t + 11], 14, 643717713), i = GG(i, r, l, c, a[t + 0], 20, 3921069994), c = GG(c, i, r, l, a[t + 5], 5, 3593408605), l = GG(l, c, i, r, a[t + 10], 9, 38016083), r = GG(r, l, c, i, a[t + 15], 14, 3634488961), i = GG(i, r, l, c, a[t + 4], 20, 3889429448), c = GG(c, i, r, l, a[t + 9], 5, 568446438), l = GG(l, c, i, r, a[t + 14], 9, 3275163606), r = GG(r, l, c, i, a[t + 3], 14, 4107603335), i = GG(i, r, l, c, a[t + 8], 20, 1163531501), c = GG(c, i, r, l, a[t + 13], 5, 2850285829), l = GG(l, c, i, r, a[t + 2], 9, 4243563512), r = GG(r, l, c, i, a[t + 7], 14, 1735328473), c = HH(c, i = GG(i, r, l, c, a[t + 12], 20, 2368359562), r, l, a[t + 5], 4, 4294588738), l = HH(l, c, i, r, a[t + 8], 11, 2272392833), r = HH(r, l, c, i, a[t + 11], 16, 1839030562), i = HH(i, r, l, c, a[t + 14], 23, 4259657740), c = HH(c, i, r, l, a[t + 1], 4, 2763975236), l = HH(l, c, i, r, a[t + 4], 11, 1272893353), r = HH(r, l, c, i, a[t + 7], 16, 4139469664), i = HH(i, r, l, c, a[t + 10], 23, 3200236656), c = HH(c, i, r, l, a[t + 13], 4, 681279174), l = HH(l, c, i, r, a[t + 0], 11, 3936430074), r = HH(r, l, c, i, a[t + 3], 16, 3572445317), i = HH(i, r, l, c, a[t + 6], 23, 76029189), c = HH(c, i, r, l, a[t + 9], 4, 3654602809), l = HH(l, c, i, r, a[t + 12], 11, 3873151461), r = HH(r, l, c, i, a[t + 15], 16, 530742520), c = II(c, i = HH(i, r, l, c, a[t + 2], 23, 3299628645), r, l, a[t + 0], 6, 4096336452), l = II(l, c, i, r, a[t + 7], 10, 1126891415), r = II(r, l, c, i, a[t + 14], 15, 2878612391), i = II(i, r, l, c, a[t + 5], 21, 4237533241), c = II(c, i, r, l, a[t + 12], 6, 1700485571), l = II(l, c, i, r, a[t + 3], 10, 2399980690), r = II(r, l, c, i, a[t + 10], 15, 4293915773), i = II(i, r, l, c, a[t + 1], 21, 2240044497), c = II(c, i, r, l, a[t + 8], 6, 1873313359), l = II(l, c, i, r, a[t + 15], 10, 4264355552), r = II(r, l, c, i, a[t + 6], 15, 2734768916), i = II(i, r, l, c, a[t + 13], 21, 1309151649), c = II(c, i, r, l, a[t + 4], 6, 4149444226), l = II(l, c, i, r, a[t + 11], 10, 3174756917), r = II(r, l, c, i, a[t + 2], 15, 718787259), i = II(i, r, l, c, a[t + 9], 21, 3951481745), c = AddUnsigned(c, o), i = AddUnsigned(i, s), r = AddUnsigned(r, n), l = AddUnsigned(l, d);return (WordToHex(c) + WordToHex(i) + WordToHex(r) + WordToHex(l)).toLowerCase();
 }function RotateLeft(e, a) {
   return e << a | e >>> 32 - a;
 }function AddUnsigned(e, a) {
@@ -373,22 +525,22 @@ const state = { initStatus: "default", loginStatus: "default", videoAd: null, ba
   return e ^ a ^ t;
 }function I(e, a, t) {
   return a ^ (e | ~t);
-}function FF(e, a, t, o, s, n, r) {
-  return e = AddUnsigned(e, AddUnsigned(AddUnsigned(F(a, t, o), s), r)), AddUnsigned(RotateLeft(e, n), a);
-}function GG(e, a, t, o, s, n, r) {
-  return e = AddUnsigned(e, AddUnsigned(AddUnsigned(G(a, t, o), s), r)), AddUnsigned(RotateLeft(e, n), a);
-}function HH(e, a, t, o, s, n, r) {
-  return e = AddUnsigned(e, AddUnsigned(AddUnsigned(H(a, t, o), s), r)), AddUnsigned(RotateLeft(e, n), a);
-}function II(e, a, t, o, s, n, r) {
-  return e = AddUnsigned(e, AddUnsigned(AddUnsigned(I(a, t, o), s), r)), AddUnsigned(RotateLeft(e, n), a);
+}function FF(e, a, t, o, s, n, c) {
+  return e = AddUnsigned(e, AddUnsigned(AddUnsigned(F(a, t, o), s), c)), AddUnsigned(RotateLeft(e, n), a);
+}function GG(e, a, t, o, s, n, c) {
+  return e = AddUnsigned(e, AddUnsigned(AddUnsigned(G(a, t, o), s), c)), AddUnsigned(RotateLeft(e, n), a);
+}function HH(e, a, t, o, s, n, c) {
+  return e = AddUnsigned(e, AddUnsigned(AddUnsigned(H(a, t, o), s), c)), AddUnsigned(RotateLeft(e, n), a);
+}function II(e, a, t, o, s, n, c) {
+  return e = AddUnsigned(e, AddUnsigned(AddUnsigned(I(a, t, o), s), c)), AddUnsigned(RotateLeft(e, n), a);
 }function ConvertToWordArray(e) {
-  var a;var t = e.length;var o = t + 8;o = 16 * (1 + (o - o % 64) / 64);var s = Array(o - 1);var n = 0;var r = 0;for (; r < t;) n = r % 4 * 8, s[a = (r - r % 4) / 4] = s[a] | e.charCodeAt(r) << n, r++;return s[a = (r - r % 4) / 4] = s[a] | 128 << (n = r % 4 * 8), s[o - 2] = t << 3, s[o - 1] = t >>> 29, s;
+  var a;var t = e.length;var o = t + 8;o = 16 * (1 + (o - o % 64) / 64);var s = Array(o - 1);var n = 0;var c = 0;for (; c < t;) n = c % 4 * 8, s[a = (c - c % 4) / 4] = s[a] | e.charCodeAt(c) << n, c++;return s[a = (c - c % 4) / 4] = s[a] | 128 << (n = c % 4 * 8), s[o - 2] = t << 3, s[o - 1] = t >>> 29, s;
 }function WordToHex(e) {
   var a,
       t = "",
       o = "";for (a = 0; a <= 3; a++) t += (o = "0" + (e >>> 8 * a & 255).toString(16)).substr(o.length - 2, 2);return t;
 }function Utf8Encode(e) {
   var a = "";for (var t = 0; t < e.length; t++) {
-    var o = e.charCodeAt(t);o < 128 ? a += String.fromCharCode(o) : (127 < o && o < 2048 ? a += String.fromCharCode(o >> 6 | 192) : (a += String.fromCharCode(o >> 12 | 224), a += String.fromCharCode(o >> 6 & 63 | 128)), a += String.fromCharCode(63 & o | 128));
+    var o = e.charCodeAt(t);o < 128 ? a += String.fromCharCode(o) : a = 127 < o && o < 2048 ? (a += String.fromCharCode(o >> 6 | 192)) + String.fromCharCode(63 & o | 128) : (a = (a += String.fromCharCode(o >> 12 | 224)) + String.fromCharCode(o >> 6 & 63 | 128)) + String.fromCharCode(63 & o | 128);
   }return a;
-}module.exports = { init: init, pay: pay, getCaptcha: getCaptcha, bindTelephone: bindTelephone, pushData: pushData, msgSecCheck: msgSecCheck, subscribeMessage: subscribeMessage, shareAppMessage: shareAppMessage, state: state, advertisement: advertisement, getLaunchOptionsSync: getLaunchOptionsSync, getWhatsNewSubscriptionsSetting: getWhatsNewSubscriptionsSetting, requestSubscribeWhatsNew: requestSubscribeWhatsNew, openData: openData, cutGame: cutGame, jumpState: jumpState, getRedPagState: getRedPagState, redLogin: redLogin, getWxUserInfo: getWxUserInfo, getRedPackageList: getRedPackageList, getRedConfig: getRedConfig, toReceiveRedPackage: toReceiveRedPackage, getRedDetailList: getRedDetailList, getShareList: getShareList, toRedShare: toRedShare, toWithdraw: toWithdraw, getOpenId: getOpenId, getLuckDrawIndex: getLuckDrawIndex, luckyDraw: luckyDraw, showAppModal: showAppModal, getSquareList: getSquareList, squareClick: squareClick, showSquareOn: showSquareOn, gameWithdraw: gameWithdraw, getChangeShellOn: getChangeShellOn };
+}module.exports = { init: init, pay: pay, getCaptcha: getCaptcha, bindTelephone: bindTelephone, pushData: pushData, msgSecCheck: msgSecCheck, subscribeMessage: subscribeMessage, shareAppMessage: shareAppMessage, state: state, isJumpGame: isJumpGame, advertisement: advertisement, getLaunchOptionsSync: getLaunchOptionsSync, getWhatsNewSubscriptionsSetting: getWhatsNewSubscriptionsSetting, requestSubscribeWhatsNew: requestSubscribeWhatsNew, openData: openData, cutGame: cutGame, jumpState: jumpState, getRedPagState: getRedPagState, redLogin: redLogin, getWxUserInfo: getWxUserInfo, getRedPackageList: getRedPackageList, getRedConfig: getRedConfig, toReceiveRedPackage: toReceiveRedPackage, getRedDetailList: getRedDetailList, getShareList: getShareList, toRedShare: toRedShare, toWithdraw: toWithdraw, getOpenId: getOpenId, getLuckDrawIndex: getLuckDrawIndex, luckyDraw: luckyDraw, showAppModal: showAppModal, getSquareList: getSquareList, squareClick: squareClick, showSquareOn: showSquareOn, gameWithdraw: gameWithdraw, getChangeShellOn: getChangeShellOn, toCouponReceive: toCouponReceive, gameLive: gameLive, toQQGroup: toQQGroup };

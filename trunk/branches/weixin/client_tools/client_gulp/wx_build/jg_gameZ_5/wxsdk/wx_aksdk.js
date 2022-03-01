@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_tjqyzzly_JU',
     partner_label: 'shiqixcx',
     partner_id: '501',
-    game_ver: '32.0.1', //诗淇-主宰领域
+    game_ver: '32.0.13', //诗淇-主宰领域
     is_auth: false, //授权登录
     partner_game_id:10227,
     partner_package_name:'tjqycx_wxmin_1',

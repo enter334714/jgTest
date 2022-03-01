@@ -57,21 +57,21 @@ function copy(e, t) {
   if (o) {
     if (!(e = o(e))) return;if ("string" == typeof e) return void t.push(e);
   }switch (e.nodeType) {case ELEMENT_NODE:
-      var r = ((i = i || []).length, e.attributes),
-          a = r.length,
-          s = e.firstChild,
-          u = e.tagName;n = htmlns === e.namespaceURI || n, t.push("<", u);for (var d = 0; d < a; d++) "xmlns" == (c = r.item(d)).prefix ? i.push({ prefix: c.localName, namespace: c.value }) : "xmlns" == c.nodeName && i.push({ prefix: "", namespace: c.value });for (d = 0; d < a; d++) {
-        var c;needNamespaceDefine(c = r.item(d), n, i) && (N = c.prefix || "", l = c.namespaceURI, t.push(N ? " xmlns:" + N : " xmlns", '="', l, '"'), i.push({ prefix: N, namespace: l })), serializeToString(c, t, n, o, i);
-      }var N, l;if (needNamespaceDefine(e, n, i) && (N = e.prefix || "", l = e.namespaceURI, t.push(N ? " xmlns:" + N : " xmlns", '="', l, '"'), i.push({ prefix: N, namespace: l })), s || n && !/^(?:meta|link|img|br|hr|input)$/i.test(u)) {
-        if (t.push(">"), n && /^script$/i.test(u)) for (; s;) s.data ? t.push(s.data) : serializeToString(s, t, n, o, i), s = s.nextSibling;else for (; s;) serializeToString(s, t, n, o, i), s = s.nextSibling;t.push("</", u, ">");
+      (i = i || []).length;var c = e.attributes,
+          N = c.length,
+          r = e.firstChild,
+          a = e.tagName;n = htmlns === e.namespaceURI || n, t.push("<", a);for (var s = 0; s < N; s++) "xmlns" == (u = c.item(s)).prefix ? i.push({ prefix: u.localName, namespace: u.value }) : "xmlns" == u.nodeName && i.push({ prefix: "", namespace: u.value });for (s = 0; s < N; s++) {
+        var u;needNamespaceDefine(u = c.item(s), n, i) && (d = u.prefix || "", l = u.namespaceURI, t.push(d ? " xmlns:" + d : " xmlns", '="', l, '"'), i.push({ prefix: d, namespace: l })), serializeToString(u, t, n, o, i);
+      }var d, l;if (needNamespaceDefine(e, n, i) && (d = e.prefix || "", l = e.namespaceURI, t.push(d ? " xmlns:" + d : " xmlns", '="', l, '"'), i.push({ prefix: d, namespace: l })), r || n && !/^(?:meta|link|img|br|hr|input)$/i.test(a)) {
+        if (t.push(">"), n && /^script$/i.test(a)) for (; r;) r.data ? t.push(r.data) : serializeToString(r, t, n, o, i), r = r.nextSibling;else for (; r;) serializeToString(r, t, n, o, i), r = r.nextSibling;t.push("</", a, ">");
       } else t.push("/>");return;case DOCUMENT_NODE:case DOCUMENT_FRAGMENT_NODE:
-      for (s = e.firstChild; s;) serializeToString(s, t, n, o, i), s = s.nextSibling;return;case ATTRIBUTE_NODE:
+      for (r = e.firstChild; r;) serializeToString(r, t, n, o, i), r = r.nextSibling;return;case ATTRIBUTE_NODE:
       return t.push(" ", e.name, '="', e.value.replace(/[<&"]/g, _xmlEncoder), '"');case TEXT_NODE:
       return t.push(e.data.replace(/[<&]/g, _xmlEncoder));case CDATA_SECTION_NODE:
       return t.push("<![CDATA[", e.data, "]]>");case COMMENT_NODE:
       return t.push("\x3c!--", e.data, "--\x3e");case DOCUMENT_TYPE_NODE:
-      var p = e.publicId,
-          u = e.systemId;return t.push("<!DOCTYPE ", e.name), void (p ? (t.push(' PUBLIC "', p), u && "." != u && t.push('" "', u), t.push('">')) : u && "." != u ? t.push(' SYSTEM "', u, '">') : ((u = e.internalSubset) && t.push(" [", u, "]"), t.push(">")));case PROCESSING_INSTRUCTION_NODE:
+      var a = e.publicId,
+          p = e.systemId;return t.push("<!DOCTYPE ", e.name), void (a ? (t.push(' PUBLIC "', a), p && "." != p && t.push('" "', p), t.push('">')) : p && "." != p ? t.push(' SYSTEM "', p, '">') : ((a = e.internalSubset) && t.push(" [", a, "]"), t.push(">")));case PROCESSING_INSTRUCTION_NODE:
       return t.push("<?", e.target, " ", e.data, "?>");case ENTITY_REFERENCE_NODE:
       return t.push("&", e.nodeName, ";");default:
       t.push("??", e.nodeName);}
@@ -86,8 +86,8 @@ function copy(e, t) {
   }switch (t.childNodes && (o.childNodes = new NodeList()), o.ownerDocument = e, o.nodeType) {case ELEMENT_NODE:
       var a = t.attributes,
           s = o.attributes = new NamedNodeMap(),
-          u = a.length;s._ownerElement = o;for (var d = 0; d < u; d++) o.setAttributeNode(cloneNode(e, a.item(d), !0));break;case ATTRIBUTE_NODE:
-      n = !0;}if (n) for (var c = t.firstChild; c;) o.appendChild(cloneNode(e, c, n)), c = c.nextSibling;return o;
+          c = a.length;s._ownerElement = o;for (var u = 0; u < c; u++) o.setAttributeNode(cloneNode(e, a.item(u), !0));break;case ATTRIBUTE_NODE:
+      n = !0;}if (n) for (var d = t.firstChild; d;) o.appendChild(cloneNode(e, d, n)), d = d.nextSibling;return o;
 }function __set__(e, t, n) {
   e[t] = n;
 }function getTextContent(e) {
@@ -141,7 +141,7 @@ function copy(e, t) {
   }, removeNamedItem: function (e) {
     e = this.getNamedItem(e);return _removeNamedNode(this._ownerElement, this, e), e;
   }, removeNamedItemNS: function (e, t) {
-    t = this.getNamedItemNS(e, t);return _removeNamedNode(this._ownerElement, this, t), t;
+    e = this.getNamedItemNS(e, t);return _removeNamedNode(this._ownerElement, this, e), e;
   }, getNamedItemNS: function (e, t) {
     for (var n = this.length; n--;) {
       var o = this[n];if (o.localName == t && o.namespaceURI == e) return o;
@@ -149,7 +149,7 @@ function copy(e, t) {
   } }, DOMImplementation.prototype = { hasFeature: function (e, t) {
     e = this._features[e.toLowerCase()];return !(!e || t && !(t in e));
   }, createDocument: function (e, t, n) {
-    var o = new Document();return o.implementation = this, o.childNodes = new NodeList(), (o.doctype = n) && o.appendChild(n), t && (t = o.createElementNS(e, t), o.appendChild(t)), o;
+    var o = new Document();return o.implementation = this, o.childNodes = new NodeList(), (o.doctype = n) && o.appendChild(n), t && (n = o.createElementNS(e, t), o.appendChild(n)), o;
   }, createDocumentType: function (e, t, n) {
     var o = new DocumentType();return o.name = e, o.nodeName = e, o.publicId = t, o.systemId = n, o;
   } }, Node.prototype = { firstChild: null, lastChild: null, previousSibling: null, nextSibling: null, attributes: null, parentNode: null, childNodes: null, ownerDocument: null, nodeValue: null, namespaceURI: null, prefix: null, localName: null, insertBefore: function (e, t) {
@@ -236,13 +236,13 @@ function copy(e, t) {
   }, removeAttributeNode: function (e) {
     return this.attributes.removeNamedItem(e.nodeName);
   }, removeAttributeNS: function (e, t) {
-    t = this.getAttributeNodeNS(e, t);t && this.removeAttributeNode(t);
+    e = this.getAttributeNodeNS(e, t);e && this.removeAttributeNode(e);
   }, hasAttributeNS: function (e, t) {
     return null != this.getAttributeNodeNS(e, t);
   }, getAttributeNS: function (e, t) {
-    t = this.getAttributeNodeNS(e, t);return t && t.value || "";
+    e = this.getAttributeNodeNS(e, t);return e && e.value || "";
   }, setAttributeNS: function (e, t, n) {
-    t = this.ownerDocument.createAttributeNS(e, t);t.value = t.nodeValue = "" + n, this.setAttributeNode(t);
+    e = this.ownerDocument.createAttributeNS(e, t);e.value = e.nodeValue = "" + n, this.setAttributeNode(e);
   }, getAttributeNodeNS: function (e, t) {
     return this.attributes.getNamedItemNS(e, t);
   }, getElementsByTagName: function (o) {
@@ -269,10 +269,10 @@ function copy(e, t) {
     this.replaceData(e, t, "");
   }, replaceData: function (e, t, n) {
     var o = this.data.substring(0, e),
-        t = this.data.substring(e + t);this.nodeValue = this.data = n = o + n + t, this.length = n.length;
+        e = this.data.substring(e + t);this.nodeValue = this.data = n = o + n + e, this.length = n.length;
   } }, _extends(CharacterData, Node), Text.prototype = { nodeName: "#text", nodeType: TEXT_NODE, splitText: function (e) {
     var t = this.data,
-        n = t.substring(e);t = t.substring(0, e), this.data = this.nodeValue = t, this.length = t.length;n = this.ownerDocument.createTextNode(n);return this.parentNode && this.parentNode.insertBefore(n, this.nextSibling), n;
+        n = t.substring(e);t = t.substring(0, e), this.data = this.nodeValue = t, this.length = t.length;e = this.ownerDocument.createTextNode(n);return this.parentNode && this.parentNode.insertBefore(e, this.nextSibling), e;
   } }, _extends(Text, CharacterData), Comment.prototype = { nodeName: "#comment", nodeType: COMMENT_NODE }, _extends(Comment, CharacterData), CDATASection.prototype = { nodeName: "#cdata-section", nodeType: CDATA_SECTION_NODE }, _extends(CDATASection, CharacterData), DocumentType.prototype.nodeType = DOCUMENT_TYPE_NODE, _extends(DocumentType, Node), Notation.prototype.nodeType = NOTATION_NODE, _extends(Notation, Node), Entity.prototype.nodeType = ENTITY_NODE, _extends(Entity, Node), EntityReference.prototype.nodeType = ENTITY_REFERENCE_NODE, _extends(EntityReference, Node), DocumentFragment.prototype.nodeName = "#document-fragment", DocumentFragment.prototype.nodeType = DOCUMENT_FRAGMENT_NODE, _extends(DocumentFragment, Node), ProcessingInstruction.prototype.nodeType = PROCESSING_INSTRUCTION_NODE, _extends(ProcessingInstruction, Node), XMLSerializer.prototype.serializeToString = function (e, t, n) {
   return nodeSerializeToString.call(e, t, n);
 }, Node.prototype.toString = nodeSerializeToString;try {

@@ -295,7 +295,7 @@ var MainController = /** @class */ (function () {
         var roleId = PF_INFO.roleId;
         var roleName = PF_INFO.roleName;
         var openId = Global.sygame.openid;
-        var param = `&role_id=${Global.sygame.role_id}&channel=${Global.sygame.channel}&server_id=${serverId}&server_name=${serverName}&wecha_id=${openId}&role_id=${roleId}&role_name=${roleName}`;
+        var param = `&version=${Sygame.SY_CONF.APP_VERSION}&role_id=${Global.sygame.role_id}&channel=${Global.sygame.channel}&server_id=${serverId}&server_name=${serverName}&wecha_id=${openId}&role_id=${roleId}&role_name=${roleName}`;
         this.tool.send("https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApiRoleId"+param, this.rolePriceHandler.bind(this), this.roleError.bind(this));
     };
     MainController.prototype.page1 = function () {

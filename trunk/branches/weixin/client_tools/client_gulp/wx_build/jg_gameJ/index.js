@@ -600,6 +600,19 @@ window.microPortGuide = function(){
   AKSDK.weiduanHelper();
 }
 
+//绑定有礼请求短信验证码
+window.reqSMSCode = function(phone, role_id, uid, game_pkg, partner_id, sign, callback, server_id) {
+  server_id = server_id || PF_INFO.selectedServer.server_id;
+  sendApi(PF_INFO.apiurl, 'User.get_code', {
+    'phone': phone,
+    'role_id': role_id,
+    'uid': PF_INFO.account,
+    'game_pkg': PF_INFO.pkgName,
+    'partner_id': PF_INFO.partnerId,
+    'server_id': server_id,
+  }, callback);
+}
+
 //收藏
 //window.onShowData = null;
 //window.onShowCallback = null;

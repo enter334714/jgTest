@@ -1,11 +1,11 @@
-import Sygame from '../utils/sysdk-wxapp';
+﻿import Sygame from '../utils/sysdk-wxapp';
 window["Sygame"]  = Sygame;
 var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqysd2syxcx_KB', //盛也-逆神H5
     partner_label: 'shengye2',
     partner_id: '398',
-    game_ver: '34.0.1',
+    game_ver: '34.0.11',
     is_auth: false, //授权登录
 };
 window.config = config;

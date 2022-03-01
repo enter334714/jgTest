@@ -4,7 +4,7 @@ var config = {
     game_pkg: 'tjqy_tjqydyxyx_KI',
     partner_label: 'douyinxyx',
     partner_id: '502',
-    game_ver: '1.0.2',
+    game_ver: '1.0.3',
     is_auth: false, //授权登录
 
 };
@@ -454,18 +454,13 @@ function mainSDK() {
         },
 
         gameGoPay: function (cpData,androidData) {
-            console.log("[SDK]玩家金币充足，通知服务器发货,发货参赛");
-            console.log();
+            console.log("[SDK]米大师支付完毕，通知服务器发货");
             //请求pay接口
             var self = this;
             var session_key = wx.getStorageSync('plat_session_key');
             cpData['openid'] = partner_user_info.openid;
-            cpData['type'] = 1;
-            cpData['order_id'] = androidData['extraInfo']
-            console.log(cpData);
-            var url = 'https://' + HOST + '/partner/pay/' + config.partner_id + '/' + config.game_pkg + '/';
-            tt.request({
-                url: url,
+            wx.request({
+                url: 'https://' + HOST + '/partner/pay/' + config.partner_id + '/' + config.game_pkg + '/',
                 method: 'POST',
                 dataType: 'json',
                 header: {
@@ -473,7 +468,7 @@ function mainSDK() {
                 },
                 data: cpData,
                 success: function (res) {
-                    console.log("[SDK]通知服务端结果");
+                    console.log("[SDK]米大师支付结果");
                     console.log(res);
                     if(res.statusCode == 200){
                         if(res.data.state == 1){

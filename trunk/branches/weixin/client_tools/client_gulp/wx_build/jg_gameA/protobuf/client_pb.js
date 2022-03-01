@@ -10029,6 +10029,10 @@ module.exports = {
             "f14": {
               "type": "uint64",
               "id": 14
+            },
+            "f15": {
+              "type": "uint64",
+              "id": 15
             }
           }
         },
@@ -11488,6 +11492,18 @@ module.exports = {
             "f1": {
               "type": "bool",
               "id": 1
+            },
+            "f2": {
+              "type": "bool",
+              "id": 2
+            },
+            "f3": {
+              "type": "bool",
+              "id": 3
+            },
+            "f4": {
+              "type": "bool",
+              "id": 4
             }
           }
         },
@@ -11500,6 +11516,30 @@ module.exports = {
           }
         },
         "Tafv": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "T0rF": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "TmGD": {
+          "fields": {
+            "f0": {
+              "type": "uint64",
+              "id": 0
+            }
+          }
+        },
+        "TzUH": {
           "fields": {
             "f0": {
               "type": "uint64",
@@ -31617,6 +31657,15 @@ module.exports = {
           "fields": {}
         },
         "TuVQ": {
+          "fields": {}
+        },
+        "TdPH": {
+          "fields": {}
+        },
+        "TrBF": {
+          "fields": {}
+        },
+        "TnfD": {
           "fields": {}
         },
         "Tocy": {

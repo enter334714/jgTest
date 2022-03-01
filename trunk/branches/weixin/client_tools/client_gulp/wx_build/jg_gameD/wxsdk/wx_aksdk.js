@@ -5,7 +5,7 @@ var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqyzsj_JT',//有一 --飞剑 -战神纪
     partner_id: '317',
-    game_ver: '31.0.11',
+    game_ver: '31.0.15',
     is_auth: false, //授权登录
 };
 window.config = config;

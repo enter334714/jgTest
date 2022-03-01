@@ -224,12 +224,16 @@ window.clientlog = function(info) {
 }
 
 
-
+// iOS的实现会重新对query做一次encode，导致%变成了%25，所以错误的版本里面，deviceId是
+// deviceId=f1f82ba6-b006-991b-e7bd%252Bd123fa9f198e
+// 正确的deviceId是
+// deviceId=f1f82ba6-b006-991b-e7bd%2Bd123fa9f198e
+//快手设备号全部使用- 原因如上版本号1.4.1
 window.guild = function() {
   function S4() {
     return (((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1));
   }
-  return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "+" + S4() + S4() + S4());
+  return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 }
 /*sdk初始化*/
 window.sdkInit = function() {
@@ -955,6 +959,11 @@ window.req_multi_server_notice = function(type, pkgName, server_id, callback) {
     'server_id': server_id,
   }, callback);
 }
+window.req_privacy = function(pkgName, callback) {
+  sendApi(PF_INFO.apiurl, 'Common.get_option_pkg_detail', {
+    'game_pkg': pkgName,
+  }, callback);
+}
 
 
 window.get_status = function (server) {
@@ -1001,7 +1010,6 @@ window.reqServerCheckBanCallBack = function(data) {
   if (data.state === "success" && data.data) {
     var server = PF_INFO.selectedServer;
     server.channel_num = PF_INFO.channelNum;
-
     server.sign = String(data.data.login_sign);
     server.tick = parseInt(data.data.time);
     if (data.data.server_num)
@@ -1012,6 +1020,8 @@ window.reqServerCheckBanCallBack = function(data) {
     server.cdn = PF_INFO.base_cdn;
     server.resver = data.data.cdn_version;
     server.server_options = data.data.server_options;
+    if (data.data.max_create)
+      server.max_create = parseInt(data.data.max_create);
 
     console.log("server_options："+ JSON.stringify(server.server_options));
 
