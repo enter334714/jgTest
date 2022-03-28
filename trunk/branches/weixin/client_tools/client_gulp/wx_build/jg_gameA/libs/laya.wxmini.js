@@ -765,6 +765,7 @@
   //class laya.wx.mini.MiniSound extends laya.events.EventDispatcher
   var MiniSound = (function (_super) {
     function MiniSound() {
+      console.log("new miniSound"+    MiniSound.news++)
       this._sound = null;
       /**
        *声音URL
@@ -777,7 +778,7 @@
       MiniSound.__super.call(this);
       this._sound = MiniSound._createSound();
     }
-
+    MiniSound.news = 0;
     __class(MiniSound, 'laya.wx.mini.MiniSound', _super);
     var __proto = MiniSound.prototype;
     /**
@@ -785,7 +786,7 @@
      *@param url 地址。
      *
      */
-    __proto.load = function (url) {
+    __proto.load = function (url) {     
       var _$this = this;
       url = URL.formatURL(url);
       this.url = url;
@@ -825,10 +826,8 @@
       }
       this._sound.onCanplay(onCanPlay);
       this._sound.onError(onError);
-      this._sound.src = url;
-      var me = this;
+      this._sound.src = url;      
     }
-
     /**
      *播放声音。
      *@param startTime 开始时间,单位秒
@@ -844,8 +843,9 @@
         if (!MiniSound._musicAudio) MiniSound._musicAudio = MiniSound._createSound();
         tSound = MiniSound._musicAudio;
       } else {
-        tSound = MiniSound._createSound();
+        tSound = this._sound;//MiniSound._createSound();
       }
+      
       tSound.src = this.url;
       var channel = new MiniSoundChannel(tSound);
       channel.url = this.url;
@@ -877,7 +877,8 @@
 
     MiniSound._createSound = function () {
       MiniSound._id++;
-      return MiniAdpter.window.wx.createInnerAudioContext();
+      var audioContext = MiniAdpter.window.wx.createInnerAudioContext({useWebAudioImplement:true});     
+      return audioContext
     }
 
     MiniSound._musicAudio = null;
@@ -908,7 +909,7 @@
     __proto.__onEnd = function () {
       if (this.loops == 1) {
         if (this.completeHandler) {
-          Laya.timer.once(10, this, this.__runComplete, [this.completeHandler], false);
+          Laya.timer.once(0, this, this.__runComplete, [this.completeHandler], false);
           this.completeHandler = null;
         }
         this.stop();
@@ -957,6 +958,9 @@
           MiniSoundChannel._null = Utils.bind(this.__onNull, this);
         }
       }
+      this._audio.offEnded(this._onEnd);
+      // this._audio.dispose();
+      // this._audio.destroy();     
       this._audio = null;
     }
 
