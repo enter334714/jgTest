@@ -3,7 +3,7 @@ var config = {
     game_id: '256', //伏魔西游 -官包
     game_pkg: 'tjqy_tjqyfmxy_GR',
     partner_id: '19',
-    game_ver: '11.0.47',  //L包11.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '11.0.55',  //L包11.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false,  //授权登录
     from: null, //来源
     //1活动开启通知 2.活动状态提醒 3.离线收益上限提醒
@@ -23,6 +23,8 @@ var this_order_id = null;
 var checkHandler = null;
 var loginHandler = null;
 var requestCallback = false;
+
+var ad_info = null;
 
 function mainSDK() {
     var callbacks = {};
@@ -101,6 +103,43 @@ function mainSDK() {
                     callback && callback(data);
                 });
             }
+            ad_info = {
+                "temp_info":info,
+                "temp_uuid":uuid,
+                "temp_is_new":is_new,
+            }
+        },
+
+        adLog:function (openid){
+            //发送启动参数
+            var info = ad_info.temp_info;
+            var is_new = ad_info.temp_is_new;
+            var uuid = ad_info.temp_uuid;
+            if(info.query.hasOwnProperty('ad_code')&&info.query.hasOwnProperty('clue_token') && is_new){
+                var temp_data = info.query;
+                temp_data['uuid'] = uuid;
+                temp_data['openid'] = openid;
+                var url = 'https://adapi.sh9130.com/click/?ac=jrttWxMiniGameClick&'+this.convertObj(temp_data);
+                console.log("发送url:"+url);
+                wx.request({
+                    url: url,
+                });
+            }
+        },
+
+        convertObj:function(data) {
+            var _result = [];
+            for (var key in data) {
+                var value = data[key];
+                if (value.constructor == Array) {
+                    value.forEach(function(_value) {
+                        _result.push(key + "=" + _value);
+                    });
+                } else {
+                    _result.push(key + '=' + value);
+                }
+            }
+            return _result.join('&');
         },
 
         //登录接口
@@ -223,6 +262,11 @@ function mainSDK() {
                                                         ios_pay: data.data.ios_pay || '0',
 
                                                     };
+                                                    try{
+                                                        self.adLog(data.data.openid);
+                                                    } catch (e) {
+                                                        console.log("上报广告数据:"+JSON.stringify(e));
+                                                    }
                                                     try {
                                                         wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
                                                         wx.setStorageSync('plat_uid', data.data.user_id);
@@ -295,6 +339,11 @@ function mainSDK() {
                                                 ios_pay: data.data.ios_pay || '0',
 
                                             };
+                                            try{
+                                                self.adLog(data.data.openid);
+                                            } catch (e) {
+                                                console.log("上报广告数据:"+JSON.stringify(e));
+                                            }
                                             try {
                                                 wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
                                                 wx.setStorageSync('plat_uid', data.data.user_id);
@@ -937,6 +986,34 @@ function mainSDK() {
                 device: system.platform == 'android' ? 1 : 2,
             };
         },
+        subscribeWhatsNew:function (type,callback){
+            wx.requestSubscribeWhatsNew({
+                msgType: 1,    // 消息类型，1=游戏更新提醒，目前只有这种类型
+                success(res) {
+                    console.log(res);
+                    // res.confirm === true 或 false
+                    callback(res.confirm)
+                },
+                fail(err) {
+                    console.error(err);
+                    callback(false)
+                }
+            })
+        },
+
+        subscriptionsSetting:function (type,callback){
+            wx.getWhatsNewSubscriptionsSetting({
+                msgType: 1,    // 消息类型，1=游戏更新提醒，目前只有这种类型
+                success(res) {
+                    console.log(res)
+                    callback(res.status);
+                },
+                fail(err) {
+                    console.error(err);
+                    callback(0);
+                }
+            })
+        },
 
         //统一发送log
         log: function (type, data) {
@@ -949,15 +1026,7 @@ function mainSDK() {
             console.log(public_data);
 
             wx.request({
-                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data)),
-                success: function (res) {
-                    // console.log("[SDK]上报数据成功");
-                    // console.log(res);
-                },
-                fail: function(res){
-                    // console.log("[SDK]上报数据失败");
-                    // console.log(res);
-                }
+                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data))
             });
         },
 
@@ -1084,4 +1153,10 @@ exports.getPublicData = function(){
 
 exports.weiduanHelper = function () {
     run('weiduanHelper');
+};
+exports.subscribeWhatsNew = function (data, callback) {
+    run('subscribeWhatsNew', data, callback);
+};
+exports.subscriptionsSetting = function (data, callback) {
+    run('subscriptionsSetting', data, callback);
 };

@@ -1,2 +1,1 @@
-var W = wx.$l;
-require(W[0]);
+var W=wx.$l;require(W[0]);

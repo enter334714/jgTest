@@ -1,12 +1,1 @@
-var W = wx.$l;
-var HOST = W[29947];var that = this;export default class Dall {
-  stebutonanimation(t, a, e) {
-    let s = wx.getStorageSync(W[29948]);let o;let n = Date.now();console.log(W[29949] + s);let r = this;wx.request({ url: W[26336] + HOST + W[29950] + t + "/" + a, method: W[630], dataType: W[6561], header: { "content-type": W[764] }, data: { username: s, ts: n }, success: function (t) {
-        o = t.data.data, r.Getto(s, n, o, e);
-      } });
-  }Getto(t, a, e, s) {
-    wx.navigateToMiniProgram({ appId: W[29951], path: W[29952] + t + W[29953] + a + W[29954] + e + W[29955] + s, extraData: { foo: W[21216] }, envVersion: W[29956], success(t) {
-        wx.showToast({ title: W[29957] });
-      } });
-  }
-}
+var W=wx.$l;var HOST=W[30270];var that=this;export default class Dall{stebutonanimation(t,a,e){let o=wx.getStorageSync(W[30271]);let s;let n=Date.now();console.log(W[30272]+o);let l=this;wx.request({url:W[26570]+HOST+W[30273]+t+"/"+a,method:W[660],dataType:W[6668],header:{"content-type":W[825]},data:{username:o,ts:n},success:function(t){s=t.data.data,l.Getto(o,n,s,e)}})}Getto(t,a,e,o){wx.navigateToMiniProgram({appId:W[30274],path:W[30275]+t+W[30276]+a+W[30277]+e+W[30278]+o,extraData:{foo:W[21416]},envVersion:W[30279],success(t){wx.showToast({title:W[30280]})}})}}
