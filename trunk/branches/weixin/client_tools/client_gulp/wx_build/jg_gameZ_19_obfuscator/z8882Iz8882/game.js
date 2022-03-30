@@ -1,0 +1,1 @@
+var G=wx.$G;require(G[814]);
