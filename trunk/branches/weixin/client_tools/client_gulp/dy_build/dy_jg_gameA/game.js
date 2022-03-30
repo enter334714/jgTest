@@ -1,13 +1,6 @@
 ﻿console.info("0 进入游戏包");
 
-let res = tt.getMenuButtonLayout();
-console.log("宽度：" + res.width);
-console.log("高度：" + res.height);
-console.log("上边界坐标：" + res.top);
-console.log("右边界坐标：" + res.right);
-console.log("下边界坐标：" + res.bottom);
-console.log("左边界坐标：" + res.left);
-res.top = 50
+
 var VSHADER_SOURCE =
     'attribute vec4 a_Position;\n' +
     'attribute vec2 a_TexCoord;\n' +

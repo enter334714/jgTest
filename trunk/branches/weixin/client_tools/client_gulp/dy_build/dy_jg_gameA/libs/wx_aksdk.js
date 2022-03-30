@@ -4,7 +4,7 @@ var config = {
     game_pkg: 'tjqy_tjqydyxyx_KI',
     partner_label: 'douyinxyx',
     partner_id: '502',
-    game_ver: '1.0.3',
+    game_ver: '1.0.5',
     is_auth: false, //授权登录
 
 };

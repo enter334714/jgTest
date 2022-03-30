@@ -115,6 +115,12 @@ ks.onShow(function (res) {
         wx.onShowCallback(wx.onShowData);
         wx.onShowData = null;
     }
+
+    if(ks.ksOnShowCallBack && ks.ksonShowContext){
+        var isLaunchFromApk = ks.isLaunchFromApk();
+        console.info("onShow isLaunchFromApk:", isLaunchFromApk);
+        ks.ksOnShowCallBack.call(ks.ksonShowContext,isLaunchFromApk);
+    }
 })
 
 loadLibs();

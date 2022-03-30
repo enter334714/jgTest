@@ -265,8 +265,8 @@ wx.onMemoryWarning(function () {
   }
   if (window.memoryWarningNum >= 2) {
     window.memoryWarningNum = 0;
-    console.error('第二次内存警告');
-    wx.reportMonitor('0', 1);  //上报微信监控
+    // console.error('第二次内存警告');
+    // wx.reportMonitor('0', 1);  //上报微信监控
     if(window.PF_INFO && window.PF_INFO.wxIOS) window.reqRecordInfo("内存警告", "");
     if (onMemoryWarningCallBack) onMemoryWarningCallBack();//游戏内画质设为“低”
   }

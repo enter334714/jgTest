@@ -60,7 +60,7 @@ window.loadOption = false;
 window.loadServer = false;
 
 window.bEnterGame = false;
-
+window.sdkInitRes = null;
 
 window.alert = function(value) {
 //   console.log("alert", value);
@@ -254,6 +254,7 @@ window.sdkInit = function() {
 /*sdk初始化回调*/
 window.sdkOnInited = function(res) {
   var develop = res.develop;
+  sdkInitRes = res;
   // res.game_ver = "1.0.86";
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
   console.log("#初始化成功   提审状态:"+ develop +"   是否提审:"+ (develop == 1) +"   提审版本号:"+res.game_ver +"   当前版本号:"+window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
@@ -349,15 +350,26 @@ window.onUserLogin = function (response) {
 
   var self = this;
   wxShowLoading({ title: '请求服务器' });
+
+  var lastSerStr = localStorage.getItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account);
+  if (lastSerStr && lastSerStr != "") {
+    var lastSerId = Number(lastSerStr);
+    self.getCheckServers(lastSerId);
+  } else {
+    self.getDefaultServers();
+  }
+}
+
+window.getDefaultServers = function() {
+  var self = this;
   sendApi(PF_INFO.apiurl, 'Server.defaultServer', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
     'version': PF_INFO.version,
     'game_pkg': PF_INFO.pkgName,
     'device': PF_INFO.device_id,
-  }, self.onUserLoginDefaultServers.bind(self), apiRetryAmount, onApiError);
+  }, self.onUserLoginDefaultServers.bind(self), apiRetryAmount, onApiError); 
 }
-
 window.onUserLoginDefaultServers = function(response) {
   if (!response) {
     window.loginAlert('Server.defaultServer failed');
@@ -372,8 +384,36 @@ window.onUserLoginDefaultServers = function(response) {
     window.loginAlert('服务器尚未开启');
     return;
   }
+  this.updCurServer(response);
+}
+window.getCheckServers = function(lastSerId) {
+  var self = this;
+  sendApi(PF_INFO.apiurl, 'Server.check_server', {
+    'server_id': lastSerId,
+    'time': Date.now() / 1000,
+  }, self.onUserLoginCheckServers.bind(self), apiRetryAmount, onApiError);
+}
+window.onUserLoginCheckServers = function(response) {
+  if (!response) {
+    this.getDefaultServers();
+    return;
+  }
+  if (response.state != 'success') {
+    this.getDefaultServers();
+    return;
+  }
+  if (!response.data || response.data.length == 0) {
+    this.getDefaultServers();
+    return;
+  }
+  this.updCurServer(response);
 
-  PF_INFO.newRegister = response.is_new;
+  if (window.ServerLoading && window.ServerLoading.instance.openJumpTipsBtn) {
+    window.ServerLoading.instance.openJumpTipsBtn(sdkInitRes.isShowSdkAge, sdkInitRes.sdk_age_adaptation_icon, sdkInitRes.sdk_age_adaptation_content, sdkInitRes.coordinate_x, sdkInitRes.coordinate_y)
+  }
+}
+window.updCurServer = function(response) {
+  PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;
   PF_INFO.selectedServer = {
     'server_id': String(response.data[0].server_id),
     'server_name': String(response.data[0].server_name),
@@ -403,7 +443,7 @@ window.initComplete = function() {
   }
   window.loadServer = true;
   window.initMain();
-  window.enterToGame("initComplete"); 
+  window.enterToGame();
 }
 
 // 加载version_config版本文件，读取lastVersion号，外网是从后台请求获取
@@ -413,30 +453,30 @@ window.loadVersionConfig = function() {
     'version_name': PF_INFO.version_name,
   }, this.reqVersionConfigCallBack.bind(this), apiRetryAmount, onApiError);
 }
-window.reqVersionConfigCallBack = function(data) {
-    if (!data) {
-        window.loginAlert('User.getCdnVersion failed');
-        return;
-    }
-    if (data.state != 'success') {
-        window.loginAlert('User.getCdnVersion failed: state=' + data.state);
-        return;
-    }
-    if (!data.data || !data.data.version) {
-        window.loginAlert('User.getCdnVersion failed: version=' + (data.data&&data.data.version));
-        return;
-    }
-    if (data.data.cdn_url && data.data.cdn_url.length > 10) {
-        PF_INFO.base_cdn = data.data.cdn_url;
-        PF_INFO.cdn = data.data.cdn_url;
-    }
-    if (data.data.version) {
-        PF_INFO.lastVersion = data.data.version;
-    }
-    console.info("lastVersion:"+PF_INFO.lastVersion+", version_name:"+PF_INFO.version_name);
-    window.loadVersion = true;
-    window.initMain();
-    window.enterToGame("reqVersionConfigCallBack");
+window.reqVersionConfigCallBack = function (data) {
+  if (!data) {
+    window.loginAlert('User.getCdnVersion failed');
+    return;
+  }
+  if (data.state != 'success') {
+    window.loginAlert('User.getCdnVersion failed: state=' + data.state);
+    return;
+  }
+  if (!data.data || !data.data.version) {
+    window.loginAlert('User.getCdnVersion failed: version=' + (data.data && data.data.version));
+    return;
+  }
+  if (data.data.cdn_url && data.data.cdn_url.length > 10) {
+    PF_INFO.base_cdn = data.data.cdn_url;
+    PF_INFO.cdn = data.data.cdn_url;
+  }
+  if (data.data.version) {
+    PF_INFO.lastVersion = data.data.version;
+  }
+  console.info("lastVersion:" + PF_INFO.lastVersion + ", version_name:" + PF_INFO.version_name);
+  window.loadVersion = true;
+  window.initMain();
+  window.enterToGame();
 }
 
 // 请求隐私、超级VIP、公众号信息
@@ -456,7 +496,7 @@ window.reqPkgOptionsCallBack = function(data) {
     console.info("reqPkgOptionsCallBack "+data.state);
   }
   window.loadOption = true;
-  window.enterToGame("reqPkgOptions"); 
+  window.enterToGame();
 }
 
 
@@ -599,7 +639,8 @@ window.openService = function(){
 
 //微端引导
 window.microPortGuide = function(){
-  AKSDK.weiduanHelper();
+//   AKSDK.weiduanHelper();
+   AKSDK.saveAPKShortcut();
 }
 
 //绑定有礼请求短信验证码
@@ -612,7 +653,9 @@ window.reqSMSCode = function(phone, role_id, uid, game_pkg, partner_id, sign, ca
     'game_pkg': PF_INFO.pkgName,
     'partner_id': PF_INFO.partnerId,
     'server_id': server_id,
-  }, callback);
+  }, callback, 2, null, function() {
+    return true;
+  });
 }
 
 //收藏
@@ -626,6 +669,14 @@ window.onShow = function(callback){
     wx.onShowData = null;
   }
 }
+
+ks.ksOnShowCallBack = null;
+ks.ksonShowContext = null;
+window.ksOnShow = function(callback,context){
+    ks.ksOnShowCallBack  = callback;
+    ks.ksonShowContext = context;
+}
+
 //获取邀请者
 window.reqPlayerAskInfo = function(packageName, role_id, serverId, callBack) {
   window.send('https://sdk.sh9130.com/game/?ct=min&ac=getInviter', {
@@ -734,6 +785,25 @@ window.getBatteryInfo = function(callback) {
   //     callback && callback(info.isSuccess, info.level, info.isCharging);
   //   }
   // });
+}
+//获取网络类型
+window.getNetworkType = function(callback) {
+	// wx.getNetworkType({
+ //    success: function(resSuc) {
+ //      callback && callback(true, resSuc);
+ //    },
+ //    fail: function(resFail) {
+ //      callback && callback(false, resFail);
+ //    }
+ //  });
+}
+//添加网络状态变化监听
+window.onNetworkStatusChange = function(func) {
+	// if (func) wx.onNetworkStatusChange(func);
+}
+//移除网络状态变化监听
+window.offNetworkStatusChange = function(func) {
+	// wx.offNetworkStatusChange(func);	
 }
 
 window.send = function(url, data, callBack, retryAmount, errorCB, checkSuccess, reqType, contentType) {
@@ -1138,10 +1208,19 @@ window.enterToGame = function(from) {
         }
       }
 
-    //   console.log("window.MainWX.instance.initPlatdata(platData);")
-      window.MainWX.instance.initPlatdata(platData);
+            // if (ks.isLaunchFromApk()) {
+            //     // 表明游戏从Apk启动
+            // } else {
+            //     // 表明游戏不是从Apk启动
+            // }
+
+            //   console.log("window.MainWX.instance.initPlatdata(platData);")
+            var isLaunchFromApk = ks.isLaunchFromApk();
+            console.info("isLaunchFromApk:", isLaunchFromApk);
+            platData.ksLaunchFromApk = isLaunchFromApk;
+            window.MainWX.instance.initPlatdata(platData);
+        }
+    } else {
+        console.info("【登录】loadProbPkg:" + window.loadProbPkg + ",loadMainPkg:" + window.loadMainPkg + ",loadServerRes:" + window.loadServerRes + ",loadLoadingRes:" + window.loadLoadingRes + ",loadVersion:" + window.loadVersion + ",loadServer:" + window.loadServer + ",isCheckBan:" + window.isCheckBan + ",loadOption:" + window.loadOption);
     }
-  } else {
-    console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadServerRes:"+window.loadServerRes+",loadLoadingRes:"+window.loadLoadingRes+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);
-  }
 }
