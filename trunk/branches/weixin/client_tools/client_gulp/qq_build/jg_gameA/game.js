@@ -316,6 +316,17 @@ function qqmain() {
                 complete: function() {}
             })
         },
+        // 错误警报
+        toErrorAlarm: function (type, info) {
+            WX_MAIN.sendApi(PF_INFO.logurl, 'log.client_error', {
+            'game_pkg': PF_INFO.pkgName,
+            'partner_id': PF_INFO.partnerId,
+            'server_id': (PF_INFO.selectedServer&&PF_INFO.selectedServer.server_id>0 ? PF_INFO.selectedServer.server_id : 0),
+            'uid': (PF_INFO.account > 0 ? PF_INFO.account : 0),
+            'type': type,
+            'info': info,
+            }) 
+        },
         reqRecordError: function(str) {
             var info = JSON.parse(str);
             info.gamever = PF_INFO.wxVersion;
@@ -360,7 +371,7 @@ function qqmain() {
                     "cache-control": "no-cache"
                 },
                 success: function(res) {
-                    // console.log("send.success:", url, data, res);
+                    console.log("send.success:", url, data, res);
                     if (res && (res.statusCode == 200 || res.statusCode == 301)) {
                         var response = res.data;
                         if (!checkSuccess || checkSuccess(response, res, url)) {
@@ -464,9 +475,7 @@ function qqmain() {
                 'platformUid': PF_INFO.platform_uid,
                 'type': step,
                 'serverId': serverTmpId,
-            }, null, 2, null, function() {
-                return true;
-            });
+            }, null, 2, null, function() { return true; });
 
             if (WX_MAIN.stepMap[step]) {
                 AKSDK.reportAnalytics(WX_MAIN.stepMap[step]);
@@ -598,6 +607,7 @@ function qqmain() {
                     WX_MAIN.sdkLoginRetry--;
                     AKSDK.login(WX_MAIN.sdkOnLogin.bind(WX_MAIN));
                 } else {
+                    WX_MAIN.toErrorAlarm(1, "AKSDK.login fail: status="+status+",errMsg="+(data ? data.errMsg : ""));
                     WX_MAIN.reqRecordInfo("sdkOnLoginError", JSON.stringify({ status: status, data: data }));
                     WX_MAIN.loginAlert("登录/注册失败" + (data&&data.errMsg ? "，"+data.errMsg : ""));
                 }
@@ -605,11 +615,13 @@ function qqmain() {
         },
         onUserLogin: function (response) {
             if (!response) {
+                WX_MAIN.toErrorAlarm(2, "User.login fail: response is null");
                 WX_MAIN.reqRecordInfo("userLoginError", "response is null");
                 WX_MAIN.loginAlert('User.login failed');
                 return;
             }
             if (response.state != 'success') {
+                WX_MAIN.toErrorAlarm(2, "User.login fail: state="+response.state);
                 WX_MAIN.reqRecordInfo("userLoginError", JSON.stringify(response));
                 WX_MAIN.loginAlert('User.login failed: ' + response.state);
                 return;
@@ -625,12 +637,21 @@ function qqmain() {
             PF_INFO.sign = ''; // TODO
 
             WX_MAIN.onRoleRecordStep(22);
-            WX_MAIN.loginDefaultServers();
+            WX_MAIN.getServers();
         },
 
-        loginDefaultServers: function () {
+        getServers: function() {
             WX_MAIN.onRoleRecordStep(27);
             WX_MAIN.wxShowLoading({ title: '请求服务器' });
+            var lastSerStr = localStorage.getItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account);
+            if (lastSerStr && lastSerStr != "") {
+                var lastSerId = Number(lastSerStr);
+                WX_MAIN.getCheckServers(lastSerId);
+            } else {
+                WX_MAIN.getDefaultServers();
+            }
+        },
+        getDefaultServers: function () {
             WX_MAIN.sendApi(PF_INFO.apiurl, 'Server.defaultServer', {
                 'partner_id': PF_INFO.partnerId,
                 'uid': PF_INFO.account,
@@ -641,20 +662,49 @@ function qqmain() {
         },
         onUserLoginDefaultServers: function(response) {
             if (!response) {
+                WX_MAIN.toErrorAlarm(3, 'Server.defaultServer failed');
                 WX_MAIN.loginAlert('Server.defaultServer failed');
                 return;
             }
             if (response.state != 'success') {
+                WX_MAIN.toErrorAlarm(3, 'Server.defaultServer failed: ' + response.state);
                 WX_MAIN.loginAlert('Server.defaultServer failed: ' + response.state);
                 return;
             }
             if (!response.data || response.data.length == 0) {
+                WX_MAIN.toErrorAlarm(3, 'Server.defaultServer failed: data null');
                 WX_MAIN.loginAlert('服务器尚未开启');
                 return;
             }
-
+            WX_MAIN.updCurServer(response);
+        },
+        getCheckServers: function (lastSerId) {
+            WX_MAIN.sendApi(PF_INFO.apiurl, 'Server.check_server', {
+                'server_id': lastSerId,
+                'time': Date.now() / 1000,
+            }, WX_MAIN.onUserLoginCheckServers.bind(WX_MAIN), WX_MAIN.apiRetryAmount, WX_MAIN.onApiError.bind(WX_MAIN));
+        },
+        onUserLoginCheckServers: function(response) {
+            if (!response) {
+                WX_MAIN.toErrorAlarm(4, 'Server.check_server failed');
+                WX_MAIN.getDefaultServers();
+                return;
+            }
+            if (response.state != 'success') {
+                WX_MAIN.toErrorAlarm(4, 'Server.check_server failed: ' + response.state);
+                WX_MAIN.getDefaultServers();
+                return;
+            }
+            if (!response.data || response.data.length == 0) {
+                WX_MAIN.toErrorAlarm(4, 'Server.check_server failed: data null');
+                WX_MAIN.getDefaultServers();
+                return;
+            }
+            WX_MAIN.updCurServer(response);
+        },
+        updCurServer: function(response) {
             WX_MAIN.onRoleRecordStep(24);
-            PF_INFO.newRegister = response.is_new;
+            PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;
             PF_INFO.selectedServer = {
                 'server_id': String(response.data[0].server_id),
                 'server_name': String(response.data[0].server_name),

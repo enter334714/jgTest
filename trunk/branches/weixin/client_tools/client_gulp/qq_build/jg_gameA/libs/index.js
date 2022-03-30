@@ -35,6 +35,7 @@ window.reqRecordInfo = WX_MAIN.reqRecordInfo;
 window.send = WX_MAIN.send;
 window.sendApi = WX_MAIN.sendApi;
 window.onApiError = WX_MAIN.onApiError;
+window.toErrorAlarm = WX_MAIN.toErrorAlarm;
 window.onRoleRecordStep = WX_MAIN.onRoleRecordStep;
 window.wxShowLoading = WX_MAIN.wxShowLoading;
 window.wxHideLoading = WX_MAIN.wxHideLoading;
@@ -85,31 +86,8 @@ qq.initComplete = function() {
   //   showLoadingBtn: true,
   // }
   // new window.ServerLoading(wxData);
-
-  if (PF_INFO.newRegister == 1) { //新用户，发送验证
-    var status = PF_INFO.selectedServer.status;
-    if (status === -1 || status === 0) {
-      window.loginAlert(status === -1 ? "当前服务器在维护中" : "当前服务器尚未开启，敬请期待");
-      return;
-    } 
-    // window.loadServerRes = true;
-    req_server_check_ban(0, PF_INFO.selectedServer.server_id);
-    window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
-  } else { //老用户，进游戏的选服界面
-    window.ServerLoading.instance.openServer();
-    wxHideLoading();
-  }
-  
-  // if (qq.loadingInterval) clearInterval(qq.loadingInterval);
-  // qq.loadingInterval = null;
-
-  window.loadServer = true;
-
-  window.loadVersionConfig();
+  //先请求包配置
   window.reqPkgOptions();
-
-  window.initMain();
-  window.enterToGame(); 
 }
 
 // 加载version_config版本文件，读取lastVersion号，外网是从后台请求获取
@@ -121,14 +99,17 @@ window.loadVersionConfig = function() {
 }
 window.reqVersionConfigCallBack = function(data) {
     if (!data) {
+        window.toErrorAlarm(5, 'User.getCdnVersion failed');
         window.loginAlert('User.getCdnVersion failed');
         return;
     }
     if (data.state != 'success') {
+        window.toErrorAlarm(5, 'User.getCdnVersion failed: state=' + data.state);
         window.loginAlert('User.getCdnVersion failed: state=' + data.state);
         return;
     }
     if (!data.data || !data.data.version) {
+        window.toErrorAlarm(5, 'User.getCdnVersion failed: version=' + (data.data && data.data.version));
         window.loginAlert('User.getCdnVersion failed: version=' + (data.data&&data.data.version));
         return;
     }
@@ -153,15 +134,37 @@ window.reqPkgOptions = function() {
   }, this.reqPkgOptionsCallBack.bind(this), apiRetryAmount, onApiError);
 }
 window.reqPkgOptionsCallBack = function(data) {
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
     window.pkgOptions = data.data;
     for (var k in data.data) {
       PF_INFO[k] = data.data[k];
     }
   } else {            
+    window.toErrorAlarm(11, 'Common.get_option_pkg failed');
     console.info("reqPkgOptionsCallBack "+data.state);
   }
   window.loadOption = true;
+  
+  //请求完包配置后再走其他逻辑
+  if (PF_INFO.newRegister == 1) { //新用户，发送验证
+    var status = PF_INFO.selectedServer.status;
+    if (status === -1 || status === 0) {
+      window.toErrorAlarm(15, 'new register selectedServer status error: id='+PF_INFO.selectedServer.id+',status='+PF_INFO.selectedServer.status);
+      window.loginAlert(status === -1 ? "当前服务器在维护中" : "当前服务器尚未开启，敬请期待");
+      return;
+    } 
+    // window.loadServerRes = true;
+    req_server_check_ban(0, PF_INFO.selectedServer.server_id);
+    window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
+  } else { //老用户，进游戏的选服界面
+    window.ServerLoading.instance.openServer();
+    wxHideLoading();
+  }
+  // if (qq.loadingInterval) clearInterval(qq.loadingInterval);
+  // qq.loadingInterval = null;
+  window.loadServer = true;
+  window.loadVersionConfig();
+  window.initMain();
   window.enterToGame(); 
 }
 
@@ -199,8 +202,7 @@ window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, pric
 
 }
 window.toPayCallBack = function(data) {
-  if (data) {
-    if (data.errCode === 200 || data.state == 'success') {
+  if (data && (data.errCode === 200 || data.state == 'success')) {
       var info = PF_INFO.pay_infos[String(data.product_id)]
       if (info.callback)
         info.callback(data.product_id, data.cp_order_id, -1);
@@ -235,8 +237,9 @@ window.toPayCallBack = function(data) {
         }
       });
     } else {
-      alert(data.info);
-    }
+    var err = (data ? "errCode="+data.errCode+",state="+data.state+",info="+data.info : "获取订单失败");
+    window.toErrorAlarm(13, "Order.order fail: " + err);
+    alert(err);
   }
 }
 
@@ -329,7 +332,9 @@ window.reqSMSCode = function(phone, role_id, uid, game_pkg, partner_id, sign, ca
     'game_pkg': PF_INFO.pkgName,
     'partner_id': PF_INFO.partnerId,
     'server_id': server_id,
-  }, callback);
+  }, callback, 2, null, function() {
+    return true;
+  });
 }
 
 //调起组队分享（QQ）
@@ -574,6 +579,25 @@ window.getBatteryInfo = function(callback) {
     }
   });
 }
+//获取网络类型
+window.getNetworkType = function(callback) {
+  qq.getNetworkType({
+    success: function(resSuc) {
+      callback && callback(true, resSuc);
+    },
+    fail: function(resFail) {
+      callback && callback(false, resFail);
+    }
+  });
+}
+//添加网络状态变化监听
+window.onNetworkStatusChange = function(func) {
+  if (func) qq.onNetworkStatusChange(func);
+}
+//移除网络状态变化监听（qq没有移除监听的接口）
+window.offNetworkStatusChange = function(func) {
+  // qq.offNetworkStatusChange(func);  
+}
 
 window.req_server_group = function(step) {
   sendApi(PF_INFO.apiurl, 'Server.getServerGroup', {
@@ -585,7 +609,7 @@ window.req_server_group = function(step) {
   }, reqServerGroupCallBack, apiRetryAmount, onApiError)
 }
 window.reqServerGroupCallBack = function(data) {
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
     data.data.unshift({
       'id': -2,
       'name': "最新服"
@@ -598,7 +622,9 @@ window.reqServerGroupCallBack = function(data) {
     if (window.initPanel) window.initPanel.showGroupList();
   } else {
     PF_INFO.hasGroupReq = false;
-    window.loginAlert("reqServerGroupCallBack " + data.state);
+    var err = (data ? data.state : "");
+    window.toErrorAlarm(7, "Server.getServerGroup fail: " + err);
+    window.loginAlert("reqServerGroupCallBack " + err);
   }
 }
 
@@ -613,14 +639,16 @@ window.req_server_owner = function(step) {
 }
 window.reqServerOwnerCallBack = function(data) {
   PF_INFO.hasServerReq = false;
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
     for (var i = 0; i < data.data.length; i++) {
       data.data[i].status = get_status(data.data[i]);
     }
     PF_INFO.serverList[-1] = window.changeServerName(data.data);
     window.initPanel.showServerList(-1);
   } else {
-    window.loginAlert("reqServerOwnerCallBack " + data.state);
+    var err = (data ? data.state : "");
+    window.toErrorAlarm(8, "Server.getServerByUid fail: " + err);
+    window.loginAlert("reqServerOwnerCallBack " + err);
   }
 }
 window.req_server_owner_status = function(callback) {
@@ -645,7 +673,7 @@ window.req_server_list = function(step, group_id) {
 }
 window.reqServerListCallBack = function(data) {
   PF_INFO.hasServerReq = false;
-  if (data.state === "success" && data.data && data.data.data) {
+  if (data && data.state === "success" && data.data && data.data.data) {
     var groupid = data.data.server_group_id;
     var server_list = [];
     for (var i = 0; i < data.data.data.length; i++) {
@@ -658,7 +686,9 @@ window.reqServerListCallBack = function(data) {
     PF_INFO.serverList[groupid] = window.changeServerName(server_list);
     window.initPanel.showServerList(groupid);
   } else {
-    window.loginAlert("reqServerListCallBack " + data.state);
+    var err = (data ? data.state : "");
+    window.toErrorAlarm(9, "Server.getServerByGroup fail: " + err);
+    window.loginAlert("reqServerListCallBack " + err);
   }
 }
 window.req_recommend_server_list = function(step) {
@@ -672,14 +702,16 @@ window.req_recommend_server_list = function(step) {
 }
 window.reqServerRecommendCallBack = function(data) {
   PF_INFO.hasServerReq = false;
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
       for (var i = 0; i < data.data.length; i++) {
           data.data[i].status = get_status(data.data[i]);
       }
       PF_INFO.serverList[-2] = window.changeServerName(data.data);
       window.initPanel.showServerList(-2);
   } else {
-      alert("reqServerRecommendCallBack " + data.state);
+    var err = (data ? data.state : "");
+    window.toErrorAlarm(10, "Server.getRecommendServerList fail: " + err);
+    alert("reqServerRecommendCallBack " + err);
   }
 }
 window.changeServerName = function(lst) {
@@ -740,7 +772,7 @@ window.req_server_check_ban = function(step, server_id) {
 window.reqServerCheckBanCallBack = function(data) {
   var self = this;
   window.onRoleRecordStep(29);
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
     var server = PF_INFO.selectedServer;
     server.channel_num = PF_INFO.channelNum;
     server.sign = String(data.data.login_sign);
@@ -766,8 +798,10 @@ window.reqServerCheckBanCallBack = function(data) {
     checkBanSuccess();
   } else {
     if (PF_INFO.last_check_ban.step >= 3) {
+      var err = (data ? data.state : "");
+      window.toErrorAlarm(12, "User.checkInfo fail: " + err);
       onApiError(JSON.stringify(data));
-      window.loginAlert('User.checkInfo failed: ' + data.state);
+      window.loginAlert('User.checkInfo failed: ' + err);
     } else {
       sendApi(PF_INFO.apiurl, 'User.login', {
         'platform': PF_INFO.sdk_name,
@@ -870,6 +904,7 @@ window.enterToGame = function() {
       }
 
       window.MainWX.instance.initPlatdata(platData);
+      if (PF_INFO.selectedServer && PF_INFO.selectedServer.server_id) localStorage.setItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account, PF_INFO.selectedServer.server_id);
     }
   } else {
     console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadServerRes:"+window.loadServerRes+",loadLoadingRes:"+window.loadLoadingRes+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);
