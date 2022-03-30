@@ -5,7 +5,7 @@ var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqyzsj_JT',//有一 --飞剑 -战神纪
     partner_id: '317',
-    game_ver: '31.0.15',
+    game_ver: '31.0.17',
     is_auth: false, //授权登录
 };
 window.config = config;
@@ -216,17 +216,17 @@ function mainSDK() {
             SDKyyw.cutGameCallback = (data) => {
                 // {status: 1,msg: "success", data: res } 跳转成功
                 // {status: 0,msg: "fail", data: err } 跳转失败
-              callbacks(data);
-              }
-              
-              // 跳转
-              if(partner_swtich_info.showSwitchOn == 1) {
+                callbacks(data);
+            }
+
+            // 跳转
+            if(partner_swtich_info.showSwitchOn == 1) {
                 SDKyyw.cutGame()
-              }else{
+            }else{
                 callbacks({status: 0,msg: "没开启跳转" });
-              }
+            }
         },
-        
+
 
         logStartShare: function (type) {
             var sdk_token = wx.getStorageSync('plat_sdk_token');
@@ -497,6 +497,7 @@ function mainSDK() {
             report_data.type = 2; //1:登录，2:创建角色
             report_data.roleId =data.roleid;
             report_data.roleName =data.rolename;
+            report_data.serverId =data.serverid;
             SDKyyw.pushData(report_data);
 
         },
@@ -532,12 +533,14 @@ function mainSDK() {
             report_data1.type = 1; //1:登录，2:创建角色
             report_data1.roleId =data.roleid;
             report_data1.roleName =data.rolename;
+            report_data1.serverId =data.serverid;
             SDKyyw.pushData(report_data1);
 
             let report_data2 = {};
             report_data2.type = 5; //5:在线
             report_data2.roleId =data.roleid;
             report_data2.roleName =data.rolename;
+            report_data2.serverId =data.serverid;
             SDKyyw.pushData(report_data2);
         },
 
@@ -562,6 +565,14 @@ function mainSDK() {
             }
 
             this.log('levelup', postData);
+
+            let upgradeData = {};
+            upgradeData.type = 4; //4:角色升级
+            upgradeData.roleId =data.roleid;
+            upgradeData.roleName =data.rolename;
+            upgradeData.serverId =data.serverid;
+            upgradeData.level = data.rolelevel;
+            SDKyyw.pushData(upgradeData);
         },
 
         //获取唯一设备码（自定义）
