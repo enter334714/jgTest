@@ -1,2 +1,1 @@
-var M = wx.$T;
-import 'ttMAItttt.js';
+var M=wx.$T;import"ttMAItttt.js";

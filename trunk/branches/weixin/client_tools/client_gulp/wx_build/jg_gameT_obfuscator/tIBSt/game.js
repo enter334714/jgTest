@@ -1,2 +1,1 @@
-var M = wx.$T;
-require(M[0]);
+var M=wx.$T;require(M[923]);
