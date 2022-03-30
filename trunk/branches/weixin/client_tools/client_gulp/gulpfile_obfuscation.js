@@ -4931,7 +4931,7 @@ var set_param_T = function () {
             "wxloading_atlas/image_login_point2.png": {url:"ttdt/t19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"ttdt/t20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"ttlgrtt/t199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ttlgrtt/t1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"ttlgrtt/t123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"ttlgrtt/t2b.jpg"},
@@ -5006,8 +5006,7 @@ var set_param_T = function () {
             "image_login_point2.png":"t19a.png",
             "image_login_point3.png": "t20a.png",
 
-
-
+            "image_xuanqu_ztjb0.png": "t199b.png",
             "image_denglu_txtshenpi.png": "t1b.png",
             "shenhezizi.png": "t123b.png",
             "image_login_loginbg.jpg": "t2b.jpg",
@@ -6067,6 +6066,11 @@ gulp.task('build-babel-obfuscator-X', function (cb) {
     sequence("set-param-X","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
+});
+
+//混淆
+gulp.task('build-babel-obfuscator-X-minify', function (cb) {
+    sequence("set-param-X","MT1_build_minifyTargetProject",cb);
 });
 
 /**-------------------------------------------------微信小游戏--X包 墨阳--御天下 end-----------------------------------------------------------*/
@@ -10980,7 +10984,7 @@ gulp.task('build-babel-obfuscator-Z_18-minify', function (cb) {
 
 /**-------------------------------------------------微信小游戏--Z18包 .趣浓vs闲闲 end-----------------------------------------------------------*/
 
-/**-------------------------------------------------微信小游戏--Z8 9130vs火速-火神服 start-----------------------------------------------------------*/
+/**-------------------------------------------------微信小游戏--Z19 9130vs火速混墨阳战神风云 start-----------------------------------------------------------*/
 
 
 /**Z_19包参数*/
@@ -11223,7 +11227,7 @@ gulp.task('build-babel-obfuscator-Z_19-minify', function (cb) {
 });
 
 
-/**-------------------------------------------------微信小游戏--Z19包 9130vs火速-火神服 end-----------------------------------------------------------*/
+/**-------------------------------------------------微信小游戏--Z19包 9130vs火速混墨阳  战神风云 end-----------------------------------------------------------*/
 
 
 
@@ -12409,7 +12413,7 @@ gulp.task('MT1_COPY', function () {
                 return match;
             }
         }))
-        .pipe(replace(/(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)|(btn_com_chuangback.png)|(btn_login_gonggao.png)|(btn_login_loginanniu.png)|(btn_login_yingsi.png)|(btn_xuanqu_anniuhuang.png)|(btn_xuanqu_anniulan.png)|(btn_xuanqu_quanniu.png)|(image_com_tuichu.png)|(image_login_changtong.png)|(image_login_fanmang.png)|(image_login_weihu.png)|(image_login_xuanqubg.png)|(image_login_init.png)|(btn_com_chuangback1.png)|(btn_com_long0.png)|(btn_com_long1.png)|(image_login_notice1.png)|(shenhezizi.png)/g, function (match, p1, offset, string) {
+        .pipe(replace(/(image_xuanqu_ztjb0.png)|(image_denglu_txtshenpi.png)|(image_login_loginbg.jpg)|(image_login_loginbg_bottom.jpg)|(image_login_loginbg_left.jpg)|(image_login_loginbg_right.jpg)|(image_login_loginbg_top.jpg)|(image_login_logo.png)|(image_login_notice.png)|(image_xuanfu_xfbg.png)|(btn_com_chuangback.png)|(btn_login_gonggao.png)|(btn_login_loginanniu.png)|(btn_login_yingsi.png)|(btn_xuanqu_anniuhuang.png)|(btn_xuanqu_anniulan.png)|(btn_xuanqu_quanniu.png)|(image_com_tuichu.png)|(image_login_changtong.png)|(image_login_fanmang.png)|(image_login_weihu.png)|(image_login_xuanqubg.png)|(image_login_init.png)|(btn_com_chuangback1.png)|(btn_com_long0.png)|(btn_com_long1.png)|(image_login_notice1.png)|(shenhezizi.png)/g, function (match, p1, offset, string) {
             var relative = this.file.relative.replace(/\\/g, "/");
             if (replaceMap[relative]) { //登录界面才替换
                 console.log("relative2:",relative,'Found ' + match + ' with param ' + p1, "替换为:", mt1Replace[match]);

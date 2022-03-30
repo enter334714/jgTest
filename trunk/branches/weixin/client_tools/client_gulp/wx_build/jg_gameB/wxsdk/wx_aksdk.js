@@ -3,7 +3,7 @@ var config = {
     game_id: '256', //九歌行--天枢服--官方
     game_pkg: 'tjqy_jgxxyx_AF',
     partner_id: '19',
-    game_ver: '2.0.135',  //B包为2.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '2.0.179',  //B包为2.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false,  //授权登录
     from: null, //来源
     tmpId: {1:'EINuK1ZxS2r8DUPVqymQs_JbjT6nV5o_bo-wc67bbs8', 2:'JJ3T3yUyMvF_XfMKx3fFEPYJV8iZHI4M8Do5ddeN7sM', 3:'snQEtMujGdKT78ppl6C_k6z2Tzvp3W-2E_Tr02w2pB0'},  // 订阅的类型 和 模板id
@@ -937,6 +937,34 @@ function mainSDK() {
                 device: system.platform == 'android' ? 1 : 2,
             };
         },
+        subscribeWhatsNew:function (type,callback){
+            wx.requestSubscribeWhatsNew({
+                msgType: 1,    // 消息类型，1=游戏更新提醒，目前只有这种类型
+                success(res) {
+                    console.log(res);
+                    // res.confirm === true 或 false
+                    callback(res.confirm)
+                },
+                fail(err) {
+                    console.error(err);
+                    callback(false)
+                }
+            })
+        },
+
+        subscriptionsSetting:function (type,callback){
+            wx.getWhatsNewSubscriptionsSetting({
+                msgType: 1,    // 消息类型，1=游戏更新提醒，目前只有这种类型
+                success(res) {
+                    console.log(res)
+                    callback(res.status);
+                },
+                fail(err) {
+                    console.error(err);
+                    callback(0);
+                }
+            })
+        },
 
         //统一发送log
         log: function (type, data) {
@@ -949,15 +977,7 @@ function mainSDK() {
             console.log(public_data);
 
             wx.request({
-                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data)),
-                success: function (res) {
-                    // console.log("[SDK]上报数据成功");
-                    // console.log(res);
-                },
-                fail: function(res){
-                    // console.log("[SDK]上报数据失败");
-                    // console.log(res);
-                }
+                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data))
             });
         },
 
@@ -1071,4 +1091,11 @@ exports.getPublicData = function(){
 };
 exports.weiduanHelper = function () {
     run('weiduanHelper');
+};
+
+exports.subscribeWhatsNew = function (data, callback) {
+    run('subscribeWhatsNew', data, callback);
+};
+exports.subscriptionsSetting = function (data, callback) {
+    run('subscriptionsSetting', data, callback);
 };

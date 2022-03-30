@@ -28,8 +28,9 @@ wx.onError(function (error) {
       level: window.PF_INFO.roleLevel,
       user: window.PF_INFO.account,
       version: window.PF_INFO.lastVersion,
-      gamever: window.config.game_ver,
       cdn: window.PF_INFO.cdn,
+      pkgName: window.PF_INFO.pkgName,
+      gamever: window.config.game_ver,
       serverid: (window.PF_INFO.selectedServer ? window.PF_INFO.selectedServer.server_id : 0),
       systemInfo: window.systemInfo,
       error: "MiniProgramError",
@@ -98,7 +99,7 @@ wxShowLoading({ title: '正在加载' });
 
 // 每个分包的图集不一样，采用传参形式
 var wxData = {
-  showLoadingBtn: true,
+  showLoadingBtn: true  
 }
 new window.ServerLoading(wxData);
 window.ServerLoading.instance.openAuthor();
@@ -214,7 +215,7 @@ window.loadMain = function() {
   });
 }
 
-window.loadSubpackages = function () {
+// window.loadSubpackages = function () {
   if (window.compareVersion(window.SDKVersion, '2.1.0') >= 0) {   //分包wx.loadSubpackage：2.1.0，SDk的wx.createUserInfoButton：2.0.1
     console.log("微信基础库版本符合最低版本要求：" + window.SDKVersion + ">=2.1.0");
     window.sdkInit();
@@ -227,7 +228,7 @@ window.loadSubpackages = function () {
       content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
     })
   }
-}
+// }
 
 
 //获取系统信息
@@ -297,11 +298,16 @@ wx.onShow(function (res) {
 })
 
 // 内存警告相关，基础库 2.0.2 开始支持
+window.memoryGCTime = 0;
 window.memoryWarningNum = 0;
 window.onMemoryWarningCallBack = null;
 wx.onMemoryWarning(function () {
   window.memoryWarningNum++;
-  wx.triggerGC(); //微信小游戏垃圾回收;
+  var now = Date.now();
+  if (window.memoryGCTime==0 || (now-window.memoryGCTime)>120000) { //2分钟
+    console.warn('内存警告触发GC');
+    wx.triggerGC(); //微信小游戏垃圾回收;
+  }
   if (window.memoryWarningNum >= 2) {
     window.memoryWarningNum = 0;
     console.error('第二次内存警告');
@@ -309,26 +315,5 @@ wx.onMemoryWarning(function () {
     if(window.PF_INFO && window.PF_INFO.wxIOS) window.reqRecordInfo("内存警告", "");
     if (onMemoryWarningCallBack) onMemoryWarningCallBack();//游戏内画质设为“低”
   }
-  // wx.showModal({
-  //   title: '提示',
-  //   content: "内存偏低，请重启微信，并重新打开小游戏",
-  //   showCancel : false, 
-  //   success(res) {
-  //     if (window.memoryWarningNum >= 2) {
-  //       window.memoryWarningNum = 0;
-
-  //       wx.reportMonitor('0', 1);  //上报微信监控
-        
-  //       wx.exitMiniProgram({
-  //         success: function () {
-  //           console.error('退出游戏成功！');
-  //         },
-  //         fail: function () {
-  //           console.error('退出游戏失败！');
-  //         }
-  //       })
-  //     }
-  //   }
-  // })
 })
 
