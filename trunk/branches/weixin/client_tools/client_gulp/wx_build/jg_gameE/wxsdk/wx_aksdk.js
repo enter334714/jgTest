@@ -4,7 +4,7 @@ var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqyxyjz_FU', //有一 --飞剑 --侠义九州
     partner_id: '317',
-    game_ver: '5.0.36',
+    game_ver: '5.0.40',
     is_auth: false, //授权登录   
     from: null, //来源
     tmpId: {},  // 订阅的类型 和 模板id
@@ -497,6 +497,7 @@ function mainSDK() {
             report_data.type = 2; //1:登录，2:创建角色
             report_data.roleId =data.roleid;
             report_data.roleName =data.rolename;
+            report_data.serverId =data.serverid;
             SDKyyw.pushData(report_data);
 
         },
@@ -532,12 +533,14 @@ function mainSDK() {
             report_data1.type = 1; //1:登录，2:创建角色
             report_data1.roleId =data.roleid;
             report_data1.roleName =data.rolename;
+            report_data1.serverId =data.serverid;
             SDKyyw.pushData(report_data1);
 
             let report_data2 = {};
             report_data2.type = 5; //5:在线
             report_data2.roleId =data.roleid;
             report_data2.roleName =data.rolename;
+            report_data2.serverId =data.serverid;
             SDKyyw.pushData(report_data2);
         },
 
@@ -562,6 +565,14 @@ function mainSDK() {
             }
 
             this.log('levelup', postData);
+
+            let upgradeData = {};
+            upgradeData.type = 4; //4:角色升级
+            upgradeData.roleId =data.roleid;
+            upgradeData.roleName =data.rolename;
+            upgradeData.serverId =data.serverid;
+            upgradeData.level = data.rolelevel;
+            SDKyyw.pushData(upgradeData);
         },
 
         //获取唯一设备码（自定义）

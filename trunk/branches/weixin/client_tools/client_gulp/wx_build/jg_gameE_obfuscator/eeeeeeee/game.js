@@ -1,2 +1,1 @@
-var b = wx.$e;
-import 'eeemain.js';
+var b=wx.$e;import"eeemain.js";
