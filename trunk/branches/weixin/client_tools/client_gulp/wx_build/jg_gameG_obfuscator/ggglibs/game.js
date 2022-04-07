@@ -1,1 +1,2 @@
-var m=wx.$g;require(m[28181]);
+var m = wx.$g;
+require(m[28330]);
