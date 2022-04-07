@@ -43,7 +43,7 @@ function DOMParser(t) {
   }, endElement: function () {
     var t = this.currentElement;t.tagName, this.currentElement = t.parentNode;
   }, startPrefixMapping: function () {}, endPrefixMapping: function () {}, processingInstruction: function (t, e) {
-    e = this.doc.createProcessingInstruction(t, e);this.locator && position(this.locator, e), appendElement(this, e);
+    t = this.doc.createProcessingInstruction(t, e);this.locator && position(this.locator, t), appendElement(this, t);
   }, ignorableWhitespace: function () {}, characters: function (t) {
     var e;(t = _toString.apply(this, arguments)) && (e = this.cdata ? this.doc.createCDATASection(t) : this.doc.createTextNode(t), this.currentElement ? this.currentElement.appendChild(e) : /^\s*$/.test(t) && this.doc.appendChild(e), this.locator && position(this.locator, e));
   }, skippedEntity: function () {}, endDocument: function () {
@@ -57,7 +57,7 @@ function DOMParser(t) {
   }, endCDATA: function () {
     this.cdata = !1;
   }, startDTD: function (t, e, n) {
-    var r = this.doc.implementation;r && r.createDocumentType && (n = r.createDocumentType(t, e, n), this.locator && position(this.locator, n), appendElement(this, n));
+    var r = this.doc.implementation;r && r.createDocumentType && (r = r.createDocumentType(t, e, n), this.locator && position(this.locator, r), appendElement(this, r));
   }, warning: function (t) {
     console.warn("[xmldom warning]\t" + t, _locator(this.locator));
   }, error: function (t) {

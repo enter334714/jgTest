@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_tjqygjhol_FW', //盛也微信小游戏--飞仙服-鬼剑豪
     partner_label: 'shengye2',
     partner_id: '398',
-    game_ver: '6.0.26',
+    game_ver: '6.0.40',
     is_auth: false, //授权登录
     tmpId: {1:'r9EXyfU6PuWuCRkUp7C9ndzw9ak29C7FoEk3-zjJgsk', 2:'hAW1dt8vCojsgnK5EWpAqO6R_8_tN-BuwRSKWN-1zTs', 3:'XX3rRSCxKDWGYhATlC-jj_QTOd5kCzJBXv0HWCYbsMo'},  // 订阅的类型 和 模板id
 };

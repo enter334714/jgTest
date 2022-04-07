@@ -22,18 +22,22 @@ var __extends = this && this.__extends || function () {
   }, Global.resMap = {}, Global;
 }();var minitool = function () {
   function minitool() {
-    this.getIcon = "https://wx.11babay.cn/uploads/f/fkccc1532944783/5/2/c/7/60dc442c4fbc5.png", this.copyIcon = "https://wx.11babay.cn/uploads/f/fkccc1532944783/3/0/1/7/60dc4409dce39.png", Global.init(), this.postSidebarApi();
+    this.getIcon = "https://wx.11babay.cn/uploads/f/fkccc1532944783/5/2/c/7/60dc442c4fbc5.png", this.copyIcon = "https://wx.11babay.cn/uploads/f/fkccc1532944783/3/0/1/7/60dc4409dce39.png", Global.init(), this.getBoxCheckoutCode();
   }return minitool.prototype.send = function (t, i, e, o, a) {
     void 0 === o && (o = "get"), void 0 === a && (a = null);var n = new Laya.HttpRequest();n.http.timeout = 1e4, n.once(Laya.Event.COMPLETE, this, i), n.once(Laya.Event.ERROR, this, e), n.send(t, a, o, "text");
   }, minitool.prototype.postSidebarApi = function () {
-    this.send("https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApi&channel=" + Global.sygame.channel, this.completeHandler, this.errorHandler);
+    var t = Global.sygame.openid;t = `&channel=${Global.sygame.channel}&wecha_id=` + t;this.send("https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApi" + t, this.completeHandler, this.errorHandler);
+  }, minitool.prototype.getBoxCheckoutCode = function () {
+    var t = Sygame.SY_CONF.commitId;this.send("https://docater1.cn/index.php?g=Wap&m=MiniGame&a=getBoxCheckoutCode", this.getBoxCheckoutCodeRes, this.errorHandler, "post", { commitId: t });
+  }, minitool.prototype.getBoxCheckoutCodeRes = function (t) {
+    t = JSON.parse(t);console.log("getBoxCheckoutCode:", t), 1001 == t.status ? 4001 == t.info ? this.postSidebarApi() : console.error("\u76db\u4e5f\u76d2\u5b50 \u4e0d\u663e\u793a" + t) : console.error("\u76db\u4e5f\u76d2\u5b50 getBoxCheckoutCodeRes \u5176\u4ed6\u9519\u8bef" + t);
   }, minitool.prototype.completeHandler = function (t) {
     var i = JSON.parse(t);switch (console.log(i), i.status) {case 1001:
         var e = [];i.msg.basics_image_url && e.push({ url: i.msg.basics_image_url, type: Laya.Loader.IMAGE }), i.msg.public_code && e.push({ url: i.msg.public_code, type: Laya.Loader.IMAGE }), i.msg.vip_customer_service && e.push({ url: i.msg.vip_customer_service, type: Laya.Loader.IMAGE }), i.msg.vip_customer_service_not_add && e.push({ url: i.msg.vip_customer_service_not_add, type: Laya.Loader.IMAGE }), i.msg.game_center_image_url && e.push({ url: i.msg.game_center_image_url, type: Laya.Loader.IMAGE }), i.msg.vip_qrcode && e.push({ url: i.msg.vip_qrcode, type: Laya.Loader.IMAGE }), i.msg.getIcon && e.push({ url: this.getIcon, type: Laya.Loader.IMAGE }), i.msg.copyIcon && e.push({ url: this.copyIcon, type: Laya.Loader.IMAGE });for (var o = 0, a = i.msg.follow_gift_list; o < a.length; o++) {
           var n = a[o];e.push({ url: n.url, type: Laya.Loader.IMAGE });
-        }for (var s = 0, r = i.msg.vip_box_list; s < r.length; s++) {
-          n = r[s];e.push({ url: n.url, type: Laya.Loader.IMAGE });
-        }for (var h = 0; h < e.length; h++) Global.setResMap(e[h].url, Global.getTimeStamp()), e[h].url = Global.getResMap(e[h].url);Laya.loader.load(e, Laya.Handler.create(this, this.initGame)), this.data = i.msg;break;case 1002:
+        }for (var r = 0, s = i.msg.vip_box_list; r < s.length; r++) {
+          n = s[r];e.push({ url: n.url, type: Laya.Loader.IMAGE });
+        }for (var l = 0; l < e.length; l++) Global.setResMap(e[l].url, Global.getTimeStamp()), e[l].url = Global.getResMap(e[l].url);Laya.loader.load(e, Laya.Handler.create(this, this.initGame)), this.data = i.msg;break;case 1002:
         Toast.msg("\u7a7a\u7684\u6e38\u620fchannel");break;case 1003:
         Toast.msg("\u9519\u8bef\u7684\u6e38\u620fchannel");break;case 1004:
         Toast.msg("\u672a\u627e\u5230\u5bf9\u5e94\u6e38\u620f\u5927\u7c7b");break;case 1005:
@@ -48,7 +52,7 @@ var __extends = this && this.__extends || function () {
     var i = t._childs || [];for (var e = 0; e < i.length; e++) i[e] && (i[e].mouseThrough = !0);
   }, MainController.prototype.show = function () {
     if ("1" === this.tool.data.on) {
-      this.main = new ui.demoui.MainUI(), Laya.stage.addChild(this.main), this.main.mouseThrough = !0;var t = this.main._childs || [];for (var i = 0; i < t.length; i++) t[i].mouseThrough = !0;this.setChildMouseThroughs(this.main._childs), this.setChildMouseThroughs(this.main._childs[0]), this.initIcon(), this.initEvent(), this.initView(), Toast.init();
+      this.main = new ui.demoui.MainUI(), Laya.stage.addChild(this.main), this.main.mouseThrough = !0;var t = this.main._childs || [];for (var i = 0; i < t.length; i++) t[i].mouseThrough = !0;this.setChildMouseThroughs(this.main._childs), this.setChildMouseThroughs(this.main._childs[0]), this.initIcon(), this.initEvent(), this.initView(), Toast.init(), this.main.bg.x = -750;
     }
   }, MainController.prototype.initView = function () {
     var t = this;var i = this.tool.data.follow_down_words.replace(/\\n/g, "\n");this.main.box_1_lab_info.text = i;for (var e = 1; e <= this.tool.data.follow_gift_list.length; e++) {
@@ -56,14 +60,14 @@ var __extends = this && this.__extends || function () {
     }for (e = 1; e <= this.tool.data.vip_box_list.length; e++) {
       o = this.tool.data.vip_box_list[e - 1];this.main["box_2_img_" + e].skin = o.url, this.main["box_2_lab_" + e].text = o.name;
     }this.main.box_2_lab_m_1.text = "\u65b9\u6cd5\u4e00\uff1a\u5355\u65e5\u5145\u503c" + +this.tool.data.x + "\u5143", this.main.box_2_lab_m_2.text = "\u65b9\u6cd5\u4e8c\uff1a\u5386\u53f2\u7d2f\u8ba1\u5145\u503c" + +this.tool.data.y + "\u5143", this.main.box_2_lab_v_1.text = (this.rolePriceData.todayPrice || 0) + "/" + +this.tool.data.x + "\u5143", this.main.box_2_lab_v_2.text = (this.rolePriceData.allPrice || 0) + "/" + +this.tool.data.y + "\u5143", this.main.box_2_btn_copy.skin = this.tool.copyIcon, this.main.box_2_btn_get.skin = this.tool.getIcon, this.main.box_2_btn_copy.visible = !1, this.main.box_2_btn_get.on(Laya.Event.CLICK, this, function () {
-      0 != t.rolePriceData.is_vip ? (t.main.box_2_lab_wx.text = t.tool.data.vip_wx, t.main.box_2_btn_copy.visible = !0) : Toast.msg("\u8bf7\u5148\u83b7\u53d6vip\u8d44\u683c");
+      0 != t.rolePriceData.is_vip ? (t.main.box_2_lab_wx.text = this.rolePriceData.vip_wx, t.main.box_2_btn_copy.visible = !0) : Toast.msg("\u8bf7\u5148\u83b7\u53d6vip\u8d44\u683c");
     }), this.main.box_2_btn_copy.on(Laya.Event.CLICK, this, function () {
-      t.copyText(t.tool.data.vip_wx);
+      t.copyText(this.rolePriceData.vip_wx);
     }), this.main.box_2_addclick.on(Laya.Event.CLICK, this, function () {
-      0 != t.rolePriceData.is_vip && (t.main.box_help.visible = !0);
+      0 != t.rolePriceData.is_vip && (this.main.box_help_qrcode.skin = t.rolePriceData.vip_qrcode, t.main.box_help.visible = !0);
     }), this.main.box_help_close.on(Laya.Event.CLICK, this, function () {
       t.main.box_help.visible = !1;
-    }), this.main.box_help_bg.skin = this.tool.data.vip_customer_service_not_add, this.main.box_help_qrcode.skin = this.tool.data.vip_qrcode, this.main.box_help_qrcode.scaleX = 160 / this.main.box_help_qrcode.width, this.main.box_help_qrcode.scaleY = 160 / this.main.box_help_qrcode.width, this.main.box_3_panel.vScrollBar.visible = !1, this.main.box_3_panel.vScrollBarSkin = "common_atlas/scrollBar.png";
+    }), this.main.box_help_bg.skin = this.tool.data.vip_customer_service_not_add, this.main.box_help_qrcode.skin = t.rolePriceData.vip_qrcode, this.main.box_help_qrcode.scaleX = 160 / this.main.box_help_qrcode.width, this.main.box_help_qrcode.scaleY = 160 / this.main.box_help_qrcode.width, this.main.box_3_panel.vScrollBar.visible = !1, this.main.box_3_panel.vScrollBarSkin = "common_atlas/scrollBar.png";
   }, MainController.prototype.initIcon = function () {
     this.icon = new Laya.Image(), this.icon.skin = this.tool.data.basics_image_url, this.icon.x = 0, this.icon.y = 200, this.icon.width = 102, this.icon.height = 111, this.main.addChild(this.icon), this.icon.on(Laya.Event.MOUSE_DOWN, this, this.iconPress), this.icon.on(Laya.Event.MOUSE_UP, this, this.iconUp), this.icon.on(Laya.Event.MOUSE_WHEEL, this, this.iconMove), this.dragRect = new Laya.Rectangle(-this.icon.width / 2, 0, Laya.stage.width, Laya.stage.height - this.icon.height / 2);
   }, MainController.prototype.initEvent = function () {
@@ -79,13 +83,13 @@ var __extends = this && this.__extends || function () {
   }, MainController.prototype.initBoard = function () {
     this.isInitBoard = !0, this.page1();
   }, MainController.prototype.showBoard = function () {
-    this.main.bg.x = 0, this.icon.visible = !1, this.tool.send("https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApiRoleId&role_id=" + Global.sygame.role_id + "&channel=" + Global.sygame.channel, this.rolePriceHandler.bind(this), this.roleError.bind(this));
+    this.main.bg.x = 0, this.icon.visible = !1;var t = PF_INFO.selectedServer.server_id;var i = PF_INFO.selectedServer.server_name;var e = PF_INFO.roleId;var o = PF_INFO.roleName;var a = Global.sygame.openid;t = `&version=${Sygame.SY_CONF.APP_VERSION}&role_id=${Global.sygame.role_id}&channel=${Global.sygame.channel}&server_id=${t}&server_name=${i}&wecha_id=${a}&role_id=${e}&role_name=` + o;this.tool.send("https://docater1.cn/index.php?g=Wap&m=MiniGame&a=sidebarApiRoleId" + t, this.rolePriceHandler.bind(this), this.roleError.bind(this));
   }, MainController.prototype.page1 = function () {
-    this.page = 1, this.main.bg.skin = this.tool.data.public_code, this.main.box_1_show.visible = !0, this.main.box_2_show.visible = !1, this.main.box_3_show.visible = !1;
+    this.page = 1, MainController.prototype.page1Bg || (MainController.prototype.page1Bg = new Laya.Image(this.tool.data.public_code), this.main.bg.addChildAt(MainController.prototype.page1Bg, 0)), MainController.prototype.page1Bg && (MainController.prototype.page1Bg.visible = !0), MainController.prototype.page2Bg && (MainController.prototype.page2Bg.visible = !1), MainController.prototype.page3Bg && (MainController.prototype.page3Bg.visible = !1), this.main.box_1_show.visible = !0, this.main.box_2_show.visible = !1, this.main.box_3_show.visible = !1;
   }, MainController.prototype.page2 = function () {
-    this.page = 2, this.main.bg.skin = this.tool.data.vip_customer_service, this.main.box_1_show.visible = !1, this.main.box_2_show.visible = !0, this.main.box_3_show.visible = !1;
+    this.page = 2, MainController.prototype.page2Bg || (MainController.prototype.page2Bg = new Laya.Image(this.tool.data.vip_customer_service), this.main.bg.addChildAt(MainController.prototype.page2Bg, 0)), MainController.prototype.page1Bg && (MainController.prototype.page1Bg.visible = !1), MainController.prototype.page2Bg && (MainController.prototype.page2Bg.visible = !0), MainController.prototype.page3Bg && (MainController.prototype.page3Bg.visible = !1), this.main.box_1_show.visible = !1, this.main.box_2_show.visible = !0, this.main.box_3_show.visible = !1;
   }, MainController.prototype.page3 = function () {
-    this.page = 3, this.main.bg.skin = this.tool.data.game_center_image_url, this.main.box_1_show.visible = !1, this.main.box_2_show.visible = !1, this.main.box_3_show.visible = !0, this.sendBox || this.getBoxList(0), this.sendBox = !0, sygame && sygame.syClickOpenBox();
+    this.page = 3, MainController.prototype.page3Bg || (MainController.prototype.page3Bg = new Laya.Image(this.tool.data.game_center_image_url), this.main.bg.addChildAt(MainController.prototype.page3Bg, 0)), MainController.prototype.page1Bg && (MainController.prototype.page1Bg.visible = !1), MainController.prototype.page2Bg && (MainController.prototype.page2Bg.visible = !1), MainController.prototype.page3Bg && (MainController.prototype.page3Bg.visible = !0), MainController.prototype.page1Bg.visible = !1, this.main.bg.skin = this.tool.data.game_center_image_url, this.main.box_1_show.visible = !1, this.main.box_2_show.visible = !1, this.main.box_3_show.visible = !0, this.sendBox || this.getBoxList(0), this.sendBox = !0, sygame && sygame.syClickOpenBox();
   }, MainController.prototype.getBoxList = function (i) {
     var e = this;sygame && sygame.syGetBoxList({ page: i, count: 12 }).then(function (t) {
       t = t.data;1001 == t.status ? t.data && t.data.length && (e.boxlist = e.boxlist.concat(t.data), i++, e.getBoxList(i)) : e.boxListHandler();
@@ -99,12 +103,12 @@ var __extends = this && this.__extends || function () {
   }, MainController.prototype.rolePriceHandler = function (t) {
     this.rolePriceData = JSON.parse(t), 1001 === this.rolePriceData.status && (this.main.box_2_lab_v_1.text = (this.rolePriceData.todayPrice || 0) + "/" + +this.tool.data.x + "\u5143", this.main.box_2_lab_v_2.text = (this.rolePriceData.allPrice || 0) + "/" + +this.tool.data.y + "\u5143");
   }, MainController.prototype.roleError = function () {}, MainController.prototype.boxListHandler = function () {
-    var r = this;for (var t = 0; t < this.boxlist.length; t++) !function (t) {
-      var i = r.boxlist[t];var e = new ui.demoui.BoxItemUI();e.icon.skin = i.icon, e.title.text = i.title, e.x = t % 3 * 160, e.y = 160 * (t / 3 ^ 0), r.main.box_3_panel.addChild(e);var o = { appid: Global.sygame.appid, game_id: i.game_id, jump_appid: i.jump_appid, jump_path: i.jump_path, tunnel_id: i.tunnel_id, uv: 0, wecha_id: Global.sygame.openid };var a = i.preview_img;var n = i.jump_type;var s = i.kf_session;e.on(Laya.Event.CLICK, r, function () {
+    var s = this;for (var t = 0; t < this.boxlist.length; t++) !function (t) {
+      var i = s.boxlist[t];var e = new ui.demoui.BoxItemUI();e.icon.skin = i.icon, e.title.text = i.title, e.x = t % 3 * 160, e.y = 160 * (t / 3 ^ 0), s.main.box_3_panel.addChild(e);var o = { appid: Global.sygame.appid, game_id: i.game_id, jump_appid: i.jump_appid, jump_path: i.jump_path, tunnel_id: i.tunnel_id, uv: 0, wecha_id: Global.sygame.openid };var a = i.preview_img;var n = i.jump_type;var r = i.kf_session;e.on(Laya.Event.CLICK, s, function () {
         sygame && sygame.syClickBox({ game_id: i.game_id, tunnel_id: i.tunnel_id, jump_appid: i.jump_appid, jump_path: i.jump_path }).then(function (t) {
           "0" === n ? wx.navigateToMiniProgram({ appId: o.jump_appid, path: o.jump_path, fail: function (t) {
               a && wx.previewImage({ urls: [a] });
-            } }) : "1" === n ? a && wx.previewImage({ urls: [a] }) : "2" === n && s && wx.openCustomerServiceConversation({ sessionFrom: s, showMessageCard: !0, sendMessageTitle: "", sendMessagePath: "", sendMessageImg: "" });
+            } }) : "1" === n ? a && wx.previewImage({ urls: [a] }) : "2" === n && r && wx.openCustomerServiceConversation({ sessionFrom: r, showMessageCard: !0, sendMessageTitle: "", sendMessagePath: "", sendMessageImg: "" });
         });
       });
     }(t);
