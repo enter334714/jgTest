@@ -1,2 +1,1 @@
-var o = wx.$U;
-import 'uuMAIu.js';
+var o=wx.$U;import"uuMAIu.js";
