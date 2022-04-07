@@ -1,2 +1,1 @@
-var u = wx.$x;
-require(u[400000]);
+var u=wx.$x;require(u[4e5]);

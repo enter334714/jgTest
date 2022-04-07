@@ -1,12 +1,12 @@
 ﻿// require("../utils/wxsdk_v3.8.js");
-import w_test from "../utils/wxsdk_v3.8.js";
+import w_test from "../utils/wxsdk_v3.12.js";
 //TODO 替换对应参数
 var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqyytx_HY', //天剑vs墨阳--御天下
     partner_label: 'tingyaoxcx',
     partner_id: '477',
-    game_ver: '23.0.1',
+    game_ver: '23.0.25',
     is_auth: true, //授权登录
 };
 window.config = config;

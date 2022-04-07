@@ -278,7 +278,8 @@
         window.dispatchEvent && /*__JS__ */ window.dispatchEvent("resize");
       });
       SoundManager._soundClass = MiniSound;
-      SoundManager._musicClass = MiniSound;
+      SoundManager._musicClass = MiniSound;     
+      window._videoClass = MiniVideo;
     }
 
     MiniInput._onStageResize = function () {
@@ -765,6 +766,7 @@
   var MiniSound = (function (_super) {
     function MiniSound() {
       this._sound = null;
+      this._chanell = null;
       /**
        *声音URL
        */
@@ -775,6 +777,7 @@
       this.loaded = false;
       MiniSound.__super.call(this);
       this._sound = MiniSound._createSound();
+      this._chanell = new MiniSoundChannel(this._sound);
     }
 
     __class(MiniSound, 'laya.wx.mini.MiniSound', _super);
@@ -784,7 +787,7 @@
      *@param url 地址。
      *
      */
-    __proto.load = function (url) {
+    __proto.load = function (url) {     
       var _$this = this;
       url = URL.formatURL(url);
       this.url = url;
@@ -810,24 +813,23 @@
         }
       }
       function onCanPlay() {
-        _clearSound();
+        // _clearSound();
         me.loaded = true;
         me.event( /*laya.events.Event.COMPLETE*/ "complete");
         MiniSound._audioCache[me.url] = me;
       }
       function onError(res) {
         console.error("errCode="+res.errCode+"  errMsg="+res.errMsg);
-        _clearSound();
+        // _clearSound();
         me.event( /*laya.events.Event.ERROR*/ "error");
       }
       function onNull() {
       }
       this._sound.onCanplay(onCanPlay);
       this._sound.onError(onError);
-      this._sound.src = url;
+      this._sound.src = url;      
       var me = this;
     }
-
     /**
      *播放声音。
      *@param startTime 开始时间,单位秒
@@ -839,20 +841,41 @@
       (startTime === void 0) && (startTime = 0);
       (loops === void 0) && (loops = 0);
       var tSound;
+      var tchanell;
       if (this.url == SoundManager._tMusic) {
-        if (!MiniSound._musicAudio) MiniSound._musicAudio = MiniSound._createSound();
+        if (!MiniSound._musicAudio) MiniSound._musicAudio = this._sound;
         tSound = MiniSound._musicAudio;
+        tchanell = this._chanell;
       } else {
-        tSound = MiniSound._createSound();
+        tSound = this._sound;//MiniSound._createSound();
+        tchanell = this._chanell;
       }
+      
       tSound.src = this.url;
-      var channel = new MiniSoundChannel(tSound);
-      channel.url = this.url;
-      channel.loops = loops;
-      channel.startTime = startTime;
-      channel.play();
-      SoundManager.addChannel(channel);
-      return channel;
+      tSound.startTime  = 0;
+      // tSound.stop && tSound.stop();
+      // tSound.volume = 1;
+
+      // console.log("this.url tSound:",this.url,"currentTime:",tSound.currentTime,"paused:",tSound.paused)
+      // tSound.pause();
+      // tSound.play();
+      // console.log("-----this.url tSound:",this.url,"currentTime:",tSound.currentTime,"paused:",tSound.paused)
+      // var channel = new MiniSoundChannel(tSound);
+      // channel.url = this.url;
+      // channel.loops = loops;
+      // channel.startTime = startTime;
+      // channel.play();
+      // SoundManager.addChannel(channel);
+      // return channel;
+
+      if(tchanell.isStopped){
+        tchanell.url = this.url;
+        tchanell.loops = loops;
+        tchanell.startTime = startTime;
+        tchanell.play();        
+        SoundManager.addChannel(tchanell);
+      }
+      return tchanell;
     }
 
     /**
@@ -876,7 +899,8 @@
 
     MiniSound._createSound = function () {
       MiniSound._id++;
-      return MiniAdpter.window.wx.createInnerAudioContext();
+      var audioContext = MiniAdpter.window.wx.createInnerAudioContext({useWebAudioImplement:false});     
+      return audioContext
     }
 
     MiniSound._musicAudio = null;
@@ -896,7 +920,9 @@
     function MiniSoundChannel(audio) {
       this._audio = null;
       this._onEnd = null;
+     
       MiniSoundChannel.__super.call(this);
+      this.isStopped = true;
       this._audio = audio;
       this._onEnd = Utils.bind(this.__onEnd, this);
       audio.onEnded(this._onEnd);
@@ -944,19 +970,24 @@
         return;
       this._audio.stop();
 
-      if (MiniSoundChannel._null != undefined) {
-        this._audio.onEnded(MiniSoundChannel._null);
-      } else {
-        try {
-          this._audio.onEnded(null);
-          MiniSoundChannel._null = null;
-        } catch (error) {
-          console.warn("[wxmini] stop:"+ error);
-          this._audio.onEnded(Utils.bind(this.__onNull, this));
-          MiniSoundChannel._null = Utils.bind(this.__onNull, this);
-        }
-      }
-      this._audio = null;
+      // if (MiniSoundChannel._null != undefined) {
+      //   this._audio.onEnded(MiniSoundChannel._null);
+      // } else {
+      //   try {
+      //     this._audio.onEnded(null);
+      //     MiniSoundChannel._null = null;
+      //   } catch (error) {
+      //     console.warn("[wxmini] stop:"+ error);
+      //     this._audio.onEnded(Utils.bind(this.__onNull, this));
+      //     MiniSoundChannel._null = Utils.bind(this.__onNull, this);
+      //   }
+      // }
+      // try{
+      //   this._audio.offEnded(this._onEnd);
+      // }catch(error){
+      //   console.warn("warn:",error)
+      // }     
+      // this._audio = null;
     }
 
     __proto.pause = function () {
@@ -1011,6 +1042,199 @@
     return MiniSoundChannel;
   })(SoundChannel)
 
+
+  var MiniVideo = (function () {
+    function MiniVideo() {
+        this.videoend = false;
+        this.videourl = "";
+        this.videoElement = MiniAdpter.window.wx.createVideo({showCenterPlayBtn:false,showProgressInControlMode:false,objectFit:"fill"});
+    }
+    __class(MiniVideo, 'laya.wx.mini.MiniVideo');
+    var __proto = MiniVideo.prototype;
+
+    __proto.on = function (eventType, ths, callBack) {
+        if (eventType == "loadedmetadata") {
+            this.onPlayFunc = callBack.bind(ths);
+            this.videoElement.onPlay = this.onPlayFunction.bind(this);
+        }
+        else if (eventType == "ended") {
+            this.onEndedFunC = callBack.bind(ths);
+            this.videoElement.onEnded = this.onEndedFunction.bind(this);
+        }
+        this.videoElement.onTimeUpdate = this.onTimeUpdateFunc.bind(this);
+    }
+
+    __proto.onTimeUpdateFunc = function (data) {
+        this.position = data.position;
+        this._duration = data.duration;
+    }
+    __proto.onPlayFunction = function () {
+        if (this.videoElement)
+            this.videoElement.readyState = 200;
+        console.log("=====视频加载完成========");
+        this.onPlayFunc != null && this.onPlayFunc();
+    }
+    __proto.onended = function(ths, callBack){
+       this.onEndedFunC = callBack.bind(ths);
+       this.videoElement.onended = this.onEndedFunction.bind(this);
+    }
+    __proto.onEndedFunction = function () {
+        if (!this.videoElement)
+            return;
+        this.videoend = true;
+        console.log("=====视频播放完毕========");
+        this.onEndedFunC != null && this.onEndedFunC();
+    }
+    __proto.off = function (eventType, ths, callBack) {
+        if (eventType == "loadedmetadata") {
+            this.onPlayFunc = callBack.bind(ths);
+            this.videoElement.offPlay = this.onPlayFunction.bind(this);
+        }
+        else if (eventType == "ended") {
+            this.onEndedFunC = callBack.bind(ths);
+            this.videoElement.offEnded = this.onEndedFunction.bind(this);
+        }
+    }
+    __proto.load = function (url) {
+        if (!this.videoElement)
+            return;
+        this.videoElement.src = url;
+    }
+    __proto.play = function () {
+        if (!this.videoElement)
+            return;
+        this.videoend = false;
+        this.videoElement.play();
+    }
+    __proto.pause = function () {
+        if (!this.videoElement)
+            return;
+        this.videoend = true;
+        this.videoElement.pause();
+    }
+    __proto.size = function (width, height) {
+      if (!this.videoElement)
+          return;
+      this.videoElement.width = width;
+      this.videoElement.height = height;
+    }
+    __proto.destroy = function () {
+      if (this.videoElement)
+          this.videoElement.destroy();
+      this.videoElement = null;
+      this.onEndedFunC = null;
+      this.onPlayFunc = null;
+      this.videoend = false;
+      this.videourl = null;
+    }
+    __proto.reload = function () {
+        if (!this.videoElement)
+            return;
+        this.videoElement.src = this.videourl;
+    }
+
+    __getset(0, __proto, 'duration', function () {
+      return this._duration;
+    });
+
+    __getset(0, __proto, 'currentTime', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.initialTime;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.initialTime = value;
+    });
+
+    __getset(0, __proto, 'videoWidth', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.width;
+    });
+
+    __getset(0, __proto, 'videoHeight', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.height;
+    });
+
+    __getset(0, __proto, 'ended', function () {
+      return this.videoend;
+    });
+
+    __getset(0, __proto, 'loop', function () {
+      if (!this.videoElement) return false;
+      return this.videoElement.loop;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.loop = value;
+    });
+
+    __getset(0, __proto, 'playbackRate', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.playbackRate;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.playbackRate = value;
+    });
+
+    __getset(0, __proto, 'muted', function () {
+      if (!this.videoElement) return false;
+      return this.videoElement.muted;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.muted = value;
+    });
+
+    __getset(0, __proto, 'paused', function () {
+      if (!this.videoElement) return false;
+      return this.videoElement.paused;
+    });
+
+    __getset(0, __proto, 'x', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.x;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.x = value;
+    });
+
+    __getset(0, __proto, 'y', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.y;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.y = value;
+    });
+
+    __getset(0, __proto, 'currentSrc', function () {
+      return this.videoElement.src;
+    });
+
+ __getset(0, __proto, 'src', function () {
+      if (!this.videoElement) return 0;
+      return this.videoElement.src;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.src = value;
+  });
+
+  __getset(0, __proto, 'controls', function () {
+      if (!this.videoElement) return;
+      return this.videoElement.controls;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.controls = value;
+  });
+
+   __getset(0, __proto, 'autoplay', function () {
+      if (!this.videoElement) return;
+      return this.videoElement.autoplay;
+    }, function (value) {
+      if (!this.videoElement) return;
+      this.videoElement.autoplay = value;
+  });
+
+
+    return MiniVideo;
+  })()
 
 
 })(window, document, Laya);
