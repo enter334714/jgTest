@@ -11,7 +11,7 @@ window.ENV = 2;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
-
+window.isWaiFangWx = false;
 
 window.isCheckBan = false;
 window.loadProbPkg = false;
@@ -169,7 +169,7 @@ window.reqPkgOptionsCallBack = function(data) {
 }
 
 
-window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback) {
+window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback, appleprd_id) {
   productId = String(productId)
   var productname = productName
   var productdesc = productDesc
@@ -715,12 +715,6 @@ window.reqServerRecommendCallBack = function(data) {
   }
 }
 window.changeServerName = function(lst) {
-  if(!lst && lst.length <= 0) return lst;
-  for(let i = 0; i < lst.length; i++) {
-      if(lst[i].is_recommend && lst[i].is_recommend == 1) {
-          lst[i].server_name += "(推荐)";
-      }
-  }
   return lst;
 }
 window.req_server_notice = function(server_id, callback) {
