@@ -13,7 +13,7 @@ var config = {
     game_pkg: 'tjqy_tjlywffkxyxmj_FV', //疯狂微信小游戏-无双服-星聚
     partner_label: 'fkxyx',
     partner_id: '222',
-    game_ver: '7.0.8',
+    game_ver: '7.0.30',
     partner_game_id: 'xjtjqymini',
     is_auth: false, //授权登录
 };

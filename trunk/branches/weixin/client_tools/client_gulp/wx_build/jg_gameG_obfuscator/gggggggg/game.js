@@ -1,2 +1,1 @@
-var m = wx.$g;
-import 'gggmain.js';
+var m=wx.$g;import"gggmain.js";

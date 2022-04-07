@@ -550,7 +550,7 @@
                     posX: 100,
                     posY: 550,
                 },
-                defShowIcon: !!sdk_info.is_vipds,
+                defShowIcon: !!sdkInitRes.is_vipds,
                 onLoad: (err, data) => {
                     console.log('vip data loaded---', err, data);
                 }
