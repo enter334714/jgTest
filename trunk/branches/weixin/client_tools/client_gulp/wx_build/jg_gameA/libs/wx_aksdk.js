@@ -3,10 +3,10 @@ var config = {
     game_id: '256', //天剑奇缘--天枢服--官方
     game_pkg: 'tjqy_wxxyxcs_M',
     partner_id: '19',
-    game_ver: '1.0.526',  //A包为1.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '1.0.537',  //A包为1.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false,  //授权登录
     from: null, //来源
-    tmpId: {1:'pSH28Vom5lPVtCh0-QfVZqUDv1plQ6nvDoKF7gnKEtQ', 2:'ZHiVm5KGXfUpJT779phqRjQ2OsJW2BjJXF1zkPLIEtQ', 3:'pBpwl_Syx8rWKuuEw2P0A0zFbrqei0kIAyBj7EkEkLg'},  // 订阅的类型 和 模板id
+    tmpId: {1:'pSH28Vom5lPVtCh0-QfVZqUDv1plQ6nvDoKF7gnKEtQ', 2:'ZHiVm5KGXfUpJT779phqRjQ2OsJW2BjJXF1zkPLIEtQ', 3:'pBpwl_Syx8rWKuuEw2P0A0zFbrqei0kIAyBj7EkEkLg',4:'waoZlpFcdNrfGmWVCluiv5J1k2miBR3fV-yk-oEBNS0'},  // 订阅的类型 和 模板id
     min_app_id: '',
 };
 window.config = config;
@@ -22,6 +22,8 @@ var this_order_id = null;
 var checkHandler = null;
 var loginHandler = null;
 var requestCallback = false;
+
+var ad_info = null;
 
 function mainSDK() {
     var callbacks = {};
@@ -99,7 +101,45 @@ function mainSDK() {
                 this.checkGameVersion(game_ver, function (data) {
                     callback && callback(data);
                 });
+            };
+            ad_info = {
+                "temp_info":info,
+                "temp_uuid":uuid,
+                "temp_is_new":is_new,
             }
+        },
+
+
+        adLog:function (openid){
+            //发送启动参数
+            var info = ad_info.temp_info;
+            var is_new = ad_info.temp_is_new;
+            var uuid = ad_info.temp_uuid;
+            if(info.query.hasOwnProperty('ad_code')&&info.query.hasOwnProperty('clue_token') && is_new){
+                var temp_data = info.query;
+                temp_data['uuid'] = uuid;
+                temp_data['openid'] = openid;
+                var url = 'https://adapi.sh9130.com/click/?ac=jrttWxMiniGameClick&'+this.convertObj(temp_data);
+                console.log("发送url:"+url);
+                wx.request({
+                    url: url,
+                });
+            }
+        },
+
+        convertObj:function(data) {
+            var _result = [];
+            for (var key in data) {
+                var value = data[key];
+                if (value.constructor == Array) {
+                    value.forEach(function(_value) {
+                        _result.push(key + "=" + _value);
+                    });
+                } else {
+                    _result.push(key + '=' + value);
+                }
+            }
+            return _result.join('&');
         },
 
         //登录接口
@@ -222,6 +262,11 @@ function mainSDK() {
                                                         ios_pay: data.data.ios_pay || '0',
 
                                                     };
+                                                    try{
+                                                        self.adLog(data.data.openid);
+                                                    } catch (e) {
+                                                        console.log("上报广告数据:"+JSON.stringify(e));
+                                                    }
                                                     try {
                                                         wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
                                                         wx.setStorageSync('plat_uid', data.data.user_id);
@@ -294,6 +339,11 @@ function mainSDK() {
                                                 ios_pay: data.data.ios_pay || '0',
 
                                             };
+                                            try{
+                                                self.adLog(data.data.openid);
+                                            } catch (e) {
+                                                console.log("上报广告数据:"+JSON.stringify(e));
+                                            }
                                             try {
                                                 wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
                                                 wx.setStorageSync('plat_uid', data.data.user_id);
@@ -937,6 +987,34 @@ function mainSDK() {
                 device: system.platform == 'android' ? 1 : 2,
             };
         },
+        subscribeWhatsNew:function (type,callback){
+            wx.requestSubscribeWhatsNew({
+                msgType: 1,    // 消息类型，1=游戏更新提醒，目前只有这种类型
+                success(res) {
+                    console.log(res);
+                    // res.confirm === true 或 false
+                    callback(res.confirm)
+                },
+                fail(err) {
+                    console.error(err);
+                    callback(false)
+                }
+            })
+        },
+
+        subscriptionsSetting:function (type,callback){
+            wx.getWhatsNewSubscriptionsSetting({
+                msgType: 1,    // 消息类型，1=游戏更新提醒，目前只有这种类型
+                success(res) {
+                    console.log(res)
+                    callback(res.status);
+                },
+                fail(err) {
+                    console.error(err);
+                    callback(0);
+                }
+            })
+        },
 
         //统一发送log
         log: function (type, data) {
@@ -1071,4 +1149,11 @@ exports.getPublicData = function(){
 };
 exports.weiduanHelper = function () {
     run('weiduanHelper');
+};
+
+exports.subscribeWhatsNew = function (data, callback) {
+    run('subscribeWhatsNew', data, callback);
+};
+exports.subscriptionsSetting = function (data, callback) {
+    run('subscriptionsSetting', data, callback);
 };

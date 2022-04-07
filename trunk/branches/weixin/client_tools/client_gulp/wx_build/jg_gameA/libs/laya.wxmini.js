@@ -765,8 +765,8 @@
   //class laya.wx.mini.MiniSound extends laya.events.EventDispatcher
   var MiniSound = (function (_super) {
     function MiniSound() {
-      console.log("new miniSound"+    MiniSound.news++)
       this._sound = null;
+      this._chanell = null;
       /**
        *声音URL
        */
@@ -777,8 +777,9 @@
       this.loaded = false;
       MiniSound.__super.call(this);
       this._sound = MiniSound._createSound();
+      this._chanell = new MiniSoundChannel(this._sound);
     }
-    MiniSound.news = 0;
+
     __class(MiniSound, 'laya.wx.mini.MiniSound', _super);
     var __proto = MiniSound.prototype;
     /**
@@ -812,14 +813,14 @@
         }
       }
       function onCanPlay() {
-        _clearSound();
+        // _clearSound();
         me.loaded = true;
         me.event( /*laya.events.Event.COMPLETE*/ "complete");
         MiniSound._audioCache[me.url] = me;
       }
       function onError(res) {
         console.error("errCode="+res.errCode+"  errMsg="+res.errMsg);
-        _clearSound();
+        // _clearSound();
         me.event( /*laya.events.Event.ERROR*/ "error");
       }
       function onNull() {
@@ -827,6 +828,7 @@
       this._sound.onCanplay(onCanPlay);
       this._sound.onError(onError);
       this._sound.src = url;      
+      var me = this;
     }
     /**
      *播放声音。
@@ -839,21 +841,41 @@
       (startTime === void 0) && (startTime = 0);
       (loops === void 0) && (loops = 0);
       var tSound;
+      var tchanell;
       if (this.url == SoundManager._tMusic) {
-        if (!MiniSound._musicAudio) MiniSound._musicAudio = MiniSound._createSound();
+        if (!MiniSound._musicAudio) MiniSound._musicAudio = this._sound;
         tSound = MiniSound._musicAudio;
+        tchanell = this._chanell;
       } else {
         tSound = this._sound;//MiniSound._createSound();
+        tchanell = this._chanell;
       }
       
       tSound.src = this.url;
-      var channel = new MiniSoundChannel(tSound);
-      channel.url = this.url;
-      channel.loops = loops;
-      channel.startTime = startTime;
-      channel.play();
-      SoundManager.addChannel(channel);
-      return channel;
+      tSound.startTime  = 0;
+      // tSound.stop && tSound.stop();
+      // tSound.volume = 1;
+
+      // console.log("this.url tSound:",this.url,"currentTime:",tSound.currentTime,"paused:",tSound.paused)
+      // tSound.pause();
+      // tSound.play();
+      // console.log("-----this.url tSound:",this.url,"currentTime:",tSound.currentTime,"paused:",tSound.paused)
+      // var channel = new MiniSoundChannel(tSound);
+      // channel.url = this.url;
+      // channel.loops = loops;
+      // channel.startTime = startTime;
+      // channel.play();
+      // SoundManager.addChannel(channel);
+      // return channel;
+
+      if(tchanell.isStopped){
+        tchanell.url = this.url;
+        tchanell.loops = loops;
+        tchanell.startTime = startTime;
+        tchanell.play();        
+        SoundManager.addChannel(tchanell);
+      }
+      return tchanell;
     }
 
     /**
@@ -877,7 +899,7 @@
 
     MiniSound._createSound = function () {
       MiniSound._id++;
-      var audioContext = MiniAdpter.window.wx.createInnerAudioContext({useWebAudioImplement:true});     
+      var audioContext = MiniAdpter.window.wx.createInnerAudioContext({useWebAudioImplement:false});     
       return audioContext
     }
 
@@ -898,7 +920,9 @@
     function MiniSoundChannel(audio) {
       this._audio = null;
       this._onEnd = null;
+     
       MiniSoundChannel.__super.call(this);
+      this.isStopped = true;
       this._audio = audio;
       this._onEnd = Utils.bind(this.__onEnd, this);
       audio.onEnded(this._onEnd);
@@ -909,7 +933,7 @@
     __proto.__onEnd = function () {
       if (this.loops == 1) {
         if (this.completeHandler) {
-          Laya.timer.once(0, this, this.__runComplete, [this.completeHandler], false);
+          Laya.timer.once(10, this, this.__runComplete, [this.completeHandler], false);
           this.completeHandler = null;
         }
         this.stop();
@@ -946,22 +970,24 @@
         return;
       this._audio.stop();
 
-      if (MiniSoundChannel._null != undefined) {
-        this._audio.onEnded(MiniSoundChannel._null);
-      } else {
-        try {
-          this._audio.onEnded(null);
-          MiniSoundChannel._null = null;
-        } catch (error) {
-          console.warn("[wxmini] stop:"+ error);
-          this._audio.onEnded(Utils.bind(this.__onNull, this));
-          MiniSoundChannel._null = Utils.bind(this.__onNull, this);
-        }
-      }
-      this._audio.offEnded(this._onEnd);
-      // this._audio.dispose();
-      // this._audio.destroy();     
-      this._audio = null;
+      // if (MiniSoundChannel._null != undefined) {
+      //   this._audio.onEnded(MiniSoundChannel._null);
+      // } else {
+      //   try {
+      //     this._audio.onEnded(null);
+      //     MiniSoundChannel._null = null;
+      //   } catch (error) {
+      //     console.warn("[wxmini] stop:"+ error);
+      //     this._audio.onEnded(Utils.bind(this.__onNull, this));
+      //     MiniSoundChannel._null = Utils.bind(this.__onNull, this);
+      //   }
+      // }
+      // try{
+      //   this._audio.offEnded(this._onEnd);
+      // }catch(error){
+      //   console.warn("warn:",error)
+      // }     
+      // this._audio = null;
     }
 
     __proto.pause = function () {
