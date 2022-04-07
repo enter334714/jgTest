@@ -480,7 +480,7 @@ var set_param_b = function () {
             "wxloading_atlas/image_login_point2.png": {url:"bbbloding/a19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"bbbloding/a20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"bbblogin/b199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"bbblogin/b1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"bbblogin/b123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"bbblogin/b2b.jpg"},
@@ -555,7 +555,7 @@ var set_param_b = function () {
             "image_login_point3.png": "a20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "b199b.png",
             "image_denglu_txtshenpi.png": "b1b.png",
             "shenhezizi.png": "b123b.png",
             "image_login_loginbg.jpg": "b2b.jpg",
@@ -733,7 +733,7 @@ var set_param_c = function () {
             "wxloading_atlas/image_login_point2.png": {url:"cccloding/a19c.png"},
             "wxloading_atlas/image_login_point3.png": {url:"cccloding/a20c.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"ccclogin/b199c.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ccclogin/b1c.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"ccclogin/b123c.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"ccclogin/b2c.jpg"},
@@ -808,7 +808,7 @@ var set_param_c = function () {
             "image_login_point3.png": "a20c.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "b199c.png",
             "image_denglu_txtshenpi.png": "b1c.png",
             "shenhezizi.png": "b123c.png",
             "image_login_loginbg.jpg": "b2c.jpg",
@@ -974,7 +974,7 @@ var set_param_d = function () {
             "wxloading_atlas/image_login_point2.png": {url:"dddloding/d19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"dddloding/d20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"dddlogin/d199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"dddlogin/d1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"dddlogin/d123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"dddlogin/d2b.jpg"},
@@ -1049,7 +1049,7 @@ var set_param_d = function () {
             "image_login_point3.png": "d20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "d199b.png",
             "image_denglu_txtshenpi.png": "d1b.png",
             "shenhezizi.png": "d123b.png",
             "image_login_loginbg.jpg": "d2b.jpg",
@@ -1224,7 +1224,7 @@ var set_param_e = function () {
             "wxloading_atlas/image_login_point2.png": {url:"eeeloding/e19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"eeeloding/e20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"eeelogin/e199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"eeelogin/e1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"eeelogin/e123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"eeelogin/e2b.jpg"},
@@ -1299,7 +1299,7 @@ var set_param_e = function () {
             "image_login_point3.png": "e20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "e199b.png",
             "image_denglu_txtshenpi.png": "e1b.png",
             "shenhezizi.png": "e123b.png",
             "image_login_loginbg.jpg": "e2b.jpg",
@@ -1474,7 +1474,7 @@ var set_param_f = function () {
             "wxloading_atlas/image_login_point2.png": {url:"fffloding/f19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"fffloding/f20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"ffflogin/f199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ffflogin/f1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"ffflogin/f123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"ffflogin/f2b.jpg"},
@@ -1549,7 +1549,7 @@ var set_param_f = function () {
             "image_login_point3.png": "f20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "f199b.png",
             "image_denglu_txtshenpi.png": "f1b.png",
             "shenhezizi.png": "f123b.png",
             "image_login_loginbg.jpg": "f2b.jpg",
@@ -1726,7 +1726,7 @@ var set_param_g = function () {
             "wxloading_atlas/image_login_point2.png": {url:"gggloding/g19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"gggloding/g20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"ggglogin/g199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ggglogin/g1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"ggglogin/g123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"ggglogin/g2b.jpg"},
@@ -1801,7 +1801,7 @@ var set_param_g = function () {
             "image_login_point3.png": "g20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "g199b.png",
             "image_denglu_txtshenpi.png": "g1b.png",
             "shenhezizi.png": "g123b.png",
             "image_login_loginbg.jpg": "g2b.jpg",
@@ -1975,7 +1975,7 @@ var set_param_h = function () {
             "wxloading_atlas/image_login_point2.png": {url:"hhhloding/h19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"hhhloding/h20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"hhhlogin/h199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"hhhlogin/h1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"hhhlogin/h123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"hhhlogin/h2b.jpg"},
@@ -2050,7 +2050,7 @@ var set_param_h = function () {
             "image_login_point3.png": "h20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "h199b.png",
             "image_denglu_txtshenpi.png": "h1b.png",
             "shenhezizi.png": "h123b.png",
             "image_login_loginbg.jpg": "h2b.jpg",
@@ -2225,7 +2225,7 @@ var set_param_i = function () {
             "wxloading_atlas/image_login_point2.png": {url:"IIILOADING/I19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"IIILOADING/I20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"IIILOGIN/I199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"IIILOGIN/I1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"IIILOGIN/I123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"IIILOGIN/I2b.jpg"},
@@ -2301,7 +2301,7 @@ var set_param_i = function () {
 
 
 
-
+            "image_xuanqu_ztjb0.png": "I199b.png",
             "image_denglu_txtshenpi.png": "I1b.png",
             "shenhezizi.png": "I123b.png",
             "image_login_loginbg.jpg": "I2b.jpg",
@@ -2475,7 +2475,7 @@ var set_param_j = function () {
             "wxloading_atlas/image_login_point2.png": {url:"JJJLOADING/J19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"JJJLOADING/J20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"JJJLOGIN/J199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"JJJLOGIN/J1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"JJJLOGIN/J123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"JJJLOGIN/J2b.jpg"},
@@ -2550,7 +2550,7 @@ var set_param_j = function () {
             "image_login_point3.png": "J20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "J199b.png",
             "image_denglu_txtshenpi.png": "J1b.png",
             "shenhezizi.png": "J123b.png",
             "image_login_loginbg.jpg": "J2b.jpg",
@@ -2728,7 +2728,7 @@ var set_param_k = function () {
             "wxloading_atlas/image_login_point2.png": {url:"KKKLOADING/K19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"KKKLOADING/K20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"KKKLOGIN/K199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"KKKLOGIN/K1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"KKKLOGIN/K123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"KKKLOGIN/K2b.jpg"},
@@ -2803,7 +2803,7 @@ var set_param_k = function () {
             "image_login_point3.png": "K20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "K199b.png",
             "image_denglu_txtshenpi.png": "K1b.png",
             "shenhezizi.png": "K123b.png",
             "image_login_loginbg.jpg": "K2b.jpg",
@@ -2975,7 +2975,7 @@ var set_param_l = function () {
             "wxloading_atlas/image_login_point2.png": {url:"lllllLOADING/l19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"lllllLOADING/l20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"llllLOGIN/l199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"llllLOGIN/l1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"llllLOGIN/l123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"llllLOGIN/l2b.jpg"},
@@ -3050,7 +3050,7 @@ var set_param_l = function () {
             "image_login_point3.png": "l20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "l199b.png",
             "image_denglu_txtshenpi.png": "l1b.png",
             "shenhezizi.png": "l123b.png",
             "image_login_loginbg.jpg": "l2b.jpg",
@@ -3227,7 +3227,7 @@ var set_param_m = function () {
             "wxloading_atlas/image_login_point2.png": {url:"mmmmmmLOADING/m19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"mmmmmmLOADING/m20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"mmmmmLOGIN/m199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"mmmmmLOGIN/m1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"mmmmmLOGIN/m123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"mmmmmLOGIN/m2b.jpg"},
@@ -3303,7 +3303,7 @@ var set_param_m = function () {
             "image_login_point3.png": "m20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "m199b.png",
             "image_denglu_txtshenpi.png": "m1b.png",
             "shenhezizi.png": "m123b.png",
             "image_login_loginbg.jpg": "m2b.jpg",
@@ -3472,7 +3472,7 @@ var set_param_n = function () {
             "wxloading_atlas/image_login_point2.png": {url:"nding/n19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"nding/n20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"nlgn/n199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"nlgn/n1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"nlgn/n123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"nlgn/n2b.jpg"},
@@ -3548,7 +3548,7 @@ var set_param_n = function () {
             "image_login_point3.png": "n20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "n199b.png",
             "image_denglu_txtshenpi.png": "n1b.png",
             "shenhezizi.png": "n123b.png",
             "image_login_loginbg.jpg": "n2b.jpg",
@@ -3719,7 +3719,7 @@ var set_param_O = function () {
             "wxloading_atlas/image_login_point2.png": {url:"oodino/o19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"oodino/o20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"oolgo/o199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"oolgo/o1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"oolgo/o123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"oolgo/o2b.jpg"},
@@ -3795,7 +3795,7 @@ var set_param_O = function () {
             "image_login_point3.png": "o20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "o199b.png",
             "image_denglu_txtshenpi.png": "o1b.png",
             "shenhezizi.png": "o123b.png",
             "image_login_loginbg.jpg": "o2b.jpg",
@@ -3961,7 +3961,7 @@ var set_param_P = function () {
             "wxloading_atlas/image_login_point2.png": {url:"pdinp/p19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"pdinp/p20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"plgop/p199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"plgop/p1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"plgop/p123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"plgop/p2b.jpg"},
@@ -4037,7 +4037,7 @@ var set_param_P = function () {
             "image_login_point3.png": "p20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "p199b.png",
             "image_denglu_txtshenpi.png": "p1b.png",
             "shenhezizi.png": "p123b.png",
             "image_login_loginbg.jpg": "p2b.jpg",
@@ -4205,7 +4205,7 @@ var set_param_Q = function () {
             "wxloading_atlas/image_login_point2.png": {url:"qqdiq/q19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"qqdiq/q20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"qlgqq/q199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"qlgqq/q1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"qlgqq/q123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"qlgqq/q2b.jpg"},
@@ -4281,7 +4281,7 @@ var set_param_Q = function () {
             "image_login_point3.png": "q20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "q199b.png",
             "image_denglu_txtshenpi.png": "q1b.png",
             "shenhezizi.png": "q123b.png",
             "image_login_loginbg.jpg": "q2b.jpg",
@@ -4446,7 +4446,7 @@ var set_param_R = function () {
             "wxloading_atlas/image_login_point2.png": {url:"rrdirr/r19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"rrdirr/r20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"rrlgr/r199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"rrlgr/r1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"rrlgr/r123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"rrlgr/r2b.jpg"},
@@ -4522,7 +4522,7 @@ var set_param_R = function () {
             "image_login_point3.png": "r20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "r199b.png",
             "image_denglu_txtshenpi.png": "r1b.png",
             "shenhezizi.png": "r123b.png",
             "image_login_loginbg.jpg": "r2b.jpg",
@@ -4691,7 +4691,7 @@ var set_param_S = function () {
             "wxloading_atlas/image_login_point2.png": {url:"ssds/s19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"ssds/s20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"sslgrss/s199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"sslgrss/s1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"sslgrss/s123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"sslgrss/s2b.jpg"},
@@ -4767,7 +4767,7 @@ var set_param_S = function () {
             "image_login_point3.png": "s20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "s199b.png",
             "image_denglu_txtshenpi.png": "s1b.png",
             "shenhezizi.png": "s123b.png",
             "image_login_loginbg.jpg": "s2b.jpg",
@@ -5181,7 +5181,7 @@ var set_param_U = function () {
             "wxloading_atlas/image_login_point2.png": {url:"uudu/u19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"uudu/u20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"uulgruu/u199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"uulgruu/u1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"uulgruu/u123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"uulgruu/u2b.jpg"},
@@ -5257,7 +5257,7 @@ var set_param_U = function () {
             "image_login_point3.png": "u20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "u199b.png",
             "image_denglu_txtshenpi.png": "u1b.png",
             "shenhezizi.png": "u123b.png",
             "image_login_loginbg.jpg": "u2b.jpg",
@@ -5428,7 +5428,7 @@ var set_param_V = function () {
             "wxloading_atlas/image_login_point2.png": {url:"vvdv/v19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"vvdv/v20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"vvlgrvv/v199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"vvlgrvv/v1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"vvlgrvv/v123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"vvlgrvv/v2b.jpg"},
@@ -5504,7 +5504,7 @@ var set_param_V = function () {
             "image_login_point3.png": "v20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "v199b.png",
             "image_denglu_txtshenpi.png": "v1b.png",
             "shenhezizi.png": "v123b.png",
             "image_login_loginbg.jpg": "v2b.jpg",
@@ -5676,7 +5676,7 @@ var set_param_W = function () {
             "wxloading_atlas/image_login_point2.png": {url:"wwdw/w19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"wwdw/w20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"wwlgrww/w199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"wwlgrww/w1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"wwlgrww/w123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"wwlgrww/w2b.jpg"},
@@ -5752,7 +5752,7 @@ var set_param_W = function () {
             "image_login_point3.png": "w20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "w199b.png",
             "image_denglu_txtshenpi.png": "w1b.png",
             "shenhezizi.png": "w123b.png",
             "image_login_loginbg.jpg": "w2b.jpg",
@@ -5921,7 +5921,7 @@ var set_param_X = function () {
             "wxloading_atlas/image_login_point2.png": {url:"xxdx/x19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"xxdx/x20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"xxlgrxx/x199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"xxlgrxx/x1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"xxlgrxx/x123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"xxlgrxx/x2b.jpg"},
@@ -5997,7 +5997,7 @@ var set_param_X = function () {
             "image_login_point3.png": "x20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png":"x199b.png",
             "image_denglu_txtshenpi.png": "x1b.png",
             "shenhezizi.png": "x123b.png",
             "image_login_loginbg.jpg": "x2b.jpg",
@@ -6042,7 +6042,7 @@ var set_param_X = function () {
         // globleKeys = ["$e", "w", "x", "E$", "y"];
         globleKeys = ["$x", "u", "v1", "x1", "x"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
         noReplaceJs = packageName1+"/game.js";
-        arrIndex = 400000;
+        arrIndex = 0;
         globleArrs = new Array(arrIndex);
         numberToHex = false;
         // needShuffle = true;
@@ -6174,7 +6174,7 @@ var set_param_Y = function () {
             "wxloading_atlas/image_login_point2.png": {url:"yydy/yu19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"yydy/yu20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"yylgryy/yu199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"yylgryy/yu1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"yylgryy/yu123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"yylgryy/yu2b.jpg"},
@@ -6250,7 +6250,7 @@ var set_param_Y = function () {
             "image_login_point3.png": "yu20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "yu199b.png",
             "image_denglu_txtshenpi.png": "yu1b.png",
             "shenhezizi.png": "yu123b.png",
             "image_login_loginbg.jpg": "yu2b.jpg",
@@ -6417,7 +6417,7 @@ var set_param_Z = function () {
             "wxloading_atlas/image_login_point2.png": {url:"zzdz/zz19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"zzdz/zz20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"zzlgrzz/zz199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"zzlgrzz/zz1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"zzlgrzz/zz123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"zzlgrzz/zz2b.jpg"},
@@ -6493,7 +6493,7 @@ var set_param_Z = function () {
             "image_login_point3.png": "zz20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "zz199b.png",
             "image_denglu_txtshenpi.png": "zz1b.png",
             "shenhezizi.png": "zz123b.png",
             "image_login_loginbg.jpg": "zz2b.jpg",
@@ -6662,7 +6662,7 @@ var set_param_Z_1 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"aada/aa19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"aada/aa20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"aalgraa/aa199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"aalgraa/aa1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"aalgraa/aa123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"aalgraa/aa2b.jpg"},
@@ -6738,7 +6738,7 @@ var set_param_Z_1 = function () {
             "image_login_point3.png": "aa20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "aa199b.png",
             "image_denglu_txtshenpi.png": "aa1b.png",
             "shenhezizi.png": "aa123b.png",
             "image_login_loginbg.jpg": "aa2b.jpg",
@@ -6907,7 +6907,7 @@ var set_param_Z_2 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"AAdA/AA19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"AAdA/AA20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"AAlgrAA/AA199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"AAlgrAA/AA1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"AAlgrAA/AA123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"AAlgrAA/AA2b.jpg"},
@@ -6983,7 +6983,7 @@ var set_param_Z_2 = function () {
             "image_login_point3.png": "AA20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "AA199b.png",
             "image_denglu_txtshenpi.png": "AA1b.png",
             "shenhezizi.png": "AA123b.png",
             "image_login_loginbg.jpg": "AA2b.jpg",
@@ -7152,7 +7152,7 @@ var set_param_Z_3 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"BBdB/BB19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"BBdB/BB20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"BBlgrBB/BB199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"BBlgrBB/BB1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"BBlgrBB/BB123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"BBlgrBB/BB2b.jpg"},
@@ -7228,7 +7228,7 @@ var set_param_Z_3 = function () {
             "image_login_point3.png": "BB20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "BB199b.png",
             "image_denglu_txtshenpi.png": "BB1b.png",
             "shenhezizi.png": "BB123b.png",
             "image_login_loginbg.jpg": "BB2b.jpg",
@@ -7398,7 +7398,7 @@ var set_param_Z_4 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"T5T5dT5/T5T519a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"T5T5dT5/T5T520a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"T5T5lgrT5T5/T5T5199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"T5T5lgrT5T5/T5T51b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"T5T5lgrT5T5/T5T5123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"T5T5lgrT5T5/T5T52b.jpg"},
@@ -7474,7 +7474,7 @@ var set_param_Z_4 = function () {
             "image_login_point3.png": "T5T520a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "T5T5199b.png",
             "image_denglu_txtshenpi.png": "T5T51b.png",
             "shenhezizi.png": "T5T5123b.png",
             "image_login_loginbg.jpg": "T5T52b.jpg",
@@ -7639,7 +7639,7 @@ var set_param_Z_5 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"d22d22dd22/d22d2219a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"d22d22dd22/d22d2220a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"d22d22lgrd22d22/d22d22199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"d22d22lgrd22d22/d22d221b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"d22d22lgrd22d22/d22d22123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"d22d22lgrd22d22/d22d222b.jpg"},
@@ -7715,7 +7715,7 @@ var set_param_Z_5 = function () {
             "image_login_point3.png": "d22d2220a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "d22d22199b.png",
             "image_denglu_txtshenpi.png": "d22d221b.png",
             "shenhezizi.png": "d22d22123b.png",
             "image_login_loginbg.jpg": "d22d222b.jpg",
@@ -7884,7 +7884,7 @@ var set_param_Z_6 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"DD88DD88dDD88/DD88DD8819a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"DD88DD88dDD88/DD88DD8820a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"DD88DD88lgrDD88DD88/DD88DD88199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"DD88DD88lgrDD88DD88/DD88DD881b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"DD88DD88lgrDD88DD88/DD88DD88123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"DD88DD88lgrDD88DD88/DD88DD882b.jpg"},
@@ -7960,7 +7960,7 @@ var set_param_Z_6 = function () {
             "image_login_point3.png": "DD88DD8820a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "DD88DD88199b.png",
             "image_denglu_txtshenpi.png": "DD88DD881b.png",
             "shenhezizi.png": "DD88DD88123b.png",
             "image_login_loginbg.jpg": "DD88DD882b.jpg",
@@ -8129,7 +8129,7 @@ var set_param_Z_7 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"zh44zh44dzh44/zh44zh4419a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"zh44zh44dzh44/zh44zh4420a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"zh44zh44lgrzh44zh44/zh44zh44199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"zh44zh44lgrzh44zh44/zh44zh441b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"zh44zh44lgrzh44zh44/zh44zh44123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"zh44zh44lgrzh44zh44/zh44zh442b.jpg"},
@@ -8205,7 +8205,7 @@ var set_param_Z_7 = function () {
             "image_login_point3.png": "zh44zh4420a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "zh44zh44199b.png",
             "image_denglu_txtshenpi.png": "zh44zh441b.png",
             "shenhezizi.png": "zh44zh44123b.png",
             "image_login_loginbg.jpg": "zh44zh442b.jpg",
@@ -8374,7 +8374,7 @@ var set_param_Z_8 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"z888z888dz888/z888z88819a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"z888z888dz888/z888z88820a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"z888z888lgrz888z888/z888z888199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"z888z888lgrz888z888/z888z8881b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"z888z888lgrz888z888/z888z888123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"z888z888lgrz888z888/z888z8882b.jpg"},
@@ -8450,7 +8450,7 @@ var set_param_Z_8 = function () {
             "image_login_point3.png": "z888z88820a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "z888z888199b.png",
             "image_denglu_txtshenpi.png": "z888z8881b.png",
             "shenhezizi.png": "z888z888123b.png",
             "image_login_loginbg.jpg": "z888z8882b.jpg",
@@ -8616,7 +8616,7 @@ var set_param_Z_9 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"z999z999dz999/z999z99919a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"z999z999dz999/z999z99920a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"z999z999lgrz999z999/z999z999199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"z999z999lgrz999z999/z999z9991b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"z999z999lgrz999z999/z999z999123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"z999z999lgrz999z999/z999z9992b.jpg"},
@@ -8692,7 +8692,7 @@ var set_param_Z_9 = function () {
             "image_login_point3.png": "z999z99920a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "z999z999199b.png",
             "image_denglu_txtshenpi.png": "z999z9991b.png",
             "shenhezizi.png": "z999z999123b.png",
             "image_login_loginbg.jpg": "z999z9992b.jpg",
@@ -8860,7 +8860,7 @@ var set_param_Z_10 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1019a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1020a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy10199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy101b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy10123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy102b.jpg"},
@@ -8936,7 +8936,7 @@ var set_param_Z_10 = function () {
             "image_login_point3.png": "Zqy10Zqy1020a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "Zqy10Zqy10199b.png",
             "image_denglu_txtshenpi.png": "Zqy10Zqy101b.png",
             "shenhezizi.png": "Zqy10Zqy10123b.png",
             "image_login_loginbg.jpg": "Zqy10Zqy102b.jpg",
@@ -9107,7 +9107,7 @@ var set_param_Z_11 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"Z11loding/z1119a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"Z11loding/z1120a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"Z11login/z11199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"Z11login/z111b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"Z11login/z11123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"Z11login/z112b.jpg"},
@@ -9182,7 +9182,7 @@ var set_param_Z_11 = function () {
             "image_login_point3.png": "z1120a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "z11199b.png",
             "image_denglu_txtshenpi.png": "z111b.png",
             "shenhezizi.png": "z11123b.png",
             "image_login_loginbg.jpg": "z112b.jpg",
@@ -9346,7 +9346,7 @@ var set_param_Z_12 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"bbbloding/a19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"bbbloding/a20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"bbblogin/b199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"bbblogin/b1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"bbblogin/b123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"bbblogin/b2b.jpg"},
@@ -9421,7 +9421,7 @@ var set_param_Z_12 = function () {
             "image_login_point3.png": "a20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "b199b.png",
             "image_denglu_txtshenpi.png": "b1b.png",
             "shenhezizi.png": "b123b.png",
             "image_login_loginbg.jpg": "b2b.jpg",
@@ -9604,7 +9604,7 @@ var set_param_Z_13 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"lllllLOADING/l19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"lllllLOADING/l20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"llllLOGIN/l199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"llllLOGIN/l1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"llllLOGIN/l123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"llllLOGIN/l2b.jpg"},
@@ -9679,7 +9679,7 @@ var set_param_Z_13 = function () {
             "image_login_point3.png": "l20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "l199b.png",
             "image_denglu_txtshenpi.png": "l1b.png",
             "shenhezizi.png": "l123b.png",
             "image_login_loginbg.jpg": "l2b.jpg",
@@ -9849,7 +9849,7 @@ var set_param_Z_14 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"ttdt/t19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"ttdt/t20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"ttlgrtt/t199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ttlgrtt/t1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"ttlgrtt/t123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"ttlgrtt/t2b.jpg"},
@@ -9925,7 +9925,7 @@ var set_param_Z_14 = function () {
             "image_login_point3.png": "t20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "t199b.png",
             "image_denglu_txtshenpi.png": "t1b.png",
             "shenhezizi.png": "t123b.png",
             "image_login_loginbg.jpg": "t2b.jpg",
@@ -10094,7 +10094,7 @@ var set_param_Z_15 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"ttdt/t19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"ttdt/t20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"ttlgrtt/t199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ttlgrtt/t1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"ttlgrtt/t123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"ttlgrtt/t2b.jpg"},
@@ -10170,7 +10170,7 @@ var set_param_Z_15 = function () {
             "image_login_point3.png": "t20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "t199b.png",
             "image_denglu_txtshenpi.png": "t1b.png",
             "shenhezizi.png": "t123b.png",
             "image_login_loginbg.jpg": "t2b.jpg",
@@ -10339,7 +10339,7 @@ var set_param_Z_16 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"ttdt/t19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"ttdt/t20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"ttlgrtt/t199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ttlgrtt/t1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"ttlgrtt/t123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"ttlgrtt/t2b.jpg"},
@@ -10415,7 +10415,7 @@ var set_param_Z_16 = function () {
             "image_login_point3.png": "t20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "t199b.png",
             "image_denglu_txtshenpi.png": "t1b.png",
             "shenhezizi.png": "t123b.png",
             "image_login_loginbg.jpg": "t2b.jpg",
@@ -10585,7 +10585,7 @@ var set_param_Z_17 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"ttdt/t19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"ttdt/t20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"ttlgrtt/t199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ttlgrtt/t1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"ttlgrtt/t123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"ttlgrtt/t2b.jpg"},
@@ -10661,7 +10661,7 @@ var set_param_Z_17 = function () {
             "image_login_point3.png": "t20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "t199b.png",
             "image_denglu_txtshenpi.png": "t1b.png",
             "shenhezizi.png": "t123b.png",
             "image_login_loginbg.jpg": "t2b.jpg",
@@ -10830,7 +10830,7 @@ var set_param_Z_18 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"ttdt/t19a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"ttdt/t20a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"ttlgrtt/t199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"ttlgrtt/t1b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"ttlgrtt/t123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"ttlgrtt/t2b.jpg"},
@@ -10906,7 +10906,7 @@ var set_param_Z_18 = function () {
             "image_login_point3.png": "t20a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "t199b.png",
             "image_denglu_txtshenpi.png": "t1b.png",
             "shenhezizi.png": "t123b.png",
             "image_login_loginbg.jpg": "t2b.jpg",
@@ -11075,7 +11075,7 @@ var set_param_Z_19 = function () {
             "wxloading_atlas/image_login_point2.png": {url:"z888z888dz888/z888z88819a.png"},
             "wxloading_atlas/image_login_point3.png": {url:"z888z888dz888/z888z88820a.png"},
 
-
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"z888z888lgrz888z888/z888z888199b.png"},
             "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"z888z888lgrz888z888/z888z8881b.png"},
             "wxlogin_atlas/shenhezizi.png": {url:"z888z888lgrz888z888/z888z888123b.png"},
             "wxlogin_atlas/image_login_loginbg.jpg": {url:"z888z888lgrz888z888/z888z8882b.jpg"},
@@ -11151,7 +11151,7 @@ var set_param_Z_19 = function () {
             "image_login_point3.png": "z888z88820a.png",
 
 
-
+            "image_xuanqu_ztjb0.png": "z888z888199b.png",
             "image_denglu_txtshenpi.png": "z888z8881b.png",
             "shenhezizi.png": "z888z888123b.png",
             "image_login_loginbg.jpg": "z888z8882b.jpg",
@@ -12287,7 +12287,7 @@ gulp.task('MT1_build_minify', function () {
         srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/utils/**/*.js',"!" + sourceUrl + '/**/'+mainJsName];
     }
     var stream = gulp.src(srcs)
-        .pipe(js_minify())
+        // .pipe(js_minify())
         .pipe(gulp.dest(sourceUrl + '/'))
     return stream;
 });
