@@ -6,7 +6,7 @@ var config = {
     game_pkg: 'tjqy_tjqylxzc_HQ',//天剑vs卡卡-六玄之苍
     partner_label: 'kk',
     partner_id: '471',
-    game_ver: '21.0.1',
+    game_ver: '21.0.25',
     is_auth: false, //授权登录
     tmpId: {1:'', 2:'', 3:''},  // 订阅的类型 和 模板id
 };
