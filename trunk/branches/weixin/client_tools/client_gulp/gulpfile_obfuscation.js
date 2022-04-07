@@ -5339,6 +5339,12 @@ gulp.task('build-babel-obfuscator-U', function (cb) {
 
 });
 
+//混淆
+gulp.task('build-babel-obfuscator-U-minify', function (cb) {
+    sequence("set-param-U","MT1_build_minifyTargetProject",cb);
+});
+
+
 /**-------------------------------------------------微信小游戏--U包 天剑vs卡卡-六玄之苍 end-----------------------------------------------------------*/
 
 /**-------------------------------------------------微信小游戏--V包 天剑vs卡卡-六玄之苍 start-----------------------------------------------------------*/
@@ -5578,6 +5584,11 @@ gulp.task('build-babel-obfuscator-V', function (cb) {
     sequence("set-param-V","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
+});
+
+//混淆
+gulp.task('build-babel-obfuscator-V-minify', function (cb) {
+    sequence("set-param-V","MT1_build_minifyTargetProject",cb);
 });
 
 /**-------------------------------------------------微信小游戏--V包 趣侬vs37--微微剑仙 end-----------------------------------------------------------*/
