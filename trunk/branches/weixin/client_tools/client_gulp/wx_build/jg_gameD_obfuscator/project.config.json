@@ -39,7 +39,7 @@
     "ignoreUploadUnusedFiles": true
   },
   "compileType": "game",
-  "libVersion": "2.12.3",
+  "libVersion": "2.23.2",
   "appid": "wxb96e5c0fcf269af3",
   "projectname": "%E6%9C%89%E4%B8%80%E6%88%98%E7%A5%9E%E7%BA%AA",
   "simulatorType": "wechat",

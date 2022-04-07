@@ -1,1 +1,2 @@
-var v=wx.$d;import"dddmain.js";
+var v = wx.$d;
+import 'dddmain.js';
