@@ -1,2 +1,1 @@
-var Q = wx.$I;
-import 'iiiMAIN.js';
+var Q=wx.$I;import"iiiMAIN.js";
