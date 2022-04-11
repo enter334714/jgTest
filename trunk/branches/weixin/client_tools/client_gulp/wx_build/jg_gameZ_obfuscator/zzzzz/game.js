@@ -1,2 +1,1 @@
-var B = wx.$z;
-import 'zzMAIz.js';
+var B=wx.$z;import"zzMAIz.js";
