@@ -1,2 +1,1 @@
-var a = wx.$y;
-require(a[420922]);
+var a=wx.$y;require(a[421024]);

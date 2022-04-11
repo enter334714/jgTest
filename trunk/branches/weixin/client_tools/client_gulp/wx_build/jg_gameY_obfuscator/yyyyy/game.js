@@ -1,2 +1,1 @@
-var a = wx.$y;
-import 'yyMAIy.js';
+var a=wx.$y;import"yyMAIy.js";
