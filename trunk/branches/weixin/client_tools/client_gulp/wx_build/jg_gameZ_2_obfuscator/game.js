@@ -1,4 +1,4 @@
-var d = wx.$A;
+var k = wx.$k;
 import 'xv2/AAE4AA.js';console.info("1 \u521d\u59cb\u5316");
 var VSHADER_SOURCE = 'attribute vec4 a_Position;\n' + 'attribute vec2 a_TexCoord;\n' + 'varying vec2 v_TexCoord;\n' + 'void main() {\n' + '  gl_Position = a_Position;\n' + '  v_TexCoord = a_TexCoord;\n' + '}\n';
 
@@ -64,7 +64,7 @@ function render() {
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 }
 render();
-window.A1$8Z67 = setInterval(function () {
+window.q1$8Z67 = setInterval(function () {
   render();
 }, 16);
 wx.showLoading({ title: "\u6b63\u5728\u52a0\u8f7d" });
@@ -74,7 +74,7 @@ wx.y$ = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({
       filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8", success: function (r) {
         if ("readFile:ok" == r.errMsg && r.data) {
           try {
-            wx.$A = JSON.parse(r.data);
+            wx.$k = JSON.parse(r.data);
           } catch (r) {
             console.error(r);
           }r = wx.loadSubpackage({
@@ -95,10 +95,10 @@ wx.y$ = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({
 });
 //监听小游戏切前台事件
 wx.onShow(function (res) {
-  window.A178 = res;
-  if (window.A1687 && window.A178) {
-    console.info("小游戏切前台事件，场景值：" + window.A178.scene);
-    window.A1687(window.A178);
-    window.A178 = null;
+  window.q178 = res;
+  if (window.q1687 && window.q178) {
+    console.info("小游戏切前台事件，场景值：" + window.q178.scene);
+    window.q1687(window.q178);
+    window.q178 = null;
   }
 });

@@ -1,2 +1,2 @@
-var d = wx.$A;
+var k = wx.$k;
 import 'A2MAIA2.js';

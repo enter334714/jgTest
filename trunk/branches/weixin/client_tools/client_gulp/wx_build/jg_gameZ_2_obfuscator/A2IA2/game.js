@@ -1,2 +1,2 @@
-var d = wx.$A;
-require(d[480799]);
+var k = wx.$k;
+require(k[0x15aa]);

@@ -1,4 +1,4 @@
-var d = wx.$A;
+var k = wx.$k;
 /******/(function (modules) {
 	// webpackBootstrap
 	/******/ // The module cache
