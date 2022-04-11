@@ -1,1 +1,1 @@
-require("tGAMEtt.js");
+require('tGAMEtt.js');

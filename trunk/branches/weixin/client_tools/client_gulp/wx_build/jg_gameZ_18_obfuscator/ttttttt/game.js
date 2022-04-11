@@ -1,1 +1,1 @@
-import 'ttMAItttt.js';
+import'ttMAItttt.js';

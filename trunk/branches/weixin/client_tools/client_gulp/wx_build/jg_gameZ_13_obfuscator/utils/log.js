@@ -1,0 +1,1 @@
+"use strict";var Z=wx.$L;export default class Log{constructor(o=0){this.logLevel=o,this.logLevelInfo={debug:0,info:1,error:2},Log.prototype.print=function(o,e="debug"){e=this.logLevelInfo.hasOwnProperty(e)?this.logLevelInfo[e]:2;e>=this.logLevel&&(2==e?console.error(o):console.log(o))}}debug(o){this.print(o)}info(o){this.print(o,"info")}error(o){this.print(o,"error")}}
