@@ -1,1 +1,128 @@
-var a=wx.$y;export default class FunGame{constructor(){this.host="https://funsdk.bigrnet.com"}sign(o){var l="";var e=Object.keys(o);return e.sort(),e.forEach(e=>{"host_url"!=e&&(l+=o[e])}),l}setParameter(e,o,l){e=e.replace(/(#.*)/gi,"");var n=new RegExp("([?&])"+o+"=([^&]*)(?=&|$)","i");return n.test(e)?e.replace(n,"$1"+o+"="+l):e+(-1==e.indexOf("?")?"?":"&")+o+"="+l}ajaxRequest(e,o,l,n){e=this.setParameter(e,"v",Math.random());wx.request({url:e,header:{"content-type":"application/x-www-form-urlencoded"},method:"POST",data:o,dataType:"json",success:function(e){l&&l(e.data)},fail:function(e){n&&n(e)}})}game(e,o,l){var n;console.log("<<<----\u6e38\u620f----\x3e>>"),e.game_key?(n=this.host+"/index/game",this.ajaxRequest(n,e,o,l)):console.log("\u7f3a\u5c11game_key")}wxChannelCode(){console.log("<<<----\u6e20\u9053----\x3e>>");var e=wx.getLaunchOptionsSync()["query"];var o=decodeURIComponent(e.query);var l=new Object;if("undefined"!=o&&""!=o)l.code=o,l.type=1e4;else{const t=decodeURIComponent(e.scene);if("undefined"==t)return l;var n=t.split("&");for(var s=0;s<n.length;s++)l[n[s].split("=")[0]]=n[s].split("=")[1]}return l}role(e,o,l){var n;console.log("<<<----\u89d2\u8272----\x3e>>"),e.host_url?e.game_key?e.account?e.server?e.server_name?e.role?e.role_name?e.level?(null!=e.type&&""!=e.type&&null!=e.type||(e.type=0),e.sign=this.sign(e),n=e.host_url+"/index/role",this.ajaxRequest(n,e,o,l)):console.log("\u7f3a\u5c11level"):console.log("\u7f3a\u5c11role_name"):console.log("\u7f3a\u5c11role"):console.log("\u7f3a\u5c11server_name"):console.log("\u7f3a\u5c11server"):console.log("\u7f3a\u5c11account"):console.log("\u7f3a\u5c11game_key"):console.log("\u7f3a\u5c11host_url")}order(e,o,l){var n;console.log("<<<----\u8ba2\u5355----\x3e>>"),e.host_url?e.game_key?e.account?e.server?e.role?e.amount?(e.sign=this.sign(e),n=e.host_url+"/order/index",this.ajaxRequest(n,e,o,l)):console.log("\u7f3a\u5c11amount"):console.log("\u7f3a\u5c11role"):console.log("\u7f3a\u5c11server"):console.log("\u7f3a\u5c11account"):console.log("\u7f3a\u5c11game_key"):console.log("\u7f3a\u5c11host_url")}gameLogin(e,o,l){var n;console.log("<<<----\u767b\u5f55----\x3e>>"),e.host_url?e.game_key?e.code?(n=e.host_url+"/login/code",this.ajaxRequest(n,e,o,l)):console.log("\u7f3a\u5c11code"):console.log("\u7f3a\u5c11game_key"):console.log("\u7f3a\u5c11host_url")}gameToken(e,o,l){var n;console.log("<<<----Token----\x3e>>"),e.host_url?e.game_key?(n=e.host_url+"/index/game-access-token",this.ajaxRequest(n,e,o,l)):console.log("\u7f3a\u5c11game_key"):console.log("\u7f3a\u5c11host_url")}midasNotice(l,n,s){var t;console.log("<<<----\u7c73\u5927\u5e08----\x3e>>"),null!=l.game_env&&""!=l.game_env&&null!=l.game_env||(l.game_env=0),l.offer_id?l.currency_type?l.amount?l.server?l.game_key?l.host_url?l.account?l.role?(t=this,wx.requestMidasPayment({currencyType:l.currency_type,env:l.game_env,mode:"game",offerId:l.offer_id,buyQuantity:l.amount,platform:"android",zoneId:"1",success(e){console.log("<<<----midas\u652f\u4ed8\u6210\u529f----\x3e>>");var o=l.host_url+"/notice/midas";t.ajaxRequest(o,l,n,s)},fail(e){console.log(e)}})):console.log("\u7f3a\u5c11role"):console.log("\u7f3a\u5c11account"):console.log("\u7f3a\u5c11host_url"):console.log("\u7f3a\u5c11game_key"):console.log("\u7f3a\u5c11server"):console.log("\u7f3a\u5c11amount"):console.log("\u7f3a\u5c11currency_type"):console.log("\u7f3a\u5c11offer_id")}checkWords(e,o,l){var n;console.log("<<<----\u654f\u611f\u8bcd----\x3e>>"),e.game_key?e.account?e.scene?e.content?(n=e.host_url+"/index/check-words",this.ajaxRequest(n,e,o,l)):console.log("\u7f3a\u5c11content"):console.log("\u7f3a\u5c11scene"):console.log("\u7f3a\u5c11account"):console.log("\u7f3a\u5c11game_key")}}
+var a = wx.$y;
+/**
+ * 漫方SDK
+ * by 陌上老农 2021-06
+ */
+!function () {
+  "use strict";
+};
+
+export default class FunGame {
+  constructor() {
+    this.host = "https://funsdk.bigrnet.com";
+  }sign(params) {
+    var _sign = "";var keys = Object.keys(params);keys.sort();keys.forEach(key => {
+      if (key != "host_url") {
+        _sign += params[key];
+      }
+    });return _sign;
+  }setParameter(url, name, value) {
+    url = url.replace(/(#.*)/ig, "");var reg = new RegExp("([\?&])" + name + "=([^&]*)(?=&|$)", "i");if (reg.test(url)) {
+      return url.replace(reg, "$1" + name + "=" + value);
+    } else {
+      return url + (url.indexOf("?") == -1 ? "?" : "&") + name + "=" + value;
+    }
+  }ajaxRequest(request_url, params, success, fail) {
+    request_url = this.setParameter(request_url, "v", Math.random());let _this = this;wx.request({ url: request_url, header: { 'content-type': 'application/x-www-form-urlencoded' }, method: 'POST', data: params, dataType: "json", success: function (res) {
+        success && success(res.data);
+      }, fail: function (res) {
+        fail && fail(res);
+      } });
+  }game(data, success, fail) {
+    console.log("<<<----游戏---->>>");if (!data.game_key) {
+      console.log("缺少game_key");return;
+    }var url = this.host + "/index/game";this.ajaxRequest(url, data, success, fail);
+  }wxChannelCode() {
+    console.log("<<<----渠道---->>>");const { query } = wx.getLaunchOptionsSync();const query_params = decodeURIComponent(query.query);var channel = new Object();if (query_params != "undefined" && query_params != "") {
+      channel["code"] = query_params;channel["type"] = 10000;
+    } else {
+      const scene_params = decodeURIComponent(query.scene);if (scene_params == "undefined") {
+        return channel;
+      }var strs = scene_params.split("&");for (var i = 0; i < strs.length; i++) {
+        channel[strs[i].split("=")[0]] = strs[i].split("=")[1];
+      }
+    }return channel;
+  }role(data, success, fail) {
+    console.log("<<<----角色---->>>");if (!data.host_url) {
+      console.log("缺少host_url");return;
+    }if (!data.game_key) {
+      console.log("缺少game_key");return;
+    }if (!data.account) {
+      console.log("缺少account");return;
+    }if (!data.server) {
+      console.log("缺少server");return;
+    }if (!data.server_name) {
+      console.log("缺少server_name");return;
+    }if (!data.role) {
+      console.log("缺少role");return;
+    }if (!data.role_name) {
+      console.log("缺少role_name");return;
+    }if (!data.level) {
+      console.log("缺少level");return;
+    }if (data.type == undefined || data.type == "" || data.type == null) {
+      data.type = 0;
+    }data["sign"] = this.sign(data);var url = data.host_url + "/index/role";this.ajaxRequest(url, data, success, fail);
+  }order(data, success, fail) {
+    console.log("<<<----订单---->>>");if (!data.host_url) {
+      console.log("缺少host_url");return;
+    }if (!data.game_key) {
+      console.log("缺少game_key");return;
+    }if (!data.account) {
+      console.log("缺少account");return;
+    }if (!data.server) {
+      console.log("缺少server");return;
+    }if (!data.role) {
+      console.log("缺少role");return;
+    }if (!data.amount) {
+      console.log("缺少amount");return;
+    }data["sign"] = this.sign(data);var url = data.host_url + "/order/index";this.ajaxRequest(url, data, success, fail);
+  }gameLogin(data, success, fail) {
+    console.log("<<<----登录---->>>");if (!data.host_url) {
+      console.log("缺少host_url");return;
+    }if (!data.game_key) {
+      console.log("缺少game_key");return;
+    }if (!data.code) {
+      console.log("缺少code");return;
+    }var url = data.host_url + "/login/code";this.ajaxRequest(url, data, success, fail);
+  }gameToken(data, success, fail) {
+    console.log("<<<----Token---->>>");if (!data.host_url) {
+      console.log("缺少host_url");return;
+    }if (!data.game_key) {
+      console.log("缺少game_key");return;
+    }var url = data.host_url + "/index/game-access-token";this.ajaxRequest(url, data, success, fail);
+  }midasNotice(data, success, fail) {
+    console.log("<<<----米大师---->>>");if (data.game_env == undefined || data.game_env == "" || data.game_env == null) {
+      data.game_env = 0;
+    }if (!data.offer_id) {
+      console.log("缺少offer_id");return;
+    }if (!data.currency_type) {
+      console.log("缺少currency_type");return;
+    }if (!data.amount) {
+      console.log("缺少amount");return;
+    }if (!data.server) {
+      console.log("缺少server");return;
+    }if (!data.game_key) {
+      console.log("缺少game_key");return;
+    }if (!data.host_url) {
+      console.log("缺少host_url");return;
+    }if (!data.account) {
+      console.log("缺少account");return;
+    }if (!data.role) {
+      console.log("缺少role");return;
+    }var _this = this;wx.requestMidasPayment({ currencyType: data.currency_type, env: data.game_env, mode: "game", offerId: data.offer_id, buyQuantity: data.amount, platform: "android", zoneId: "1", success(res) {
+        console.log("<<<----midas支付成功---->>>");var url = data.host_url + "/notice/midas";_this.ajaxRequest(url, data, success, fail);
+      }, fail(f) {
+        console.log(f);
+      } });
+  }checkWords(data, success, fail) {
+    console.log("<<<----敏感词---->>>");if (!data.game_key) {
+      console.log("缺少game_key");return;
+    }if (!data.account) {
+      console.log("缺少account");return;
+    }if (!data.scene) {
+      console.log("缺少scene");return;
+    }if (!data.content) {
+      console.log("缺少content");return;
+    }var url = data.host_url + "/index/check-words";this.ajaxRequest(url, data, success, fail);
+  }
+}
