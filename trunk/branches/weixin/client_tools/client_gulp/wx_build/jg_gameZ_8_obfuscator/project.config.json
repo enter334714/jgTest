@@ -39,7 +39,7 @@
     "useCompilerPlugins": false
   },
   "compileType": "game",
-  "libVersion": "2.10.4",
+  "libVersion": "2.23.2",
   "appid": "wxb3e5c32fdb9f4b34",
   "projectname": "火速-九州修仙记(混墨阳仙尘服)",
   "simulatorType": "wechat",
