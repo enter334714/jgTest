@@ -5,7 +5,7 @@ var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqyzsj_JT',//有一 --飞剑 -战神纪
     partner_id: '317',
-    game_ver: '31.0.17',
+    game_ver: '31.0.23',
     is_auth: false, //授权登录
 };
 window.config = config;
@@ -679,6 +679,41 @@ function mainSDK() {
                 callback && callback(ret_res);
             });
         },
+        //获取验证码
+        sendCode: function(data,callback){
+
+            console.log('开始获取验证码：',data.phone);
+
+            SDKyyw.getCaptchaCallback = (data) => {
+                console.log(data)
+                // 成功data = {status:"1", data: res, msg: success}
+                // 失败data = {status:"0", data: fail, msg: fail}
+                if(data.status==1){
+                    callback && callback(0,data);
+                }else{
+                    callback && callback(1,data);
+                }
+                
+              }
+            SDKyyw.getCaptcha({telephone:data.phone});
+        },
+        //绑定手机
+        bindPhone: function(data,callback){
+
+            console.log('开始绑定手机：',data.phone,data.code);
+
+            SDKyyw.bindTelephoneCallback = (data) => {
+                console.log('datadata',data)
+                // 成功data = {status:"1", data: res, msg: success}
+                // 失败data = {status:"0", data: fail, msg: fail}
+                if(data.status==1){
+                    callback && callback(0,data);
+                }else{
+                    callback && callback(1,data);
+                }
+              }
+              SDKyyw.bindTelephone({telephone:data.phone,captcha:data.code});
+        }
     }
 }
 
@@ -771,4 +806,13 @@ exports.getLaunchOptionsSync = function (callback){
 
 exports.msgCheck  = function (msg , callback){
     run('msgCheck',msg ,callback);
+};
+
+
+exports.sendCode = function (data,callback) {
+    run('sendCode',data, callback);
+};
+
+exports.bindPhone = function (data,callback) {
+    run('bindPhone',data, callback);
 };
