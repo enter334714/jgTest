@@ -6,7 +6,7 @@ var config = {
     game_pkg: 'tjqy_tjqywlsdh5_GD', //布咕--问道服-武林盛典online
     partner_label: 'bgxyx',
     partner_id: '389',
-    game_ver: '8.0.31',
+    game_ver: '8.0.35',
     is_auth: false, //授权登录
     partner_app_id:28, // 渠道游戏的标识ID
     partner_mp_id:'wx41e26949e9eae873' // 小程序ID，来自微信官方平台
