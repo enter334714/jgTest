@@ -2885,6 +2885,11 @@ gulp.task('build-babel-obfuscator-K', function (cb) {
 
 });
 
+//混淆
+gulp.task('build-babel-obfuscator-Kminify', function (cb) {
+    sequence("set-param-k","MT1_build_minifyTargetProject",cb);
+});
+
 
 
 /**-------------------------------------------------微信小游戏--k包  end-----------------------------------------------------------*/
@@ -4361,6 +4366,11 @@ gulp.task('build-babel-obfuscator-Q', function (cb) {
     sequence("set-param-Q","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
+});
+
+//混淆
+gulp.task('build-babel-obfuscator-Qminify', function (cb) {
+    sequence("set-param-Q","MT1_build_minifyTargetProject",cb);
 });
 
 /**-------------------------------------------------微信小游戏--Q包  果子-微信 全民来打怪 end-----------------------------------------------------------*/
