@@ -1,6 +1,6 @@
 ﻿import AKSDK from "./wxsdk/wx_aksdk.js";
-window.versions = { 
-  wxVersion: window.config.game_ver,  
+window.versions = {
+  wxVersion: window.config.game_ver,
 };
 
 
@@ -10,6 +10,7 @@ window.ENV = 1;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
+window.isWaiFangWx = false;
 window.PF_INFO = {
   base_cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
   cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
@@ -62,7 +63,7 @@ window.loadServer = false;
 window.bEnterGame = false;
 window.sdkInitRes = null;
 
-window.alert = function(value) {
+window.alert = function (value) {
   console.log("alert", value);
   wx.hideLoading({});
   wx.showModal({
@@ -77,7 +78,7 @@ window.alert = function(value) {
     }
   })
 }
-window.loginAlert = function(value) {
+window.loginAlert = function (value) {
   console.log("loginAlert", value);
   wxHideLoading();
   wx.showModal({
@@ -95,13 +96,13 @@ window.loginAlert = function(value) {
     }
   })
 }
-window.exitAlert = function(value) {
+window.exitAlert = function (value) {
   console.log("exitAlert", value);
   wx.showModal({
     title: '提示',
     content: value,
     confirmText: "重登",
-    showCancel : false,
+    showCancel: false,
     complete(res) {
       console.log("退出游戏");
       wx.exitMiniProgram({});
@@ -110,27 +111,27 @@ window.exitAlert = function(value) {
 }
 
 window.isShowLoading = false;
-window.wxShowLoading = function(value) {
+window.wxShowLoading = function (value) {
   window.isShowLoading = true;
   wx.showLoading(value);
 }
-window.wxHideLoading = function() {
+window.wxHideLoading = function () {
   if (window.isShowLoading) {
     window.isShowLoading = false;
     wx.hideLoading({});
   }
 }
-window.changeServerLoading = function(value) {
+window.changeServerLoading = function (value) {
   window.ServerLoading.instance.changeServerLoading(value);
 }
-window.msgCheck = function(value, callback) {
-  AKSDK.msgCheck(value, function(res){
+window.msgCheck = function (value, callback) {
+  AKSDK.msgCheck(value, function (res) {
     if (res && res.data) {
-      if (res.data.state == 1){ //没有敏感词
+      if (res.data.state == 1) { //没有敏感词
         callback(true);
       } else { //存在敏感词xxx
         callback(false);
-        console.info("存在敏感词： "+res.data.msg);
+        console.info("存在敏感词： " + res.data.msg);
       }
     } else {
       console.log("msgCheck", res);
@@ -138,25 +139,26 @@ window.msgCheck = function(value, callback) {
   });
 }
 
-window.getJsURL = function(value) {
+window.getJsURL = function (value) {
   console.log("getJsURL", value);
 }
-window.toAllProgress = function(value) {
+window.toAllProgress = function (value) {
   // console.log("toAllProgress", value);
 }
-window.toProgress = function(value, str, currTaskIndex) {
+window.toProgress = function (value, str, currTaskIndex) {
   // console.log("toProgress", value, str, currTaskIndex);
 }
-window.toEnterGame = function(value) {
+window.toEnterGame = function (value) {
   console.log("toEnterGame", value);
   window.ServerLoading.instance.closeAuthor();
   window.ServerLoading.instance.closeServer();
   window.ServerLoading.instance.closeLoading();
 }
 
-window.onApiError = function(str) {
+window.onApiError = function (str) {
   // console.log('on api error');
   // AKSDK.logout(function(){});
+  window.toErrorAlarm(14, "onApiError "+str);
   window.loginAlert('on api error');
   var info = {
     id: window.PF_INFO.roleId,
@@ -173,19 +175,30 @@ window.onApiError = function(str) {
     stack: str ? str : "on api error",
   }
   var infostr = JSON.stringify(info);
-  console.error("API错误："+ infostr);
+  console.error("API错误：" + infostr);
   window.clientlog(infostr);
 }
-window.reqRecordError = function(str) {
+// 错误警报
+window.toErrorAlarm = function (type, info) {
+  sendApi(PF_INFO.logurl, 'log.client_error', {
+    'game_pkg': PF_INFO.pkgName,
+    'partner_id': PF_INFO.partnerId,
+    'server_id': (PF_INFO.selectedServer&&PF_INFO.selectedServer.server_id>0 ? PF_INFO.selectedServer.server_id : 0),
+    'uid': (PF_INFO.account > 0 ? PF_INFO.account : 0),
+    'type': type,
+    'info': info,
+  }) 
+}
+window.reqRecordError = function (str) {
   var info = JSON.parse(str);
   info.gamever = window.config.game_ver;
   info.serverid = (window.PF_INFO.selectedServer ? window.PF_INFO.selectedServer.server_id : 0);
   info.systemInfo = window.systemInfo;
   var infostr = JSON.stringify(info);
-  console.error("上报错误："+ infostr);
+  console.error("上报错误：" + infostr);
   window.clientlog(infostr);
 }
-window.reqRecordInfo = function(error, stack) {
+window.reqRecordInfo = function (error, stack) {
   var info = {
     id: window.PF_INFO.roleId,
     role: window.PF_INFO.roleName,
@@ -201,10 +214,10 @@ window.reqRecordInfo = function(error, stack) {
     stack: stack,
   }
   var infostr = JSON.stringify(info);
-  console.warn("上报信息："+ infostr);
+  console.warn("上报信息：" + infostr);
   window.clientlog(infostr);
 }
-window.clientlog = function(info) {
+window.clientlog = function (info) {
   if (window.PF_INFO.wxPlatform == "devtools") return;
   var url = PF_INFO.clientlog + "?account=" + PF_INFO.account;
   wx.request({
@@ -215,26 +228,26 @@ window.clientlog = function(info) {
       "content-type": "application/json",
       "cache-control": "no-cache"
     },
-    success: function(res) {
+    success: function (res) {
       DEBUG && console.log("clientlog:", url, info, res);
     },
-    fail: function(res) {
+    fail: function (res) {
       DEBUG && console.log("clientlog:", url, info, res);
     },
-    complete: function() {}
+    complete: function () { }
   })
 }
 
 
 
-window.guild = function() {
+window.guild = function () {
   function S4() {
     return (((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1));
   }
   return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "+" + S4() + S4() + S4());
 }
 /*sdk初始化*/
-window.sdkInit = function() {
+window.sdkInit = function () {
   console.log("#SDK 初始化：");
   var cfg = AKSDK.getConfig();
   PF_INFO.channel = cfg.partner_id;
@@ -250,12 +263,12 @@ window.sdkInit = function() {
   AKSDK.init(initData, this.sdkOnInited.bind(this));
 }
 /*sdk初始化回调*/
-window.sdkOnInited = function(res) {
+window.sdkOnInited = function (res) {
   var develop = res.develop;
   sdkInitRes = res;
   // res.game_ver = "1.0.86";
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
-  console.log("#初始化成功   提审状态:"+ develop +"   是否提审:"+ (develop == 1) +"   提审版本号:"+res.game_ver +"   当前版本号:"+window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
+  console.log("#初始化成功   提审状态:" + develop + "   是否提审:" + (develop == 1) + "   提审版本号:" + res.game_ver + "   当前版本号:" + window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
   if (!res.game_ver || window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
     console.log("#正式版=============================");
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
@@ -265,7 +278,7 @@ window.sdkOnInited = function(res) {
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
     PF_INFO.version_name = "fj";
     PF_INFO.wxShield = false;
-  } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0){  //当前版本 == 后台版本
+  } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0) {  //当前版本 == 后台版本
     console.log("#审核版=============================");
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（审核版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
@@ -295,7 +308,7 @@ window.sdkOnInited = function(res) {
 }
 window.sdkLoginRetry = 5;
 /*sdk登录回调*/
-window.sdkOnLogin = function(status, data) {
+window.sdkOnLogin = function (status, data) {
   if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
     var self = this;
@@ -306,32 +319,35 @@ window.sdkOnLogin = function(status, data) {
       'token': data.token,
       'game_pkg': PF_INFO.pkgName,
       'deviceId': PF_INFO.device_id,
-      'scene': 'WX_'+ PF_INFO.from_scene,
+      'scene': 'WX_' + PF_INFO.from_scene,
     }, this.onUserLogin.bind(this), apiRetryAmount, onApiError);
   } else {
     if (data && data.errMsg && window.sdkLoginRetry > 0 && (
-      data.errMsg.indexOf("fail interrupted") != -1 || 
-      data.errMsg.indexOf("network api interrupted") != -1 || 
-      data.errMsg.indexOf("Network Error") != -1 || 
-      data.errMsg.indexOf("ERR_TIMED_OUT") != -1 || 
-      data.errMsg.indexOf("ERR_CONNECTION_ABORTED") != -1 || 
+      data.errMsg.indexOf("fail interrupted") != -1 ||
+      data.errMsg.indexOf("network api interrupted") != -1 ||
+      data.errMsg.indexOf("Network Error") != -1 ||
+      data.errMsg.indexOf("ERR_TIMED_OUT") != -1 ||
+      data.errMsg.indexOf("ERR_CONNECTION_ABORTED") != -1 ||
       data.errMsg.indexOf("ERR_CONNECTION_RESET") != -1)) { //可以自动重试的失败  network api interrupted in suspend state(小程序退后台之后发起网络请求)
       window.sdkLoginRetry--;
       AKSDK.login(this.sdkOnLogin.bind(this));
     } else {
+      window.toErrorAlarm(1, "AKSDK.login fail: status="+status+",errMsg="+(data ? data.errMsg : ""));
       window.reqRecordInfo("sdkOnLoginError", JSON.stringify({ status: status, data: data }));
-      window.loginAlert("登录/注册失败" + (data&&data.errMsg ? "，"+data.errMsg : ""));
+      window.loginAlert("登录/注册失败" + (data && data.errMsg ? "，" + data.errMsg : ""));
     }
   }
 }
 
 window.onUserLogin = function (response) {
   if (!response) {
+    window.toErrorAlarm(2, "User.login fail: response is null");
     window.reqRecordInfo("userLoginError", "response is null");
     window.loginAlert('User.login failed');
     return;
   }
   if (response.state != 'success') {
+    window.toErrorAlarm(2, "User.login fail: state="+response.state);
     window.reqRecordInfo("userLoginError", JSON.stringify(response));
     window.loginAlert('User.login failed: ' + response.state);
     return;
@@ -370,14 +386,17 @@ window.getDefaultServers = function() {
 }
 window.onUserLoginDefaultServers = function(response) {
   if (!response) {
+    window.toErrorAlarm(3, 'Server.defaultServer failed');
     window.loginAlert('Server.defaultServer failed');
     return;
   }
   if (response.state != 'success') {
+    window.toErrorAlarm(3, 'Server.defaultServer failed: ' + response.state);
     window.loginAlert('Server.defaultServer failed: ' + response.state);
     return;
   }
   if (!response.data || response.data.length == 0) {
+    window.toErrorAlarm(3, 'Server.defaultServer failed: data null');
     window.loginAlert('服务器尚未开启');
     return;
   }
@@ -392,14 +411,17 @@ window.getCheckServers = function(lastSerId) {
 }
 window.onUserLoginCheckServers = function(response) {
   if (!response) {
+    window.toErrorAlarm(4, 'Server.check_server failed');
     this.getDefaultServers();
     return;
   }
   if (response.state != 'success') {
+    window.toErrorAlarm(4, 'Server.check_server failed: ' + response.state);
     this.getDefaultServers();
     return;
   }
   if (!response.data || response.data.length == 0) {
+    window.toErrorAlarm(4, 'Server.check_server failed: data null');
     this.getDefaultServers();
     return;
   }
@@ -436,6 +458,7 @@ window.initComplete = function () {
     if (PF_INFO.newRegister == 1) { //新用户，发送验证
       var status = PF_INFO.selectedServer.status;
       if (status === -1 || status === 0) {
+      window.toErrorAlarm(15, 'new register selectedServer status error: id='+PF_INFO.selectedServer.id+',status='+PF_INFO.selectedServer.status);
         window.loginAlert(status === -1 ? "当前服务器在维护中" : "当前服务器尚未开启，敬请期待");
         return;
       }
@@ -475,14 +498,17 @@ window.loadVersionConfig = function () {
 }
 window.reqVersionConfigCallBack = function (data) {
   if (!data) {
+        window.toErrorAlarm(5, 'User.getCdnVersion failed');
     window.loginAlert('User.getCdnVersion failed');
     return;
   }
   if (data.state != 'success') {
+        window.toErrorAlarm(5, 'User.getCdnVersion failed: state=' + data.state);
     window.loginAlert('User.getCdnVersion failed: state=' + data.state);
     return;
   }
   if (!data.data || !data.data.version) {
+        window.toErrorAlarm(5, 'User.getCdnVersion failed: version=' + (data.data && data.data.version));
     window.loginAlert('User.getCdnVersion failed: version=' + (data.data && data.data.version));
     return;
   }
@@ -500,27 +526,28 @@ window.reqVersionConfigCallBack = function (data) {
 }
 
 // 请求隐私、超级VIP、公众号信息
-window.pkgOptions
-window.reqPkgOptions = function() {
-  sendApi(PF_INFO.apiurl, 'Common.get_option_pkg', { 
+window.pkgOptions;
+window.reqPkgOptions = function () {
+  sendApi(PF_INFO.apiurl, 'Common.get_option_pkg', {
     'game_pkg': PF_INFO.pkgName,
   }, this.reqPkgOptionsCallBack.bind(this), apiRetryAmount, onApiError);
 }
-window.reqPkgOptionsCallBack = function(data) {
-  if (data.state === "success" && data.data) {
+window.reqPkgOptionsCallBack = function (data) {
+  if (data && data.state === "success" && data.data) {
     window.pkgOptions = data.data;
     for (var k in data.data) {
       PF_INFO[k] = data.data[k];
     }
-  } else {            
-    console.info("reqPkgOptionsCallBack "+data.state);
+  } else {
+    window.toErrorAlarm(11, 'Common.get_option_pkg failed');
+    console.info("reqPkgOptionsCallBack " + data.state);
   }
   window.loadOption = true;
-  window.enterToGame(); 
+  window.enterToGame();
 }
 
 
-window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback) {
+window.toPay = function (roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback, appleprd_id) {
   productId = String(productId)
   var productname = productName
   var productdesc = productDesc
@@ -552,9 +579,8 @@ window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, pric
   }, toPayCallBack, apiRetryAmount, onApiError)
 
 }
-window.toPayCallBack = function(data) {
-  if (data) {
-    if (data.errCode === 200 || data.state == 'success') {
+window.toPayCallBack = function (data) {
+  if (data && (data.errCode === 200 || data.state == 'success')) {
       var info = PF_INFO.pay_infos[String(data.product_id)]
       if (info.callback)
         info.callback(data.product_id, data.cp_order_id, -1);
@@ -573,12 +599,12 @@ window.toPayCallBack = function(data) {
         'extension': JSON.stringify({
           'cp_order_id': data.cp_order_id
         }),
-      }, function(status, d) {
+      }, function (status, d) {
         if (info.callback && status == 0) {
           info.callback(data.product_id, data.cp_order_id, status);
         }
         //clientlog(JSON.stringify({error: JSON.stringify({type: "paycallback", status: status, data: data, role_name: info.rolename})}))
-        console.info(JSON.stringify({type: "paycallback", status: status, data: data, role_name: info.rolename}));
+        console.info(JSON.stringify({ type: "paycallback", status: status, data: data, role_name: info.rolename }));
 
         if (status === 0) {
           //成功
@@ -589,16 +615,17 @@ window.toPayCallBack = function(data) {
         }
       });
     } else {
-      alert(data.info);
-    }
+    var err = (data ? "errCode="+data.errCode+",state="+data.state+",info="+data.info : "获取订单失败");
+    window.toErrorAlarm(13, "Order.order fail: " + err);
+    alert(err);
   }
 }
 
 
-window.loadCreateRole = function() {
+window.loadCreateRole = function () {
   // AKSDK.logLoadingFinish();
 }
-window.toCreate = function(role_id, role_name, role_level, role_type, time) {
+window.toCreate = function (role_id, role_name, role_level, role_type, time) {
   AKSDK.logCreateRole(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, role_id, role_name, role_level);
   sendApi(PF_INFO.apiurl, 'User.create_role', {
     'game_pkg': PF_INFO.pkgName,
@@ -610,7 +637,7 @@ window.toCreate = function(role_id, role_name, role_level, role_type, time) {
     'level': role_level,
   })
 }
-window.toLogin = function(role_id, role_name, role_level, role_type, evolution, time, fight, gold, eraLv, eraNum) {
+window.toLogin = function (role_id, role_name, role_level, role_type, evolution, time, fight, gold, eraLv, eraNum) {
   PF_INFO.roleId = role_id;
   PF_INFO.roleName = role_name;
   PF_INFO.roleLevel = role_level;
@@ -626,44 +653,44 @@ window.toLogin = function(role_id, role_name, role_level, role_type, evolution, 
     'evolution': evolution,
   })
 }
-window.toLevelUp = function(role_id, role_name, role_level, role_type, evolution, time, fight, gold, eraLv, eraNum) {
+window.toLevelUp = function (role_id, role_name, role_level, role_type, evolution, time, fight, gold, eraLv, eraNum) {
   PF_INFO.roleId = role_id;
   PF_INFO.roleName = role_name;
   PF_INFO.roleLevel = role_level;
   AKSDK.logRoleUpLevel(PF_INFO.selectedServer.server_id, PF_INFO.selectedServer.server_name || PF_INFO.selectedServer.server_id, role_id, role_name, role_level);
   sendApi(PF_INFO.apiurl, 'User.update_role', {
-      'game_pkg': PF_INFO.pkgName,
-      'server_id': PF_INFO.selectedServer.server_id,
-      'role_id': role_id,
-      'uid': PF_INFO.account,
-      'role_name': role_name,
-      'role_type': role_type,
-      'level': role_level,
-      'evolution': evolution,
+    'game_pkg': PF_INFO.pkgName,
+    'server_id': PF_INFO.selectedServer.server_id,
+    'role_id': role_id,
+    'uid': PF_INFO.account,
+    'role_name': role_name,
+    'role_type': role_type,
+    'level': role_level,
+    'evolution': evolution,
   })
 }
-window.toRealName = function(callback) {
+window.toRealName = function (callback) {
 
 }
 
 //调起分享
-window.openShare = function(callback){
-  AKSDK.share('share', function (data) {
-      callback && callback(data);
-  }); 
+window.openShare = function (callback) {
+  AKSDK.share('share', function (data) {
+    callback && callback(data);
+  });
 }
 //调起客服
-window.openService = function(){
+window.openService = function () {
   AKSDK.openService();
 }
 
 //微端引导
-window.microPortGuide = function(){
+window.microPortGuide = function () {
   AKSDK.weiduanHelper();
 }
 
 //绑定有礼请求短信验证码
-window.reqSMSCode = function(phone, role_id, uid, game_pkg, partner_id, sign, callback, server_id) {
+window.reqSMSCode = function (phone, role_id, uid, game_pkg, partner_id, sign, callback, server_id) {
   server_id = server_id || PF_INFO.selectedServer.server_id;
   sendApi(PF_INFO.apiurl, 'User.get_code', {
     'phone': phone,
@@ -680,19 +707,19 @@ window.reqSMSCode = function(phone, role_id, uid, game_pkg, partner_id, sign, ca
 //收藏
 //window.onShowData = null;
 //window.onShowCallback = null;
-window.onShow = function(callback){
+window.onShow = function (callback) {
   window.onShowCallback = callback;
   if (window.onShowCallback && window.onShowData) {
-    console.info("小游戏切前台事件，场景值："+window.onShowData.scene);
+    console.info("小游戏切前台事件，场景值：" + window.onShowData.scene);
     window.onShowCallback(window.onShowData);
     window.onShowData = null;
   }
 }
 //获取邀请者
-window.reqPlayerAskInfo = function(packageName, role_id, serverId, callBack) {
+window.reqPlayerAskInfo = function (packageName, role_id, serverId, callBack) {
   window.send('https://sdk.sh9130.com/game/?ct=min&ac=getInviter', {
-    'game_pkg': window.PF_INFO.pkgName, 
-    'role_id': role_id, 
+    'game_pkg': window.PF_INFO.pkgName,
+    'role_id': role_id,
     'server_id': serverId
   }, callBack);
 }
@@ -777,11 +804,11 @@ window.openSubscribeMsg = function(ids, callback) {
   wx.onTouchEnd(onTouchEnd);
 }
 //获取电池信息
-window.batteryInfo = {isSuccess: false, level: "100", isCharging: false};
-window.getBatteryInfo = function(callback) {
+window.batteryInfo = { isSuccess: false, level: "100", isCharging: false };
+window.getBatteryInfo = function (callback) {
   // console.log("调用获取电池信息");
   wx.getBatteryInfo({
-    success: function(resSuccess) {
+    success: function (resSuccess) {
       var info = window.batteryInfo;
       info.isSuccess = true;
       info.level = Number(resSuccess.level).toFixed(0);
@@ -789,7 +816,7 @@ window.getBatteryInfo = function(callback) {
       // console.log("调用获取电池信息成功", info.level, info.isCharging, resSuccess.errMsg, resSuccess.level);
       callback && callback(info.isSuccess, info.level, info.isCharging);
     },
-    fail: function(resFail) {
+    fail: function (resFail) {
       console.log("调用获取电池信息失败", resFail.errMsg);
       var info = window.batteryInfo;
       callback && callback(info.isSuccess, info.level, info.isCharging);
@@ -816,55 +843,55 @@ window.offNetworkStatusChange = function(func) {
   wx.offNetworkStatusChange(func);  
 }
 
-window.send = function(url, data, callBack, retryAmount, errorCB, checkSuccess, reqType, contentType) {
+window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess, reqType, contentType) {
   if (retryAmount == undefined) retryAmount = 1;
 
   wx.request({
-      url: url,
-      method: (reqType || "GET"),
-      responseType: "text",
-      data: data,
-      header: {
-          "content-type": (contentType || 'application/json'),
-      },
-      success: function(res) {
-          DEBUG && console.log("send.success:", url, info, res);
-          if (res && res.statusCode == 200) {
-              var response = res.data;
-              if (!checkSuccess || checkSuccess(response)) {
-                  if (callBack) {
-                      callBack(response);
-                  }
-              } else {
-                  window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
-              }
-          } else {
-            window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
+    url: url,
+    method: (reqType || "GET"),
+    responseType: "text",
+    data: data,
+    header: {
+      "content-type": (contentType || 'application/json'),
+    },
+    success: function (res) {
+      DEBUG && console.log("send.success:", url, info, res);
+      if (res && res.statusCode == 200) {
+        var response = res.data;
+        if (!checkSuccess || checkSuccess(response)) {
+          if (callBack) {
+            callBack(response);
           }
-      },
-      fail: function(res) {
-          DEBUG && console.log("send.fail:", url, info, res);
+        } else {
           window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
-      },
-      complete: function() {}
+        }
+      } else {
+        window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
+      }
+    },
+    fail: function (res) {
+      DEBUG && console.log("send.fail:", url, info, res);
+      window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
+    },
+    complete: function () { }
   });
 }
-window.sendFail = function(url, data, callBack, retryAmount, errorCB, checkSuccess, res) {
-    if (retryAmount - 1 > 0) {
-        setTimeout(function() {
-            window.send(url, data, callBack, retryAmount - 1, errorCB, checkSuccess);
-        }, 1000);
-    } else {
-        if (errorCB) {
-            errorCB(JSON.stringify({
-                url: url,
-                response: res,
-            }));
-        }
+window.sendFail = function (url, data, callBack, retryAmount, errorCB, checkSuccess, res) {
+  if (retryAmount - 1 > 0) {
+    setTimeout(function () {
+      window.send(url, data, callBack, retryAmount - 1, errorCB, checkSuccess);
+    }, 1000);
+  } else {
+    if (errorCB) {
+      errorCB(JSON.stringify({
+        url: url,
+        response: res,
+      }));
     }
+  }
 }
 
-window.sendApi = function(apiurl, method, param, callBack, retryAmount, errorCB, checkSuccess) {
+window.sendApi = function (apiurl, method, param, callBack, retryAmount, errorCB, checkSuccess) {
   if (!param) {
     param = {};
   }
@@ -884,12 +911,12 @@ window.sendApi = function(apiurl, method, param, callBack, retryAmount, errorCB,
 
   var extendParam = 'sign=' + md5(md5Str);
 
-  send(apiurl + '?' + reqStr + (reqStr == '' ? '' : '&') + extendParam, null, callBack, retryAmount, errorCB, checkSuccess || function(response) {
+  send(apiurl + '?' + reqStr + (reqStr == '' ? '' : '&') + extendParam, null, callBack, retryAmount, errorCB, checkSuccess || function (response) {
     return response.state == 'success';
   }, null, 'application/x-www-form-urlencoded');
 }
 
-window.onRoleRecordStep = function(step, role_id) {
+window.onRoleRecordStep = function (step, role_id) {
   var serverTmpId = 0;
   if (PF_INFO.selectedServer) {
     serverTmpId = PF_INFO.selectedServer.server_id;
@@ -901,13 +928,13 @@ window.onRoleRecordStep = function(step, role_id) {
     'platformUid': PF_INFO.platform_uid,
     'type': step,
     'serverId': serverTmpId,
-  }, null, 2, null, function() {
+  }, null, 2, null, function () {
     return true;
   });
 }
 
 
-window.req_server_group = function(step) {
+window.req_server_group = function (step) {
   sendApi(PF_INFO.apiurl, 'Server.getServerGroup', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
@@ -916,8 +943,8 @@ window.req_server_group = function(step) {
     'device': PF_INFO.device_id,
   }, reqServerGroupCallBack, apiRetryAmount, onApiError)
 }
-window.reqServerGroupCallBack = function(data) {
-  if (data.state === "success" && data.data) {
+window.reqServerGroupCallBack = function (data) {
+  if (data && data.state === "success" && data.data) {
     data.data.unshift({
       'id': -2,
       'name': "最新服"
@@ -930,11 +957,13 @@ window.reqServerGroupCallBack = function(data) {
     if (window.initPanel) window.initPanel.showGroupList();
   } else {
     PF_INFO.hasGroupReq = false;
-    window.loginAlert("reqServerGroupCallBack " + data.state);
+    var err = (data ? data.state : "");
+    window.toErrorAlarm(7, "Server.getServerGroup fail: " + err);
+    window.loginAlert("reqServerGroupCallBack " + err);
   }
 }
 
-window.req_server_owner = function(step) {
+window.req_server_owner = function (step) {
   sendApi(PF_INFO.apiurl, 'Server.getServerByUid', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
@@ -943,19 +972,21 @@ window.req_server_owner = function(step) {
     'device': PF_INFO.device_id,
   }, reqServerOwnerCallBack, apiRetryAmount, onApiError);
 }
-window.reqServerOwnerCallBack = function(data) {
+window.reqServerOwnerCallBack = function (data) {
   PF_INFO.hasServerReq = false;
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
     for (var i = 0; i < data.data.length; i++) {
       data.data[i].status = get_status(data.data[i]);
     }
     PF_INFO.serverList[-1] = window.changeServerName(data.data);
     window.initPanel.showServerList(-1);
   } else {
-    window.loginAlert("reqServerOwnerCallBack " + data.state);
+    var err = (data ? data.state : "");
+    window.toErrorAlarm(8, "Server.getServerByUid fail: " + err);
+    window.loginAlert("reqServerOwnerCallBack " + err);
   }
 }
-window.req_server_owner_status = function(callback) {
+window.req_server_owner_status = function (callback) {
   sendApi(PF_INFO.apiurl, 'Server.getServerByUid', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
@@ -965,7 +996,7 @@ window.req_server_owner_status = function(callback) {
   }, callback, apiRetryAmount, onApiError);
 }
 
-window.req_server_list = function(step, group_id) {
+window.req_server_list = function (step, group_id) {
   sendApi(PF_INFO.apiurl, 'Server.getServerByGroup', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
@@ -975,9 +1006,9 @@ window.req_server_list = function(step, group_id) {
     'server_group_id': group_id,
   }, reqServerListCallBack, apiRetryAmount, onApiError)
 }
-window.reqServerListCallBack = function(data) {
+window.reqServerListCallBack = function (data) {
   PF_INFO.hasServerReq = false;
-  if (data.state === "success" && data.data && data.data.data) {
+  if (data && data.state === "success" && data.data && data.data.data) {
     var groupid = data.data.server_group_id;
     var server_list = [];
     for (var i = 0; i < data.data.data.length; i++) {
@@ -990,10 +1021,12 @@ window.reqServerListCallBack = function(data) {
     PF_INFO.serverList[groupid] = window.changeServerName(server_list);
     window.initPanel.showServerList(groupid);
   } else {
-    window.loginAlert("reqServerListCallBack " + data.state);
+    var err = (data ? data.state : "");
+    window.toErrorAlarm(9, "Server.getServerByGroup fail: " + err);
+    window.loginAlert("reqServerListCallBack " + err);
   }
 }
-window.req_recommend_server_list = function(step) {
+window.req_recommend_server_list = function (step) {
   sendApi(PF_INFO.apiurl, 'Server.getRecommendServerList', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
@@ -1002,28 +1035,24 @@ window.req_recommend_server_list = function(step) {
     'device': PF_INFO.device_id,
   }, reqServerRecommendCallBack, apiRetryAmount, onApiError);
 }
-window.reqServerRecommendCallBack = function(data) {
+window.reqServerRecommendCallBack = function (data) {
   PF_INFO.hasServerReq = false;
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
       for (var i = 0; i < data.data.length; i++) {
           data.data[i].status = get_status(data.data[i]);
       }
       PF_INFO.serverList[-2] = window.changeServerName(data.data);
       window.initPanel.showServerList(-2);
   } else {
-      alert("reqServerRecommendCallBack " + data.state);
+    var err = (data ? data.state : "");
+    window.toErrorAlarm(10, "Server.getRecommendServerList fail: " + err);
+    alert("reqServerRecommendCallBack " + err);
   }
 }
-window.changeServerName = function(lst) {
-  if(!lst && lst.length <= 0) return lst;
-  for(let i = 0; i < lst.length; i++) {
-      if(lst[i].is_recommend && lst[i].is_recommend == 1) {
-          lst[i].server_name += "(推荐)";
-      }
-  }
+window.changeServerName = function (lst) {
   return lst;
 }
-window.req_server_notice = function(server_id, callback) {
+window.req_server_notice = function (server_id, callback) {
   server_id = server_id || PF_INFO.selectedServer.server_id;
   sendApi(PF_INFO.apiurl, 'Common.get_anno', {
     'type': '4',
@@ -1031,7 +1060,7 @@ window.req_server_notice = function(server_id, callback) {
     'server_id': server_id,
   }, callback);
 }
-window.req_multi_server_notice = function(type, pkgName, server_id, callback) {
+window.req_multi_server_notice = function (type, pkgName, server_id, callback) {
   server_id = server_id || PF_INFO.selectedServer.server_id;
   sendApi(PF_INFO.apiurl, 'Common.get_new_anno', {
     'type': type,
@@ -1089,13 +1118,13 @@ window.req_server_check_ban = function (step, server_id) {
     'check_login_time': PF_INFO.php_signtime,
     'check_login_sign': PF_INFO.php_sign,
     'version_name': PF_INFO.version_name,
-  }, reqServerCheckBanCallBack, apiRetryAmount, onApiError, function(response) {
+  }, reqServerCheckBanCallBack, apiRetryAmount, onApiError, function (response) {
     return response.state == 'success' || response.info == 'time_err' || response.info == 'sign_err';
   });
 }
-window.reqServerCheckBanCallBack = function(data) {
+window.reqServerCheckBanCallBack = function (data) {
   var self = this;
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
     var server = PF_INFO.selectedServer;
     server.channel_num = PF_INFO.channelNum;
     server.sign = String(data.data.login_sign);
@@ -1111,7 +1140,7 @@ window.reqServerCheckBanCallBack = function(data) {
     if (data.data.max_create)
       server.max_create = parseInt(data.data.max_create);
 
-    console.log("server_options："+ JSON.stringify(server.server_options));
+    console.log("server_options：" + JSON.stringify(server.server_options));
 
     if (PF_INFO.newRegister == 1 && server.server_options && server.server_options.show_btn == 1) {
       PF_INFO.showGetBtn = 1;
@@ -1121,8 +1150,10 @@ window.reqServerCheckBanCallBack = function(data) {
     checkBanSuccess();
   } else {
     if (PF_INFO.last_check_ban.step >= 3) {
+      var err = (data ? data.state : "");
+      window.toErrorAlarm(12, "User.checkInfo fail: " + err);
       onApiError(JSON.stringify(data));
-      window.loginAlert('User.checkInfo failed: ' + data.state);
+      window.loginAlert('User.checkInfo failed: ' + err);
     } else {
       sendApi(PF_INFO.apiurl, 'User.login', {
         'platform': PF_INFO.sdk_name,
@@ -1130,56 +1161,56 @@ window.reqServerCheckBanCallBack = function(data) {
         'token': PF_INFO.sdk_token,
         'game_pkg': PF_INFO.pkgName,
         'deviceId': PF_INFO.device_id,
-        'scene': 'WX_'+ PF_INFO.from_scene,
-      }, function(response) {
+        'scene': 'WX_' + PF_INFO.from_scene,
+      }, function (response) {
         if (!response || response.state != 'success') {
-          window.loginAlert('User.login failed: ' + response&&response.state);
+          window.loginAlert('User.login failed: ' + response && response.state);
           return;
         }
         PF_INFO.php_sign = String(response.sign);
         PF_INFO.php_signtime = String(response.time);
-  
-        setTimeout(function() {
-          req_server_check_ban(PF_INFO.last_check_ban.step+1, PF_INFO.last_check_ban.server_id);
+
+        setTimeout(function () {
+          req_server_check_ban(PF_INFO.last_check_ban.step + 1, PF_INFO.last_check_ban.server_id);
         }, 1500);
-      }, apiRetryAmount, onApiError, function(response) {
+      }, apiRetryAmount, onApiError, function (response) {
         return response.state == 'success' || response.state == 'failed';
       });
     }
   }
 }
-window.checkBanSuccess = function() {
+window.checkBanSuccess = function () {
   ServerLoading.instance.openLoading(PF_INFO.newRegister);
   window.isCheckBan = true;
-  window.enterToGame(); 
+  window.enterToGame();
 }
 
 
-window.initMain = function() {
-  if(window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer) {
+window.initMain = function () {
+  if (window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer) {
     if (!window.MainWX.instance) {
-      console.log("Main 初始化"+window.MainWX.instance);
+      console.log("Main 初始化" + window.MainWX.instance);
       var info = wx.getLaunchOptionsSync();
-      var scene = info.scene?info.scene:0;
+      var scene = info.scene ? info.scene : 0;
       var platData = {
         cdn: window.PF_INFO.cdn,
-        spareCdn: window.PF_INFO.spareCdn, 
+        spareCdn: window.PF_INFO.spareCdn,
         newRegister: window.PF_INFO.newRegister,
         wxPC: window.PF_INFO.wxPC,
         wxIOS: window.PF_INFO.wxIOS,
         wxAndroid: window.PF_INFO.wxAndroid,
-        wxParam: {limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.config.from=="txcps" ? 1: 0), wxSDKVersion: window.SDKVersion},
-        configType: window.PF_INFO.configType, 
+        wxParam: { limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.config.from == "txcps" ? 1 : 0), wxSDKVersion: window.SDKVersion },
+        configType: window.PF_INFO.configType,
         exposeType: window.PF_INFO.exposeType,
-        scene:scene
+        scene: scene
       }
       new window.MainWX(platData, window.PF_INFO.lastVersion, window.workerJsURL);
     }
   }
 }
 
-window.enterToGame = function() {
-  if(window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer && window.isCheckBan && window.loadOption) {
+window.enterToGame = function () {
+  if (window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer && window.isCheckBan && window.loadOption) {
     wxHideLoading();
     if (!bEnterGame) {
       bEnterGame = true;
@@ -1190,19 +1221,18 @@ window.enterToGame = function() {
         if (window.PF_INFO.wxPhone) {
           top = rec.top;
         }
-        console.info("MenuButton  top:"+rec.top+",bottom:"+rec.bottom+",left:"+rec.left+",right:"+rec.right+",width:"+rec.width+",height:"+rec.height);
+        console.info("MenuButton  top:" + rec.top + ",bottom:" + rec.bottom + ",left:" + rec.left + ",right:" + rec.right + ",width:" + rec.width + ",height:" + rec.height);
       }
 
       var selectedServer = {};
       for (const key in PF_INFO.selectedServer) {
-          selectedServer[key] = PF_INFO.selectedServer[key];
+        selectedServer[key] = PF_INFO.selectedServer[key];
       }
 
       var platData = {
         channel: window.PF_INFO.channel,
         account: window.PF_INFO.account,
         userId: window.PF_INFO.userId,
-        serverId: selectedServer.server_id,
         cdn: window.PF_INFO.cdn,
         data: window.PF_INFO.data,
         package: window.PF_INFO.package,
@@ -1229,6 +1259,6 @@ window.enterToGame = function() {
       if (PF_INFO.selectedServer && PF_INFO.selectedServer.server_id) localStorage.setItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account, PF_INFO.selectedServer.server_id);
     }
   } else {
-    console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadServerRes:"+window.loadServerRes+",loadLoadingRes:"+window.loadLoadingRes+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);
+    console.info("【登录】loadProbPkg:" + window.loadProbPkg + ",loadMainPkg:" + window.loadMainPkg + ",loadServerRes:" + window.loadServerRes + ",loadLoadingRes:" + window.loadLoadingRes + ",loadVersion:" + window.loadVersion + ",loadServer:" + window.loadServer + ",isCheckBan:" + window.isCheckBan + ",loadOption:" + window.loadOption);
   }
 }

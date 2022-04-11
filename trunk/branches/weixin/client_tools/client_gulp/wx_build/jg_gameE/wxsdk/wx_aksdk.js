@@ -1,20 +1,16 @@
 ﻿// 引入渠道JS文件
-import SDKyyw from './helper'
+var SDKyyw = require('../utils/SDKyyw.min.js');
+
 var config = {
     game_id: '256',
-    game_pkg: 'tjqy_tjqyxyjz_FU', //有一 --飞剑 --侠义九州
+    game_pkg: 'tjqy_tjqyhlsyywxxcx_QU',
     partner_id: '317',
-    game_ver: '5.0.40',
-    is_auth: false, //授权登录   
-    from: null, //来源
-    tmpId: {},  // 订阅的类型 和 模板id
+    game_ver: '50.0.1',
+    is_auth: false, //授权登录
+    partner_app_id:'1000234',
+    partner_app_key:'1584c6700058a42cf1af3736045df839'
 };
 window.config = config;
-// 渠道配置
-var partner_config = {
-    app_id : 1000207,
-    app_key : '9a784f02d527218cd7869f368a265116'
-};
 
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
@@ -114,7 +110,7 @@ function mainSDK() {
                 self.do_login(partner_user_info);
             } ;
 
-            SDKyyw.init(partner_config.app_id, partner_config.app_key);
+            SDKyyw.init(config.partner_app_id, config.partner_app_key);
         },
 
         do_login: function (info) {
@@ -206,27 +202,6 @@ function mainSDK() {
                 });
             });
         },
-
-
-        switchEnv:function(callbacks){
-            callbacks(partner_swtich_info);
-        },
-
-        switchGame:function(callbacks){
-            SDKyyw.cutGameCallback = (data) => {
-                // {status: 1,msg: "success", data: res } 跳转成功
-                // {status: 0,msg: "fail", data: err } 跳转失败
-              callbacks(data);
-              }
-              
-              // 跳转
-              if(partner_swtich_info.showSwitchOn == 1) {
-                SDKyyw.cutGame()
-              }else{
-                callbacks({status: 0,msg: "没开启跳转" });
-              }
-        },
-        
 
         logStartShare: function (type) {
             var sdk_token = wx.getStorageSync('plat_sdk_token');
@@ -320,6 +295,25 @@ function mainSDK() {
                     }
                 }
             });
+        },
+
+        switchEnv:function(callbacks){
+            callbacks(partner_swtich_info);
+        },
+
+        switchGame:function(callbacks){
+            SDKyyw.cutGameCallback = (data) => {
+                // {status: 1,msg: "success", data: res } 跳转成功
+                // {status: 0,msg: "fail", data: err } 跳转失败
+                callbacks(data);
+            }
+
+            // 跳转
+            if(partner_swtich_info.showSwitchOn == 1) {
+                SDKyyw.cutGame()
+            }else{
+                callbacks({status: 0,msg: "没开启跳转" });
+            }
         },
 
         updateShare: function (invite, invite_type, is_new, role_id, server_id, scene) {
@@ -420,13 +414,13 @@ function mainSDK() {
                     if(res.statusCode == 200){
                         var data = res.data;
                         if(data.state){
-                            //支付回调
+
                             if(data.data.ext == ''){
+                                         //支付回调
                                 SDKyyw.onPayCallback = (data) => {
                                     //不要通过客户端回调来作为充值判断
                                     //支付成功 data = {status:"1", data: {gameOrderid:"this is order id",money:"充值金额",productId:"商品id"}, msg:"支付成功"}
                                 }
-    
                                 //拉起支付
                                 let payData = {};
                                 payData.serverId = data.data.pay_data.serverId;//服务器id
@@ -439,13 +433,13 @@ function mainSDK() {
                                 payData.money = data.data.pay_data.amount;//充值金额 单位元
                                 payData.productName = data.data.pay_data.productName;
                                 payData.productId = data.data.pay_data.productId;
-    
+
                                 console.log('渠道下单数据' + JSON.stringify(payData));
                                 SDKyyw.pay(payData);
                             }else{
                                 self.extDo({ext1:data.data.ext,ext2:data.data.pay_data});
                             }
-                      
+                   
                         }else{
                             callbacks['pay'] && callbacks['pay'](1, {errMsg: data.msg});
                         }
@@ -455,7 +449,6 @@ function mainSDK() {
                 }
             });
         },
-
 
         extDo: function(data){
             wx.navigateToMiniProgram({
@@ -669,16 +662,51 @@ function mainSDK() {
                 let ret_res = {
                     data:{}
                 };
-                if(res.status == 1){
+                if(res.errcode == 0){
                     ret_res.statusCode = 200;
                     ret_res.data.state = 1;
                 }else{
-                    ret_res.statusCode = 0;
+                    ret_res.statusCode = 200;
                     ret_res.data.state = 0;
                 }
                 callback && callback(ret_res);
             });
         },
+        //获取验证码
+        sendCode: function(data,callback){
+
+            console.log('开始获取验证码：',data.phone);
+
+            SDKyyw.getCaptchaCallback = (data) => {
+                console.log(data)
+                // 成功data = {status:"1", data: res, msg: success}
+                // 失败data = {status:"0", data: fail, msg: fail}
+                if(data.status==1){
+                    callback && callback(0,data);
+                }else{
+                    callback && callback(1,data);
+                }
+                
+              }
+            SDKyyw.getCaptcha({telephone:data.phone});
+        },
+        //绑定手机
+        bindPhone: function(data,callback){
+
+            console.log('开始绑定手机：',data.phone,data.code);
+
+            SDKyyw.bindTelephoneCallback = (data) => {
+                console.log('datadata',data)
+                // 成功data = {status:"1", data: res, msg: success}
+                // 失败data = {status:"0", data: fail, msg: fail}
+                if(data.status==1){
+                    callback && callback(0,data);
+                }else{
+                    callback && callback(1,data);
+                }
+              }
+              SDKyyw.bindTelephone({telephone:data.phone,captcha:data.code});
+        }
     }
 }
 
@@ -700,12 +728,6 @@ exports.login = function (callback) {
 
 exports.pay = function (data, callback) {
     run('pay', data, callback);
-};
-exports.switchEnv = function (callback) {
-    run('switchEnv',  callback);
-};
-exports.switchGame = function (callback) {
-    run('switchGame',  callback);
 };
 
 exports.openService = function () {
@@ -771,4 +793,23 @@ exports.getLaunchOptionsSync = function (callback){
 
 exports.msgCheck  = function (msg , callback){
     run('msgCheck',msg ,callback);
+};
+
+exports.switchEnv = function (callback) {
+    run('switchEnv',  callback);
+};
+exports.switchGame = function (callback) {
+    run('switchGame',  callback);
+};
+
+exports.weiduanHelper = function (data,callback) {
+    run('weiduanHelper',  data, callback);
+};
+
+exports.sendCode = function (data,callback) {
+    run('sendCode',data, callback);
+};
+
+exports.bindPhone = function (data,callback) {
+    run('bindPhone',data, callback);
 };

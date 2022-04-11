@@ -1,1 +1,1 @@
-import "eeemain.js";
+import 'eeemain.js';

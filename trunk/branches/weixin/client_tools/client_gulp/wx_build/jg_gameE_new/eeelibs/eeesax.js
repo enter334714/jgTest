@@ -1,90 +1,128 @@
-function XMLReader() {}function parse(r, d, p, a, n) {
-  function c(e) {
-    var t = e.slice(1, -1);return t in p ? p[t] : "#" === t.charAt(0) ? 65535 < (t = parseInt(t.substr(1).replace("x", "0x"))) ? (t -= 65536, String.fromCharCode(55296 + (t >> 10), 56320 + (1023 & t))) : String.fromCharCode(t) : (n.error("entity not found:" + e), e);
-  }function i(e) {
-    var t;u < e && (t = r.substring(u, e).replace(/&#?\w+;/g, c), s && o(u), a.characters(t, 0, e - u), u = e);
-  }function o(e, t) {
-    for (; f <= e && (t = S.exec(r));) T = t.index, f = T + t[0].length, s.lineNumber++;s.columnNumber = e - T + 1;
-  }for (var T = 0, f = 0, S = /.*(?:\r\n?|\n)|.*$/g, s = a.locator, A = [{ currentNSMap: d }], h = {}, u = 0;;) {
+function XMLReader() {}function parse(e, t, r, a, n) {
+  function s(e) {
+    if (e > 65535) {
+      e -= 65536;var t = 55296 + (e >> 10),
+          r = 56320 + (1023 & e);return String.fromCharCode(t, r);
+    }return String.fromCharCode(e);
+  }function c(e) {
+    var t = e.slice(1, -1);return t in r ? r[t] : "#" === t.charAt(0) ? s(parseInt(t.substr(1).replace("x", "0x"))) : (n.error("entity not found:" + e), e);
+  }function i(t) {
+    if (t > p) {
+      var r = e.substring(p, t).replace(/&#?\w+;/g, c);m && o(p), a.characters(r, 0, t - p), p = t;
+    }
+  }function o(t, r) {
+    for (; t >= l && (r = _.exec(e));) u = r.index, l = u + r[0].length, m.lineNumber++;m.columnNumber = t - u + 1;
+  }for (var u = 0, l = 0, _ = /.*(?:\r\n?|\n)|.*$/g, m = a.locator, f = [{ currentNSMap: t }], d = {}, p = 0;;) {
     try {
-      var e = r.indexOf("<", u);var g, w;if (e < 0) return void (r.substr(u).match(/^\s*$/) || (w = (g = a.doc).createTextNode(r.substr(u)), g.appendChild(w), a.currentElement = w));switch (u < e && i(e), r.charAt(e + 1)) {case "/":
-          var t = r.indexOf(">", e + 3),
-              l = r.substring(e + 2, t),
-              _ = A.pop();t < 0 ? (l = r.substring(e + 2).replace(/[\s<].*/, ""), n.error("end tag name: " + l + " is not complete:" + _.tagName), t = e + 1 + l.length) : l.match(/\s</) && (l = l.replace(/[\s<].*/, ""), n.error("end tag name: " + l + " maybe not complete"), t = e + 1 + l.length);var E = _.localNSMap,
-              N = _.tagName == l;if (N || _.tagName && _.tagName.toLowerCase() == l.toLowerCase()) {
-            if (a.endElement(_.uri, _.localName, l), E) for (var b in E) a.endPrefixMapping(b);N || n.fatalError("end tag name: " + l + " is not match the current start tagName:" + _.tagName);
-          } else A.push(_);t++;break;case "?":
-          s && o(e), t = parseInstruction(r, e, a);break;case "!":
-          s && o(e), t = parseDCC(r, e, a, n);break;default:
-          s && o(e);var m = new ElementAttributes(),
-              x = A[A.length - 1].currentNSMap,
-              t = parseElementStartPart(r, e, m, x, c, n),
-              C = m.length;if (!m.closed && fixSelfClosed(r, t, m.tagName, h) && (m.closed = !0, p.nbsp || n.warning("unclosed xml attribute")), s && C) {
-            for (var v = copyLocator(s, {}), R = 0; R < C; R++) {
-              var O = m[R];o(O.offset), O.locator = copyLocator(s, {});
-            }a.locator = v, appendElement(m, a, x) && A.push(m), a.locator = s;
-          } else appendElement(m, a, x) && A.push(m);"http://www.w3.org/1999/xhtml" !== m.uri || m.closed ? t++ : t = parseHtmlSpecialContent(r, t, m.tagName, c, a);}
-    } catch (e) {
-      n.error("element parse error: " + e), t = -1;
-    }u < t ? u = t : i(Math.max(e, u) + 1);
+      var T = e.indexOf("<", p);if (0 > T) {
+        if (!e.substr(p).match(/^\s*$/)) {
+          var S = a.doc,
+              h = S.createTextNode(e.substr(p));S.appendChild(h), a.currentElement = h;
+        }return;
+      }switch (T > p && i(T), e.charAt(T + 1)) {case "/":
+          var A = e.indexOf(">", T + 3),
+              g = e.substring(T + 2, A),
+              w = f.pop();0 > A ? (g = e.substring(T + 2).replace(/[\s<].*/, ""), n.error("end tag name: " + g + " is not complete:" + w.tagName), A = T + 1 + g.length) : g.match(/\s</) && (g = g.replace(/[\s<].*/, ""), n.error("end tag name: " + g + " maybe not complete"), A = T + 1 + g.length);var E = w.localNSMap,
+              N = w.tagName == g,
+              b = N || w.tagName && w.tagName.toLowerCase() == g.toLowerCase();if (b) {
+            if (a.endElement(w.uri, w.localName, g), E) for (var v in E) a.endPrefixMapping(v);N || n.fatalError("end tag name: " + g + " is not match the current start tagName:" + w.tagName);
+          } else f.push(w);A++;break;case "?":
+          m && o(T), A = parseInstruction(e, T, a);break;case "!":
+          m && o(T), A = parseDCC(e, T, a, n);break;default:
+          m && o(T);var x = new ElementAttributes(),
+              C = f[f.length - 1].currentNSMap,
+              A = parseElementStartPart(e, T, x, C, c, n),
+              R = x.length;if (!x.closed && fixSelfClosed(e, A, x.tagName, d) && (x.closed = !0, r.nbsp || n.warning("unclosed xml attribute")), m && R) {
+            for (var O = copyLocator(m, {}), D = 0; R > D; D++) {
+              var L = x[D];o(L.offset), L.locator = copyLocator(m, {});
+            }a.locator = O, appendElement(x, a, C) && f.push(x), a.locator = m;
+          } else appendElement(x, a, C) && f.push(x);"http://www.w3.org/1999/xhtml" !== x.uri || x.closed ? A++ : A = parseHtmlSpecialContent(e, A, x.tagName, c, a);}
+    } catch (F) {
+      n.error("element parse error: " + F), A = -1;
+    }A > p ? p = A : i(Math.max(T, p) + 1);
   }
 }function copyLocator(e, t) {
   return t.lineNumber = e.lineNumber, t.columnNumber = e.columnNumber, t;
-}function parseElementStartPart(e, t, r, l, a, n) {
-  for (var s, c = ++t, i = S_TAG;;) {
-    var o = e.charAt(c);switch (o) {case "=":
-        if (i === S_ATTR) s = e.slice(t, c), i = S_EQ;else {
-          if (i !== S_ATTR_SPACE) throw new Error("attribute equal must after attrName");i = S_EQ;
+}function parseElementStartPart(e, t, r, a, n, s) {
+  for (var c, i, o = ++t, u = S_TAG;;) {
+    var l = e.charAt(o);switch (l) {case "=":
+        if (u === S_ATTR) c = e.slice(t, o), u = S_EQ;else {
+          if (u !== S_ATTR_SPACE) throw new Error("attribute equal must after attrName");u = S_EQ;
         }break;case "'":case '"':
-        if (i === S_EQ || i === S_ATTR) {
-          if (i === S_ATTR && (n.warning('attribute value must after "="'), s = e.slice(t, c)), !(0 < (c = e.indexOf(o, t = c + 1)))) throw new Error("attribute value no end '" + o + "' match");u = e.slice(t, c).replace(/&#?\w+;/g, a), r.add(s, u, t - 1), i = S_ATTR_END;
+        if (u === S_EQ || u === S_ATTR) {
+          if (u === S_ATTR && (s.warning('attribute value must after "="'), c = e.slice(t, o)), t = o + 1, o = e.indexOf(l, t), !(o > 0)) throw new Error("attribute value no end '" + l + "' match");i = e.slice(t, o).replace(/&#?\w+;/g, n), r.add(c, i, t - 1), u = S_ATTR_END;
         } else {
-          if (i != S_ATTR_NOQUOT_VALUE) throw new Error('attribute value must after "="');u = e.slice(t, c).replace(/&#?\w+;/g, a), r.add(s, u, t), n.warning('attribute "' + s + '" missed start quot(' + o + ")!!"), t = c + 1, i = S_ATTR_END;
+          if (u != S_ATTR_NOQUOT_VALUE) throw new Error('attribute value must after "="');i = e.slice(t, o).replace(/&#?\w+;/g, n), r.add(c, i, t), s.warning('attribute "' + c + '" missed start quot(' + l + ")!!"), t = o + 1, u = S_ATTR_END;
         }break;case "/":
-        switch (i) {case S_TAG:
-            r.setTagName(e.slice(t, c));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:
-            i = S_TAG_CLOSE, r.closed = !0;case S_ATTR_NOQUOT_VALUE:case S_ATTR:case S_ATTR_SPACE:
+        switch (u) {case S_TAG:
+            r.setTagName(e.slice(t, o));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:
+            u = S_TAG_CLOSE, r.closed = !0;case S_ATTR_NOQUOT_VALUE:case S_ATTR:case S_ATTR_SPACE:
             break;default:
             throw new Error("attribute invalid close char('/')");}break;case "":
-        return n.error("unexpected end of input"), i == S_TAG && r.setTagName(e.slice(t, c)), c;case ">":
-        switch (i) {case S_TAG:
-            r.setTagName(e.slice(t, c));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:
+        return s.error("unexpected end of input"), u == S_TAG && r.setTagName(e.slice(t, o)), o;case ">":
+        switch (u) {case S_TAG:
+            r.setTagName(e.slice(t, o));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:
             break;case S_ATTR_NOQUOT_VALUE:case S_ATTR:
-            "/" === (u = e.slice(t, c)).slice(-1) && (r.closed = !0, u = u.slice(0, -1));case S_ATTR_SPACE:
-            i === S_ATTR_SPACE && (u = s), i == S_ATTR_NOQUOT_VALUE ? (n.warning('attribute "' + u + '" missed quot(")!!'), r.add(s, u.replace(/&#?\w+;/g, a), t)) : ("http://www.w3.org/1999/xhtml" === l[""] && u.match(/^(?:disabled|checked|selected)$/i) || n.warning('attribute "' + u + '" missed value!! "' + u + '" instead!!'), r.add(u, u, t));break;case S_EQ:
-            throw new Error("attribute value missed!!");}return c;case "\x80":
-        o = " ";default:
-        if (o <= " ") switch (i) {case S_TAG:
-            r.setTagName(e.slice(t, c)), i = S_TAG_SPACE;break;case S_ATTR:
-            s = e.slice(t, c), i = S_ATTR_SPACE;break;case S_ATTR_NOQUOT_VALUE:
-            var u = e.slice(t, c).replace(/&#?\w+;/g, a);n.warning('attribute "' + u + '" missed quot(")!!'), r.add(s, u, t);case S_ATTR_END:
-            i = S_TAG_SPACE;} else switch (i) {case S_ATTR_SPACE:
-            r.tagName, "http://www.w3.org/1999/xhtml" === l[""] && s.match(/^(?:disabled|checked|selected)$/i) || n.warning('attribute "' + s + '" missed value!! "' + s + '" instead2!!'), r.add(s, s, t), t = c, i = S_ATTR;break;case S_ATTR_END:
-            n.warning('attribute space is required"' + s + '"!!');case S_TAG_SPACE:
-            i = S_ATTR, t = c;break;case S_EQ:
-            i = S_ATTR_NOQUOT_VALUE, t = c;break;case S_TAG_CLOSE:
-            throw new Error("elements closed character '/' and '>' must be connected to");}}c++;
+            i = e.slice(t, o), "/" === i.slice(-1) && (r.closed = !0, i = i.slice(0, -1));case S_ATTR_SPACE:
+            u === S_ATTR_SPACE && (i = c), u == S_ATTR_NOQUOT_VALUE ? (s.warning('attribute "' + i + '" missed quot(")!!'), r.add(c, i.replace(/&#?\w+;/g, n), t)) : ("http://www.w3.org/1999/xhtml" === a[""] && i.match(/^(?:disabled|checked|selected)$/i) || s.warning('attribute "' + i + '" missed value!! "' + i + '" instead!!'), r.add(i, i, t));break;case S_EQ:
+            throw new Error("attribute value missed!!");}return o;case "":
+        l = " ";default:
+        if (" " >= l) switch (u) {case S_TAG:
+            r.setTagName(e.slice(t, o)), u = S_TAG_SPACE;break;case S_ATTR:
+            c = e.slice(t, o), u = S_ATTR_SPACE;break;case S_ATTR_NOQUOT_VALUE:
+            var i = e.slice(t, o).replace(/&#?\w+;/g, n);s.warning('attribute "' + i + '" missed quot(")!!'), r.add(c, i, t);case S_ATTR_END:
+            u = S_TAG_SPACE;} else switch (u) {case S_ATTR_SPACE:
+            {
+              r.tagName;
+            }"http://www.w3.org/1999/xhtml" === a[""] && c.match(/^(?:disabled|checked|selected)$/i) || s.warning('attribute "' + c + '" missed value!! "' + c + '" instead2!!'), r.add(c, c, t), t = o, u = S_ATTR;break;case S_ATTR_END:
+            s.warning('attribute space is required"' + c + '"!!');case S_TAG_SPACE:
+            u = S_ATTR, t = o;break;case S_EQ:
+            u = S_ATTR_NOQUOT_VALUE, t = o;break;case S_TAG_CLOSE:
+            throw new Error("elements closed character '/' and '>' must be connected to");}}o++;
   }
-}function appendElement(e, l, t) {
-  for (var r = e.tagName, a = null, n = e.length; n--;) {
-    var s = e[n],
-        c = s.qName,
-        _ = s.value;var i;c = 0 < (o = c.indexOf(":")) ? (u = s.prefix = c.slice(0, o), i = c.slice(o + 1), "xmlns" === u && i) : (u = null, "xmlns" === (i = c) && ""), s.localName = i, !1 !== c && (null == a && (a = {}, _copy(t, t = {})), t[c] = a[c] = _, s.uri = "http://www.w3.org/2000/xmlns/", l.startPrefixMapping(c, _));
-  }for (n = e.length; n--;) (u = (s = e[n]).prefix) && ("xml" === u && (s.uri = "http://www.w3.org/XML/1998/namespace"), "xmlns" !== u && (s.uri = t[u || ""]));var o;i = 0 < (o = r.indexOf(":")) ? (u = e.prefix = r.slice(0, o), e.localName = r.slice(o + 1)) : (u = null, e.localName = r);var m = e.uri = t[u || ""];if (l.startElement(m, i, r, e), !e.closed) return e.currentNSMap = t, e.localNSMap = a, !0;if (l.endElement(m, i, r), a) for (var u in a) l.endPrefixMapping(u);
+}function appendElement(e, t, r) {
+  for (var a = e.tagName, n = null, s = e.length; s--;) {
+    var c = e[s],
+        i = c.qName,
+        o = c.value,
+        u = i.indexOf(":");if (u > 0) var l = c.prefix = i.slice(0, u),
+        _ = i.slice(u + 1),
+        m = "xmlns" === l && _;else _ = i, l = null, m = "xmlns" === i && "";c.localName = _, m !== !1 && (null == n && (n = {}, _copy(r, r = {})), r[m] = n[m] = o, c.uri = "http://www.w3.org/2000/xmlns/", t.startPrefixMapping(m, o));
+  }for (var s = e.length; s--;) {
+    c = e[s];var l = c.prefix;l && ("xml" === l && (c.uri = "http://www.w3.org/XML/1998/namespace"), "xmlns" !== l && (c.uri = r[l || ""]));
+  }var u = a.indexOf(":");u > 0 ? (l = e.prefix = a.slice(0, u), _ = e.localName = a.slice(u + 1)) : (l = null, _ = e.localName = a);var f = e.uri = r[l || ""];if (t.startElement(f, _, a, e), !e.closed) return e.currentNSMap = r, e.localNSMap = n, !0;if (t.endElement(f, _, a), n) for (l in n) t.endPrefixMapping(l);
 }function parseHtmlSpecialContent(e, t, r, a, n) {
   if (/^(?:script|textarea)$/i.test(r)) {
     var s = e.indexOf("</" + r + ">", t),
-        e = e.substring(t + 1, s);if (/[&<]/.test(e)) return (/^script$/i.test(r) || (e = e.replace(/&#?\w+;/g, a)), n.characters(e, 0, e.length), s
+        c = e.substring(t + 1, s);if (/[&<]/.test(c)) return (/^script$/i.test(r) ? (n.characters(c, 0, c.length), s) : (c = c.replace(/&#?\w+;/g, a), n.characters(c, 0, c.length), s)
     );
   }return t + 1;
 }function fixSelfClosed(e, t, r, a) {
-  var n = a[r];return null == n && ((n = e.lastIndexOf("</" + r + ">")) < t && (n = e.lastIndexOf("</" + r)), a[r] = n), n < t;
+  var n = a[r];return null == n && (n = e.lastIndexOf("</" + r + ">"), t > n && (n = e.lastIndexOf("</" + r)), a[r] = n), t > n;
 }function _copy(e, t) {
   for (var r in e) t[r] = e[r];
 }function parseDCC(e, t, r, a) {
-  var n = e.charAt(t + 2);if ("-" === n) return "-" !== e.charAt(t + 3) ? -1 : t < (s = e.indexOf("--\x3e", t + 4)) ? (r.comment(e, t + 4, s - t - 4), s + 3) : (a.error("Unclosed comment"), -1);if ("CDATA[" == e.substr(t + 3, 6)) return s = e.indexOf("]]>", t + 9), r.startCDATA(), r.characters(e, t + 9, s - t - 9), r.endCDATA(), s + 3;n = split(e, t), a = n.length;var s;return 1 < a && /!doctype/i.test(n[0][0]) ? (s = n[1][0], e = 3 < a && /^public$/i.test(n[2][0]) && n[3][0], t = 4 < a && n[4][0], n = n[a - 1], r.startDTD(s, e && e.replace(/^(['"])(.*?)\1$/, "$2"), t && t.replace(/^(['"])(.*?)\1$/, "$2")), r.endDTD(), n.index + n[0].length) : -1;
+  var n = e.charAt(t + 2);switch (n) {case "-":
+      if ("-" === e.charAt(t + 3)) {
+        var s = e.indexOf("-->", t + 4);return s > t ? (r.comment(e, t + 4, s - t - 4), s + 3) : (a.error("Unclosed comment"), -1);
+      }return -1;default:
+      if ("CDATA[" == e.substr(t + 3, 6)) {
+        var s = e.indexOf("]]>", t + 9);return r.startCDATA(), r.characters(e, t + 9, s - t - 9), r.endCDATA(), s + 3;
+      }var c = split(e, t),
+          i = c.length;if (i > 1 && /!doctype/i.test(c[0][0])) {
+        var o = c[1][0],
+            u = i > 3 && /^public$/i.test(c[2][0]) && c[3][0],
+            l = i > 4 && c[4][0],
+            _ = c[i - 1];return r.startDTD(o, u && u.replace(/^(['"])(.*?)\1$/, "$2"), l && l.replace(/^(['"])(.*?)\1$/, "$2")), r.endDTD(), _.index + _[0].length;
+      }}return -1;
 }function parseInstruction(e, t, r) {
-  var a = e.indexOf("?>", t);return a && (e = e.substring(t, a).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/)) ? (e[0].length, r.processingInstruction(e[1], e[2]), a + 2) : -1;
+  var a = e.indexOf("?>", t);if (a) {
+    var n = e.substring(t, a).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/);if (n) {
+      {
+        n[0].length;
+      }return r.processingInstruction(n[1], n[2]), a + 2;
+    }return -1;
+  }return -1;
 }function ElementAttributes() {}function _set_proto_(e, t) {
   return e.__proto__ = t, e;
 }function split(e, t) {
@@ -118,5 +156,5 @@ function XMLReader() {}function parse(r, d, p, a, n) {
   }, getValue: function (e) {
     return this[e].value;
   } }, _set_proto_({}, _set_proto_.prototype) instanceof _set_proto_ || (_set_proto_ = function (e, t) {
-  function r() {}for (t in r.prototype = t, r = new r(), e) r[t] = e[t];return r;
+  function r() {}r.prototype = t, r = new r();for (t in e) r[t] = e[t];return r;
 }), exports.XMLReader = XMLReader;

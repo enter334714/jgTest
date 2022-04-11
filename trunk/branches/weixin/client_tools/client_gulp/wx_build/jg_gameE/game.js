@@ -106,8 +106,6 @@ window.ServerLoading.instance.openAuthor();
 if (window.loadingInterval) clearInterval(window.loadingInterval);
 window.loadingInterval = null;
 
-
-
 //比较版本号
 window.compareVersion = function(v1, v2) {
   if (!v1 || !v2) return 0;
