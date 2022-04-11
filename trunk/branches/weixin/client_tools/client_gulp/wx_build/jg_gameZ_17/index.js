@@ -443,17 +443,8 @@ window.updCurServer = function(response) {
   }
   this.initComplete();
 }
-window.youYiCofig = null;
+
 window.initComplete = function () {
-  // PF_INFO.newRegister = 0;
-  var self = this;
-  AKSDK.switchEnv(function (res) {
-    //res {"showSwitchOn":0,"switchApp":"","switchContent":""}   showSwitchOn :0不开启跳转，1开启跳转   switchContent 公告内容  switchApp：跳转appid
-    console.log("获取跳转配置" + JSON.stringify(res));
-    youYiCofig = res;
-    if (window.youYiCofig.showSwitchOn == 1) {
-      PF_INFO.newRegister = 0;
-    }
     if (PF_INFO.newRegister == 1) { //新用户，发送验证
       var status = PF_INFO.selectedServer.status;
       if (status === -1 || status === 0) {
@@ -464,20 +455,13 @@ window.initComplete = function () {
       req_server_check_ban(0, PF_INFO.selectedServer.server_id);
       window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
     } else { //老用户，进游戏的选服界面
-
-      window.ServerLoading.instance.openServer(() => {
-        var tips = window.youYiCofig.switchContent;
-        var show = window.youYiCofig.showSwitchOn == 1;
-        if (show) {
-          window.ServerLoading.instance.openJumpView("公告", tips, "跳转");
-        }
-      }, self);
+      window.ServerLoading.instance.openServer();
       wxHideLoading();
     }
     window.loadServer = true;
     window.initMain();
     window.enterToGame();
-  })
+  
 
 
 }
@@ -1093,14 +1077,6 @@ window.get_status = function (server) {
 
 
 window.req_server_check_ban = function (step, server_id) {
-  var show = window.youYiCofig.showSwitchOn == 1;
-  //切量不给进游戏
-  if (show) {
-    var tips = window.youYiCofig.switchContent;
-    var show = window.youYiCofig.showSwitchOn == 1;
-    window.ServerLoading.instance.openJumpView("公告", tips, "跳转");
-    return;
-  }
   PF_INFO.last_check_ban = {
     'step': step,
     'server_id': server_id

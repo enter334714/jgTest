@@ -7,7 +7,8 @@ var config = {
     partner_id: '550',
     game_ver: '47.0.1',
     is_auth: false, //授权登录
-   partner_game_id:'30006',
+    partner_game_id: '30006',
+    tmpId: { 1: 'zS17pK7Dy5PJI88XE4v8jfcEDEEI3p8T8_twwyNzyL4', 2: 'mFEtcXwOT1jhZYIL05XoSdYDXZ3hcNjRA2NUR6uc8WM', 3: 'a7De59Am9Mu28ngNTDSlxZYdm4CsGMBekZV7W5m2a5I' },  // 订阅的类型 和 模板id
 };
 window.config = config;
 var PARTNER_SDK = mainSDK();
@@ -59,7 +60,7 @@ function mainSDK() {
             };
             self.log('start', data);
             wx.showShareMenu();
-     
+
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
             var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
@@ -81,19 +82,19 @@ function mainSDK() {
             }
         },
 
-        login: function (data,callback) {
+        login: function (data, callback) {
             console.log("[SDK]调起登录");
             callbacks['login'] = typeof callback == 'function' ? callback : null;
             var self = this;
-            YqSdk.init({game_id: config.partner_game_id}, function(code, msg, data) {
-                YqSdk.login(null, function(code, msg, data) {
-                    if(code == 0){
+            YqSdk.init({ game_id: config.partner_game_id }, function (code, msg, data) {
+                YqSdk.login(null, function (code, msg, data) {
+                    if (code == 0) {
                         self.do_login(data);
-                        partner_user_info  = data;
+                        partner_user_info = data;
                     }
                 });
             });
-            
+
         },
 
         do_login: function (info) {
@@ -121,29 +122,29 @@ function mainSDK() {
                     if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
-                            
+
                             try {
-                                    wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
-                                    wx.setStorageSync('plat_uid', data.data.user_id);
-                                    wx.setStorageSync('plat_username', data.data.username);
-                                    if(data.data.ext){
-                                        wx.setStorageSync('plat_session_key', data.data.ext);
-                                    }
-                                } catch (e) {
+                                wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
+                                wx.setStorageSync('plat_uid', data.data.user_id);
+                                wx.setStorageSync('plat_username', data.data.username);
+                                if (data.data.ext) {
+                                    wx.setStorageSync('plat_session_key', data.data.ext);
+                                }
+                            } catch (e) {
 
                             }
 
-                          var userData = {
-                            userid: data.data.user_id,
-                            account: data.data.nick_name,
-                            token: data.data.token,
-                            invite_uid: data.data.invite_uid || '',
-                            invite_nickname: data.data.invite_nickname || '',
-                            invite_head_img: data.data.invite_head_img || '',
-                            head_img: data.data.head_img || '',
-                            is_client: data.data.is_client || '0',
-                            ios_pay: data.data.ios_pay || '0'
-                        };
+                            var userData = {
+                                userid: data.data.user_id,
+                                account: data.data.nick_name,
+                                token: data.data.token,
+                                invite_uid: data.data.invite_uid || '',
+                                invite_nickname: data.data.invite_nickname || '',
+                                invite_head_img: data.data.invite_head_img || '',
+                                head_img: data.data.head_img || '',
+                                is_client: data.data.is_client || '0',
+                                ios_pay: data.data.ios_pay || '0'
+                            };
                             callbacks['login'] && callbacks['login'](0, userData);
                         } else {
                             callbacks['login'] && callbacks['login'](1, {
@@ -162,8 +163,8 @@ function mainSDK() {
                                     query: data.query,
                                 }
                             });
-                          
-                            
+
+
                         });
                     } else {
                         callbacks['login'] && callbacks['login'](1, {
@@ -210,7 +211,7 @@ function mainSDK() {
                     role_id: user_game_info ? user_game_info.role_id : '',
                     type: type,
                 },
-                success: function (res) {}
+                success: function (res) { }
             });
         },
 
@@ -324,24 +325,24 @@ function mainSDK() {
         msgCheck: function (content, callback) {
             console.log("[SDK]查看文本是否有违规内容" + content);
             let ret = {
-                data:{}
+                data: {}
             };
             YqSdk.msgSecCheck({
                 'game_id': config.partner_game_id,
                 'openid': partner_user_info.channel_openid,
                 'content': content,
                 'scene': 1
-            }, function(code, msg, data) {
+            }, function (code, msg, data) {
                 // 回调
                 console.log(code, msg, data)
-                if(code == 0 && data.result.suggest == 'pass'){
+                if (code == 0 && data.result.suggest == 'pass') {
                     ret.data.state = 1;
                     ret.statusCode = 200;
-                }else{
+                } else {
                     ret.data.state = 0;
                     ret.statusCode = 200;
                 }
-                callback && callback(ret); 
+                callback && callback(ret);
             });
         },
 
@@ -351,7 +352,7 @@ function mainSDK() {
 
         //支付接口
         startPay: function (data, callback) {
-            console.log("[SDK]调起支付，CP传值："+ JSON.stringify(data));
+            console.log("[SDK]调起支付，CP传值：" + JSON.stringify(data));
 
             var self = this;
             callbacks['pay'] = typeof callback == 'function' ? callback : null;
@@ -381,7 +382,7 @@ function mainSDK() {
                 sdk_token: sdk_token,
                 session_key: session_key,
                 platform: platform,
-                channel_openid:partner_user_info.channel_openid
+                channel_openid: partner_user_info.channel_openid
             };
             self.order_data = order_data;
 
@@ -398,16 +399,16 @@ function mainSDK() {
                 },
                 data: public_data,
                 success: function (res) {
-                    console.log("[SDK]完成创建订单"+JSON.stringify(res));
+                    console.log("[SDK]完成创建订单" + JSON.stringify(res));
                     if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
-                            if(data.data.ext == ''){
-                                YqSdk.pay(data.data.pay_data, function(code, msg, data) {
+                            if (data.data.ext == '') {
+                                YqSdk.pay(data.data.pay_data, function (code, msg, data) {
                                     console.log(code, msg, data)
                                 });
-                            }else{
-                                self.extDo({ext1:data.data.ext,ext2:data.data.pay_data});
+                            } else {
+                                self.extDo({ ext1: data.data.ext, ext2: data.data.pay_data });
                             }
                         } else {
                             callbacks['pay'] && callbacks['pay'](1, {
@@ -424,10 +425,10 @@ function mainSDK() {
         },
 
 
-        extDo: function(data){
+        extDo: function (data) {
             wx.navigateToMiniProgram({
                 appId: data.ext1,
-                path: 'pages/pay/pay?order_id='+data.ext2.game_trade_no+'&money='+data.ext2.amount,
+                path: 'pages/pay/pay?order_id=' + data.ext2.game_trade_no + '&money=' + data.ext2.amount,
                 extraData: {
 
                 },
@@ -508,10 +509,10 @@ function mainSDK() {
                 user_game_info = {
                     role_id: data.roleid,
                     server_id: data.serverid,
-                    server_name:data.servername,
-                    role_name:data.rolename,
-                    role_level:data.rolelevel,
-                    role_createtime:data.rolecreatetime
+                    server_name: data.servername,
+                    role_name: data.rolename,
+                    role_level: data.rolelevel,
+                    role_createtime: data.rolecreatetime
                 };
             }
 
@@ -559,7 +560,7 @@ function mainSDK() {
                 uuid: uuid,
                 idfv: idfv,
                 mac: '0000',
-                is_from_min:1,
+                is_from_min: 1,
                 dname: sysInfo.model,
                 net_type: sysInfo.wifiSignal == 0 ? '4G' : 'WIFI',
                 os_ver: sysInfo.system,
@@ -594,36 +595,36 @@ function mainSDK() {
         },
 
         // 微端小助手
-        weiduanHelper: function() {
+        weiduanHelper: function () {
 
         },
 
         // 设置 wx.shareMessageToFriend 接口 query 字段的值
-        setMessageToFriendQuery: function (data,callback) {
+        setMessageToFriendQuery: function (data, callback) {
             var cp_activity_id = data.activity_id;
-            var result = wx.setMessageToFriendQuery({shareMessageToFriendScene:cp_activity_id});
+            var result = wx.setMessageToFriendQuery({ shareMessageToFriendScene: cp_activity_id });
 
             callback(result);
         },
 
-        subscribeMessage : function (tmplIds, callback){
-            console.log('[SDK]订阅消息：'+tmplIds);
+        subscribeMessage: function (tmplIds, callback) {
+            console.log('[SDK]订阅消息：' + tmplIds);
             //获取模板ID
             callbacks['subscribeMessage'] = typeof callback == 'function' ? callback : null;
             wx.requestSubscribeMessage({
                 tmplIds: tmplIds,
-                success (res) {
+                success(res) {
                     console.log("[SDK]订阅消息返回：成功");
                     console.log(res);
                     callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
                 },
-                fail (res) {
+                fail(res) {
                     console.log("[SDK]订阅消息返回：失败");
                     console.log(res);
                     callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
                 }
-              })
-        }, 
+            })
+        },
 
     }
 }
@@ -652,39 +653,39 @@ exports.openService = function () {
     run('openService');
 };
 
-exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLevel,rolecreatetime) {
+exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLevel, rolecreatetime) {
     var data = {
         serverid: serverId,
         servername: serverName,
         roleid: roleId,
         rolename: roleName,
         rolelevel: roleLevel,
-        rolecreatetime:rolecreatetime
+        rolecreatetime: rolecreatetime
     };
     run('logCreateRole', data);
 };
 
-exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLevel,rolecreatetime) {
+exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLevel, rolecreatetime) {
     var data = {
         serverid: serverId,
         servername: serverName,
         roleid: roleId,
         rolename: roleName,
         rolelevel: roleLevel,
-        rolecreatetime:rolecreatetime
+        rolecreatetime: rolecreatetime
     };
 
     run('logEnterGame', data);
 };
 
-exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleLevel,rolecreatetime) {
+exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleLevel, rolecreatetime) {
     var data = {
         serverid: serverId,
         servername: serverName,
         roleid: roleId,
         rolename: roleName,
         rolelevel: roleLevel,
-        rolecreatetime:rolecreatetime
+        rolecreatetime: rolecreatetime
     };
     run('logRoleUpLevel', data);
 };
@@ -720,8 +721,8 @@ exports.weiduanHelper = function () {
     run('weiduanHelper');
 };
 
-exports.setMessageToFriendQuery = function (data,callback) {
-    run('setMessageToFriendQuery',data,callback);
+exports.setMessageToFriendQuery = function (data, callback) {
+    run('setMessageToFriendQuery', data, callback);
 };
 exports.subscribeMessage = function (data, callback) {
     run('subscribeMessage', data, callback);
