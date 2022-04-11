@@ -1,1 +1,1 @@
-var W=wx.$l;require("llllllBF.js"),window[W[29870]][W[29871]][W[29872]]=null,window.client_pb=require("LLLCLIENTPB.js"),window[W[26481]]=window[W[29870]][W[26393]][W[26394]](client_pb);
+var W=wx.$l;require("llllllBF.js"),window[W[30152]][W[30153]][W[30154]]=null,window.client_pb=require("LLLCLIENTPB.js"),window[W[26620]]=window[W[30152]][W[26533]][W[26534]](client_pb);
