@@ -1,1 +1,1 @@
-var G=wx.$G;require(G[814]);
+var u=wx.$x;require(u[0]);

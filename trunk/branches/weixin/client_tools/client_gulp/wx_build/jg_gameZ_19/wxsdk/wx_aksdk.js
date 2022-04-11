@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_tjqyzsfyhswxxcx_QD',
     partner_label: 'huosu',
     partner_id: '274',
-    game_ver: '49.0.1',
+    game_ver: '49.0.3',
     is_auth: false, //授权登录
     appId:'81240824', // AppId 必填
     mpId:'wx678b679417ddfee2', //小程序ID
