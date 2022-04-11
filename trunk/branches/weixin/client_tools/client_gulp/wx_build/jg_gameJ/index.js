@@ -350,15 +350,26 @@ window.onUserLogin = function (response) {
 
   var self = this;
   wxShowLoading({ title: '请求服务器' });
+
+  var lastSerStr = localStorage.getItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account);
+  if (lastSerStr && lastSerStr != "") {
+    var lastSerId = Number(lastSerStr);
+    self.getCheckServers(lastSerId);
+  } else {
+    self.getDefaultServers();
+  }
+}
+
+window.getDefaultServers = function() {
+  var self = this;
   sendApi(PF_INFO.apiurl, 'Server.defaultServer', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
     'version': PF_INFO.version,
     'game_pkg': PF_INFO.pkgName,
     'device': PF_INFO.device_id,
-  }, self.onUserLoginDefaultServers.bind(self), apiRetryAmount, onApiError);
+  }, self.onUserLoginDefaultServers.bind(self), apiRetryAmount, onApiError); 
 }
-
 window.onUserLoginDefaultServers = function(response) {
   if (!response) {
     window.loginAlert('Server.defaultServer failed');
@@ -372,8 +383,32 @@ window.onUserLoginDefaultServers = function(response) {
     window.loginAlert('服务器尚未开启');
     return;
   }
-
-  PF_INFO.newRegister = response.is_new;
+  this.updCurServer(response);
+}
+window.getCheckServers = function(lastSerId) {
+  var self = this;
+  sendApi(PF_INFO.apiurl, 'Server.check_server', {
+    'server_id': lastSerId,
+    'time': Date.now() / 1000,
+  }, self.onUserLoginCheckServers.bind(self), apiRetryAmount, onApiError);
+}
+window.onUserLoginCheckServers = function(response) {
+  if (!response) {
+    this.getDefaultServers();
+    return;
+  }
+  if (response.state != 'success') {
+    this.getDefaultServers();
+    return;
+  }
+  if (!response.data || response.data.length == 0) {
+    this.getDefaultServers();
+    return;
+  }
+  this.updCurServer(response);
+}
+window.updCurServer = function(response) {
+  PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;
   PF_INFO.selectedServer = {
     'server_id': String(response.data[0].server_id),
     'server_name': String(response.data[0].server_name),
@@ -438,7 +473,7 @@ window.reqVersionConfigCallBack = function(data) {
 }
 
 // 请求隐私、超级VIP、公众号信息
-window.pkgOptions
+window.pkgOptions;
 window.reqPkgOptions = function() {
   sendApi(PF_INFO.apiurl, 'Common.get_option_pkg', { 
     'game_pkg': PF_INFO.pkgName,
@@ -610,7 +645,9 @@ window.reqSMSCode = function(phone, role_id, uid, game_pkg, partner_id, sign, ca
     'game_pkg': PF_INFO.pkgName,
     'partner_id': PF_INFO.partnerId,
     'server_id': server_id,
-  }, callback);
+  }, callback, 2, null, function() {
+    return true;
+  });
 }
 
 //收藏
@@ -731,6 +768,25 @@ window.getBatteryInfo = function(callback) {
       callback && callback(info.isSuccess, info.level, info.isCharging);
     }
   });
+}
+//获取网络类型
+window.getNetworkType = function(callback) {
+  wx.getNetworkType({
+    success: function(resSuc) {
+      callback && callback(true, resSuc);
+    },
+    fail: function(resFail) {
+      callback && callback(false, resFail);
+    }
+  });
+}
+//添加网络状态变化监听
+window.onNetworkStatusChange = function(func) {
+  if (func) wx.onNetworkStatusChange(func);
+}
+//移除网络状态变化监听
+window.offNetworkStatusChange = function(func) {
+  wx.offNetworkStatusChange(func);  
 }
 
 window.send = function(url, data, callBack, retryAmount, errorCB, checkSuccess, reqType, contentType) {
@@ -956,6 +1012,11 @@ window.req_multi_server_notice = function(type, pkgName, server_id, callback) {
     'server_id': server_id,
   }, callback);
 }
+window.req_privacy = function(pkgName, callback) {
+  sendApi(PF_INFO.apiurl, 'Common.get_option_pkg_detail', {
+    'game_pkg': pkgName,
+  }, callback);
+}
 
 
 window.get_status = function (server) {
@@ -1002,7 +1063,6 @@ window.reqServerCheckBanCallBack = function(data) {
   if (data.state === "success" && data.data) {
     var server = PF_INFO.selectedServer;
     server.channel_num = PF_INFO.channelNum;
-
     server.sign = String(data.data.login_sign);
     server.tick = parseInt(data.data.time);
     if (data.data.server_num)
@@ -1013,6 +1073,8 @@ window.reqServerCheckBanCallBack = function(data) {
     server.cdn = PF_INFO.base_cdn;
     server.resver = data.data.cdn_version;
     server.server_options = data.data.server_options;
+    if (data.data.max_create)
+      server.max_create = parseInt(data.data.max_create);
 
     console.log("server_options："+ JSON.stringify(server.server_options));
 
@@ -1023,27 +1085,32 @@ window.reqServerCheckBanCallBack = function(data) {
 
     checkBanSuccess();
   } else {
-    sendApi(PF_INFO.apiurl, 'User.login', {
-      'platform': PF_INFO.sdk_name,
-      'partner_id': PF_INFO.partnerId,
-      'token': PF_INFO.sdk_token,
-      'game_pkg': PF_INFO.pkgName,
-      'deviceId': PF_INFO.device_id,
-      'scene': 'WX_'+ PF_INFO.from_scene,
-    }, function(response) {
-      if (response.state == "failed") {
-        window.loginAlert('User.login failed: ' + response.state);
-        return;
-      }
-      PF_INFO.php_sign = String(response.sign);
-      PF_INFO.php_signtime = String(response.time);
-
-      setTimeout(function() {
-        req_server_check_ban(PF_INFO.last_check_ban.step, PF_INFO.last_check_ban.server_id);
-      }, 1500);
-    }, apiRetryAmount, onApiError, function(response) {
-      return response.state == 'success' || response.state == 'failed';
-    });
+    if (PF_INFO.last_check_ban.step >= 3) {
+      onApiError(JSON.stringify(data));
+      window.loginAlert('User.checkInfo failed: ' + data.state);
+    } else {
+      sendApi(PF_INFO.apiurl, 'User.login', {
+        'platform': PF_INFO.sdk_name,
+        'partner_id': PF_INFO.partnerId,
+        'token': PF_INFO.sdk_token,
+        'game_pkg': PF_INFO.pkgName,
+        'deviceId': PF_INFO.device_id,
+        'scene': 'WX_'+ PF_INFO.from_scene,
+      }, function(response) {
+        if (!response || response.state != 'success') {
+          window.loginAlert('User.login failed: ' + response&&response.state);
+          return;
+        }
+        PF_INFO.php_sign = String(response.sign);
+        PF_INFO.php_signtime = String(response.time);
+  
+        setTimeout(function() {
+          req_server_check_ban(PF_INFO.last_check_ban.step+1, PF_INFO.last_check_ban.server_id);
+        }, 1500);
+      }, apiRetryAmount, onApiError, function(response) {
+        return response.state == 'success' || response.state == 'failed';
+      });
+    }
   }
 }
 window.checkBanSuccess = function() {
@@ -1126,7 +1193,7 @@ window.enterToGame = function() {
       // if(!PF_INFO.wxShield){
         // window.DDSDK.getFloatBall()
       // }
-
+	  if (PF_INFO.selectedServer && PF_INFO.selectedServer.server_id) localStorage.setItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account, PF_INFO.selectedServer.server_id);
     }
   } else {
     console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadServerRes:"+window.loadServerRes+",loadLoadingRes:"+window.loadLoadingRes+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);

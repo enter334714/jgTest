@@ -1,15 +1,17 @@
-﻿import aa from "../utils/config.js";
-import tt from "../utils/ddsdk.js";
+﻿require("../utils/config.js");
+require("../utils/ddsdk.js");
+
+
 //TODO 替换对应参数
 var config = {
     game_id: 256,
-    game_pkg: 'tjqy_tjqypmxj_JQ',
+    game_pkg: 'tjqy_tjqypmxj_JQ', //趣侬vs腾庚--寻找藏宝图
     partner_label: 'tkxyx',
     partner_id: '496',
-    game_ver: '30.0.13',
+    game_ver: '30.0.1',
     is_auth: false, //授权登录
-    partner_game_id:'tjqy2',
-    partenr_app_id:'wx811890805a5155b9',
+    partner_game_id:'tjqycbt',
+    partenr_app_id:'wx0523ae2a821c6419',
 };
 window.config = config;
 
@@ -20,7 +22,6 @@ var user_invite_info = null;
 var sysInfo = wx.getSystemInfoSync();
 var platform = sysInfo.platform;
 var partner_user_info = null;
-
 
 
 

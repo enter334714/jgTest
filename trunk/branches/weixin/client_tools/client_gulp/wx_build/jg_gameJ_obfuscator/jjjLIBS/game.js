@@ -1,2 +1,1 @@
-var S = wx.$J;
-require(S[569532]);
+var S=wx.$J;require(S[570051]);
