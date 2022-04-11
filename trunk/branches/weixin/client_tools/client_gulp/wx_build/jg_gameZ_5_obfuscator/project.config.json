@@ -39,9 +39,9 @@
     "useCompilerPlugins": false
   },
   "compileType": "game",
-  "libVersion": "2.12.3",
+  "libVersion": "2.23.2",
   "appid": "wx7c5f3c67c698b42d",
-  "projectname": "%E4%B8%BB%E5%AE%B0%E9%A2%86%E5%9F%9F",
+  "projectname": "主宰领域",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
