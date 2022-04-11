@@ -27,7 +27,6 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "useIsolateContext": false,
     "userConfirmedUseIsolateContext": true,
     "userConfirmedBundleSwitch": false,
@@ -36,12 +35,13 @@
     "minifyWXSS": true,
     "disableUseStrict": false,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true
   },
   "compileType": "game",
-  "libVersion": "2.10.4",
+  "libVersion": "2.23.2",
   "appid": "wx424de51b4f1d1e0c",
-  "projectname": "%E6%8E%8C%E4%B8%8A-%E6%88%91%E5%92%8C%E6%88%91%E7%9A%84%E5%BD%B1%E5%AD%90",
+  "projectname": "掌上-我和我的影子",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
