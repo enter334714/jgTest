@@ -1,2 +1,1 @@
-var A = wx.$N;
-import 'nnnnMAIN.js';
+var A=wx.$N;import"nnnnMAIN.js";

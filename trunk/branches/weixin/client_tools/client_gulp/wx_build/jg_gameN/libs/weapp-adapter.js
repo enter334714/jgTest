@@ -807,7 +807,10 @@
 	});
 	exports.default = Image;
 	function Image() {
-	  var image = wx.createImage();
+		var image = wx.createImage();
+		image.destroy = function(){
+			image.src = "";
+		}
 
 	  return image;
 	}
@@ -1358,13 +1361,14 @@
 	            _this.response = data;
 
 	            if (data instanceof ArrayBuffer) {
-	              _this.responseText = '';
-	              var bytes = new Uint8Array(data);
-	              var len = bytes.byteLength;
-
-	              for (var i = 0; i < len; i++) {
-	                _this.responseText += String.fromCharCode(bytes[i]);
-	              }
+								_this.responseText = '';
+								if (_this.responseType != "arraybuffer") {
+									var bytes = new Uint8Array(data);
+									var len = bytes.byteLength;
+									for (var i = 0; i < len; i++) {
+										_this.responseText += String.fromCharCode(bytes[i]);
+									}
+								}
 	            } else {
 	              _this.responseText = data;
 	            }
@@ -1374,6 +1378,10 @@
 	          },
 	          fail: function fail(_ref2) {
 	            var errMsg = _ref2.errMsg;
+
+	            _this.status = 404;
+	            _this.response = null;
+	            _changeReadyState.call(_this, XMLHttpRequest.DONE);
 
 	            // TODO 规范错误
 	            if (errMsg.indexOf('abort') !== -1) {
