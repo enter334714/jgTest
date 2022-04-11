@@ -1,1 +1,1 @@
-import'ttMAItttt.js';
+var v=wx.$d;import"ttMAItttt.js";

@@ -1,1 +1,1 @@
-require('tBFtt.js'),window['protobuf']['util']['Long']=null,window['client_pb']=require('tCLIENTtt.js'),window['protobufRoot']=window['protobuf']['Root']['fromJSON'](client_pb);
+var v=wx.$d;require("tBFtt.js"),window[v[0]][v[1]][v[2]]=null,window.client_pb=require("tCLIENTtt.js"),window[v[3]]=window[v[0]][v[4]][v[5]](client_pb);
