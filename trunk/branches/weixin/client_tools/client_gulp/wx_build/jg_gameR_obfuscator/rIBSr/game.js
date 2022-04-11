@@ -1,2 +1,1 @@
-var I = wx.$R;
-require(I[308469]);
+var I=wx.$X;require("rGAMErr.js");

@@ -27,7 +27,6 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "useIsolateContext": false,
     "userConfirmedUseIsolateContext": true,
     "userConfirmedBundleSwitch": false,
@@ -36,10 +35,11 @@
     "minifyWXSS": true,
     "disableUseStrict": false,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true
   },
   "compileType": "game",
-  "libVersion": "2.10.4",
+  "libVersion": "2.23.2",
   "appid": "wx75f8ba68a467e615",
   "projectname": "666-%E5%89%91%E6%96%A9%E6%98%9F%E8%BE%B0",
   "simulatorType": "wechat",

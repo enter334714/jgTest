@@ -4,7 +4,7 @@ var config = {
     game_pkg: 'tjqy_tjqyjzxc_MM', //666-多梦江湖-剑斩星辰
     partner_label: 'ddt6',
     partner_id: '489',
-    game_ver: '39.0.1',
+    game_ver: '39.0.5',
     platId: 1000,
     gameId: 289,
     channelVer: 'mxsdk_tjqy_jzxc',

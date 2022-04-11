@@ -1,2 +1,1 @@
-var I = wx.$R;
-import 'rrMAINrr.js';
+var I=wx.$X;import"rrMAINrr.js";
