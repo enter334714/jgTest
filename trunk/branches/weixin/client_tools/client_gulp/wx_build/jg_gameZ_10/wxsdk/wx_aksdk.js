@@ -6,7 +6,7 @@ var config = {
     game_pkg: 'tjqy_tjqytmld_KN',
     partner_label: '6KW',
     partner_id: '242',
-    game_ver: '37.0.3',
+    game_ver: '37.0.7',
     is_auth: true, //授权登录
 };
 window.config = config;
