@@ -39,7 +39,7 @@
     "useCompilerPlugins": false
   },
   "compileType": "game",
-  "libVersion": "2.12.3",
+  "libVersion": "2.23.2",
   "appid": "wxebbbddc7a6adb715",
   "projectname": "%E5%8D%83%E7%A6%A7--%E5%A4%A9%E5%91%BD%E4%BC%A0%E8%AF%B4",
   "simulatorType": "wechat",

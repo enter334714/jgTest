@@ -1,2 +1,1 @@
-var G = wx.$E;
-require(G[581723]);
+var G=wx.$E;require(G[580895]);
