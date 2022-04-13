@@ -3,8 +3,8 @@
 require('adapter-min.js');
 
 __globalAdapter.init();
-
-requirePlugin('cocos');
+require('cocos2d-js-min.js');
+// requirePlugin('cocos');
 
 __globalAdapter.adaptEngine();
 
