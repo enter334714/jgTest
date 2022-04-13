@@ -1,0 +1,24 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": [
+        {
+          "name": "模拟版本更新成功",
+          "pathName": "",
+          "query": "",
+          "scene": null
+        }
+      ]
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": []
+    }
+  }
+}

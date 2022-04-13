@@ -1,1 +1,1682 @@
-const version="3.0";const sdkVersion="8.0";var channel_cfg_version=1;const domain={yisdk:"https://yisdk-api.gowan8.com",api:"https://api.gowan8.com"};const test_domain={yisdk:"http://yisdk-api.gowanme.com",api:"http://api.gowanme.com"};const USER_INFO="gowan_user_info";const XCX_USER_INFO="xcx_user_info";wx&&wx.showShareMenu({withShareTicket:!0,menus:["shareAppMessage","shareTimeline"]});const uuid=()=>{var e=()=>(65536*(1+Math.random())|0).toString(16).substring(1);return e()+e()+"-"+e()+"-"+e()+"-"+e()+"-"+e()+e()+e()};function getUuid(){let e=getStorageSync("qx_uuid");return e||(saveStorageSync("qx_uuid",e=uuid()),e)}var md5=require("./utility/qx_md5.js"),qx_auth=require("./utility/qx_auth.js"),{requestEncrypt,returnDecrypt}=qx_auth;var shareCfg={img_url:"https://yxfile.gowan8.com/share/default/share_logo.png",title:"\u5343\u79a7\u6e38\u620f"};var _globalData={},localUserInfo={},microParame=getUuid();function request(e,a,t={},s=1){var o=String((new Date).getTime()).substr(0,10);var n=t.domain||"yisdk";var i;t.hasOwnProperty("domain")&&delete t.domain;let r={ts:o};n=("test"==qxMiniSDK.reqEnv?test_domain:domain)[n];return null===a?(i=n+"/"+e,r=t):(i=n+`/?ct=${e}&ac=`+a,1==s?(r.is_jsdk=1,t.is_jsdk=1):r.js=1,console.log("[\u8bf7\u6c42\u53c2\u6570]",t),n=requestEncrypt(JSON.stringify(t),o).e,r.p=n),new Promise((s,t)=>{wx.request({url:i,data:r,header:{"content-type":"application/x-www-form-urlencoded;charset=utf-8"},method:"POST",success(e){var t;!e.data.data||(t=e.data.data).d&&(e.data.data=JSON.parse(returnDecrypt(t.d,String(t.ts)).d)),console.log(`[${a}接口返回值]`,e),s(e.data)},fail(e){"request:fail abort"!==e.errMsg&&(t?t(e):wx.showModal({title:"\u63d0\u793a",content:"\u8bf7\u6c42\u5931\u8d25,\u8bf7\u68c0\u67e5\u7f51\u7edc",showCancel:!1,confirmColor:"#0f77ff",success:e=>{}}))}})})}function getRoleBaseMsg(e){return{server_id:e.serverId,server_name:e.serverName,role_id:e.roleId,role_name:e.roleName,role_level:e.roleLevel,balance:e.userMoney||0,vip_level:e.vipLevel||1,fighting:e.fighting||"",role_c_time:e.roleCTime||""}}function extFooter(){let e=wx.getSystemInfoSync();return{screen:e.windowWidth+"x"+e.windowHeight,os_version:e.system.replace(/[a-zA-Z]+\s*/,""),simulator:"0",isroot:0,serial_number:"",imsi:"",android_id:"",net:4,operators:4,location:"",version:version,game_version:"1.0",platform_version:e.SDKVersion,server_version:"1.2",imei:microParame.replace(/-/g,""),mac:microParame.replace(/-/g,""),utma:microParame.replace(/-/g,""),os:0==e.system.indexOf("iOS")?2:1,model:e.model.replace(/\<(.*?)\>/g,""),gosdk_type:"wxmini"}}function sdkFooter(){let e=wx.getSystemInfoSync();return{version:sdkVersion,device:microParame.replace(/-/g,""),imei:microParame.replace(/-/g,""),screen:e.windowWidth+"x"+e.windowHeight,platform:0==e.system.indexOf("iOS")?1:2,model:e.model.replace(/\<(.*?)\>/g,""),system:e.system.replace(/[a-zA-Z]+\s*/,""),system_language:"zh",net:4,operator:"",location:"",gosdk_type:"wxmini"}}function removeStorageSync(t){try{wx.removeStorageSync(t),_globalData[t]&&delete _globalData[t]}catch(e){delete _globalData[t]}}function saveStorageSync(t,s={}){try{wx.setStorageSync(t,s)}catch(e){_globalData[t]=s}}function getStorageSync(t){let s;try{s=(s=wx.getStorageSync(t))||(_globalData[t]||"")}catch(e){s=_globalData[t]||""}return s}function getZjwlScene(){var t=wx.getLaunchOptionsSync().query;if(t.scene){let e=decodeURIComponent(t.scene);return(e=e.replace(/^\s+|\s+$/g,"").replace(/^(scene=)/g,"")).replace(/^\s+|\s+$/g,"")}return 0}var __assign=Object.assign||function(e){var t,s=arguments.length;for(var a=1;a<s;a++)for(var o in t=arguments[a])Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o]);return e};var qxMiniSDK={sdkChannel:"minigame",initData:{channel:"gowan"},apiStart(){this.apiRuning=!0},apiEnd(){this.apiRuning=!1},liveDt:{},isApiRunning(){return this.apiRuning},reqEnv:"prod",init(e={},s){var a=this;var t,o;a.isApiRunning()||(a.apiStart(),o=getZjwlScene()||e.channel_id,t={},wx.getAccountInfoSync&&(t=wx.getAccountInfoSync()),t=e.wxmini_appid||t.miniProgram.appId,o={game_id:e.game_id,channel:a.initData.channel,game_name:e.game_name,from_id:o,original_from_id:e.channel_id,wxmini_appid:t||""},a.initData=__assign(a.initData,o),a.reqEnv=e.req_env||"prod",request("init","index",__assign({},o,extFooter(),{channel:a.sdkChannel}),1).then(e=>{var t;a.apiEnd(),0==e.code?((e=e.data).share&&(shareCfg=__assign(shareCfg,e.share)),(t=e.init_notice)&&wx.showModal({title:t.title,content:t.content,showCancel:!1,success(e){e.confirm}}),channel_cfg_version=e.channel_cfg_version||channel_cfg_version,a._active(),t=wx.getLaunchOptionsSync(),s&&s({statusCode:0,status:"\u521d\u59cb\u5316\u6210\u529f",launchOptions:t})):s&&s({statusCode:1,status:"\u521d\u59cb\u5316\u5931\u8d25",launchOptions:t})}))},checkSession(a){var o=this;wx.checkSession({success(e){var t=getStorageSync(USER_INFO);var s=getStorageSync(XCX_USER_INFO);t&&t.ext.openid?(console.log("[session_key \u672a\u8fc7\u671f-------\x3e\u76f4\u63a5\u6267\u884c\u767b\u5f55\u65b9\u6cd5]"),o._dologin(s,"checkSession",a)):a&&a({statusCode:1,status:"\u767b\u5f55\u5df2\u7ecf\u8fc7\u671f"})},fail(){console.log("session_key \u5df2\u7ecf\u8fc7\u671f-------\x3e\u9700\u8981\u91cd\u65b0\u6267\u884c\u767b\u5f55\u6d41\u7a0b"),a&&a({statusCode:1,status:"session_key \u5df2\u7ecf\u8fc7\u671f"})}})},login(t={},s){var a=this;saveStorageSync(XCX_USER_INFO,t);a.checkSession(function(e){console.log("[checkSessionRes]",e),0===e.statusCode?s&&s(e):a._dologin(t,"login",s)})},_dologin(s,o,n){console.log("[\u767b\u5f55\u7c7b\u578b]",o);let i=this;if(!i.isApiRunning()){i.apiStart();let a=getStorageSync(USER_INFO);wx.login({success:e=>{let t={code:e.code,userinfo:encodeURIComponent(JSON.stringify(s))};"checkSession"==o&&(t.uopenid=a.ext.openid),request("minigame","login",__assign({},{ext:JSON.stringify({}),data:JSON.stringify(t)},i.initData,extFooter(),{channel_cfg_version:channel_cfg_version}),1).then(e=>{var t,s;i.apiEnd(),0==e.code?(1==(s=e.data).ext.is_bind_user&&i.getUnionid(s),a&&removeStorageSync(USER_INFO),saveStorageSync(USER_INFO,s),localUserInfo=s,t=i.onShareToArk({}),wx.onShareAppMessage(()=>t),i.initData.from_id=s.from_id,s={statusCode:0,userId:s.user_id,platformChanleId:Number(0),userName:s.userName||"",timestamp:String(s.timestamp),sign:s.new_sign,guid:s.guid,cp_ext:s.cp_ext||"",ext:s.ext||""},n&&n({statusCode:0,loginParams:s,status:"\u767b\u5f55\u6210\u529f"})):n&&n({statusCode:1,status:e.msg||"\u767b\u5f55\u5931\u8d25"})})}})}},getUnionid:function(s){var a=this;var e=wx.getSystemInfoSync();let o=e.screenWidth;let n=e.screenHeight;wx.getSetting({success(e){if(e.authSetting["scope.userInfo"]&&"1"!=s.ext.is_unionid)console.log("\u7528\u6237\u5df2\u6388\u6743");else{console.log("\u7528\u6237\u672a\u6388\u6743");let t=wx.createUserInfoButton({type:"text",text:"",style:{left:0,top:0,width:o,height:n,backgroundColor:"#00000001",color:"#ffffff",fontSize:20,textAlign:"center",lineHeight:n}});t.onTap(e=>{e.userInfo?request("h5","bind_user",__assign({},extFooter(),a.initData,{data:{uopenid:s.ext.openid,userinfo:encodeURIComponent(JSON.stringify(e))}}),0).then(e=>{0==e.code?t.destroy():wx.showModal({title:"\u63d0\u793a",showCancel:!1,content:"\u6388\u6743\u5931\u8d25\uff0c\u8bf7\u5378\u8f7d\u5fae\u4fe1\u5c0f\u6e38\u620f\u540e\uff0c\u91cd\u65b0\u767b\u5f55\u6388\u6743"})}):(console.log("\u7528\u6237\u62d2\u7edd\u6388\u6743:",e),wx.showModal({title:"\u6e29\u99a8\u63d0\u793a",content:"\u9700\u8981\u540c\u610f\u5fae\u4fe1\u6388\u6743\u624d\u53ef\u4ee5\u767b\u5f55\u6e38\u620f\uff01",showCancel:!1,confirmText:"\u6715\u77e5\u9053\u4e86",confirmColor:"#576B95",success(e){console.log("\u7528\u6237\u5df2\u67e5\u9605\u6388\u6743\u63d0\u793a\u6846")}}))})}}})},loginDuration(e=0,t){e=(new Date).getTime()-e;var s=getStorageSync(USER_INFO);request("loadlog","login_duration",__assign({},extFooter(),this.initData,{user_id:s.user_id,guid:s.guid,duration:e/1e3}),1).then(e=>{0==e.code?t&&t({statusCode:0,status:"\u4e0a\u62a5\u6210\u529f"}):t&&t({statusCode:1,status:"\u4e0a\u62a5\u5f02\u5e38"})})},recharge(e,t){var s=getStorageSync(USER_INFO);var a=s.user_id;s={openid:s.ext.openid,pf:0==wx.getSystemInfoSync().system.indexOf("iOS")?"ios":"android"};s=__assign({},{ext:JSON.stringify(s),user_id:a},extFooter(),getRoleBaseMsg(e),this.initData,{product_name:e.productName,amount:e.amount,notify_url:e.callbackURL,callback_info:e.callbackInfo,cp_product_id:e.cpProductId,charge_mount:e.chargeMount,cp_order_id:e.cpOrderId,channel_cfg_version:channel_cfg_version});console.log("payParams---------\x3e",s),localUserInfo.ext.is_realname&&1==localUserInfo.ext.is_realname?this._isRealName(s,t):this._doMakeOrder(s,t)},_isRealName(t,s){let a=this;let o=getStorageSync(USER_INFO).user_id;request("user","real_name",__assign({},extFooter(),a.initData,{user_id:o,real_name:"",guid:localUserInfo.guid,id_number:"",mode:2}),1).then(e=>{0==e.code?this._doMakeOrder(t,s):1==e.code?wx.showModal({title:"\u5b9e\u540d\u8ba4\u8bc1",showCancel:!1,content:"\u6839\u636e\u56fd\u5bb6\u76f8\u5173\u6cd5\u89c4\uff0c\u9700\u8981\u60a8\u5b8c\u6210\u5b9e\u540d\u8ba4\u8bc1",success(e){if(e.confirm){e=a.initData;let t={guid:localUserInfo.guid,game_id:e.game_id,channel:a.channel,user_id:o,qx_event_type:"real_name",from_id:e.from_id};a._customerService(t,!0,"\u5b9e\u540d\u8ba4\u8bc1(\u7ed1\u5b9aid:"+localUserInfo.guid+")","http://yxfile.gowan8.com/upload/image/202008/realname.jpg",function(e){1==e.statusCode&&wx.showModal({title:"\u6e29\u99a8\u63d0\u793a",cancelText:"\u6715\u77e5\u9053\u4e86",confirmText:"\u524d\u5f80\u5b9e\u540d",content:"\u5145\u503c\u9700\u8981\u5b9e\u540d\u8ba4\u8bc1\uff0c\u8bf7\u60a8\u8c05\u89e3",success:function(e){e.confirm?a._customerService(t,!0,"\u5b9e\u540d\u8ba4\u8bc1(\u7ed1\u5b9aid:"+localUserInfo.guid+")","http://yxfile.gowan8.com/upload/image/202008/realname.jpg"):e.cancel&&console.log("\u7528\u6237\u70b9\u51fb\u53d6\u6d88")}})})}}}):console.log("\u8bf7\u6c42\u9519\u8bef\uff0c\u68c0\u67e5\u5b9e\u540d\u5f02\u5e38")})},_doMakeOrder(i,r){var l=this;var e=getStorageSync(USER_INFO);let c;let d=e.user_id;let u=e.ext.openid;request("minigame","make_order",i,1).then(e=>{if(0==e.code){var t=e.data;var s=t.ext.op_type;c=t.order_id;var a={mode:"game",env:t.ext.env,offerId:t.ext.offerId,currencyType:"CNY",platform:"android",buyQuantity:t.ext.buyQuantity,zoneId:"1"};var o=Date.parse(new Date)/1e3;var n={op_msg:t.ext.op_msg||"",op_type:s,money:i.amount,user_id:d,order_id:c,openid:u,pf:0==wx.getSystemInfoSync().system.indexOf("iOS")?"ios":"android",ts:o,game_id:l.initData.game_id,sign:md5(c+d+u+i.amount+l.initData.game_id+o),channel:l.initData.channel};if(console.log("op_type",s),0<=s)switch(s){case 0:wx.showLoading({title:"\u52a0\u8f7d\u4e2d\u2026\u2026"}),l._payCustomerService(n,r);break;case 1:case 2:l._requestMidasPayment(a,n,r);break;case 3:r&&r({statusCode:0,status:"\u4e0b\u5355\u6210\u529f"});break;case 4:wx.showModal({title:"\u6e29\u99a8\u63d0\u793a",showCancel:!1,content:e.msg}),r&&r({statusCode:1,status:"\u4e0b\u5355\u5931\u8d25"});break;case 5:l._payCallback(n,r)}else-2==s?t.ext.qrcode_url?wx.previewImage({current:t.ext.qrcode_url,urls:[t.ext.qrcode_url]}):wx.showToast({title:"\u4e0b\u5355\u5931\u8d25\uff0c\u8bf7\u91cd\u65b0\u4e0b\u5355",icon:"none"}):-3==s?wx.navigateToMiniProgram({appId:"wxb42f1c9f32c599b2",path:"pages/wxpay/wxpay?order_id="+t.order_id,extraData:{},envVersion:"release",success(e){console.log("\u6253\u5f00\u6210\u529f")},fail:function(e){console.log(e,"\u6253\u5f00\u5931\u8d25")}}):wx.showModal({title:"\u6e29\u99a8\u63d0\u793a",showCancel:!1,content:e.msg})}else""!==e.msg&&wx.showModal({title:"\u6e29\u99a8\u63d0\u793a",showCancel:!1,content:e.msg})})},_requestMidasPayment(e={},t={},s){var a=this;console.log("[data]",e),wx.requestMidasPayment({mode:"game",env:e.env,offerId:e.offerId,currencyType:"CNY",platform:"android",buyQuantity:e.buyQuantity,zoneId:"1",success(e){console.log(e,"\u7c73\u5927\u5e08\u6210\u529f"),a._payCallback(t,s)},fail(e){console.log(e,"\u7c73\u5927\u5e08\u5931\u8d25"),s&&s({statusCode:1,status:"\u7c73\u5927\u5e08fail"})}})},_payCustomerService(t={},e){wx.hideLoading();var s=this;wx.showModal({title:"\u5145\u503c\u6559\u7a0b",showCancel:!1,content:t.op_msg,success(e){e.confirm&&s._customerService("",!0,t.order_id,"https://yxfile.gowan8.com/xcxmajia/mjwsw/imgs/xcx_pay.png",function(e){1==e.statusCode&&wx.showModal({title:"\u6e29\u99a8\u63d0\u793a",cancelText:"\u6715\u77e5\u9053\u4e86",confirmText:"\u524d\u5f80\u5145\u503c",content:"\u662f\u5426\u786e\u5b9a\u53d6\u6d88\uff1f",success:function(e){e.confirm?s._customerService("",!0,t.order_id,"https://yxfile.gowan8.com/xcxmajia/mjwsw/imgs/xcx_pay.png"):e.cancel&&console.log("\u7528\u6237\u70b9\u51fb\u53d6\u6d88")}})})}})},_payCallback(e,t){delete e.op_msg,request("notify/jsdk/channel/minigame",null,e,1).then(e=>{t&&t({statusCode:e.code,status:e.msg})})},_active(){var e=getStorageSync("active_qx_uuid");e&&e==microParame||request("loadlog","active",__assign({},extFooter(),this.initData),1).then(e=>{saveStorageSync("active_qx_uuid",microParame)})},loginTips:function(e){this._loginTips(e)},_loginTips:function(e){var t=localUserInfo.ext.login_tips;var s;t&&(s=!1,2==t.open?e.roleLevel<=t.cfg.max_role_level&&e.roleLevel>=t.cfg.min_role_level&&(s=!0):1==t.open&&(s=!0),s&&t.content&&(5<=(e=(e=getStorageSync("login_tips_times"))?parseInt(e,10):0)?delete localUserInfo.ext.login_tips:(saveStorageSync("login_tips_times",e+1),this._loginTipsItem())))},_loginTipsItem(){var s=this;var a=getStorageSync(USER_INFO);var e=a.ext.login_tips;if(!e.title)return!1;wx.showModal({title:e.title,content:e.content,cancelText:"\u6b8b\u5fcd\u62d2\u7edd",confirmText:"\u524d\u5f80\u5ba2\u670d",success:function(e){var t;e.confirm&&(e=a.user_id,t=s.initData,console.log("[initData]",t),e={game_id:t.game_id,user_id:e,channel:t.channel,qx_event_type:"user_account"},s._customerService(e,!0,"\u624b\u673a\u7248(token:"+localUserInfo.guid+")","https://yxfile.gowan8.com/upload/image/202008/icon_gift.jpg"))},fail:function(){}})},createRole(e){let s=__assign({},this.initData,extFooter(),getRoleBaseMsg(e),{user_id:localUserInfo.user_id});return this._loginTips(e),new Promise((e,t)=>{this._reportRequst("add",s,e)})},changeRole(e){let s=__assign({},this.initData,extFooter(),getRoleBaseMsg(e),{user_id:localUserInfo.user_id});return this._loginTips(e),new Promise((e,t)=>{this._reportRequst("login",s,e)})},upgradeRole(e){let s=__assign({},this.initData,extFooter(),{user_id:localUserInfo.user_id},getRoleBaseMsg(e));return this._loginTips(e),new Promise((e,t)=>{this._reportRequst("level",s,e)})},_reportRequst(e,t,s){request("role",e,t,1).then(e=>{e={statusCode:e.code,status:e.msg};s(e)})},shareToArk(e={},t){var s=this.onShareToArk();s=__assign(s,e),wx.shareAppMessage(s),t&&t({statusCode:0,status:"\u5206\u4eab\u6210\u529f"})},onShareToArk(e={}){var t={title:shareCfg.title,imageUrl:shareCfg.img_url,query:"share_user="+localUserInfo.user_id};return __assign(t,e)},bannerAdShow(e={},t){e.adUnitId?(e={adUnitId:e.adUnitId,adIntervals:30<=e.adIntervals?e.adIntervals:30,style:{left:e.left||30,top:e.top||520,width:e.width||320}},_globalData.bannerAd&&(_globalData.bannerAd.destroy(),delete _globalData.bannerAd),_globalData.bannerAd=wx.createBannerAd(e),_globalData.bannerAd.show().then(()=>{t&&t({statusCode:0,status:"\u6210\u529f"})}),_globalData.bannerAd.onError(e=>{t&&t({statusCode:1,status:"\u53d1\u751f\u9519\u8bef"})})):wx.showToast({title:"\u8bf7\u4f20\u5165\u5e7f\u544a\u4f4dID",icon:"none"})},bannerAdHide(e){_globalData.bannerAd?_globalData.bannerAd.hide().then(()=>{e&&e({statusCode:0,status:"\u5173\u95edbanner\u5e7f\u544a\u6210\u529f"})}).catch(()=>{e&&e({statusCode:1,status:"\u5173\u95edbanner\u5e7f\u544a\u5f02\u5e38"})}):e&&e({statusCode:0,status:"\u5173\u95edbanner\u5e7f\u544a\u6210\u529f"})},rewardedVideoAd(e="",t){let s=wx.createRewardedVideoAd({adUnitId:e});s.show().catch(e=>{s.load().then(()=>s.show())}),s.onClose(function(e){s.offClose(),e&&e.isEnded||void 0===e?t&&t({statusCode:0,status:"\u6b63\u5e38\u64ad\u653e\u7ed3\u675f"}):t&&t({statusCode:-1,status:"\u64ad\u653e\u4e2d\u9014\u9000\u51fa"})}),s.onError(function(e){t({statusCode:1,status:"\u89c6\u9891\u64ad\u653e\u9519\u8bef"})})},interstitialAd(e,t){let s=wx.createInterstitialAd({adUnitId:e});s.show().catch(e=>{t&&t({statusCode:1,status:"\u63d2\u5c4f\u5e7f\u544a\u663e\u793a\u53d1\u751f\u9519\u8bef"})}),s.onLoad(()=>{t&&t({statusCode:0,status:"\u63d2\u5c4f\u5e7f\u544a\u5df2\u6b63\u5e38\u663e\u793a"})}),s.onClose(()=>{t&&t({statusCode:-1,status:"\u63d2\u5c4f\u5e7f\u544a\u5df2\u5173\u95ed"})})},_customerService(e,t,s,a,o){console.log("[sf]",e),e&&"object"==typeof e&&(e=JSON.stringify(e)),wx.openCustomerServiceConversation({sessionFrom:e,showMessageCard:t||!1,sendMessageTitle:s||"",sendMessageImg:a||"",success:function(e){console.log("\u6253\u5f00\u5ba2\u670d\u6d88\u606f\u6210\u529f",e),o&&o({statusCode:0,status:"\u6253\u5f00\u5ba2\u670d\u6210\u529f"})},fail:function(e){o&&o({statusCode:1,status:"\u6253\u5f00\u5ba2\u670d\u5931\u8d25"})}})},goKefu(e){var t={guid:localUserInfo.guid,game_id:this.initData.game_id,user_id:localUserInfo.user_id,channel:this.channel,qx_event_type:"kefu",from_id:this.initData.from_id};this._customerService(t,!1,"\u8054\u7cfb\u5ba2\u670d","",e)},requestSubscribeMessage(e=[],t){wx.requestSubscribeMessage({tmplIds:e,success:function(e){t&&t({statusCode:0,status:"\u6d88\u606f\u8ba2\u9605\u6210\u529f"})},fail:function(e){t&&t({statusCode:1,status:e.errMsg+",\u6d88\u606f\u8ba2\u9605\u5931\u8d25"})}})},navigateToMiniProgram(e,t){wx.navigateToMiniProgram({appId:e,success:function(e){t&&t({statusCode:0,status:"\u8df3\u8f6c\u6210\u529f"})},fail:function(e){t&&t({statusCode:1,status:"\u8df3\u8f6c\u5931\u8d25"})}})},canPay(e,t){let s={statusCode:0,status:""};var a=wx.getSystemInfoSync();var o=0==a.system.indexOf("iOS")?2:1;request("h5","wxmini_can_pay",__assign({},this.initData,getRoleBaseMsg(e),{os:o,platform:a.platform,is_test:e.isTest||0}),0).then(e=>{0!=e.code&&(s={statusCode:e.code,status:e.msg}),t&&t(s)})},checkBindPhone(t){let s={statusCode:0,status:""};var e=getStorageSync(USER_INFO);request("user","check_bind_phone",__assign({},this.initData,sdkFooter(),{user_id:e.user_id,domain:"api"}),0).then(e=>{0!=e.code&&(s={statusCode:e.code,status:e.msg}),t&&t(s)})},bindSendCode(e,t){delete _globalData.bindSendCodeRes;let s={statusCode:0,status:""};request("send_code","index",__assign({},this.initData,sdkFooter(),{phone:e.phone||"",domain:"api",user_id:localUserInfo.user_id,pos:3}),0).then(e=>{0!=e.code?s={statusCode:e.code,status:e.msg}:_globalData.bindSendCodeRes=e.data,t&&t(s)})},bindPhone(e,t){let s={statusCode:0,status:""};var a=getStorageSync(USER_INFO);var o=_globalData.bindSendCodeRes;if(!o)return s={statusCode:1,status:"\u8bf7\u5148\u83b7\u53d6\u9a8c\u8bc1\u7801"},void(t&&t(s));delete _globalData.bindSendCodeRes,request("user","bind_phone",__assign({},{user_id:a.user_id,phone:e.phone,code:e.code,code_sign:o.code_sign,code_timeout:o.timeout,domain:"api"},sdkFooter(),this.initData),0).then(e=>{0!=e.code&&(s={statusCode:e.code,status:e.msg}),t&&t(s)})},showEgretFloatBall(s,e={}){var t=localUserInfo.ext.floating_ball;var a=!1;if(2==t.open?e.roleLevel<=t.cfg.max_role_level&&e.roleLevel>=t.cfg.min_role_level&&(a=!0):1==t.open&&(a=!0),a){let t=this;let e=new window.qxMiniButton.cross.MiniButton;s.addChildAt(e,100),e.init({iconpath:["https://yxfile.gowan8.com/upload/icon/wxmini/bg-left.png","https://yxfile.gowan8.com/upload/icon/wxmini/bg-right.png","https://yxfile.gowan8.com/upload/icon/wxmini/main.png","https://yxfile.gowan8.com/upload/icon/wxmini/weixin.png","https://yxfile.gowan8.com/upload/icon/wxmini/youxi.png"],texts:["\u516c\u4f17\u53f7","\u5347 \u7ea7"],icon:{posX:200,posY:340},onClick:e=>{switch(console.log("btn call idx ",e),Number(e)){case 0:t.goGzh();break;case 1:t._loginTipsItem()}}})}},goGzh(){var e={qx_event_type:"gzh",game_id:this.initData.game_id};this._customerService(e,!0,"\u4e0b\u65b9\u626b\u7801\u5173\u6ce8\u516c\u4f17\u53f7\uff0c\u9886\u793c\u5305","https://yxfile.gowan8.com/upload/image/202008/icon_gift.jpg")},isSourceMy(e){var t=wx.getLaunchOptionsSync();console.log("[source]",t),1089==t.scene?e&&e({statusCode:0,status:"\u6765\u6e90\u6211\u7684\u5c0f\u7a0b\u5e8f"}):e&&e({statusCode:1,status:"\u4e0d\u662f\u6765\u6e90\u6211\u7684\u5c0f\u7a0b\u5e8f"})},getLiveInfo(t,s){var a=this;wx.getChannelsLiveInfo?wx.getChannelsLiveInfo({finderUserName:t.finderUserName,success:function(e){a.liveDt=e,a.liveDt.finderUserName=t.finderUserName,s&&s({statusCode:0,liveInfo:a.liveDt,status:"\u83b7\u53d6\u76f4\u64ad\u5ba4\u4fe1\u606f\u6210\u529f"})},fail:function(e){s&&s({statusCode:1,status:"\u83b7\u53d6\u76f4\u64ad\u5ba4\u4fe1\u606f\u5931\u8d25"})}}):s&&s({statusCode:1,status:"\u8be5\u5fae\u4fe1\u7248\u672c\u4e0d\u652f\u6301\u6b64api"})},goLive(e){var t={finderUserName:this.liveDt.finderUserName,feedId:this.liveDt.feedId,nonceId:this.liveDt.nonceId};wx.openChannelsLive?(wx.openChannelsLive(t),e&&e({statusCode:0,status:"\u8fdb\u5165\u76f4\u64ad\u5ba4\u6210\u529f"})):e&&e({statusCode:1,status:"\u5f53\u524d\u5fae\u4fe1\u4e0d\u652f\u6301\u6b64api,\u8fdb\u5165\u76f4\u64ad\u5ba4\u5931\u8d25"})},showGameClub(){wx.createGameClubButton({icon:"light",style:{left:10,top:76,width:40,height:40}})},isShowVideoAd(e={},t){request("h5","role_charge",{game_id:this.initData.game_id,channel:this.initData.channel,role_id:e.roleId,server_id:e.serverId},0).then(e=>{0==e.code?t&&t({statusCode:1,status:"\u4e0d\u5c55\u793a\u6fc0\u52b1\u89c6\u9891"}):t&&t({statusCode:0,status:"\u5c55\u793a\u6fc0\u52b1\u89c6\u9891"})})}};"undefined"!=typeof module&&(module.exports=qxMiniSDK),"undefined"!=typeof window&&(window.qxMiniSDK=qxMiniSDK);
+const version = '3.0';
+const sdkVersion = '8.0';
+var channel_cfg_version = 1;
+
+const domain = {
+  yisdk: 'https://yisdk-api.gowan8.com',
+  api: 'https://api.gowan8.com',
+  box: "https://box.gowan8.com"
+};
+const test_domain = {
+  yisdk: 'http://yisdk-api.gowanme.com',
+  api: 'http://api.gowanme.com',
+  box: "http://box.gowanme.com"
+};
+const USER_INFO = 'gowan_user_info'; // 用户信息保存在微信缓存上的键值
+const XCX_USER_INFO = 'xcx_user_info'; // 微信授权后的信息保存在微信缓存上的键值
+
+// 设置游戏可分享
+if (wx) {
+  wx.showShareMenu({
+    withShareTicket: true,
+    menus: ['shareAppMessage', 'shareTimeline']
+  });
+}
+//uuid--用户唯一标识码
+const uuid = () => {
+  const S4 = () => ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
+};
+// 获取uuid
+// 作用：存储用户的唯一标示码
+function getUuid() {
+  let id = getStorageSync("qx_uuid");
+  if (id) {
+    return id;
+  }
+  id = uuid();
+  saveStorageSync('qx_uuid', id);
+  return id;
+}
+
+// 引入md5，以及引入加密解密方法
+var md5 = require('./utility/qx_md5.js'),
+    qx_auth = require('./utility/qx_auth.js'),
+    {
+  requestEncrypt,
+  returnDecrypt
+} = qx_auth;
+
+// 定义全局变量，用于除保存账户信息以外的数据
+var _globalData = {},
+    localUserInfo = {},
+
+
+// 登录后的用户信息
+/* 定义全局变量，在某个时刻会被赋值 */
+microParame = getUuid(); //生成IMEI值
+
+
+/* 
+ * 本地分享参数
+ * 在初始化接口中如果存在返回值，那么在分享接口调时则会覆本地分享参数
+ */
+var shareCfg = {
+  img_url: 'https://yxfile.gowan8.com/share/default/share_logo.png',
+  title: '千禧游戏'
+
+  /* ************函数开始************** */
+  /* 
+   * 封装一个请求方法---->> request(ct, ac, params = {}, is_jsdk = 1)
+   * is_jsdk = 1 代表是is_jsdk = 1 ， 其他代表为js
+   */
+};function request(ct, ac, params = {}, is_jsdk = 1) {
+  let KEY = String(new Date().getTime()).substr(0, 10);
+  var domainkey = params.domain || 'yisdk';
+  if (params.hasOwnProperty('domain')) {
+    delete params.domain;
+  }
+  var url;
+  // _obj 是具体发送的参数
+  let _obj = {
+    ts: KEY
+  };
+  let _domain = qxMiniSDK.reqEnv == 'test' ? test_domain[domainkey] : domain[domainkey];
+  // 对第二个参数ac做相关处理
+  if (ac === null) {
+    url = _domain + `/${ct}`;
+    _obj = params;
+  } else {
+    url = _domain + `/?ct=${ct}&ac=${ac}`;
+    if (is_jsdk == 1) {
+      _obj.is_jsdk = 1;
+      params.is_jsdk = 1;
+    } else {
+      _obj.js = 1;
+    }
+    console.log('[请求参数]', params);
+    let p = requestEncrypt(JSON.stringify(params), KEY).e;
+    _obj.p = p;
+  }
+
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url,
+      data: _obj,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      },
+      'method': 'POST',
+      success(res) {
+        // 对返回值进行解密
+        if (res.data.data) {
+          let dt = res.data.data;
+          if (dt.d) {
+            res.data.data = JSON.parse(returnDecrypt(dt.d, String(dt.ts)).d);
+          }
+        }
+        console.log(`[${ac}接口返回值]`, res);
+        resolve(res.data);
+      },
+      fail(e) {
+        if (e.errMsg === "request:fail abort") return;
+        if (reject) {
+          reject(e);
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '请求失败,请检查网络',
+            showCancel: false,
+            confirmColor: '#0f77ff',
+            success: res => {}
+          });
+        }
+      }
+    });
+  });
+}
+/* 格式化角色信息 */
+function getRoleBaseMsg(arg) {
+  return {
+    server_id: arg.serverId,
+    server_name: arg.serverName,
+    role_id: arg.roleId,
+    role_name: arg.roleName,
+    role_level: arg.roleLevel,
+    balance: arg.userMoney || 0,
+    vip_level: arg.vipLevel || 1,
+    fighting: arg.fighting || '', // 战力
+    role_c_time: arg.roleCTime || '' // 角色创建时间
+  };
+}
+
+/** 处理cocoscreator--wx不存在异常 */
+function extFooter() {
+  let systemInfo = wx.getSystemInfoSync();
+  return {
+    screen: systemInfo.windowWidth + 'x' + systemInfo.windowHeight,
+    os_version: systemInfo.system.replace(/[a-zA-Z]+\s*/, ''), // 系统版本号
+    simulator: '0', // 是否模拟器，0不是；1是
+    isroot: 0, // 是否root/越狱，0不是1是
+    serial_number: '', // 设备序列号
+    imsi: '', // 手机卡的编号
+    android_id: '', // 设备标识 ANDROID_iD
+    net: 4, // 手机网络1、2G；2、3G；3、wifi；4、其他
+    operators: 4, // 运营商 1、移动；2、联通；3、电信；4、其他
+    location: '', // 地址位置
+    version, // 必填	融合SDK版本号
+    game_version: '1.0', // 必填	游戏版本号
+    platform_version: systemInfo.SDKVersion, //	必填	渠道版本号
+    server_version: '1.2', // 服务端版本号
+    imei: microParame.replace(/-/g, ''), // 手机IMEI/IDFA
+    mac: microParame.replace(/-/g, ''), // 手机mac网卡地址
+    utma: microParame.replace(/-/g, ''), // 设备标识
+    os: systemInfo.system.indexOf('iOS') == 0 ? 2 : 1, // 手机系统1、android；2、越狱ios；3、其他；4、正版ios
+    model: systemInfo.model.replace(/\<(.*?)\>/g, ''),
+    gosdk_type: 'wxmini'
+  };
+}
+
+// SDKFooter
+function sdkFooter() {
+  let systemInfo = wx.getSystemInfoSync();
+  return {
+    version: sdkVersion, // 必填	融合SDK版本号
+    device: microParame.replace(/-/g, ''), // 手机IMEI/IDFA
+    imei: microParame.replace(/-/g, ''), // 手机IMEI/IDFA
+    screen: systemInfo.windowWidth + 'x' + systemInfo.windowHeight,
+    platform: systemInfo.system.indexOf('iOS') == 0 ? 1 : 2, // 手机系统1、ios；2、android；3、其他；
+    model: systemInfo.model.replace(/\<(.*?)\>/g, ''),
+    system: systemInfo.system.replace(/[a-zA-Z]+\s*/, ''), // 系统版本号
+    system_language: 'zh',
+    net: 4, //手机网络
+    operator: '', // 运营商 1、移动；2、联通；3、电信；4、其他
+    location: '',
+    gosdk_type: 'wxmini'
+  };
+}
+
+/* 清除本地缓存 */
+function removeStorageSync(key) {
+  try {
+    wx.removeStorageSync(key);
+    if (_globalData[key]) {
+      delete _globalData[key];
+    }
+  } catch (e) {
+    delete _globalData[key];
+  }
+}
+/* 添加本地缓存 */
+function saveStorageSync(key, value = {}) {
+  try {
+    wx.setStorageSync(key, value);
+  } catch (e) {
+    _globalData[key] = value;
+  }
+}
+
+function getStorageSync(key) {
+  let value;
+  try {
+    value = wx.getStorageSync(key);
+    if ('' === value) {
+      value = _globalData[key] ? _globalData[key] : "";
+    }
+  } catch (e) {
+    value = _globalData[key] ? _globalData[key] : "";
+  }
+  return value;
+}
+
+/**
+ * 获取场景值
+ */
+function getZjwlScene() {
+  let query = wx.getLaunchOptionsSync().query;
+  if (query.scene) {
+    let scene = decodeURIComponent(query.scene);
+    //替换scene=
+    scene = scene.replace(/^\s+|\s+$/g, '').replace(/^(scene=)/g, "");
+    return scene.replace(/^\s+|\s+$/g, '');
+  }
+  return 0;
+}
+
+// 获取头条推广参数 --clue_token
+function getTtParams(name) {
+  let query = wx.getLaunchOptionsSync().query;
+  console.log('[头条query参数]', query);
+  if (name) {
+    return query[name];
+  }
+  return query;
+}
+
+// 合并参数
+var __assign = Object.assign || function __assign(t) {
+  var n = arguments.length,
+      s;
+  for (var i = 1; i < n; i++) {
+    s = arguments[i];
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+  }
+  return t;
+};
+
+/* ************函数结束************** */
+var qxMiniSDK = {
+  // sdk 标识
+  sdkChannel: 'minigame',
+  initData: {
+    channel: 'gowan',
+    clue_token: getTtParams('clue_token') || '', //头条推广参数
+    ad_id: getTtParams('ad_id') || '' //头条推广参数
+  },
+  /* 请求开始标识*/
+  apiStart() {
+    this.apiRuning = true;
+  },
+
+  /* 请求结束标识*/
+  apiEnd() {
+    this.apiRuning = false;
+  },
+
+  // 直播室数据
+  liveDt: {},
+
+  /* 
+   * 接口请求状态
+   * 返回值 true / false
+   */
+  isApiRunning() {
+    return this.apiRuning;
+  },
+  //环境标示变量
+  reqEnv: 'prod',
+
+  /* 初始化 */
+  init(initParams = {}, callback) {
+    var that = this;
+    /* 防止重复请求 */
+    if (that.isApiRunning()) {
+      return;
+    }
+    that.apiStart();
+    let scene = getZjwlScene();
+    let from_id = scene ? scene : initParams.channel_id;
+    var accountInfo = {};
+    // wx.getAccountInfoSync 接口存在兼容性问题
+    if (wx.getAccountInfoSync) {
+      accountInfo = wx.getAccountInfoSync();
+    }
+    var wxmini_appid = initParams.wxmini_appid || accountInfo.miniProgram.appId;
+    this.initData.wxmini_appid = wxmini_appid;
+    // 显示游戏圈--部分游戏需要
+    // this.showGameClub()
+
+    // 组装全局参数
+    let _initData = {
+      game_id: initParams.game_id,
+      channel: that.initData.channel,
+      game_name: initParams.game_name,
+      from_id: from_id, // fuse 默认为 0
+      // cookie_uuid: microParame,
+      original_from_id: initParams.channel_id,
+      wxmini_appid: wxmini_appid || ''
+
+    };
+    that.initData = __assign(that.initData, _initData);
+    that.reqEnv = initParams.req_env || 'prod';
+    // 参数对象
+    let initReq = __assign({}, _initData, extFooter(), {
+      channel: that.sdkChannel
+    });
+    /** ********** 发送js_load请求*********************/
+    request('init', 'index', initReq, 1).then(resulte => {
+      that.apiEnd();
+      if (resulte.code == 0) {
+        let initReslute = resulte.data;
+        // 分享配置
+        if (initReslute.share) {
+          shareCfg = __assign(shareCfg, initReslute.share);
+        }
+        // 公告
+        let notice = initReslute.init_notice;
+        if (notice) {
+          wx.showModal({
+            title: notice.title,
+            content: notice.content,
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+                //callback && callback(cbData)
+              }
+            }
+          });
+        }
+        // 渠道版本配置
+        channel_cfg_version = initReslute.channel_cfg_version || channel_cfg_version;
+
+        // 激活
+        that._active();
+
+        var launchOptions = wx.getLaunchOptionsSync();
+
+        callback && callback({
+          statusCode: 0,
+          status: '初始化成功',
+          launchOptions: launchOptions
+        });
+      } else {
+        if (callback) {
+          callback({
+            statusCode: 1,
+            status: '初始化失败',
+            launchOptions: launchOptions
+          });
+        }
+      }
+    });
+  },
+
+  /* 检查Session值 */
+  checkSession(callback) {
+    var that = this;
+    wx.checkSession({
+      success(res) {
+        let gowanUserInfo = getStorageSync(USER_INFO);
+        let xcxUserInfo = getStorageSync(XCX_USER_INFO);
+        let type = 'checkSession';
+        if (gowanUserInfo && gowanUserInfo.ext.openid) {
+          console.log('[session_key 未过期------->直接执行登录方法]');
+          that._dologin(xcxUserInfo, type, callback);
+        } else {
+          if (callback) {
+            callback({
+              statusCode: 1,
+              status: '登录已经过期'
+            });
+          }
+        }
+      },
+      fail() {
+        console.log('[session_key 已经过期------->需要重新执行登录流程]');
+        if (callback) {
+          callback({
+            statusCode: 1,
+            status: 'session_key 已经过期'
+          });
+        }
+      }
+    });
+  },
+
+  /* 登录 */
+  login(xcxUserInfo = {}, callback) {
+    var that = this;
+    saveStorageSync(XCX_USER_INFO, xcxUserInfo);
+    let type = 'login';
+    that.checkSession(function (res) {
+      if (res.statusCode === 0) {
+        callback && callback(res);
+      } else {
+        that._dologin(xcxUserInfo, type, callback);
+      }
+    });
+  },
+
+  _dologin(xcxUserInfo, type, callback) {
+    console.log('[登录类型]', type);
+    let that = this;
+    /* 防止重复请求 */
+    if (that.isApiRunning()) {
+      return;
+    }
+    that.apiStart();
+    let gowanUserInfo = getStorageSync(USER_INFO);
+    wx.login({
+      success: ret => {
+        let code = ret.code;
+        let userinfo = encodeURIComponent(JSON.stringify(xcxUserInfo));
+        let ext_header = {};
+        let header = {
+          code,
+          userinfo
+          // 获取主动分享的玩家信息
+          // var shareOptions = wx.getLaunchOptionsSync()
+        };if (type == 'checkSession') {
+          header['uopenid'] = gowanUserInfo.ext.openid;
+        }
+        let loginParams = __assign({}, {
+          ext: JSON.stringify(ext_header),
+          data: JSON.stringify(header)
+        }, that.initData, extFooter(), {
+          channel_cfg_version
+        });
+        /* 发送登录请求 */
+        request('minigame', 'login', loginParams, 1).then(result => {
+          that.apiEnd();
+          if (result.code == 0) {
+            let loginResult = result.data;
+            //获取unionid--0 不需要获取，1 需要获取
+            if (loginResult.ext.is_bind_user == 1) {
+              that.getUnionid(loginResult);
+            }
+            /* 清除本地缓存 */
+            if (gowanUserInfo) {
+              removeStorageSync(USER_INFO);
+            }
+            saveStorageSync(USER_INFO, loginResult); // 存储gowan服务端返回的用户信息
+            localUserInfo = loginResult; // 存储用户信息
+            //配置被动分享信息
+            that.onShareAppMessage();
+            // 这里不要被删除，用于替换自然量分包
+            that.initData.from_id = loginResult.from_id;
+            let cpRes = {
+              statusCode: 0,
+              userId: loginResult.user_id,
+              platformChanleId: Number(0),
+              userName: loginResult.userName || '',
+              timestamp: String(loginResult.timestamp),
+              sign: loginResult.new_sign,
+              guid: loginResult.guid,
+              cp_ext: loginResult.cp_ext || '',
+              ext: loginResult.ext || ''
+            };
+            if (callback) {
+              let cbData = {
+                statusCode: 0,
+                loginParams: cpRes,
+                status: '登录成功'
+              };
+              callback(cbData);
+            }
+          } else {
+            if (callback) {
+              callback({
+                statusCode: 1,
+                status: result.msg || '登录失败'
+              });
+            }
+          }
+        });
+      }
+    });
+  },
+
+  // 获取Unionid
+  getUnionid: function (data) {
+    var that = this;
+    let sysInfo = wx.getSystemInfoSync();
+    //获取微信界面大小
+    let width = sysInfo.screenWidth;
+    let height = sysInfo.screenHeight;
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting["scope.userInfo"] && data.ext.is_unionid != '1') {} else {
+          let button = wx.createUserInfoButton({
+            type: 'text',
+            text: '',
+            style: {
+              left: 0,
+              top: 0,
+              width: width,
+              height: height,
+              backgroundColor: '#00000001', //最后两位为透明度
+              color: '#ffffff',
+              fontSize: 20,
+              textAlign: "center",
+              lineHeight: height
+            }
+          });
+          button.onTap(res => {
+            if (res.userInfo) {
+              var obj = __assign({}, extFooter(), that.initData, {
+                data: {
+                  uopenid: data.ext.openid,
+                  userinfo: encodeURIComponent(JSON.stringify(res))
+                }
+              });
+              request('h5', 'bind_user', obj, 0).then(res => {
+                if (res.code == 0) {
+                  button.destroy();
+                } else {
+                  wx.showModal({
+                    title: '提示',
+                    showCancel: false,
+                    content: '授权失败，请卸载微信小游戏后，重新登录授权'
+                  });
+                }
+              });
+            } else {
+              wx.showModal({
+                title: "温馨提示",
+                content: "需要同意微信授权才可以登录游戏！",
+                showCancel: false,
+                confirmText: "朕知道了",
+                confirmColor: "#576B95",
+                success(res) {
+                  console.log('[用户已查阅授权提示框]');
+                }
+              });
+            }
+          });
+        }
+      }
+    });
+  },
+
+  /**登录时长上报 */
+  loginDuration(time = 0, callback) {
+    var nowTime = new Date().getTime();
+    var poorTime = nowTime - time;
+    var goWanUserInfo = getStorageSync(USER_INFO);
+    let that = this;
+    let jsActive = __assign({}, extFooter(), that.initData, {
+      user_id: goWanUserInfo.user_id,
+      guid: goWanUserInfo.guid,
+      duration: poorTime / 1000
+    });
+    /** ********** 发送登录时长上报请求*********************/
+    request('loadlog', 'login_duration', jsActive, 1).then(resulte => {
+      if (resulte.code == 0) {
+        callback && callback({
+          statusCode: 0,
+          status: '上报成功'
+        });
+      } else {
+        callback && callback({
+          statusCode: 1,
+          status: '上报异常'
+        });
+      }
+    });
+  },
+
+  /* 支付 */
+  recharge(args, callback) {
+    var that = this;
+    let goWanUserInfo = getStorageSync(USER_INFO);
+    let user_id = goWanUserInfo.user_id;
+    let openid = goWanUserInfo.ext.openid;
+    let ext = {
+      openid,
+      pf: wx.getSystemInfoSync().system.indexOf('iOS') == 0 ? 'ios' : 'android'
+    };
+    let payParams = __assign({}, {
+      ext: JSON.stringify(ext),
+      user_id
+    }, extFooter(), getRoleBaseMsg(args), that.initData, {
+      product_name: args.productName,
+      amount: args.amount, // 必填充值金额 单位：分
+      notify_url: args.callbackURL, // 必填 CP通知URL
+      callback_info: args.callbackInfo, // cP回调参数
+      cp_product_id: args.cpProductId,
+      charge_mount: args.chargeMount, // 金钱数量/道具数量
+      cp_order_id: args.cpOrderId,
+      channel_cfg_version
+    });
+    console.log('[支付参数payParams]', payParams);
+    /**
+     * 下单说明
+     * 如果存在real_name，并且real_name的值是1，则需要进行实名认证，否则，不需要
+     * 
+     */
+    if (localUserInfo.ext.is_realname && localUserInfo.ext.is_realname == 1) {
+      this._isRealName(payParams, callback);
+    } else {
+      this._doMakeOrder(payParams, callback);
+    }
+  },
+
+  /* 是否实名 
+   * 0 -- 已实名
+   * 1 -- 未实名
+   */
+  _isRealName(payParams, callback) {
+    let that = this;
+    let goWanUserInfo = getStorageSync(USER_INFO);
+    let user_id = goWanUserInfo.user_id;
+    let args = __assign({}, extFooter(), that.initData, {
+      user_id,
+      real_name: '',
+      guid: localUserInfo.guid,
+      id_number: '',
+      mode: 2
+    });
+    /** ********** 发送是否需要实名请求*********************/
+    request('user', 'real_name', args, 1).then(resulte => {
+      if (resulte.code == 0) {
+        this._doMakeOrder(payParams, callback);
+      } else if (resulte.code == 1) {
+        wx.showModal({
+          title: '实名认证',
+          showCancel: false,
+          content: '根据国家相关法规，需要您完成实名认证',
+          success(res) {
+            if (res.confirm) {
+              var initData = that.initData;
+              let pr = {
+                guid: localUserInfo.guid,
+                game_id: initData.game_id,
+                channel: that.channel,
+                user_id,
+                qx_event_type: 'real_name',
+                from_id: initData.from_id
+              };
+              that._customerService(pr, true, '实名认证(绑定id:' + localUserInfo.guid + ')', 'http://yxfile.gowan8.com/upload/image/202008/realname.jpg', function (res) {
+                if (res.statusCode == 1) {
+                  // 用户取消打开客服或者打开客服失败
+                  wx.showModal({
+                    title: '温馨提示',
+                    cancelText: '朕知道了',
+                    confirmText: '前往实名',
+                    content: '充值需要实名认证，请您谅解',
+                    success: function (res) {
+                      if (res.confirm) {
+                        that._customerService(pr, true, '实名认证(绑定id:' + localUserInfo.guid + ')', 'http://yxfile.gowan8.com/upload/image/202008/realname.jpg');
+                      } else if (res.cancel) {
+                        console.log('[用户点击取消支付]');
+                      }
+                    }
+                  });
+                }
+              });
+            }
+          }
+        });
+      } else {
+        console.log('[实名接口请求错误，检查实名异常]');
+      }
+    });
+  },
+
+  _doMakeOrder(payParams, callback) {
+    var that = this;
+    let goWanUserInfo = getStorageSync(USER_INFO);
+    let order_id = '';
+    let user_id = goWanUserInfo.user_id;
+    let openid = goWanUserInfo.ext.openid;
+    request('minigame', 'make_order', payParams, 1).then(resulte => {
+      if (resulte.code == 0) {
+        let payResult = resulte.data;
+        let op_type = payResult.ext.op_type; // 保存op_type用于后面的判断
+        order_id = payResult.order_id;
+        let dataForMidashi = {
+          'mode': 'game',
+          'env': payResult.ext.env,
+          'offerId': payResult.ext.offerId,
+          'currencyType': 'CNY',
+          'platform': 'android',
+          'buyQuantity': payResult.ext.buyQuantity,
+          'zoneId': '1'
+        };
+        let ts = Date.parse(new Date()) / 1000;
+        var paycbData = {
+          op_msg: payResult.ext.op_msg || '',
+          op_type,
+          money: payParams.amount,
+          user_id, // 登录的时候可以获取
+          order_id,
+          openid,
+          pf: wx.getSystemInfoSync().system.indexOf('iOS') == 0 ? 'ios' : 'android',
+          ts,
+          game_id: that.initData.game_id, // when pay的时cp传进来的参数里有
+          sign: md5(order_id + user_id + openid + payParams.amount + that.initData.game_id + ts),
+          channel: that.initData.channel
+        };
+        console.log('[支付类型op_type]', op_type);
+        /**
+         * op_type 参数说明
+         * -1--表示关闭支付
+         *  0--是调用客服支付
+         *  1--是米大师支付
+         *  -2--表示二维码支付
+         *  -3--表示小程序支付
+         */
+        if (op_type >= 0) {
+          switch (op_type) {
+            case 0:
+              /* 客服pay */
+              wx.showLoading({
+                title: '加载中……'
+              });
+              that._payCustomerService(paycbData, callback);
+              break;
+            case 1:
+              that._requestMidasPayment(dataForMidashi, paycbData, callback);
+              break;
+            case 2:
+              that._requestMidasPayment(dataForMidashi, paycbData, callback);
+              break;
+            case 3:
+              if (callback) {
+                callback({
+                  statusCode: 0,
+                  status: '下单成功'
+                });
+              }
+              break;
+            case 4:
+              wx.showModal({
+                title: '温馨提示',
+                showCancel: false,
+                content: paycbData.op_msg || resulte.msg
+              });
+              if (callback) {
+                callback({
+                  statusCode: 1,
+                  status: '下单失败'
+                });
+              }
+              break;
+            case 5:
+              that._payCallback(paycbData, callback); //直接回调
+              break;
+          }
+        } else if (op_type == -2) {
+          //进二维码支付
+          console.log('[payResult]', payResult);
+          if (payResult.ext.qrcode_url) {
+            wx.previewImage({
+              current: payResult.ext.qrcode_url,
+              urls: [payResult.ext.qrcode_url]
+            });
+          } else {
+            wx.showToast({
+              title: '下单失败，请重新下单',
+              icon: 'none'
+            });
+          }
+        } else if (op_type == -3) {
+          //进入微信小程序支付
+          wx.navigateToMiniProgram({
+            appId: 'wxb42f1c9f32c599b2',
+            path: `pages/wxpay/wxpay?order_id=${payResult.order_id}`,
+            extraData: {},
+            envVersion: 'release',
+            success(res) {
+              // 打开成功
+              console.log('[打开小程序成功]');
+            },
+            fail: function (err) {
+              console.log('[打开小程序失败]', err);
+            }
+          });
+        } else {
+          // 这里是-1---表示关闭支付
+          wx.showModal({
+            title: '温馨提示',
+            showCancel: false,
+            content: resulte.msg
+          });
+        }
+      } else {
+        if (resulte.msg !== '') {
+          wx.showModal({
+            title: '温馨提示',
+            showCancel: false,
+            content: resulte.msg
+          });
+        }
+      }
+    });
+  },
+
+  /* midashi_pay */
+  _requestMidasPayment(data, paycbData, callback) {
+    var that = this;
+    wx.requestMidasPayment({
+      mode: data.mode,
+      env: data.env,
+      offerId: data.offerId,
+      currencyType: data.currencyType,
+      platform: data.platform,
+      buyQuantity: data.buyQuantity,
+      zoneId: data.zoneId,
+      success(res) {
+        // 发起pay回调请求
+        that._payCallback(paycbData, callback);
+      },
+      fail(res) {
+        console.log('[米大师支付失败]', res);
+        if (callback) {
+          callback({
+            statusCode: 1,
+            status: '米大师fail'
+          });
+        }
+      }
+    });
+  },
+
+  /* 打开客服充值 */
+  _payCustomerService(paycbData, callback) {
+    wx.hideLoading();
+    var that = this;
+    wx.showModal({
+      title: '充值教程',
+      showCancel: false,
+      content: paycbData.op_msg,
+      success(res) {
+        if (res.confirm) {
+          that._customerService('', true, paycbData.order_id, 'https://yxfile.gowan8.com/xcxmajia/mjwsw/imgs/xcx_pay.png', function (res) {
+            if (res.statusCode == 1) {
+              wx.showModal({
+                title: '温馨提示',
+                cancelText: '朕知道了',
+                confirmText: '前往充值',
+                content: '是否确定取消？',
+                success: function (res) {
+                  if (res.confirm) {
+                    that._customerService('', true, paycbData.order_id, 'https://yxfile.gowan8.com/xcxmajia/mjwsw/imgs/xcx_pay.png');
+                  } else if (res.cancel) {
+                    console.log('[用户点击取消支付]');
+                  }
+                }
+              });
+            }
+          });
+        }
+      }
+    });
+  },
+
+  /* pay回调通知请求 */
+  _payCallback(paycbData, callback) {
+    delete paycbData.op_msg;
+    request('notify/jsdk/channel/minigame', null, paycbData, 1).then(res => {
+      if (callback) {
+        callback({
+          statusCode: res.code,
+          status: res.msg
+        });
+      }
+    });
+  },
+
+  /* 激活 */
+  _active() {
+    // 参数对象
+    let that = this;
+    let active_qx_uuid = getStorageSync('active_qx_uuid');
+    if (!active_qx_uuid || active_qx_uuid != microParame) {
+      let args = __assign({}, extFooter(), that.initData);
+      /** ********** 发送激活请求*********************/
+      request('loadlog', 'active', args, 1).then(resulte => {
+        saveStorageSync('active_qx_uuid', microParame);
+      });
+    }
+  },
+
+  //登录成功显示提示(对外)
+  loginTips: function (roleParams) {
+    this._loginTips(roleParams);
+  },
+
+  //登录成功显示提示
+  _loginTips: function (roleParams, type = 0) {
+    var params = localUserInfo.ext.login_tips;
+    if (!params) {
+      return;
+    }
+    var isOpen = false;
+    if (params.open == 2) {
+      if (roleParams.roleLevel <= params.cfg.max_role_level && roleParams.roleLevel >= params.cfg.min_role_level) {
+        isOpen = true;
+      }
+    } else if (params.open == 1) {
+      isOpen = true;
+    }
+    if (!isOpen) {
+      console.log('[isOpenReturn]', isOpen);
+      return;
+    }
+    if (params.content) {
+      var times = getStorageSync('login_tips_times');
+      times = times ? parseInt(times, 10) : 0;
+      if (times >= 5) {
+        delete localUserInfo.ext.login_tips;
+        return;
+      }
+      saveStorageSync('login_tips_times', times + 1);
+      this._loginTipsItem(type);
+    }
+  },
+
+  // type--1 表示谈转端图片，其他表示转客服会话
+  _loginTipsItem(type = 0) {
+    var that = this;
+    var goWanUserInfo = getStorageSync(USER_INFO);
+    var login_tips = goWanUserInfo.ext.login_tips;
+    if (!login_tips.title) {
+      return false;
+    }
+    wx.showModal({
+      title: login_tips.title,
+      content: login_tips.content,
+      cancelText: "残忍拒绝",
+      confirmText: "去领礼包",
+      success: function (res) {
+        if (res.confirm) {
+          if (type == 1) {
+            // 功能2，展示转端图片
+            that.showShareImageMenu();
+            return;
+          }
+          // 功能1，前往客服
+          var user_id = goWanUserInfo.user_id;
+          var initData = that.initData;
+          let pr = {
+            game_id: initData.game_id,
+            user_id: user_id,
+            channel: initData.channel,
+            qx_event_type: "user_account"
+          };
+          that._customerService(pr, true, '手机版(token:' + localUserInfo.guid + ')', 'https://yxfile.gowan8.com/upload/image/202008/icon_gift.jpg');
+        }
+      },
+      fail: function () {}
+    });
+  },
+
+  /* 创建角色上报 */
+  createRole(params) {
+    let type = 'add';
+    let input = __assign({}, this.initData, extFooter(), getRoleBaseMsg(params), {
+      user_id: localUserInfo.user_id
+    });
+    this._loginTips(params);
+    return new Promise((resolve, reject) => {
+      this._reportRequst(type, input, resolve);
+    });
+  },
+
+  /* 切换角色上报 */
+  changeRole(params) {
+    let type = 'login';
+    let input = __assign({}, this.initData, extFooter(), getRoleBaseMsg(params), {
+      user_id: localUserInfo.user_id
+    });
+    this._loginTips(params);
+    return new Promise((resolve, reject) => {
+      this._reportRequst(type, input, resolve);
+    });
+  },
+
+  /* 角色升级上报 */
+  upgradeRole(params) {
+    let type = 'level';
+    let input = __assign({}, this.initData, extFooter(), {
+      user_id: localUserInfo.user_id
+    }, getRoleBaseMsg(params));
+    this._loginTips(params);
+    return new Promise((resolve, reject) => {
+      this._reportRequst(type, input, resolve);
+    });
+  },
+
+  /* 上报请求 */
+  _reportRequst(type, input, resolve) {
+    request('role', type, input, 1).then(res => {
+      let reportReslute = {
+        statusCode: res.code,
+        status: res.msg
+      };
+      resolve(reportReslute);
+    });
+  },
+
+  /* 主动分享 */
+  shareToArk(params = {}, callback) {
+    var options = this.onShareToArk(params);
+    console.log('[主动分享数据options]', options);
+    wx.shareAppMessage(options);
+    if (callback) {
+      callback({
+        statusCode: 0,
+        status: '分享成功'
+      });
+    }
+  },
+
+  /* 配置右上角微信分享信息 */
+  onShareAppMessage(params = {}, callback) {
+    var shareData = this.onShareToArk(params);
+    console.log('[右上角分享数据shareData]', shareData);
+    wx.onShareAppMessage(() => {
+      return shareData;
+    });
+    callback && callback({
+      statusCode: 0,
+      status: '配置成功'
+    });
+  },
+
+  /* 组装分享参数 */
+  onShareToArk(params = {}) {
+    var qxQuery = 'share_user=' + localUserInfo.user_id;
+    if (params.query) {
+      params.query = qxQuery + '&' + params.query;
+    }
+    var options = {
+      title: shareCfg.title,
+      imageUrl: shareCfg.img_url,
+      query: qxQuery
+    };
+    return __assign({}, options, params);
+  },
+
+  /* banner广告 */
+  bannerAdShow(config = {}, callback) {
+    if (!config.adUnitId) {
+      wx.showToast({
+        title: '请传入广告位ID',
+        icon: 'none'
+      });
+      return;
+    }
+    let defaultConfig = {
+      adUnitId: config.adUnitId,
+      adIntervals: config.adIntervals >= 30 ? config.adIntervals : 30,
+      style: {
+        left: config.left || 30,
+        top: config.top || 520,
+        width: config.width || 320
+      }
+    };
+    if (_globalData.bannerAd) {
+      _globalData.bannerAd.destroy();
+      delete _globalData.bannerAd;
+    }
+    _globalData.bannerAd = wx.createBannerAd(defaultConfig);
+    _globalData.bannerAd.show().then(() => {
+      callback && callback({
+        statusCode: 0,
+        status: '成功'
+      });
+    });
+    _globalData.bannerAd.onError(err => {
+      callback && callback({
+        statusCode: 1,
+        status: '发生错误'
+      });
+    });
+  },
+
+  /** 隐藏banner广告 */
+  bannerAdHide(callback) {
+    if (_globalData.bannerAd) {
+      _globalData.bannerAd.hide().then(() => {
+        callback && callback({
+          statusCode: 0,
+          status: '关闭banner广告成功'
+        });
+      }).catch(() => {
+        callback && callback({
+          statusCode: 1,
+          status: '关闭banner广告异常'
+        });
+      });
+    } else {
+      callback && callback({
+        statusCode: 0,
+        status: '关闭banner广告成功'
+      });
+    }
+  },
+
+  /* 激励视频广告 */
+  rewardedVideoAd(adUnitId = '', callback) {
+    //创建
+    let VideoAd = wx.createRewardedVideoAd({
+      adUnitId: adUnitId
+    });
+    //显示
+    VideoAd.show().catch(err => {
+      VideoAd.load().then(() => VideoAd.show());
+    });
+    // 监听关闭事件
+    VideoAd.onClose(function (_res) {
+      VideoAd.offClose();
+      // 小于 2.1.0 的基础库版本，res 是一个 undefined
+      if (_res && _res.isEnded || _res === undefined) {
+        // 正常播放结束，可以下发游戏奖励
+        callback && callback({
+          statusCode: 0,
+          status: '正常播放结束'
+        });
+      } else {
+        // 播放中途退出，不下发游戏奖励
+        callback && callback({
+          statusCode: -1,
+          status: '播放中途退出'
+        });
+      }
+    });
+    // 监听错误事件
+    VideoAd.onError(function (_res) {
+      callback({
+        statusCode: 1,
+        status: '视频播放错误'
+      });
+    });
+  },
+
+  /* 插屏广告 */
+  interstitialAd(adUnitId, callback) {
+    let interstitialAdRes = wx.createInterstitialAd({
+      adUnitId: adUnitId
+    });
+    interstitialAdRes.show().catch(err => {
+      callback && callback({
+        statusCode: 1,
+        status: '插屏广告显示发生错误'
+      });
+    });
+    interstitialAdRes.onLoad(() => {
+      callback && callback({
+        statusCode: 0,
+        status: '插屏广告已正常显示'
+      });
+    });
+    interstitialAdRes.onClose(() => {
+      callback && callback({
+        statusCode: -1,
+        status: '插屏广告已关闭'
+      });
+    });
+  },
+
+  // 打开客服
+  _customerService(sf, showCard, msgTitle, msgImg, callback) {
+    if (sf && typeof sf == 'object') {
+      sf = JSON.stringify(sf);
+    }
+    wx.openCustomerServiceConversation({
+      sessionFrom: sf, //会话来源
+      showMessageCard: showCard || false,
+      sendMessageTitle: msgTitle || '',
+      sendMessageImg: msgImg || '',
+      success: function (res) {
+        callback && callback({
+          statusCode: 0,
+          status: '打开客服成功'
+        });
+      },
+      fail: function (res) {
+        callback && callback({
+          statusCode: 1,
+          status: '打开客服失败'
+        });
+      }
+    });
+  },
+
+  /** 联系客服 */
+  goKefu(callback) {
+    let pr = {
+      guid: localUserInfo.guid,
+      game_id: this.initData.game_id,
+      user_id: localUserInfo.user_id,
+      channel: this.channel,
+      qx_event_type: 'kefu',
+      from_id: this.initData.from_id
+    };
+    this._customerService(pr, false, '联系客服', '', callback);
+  },
+
+  /** 订阅消息 */
+  requestSubscribeMessage(tmplIds = [], callback) {
+    wx.requestSubscribeMessage({
+      tmplIds: tmplIds,
+      success: function (res) {
+        callback && callback({
+          statusCode: 0,
+          status: '消息订阅成功'
+        });
+      },
+      fail: function (err) {
+        callback && callback({
+          statusCode: 1,
+          status: err.errMsg + ',消息订阅失败'
+        });
+      }
+    });
+  },
+
+  /** 小游戏跳转 */
+  navigateToMiniProgram(appId, callback) {
+    wx.navigateToMiniProgram({
+      appId: appId,
+      success: function (res) {
+        callback && callback({
+          statusCode: 0,
+          status: '跳转成功'
+        });
+      },
+      fail: function (res) {
+        callback && callback({
+          statusCode: 1,
+          status: '跳转失败'
+        });
+      }
+    });
+  },
+
+  // 检查是否显示支付
+  canPay(params, callback) {
+    let result = {
+      statusCode: 0,
+      status: ''
+      // 获取设备类型
+    };var systemInfo = wx.getSystemInfoSync();
+    let pf = systemInfo.system.indexOf('iOS') == 0 ? 2 : 1;
+    let input = __assign({}, this.initData, getRoleBaseMsg(params), {
+      os: pf,
+      platform: systemInfo.platform,
+      is_test: params.isTest || 0 // 1 审核环境， 0 非审核环境
+    });
+    request('h5', 'wxmini_can_pay', input, 0).then(res => {
+      if (res.code != 0) {
+        result = {
+          statusCode: res.code,
+          status: res.msg
+        };
+      }
+      if (callback) {
+        callback(result);
+      }
+    });
+  },
+
+  // 检查是否已绑定手机号码
+  checkBindPhone(callback) {
+    let result = {
+      statusCode: 0, // 0 表示已绑定，其他值表示未绑定
+      status: ''
+    };
+    var goWanUserInfo = getStorageSync(USER_INFO);
+    var reqData = __assign({}, this.initData, sdkFooter(), {
+      user_id: goWanUserInfo.user_id,
+      domain: 'api'
+    });
+    request('user', 'check_bind_phone', reqData, 0).then(res => {
+      if (res.code != 0) {
+        result = {
+          statusCode: res.code,
+          status: res.msg
+        };
+      }
+      if (callback) {
+        callback(result);
+      }
+    });
+  },
+
+  // 获取手机验证码
+  bindSendCode(params, callback) {
+    delete _globalData.bindSendCodeRes;
+    let result = {
+      statusCode: 0,
+      status: ''
+    };
+    var reqData = __assign({}, this.initData, sdkFooter(), {
+      phone: params.phone || '',
+      domain: 'api',
+      user_id: localUserInfo.user_id,
+      pos: 3
+    });
+    request('send_code', 'index', reqData, 0).then(res => {
+      if (res.code != 0) {
+        result = {
+          statusCode: res.code,
+          status: res.msg
+        };
+      } else {
+        _globalData.bindSendCodeRes = res.data;
+      }
+      if (callback) {
+        callback(result);
+      }
+    });
+  },
+
+  // 绑定手机号码
+  bindPhone(params, callback) {
+    let result = {
+      statusCode: 0,
+      status: ''
+    };
+    var goWanUserInfo = getStorageSync(USER_INFO);
+    var bindSendCodeRes = _globalData.bindSendCodeRes;
+    if (!bindSendCodeRes) {
+      result = {
+        statusCode: 1,
+        status: '请先获取验证码'
+      };
+      callback && callback(result);
+      return;
+    }
+    delete _globalData.bindSendCodeRes;
+    var reqData = __assign({}, {
+      user_id: goWanUserInfo.user_id,
+      phone: params.phone,
+      code: params.code,
+      code_sign: bindSendCodeRes.code_sign,
+      code_timeout: bindSendCodeRes.timeout,
+      domain: 'api'
+    }, sdkFooter(), this.initData);
+    request('user', 'bind_phone', reqData, 0).then(res => {
+      if (res.code != 0) {
+        result = {
+          statusCode: res.code,
+          status: res.msg
+        };
+      }
+      if (callback) {
+        callback(result);
+      }
+    });
+  },
+
+  // 显示悬浮窗--egretobj为游戏场景对象
+  showEgretFloatBall(egretobj, roleParams = {}) {
+    return;
+    var isOpen = this.isShowFloatBtn(roleParams);
+    if (!isOpen) {
+      return;
+    }
+    let that = this;
+    // let btn = new window.qxMiniButton.cross.MiniButton; //原版
+    let btn = new window.qxMiniFloatBall.cross.MiniButton(); //更改后版本
+    egretobj.addChildAt(btn, 100);
+    btn.init({
+      iconpath: ["https://yxfile.gowan8.com/upload/icon/wxmini/bg-left.png", "https://yxfile.gowan8.com/upload/icon/wxmini/bg-right.png", "https://yxfile.gowan8.com/upload/icon/wxmini/main.png", "https://yxfile.gowan8.com/upload/icon/wxmini/weixin.png", "https://yxfile.gowan8.com/upload/icon/wxmini/youxi.png", 'https://yxfile.gowan8.com/test/icon/shouji.png'],
+      texts: ["公众号", "升 级", '手 机'],
+      icon: {
+        posX: 200,
+        posY: 340
+      },
+      onClick: idx => {
+        // console.log("btn call idx ", idx)
+        var iconIndex = Number(idx);
+        switch (iconIndex) {
+          case 0:
+            that.goGzh();
+            break;
+          case 1:
+            that._loginTipsItem(1);
+            break;
+          case 2:
+            that.goBindPhone();
+            break;
+        }
+      }
+    });
+  },
+
+  // 是否显示跳转小程序按钮
+  isShowFloatBtn(roleParams, callback) {
+    var params = localUserInfo.ext.floating_ball;
+    console.log('[研发传入的角色信息roleParams]', roleParams);
+    console.log('[后台配置信息params]', params);
+    var isOpen = false;
+    if (params.open == 2) {
+      if (roleParams.roleLevel <= params.cfg.max_role_level && roleParams.roleLevel >= params.cfg.min_role_level) {
+        isOpen = true;
+      }
+    } else if (params.open == 1) {
+      isOpen = true;
+    }
+    if (isOpen) {
+      callback && callback({
+        statusCode: 0,
+        isOpen: isOpen,
+        status: "显示"
+      });
+    } else {
+      callback && callback({
+        statusCode: 1,
+        isOpen: isOpen,
+        status: "隐藏"
+      });
+    }
+    console.log('[是否展示悬浮窗isOpen]', isOpen);
+    return isOpen;
+  },
+
+  // 判断玩家是否从我的小程序进入
+  isSourceMy(callback) {
+    var source = wx.getLaunchOptionsSync();
+    if (source.scene == 1089) {
+      callback && callback({
+        statusCode: 0,
+        status: '来源我的小程序'
+      });
+    } else {
+      callback && callback({
+        statusCode: 1,
+        status: '不是来源我的小程序'
+      });
+    }
+  },
+
+  // 获取直播室信息
+  getLiveInfo(params, callback) {
+    var _this = this;
+    if (wx.getChannelsLiveInfo) {
+      wx.getChannelsLiveInfo({
+        finderUserName: params.finderUserName,
+        success: function (sucRes) {
+          _this.liveDt = sucRes;
+          _this.liveDt.finderUserName = params.finderUserName;
+          callback && callback({
+            statusCode: 0,
+            liveInfo: _this.liveDt,
+            status: '获取直播室信息成功'
+          });
+        },
+        fail: function (errRes) {
+          callback && callback({
+            statusCode: 1,
+            status: '获取直播室信息失败'
+          });
+        }
+      });
+    } else {
+      callback && callback({
+        statusCode: 1,
+        status: '该微信版本不支持此api'
+      });
+    }
+  },
+
+  // 跳转直播室
+  goLive(callback) {
+    var dt = {
+      finderUserName: this.liveDt.finderUserName,
+      feedId: this.liveDt.feedId,
+      nonceId: this.liveDt.nonceId
+    };
+    if (wx.openChannelsLive) {
+      wx.openChannelsLive(dt);
+      callback && callback({
+        statusCode: 0,
+        status: '进入直播室成功'
+      });
+    } else {
+      callback && callback({
+        statusCode: 1,
+        status: '当前微信不支持此api,进入直播室失败'
+      });
+    }
+  },
+
+  //显示游戏圈
+  showGameClub() {
+    wx.createGameClubButton({
+      icon: 'light',
+      style: {
+        left: 10,
+        top: 76,
+        width: 40,
+        height: 40
+      }
+    });
+  },
+
+  // 前往公众号
+  goGzh() {
+    let pr = {
+      qx_event_type: "gzh",
+      game_id: this.initData.game_id
+    };
+    this._customerService(pr, true, '下方扫码关注公众号，领礼包', 'https://yxfile.gowan8.com/upload/image/202008/icon_gift.jpg');
+  },
+
+  // 是否展示激励视频---说明。没有充值才展示激励视频
+  isShowVideoAd(params = {}, callback) {
+    var dt = {
+      game_id: this.initData.game_id,
+      channel: this.initData.channel,
+      role_id: params.roleId,
+      server_id: params.serverId
+    };
+    request('h5', 'role_charge', dt, 0).then(res => {
+      // 0--有充值
+      if (res.code == 0) {
+        callback && callback({
+          statusCode: 1,
+          status: '不展示激励视频'
+        });
+      } else {
+        callback && callback({
+          statusCode: 0,
+          status: '展示激励视频'
+        });
+      }
+    });
+  },
+
+  // 检测文本
+  msgSecCheck(params = {}, callback) {
+    var goWanUserInfo = getStorageSync(USER_INFO);
+    var openid = goWanUserInfo.ext.openid;
+    var dt = {
+      openid: openid,
+      scene: params.scene,
+      wxmini_appid: this.initData.wxmini_appid || params.wxmini_appid,
+      content: params.content,
+      domain: "box"
+    };
+    request('wxa', 'msg_sec_check', dt, 1).then(res => {
+      if (res.code == 0) {
+        callback && callback({
+          statusCode: 0,
+          checkResult: res.data,
+          status: '检测正常'
+        });
+      } else {
+        callback && callback({
+          statusCode: 1,
+          status: '检测异常，请重新检测'
+        });
+      }
+    });
+  },
+
+  // 检测图片或者音频
+  mediaCheckAsync(params = {}, callback) {
+    var goWanUserInfo = getStorageSync(USER_INFO);
+    var openid = goWanUserInfo.ext.openid;
+    var dt = {
+      openid: openid,
+      scene: params.scene,
+      wxmini_appid: this.initData.wxmini_appid || params.wxmini_appid,
+      content: params.content,
+      domain: "box"
+    };
+    request('wxa', 'media_check_async', dt, 1).then(res => {
+      if (res.code == 0) {
+        callback && callback({
+          statusCode: 0,
+          checkResult: res.data,
+          status: '检测正常'
+        });
+      } else {
+        callback && callback({
+          statusCode: 1,
+          status: '检测异常，请重新检测'
+        });
+      }
+    });
+  },
+
+  // 显示分享图片菜单
+  showShareImageMenu() {
+    // 先判断是否有图片，有图片就不需要发请求
+    var login_url = getStorageSync('login_url');
+    if (login_url) {
+      wx.downloadFile({
+        url: login_url,
+        success: res => {
+          wx.showShareImageMenu({
+            path: res.tempFilePath,
+            success: function () {}
+          });
+        }
+      });
+      return;
+    }
+    var goWanUserInfo = getStorageSync(USER_INFO);
+    var openid = goWanUserInfo.ext.openid;
+    var dt = {
+      openid: openid,
+      user_id: goWanUserInfo.user_id,
+      wxmini_appid: this.initData.wxmini_appid || params.wxmini_appid,
+      game_id: this.initData.game_id,
+      channel: this.initData.channel,
+      domain: "box"
+    };
+    request('wxa', 'zd_lead', dt, 1).then(res => {
+      if (res.code == 0) {
+        saveStorageSync('login_url', res.data.login_url);
+        wx.downloadFile({
+          url: res.data.login_url,
+          success: res => {
+            wx.showShareImageMenu({
+              path: res.tempFilePath,
+              success: function () {}
+            });
+          }
+        });
+      } else {
+        console.log('[获取转端图片异常]', res);
+      }
+    });
+  },
+
+  // 前往绑定手机号码小程序
+  goBindPhone() {
+    var goWanUserInfo = getStorageSync(USER_INFO);
+    console.log(`/pages/index/index?game_id=${this.initData.game_id}&from_id=${this.initData.original_from_id}&user_id=${goWanUserInfo.user_id}&wxmini_appid=${this.initData.wxmini_appid}&channel=${this.initData.channel}&guid=${goWanUserInfo.guid}`);
+    var path = `/pages/news/news?game_id=${this.initData.game_id}&from_id=${this.initData.original_from_id}&user_id=${goWanUserInfo.user_id}&wxmini_appid=${this.initData.wxmini_appid}&channel=${this.initData.channel}&guid=${goWanUserInfo.guid}`;
+    wx.navigateToMiniProgram({
+      appId: "wx7be2eb52189caebf",
+      path: path
+      // envVersion: "develop"
+    });
+  }
+};
+
+if (typeof module !== "undefined") {
+  module.exports = qxMiniSDK;
+  if (typeof window !== "undefined") {
+    window.qxMiniSDK = qxMiniSDK;
+  }
+} else if (typeof window !== "undefined") {
+  window.qxMiniSDK = qxMiniSDK;
+}

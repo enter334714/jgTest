@@ -1,1 +1,2 @@
-var G=wx.$E;import"DD882MDD88IDD882.js";
+var G = wx.$E;
+import 'DD882MDD88IDD882.js';

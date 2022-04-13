@@ -1,1 +1,210 @@
-var G=wx.$E;const a=["./base64/qx_base64.min.js","encode","replace","decode","test","length","floor","push","substr","join","forEach","max"];const b=function(e,r){return e=+e,a[e]};const z=function(e,r){return b(e- -743,r)},Base64=require(z(-743))["Base64"];let requestKey="",returnKey="";function _base64Encode(e){function i(e,r){return z(e- -601,r)}let r=Base64[i(-1343)](e);return r[i(-1342)](/\+/g,"-")[i(-1342)](/\//g,"_")[i(-1342)](/=/g,"")}function _base64Decode(e){function n(e,r){return z(e- -517,r)}return Base64[n(-1257)](e[n(-1258)](/-/g,"+")[n(-1258)](/_/g,"/"))}function requestEncrypt(d,e=""){function s(e,r){return z(e-"0x65",r)}if(requestKey=e,/^[0-9a-zA-Z]{1,}$/[s(-638)](requestKey)){let e=_base64Encode(d),r=e+requestKey,t=r[s(-637)],n=Math[s(-636)](t/6);if(n<2)return{base64_encode:e,e:r};let o=n-1,a=0,u=t,c=[],f=[],i=[],K=0;for(;;){if(a%2==0){if(!(1<u/o)){i[s(-635)](r[s(-634)](K));break}f[s(-635)](r[s(-634)](K,o)),K+=o,u-=o}else{if(!(1<u/n)){i[s(-635)](r[s(-634)](K));break}c[s(-635)](r[s(-634)](K,n)),K+=n,u-=n}a++}return{base64_encode:e,e:i[s(-633)]("")+c[s(-633)]("")+f[s(-633)]("")}}}function requestDecrypt(_,q=""){function K(e,r){return z(e- -474,r)}if(requestKey=q,/^[0-9a-zA-Z]{1,}$/[K(-1213)](requestKey)){let t=decodeURI(_),e=t[K(-1212)],n=Math[K(-1211)](e/6),o=n-1,r=0,s=e,f=[],d=[],a,b;if(n<2)return a=requestKey[K(-1212)],{base64_encode:b=t[K(-1209)](0,e-a),d:_base64Decode(b)};for(;;){if(r%2==0){if(!(1<s/o))break;f[K(-1210)](o),s-=o}else{if(!(1<s/n))break;d[K(-1210)](n),s-=n}r++}let u=[],y=[],c=0,x=f[K(-1212)];f[K(-1207)]((e,r)=>{c-=o,u[x-1-r]=t[K(-1209,void 0)](c,o)}),x=d[K(-1212)],d[K(-1207)]((e,r)=>{c-=n,y[x-1-r]=t[K(-1209,void 0)](c,n)});q=t[K(-1209)](0,e+c);r=0;let l=Math[K(-1206)](u[K(-1212)],y[K(-1212)]),i="";for(r=0;r<l;r++)u[r]&&(i+=u[r]),y[r]&&(i+=y[r]);return i+=q,a=requestKey[K(-1212)],{base64_encode:i=i[K(-1209)](0,e-a),d:_base64Decode(i)}}}function returnDecrypt(b,y=""){function oa(e,r){return z(e-"0x367",r)}if(returnKey=y,/^[0-9a-zA-Z]{1,}$/[oa("0x84")](returnKey)){let t=b,e=t[oa("0x85")],n=Math[oa("0x86")](e/4),r,o;if(n<2)return r=returnKey[oa("0x85")],{base64_encode:o=t[oa("0x88")](0,e-r),d:_base64Decode(o)};let s=0,K=e,a=[];for(;;){if(!(1<K/n))break;a[oa("0x87")](n),K-=n,s++}let u=[],c=0,f=a[oa("0x85")];a[oa("0x8a")]((e,r)=>{c-=n,u[f-1-r]=t[oa(136,void 0)](c,n)});y=t[oa("0x88")](0,e+c);s=0;let d=u[oa("0x85")],i="";for(s=0;s<d;s++)u[s]&&(i+=u[s]);return i+=y,r=returnKey[oa("0x85")],{base64_encode:i=i[oa("0x88")](0,e-r),d:_base64Decode(i)}}}export{requestEncrypt,requestDecrypt,returnDecrypt};
+var G = wx.$E;
+require("./base64/qx_base64.min.js");
+let requestKey = "";
+let returnKey = "";
+
+function _base64Encode(data) {
+  let str = Base64.encode(data);
+  return str.replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+}
+
+function _base64Decode(data) {
+  return Base64.decode(data.replace(/-/g, "+").replace(/_/g, "/"));
+}
+
+var qx_auth = {
+  requestEncrypt: function (data, key = "") {
+    requestKey = key;
+    if (!/^[0-9a-zA-Z]{1,}$/.test(requestKey)) return;
+    let base_e_str = _base64Encode(data);
+    let t = base_e_str + requestKey;
+    let len = t.length;
+    let per = Math.floor(len / 6);
+
+    if (per < 2) {
+      return {
+        base64_encode: base_e_str,
+        e: t
+      };
+    }
+    let per_0 = per - 1;
+    let i = 0;
+    let t_len = len;
+    let arr_per = [];
+    let arr_per_0 = [];
+    let arr_last = [];
+    let t_start = 0;
+
+    while (true) {
+      if (i % 2 === 0) {
+        if (t_len / per_0 > 1) {
+          arr_per_0.push(t.substr(t_start, per_0));
+        } else {
+          arr_last.push(t.substr(t_start));
+          break;
+        }
+        t_start += per_0;
+        t_len = t_len - per_0;
+      } else {
+        if (t_len / per > 1) {
+          arr_per.push(t.substr(t_start, per));
+        } else {
+          arr_last.push(t.substr(t_start));
+          break;
+        }
+        t_start += per;
+        t_len = t_len - per;
+      }
+      i++;
+    }
+    return {
+      base64_encode: base_e_str,
+      e: arr_last.join("") + arr_per.join("") + arr_per_0.join("")
+    };
+  },
+  requestDecrypt: function (data, key = "") {
+    requestKey = key;
+    if (!/^[0-9a-zA-Z]{1,}$/.test(requestKey)) return;
+    let t = decodeURI(data);
+    let len = t.length;
+    let per = Math.floor(len / 6);
+    let per_0 = per - 1;
+    let i = 0;
+    let t_len = len;
+    let arr_per_0_num = [];
+    let arr_per_num = [];
+    let len_key;
+    let base64_estr;
+    if (per < 2) {
+      len_key = requestKey.length;
+      base64_estr = t.substr(0, len - len_key);
+      return {
+        base64_encode: base64_estr,
+        d: _base64Decode(base64_estr)
+      };
+    }
+    while (true) {
+      if (i % 2 === 0) {
+        if (t_len / per_0 > 1) {
+          arr_per_0_num.push(per_0);
+        } else {
+          break;
+        }
+        t_len = t_len - per_0;
+      } else {
+        if (t_len / per > 1) {
+          arr_per_num.push(per);
+        } else {
+          break;
+        }
+        t_len = t_len - per;
+      }
+      i++;
+    }
+
+    let arr_per_0 = [];
+    let arr_per = [];
+    let t_start = 0;
+
+    let t_count = arr_per_0_num.length;
+
+    arr_per_0_num.forEach((v, i) => {
+      t_start -= per_0;
+      arr_per_0[t_count - 1 - i] = t.substr(t_start, per_0);
+    });
+
+    t_count = arr_per_num.length;
+    arr_per_num.forEach((v, i) => {
+      t_start -= per;
+      arr_per[t_count - 1 - i] = t.substr(t_start, per);
+    });
+
+    let last_str = t.substr(0, len + t_start);
+
+    i = 0;
+    let max = Math.max(arr_per_0.length, arr_per.length);
+    let str = "";
+    for (i = 0; i < max; i++) {
+      if (arr_per_0[i]) {
+        str += arr_per_0[i];
+      }
+
+      if (arr_per[i]) {
+        str += arr_per[i];
+      }
+    }
+
+    str += last_str;
+    len_key = requestKey.length;
+    str = str.substr(0, len - len_key);
+    return {
+      base64_encode: str,
+      d: _base64Decode(str)
+    };
+  },
+  returnDecrypt: function (data, key = "") {
+    returnKey = key;
+    if (!/^[0-9a-zA-Z]{1,}$/.test(returnKey)) return;
+    let t = data;
+    let len = t.length;
+    let per = Math.floor(len / 4);
+    let len_key;
+    let base64_estr;
+    if (per < 2) {
+      len_key = returnKey.length;
+      base64_estr = t.substr(0, len - len_key);
+      return {
+        base64_encode: base64_estr,
+        d: _base64Decode(base64_estr)
+      };
+    }
+
+    let i = 0;
+    let t_len = len;
+    let arr_per_num = [];
+    while (true) {
+      if (t_len / per > 1) {
+        arr_per_num.push(per);
+      } else {
+        break;
+      }
+      t_len = t_len - per;
+      i++;
+    }
+    let arr_per = [];
+    let t_start = 0;
+    let t_count = arr_per_num.length;
+
+    arr_per_num.forEach((v, i) => {
+      t_start -= per;
+      arr_per[t_count - 1 - i] = t.substr(t_start, per);
+    });
+
+    let last_str = t.substr(0, len + t_start);
+    i = 0;
+    let max = arr_per.length;
+    let str = "";
+    for (i = 0; i < max; i++) {
+      if (arr_per[i]) {
+        str += arr_per[i];
+      }
+    }
+    str += last_str;
+
+    len_key = returnKey.length;
+    str = str.substr(0, len - len_key);
+
+    return {
+      base64_encode: str,
+      d: _base64Decode(str)
+    };
+  }
+};
+if (typeof module !== "undefined") {
+  module.exports = qx_auth;
+  if (typeof window !== "undefined") {
+    window.qx_auth = qx_auth;
+  }
+} else if (typeof window !== "undefined") {
+  window.qx_auth = qx_auth;
+}

@@ -1,23 +1,26 @@
-﻿require("../utils/jzJsSdk")
-//TODO 替换对应参数
+﻿const mk = require('../utils/mksdk');
+
 var config = {
     game_id: '256',
-    game_pkg: 'tjqy_tjqyjdxzjzxyx_MB',
-    partner_label: 'jiuzixyx',
-    partner_id: '535',
-    game_ver: '40.0.1',
-    is_auth: true, //授权登录
-    partner_platid:2,
-    partner_gid:'143',
-    partner_ctype:'own',
-    partner_gkey:'f46837b47e371793e2830c3a0464a99a'
+    game_pkg: 'tjqy_tjqymkwxxyxyt_RD', //米壳-微信	御天-Z_21	神米服
+    partner_label: 'mkxyx',
+    partner_id: '541',
+    game_ver: '52.0.1',
+    is_auth: false, //授权登录
+    partner_sgid:'5',
+    partner_gid:'5',
+    partner_app_id:'wxbc529a41476a4432'
 };
+
+
 window.config = config;
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var user_game_info = null;
 var user_invite_info = null;
-var partner_data={};
+var user_invite_by_activity = null;
+
+var partner_user_info = null;
 
 function mainSDK() {
     var callbacks = {};
@@ -46,6 +49,7 @@ function mainSDK() {
             var info = wx.getLaunchOptionsSync();
             var scene = info.scene ? info.scene : '';
 
+            console.log('getLaunchOptionsSync：',JSON.stringify(info));
 
             //判断今天是否已经上报过
             if (is_new && info.query && info.query.ad_code) {
@@ -57,16 +61,32 @@ function mainSDK() {
                 scene: scene
             };
             self.log('start', data);
-        
 
-            
-            
-            wx.showShareMenu({withShareTicket: true});
-            
+           
+
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
             var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
+            var cp_activity_id  = info.query && info.query.cp_activity_id ? info.query.cp_activity_id : '';
 
+            // 普通分享不存在活动ID的话  再看下定向分享是否存在
+            if(!cp_activity_id){
+                cp_activity_id  = info.query && info.query.shareMessageToFriendScene ? info.query.shareMessageToFriendScene : '';
+                invite_type = cp_activity_id?'activity':'';
+            }
+
+            // 带活动ID
+            if(cp_activity_id){
+                user_invite_by_activity = {
+                    invite: invite,
+                    invite_type: invite_type,
+                    is_new: is_new,
+                    scene: scene,
+                    cp_activity_id:cp_activity_id
+                };
+            }
+
+            // 带邀请码
             if (invite) {
                 user_invite_info = {
                     invite: invite,
@@ -76,8 +96,6 @@ function mainSDK() {
                 };
             }
 
-       
-
             //判断版本号
             if (game_ver) {
                 this.checkGameVersion(game_ver, function (data) {
@@ -86,81 +104,47 @@ function mainSDK() {
             }
         },
 
-        //TODO 替换联运登录接口
-        login: function (data,callback) {
-            var self = this;
-            console.log("[SDK]调起登录");
-            callbacks['login'] = typeof callback == 'function' ? callback : null;
-
-            var callback = function (code, data) {
-                switch (code) {
-                  case "init_success": // 初始化成功
-                    console.log(data);
-                    break;
-                  case "init_fail": // 初始化失败
-                    console.log(data);
-                    break;
-                  case "login_success": // 登录成功
-                  // data = {uid: uid, token: token, time: time}；CP拿该信息进行服务端登录校验
-                    console.log(data);
-                    self.do_login(data);
-                    break;
-                  case "login_fail": //登录失败
-                    console.log(data);
-                    break;
-                  case "pay_success": // 支付成功（支付以服务端返回为准）
-                    console.log(data);
-                    break;
-                  case "pay_fail": // 支付失败
-                    console.log(data);
-                    break;
-                }
-              };
-              jzsdk.init(
-                {
-                  platId: config.partner_platid,
-                  gid: config.partner_gid,
-                  ctype: config.partner_ctype,
-                  gkey: config.partner_gkey
-                },
-                callback,
-                true
-              );
+        sendUrl: function () {
+           
+        },
+        weiduanHelper: function() {
+           
         },
 
-        subscribeMessage : function (tmplIds, callback){
-            console.log('[SDK]订阅消息：'+tmplIds);
-            //获取模板ID
-            callbacks['subscribeMessage'] = typeof callback == 'function' ? callback : null;
-            wx.requestSubscribeMessage({
-                tmplIds: tmplIds,
-                success (res) {
-                    console.log("[SDK]订阅消息返回：成功");
-                    console.log(res);
-                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
-                },
-                fail (res) {
-                    console.log("[SDK]订阅消息返回：失败");
-                    console.log(res);
-                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+        //TODO 替换联运登录接口
+        login: function (data,callback) {
+            console.log("[SDK]调起登录");
+            var that = this;
+            callbacks['login'] = typeof callback == 'function' ? callback : null;
+            mk.mksdk.showInit({sgid:config.partner_sgid,gid:config.partner_gid},function(init_call){
+                if(init_call.code == 0){
+                    console.log("初始化成功");
+                    mk.mksdk.showLoginView(function(login_call){
+                        if(login_call.code == 0){
+                            that.do_login(login_call)
+                        }else{
+                            console.log("登录失败"+login_call.msg);
+                        }
+                    });
+                }else{
+                    console.log("初始化失败"+init_call.msg);
                 }
-            })
-           
+            });
         },
 
         do_login: function (info) {
             var self = this;
-            partner_data = info;
+            //发起网络请求
+            partner_user_info = info;
             var public_data = self.getPublicData();
+            public_data['user_info'] = JSON.stringify(info);
             public_data['is_from_min'] = 1;
-            public_data['partner_data'] = JSON.stringify(info);
             if (user_invite_info && typeof user_invite_info == 'object') {
                 for (var key in user_invite_info) {
                     public_data[key] = user_invite_info[key];
                 }
             }
 
-            //发起网络请求
             wx.request({
                 url: 'https://' + HOST + '/partner/auth',
                 method: 'POST',
@@ -170,8 +154,9 @@ function mainSDK() {
                 },
                 data: public_data,
                 success: function (res) {
-                    console.log("[SDK]登录结果：",res);
-                    if (res.statusCode === 200) {
+                    console.log("[SDK]登录结果：");
+                    console.log(res);
+                    if (res.statusCode == 200) {
                         var data = res.data;
                         if (data.state) {
                             try {
@@ -201,9 +186,8 @@ function mainSDK() {
                             });
                         }
 
-                        //登录成功，加载右上角分享数据
                         self.getShareInfo('menu', function (data) {
-                            console.log("[SDK]开始监听右上角菜单分享"+JSON.stringify(data));
+                            console.log("[SDK]开始监听右上角菜单分享");
                             wx.onShareAppMessage(function () {
                                 //记录开始分享
                                 self.logStartShare('menu');
@@ -214,6 +198,7 @@ function mainSDK() {
                                 }
                             });
                         });
+
                     } else {
                         callbacks['login'] && callbacks['login'](1, {
                             errMsg: '请求平台服务器失败！'
@@ -226,10 +211,15 @@ function mainSDK() {
         share: function (data) {
             callbacks['share'] = typeof callback == 'function' ? callback : null;
             var type = data.type || 'share';
+            var cp_activity_id = data.cp_activity_id || '';
+
             console.log("[SDK]CP调用分享 type=" + type);
             var self = this;
-
             this.getShareInfo(type, function (data) {
+                if(cp_activity_id !='' && data.query != ''){
+                    data.query = data.query + '&cp_activity_id='+ cp_activity_id;
+                }
+
                 //记录开始分享
                 self.logStartShare(type);
                 wx.shareAppMessage({
@@ -262,8 +252,7 @@ function mainSDK() {
         },
 
         openService: function () {
-            //登录后打开客服页面
-            dwPlatformSDK.goCs();
+            wx.openCustomerServiceConversation();
         },
 
         checkGameVersion: function (game_ver, callback) {
@@ -385,8 +374,9 @@ function mainSDK() {
                     partner_id: config.partner_id,
                     sdk_token: sdk_token,
                     content:content,
-                    uid:partner_data.uid,
-                    token:partner_data.token
+                    sgid:config.partner_sgid,
+                    appid:config.partner_app_id,
+                    openid:partner_user_info.openid,
                 },
                 success: function (res) {
                     console.log("[SDK]查看文本是否有违规内容结果返回:");
@@ -394,18 +384,19 @@ function mainSDK() {
                     callback && callback(res);
                 }
             });
-            
-            
         },
 
         pay: function (data, callback) {
             var self = this;
             self.startPay(data, callback);
+
         },
 
         //支付接口
         startPay: function (data, callback) {
-            console.log("[SDK]调起支付，CP传值：",data);
+            console.log("[SDK]调起支付，CP传值：");
+            console.log(data);
+
             var self = this;
             callbacks['pay'] = typeof callback == 'function' ? callback : null;
             //先下单
@@ -435,7 +426,6 @@ function mainSDK() {
                 sdk_token: sdk_token,
                 session_key: session_key,
                 platform: sysInfo.platform,
-                uid:partner_data.uid
             };
             self.order_data = order_data;
 
@@ -457,17 +447,20 @@ function mainSDK() {
                     console.log(res);
                     if (res.statusCode == 200) {
                         var data = res.data;
-                        if (data.state && data.data.pay_data) {
+                        if (data.state) {
                             //TODO 替换对应方法
-                            if(data.data.ext == ''){
-                                console.log("[SDK]联运支付参数"+JSON.stringify(data.data.pay_data));
-                                window.jzsdk.pay(data.data.pay_data);
+                            if(data.data.ext == ""){
+                                mk.mksdk.showIapView(data.data.pay_data,function (callback){
+                                    console.log(callback);
+                                })                                
                             }else{
                                 self.extDo({ext1:data.data.ext,ext2:data.data.pay_data});
                             }
+                          
+
                         } else {
                             callbacks['pay'] && callbacks['pay'](1, {
-                                errMsg: data.errMsg
+                                errMsg: data.msg
                             });
                         }
                     } else {
@@ -479,25 +472,8 @@ function mainSDK() {
             });
         },
 
-
-
-        extDo: function(data){
-            wx.navigateToMiniProgram({
-                appId: data.ext1,
-                path: 'pages/pay/pay?order_id='+data.ext2.extend+'&money='+data.ext2.money,
-                extraData: {
-
-                },
-                envVersion: 'release',
-                success(res) {
-                    // 打开成功
-                }
-            })
-        },
-
-       
-
-        logCreateRole: function (data,callback) {
+        //创建角色
+        logCreateRole: function (data) {
             var uid = wx.getStorageSync('plat_uid');
             var username = wx.getStorageSync('plat_username');
 
@@ -515,22 +491,91 @@ function mainSDK() {
                     server_id: data.serverid,
                 };
             }
+
             this.log('create', postData);
-            window.jzsdk.roleReport({
-                rolelevel: data.rolelevel,
-                roleid: data.roleid,
-                rolename: data.rolename,
-                sname: data.servername,
-                sid:data.serverid,
-                roletype: 2,
-                vipLevel: 0,
-                guild: "",
+
+            // 记录从活动分享进入的角色信息
+            if(user_invite_by_activity){
+                var scene       = user_invite_by_activity.scene;
+                var is_new      = user_invite_by_activity.is_new;
+                var invite_code = user_invite_by_activity.invite;
+                var invite_type = user_invite_by_activity && user_invite_by_activity.invite_type ? user_invite_by_activity.invite_type : '';
+                var cp_activity_id = user_invite_by_activity.cp_activity_id;
+
+                var roleInfo = {
+                    uid :uid,
+                    role_id :data.roleid,
+                    role_name :data.rolename,
+                    server_id :data.serverid,
+                    server_name :data.servername,
+                    game_id:config.game_id,
+                    partner_id :config.partner_id,
+                    game_pkg :config.game_pkg,
+                    scene :scene,
+                    is_new :is_new,
+                    invite_code :invite_code,
+                    invite_type :invite_type,
+                    cp_activity_id :cp_activity_id,
+                }
+
+                wx.request({
+                    url: 'https://' + HOST + '/game/min/?ac=report2Cp',
+                    method: 'POST',
+                    dataType: 'json',
+                    header: {
+                        'content-type': 'application/x-www-form-urlencoded' // 默认值
+                    },
+                    data: roleInfo,
+                    success: function (res) {
+                        console.log("[SDK]活动上报分享结果返回:"+JSON.stringify(res));
+                    }
+                });
+
+            }
+
+            var time = Date.parse(new Date())/1000;
+            let param = {
+                serverId:data.serverid,
+                serverName:data.servername,
+                roleId:data.roleid,
+                roleName:data.rolename,
+                roleLevel:data.rolelevel,
+                vipLevel:0,
+                roleChangeTime:time,
+                jhMNum:0,
+                createRoleTime:time,
+                familyName:'',
+                roleCategory:'',
+                extras:'',
+                uploadRoleAction:2
+            }
+            mk.mksdk.submitRoleData(param,function (callback){
+                if (callback.code==0) {
+                    console.log('创角信息上报成功');
+                } else{
+                    console.log('创角信息上报失败');
+                }
             });
     
         },
 
+
+        extDo: function(data){
+            wx.navigateToMiniProgram({
+                appId: data.ext1,
+                path: 'pages/pay/pay?order_id='+data.ext2.cpOrderId+'&money='+data.ext2.post_order_data.totalFee/100,
+                extraData: {
+
+                },
+                envVersion: 'release',
+                success(res) {
+                    // 打开成功
+                }
+            })
+        },
+
         //进入游戏
-        logEnterGame: function (data, callback) {
+        logEnterGame: function (data) {
             var uid = wx.getStorageSync('plat_uid');
             var username = wx.getStorageSync('plat_username');
 
@@ -551,37 +596,39 @@ function mainSDK() {
 
             this.log('enter', postData);
 
-        
             //进入游戏确认邀请成功
             if (user_invite_info) {
                 this.updateShare(user_invite_info.invite, user_invite_info.invite_type, user_invite_info.is_new, data.roleid, data.serverid, user_invite_info.scene);
             }
-            var roleInfo = {
+            var time = Date.parse(new Date())/1000;
+            let param = {
+                serverId:data.serverid,
+                serverName:data.servername,
+                roleId:data.roleid,
+                roleName:data.rolename,
                 roleLevel:data.rolelevel,
-                roleId: data.roleid,
-                roleName: data.rolename,
-                serverId: data.serverid,
-                serverName: data.servername,
-                roleCreateTime:data.rolecreatetime
-            };
-
-            window.jzsdk.roleReport({
-                rolelevel: data.rolelevel,
-                roleid: data.roleid,
-                rolename: data.rolename,
-                sname: data.servername,
-                sid:data.serverid,
-                roletype: 3,
-                vipLevel: 0,
-                guild: "",
+                vipLevel:0,
+                roleChangeTime:time,
+                jhMNum:0,
+                createRoleTime:data.rolecreatetime,
+                familyName:'',
+                roleCategory:'',
+                extras:'',
+                uploadRoleAction:3
+            }
+            mk.mksdk.submitRoleData(param,function (callback){
+                if (callback.code==0) {
+                    console.log('进入信息上报成功');
+                } else{
+                    console.log('进入信息上报失败');
+                }
             });
         },
 
         //角色升级
-        logRoleUpLevel: function (data, callback) {
+        logRoleUpLevel: function (data) {
             var uid = wx.getStorageSync('plat_uid');
             var username = wx.getStorageSync('plat_username');
-            this.log('levelup', data);
 
             var postData = {};
             postData['user_id'] = uid;
@@ -597,28 +644,52 @@ function mainSDK() {
                     server_id: data.serverid,
                 };
             }
-            var roleInfo = {
-                roleLevel:data.rolelevel,
-                roleId: data.roleid,
-                roleName: data.rolename,
-                serverId: data.serverid,
-                serverName: data.servername,
-                roleCreateTime:data.rolecreatetime
-            };
 
-            window.jzsdk.roleReport({
-                rolelevel: data.rolelevel,
-                roleid: data.roleid,
-                rolename: data.rolename,
-                sname: data.servername,
-                sid:data.serverid,
-                roletype: 5,
-                vipLevel: 0,
-                guild: "",
+            this.log('levelup', postData);
+
+            var time = Date.parse(new Date())/1000;
+            let param = {
+                serverId:data.serverid,
+                serverName:data.servername,
+                roleId:data.roleid,
+                roleName:data.rolename,
+                roleLevel:data.rolelevel,
+                vipLevel:0,
+                roleChangeTime:time,
+                jhMNum:0,
+                createRoleTime:data.rolecreatetime,
+                familyName:'',
+                roleCategory:'',
+                extras:'',
+                uploadRoleAction:4
+            }
+            mk.mksdk.submitRoleData(param,function (callback){
+                if (callback.code==0) {
+                    console.log('角色升级信息上报成功');
+                } else{
+                    console.log('角色升级信息上报失败');
+                }
             });
-        
         },
 
+        is_authorize: function(callback){
+            wx.getSetting({
+                success: function (res) {
+                    if (res.authSetting['scope.userInfo']) {
+                        console.log("[SDK]获取授权状态",1);
+                        callback(1);
+                    } else {
+                        console.log("[SDK]获取授权状态",0);
+                        callback(0);
+                    }
+                }
+            });
+        },
+
+    
+        inspireVideo:function (data,videocallback){
+         
+        },
         //获取唯一设备码（自定义）
         uuid: function (radix, len) {
             var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
@@ -643,9 +714,6 @@ function mainSDK() {
             }
 
             return uuid.join('');
-        },
-        weiduanHelper: function() {
-            dwPlatformSDK.goCs()
         },
 
         //获取公共参数
@@ -697,8 +765,28 @@ function mainSDK() {
             wx.openCustomerServiceConversation();
         },
 
-   
-     
+        logout:function (data,callback){
+            mk.mksdk.logout(function (res){
+                console.log(res);
+                callback(res.code);
+            })
+        },
+
+
+
+        // 设置 wx.shareMessageToFriend 接口 query 字段的值
+        setMessageToFriendQuery: function (data,callback) {
+            var cp_activity_id = data.activity_id;
+            var result = wx.setMessageToFriendQuery({shareMessageToFriendScene:cp_activity_id});
+
+            callback && callback(result);
+        },
+
+        getFriendShareInfo: function (callback) {
+            this.getShareInfo('activity', function (data) {
+                callback && callback({title:data.title,'img':data.img});
+            });
+        }
     }
 }
 
@@ -713,8 +801,6 @@ exports.init = function (data, callback) {
 exports.login = function (callback) {
     run('login', '', callback);
 };
-
-
 
 exports.pay = function (data, callback) {
     run('pay', data, callback);
@@ -735,43 +821,46 @@ exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLe
     run('logCreateRole', data);
 };
 
-exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLevel, rolecreatetime, extra) {
+exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLevel,rolecreatetime) {
     var data = {
         serverid: serverId,
         servername: serverName,
         roleid: roleId,
         rolename: roleName,
         rolelevel: roleLevel,
-        rolecreatetime: rolecreatetime,
-        rolepower:extra?extra.rolepower:null
+        rolecreatetime:rolecreatetime
     };
 
-    run('logEnterGame', data, extra?extra.callback:null);
+    run('logEnterGame', data);
 };
 
-exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleLevel, rolecreatetime, extra) {
+exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleLevel,rolecreatetime) {
     var data = {
         serverid: serverId,
         servername: serverName,
         roleid: roleId,
         rolename: roleName,
         rolelevel: roleLevel,
-        rolecreatetime: rolecreatetime,
-        rolepower: extra?extra.rolepower:null,
+        rolecreatetime:rolecreatetime
     };
-    run('logRoleUpLevel', data, extra?extra.callback:null);
+    run('logRoleUpLevel', data);
 };
 
-exports.share = function (type) {
-    var data = {
-        type: type
+exports.share = function (type,data) {
+    var cp_activity_id = data && data.activity_id ? data.activity_id : '';
+
+    var params = {
+        type: type,
+        cp_activity_id:cp_activity_id
     };
-    run('share', data);
+
+    run('share', params);
 };
 
 exports.msgCheck = function (data, callback) {
     run('msgCheck', data, callback);
 };
+
 exports.downloadClient = function () {
     run('downloadClient');
 };
@@ -788,12 +877,31 @@ exports.getPublicData = function () {
     run('getPublicData');
 };
 
-
-
-exports.subscribeMessage = function (data, callback) {
-    run('subscribeMessage', data, callback);
+exports.is_authorize = function (callback) {
+    run('is_authorize', callback);
 };
 
+
+
+
+
+exports.setMessageToFriendQuery = function (data,callback) {
+    run('setMessageToFriendQuery',data,callback);
+};
+
+exports.getFriendShareInfo = function (callback) {
+    run('getFriendShareInfo',callback);
+};
+exports.sendUrl = function () {
+    run('sendUrl');
+};
 exports.weiduanHelper = function () {
     run('weiduanHelper');
+};
+exports.inspireVideo = function (data,callback) {
+    run('inspireVideo',data,callback);
+};
+
+exports.logout = function (data,callback) {
+    run('logout',data,callback);
 };

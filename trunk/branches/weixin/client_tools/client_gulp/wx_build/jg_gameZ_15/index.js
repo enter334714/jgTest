@@ -426,6 +426,10 @@ window.onUserLoginCheckServers = function(response) {
     return;
   }
   this.updCurServer(response);
+
+  if (window.ServerLoading && window.ServerLoading.instance.openJumpTipsBtn) {
+    window.ServerLoading.instance.openJumpTipsBtn(sdkInitRes.isShowSdkAge, sdkInitRes.sdk_age_adaptation_icon, sdkInitRes.sdk_age_adaptation_content, sdkInitRes.coordinate_x, sdkInitRes.coordinate_y)
+  }
 }
 window.updCurServer = function(response) {
   PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;

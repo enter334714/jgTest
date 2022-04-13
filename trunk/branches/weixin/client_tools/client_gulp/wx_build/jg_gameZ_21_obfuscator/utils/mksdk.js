@@ -1,0 +1,305 @@
+var v = wx.$d;
+function rotateLeft(a, b) {
+  return a << b | a >>> 32 - b;
+}function addUnsigned(a, b) {
+  var c, d, e, f, g;return e = 2147483648 & a, f = 2147483648 & b, c = 1073741824 & a, d = 1073741824 & b, g = (1073741823 & a) + (1073741823 & b), c & d ? 2147483648 ^ g ^ e ^ f : c | d ? 1073741824 & g ? 3221225472 ^ g ^ e ^ f : 1073741824 ^ g ^ e ^ f : g ^ e ^ f;
+}function F(a, b, c) {
+  return a & b | ~a & c;
+}function G(a, b, c) {
+  return a & c | b & ~c;
+}function H(a, b, c) {
+  return a ^ b ^ c;
+}function I(a, b, c) {
+  return b ^ (a | ~c);
+}function FF(e, f, b, c, d, g, h) {
+  return e = addUnsigned(e, addUnsigned(addUnsigned(F(f, b, c), d), h)), addUnsigned(rotateLeft(e, g), f);
+}function GG(e, f, b, c, d, g, h) {
+  return e = addUnsigned(e, addUnsigned(addUnsigned(G(f, b, c), d), h)), addUnsigned(rotateLeft(e, g), f);
+}function HH(e, f, b, c, d, g, h) {
+  return e = addUnsigned(e, addUnsigned(addUnsigned(H(f, b, c), d), h)), addUnsigned(rotateLeft(e, g), f);
+}function II(e, f, b, c, d, g, h) {
+  return e = addUnsigned(e, addUnsigned(addUnsigned(I(f, b, c), d), h)), addUnsigned(rotateLeft(e, g), f);
+}function convertToWordArray(a) {
+  for (var b, c = a.length, d = c + 8, e = 16 * ((d - d % 64) / 64 + 1), f = Array(e - 1), g = 0, h = 0; h < c;) b = (h - h % 4) / 4, g = 8 * (h % 4), f[b] |= a.charCodeAt(h) << g, h++;return b = (h - h % 4) / 4, g = 8 * (h % 4), f[b] |= 128 << g, f[e - 2] = c << 3, f[e - 1] = c >>> 29, f;
+}function wordToHex(a) {
+  var b,
+      c,
+      d = "",
+      e = "";for (c = 0; 3 >= c; c++) b = 255 & a >>> 8 * c, e = "0" + b.toString(16), d += e.substr(e.length - 2, 2);return d;
+}function uTF8Encode(a) {
+  for (var b, d = String.fromCharCode, e = "", f = 0; f < a.length; f++) b = a.charCodeAt(f), 128 > b ? e += d(b) : 127 < b && 2048 > b ? (e += d(192 | b >> 6), e += d(128 | 63 & b)) : (e += d(224 | b >> 12), e += d(128 | 63 & b >> 6), e += d(128 | 63 & b));return e;
+}function md5(e) {
+  var f,
+      g,
+      h,
+      i,
+      j,
+      l,
+      m,
+      n,
+      o,
+      p = [],
+      q = 7,
+      r = 12,
+      s = 17,
+      t = 22,
+      u = 5,
+      v = 9,
+      w = 14,
+      y = 20,
+      z = 4,
+      A = 11,
+      B = 16,
+      C = 23,
+      D = 6,
+      E = 10,
+      F = 15,
+      G = 21;for (e = uTF8Encode(e), p = convertToWordArray(e), l = 1732584193, m = 4023233417, n = 2562383102, o = 271733878, f = 0; f < p.length; f += 16) g = l, h = m, i = n, j = o, l = FF(l, m, n, o, p[f + 0], q, 3614090360), o = FF(o, l, m, n, p[f + 1], r, 3905402710), n = FF(n, o, l, m, p[f + 2], s, 606105819), m = FF(m, n, o, l, p[f + 3], t, 3250441966), l = FF(l, m, n, o, p[f + 4], q, 4118548399), o = FF(o, l, m, n, p[f + 5], r, 1200080426), n = FF(n, o, l, m, p[f + 6], s, 2821735955), m = FF(m, n, o, l, p[f + 7], t, 4249261313), l = FF(l, m, n, o, p[f + 8], q, 1770035416), o = FF(o, l, m, n, p[f + 9], r, 2336552879), n = FF(n, o, l, m, p[f + 10], s, 4294925233), m = FF(m, n, o, l, p[f + 11], t, 2304563134), l = FF(l, m, n, o, p[f + 12], q, 1804603682), o = FF(o, l, m, n, p[f + 13], r, 4254626195), n = FF(n, o, l, m, p[f + 14], s, 2792965006), m = FF(m, n, o, l, p[f + 15], t, 1236535329), l = GG(l, m, n, o, p[f + 1], u, 4129170786), o = GG(o, l, m, n, p[f + 6], v, 3225465664), n = GG(n, o, l, m, p[f + 11], w, 643717713), m = GG(m, n, o, l, p[f + 0], y, 3921069994), l = GG(l, m, n, o, p[f + 5], u, 3593408605), o = GG(o, l, m, n, p[f + 10], v, 38016083), n = GG(n, o, l, m, p[f + 15], w, 3634488961), m = GG(m, n, o, l, p[f + 4], y, 3889429448), l = GG(l, m, n, o, p[f + 9], u, 568446438), o = GG(o, l, m, n, p[f + 14], v, 3275163606), n = GG(n, o, l, m, p[f + 3], w, 4107603335), m = GG(m, n, o, l, p[f + 8], y, 1163531501), l = GG(l, m, n, o, p[f + 13], u, 2850285829), o = GG(o, l, m, n, p[f + 2], v, 4243563512), n = GG(n, o, l, m, p[f + 7], w, 1735328473), m = GG(m, n, o, l, p[f + 12], y, 2368359562), l = HH(l, m, n, o, p[f + 5], z, 4294588738), o = HH(o, l, m, n, p[f + 8], A, 2272392833), n = HH(n, o, l, m, p[f + 11], B, 1839030562), m = HH(m, n, o, l, p[f + 14], C, 4259657740), l = HH(l, m, n, o, p[f + 1], z, 2763975236), o = HH(o, l, m, n, p[f + 4], A, 1272893353), n = HH(n, o, l, m, p[f + 7], B, 4139469664), m = HH(m, n, o, l, p[f + 10], C, 3200236656), l = HH(l, m, n, o, p[f + 13], z, 681279174), o = HH(o, l, m, n, p[f + 0], A, 3936430074), n = HH(n, o, l, m, p[f + 3], B, 3572445317), m = HH(m, n, o, l, p[f + 6], C, 76029189), l = HH(l, m, n, o, p[f + 9], z, 3654602809), o = HH(o, l, m, n, p[f + 12], A, 3873151461), n = HH(n, o, l, m, p[f + 15], B, 530742520), m = HH(m, n, o, l, p[f + 2], C, 3299628645), l = II(l, m, n, o, p[f + 0], D, 4096336452), o = II(o, l, m, n, p[f + 7], E, 1126891415), n = II(n, o, l, m, p[f + 14], F, 2878612391), m = II(m, n, o, l, p[f + 5], G, 4237533241), l = II(l, m, n, o, p[f + 12], D, 1700485571), o = II(o, l, m, n, p[f + 3], E, 2399980690), n = II(n, o, l, m, p[f + 10], F, 4293915773), m = II(m, n, o, l, p[f + 1], G, 2240044497), l = II(l, m, n, o, p[f + 8], D, 1873313359), o = II(o, l, m, n, p[f + 15], E, 4264355552), n = II(n, o, l, m, p[f + 6], F, 2734768916), m = II(m, n, o, l, p[f + 13], G, 1309151649), l = II(l, m, n, o, p[f + 4], D, 4149444226), o = II(o, l, m, n, p[f + 11], E, 3174756917), n = II(n, o, l, m, p[f + 2], F, 718787259), m = II(m, n, o, l, p[f + 9], G, 3951481745), l = addUnsigned(l, g), m = addUnsigned(m, h), n = addUnsigned(n, i), o = addUnsigned(o, j);var H = wordToHex(l) + wordToHex(m) + wordToHex(n) + wordToHex(o);return H.toLowerCase();
+}function objKeySort(a) {
+  for (var b = Object.keys(a).sort(), c = {}, d = 0; d < b.length; d++) c[b[d]] = a[b[d]];return c;
+}function genSign(a, b) {
+  a.sign && delete a.sign;for (var c = "", d = Object.keys(a), e = 0; e < d.length; e++) c += d[e] + "=" + a[d[e]];return c += b, md5(c);
+}function signfunct(a, b) {
+  var c = objKeySort(a),
+      d = genSign(c, b);return d;
+}function D$M7XRU(a, b) {
+  a = a.split("."), b = b.split(".");for (var c = Math.max(a.length, b.length); a.length < c;) a.push("0");for (; b.length < c;) b.push("0");for (var d = 0; d < c; d++) {
+    var e = parseInt(a[d]),
+        f = parseInt(b[d]);if (e > f) return 1;if (e < f) return -1;
+  }return 0;
+}function login(a, b) {
+  let c = {};c.method = "login", c.openid = "", c.code = loginCode, c.ext = JSON.stringify(wxquery), c = Object.assign(c, comParam);let d = signfunct(c, api_key);c.sign = d;ajaxfun(c, "", function (a) {
+    b(a.data);
+  });
+}var loginCallback = {};function loginCallBack(a) {
+  return loginCallback.code = a.code, 0 == a.code ? (comParam.imei = a.wxRes.openid, wx.setStorage({ key: "openid", data: a.wxRes.openid }), loginCallback.userId = a.userId, loginCallback.accessToken = a.access_token, loginCallback.msg = "\u767B\u5F55\u6210\u529F", loginCallback.openid = a.wxRes.openid, api_token = a.token) : (loginCallback.msg = "\u767B\u5F55\u5931\u8D25", wx.showModal({ title: "\u63D0\u793A", content: "\u767B\u5F55\u5931\u8D25", success(a) {
+      a.confirm || a.cancel;
+    } })), loginCallback;
+}function methRequest(a, b) {
+  let c = {};c.method = "reportShare", c.token = api_token, c.share_type = a, c.share_content = "", c.share_param = "", c = Object.assign(c, comParam);let d = signfunct(c, api_key);c.sign = d, wx.request({ url: "" + DybUrl + "", data: c, method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, success(a) {
+      b(a.data);
+    } });
+}function submitAdvertising(a, b) {
+  let c = {};c.method = "reportAd", c.token = api_token, c = Object.assign(c, comParam), c = Object.assign(c, a);let d = signfunct(c, api_key);c.sign = d;ajaxfun(c, "", function (a) {
+    b(a.data);
+  });
+}var codeInter,
+    codeTime = 0;function getLoginCode(a) {
+  wx.login({ success(b) {
+      loginCode = b.code, a(loginCode);
+    } });
+}function getWxCode(a) {
+  wx.login({ success(b) {
+      wxcode = b.code, a(wxcode);
+    } });
+}function floatadpost(a, b, c) {
+  let d = {};d.method = "reportCpaAd", d.token = api_token, d.aid = "", d.traceid = "", d.type = b, d.cgidStr = a, d = Object.assign(d, comParam);let e = signfunct(d, api_key);d.sign = e, wx.request({ url: "" + DybUrl + "", data: d, method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, success(a) {
+      c(a);
+    } });
+}function gameIconLoad(a, b) {
+  let c = {};c.method = "GetCpaExGame", c.token = api_token, c.adPos = "2", c.adNum = a, c = Object.assign(c, comParam);let d = signfunct(c, api_key);c.sign = d, wx.request({ url: "" + DybUrl + "", data: c, method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, success(a) {
+      if (b(a), 0 == a.data.code) {
+        let b = "";for (var c = 0; c < a.data.data.length; c++) (function (c) {
+          b = 0 == c ? a.data.data[c].id : "" + b + "," + a.data.data[c].id;
+        })(c);floatadpost(b, "1", function () {});
+      }
+    } });
+}function offline(a) {
+  a({ code: "90000", msg: "\u7F51\u7EDC\u8D85\u65F6" });
+}function ajaxfun(a, b, c) {
+  wx.request({ url: "" + DybUrl + "" + b + "", data: a, method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, success(a) {
+      c(a);
+    }, fail() {
+      offline(function (a) {
+        c(a);
+      }), wx.showModal({ title: "\u63D0\u793A", content: "\u7F51\u7EDC\u8D85\u65F6", success(a) {
+          a.confirm || a.cancel;
+        } });
+    } });
+}wx.onShow(function (a) {
+  wxquery = a.query;
+});var init_login;function loginfun(a) {
+  return new Promise(b => {
+    getLoginCode(function () {
+      login(1, function (c) {
+        loginCallBack(c), a(), b("success");
+      });
+    });
+  });
+}wx.getStorage({ key: "openid", success(a) {
+    comParam.imei = a.data;
+  }, fail(a) {
+    console.log(a.data);
+  } });var userId,
+    api_key,
+    api_token,
+    bannerAd,
+    videoAd,
+    interstitialAd,
+    gridAd,
+    loadicon,
+    floatidstr,
+    wxcode,
+    loginCode,
+    wxquery,
+    sdkType = 1,
+    DybUrl = "https://minisdk.mikeyouxi.com/sdk.php",
+    comParam = { imei: "", platformId: "", ver: "1.0.2", sdkType: 1, cid: "", link_id: "", gid: "", sgid: "" },
+    mksdk = { showInit: function (a, b) {
+    comParam.gid = a.gid, comParam.sgid = a.sgid;var c = wx.getLaunchOptionsSync();let d = {};d.time = new Date().getTime(), d.sgid = comParam.sgid, d.sdkType = sdkType, d.linkStr = c.query.__track_link_str_uniq_params__ ? c.query.__track_link_str_uniq_params__ : "", d.ext = JSON.stringify(wxquery);let e = signfunct(d, "53ec6ec85wf571f60aaf");d.sign = e;ajaxfun(d, "/open/sgidInfo", function (a) {
+      let c = {};c.code = a.data.code, c.channelName = "mk", 0 == a.data.code ? (c.code = a.data.code, comParam.cid = a.data.data.cid, comParam.link_id = a.data.data.link_id, api_key = a.data.data.api_key, c.msg = "\u521D\u59CB\u5316\u6210\u529F", init_login = loginfun(function () {}), b(c)) : (c.msg = "\u521D\u59CB\u5316\u5931\u8D25", b(c), wx.showModal({ title: "\u63D0\u793A", content: "\u521D\u59CB\u5316\u5931\u8D25", success(a) {
+          a.confirm || a.cancel;
+        } }));
+    });
+  }, showLoginView: function (a) {
+    async function b() {
+      await init_login, loginCallback.userId ? a(loginCallback) : loginfun(function () {
+        a(loginCallback);
+      });
+    }b();
+  }, logout: function (a) {
+    api_token = "", loginCallback = { code: 0, msg: "\u9000\u51FA\u6210\u529F" }, a(loginCallback);
+  }, submitRoleData: function (a, b) {
+    let c = this,
+        d = {};d.method = "reportRole", d.token = api_token, d = Object.assign(d, comParam), d = Object.assign(d, a);let e = signfunct(d, api_key);d.sign = e;ajaxfun(d, "", function (a) {
+      b(a.data);
+    });
+  }, submitActionData: function (a, b) {
+    let c = this,
+        d = {};d.method = "reportAction", d.token = api_token, d = Object.assign(d, comParam), d = Object.assign(d, a);let e = signfunct(d, api_key);d.sign = e;ajaxfun(d, "", function (a) {
+      b(a.data);
+    });
+  }, showIapView: function (a, b) {
+    let c = {};c.method = "createOrder", c.token = api_token, c = Object.assign(c, comParam), c = Object.assign(c, a);let d = signfunct(c, api_key);c.sign = d;ajaxfun(c, "", function (c) {
+      var d = "";if (0 == c.data.code) d = c.data.data.orderId, 4 == c.data.data.scene_type && 1 == c.data.data.mi_req ? wx.requestMidasPayment({ mode: "game", env: c.data.data.midas_env, offerId: c.data.data.midas_offerid, currencyType: "CNY", platform: "android", buyQuantity: a.totalFee / 10, zoneId: "1", success: function () {
+          let c = {};c.code = 1, c.msg = "\u652F\u4ED8\u6210\u529F", b(c);let e = {};e.method = "orderMiNotify", e.token = api_token, e.totalFee = a.totalFee, e.orderId = d, e.customInfo = d, e.scene_type = 4, e = Object.assign(e, comParam);let f = signfunct(e, api_key);e.sign = f, wx.request({ url: "https://minisdk.mikeyouxi.com/sdk.php", data: e, method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, success() {} }), wx.showModal({ title: "\u63D0\u793A", content: "\u652F\u4ED8\u6210\u529F", success(a) {
+              a.confirm || a.cancel;
+            } });
+        }, fail: function () {
+          let a = {};a.code = 3, a.msg = "\u652F\u4ED8\u5931\u8D25", b(a), wx.showModal({ title: "\u63D0\u793A", content: "\u652F\u4ED8\u5931\u8D25", success(a) {
+              a.confirm || a.cancel;
+            } });
+        } }) : wx.showModal({ title: "\u652F\u4ED8\u63D0\u793A", content: "" + c.data.data.tc_title + "", success(a) {
+          if (a.confirm) {
+            let a = {};a.code = 4, a.msg = "\u5230\u5BA2\u670D\u7A97\u53E3\u8FDB\u884C\u652F\u4ED8", b(a), wx.openCustomerServiceConversation({ sessionFrom: c.data.data.oid_callback, showMessageCard: !0, sendMessageTitle: c.data.data.card_title, sendMessagePath: c.data.data.oid_callback, sendMessageImg: c.data.data.card_url, success: function () {} });
+          } else if (a.cancel) {
+            let a = {};a.code = 2, a.msg = "\u7528\u6237\u70B9\u51FB\u53D6\u6D88", b(a);
+          }
+        } });else {
+        wx.showModal({ title: "\u63D0\u793A", content: c.data.msg, success(a) {
+            a.confirm || a.cancel;
+          } });let a = {};a.code = c.data.code, a.msg = c.data.msg, b(a);
+      }
+    });
+  }, onShare: function (a, b) {
+    let c = wx.getSystemInfoSync().SDKVersion;if (-1 == D$M7XRU(c, "2.10.3")) {
+      return void b({ code: 1, state: "version", msg: "\u7248\u672C\u8FC7\u4F4E" });
+    }wx.onShareAppMessage(() => (methRequest("1", function (a) {
+      let c = { code: a.code, msg: a.msg, state: "\u8F6C\u53D1" };b(c);
+    }), { title: a.title, imageUrl: a.imageUrl, query: a.query, path: a.path })), wx.onShareTimeline(() => (methRequest("2", function (a) {
+      let c = { code: a.code, msg: a.msg, state: "\u5206\u4EAB" };b(c);
+    }), { title: a.title, imageUrl: a.imageUrl, query: a.query, path: a.path })), wx.onAddToFavorites(() => (methRequest("5", function (a) {
+      let c = { code: a.code, msg: a.msg, state: "\u6536\u85CF" };b(c);
+    }), { title: a.title, imageUrl: a.imageUrl, query: a.query, path: a.path }));
+  }, share: function (a, b) {
+    methRequest("4", function (a) {
+      let c = { code: a.code, msg: a.msg, state: "\u4E3B\u52A8\u5206\u4EAB" };b(c);
+    }), wx.shareAppMessage(a);
+  }, createBannerAd: function (a, b) {
+    let c = wx.getSystemInfoSync().SDKVersion;if (-1 == D$M7XRU(c, "2.0.4")) {
+      return void b({ code: 1, state: "version", msg: "\u7248\u672C\u8FC7\u4F4E" });
+    }if (bannerAd) {
+      if ("hide" == a.state) {
+        bannerAd.hide();return void b({ code: 0, state: "hide", msg: "\u5E7F\u544A\u9690\u85CF" });
+      }bannerAd.destroy();
+    }bannerAd = wx.createBannerAd({ adUnitId: a.adUnitId, adIntervals: 30, style: { left: a.left, top: a.top, width: a.width } });let d = { aid: a.adUnitId, traceid: "", adType: 2, loadStatus: "", showStatus: "", playStatus: 3, trackStatus: 3, adMsg: "" };bannerAd.onLoad(() => {
+      b({ code: 0, state: "load", msg: "\u5E7F\u544A\u52A0\u8F7D\u6210\u529F" });
+    }), bannerAd.onError(a => {
+      d.loadStatus = 2, d.showStatus = 2, d.adMsg = a.errMsg;b({ code: 1, state: "error", msg: a }), submitAdvertising(d, function () {});
+    }), bannerAd.onResize(a => {
+      let c = { width: a.width, height: a.height, realWidth: bannerAd.style.realWidth, realHeight: bannerAd.style.realHeight };b({ code: 0, state: c, msg: "\u5E7F\u544A\u5C3A\u5BF8\u53D8\u5316" });
+    }), "show" == a.state ? bannerAd.show().then(() => {
+      d.loadStatus = 1, d.showStatus = 1;b({ code: 0, state: "show", msg: "\u5E7F\u544A\u663E\u793A" }), submitAdvertising(d, function () {});
+    }) : "hide" == a.state && bannerAd.hide();
+  }, changeBanner: function (a, b) {
+    bannerAd.style.top = a.top, bannerAd.style.left = a.left;b({ code: "0", msg: "\u4FEE\u6539\u6210\u529F" });
+  }, createRewardedVideoAd: function (a, b) {
+    let c = wx.getSystemInfoSync().SDKVersion;if (-1 == D$M7XRU(c, "2.0.4")) {
+      return void b({ code: 1, state: "version", msg: "\u7248\u672C\u8FC7\u4F4E" });
+    }videoAd = wx.createRewardedVideoAd({ adUnitId: a.adUnitId, multiton: !1 }), videoAd.offClose(), videoAd.show().catch(() => {
+      videoAd.load().then(() => videoAd.show()).catch(a => {
+        b({ code: 1, state: "error", msg: a });
+      });
+    }).then(() => {
+      b({ code: 0, state: "show", msg: "\u5E7F\u544A\u663E\u793A" }), d.loadStatus = 1, d.showStatus = 1;
+    });let d = { aid: a.adUnitId, traceid: "", adType: 1, loadStatus: "", showStatus: "", playStatus: 3, trackStatus: 3, adMsg: "" };videoAd.onError(a => {
+      d.loadStatus = 2, d.showStatus = 2, d.adMsg = a.errMsg;b({ code: 1, state: "error", msg: a }), submitAdvertising(d, function () {});
+    }), videoAd.onClose(a => {
+      let c = { code: 0, state: "", msg: "" };a && a.isEnded || a === void 0 ? (c.state = "ended", c.msg = "\u6B63\u5E38\u64AD\u653E\u7ED3\u675F", d.playStatus = 1) : (c.state = "close", c.msg = "\u64AD\u653E\u4E2D\u9014\u9000\u51FA", d.playStatus = 4), b(c), submitAdvertising(d, function () {});
+    });
+  }, createInterstitialAd: function (a, b) {
+    let c = wx.getSystemInfoSync().SDKVersion;if (-1 == D$M7XRU(c, "2.11.1")) {
+      return void b({ code: 1, state: "version", msg: "\u7248\u672C\u8FC7\u4F4E" });
+    }interstitialAd && interstitialAd.destroy(), interstitialAd = wx.createInterstitialAd({ adUnitId: a.adUnitId });let d = { aid: a.adUnitId, traceid: "", adType: 3, loadStatus: "", showStatus: "", playStatus: 3, trackStatus: 3, adMsg: "" };interstitialAd.onLoad(() => {
+      d.loadStatus = 1;
+    }), interstitialAd.onError(a => {
+      d.loadStatus = 2, d.showStatus = 2, d.adMsg = a.errMsg;b({ code: 1, state: "error", msg: a }), submitAdvertising(d, function () {});
+    }), interstitialAd.show().then(() => {
+      d.showStatus = 1;
+    }).catch(a => {
+      b({ code: 1, state: "error", msg: a });
+    }), interstitialAd.onClose(() => {
+      b({ code: 0, state: "close", msg: "\u5E7F\u544A\u5173\u95ED" }), d.playStatus = 4, submitAdvertising(d, function () {});
+    });
+  }, createGridAd: function (a, b) {
+    let c = wx.getSystemInfoSync().SDKVersion;if (-1 == D$M7XRU(c, "2.9.2")) {
+      return void b({ code: 1, state: "version", msg: "\u7248\u672C\u8FC7\u4F4E" });
+    }if (gridAd) {
+      if ("hide" == a.state) {
+        gridAd.hide();return void b({ code: 0, state: "hide", msg: "\u5E7F\u544A\u9690\u85CF" });
+      }gridAd.destroy();
+    }gridAd = wx.createGridAd({ adUnitId: a.adUnitId, adTheme: a.adTheme, gridCount: a.gridCount, style: a.style });let d = { aid: a.adUnitId, traceid: "", adType: 4, loadStatus: "", showStatus: "", playStatus: 3, trackStatus: 3, adMsg: "" };gridAd.onLoad(() => {
+      d.loadStatus = 1;
+    }), gridAd.onError(a => {
+      d.loadStatus = 2, d.showStatus = 2, d.adMsg = a.errMsg;b({ code: 1, state: "error", msg: a }), submitAdvertising(d, function () {});
+    }), gridAd.show().then(() => {
+      d.loadStatus = 1, d.showStatus = 1;b({ code: 0, state: "show", msg: "\u683C\u5B50\u663E\u793A" }), submitAdvertising(d, function () {});
+    });
+  }, gameIconAd: function (a, b, c) {
+    0 == a ? clearInterval(loadicon) : (a *= 1e3, gameIconLoad(b, function (a) {
+      c(a.data);
+    }), loadicon = setInterval(function () {
+      gameIconLoad(b, function (a) {
+        c(a.data), 0 != a.data.code && clearInterval(loadicon);
+      });
+    }, a));
+  }, floatInit: function (a) {
+    let b = {};b.method = "GetCpaStatus", b.token = api_token, b = Object.assign(b, comParam);let c = signfunct(b, api_key);b.sign = c, wx.request({ url: "https://minisdk.mikeyouxi.com/sdk.php", data: b, method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, success(b) {
+        a(b.data);
+      } });
+  }, floatData: function (a) {
+    let b = {};b.method = "GetCpaExGame", b.token = api_token, b.adPos = "1", b.adNum = "0", b = Object.assign(b, comParam);let c = signfunct(b, api_key);b.sign = c, wx.request({ url: "https://minisdk.mikeyouxi.com/sdk.php", data: b, method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, success(b) {
+        if (a(b.data), 0 == b.data.code) {
+          let a = "";for (var c = 0; c < b.data.data.length; c++) (function (c) {
+            a = 0 == c ? b.data.data[c].id : "" + a + "," + b.data.data[c].id;
+          })(c);floatadpost(a, "1", function () {});
+        }
+      } });
+  }, navigateTo: function (a, b) {
+    floatadpost(a.id, "3", function () {}), wx.navigateToMiniProgram({ appId: a.appId, path: a.path, extraData: a.extraData, envVersion: a.envVersion, success() {
+        b({ code: "0", msg: "\u6253\u5F00\u6210\u529F" });
+      }, fail() {
+        b({ code: "1", msg: "\u6253\u5F00\u5931\u8D25" });
+      } });
+  }, floatExposure: function (a, b) {
+    floatadpost(a.id, "2", function (a) {
+      b(a.data);
+    });
+  } };function getinit() {
+  wx.getSystemInfo({ success(a) {
+      var b = a.pixelRatio,
+          c = a.fontSizeSetting;comParam.platformId = 0 == a.system.indexOf("Android") ? "2" : 0 == a.system.indexOf("iOS") ? "1" : "3";
+    } }), wx.getUserInfo({ success: function (a) {
+      a.userInfo;
+    }, fail: () => {} }), wx.showShareMenu({ withShareTicket: !0, menus: ["shareAppMessage", "shareTimeline", "shareMessageToFriend"] });
+}getinit(), module.exports = { mksdk: mksdk };

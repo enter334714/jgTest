@@ -1,1 +1,0 @@
-var u=wx.$x;require("z888z888Fz888z888.js"),window[u[896]][u[897]][u[898]]=null,window.client_pb=require("z888z888IENz888z888.js"),window[u[899]]=window[u[896]][u[900]][u[901]](client_pb);
