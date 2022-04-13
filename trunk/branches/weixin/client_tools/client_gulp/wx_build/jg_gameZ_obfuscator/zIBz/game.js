@@ -1,1 +1,2 @@
-var B=wx.$z;require(B[44e4]);
+var B = wx.$z;
+require(B[440000]);

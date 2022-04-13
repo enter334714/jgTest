@@ -1,1 +1,2 @@
-var J=wx.h$;require(J[0]);
+var J = wx.h$;
+require(J[0x0]);
