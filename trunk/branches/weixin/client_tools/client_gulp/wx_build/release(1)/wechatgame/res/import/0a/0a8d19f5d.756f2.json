@@ -1,0 +1,255 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_qtdl_bg_05",
+      "texture": "e8W1A9eE9EZZzn426rnzf5",
+      "rect": [
+        0,
+        0,
+        124,
+        90
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        124,
+        90
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_qtdl_bg_02",
+      "texture": "41+XzlrnBA/ocbcAJDRcZd",
+      "rect": [
+        0,
+        0,
+        124,
+        90
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        124,
+        90
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_qtdl_bg_07",
+      "texture": "25gqI4S85G34Q5nZm5WCQF",
+      "rect": [
+        0,
+        0,
+        124,
+        89
+      ],
+      "offset": [
+        0,
+        0.5
+      ],
+      "originalSize": [
+        124,
+        90
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_qtdl_bg_01",
+      "texture": "5b1+eIGAJObZPzPQ/8jkcA",
+      "rect": [
+        0,
+        0,
+        124,
+        90
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        124,
+        90
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_qtdl_bg_06",
+      "texture": "bdDQBsbYJOtblQW96TCyyZ",
+      "rect": [
+        0,
+        0,
+        124,
+        90
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        124,
+        90
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_qtdl_bg_03",
+      "texture": "a2BSHJ3MtJSIHC/KZaKqAz",
+      "rect": [
+        0,
+        0,
+        124,
+        90
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        124,
+        90
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "activity-sevenDay",
+    "_duration": 0.75,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "46bdAWJ+9H359UfcpWzv/3"
+              }
+            },
+            {
+              "frame": 0.06666666666666667,
+              "value": {
+                "__uuid__": "1ebUd8LZBOPosX2/Wq/TjH"
+              }
+            },
+            {
+              "frame": 0.15,
+              "value": {
+                "__uuid__": "941g01QQ1HUJVo/Zq+d6HU"
+              }
+            },
+            {
+              "frame": 0.23333333333333334,
+              "value": {
+                "__uuid__": "faAvQKXKhNzbFbAZpwLL6J"
+              }
+            },
+            {
+              "frame": 0.31666666666666665,
+              "value": {
+                "__uuid__": "0bbsgeMjFODJwKgVskyBit"
+              }
+            },
+            {
+              "frame": 0.4,
+              "value": {
+                "__uuid__": "84gpttmHVOxYWDVP6S96ll"
+              }
+            },
+            {
+              "frame": 0.48333333333333334,
+              "value": {
+                "__uuid__": "42nDTM3hlLXK8gBTXFPsGl"
+              }
+            }
+          ]
+        }
+      },
+      "props": {
+        "opacity": [
+          {
+            "frame": 0.75,
+            "value": 255
+          }
+        ]
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_qtdl_bg_04",
+      "texture": "489fvLwYBMPLTxYDvRv6Oi",
+      "rect": [
+        0,
+        0,
+        124,
+        90
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        124,
+        90
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

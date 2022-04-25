@@ -1,0 +1,21 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "channelConfig",
+  "json": {
+    "1": {
+      "channename": "土城争霸",
+      "test": "TUCHENGZHENGSHIFU",
+      "tiyan": "TUCHENGZHENGSHIFU",
+      "online": "TUCHENGZHENGSHIFU"
+    },
+    "3": {
+      "channename": "冰鸟韩国"
+    },
+    "101": {
+      "channename": "风月传说",
+      "test": "FENGYUE",
+      "tiyan": "FENGYUE",
+      "online": "FENGYUE"
+    }
+  }
+}

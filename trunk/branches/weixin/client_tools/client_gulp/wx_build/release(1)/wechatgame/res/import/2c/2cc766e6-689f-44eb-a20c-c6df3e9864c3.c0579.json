@@ -1,0 +1,1408 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "dadianConfig",
+  "json": {
+    "1": {
+      "m_type": 1,
+      "sub_type": 1,
+      "use_type": 0,
+      "des": "玩家等级"
+    },
+    "2": {
+      "m_type": 1,
+      "sub_type": 2,
+      "use_type": 0,
+      "des": "玩家注册日期"
+    },
+    "1001": {
+      "m_type": 2,
+      "sub_type": 1,
+      "use_type": 2,
+      "des": "使用元宝复活的元宝数量",
+      "res": 2
+    },
+    "1002": {
+      "m_type": 2,
+      "sub_type": 2,
+      "use_type": 2,
+      "des": "选择离线5倍收益时花费的元宝数量",
+      "res": 2
+    },
+    "1003": {
+      "m_type": 2,
+      "sub_type": 3,
+      "use_type": 2,
+      "des": "坊市物品1（强效太阳水）购买所花费的元宝数",
+      "res": 2
+    },
+    "1004": {
+      "m_type": 2,
+      "sub_type": 4,
+      "use_type": 2,
+      "des": "坊市物品2（书页）购买所花费的元宝数",
+      "res": 2
+    },
+    "1005": {
+      "m_type": 2,
+      "sub_type": 5,
+      "use_type": 2,
+      "des": "坊市物品3（技能丹）购买所花费的元宝数",
+      "res": 2
+    },
+    "1006": {
+      "m_type": 2,
+      "sub_type": 6,
+      "use_type": 2,
+      "des": "坊市物品4（洗练石）购买所花费的元宝数",
+      "res": 2
+    },
+    "1007": {
+      "m_type": 2,
+      "sub_type": 7,
+      "use_type": 2,
+      "des": "坊市物品5（淬炼石）购买所花费的元宝数",
+      "res": 2
+    },
+    "1008": {
+      "m_type": 2,
+      "sub_type": 8,
+      "use_type": 2,
+      "des": "坊市物品6（基础符文宝箱）购买所花费的元宝数",
+      "res": 2
+    },
+    "1009": {
+      "m_type": 2,
+      "sub_type": 9,
+      "use_type": 2,
+      "des": "坊市物品7（中级符文宝箱）购买所花费的元宝数",
+      "res": 2
+    },
+    "1010": {
+      "m_type": 2,
+      "sub_type": 10,
+      "use_type": 2,
+      "des": "坊市物品8（4级技能残卷）购买所花费的元宝数",
+      "res": 2
+    },
+    "1011": {
+      "m_type": 2,
+      "sub_type": 11,
+      "use_type": 2,
+      "des": "坊市物品9（5级技能残卷）购买所花费的元宝数",
+      "res": 2
+    },
+    "1012": {
+      "m_type": 2,
+      "sub_type": 12,
+      "use_type": 2,
+      "des": "坊市物品10（6级技能残卷）购买所花费的元宝数",
+      "res": 2
+    },
+    "1013": {
+      "m_type": 2,
+      "sub_type": 13,
+      "use_type": 2,
+      "des": "元宝直接兑换成金币时消耗的元宝数量",
+      "res": 2
+    },
+    "1014": {
+      "m_type": 2,
+      "sub_type": 14,
+      "use_type": 2,
+      "des": "元宝购买洗练石时消耗的元宝数量",
+      "res": 2
+    },
+    "1015": {
+      "m_type": 2,
+      "sub_type": 15,
+      "use_type": 2,
+      "des": "元宝购买古董时消耗的元宝数量",
+      "res": 2
+    },
+    "1016": {
+      "m_type": 2,
+      "sub_type": 16,
+      "use_type": 2,
+      "des": "装备献祭时消耗的元宝数量",
+      "res": 2
+    },
+    "1017": {
+      "m_type": 2,
+      "sub_type": 17,
+      "use_type": 1,
+      "des": "回收特权获得的元宝数量",
+      "res": 2
+    },
+    "1018": {
+      "m_type": 2,
+      "sub_type": 18,
+      "use_type": 1,
+      "des": "战神特权获得的元宝数量",
+      "res": 2
+    },
+    "1019": {
+      "m_type": 2,
+      "sub_type": 19,
+      "use_type": 1,
+      "des": "充值获得的元宝数量",
+      "res": 2
+    },
+    "1020": {
+      "m_type": 2,
+      "sub_type": 20,
+      "use_type": 1,
+      "des": "元宝兑换金币时金币的获取总数",
+      "res": 1
+    },
+    "1021": {
+      "m_type": 2,
+      "sub_type": 21,
+      "use_type": 1,
+      "des": "云游出售装备时金币获取总数",
+      "res": 1
+    },
+    "1022": {
+      "m_type": 2,
+      "sub_type": 22,
+      "use_type": 1,
+      "des": "（作废，占位）",
+      "res": 1
+    },
+    "1023": {
+      "m_type": 2,
+      "sub_type": 23,
+      "use_type": 1,
+      "des": "自动回收时金币获取总数",
+      "res": 1
+    },
+    "1024": {
+      "m_type": 2,
+      "sub_type": 24,
+      "use_type": 1,
+      "des": "购买礼包时金币的获取总数",
+      "res": 1
+    },
+    "1025": {
+      "m_type": 2,
+      "sub_type": 25,
+      "use_type": 2,
+      "des": "坊市物品1（弱效太阳水）购买所花费的金币数",
+      "res": 1
+    },
+    "1026": {
+      "m_type": 2,
+      "sub_type": 26,
+      "use_type": 2,
+      "des": "坊市物品2（太阳水）购买所花费的金币数",
+      "res": 1
+    },
+    "1027": {
+      "m_type": 2,
+      "sub_type": 27,
+      "use_type": 2,
+      "des": "坊市物品3（书页）购买所花费的金币数",
+      "res": 1
+    },
+    "1028": {
+      "m_type": 2,
+      "sub_type": 28,
+      "use_type": 2,
+      "des": "坊市物品4（技能丹）购买所花费的金币数",
+      "res": 1
+    },
+    "1029": {
+      "m_type": 2,
+      "sub_type": 29,
+      "use_type": 2,
+      "des": "坊市物品5（洗练石）购买所花费的金币数",
+      "res": 1
+    },
+    "1030": {
+      "m_type": 2,
+      "sub_type": 30,
+      "use_type": 2,
+      "des": "坊市物品6（淬炼石）购买所花费的金币数",
+      "res": 1
+    },
+    "1031": {
+      "m_type": 2,
+      "sub_type": 31,
+      "use_type": 2,
+      "des": "坊市物品7（基础符文宝箱）购买所花费的金币数",
+      "res": 1
+    },
+    "1032": {
+      "m_type": 2,
+      "sub_type": 32,
+      "use_type": 2,
+      "des": "坊市物品8（中级符文宝箱）购买所花费的金币数",
+      "res": 1
+    },
+    "1033": {
+      "m_type": 2,
+      "sub_type": 33,
+      "use_type": 2,
+      "des": "坊市物品9（4级技能残卷）购买所花费的金币数",
+      "res": 1
+    },
+    "1034": {
+      "m_type": 2,
+      "sub_type": 34,
+      "use_type": 2,
+      "des": "坊市物品10（5级技能残卷）购买所花费的金币数",
+      "res": 1
+    },
+    "1035": {
+      "m_type": 2,
+      "sub_type": 35,
+      "use_type": 2,
+      "des": "坊市物品11（6级技能残卷）购买所花费的金币数",
+      "res": 1
+    },
+    "1036": {
+      "m_type": 2,
+      "sub_type": 36,
+      "use_type": 2,
+      "des": "强化消耗的金币总数",
+      "res": 1
+    },
+    "1037": {
+      "m_type": 2,
+      "sub_type": 37,
+      "use_type": 2,
+      "des": "买药花费的金币总数（所有药）",
+      "res": 1
+    },
+    "1038": {
+      "m_type": 2,
+      "sub_type": 38,
+      "use_type": 1,
+      "des": "分解装备时获取的精华总数",
+      "res": 3
+    },
+    "1039": {
+      "m_type": 2,
+      "sub_type": 39,
+      "use_type": 2,
+      "des": "铁匠打造时消耗的精华总数",
+      "res": 3
+    },
+    "1040": {
+      "m_type": 2,
+      "sub_type": 40,
+      "use_type": 2,
+      "des": "坊市物品12（百炼精铁）购买所花费的金币数"
+    },
+    "1041": {
+      "m_type": 2,
+      "sub_type": 41,
+      "use_type": 2,
+      "des": "坊市物品111（百炼精铁）购买所花费的元宝数"
+    },
+    "1042": {
+      "m_type": 2,
+      "sub_type": 42,
+      "use_type": 2,
+      "des": "坊市物品112（神兵精华）购买所花费的元宝数"
+    },
+    "1043": {
+      "m_type": 2,
+      "sub_type": 43,
+      "use_type": 2,
+      "des": "刷新铁匠时所花费的元宝数量"
+    },
+    "2001": {
+      "m_type": 3,
+      "sub_type": 1,
+      "use_type": 1,
+      "des": "充值获取到的书页数量",
+      "itemType": "I4001"
+    },
+    "2002": {
+      "m_type": 3,
+      "sub_type": 2,
+      "use_type": 1,
+      "des": "等级礼包开出的书页总数",
+      "itemType": "I4001"
+    },
+    "2003": {
+      "m_type": 3,
+      "sub_type": 3,
+      "use_type": 1,
+      "des": "金币仿市购买的书页数量",
+      "itemType": "I4001"
+    },
+    "2004": {
+      "m_type": 3,
+      "sub_type": 4,
+      "use_type": 1,
+      "des": "元宝仿市购买的书页数量",
+      "itemType": "I4001"
+    },
+    "2005": {
+      "m_type": 3,
+      "sub_type": 5,
+      "use_type": 1,
+      "des": "小怪和BOSS爆出的书页数量",
+      "itemType": "I4001"
+    },
+    "2006": {
+      "m_type": 3,
+      "sub_type": 6,
+      "use_type": 1,
+      "des": "分解技能残卷获取的书页数量",
+      "itemType": "I4001"
+    },
+    "2007": {
+      "m_type": 3,
+      "sub_type": 7,
+      "use_type": 1,
+      "des": "礼包码获取的书页数量",
+      "itemType": "I4001"
+    },
+    "2008": {
+      "m_type": 3,
+      "sub_type": 8,
+      "use_type": 2,
+      "des": "技能升级时消耗的书页数量",
+      "itemType": "I4001"
+    },
+    "2009": {
+      "m_type": 3,
+      "sub_type": 9,
+      "use_type": 1,
+      "des": "充值获取的洗练石数量",
+      "itemType": "I3001"
+    },
+    "2010": {
+      "m_type": 3,
+      "sub_type": 10,
+      "use_type": 1,
+      "des": "等级礼包开出的洗练石数量",
+      "itemType": "I3001"
+    },
+    "2011": {
+      "m_type": 3,
+      "sub_type": 11,
+      "use_type": 1,
+      "des": "金币仿市购买的洗练石数量",
+      "itemType": "I3001"
+    },
+    "2012": {
+      "m_type": 3,
+      "sub_type": 12,
+      "use_type": 1,
+      "des": "元宝仿市购买的洗练石数量",
+      "itemType": "I3001"
+    },
+    "2013": {
+      "m_type": 3,
+      "sub_type": 13,
+      "use_type": 1,
+      "des": "小怪和BOSS爆出的洗练石数量",
+      "itemType": "I3001"
+    },
+    "2014": {
+      "m_type": 3,
+      "sub_type": 14,
+      "use_type": 1,
+      "des": "礼包码获取的洗练石数量",
+      "itemType": "I3001"
+    },
+    "2015": {
+      "m_type": 3,
+      "sub_type": 15,
+      "use_type": 1,
+      "des": "元宝直购时获取的洗练石数量",
+      "itemType": "I3001"
+    },
+    "2016": {
+      "m_type": 3,
+      "sub_type": 16,
+      "use_type": 2,
+      "des": "洗练装备时消耗的洗练石数量",
+      "itemType": "I3001"
+    },
+    "2017": {
+      "m_type": 3,
+      "sub_type": 17,
+      "use_type": 1,
+      "des": "充值获取的淬炼石数量",
+      "itemType": "I3903"
+    },
+    "2018": {
+      "m_type": 3,
+      "sub_type": 18,
+      "use_type": 1,
+      "des": "等级礼包开出的淬炼石数量",
+      "itemType": "I3903"
+    },
+    "2019": {
+      "m_type": 3,
+      "sub_type": 19,
+      "use_type": 1,
+      "des": "金币仿市购买的淬炼石数量",
+      "itemType": "I3903"
+    },
+    "2020": {
+      "m_type": 3,
+      "sub_type": 20,
+      "use_type": 1,
+      "des": "元宝仿市购买的淬炼石数量",
+      "itemType": "I3903"
+    },
+    "2021": {
+      "m_type": 3,
+      "sub_type": 21,
+      "use_type": 1,
+      "des": "小怪和BOSS爆出的淬炼石数量",
+      "itemType": "I3903"
+    },
+    "2022": {
+      "m_type": 3,
+      "sub_type": 22,
+      "use_type": 1,
+      "des": "礼包码获取的淬炼石数量",
+      "itemType": "I3903"
+    },
+    "2023": {
+      "m_type": 3,
+      "sub_type": 23,
+      "use_type": 1,
+      "des": "元宝直购时获取的淬炼石数量",
+      "itemType": "I3903"
+    },
+    "2024": {
+      "m_type": 3,
+      "sub_type": 24,
+      "use_type": 2,
+      "des": "淬炼装备时消耗的淬炼石数量",
+      "itemType": "I3903"
+    },
+    "2025": {
+      "m_type": 3,
+      "sub_type": 25,
+      "use_type": 1,
+      "des": "获得基本剑术的数量",
+      "itemType": "I5001"
+    },
+    "2026": {
+      "m_type": 3,
+      "sub_type": 26,
+      "use_type": 1,
+      "des": "获得刺杀剑术的数量",
+      "itemType": "I5003"
+    },
+    "2027": {
+      "m_type": 3,
+      "sub_type": 27,
+      "use_type": 1,
+      "des": "获得半月弯刀的数量",
+      "itemType": "I5005"
+    },
+    "2028": {
+      "m_type": 3,
+      "sub_type": 28,
+      "use_type": 1,
+      "des": "获得攻杀剑术的数量",
+      "itemType": "I5002"
+    },
+    "2029": {
+      "m_type": 3,
+      "sub_type": 29,
+      "use_type": 1,
+      "des": "获得野蛮冲撞的数量",
+      "itemType": "I5004"
+    },
+    "2030": {
+      "m_type": 3,
+      "sub_type": 30,
+      "use_type": 1,
+      "des": "获得护体真气的数量",
+      "itemType": "I5007"
+    },
+    "2031": {
+      "m_type": 3,
+      "sub_type": 31,
+      "use_type": 1,
+      "des": "获得烈火剑法的数量",
+      "itemType": "I5006"
+    },
+    "2032": {
+      "m_type": 3,
+      "sub_type": 32,
+      "use_type": 2,
+      "des": "分解获得1级技能残卷时的获取数量",
+      "itemType": "I4002"
+    },
+    "2033": {
+      "m_type": 3,
+      "sub_type": 33,
+      "use_type": 2,
+      "des": "分解获得2级技能残卷时的获取数量",
+      "itemType": "I4003"
+    },
+    "2034": {
+      "m_type": 3,
+      "sub_type": 34,
+      "use_type": 2,
+      "des": "分解获得3级技能残卷时的获取数量",
+      "itemType": "I4004"
+    },
+    "2035": {
+      "m_type": 3,
+      "sub_type": 35,
+      "use_type": 2,
+      "des": "分解获得4级技能残卷时的获取数量",
+      "itemType": "I4005"
+    },
+    "2036": {
+      "m_type": 3,
+      "sub_type": 36,
+      "use_type": 2,
+      "des": "分解获得5级技能残卷时的获取数量",
+      "itemType": "I4006"
+    },
+    "2037": {
+      "m_type": 3,
+      "sub_type": 37,
+      "use_type": 2,
+      "des": "分解获得6级技能残卷时的获取数量",
+      "itemType": "I4007"
+    },
+    "2038": {
+      "m_type": 3,
+      "sub_type": 38,
+      "use_type": 2,
+      "des": "分解获得7级技能残卷时的获取数量",
+      "itemType": "I4008"
+    },
+    "2039": {
+      "m_type": 3,
+      "sub_type": 39,
+      "use_type": 1,
+      "des": "充值获取到的技能丹数量",
+      "itemType": "I3004"
+    },
+    "2040": {
+      "m_type": 3,
+      "sub_type": 40,
+      "use_type": 1,
+      "des": "等级礼包开出的技能丹数量",
+      "itemType": "I3004"
+    },
+    "2041": {
+      "m_type": 3,
+      "sub_type": 41,
+      "use_type": 1,
+      "des": "金币仿市购买的技能丹数量",
+      "itemType": "I3004"
+    },
+    "2042": {
+      "m_type": 3,
+      "sub_type": 42,
+      "use_type": 1,
+      "des": "元宝仿市购买的技能丹数量",
+      "itemType": "I3004"
+    },
+    "2043": {
+      "m_type": 3,
+      "sub_type": 43,
+      "use_type": 1,
+      "des": "小怪和BOSS爆出的技能丹数量",
+      "itemType": "I3004"
+    },
+    "2044": {
+      "m_type": 3,
+      "sub_type": 44,
+      "use_type": 1,
+      "des": "礼包码获取的技能丹数量",
+      "itemType": "I3004"
+    },
+    "2045": {
+      "m_type": 3,
+      "sub_type": 45,
+      "use_type": 2,
+      "des": "升级X技能时消耗的技能丹数量",
+      "itemType": "I3004"
+    },
+    "2046": {
+      "m_type": 3,
+      "sub_type": 46,
+      "use_type": 1,
+      "des": "获得符文1的数量",
+      "itemType": "I8001"
+    },
+    "2047": {
+      "m_type": 3,
+      "sub_type": 47,
+      "use_type": 1,
+      "des": "获得符文2的数量",
+      "itemType": "I8002"
+    },
+    "2048": {
+      "m_type": 3,
+      "sub_type": 48,
+      "use_type": 1,
+      "des": "获得符文3的数量",
+      "itemType": "I8003"
+    },
+    "2049": {
+      "m_type": 3,
+      "sub_type": 49,
+      "use_type": 1,
+      "des": "获得符文4的数量",
+      "itemType": "I8004"
+    },
+    "2050": {
+      "m_type": 3,
+      "sub_type": 50,
+      "use_type": 1,
+      "des": "获得符文5的数量",
+      "itemType": "I8005"
+    },
+    "2051": {
+      "m_type": 3,
+      "sub_type": 51,
+      "use_type": 1,
+      "des": "获得符文6的数量",
+      "itemType": "I8006"
+    },
+    "2052": {
+      "m_type": 3,
+      "sub_type": 52,
+      "use_type": 1,
+      "des": "获得符文7的数量",
+      "itemType": "I8007"
+    },
+    "2053": {
+      "m_type": 3,
+      "sub_type": 53,
+      "use_type": 1,
+      "des": "获得符文8的数量",
+      "itemType": "I8008"
+    },
+    "2054": {
+      "m_type": 3,
+      "sub_type": 54,
+      "use_type": 1,
+      "des": "获得符文9的数量",
+      "itemType": "I8009"
+    },
+    "2055": {
+      "m_type": 3,
+      "sub_type": 55,
+      "use_type": 1,
+      "des": "获得符文10的数量",
+      "itemType": "I8010"
+    },
+    "2056": {
+      "m_type": 3,
+      "sub_type": 56,
+      "use_type": 1,
+      "des": "获得符文11的数量",
+      "itemType": "I8011"
+    },
+    "2057": {
+      "m_type": 3,
+      "sub_type": 57,
+      "use_type": 1,
+      "des": "获得符文12的数量",
+      "itemType": "I8012"
+    },
+    "2058": {
+      "m_type": 3,
+      "sub_type": 58,
+      "use_type": 1,
+      "des": "获得符文13的数量",
+      "itemType": "I8013"
+    },
+    "2059": {
+      "m_type": 3,
+      "sub_type": 59,
+      "use_type": 1,
+      "des": "获得符文14的数量",
+      "itemType": "I8014"
+    },
+    "2060": {
+      "m_type": 3,
+      "sub_type": 60,
+      "use_type": 1,
+      "des": "获得符文15的数量",
+      "itemType": "I8015"
+    },
+    "2061": {
+      "m_type": 3,
+      "sub_type": 61,
+      "use_type": 2,
+      "des": "消耗符文1的数量",
+      "itemType": "I8001"
+    },
+    "2062": {
+      "m_type": 3,
+      "sub_type": 62,
+      "use_type": 2,
+      "des": "消耗符文2的数量",
+      "itemType": "I8002"
+    },
+    "2063": {
+      "m_type": 3,
+      "sub_type": 63,
+      "use_type": 2,
+      "des": "消耗符文3的数量",
+      "itemType": "I8003"
+    },
+    "2064": {
+      "m_type": 3,
+      "sub_type": 64,
+      "use_type": 2,
+      "des": "消耗符文4的数量",
+      "itemType": "I8004"
+    },
+    "2065": {
+      "m_type": 3,
+      "sub_type": 65,
+      "use_type": 2,
+      "des": "消耗符文5的数量",
+      "itemType": "I8005"
+    },
+    "2066": {
+      "m_type": 3,
+      "sub_type": 66,
+      "use_type": 2,
+      "des": "消耗符文6的数量",
+      "itemType": "I8006"
+    },
+    "2067": {
+      "m_type": 3,
+      "sub_type": 67,
+      "use_type": 2,
+      "des": "消耗符文7的数量",
+      "itemType": "I8007"
+    },
+    "2068": {
+      "m_type": 3,
+      "sub_type": 68,
+      "use_type": 2,
+      "des": "消耗符文8的数量",
+      "itemType": "I8008"
+    },
+    "2069": {
+      "m_type": 3,
+      "sub_type": 69,
+      "use_type": 2,
+      "des": "消耗符文9的数量",
+      "itemType": "I8009"
+    },
+    "2070": {
+      "m_type": 3,
+      "sub_type": 70,
+      "use_type": 2,
+      "des": "消耗符文10的数量",
+      "itemType": "I8010"
+    },
+    "2071": {
+      "m_type": 3,
+      "sub_type": 71,
+      "use_type": 2,
+      "des": "消耗符文11的数量",
+      "itemType": "I8011"
+    },
+    "2072": {
+      "m_type": 3,
+      "sub_type": 72,
+      "use_type": 2,
+      "des": "消耗符文12的数量",
+      "itemType": "I8012"
+    },
+    "2073": {
+      "m_type": 3,
+      "sub_type": 73,
+      "use_type": 2,
+      "des": "消耗符文13的数量",
+      "itemType": "I8013"
+    },
+    "2074": {
+      "m_type": 3,
+      "sub_type": 74,
+      "use_type": 2,
+      "des": "消耗符文14的数量",
+      "itemType": "I8014"
+    },
+    "2075": {
+      "m_type": 3,
+      "sub_type": 75,
+      "use_type": 2,
+      "des": "消耗符文15的数量",
+      "itemType": "I8015"
+    },
+    "2076": {
+      "m_type": 3,
+      "sub_type": 76,
+      "use_type": 1,
+      "des": "获得火球术的数量",
+      "itemType": "I5201"
+    },
+    "2077": {
+      "m_type": 3,
+      "sub_type": 77,
+      "use_type": 1,
+      "des": "获得雷电术的数量",
+      "itemType": "I5202"
+    },
+    "2078": {
+      "m_type": 3,
+      "sub_type": 78,
+      "use_type": 1,
+      "des": "获得火墙术的数量",
+      "itemType": "I5203"
+    },
+    "2079": {
+      "m_type": 3,
+      "sub_type": 79,
+      "use_type": 1,
+      "des": "获得诱惑之光的数量",
+      "itemType": "I5207"
+    },
+    "2080": {
+      "m_type": 3,
+      "sub_type": 80,
+      "use_type": 1,
+      "des": "获得法术精通的数量",
+      "itemType": "I5206"
+    },
+    "2081": {
+      "m_type": 3,
+      "sub_type": 81,
+      "use_type": 1,
+      "des": "获得魔法盾的数量",
+      "itemType": "I5204"
+    },
+    "2082": {
+      "m_type": 3,
+      "sub_type": 82,
+      "use_type": 1,
+      "des": "获得冰咆哮的数量",
+      "itemType": "I5205"
+    },
+    "2083": {
+      "m_type": 3,
+      "sub_type": 83,
+      "use_type": 1,
+      "des": "获得精神力战法的数量",
+      "itemType": "I5101"
+    },
+    "2084": {
+      "m_type": 3,
+      "sub_type": 84,
+      "use_type": 1,
+      "des": "获得治疗术的数量",
+      "itemType": "I5102"
+    },
+    "2085": {
+      "m_type": 3,
+      "sub_type": 85,
+      "use_type": 1,
+      "des": "获得灵魂火符",
+      "itemType": "I5103"
+    },
+    "2086": {
+      "m_type": 3,
+      "sub_type": 86,
+      "use_type": 1,
+      "des": "获得施毒术的数量",
+      "itemType": "I5104"
+    },
+    "2087": {
+      "m_type": 3,
+      "sub_type": 87,
+      "use_type": 1,
+      "des": "获得召唤术的数量",
+      "itemType": "I5105"
+    },
+    "2088": {
+      "m_type": 3,
+      "sub_type": 88,
+      "use_type": 1,
+      "des": "获得隐身术的数量",
+      "itemType": "I5106"
+    },
+    "2089": {
+      "m_type": 3,
+      "sub_type": 89,
+      "use_type": 1,
+      "des": "获得神圣战甲术的数量",
+      "itemType": "I5107"
+    },
+    "2090": {
+      "m_type": 3,
+      "sub_type": 90,
+      "use_type": 1,
+      "des": "获得无极真气的数量",
+      "itemType": "I5108"
+    },
+    "2091": {
+      "m_type": 3,
+      "sub_type": 91,
+      "use_type": 1,
+      "des": "通过金币仿市给购买到的神兵陨铁的数量",
+      "itemType": "I3905"
+    },
+    "2092": {
+      "m_type": 3,
+      "sub_type": 92,
+      "use_type": 1,
+      "des": "通过元宝仿市给购买到的神兵陨铁的数量",
+      "itemType": "I3905"
+    },
+    "2093": {
+      "m_type": 3,
+      "sub_type": 93,
+      "use_type": 1,
+      "des": "通过元宝仿市给购买到的神兵精华的数量",
+      "itemType": "I3906"
+    },
+    "2094": {
+      "m_type": 3,
+      "sub_type": 94,
+      "use_type": 1,
+      "des": "通过小怪获取的神兵陨铁的数量",
+      "itemType": "I3905"
+    },
+    "2095": {
+      "m_type": 3,
+      "sub_type": 95,
+      "use_type": 1,
+      "des": "通过BOSS获取的神兵精华的数量",
+      "itemType": "I3906"
+    },
+    "2096": {
+      "m_type": 3,
+      "sub_type": 96,
+      "use_type": 1,
+      "des": "通过礼包获取的神兵陨铁的数量",
+      "itemType": "I3905"
+    },
+    "2097": {
+      "m_type": 3,
+      "sub_type": 97,
+      "use_type": 1,
+      "des": "通过礼包获取的神兵精华的数量",
+      "itemType": "I3906"
+    },
+    "2098": {
+      "m_type": 3,
+      "sub_type": 98,
+      "use_type": 2,
+      "des": "升级赤血魔剑消耗的神兵陨铁数量",
+      "itemType": "I3905"
+    },
+    "2099": {
+      "m_type": 3,
+      "sub_type": 99,
+      "use_type": 2,
+      "des": "升级赤血魔剑消耗的神兵精华数量",
+      "itemType": "I3906"
+    },
+    "3001": {
+      "m_type": 4,
+      "sub_type": 1,
+      "use_type": 0,
+      "des": "6元金币",
+      "price": 6
+    },
+    "3002": {
+      "m_type": 4,
+      "sub_type": 2,
+      "use_type": 0,
+      "des": "30元金币",
+      "price": 30
+    },
+    "3003": {
+      "m_type": 4,
+      "sub_type": 3,
+      "use_type": 0,
+      "des": "68元金币",
+      "price": 68
+    },
+    "3004": {
+      "m_type": 4,
+      "sub_type": 4,
+      "use_type": 0,
+      "des": "30洗练石",
+      "price": 30
+    },
+    "3005": {
+      "m_type": 4,
+      "sub_type": 5,
+      "use_type": 0,
+      "des": "68洗练石",
+      "price": 68
+    },
+    "3006": {
+      "m_type": 4,
+      "sub_type": 6,
+      "use_type": 0,
+      "des": "30书页",
+      "price": 30
+    },
+    "3007": {
+      "m_type": 4,
+      "sub_type": 7,
+      "use_type": 0,
+      "des": "68书页",
+      "price": 68
+    },
+    "3008": {
+      "m_type": 4,
+      "sub_type": 8,
+      "use_type": 0,
+      "des": "128书页",
+      "price": 128
+    },
+    "3009": {
+      "m_type": 4,
+      "sub_type": 9,
+      "use_type": 0,
+      "des": "6元元宝",
+      "price": 6
+    },
+    "3010": {
+      "m_type": 4,
+      "sub_type": 10,
+      "use_type": 0,
+      "des": "12元元宝",
+      "price": 12
+    },
+    "3011": {
+      "m_type": 4,
+      "sub_type": 11,
+      "use_type": 0,
+      "des": "30元元宝",
+      "price": 30
+    },
+    "3012": {
+      "m_type": 4,
+      "sub_type": 12,
+      "use_type": 0,
+      "des": "98元元宝",
+      "price": 98
+    },
+    "3013": {
+      "m_type": 4,
+      "sub_type": 13,
+      "use_type": 0,
+      "des": "198元元宝",
+      "price": 198
+    },
+    "3014": {
+      "m_type": 4,
+      "sub_type": 14,
+      "use_type": 0,
+      "des": "398元元宝",
+      "price": 398
+    },
+    "3015": {
+      "m_type": 4,
+      "sub_type": 15,
+      "use_type": 0,
+      "des": "648元元宝",
+      "price": 648
+    },
+    "3016": {
+      "m_type": 4,
+      "sub_type": 16,
+      "use_type": 0,
+      "des": "神装礼包",
+      "price": 30
+    },
+    "3017": {
+      "m_type": 4,
+      "sub_type": 17,
+      "use_type": 0,
+      "des": "轮回礼包",
+      "price": 68
+    },
+    "3018": {
+      "m_type": 4,
+      "sub_type": 18,
+      "use_type": 0,
+      "des": "ios328元宝",
+      "price": 328
+    },
+    "3019": {
+      "m_type": 4,
+      "sub_type": 19,
+      "use_type": 0,
+      "des": "回收月卡",
+      "price": 30
+    },
+    "3020": {
+      "m_type": 4,
+      "sub_type": 20,
+      "use_type": 0,
+      "des": "战神月卡",
+      "price": 30
+    },
+    "3021": {
+      "m_type": 4,
+      "sub_type": 21,
+      "use_type": 0,
+      "des": "回收季卡",
+      "price": 68
+    },
+    "3022": {
+      "m_type": 4,
+      "sub_type": 22,
+      "use_type": 0,
+      "des": "战神季卡",
+      "price": 68
+    },
+    "3023": {
+      "m_type": 4,
+      "sub_type": 23,
+      "use_type": 0,
+      "des": "双季卡",
+      "price": 128
+    },
+    "3024": {
+      "m_type": 4,
+      "sub_type": 24,
+      "use_type": 0,
+      "des": "半月弯刀·碧玉",
+      "price": 30
+    },
+    "3025": {
+      "m_type": 4,
+      "sub_type": 25,
+      "use_type": 0,
+      "des": "火墙术·朱炎",
+      "price": 30
+    },
+    "3026": {
+      "m_type": 4,
+      "sub_type": 26,
+      "use_type": 0,
+      "des": "施毒术·紫祸",
+      "price": 30
+    },
+    "3027": {
+      "m_type": 4,
+      "sub_type": 27,
+      "use_type": 0,
+      "des": "助战礼包",
+      "price": 30
+    },
+    "3028": {
+      "m_type": 4,
+      "sub_type": 28,
+      "use_type": 0,
+      "des": "背包付费拓展",
+      "price": 30
+    },
+    "4001": {
+      "m_type": 5,
+      "sub_type": 1,
+      "use_type": 0,
+      "des": "半兽勇士"
+    },
+    "4002": {
+      "m_type": 5,
+      "sub_type": 2,
+      "use_type": 0,
+      "des": "骷髅精灵"
+    },
+    "4003": {
+      "m_type": 5,
+      "sub_type": 3,
+      "use_type": 0,
+      "des": "尸王"
+    },
+    "4004": {
+      "m_type": 5,
+      "sub_type": 4,
+      "use_type": 0,
+      "des": "巨型多角虫"
+    },
+    "4005": {
+      "m_type": 5,
+      "sub_type": 5,
+      "use_type": 0,
+      "des": "触龙神"
+    },
+    "4006": {
+      "m_type": 5,
+      "sub_type": 6,
+      "use_type": 0,
+      "des": "沃玛教主"
+    },
+    "4007": {
+      "m_type": 5,
+      "sub_type": 7,
+      "use_type": 0,
+      "des": "石墓尸王"
+    },
+    "4008": {
+      "m_type": 5,
+      "sub_type": 8,
+      "use_type": 0,
+      "des": "祖玛教主"
+    },
+    "4009": {
+      "m_type": 5,
+      "sub_type": 9,
+      "use_type": 0,
+      "des": "双头血魔"
+    },
+    "4010": {
+      "m_type": 5,
+      "sub_type": 10,
+      "use_type": 0,
+      "des": "双头金刚"
+    },
+    "4011": {
+      "m_type": 5,
+      "sub_type": 11,
+      "use_type": 0,
+      "des": "赤月恶魔"
+    },
+    "4012": {
+      "m_type": 5,
+      "sub_type": 12,
+      "use_type": 0,
+      "des": "邪恶钳虫"
+    },
+    "4013": {
+      "m_type": 5,
+      "sub_type": 13,
+      "use_type": 0,
+      "des": "白野猪"
+    },
+    "4014": {
+      "m_type": 5,
+      "sub_type": 14,
+      "use_type": 0,
+      "des": "魔龙巨蛾"
+    },
+    "4015": {
+      "m_type": 5,
+      "sub_type": 15,
+      "use_type": 0,
+      "des": "魔龙力士"
+    },
+    "4016": {
+      "m_type": 5,
+      "sub_type": 16,
+      "use_type": 0,
+      "des": "魔龙战将"
+    },
+    "4017": {
+      "m_type": 5,
+      "sub_type": 17,
+      "use_type": 0,
+      "des": "魔龙教主"
+    },
+    "4018": {
+      "m_type": 5,
+      "sub_type": 18,
+      "use_type": 0,
+      "des": "半兽勇士(轮回)"
+    },
+    "4019": {
+      "m_type": 5,
+      "sub_type": 19,
+      "use_type": 0,
+      "des": "骷髅精灵(轮回)"
+    },
+    "4020": {
+      "m_type": 5,
+      "sub_type": 20,
+      "use_type": 0,
+      "des": "尸王(轮回)"
+    },
+    "4021": {
+      "m_type": 5,
+      "sub_type": 21,
+      "use_type": 0,
+      "des": "巨型多角虫(轮回)"
+    },
+    "4022": {
+      "m_type": 5,
+      "sub_type": 22,
+      "use_type": 0,
+      "des": "触龙神(轮回)"
+    },
+    "4023": {
+      "m_type": 5,
+      "sub_type": 23,
+      "use_type": 0,
+      "des": "沃玛教主(轮回)"
+    },
+    "4024": {
+      "m_type": 5,
+      "sub_type": 24,
+      "use_type": 0,
+      "des": "石墓尸王(轮回)"
+    },
+    "4025": {
+      "m_type": 5,
+      "sub_type": 25,
+      "use_type": 0,
+      "des": "祖玛教主(轮回)"
+    },
+    "4026": {
+      "m_type": 5,
+      "sub_type": 26,
+      "use_type": 0,
+      "des": "双头血魔(轮回)"
+    },
+    "4027": {
+      "m_type": 5,
+      "sub_type": 27,
+      "use_type": 0,
+      "des": "双头金刚(轮回)"
+    },
+    "4028": {
+      "m_type": 5,
+      "sub_type": 28,
+      "use_type": 0,
+      "des": "赤月恶魔(轮回)"
+    },
+    "4029": {
+      "m_type": 5,
+      "sub_type": 29,
+      "use_type": 0,
+      "des": "邪恶钳虫(轮回)"
+    },
+    "4030": {
+      "m_type": 5,
+      "sub_type": 30,
+      "use_type": 0,
+      "des": "白野猪(轮回)"
+    },
+    "4031": {
+      "m_type": 5,
+      "sub_type": 31,
+      "use_type": 0,
+      "des": "魔龙巨蛾(轮回)"
+    },
+    "4032": {
+      "m_type": 5,
+      "sub_type": 32,
+      "use_type": 0,
+      "des": "魔龙力士(轮回)"
+    },
+    "4033": {
+      "m_type": 5,
+      "sub_type": 33,
+      "use_type": 0,
+      "des": "魔龙战将(轮回)"
+    },
+    "4034": {
+      "m_type": 5,
+      "sub_type": 34,
+      "use_type": 0,
+      "des": "魔龙教主(轮回)"
+    }
+  }
+}

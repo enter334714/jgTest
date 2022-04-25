@@ -1,0 +1,1122 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_tips_bj",
+      "texture": "165b67a29",
+      "rect": [
+        260,
+        589,
+        175,
+        124
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        175,
+        124
+      ],
+      "capInsets": [
+        60,
+        44,
+        58,
+        46
+      ]
+    }
+  },
+  [
+    {
+      "__type__": "cc.Prefab",
+      "_name": "cuilianRule",
+      "data": {
+        "__id__": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "cuilianRule",
+      "_children": [
+        {
+          "__id__": 2
+        },
+        {
+          "__id__": 3
+        },
+        {
+          "__id__": 4
+        },
+        {
+          "__id__": 5
+        },
+        {
+          "__id__": 6
+        },
+        {
+          "__id__": 15
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "c509cHD98JE8pYG/vq3jN29",
+          "node": {
+            "__id__": 1
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "dfGF1iaWlInLQgvtCa9OHb"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 640,
+        "height": 1134
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "darkLayer",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 2
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_spriteFrame": {
+            "__uuid__": "faGSEUALBDTZ4m77k/pLdP"
+          },
+          "_sizeMode": 0
+        },
+        {
+          "__type__": "cc.Widget",
+          "node": {
+            "__id__": 2
+          },
+          "_alignFlags": 45,
+          "_originalWidth": 100,
+          "_originalHeight": 100
+        },
+        {
+          "__type__": "cc.Button",
+          "node": {
+            "__id__": 2
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "70VG9D2+9IU6jIflDGc8v+"
+      },
+      "_opacity": 200,
+      "_color": {
+        "__type__": "cc.Color"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 640,
+        "height": 1134
+      },
+      "_position": {
+        "__type__": "cc.Vec3"
+      },
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "panel",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 3
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_spriteFrame": {
+            "__uuid__": "19/RZqegJLWr5U0XZjUjmG"
+          },
+          "_type": 1,
+          "_sizeMode": 0
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "79Lx+DK8NMZK06dECJjiWr"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 528,
+        "height": 361
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "x": 0.543184020798082,
+        "y": 0.6173887856211127
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          19,
+          53,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "kd__bg_04",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 4
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_spriteFrame": {
+            "__uuid__": "b2axAIgGhELba2fmPVLKh6"
+          },
+          "_sizeMode": 0
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "df+UCWb9VML6bBq91Znq/s"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 230,
+        "height": 3
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          4.259,
+          117.95,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "txtTitle",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__type__": "cc.Label",
+          "node": {
+            "__id__": 5
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_useOriginalSize": false,
+          "_string": "玩法说明",
+          "_N$string": "玩法说明",
+          "_fontSize": 30,
+          "_N$horizontalAlign": 1,
+          "_N$verticalAlign": 1
+        },
+        {
+          "__type__": "42c896PLUtB5a29kUw4vdKn",
+          "node": {
+            "__id__": 5
+          },
+          "code": 60790
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "516Ok9PndAkJe5nZ9O+pes"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 120,
+        "height": 50.4
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -2.968,
+          143.439,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "txtContent",
+      "_parent": {
+        "__id__": 1
+      },
+      "_children": [
+        {
+          "__id__": 7
+        },
+        {
+          "__id__": 8
+        },
+        {
+          "__id__": 9
+        },
+        {
+          "__id__": 10
+        },
+        {
+          "__id__": 11
+        },
+        {
+          "__id__": 12
+        },
+        {
+          "__id__": 13
+        },
+        {
+          "__id__": 14
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "cc.RichText",
+          "node": {
+            "__id__": 6
+          },
+          "_N$string": "1.拥有<color=#00ff00>符文之语</c>的轮回装备才可以进行淬练\n2.淬练装备需要消耗金币和<color=#f604f4>淬练石</color>\n3.淬练属性可自由选择是否保存,点击【保存属\n性】才会替换当前装备已有的淬炼属性\n4.淬炼只会改变符文之语的数值，不改变属性类型",
+          "_N$fontSize": 21,
+          "_N$lineHeight": 36
+        },
+        {
+          "__type__": "42c896PLUtB5a29kUw4vdKn",
+          "node": {
+            "__id__": 6
+          },
+          "code": 60826
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "25Zo5GpA1LRa4cG2vybpgn"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 458.51,
+        "height": 189.35999999999999
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -4.123,
+          -18.766,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.PrivateNode",
+      "_name": "RICHTEXT_CHILD",
+      "_objFlags": 1024,
+      "_parent": {
+        "__id__": 6
+      },
+      "_components": [
+        {
+          "__type__": "cc.Label",
+          "node": {
+            "__id__": 7
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_string": "1.拥有",
+          "_N$string": "1.拥有",
+          "_fontSize": 21,
+          "_lineHeight": 36,
+          "_N$verticalAlign": 1
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "34lQ2X/ANOUIW34eioYTFv"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 59.51,
+        "height": 45.36
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2"
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -229.255,
+          49.32000000000001,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "_zIndex": -32768
+    },
+    {
+      "__type__": "cc.PrivateNode",
+      "_name": "RICHTEXT_CHILD",
+      "_objFlags": 1024,
+      "_parent": {
+        "__id__": 6
+      },
+      "_components": [
+        {
+          "__type__": "cc.Label",
+          "node": {
+            "__id__": 8
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_string": "符文之语",
+          "_N$string": "符文之语",
+          "_fontSize": 21,
+          "_lineHeight": 36,
+          "_N$verticalAlign": 1
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "deqLZqQwtOfpVGyon//tNX"
+      },
+      "_color": {
+        "__type__": "cc.Color",
+        "g": 255
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 84,
+        "height": 45.36
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2"
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -169.745,
+          49.32000000000001,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "_zIndex": -32768
+    },
+    {
+      "__type__": "cc.PrivateNode",
+      "_name": "RICHTEXT_CHILD",
+      "_objFlags": 1024,
+      "_parent": {
+        "__id__": 6
+      },
+      "_components": [
+        {
+          "__type__": "cc.Label",
+          "node": {
+            "__id__": 9
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_string": "的轮回装备才可以进行淬练",
+          "_N$string": "的轮回装备才可以进行淬练",
+          "_fontSize": 21,
+          "_lineHeight": 36,
+          "_N$verticalAlign": 1
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "63cHt2W+tPGKIhWznQy+m3"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 252,
+        "height": 45.36
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2"
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -85.745,
+          49.32000000000001,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "_zIndex": -32768
+    },
+    {
+      "__type__": "cc.PrivateNode",
+      "_name": "RICHTEXT_CHILD",
+      "_objFlags": 1024,
+      "_parent": {
+        "__id__": 6
+      },
+      "_components": [
+        {
+          "__type__": "cc.Label",
+          "node": {
+            "__id__": 10
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_string": "2.淬练装备需要消耗金币和",
+          "_N$string": "2.淬练装备需要消耗金币和",
+          "_fontSize": 21,
+          "_lineHeight": 36,
+          "_N$verticalAlign": 1
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "bf1S/j1lxDKJoa3QCs7Z/S"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 248.51,
+        "height": 45.36
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2"
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -229.255,
+          13.320000000000007,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "_zIndex": -32768
+    },
+    {
+      "__type__": "cc.PrivateNode",
+      "_name": "RICHTEXT_CHILD",
+      "_objFlags": 1024,
+      "_parent": {
+        "__id__": 6
+      },
+      "_components": [
+        {
+          "__type__": "cc.Label",
+          "node": {
+            "__id__": 11
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_string": "淬练石",
+          "_N$string": "淬练石",
+          "_fontSize": 21,
+          "_lineHeight": 36,
+          "_N$verticalAlign": 1
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "56XlwibclBXbDx0FRpbG1q"
+      },
+      "_color": {
+        "__type__": "cc.Color",
+        "r": 246,
+        "g": 4,
+        "b": 244
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 63,
+        "height": 45.36
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2"
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          19.254999999999995,
+          13.320000000000007,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "_zIndex": -32768
+    },
+    {
+      "__type__": "cc.PrivateNode",
+      "_name": "RICHTEXT_CHILD",
+      "_objFlags": 1024,
+      "_parent": {
+        "__id__": 6
+      },
+      "_components": [
+        {
+          "__type__": "cc.Label",
+          "node": {
+            "__id__": 12
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_string": "3.淬练属性可自由选择是否保存,点击【保存属",
+          "_N$string": "3.淬练属性可自由选择是否保存,点击【保存属",
+          "_fontSize": 21,
+          "_lineHeight": 36,
+          "_N$verticalAlign": 1
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "3cTmQds1pCMKiBHEWM56pL"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 422.35,
+        "height": 45.36
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2"
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -229.255,
+          -22.679999999999993,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "_zIndex": -32768
+    },
+    {
+      "__type__": "cc.PrivateNode",
+      "_name": "RICHTEXT_CHILD",
+      "_objFlags": 1024,
+      "_parent": {
+        "__id__": 6
+      },
+      "_components": [
+        {
+          "__type__": "cc.Label",
+          "node": {
+            "__id__": 13
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_string": "性】才会替换当前装备已有的淬炼属性",
+          "_N$string": "性】才会替换当前装备已有的淬炼属性",
+          "_fontSize": 21,
+          "_lineHeight": 36,
+          "_N$verticalAlign": 1
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "12FRlQWwpBfJXMPa4hhtL7"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 357,
+        "height": 45.36
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2"
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -229.255,
+          -58.67999999999999,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "_zIndex": -32768
+    },
+    {
+      "__type__": "cc.PrivateNode",
+      "_name": "RICHTEXT_CHILD",
+      "_objFlags": 1024,
+      "_parent": {
+        "__id__": 6
+      },
+      "_components": [
+        {
+          "__type__": "cc.Label",
+          "node": {
+            "__id__": 14
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_string": "4.淬炼只会改变符文之语的数值，不改变属性类型",
+          "_N$string": "4.淬炼只会改变符文之语的数值，不改变属性类型",
+          "_fontSize": 21,
+          "_lineHeight": 36,
+          "_N$verticalAlign": 1
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "d1OXZAq81OD5Rs81VyF3C7"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 458.51,
+        "height": 45.36
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2"
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -229.255,
+          -94.67999999999999,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "_zIndex": -32768
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "btnClose",
+      "_parent": {
+        "__id__": 1
+      },
+      "_children": [
+        {
+          "__id__": 16
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "bdM2MlaqZO641dcS+vXtA9"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 50,
+        "height": 50
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          214.985,
+          138.913,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "btnClose",
+      "_parent": {
+        "__id__": 15
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 16
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_spriteFrame": {
+            "__uuid__": "b59/gV4/9NprM2p8VWOYX+"
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "294ofAlYVDDZuhtXClTaQO"
+        },
+        "fileId": "0a0jasBGBIaraBefd2WLCL"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 22,
+        "height": 22
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "kd__bg_04",
+      "texture": "1b2cccd3d",
+      "rect": [
+        218,
+        1015,
+        498,
+        3
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        498,
+        3
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "btn_guanbi",
+      "texture": "14f708880",
+      "rect": [
+        998,
+        987,
+        22,
+        22
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        80,
+        80
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "back_01",
+      "texture": "11dfc7ad0",
+      "rect": [
+        1013,
+        643,
+        6,
+        6
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        6,
+        6
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

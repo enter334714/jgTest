@@ -1,0 +1,250 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_milupaobu_ziji_01",
+      "texture": "1ff430657",
+      "rect": [
+        822,
+        769,
+        89,
+        87
+      ],
+      "offset": [
+        -1,
+        4
+      ],
+      "originalSize": [
+        109,
+        111
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "mymilu",
+    "_duration": 0.5166666666666667,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "00hVf421pCcq4ZPvVVFn2H"
+              }
+            },
+            {
+              "frame": 0.08333333333333333,
+              "value": {
+                "__uuid__": "59G1pUDLNAx6U/jQiYuDy2"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "75INcm/pJNP5pVOQgu5DMQ"
+              }
+            },
+            {
+              "frame": 0.25,
+              "value": {
+                "__uuid__": "d2xeYtALBEP41F275/SsPZ"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "69AfQPyWVDpqcHju9hGT8H"
+              }
+            },
+            {
+              "frame": 0.4166666666666667,
+              "value": {
+                "__uuid__": "d1Gexo/bdIy5ZEeIpaWN7e"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "83WMEygI9HUobJBnNF+Wd8"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_milupaobu_ziji_02",
+      "texture": "1ff430657",
+      "rect": [
+        623,
+        568,
+        81,
+        85
+      ],
+      "offset": [
+        -14,
+        -3
+      ],
+      "originalSize": [
+        109,
+        111
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_milupaobu_ziji_05",
+      "texture": "1a00dd03f",
+      "rect": [
+        919,
+        359,
+        75,
+        102
+      ],
+      "offset": [
+        4,
+        -4.5
+      ],
+      "originalSize": [
+        109,
+        111
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_milupaobu_ziji_03",
+      "texture": "14b6ca1c6",
+      "rect": [
+        820,
+        821,
+        79,
+        91
+      ],
+      "offset": [
+        -15,
+        -7
+      ],
+      "originalSize": [
+        109,
+        111
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_milupaobu_ziji_07",
+      "texture": "166614bc0",
+      "rect": [
+        631,
+        923,
+        94,
+        98
+      ],
+      "offset": [
+        0.5,
+        2.5
+      ],
+      "originalSize": [
+        109,
+        111
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_milupaobu_ziji_06",
+      "texture": "14aea35d2",
+      "rect": [
+        432,
+        918,
+        103,
+        108
+      ],
+      "offset": [
+        3,
+        1.5
+      ],
+      "originalSize": [
+        109,
+        111
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_milupaobu_ziji_04",
+      "texture": "15bcb26c5",
+      "rect": [
+        721,
+        611,
+        79,
+        93
+      ],
+      "offset": [
+        -9,
+        -5
+      ],
+      "originalSize": [
+        109,
+        111
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

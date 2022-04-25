@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "picframe_lvshuchegnyin_48",
+    "texture": "90vnN1MqpKiLHtrJeAJ7Ob",
+    "rect": [
+      19,
+      12,
+      166,
+      51
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      204,
+      74
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_jiangdingshangren_npc_zhezhao",
+    "texture": "446qDxTutFvKxiJwSxs1cQ",
+    "rect": [
+      0,
+      0,
+      216,
+      82
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      216,
+      82
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

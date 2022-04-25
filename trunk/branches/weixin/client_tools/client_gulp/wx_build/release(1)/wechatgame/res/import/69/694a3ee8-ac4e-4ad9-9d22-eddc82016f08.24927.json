@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "picframe_yanyanxiari_49",
+    "texture": "03aHrGVt9MxqknWzdXFuSq",
+    "rect": [
+      25,
+      9,
+      154,
+      58
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      204,
+      74
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

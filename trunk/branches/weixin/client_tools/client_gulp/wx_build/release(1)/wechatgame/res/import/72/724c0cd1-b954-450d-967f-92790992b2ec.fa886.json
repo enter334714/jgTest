@@ -1,0 +1,177 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "shareConfig",
+  "json": {
+    "101": {
+      "task": "填写邀请码",
+      "condition": 1,
+      "limit_time": 5,
+      "res_reward": {
+        "1": 50000,
+        "2": 100
+      },
+      "item_reward": {
+        "I3001": 100,
+        "I3909": 100
+      }
+    },
+    "202": {
+      "task": "每日生成海报奖励",
+      "condition": 2,
+      "limit_time": 1,
+      "res_reward": {
+        "2": 10
+      }
+    },
+    "301": {
+      "task": "好友战力达到5000",
+      "peo_require": 1,
+      "condition": 3,
+      "goal": 5000,
+      "limit_time": 5,
+      "res_reward": {
+        "1": 20000,
+        "2": 10
+      },
+      "item_reward": {
+        "I3004": 25,
+        "I4001": 25
+      }
+    },
+    "302": {
+      "task": "好友战力达到10000",
+      "peo_require": 1,
+      "condition": 3,
+      "goal": 10000,
+      "limit_time": 5,
+      "res_reward": {
+        "1": 30000,
+        "2": 20
+      },
+      "item_reward": {
+        "I3001": 25,
+        "I3903": 25
+      }
+    },
+    "303": {
+      "task": "好友战力达到30000",
+      "peo_require": 1,
+      "condition": 3,
+      "goal": 30000,
+      "limit_time": 5,
+      "res_reward": {
+        "2": 20
+      },
+      "item_reward": {
+        "I8000": 30,
+        "I3903": 50,
+        "I3909": 150
+      }
+    },
+    "401": {
+      "task": "好友累计登录3天",
+      "peo_require": 1,
+      "condition": 4,
+      "goal": 3,
+      "limit_time": 5,
+      "res_reward": {
+        "1": 20000,
+        "2": 10
+      },
+      "item_reward": {
+        "I3102": 2,
+        "I3909": 100
+      }
+    },
+    "402": {
+      "task": "好友累计登录7天",
+      "peo_require": 1,
+      "condition": 4,
+      "goal": 7,
+      "limit_time": 5,
+      "res_reward": {
+        "1": 30000,
+        "2": 20
+      },
+      "item_reward": {
+        "I3103": 2,
+        "I3903": 25
+      }
+    },
+    "403": {
+      "task": "好友累计登录14天",
+      "peo_require": 1,
+      "condition": 4,
+      "goal": 14,
+      "limit_time": 5,
+      "res_reward": {
+        "2": 20
+      },
+      "item_reward": {
+        "I3104": 1,
+        "I3131": 10,
+        "I3910": 40
+      }
+    },
+    "501": {
+      "task": "好友等级达到40级",
+      "peo_require": 1,
+      "condition": 5,
+      "goal": 40,
+      "limit_time": 5,
+      "res_reward": {
+        "1": 20000,
+        "2": 10
+      },
+      "item_reward": {
+        "I3151": 2,
+        "I3910": 20
+      }
+    },
+    "502": {
+      "task": "好友等级达到50级",
+      "peo_require": 1,
+      "condition": 5,
+      "goal": 50,
+      "limit_time": 5,
+      "res_reward": {
+        "1": 30000,
+        "2": 20
+      },
+      "item_reward": {
+        "I3152": 1,
+        "I3154": 6
+      }
+    },
+    "503": {
+      "task": "好友等级达到60级",
+      "peo_require": 1,
+      "condition": 5,
+      "goal": 60,
+      "limit_time": 5,
+      "res_reward": {
+        "2": 30
+      },
+      "item_reward": {
+        "I3152": 2,
+        "I3154": 5,
+        "I3133": 2
+      }
+    },
+    "504": {
+      "task": "5位好友等级达到70级",
+      "peo_require": 5,
+      "condition": 5,
+      "goal": 70,
+      "limit_time": 1,
+      "res_reward": {
+        "2": 200
+      },
+      "item_reward": {
+        "I3153": 5,
+        "I3134": 10,
+        "I7142": 1
+      }
+    }
+  }
+}

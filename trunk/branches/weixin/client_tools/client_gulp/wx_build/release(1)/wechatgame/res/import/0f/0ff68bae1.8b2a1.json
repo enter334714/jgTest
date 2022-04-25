@@ -1,0 +1,69 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_jinji_shangsheng",
+      "texture": "140d065ac",
+      "rect": [
+        420,
+        459,
+        16,
+        20
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        16,
+        20
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteAtlas",
+    "_name": "shengjiang.plist",
+    "_spriteFrames": {
+      "img_icon_jinji_shangsheng": {
+        "__uuid__": "455ffCgxhEyKiRj1C251HF"
+      },
+      "img_icon_jinji_xiajiang": {
+        "__uuid__": "d6KFuG/4NAzaRZtuX7S8di"
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_jinji_xiajiang",
+      "texture": "140d065ac",
+      "rect": [
+        1004,
+        647,
+        16,
+        20
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        16,
+        20
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

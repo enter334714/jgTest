@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ppicframe_huxuelongtan_01",
+    "texture": "favcZhI3FNL6weEEoczTDj",
+    "rect": [
+      20,
+      8,
+      166,
+      62
+    ],
+    "offset": [
+      1,
+      -2
+    ],
+    "originalSize": [
+      204,
+      74
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

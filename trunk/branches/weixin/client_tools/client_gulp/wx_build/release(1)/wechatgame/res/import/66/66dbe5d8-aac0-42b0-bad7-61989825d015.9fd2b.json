@@ -1,0 +1,13 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "makeequipmentcost",
+  "json": {
+    "1": {
+      "time": 1800,
+      "gem": [
+        2,
+        20
+      ]
+    }
+  }
+}

@@ -843,7 +843,7 @@
       var tSound;
       var tchanell;
       if (this.url == SoundManager._tMusic) {
-        if (!MiniSound._musicAudio) MiniSound._musicAudio = MiniSound._createSound();
+        if (!MiniSound._musicAudio) MiniSound._musicAudio = this._sound;
         tSound = MiniSound._musicAudio;
         tchanell = this._chanell;
       } else {
@@ -868,11 +868,13 @@
       // SoundManager.addChannel(channel);
       // return channel;
 
-      tchanell.url = this.url;
-      tchanell.loops = loops;
-      tchanell.startTime = startTime;
-      tchanell.play();
-      SoundManager.addChannel(tchanell);
+      if(tchanell.isStopped){
+        tchanell.url = this.url;
+        tchanell.loops = loops;
+        tchanell.startTime = startTime;
+        tchanell.play();        
+        SoundManager.addChannel(tchanell);
+      }
       return tchanell;
     }
 
@@ -918,7 +920,9 @@
     function MiniSoundChannel(audio) {
       this._audio = null;
       this._onEnd = null;
+     
       MiniSoundChannel.__super.call(this);
+      this.isStopped = true;
       this._audio = audio;
       this._onEnd = Utils.bind(this.__onEnd, this);
       audio.onEnded(this._onEnd);

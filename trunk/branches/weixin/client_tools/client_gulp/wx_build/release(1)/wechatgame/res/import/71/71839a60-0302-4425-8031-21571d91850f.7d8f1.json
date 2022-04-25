@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_icon_yemanchongzhuang_02",
+    "texture": "00DN9Rk7RKTKJ4eHfpZlgK",
+    "rect": [
+      6,
+      6,
+      68,
+      65
+    ],
+    "offset": [
+      0,
+      1.5
+    ],
+    "originalSize": [
+      80,
+      80
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

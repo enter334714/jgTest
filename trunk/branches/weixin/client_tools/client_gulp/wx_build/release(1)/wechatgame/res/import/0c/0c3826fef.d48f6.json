@@ -1,0 +1,444 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "but_tianguan_saodang",
+      "texture": "f0G9eWkvFCprMLTi5xL/aC",
+      "rect": [
+        0,
+        0,
+        158,
+        45
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        158,
+        45
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_tianguan_ta01",
+      "texture": "165b67a29",
+      "rect": [
+        643,
+        385,
+        402,
+        130
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        402,
+        130
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "fontclip_tianhuan_yitongguan",
+      "texture": "9aPtLFB65JFbBNa20mZyGr",
+      "rect": [
+        0,
+        0,
+        142,
+        26
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        142,
+        26
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  [
+    {
+      "__type__": "cc.Prefab",
+      "_name": "TianGuanCell",
+      "data": {
+        "__id__": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "TianGuanCell",
+      "_children": [
+        {
+          "__id__": 2
+        },
+        {
+          "__id__": 3
+        },
+        {
+          "__id__": 4
+        },
+        {
+          "__id__": 5
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 1
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_spriteFrame": {
+            "__uuid__": "26aV+xKDZAxK/p4/Q+BdlL"
+          }
+        },
+        {
+          "__type__": "1ca67BDTjBOyqP+5tsj2Wcu",
+          "node": {
+            "__id__": 1
+          },
+          "levelLabel": {
+            "__id__": 6
+          },
+          "passNode": {
+            "__id__": 3
+          },
+          "sweepNode": {
+            "__id__": 4
+          },
+          "challengeNode": {
+            "__id__": 2
+          }
+        },
+        {
+          "__type__": "cc.Button",
+          "node": {
+            "__id__": 1
+          },
+          "_N$target": {
+            "__id__": 1
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "b5DLgfk0xM7IdG9+tFDZ2E"
+        },
+        "fileId": "a0Ta7qrjhCbLtJ8ogFiOQ2"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 402,
+        "height": 130
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          2.476,
+          -190.796,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "challenge",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 2
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_spriteFrame": {
+            "__uuid__": "faAopOOIdPxJ8tzqviDd+4"
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "b5DLgfk0xM7IdG9+tFDZ2E"
+        },
+        "fileId": "ceqSoLqrFOqaf/tgUovAhM"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 158,
+        "height": 45
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          0,
+          -35,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "pass",
+      "_parent": {
+        "__id__": 1
+      },
+      "_active": false,
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 3
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_spriteFrame": {
+            "__uuid__": "53aakc+tZLxalu9KRDwOVk"
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "b5DLgfk0xM7IdG9+tFDZ2E"
+        },
+        "fileId": "69NJOiu59F9I3RpN9gg4cP"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 142,
+        "height": 26
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          0,
+          -35,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "sweep",
+      "_parent": {
+        "__id__": 1
+      },
+      "_active": false,
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 4
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_spriteFrame": {
+            "__uuid__": "0dPYBnZAdMWYu4CbW9uWXN"
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "b5DLgfk0xM7IdG9+tFDZ2E"
+        },
+        "fileId": "27IzWw4HJBFJfBNKat/CG0"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 158,
+        "height": 45
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          0,
+          -35,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "Label",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__id__": 6
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "b5DLgfk0xM7IdG9+tFDZ2E"
+        },
+        "fileId": "7bzYjAZKhLYoeOsoTXcYfM"
+      },
+      "_color": {
+        "__type__": "cc.Color",
+        "r": 218,
+        "g": 218,
+        "b": 218
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 73.5,
+        "height": 27.72
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          0,
+          20,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Label",
+      "node": {
+        "__id__": 5
+      },
+      "_materials": [
+        {
+          "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+        }
+      ],
+      "_useOriginalSize": false,
+      "_string": "第103层",
+      "_N$string": "第103层",
+      "_fontSize": 21,
+      "_lineHeight": 22,
+      "_N$horizontalAlign": 1,
+      "_N$verticalAlign": 1,
+      "_N$fontFamily": "SimHei"
+    }
+  ],
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "but_tianguan_tiaozhan",
+      "texture": "f9ituj9v5JoJKzAEuar59i",
+      "rect": [
+        0,
+        0,
+        158,
+        45
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        158,
+        45
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

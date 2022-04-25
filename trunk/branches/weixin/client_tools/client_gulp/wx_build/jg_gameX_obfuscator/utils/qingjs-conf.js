@@ -1,1 +1,0 @@
-var u=wx.$x;u=wx.$x;module.exports.APP_VERSION="0.0.1",module.exports.APP_ID="wx707bce3bbf832771",module.exports.GAMEKEY="IrVXnpyYUQoqNnwo",module.exports.DEBUG=!0,module.exports.MIDAS_PAY_USABLE=!0,module.exports.USE_BIND_ACCOUNT=!1,module.exports.DOMAIN_NAME="gztyhd.top";

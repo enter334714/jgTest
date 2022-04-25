@@ -1,0 +1,1734 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "jianbaoshopConfig",
+  "json": {
+    "120": {
+      "position": 1,
+      "level": 20,
+      "cost_2": {
+        "2": 5
+      },
+      "cost_3": {
+        "3": 4000
+      },
+      "equip_zhanshi": "E200001",
+      "equip_fashi": "E200002",
+      "equip_daoshi": "E200003",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "130": {
+      "position": 1,
+      "level": 30,
+      "cost_2": {
+        "2": 10
+      },
+      "cost_3": {
+        "3": 8000
+      },
+      "equip_zhanshi": "E300001",
+      "equip_fashi": "E300002",
+      "equip_daoshi": "E300003",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "140": {
+      "position": 1,
+      "level": 40,
+      "cost_2": {
+        "2": 18
+      },
+      "cost_3": {
+        "3": 13000
+      },
+      "equip_zhanshi": "E400001",
+      "equip_fashi": "E400002",
+      "equip_daoshi": "E400003",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "150": {
+      "position": 1,
+      "level": 50,
+      "cost_2": {
+        "2": 25
+      },
+      "cost_3": {
+        "3": 20000
+      },
+      "equip_zhanshi": "E500001",
+      "equip_fashi": "E500002",
+      "equip_daoshi": "E500003",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "160": {
+      "position": 1,
+      "level": 60,
+      "cost_2": {
+        "2": 35
+      },
+      "cost_3": {
+        "3": 26000
+      },
+      "equip_zhanshi": "E600001",
+      "equip_fashi": "E600002",
+      "equip_daoshi": "E600003",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "170": {
+      "position": 1,
+      "level": 70,
+      "cost_2": {
+        "2": 200
+      },
+      "cost_3": {
+        "3": 156000
+      },
+      "equip_zhanshi": "E700001",
+      "equip_fashi": "E700002",
+      "equip_daoshi": "E700003",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "180": {
+      "position": 1,
+      "level": 80,
+      "cost_2": {
+        "2": 220
+      },
+      "cost_3": {
+        "3": 175500
+      },
+      "equip_zhanshi": "E800001",
+      "equip_fashi": "E800002",
+      "equip_daoshi": "E800003",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "190": {
+      "position": 1,
+      "level": 90,
+      "cost_2": {
+        "2": 250
+      },
+      "cost_3": {
+        "3": 195000
+      },
+      "equip_zhanshi": "E900001",
+      "equip_fashi": "E900002",
+      "equip_daoshi": "E900003",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "220": {
+      "position": 2,
+      "level": 20,
+      "cost_2": {
+        "2": 5
+      },
+      "cost_3": {
+        "3": 4000
+      },
+      "equip_zhanshi": "E200004",
+      "equip_fashi": "E200004",
+      "equip_daoshi": "E200004",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "230": {
+      "position": 2,
+      "level": 30,
+      "cost_2": {
+        "2": 10
+      },
+      "cost_3": {
+        "3": 8000
+      },
+      "equip_zhanshi": "E300004",
+      "equip_fashi": "E300005",
+      "equip_daoshi": "E300006",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "240": {
+      "position": 2,
+      "level": 40,
+      "cost_2": {
+        "2": 18
+      },
+      "cost_3": {
+        "3": 13000
+      },
+      "equip_zhanshi": "E400004",
+      "equip_fashi": "E400005",
+      "equip_daoshi": "E400006",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "250": {
+      "position": 2,
+      "level": 50,
+      "cost_2": {
+        "2": 25
+      },
+      "cost_3": {
+        "3": 20000
+      },
+      "equip_zhanshi": "E500004",
+      "equip_fashi": "E500005",
+      "equip_daoshi": "E500006",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "260": {
+      "position": 2,
+      "level": 60,
+      "cost_2": {
+        "2": 35
+      },
+      "cost_3": {
+        "3": 26000
+      },
+      "equip_zhanshi": "E600004",
+      "equip_fashi": "E600005",
+      "equip_daoshi": "E600006",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "270": {
+      "position": 2,
+      "level": 70,
+      "cost_2": {
+        "2": 200
+      },
+      "cost_3": {
+        "3": 156000
+      },
+      "equip_zhanshi": "E700004",
+      "equip_fashi": "E700005",
+      "equip_daoshi": "E700006",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "280": {
+      "position": 2,
+      "level": 80,
+      "cost_2": {
+        "2": 220
+      },
+      "cost_3": {
+        "3": 175500
+      },
+      "equip_zhanshi": "E800004",
+      "equip_fashi": "E800005",
+      "equip_daoshi": "E800006",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "290": {
+      "position": 2,
+      "level": 90,
+      "cost_2": {
+        "2": 250
+      },
+      "cost_3": {
+        "3": 195000
+      },
+      "equip_zhanshi": "E900004",
+      "equip_fashi": "E900005",
+      "equip_daoshi": "E900006",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "320": {
+      "position": 3,
+      "level": 20,
+      "cost_2": {
+        "2": 5
+      },
+      "cost_3": {
+        "3": 4000
+      },
+      "equip_zhanshi": "E200009",
+      "equip_fashi": "E200010",
+      "equip_daoshi": "E200011",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "330": {
+      "position": 3,
+      "level": 30,
+      "cost_2": {
+        "2": 10
+      },
+      "cost_3": {
+        "3": 8000
+      },
+      "equip_zhanshi": "E300011",
+      "equip_fashi": "E300012",
+      "equip_daoshi": "E300013",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "340": {
+      "position": 3,
+      "level": 40,
+      "cost_2": {
+        "2": 18
+      },
+      "cost_3": {
+        "3": 13000
+      },
+      "equip_zhanshi": "E400011",
+      "equip_fashi": "E400012",
+      "equip_daoshi": "E400013",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "350": {
+      "position": 3,
+      "level": 50,
+      "cost_2": {
+        "2": 25
+      },
+      "cost_3": {
+        "3": 20000
+      },
+      "equip_zhanshi": "E500011",
+      "equip_fashi": "E500012",
+      "equip_daoshi": "E500013",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "360": {
+      "position": 3,
+      "level": 60,
+      "cost_2": {
+        "2": 35
+      },
+      "cost_3": {
+        "3": 26000
+      },
+      "equip_zhanshi": "E600013",
+      "equip_fashi": "E600014",
+      "equip_daoshi": "E600015",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "370": {
+      "position": 3,
+      "level": 70,
+      "cost_2": {
+        "2": 200
+      },
+      "cost_3": {
+        "3": 156000
+      },
+      "equip_zhanshi": "E700013",
+      "equip_fashi": "E700014",
+      "equip_daoshi": "E700015",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "380": {
+      "position": 3,
+      "level": 80,
+      "cost_2": {
+        "2": 220
+      },
+      "cost_3": {
+        "3": 175500
+      },
+      "equip_zhanshi": "E800013",
+      "equip_fashi": "E800014",
+      "equip_daoshi": "E800015",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "390": {
+      "position": 3,
+      "level": 90,
+      "cost_2": {
+        "2": 250
+      },
+      "cost_3": {
+        "3": 195000
+      },
+      "equip_zhanshi": "E900013",
+      "equip_fashi": "E900014",
+      "equip_daoshi": "E900015",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "420": {
+      "position": 4,
+      "level": 20,
+      "cost_2": {
+        "2": 5
+      },
+      "cost_3": {
+        "3": 4000
+      },
+      "equip_zhanshi": "E200012",
+      "equip_fashi": "E200013",
+      "equip_daoshi": "E200014",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "430": {
+      "position": 4,
+      "level": 30,
+      "cost_2": {
+        "2": 10
+      },
+      "cost_3": {
+        "3": 8000
+      },
+      "equip_zhanshi": "E300014",
+      "equip_fashi": "E300015",
+      "equip_daoshi": "E300016",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "440": {
+      "position": 4,
+      "level": 40,
+      "cost_2": {
+        "2": 18
+      },
+      "cost_3": {
+        "3": 13000
+      },
+      "equip_zhanshi": "E400014",
+      "equip_fashi": "E400015",
+      "equip_daoshi": "E400016",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "450": {
+      "position": 4,
+      "level": 50,
+      "cost_2": {
+        "2": 25
+      },
+      "cost_3": {
+        "3": 20000
+      },
+      "equip_zhanshi": "E500014",
+      "equip_fashi": "E500015",
+      "equip_daoshi": "E500016",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "460": {
+      "position": 4,
+      "level": 60,
+      "cost_2": {
+        "2": 35
+      },
+      "cost_3": {
+        "3": 26000
+      },
+      "equip_zhanshi": "E600016",
+      "equip_fashi": "E600017",
+      "equip_daoshi": "E600018",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "470": {
+      "position": 4,
+      "level": 70,
+      "cost_2": {
+        "2": 200
+      },
+      "cost_3": {
+        "3": 156000
+      },
+      "equip_zhanshi": "E700016",
+      "equip_fashi": "E700017",
+      "equip_daoshi": "E700018",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "480": {
+      "position": 4,
+      "level": 80,
+      "cost_2": {
+        "2": 220
+      },
+      "cost_3": {
+        "3": 175500
+      },
+      "equip_zhanshi": "E800016",
+      "equip_fashi": "E800017",
+      "equip_daoshi": "E800018",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "490": {
+      "position": 4,
+      "level": 90,
+      "cost_2": {
+        "2": 250
+      },
+      "cost_3": {
+        "3": 195000
+      },
+      "equip_zhanshi": "E900016",
+      "equip_fashi": "E900017",
+      "equip_daoshi": "E900018",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "520": {
+      "position": 5,
+      "level": 20,
+      "cost_2": {
+        "2": 5
+      },
+      "cost_3": {
+        "3": 4000
+      },
+      "equip_zhanshi": "E200016",
+      "equip_fashi": "E200016",
+      "equip_daoshi": "E200016",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "530": {
+      "position": 5,
+      "level": 30,
+      "cost_2": {
+        "2": 10
+      },
+      "cost_3": {
+        "3": 8000
+      },
+      "equip_zhanshi": "E300018",
+      "equip_fashi": "E300018",
+      "equip_daoshi": "E300018",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "540": {
+      "position": 5,
+      "level": 40,
+      "cost_2": {
+        "2": 18
+      },
+      "cost_3": {
+        "3": 13000
+      },
+      "equip_zhanshi": "E400018",
+      "equip_fashi": "E400018",
+      "equip_daoshi": "E400018",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "550": {
+      "position": 5,
+      "level": 50,
+      "cost_2": {
+        "2": 25
+      },
+      "cost_3": {
+        "3": 20000
+      },
+      "equip_zhanshi": "E500018",
+      "equip_fashi": "E500018",
+      "equip_daoshi": "E500018",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "560": {
+      "position": 5,
+      "level": 60,
+      "cost_2": {
+        "2": 35
+      },
+      "cost_3": {
+        "3": 26000
+      },
+      "equip_zhanshi": "E600020",
+      "equip_fashi": "E600020",
+      "equip_daoshi": "E600020",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "570": {
+      "position": 5,
+      "level": 70,
+      "cost_2": {
+        "2": 200
+      },
+      "cost_3": {
+        "3": 156000
+      },
+      "equip_zhanshi": "E700022",
+      "equip_fashi": "E700023",
+      "equip_daoshi": "E700024",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "580": {
+      "position": 5,
+      "level": 80,
+      "cost_2": {
+        "2": 220
+      },
+      "cost_3": {
+        "3": 175500
+      },
+      "equip_zhanshi": "E800022",
+      "equip_fashi": "E800023",
+      "equip_daoshi": "E800024",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "590": {
+      "position": 5,
+      "level": 90,
+      "cost_2": {
+        "2": 250
+      },
+      "cost_3": {
+        "3": 195000
+      },
+      "equip_zhanshi": "E900022",
+      "equip_fashi": "E900023",
+      "equip_daoshi": "E900024",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "620": {
+      "position": 6,
+      "level": 20,
+      "cost_2": {
+        "2": 5
+      },
+      "cost_3": {
+        "3": 4000
+      },
+      "equip_zhanshi": "E200005",
+      "equip_fashi": "E200005",
+      "equip_daoshi": "E200005",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "630": {
+      "position": 6,
+      "level": 30,
+      "cost_2": {
+        "2": 10
+      },
+      "cost_3": {
+        "3": 8000
+      },
+      "equip_zhanshi": "E300007",
+      "equip_fashi": "E300007",
+      "equip_daoshi": "E300007",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "640": {
+      "position": 6,
+      "level": 40,
+      "cost_2": {
+        "2": 18
+      },
+      "cost_3": {
+        "3": 13000
+      },
+      "equip_zhanshi": "E400007",
+      "equip_fashi": "E400007",
+      "equip_daoshi": "E400007",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "650": {
+      "position": 6,
+      "level": 50,
+      "cost_2": {
+        "2": 25
+      },
+      "cost_3": {
+        "3": 20000
+      },
+      "equip_zhanshi": "E500007",
+      "equip_fashi": "E500007",
+      "equip_daoshi": "E500007",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "660": {
+      "position": 6,
+      "level": 60,
+      "cost_2": {
+        "2": 35
+      },
+      "cost_3": {
+        "3": 26000
+      },
+      "equip_zhanshi": "E600007",
+      "equip_fashi": "E600008",
+      "equip_daoshi": "E600009",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "670": {
+      "position": 6,
+      "level": 70,
+      "cost_2": {
+        "2": 200
+      },
+      "cost_3": {
+        "3": 156000
+      },
+      "equip_zhanshi": "E700007",
+      "equip_fashi": "E700008",
+      "equip_daoshi": "E700009",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "680": {
+      "position": 6,
+      "level": 80,
+      "cost_2": {
+        "2": 220
+      },
+      "cost_3": {
+        "3": 175500
+      },
+      "equip_zhanshi": "E800007",
+      "equip_fashi": "E800008",
+      "equip_daoshi": "E800009",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "690": {
+      "position": 6,
+      "level": 90,
+      "cost_2": {
+        "2": 250
+      },
+      "cost_3": {
+        "3": 195000
+      },
+      "equip_zhanshi": "E900007",
+      "equip_fashi": "E900008",
+      "equip_daoshi": "E900009",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "720": {
+      "position": 7,
+      "level": 20,
+      "cost_2": {
+        "2": 5
+      },
+      "cost_3": {
+        "3": 4000
+      },
+      "equip_zhanshi": "E200006",
+      "equip_fashi": "E200007",
+      "equip_daoshi": "E200008",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "730": {
+      "position": 7,
+      "level": 30,
+      "cost_2": {
+        "2": 10
+      },
+      "cost_3": {
+        "3": 8000
+      },
+      "equip_zhanshi": "E300008",
+      "equip_fashi": "E300009",
+      "equip_daoshi": "E300010",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "740": {
+      "position": 7,
+      "level": 40,
+      "cost_2": {
+        "2": 18
+      },
+      "cost_3": {
+        "3": 13000
+      },
+      "equip_zhanshi": "E400008",
+      "equip_fashi": "E400009",
+      "equip_daoshi": "E400010",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "750": {
+      "position": 7,
+      "level": 50,
+      "cost_2": {
+        "2": 25
+      },
+      "cost_3": {
+        "3": 20000
+      },
+      "equip_zhanshi": "E500008",
+      "equip_fashi": "E500009",
+      "equip_daoshi": "E500010",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "760": {
+      "position": 7,
+      "level": 60,
+      "cost_2": {
+        "2": 35
+      },
+      "cost_3": {
+        "3": 26000
+      },
+      "equip_zhanshi": "E600010",
+      "equip_fashi": "E600011",
+      "equip_daoshi": "E600012",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "770": {
+      "position": 7,
+      "level": 70,
+      "cost_2": {
+        "2": 200
+      },
+      "cost_3": {
+        "3": 156000
+      },
+      "equip_zhanshi": "E700010",
+      "equip_fashi": "E700011",
+      "equip_daoshi": "E700012",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "780": {
+      "position": 7,
+      "level": 80,
+      "cost_2": {
+        "2": 220
+      },
+      "cost_3": {
+        "3": 175500
+      },
+      "equip_zhanshi": "E800010",
+      "equip_fashi": "E800011",
+      "equip_daoshi": "E800012",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "790": {
+      "position": 7,
+      "level": 90,
+      "cost_2": {
+        "2": 250
+      },
+      "cost_3": {
+        "3": 195000
+      },
+      "equip_zhanshi": "E900010",
+      "equip_fashi": "E900011",
+      "equip_daoshi": "E900012",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "1020": {
+      "position": 10,
+      "level": 20,
+      "cost_2": {
+        "2": 5
+      },
+      "cost_3": {
+        "3": 4000
+      },
+      "equip_zhanshi": "E200015",
+      "equip_fashi": "E200015",
+      "equip_daoshi": "E200015",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "1030": {
+      "position": 10,
+      "level": 30,
+      "cost_2": {
+        "2": 10
+      },
+      "cost_3": {
+        "3": 8000
+      },
+      "equip_zhanshi": "E300017",
+      "equip_fashi": "E300017",
+      "equip_daoshi": "E300017",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "1040": {
+      "position": 10,
+      "level": 40,
+      "cost_2": {
+        "2": 18
+      },
+      "cost_3": {
+        "3": 13000
+      },
+      "equip_zhanshi": "E400017",
+      "equip_fashi": "E400017",
+      "equip_daoshi": "E400017",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "1050": {
+      "position": 10,
+      "level": 50,
+      "cost_2": {
+        "2": 25
+      },
+      "cost_3": {
+        "3": 20000
+      },
+      "equip_zhanshi": "E500017",
+      "equip_fashi": "E500017",
+      "equip_daoshi": "E500017",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "1060": {
+      "position": 10,
+      "level": 60,
+      "cost_2": {
+        "2": 35
+      },
+      "cost_3": {
+        "3": 26000
+      },
+      "equip_zhanshi": "E600019",
+      "equip_fashi": "E600019",
+      "equip_daoshi": "E600019",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "1070": {
+      "position": 10,
+      "level": 70,
+      "cost_2": {
+        "2": 200
+      },
+      "cost_3": {
+        "3": 156000
+      },
+      "equip_zhanshi": "E700019",
+      "equip_fashi": "E700020",
+      "equip_daoshi": "E700021",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "1080": {
+      "position": 10,
+      "level": 80,
+      "cost_2": {
+        "2": 220
+      },
+      "cost_3": {
+        "3": 175500
+      },
+      "equip_zhanshi": "E800019",
+      "equip_fashi": "E800020",
+      "equip_daoshi": "E800021",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    },
+    "1090": {
+      "position": 10,
+      "level": 90,
+      "cost_2": {
+        "2": 250
+      },
+      "cost_3": {
+        "3": 195000
+      },
+      "equip_zhanshi": "E900019",
+      "equip_fashi": "E900020",
+      "equip_daoshi": "E900021",
+      "equip_quality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "quality_weight": [
+        550,
+        250,
+        125,
+        55,
+        20
+      ]
+    }
+  }
+}

@@ -1,0 +1,155 @@
+[
+  {
+    "__type__": "cc.BitmapFont",
+    "_name": "newYear",
+    "spriteFrame": {
+      "__uuid__": "efUVGctcFEXJFOcuAYq0dr"
+    },
+    "fontSize": 20,
+    "_fntConfig": {
+      "commonHeight": 20,
+      "fontSize": 20,
+      "atlasName": "newYear_0.png",
+      "fontDefDictionary": {
+        "48": {
+          "rect": {
+            "x": 185,
+            "y": 2,
+            "width": 22,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": -3,
+          "xAdvance": 22
+        },
+        "49": {
+          "rect": {
+            "x": 209,
+            "y": 2,
+            "width": 21,
+            "height": 4
+          },
+          "xOffset": 0,
+          "yOffset": 4,
+          "xAdvance": 21
+        },
+        "50": {
+          "rect": {
+            "x": 2,
+            "y": 2,
+            "width": 21,
+            "height": 11
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 21
+        },
+        "51": {
+          "rect": {
+            "x": 25,
+            "y": 2,
+            "width": 21,
+            "height": 12
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 21
+        },
+        "52": {
+          "rect": {
+            "x": 48,
+            "y": 2,
+            "width": 18,
+            "height": 12
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 18
+        },
+        "53": {
+          "rect": {
+            "x": 68,
+            "y": 2,
+            "width": 21,
+            "height": 12
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 21
+        },
+        "54": {
+          "rect": {
+            "x": 91,
+            "y": 2,
+            "width": 21,
+            "height": 14
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 21
+        },
+        "55": {
+          "rect": {
+            "x": 114,
+            "y": 2,
+            "width": 21,
+            "height": 14
+          },
+          "xOffset": 0,
+          "yOffset": -1,
+          "xAdvance": 21
+        },
+        "56": {
+          "rect": {
+            "x": 137,
+            "y": 2,
+            "width": 22,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": -2,
+          "xAdvance": 22
+        },
+        "57": {
+          "rect": {
+            "x": 161,
+            "y": 2,
+            "width": 22,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": -2,
+          "xAdvance": 22
+        }
+      },
+      "kerningDict": {}
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "newYear_0",
+      "texture": "67Tq1U1tRLDa+7VeKr7Omu",
+      "rect": [
+        2,
+        2,
+        228,
+        16
+      ],
+      "offset": [
+        -12,
+        118
+      ],
+      "originalSize": [
+        256,
+        256
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

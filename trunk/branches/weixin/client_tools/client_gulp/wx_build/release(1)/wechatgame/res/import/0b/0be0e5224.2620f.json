@@ -1,0 +1,48 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "00feijian",
+      "texture": "69nfE7af1IJqtp4J9/3jV+",
+      "rect": [
+        0,
+        0,
+        55,
+        20
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        55,
+        20
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "yuanchenggongji",
+    "_duration": 0.016666666666666666,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "05Ng6cPYhJzavTeQJ1q6AP"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+]

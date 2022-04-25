@@ -1,1 +1,2 @@
-var Q=wx.$v;import"vvMAIv.js";
+var Q = wx.$v;
+import 'vvMAIv.js';

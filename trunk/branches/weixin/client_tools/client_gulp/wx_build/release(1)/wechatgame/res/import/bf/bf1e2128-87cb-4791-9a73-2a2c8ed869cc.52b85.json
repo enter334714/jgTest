@@ -1,0 +1,74 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "airingConfig",
+  "json": {
+    "1": {
+      "remarks": "拍卖行上架用",
+      "priority": 1,
+      "channel": 1,
+      "horn": 1,
+      "desc": "[#1]在黑市中上架了[#2]，珍稀物品，欲购从速！立刻[#0]！",
+      "jump_desc": "<u><color=#ffd87d>前往竞拍</color></u>",
+      "jump": 1030
+    },
+    "2": {
+      "remarks": "天关爬到x层",
+      "priority": 2,
+      "channel": 2,
+      "horn": 1,
+      "desc": "[#1]的实力实在强大！在天关中战胜了第[#2]层的怪物！我也要[#0]！",
+      "jump_desc": "<u><color=#ffd87d>前往挑战</color></u>",
+      "jump": 1008
+    },
+    "3": {
+      "remarks": "异域探索",
+      "priority": 1,
+      "channel": 1,
+      "horn": 0,
+      "desc": "[#1]在异域探索中抽到了[#2]层的怪物！简直是欧皇附体！"
+    },
+    "4": {
+      "remarks": "行会BOSS开启",
+      "priority": 1,
+      "channel": 1,
+      "horn": 0,
+      "desc": "行会BOSS奖励玛法大陆，请各位勇士前往挑战",
+      "jump_desc": "<u><color=#ffd87d>前往挑战</color></u>",
+      "jump": 1039
+    },
+    "5": {
+      "remarks": "行会BOSS击杀",
+      "priority": 1,
+      "channel": 1,
+      "horn": 0,
+      "desc": "行会BOSS已被击杀，丰厚奖励已上架黑市里的行会拍卖，请各位勇士[#0]!",
+      "jump_desc": "<u><color=#ffd87d>前往竞拍</color></u>",
+      "jump": 1047
+    },
+    "6": {
+      "remarks": "沙城争霸开启",
+      "priority": 1,
+      "channel": 1,
+      "horn": 0,
+      "desc": "沙城争霸已开启，请各位勇士为荣誉而战吧！",
+      "jump_desc": "<u><color=#ffd87d>前往</color></u>",
+      "jump": 1045
+    },
+    "7": {
+      "remarks": "沙城争霸行会奖励",
+      "priority": 1,
+      "channel": 2,
+      "horn": 0,
+      "desc": "本轮沙城争霸已结束，已根据行会级别发放对应奖励至行会拍卖，请各位勇士[#0]!",
+      "jump_desc": "<u><color=#ffd87d>前往竞拍</color></u>",
+      "jump": 1047
+    },
+    "8": {
+      "remarks": "沙城争霸城池变化",
+      "priority": 1,
+      "channel": 2,
+      "horn": 0,
+      "desc": "行会[#1]占领了[#2]，威名远扬，离胜利更近一步！"
+    }
+  }
+}

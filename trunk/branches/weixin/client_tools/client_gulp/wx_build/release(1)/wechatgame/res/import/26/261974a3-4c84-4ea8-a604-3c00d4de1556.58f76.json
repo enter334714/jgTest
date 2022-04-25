@@ -1,0 +1,642 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "SkillEffConfig",
+  "json": {
+    "0": {
+      "path": "animation-a/putonggongji-a",
+      "aniname": "putonggongji"
+    },
+    "1": {
+      "path": "animation-a/banyuewandao-a",
+      "aniname": "banyuewandao"
+    },
+    "2": {
+      "path": "animation-a/zhiliaoshu-a",
+      "aniname": "zhiliaoshu"
+    },
+    "3": {
+      "path": "animation-a/zhiliaoshu-a",
+      "aniname": "zhiliaoshu2"
+    },
+    "4": {
+      "path": "animation-a/bingpaoxiao-a",
+      "aniname": "bingpaoxiao"
+    },
+    "5": {
+      "path": "animation-a/bingpaoxiao-a",
+      "aniname": "bingpaoxiao2"
+    },
+    "6": {
+      "path": "animation-a/cishajianshu-a",
+      "aniname": "cishajianshu2"
+    },
+    "7": {
+      "path": "animation-a/diyuleiguang-a",
+      "aniname": "diyuleiguang"
+    },
+    "8": {
+      "path": "animation-a/diyuleiguang-a",
+      "aniname": "diyuleiguang2"
+    },
+    "9": {
+      "path": "animation-a/gongshajianshu-a",
+      "aniname": "gongshajianshu"
+    },
+    "10": {
+      "path": "animation-a/huoqiangshu-a",
+      "aniname": "huoqiangshu-a"
+    },
+    "11": {
+      "path": "animation-a/huoqiangshu-a",
+      "aniname": "huoqiangshu2-a"
+    },
+    "12": {
+      "path": "animation-a/huoqiushu-a",
+      "aniname": "huoqiushu"
+    },
+    "13": {
+      "path": "animation-a/leidianshu-a",
+      "aniname": "leidianshu"
+    },
+    "14": {
+      "path": "animation-a/leidianshu-a",
+      "aniname": "leidianshu2"
+    },
+    "15": {
+      "path": "animation-a/liehuojianfa-a",
+      "aniname": "liehuojianfa"
+    },
+    "16": {
+      "path": "animation-a/linghunhuofu-a",
+      "aniname": "linghunhuofu"
+    },
+    "17": {
+      "path": "animation-a/mofadun-a",
+      "aniname": "mofadun"
+    },
+    "18": {
+      "path": "animation-a/mofadun-a",
+      "aniname": "mofadun2"
+    },
+    "19": {
+      "path": "animation-a/shenshengzhanjiashu-a",
+      "aniname": "shenshengzhanjiashu"
+    },
+    "20": {
+      "path": "animation-a/shenshougongji-a",
+      "aniname": "shenshougongji"
+    },
+    "21": {
+      "path": "animation-a/shidushu-a",
+      "aniname": "shidushu"
+    },
+    "22": {
+      "path": "animation-a/shidushu-a",
+      "aniname": "shidushu2"
+    },
+    "23": {
+      "path": "animation-a/yemanchongzhuang-a",
+      "aniname": "yemanchongzhuang"
+    },
+    "24": {
+      "path": "animation-a/yemanchongzhuang-a",
+      "aniname": "yemanchongzhuang"
+    },
+    "25": {
+      "path": "animation-a/yinshenshu-a",
+      "aniname": "yinshenshu"
+    },
+    "26": {
+      "path": "animation-a/yinshenshu-a",
+      "aniname": "yinshenshu2"
+    },
+    "27": {
+      "path": "animation-a/zhaohuanshu-a/zhaohuan_kulu",
+      "aniname": "zhaohuan_kulu"
+    },
+    "28": {
+      "path": "animation-a/zhaohuanshu-a/zhaohuan_shenshou",
+      "aniname": "zhaohuan_shenshou"
+    },
+    "29": {
+      "path": "animation-a/zhenqihuti-a",
+      "aniname": "zhenqihuti"
+    },
+    "30": {
+      "path": "animation-a/wujizhenqi-a",
+      "aniname": "wujizhenqi"
+    },
+    "31": {
+      "path": "animation-a/youhuozhiguang-a",
+      "aniname": "youhuozhiguang"
+    },
+    "32": {
+      "path": "animation-a/yuanchenggongji-a",
+      "aniname": "yuanchenggongji"
+    },
+    "33": {
+      "path": "animation-a/yuanchenggongji-a",
+      "aniname": "yuanchenggongji2"
+    },
+    "34": {
+      "path": "animation-a/cishajianshu-a",
+      "aniname": "cishajianshu2"
+    },
+    "35": {
+      "path": "animation-a/linghunhuofu-a",
+      "aniname": "linghunhuofu2"
+    },
+    "36": {
+      "path": "animation-a/huoqiushu-a",
+      "aniname": "huoqiushu2"
+    },
+    "37": {
+      "path": "animation-a/banyuewandao-b",
+      "aniname": "banyuewandao-b1"
+    },
+    "38": {
+      "path": "animation-a/banyuewandao-b",
+      "aniname": "banyuewandao-b2"
+    },
+    "39": {
+      "path": "animation-a/huoqiangshu-b",
+      "aniname": "huoqiangshu-b"
+    },
+    "40": {
+      "path": "animation-a/huoqiangshu-b",
+      "aniname": "huoqiangshu-b2"
+    },
+    "41": {
+      "path": "animation-a/huoqiangshu-b",
+      "aniname": "huoqiangshu-b3"
+    },
+    "42": {
+      "path": "animation-a/shidushu-b",
+      "aniname": "shidushu-b"
+    },
+    "43": {
+      "path": "animation-a/shidushu-b",
+      "aniname": "shidushu-b2"
+    },
+    "44": {
+      "path": "animation-a/shidushu-b",
+      "aniname": "shidushu-b3"
+    },
+    "45": {
+      "path": "animation-a/banyuewandao3",
+      "aniname": "banyuewandao3-1"
+    },
+    "46": {
+      "path": "animation-a/banyuewandao3",
+      "aniname": "banyuewandao3-2"
+    },
+    "47": {
+      "path": "animation-a/banyuewandao3",
+      "aniname": "banyuewandao3-3"
+    },
+    "48": {
+      "path": "animation-a/banyuewandao3",
+      "aniname": "banyuewandao3-4"
+    },
+    "49": {
+      "path": "animation-a/liehuojianfa-b",
+      "aniname": "liehuojianfa-b1"
+    },
+    "50": {
+      "path": "animation-a/liehuojianfa-b",
+      "aniname": "liehuojianfa-b2"
+    },
+    "51": {
+      "path": "animation-a/liehuojianfa-b",
+      "aniname": "liehuojianfa-b3"
+    },
+    "52": {
+      "path": "animation-a/bingpaoxiao-b",
+      "aniname": "bingpaoxiao-b1"
+    },
+    "53": {
+      "path": "animation-a/bingpaoxiao-b",
+      "aniname": "bingpaoxiao-b2"
+    },
+    "54": {
+      "path": "animation-a/bingpaoxiao-b",
+      "aniname": "bingpaoxiao-b3"
+    },
+    "55": {
+      "path": "animation-a/wujizhenqi-b",
+      "aniname": "wujizhenqi-b1"
+    },
+    "56": {
+      "path": "animation-a/wujizhenqi-b",
+      "aniname": "wujizhenqi-b2"
+    },
+    "57": {
+      "path": "animation-a/wujizhenqi-b",
+      "aniname": "wujizhenqi-b3"
+    },
+    "58": {
+      "path": "animation-a/liehuojianfa-c",
+      "aniname": "liehuojian-c1"
+    },
+    "59": {
+      "path": "animation-a/liehuojianfa-c",
+      "aniname": "liehuojianfa-c2"
+    },
+    "60": {
+      "path": "animation-a/putonggongji-b",
+      "aniname": "putonggongji_death01"
+    },
+    "61": {
+      "path": "animation-a/putonggongji-b",
+      "aniname": "putonggongji_down01"
+    },
+    "62": {
+      "path": "animation-a/putonggongji-b",
+      "aniname": "putonggongji_left01"
+    },
+    "63": {
+      "path": "animation-a/putonggongji-b",
+      "aniname": "putonggongji_leftdown01"
+    },
+    "64": {
+      "path": "animation-a/putonggongji-b",
+      "aniname": "putonggongji_leftup01"
+    },
+    "65": {
+      "path": "animation-a/fire/daoshi",
+      "aniname": "fireDaoShi"
+    },
+    "66": {
+      "path": "animation-a/fire/fashi",
+      "aniname": "fireFashi1"
+    },
+    "67": {
+      "path": "animation-a/fire/fashi",
+      "aniname": "fireFashi2"
+    },
+    "68": {
+      "path": "animation-a/fire/zhanshi",
+      "aniname": "fireZhanshi_leftup"
+    },
+    "69": {
+      "path": "animation-a/fire/zhanshi",
+      "aniname": "fireZhanshi_left"
+    },
+    "70": {
+      "path": "animation-a/fire/zhanshi",
+      "aniname": "fireZhanshi_leftdown"
+    },
+    "71": {
+      "path": "animation-a/fire/zhanshi",
+      "aniname": "fireZhanshi_down"
+    },
+    "72": {
+      "path": "animation-a/fire/zhanshi",
+      "aniname": "fireBaoZha"
+    },
+    "73": {
+      "path": "animation-a/tx_cishajianshu/toDown",
+      "aniname": "cishajianshu_toDown"
+    },
+    "74": {
+      "path": "animation-a/tx_cishajianshu/toLeft",
+      "aniname": "cishajianshu_toLeft"
+    },
+    "75": {
+      "path": "animation-a/tx_cishajianshu/toLeftDown",
+      "aniname": "cishajianshu_toLeftDown"
+    },
+    "76": {
+      "path": "animation-a/tx_cishajianshu/toLeftUp",
+      "aniname": "cishajianshu_toLeftUp"
+    },
+    "77": {
+      "path": "animation-a/tx_liehuojianfa/toDown",
+      "aniname": "liehuojianfa_toDown"
+    },
+    "78": {
+      "path": "animation-a/tx_liehuojianfa/toLeft",
+      "aniname": "liehuojianfa_toLeft"
+    },
+    "79": {
+      "path": "animation-a/tx_liehuojianfa/toLeftDown",
+      "aniname": "liehuojianfa_toLeftDown"
+    },
+    "80": {
+      "path": "animation-a/tx_liehuojianfa/toLeftUp",
+      "aniname": "liehuojianfa_toLeftUp"
+    },
+    "81": {
+      "path": "animation-a/tx_liehuojianfa_pro/toDown",
+      "aniname": "tx_liehuojianfa_pro_toDown"
+    },
+    "82": {
+      "path": "animation-a/tx_liehuojianfa_pro/toLeft",
+      "aniname": "tx_liehuojianfa_pro_toLeft"
+    },
+    "83": {
+      "path": "animation-a/tx_liehuojianfa_pro/toLeftDown",
+      "aniname": "tx_liehuojianfa_pro_toLeftDown"
+    },
+    "84": {
+      "path": "animation-a/tx_liehuojianfa_pro/toLeftUp",
+      "aniname": "tx_liehuojianfa_pro_toLeftUp"
+    },
+    "85": {
+      "path": "animation-a/tx_yemanchongzuang/toDown",
+      "aniname": "yemanchongzuang_pro_toDown"
+    },
+    "86": {
+      "path": "animation-a/tx_yemanchongzuang/toLeft",
+      "aniname": "yemanchongzuang_pro_toLeft"
+    },
+    "87": {
+      "path": "animation-a/tx_yemanchongzuang/toLeftDown",
+      "aniname": "yemanchongzuang_pro_toLeftDown"
+    },
+    "88": {
+      "path": "animation-a/tx_yemanchongzuang/toLeftDown",
+      "aniname": "tx_yemanchongzuang_pro_toLeftUp"
+    },
+    "89": {
+      "path": "animation-a/zhaohuanshuNew/daoshiPuGong",
+      "aniname": "daoshiPuGong"
+    },
+    "90": {
+      "path": "animation-a/zhaohuanshuNew/zhaohuanKuGod",
+      "aniname": "zhaohuanshenshou_pro"
+    },
+    "91": {
+      "path": "animation-a/zhaohuanshuNew/zhaohuanKuLou",
+      "aniname": "zhaohuangulou_pro"
+    },
+    "92": {
+      "path": "animation-a/youhuozhiguang_pro/putonggongji/toLeft",
+      "aniname": "youhuozhiguang_pg_toleft_pro"
+    },
+    "93": {
+      "path": "animation-a/youhuozhiguang_pro/putonggongji/toLeftDown",
+      "aniname": "youhuozhiguang_pg_toleftDown_pro"
+    },
+    "94": {
+      "path": "animation-a/youhuozhiguang_pro/putonggongji/toLeftUp",
+      "aniname": "youhuozhiguang_pg_toleftUp_pro"
+    },
+    "95": {
+      "path": "animation-a/youhuozhiguang_pro/putonggongji/toUp",
+      "aniname": "youhuozhiguang_pg_toup_pro"
+    },
+    "96": {
+      "path": "animation-a/youhuozhiguang_pro/putonggongji_long/hurt",
+      "aniname": "youhuozhiguang_lpg_hurt_pro"
+    },
+    "97": {
+      "path": "animation-a/youhuozhiguang_pro/putonggongji_long/toLeft",
+      "aniname": "youhuozhiguang_lpg_toleft_pro"
+    },
+    "98": {
+      "path": "animation-a/youhuozhiguang_pro/putonggongji_long/toLeftDown",
+      "aniname": "youhuozhiguang_lpg_toleftDown_pro"
+    },
+    "99": {
+      "path": "animation-a/youhuozhiguang_pro/putonggongji_long/toLeftUp",
+      "aniname": "youhuozhiguang_lpg_toleftup_pro"
+    },
+    "100": {
+      "path": "animation-a/youhuozhiguang_pro/putonggongji_long/toUp",
+      "aniname": "youhuozhiguang_lpg_toup_pro"
+    },
+    "101": {
+      "path": "animation-a/youhuozhiguang_pro/useyouhuozhiguang",
+      "aniname": "youhuozhiguang_pro"
+    },
+    "102": {
+      "path": "animation-a/yun",
+      "aniname": "yun"
+    },
+    "103": {
+      "path": "animation-a/debuff_shihua",
+      "aniname": "debuff_shihua"
+    },
+    "104": {
+      "path": "animation-a/debuff_ice",
+      "aniname": "debuff_ice"
+    },
+    "105": {
+      "path": "animation-a/debuff_mabi",
+      "aniname": "debuff_mabi"
+    },
+    "106": {
+      "path": "animation-a/rebirth",
+      "aniname": "rebirth"
+    },
+    "107": {
+      "path": "animation-a/wudi",
+      "aniname": "wudi"
+    },
+    "108": {
+      "path": "animation-a/baozhu",
+      "aniname": "baoZhu"
+    },
+    "109": {
+      "path": "animation-a/baozhu",
+      "aniname": "baoZhuFire"
+    },
+    "110": {
+      "path": "animation-a/banyuewandao3",
+      "aniname": "banyuewandao3-5"
+    },
+    "111": {
+      "path": "animation-a/shidushu-b/big",
+      "aniname": "shidushu_big"
+    },
+    "112": {
+      "path": "animation-a/huoqiangshu-b/big",
+      "aniname": "huoqiangshu-big"
+    },
+    "113": {
+      "path": "animation-a/tx_cishajianshu_pro/toLeft",
+      "aniname": "tx_cishajianshu_pro_toLeft"
+    },
+    "114": {
+      "path": "animation-a/tx_cishajianshu_pro/toLeftDown",
+      "aniname": "tx_cishajianshu_pro_toLeftDown"
+    },
+    "115": {
+      "path": "animation-a/tx_cishajianshu_pro/toLeftUp",
+      "aniname": "tx_cishajianshu_pro_toLeftUp"
+    },
+    "116": {
+      "path": "animation-a/tx_cishajianshu_pro/toUp",
+      "aniname": "tx_cishajianshu_pro_toUp"
+    },
+    "117": {
+      "path": "animation-a/tx_leidianshu/qishou",
+      "aniname": "tx_leidianshu_qishou"
+    },
+    "118": {
+      "path": "animation-a/tx_leidianshu/luoxia",
+      "aniname": "tx_leidianshu_luoxia"
+    },
+    "119": {
+      "path": "animation-a/tx_linghunhuofu/tx_linghunhuofu_qishou",
+      "aniname": "tx_linghunhuofu_qishou"
+    },
+    "120": {
+      "path": "animation-a/tx_linghunhuofu/tx_linghunhuofu_shouji",
+      "aniname": "tx_linghunhuofu_shouji"
+    },
+    "121": {
+      "path": "animation-a/debuff_shihua/big",
+      "aniname": "debuff_shihua_big"
+    },
+    "122": {
+      "path": "animation-a/debuff_ice",
+      "aniname": "debuff_ice"
+    },
+    "123": {
+      "path": "animation-a/debuff_mabi",
+      "aniname": "debuff_mabi"
+    },
+    "124": {
+      "path": "animation-a/skin_2_banyuewandao/qishou",
+      "aniname": "banyuewandao_skin2_qishou"
+    },
+    "125": {
+      "path": "animation-a/skin_2_banyuewandao/shouji",
+      "aniname": "banyuewandao_skin2_shouji"
+    },
+    "126": {
+      "path": "animation-a/skin_2_huoqiangshu/shifa",
+      "aniname": "huoqiang_shifa"
+    },
+    "127": {
+      "path": "animation-a/skin_2_huoqiangshu/chixu",
+      "aniname": "huoqiang_chixu"
+    },
+    "128": {
+      "path": "animation-a/skin_2_huoqiangshu/chixu_boss",
+      "aniname": "huoqiang_chixu_boss"
+    },
+    "129": {
+      "path": "animation-a/skin_2_shidushu/chixu",
+      "aniname": "chixu"
+    },
+    "130": {
+      "path": "animation-a/skin_2_shidushu/chixu_boss",
+      "aniname": "chixu_boss"
+    },
+    "131": {
+      "path": "animation-a/skin_2_shidushu/shifa",
+      "aniname": "shifa"
+    },
+    "132": {
+      "path": "animation-a/skin_2_shidushu/shouji",
+      "aniname": "shouji"
+    },
+    "133": {
+      "path": "animation-a/skin_3_cisha/Up",
+      "aniname": "mengji_up"
+    },
+    "134": {
+      "path": "animation-a/skin_3_cisha/down",
+      "aniname": "mengji_down"
+    },
+    "135": {
+      "path": "animation-a/skin_3_cisha/left",
+      "aniname": "mengji_left"
+    },
+    "136": {
+      "path": "animation-a/skin_3_cisha/right",
+      "aniname": "mengji_right"
+    },
+    "137": {
+      "path": "animation-a/skin_3_cisha/leftUp",
+      "aniname": "mengji_leftUp"
+    },
+    "138": {
+      "path": "animation-a/skin_3_cisha/rightUp",
+      "aniname": "mengji_rightUp"
+    },
+    "139": {
+      "path": "animation-a/skin_3_cisha/leftDown",
+      "aniname": "mengji_leftDown"
+    },
+    "140": {
+      "path": "animation-a/skin_3_cisha/rightDown",
+      "aniname": "mengji_rightDown"
+    },
+    "141": {
+      "path": "animation-a/skin_3_bingpaoxiao/qishou",
+      "aniname": "bingpaoxiao_qishou"
+    },
+    "142": {
+      "path": "animation-a/skin_3_bingpaoxiao/shouji",
+      "aniname": "bingpaoxiao_shouji"
+    },
+    "143": {
+      "path": "animation-a/skin_3_linghunhuofu/jian",
+      "aniname": "shandianjian_qishou"
+    },
+    "144": {
+      "path": "animation-a/skin_3_linghunhuofu/duochongjian",
+      "aniname": "duochongjian_shouji"
+    },
+    "145": {
+      "path": "animation-a/shifa",
+      "aniname": "yamaxun_shifa"
+    },
+    "146": {
+      "path": "animation-a/skin_3_liehuo/leftUp",
+      "aniname": "chujue_leftUp"
+    },
+    "147": {
+      "path": "animation-a/skin_3_liehuo/down",
+      "aniname": "chujue_down"
+    },
+    "148": {
+      "path": "animation-a/skin_3_liehuo/left",
+      "aniname": "chujue_left"
+    },
+    "149": {
+      "path": "animation-a/skin_3_liehuo/right",
+      "aniname": "chujue_right"
+    },
+    "150": {
+      "path": "animation-a/skin_3_liehuo/rightup",
+      "aniname": "chujue_rightUp"
+    },
+    "151": {
+      "path": "animation-a/skin_3_liehuo/leftDown",
+      "aniname": "chujue_leftDown"
+    },
+    "152": {
+      "path": "animation-a/skin_3_liehuo/rightDown",
+      "aniname": "chujue_rightDown"
+    },
+    "153": {
+      "path": "animation-a/skin_3_liehuo/up",
+      "aniname": "chujue_up"
+    },
+    "154": {
+      "path": "animation-a/skin_2_hanbinghudun",
+      "aniname": "hanbinghudun"
+    },
+    "155": {
+      "path": "animation-a/skin_2_shenshengzhanjiashu",
+      "aniname": "skin3_shenshengzhanjiashu"
+    },
+    "156": {
+      "path": "animation-a/bagua/qishou",
+      "aniname": "bagua_qishou"
+    },
+    "157": {
+      "path": "animation-a/bagua/cixu",
+      "aniname": "bagua_cixu"
+    },
+    "158": {
+      "path": "animation-a/bagua/jieshu",
+      "aniname": "bagua_jieshu"
+    }
+  }
+}

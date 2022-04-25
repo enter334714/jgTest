@@ -1,0 +1,105 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "baguaskillConfig",
+  "json": {
+    "70000": {
+      "skillLev": 0,
+      "lev": 1,
+      "cost": {
+        "B1001": 1
+      },
+      "nextid": 70001
+    },
+    "70001": {
+      "skillLev": 1,
+      "lev": 1,
+      "cost": {
+        "B1001": 1
+      },
+      "nextid": 70002
+    },
+    "70002": {
+      "skillLev": 2,
+      "lev": 2,
+      "cost": {
+        "B1001": 1
+      },
+      "nextid": 70003
+    },
+    "70003": {
+      "skillLev": 3,
+      "lev": 2,
+      "cost": {
+        "B1001": 1
+      },
+      "nextid": 70004
+    },
+    "70004": {
+      "skillLev": 4,
+      "lev": 3,
+      "cost": {
+        "B1001": 1
+      },
+      "nextid": 70005
+    },
+    "70005": {
+      "skillLev": 5,
+      "lev": 3,
+      "cost": {
+        "B1001": 1
+      },
+      "nextid": 70006
+    },
+    "70006": {
+      "skillLev": 6,
+      "lev": 4,
+      "cost": {
+        "B1001": 1
+      },
+      "nextid": 70007
+    },
+    "70007": {
+      "skillLev": 7,
+      "lev": 4,
+      "cost": {
+        "B1001": 1
+      },
+      "nextid": 70008
+    },
+    "70008": {
+      "skillLev": 8,
+      "lev": 5,
+      "cost": {
+        "B1001": 1
+      },
+      "nextid": 70009
+    },
+    "70009": {
+      "skillLev": 9,
+      "lev": 5,
+      "cost": {
+        "B1001": 1
+      },
+      "nextid": 70010
+    },
+    "70010": {
+      "skillLev": 10,
+      "lev": 6,
+      "cost": {
+        "B1001": 1
+      },
+      "nextid": 70011
+    },
+    "70011": {
+      "skillLev": 11,
+      "lev": 6,
+      "cost": {
+        "B1001": 1
+      },
+      "nextid": 70012
+    },
+    "70012": {
+      "skillLev": 12
+    }
+  }
+}

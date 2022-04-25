@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_shachengzhengba_icon_shabake_1",
+    "texture": "62gJZJlSZAgojLOrf0I7/k",
+    "rect": [
+      0,
+      3,
+      138,
+      355
+    ],
+    "offset": [
+      0,
+      -1.5
+    ],
+    "originalSize": [
+      138,
+      358
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

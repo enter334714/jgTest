@@ -1,0 +1,48 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "exchangehouseConfig",
+  "json": {
+    "101": {
+      "price_type": 3,
+      "token": {
+        "I8001": 1
+      },
+      "dec": "符文1",
+      "type": 1,
+      "rewards": {
+        "I6111": 1
+      },
+      "dec_1": "每日好礼宝箱",
+      "limit": 5,
+      "refresh": 0
+    },
+    "102": {
+      "price_type": 3,
+      "token": {
+        "I8003": 1
+      },
+      "dec": "符文3",
+      "type": 3,
+      "rewards": {
+        "2": 100
+      },
+      "dec_1": "100元宝",
+      "limit": 5,
+      "refresh": 1
+    },
+    "103": {
+      "price_type": 3,
+      "token": {
+        "I8003": 1
+      },
+      "dec": "符文3",
+      "type": 2,
+      "rewards": {
+        "L001001": 1
+      },
+      "dec_1": "毁灭之刃",
+      "limit": 1,
+      "refresh": 0
+    }
+  }
+}

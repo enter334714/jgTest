@@ -1,0 +1,3698 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "medalzhulingConfig",
+  "json": {
+    "101": {
+      "stat": "atk",
+      "statid": 1,
+      "pinzhi0": [
+        1,
+        4
+      ],
+      "pinzhi1": [
+        5,
+        8
+      ],
+      "pinzhi2": [
+        9,
+        12
+      ],
+      "pinzhi3": [
+        13,
+        16
+      ],
+      "pinzhi4": [
+        17,
+        20
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击"
+    },
+    "102": {
+      "stat": "mag",
+      "statid": 3,
+      "pinzhi0": [
+        1,
+        4
+      ],
+      "pinzhi1": [
+        5,
+        8
+      ],
+      "pinzhi2": [
+        9,
+        12
+      ],
+      "pinzhi3": [
+        13,
+        16
+      ],
+      "pinzhi4": [
+        17,
+        20
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法"
+    },
+    "103": {
+      "stat": "spt",
+      "statid": 5,
+      "pinzhi0": [
+        1,
+        4
+      ],
+      "pinzhi1": [
+        5,
+        8
+      ],
+      "pinzhi2": [
+        9,
+        12
+      ],
+      "pinzhi3": [
+        13,
+        16
+      ],
+      "pinzhi4": [
+        17,
+        20
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术"
+    },
+    "104": {
+      "stat": "hp",
+      "statid": 10,
+      "pinzhi0": [
+        10,
+        40
+      ],
+      "pinzhi1": [
+        50,
+        80
+      ],
+      "pinzhi2": [
+        90,
+        120
+      ],
+      "pinzhi3": [
+        130,
+        160
+      ],
+      "pinzhi4": [
+        170,
+        200
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命"
+    },
+    "105": {
+      "stat": "mp",
+      "statid": 12,
+      "pinzhi0": [
+        10,
+        40
+      ],
+      "pinzhi1": [
+        50,
+        80
+      ],
+      "pinzhi2": [
+        90,
+        120
+      ],
+      "pinzhi3": [
+        130,
+        160
+      ],
+      "pinzhi4": [
+        170,
+        200
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力"
+    },
+    "106": {
+      "stat": "def",
+      "statid": 9,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        2
+      ],
+      "pinzhi2": [
+        3,
+        4
+      ],
+      "pinzhi3": [
+        5,
+        6
+      ],
+      "pinzhi4": [
+        7,
+        8
+      ],
+      "des": "防御：[#]",
+      "shuxingbeizhu": "防御"
+    },
+    "107": {
+      "stat": "BonusDamage",
+      "statid": 15,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        6
+      ],
+      "pinzhi2": [
+        7,
+        12
+      ],
+      "pinzhi3": [
+        13,
+        18
+      ],
+      "pinzhi4": [
+        24,
+        24
+      ],
+      "des": "固定伤害：[#]",
+      "shuxingbeizhu": "固定伤害"
+    },
+    "108": {
+      "stat": "HpDrain",
+      "statid": 19,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        2
+      ],
+      "pinzhi2": [
+        3,
+        4
+      ],
+      "pinzhi3": [
+        5,
+        6
+      ],
+      "pinzhi4": [
+        7,
+        8
+      ],
+      "des": "生命吸取：[#]",
+      "shuxingbeizhu": "生命吸取"
+    },
+    "109": {
+      "stat": "MpDrain",
+      "statid": 20,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        2
+      ],
+      "pinzhi2": [
+        3,
+        4
+      ],
+      "pinzhi3": [
+        5,
+        6
+      ],
+      "pinzhi4": [
+        7,
+        8
+      ],
+      "des": "法力吸取：[#]",
+      "shuxingbeizhu": "法力吸取"
+    },
+    "110": {
+      "stat": "DamageReduction",
+      "statid": 17,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        2
+      ],
+      "pinzhi3": [
+        3,
+        4
+      ],
+      "pinzhi4": [
+        6,
+        6
+      ],
+      "des": "固定减伤：[#]",
+      "shuxingbeizhu": "固定减伤"
+    },
+    "111": {
+      "stat": "hp_p",
+      "statid": 11,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        100,
+        150
+      ],
+      "pinzhi3": [
+        151,
+        200
+      ],
+      "pinzhi4": [
+        201,
+        250
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命%"
+    },
+    "112": {
+      "stat": "mp_p",
+      "statid": 13,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        100,
+        150
+      ],
+      "pinzhi3": [
+        151,
+        200
+      ],
+      "pinzhi4": [
+        201,
+        250
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力%"
+    },
+    "113": {
+      "stat": "atk_p",
+      "statid": 2,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        10,
+        20
+      ],
+      "pinzhi4": [
+        21,
+        30
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击%"
+    },
+    "114": {
+      "stat": "mag_p",
+      "statid": 4,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        10,
+        20
+      ],
+      "pinzhi4": [
+        21,
+        30
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法%"
+    },
+    "115": {
+      "stat": "spt_p",
+      "statid": 6,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        10,
+        20
+      ],
+      "pinzhi4": [
+        21,
+        30
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术%"
+    },
+    "116": {
+      "stat": "speed",
+      "statid": 14,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        10,
+        15
+      ],
+      "pinzhi4": [
+        16,
+        20
+      ],
+      "des": "攻击速度：[#]",
+      "shuxingbeizhu": "攻速"
+    },
+    "117": {
+      "stat": "crit",
+      "statid": 56,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        40,
+        40
+      ],
+      "des": "暴击：[#]",
+      "shuxingbeizhu": "暴击"
+    },
+    "118": {
+      "stat": "critdamage",
+      "statid": 57,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        250,
+        250
+      ],
+      "des": "暴击伤害：[#]",
+      "shuxingbeizhu": "暴击伤害"
+    },
+    "119": {
+      "stat": "BonusDamage_p",
+      "statid": 16,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        10,
+        25
+      ],
+      "des": "伤害增幅：[#]",
+      "shuxingbeizhu": "伤害增幅"
+    },
+    "120": {
+      "stat": "DamageReduction_p",
+      "statid": 18,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        10,
+        25
+      ],
+      "des": "伤害减免：[#]",
+      "shuxingbeizhu": "伤害减免"
+    },
+    "121": {
+      "stat": "crit",
+      "statid": 56,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        200,
+        200
+      ],
+      "des": "暴击：[#]",
+      "shuxingbeizhu": "暴击"
+    },
+    "122": {
+      "stat": "critdamage",
+      "statid": 57,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        600,
+        600
+      ],
+      "des": "暴击伤害：[#]",
+      "shuxingbeizhu": "暴击伤害"
+    },
+    "201": {
+      "stat": "atk",
+      "statid": 1,
+      "pinzhi0": [
+        9,
+        12
+      ],
+      "pinzhi1": [
+        13,
+        16
+      ],
+      "pinzhi2": [
+        17,
+        20
+      ],
+      "pinzhi3": [
+        21,
+        24
+      ],
+      "pinzhi4": [
+        25,
+        28
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击"
+    },
+    "202": {
+      "stat": "mag",
+      "statid": 3,
+      "pinzhi0": [
+        9,
+        12
+      ],
+      "pinzhi1": [
+        13,
+        16
+      ],
+      "pinzhi2": [
+        17,
+        20
+      ],
+      "pinzhi3": [
+        21,
+        24
+      ],
+      "pinzhi4": [
+        25,
+        28
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法"
+    },
+    "203": {
+      "stat": "spt",
+      "statid": 5,
+      "pinzhi0": [
+        9,
+        12
+      ],
+      "pinzhi1": [
+        13,
+        16
+      ],
+      "pinzhi2": [
+        17,
+        20
+      ],
+      "pinzhi3": [
+        21,
+        24
+      ],
+      "pinzhi4": [
+        25,
+        28
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术"
+    },
+    "204": {
+      "stat": "hp",
+      "statid": 10,
+      "pinzhi0": [
+        90,
+        120
+      ],
+      "pinzhi1": [
+        130,
+        160
+      ],
+      "pinzhi2": [
+        170,
+        200
+      ],
+      "pinzhi3": [
+        210,
+        240
+      ],
+      "pinzhi4": [
+        250,
+        280
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命"
+    },
+    "205": {
+      "stat": "mp",
+      "statid": 12,
+      "pinzhi0": [
+        90,
+        120
+      ],
+      "pinzhi1": [
+        130,
+        160
+      ],
+      "pinzhi2": [
+        170,
+        200
+      ],
+      "pinzhi3": [
+        210,
+        240
+      ],
+      "pinzhi4": [
+        250,
+        280
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力"
+    },
+    "206": {
+      "stat": "def",
+      "statid": 9,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        3,
+        4
+      ],
+      "pinzhi2": [
+        5,
+        6
+      ],
+      "pinzhi3": [
+        7,
+        8
+      ],
+      "pinzhi4": [
+        9,
+        10
+      ],
+      "des": "防御：[#]",
+      "shuxingbeizhu": "防御"
+    },
+    "207": {
+      "stat": "BonusDamage",
+      "statid": 15,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        7,
+        12
+      ],
+      "pinzhi2": [
+        13,
+        18
+      ],
+      "pinzhi3": [
+        24,
+        24
+      ],
+      "pinzhi4": [
+        25,
+        30
+      ],
+      "des": "固定伤害：[#]",
+      "shuxingbeizhu": "固定伤害"
+    },
+    "208": {
+      "stat": "HpDrain",
+      "statid": 19,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        3,
+        4
+      ],
+      "pinzhi2": [
+        5,
+        6
+      ],
+      "pinzhi3": [
+        7,
+        8
+      ],
+      "pinzhi4": [
+        9,
+        10
+      ],
+      "des": "生命吸取：[#]",
+      "shuxingbeizhu": "生命吸取"
+    },
+    "209": {
+      "stat": "MpDrain",
+      "statid": 20,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        3,
+        4
+      ],
+      "pinzhi2": [
+        5,
+        6
+      ],
+      "pinzhi3": [
+        7,
+        8
+      ],
+      "pinzhi4": [
+        9,
+        10
+      ],
+      "des": "法力吸取：[#]",
+      "shuxingbeizhu": "法力吸取"
+    },
+    "210": {
+      "stat": "DamageReduction",
+      "statid": 17,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        3,
+        4
+      ],
+      "pinzhi3": [
+        6,
+        6
+      ],
+      "pinzhi4": [
+        7,
+        8
+      ],
+      "des": "固定减伤：[#]",
+      "shuxingbeizhu": "固定减伤"
+    },
+    "211": {
+      "stat": "hp_p",
+      "statid": 11,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        151,
+        200
+      ],
+      "pinzhi3": [
+        201,
+        250
+      ],
+      "pinzhi4": [
+        251,
+        300
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命%"
+    },
+    "212": {
+      "stat": "mp_p",
+      "statid": 13,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        151,
+        200
+      ],
+      "pinzhi3": [
+        201,
+        250
+      ],
+      "pinzhi4": [
+        251,
+        300
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力%"
+    },
+    "213": {
+      "stat": "atk_p",
+      "statid": 2,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        21,
+        30
+      ],
+      "pinzhi4": [
+        31,
+        40
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击%"
+    },
+    "214": {
+      "stat": "mag_p",
+      "statid": 4,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        21,
+        30
+      ],
+      "pinzhi4": [
+        31,
+        40
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法%"
+    },
+    "215": {
+      "stat": "spt_p",
+      "statid": 6,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        21,
+        30
+      ],
+      "pinzhi4": [
+        31,
+        40
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术%"
+    },
+    "216": {
+      "stat": "speed",
+      "statid": 14,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        16,
+        20
+      ],
+      "pinzhi4": [
+        21,
+        25
+      ],
+      "des": "攻击速度：[#]",
+      "shuxingbeizhu": "攻速"
+    },
+    "217": {
+      "stat": "crit",
+      "statid": 56,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        60,
+        60
+      ],
+      "des": "暴击：[#]",
+      "shuxingbeizhu": "暴击"
+    },
+    "218": {
+      "stat": "critdamage",
+      "statid": 57,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        300,
+        300
+      ],
+      "des": "暴击伤害：[#]",
+      "shuxingbeizhu": "暴击伤害"
+    },
+    "219": {
+      "stat": "BonusDamage_p",
+      "statid": 16,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        26,
+        40
+      ],
+      "des": "伤害增幅：[#]",
+      "shuxingbeizhu": "伤害增幅"
+    },
+    "220": {
+      "stat": "DamageReduction_p",
+      "statid": 18,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        26,
+        40
+      ],
+      "des": "伤害减免：[#]",
+      "shuxingbeizhu": "伤害减免"
+    },
+    "301": {
+      "stat": "atk",
+      "statid": 1,
+      "pinzhi0": [
+        17,
+        20
+      ],
+      "pinzhi1": [
+        21,
+        24
+      ],
+      "pinzhi2": [
+        25,
+        28
+      ],
+      "pinzhi3": [
+        29,
+        32
+      ],
+      "pinzhi4": [
+        33,
+        36
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击"
+    },
+    "302": {
+      "stat": "mag",
+      "statid": 3,
+      "pinzhi0": [
+        17,
+        20
+      ],
+      "pinzhi1": [
+        21,
+        24
+      ],
+      "pinzhi2": [
+        25,
+        28
+      ],
+      "pinzhi3": [
+        29,
+        32
+      ],
+      "pinzhi4": [
+        33,
+        36
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法"
+    },
+    "303": {
+      "stat": "spt",
+      "statid": 5,
+      "pinzhi0": [
+        17,
+        20
+      ],
+      "pinzhi1": [
+        21,
+        24
+      ],
+      "pinzhi2": [
+        25,
+        28
+      ],
+      "pinzhi3": [
+        29,
+        32
+      ],
+      "pinzhi4": [
+        33,
+        36
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术"
+    },
+    "304": {
+      "stat": "hp",
+      "statid": 10,
+      "pinzhi0": [
+        170,
+        200
+      ],
+      "pinzhi1": [
+        210,
+        240
+      ],
+      "pinzhi2": [
+        250,
+        280
+      ],
+      "pinzhi3": [
+        290,
+        320
+      ],
+      "pinzhi4": [
+        330,
+        360
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命"
+    },
+    "305": {
+      "stat": "mp",
+      "statid": 12,
+      "pinzhi0": [
+        170,
+        200
+      ],
+      "pinzhi1": [
+        210,
+        240
+      ],
+      "pinzhi2": [
+        250,
+        280
+      ],
+      "pinzhi3": [
+        290,
+        320
+      ],
+      "pinzhi4": [
+        330,
+        360
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力"
+    },
+    "306": {
+      "stat": "def",
+      "statid": 9,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        5,
+        6
+      ],
+      "pinzhi2": [
+        7,
+        8
+      ],
+      "pinzhi3": [
+        9,
+        10
+      ],
+      "pinzhi4": [
+        11,
+        12
+      ],
+      "des": "防御：[#]",
+      "shuxingbeizhu": "防御"
+    },
+    "307": {
+      "stat": "BonusDamage",
+      "statid": 15,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        13,
+        18
+      ],
+      "pinzhi2": [
+        24,
+        24
+      ],
+      "pinzhi3": [
+        25,
+        30
+      ],
+      "pinzhi4": [
+        31,
+        36
+      ],
+      "des": "固定伤害：[#]",
+      "shuxingbeizhu": "固定伤害"
+    },
+    "308": {
+      "stat": "HpDrain",
+      "statid": 19,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        5,
+        6
+      ],
+      "pinzhi2": [
+        7,
+        8
+      ],
+      "pinzhi3": [
+        9,
+        10
+      ],
+      "pinzhi4": [
+        11,
+        12
+      ],
+      "des": "生命吸取：[#]",
+      "shuxingbeizhu": "生命吸取"
+    },
+    "309": {
+      "stat": "MpDrain",
+      "statid": 20,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        5,
+        6
+      ],
+      "pinzhi2": [
+        7,
+        8
+      ],
+      "pinzhi3": [
+        9,
+        10
+      ],
+      "pinzhi4": [
+        11,
+        12
+      ],
+      "des": "法力吸取：[#]",
+      "shuxingbeizhu": "法力吸取"
+    },
+    "310": {
+      "stat": "DamageReduction",
+      "statid": 17,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        6,
+        6
+      ],
+      "pinzhi3": [
+        7,
+        8
+      ],
+      "pinzhi4": [
+        9,
+        10
+      ],
+      "des": "固定减伤：[#]",
+      "shuxingbeizhu": "固定减伤"
+    },
+    "311": {
+      "stat": "hp_p",
+      "statid": 11,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        201,
+        250
+      ],
+      "pinzhi3": [
+        251,
+        300
+      ],
+      "pinzhi4": [
+        301,
+        350
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命%"
+    },
+    "312": {
+      "stat": "mp_p",
+      "statid": 13,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        201,
+        250
+      ],
+      "pinzhi3": [
+        251,
+        300
+      ],
+      "pinzhi4": [
+        301,
+        350
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力%"
+    },
+    "313": {
+      "stat": "atk_p",
+      "statid": 2,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        31,
+        40
+      ],
+      "pinzhi4": [
+        41,
+        50
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击%"
+    },
+    "314": {
+      "stat": "mag_p",
+      "statid": 4,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        31,
+        40
+      ],
+      "pinzhi4": [
+        41,
+        50
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法%"
+    },
+    "315": {
+      "stat": "spt_p",
+      "statid": 6,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        31,
+        40
+      ],
+      "pinzhi4": [
+        41,
+        50
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术%"
+    },
+    "316": {
+      "stat": "speed",
+      "statid": 14,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        21,
+        25
+      ],
+      "pinzhi4": [
+        26,
+        30
+      ],
+      "des": "攻击速度：[#]",
+      "shuxingbeizhu": "攻速"
+    },
+    "317": {
+      "stat": "crit",
+      "statid": 56,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        80,
+        80
+      ],
+      "des": "暴击：[#]",
+      "shuxingbeizhu": "暴击"
+    },
+    "318": {
+      "stat": "critdamage",
+      "statid": 57,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        350,
+        350
+      ],
+      "des": "暴击伤害：[#]",
+      "shuxingbeizhu": "暴击伤害"
+    },
+    "319": {
+      "stat": "BonusDamage_p",
+      "statid": 16,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        41,
+        55
+      ],
+      "des": "伤害增幅：[#]",
+      "shuxingbeizhu": "伤害增幅"
+    },
+    "320": {
+      "stat": "DamageReduction_p",
+      "statid": 18,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        41,
+        55
+      ],
+      "des": "伤害减免：[#]",
+      "shuxingbeizhu": "伤害减免"
+    },
+    "401": {
+      "stat": "atk",
+      "statid": 1,
+      "pinzhi0": [
+        25,
+        28
+      ],
+      "pinzhi1": [
+        29,
+        32
+      ],
+      "pinzhi2": [
+        33,
+        36
+      ],
+      "pinzhi3": [
+        37,
+        40
+      ],
+      "pinzhi4": [
+        41,
+        44
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击"
+    },
+    "402": {
+      "stat": "mag",
+      "statid": 3,
+      "pinzhi0": [
+        25,
+        28
+      ],
+      "pinzhi1": [
+        29,
+        32
+      ],
+      "pinzhi2": [
+        33,
+        36
+      ],
+      "pinzhi3": [
+        37,
+        40
+      ],
+      "pinzhi4": [
+        41,
+        44
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法"
+    },
+    "403": {
+      "stat": "spt",
+      "statid": 5,
+      "pinzhi0": [
+        25,
+        28
+      ],
+      "pinzhi1": [
+        29,
+        32
+      ],
+      "pinzhi2": [
+        33,
+        36
+      ],
+      "pinzhi3": [
+        37,
+        40
+      ],
+      "pinzhi4": [
+        41,
+        44
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术"
+    },
+    "404": {
+      "stat": "hp",
+      "statid": 10,
+      "pinzhi0": [
+        250,
+        280
+      ],
+      "pinzhi1": [
+        290,
+        320
+      ],
+      "pinzhi2": [
+        330,
+        360
+      ],
+      "pinzhi3": [
+        370,
+        400
+      ],
+      "pinzhi4": [
+        410,
+        440
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命"
+    },
+    "405": {
+      "stat": "mp",
+      "statid": 12,
+      "pinzhi0": [
+        250,
+        280
+      ],
+      "pinzhi1": [
+        290,
+        320
+      ],
+      "pinzhi2": [
+        330,
+        360
+      ],
+      "pinzhi3": [
+        370,
+        400
+      ],
+      "pinzhi4": [
+        410,
+        440
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力"
+    },
+    "406": {
+      "stat": "def",
+      "statid": 9,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        7,
+        8
+      ],
+      "pinzhi2": [
+        9,
+        10
+      ],
+      "pinzhi3": [
+        11,
+        12
+      ],
+      "pinzhi4": [
+        13,
+        14
+      ],
+      "des": "防御：[#]",
+      "shuxingbeizhu": "防御"
+    },
+    "407": {
+      "stat": "BonusDamage",
+      "statid": 15,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        24,
+        24
+      ],
+      "pinzhi2": [
+        25,
+        30
+      ],
+      "pinzhi3": [
+        31,
+        36
+      ],
+      "pinzhi4": [
+        37,
+        42
+      ],
+      "des": "固定伤害：[#]",
+      "shuxingbeizhu": "固定伤害"
+    },
+    "408": {
+      "stat": "HpDrain",
+      "statid": 19,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        7,
+        8
+      ],
+      "pinzhi2": [
+        9,
+        10
+      ],
+      "pinzhi3": [
+        11,
+        12
+      ],
+      "pinzhi4": [
+        13,
+        14
+      ],
+      "des": "生命吸取：[#]",
+      "shuxingbeizhu": "生命吸取"
+    },
+    "409": {
+      "stat": "MpDrain",
+      "statid": 20,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        7,
+        8
+      ],
+      "pinzhi2": [
+        9,
+        10
+      ],
+      "pinzhi3": [
+        11,
+        12
+      ],
+      "pinzhi4": [
+        13,
+        14
+      ],
+      "des": "法力吸取：[#]",
+      "shuxingbeizhu": "法力吸取"
+    },
+    "410": {
+      "stat": "DamageReduction",
+      "statid": 17,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        7,
+        8
+      ],
+      "pinzhi3": [
+        9,
+        10
+      ],
+      "pinzhi4": [
+        11,
+        12
+      ],
+      "des": "固定减伤：[#]",
+      "shuxingbeizhu": "固定减伤"
+    },
+    "411": {
+      "stat": "hp_p",
+      "statid": 11,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        251,
+        300
+      ],
+      "pinzhi3": [
+        301,
+        350
+      ],
+      "pinzhi4": [
+        351,
+        400
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命%"
+    },
+    "412": {
+      "stat": "mp_p",
+      "statid": 13,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        251,
+        300
+      ],
+      "pinzhi3": [
+        301,
+        350
+      ],
+      "pinzhi4": [
+        351,
+        400
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力%"
+    },
+    "413": {
+      "stat": "atk_p",
+      "statid": 2,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        41,
+        50
+      ],
+      "pinzhi4": [
+        51,
+        60
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击%"
+    },
+    "414": {
+      "stat": "mag_p",
+      "statid": 4,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        41,
+        50
+      ],
+      "pinzhi4": [
+        51,
+        60
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法%"
+    },
+    "415": {
+      "stat": "spt_p",
+      "statid": 6,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        41,
+        50
+      ],
+      "pinzhi4": [
+        51,
+        60
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术%"
+    },
+    "416": {
+      "stat": "speed",
+      "statid": 14,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        26,
+        30
+      ],
+      "pinzhi4": [
+        31,
+        35
+      ],
+      "des": "攻击速度：[#]",
+      "shuxingbeizhu": "攻速"
+    },
+    "417": {
+      "stat": "crit",
+      "statid": 56,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        100,
+        100
+      ],
+      "des": "暴击：[#]",
+      "shuxingbeizhu": "暴击"
+    },
+    "418": {
+      "stat": "critdamage",
+      "statid": 57,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        400,
+        400
+      ],
+      "des": "暴击伤害：[#]",
+      "shuxingbeizhu": "暴击伤害"
+    },
+    "419": {
+      "stat": "BonusDamage_p",
+      "statid": 16,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        56,
+        70
+      ],
+      "des": "伤害增幅：[#]",
+      "shuxingbeizhu": "伤害增幅"
+    },
+    "420": {
+      "stat": "DamageReduction_p",
+      "statid": 18,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        56,
+        70
+      ],
+      "des": "伤害减免：[#]",
+      "shuxingbeizhu": "伤害减免"
+    },
+    "501": {
+      "stat": "atk",
+      "statid": 1,
+      "pinzhi0": [
+        33,
+        36
+      ],
+      "pinzhi1": [
+        37,
+        40
+      ],
+      "pinzhi2": [
+        41,
+        44
+      ],
+      "pinzhi3": [
+        45,
+        48
+      ],
+      "pinzhi4": [
+        49,
+        52
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击"
+    },
+    "502": {
+      "stat": "mag",
+      "statid": 3,
+      "pinzhi0": [
+        33,
+        36
+      ],
+      "pinzhi1": [
+        37,
+        40
+      ],
+      "pinzhi2": [
+        41,
+        44
+      ],
+      "pinzhi3": [
+        45,
+        48
+      ],
+      "pinzhi4": [
+        49,
+        52
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法"
+    },
+    "503": {
+      "stat": "spt",
+      "statid": 5,
+      "pinzhi0": [
+        33,
+        36
+      ],
+      "pinzhi1": [
+        37,
+        40
+      ],
+      "pinzhi2": [
+        41,
+        44
+      ],
+      "pinzhi3": [
+        45,
+        48
+      ],
+      "pinzhi4": [
+        49,
+        52
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术"
+    },
+    "504": {
+      "stat": "hp",
+      "statid": 10,
+      "pinzhi0": [
+        330,
+        360
+      ],
+      "pinzhi1": [
+        370,
+        400
+      ],
+      "pinzhi2": [
+        410,
+        440
+      ],
+      "pinzhi3": [
+        450,
+        480
+      ],
+      "pinzhi4": [
+        490,
+        520
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命"
+    },
+    "505": {
+      "stat": "mp",
+      "statid": 12,
+      "pinzhi0": [
+        330,
+        360
+      ],
+      "pinzhi1": [
+        370,
+        400
+      ],
+      "pinzhi2": [
+        410,
+        440
+      ],
+      "pinzhi3": [
+        450,
+        480
+      ],
+      "pinzhi4": [
+        490,
+        520
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力"
+    },
+    "506": {
+      "stat": "def",
+      "statid": 9,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        9,
+        10
+      ],
+      "pinzhi2": [
+        11,
+        12
+      ],
+      "pinzhi3": [
+        13,
+        14
+      ],
+      "pinzhi4": [
+        15,
+        16
+      ],
+      "des": "防御：[#]",
+      "shuxingbeizhu": "防御"
+    },
+    "507": {
+      "stat": "BonusDamage",
+      "statid": 15,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        25,
+        30
+      ],
+      "pinzhi2": [
+        31,
+        36
+      ],
+      "pinzhi3": [
+        37,
+        42
+      ],
+      "pinzhi4": [
+        43,
+        48
+      ],
+      "des": "固定伤害：[#]",
+      "shuxingbeizhu": "固定伤害"
+    },
+    "508": {
+      "stat": "HpDrain",
+      "statid": 19,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        9,
+        10
+      ],
+      "pinzhi2": [
+        11,
+        12
+      ],
+      "pinzhi3": [
+        13,
+        14
+      ],
+      "pinzhi4": [
+        15,
+        16
+      ],
+      "des": "生命吸取：[#]",
+      "shuxingbeizhu": "生命吸取"
+    },
+    "509": {
+      "stat": "MpDrain",
+      "statid": 20,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        9,
+        10
+      ],
+      "pinzhi2": [
+        11,
+        12
+      ],
+      "pinzhi3": [
+        13,
+        14
+      ],
+      "pinzhi4": [
+        15,
+        16
+      ],
+      "des": "法力吸取：[#]",
+      "shuxingbeizhu": "法力吸取"
+    },
+    "510": {
+      "stat": "DamageReduction",
+      "statid": 17,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        9,
+        10
+      ],
+      "pinzhi3": [
+        11,
+        12
+      ],
+      "pinzhi4": [
+        13,
+        14
+      ],
+      "des": "固定减伤：[#]",
+      "shuxingbeizhu": "固定减伤"
+    },
+    "511": {
+      "stat": "hp_p",
+      "statid": 11,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        301,
+        350
+      ],
+      "pinzhi3": [
+        351,
+        400
+      ],
+      "pinzhi4": [
+        401,
+        450
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命%"
+    },
+    "512": {
+      "stat": "mp_p",
+      "statid": 13,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        301,
+        350
+      ],
+      "pinzhi3": [
+        351,
+        400
+      ],
+      "pinzhi4": [
+        401,
+        450
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力%"
+    },
+    "513": {
+      "stat": "atk_p",
+      "statid": 2,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        51,
+        60
+      ],
+      "pinzhi4": [
+        61,
+        70
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击%"
+    },
+    "514": {
+      "stat": "mag_p",
+      "statid": 4,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        51,
+        60
+      ],
+      "pinzhi4": [
+        61,
+        70
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法%"
+    },
+    "515": {
+      "stat": "spt_p",
+      "statid": 6,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        51,
+        60
+      ],
+      "pinzhi4": [
+        61,
+        70
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术%"
+    },
+    "516": {
+      "stat": "speed",
+      "statid": 14,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        31,
+        35
+      ],
+      "pinzhi4": [
+        36,
+        40
+      ],
+      "des": "攻击速度：[#]",
+      "shuxingbeizhu": "攻速"
+    },
+    "517": {
+      "stat": "crit",
+      "statid": 56,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        120,
+        120
+      ],
+      "des": "暴击：[#]",
+      "shuxingbeizhu": "暴击"
+    },
+    "518": {
+      "stat": "critdamage",
+      "statid": 57,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        150,
+        450
+      ],
+      "des": "暴击伤害：[#]",
+      "shuxingbeizhu": "暴击伤害"
+    },
+    "519": {
+      "stat": "BonusDamage_p",
+      "statid": 16,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        71,
+        85
+      ],
+      "des": "伤害增幅：[#]",
+      "shuxingbeizhu": "伤害增幅"
+    },
+    "520": {
+      "stat": "DamageReduction_p",
+      "statid": 18,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        71,
+        85
+      ],
+      "des": "伤害减免：[#]",
+      "shuxingbeizhu": "伤害减免"
+    },
+    "601": {
+      "stat": "atk",
+      "statid": 1,
+      "pinzhi0": [
+        41,
+        44
+      ],
+      "pinzhi1": [
+        45,
+        48
+      ],
+      "pinzhi2": [
+        49,
+        52
+      ],
+      "pinzhi3": [
+        53,
+        56
+      ],
+      "pinzhi4": [
+        57,
+        60
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击"
+    },
+    "602": {
+      "stat": "mag",
+      "statid": 3,
+      "pinzhi0": [
+        41,
+        44
+      ],
+      "pinzhi1": [
+        45,
+        48
+      ],
+      "pinzhi2": [
+        49,
+        52
+      ],
+      "pinzhi3": [
+        53,
+        56
+      ],
+      "pinzhi4": [
+        57,
+        60
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法"
+    },
+    "603": {
+      "stat": "spt",
+      "statid": 5,
+      "pinzhi0": [
+        41,
+        44
+      ],
+      "pinzhi1": [
+        45,
+        48
+      ],
+      "pinzhi2": [
+        49,
+        52
+      ],
+      "pinzhi3": [
+        53,
+        56
+      ],
+      "pinzhi4": [
+        57,
+        60
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术"
+    },
+    "604": {
+      "stat": "hp",
+      "statid": 10,
+      "pinzhi0": [
+        410,
+        440
+      ],
+      "pinzhi1": [
+        450,
+        480
+      ],
+      "pinzhi2": [
+        490,
+        520
+      ],
+      "pinzhi3": [
+        530,
+        560
+      ],
+      "pinzhi4": [
+        570,
+        600
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命"
+    },
+    "605": {
+      "stat": "mp",
+      "statid": 12,
+      "pinzhi0": [
+        410,
+        440
+      ],
+      "pinzhi1": [
+        450,
+        480
+      ],
+      "pinzhi2": [
+        490,
+        520
+      ],
+      "pinzhi3": [
+        530,
+        560
+      ],
+      "pinzhi4": [
+        570,
+        600
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力"
+    },
+    "606": {
+      "stat": "def",
+      "statid": 9,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        11,
+        12
+      ],
+      "pinzhi2": [
+        13,
+        14
+      ],
+      "pinzhi3": [
+        15,
+        16
+      ],
+      "pinzhi4": [
+        17,
+        18
+      ],
+      "des": "防御：[#]",
+      "shuxingbeizhu": "防御"
+    },
+    "607": {
+      "stat": "BonusDamage",
+      "statid": 15,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        31,
+        36
+      ],
+      "pinzhi2": [
+        37,
+        42
+      ],
+      "pinzhi3": [
+        43,
+        48
+      ],
+      "pinzhi4": [
+        49,
+        54
+      ],
+      "des": "固定伤害：[#]",
+      "shuxingbeizhu": "固定伤害"
+    },
+    "608": {
+      "stat": "HpDrain",
+      "statid": 19,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        11,
+        12
+      ],
+      "pinzhi2": [
+        13,
+        14
+      ],
+      "pinzhi3": [
+        15,
+        16
+      ],
+      "pinzhi4": [
+        17,
+        18
+      ],
+      "des": "生命吸取：[#]",
+      "shuxingbeizhu": "生命吸取"
+    },
+    "609": {
+      "stat": "MpDrain",
+      "statid": 20,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        11,
+        12
+      ],
+      "pinzhi2": [
+        13,
+        14
+      ],
+      "pinzhi3": [
+        15,
+        16
+      ],
+      "pinzhi4": [
+        17,
+        18
+      ],
+      "des": "法力吸取：[#]",
+      "shuxingbeizhu": "法力吸取"
+    },
+    "610": {
+      "stat": "DamageReduction",
+      "statid": 17,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        11,
+        12
+      ],
+      "pinzhi3": [
+        13,
+        14
+      ],
+      "pinzhi4": [
+        15,
+        16
+      ],
+      "des": "固定减伤：[#]",
+      "shuxingbeizhu": "固定减伤"
+    },
+    "611": {
+      "stat": "hp_p",
+      "statid": 11,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        351,
+        400
+      ],
+      "pinzhi3": [
+        401,
+        450
+      ],
+      "pinzhi4": [
+        451,
+        500
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命%"
+    },
+    "612": {
+      "stat": "mp_p",
+      "statid": 13,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        351,
+        400
+      ],
+      "pinzhi3": [
+        401,
+        450
+      ],
+      "pinzhi4": [
+        451,
+        500
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力%"
+    },
+    "613": {
+      "stat": "atk_p",
+      "statid": 2,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        61,
+        70
+      ],
+      "pinzhi4": [
+        71,
+        80
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击%"
+    },
+    "614": {
+      "stat": "mag_p",
+      "statid": 4,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        61,
+        70
+      ],
+      "pinzhi4": [
+        71,
+        80
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法%"
+    },
+    "615": {
+      "stat": "spt_p",
+      "statid": 6,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        61,
+        70
+      ],
+      "pinzhi4": [
+        71,
+        80
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术%"
+    },
+    "616": {
+      "stat": "speed",
+      "statid": 14,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        36,
+        40
+      ],
+      "pinzhi4": [
+        41,
+        45
+      ],
+      "des": "攻击速度：[#]",
+      "shuxingbeizhu": "攻速"
+    },
+    "617": {
+      "stat": "crit",
+      "statid": 56,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        140,
+        140
+      ],
+      "des": "暴击：[#]",
+      "shuxingbeizhu": "暴击"
+    },
+    "618": {
+      "stat": "critdamage",
+      "statid": 57,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        500,
+        500
+      ],
+      "des": "暴击伤害：[#]",
+      "shuxingbeizhu": "暴击伤害"
+    },
+    "619": {
+      "stat": "BonusDamage_p",
+      "statid": 16,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        86,
+        100
+      ],
+      "des": "伤害增幅：[#]",
+      "shuxingbeizhu": "伤害增幅"
+    },
+    "620": {
+      "stat": "DamageReduction_p",
+      "statid": 18,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        86,
+        100
+      ],
+      "des": "伤害减免：[#]",
+      "shuxingbeizhu": "伤害减免"
+    },
+    "701": {
+      "stat": "atk",
+      "statid": 1,
+      "pinzhi0": [
+        49,
+        52
+      ],
+      "pinzhi1": [
+        53,
+        56
+      ],
+      "pinzhi2": [
+        57,
+        60
+      ],
+      "pinzhi3": [
+        61,
+        64
+      ],
+      "pinzhi4": [
+        65,
+        68
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击"
+    },
+    "702": {
+      "stat": "mag",
+      "statid": 3,
+      "pinzhi0": [
+        49,
+        52
+      ],
+      "pinzhi1": [
+        53,
+        56
+      ],
+      "pinzhi2": [
+        57,
+        60
+      ],
+      "pinzhi3": [
+        61,
+        64
+      ],
+      "pinzhi4": [
+        65,
+        68
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法"
+    },
+    "703": {
+      "stat": "spt",
+      "statid": 5,
+      "pinzhi0": [
+        49,
+        52
+      ],
+      "pinzhi1": [
+        53,
+        56
+      ],
+      "pinzhi2": [
+        57,
+        60
+      ],
+      "pinzhi3": [
+        61,
+        64
+      ],
+      "pinzhi4": [
+        65,
+        68
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术"
+    },
+    "704": {
+      "stat": "hp",
+      "statid": 10,
+      "pinzhi0": [
+        490,
+        520
+      ],
+      "pinzhi1": [
+        530,
+        560
+      ],
+      "pinzhi2": [
+        570,
+        600
+      ],
+      "pinzhi3": [
+        610,
+        640
+      ],
+      "pinzhi4": [
+        650,
+        680
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命"
+    },
+    "705": {
+      "stat": "mp",
+      "statid": 12,
+      "pinzhi0": [
+        490,
+        520
+      ],
+      "pinzhi1": [
+        530,
+        560
+      ],
+      "pinzhi2": [
+        570,
+        600
+      ],
+      "pinzhi3": [
+        610,
+        640
+      ],
+      "pinzhi4": [
+        650,
+        680
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力"
+    },
+    "706": {
+      "stat": "def",
+      "statid": 9,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        13,
+        14
+      ],
+      "pinzhi2": [
+        15,
+        16
+      ],
+      "pinzhi3": [
+        17,
+        18
+      ],
+      "pinzhi4": [
+        19,
+        20
+      ],
+      "des": "防御：[#]",
+      "shuxingbeizhu": "防御"
+    },
+    "707": {
+      "stat": "BonusDamage",
+      "statid": 15,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        37,
+        42
+      ],
+      "pinzhi2": [
+        43,
+        48
+      ],
+      "pinzhi3": [
+        49,
+        54
+      ],
+      "pinzhi4": [
+        55,
+        60
+      ],
+      "des": "固定伤害：[#]",
+      "shuxingbeizhu": "固定伤害"
+    },
+    "708": {
+      "stat": "HpDrain",
+      "statid": 19,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        13,
+        14
+      ],
+      "pinzhi2": [
+        15,
+        16
+      ],
+      "pinzhi3": [
+        17,
+        18
+      ],
+      "pinzhi4": [
+        19,
+        20
+      ],
+      "des": "生命吸取：[#]",
+      "shuxingbeizhu": "生命吸取"
+    },
+    "709": {
+      "stat": "MpDrain",
+      "statid": 20,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        13,
+        14
+      ],
+      "pinzhi2": [
+        15,
+        16
+      ],
+      "pinzhi3": [
+        17,
+        18
+      ],
+      "pinzhi4": [
+        19,
+        20
+      ],
+      "des": "法力吸取：[#]",
+      "shuxingbeizhu": "法力吸取"
+    },
+    "710": {
+      "stat": "DamageReduction",
+      "statid": 17,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        13,
+        14
+      ],
+      "pinzhi3": [
+        15,
+        16
+      ],
+      "pinzhi4": [
+        17,
+        18
+      ],
+      "des": "固定减伤：[#]",
+      "shuxingbeizhu": "固定减伤"
+    },
+    "711": {
+      "stat": "hp_p",
+      "statid": 11,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        401,
+        450
+      ],
+      "pinzhi3": [
+        451,
+        500
+      ],
+      "pinzhi4": [
+        501,
+        550
+      ],
+      "des": "生命：[#]",
+      "shuxingbeizhu": "生命%"
+    },
+    "712": {
+      "stat": "mp_p",
+      "statid": 13,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        401,
+        450
+      ],
+      "pinzhi3": [
+        451,
+        500
+      ],
+      "pinzhi4": [
+        501,
+        550
+      ],
+      "des": "法力：[#]",
+      "shuxingbeizhu": "法力%"
+    },
+    "713": {
+      "stat": "atk_p",
+      "statid": 2,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        71,
+        80
+      ],
+      "pinzhi4": [
+        81,
+        90
+      ],
+      "des": "攻击：[#]",
+      "shuxingbeizhu": "攻击%"
+    },
+    "714": {
+      "stat": "mag_p",
+      "statid": 4,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        71,
+        80
+      ],
+      "pinzhi4": [
+        81,
+        90
+      ],
+      "des": "魔法：[#]",
+      "shuxingbeizhu": "魔法%"
+    },
+    "715": {
+      "stat": "spt_p",
+      "statid": 6,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        71,
+        80
+      ],
+      "pinzhi4": [
+        81,
+        90
+      ],
+      "des": "道术：[#]",
+      "shuxingbeizhu": "道术%"
+    },
+    "716": {
+      "stat": "speed",
+      "statid": 14,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        41,
+        45
+      ],
+      "pinzhi4": [
+        46,
+        50
+      ],
+      "des": "攻击速度：[#]",
+      "shuxingbeizhu": "攻速"
+    },
+    "717": {
+      "stat": "crit",
+      "statid": 56,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        160,
+        160
+      ],
+      "des": "暴击：[#]",
+      "shuxingbeizhu": "暴击"
+    },
+    "718": {
+      "stat": "critdamage",
+      "statid": 57,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        550,
+        550
+      ],
+      "des": "暴击伤害：[#]",
+      "shuxingbeizhu": "暴击伤害"
+    },
+    "719": {
+      "stat": "BonusDamage_p",
+      "statid": 16,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        101,
+        115
+      ],
+      "des": "伤害增幅：[#]",
+      "shuxingbeizhu": "伤害增幅"
+    },
+    "720": {
+      "stat": "DamageReduction_p",
+      "statid": 18,
+      "pinzhi0": [
+        1,
+        1
+      ],
+      "pinzhi1": [
+        1,
+        1
+      ],
+      "pinzhi2": [
+        1,
+        1
+      ],
+      "pinzhi3": [
+        1,
+        1
+      ],
+      "pinzhi4": [
+        101,
+        115
+      ],
+      "des": "伤害减免：[#]",
+      "shuxingbeizhu": "伤害减免"
+    }
+  }
+}

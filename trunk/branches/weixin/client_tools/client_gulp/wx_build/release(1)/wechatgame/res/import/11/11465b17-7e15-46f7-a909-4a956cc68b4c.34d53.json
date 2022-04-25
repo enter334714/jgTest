@@ -1,0 +1,664 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "MagicNameConfig",
+  "json": {
+    "1": {
+      "name": "atk",
+      "type": 0,
+      "desc": "攻击",
+      "zhan": 800,
+      "bagua_battle": 800
+    },
+    "2": {
+      "name": "atk_p",
+      "type": 1,
+      "desc": "攻击",
+      "zhan": 800,
+      "bagua_battle": 800
+    },
+    "3": {
+      "name": "mag",
+      "type": 0,
+      "desc": "魔法",
+      "zhan": 800,
+      "bagua_battle": 800
+    },
+    "4": {
+      "name": "mag_p",
+      "type": 1,
+      "desc": "魔法",
+      "zhan": 800,
+      "bagua_battle": 800
+    },
+    "5": {
+      "name": "spt",
+      "type": 0,
+      "desc": "道术",
+      "zhan": 800,
+      "bagua_battle": 800
+    },
+    "6": {
+      "name": "spt_p",
+      "type": 1,
+      "desc": "道术",
+      "zhan": 800,
+      "bagua_battle": 800
+    },
+    "7": {
+      "name": "Allstat",
+      "type": 0,
+      "desc": "攻击、魔法、道术",
+      "zhan": 800,
+      "bagua_battle": 1100
+    },
+    "8": {
+      "name": "lucky",
+      "type": 0,
+      "desc": "幸运",
+      "zhan": 1600,
+      "bagua_battle": 1600
+    },
+    "9": {
+      "name": "def",
+      "type": 0,
+      "desc": "防御",
+      "zhan": 800,
+      "bagua_battle": 1100
+    },
+    "10": {
+      "name": "hp",
+      "type": 0,
+      "desc": "生命",
+      "zhan": 10,
+      "bagua_battle": 60
+    },
+    "11": {
+      "name": "hp_p",
+      "type": 1,
+      "desc": "生命",
+      "zhan": 10,
+      "bagua_battle": 10
+    },
+    "12": {
+      "name": "mp",
+      "type": 0,
+      "desc": "法力",
+      "zhan": 10,
+      "bagua_battle": 400
+    },
+    "13": {
+      "name": "mp_p",
+      "type": 1,
+      "desc": "法力",
+      "zhan": 10,
+      "bagua_battle": 10
+    },
+    "14": {
+      "name": "speed",
+      "type": 0,
+      "desc": "攻速",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "15": {
+      "name": "BonusDamage",
+      "type": 0,
+      "desc": "固定伤害",
+      "zhan": 800,
+      "bagua_battle": 800
+    },
+    "16": {
+      "name": "BonusDamage_p",
+      "type": 1,
+      "desc": "伤害增加",
+      "zhan": 200,
+      "bagua_battle": 200
+    },
+    "17": {
+      "name": "DamageReduction",
+      "type": 0,
+      "desc": "固定减伤",
+      "zhan": 800,
+      "bagua_battle": 800
+    },
+    "18": {
+      "name": "DamageReduction_p",
+      "type": 1,
+      "desc": "伤害减免",
+      "zhan": 200,
+      "bagua_battle": 200
+    },
+    "19": {
+      "name": "HpDrain",
+      "type": 0,
+      "desc": "生命吸取",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "20": {
+      "name": "MpDrain",
+      "type": 0,
+      "desc": "法力吸取",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "21": {
+      "name": "magic_find1",
+      "type": 1,
+      "desc": "极品概率",
+      "zhan": 10,
+      "bagua_battle": 10
+    },
+    "22": {
+      "name": "equip_times",
+      "type": 1,
+      "desc": "装备掉率",
+      "zhan": 10,
+      "bagua_battle": 10
+    },
+    "23": {
+      "name": "stun",
+      "type": 0,
+      "desc": "眩晕",
+      "zhan": 10,
+      "bagua_battle": 10
+    },
+    "24": {
+      "name": "max_hp",
+      "type": 0,
+      "desc": "最大生命",
+      "zhan": 10,
+      "bagua_battle": 10
+    },
+    "25": {
+      "name": "max_mp",
+      "type": 0,
+      "desc": "最大法力",
+      "zhan": 10,
+      "bagua_battle": 10
+    },
+    "29": {
+      "name": "HpDraineffect_p",
+      "type": 1,
+      "desc": "吸血效果",
+      "zhan": 500,
+      "bagua_battle": 500
+    },
+    "30": {
+      "name": "BonusDamageeffect_p",
+      "type": 1,
+      "desc": "固定减伤效果",
+      "zhan": 500,
+      "bagua_battle": 500
+    },
+    "31": {
+      "name": "petspeed",
+      "type": 0,
+      "desc": "召唤物攻速",
+      "zhan": 200,
+      "bagua_battle": 200
+    },
+    "32": {
+      "name": "petdamage",
+      "type": 0,
+      "desc": "召唤物攻击",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "33": {
+      "name": "petdamage_p",
+      "type": 1,
+      "desc": "召唤物伤害",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "34": {
+      "name": "ignoredef_p",
+      "type": 1,
+      "desc": "无视防御几率",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "35": {
+      "name": "pvpIncrease_p",
+      "type": 1,
+      "desc": "PVP伤害增幅",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "36": {
+      "name": "pvpReduction_p",
+      "type": 1,
+      "desc": "PVP伤害减免",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "37": {
+      "name": "def_p",
+      "type": 1,
+      "desc": "(精炼)防御",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "38": {
+      "name": "Allstat_p",
+      "type": 1,
+      "desc": "(全域)攻击、魔法、道术",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "39": {
+      "name": "speed_p",
+      "type": 1,
+      "desc": "攻速（百分比）",
+      "zhan": 200,
+      "bagua_battle": 200
+    },
+    "40": {
+      "name": "defall_p",
+      "type": 1,
+      "desc": "(全域)防御",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "41": {
+      "name": "suppress",
+      "type": 0,
+      "desc": "压制等级",
+      "zhan": 10,
+      "bagua_battle": 10
+    },
+    "42": {
+      "name": "BonusDamagerate_p",
+      "type": 1,
+      "desc": "固定伤害",
+      "zhan": 600,
+      "bagua_battle": 600
+    },
+    "43": {
+      "name": "Lucky_p",
+      "type": 1,
+      "desc": "幸运",
+      "zhan": 800,
+      "bagua_battle": 800
+    },
+    "44": {
+      "name": "HpDrain_p",
+      "type": 1,
+      "desc": "生命吸取",
+      "zhan": 800,
+      "bagua_battle": 800
+    },
+    "45": {
+      "name": "MpDrain_p",
+      "type": 1,
+      "desc": "法力吸取",
+      "zhan": 800,
+      "bagua_battle": 800
+    },
+    "46": {
+      "name": "movespeed",
+      "type": 1,
+      "desc": "移动速度",
+      "zhan": 0,
+      "bagua_battle": 0
+    },
+    "47": {
+      "name": "stunresist",
+      "type": 1,
+      "desc": "眩晕抗性",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "48": {
+      "name": "freezeresist",
+      "type": 1,
+      "desc": "冰冻抗性",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "49": {
+      "name": "petrochemicalresist",
+      "type": 1,
+      "desc": "石化抗性",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "50": {
+      "name": "benumbresist",
+      "type": 1,
+      "desc": "麻痹抗性",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "51": {
+      "name": "armorpenresist",
+      "type": 1,
+      "desc": "破甲抗性",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "52": {
+      "name": "poisonresist",
+      "type": 1,
+      "desc": "中毒抗性",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "53": {
+      "name": "firingresist",
+      "type": 1,
+      "desc": "灼烧抗性",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "54": {
+      "name": "bleedresist",
+      "type": 1,
+      "desc": "流血抗性",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "55": {
+      "name": "addexp",
+      "type": 1,
+      "desc": "经验加成",
+      "zhan": 0,
+      "bagua_battle": 0
+    },
+    "56": {
+      "name": "crit",
+      "type": 1,
+      "desc": "暴击",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "57": {
+      "name": "critdamage",
+      "type": 1,
+      "desc": "暴击伤害",
+      "zhan": 100,
+      "bagua_battle": 100
+    },
+    "58": {
+      "name": "critresist",
+      "type": 1,
+      "desc": "暴击抵抗",
+      "zhan": 400,
+      "bagua_battle": 400
+    },
+    "59": {
+      "name": "critdamageresist",
+      "type": 1,
+      "desc": "暴击韧性",
+      "zhan": 100,
+      "bagua_battle": 100
+    },
+    "101": {
+      "name": "skill_zhanshi1",
+      "type": 0,
+      "desc": "基本剑术",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "102": {
+      "name": "skill_zhanshi2",
+      "type": 0,
+      "desc": "攻杀剑术",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "103": {
+      "name": "skill_zhanshi3",
+      "type": 0,
+      "desc": "刺杀剑术",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "104": {
+      "name": "skill_zhanshi4",
+      "type": 0,
+      "desc": "半月弯刀",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "105": {
+      "name": "skill_zhanshi5",
+      "type": 0,
+      "desc": "野蛮冲撞",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "106": {
+      "name": "skill_zhanshi6",
+      "type": 0,
+      "desc": "护体真气",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "107": {
+      "name": "skill_zhanshi7",
+      "type": 0,
+      "desc": "烈火剑法",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "201": {
+      "name": "skill_fashi1",
+      "type": 0,
+      "desc": "火球术",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "202": {
+      "name": "skill_fashi2",
+      "type": 0,
+      "desc": "雷电术",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "203": {
+      "name": "skill_fashi3",
+      "type": 0,
+      "desc": "火墙",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "204": {
+      "name": "skill_fashi4",
+      "type": 0,
+      "desc": "诱惑之光",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "205": {
+      "name": "skill_fashi5",
+      "type": 0,
+      "desc": "魔法盾",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "206": {
+      "name": "skill_fashi6",
+      "type": 0,
+      "desc": "法术精通",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "207": {
+      "name": "skill_fashi7",
+      "type": 0,
+      "desc": "冰咆哮",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "301": {
+      "name": "skill_daoshi1",
+      "type": 0,
+      "desc": "精神力战法",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "302": {
+      "name": "skill_daoshi2",
+      "type": 0,
+      "desc": "治疗术",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "303": {
+      "name": "skill_daoshi3",
+      "type": 0,
+      "desc": "灵魂火符",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "304": {
+      "name": "skill_daoshi4",
+      "type": 0,
+      "desc": "施毒术",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "305": {
+      "name": "skill_daoshi5",
+      "type": 0,
+      "desc": "召唤术",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "306": {
+      "name": "skill_daoshi6",
+      "type": 0,
+      "desc": "隐身术",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "307": {
+      "name": "skill_daoshi7",
+      "type": 0,
+      "desc": "神圣战甲术",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "308": {
+      "name": "skill_daoshi8",
+      "type": 0,
+      "desc": "无极真气",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "1000": {
+      "name": "skill_all",
+      "type": 0,
+      "desc": "全技能等级",
+      "zhan": 2,
+      "bagua_battle": 2
+    },
+    "1001": {
+      "name": "skill_zhanshi",
+      "type": 0,
+      "desc": "战士技能等级",
+      "zhan": 2,
+      "bagua_battle": 2
+    },
+    "1002": {
+      "name": "skill_fashi",
+      "type": 0,
+      "desc": "法师技能等级",
+      "zhan": 2,
+      "bagua_battle": 2
+    },
+    "1003": {
+      "name": "skill_daoshi",
+      "type": 0,
+      "desc": "道士技能等级",
+      "zhan": 2,
+      "bagua_battle": 2
+    },
+    "2102": {
+      "name": "skill_cisha",
+      "type": 1,
+      "desc": "刺杀剑术伤害",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "2104": {
+      "name": "skill_banyue",
+      "type": 1,
+      "desc": "半月弯刀伤害",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "2105": {
+      "name": "skill_yeman",
+      "type": 1,
+      "desc": "野蛮冲撞伤害",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "2107": {
+      "name": "skill_liehuo",
+      "type": 1,
+      "desc": "烈火剑法伤害",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "2202": {
+      "name": "skill_leidian",
+      "type": 1,
+      "desc": "雷电术伤害",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "2203": {
+      "name": "skill_huoqiang",
+      "type": 1,
+      "desc": "火墙伤害",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "2204": {
+      "name": "skill_youhuo",
+      "type": 1,
+      "desc": "诱惑之光伤害",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "2207": {
+      "name": "skill_bingpaoxiao",
+      "type": 1,
+      "desc": "冰咆哮伤害",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "2303": {
+      "name": "skill_huofu",
+      "type": 1,
+      "desc": "灵魂火符伤害",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "2304": {
+      "name": "skill_shidu",
+      "type": 1,
+      "desc": "施毒术伤害",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "2305": {
+      "name": "skill_zhaohuan",
+      "type": 1,
+      "desc": "召唤术伤害",
+      "zhan": 1,
+      "bagua_battle": 1
+    },
+    "2308": {
+      "name": "skill_wuji",
+      "type": 1,
+      "desc": "无极真气伤害",
+      "zhan": 1,
+      "bagua_battle": 1
+    }
+  }
+}

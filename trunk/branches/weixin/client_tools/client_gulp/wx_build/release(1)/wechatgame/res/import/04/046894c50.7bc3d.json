@@ -1,0 +1,2236 @@
+[
+  {
+    "__type__": "cc.EffectAsset",
+    "_name": "sprite-old-photo",
+    "techniques": [
+      {
+        "passes": [
+          {
+            "blendState": {
+              "targets": [
+                {
+                  "blend": true
+                }
+              ]
+            },
+            "rasterizerState": {
+              "cullMode": 0
+            },
+            "properties": {
+              "texture": {
+                "value": "white",
+                "type": 29
+              },
+              "alphaThreshold": {
+                "value": [
+                  0.5
+                ],
+                "type": 13
+              },
+              "oldLevel": {
+                "value": [
+                  1
+                ],
+                "editor": {
+                  "tooltip": "老化程度",
+                  "range": [
+                    0,
+                    1
+                  ]
+                },
+                "type": 13
+              }
+            },
+            "program": "sprite-old-photo|vs|fs"
+          }
+        ]
+      }
+    ],
+    "shaders": [
+      {
+        "hash": 949504733,
+        "glsl3": {
+          "vert": "\nprecision highp float;\nuniform CCGlobal {\n  mat4 cc_matView;\n  mat4 cc_matViewInv;\n  mat4 cc_matProj;\n  mat4 cc_matProjInv;\n  mat4 cc_matViewProj;\n  mat4 cc_matViewProjInv;\n  vec4 cc_cameraPos;\n  vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n};\nuniform CCLocal {\n  mat4 cc_matWorld;\n  mat4 cc_matWorldIT;\n};\nin vec3 a_position;\nin vec4 a_color;\nout vec4 v_color;\n#if USE_TEXTURE\nin vec2 a_uv0;\nout vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform ALPHA_TEST {\n    float alphaThreshold;\n  };\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nin vec4 v_color;\n#if USE_TEXTURE\nin vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if USE_OLD_PHOTO\nuniform OldPhoto {\n  float oldLevel;\n};\nvec4 getOldPhotoColor(vec4 color) {\n  float r = 0.393 * color.r + 0.769 * color.g + 0.189 * color.b;\n  float g = 0.349 * color.r + 0.686 * color.g + 0.168 * color.b;\n  float b = 0.272 * color.r + 0.534 * color.g + 0.131 * color.b;\n  return vec4(r, g, b, color.a);\n}\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n  o *= texture(texture, v_uv0);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, v_uv0 + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  #if USE_OLD_PHOTO\n  vec4 srcColor = o;\n  vec4 oldColor = getOldPhotoColor(srcColor);\n  o = srcColor + (oldColor - srcColor) * oldLevel;\n  #endif\n  gl_FragColor = o;\n}"
+        },
+        "glsl1": {
+          "vert": "\nprecision highp float;\nuniform mat4 cc_matViewProj;\nuniform mat4 cc_matWorld;\nattribute vec3 a_position;\nattribute vec4 a_color;\nvarying vec4 v_color;\n#if USE_TEXTURE\nattribute vec2 a_uv0;\nvarying vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform float alphaThreshold;\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nvarying vec4 v_color;\n#if USE_TEXTURE\nvarying vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if USE_OLD_PHOTO\nuniform float oldLevel;\nvec4 getOldPhotoColor(vec4 color) {\n  float r = 0.393 * color.r + 0.769 * color.g + 0.189 * color.b;\n  float g = 0.349 * color.r + 0.686 * color.g + 0.168 * color.b;\n  float b = 0.272 * color.r + 0.534 * color.g + 0.131 * color.b;\n  return vec4(r, g, b, color.a);\n}\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n  o *= texture2D(texture, v_uv0);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, v_uv0 + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  #if USE_OLD_PHOTO\n  vec4 srcColor = o;\n  vec4 oldColor = getOldPhotoColor(srcColor);\n  o = srcColor + (oldColor - srcColor) * oldLevel;\n  #endif\n  gl_FragColor = o;\n}"
+        },
+        "builtins": {
+          "globals": {
+            "blocks": [
+              {
+                "name": "CCGlobal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          },
+          "locals": {
+            "blocks": [
+              {
+                "name": "CCLocal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          }
+        },
+        "defines": [
+          {
+            "name": "USE_TEXTURE",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_MODEL",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_ALPHA_TEST",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_OLD_PHOTO",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_ALPHA_ATLAS_TEXTURE",
+            "type": "boolean",
+            "defines": [
+              "USE_TEXTURE"
+            ]
+          }
+        ],
+        "blocks": [
+          {
+            "name": "ALPHA_TEST",
+            "members": [
+              {
+                "name": "alphaThreshold",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "USE_ALPHA_TEST"
+            ],
+            "binding": 0
+          },
+          {
+            "name": "OldPhoto",
+            "members": [
+              {
+                "name": "oldLevel",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "USE_OLD_PHOTO"
+            ],
+            "binding": 1
+          }
+        ],
+        "samplers": [
+          {
+            "name": "texture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "USE_TEXTURE"
+            ],
+            "binding": 30
+          }
+        ],
+        "record": null,
+        "name": "sprite-old-photo|vs|fs"
+      }
+    ]
+  },
+  {
+    "__type__": "cc.Material",
+    "_name": "sprite-old-photo",
+    "_effectAsset": {
+      "__uuid__": "21Ht3zxT1G44wJwb845kTi"
+    },
+    "_techniqueData": {
+      "0": {
+        "defines": {
+          "USE_TEXTURE": true,
+          "USE_OLD_PHOTO": true
+        }
+      }
+    }
+  },
+  [
+    {
+      "__type__": "cc.Prefab",
+      "_name": "ShaderMaterialPrefab",
+      "data": {
+        "__id__": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "ShaderMaterialPrefab",
+      "_components": [
+        {
+          "__type__": "7c56cZwawZM8aYGevYiajy2",
+          "node": {
+            "__id__": 1
+          },
+          "default": {
+            "__uuid__": "c4SAoKasVEP4tANhoUJX/I"
+          },
+          "grayMaterial": {
+            "__uuid__": "eenfLN3BxPp572slPu6BdG"
+          },
+          "oldPhoto": {
+            "__uuid__": "26ixr/KZpHNZ9cWqjU1ReI"
+          },
+          "glowInner": {
+            "__uuid__": "64foc/4O1M54TLnk1PiiEf"
+          },
+          "mosaic": {
+            "__uuid__": "f2ZRgDgMNGZb2BKtlGoS3s"
+          },
+          "roundCornerCrop": {
+            "__uuid__": "a8bohkU5BEP7Qbs46dWExD"
+          },
+          "flashLight": {
+            "__uuid__": "43oi8YcvxDmbWugwVwWGH0"
+          },
+          "flag": {
+            "__uuid__": "eex5X39qJC4Zn2J2L2Y7UI"
+          },
+          "gaussian": {
+            "__uuid__": "ddPY94m3lMp5v3egn3s0EI"
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "2b8rphaW5CNa55J++ebUEX"
+        },
+        "fileId": "77Mjb0BDlKDqvb+klDkQYh"
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  {
+    "__type__": "cc.EffectAsset",
+    "_name": "sprite-gray",
+    "techniques": [
+      {
+        "passes": [
+          {
+            "blendState": {
+              "targets": [
+                {
+                  "blend": true
+                }
+              ]
+            },
+            "rasterizerState": {
+              "cullMode": 0
+            },
+            "properties": {
+              "texture": {
+                "value": "white",
+                "type": 29
+              },
+              "alphaThreshold": {
+                "value": [
+                  0.5
+                ],
+                "type": 13
+              },
+              "grayLevel": {
+                "value": [
+                  1
+                ],
+                "editor": {
+                  "tooltip": "灰化程度",
+                  "range": [
+                    0,
+                    1
+                  ]
+                },
+                "type": 13
+              }
+            },
+            "program": "sprite-gray|vs|fs"
+          }
+        ]
+      }
+    ],
+    "shaders": [
+      {
+        "hash": 910976928,
+        "glsl3": {
+          "vert": "\nprecision highp float;\nuniform CCGlobal {\n  mat4 cc_matView;\n  mat4 cc_matViewInv;\n  mat4 cc_matProj;\n  mat4 cc_matProjInv;\n  mat4 cc_matViewProj;\n  mat4 cc_matViewProjInv;\n  vec4 cc_cameraPos;\n  vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n};\nuniform CCLocal {\n  mat4 cc_matWorld;\n  mat4 cc_matWorldIT;\n};\nin vec3 a_position;\nin vec4 a_color;\nout vec4 v_color;\n#if USE_TEXTURE\nin vec2 a_uv0;\nout vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform ALPHA_TEST {\n    float alphaThreshold;\n  };\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nin vec4 v_color;\n#if USE_TEXTURE\nin vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if USE_GRAY\nuniform GrayPhoto {\n  float grayLevel;\n};\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n  o *= texture(texture, v_uv0);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, v_uv0 + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  #if USE_GRAY\n  vec4 srcColor = o;\n  float gray = 0.2126 * o.r + 0.7152 * o.g + 0.0722 * o.b;\n  vec4 grayColor = vec4(gray, gray, gray, o.a);\n  o = srcColor + (grayColor - srcColor) * grayLevel;\n  #endif\n  gl_FragColor = o;\n}"
+        },
+        "glsl1": {
+          "vert": "\nprecision highp float;\nuniform mat4 cc_matViewProj;\nuniform mat4 cc_matWorld;\nattribute vec3 a_position;\nattribute vec4 a_color;\nvarying vec4 v_color;\n#if USE_TEXTURE\nattribute vec2 a_uv0;\nvarying vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform float alphaThreshold;\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nvarying vec4 v_color;\n#if USE_TEXTURE\nvarying vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if USE_GRAY\nuniform float grayLevel;\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n  o *= texture2D(texture, v_uv0);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, v_uv0 + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  #if USE_GRAY\n  vec4 srcColor = o;\n  float gray = 0.2126 * o.r + 0.7152 * o.g + 0.0722 * o.b;\n  vec4 grayColor = vec4(gray, gray, gray, o.a);\n  o = srcColor + (grayColor - srcColor) * grayLevel;\n  #endif\n  gl_FragColor = o;\n}"
+        },
+        "builtins": {
+          "globals": {
+            "blocks": [
+              {
+                "name": "CCGlobal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          },
+          "locals": {
+            "blocks": [
+              {
+                "name": "CCLocal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          }
+        },
+        "defines": [
+          {
+            "name": "USE_TEXTURE",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_MODEL",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_ALPHA_TEST",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_GRAY",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_ALPHA_ATLAS_TEXTURE",
+            "type": "boolean",
+            "defines": [
+              "USE_TEXTURE"
+            ]
+          }
+        ],
+        "blocks": [
+          {
+            "name": "ALPHA_TEST",
+            "members": [
+              {
+                "name": "alphaThreshold",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "USE_ALPHA_TEST"
+            ],
+            "binding": 0
+          },
+          {
+            "name": "GrayPhoto",
+            "members": [
+              {
+                "name": "grayLevel",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "USE_GRAY"
+            ],
+            "binding": 1
+          }
+        ],
+        "samplers": [
+          {
+            "name": "texture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "USE_TEXTURE"
+            ],
+            "binding": 30
+          }
+        ],
+        "record": null,
+        "name": "sprite-gray|vs|fs"
+      }
+    ]
+  },
+  {
+    "__type__": "cc.EffectAsset",
+    "_name": "sprite-glow-inner",
+    "techniques": [
+      {
+        "passes": [
+          {
+            "blendState": {
+              "targets": [
+                {
+                  "blend": true
+                }
+              ]
+            },
+            "rasterizerState": {
+              "cullMode": 0
+            },
+            "properties": {
+              "texture": {
+                "value": "white",
+                "type": 29
+              },
+              "alphaThreshold": {
+                "value": [
+                  0.5
+                ],
+                "type": 13
+              },
+              "glowColor": {
+                "value": [
+                  1,
+                  1,
+                  0,
+                  1
+                ],
+                "editor": {
+                  "type": "color",
+                  "tooltip": "发光颜色"
+                },
+                "type": 16
+              },
+              "glowColorSize": {
+                "value": [
+                  0.2
+                ],
+                "editor": {
+                  "tooltip": "发光宽度",
+                  "range": [
+                    0,
+                    1
+                  ]
+                },
+                "type": 13
+              },
+              "glowThreshold": {
+                "value": [
+                  0.1
+                ],
+                "editor": {
+                  "tooltip": "发光阈值",
+                  "range": [
+                    0,
+                    1
+                  ]
+                },
+                "type": 13
+              }
+            },
+            "program": "sprite-glow-inner|vs|fs"
+          }
+        ]
+      }
+    ],
+    "shaders": [
+      {
+        "hash": 3426907229,
+        "glsl3": {
+          "vert": "\nprecision highp float;\nuniform CCGlobal {\n  mat4 cc_matView;\n  mat4 cc_matViewInv;\n  mat4 cc_matProj;\n  mat4 cc_matProjInv;\n  mat4 cc_matViewProj;\n  mat4 cc_matViewProjInv;\n  vec4 cc_cameraPos;\n  vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n};\nuniform CCLocal {\n  mat4 cc_matWorld;\n  mat4 cc_matWorldIT;\n};\nin vec3 a_position;\nin vec4 a_color;\nout vec4 v_color;\n#if USE_TEXTURE\nin vec2 a_uv0;\nout vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform ALPHA_TEST {\n    float alphaThreshold;\n  };\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nin vec4 v_color;\n#if USE_TEXTURE\nin vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if SHOW_INNER_GLOW\nuniform glow {\n  vec4 glowColor;\n  float glowColorSize;\n  float glowThreshold;\n};\nvec4 getTextureColor(sampler2D texture, vec2 v_uv0) {\n  if (v_uv0.x > 1.0 || v_uv0.x < 0.0 || v_uv0.y > 1.0 || v_uv0.y < 0.0) {\n    return vec4(0.0, 0.0, 0.0, 0.0);\n  }\n  return texture(texture, v_uv0);\n}\nfloat getColorAlpha(float angle, float dist) {\n  float radian = radians(angle);\n  vec4 color = getTextureColor(texture, v_uv0 + vec2(dist * cos(radian), dist * sin(radian)));\n  return color.a;\n}\nfloat getAverageAlpha(float dist) {\n  float totalAlpha = 0.0;\n  totalAlpha += getColorAlpha(0.0, dist);\n  totalAlpha += getColorAlpha(30.0, dist);\n  totalAlpha += getColorAlpha(60.0, dist);\n  totalAlpha += getColorAlpha(90.0, dist);\n  totalAlpha += getColorAlpha(120.0, dist);\n  totalAlpha += getColorAlpha(150.0, dist);\n  totalAlpha += getColorAlpha(180.0, dist);\n  totalAlpha += getColorAlpha(210.0, dist);\n  totalAlpha += getColorAlpha(240.0, dist);\n  totalAlpha += getColorAlpha(270.0, dist);\n  totalAlpha += getColorAlpha(300.0, dist);\n  totalAlpha += getColorAlpha(330.0, dist);\n  return totalAlpha * 0.0833;\n}\nfloat getGlowAlpha() {\n  if (glowColorSize == 0.0) {\n    return 0.0;\n  }\n  vec4 srcColor = getTextureColor(texture, v_uv0);\n  if (srcColor.a <= glowThreshold) {\n    return srcColor.a;\n  }\n  float totalAlpha = 0.0;\n  totalAlpha += getAverageAlpha(glowColorSize * 0.1);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.2);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.3);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.4);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.5);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.6);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.7);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.8);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.9);\n  totalAlpha += getAverageAlpha(glowColorSize * 1.0);\n  return totalAlpha * 0.1;\n}\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n  o *= texture(texture, v_uv0);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, v_uv0 + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  gl_FragColor = o;\n  #if SHOW_INNER_GLOW\n    vec4 color_dest = o;\n    float alpha = getGlowAlpha();\n    if (alpha > glowThreshold) {\n      alpha = 1.0 - alpha;\n      alpha = -1.0 * (alpha - 1.0) * (alpha - 1.0) * (alpha - 1.0) * (alpha - 1.0) + 1.0;\n    }\n    vec4 color_src = glowColor * alpha;\n    gl_FragColor = color_src * color_src.a + color_dest;\n  #endif\n}"
+        },
+        "glsl1": {
+          "vert": "\nprecision highp float;\nuniform mat4 cc_matViewProj;\nuniform mat4 cc_matWorld;\nattribute vec3 a_position;\nattribute vec4 a_color;\nvarying vec4 v_color;\n#if USE_TEXTURE\nattribute vec2 a_uv0;\nvarying vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform float alphaThreshold;\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nvarying vec4 v_color;\n#if USE_TEXTURE\nvarying vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if SHOW_INNER_GLOW\nuniform vec4 glowColor;\nuniform float glowColorSize;\nuniform float glowThreshold;\nvec4 getTextureColor(sampler2D texture, vec2 v_uv0) {\n  if (v_uv0.x > 1.0 || v_uv0.x < 0.0 || v_uv0.y > 1.0 || v_uv0.y < 0.0) {\n    return vec4(0.0, 0.0, 0.0, 0.0);\n  }\n  return texture2D(texture, v_uv0);\n}\nfloat getColorAlpha(float angle, float dist) {\n  float radian = radians(angle);\n  vec4 color = getTextureColor(texture, v_uv0 + vec2(dist * cos(radian), dist * sin(radian)));\n  return color.a;\n}\nfloat getAverageAlpha(float dist) {\n  float totalAlpha = 0.0;\n  totalAlpha += getColorAlpha(0.0, dist);\n  totalAlpha += getColorAlpha(30.0, dist);\n  totalAlpha += getColorAlpha(60.0, dist);\n  totalAlpha += getColorAlpha(90.0, dist);\n  totalAlpha += getColorAlpha(120.0, dist);\n  totalAlpha += getColorAlpha(150.0, dist);\n  totalAlpha += getColorAlpha(180.0, dist);\n  totalAlpha += getColorAlpha(210.0, dist);\n  totalAlpha += getColorAlpha(240.0, dist);\n  totalAlpha += getColorAlpha(270.0, dist);\n  totalAlpha += getColorAlpha(300.0, dist);\n  totalAlpha += getColorAlpha(330.0, dist);\n  return totalAlpha * 0.0833;\n}\nfloat getGlowAlpha() {\n  if (glowColorSize == 0.0) {\n    return 0.0;\n  }\n  vec4 srcColor = getTextureColor(texture, v_uv0);\n  if (srcColor.a <= glowThreshold) {\n    return srcColor.a;\n  }\n  float totalAlpha = 0.0;\n  totalAlpha += getAverageAlpha(glowColorSize * 0.1);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.2);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.3);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.4);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.5);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.6);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.7);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.8);\n  totalAlpha += getAverageAlpha(glowColorSize * 0.9);\n  totalAlpha += getAverageAlpha(glowColorSize * 1.0);\n  return totalAlpha * 0.1;\n}\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n  o *= texture2D(texture, v_uv0);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, v_uv0 + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  gl_FragColor = o;\n  #if SHOW_INNER_GLOW\n    vec4 color_dest = o;\n    float alpha = getGlowAlpha();\n    if (alpha > glowThreshold) {\n      alpha = 1.0 - alpha;\n      alpha = -1.0 * (alpha - 1.0) * (alpha - 1.0) * (alpha - 1.0) * (alpha - 1.0) + 1.0;\n    }\n    vec4 color_src = glowColor * alpha;\n    gl_FragColor = color_src * color_src.a + color_dest;\n  #endif\n}"
+        },
+        "builtins": {
+          "globals": {
+            "blocks": [
+              {
+                "name": "CCGlobal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          },
+          "locals": {
+            "blocks": [
+              {
+                "name": "CCLocal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          }
+        },
+        "defines": [
+          {
+            "name": "USE_TEXTURE",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_MODEL",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_ALPHA_TEST",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "SHOW_INNER_GLOW",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_ALPHA_ATLAS_TEXTURE",
+            "type": "boolean",
+            "defines": [
+              "USE_TEXTURE"
+            ]
+          }
+        ],
+        "blocks": [
+          {
+            "name": "ALPHA_TEST",
+            "members": [
+              {
+                "name": "alphaThreshold",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "USE_ALPHA_TEST"
+            ],
+            "binding": 0
+          },
+          {
+            "name": "glow",
+            "members": [
+              {
+                "name": "glowColor",
+                "type": 16,
+                "count": 1
+              },
+              {
+                "name": "glowColorSize",
+                "type": 13,
+                "count": 1
+              },
+              {
+                "name": "glowThreshold",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "SHOW_INNER_GLOW"
+            ],
+            "binding": 1
+          }
+        ],
+        "samplers": [
+          {
+            "name": "texture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "USE_TEXTURE"
+            ],
+            "binding": 30
+          }
+        ],
+        "record": null,
+        "name": "sprite-glow-inner|vs|fs"
+      }
+    ]
+  },
+  {
+    "__type__": "cc.EffectAsset",
+    "_name": "sprite-gaussian-blur-v1",
+    "techniques": [
+      {
+        "passes": [
+          {
+            "blendState": {
+              "targets": [
+                {
+                  "blend": true
+                }
+              ]
+            },
+            "rasterizerState": {
+              "cullMode": 0
+            },
+            "properties": {
+              "texture": {
+                "value": "white",
+                "type": 29
+              },
+              "alphaThreshold": {
+                "value": [
+                  0.5
+                ],
+                "type": 13
+              },
+              "textureSize": {
+                "value": [
+                  100,
+                  100
+                ],
+                "editor": {
+                  "tooltip": "纹理尺寸px（宽 x 高）"
+                },
+                "type": 14
+              }
+            },
+            "program": "sprite-gaussian-blur-v1|vs|fs"
+          }
+        ]
+      }
+    ],
+    "shaders": [
+      {
+        "hash": 4170075038,
+        "glsl3": {
+          "vert": "\nprecision highp float;\nuniform CCGlobal {\n  mat4 cc_matView;\n  mat4 cc_matViewInv;\n  mat4 cc_matProj;\n  mat4 cc_matProjInv;\n  mat4 cc_matViewProj;\n  mat4 cc_matViewProjInv;\n  vec4 cc_cameraPos;\n  vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n};\nuniform CCLocal {\n  mat4 cc_matWorld;\n  mat4 cc_matWorldIT;\n};\nin vec3 a_position;\nin vec4 a_color;\nout vec4 v_color;\n#if USE_TEXTURE\nin vec2 a_uv0;\nout vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform ALPHA_TEST {\n    float alphaThreshold;\n  };\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nin vec4 v_color;\n#if USE_TEXTURE\nin vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if ENABLE_GAUSSIAN_BLUR\nuniform GaussianBlur {\n  vec2 textureSize;\n};\nfloat getWeight(float x, float y) {\n  return (1.0 / (2.0 * 3.141592653589793 * pow(1.5, 2.0))) * pow(1.0 / 2.718281828459045, (pow(x, 2.0) + pow(y, 2.0)) / (2.0 * pow(1.5, 2.0)));\n}\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n  o *= texture(texture, v_uv0);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, v_uv0 + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  gl_FragColor = o;\n  #if ENABLE_GAUSSIAN_BLUR\n    const float size = floor(1.5 * 6.0 + 1.0);\n    const float halfSize = floor(size / 2.0);\n    float totalWeight = getWeight(0.0, 0.0);\n    for(float x = 1.0; x <= halfSize; x++) {\n        totalWeight += getWeight(x, 0.0) * 2.0;\n    }\n    for(float y = 1.0; y <= halfSize; y++) {\n        totalWeight += getWeight(0.0, y) * 2.0;\n    }\n    for(float x = 1.0; x <= halfSize; x++) {\n      for (float y = 1.0; y<= halfSize; y++) {\n        totalWeight += getWeight(x, y) * 4.0;\n      }\n    }\n    vec4 finalColor = vec4(0.0, 0.0, 0.0, 0.0);\n    float onePxWidth = 1.0 / textureSize.x;\n    float onePxHeight = 1.0 / textureSize.y;\n    for(float x = -halfSize; x<= halfSize; x++) {\n      for (float y = -halfSize; y<= halfSize; y++) {\n        float weight = getWeight(x, y) / totalWeight;\n        finalColor += texture(texture, v_uv0 + vec2(onePxWidth * x, onePxHeight * y)) * weight;\n      }\n    }\n    gl_FragColor = finalColor;\n  #endif\n}"
+        },
+        "glsl1": {
+          "vert": "\nprecision highp float;\nuniform mat4 cc_matViewProj;\nuniform mat4 cc_matWorld;\nattribute vec3 a_position;\nattribute vec4 a_color;\nvarying vec4 v_color;\n#if USE_TEXTURE\nattribute vec2 a_uv0;\nvarying vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform float alphaThreshold;\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nvarying vec4 v_color;\n#if USE_TEXTURE\nvarying vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if ENABLE_GAUSSIAN_BLUR\nuniform vec2 textureSize;\nfloat getWeight(float x, float y) {\n  return (1.0 / (2.0 * 3.141592653589793 * pow(1.5, 2.0))) * pow(1.0 / 2.718281828459045, (pow(x, 2.0) + pow(y, 2.0)) / (2.0 * pow(1.5, 2.0)));\n}\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n  o *= texture2D(texture, v_uv0);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, v_uv0 + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  gl_FragColor = o;\n  #if ENABLE_GAUSSIAN_BLUR\n    const float size = floor(1.5 * 6.0 + 1.0);\n    const float halfSize = floor(size / 2.0);\n    float totalWeight = getWeight(0.0, 0.0);\n    for(float x = 1.0; x <= halfSize; x++) {\n        totalWeight += getWeight(x, 0.0) * 2.0;\n    }\n    for(float y = 1.0; y <= halfSize; y++) {\n        totalWeight += getWeight(0.0, y) * 2.0;\n    }\n    for(float x = 1.0; x <= halfSize; x++) {\n      for (float y = 1.0; y<= halfSize; y++) {\n        totalWeight += getWeight(x, y) * 4.0;\n      }\n    }\n    vec4 finalColor = vec4(0.0, 0.0, 0.0, 0.0);\n    float onePxWidth = 1.0 / textureSize.x;\n    float onePxHeight = 1.0 / textureSize.y;\n    for(float x = -halfSize; x<= halfSize; x++) {\n      for (float y = -halfSize; y<= halfSize; y++) {\n        float weight = getWeight(x, y) / totalWeight;\n        finalColor += texture2D(texture, v_uv0 + vec2(onePxWidth * x, onePxHeight * y)) * weight;\n      }\n    }\n    gl_FragColor = finalColor;\n  #endif\n}"
+        },
+        "builtins": {
+          "globals": {
+            "blocks": [
+              {
+                "name": "CCGlobal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          },
+          "locals": {
+            "blocks": [
+              {
+                "name": "CCLocal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          }
+        },
+        "defines": [
+          {
+            "name": "USE_TEXTURE",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_MODEL",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_ALPHA_TEST",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "ENABLE_GAUSSIAN_BLUR",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_ALPHA_ATLAS_TEXTURE",
+            "type": "boolean",
+            "defines": [
+              "USE_TEXTURE"
+            ]
+          }
+        ],
+        "blocks": [
+          {
+            "name": "ALPHA_TEST",
+            "members": [
+              {
+                "name": "alphaThreshold",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "USE_ALPHA_TEST"
+            ],
+            "binding": 0
+          },
+          {
+            "name": "GaussianBlur",
+            "members": [
+              {
+                "name": "textureSize",
+                "type": 14,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "ENABLE_GAUSSIAN_BLUR"
+            ],
+            "binding": 1
+          }
+        ],
+        "samplers": [
+          {
+            "name": "texture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "USE_TEXTURE"
+            ],
+            "binding": 30
+          }
+        ],
+        "record": null,
+        "name": "sprite-gaussian-blur-v1|vs|fs"
+      }
+    ]
+  },
+  {
+    "__type__": "cc.Material",
+    "_name": "sprite-flash-light",
+    "_effectAsset": {
+      "__uuid__": "e9aCzRoZxPy62MzxeDuAXm"
+    },
+    "_techniqueData": {
+      "0": {
+        "props": {
+          "lightColor": {
+            "__type__": "cc.Color",
+            "r": 255,
+            "g": 245
+          },
+          "lightAngle": 36,
+          "lightWidth": 0.2
+        },
+        "defines": {
+          "USE_TEXTURE": true,
+          "ENABLE_LIGHT": true
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.Material",
+    "_name": "sprite-glow-inner",
+    "_effectAsset": {
+      "__uuid__": "34WkjDwAxF0rbJsaxJ9GZi"
+    },
+    "_techniqueData": {
+      "0": {
+        "defines": {
+          "USE_TEXTURE": true,
+          "SHOW_INNER_GLOW": true
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.EffectAsset",
+    "_name": "sprite-round-corner-crop-v2",
+    "techniques": [
+      {
+        "passes": [
+          {
+            "blendState": {
+              "targets": [
+                {
+                  "blend": true
+                }
+              ]
+            },
+            "rasterizerState": {
+              "cullMode": 0
+            },
+            "properties": {
+              "texture": {
+                "value": "white",
+                "type": 29
+              },
+              "alphaThreshold": {
+                "value": [
+                  0.5
+                ],
+                "type": 13
+              },
+              "xRadius": {
+                "value": [
+                  0.4
+                ],
+                "editor": {
+                  "tooltip": "圆角x轴半径长度（相对于纹理宽度）"
+                },
+                "type": 13
+              },
+              "yRadius": {
+                "value": [
+                  0.4
+                ],
+                "editor": {
+                  "tooltip": "圆角y轴半径长度（相对于纹理高度）"
+                },
+                "type": 13
+              }
+            },
+            "program": "sprite-round-corner-crop-v2|vs|fs"
+          }
+        ]
+      }
+    ],
+    "shaders": [
+      {
+        "hash": 908960799,
+        "glsl3": {
+          "vert": "\nprecision highp float;\nuniform CCGlobal {\n  mat4 cc_matView;\n  mat4 cc_matViewInv;\n  mat4 cc_matProj;\n  mat4 cc_matProjInv;\n  mat4 cc_matViewProj;\n  mat4 cc_matViewProjInv;\n  vec4 cc_cameraPos;\n  vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n};\nuniform CCLocal {\n  mat4 cc_matWorld;\n  mat4 cc_matWorldIT;\n};\nin vec3 a_position;\nin vec4 a_color;\nout vec4 v_color;\n#if USE_TEXTURE\nin vec2 a_uv0;\nout vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform ALPHA_TEST {\n    float alphaThreshold;\n  };\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nin vec4 v_color;\n#if USE_TEXTURE\nin vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if ENABLE_ROUNDCORNER\nuniform RoundCorner {\n  float xRadius;\n  float yRadius;\n};\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n  o *= texture(texture, v_uv0);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, v_uv0 + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  #if ENABLE_ROUNDCORNER\n  float ellipseXRadius = clamp(0.0, 0.5, xRadius);\n  float ellipseYRadius = clamp(0.0, 0.5, yRadius);\n  vec2 uv = v_uv0.xy - vec2(0.5, 0.5);\n  float rx = abs(uv.x) - (0.5 - ellipseXRadius);\n  float ry = abs(uv.y) - (0.5 - ellipseYRadius);\n  float mx = step(0.5 - ellipseXRadius, abs(uv.x));\n  float my = step(0.5 - ellipseYRadius, abs(uv.y));\n  float isOutOfEllipse = step(1.0, pow(rx, 2.0) / pow(xRadius, 2.0) + pow(ry, 2.0) / pow(yRadius, 2.0));\n  float angleInRadian = atan(ry / rx);\n  vec2 pointInEllipse = vec2(xRadius * cos(angleInRadian), yRadius * sin(angleInRadian));\n  vec2 pointInBigEllipse = vec2((xRadius * 1.01) * cos(angleInRadian), (yRadius * 1.01)* sin(angleInRadian));\n  float maxDis = distance(pointInBigEllipse, pointInEllipse);\n  float curDis = distance(vec2(rx, ry), pointInEllipse);\n  float smo = smoothstep(0.0, maxDis, curDis);\n  float alpha = 1.0 - mx * my * isOutOfEllipse * smo;\n  o = vec4(o.rgb, o.a * alpha);\n  #endif\n  gl_FragColor = o;\n}"
+        },
+        "glsl1": {
+          "vert": "\nprecision highp float;\nuniform mat4 cc_matViewProj;\nuniform mat4 cc_matWorld;\nattribute vec3 a_position;\nattribute vec4 a_color;\nvarying vec4 v_color;\n#if USE_TEXTURE\nattribute vec2 a_uv0;\nvarying vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform float alphaThreshold;\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nvarying vec4 v_color;\n#if USE_TEXTURE\nvarying vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if ENABLE_ROUNDCORNER\nuniform float xRadius;\nuniform float yRadius;\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n  o *= texture2D(texture, v_uv0);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, v_uv0 + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  #if ENABLE_ROUNDCORNER\n  float ellipseXRadius = clamp(0.0, 0.5, xRadius);\n  float ellipseYRadius = clamp(0.0, 0.5, yRadius);\n  vec2 uv = v_uv0.xy - vec2(0.5, 0.5);\n  float rx = abs(uv.x) - (0.5 - ellipseXRadius);\n  float ry = abs(uv.y) - (0.5 - ellipseYRadius);\n  float mx = step(0.5 - ellipseXRadius, abs(uv.x));\n  float my = step(0.5 - ellipseYRadius, abs(uv.y));\n  float isOutOfEllipse = step(1.0, pow(rx, 2.0) / pow(xRadius, 2.0) + pow(ry, 2.0) / pow(yRadius, 2.0));\n  float angleInRadian = atan(ry / rx);\n  vec2 pointInEllipse = vec2(xRadius * cos(angleInRadian), yRadius * sin(angleInRadian));\n  vec2 pointInBigEllipse = vec2((xRadius * 1.01) * cos(angleInRadian), (yRadius * 1.01)* sin(angleInRadian));\n  float maxDis = distance(pointInBigEllipse, pointInEllipse);\n  float curDis = distance(vec2(rx, ry), pointInEllipse);\n  float smo = smoothstep(0.0, maxDis, curDis);\n  float alpha = 1.0 - mx * my * isOutOfEllipse * smo;\n  o = vec4(o.rgb, o.a * alpha);\n  #endif\n  gl_FragColor = o;\n}"
+        },
+        "builtins": {
+          "globals": {
+            "blocks": [
+              {
+                "name": "CCGlobal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          },
+          "locals": {
+            "blocks": [
+              {
+                "name": "CCLocal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          }
+        },
+        "defines": [
+          {
+            "name": "USE_TEXTURE",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_MODEL",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_ALPHA_TEST",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "ENABLE_ROUNDCORNER",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_ALPHA_ATLAS_TEXTURE",
+            "type": "boolean",
+            "defines": [
+              "USE_TEXTURE"
+            ]
+          }
+        ],
+        "blocks": [
+          {
+            "name": "ALPHA_TEST",
+            "members": [
+              {
+                "name": "alphaThreshold",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "USE_ALPHA_TEST"
+            ],
+            "binding": 0
+          },
+          {
+            "name": "RoundCorner",
+            "members": [
+              {
+                "name": "xRadius",
+                "type": 13,
+                "count": 1
+              },
+              {
+                "name": "yRadius",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "ENABLE_ROUNDCORNER"
+            ],
+            "binding": 1
+          }
+        ],
+        "samplers": [
+          {
+            "name": "texture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "USE_TEXTURE"
+            ],
+            "binding": 30
+          }
+        ],
+        "record": null,
+        "name": "sprite-round-corner-crop-v2|vs|fs"
+      }
+    ]
+  },
+  {
+    "__type__": "cc.EffectAsset",
+    "_name": "sprite-mosaic",
+    "techniques": [
+      {
+        "passes": [
+          {
+            "blendState": {
+              "targets": [
+                {
+                  "blend": true
+                }
+              ]
+            },
+            "rasterizerState": {
+              "cullMode": 0
+            },
+            "properties": {
+              "texture": {
+                "value": "white",
+                "type": 29
+              },
+              "alphaThreshold": {
+                "value": [
+                  0.5
+                ],
+                "type": 13
+              },
+              "xBlockCount": {
+                "value": [
+                  30
+                ],
+                "editor": {
+                  "tooltip": "X轴方向马赛克方块数量"
+                },
+                "type": 13
+              },
+              "yBlockCount": {
+                "value": [
+                  30
+                ],
+                "editor": {
+                  "tooltip": "Y轴方向马赛克方块数量"
+                },
+                "type": 13
+              }
+            },
+            "program": "sprite-mosaic|vs|fs"
+          }
+        ]
+      }
+    ],
+    "shaders": [
+      {
+        "hash": 311370418,
+        "glsl3": {
+          "vert": "\nprecision highp float;\nuniform CCGlobal {\n  mat4 cc_matView;\n  mat4 cc_matViewInv;\n  mat4 cc_matProj;\n  mat4 cc_matProjInv;\n  mat4 cc_matViewProj;\n  mat4 cc_matViewProjInv;\n  vec4 cc_cameraPos;\n  vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n};\nuniform CCLocal {\n  mat4 cc_matWorld;\n  mat4 cc_matWorldIT;\n};\nin vec3 a_position;\nin vec4 a_color;\nout vec4 v_color;\n#if USE_TEXTURE\nin vec2 a_uv0;\nout vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform ALPHA_TEST {\n    float alphaThreshold;\n  };\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nin vec4 v_color;\n#if USE_TEXTURE\nin vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if USE_MOSAIC\nuniform Mosaic {\n  float xBlockCount;\n  float yBlockCount;\n};\nvec2 getUvMapPos() {\n  float xCount;\n  if (xBlockCount <= 0.0) {\n    xCount = 1.0;\n  } else {\n    xCount = xBlockCount;\n  }\n  float blockWidth = 1.0 / xCount;\n  float blockXIndex = floor(v_uv0.x / blockWidth);\n  float yCount;\n  if (yBlockCount <= 0.0) {\n    yCount = 1.0;\n  } else {\n    yCount = yBlockCount;\n  }\n  float blockHeight = 1.0 / yCount;\n  float blockYIndex = floor(v_uv0.y / blockHeight);\n  return vec2(blockWidth * (blockXIndex + 0.5), blockHeight * (blockYIndex + 0.5));\n}\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  vec2 realPos = v_uv0;\n  #if USE_MOSAIC\n  realPos = getUvMapPos();\n  #endif\n  #if USE_TEXTURE\n  o *= texture(texture, realPos);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, realPos + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  gl_FragColor = o;\n}"
+        },
+        "glsl1": {
+          "vert": "\nprecision highp float;\nuniform mat4 cc_matViewProj;\nuniform mat4 cc_matWorld;\nattribute vec3 a_position;\nattribute vec4 a_color;\nvarying vec4 v_color;\n#if USE_TEXTURE\nattribute vec2 a_uv0;\nvarying vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform float alphaThreshold;\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nvarying vec4 v_color;\n#if USE_TEXTURE\nvarying vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if USE_MOSAIC\nuniform float xBlockCount;\nuniform float yBlockCount;\nvec2 getUvMapPos() {\n  float xCount;\n  if (xBlockCount <= 0.0) {\n    xCount = 1.0;\n  } else {\n    xCount = xBlockCount;\n  }\n  float blockWidth = 1.0 / xCount;\n  float blockXIndex = floor(v_uv0.x / blockWidth);\n  float yCount;\n  if (yBlockCount <= 0.0) {\n    yCount = 1.0;\n  } else {\n    yCount = yBlockCount;\n  }\n  float blockHeight = 1.0 / yCount;\n  float blockYIndex = floor(v_uv0.y / blockHeight);\n  return vec2(blockWidth * (blockXIndex + 0.5), blockHeight * (blockYIndex + 0.5));\n}\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  vec2 realPos = v_uv0;\n  #if USE_MOSAIC\n  realPos = getUvMapPos();\n  #endif\n  #if USE_TEXTURE\n  o *= texture2D(texture, realPos);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, realPos + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  gl_FragColor = o;\n}"
+        },
+        "builtins": {
+          "globals": {
+            "blocks": [
+              {
+                "name": "CCGlobal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          },
+          "locals": {
+            "blocks": [
+              {
+                "name": "CCLocal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          }
+        },
+        "defines": [
+          {
+            "name": "USE_TEXTURE",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_MODEL",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_ALPHA_TEST",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_MOSAIC",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_ALPHA_ATLAS_TEXTURE",
+            "type": "boolean",
+            "defines": [
+              "USE_TEXTURE"
+            ]
+          }
+        ],
+        "blocks": [
+          {
+            "name": "ALPHA_TEST",
+            "members": [
+              {
+                "name": "alphaThreshold",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "USE_ALPHA_TEST"
+            ],
+            "binding": 0
+          },
+          {
+            "name": "Mosaic",
+            "members": [
+              {
+                "name": "xBlockCount",
+                "type": 13,
+                "count": 1
+              },
+              {
+                "name": "yBlockCount",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "USE_MOSAIC"
+            ],
+            "binding": 1
+          }
+        ],
+        "samplers": [
+          {
+            "name": "texture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "USE_TEXTURE"
+            ],
+            "binding": 30
+          }
+        ],
+        "record": null,
+        "name": "sprite-mosaic|vs|fs"
+      }
+    ]
+  },
+  {
+    "__type__": "cc.Material",
+    "_name": "sprite-round-corner-crop-v2",
+    "_effectAsset": {
+      "__uuid__": "7cJLV+6BlPyajSsGz2G3gt"
+    },
+    "_techniqueData": {
+      "0": {
+        "props": {
+          "xRadius": 0.2,
+          "yRadius": 0.2
+        },
+        "defines": {
+          "USE_TEXTURE": true,
+          "ENABLE_ROUNDCORNER": true
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.EffectAsset",
+    "_name": "builtin-phong",
+    "techniques": [
+      {
+        "passes": [
+          {
+            "name": "phong",
+            "rasterizerState": {
+              "cullMode": 1029
+            },
+            "depthStencilState": {
+              "depthTest": true,
+              "depthWrite": true
+            },
+            "properties": {
+              "alphaThreshold": {
+                "value": [
+                  0.5
+                ],
+                "type": 13
+              },
+              "mainTiling": {
+                "value": [
+                  1,
+                  1
+                ],
+                "type": 14
+              },
+              "mainOffset": {
+                "value": [
+                  0,
+                  0
+                ],
+                "type": 14
+              },
+              "diffuseColor": {
+                "value": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "editor": {
+                  "type": "color"
+                },
+                "type": 16
+              },
+              "diffuseTexture": {
+                "value": "white",
+                "type": 29
+              },
+              "specularColor": {
+                "value": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "editor": {
+                  "type": "color"
+                },
+                "type": 16
+              },
+              "specularTexture": {
+                "value": "white",
+                "type": 29
+              },
+              "emissiveColor": {
+                "value": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "editor": {
+                  "type": "color"
+                },
+                "type": 16
+              },
+              "emissiveTexture": {
+                "value": "white",
+                "type": 29
+              },
+              "glossiness": {
+                "value": [
+                  10
+                ],
+                "type": 13
+              },
+              "normalTexture": {
+                "value": "white",
+                "type": 29
+              }
+            },
+            "program": "builtin-phong|phong-vs|phong-fs"
+          },
+          {
+            "name": "shadowcast",
+            "stage": "shadowcast",
+            "rasterizerState": {
+              "cullMode": 1029
+            },
+            "depthStencilState": {
+              "depthTest": true,
+              "depthWrite": true
+            },
+            "program": "builtin-phong|shadow-map-vs|shadow-map-fs"
+          }
+        ]
+      }
+    ],
+    "shaders": [
+      {
+        "hash": 3560892936,
+        "glsl3": {
+          "vert": "\nprecision highp float;\nuniform CCLocal {\n  mat4 cc_matWorld;\n  mat4 cc_matWorldIT;\n};\nuniform CCGlobal {\n  mat4 cc_matView;\n  mat4 cc_matViewInv;\n  mat4 cc_matProj;\n  mat4 cc_matProjInv;\n  mat4 cc_matViewProj;\n  mat4 cc_matViewProjInv;\n  vec4 cc_cameraPos;\n  vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n};\n#if CC_USE_SKINNING\n  in vec4 a_weights;\n  in vec4 a_joints;\n  #if CC_USE_JOINTS_TEXTRUE\n    uniform SKINNING {\n      vec2 jointsTextureSize;\n    };\n    uniform sampler2D jointsTexture;\n    #if CC_JOINTS_TEXTURE_FLOAT32\n      mat4 getBoneMatrix(const in float i) {\n        float width = jointsTextureSize.x;\n        float height = jointsTextureSize.y;\n        float j = i * 4.0;\n        float x = mod(j, width);\n        float y = floor(j / width);\n        float dx = 1.0 / width;\n        float dy = 1.0 / height;\n        y = dy * (y + 0.5);\n        vec4 v1 = texture(jointsTexture, vec2(dx * (x + 0.5), y));\n        vec4 v2 = texture(jointsTexture, vec2(dx * (x + 1.5), y));\n        vec4 v3 = texture(jointsTexture, vec2(dx * (x + 2.5), y));\n        vec4 v4 = texture(jointsTexture, vec2(dx * (x + 3.5), y));\n        return mat4(v1, v2, v3, v4);\n      }\n    #else\n      float decode32(vec4 rgba) {\n        float Sign = 1.0 - step(128.0, rgba[0]) * 2.0;\n        float Exponent = 2.0 * mod(rgba[0], 128.0) + step(128.0, rgba[1]) - 127.0;\n        float Mantissa = mod(rgba[1], 128.0) * 65536.0 + rgba[2] * 256.0 + rgba[3] + 8388608.0;\n        return Sign * exp2(Exponent - 23.0) * Mantissa;\n      }\n      vec4 decodevec4 (vec4 x, vec4 y, vec4 z, vec4 w) {\n        return vec4(\n          decode32(x.wzyx * 255.0),\n          decode32(y.wzyx * 255.0),\n          decode32(z.wzyx * 255.0),\n          decode32(w.wzyx * 255.0)\n        );\n      }\n      vec4 decodevec4 (float dx, float x, float y) {\n        return decodevec4(\n          texture(jointsTexture, vec2(dx * (x + 0.5), y)),\n          texture(jointsTexture, vec2(dx * (x + 1.5), y)),\n          texture(jointsTexture, vec2(dx * (x + 2.5), y)),\n          texture(jointsTexture, vec2(dx * (x + 3.5), y))\n        );\n      }\n      mat4 getBoneMatrix(const in float i) {\n        float width = jointsTextureSize.x;\n        float height = jointsTextureSize.y;\n        float j = i * 16.0;\n        float x = mod(j, width);\n        float y = floor(j / width);\n        float dx = 1.0 / width;\n        float dy = 1.0 / height;\n        y = dy * (y + 0.5);\n        vec4 v1 = decodevec4(dx, x,       y);\n        vec4 v2 = decodevec4(dx, x+4.0,   y);\n        vec4 v3 = decodevec4(dx, x+8.0,   y);\n        vec4 v4 = decodevec4(dx, x+12.0,  y);\n        return mat4(v1, v2, v3, v4);\n      }\n    #endif\n  #else\n    uniform JOINT_MATRIX {\n      mat4 jointMatrices[50];\n    };\n    mat4 getBoneMatrix(const in float i) {\n      return jointMatrices[int(i)];\n    }\n  #endif\n    mat4 skinMatrix() {\n      return\n        getBoneMatrix(a_joints.x) * a_weights.x +\n        getBoneMatrix(a_joints.y) * a_weights.y +\n        getBoneMatrix(a_joints.z) * a_weights.z +\n        getBoneMatrix(a_joints.w) * a_weights.w\n        ;\n    }\n#endif\nstruct StandardVertInput {\n  vec2 uv;\n  vec4 position;\n  vec3 normal;\n  vec4 tangent;\n  vec4 color;\n};\nin vec3 a_position;\n#if CC_USE_ATTRIBUTE_UV0\nin vec2 a_uv0;\n#endif\n#if CC_USE_ATTRIBUTE_COLOR\nin vec4 a_color;\n#endif\n#if CC_USE_ATTRIBUTE_NORMAL\nin vec3 a_normal;\n#endif\n#if CC_USE_ATTRIBUTE_TANGENT\nin vec4 a_tangent;\n#endif\nvoid CCAttribute (out StandardVertInput In) {\n  In.position = vec4(a_position, 1.0);\n  #if CC_USE_ATTRIBUTE_UV0\n    In.uv = a_uv0;\n  #else\n    In.uv = vec2(0.0);\n  #endif\n  #if CC_USE_ATTRIBUTE_COLOR\n    In.color = a_color;\n  #else\n    In.color = vec4(1.0);\n  #endif\n  #if CC_USE_ATTRIBUTE_NORMAL\n    In.normal = a_normal;\n  #else\n    In.normal = vec3(0.0, 1.0, 0.0);\n  #endif\n  #if CC_USE_ATTRIBUTE_TANGENT\n    In.tangent = a_tangent;\n  #else\n    In.tangent = vec4(1.0, 0.0, 0.0, 0.0);\n  #endif\n}\nvoid CCVertInput(out StandardVertInput In) {\n  CCAttribute(In);\n  #if CC_USE_SKINNING\n    mat4 m = skinMatrix();\n    In.position = m * In.position;\n    #if CC_USE_ATTRIBUTE_NORMAL\n      In.normal = (m * vec4(In.normal, 0)).xyz;\n    #endif\n    #if CC_USE_ATTRIBUTE_TANGENT\n      In.tangent = m * In.tangent;\n    #endif\n  #endif\n}\n#if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 0\n  uniform CC_SHADOW {\n    mat4 cc_shadow_lightViewProjMatrix[2];\n    vec4 cc_shadow_info[2];\n  };\n  #if CC_NUM_SHADOW_LIGHTS > 0\n    uniform sampler2D cc_shadow_map_0;\n  #endif\n  #if CC_NUM_SHADOW_LIGHTS > 1\n    uniform sampler2D cc_shadow_map_1;\n  #endif\n  varying vec4 v_posLightSpace[2];\n  varying float v_depth[2];\n#endif\nvoid CCShadowInput (vec3 worldPos) {\n  #if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 0\n  for (int i = 0; i < CC_NUM_SHADOW_LIGHTS; i++) {\n    v_posLightSpace[i] = cc_shadow_lightViewProjMatrix[i] * vec4(worldPos, 1.0);\n    v_depth[i] = (v_posLightSpace[i].z + cc_shadow_info[i].x) / (cc_shadow_info[i].x + cc_shadow_info[i].y);\n  }\n  #endif\n}\nuniform MAIN_TILING {\n  vec2 mainTiling;\n  vec2 mainOffset;\n};\n#if CC_USE_ATTRIBUTE_UV0 && (USE_DIFFUSE_TEXTURE || USE_EMISSIVE_TEXTURE || USE_SPECULAR_TEXTURE || USE_NORMAL_TEXTURE)\n  out mediump vec2 v_uv0;\n#endif\n#if CC_USE_ATTRIBUTE_COLOR\n  out lowp vec4 v_color;\n#endif\n#if USE_NORMAL_TEXTURE\n  out vec3 v_tangent;\n  out vec3 v_bitangent;\n#endif\nout vec3 v_worldNormal;\nout vec3 v_worldPos;\nout vec3 v_viewDirection;\nvoid main () {\n  StandardVertInput In;\n  CCVertInput(In);\n  vec4 position = In.position;\n  v_worldNormal = normalize((cc_matWorldIT * vec4(In.normal, 0)).xyz);\n  v_worldPos = (cc_matWorld * position).xyz;\n  v_viewDirection = normalize(cc_cameraPos.xyz - v_worldPos);\n  #if CC_USE_ATTRIBUTE_UV0 && (USE_DIFFUSE_TEXTURE || USE_EMISSIVE_TEXTURE || USE_SPECULAR_TEXTURE || USE_NORMAL_TEXTURE)\n    v_uv0 = In.uv * mainTiling + mainOffset;\n  #endif\n  #if CC_USE_ATTRIBUTE_COLOR\n    v_color = In.color;\n  #endif\n  #if USE_NORMAL_TEXTURE\n    v_tangent = normalize((cc_matWorld * vec4(In.tangent.xyz, 0.0)).xyz);\n    v_bitangent = cross(v_worldNormal, v_tangent) * In.tangent.w;\n  #endif\n  CCShadowInput(v_worldPos);\n  gl_Position = cc_matViewProj * cc_matWorld * position;\n}",
+          "frag": "\nprecision highp float;\nuniform CCGlobal {\n  mat4 cc_matView;\n  mat4 cc_matViewInv;\n  mat4 cc_matProj;\n  mat4 cc_matProjInv;\n  mat4 cc_matViewProj;\n  mat4 cc_matViewProjInv;\n  vec4 cc_cameraPos;\n  vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n};\nvec4 CCFragOutput (vec4 color) {\n  #if OUTPUT_TO_GAMMA\n    color.rgb = sqrt(color.rgb);\n  #endif\n\treturn color;\n}\n#if USE_ALPHA_TEST\n  uniform ALPHA_TEST {\n    float alphaThreshold;\n  };\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nuniform PhongFrag {\n  lowp vec4 diffuseColor;\n  lowp vec4 specularColor;\n  lowp vec4 emissiveColor;\n  float glossiness;\n};\n#if USE_DIFFUSE_TEXTURE\n  uniform sampler2D diffuseTexture;\n#endif\n#if USE_SPECULAR && USE_SPECULAR_TEXTURE\n  uniform sampler2D specularTexture;\n#endif\n#if USE_EMISSIVE && USE_EMISSIVE_TEXTURE\n  uniform sampler2D emissiveTexture;\n#endif\n#if USE_NORMAL_TEXTURE\n  in vec3 v_tangent;\n  in vec3 v_bitangent;\n  uniform sampler2D normalTexture;\n#endif\nin vec3 v_worldNormal;\nin vec3 v_worldPos;\nin vec3 v_viewDirection;\n#if CC_USE_ATTRIBUTE_UV0 && (USE_DIFFUSE_TEXTURE || (USE_EMISSIVE && USE_EMISSIVE_TEXTURE) || (USE_SPECULAR && USE_SPECULAR_TEXTURE) || USE_NORMAL_TEXTURE)\n  in mediump vec2 v_uv0;\n#endif\n#if CC_USE_ATTRIBUTE_COLOR\n  in lowp vec4 v_color;\n#endif\n#if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 0\n  uniform CC_SHADOW {\n    mat4 cc_shadow_lightViewProjMatrix[2];\n    vec4 cc_shadow_info[2];\n  };\n  #if CC_NUM_SHADOW_LIGHTS > 0\n    uniform sampler2D cc_shadow_map_0;\n  #endif\n  #if CC_NUM_SHADOW_LIGHTS > 1\n    uniform sampler2D cc_shadow_map_1;\n  #endif\n  varying vec4 v_posLightSpace[2];\n  varying float v_depth[2];\n#endif\nfloat unpackRGBAToDepth(vec4 color) {\n  return dot(color, vec4(1.0, 1.0 / 255.0, 1.0 / 65025.0, 1.0 / 160581375.0));\n}\nfloat getDepth(sampler2D shadowMap, vec2 shadowUV) {\n    return unpackRGBAToDepth(texture(shadowMap, shadowUV));\n}\nfloat computeFallOff(float shadow, vec2 coords, float frustumEdgeFalloff) {\n  return shadow;\n}\nfloat shadowSimple(sampler2D shadowMap, vec2 shadowUV, float currentDepth, float darkness) {\n  float closestDepth = getDepth(shadowMap, shadowUV);\n  return currentDepth > closestDepth  ? 1.0 - darkness : 1.0;\n}\nfloat shadowPCF3X3(sampler2D shadowMap, vec2 shadowUV, float currentDepth, float darkness, float shadowSize) {\n  float shadow = 0.0;\n  for (int x = -1; x <= 1; ++x) {\n    for (int y = -1; y <= 1; ++y) {\n      float closestDepth = getDepth(shadowMap, shadowUV + vec2(x, y) * 1.0/shadowSize);\n      shadow += currentDepth > closestDepth  ? 1.0 - darkness : 1.0;\n    }\n  }\n  shadow /= 9.0;\n  return shadow;\n}\nfloat shadowPCF5X5(sampler2D shadowMap, vec2 shadowUV, float currentDepth, float darkness, float shadowSize) {\n  float shadow = 0.0;\n  for (int x = -2; x <= 2; ++x) {\n    for (int y = -2; y <= 2; ++y) {\n      float closestDepth = getDepth(shadowMap, shadowUV + vec2(x, y) * 1.0/shadowSize);\n      shadow += currentDepth > closestDepth  ? 1.0 - darkness : 1.0;\n    }\n  }\n  shadow /= 25.0;\n  return shadow;\n}\n#if CC_NUM_LIGHTS > 0\nuniform CCLIGHTS {\n  vec4 cc_lightPositionAndRange[4];\n  vec4 cc_lightDirection[4];\n  vec4 cc_lightColor[4];\n};\n#endif\nstruct LightInfo {\n  vec3 lightDir;\n  vec3 radiance;\n  vec4 lightColor;\n};\nLightInfo computeDirectionalLighting(\n  vec4 lightDirection,\n  vec4 lightColor\n) {\n  LightInfo ret;\n  ret.lightDir = -normalize(lightDirection.xyz);\n  ret.radiance = lightColor.rgb;\n  ret.lightColor = lightColor;\n  return ret;\n}\nLightInfo computePointLighting(\n  vec3 worldPosition,\n  vec4 lightPositionAndRange,\n  vec4 lightColor\n) {\n  LightInfo ret;\n  vec3 lightDir = lightPositionAndRange.xyz - worldPosition;\n  float attenuation = max(0., 1.0 - length(lightDir) / lightPositionAndRange.w);\n  ret.lightDir = normalize(lightDir);\n  ret.radiance = lightColor.rgb * attenuation;\n  ret.lightColor = lightColor;\n  return ret;\n}\nLightInfo computeSpotLighting(\n  vec3 worldPosition,\n  vec4 lightPositionAndRange,\n  vec4 lightDirection,\n  vec4 lightColor\n) {\n  LightInfo ret;\n  vec3 lightDir = lightPositionAndRange.xyz - worldPosition;\n  float attenuation = max(0., 1.0 - length(lightDir) / lightPositionAndRange.w);\n  lightDir = normalize(lightDir);\n  float cosConeAngle = max(0., dot(lightDirection.xyz, -lightDir));\n  cosConeAngle = cosConeAngle < lightDirection.w ? 0. : cosConeAngle;\n  cosConeAngle = pow(cosConeAngle, lightColor.w);\n  ret.lightDir = lightDir;\n  ret.radiance = lightColor.rgb * attenuation * cosConeAngle;\n  ret.lightColor = lightColor;\n  return ret;\n}\nstruct Lighting {\n  vec3 diffuse;\n  vec3 specular;\n};\nstruct PhongSurface {\n  vec3 diffuse;\n  vec3 emissive;\n  vec3 specular;\n  float opacity;\n  float glossiness;\n  vec3 position;\n  vec3 normal;\n  vec3 viewDirection;\n};\nLighting brdf (PhongSurface s, LightInfo info) {\n  Lighting result;\n  float ndh = 0.0;\n  vec3 halfDir = normalize(s.viewDirection + info.lightDir);\n  float NdotH = max(0.0, dot(s.normal, halfDir));\n  NdotH = pow(NdotH, max(1.0, s.glossiness * 128.0));\n  result.diffuse = info.radiance * max(0.0, dot(s.normal, info.lightDir));\n  result.specular = info.radiance * NdotH;\n  return result;\n}\nvec4 composePhongShading (Lighting lighting, PhongSurface s) {\n  vec4 o = vec4(0.0, 0.0, 0.0, 1.0);\n  o.rgb = lighting.diffuse * s.diffuse;\n  #if USE_EMISSIVE\n    o.rgb += s.emissive;\n  #endif\n  #if USE_SPECULAR\n    o.rgb += lighting.specular * s.specular;\n  #endif\n  o.a = s.opacity;\n  return o;\n}\nvec3 ambient(PhongSurface s, vec4 ambientColor) {\n  return s.diffuse * ambientColor.rgb;\n}\nvec4 CCPhongShading (in PhongSurface s) {\n  Lighting result;\n  result.diffuse = vec3(0, 0, 0);\n  result.specular = vec3(0, 0, 0);\n  #if CC_NUM_LIGHTS > 0\n    #if CC_LIGHT_0_TYPE == 3\n      result.diffuse += ambient(s, cc_lightColor[0]);\n    #else\n      LightInfo info0;\n      #if CC_LIGHT_0_TYPE == 0\n        info0 = computeDirectionalLighting(cc_lightDirection[0], cc_lightColor[0]);\n      #elif CC_LIGHT_0_TYPE == 1\n        info0 = computePointLighting(s.position, cc_lightPositionAndRange[0], cc_lightColor[0]);\n      #elif CC_LIGHT_0_TYPE == 2\n        info0 = computeSpotLighting(s.position, cc_lightPositionAndRange[0], cc_lightDirection[0], cc_lightColor[0]);\n      #endif\n      Lighting result0 = brdf(s, info0);\n  #if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 0\n    float shadow_0 = 1.0;\n    vec2 projCoords0 = v_posLightSpace[0].xy / v_posLightSpace[0].w;\n    vec2 shadowUV0 = projCoords0 * 0.5 + vec2(0.5);\n    if (shadowUV0.x >= 0.0 && shadowUV0.x <= 1.0 && shadowUV0.y >= 0.0 && shadowUV0.y <= 1.0) {\n      float currentDepth0 = clamp(v_depth[0], 0.0, 1.0);\n      #if CC_SHADOW_0_TYPE == 3\n        shadow_0 = shadowPCF3X3(cc_shadow_map_0, shadowUV0, currentDepth0, cc_shadow_info[0].w, cc_shadow_info[0].z);\n      #elif CC_SHADOW_0_TYPE == 4\n        shadow_0 = shadowPCF5X5(cc_shadow_map_0, shadowUV0, currentDepth0, cc_shadow_info[0].w, cc_shadow_info[0].z);\n      #else\n        shadow_0 = shadowSimple(cc_shadow_map_0, shadowUV0, currentDepth0, cc_shadow_info[0].w);\n      #endif\n      shadow_0 = computeFallOff(shadow_0, projCoords0, 0.0);\n    }\n    result0.diffuse *= shadow_0;\n    result0.specular *= shadow_0;\n  #endif\n      result.diffuse += result0.diffuse;\n      result.specular += result0.specular;\n    #endif\n  #endif\n  #if CC_NUM_LIGHTS > 1\n    #if CC_LIGHT_1_TYPE == 3\n      result.diffuse += ambient(s, cc_lightColor[1]);\n    #else\n      LightInfo info1;\n      #if CC_LIGHT_1_TYPE == 0\n        info1 = computeDirectionalLighting(cc_lightDirection[1], cc_lightColor[1]);\n      #elif CC_LIGHT_1_TYPE == 1\n        info1 = computePointLighting(s.position, cc_lightPositionAndRange[1], cc_lightColor[1]);\n      #elif CC_LIGHT_1_TYPE == 2\n        info1 = computeSpotLighting(s.position, cc_lightPositionAndRange[1], cc_lightDirection[1], cc_lightColor[1]);\n      #endif\n      Lighting result1 = brdf(s, info1);\n  #if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 1\n    float shadow_1 = 1.0;\n    vec2 projCoords1 = v_posLightSpace[1].xy / v_posLightSpace[1].w;\n    vec2 shadowUV1 = projCoords1 * 0.5 + vec2(0.5);\n    if (shadowUV1.x >= 0.0 && shadowUV1.x <= 1.0 && shadowUV1.y >= 0.0 && shadowUV1.y <= 1.0) {\n      float currentDepth1 = clamp(v_depth[1], 0.0, 1.0);\n      #if CC_SHADOW_1_TYPE == 3\n        shadow_1 = shadowPCF3X3(cc_shadow_map_1, shadowUV1, currentDepth1, cc_shadow_info[1].w, cc_shadow_info[1].z);\n      #elif CC_SHADOW_1_TYPE == 4\n        shadow_1 = shadowPCF5X5(cc_shadow_map_1, shadowUV1, currentDepth1, cc_shadow_info[1].w, cc_shadow_info[1].z);\n      #else\n        shadow_1 = shadowSimple(cc_shadow_map_1, shadowUV1, currentDepth1, cc_shadow_info[1].w);\n      #endif\n      shadow_1 = computeFallOff(shadow_1, projCoords1, 0.0);\n    }\n    result1.diffuse *= shadow_1;\n    result1.specular *= shadow_1;\n  #endif\n      result.diffuse += result1.diffuse;\n      result.specular += result1.specular;\n    #endif\n  #endif\n  #if CC_NUM_LIGHTS > 2\n    #if CC_LIGHT_2_TYPE == 3\n      result.diffuse += ambient(s, cc_lightColor[2]);\n    #else\n      LightInfo info2;\n      #if CC_LIGHT_2_TYPE == 0\n        info2 = computeDirectionalLighting(cc_lightDirection[2], cc_lightColor[2]);\n      #elif CC_LIGHT_2_TYPE == 1\n        info2 = computePointLighting(s.position, cc_lightPositionAndRange[2], cc_lightColor[2]);\n      #elif CC_LIGHT_2_TYPE == 2\n        info2 = computeSpotLighting(s.position, cc_lightPositionAndRange[2], cc_lightDirection[2], cc_lightColor[2]);\n      #endif\n      Lighting result2 = brdf(s, info2);\n  #if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 2\n    float shadow_2 = 1.0;\n    vec2 projCoords2 = v_posLightSpace[2].xy / v_posLightSpace[2].w;\n    vec2 shadowUV2 = projCoords2 * 0.5 + vec2(0.5);\n    if (shadowUV2.x >= 0.0 && shadowUV2.x <= 1.0 && shadowUV2.y >= 0.0 && shadowUV2.y <= 1.0) {\n      float currentDepth2 = clamp(v_depth[2], 0.0, 1.0);\n      #if CC_SHADOW_2_TYPE == 3\n        shadow_2 = shadowPCF3X3(cc_shadow_map_2, shadowUV2, currentDepth2, cc_shadow_info[2].w, cc_shadow_info[2].z);\n      #elif CC_SHADOW_2_TYPE == 4\n        shadow_2 = shadowPCF5X5(cc_shadow_map_2, shadowUV2, currentDepth2, cc_shadow_info[2].w, cc_shadow_info[2].z);\n      #else\n        shadow_2 = shadowSimple(cc_shadow_map_2, shadowUV2, currentDepth2, cc_shadow_info[2].w);\n      #endif\n      shadow_2 = computeFallOff(shadow_2, projCoords2, 0.0);\n    }\n    result2.diffuse *= shadow_2;\n    result2.specular *= shadow_2;\n  #endif\n      result.diffuse += result2.diffuse;\n      result.specular += result2.specular;\n    #endif\n  #endif\n  #if CC_NUM_LIGHTS > 3\n    #if CC_LIGHT_3_TYPE == 3\n      result.diffuse += ambient(s, cc_lightColor[3]);\n    #else\n      LightInfo info3;\n      #if CC_LIGHT_3_TYPE == 0\n        info3 = computeDirectionalLighting(cc_lightDirection[3], cc_lightColor[3]);\n      #elif CC_LIGHT_3_TYPE == 1\n        info3 = computePointLighting(s.position, cc_lightPositionAndRange[3], cc_lightColor[3]);\n      #elif CC_LIGHT_3_TYPE == 2\n        info3 = computeSpotLighting(s.position, cc_lightPositionAndRange[3], cc_lightDirection[3], cc_lightColor[3]);\n      #endif\n      Lighting result3 = brdf(s, info3);\n  #if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 3\n    float shadow_3 = 1.0;\n    vec2 projCoords3 = v_posLightSpace[3].xy / v_posLightSpace[3].w;\n    vec2 shadowUV3 = projCoords3 * 0.5 + vec2(0.5);\n    if (shadowUV3.x >= 0.0 && shadowUV3.x <= 1.0 && shadowUV3.y >= 0.0 && shadowUV3.y <= 1.0) {\n      float currentDepth3 = clamp(v_depth[3], 0.0, 1.0);\n      #if CC_SHADOW_3_TYPE == 3\n        shadow_3 = shadowPCF3X3(cc_shadow_map_3, shadowUV3, currentDepth3, cc_shadow_info[3].w, cc_shadow_info[3].z);\n      #elif CC_SHADOW_3_TYPE == 4\n        shadow_3 = shadowPCF5X5(cc_shadow_map_3, shadowUV3, currentDepth3, cc_shadow_info[3].w, cc_shadow_info[3].z);\n      #else\n        shadow_3 = shadowSimple(cc_shadow_map_3, shadowUV3, currentDepth3, cc_shadow_info[3].w);\n      #endif\n      shadow_3 = computeFallOff(shadow_3, projCoords3, 0.0);\n    }\n    result3.diffuse *= shadow_3;\n    result3.specular *= shadow_3;\n  #endif\n      result.diffuse += result3.diffuse;\n      result.specular += result3.specular;\n    #endif\n  #endif\n  return composePhongShading(result, s);\n}\nvoid surf (out PhongSurface s) {\n  vec4 diffuse = vec4(1, 1, 1, 1);\n  #if CC_USE_ATTRIBUTE_COLOR\n    diffuse *= v_color;\n  #endif\n  diffuse *= diffuseColor;\n  #if USE_DIFFUSE_TEXTURE\n  vec4 diffuseTexture_tmp = texture(diffuseTexture, v_uv0);\n  #if CC_USE_ALPHA_ATLAS_diffuseTexture\n      diffuseTexture_tmp.a *= texture(diffuseTexture, v_uv0 + vec2(0, 0.5)).r;\n  #endif\n  #if INPUT_IS_GAMMA\n    diffuse.rgb *= (diffuseTexture_tmp.rgb * diffuseTexture_tmp.rgb);\n    diffuse.a *= diffuseTexture_tmp.a;\n  #else\n    diffuse *= diffuseTexture_tmp;\n  #endif\n  #endif\n  ALPHA_TEST(diffuse);\n  s.diffuse = diffuse.rgb;\n  s.opacity = diffuse.a;\n  #if USE_EMISSIVE\n    s.emissive = emissiveColor.rgb;\n    #if USE_EMISSIVE_TEXTURE\n  vec4 emissiveTexture_tmp = texture(emissiveTexture, v_uv0);\n  #if CC_USE_ALPHA_ATLAS_emissiveTexture\n      emissiveTexture_tmp.a *= texture(emissiveTexture, v_uv0 + vec2(0, 0.5)).r;\n  #endif\n  #if INPUT_IS_GAMMA\n    s.emissive.rgb *= (emissiveTexture_tmp.rgb * emissiveTexture_tmp.rgb);\n  #else\n    s.emissive.rgb *= emissiveTexture_tmp.rgb;\n  #endif\n    #endif\n  #endif\n  #if USE_SPECULAR\n    s.specular = specularColor.rgb;\n    #if USE_SPECULAR_TEXTURE\n  vec4 specularTexture_tmp = texture(specularTexture, v_uv0);\n  #if CC_USE_ALPHA_ATLAS_specularTexture\n      specularTexture_tmp.a *= texture(specularTexture, v_uv0 + vec2(0, 0.5)).r;\n  #endif\n  #if INPUT_IS_GAMMA\n    s.specular.rgb *= (specularTexture_tmp.rgb * specularTexture_tmp.rgb);\n  #else\n    s.specular.rgb *= specularTexture_tmp.rgb;\n  #endif\n    #endif\n  #endif\n  s.normal = v_worldNormal;\n  #if USE_NORMAL_TEXTURE\n    vec3 nmmp = texture(normalTexture, v_uv0).xyz - vec3(0.5);\n    s.normal =\n      nmmp.x * normalize(v_tangent) +\n      nmmp.y * normalize(v_bitangent) +\n      nmmp.z * normalize(s.normal);\n    s.normal = normalize(s.normal);\n  #endif\n  s.position = v_worldPos;\n  s.viewDirection = v_viewDirection;\n  s.glossiness = glossiness;\n}\nvoid main () {\n  PhongSurface s;\n  surf(s);\n  vec4 color = CCPhongShading(s);\n  gl_FragColor = CCFragOutput(color);\n}"
+        },
+        "glsl1": {
+          "vert": "\nprecision highp float;\nuniform mat4 cc_matWorld;\nuniform mat4 cc_matWorldIT;\nuniform mat4 cc_matViewProj;\nuniform vec4 cc_cameraPos;\n#if CC_USE_SKINNING\n  attribute vec4 a_weights;\n  attribute vec4 a_joints;\n  #if CC_USE_JOINTS_TEXTRUE\n    uniform vec2 jointsTextureSize;\n    uniform sampler2D jointsTexture;\n    #if CC_JOINTS_TEXTURE_FLOAT32\n      mat4 getBoneMatrix(const in float i) {\n        float width = jointsTextureSize.x;\n        float height = jointsTextureSize.y;\n        float j = i * 4.0;\n        float x = mod(j, width);\n        float y = floor(j / width);\n        float dx = 1.0 / width;\n        float dy = 1.0 / height;\n        y = dy * (y + 0.5);\n        vec4 v1 = texture2D(jointsTexture, vec2(dx * (x + 0.5), y));\n        vec4 v2 = texture2D(jointsTexture, vec2(dx * (x + 1.5), y));\n        vec4 v3 = texture2D(jointsTexture, vec2(dx * (x + 2.5), y));\n        vec4 v4 = texture2D(jointsTexture, vec2(dx * (x + 3.5), y));\n        return mat4(v1, v2, v3, v4);\n      }\n    #else\n      float decode32(vec4 rgba) {\n        float Sign = 1.0 - step(128.0, rgba[0]) * 2.0;\n        float Exponent = 2.0 * mod(rgba[0], 128.0) + step(128.0, rgba[1]) - 127.0;\n        float Mantissa = mod(rgba[1], 128.0) * 65536.0 + rgba[2] * 256.0 + rgba[3] + 8388608.0;\n        return Sign * exp2(Exponent - 23.0) * Mantissa;\n      }\n      vec4 decodevec4 (vec4 x, vec4 y, vec4 z, vec4 w) {\n        return vec4(\n          decode32(x.wzyx * 255.0),\n          decode32(y.wzyx * 255.0),\n          decode32(z.wzyx * 255.0),\n          decode32(w.wzyx * 255.0)\n        );\n      }\n      vec4 decodevec4 (float dx, float x, float y) {\n        return decodevec4(\n          texture2D(jointsTexture, vec2(dx * (x + 0.5), y)),\n          texture2D(jointsTexture, vec2(dx * (x + 1.5), y)),\n          texture2D(jointsTexture, vec2(dx * (x + 2.5), y)),\n          texture2D(jointsTexture, vec2(dx * (x + 3.5), y))\n        );\n      }\n      mat4 getBoneMatrix(const in float i) {\n        float width = jointsTextureSize.x;\n        float height = jointsTextureSize.y;\n        float j = i * 16.0;\n        float x = mod(j, width);\n        float y = floor(j / width);\n        float dx = 1.0 / width;\n        float dy = 1.0 / height;\n        y = dy * (y + 0.5);\n        vec4 v1 = decodevec4(dx, x,       y);\n        vec4 v2 = decodevec4(dx, x+4.0,   y);\n        vec4 v3 = decodevec4(dx, x+8.0,   y);\n        vec4 v4 = decodevec4(dx, x+12.0,  y);\n        return mat4(v1, v2, v3, v4);\n      }\n    #endif\n  #else\n    uniform mat4 jointMatrices[50];\n    mat4 getBoneMatrix(const in float i) {\n      return jointMatrices[int(i)];\n    }\n  #endif\n    mat4 skinMatrix() {\n      return\n        getBoneMatrix(a_joints.x) * a_weights.x +\n        getBoneMatrix(a_joints.y) * a_weights.y +\n        getBoneMatrix(a_joints.z) * a_weights.z +\n        getBoneMatrix(a_joints.w) * a_weights.w\n        ;\n    }\n#endif\nstruct StandardVertInput {\n  vec2 uv;\n  vec4 position;\n  vec3 normal;\n  vec4 tangent;\n  vec4 color;\n};\nattribute vec3 a_position;\n#if CC_USE_ATTRIBUTE_UV0\nattribute vec2 a_uv0;\n#endif\n#if CC_USE_ATTRIBUTE_COLOR\nattribute vec4 a_color;\n#endif\n#if CC_USE_ATTRIBUTE_NORMAL\nattribute vec3 a_normal;\n#endif\n#if CC_USE_ATTRIBUTE_TANGENT\nattribute vec4 a_tangent;\n#endif\nvoid CCAttribute (out StandardVertInput In) {\n  In.position = vec4(a_position, 1.0);\n  #if CC_USE_ATTRIBUTE_UV0\n    In.uv = a_uv0;\n  #else\n    In.uv = vec2(0.0);\n  #endif\n  #if CC_USE_ATTRIBUTE_COLOR\n    In.color = a_color;\n  #else\n    In.color = vec4(1.0);\n  #endif\n  #if CC_USE_ATTRIBUTE_NORMAL\n    In.normal = a_normal;\n  #else\n    In.normal = vec3(0.0, 1.0, 0.0);\n  #endif\n  #if CC_USE_ATTRIBUTE_TANGENT\n    In.tangent = a_tangent;\n  #else\n    In.tangent = vec4(1.0, 0.0, 0.0, 0.0);\n  #endif\n}\nvoid CCVertInput(out StandardVertInput In) {\n  CCAttribute(In);\n  #if CC_USE_SKINNING\n    mat4 m = skinMatrix();\n    In.position = m * In.position;\n    #if CC_USE_ATTRIBUTE_NORMAL\n      In.normal = (m * vec4(In.normal, 0)).xyz;\n    #endif\n    #if CC_USE_ATTRIBUTE_TANGENT\n      In.tangent = m * In.tangent;\n    #endif\n  #endif\n}\n#if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 0\n  uniform mat4 cc_shadow_lightViewProjMatrix[2];\nuniform vec4 cc_shadow_info[2];\n  #if CC_NUM_SHADOW_LIGHTS > 0\n    uniform sampler2D cc_shadow_map_0;\n  #endif\n  #if CC_NUM_SHADOW_LIGHTS > 1\n    uniform sampler2D cc_shadow_map_1;\n  #endif\n  varying vec4 v_posLightSpace[2];\n  varying float v_depth[2];\n#endif\nvoid CCShadowInput (vec3 worldPos) {\n  #if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 0\n  for (int i = 0; i < CC_NUM_SHADOW_LIGHTS; i++) {\n    v_posLightSpace[i] = cc_shadow_lightViewProjMatrix[i] * vec4(worldPos, 1.0);\n    v_depth[i] = (v_posLightSpace[i].z + cc_shadow_info[i].x) / (cc_shadow_info[i].x + cc_shadow_info[i].y);\n  }\n  #endif\n}\nuniform vec2 mainTiling;\nuniform vec2 mainOffset;\n#if CC_USE_ATTRIBUTE_UV0 && (USE_DIFFUSE_TEXTURE || USE_EMISSIVE_TEXTURE || USE_SPECULAR_TEXTURE || USE_NORMAL_TEXTURE)\n  varying mediump vec2 v_uv0;\n#endif\n#if CC_USE_ATTRIBUTE_COLOR\n  varying lowp vec4 v_color;\n#endif\n#if USE_NORMAL_TEXTURE\n  varying vec3 v_tangent;\n  varying vec3 v_bitangent;\n#endif\nvarying vec3 v_worldNormal;\nvarying vec3 v_worldPos;\nvarying vec3 v_viewDirection;\nvoid main () {\n  StandardVertInput In;\n  CCVertInput(In);\n  vec4 position = In.position;\n  v_worldNormal = normalize((cc_matWorldIT * vec4(In.normal, 0)).xyz);\n  v_worldPos = (cc_matWorld * position).xyz;\n  v_viewDirection = normalize(cc_cameraPos.xyz - v_worldPos);\n  #if CC_USE_ATTRIBUTE_UV0 && (USE_DIFFUSE_TEXTURE || USE_EMISSIVE_TEXTURE || USE_SPECULAR_TEXTURE || USE_NORMAL_TEXTURE)\n    v_uv0 = In.uv * mainTiling + mainOffset;\n  #endif\n  #if CC_USE_ATTRIBUTE_COLOR\n    v_color = In.color;\n  #endif\n  #if USE_NORMAL_TEXTURE\n    v_tangent = normalize((cc_matWorld * vec4(In.tangent.xyz, 0.0)).xyz);\n    v_bitangent = cross(v_worldNormal, v_tangent) * In.tangent.w;\n  #endif\n  CCShadowInput(v_worldPos);\n  gl_Position = cc_matViewProj * cc_matWorld * position;\n}",
+          "frag": "\nprecision highp float;\nvec4 CCFragOutput (vec4 color) {\n  #if OUTPUT_TO_GAMMA\n    color.rgb = sqrt(color.rgb);\n  #endif\n\treturn color;\n}\n#if USE_ALPHA_TEST\n  uniform float alphaThreshold;\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nuniform lowp vec4 diffuseColor;\nuniform lowp vec4 specularColor;\nuniform lowp vec4 emissiveColor;\nuniform float glossiness;\n#if USE_DIFFUSE_TEXTURE\n  uniform sampler2D diffuseTexture;\n#endif\n#if USE_SPECULAR && USE_SPECULAR_TEXTURE\n  uniform sampler2D specularTexture;\n#endif\n#if USE_EMISSIVE && USE_EMISSIVE_TEXTURE\n  uniform sampler2D emissiveTexture;\n#endif\n#if USE_NORMAL_TEXTURE\n  varying vec3 v_tangent;\n  varying vec3 v_bitangent;\n  uniform sampler2D normalTexture;\n#endif\nvarying vec3 v_worldNormal;\nvarying vec3 v_worldPos;\nvarying vec3 v_viewDirection;\n#if CC_USE_ATTRIBUTE_UV0 && (USE_DIFFUSE_TEXTURE || (USE_EMISSIVE && USE_EMISSIVE_TEXTURE) || (USE_SPECULAR && USE_SPECULAR_TEXTURE) || USE_NORMAL_TEXTURE)\n  varying mediump vec2 v_uv0;\n#endif\n#if CC_USE_ATTRIBUTE_COLOR\n  varying lowp vec4 v_color;\n#endif\n#if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 0\n  uniform vec4 cc_shadow_info[2];\n  #if CC_NUM_SHADOW_LIGHTS > 0\n    uniform sampler2D cc_shadow_map_0;\n  #endif\n  #if CC_NUM_SHADOW_LIGHTS > 1\n    uniform sampler2D cc_shadow_map_1;\n  #endif\n  varying vec4 v_posLightSpace[2];\n  varying float v_depth[2];\n#endif\nfloat unpackRGBAToDepth(vec4 color) {\n  return dot(color, vec4(1.0, 1.0 / 255.0, 1.0 / 65025.0, 1.0 / 160581375.0));\n}\nfloat getDepth(sampler2D shadowMap, vec2 shadowUV) {\n    return unpackRGBAToDepth(texture2D(shadowMap, shadowUV));\n}\nfloat computeFallOff(float shadow, vec2 coords, float frustumEdgeFalloff) {\n  return shadow;\n}\nfloat shadowSimple(sampler2D shadowMap, vec2 shadowUV, float currentDepth, float darkness) {\n  float closestDepth = getDepth(shadowMap, shadowUV);\n  return currentDepth > closestDepth  ? 1.0 - darkness : 1.0;\n}\nfloat shadowPCF3X3(sampler2D shadowMap, vec2 shadowUV, float currentDepth, float darkness, float shadowSize) {\n  float shadow = 0.0;\n  for (int x = -1; x <= 1; ++x) {\n    for (int y = -1; y <= 1; ++y) {\n      float closestDepth = getDepth(shadowMap, shadowUV + vec2(x, y) * 1.0/shadowSize);\n      shadow += currentDepth > closestDepth  ? 1.0 - darkness : 1.0;\n    }\n  }\n  shadow /= 9.0;\n  return shadow;\n}\nfloat shadowPCF5X5(sampler2D shadowMap, vec2 shadowUV, float currentDepth, float darkness, float shadowSize) {\n  float shadow = 0.0;\n  for (int x = -2; x <= 2; ++x) {\n    for (int y = -2; y <= 2; ++y) {\n      float closestDepth = getDepth(shadowMap, shadowUV + vec2(x, y) * 1.0/shadowSize);\n      shadow += currentDepth > closestDepth  ? 1.0 - darkness : 1.0;\n    }\n  }\n  shadow /= 25.0;\n  return shadow;\n}\n#if CC_NUM_LIGHTS > 0\nuniform vec4 cc_lightPositionAndRange[4];\nuniform vec4 cc_lightDirection[4];\nuniform vec4 cc_lightColor[4];\n#endif\nstruct LightInfo {\n  vec3 lightDir;\n  vec3 radiance;\n  vec4 lightColor;\n};\nLightInfo computeDirectionalLighting(\n  vec4 lightDirection,\n  vec4 lightColor\n) {\n  LightInfo ret;\n  ret.lightDir = -normalize(lightDirection.xyz);\n  ret.radiance = lightColor.rgb;\n  ret.lightColor = lightColor;\n  return ret;\n}\nLightInfo computePointLighting(\n  vec3 worldPosition,\n  vec4 lightPositionAndRange,\n  vec4 lightColor\n) {\n  LightInfo ret;\n  vec3 lightDir = lightPositionAndRange.xyz - worldPosition;\n  float attenuation = max(0., 1.0 - length(lightDir) / lightPositionAndRange.w);\n  ret.lightDir = normalize(lightDir);\n  ret.radiance = lightColor.rgb * attenuation;\n  ret.lightColor = lightColor;\n  return ret;\n}\nLightInfo computeSpotLighting(\n  vec3 worldPosition,\n  vec4 lightPositionAndRange,\n  vec4 lightDirection,\n  vec4 lightColor\n) {\n  LightInfo ret;\n  vec3 lightDir = lightPositionAndRange.xyz - worldPosition;\n  float attenuation = max(0., 1.0 - length(lightDir) / lightPositionAndRange.w);\n  lightDir = normalize(lightDir);\n  float cosConeAngle = max(0., dot(lightDirection.xyz, -lightDir));\n  cosConeAngle = cosConeAngle < lightDirection.w ? 0. : cosConeAngle;\n  cosConeAngle = pow(cosConeAngle, lightColor.w);\n  ret.lightDir = lightDir;\n  ret.radiance = lightColor.rgb * attenuation * cosConeAngle;\n  ret.lightColor = lightColor;\n  return ret;\n}\nstruct Lighting {\n  vec3 diffuse;\n  vec3 specular;\n};\nstruct PhongSurface {\n  vec3 diffuse;\n  vec3 emissive;\n  vec3 specular;\n  float opacity;\n  float glossiness;\n  vec3 position;\n  vec3 normal;\n  vec3 viewDirection;\n};\nLighting brdf (PhongSurface s, LightInfo info) {\n  Lighting result;\n  float ndh = 0.0;\n  vec3 halfDir = normalize(s.viewDirection + info.lightDir);\n  float NdotH = max(0.0, dot(s.normal, halfDir));\n  NdotH = pow(NdotH, max(1.0, s.glossiness * 128.0));\n  result.diffuse = info.radiance * max(0.0, dot(s.normal, info.lightDir));\n  result.specular = info.radiance * NdotH;\n  return result;\n}\nvec4 composePhongShading (Lighting lighting, PhongSurface s) {\n  vec4 o = vec4(0.0, 0.0, 0.0, 1.0);\n  o.rgb = lighting.diffuse * s.diffuse;\n  #if USE_EMISSIVE\n    o.rgb += s.emissive;\n  #endif\n  #if USE_SPECULAR\n    o.rgb += lighting.specular * s.specular;\n  #endif\n  o.a = s.opacity;\n  return o;\n}\nvec3 ambient(PhongSurface s, vec4 ambientColor) {\n  return s.diffuse * ambientColor.rgb;\n}\nvec4 CCPhongShading (in PhongSurface s) {\n  Lighting result;\n  result.diffuse = vec3(0, 0, 0);\n  result.specular = vec3(0, 0, 0);\n  #if CC_NUM_LIGHTS > 0\n    #if CC_LIGHT_0_TYPE == 3\n      result.diffuse += ambient(s, cc_lightColor[0]);\n    #else\n      LightInfo info0;\n      #if CC_LIGHT_0_TYPE == 0\n        info0 = computeDirectionalLighting(cc_lightDirection[0], cc_lightColor[0]);\n      #elif CC_LIGHT_0_TYPE == 1\n        info0 = computePointLighting(s.position, cc_lightPositionAndRange[0], cc_lightColor[0]);\n      #elif CC_LIGHT_0_TYPE == 2\n        info0 = computeSpotLighting(s.position, cc_lightPositionAndRange[0], cc_lightDirection[0], cc_lightColor[0]);\n      #endif\n      Lighting result0 = brdf(s, info0);\n  #if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 0\n    float shadow_0 = 1.0;\n    vec2 projCoords0 = v_posLightSpace[0].xy / v_posLightSpace[0].w;\n    vec2 shadowUV0 = projCoords0 * 0.5 + vec2(0.5);\n    if (shadowUV0.x >= 0.0 && shadowUV0.x <= 1.0 && shadowUV0.y >= 0.0 && shadowUV0.y <= 1.0) {\n      float currentDepth0 = clamp(v_depth[0], 0.0, 1.0);\n      #if CC_SHADOW_0_TYPE == 3\n        shadow_0 = shadowPCF3X3(cc_shadow_map_0, shadowUV0, currentDepth0, cc_shadow_info[0].w, cc_shadow_info[0].z);\n      #elif CC_SHADOW_0_TYPE == 4\n        shadow_0 = shadowPCF5X5(cc_shadow_map_0, shadowUV0, currentDepth0, cc_shadow_info[0].w, cc_shadow_info[0].z);\n      #else\n        shadow_0 = shadowSimple(cc_shadow_map_0, shadowUV0, currentDepth0, cc_shadow_info[0].w);\n      #endif\n      shadow_0 = computeFallOff(shadow_0, projCoords0, 0.0);\n    }\n    result0.diffuse *= shadow_0;\n    result0.specular *= shadow_0;\n  #endif\n      result.diffuse += result0.diffuse;\n      result.specular += result0.specular;\n    #endif\n  #endif\n  #if CC_NUM_LIGHTS > 1\n    #if CC_LIGHT_1_TYPE == 3\n      result.diffuse += ambient(s, cc_lightColor[1]);\n    #else\n      LightInfo info1;\n      #if CC_LIGHT_1_TYPE == 0\n        info1 = computeDirectionalLighting(cc_lightDirection[1], cc_lightColor[1]);\n      #elif CC_LIGHT_1_TYPE == 1\n        info1 = computePointLighting(s.position, cc_lightPositionAndRange[1], cc_lightColor[1]);\n      #elif CC_LIGHT_1_TYPE == 2\n        info1 = computeSpotLighting(s.position, cc_lightPositionAndRange[1], cc_lightDirection[1], cc_lightColor[1]);\n      #endif\n      Lighting result1 = brdf(s, info1);\n  #if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 1\n    float shadow_1 = 1.0;\n    vec2 projCoords1 = v_posLightSpace[1].xy / v_posLightSpace[1].w;\n    vec2 shadowUV1 = projCoords1 * 0.5 + vec2(0.5);\n    if (shadowUV1.x >= 0.0 && shadowUV1.x <= 1.0 && shadowUV1.y >= 0.0 && shadowUV1.y <= 1.0) {\n      float currentDepth1 = clamp(v_depth[1], 0.0, 1.0);\n      #if CC_SHADOW_1_TYPE == 3\n        shadow_1 = shadowPCF3X3(cc_shadow_map_1, shadowUV1, currentDepth1, cc_shadow_info[1].w, cc_shadow_info[1].z);\n      #elif CC_SHADOW_1_TYPE == 4\n        shadow_1 = shadowPCF5X5(cc_shadow_map_1, shadowUV1, currentDepth1, cc_shadow_info[1].w, cc_shadow_info[1].z);\n      #else\n        shadow_1 = shadowSimple(cc_shadow_map_1, shadowUV1, currentDepth1, cc_shadow_info[1].w);\n      #endif\n      shadow_1 = computeFallOff(shadow_1, projCoords1, 0.0);\n    }\n    result1.diffuse *= shadow_1;\n    result1.specular *= shadow_1;\n  #endif\n      result.diffuse += result1.diffuse;\n      result.specular += result1.specular;\n    #endif\n  #endif\n  #if CC_NUM_LIGHTS > 2\n    #if CC_LIGHT_2_TYPE == 3\n      result.diffuse += ambient(s, cc_lightColor[2]);\n    #else\n      LightInfo info2;\n      #if CC_LIGHT_2_TYPE == 0\n        info2 = computeDirectionalLighting(cc_lightDirection[2], cc_lightColor[2]);\n      #elif CC_LIGHT_2_TYPE == 1\n        info2 = computePointLighting(s.position, cc_lightPositionAndRange[2], cc_lightColor[2]);\n      #elif CC_LIGHT_2_TYPE == 2\n        info2 = computeSpotLighting(s.position, cc_lightPositionAndRange[2], cc_lightDirection[2], cc_lightColor[2]);\n      #endif\n      Lighting result2 = brdf(s, info2);\n  #if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 2\n    float shadow_2 = 1.0;\n    vec2 projCoords2 = v_posLightSpace[2].xy / v_posLightSpace[2].w;\n    vec2 shadowUV2 = projCoords2 * 0.5 + vec2(0.5);\n    if (shadowUV2.x >= 0.0 && shadowUV2.x <= 1.0 && shadowUV2.y >= 0.0 && shadowUV2.y <= 1.0) {\n      float currentDepth2 = clamp(v_depth[2], 0.0, 1.0);\n      #if CC_SHADOW_2_TYPE == 3\n        shadow_2 = shadowPCF3X3(cc_shadow_map_2, shadowUV2, currentDepth2, cc_shadow_info[2].w, cc_shadow_info[2].z);\n      #elif CC_SHADOW_2_TYPE == 4\n        shadow_2 = shadowPCF5X5(cc_shadow_map_2, shadowUV2, currentDepth2, cc_shadow_info[2].w, cc_shadow_info[2].z);\n      #else\n        shadow_2 = shadowSimple(cc_shadow_map_2, shadowUV2, currentDepth2, cc_shadow_info[2].w);\n      #endif\n      shadow_2 = computeFallOff(shadow_2, projCoords2, 0.0);\n    }\n    result2.diffuse *= shadow_2;\n    result2.specular *= shadow_2;\n  #endif\n      result.diffuse += result2.diffuse;\n      result.specular += result2.specular;\n    #endif\n  #endif\n  #if CC_NUM_LIGHTS > 3\n    #if CC_LIGHT_3_TYPE == 3\n      result.diffuse += ambient(s, cc_lightColor[3]);\n    #else\n      LightInfo info3;\n      #if CC_LIGHT_3_TYPE == 0\n        info3 = computeDirectionalLighting(cc_lightDirection[3], cc_lightColor[3]);\n      #elif CC_LIGHT_3_TYPE == 1\n        info3 = computePointLighting(s.position, cc_lightPositionAndRange[3], cc_lightColor[3]);\n      #elif CC_LIGHT_3_TYPE == 2\n        info3 = computeSpotLighting(s.position, cc_lightPositionAndRange[3], cc_lightDirection[3], cc_lightColor[3]);\n      #endif\n      Lighting result3 = brdf(s, info3);\n  #if CC_USE_SHADOW_MAP && CC_NUM_SHADOW_LIGHTS > 3\n    float shadow_3 = 1.0;\n    vec2 projCoords3 = v_posLightSpace[3].xy / v_posLightSpace[3].w;\n    vec2 shadowUV3 = projCoords3 * 0.5 + vec2(0.5);\n    if (shadowUV3.x >= 0.0 && shadowUV3.x <= 1.0 && shadowUV3.y >= 0.0 && shadowUV3.y <= 1.0) {\n      float currentDepth3 = clamp(v_depth[3], 0.0, 1.0);\n      #if CC_SHADOW_3_TYPE == 3\n        shadow_3 = shadowPCF3X3(cc_shadow_map_3, shadowUV3, currentDepth3, cc_shadow_info[3].w, cc_shadow_info[3].z);\n      #elif CC_SHADOW_3_TYPE == 4\n        shadow_3 = shadowPCF5X5(cc_shadow_map_3, shadowUV3, currentDepth3, cc_shadow_info[3].w, cc_shadow_info[3].z);\n      #else\n        shadow_3 = shadowSimple(cc_shadow_map_3, shadowUV3, currentDepth3, cc_shadow_info[3].w);\n      #endif\n      shadow_3 = computeFallOff(shadow_3, projCoords3, 0.0);\n    }\n    result3.diffuse *= shadow_3;\n    result3.specular *= shadow_3;\n  #endif\n      result.diffuse += result3.diffuse;\n      result.specular += result3.specular;\n    #endif\n  #endif\n  return composePhongShading(result, s);\n}\nvoid surf (out PhongSurface s) {\n  vec4 diffuse = vec4(1, 1, 1, 1);\n  #if CC_USE_ATTRIBUTE_COLOR\n    diffuse *= v_color;\n  #endif\n  diffuse *= diffuseColor;\n  #if USE_DIFFUSE_TEXTURE\n  vec4 diffuseTexture_tmp = texture2D(diffuseTexture, v_uv0);\n  #if CC_USE_ALPHA_ATLAS_diffuseTexture\n      diffuseTexture_tmp.a *= texture2D(diffuseTexture, v_uv0 + vec2(0, 0.5)).r;\n  #endif\n  #if INPUT_IS_GAMMA\n    diffuse.rgb *= (diffuseTexture_tmp.rgb * diffuseTexture_tmp.rgb);\n    diffuse.a *= diffuseTexture_tmp.a;\n  #else\n    diffuse *= diffuseTexture_tmp;\n  #endif\n  #endif\n  ALPHA_TEST(diffuse);\n  s.diffuse = diffuse.rgb;\n  s.opacity = diffuse.a;\n  #if USE_EMISSIVE\n    s.emissive = emissiveColor.rgb;\n    #if USE_EMISSIVE_TEXTURE\n  vec4 emissiveTexture_tmp = texture2D(emissiveTexture, v_uv0);\n  #if CC_USE_ALPHA_ATLAS_emissiveTexture\n      emissiveTexture_tmp.a *= texture2D(emissiveTexture, v_uv0 + vec2(0, 0.5)).r;\n  #endif\n  #if INPUT_IS_GAMMA\n    s.emissive.rgb *= (emissiveTexture_tmp.rgb * emissiveTexture_tmp.rgb);\n  #else\n    s.emissive.rgb *= emissiveTexture_tmp.rgb;\n  #endif\n    #endif\n  #endif\n  #if USE_SPECULAR\n    s.specular = specularColor.rgb;\n    #if USE_SPECULAR_TEXTURE\n  vec4 specularTexture_tmp = texture2D(specularTexture, v_uv0);\n  #if CC_USE_ALPHA_ATLAS_specularTexture\n      specularTexture_tmp.a *= texture2D(specularTexture, v_uv0 + vec2(0, 0.5)).r;\n  #endif\n  #if INPUT_IS_GAMMA\n    s.specular.rgb *= (specularTexture_tmp.rgb * specularTexture_tmp.rgb);\n  #else\n    s.specular.rgb *= specularTexture_tmp.rgb;\n  #endif\n    #endif\n  #endif\n  s.normal = v_worldNormal;\n  #if USE_NORMAL_TEXTURE\n    vec3 nmmp = texture2D(normalTexture, v_uv0).xyz - vec3(0.5);\n    s.normal =\n      nmmp.x * normalize(v_tangent) +\n      nmmp.y * normalize(v_bitangent) +\n      nmmp.z * normalize(s.normal);\n    s.normal = normalize(s.normal);\n  #endif\n  s.position = v_worldPos;\n  s.viewDirection = v_viewDirection;\n  s.glossiness = glossiness;\n}\nvoid main () {\n  PhongSurface s;\n  surf(s);\n  vec4 color = CCPhongShading(s);\n  gl_FragColor = CCFragOutput(color);\n}"
+        },
+        "builtins": {
+          "globals": {
+            "blocks": [
+              {
+                "name": "CCGlobal",
+                "defines": []
+              },
+              {
+                "name": "CC_SHADOW",
+                "defines": [
+                  "CC_USE_SHADOW_MAP",
+                  "CC_NUM_SHADOW_LIGHTS"
+                ]
+              },
+              {
+                "name": "CCLIGHTS",
+                "defines": [
+                  "CC_NUM_LIGHTS"
+                ]
+              }
+            ],
+            "samplers": [
+              {
+                "name": "cc_shadow_map_0",
+                "defines": [
+                  "CC_USE_SHADOW_MAP",
+                  "CC_NUM_SHADOW_LIGHTS"
+                ]
+              },
+              {
+                "name": "cc_shadow_map_1",
+                "defines": [
+                  "CC_USE_SHADOW_MAP",
+                  "CC_NUM_SHADOW_LIGHTS"
+                ]
+              }
+            ]
+          },
+          "locals": {
+            "blocks": [
+              {
+                "name": "CCLocal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          }
+        },
+        "defines": [
+          {
+            "name": "CC_USE_SKINNING",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_JOINTS_TEXTRUE",
+            "type": "boolean",
+            "defines": [
+              "CC_USE_SKINNING"
+            ]
+          },
+          {
+            "name": "CC_JOINTS_TEXTURE_FLOAT32",
+            "type": "boolean",
+            "defines": [
+              "CC_USE_SKINNING",
+              "CC_USE_JOINTS_TEXTRUE"
+            ]
+          },
+          {
+            "name": "CC_USE_ATTRIBUTE_UV0",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_ATTRIBUTE_COLOR",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_ATTRIBUTE_NORMAL",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_ATTRIBUTE_TANGENT",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_SHADOW_MAP",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_NUM_SHADOW_LIGHTS",
+            "type": "number",
+            "defines": [
+              "CC_USE_SHADOW_MAP"
+            ],
+            "range": [
+              0,
+              3
+            ]
+          },
+          {
+            "name": "USE_DIFFUSE_TEXTURE",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_NORMAL_TEXTURE",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "OUTPUT_TO_GAMMA",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_ALPHA_TEST",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_SPECULAR",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_SPECULAR_TEXTURE",
+            "type": "boolean",
+            "defines": [
+              "USE_SPECULAR"
+            ]
+          },
+          {
+            "name": "USE_EMISSIVE",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_EMISSIVE_TEXTURE",
+            "type": "boolean",
+            "defines": [
+              "USE_EMISSIVE"
+            ]
+          },
+          {
+            "name": "CC_NUM_LIGHTS",
+            "type": "number",
+            "defines": [],
+            "range": [
+              0,
+              3
+            ]
+          },
+          {
+            "name": "CC_LIGHT_0_TYPE",
+            "type": "number",
+            "defines": [
+              "CC_NUM_LIGHTS"
+            ],
+            "range": [
+              0,
+              3
+            ]
+          },
+          {
+            "name": "CC_SHADOW_0_TYPE",
+            "type": "number",
+            "defines": [
+              "CC_NUM_LIGHTS",
+              "CC_USE_SHADOW_MAP",
+              "CC_NUM_SHADOW_LIGHTS"
+            ],
+            "range": [
+              0,
+              3
+            ]
+          },
+          {
+            "name": "CC_LIGHT_1_TYPE",
+            "type": "number",
+            "defines": [
+              "CC_NUM_LIGHTS"
+            ],
+            "range": [
+              0,
+              3
+            ]
+          },
+          {
+            "name": "CC_SHADOW_1_TYPE",
+            "type": "number",
+            "defines": [
+              "CC_NUM_LIGHTS",
+              "CC_USE_SHADOW_MAP",
+              "CC_NUM_SHADOW_LIGHTS"
+            ],
+            "range": [
+              0,
+              3
+            ]
+          },
+          {
+            "name": "CC_LIGHT_2_TYPE",
+            "type": "number",
+            "defines": [
+              "CC_NUM_LIGHTS"
+            ],
+            "range": [
+              0,
+              3
+            ]
+          },
+          {
+            "name": "CC_SHADOW_2_TYPE",
+            "type": "number",
+            "defines": [
+              "CC_NUM_LIGHTS",
+              "CC_USE_SHADOW_MAP",
+              "CC_NUM_SHADOW_LIGHTS"
+            ],
+            "range": [
+              0,
+              3
+            ]
+          },
+          {
+            "name": "CC_LIGHT_3_TYPE",
+            "type": "number",
+            "defines": [
+              "CC_NUM_LIGHTS"
+            ],
+            "range": [
+              0,
+              3
+            ]
+          },
+          {
+            "name": "CC_SHADOW_3_TYPE",
+            "type": "number",
+            "defines": [
+              "CC_NUM_LIGHTS",
+              "CC_USE_SHADOW_MAP",
+              "CC_NUM_SHADOW_LIGHTS"
+            ],
+            "range": [
+              0,
+              3
+            ]
+          },
+          {
+            "name": "CC_USE_ALPHA_ATLAS_diffuseTexture",
+            "type": "boolean",
+            "defines": [
+              "USE_DIFFUSE_TEXTURE"
+            ]
+          },
+          {
+            "name": "INPUT_IS_GAMMA",
+            "type": "boolean",
+            "defines": [
+              "USE_DIFFUSE_TEXTURE"
+            ]
+          },
+          {
+            "name": "CC_USE_ALPHA_ATLAS_emissiveTexture",
+            "type": "boolean",
+            "defines": [
+              "USE_EMISSIVE",
+              "USE_EMISSIVE_TEXTURE"
+            ]
+          },
+          {
+            "name": "CC_USE_ALPHA_ATLAS_specularTexture",
+            "type": "boolean",
+            "defines": [
+              "USE_SPECULAR",
+              "USE_SPECULAR_TEXTURE"
+            ]
+          }
+        ],
+        "blocks": [
+          {
+            "name": "SKINNING",
+            "members": [
+              {
+                "name": "jointsTextureSize",
+                "type": 14,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "CC_USE_SKINNING",
+              "CC_USE_JOINTS_TEXTRUE"
+            ],
+            "binding": 0
+          },
+          {
+            "name": "JOINT_MATRIX",
+            "members": [
+              {
+                "name": "jointMatrices",
+                "type": 26,
+                "count": 50
+              }
+            ],
+            "defines": [
+              "CC_USE_SKINNING"
+            ],
+            "binding": 1
+          },
+          {
+            "name": "MAIN_TILING",
+            "members": [
+              {
+                "name": "mainTiling",
+                "type": 14,
+                "count": 1
+              },
+              {
+                "name": "mainOffset",
+                "type": 14,
+                "count": 1
+              }
+            ],
+            "defines": [],
+            "binding": 2
+          },
+          {
+            "name": "ALPHA_TEST",
+            "members": [
+              {
+                "name": "alphaThreshold",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "USE_ALPHA_TEST"
+            ],
+            "binding": 3
+          },
+          {
+            "name": "PhongFrag",
+            "members": [
+              {
+                "name": "diffuseColor",
+                "type": 16,
+                "count": 1
+              },
+              {
+                "name": "specularColor",
+                "type": 16,
+                "count": 1
+              },
+              {
+                "name": "emissiveColor",
+                "type": 16,
+                "count": 1
+              },
+              {
+                "name": "glossiness",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [],
+            "binding": 4
+          }
+        ],
+        "samplers": [
+          {
+            "name": "jointsTexture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "CC_USE_SKINNING",
+              "CC_USE_JOINTS_TEXTRUE"
+            ],
+            "binding": 30
+          },
+          {
+            "name": "diffuseTexture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "USE_DIFFUSE_TEXTURE"
+            ],
+            "binding": 31
+          },
+          {
+            "name": "specularTexture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "USE_SPECULAR",
+              "USE_SPECULAR_TEXTURE"
+            ],
+            "binding": 32
+          },
+          {
+            "name": "emissiveTexture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "USE_EMISSIVE",
+              "USE_EMISSIVE_TEXTURE"
+            ],
+            "binding": 33
+          },
+          {
+            "name": "normalTexture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "USE_NORMAL_TEXTURE"
+            ],
+            "binding": 34
+          }
+        ],
+        "record": null,
+        "name": "builtin-phong|phong-vs|phong-fs"
+      },
+      {
+        "hash": 1165371292,
+        "glsl3": {
+          "vert": "\nprecision highp float;\nin vec3 a_position;\nuniform CCLocal {\n  mat4 cc_matWorld;\n  mat4 cc_matWorldIT;\n};\nuniform CC_SHADOW_MAP {\n  mat4  cc_shadow_map_lightViewProjMatrix;\n  vec4  cc_shadow_map_info;\n  float cc_shadow_map_bias;\n};\nout float v_depth;\n#if CC_USE_SKINNING\n  in vec4 a_weights;\n  in vec4 a_joints;\n  #if CC_USE_JOINTS_TEXTRUE\n    uniform SKINNING {\n      vec2 jointsTextureSize;\n    };\n    uniform sampler2D jointsTexture;\n    #if CC_JOINTS_TEXTURE_FLOAT32\n      mat4 getBoneMatrix(const in float i) {\n        float width = jointsTextureSize.x;\n        float height = jointsTextureSize.y;\n        float j = i * 4.0;\n        float x = mod(j, width);\n        float y = floor(j / width);\n        float dx = 1.0 / width;\n        float dy = 1.0 / height;\n        y = dy * (y + 0.5);\n        vec4 v1 = texture(jointsTexture, vec2(dx * (x + 0.5), y));\n        vec4 v2 = texture(jointsTexture, vec2(dx * (x + 1.5), y));\n        vec4 v3 = texture(jointsTexture, vec2(dx * (x + 2.5), y));\n        vec4 v4 = texture(jointsTexture, vec2(dx * (x + 3.5), y));\n        return mat4(v1, v2, v3, v4);\n      }\n    #else\n      float decode32(vec4 rgba) {\n        float Sign = 1.0 - step(128.0, rgba[0]) * 2.0;\n        float Exponent = 2.0 * mod(rgba[0], 128.0) + step(128.0, rgba[1]) - 127.0;\n        float Mantissa = mod(rgba[1], 128.0) * 65536.0 + rgba[2] * 256.0 + rgba[3] + 8388608.0;\n        return Sign * exp2(Exponent - 23.0) * Mantissa;\n      }\n      vec4 decodevec4 (vec4 x, vec4 y, vec4 z, vec4 w) {\n        return vec4(\n          decode32(x.wzyx * 255.0),\n          decode32(y.wzyx * 255.0),\n          decode32(z.wzyx * 255.0),\n          decode32(w.wzyx * 255.0)\n        );\n      }\n      vec4 decodevec4 (float dx, float x, float y) {\n        return decodevec4(\n          texture(jointsTexture, vec2(dx * (x + 0.5), y)),\n          texture(jointsTexture, vec2(dx * (x + 1.5), y)),\n          texture(jointsTexture, vec2(dx * (x + 2.5), y)),\n          texture(jointsTexture, vec2(dx * (x + 3.5), y))\n        );\n      }\n      mat4 getBoneMatrix(const in float i) {\n        float width = jointsTextureSize.x;\n        float height = jointsTextureSize.y;\n        float j = i * 16.0;\n        float x = mod(j, width);\n        float y = floor(j / width);\n        float dx = 1.0 / width;\n        float dy = 1.0 / height;\n        y = dy * (y + 0.5);\n        vec4 v1 = decodevec4(dx, x,       y);\n        vec4 v2 = decodevec4(dx, x+4.0,   y);\n        vec4 v3 = decodevec4(dx, x+8.0,   y);\n        vec4 v4 = decodevec4(dx, x+12.0,  y);\n        return mat4(v1, v2, v3, v4);\n      }\n    #endif\n  #else\n    uniform JOINT_MATRIX {\n      mat4 jointMatrices[50];\n    };\n    mat4 getBoneMatrix(const in float i) {\n      return jointMatrices[int(i)];\n    }\n  #endif\n    mat4 skinMatrix() {\n      return\n        getBoneMatrix(a_joints.x) * a_weights.x +\n        getBoneMatrix(a_joints.y) * a_weights.y +\n        getBoneMatrix(a_joints.z) * a_weights.z +\n        getBoneMatrix(a_joints.w) * a_weights.w\n        ;\n    }\n#endif\nvoid SKIN_VERTEX(inout vec4 a1) {\n  #if CC_USE_SKINNING\n    mat4 m = skinMatrix();\n    a1 = m * a1;\n  #endif\n}\nvoid SKIN_VERTEX(inout vec4 a1, inout vec4 a2) {\n  #if CC_USE_SKINNING\n    mat4 m = skinMatrix();\n    a1 = m * a1;\n    a2 = m * a2;\n  #endif\n}\nvoid SKIN_VERTEX(inout vec4 a1, inout vec4 a2, inout vec4 a3) {\n  #if CC_USE_SKINNING\n    mat4 m = skinMatrix();\n    a1 = m * a1;\n    a2 = m * a2;\n    a3 = m * a3;\n  #endif\n}\nvoid main () {\n  vec4 position = vec4(a_position, 1);\n  SKIN_VERTEX(position);\n  gl_Position = cc_shadow_map_lightViewProjMatrix * cc_matWorld * position;\n  v_depth = ((gl_Position.z + cc_shadow_map_info.x) / (cc_shadow_map_info.x + cc_shadow_map_info.y)) + cc_shadow_map_bias;\n}",
+          "frag": "\nprecision highp float;\nin float v_depth;\nvec4 packDepthToRGBA(float depth) {\n  vec4 ret = vec4(1.0, 255.0, 65025.0, 160581375.0) * depth;\n  ret = fract(ret);\n  ret -= ret.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);\n  return ret;\n}\nvoid main () {\n    gl_FragColor = packDepthToRGBA(v_depth);\n}"
+        },
+        "glsl1": {
+          "vert": "\nprecision highp float;\nattribute vec3 a_position;\nuniform mat4 cc_matWorld;\nuniform mat4 cc_shadow_map_lightViewProjMatrix;\nuniform vec4 cc_shadow_map_info;\nuniform float cc_shadow_map_bias;\nvarying float v_depth;\n#if CC_USE_SKINNING\n  attribute vec4 a_weights;\n  attribute vec4 a_joints;\n  #if CC_USE_JOINTS_TEXTRUE\n    uniform vec2 jointsTextureSize;\n    uniform sampler2D jointsTexture;\n    #if CC_JOINTS_TEXTURE_FLOAT32\n      mat4 getBoneMatrix(const in float i) {\n        float width = jointsTextureSize.x;\n        float height = jointsTextureSize.y;\n        float j = i * 4.0;\n        float x = mod(j, width);\n        float y = floor(j / width);\n        float dx = 1.0 / width;\n        float dy = 1.0 / height;\n        y = dy * (y + 0.5);\n        vec4 v1 = texture2D(jointsTexture, vec2(dx * (x + 0.5), y));\n        vec4 v2 = texture2D(jointsTexture, vec2(dx * (x + 1.5), y));\n        vec4 v3 = texture2D(jointsTexture, vec2(dx * (x + 2.5), y));\n        vec4 v4 = texture2D(jointsTexture, vec2(dx * (x + 3.5), y));\n        return mat4(v1, v2, v3, v4);\n      }\n    #else\n      float decode32(vec4 rgba) {\n        float Sign = 1.0 - step(128.0, rgba[0]) * 2.0;\n        float Exponent = 2.0 * mod(rgba[0], 128.0) + step(128.0, rgba[1]) - 127.0;\n        float Mantissa = mod(rgba[1], 128.0) * 65536.0 + rgba[2] * 256.0 + rgba[3] + 8388608.0;\n        return Sign * exp2(Exponent - 23.0) * Mantissa;\n      }\n      vec4 decodevec4 (vec4 x, vec4 y, vec4 z, vec4 w) {\n        return vec4(\n          decode32(x.wzyx * 255.0),\n          decode32(y.wzyx * 255.0),\n          decode32(z.wzyx * 255.0),\n          decode32(w.wzyx * 255.0)\n        );\n      }\n      vec4 decodevec4 (float dx, float x, float y) {\n        return decodevec4(\n          texture2D(jointsTexture, vec2(dx * (x + 0.5), y)),\n          texture2D(jointsTexture, vec2(dx * (x + 1.5), y)),\n          texture2D(jointsTexture, vec2(dx * (x + 2.5), y)),\n          texture2D(jointsTexture, vec2(dx * (x + 3.5), y))\n        );\n      }\n      mat4 getBoneMatrix(const in float i) {\n        float width = jointsTextureSize.x;\n        float height = jointsTextureSize.y;\n        float j = i * 16.0;\n        float x = mod(j, width);\n        float y = floor(j / width);\n        float dx = 1.0 / width;\n        float dy = 1.0 / height;\n        y = dy * (y + 0.5);\n        vec4 v1 = decodevec4(dx, x,       y);\n        vec4 v2 = decodevec4(dx, x+4.0,   y);\n        vec4 v3 = decodevec4(dx, x+8.0,   y);\n        vec4 v4 = decodevec4(dx, x+12.0,  y);\n        return mat4(v1, v2, v3, v4);\n      }\n    #endif\n  #else\n    uniform mat4 jointMatrices[50];\n    mat4 getBoneMatrix(const in float i) {\n      return jointMatrices[int(i)];\n    }\n  #endif\n    mat4 skinMatrix() {\n      return\n        getBoneMatrix(a_joints.x) * a_weights.x +\n        getBoneMatrix(a_joints.y) * a_weights.y +\n        getBoneMatrix(a_joints.z) * a_weights.z +\n        getBoneMatrix(a_joints.w) * a_weights.w\n        ;\n    }\n#endif\nvoid SKIN_VERTEX(inout vec4 a1) {\n  #if CC_USE_SKINNING\n    mat4 m = skinMatrix();\n    a1 = m * a1;\n  #endif\n}\nvoid SKIN_VERTEX(inout vec4 a1, inout vec4 a2) {\n  #if CC_USE_SKINNING\n    mat4 m = skinMatrix();\n    a1 = m * a1;\n    a2 = m * a2;\n  #endif\n}\nvoid SKIN_VERTEX(inout vec4 a1, inout vec4 a2, inout vec4 a3) {\n  #if CC_USE_SKINNING\n    mat4 m = skinMatrix();\n    a1 = m * a1;\n    a2 = m * a2;\n    a3 = m * a3;\n  #endif\n}\nvoid main () {\n  vec4 position = vec4(a_position, 1);\n  SKIN_VERTEX(position);\n  gl_Position = cc_shadow_map_lightViewProjMatrix * cc_matWorld * position;\n  v_depth = ((gl_Position.z + cc_shadow_map_info.x) / (cc_shadow_map_info.x + cc_shadow_map_info.y)) + cc_shadow_map_bias;\n}",
+          "frag": "\nprecision highp float;\nvarying float v_depth;\nvec4 packDepthToRGBA(float depth) {\n  vec4 ret = vec4(1.0, 255.0, 65025.0, 160581375.0) * depth;\n  ret = fract(ret);\n  ret -= ret.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);\n  return ret;\n}\nvoid main () {\n    gl_FragColor = packDepthToRGBA(v_depth);\n}"
+        },
+        "builtins": {
+          "globals": {
+            "blocks": [
+              {
+                "name": "CC_SHADOW_MAP",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          },
+          "locals": {
+            "blocks": [
+              {
+                "name": "CCLocal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          }
+        },
+        "defines": [
+          {
+            "name": "CC_USE_SKINNING",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_JOINTS_TEXTRUE",
+            "type": "boolean",
+            "defines": [
+              "CC_USE_SKINNING"
+            ]
+          },
+          {
+            "name": "CC_JOINTS_TEXTURE_FLOAT32",
+            "type": "boolean",
+            "defines": [
+              "CC_USE_SKINNING",
+              "CC_USE_JOINTS_TEXTRUE"
+            ]
+          }
+        ],
+        "blocks": [
+          {
+            "name": "SKINNING",
+            "members": [
+              {
+                "name": "jointsTextureSize",
+                "type": 14,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "CC_USE_SKINNING",
+              "CC_USE_JOINTS_TEXTRUE"
+            ],
+            "binding": 0
+          },
+          {
+            "name": "JOINT_MATRIX",
+            "members": [
+              {
+                "name": "jointMatrices",
+                "type": 26,
+                "count": 50
+              }
+            ],
+            "defines": [
+              "CC_USE_SKINNING"
+            ],
+            "binding": 1
+          }
+        ],
+        "samplers": [
+          {
+            "name": "jointsTexture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "CC_USE_SKINNING",
+              "CC_USE_JOINTS_TEXTRUE"
+            ],
+            "binding": 30
+          }
+        ],
+        "record": null,
+        "name": "builtin-phong|shadow-map-vs|shadow-map-fs"
+      }
+    ]
+  },
+  {
+    "__type__": "cc.Material",
+    "_name": "builtin-phong",
+    "_effectAsset": {
+      "__uuid__": "abwstieFJFJakN1HRIe4jy"
+    },
+    "_techniqueData": {
+      "0": {
+        "defines": {
+          "USE_SPECULAR": true
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.EffectAsset",
+    "_name": "sprite-flag",
+    "techniques": [
+      {
+        "passes": [
+          {
+            "blendState": {
+              "targets": [
+                {
+                  "blend": true
+                }
+              ]
+            },
+            "rasterizerState": {
+              "cullMode": 0
+            },
+            "properties": {
+              "texture": {
+                "value": "white",
+                "type": 29
+              },
+              "textureWidth": {
+                "value": [
+                  600
+                ],
+                "type": 13
+              },
+              "speed": {
+                "value": [
+                  10
+                ],
+                "type": 13
+              },
+              "amplitude": {
+                "value": [
+                  5
+                ],
+                "type": 13
+              },
+              "wave": {
+                "value": [
+                  5
+                ],
+                "type": 13
+              },
+              "startPos": {
+                "value": [
+                  0,
+                  0
+                ],
+                "type": 14
+              }
+            },
+            "program": "sprite-flag|vs|fs"
+          }
+        ]
+      }
+    ],
+    "shaders": [
+      {
+        "hash": 54660402,
+        "glsl3": {
+          "vert": "\nprecision highp float;\nuniform CCLocal {\n  mat4 cc_matWorld;\n  mat4 cc_matWorldIT;\n};\nuniform CCGlobal {\n  mat4 cc_matView;\n  mat4 cc_matViewInv;\n  mat4 cc_matProj;\n  mat4 cc_matProjInv;\n  mat4 cc_matViewProj;\n  mat4 cc_matViewProjInv;\n  vec4 cc_cameraPos;\n  vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n};\nin vec3 a_position;\nuniform LAMYOUMG_COM {\n  float textureWidth;\n  float speed;\n  float amplitude;\n  float wave;\n  vec2 startPos;\n};\n#if USE_TEXTURE\n  in mediump vec2 a_uv0;\n  out mediump vec2 v_uv0;\n#endif\nvoid main () {\n  float angleSpanH = wave * 3.14159265;\n  float pz = amplitude * sin(cc_time.x * speed - (a_position.x - startPos.x + a_position.y - startPos.y) / textureWidth * angleSpanH);\n  vec4 position = vec4(a_position.x, a_position.y + pz, a_position.z, 1);\n  #if USE_TEXTURE\n    v_uv0 = a_uv0;\n  #endif\n  gl_Position = cc_matViewProj * cc_matWorld * position;\n}",
+          "frag": "uniform CCGlobal {\n  mat4 cc_matView;\n  mat4 cc_matViewInv;\n  mat4 cc_matProj;\n  mat4 cc_matProjInv;\n  mat4 cc_matViewProj;\n  mat4 cc_matViewProjInv;\n  vec4 cc_cameraPos;\n  vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n};\nprecision highp float;\n#if USE_TEXTURE\n  in vec2 v_uv0;\n  uniform sampler2D texture;\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n    o *= texture(texture, v_uv0);\n  #endif\n  gl_FragColor = o;\n}"
+        },
+        "glsl1": {
+          "vert": "\nprecision highp float;\nuniform mat4 cc_matWorld;\nuniform mat4 cc_matViewProj;\nuniform vec4 cc_time;\nattribute vec3 a_position;\nuniform float textureWidth;\nuniform float speed;\nuniform float amplitude;\nuniform float wave;\nuniform vec2 startPos;\n#if USE_TEXTURE\n  attribute mediump vec2 a_uv0;\n  varying mediump vec2 v_uv0;\n#endif\nvoid main () {\n  float angleSpanH = wave * 3.14159265;\n  float pz = amplitude * sin(cc_time.x * speed - (a_position.x - startPos.x + a_position.y - startPos.y) / textureWidth * angleSpanH);\n  vec4 position = vec4(a_position.x, a_position.y + pz, a_position.z, 1);\n  #if USE_TEXTURE\n    v_uv0 = a_uv0;\n  #endif\n  gl_Position = cc_matViewProj * cc_matWorld * position;\n}",
+          "frag": "\nprecision highp float;\n#if USE_TEXTURE\n  varying vec2 v_uv0;\n  uniform sampler2D texture;\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n    o *= texture2D(texture, v_uv0);\n  #endif\n  gl_FragColor = o;\n}"
+        },
+        "builtins": {
+          "globals": {
+            "blocks": [
+              {
+                "name": "CCGlobal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          },
+          "locals": {
+            "blocks": [
+              {
+                "name": "CCLocal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          }
+        },
+        "defines": [
+          {
+            "name": "USE_TEXTURE",
+            "type": "boolean",
+            "defines": []
+          }
+        ],
+        "blocks": [
+          {
+            "name": "LAMYOUMG_COM",
+            "members": [
+              {
+                "name": "textureWidth",
+                "type": 13,
+                "count": 1
+              },
+              {
+                "name": "speed",
+                "type": 13,
+                "count": 1
+              },
+              {
+                "name": "amplitude",
+                "type": 13,
+                "count": 1
+              },
+              {
+                "name": "wave",
+                "type": 13,
+                "count": 1
+              },
+              {
+                "name": "startPos",
+                "type": 14,
+                "count": 1
+              }
+            ],
+            "defines": [],
+            "binding": 0
+          }
+        ],
+        "samplers": [
+          {
+            "name": "texture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "USE_TEXTURE"
+            ],
+            "binding": 30
+          }
+        ],
+        "record": null,
+        "name": "sprite-flag|vs|fs"
+      }
+    ]
+  },
+  {
+    "__type__": "cc.Material",
+    "_name": "sprite-gaussian-blur-v1",
+    "_effectAsset": {
+      "__uuid__": "419NR01wdFu6+TY3Vz+S1U"
+    },
+    "_techniqueData": {
+      "0": {
+        "defines": {
+          "USE_TEXTURE": true,
+          "ENABLE_GAUSSIAN_BLUR": true
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.EffectAsset",
+    "_name": "sprite-flash-light",
+    "techniques": [
+      {
+        "passes": [
+          {
+            "blendState": {
+              "targets": [
+                {
+                  "blend": true
+                }
+              ]
+            },
+            "rasterizerState": {
+              "cullMode": 0
+            },
+            "properties": {
+              "texture": {
+                "value": "white",
+                "type": 29
+              },
+              "alphaThreshold": {
+                "value": [
+                  0.5
+                ],
+                "type": 13
+              },
+              "lightColor": {
+                "value": [
+                  1,
+                  1,
+                  0,
+                  1
+                ],
+                "editor": {
+                  "type": "color",
+                  "tooltip": "光束颜色"
+                },
+                "type": 16
+              },
+              "lightCenterPoint": {
+                "value": [
+                  0.2,
+                  0.2
+                ],
+                "editor": {
+                  "tooltip": "光束中心点坐标"
+                },
+                "type": 14
+              },
+              "lightAngle": {
+                "value": [
+                  36
+                ],
+                "editor": {
+                  "tooltip": "光束倾斜角度",
+                  "range": [
+                    0,
+                    1
+                  ]
+                },
+                "type": 13
+              },
+              "lightWidth": {
+                "value": [
+                  0.2
+                ],
+                "editor": {
+                  "tooltip": "光束宽度"
+                },
+                "type": 13
+              },
+              "enableGradient": {
+                "value": [
+                  1
+                ],
+                "editor": {
+                  "tooltip": "是否启用光束渐变。0：不启用，非0：启用"
+                },
+                "type": 13
+              },
+              "cropAlpha": {
+                "value": [
+                  1
+                ],
+                "editor": {
+                  "tooltip": "是否裁剪透明区域上的光。0：不启用，非0：启用"
+                },
+                "type": 13
+              },
+              "enableFog": {
+                "value": [
+                  0
+                ],
+                "editor": {
+                  "tooltip": "是否启用迷雾效果。0：不启用，非0：启用"
+                },
+                "type": 13
+              }
+            },
+            "program": "sprite-flash-light|vs|fs"
+          }
+        ]
+      }
+    ],
+    "shaders": [
+      {
+        "hash": 3415657189,
+        "glsl3": {
+          "vert": "\nprecision highp float;\nuniform CCGlobal {\n  mat4 cc_matView;\n  mat4 cc_matViewInv;\n  mat4 cc_matProj;\n  mat4 cc_matProjInv;\n  mat4 cc_matViewProj;\n  mat4 cc_matViewProjInv;\n  vec4 cc_cameraPos;\n  vec4 cc_time;\n  mediump vec4 cc_screenSize;\n  mediump vec4 cc_screenScale;\n};\nuniform CCLocal {\n  mat4 cc_matWorld;\n  mat4 cc_matWorldIT;\n};\nin vec3 a_position;\nin vec4 a_color;\nout vec4 v_color;\n#if USE_TEXTURE\nin vec2 a_uv0;\nout vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform ALPHA_TEST {\n    float alphaThreshold;\n  };\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nin vec4 v_color;\n#if USE_TEXTURE\nin vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if ENABLE_LIGHT\nuniform Light {\n  vec4 lightColor;\n  vec2 lightCenterPoint;\n  float lightAngle;\n  float lightWidth;\n  float enableGradient;\n  float cropAlpha;\n  float enableFog;\n};\nvec4 addLightColor(vec4 textureColor, vec4 lightColor, vec2 lightCenterPoint, float lightAngle, float lightWidth) {\n  if (lightWidth <= 0.0) {\n    return textureColor;\n  }\n  float angleInRadians = radians(lightAngle);\n  float dis = 0.0;\n  if (mod(lightAngle, 180.0) != 0.0) {\n    float lightOffsetX = lightCenterPoint.x - ((1.0 - lightCenterPoint.y) / tan(angleInRadians));\n    float dx = lightOffsetX + (1.0 - v_uv0.y) / tan(angleInRadians);\n    float offsetDis = abs(v_uv0.x - dx);\n    dis = sin(angleInRadians) * offsetDis;\n  } else {\n    dis = abs(v_uv0.y - lightCenterPoint.y);\n  }\n  float a = 1.0 ;\n  if (bool(cropAlpha)) {\n    a *= step(0.01, textureColor.a);\n  }\n  if (!bool(enableFog)) {\n    a *= step(dis, lightWidth * 0.5);\n  }\n  if (bool(enableGradient)) {\n    a *= 1.0 - dis / (lightWidth * 0.5);\n  }\n  vec4 finalLightColor = lightColor * a;\n  return textureColor * textureColor.a + finalLightColor;\n}\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n  o *= texture(texture, v_uv0);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, v_uv0 + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  gl_FragColor = o;\n  #if ENABLE_LIGHT\n  gl_FragColor = addLightColor(gl_FragColor, lightColor, lightCenterPoint, lightAngle, lightWidth);\n  #endif\n}"
+        },
+        "glsl1": {
+          "vert": "\nprecision highp float;\nuniform mat4 cc_matViewProj;\nuniform mat4 cc_matWorld;\nattribute vec3 a_position;\nattribute vec4 a_color;\nvarying vec4 v_color;\n#if USE_TEXTURE\nattribute vec2 a_uv0;\nvarying vec2 v_uv0;\n#endif\nvoid main () {\n  vec4 pos = vec4(a_position, 1);\n  #if CC_USE_MODEL\n  pos = cc_matViewProj * cc_matWorld * pos;\n  #else\n  pos = cc_matViewProj * pos;\n  #endif\n  #if USE_TEXTURE\n  v_uv0 = a_uv0;\n  #endif\n  v_color = a_color;\n  gl_Position = pos;\n}",
+          "frag": "\nprecision highp float;\n#if USE_ALPHA_TEST\n  uniform float alphaThreshold;\n#endif\nvoid ALPHA_TEST (in vec4 color) {\n  #if USE_ALPHA_TEST\n      if (color.a < alphaThreshold) discard;\n  #endif\n}\nvoid ALPHA_TEST (in float alpha) {\n  #if USE_ALPHA_TEST\n      if (alpha < alphaThreshold) discard;\n  #endif\n}\nvarying vec4 v_color;\n#if USE_TEXTURE\nvarying vec2 v_uv0;\nuniform sampler2D texture;\n#endif\n#if ENABLE_LIGHT\nuniform vec4 lightColor;\nuniform vec2 lightCenterPoint;\nuniform float lightAngle;\nuniform float lightWidth;\nuniform float enableGradient;\nuniform float cropAlpha;\nuniform float enableFog;\nvec4 addLightColor(vec4 textureColor, vec4 lightColor, vec2 lightCenterPoint, float lightAngle, float lightWidth) {\n  if (lightWidth <= 0.0) {\n    return textureColor;\n  }\n  float angleInRadians = radians(lightAngle);\n  float dis = 0.0;\n  if (mod(lightAngle, 180.0) != 0.0) {\n    float lightOffsetX = lightCenterPoint.x - ((1.0 - lightCenterPoint.y) / tan(angleInRadians));\n    float dx = lightOffsetX + (1.0 - v_uv0.y) / tan(angleInRadians);\n    float offsetDis = abs(v_uv0.x - dx);\n    dis = sin(angleInRadians) * offsetDis;\n  } else {\n    dis = abs(v_uv0.y - lightCenterPoint.y);\n  }\n  float a = 1.0 ;\n  if (bool(cropAlpha)) {\n    a *= step(0.01, textureColor.a);\n  }\n  if (!bool(enableFog)) {\n    a *= step(dis, lightWidth * 0.5);\n  }\n  if (bool(enableGradient)) {\n    a *= 1.0 - dis / (lightWidth * 0.5);\n  }\n  vec4 finalLightColor = lightColor * a;\n  return textureColor * textureColor.a + finalLightColor;\n}\n#endif\nvoid main () {\n  vec4 o = vec4(1, 1, 1, 1);\n  #if USE_TEXTURE\n  o *= texture2D(texture, v_uv0);\n    #if CC_USE_ALPHA_ATLAS_TEXTURE\n    o.a *= texture2D(texture, v_uv0 + vec2(0, 0.5)).r;\n    #endif\n  #endif\n  o *= v_color;\n  ALPHA_TEST(o);\n  gl_FragColor = o;\n  #if ENABLE_LIGHT\n  gl_FragColor = addLightColor(gl_FragColor, lightColor, lightCenterPoint, lightAngle, lightWidth);\n  #endif\n}"
+        },
+        "builtins": {
+          "globals": {
+            "blocks": [
+              {
+                "name": "CCGlobal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          },
+          "locals": {
+            "blocks": [
+              {
+                "name": "CCLocal",
+                "defines": []
+              }
+            ],
+            "samplers": []
+          }
+        },
+        "defines": [
+          {
+            "name": "USE_TEXTURE",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_MODEL",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "USE_ALPHA_TEST",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "ENABLE_LIGHT",
+            "type": "boolean",
+            "defines": []
+          },
+          {
+            "name": "CC_USE_ALPHA_ATLAS_TEXTURE",
+            "type": "boolean",
+            "defines": [
+              "USE_TEXTURE"
+            ]
+          }
+        ],
+        "blocks": [
+          {
+            "name": "ALPHA_TEST",
+            "members": [
+              {
+                "name": "alphaThreshold",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "USE_ALPHA_TEST"
+            ],
+            "binding": 0
+          },
+          {
+            "name": "Light",
+            "members": [
+              {
+                "name": "lightColor",
+                "type": 16,
+                "count": 1
+              },
+              {
+                "name": "lightCenterPoint",
+                "type": 14,
+                "count": 1
+              },
+              {
+                "name": "lightAngle",
+                "type": 13,
+                "count": 1
+              },
+              {
+                "name": "lightWidth",
+                "type": 13,
+                "count": 1
+              },
+              {
+                "name": "enableGradient",
+                "type": 13,
+                "count": 1
+              },
+              {
+                "name": "cropAlpha",
+                "type": 13,
+                "count": 1
+              },
+              {
+                "name": "enableFog",
+                "type": 13,
+                "count": 1
+              }
+            ],
+            "defines": [
+              "ENABLE_LIGHT"
+            ],
+            "binding": 1
+          }
+        ],
+        "samplers": [
+          {
+            "name": "texture",
+            "type": 29,
+            "count": 1,
+            "defines": [
+              "USE_TEXTURE"
+            ],
+            "binding": 30
+          }
+        ],
+        "record": null,
+        "name": "sprite-flash-light|vs|fs"
+      }
+    ]
+  },
+  {
+    "__type__": "cc.Material",
+    "_name": "sprite-gray",
+    "_effectAsset": {
+      "__uuid__": "2eWynZ3V5PPZLp5YB0WzvI"
+    },
+    "_techniqueData": {
+      "0": {
+        "defines": {
+          "USE_TEXTURE": true,
+          "USE_GRAY": true
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.Material",
+    "_name": "sprite-flag",
+    "_effectAsset": {
+      "__uuid__": "d0yAtd0hJOdYWBI+wTPrOk"
+    },
+    "_techniqueData": {
+      "0": {
+        "defines": {
+          "USE_TEXTURE": true
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.Material",
+    "_name": "sprite-mosaic",
+    "_effectAsset": {
+      "__uuid__": "96OJedYrNOW63qetcG5m5l"
+    },
+    "_techniqueData": {
+      "0": {
+        "props": {
+          "xBlockCount": 40,
+          "yBlockCount": 40
+        },
+        "defines": {
+          "USE_TEXTURE": true,
+          "USE_MOSAIC": true
+        }
+      }
+    }
+  }
+]

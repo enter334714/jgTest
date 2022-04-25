@@ -1,0 +1,1015 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "icon_zhanli",
+      "texture": "0bvjtaRStNAZIxOWJGU7qY",
+      "rect": [
+        4,
+        1,
+        26,
+        29
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        34,
+        30
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_waiguan_touxiangkuang_00chushi",
+      "texture": "9b2JjnG4RLAps24q4Umnsz",
+      "rect": [
+        85,
+        425,
+        77,
+        77
+      ],
+      "offset": [
+        1,
+        3
+      ],
+      "originalSize": [
+        107,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_ui_paihang03",
+      "texture": "1e3d5c5da",
+      "rect": [
+        950,
+        942,
+        79,
+        66
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        79,
+        66
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  [
+    {
+      "__type__": "cc.Prefab",
+      "_name": "TuituItem",
+      "data": {
+        "__id__": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "TuituItem",
+      "_children": [
+        {
+          "__id__": 2
+        },
+        {
+          "__id__": 3
+        },
+        {
+          "__id__": 5
+        },
+        {
+          "__id__": 7
+        },
+        {
+          "__id__": 9
+        },
+        {
+          "__id__": 11
+        },
+        {
+          "__id__": 12
+        },
+        {
+          "__id__": 14
+        },
+        {
+          "__id__": 16
+        },
+        {
+          "__id__": 18
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "702984QYPJGBJNWvwQZUG42",
+          "node": {
+            "__id__": 1
+          },
+          "rankingIconArr": [
+            {
+              "__uuid__": "9bdtqxiz1InbRAKKZvfKj1"
+            },
+            {
+              "__uuid__": "efobKIXdBGHLJzGE+Cj4Yg"
+            },
+            {
+              "__uuid__": "3f6zvuvkhE95BkQsrGPTD4"
+            }
+          ],
+          "zhiyeIconArr": [
+            {
+              "__uuid__": "e0QIuIZgxDQaScjWTSxHzy"
+            },
+            {
+              "__uuid__": "84NEDPIkNFEJl4yAnkW16j"
+            },
+            {
+              "__uuid__": "6cecZbvrFLRKnAi0twR738"
+            }
+          ],
+          "rankingLabel": {
+            "__id__": 6
+          },
+          "rankIcon": {
+            "__id__": 8
+          },
+          "touxiang": {
+            "__id__": 17
+          },
+          "touxiangkuang": {
+            "__id__": 19
+          },
+          "profession_icon": {
+            "__id__": 4
+          },
+          "roleName": {
+            "__id__": 10
+          },
+          "rolePower": {
+            "__id__": 13
+          },
+          "monsterName": {
+            "__id__": 15
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "64olyUqWNHQJTk+tMeogiH"
+        },
+        "fileId": "78aLcWTQhAu6frJzVgG7vh"
+      },
+      "_color": {
+        "__type__": "cc.Color"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 523,
+        "height": 78
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -12,
+          -39.5,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "bg",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 2
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_spriteFrame": {
+            "__uuid__": "92+WFyo3RCx7oBku7EkdLO"
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "64olyUqWNHQJTk+tMeogiH"
+        },
+        "fileId": "5aGynqzdJKs6UUoYfJqKgM"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 523,
+        "height": 78
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "profession_icon",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__id__": 4
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "64olyUqWNHQJTk+tMeogiH"
+        },
+        "fileId": "00IN+4iP1MR6mopwU2rjmT"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 15,
+        "height": 18
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -38,
+          14,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Sprite",
+      "node": {
+        "__id__": 3
+      },
+      "_materials": [
+        {
+          "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+        }
+      ],
+      "_spriteFrame": {
+        "__uuid__": "6cecZbvrFLRKnAi0twR738"
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "rankingLabel",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__id__": 6
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "64olyUqWNHQJTk+tMeogiH"
+        },
+        "fileId": "f6/y346QVPA4VDmVbNGVzb"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 53.39,
+        "height": 40.32
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -189.764,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Label",
+      "node": {
+        "__id__": 5
+      },
+      "_materials": [
+        {
+          "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+        }
+      ],
+      "_useOriginalSize": false,
+      "_string": "100",
+      "_N$string": "100",
+      "_fontSize": 32,
+      "_lineHeight": 32,
+      "_N$horizontalAlign": 1,
+      "_N$verticalAlign": 1
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "rankIcon",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__id__": 8
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "64olyUqWNHQJTk+tMeogiH"
+        },
+        "fileId": "63R5Vpmr1CuKoRI86zP6gx"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 123,
+        "height": 71
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -189.764,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Sprite",
+      "node": {
+        "__id__": 7
+      },
+      "_materials": [
+        {
+          "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+        }
+      ]
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "roleName",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__id__": 10
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "64olyUqWNHQJTk+tMeogiH"
+        },
+        "fileId": "beYnJ242JBR7PTIVQ3vOkf"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 154,
+        "height": 27.72
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "y": 0.5
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -20,
+          14,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Label",
+      "node": {
+        "__id__": 9
+      },
+      "_materials": [
+        {
+          "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+        }
+      ],
+      "_useOriginalSize": false,
+      "_string": "玩家的的名称",
+      "_N$string": "玩家的的名称",
+      "_fontSize": 22,
+      "_lineHeight": 22,
+      "_styleFlags": 4,
+      "_N$verticalAlign": 1,
+      "_N$fontFamily": "simhei",
+      "_N$overflow": 2
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "icon_zhanli",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 11
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_spriteFrame": {
+            "__uuid__": "23gEO9ltVPC59DndAoeRvl"
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "64olyUqWNHQJTk+tMeogiH"
+        },
+        "fileId": "b1SozC9zFNRLC2b9SJBXoV"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 26,
+        "height": 29
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -35,
+          -14,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "rolePower",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__id__": 13
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "64olyUqWNHQJTk+tMeogiH"
+        },
+        "fileId": "c7xhQat1NP2ZdmZzbQg3z5"
+      },
+      "_color": {
+        "__type__": "cc.Color",
+        "r": 255,
+        "g": 168
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 77,
+        "height": 27.72
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "y": 0.5
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -15,
+          -16,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Label",
+      "node": {
+        "__id__": 12
+      },
+      "_materials": [
+        {
+          "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+        }
+      ],
+      "_useOriginalSize": false,
+      "_string": "12000",
+      "_N$string": "12000",
+      "_fontSize": 22,
+      "_lineHeight": 22,
+      "_N$verticalAlign": 1,
+      "_N$fontFamily": "simhei",
+      "_N$overflow": 2
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "monsterName",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__id__": 15
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "64olyUqWNHQJTk+tMeogiH"
+        },
+        "fileId": "d35okRXuRCIYouJI770f4e"
+      },
+      "_color": {
+        "__type__": "cc.Color",
+        "r": 255,
+        "g": 168
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 77,
+        "height": 27.72
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "y": 0.5
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          160,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Label",
+      "node": {
+        "__id__": 14
+      },
+      "_materials": [
+        {
+          "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+        }
+      ],
+      "_useOriginalSize": false,
+      "_string": "沃玛教主",
+      "_N$string": "沃玛教主",
+      "_fontSize": 22,
+      "_lineHeight": 22,
+      "_N$verticalAlign": 1,
+      "_N$fontFamily": "simhei",
+      "_N$overflow": 2
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "touxiang",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__id__": 17
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "64olyUqWNHQJTk+tMeogiH"
+        },
+        "fileId": "6dAEI9fL5MRbIU9KaOEYF6"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 74,
+        "height": 74
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -90,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0.7,
+          0.7,
+          0.7
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Sprite",
+      "node": {
+        "__id__": 16
+      },
+      "_materials": [
+        {
+          "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+        }
+      ],
+      "_spriteFrame": {
+        "__uuid__": "79Qd/u0zFLD6hgfrgXBnLO"
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "touxiangkuang",
+      "_parent": {
+        "__id__": 1
+      },
+      "_components": [
+        {
+          "__id__": 19
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "64olyUqWNHQJTk+tMeogiH"
+        },
+        "fileId": "f5pVWSTbRAvro4b/wyk3cf"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 107,
+        "height": 89
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          -91,
+          -2,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0.7,
+          0.7,
+          0.7
+        ]
+      }
+    },
+    {
+      "__type__": "cc.Sprite",
+      "node": {
+        "__id__": 18
+      },
+      "_materials": [
+        {
+          "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+        }
+      ],
+      "_spriteFrame": {
+        "__uuid__": "3ark0hMzBKdLEHy/6dlsGH"
+      },
+      "_sizeMode": 2,
+      "_isTrimmedMode": false
+    }
+  ],
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_zhiye_daoshi",
+      "texture": "127a98c88",
+      "rect": [
+        718,
+        1006,
+        15,
+        18
+      ],
+      "offset": [
+        -0.5,
+        0.5
+      ],
+      "originalSize": [
+        18,
+        19
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_ui_liaotian_icon_touxiang_daoshi",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        154,
+        2,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_zhiye_fashi",
+      "texture": "127a98c88",
+      "rect": [
+        693,
+        1006,
+        15,
+        19
+      ],
+      "offset": [
+        -0.5,
+        0
+      ],
+      "originalSize": [
+        18,
+        19
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_tianguanpaihang_youhuadi",
+      "texture": "14f708880",
+      "rect": [
+        184,
+        478,
+        523,
+        78
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        523,
+        78
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_ui_paihang01",
+      "texture": "1e3d5c5da",
+      "rect": [
+        950,
+        547,
+        123,
+        71
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        123,
+        71
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_zhiye_zhanshi",
+      "texture": "14b6ca1c6",
+      "rect": [
+        682,
+        807,
+        18,
+        18
+      ],
+      "offset": [
+        0,
+        0.5
+      ],
+      "originalSize": [
+        18,
+        19
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_ui_paihang02",
+      "texture": "1ff430657",
+      "rect": [
+        823,
+        365,
+        93,
+        56
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        93,
+        56
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

@@ -1,0 +1,363 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "MeirileichongConfig",
+  "json": {
+    "101": {
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=#00c0ff>今日累计充值</c><color=#0cff00>12元</c>",
+      "color": 1,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I3001": 10,
+        "I3004": 10,
+        "I4001": 10
+      },
+      "charge_num": 12
+    },
+    "102": {
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=#00c0ff>今日累计充值</c><color=#0cff00>30元</c>",
+      "color": 1,
+      "reward_res": {
+        "1": 150000
+      },
+      "reward_item": {
+        "I3001": 10,
+        "I3004": 15,
+        "I4001": 15
+      },
+      "charge_num": 30
+    },
+    "103": {
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=#f702f4>今日累计充值</c><color=#0cff00>68元</c>",
+      "color": 2,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I3945": 2,
+        "I3905": 6,
+        "I4001": 10
+      },
+      "charge_num": 68
+    },
+    "104": {
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=#f702f4>今日累计充值</c><color=#0cff00>100元</c>",
+      "color": 2,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I3945": 2,
+        "I3905": 8,
+        "I4001": 15
+      },
+      "charge_num": 100
+    },
+    "105": {
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=#ff6c00>今日累计充值</c><color=#0cff00>200元</c>",
+      "color": 3,
+      "reward_res": {
+        "1": 400000
+      },
+      "reward_item": {
+        "I3945": 5,
+        "I3905": 10,
+        "I3001": 25
+      },
+      "charge_num": 200
+    },
+    "106": {
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=#ff6c00>今日累计充值</c><color=#0cff00>500元</c>",
+      "color": 3,
+      "reward_res": {
+        "1": 800000
+      },
+      "reward_item": {
+        "I3945": 15,
+        "I3905": 30,
+        "I3001": 75
+      },
+      "charge_num": 500
+    },
+    "107": {
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=#ff6c00>今日累计充值</c><color=#0cff00>1000元</c>",
+      "color": 3,
+      "reward_res": {
+        "1": 2000000
+      },
+      "reward_item": {
+        "I3945": 25,
+        "I3905": 100,
+        "I3001": 200
+      },
+      "charge_num": 1000
+    },
+    "201": {
+      "open_day": [
+        8,
+        30
+      ],
+      "name": "<color=#00c0ff>今日累计充值</c><color=#0cff00>12元</c>",
+      "color": 1,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I3903": 10,
+        "I3004": 10,
+        "I4001": 10
+      },
+      "charge_num": 12
+    },
+    "202": {
+      "open_day": [
+        8,
+        30
+      ],
+      "name": "<color=#00c0ff>今日累计充值</c><color=#0cff00>30元</c>",
+      "color": 1,
+      "reward_res": {
+        "1": 300000
+      },
+      "reward_item": {
+        "I3903": 10,
+        "I3004": 15,
+        "I4001": 15
+      },
+      "charge_num": 30
+    },
+    "203": {
+      "open_day": [
+        8,
+        30
+      ],
+      "name": "<color=#f702f4>今日累计充值</c><color=#0cff00>68元</c>",
+      "color": 2,
+      "reward_res": {
+        "1": 400000
+      },
+      "reward_item": {
+        "I3945": 2,
+        "I3907": 6,
+        "I4001": 10
+      },
+      "charge_num": 68
+    },
+    "204": {
+      "open_day": [
+        8,
+        30
+      ],
+      "name": "<color=#f702f4>今日累计充值</c><color=#0cff00>100元</c>",
+      "color": 2,
+      "reward_res": {
+        "1": 400000
+      },
+      "reward_item": {
+        "I3945": 2,
+        "I3907": 8,
+        "I4001": 15
+      },
+      "charge_num": 100
+    },
+    "205": {
+      "open_day": [
+        8,
+        30
+      ],
+      "name": "<color=#ff6c00>今日累计充值</c><color=#0cff00>200元</c>",
+      "color": 3,
+      "reward_res": {
+        "1": 800000
+      },
+      "reward_item": {
+        "I3945": 5,
+        "I3907": 10,
+        "I3903": 25
+      },
+      "charge_num": 200
+    },
+    "206": {
+      "open_day": [
+        8,
+        30
+      ],
+      "name": "<color=#ff6c00>今日累计充值</c><color=#0cff00>500元</c>",
+      "color": 3,
+      "reward_res": {
+        "1": 1600000
+      },
+      "reward_item": {
+        "I3945": 15,
+        "I3907": 30,
+        "I3903": 75
+      },
+      "charge_num": 500
+    },
+    "207": {
+      "open_day": [
+        8,
+        30
+      ],
+      "name": "<color=#ff6c00>今日累计充值</c><color=#0cff00>1000元</c>",
+      "color": 3,
+      "reward_res": {
+        "1": 4000000
+      },
+      "reward_item": {
+        "I3945": 25,
+        "I3907": 100,
+        "I3903": 200
+      },
+      "charge_num": 1000
+    },
+    "301": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "name": "<color=#00c0ff>今日累计充值</c><color=#0cff00>12元</c>",
+      "color": 1,
+      "reward_res": {
+        "1": 400000
+      },
+      "reward_item": {
+        "I3001": 10,
+        "I3903": 10,
+        "I2103": 5
+      },
+      "charge_num": 12
+    },
+    "302": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "name": "<color=#00c0ff>今日累计充值</c><color=#0cff00>30元</c>",
+      "color": 1,
+      "reward_res": {
+        "1": 600000
+      },
+      "reward_item": {
+        "I3001": 10,
+        "I3903": 10,
+        "I7001": 2
+      },
+      "charge_num": 30
+    },
+    "303": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "name": "<color=#f702f4>今日累计充值</c><color=#0cff00>68元</c>",
+      "color": 2,
+      "reward_res": {
+        "1": 800000
+      },
+      "reward_item": {
+        "I3945": 2,
+        "I3910": 2,
+        "I3909": 30
+      },
+      "charge_num": 68
+    },
+    "304": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "name": "<color=#f702f4>今日累计充值</c><color=#0cff00>100元</c>",
+      "color": 2,
+      "reward_res": {
+        "1": 800000
+      },
+      "reward_item": {
+        "I3945": 2,
+        "I3910": 4,
+        "I3909": 50
+      },
+      "charge_num": 100
+    },
+    "305": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "name": "<color=#ff6c00>今日累计充值</c><color=#0cff00>200元</c>",
+      "color": 3,
+      "reward_res": {
+        "1": 1600000
+      },
+      "reward_item": {
+        "I3945": 5,
+        "I3910": 6,
+        "I3903": 30
+      },
+      "charge_num": 200
+    },
+    "306": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "name": "<color=#ff6c00>今日累计充值</c><color=#0cff00>500元</c>",
+      "color": 3,
+      "reward_res": {
+        "1": 3200000
+      },
+      "reward_item": {
+        "I3945": 15,
+        "I3910": 18,
+        "I3903": 90
+      },
+      "charge_num": 500
+    },
+    "307": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "name": "<color=#ff6c00>今日累计充值</c><color=#0cff00>1000元</c>",
+      "color": 3,
+      "reward_res": {
+        "1": 8000000
+      },
+      "reward_item": {
+        "I3945": 25,
+        "I3910": 60,
+        "I3903": 250
+      },
+      "charge_num": 1000
+    }
+  }
+}

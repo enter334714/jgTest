@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ppicframe_xinghuaweiyu_01",
+    "texture": "edA2u6yBNDNIBvZdXUDRNN",
+    "rect": [
+      15,
+      0,
+      169,
+      71
+    ],
+    "offset": [
+      -2.5,
+      1.5
+    ],
+    "originalSize": [
+      204,
+      74
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

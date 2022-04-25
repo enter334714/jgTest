@@ -1,0 +1,239 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "AppearanceHeadFrameConfig",
+  "json": {
+    "4001": {
+      "name": "初始头像框",
+      "condition": -1,
+      "itemid": "0",
+      "limit_time": -1,
+      "jihuomode": 0,
+      "view_level": 0,
+      "img": "img_waiguan_touxiangkuang_00chushi",
+      "view_value": "无属性加成",
+      "magic_value": {},
+      "power": 0
+    },
+    "4002": {
+      "name": "春暖花开",
+      "condition": 1,
+      "itemid": "W4002",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_waiguan_touxiangkuang_chunnuanhuakai",
+      "text": "春意盎然，暖阳花开",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n防御+5",
+      "magic_value": {
+        "7": 10,
+        "9": 5
+      },
+      "power": 100
+    },
+    "4003": {
+      "name": "清凉一夏",
+      "condition": 1,
+      "itemid": "W4003",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_waiguan_touxiangkuang_qingliangyixia",
+      "text": "夏日炎炎，水花清凉",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n伤害增幅+2%",
+      "magic_value": {
+        "7": 10,
+        "16": 200
+      },
+      "power": 100
+    },
+    "4004": {
+      "name": "秋叶红枫",
+      "condition": 1,
+      "itemid": "W4004",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_waiguan_touxiangkuang_qiuyehongfeng",
+      "text": "秋风袭来，红枫飘落",
+      "gain": "限时活动获得",
+      "view_value": "生命+100 \n防御+5",
+      "magic_value": {
+        "9": 5,
+        "10": 100
+      },
+      "power": 100
+    },
+    "4005": {
+      "name": "冬日暖阳",
+      "condition": 1,
+      "itemid": "W4005",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_waiguan_touxiangkuang_dongrinuanyang",
+      "text": "冬雪飘飘，一抹暖阳",
+      "gain": "限时活动获得",
+      "view_value": "生命+200 \n生命+5%",
+      "magic_value": {
+        "10": 200,
+        "11": 500
+      },
+      "power": 100
+    },
+    "4006": {
+      "name": "新春快乐",
+      "condition": 1,
+      "itemid": "W4006",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_waiguan_touxiangkuang_xinchunkuaile",
+      "text": "新年新气象，春意乐洋洋",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n法力+400",
+      "magic_value": {
+        "7": 10,
+        "12": 400
+      },
+      "power": 100
+    },
+    "4007": {
+      "name": "糖果缤纷",
+      "condition": 1,
+      "itemid": "W4007",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_waiguan_touxiangkuang_tangguobinfen",
+      "text": "糖果缤纷无极限",
+      "gain": "限时活动获得",
+      "view_value": "生命+6% \n伤害增幅+2%",
+      "magic_value": {
+        "11": 600,
+        "16": 200
+      },
+      "power": 100
+    },
+    "4008": {
+      "name": "踏云逐月",
+      "condition": 1,
+      "itemid": "W4008",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_waiguan_touxiangkuang_tayunzhuyue",
+      "text": "脚踏祥云，与月作伴",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n攻速+50",
+      "magic_value": {
+        "7": 10,
+        "14": 50
+      },
+      "power": 100
+    },
+    "4009": {
+      "name": "家财万贯",
+      "condition": 1,
+      "itemid": "W4009",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_waiguan_touxiangkuang_jiacaiwanguan",
+      "text": "土豪就是我",
+      "gain": "限时活动获得",
+      "view_value": "固定伤害+10 \n固定减伤+5",
+      "magic_value": {
+        "15": 10,
+        "17": 5
+      },
+      "power": 100
+    },
+    "4010": {
+      "name": "坚持不懈",
+      "condition": 1,
+      "itemid": "W4010",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_waiguan_touxiangkuang_jianchibuxie",
+      "text": "坚持就是胜利",
+      "gain": "连充活动获得",
+      "view_value": "生命+300 \n主属性+1%",
+      "magic_value": {
+        "10": 300,
+        "38": 100
+      },
+      "power": 100
+    },
+    "4011": {
+      "name": "龙争虎斗",
+      "condition": 1,
+      "itemid": "W4011",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_waiguan_touxiangkuang_longzhenghudou",
+      "text": "龙争虎斗，鹿死谁手",
+      "gain": "擂台坊市兑换获得",
+      "view_value": "生命+350 \n伤害增幅+1%",
+      "magic_value": {
+        "10": 350,
+        "16": 100
+      },
+      "power": 100
+    },
+    "4012": {
+      "name": "欢乐圣诞",
+      "condition": 1,
+      "itemid": "W4012",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "img_waiguan_touxiangkuang_huanleshengdan",
+      "text": "来跟圣诞雪人一起度过圣诞吧",
+      "gain": "限时活动获得",
+      "view_value": "固定伤害+10 \n生命+2.5%",
+      "magic_value": {
+        "11": 250,
+        "15": 10
+      },
+      "power": 100
+    },
+    "4013": {
+      "name": "雷霆之力",
+      "condition": 1,
+      "itemid": "W4013",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "img_waiguan_touxiangkuang_leitingzhili",
+      "text": "龙争虎斗，鹿死谁手",
+      "gain": "擂台坊市兑换获得",
+      "view_value": "生命+350 \n伤害增幅+1%",
+      "magic_value": {
+        "10": 350,
+        "16": 100
+      },
+      "power": 100
+    },
+    "4014": {
+      "name": "火焰之力",
+      "condition": 1,
+      "itemid": "W4014",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "img_waiguan_touxiangkuang_huoyanzhili",
+      "text": "龙争虎斗，鹿死谁手",
+      "gain": "擂台坊市兑换获得",
+      "view_value": "生命+350 \n伤害增幅+1%",
+      "magic_value": {
+        "10": 350,
+        "16": 100
+      },
+      "power": 100
+    }
+  }
+}

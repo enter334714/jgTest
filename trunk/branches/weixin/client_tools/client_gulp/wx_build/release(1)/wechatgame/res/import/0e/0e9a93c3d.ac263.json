@@ -1,0 +1,147 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_linghunhuofu_tx_gongji02",
+      "texture": "30ZsDBnqRF/KcbgzegpLU8",
+      "rect": [
+        1,
+        2,
+        125,
+        90
+      ],
+      "offset": [
+        -2.5,
+        -0.5
+      ],
+      "originalSize": [
+        132,
+        93
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "tx_linghunhuofu_qishou",
+    "_duration": 0.18333333333333332,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "e7ouBTIQdPBpFAAgW29hFx"
+              }
+            },
+            {
+              "frame": 0.05,
+              "value": {
+                "__uuid__": "23Eon0KcBGJaHKVWvZ3UcV"
+              }
+            },
+            {
+              "frame": 0.1,
+              "value": {
+                "__uuid__": "d5j8d82CVEYqQZevkyNRAp"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "f1eKdEgcND2ImaE+9bGOuK"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_linghunhuofu_tx_gongji03",
+      "texture": "24RUt+grFPI7mUFDZgyEb0",
+      "rect": [
+        10,
+        0,
+        122,
+        93
+      ],
+      "offset": [
+        5,
+        0
+      ],
+      "originalSize": [
+        132,
+        93
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_linghunhuofu_tx_gongji01",
+      "texture": "cczbHeoy1CjYpvLu0FVyco",
+      "rect": [
+        0,
+        12,
+        126,
+        66
+      ],
+      "offset": [
+        -3,
+        1.5
+      ],
+      "originalSize": [
+        132,
+        93
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_linghunhuofu_tx_gongji04",
+      "texture": "9arxX5sxtN65AmcVoW1gOU",
+      "rect": [
+        16,
+        0,
+        101,
+        93
+      ],
+      "offset": [
+        0.5,
+        0
+      ],
+      "originalSize": [
+        132,
+        93
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

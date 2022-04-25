@@ -1,0 +1,247 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_dierban_shifang_02",
+      "texture": "14kLLfGJhIe7y2kkTNiCc9",
+      "rect": [
+        90,
+        84,
+        132,
+        88
+      ],
+      "offset": [
+        -1.5,
+        -3.5
+      ],
+      "originalSize": [
+        315,
+        249
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_dierban_shifang_06",
+      "texture": "c1PT714ulC+odO2dAlJDo7",
+      "rect": [
+        0,
+        67,
+        315,
+        182
+      ],
+      "offset": [
+        0,
+        -33.5
+      ],
+      "originalSize": [
+        315,
+        249
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_dierban_shifang_07",
+      "texture": "a5XIDIwnZHGJkoH/REOPJ8",
+      "rect": [
+        87,
+        93,
+        140,
+        81
+      ],
+      "offset": [
+        -0.5,
+        -9
+      ],
+      "originalSize": [
+        315,
+        249
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_dierban_shifang_03",
+      "texture": "46lde6/A5Kv7t/DnUE3MKY",
+      "rect": [
+        64,
+        30,
+        190,
+        172
+      ],
+      "offset": [
+        1.5,
+        8.5
+      ],
+      "originalSize": [
+        315,
+        249
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_dierban_shifang_01",
+      "texture": "73N/i8WNRIr7euexblL3Ba",
+      "rect": [
+        104,
+        94,
+        110,
+        71
+      ],
+      "offset": [
+        1.5,
+        -5
+      ],
+      "originalSize": [
+        315,
+        249
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_dierban_shifang_05",
+      "texture": "f9/RLgs75HkpJQ2UJW7RCj",
+      "rect": [
+        18,
+        0,
+        274,
+        235
+      ],
+      "offset": [
+        -2.5,
+        7
+      ],
+      "originalSize": [
+        315,
+        249
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "shifa",
+    "_duration": 0.775,
+    "sample": 40,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "94NWrP8P5NSIHXxaSTQi/Q"
+              }
+            },
+            {
+              "frame": 0.125,
+              "value": {
+                "__uuid__": "0fzF+YYTxBj4+3Yppz8/jb"
+              }
+            },
+            {
+              "frame": 0.25,
+              "value": {
+                "__uuid__": "90Xn4IDS9LCoUL2KHshANX"
+              }
+            },
+            {
+              "frame": 0.375,
+              "value": {
+                "__uuid__": "f0q3yFbN5AsZCMPYoFMVlo"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "b4xOz4XU5IN7yCKPsBBOLT"
+              }
+            },
+            {
+              "frame": 0.625,
+              "value": {
+                "__uuid__": "7c1E5E8vxODrrhvVrcXPmd"
+              }
+            },
+            {
+              "frame": 0.75,
+              "value": {
+                "__uuid__": "8e7a+wmzBDVrVG0Yo26u6j"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_dierban_shifang_04",
+      "texture": "ffzsj4qXFAjJ2tIcb2fspu",
+      "rect": [
+        29,
+        6,
+        251,
+        220
+      ],
+      "offset": [
+        -3,
+        8.5
+      ],
+      "originalSize": [
+        315,
+        249
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

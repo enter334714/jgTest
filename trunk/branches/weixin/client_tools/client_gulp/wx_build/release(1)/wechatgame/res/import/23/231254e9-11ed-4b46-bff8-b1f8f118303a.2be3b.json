@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "guildskilllvConfig",
+  "json": {
+    "1": {
+      "need": 3,
+      "cost": 600000,
+      "book": [
+        1
+      ]
+    },
+    "2": {
+      "need": 5,
+      "cost": 3000000,
+      "book": [
+        1,
+        2
+      ],
+      "newbook": [
+        2
+      ]
+    },
+    "3": {
+      "need": 7,
+      "cost": 6000000,
+      "book": [
+        1,
+        2,
+        3
+      ],
+      "newbook": [
+        3
+      ]
+    },
+    "4": {
+      "need": 10,
+      "cost": 9000000,
+      "book": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "newbook": [
+        4
+      ]
+    },
+    "5": {
+      "need": 0,
+      "cost": 14500000,
+      "book": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "newbook": [
+        5
+      ]
+    }
+  }
+}

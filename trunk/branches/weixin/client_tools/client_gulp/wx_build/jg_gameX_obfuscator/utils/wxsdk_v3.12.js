@@ -1,1 +1,267 @@
-"use strict";var u=wx.$x;var _typeof2="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},_typeof="function"==typeof Symbol&&"symbol"==_typeof2(Symbol.iterator)?function(e){return void 0===e?"undefined":_typeof2(e)}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":void 0===e?"undefined":_typeof2(e)};!function(){function e(e,t){if(!(0<e.length))return t({code:0,msg:"\u62d2\u7edd\u8ba2\u9605"}),0;wx.request({url:c+"/api/wx/wx_subscribe",method:"POST",data:{tmpid:e,appid:l,openid:u,sign:p,platform:f},success:function(e){var o=e.data.data;for(var n in o)wx.setStorageSync(n,o[n]);t({code:1,msg:"\u8ba2\u9605\u6210\u529f",tem_ids:o})},fail:function(e){console.log(e,"rrrrrrrrrr")}})}function t(o){wx.checkSession({success:function(){var e;console.log("\u91cd\u65b0\u83b7\u53d6 success-"+u),u?(e={user:{openid:u,sign:p},shareInfo:y.query},o(e)):I.login(function(e){u?o(e):wx.showModal({title:"\u63d0\u793a",content:"\u767b\u5f55\u5f02\u5e38\uff0c\u8bf7\u91cd\u65b0\u6253\u5f00\u5c0f\u6e38\u620f4"})})},fail:function(){"develop"==d&&console.log("\u91cd\u65b0\u83b7\u53d6openid fail"),I.login(function(e){u?o(e):wx.showModal({title:"\u63d0\u793a",content:"\u767b\u5f55\u5f02\u5e38\uff0c\u8bf7\u91cd\u65b0\u6253\u5f00\u5c0f\u6e38\u620f3"})})}})}function a(e){var o;o=e.split("&");for(var n=0;n<o.length;n++){if(""==o[n])return;var t=e.split("=");if("chid"==t[0]||"subchid"==t[0]||"shareid"==t[0]||"sharetype"==t[0])return}return 1}var s,i,g,o=require("./config.js"),r="v3.12",c="",d="develop",w="",m="test_sub_channel_id",h="",v=0,l="",u="",x="",p="",_={},y={},f="",S=0,b=120,M=0,q="",T=0,D=0,I={getDybUserInfo:function(o){S=+new Date,"develop"==d&&console.log("----------getDybUserInfo-------------"),t(function(e){I.initData(function(e){}),o(e)})},login:function(t){"develop"==d&&console.log(u+"======login========"),wx.login({success:function(e){e={code:e.code,game_appid:l,channel_id:w,sub_channel_id:m,shareid:v,sharetype:h,version:r,gdt:x,platform:f,clue_token:q,ad_id:T,creative_id:D};"develop"==d&&console.log(e,"\u521d\u59cb\u5316\u767b\u9646logins\u6570\u636e"),wx.request({url:c+"/api/wx/get_wx_userinfo",header:{"content-type":"application/x-www-form-urlencoded"},method:"POST",data:e,dataType:"json",success:function(e){var o,n;e.data.code?(o={},n={user:o={openid:e.data.data.openid,sign:e.data.data.sign},shareInfo:y.query},u=e.data.data.openid,p=e.data.data.sign,_=o,wx.setStorageSync("sop_user",o),t(n)):wx.showModal({title:"\u63d0\u793a",content:e.data.msg})},fail:function(e){console.log("\u8c03\u7528\u5931\u8d25",e),wx.showModal({title:"\u63d0\u793a",content:"\u767b\u5f55\u5f02\u5e38\uff0c\u8bf7\u91cd\u65b0\u6253\u5f00\u5c0f\u6e38\u620f1"})}})},fail:function(e){console.log("\u8c03\u7528\u5931\u8d25",e),wx.showModal({title:"\u63d0\u793a",content:"\u767b\u5f55\u5f02\u5e38\uff0c\u8bf7\u91cd\u65b0\u6253\u5f00\u5c0f\u6e38\u620f2"})}})},initData:function(e){"develop"==d&&console.log("----------init_Data-------------");var o={};o.openid=u,o.sign=p,o.game_appid=l,o.channel_id=w,o.sub_channel_id=m,o.version=r,o.platform=f,o.clue_token=q,wx.request({url:c+"/api/wx/init_data",data:o,method:"post",header:{"content-type":"application/x-www-form-urlencoded"},success:function(e){"develop"==d&&console.log(e.data,"init_data_success"),1==e.data.code&&(b=e.data.data.online_time||60)}})},createRole:function(o,n){"develop"==d&&console.log("----------roleData-------------"),t(function(){var e={openid:u,game_appid:l,sign:p,gdt:x,version:r,platform:f};return null==_typeof2(o.server_id)&&""==String(o.server_id)&&"undefined"==String(o.server_id)?void n({code:0,msg:"\u670d\u52a1\u5668ID\u4e0d\u6b63\u786e"}):(e.server_id=o.server_id,null!=_typeof2(o.server_name)||""!=String(o.server_name)||"undefined"!=String(o.server_name)?e.server_name=o.server_name:e.server_name="\u9ed8\u8ba4\u533a\u670d",null==_typeof2(o.role_name)&&""==String(o.role_name)&&"undefined"==String(o.role_name)?void n({code:0,msg:"\u89d2\u8272\u540d\u79f0\u4e0d\u6b63\u786e"}):(e.role_name=o.role_name,void wx.request({url:c+"/api/wx/create_role",data:e,method:"post",header:{"content-type":"application/x-www-form-urlencoded"},success:function(e){n(e.data)},complete:function(){wx.reportAnalytics("finishShow")}})))})},submitOrder:function(e,s){var i=+new Date;console.log("\u5f00\u59cb\u65f6\u95f4:",i),wx.showLoading({title:"\u6b63\u5728\u652f\u4ed8",mask:!0}),"develop"==d&&console.log("----------\u63d0\u4ea4\u8ba2\u5355-------------\u652f\u4ed8\u73af\u5883"),t(function(){if(null==_typeof2(e.server_name)||""==String(e.server_name)||"undefined"==String(e.server_name))return s({code:0,msg:"\u7f3a\u5c11\u670d\u52a1\u5668\u540d"}),0;if(null==_typeof2(e.role_name)||""==String(e.role_name)||"undefined"==String(e.role_name))return s({code:0,msg:"\u7f3a\u5c11\u89d2\u8272\u540d"}),0;var o={game_appid:l,extra_info:e.extra_info,goods_count:e.goods_count,goods_name:e.goods_name,pay_amount:e.pay_amount,account_id:u,redirect_uri:e.redirect_uri,role_name:e.role_name,server_name:e.server_name,channel_id:w,sub_channel_id:m,order_sn:e.order_sn,sign:p,gdt:x,version:r,platform:f},t=+new Date-i;console.log("request_before",t),wx.request({url:c+"/api/wx/wxgame_create",method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},data:o,success:function(a){var n=+new Date-i;var e;"develop"==d&&console.log(a.data,"\u652f\u4ed8\u63a5\u53e3\u8fd4\u56de",n),a.data.code?2==a.data.data.pay_type?wx.openCustomerServiceConversation({showMessageCard:!0,sendMessageTitle:a.data.data.order_sn,sendMessagePath:JSON.stringify(o),sendMessageImg:c+"/kefuIcon.png",success:function(e){wx.hideLoading(),console.log(e,"\u5ba2\u670d\u56de\u8c03")},fail:function(e){wx.hideLoading(),s({code:0,msg:"\u53d6\u6d88\u652f\u4ed8"}),console.log(e,"\u5ba2\u670d\u56de\u8c03fail")}}):1==a.data.data.pay_type?wx.navigateToMiniProgram({appId:"wxab2e839b6578e72c",path:"pages/come/come?scene="+a.data.data.id,extraData:{game_appid:l,openid:u},envVersion:"release",success:function(e){wx.hideLoading(),console.log(e,"res")},fail:function(e){wx.hideLoading(),console.log(e,"fff")},complete:function(e){wx.hideLoading()}}):3==a.data.data.pay_type?wx.request({url:c+"/api/wx/native_pay",method:"POST",data:{id:a.data.data.id},header:{"content-type":"application/json"},success:function(e){console.log(e,"sss"),e.data.code&&(e=c+"/"+e.data.data.url,console.log(e),wx.previewImage({current:e,urls:[e,e],success:function(e){wx.hideLoading()},fail:function(e){wx.hideLoading(),console.log(e,"prf")},complete:function(e){wx.hideLoading(),console.log(e,"com")}}))}}):4==a.data.data.pay_type?wx.request({url:c+"/api/mini/getUnlimit",method:"POST",data:{scene:a.data.data.id,appid:"wxab2e839b6578e72c"},header:{"content-type":"application/json"},success:function(e){console.log(e,"sss"),e.data.code&&(console.log(c+"/"+e.data.data.url),wx.previewImage({current:c+"/"+e.data.data.url,urls:[c+"/"+e.data.data.url],success:function(e){wx.hideLoading()},fail:function(e){wx.hideLoading(),console.log(e,"prf")}}))}}):"android"==f||"windows"==f?wx.requestMidasPayment({mode:a.data.data.param.mode,offerId:a.data.data.param.offerId,currencyType:a.data.data.param.currencyType,platform:a.data.data.param.platform,buyQuantity:a.data.data.param.buyQuantity,success:function(e){s({code:1,msg:"\u652f\u4ed8\u6210\u529f"}),"develop"==d&&console.log("\u652f\u4ed8\u6210\u529f\u56de\u8c03\u51fd\u6570");var o=0,n=a.data.data.order_sn,t=setInterval(function(){wx.request({url:c+"/api/wx/wxgame_notify",method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},data:{bill_no:n,game_appid:l,account_id:u,sign:p},success:function(e){"develop"==d&&console.log(e.data,"\u652f\u4ed8\u6210\u529f\u67e5\u8be2\u56de\u8c03"),(1==e.data.code||10<o)&&clearInterval(t),o++},complete:function(e){30<o&&clearInterval(t)}})},2e3)},fail:function(e){"develop"==d&&console.log("\u652f\u4ed8\u5931\u8d25",e),wx.hideLoading(),s({code:0,msg:"\u652f\u4ed8\u5931\u8d25"});var o=+new Date-i;console.log("fail_time",o),e.request_before=t,e.req_success=n,e.failTime=o,e.appid=l,e.openid=u,wx.request({url:c+"/api/wx/fail_pay",method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},data:e,success:function(e){}})}}):(wx.hideLoading(),wx.showModal({title:"\u63d0\u793a",content:"\u8bf7\u4f7f\u7528\u624b\u673a\u5b8c\u6210\u652f\u4ed8",showCancel:!1,cancelColor:"cancelColor"})):(wx.hideLoading(),(e=a.data.data.data)&&90011==e.errcode&&(u="",wx.removeStorageSync("sop_user")),s({code:0,msg:a.data.msg}))},fail:function(e){s({code:0,msg:"\u8bf7\u6c42\u5931\u8d25"})}})})},transfer:function(){var e={game_appid:l,account_id:u,sign:p,platform:"ios"==f?"Trial":"Develop"};wx.request({url:c+"/api/wx/transfer",method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},data:e,success:function(e){e=e.data;console.log(e,"ssssssss"),1==e.code&&wx.showModal({title:"\u8f6c\u79fb\u5927\u798f\u5229",content:"\u8f6c\u79fb\u5fae\u7aef\u9001\u798f\u5229\uff01\uff01\uff01  \n\u798f\u52291\uff1a\u8f6c\u7aef\u81f3\u5c0a\u5927\u793c\u5305*1  \n\u798f\u52292\uff1a\u5fae\u7aef\u5fae\u4fe1\u8d26\u53f7\u76f8\u4e92\u901a\uff0c\u60f3\u5728\u54ea\u73a9\u5c31\u5728\u54ea\u73a9\uff01  \n\u5404\u4f4d\u9053\u53cb\uff0c\u53ef\u70b9\u51fb\u524d\u5f80\u9886\u53d6\u53c2\u4e0e\u8f6c\u7aef\u6d3b\u52a8\uff0c\u5982\u6709\u7591\u95ee\uff0c\u53ef\u8054\u7cfb\u5b98\u65b9\u5ba2\u670dQQ\uff1a800821618",confirmText:"\u7acb\u5373\u524d\u5f80",cancelText:"\u6682\u65f6\u8df3\u8fc7",success:function(e){e.confirm?(console.log("\u7528\u6237\u70b9\u51fb\u786e\u5b9a"),wx.openCustomerServiceConversation({showMessageCard:!0,sendMessageTitle:"\u8f6c\u79fb",sendMessagePath:f,success:function(e){console.log(e,"\u5ba2\u670d\u56de\u8c03")},fail:function(e){console.log(e,"\u5ba2\u670d\u56de\u8c03fail"),wx.showModal({title:"\u8f6c\u79fb\u5927\u798f\u5229",content:"\u8f6c\u79fb\u5fae\u7aef\u9001\u798f\u5229\uff01\uff01\uff01  \n\u798f\u52291\uff1a\u8f6c\u7aef\u81f3\u5c0a\u5927\u793c\u5305*1  \n\u798f\u52292\uff1a\u5fae\u7aef\u5fae\u4fe1\u8d26\u53f7\u76f8\u4e92\u901a\uff0c\u60f3\u5728\u54ea\u73a9\u5c31\u5728\u54ea\u73a9\uff01  \n\u5404\u4f4d\u9053\u53cb\uff0c\u53ef\u70b9\u51fb\u524d\u5f80\u9886\u53d6\u53c2\u4e0e\u8f6c\u7aef\u6d3b\u52a8\uff0c\u5982\u6709\u7591\u95ee\uff0c\u53ef\u8054\u7cfb\u5b98\u65b9\u5ba2\u670dQQ\uff1a800821618",confirmText:"\u7acb\u5373\u524d\u5f80",cancelText:"\u6682\u65f6\u8df3\u8fc7",success:function(e){e.confirm?(console.log("\u7528\u6237\u70b9\u51fb\u786e\u5b9a"),wx.openCustomerServiceConversation({showMessageCard:!0,sendMessageTitle:"\u8f6c\u79fb",sendMessagePath:f,success:function(e){console.log(e,"\u5ba2\u670d\u56de\u8c03")},fail:function(e){console.log(e,"\u5ba2\u670d\u56de\u8c03fail")}})):console.log("\u7528\u6237\u70b9\u51fb\u53d6\u6d88")}})}})):console.log("\u7528\u6237\u70b9\u51fb\u53d6\u6d88")}})},fail:function(e){console.log("transfer",e)}})},subscribeMsg:function(o,a){var s=[],i=[];for(var n in o)wx.getStorageSync(o[n])||s.push(o[n]);if(0==s.length)return console.log("\u5df2\u7ecf\u8ba2\u9605"),void a({code:2,msg:"\u5df2\u7ecf\u8ba2\u9605"});var t=[];wx.requestSubscribeMessage({tmplIds:s,success:function(o){if(console.log(o,"success-ssssssss"),"requestSubscribeMessage:ok"==o.errMsg){for(var n in s)wx.getStorageSync(s[n])||("accept"==o[s[n]]?(i.push(s[n]),console.log(i,"upppppppp")):(t.push(s[n]),wx.showModal({title:"\u8ba2\u9605",content:"\u4e3a\u4e86\u53ca\u65f6\u4e86\u89e3\u6e38\u620f\u52a8\u6001,\u8bf7\u8ba2\u9605\u901a\u77e5",cancelColor:"cancelColor",success:function(e){e.confirm?wx.openSetting({withSubscriptions:!0,success:function(e){console.log(e,"openSetting");var o=e.subscriptionsSetting.itemSettings;for(var n in t)wx.getStorageSync(t[n])||"accept"==o[t[n]]&&(i[s[n]]=s[n])}}):a({code:0,msg:"\u62d2\u7edd\u8ba2\u9605"})}})));e(i,a)}},fail:function(o){console.log(o,"fail"),wx.openSetting({withSubscriptions:!0,success:function(o){console.log(o,"openSetting");var n=o.subscriptionsSetting.itemSettings;for(var t in s)wx.getStorageSync(s[t])||"accept"==n[s[t]]&&i.push(s[t]);e(i,a)},fail:function(){a({code:0,msg:"\u62d2\u7edd\u8ba2\u9605"})}})}})},onShare:function(e){"develop"==d&&console.log("----------\u8bbe\u7f6e\u8f6c\u53d1-------------"),!e.query||a(e.query)?(wx.showShareMenu({showShareItems:["shareAppMessage","shareTimeline"],withShareTicket:!0}),wx.onShareAppMessage(function(){return{title:e.title,imageUrl:e.imageUrl,query:"subchid="+m+"&sharetype=onshare&shareid="+u+"&"+e.query}})):console.log("query error")},share:function(e){"develop"==d&&console.log("----------\u4e3b\u52a8\u8f6c\u53d1-------------"),t(function(){if(e.query&&!a(e.query))return console.log("query error"),0;wx.showShareMenu({showShareItems:["shareAppMessage","shareTimeline"],withShareTicket:!0}),wx.shareAppMessage({title:e.title,imageUrl:e.imageUrl,query:"subchid="+m+"&sharetype=share&shareid="+u+"&"+e.query})})},dot:function(e,o){e={game_appid:l,account_id:u,step:e,sign:p,version:r,platform:f};wx.request({url:c+"/api/wx/dot_record",method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},data:e,success:function(e){o(e.data)},fail:function(e){o({code:0,msg:"\u7f51\u7edc\u8bf7\u6c42\u5931\u8d25",res:e})}})},createVideoAd:function(e,n){var o;"develop"==d&&console.log(void 0===s?"undefined":_typeof2(s),"typeof(video)"),"object"!=(void 0===s?"undefined":_typeof2(s))?("develop"==d&&console.log(i,"typeof(adUnitId11)"),i=e,(s=wx.createRewardedVideoAd({adUnitId:e})).onError(function(e){var o={};"develop"==d&&console.log(e,"----------onError-------------"),o.msg=e.errMsg,o.state="error",o.isEnded=!1,o.res=e,n(o)}),s.onClose(function(e){var o={};I.advertisement("close",function(e){}),o.state="close",o.isEnded=e.isEnded,o.msg="\u89c6\u9891\u5e7f\u544a\u5173\u95ed",n(o)}),s.load().then(function(){console.log("\u6fc0\u52b1\u89c6\u9891\u52a0\u8f7d\u6210\u529f"),s.show().then(function(e){I.advertisement("show",function(e){}),n({state:"show",msg:"\u89c6\u9891\u5c55\u793a\u6210\u529f",isEnded:!1})}).catch(function(e){var o={};o.code=2,o.state="error",o.msg=e.errMsg,o.isEnded=!1,n(e)})}).catch(function(e){console.log("\u6fc0\u52b1\u89c6\u9891\u52a0\u8f7d\u5931\u8d25",e)})):i!=e?("develop"==d&&console.log(i,e,"typeof(new)"),i=e,(o=wx.createRewardedVideoAd({adUnitId:e})).load().then(function(){o.show().then(function(e){I.advertisement("show",function(e){}),n({state:"show",msg:"\u89c6\u9891\u5c55\u793a\u6210\u529f",isEnded:!1})}).catch(function(e){var o={};o.code=2,o.state="error",o.msg=e.errMsg,o.isEnded=!1,n(e)})}).catch(function(e){console.log("\u6fc0\u52b1\u89c6\u9891\u52a0\u8f7d\u5931\u8d25",e)})):("develop"==d&&console.log(s,"----------createVideoAd-------------"),s.show().then(function(e){I.advertisement("show",function(e){}),n({state:"show",msg:"\u89c6\u9891\u5c55\u793a\u6210\u529f",isEnded:!1})}).catch(function(e){var o={};o.code=2,o.state="error",o.msg=e.errMsg,o.isEnded=!1,n(e)}))},advertisement:function(n,a){"develop"==d&&console.log(n,"----------\u4e0a\u62a5\u5e7f\u544a-------------"),t(function(){var e={openid:u,game_appid:l,sign:p,version:r,platform:f},o="";"show"==n?o=c+"/api/wx/videoClick":"close"==n?o=c+"/api/wx/watch":"share"==n&&(o=c+"/api/wx/share"),wx.request({url:o,data:e,method:"post",header:{"content-type":"application/x-www-form-urlencoded"},complete:function(e){a(e.data)}})})},gameLevel:function(e,o){var n={};n.openid=u,n.appid=l,n.sign=p,n.level=e,n.version=r,n.platform=f,wx.request({url:c+"/api/wx/game_level",data:n,method:"post",header:{"content-type":"application/x-www-form-urlencoded"},complete:function(e){o(e.data)}})},msg_check:function(e,o){var n={};n.content=e,n.appid=l,n.openid=u,n.version=r,wx.request({url:c+"/api/wx/msg_sec_check",data:n,method:"post",header:{"content-type":"application/x-www-form-urlencoded"},success:function(e){o(e.data)}})},img_check:function(e,o){wx.uploadFile({url:c+"/api/v2/img_sec_check",filePath:e,name:"media",formData:{appid:l,openid:u},success:function(e){o(e.data)}})},media_check:function(e,o,n){wx.request({url:c+"/api/v2/media_check",data:{appid:l,media_url:e,type:o},method:"post",header:{"content-type":"application/x-www-form-urlencoded"},success:function(e){n(e.data)}})}};var n;_=wx.getStorageSync("sop_user"),u=_.openid,p=_.sign,console.log("==wxsdk version==",r),d=o.env,c=o.url,l=o.appid,y=wx.getLaunchOptionsSync(),"develop"==d&&console.log(y,"wx.getLaunchOptionsSync(111)"),o=y.query,w=y.scene,x=o.gdt_vid||"",(n=o.weixinadinfo)&&(n=n.split("."),g=n[0],console.log("\u6765\u6e90\u2f34\u544a\u7684\u2f34\u544aid\u662f\uff1a"+g)),q=o.clue_token||"",T=o.ad_id||"",D=o.creative_id||"",n=y.referrerInfo,o.via?(m=o.via||"test_sub_channel_id",v=o.shareid||0,h=o.sharetype||""):o.subchid?(m=o.subchid||"test_sub_channel_id",v=o.shareid||0,h=o.sharetype||""):n&&"string"==typeof n.extraData&&(n.extraData=JSON.parse(n.extraData),m=n.extraData.subchid,v=n.extraData.shareid||0,h=n.extraData.sharetype||""),g=wx.getSystemInfoSync(),f=g.platform,M=g.SDKVersion,wx.onHide(function(){var e;console.log("onhide",S),e=Math.floor((+new Date-S)/1e3),"develop"==d&&console.log("----------timing-------------:",e,b,S),!u||e<b||(e={openid:u,game_appid:l,timing:e,sign:p,version:r,platform:f},wx.request({url:c+"/api/wx/online_time",data:e,method:"post",header:{"content-type":"application/x-www-form-urlencoded"},success:function(e){S=+new Date}})),S=+new Date}),wx.onShow(function(e){S=+new Date,console.log(JSON.stringify(e),"show");e=e.referrerInfo;console.log(e,"refer"),e.extraData&&("success"==e.extraData.pay?wx.showToast({title:"\u6210\u529f",icon:"success",duration:2e3,fail:function(e){console.log(e,"eeeeeee")}}):wx.showToast({title:"\u652f\u4ed8\u5931\u8d25",icon:"success",duration:2e3,fail:function(e){console.log(e,"eeeeeee")}}))}),0<=function(e,o){e=e.split("."),o=o.split(".");for(var n=Math.max(e.length,o.length);e.length<n;)e.push("0");for(;o.length<n;)o.push("0");for(var t=0;t<n;t++){var a=parseInt(e[t]),s=parseInt(o[t]);if(s<a)return 1;if(a<s)return-1}return 0}(M,"2.10.3")&&wx.onAddToFavorites(function(){}),window.dyb=I}();
+"use strict";
+
+var u = wx.$x;
+var _typeof2 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (e) {
+  return typeof e;
+} : function (e) {
+  return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e;
+},
+    _typeof = "function" == typeof Symbol && "symbol" == _typeof2(Symbol.iterator) ? function (e) {
+  return void 0 === e ? "undefined" : _typeof2(e);
+} : function (e) {
+  return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : void 0 === e ? "undefined" : _typeof2(e);
+};!function () {
+  function e(e, o) {
+    if (!(e.length > 0)) return void o({ code: 0, msg: "拒绝订阅" });wx.request({ url: p + "/api/wx/wx_subscribe", method: "POST", data: { tmpid: e, appid: v, openid: _, sign: y, platform: M }, success: function (e) {
+        var n = e.data.data;for (var t in n) wx.setStorageSync(t, n[t]);o({ code: 1, msg: "订阅成功", tem_ids: n });
+      }, fail: function (e) {
+        console.log(e, "rrrrrrrrrr");
+      } });
+  }function o() {
+    var e = Math.floor((+new Date() - q) / 1e3);if ("develop" == f && console.log("----------timing-------------:", e, D, q), _ && !(e < D)) {
+      var o = { openid: _, game_appid: v, timing: e, sign: y, version: u, platform: M };wx.request({ url: p + "/api/wx/online_time", data: o, method: "post", header: { "content-type": "application/x-www-form-urlencoded" }, success: function (e) {
+          q = +new Date();
+        } });
+    }
+  }function n() {
+    b = wx.getLaunchOptionsSync(), "develop" == f && console.log(b, "wx.getLaunchOptionsSync(111)");var e = b.query;g = b.scene, x = e.gdt_vid ? e.gdt_vid : "";var o = e.weixinadinfo;if (o) {
+      var n = o.split(".");T = n[0], console.log("来源⼴告的⼴告id是：" + T);
+    }k = e.clue_token ? e.clue_token : "", L = e.ad_id ? e.ad_id : "", C = e.creative_id ? e.creative_id : "";var t = b.referrerInfo;e.via ? (w = e.via ? e.via : "test_sub_channel_id", h = e.shareid ? e.shareid : 0, m = e.sharetype ? e.sharetype : "") : e.subchid ? (w = e.subchid ? e.subchid : "test_sub_channel_id", h = e.shareid ? e.shareid : 0, m = e.sharetype ? e.sharetype : "") : t && "string" == typeof t.extraData && (t.extraData = JSON.parse(t.extraData), w = t.extraData.subchid, h = t.extraData.shareid ? t.extraData.shareid : 0, m = t.extraData.sharetype ? t.extraData.sharetype : ""), s = wx.getSystemInfoSync(), M = s.platform, I = s.SDKVersion;
+  }function t(e) {
+    wx.checkSession({ success: function () {
+        if (console.log("重新获取 success-" + _), _) {
+          var o = { user: { openid: _, sign: y }, shareInfo: b.query };e(o);
+        } else O.login(function (o) {
+          if (!_) return void wx.showModal({ title: "提示", content: "登录异常，请重新打开小游戏4" });e(o);
+        });
+      }, fail: function () {
+        "develop" == f && console.log("重新获取openid fail"), O.login(function (o) {
+          _ ? e(o) : wx.showModal({ title: "提示", content: "登录异常，请重新打开小游戏3" });
+        });
+      } });
+  }function a(e) {
+    var o = [];o = e.split("&");for (var n = 0; n < o.length; n++) {
+      if ("" == o[n]) return !1;var t = e.split("=");if ("chid" == t[0] || "subchid" == t[0] || "shareid" == t[0] || "sharetype" == t[0]) return !1;
+    }return !0;
+  }function i(e, o) {
+    e = e.split("."), o = o.split(".");for (var n = Math.max(e.length, o.length); e.length < n;) e.push("0");for (; o.length < n;) o.push("0");for (var t = 0; t < n; t++) {
+      var a = parseInt(e[t]),
+          i = parseInt(o[t]);if (a > i) return 1;if (a < i) return -1;
+    }return 0;
+  }var s,
+      r,
+      c,
+      d,
+      l = require("./config.js"),
+      u = "v3.12",
+      p = "",
+      f = "develop",
+      g = "",
+      w = "test_sub_channel_id",
+      m = "",
+      h = 0,
+      v = "",
+      _ = "",
+      x = "",
+      y = "",
+      S = {},
+      b = {},
+      M = "",
+      q = 0,
+      D = 120,
+      T = 0,
+      I = 0,
+      k = "",
+      L = 0,
+      C = 0,
+      O = { getDybUserInfo: function (e) {
+      q = +new Date(), "develop" == f && console.log("----------getDybUserInfo-------------"), t(function (o) {
+        O.initData(function (e) {}), e(o);
+      });
+    }, login: function (e) {
+      "develop" == f && console.log(_ + "======login========"), wx.login({ success: function (o) {
+          var n = { code: o.code, game_appid: v, channel_id: g, sub_channel_id: w, shareid: h, sharetype: m, version: u, gdt: x, platform: M, clue_token: k, ad_id: L, creative_id: C };"develop" == f && console.log(n, "初始化登陆logins数据"), wx.request({ url: p + "/api/wx/get_wx_userinfo", header: { "content-type": "application/x-www-form-urlencoded" }, method: "POST", data: n, dataType: "json", success: function (o) {
+              if (!o.data.code) return void wx.showModal({ title: "提示", content: o.data.msg });var n = {};n = { openid: o.data.data.openid, sign: o.data.data.sign };var t = { user: n, shareInfo: b.query };_ = o.data.data.openid, y = o.data.data.sign, S = n, wx.setStorageSync("sop_user", n), e(t);
+            }, fail: function (e) {
+              console.log("调用失败", e), wx.showModal({ title: "提示", content: "登录异常，请重新打开小游戏1" });
+            } });
+        }, fail: function (e) {
+          console.log("调用失败", e), wx.showModal({ title: "提示", content: "登录异常，请重新打开小游戏2" });
+        } });
+    }, initData: function (e) {
+      "develop" == f && console.log("----------init_Data-------------");var o = {};o.openid = _, o.sign = y, o.game_appid = v, o.channel_id = g, o.sub_channel_id = w, o.version = u, o.platform = M, o.clue_token = k, wx.request({ url: p + "/api/wx/init_data", data: o, method: "post", header: { "content-type": "application/x-www-form-urlencoded" }, success: function (e) {
+          "develop" == f && console.log(e.data, "init_data_success"), 1 == e.data.code && (D = e.data.data.online_time ? e.data.data.online_time : 60);
+        } });
+    }, createRole: function (e, o) {
+      "develop" == f && console.log("----------roleData-------------"), t(function () {
+        var n = { openid: _, game_appid: v, sign: y, gdt: x, version: u, platform: M };return void 0 == _typeof2(e.server_id) && "" == String(e.server_id) && "undefined" == String(e.server_id) ? void o({ code: 0, msg: "服务器ID不正确" }) : (n.server_id = e.server_id, void 0 != _typeof2(e.server_name) || "" != String(e.server_name) || "undefined" != String(e.server_name) ? n.server_name = e.server_name : n.server_name = "默认区服", void 0 == _typeof2(e.role_name) && "" == String(e.role_name) && "undefined" == String(e.role_name) ? void o({ code: 0, msg: "角色名称不正确" }) : (n.role_name = e.role_name, void wx.request({ url: p + "/api/wx/create_role", data: n, method: "post", header: { "content-type": "application/x-www-form-urlencoded" }, success: function (e) {
+            o(e.data);
+          }, complete: function () {
+            wx.reportAnalytics("finishShow");
+          } })));
+      });
+    }, submitOrder: function (e, o) {
+      var n = +new Date();console.log("开始时间:", n), wx.showLoading({ title: "正在支付", mask: !0 }), "develop" == f && console.log("----------提交订单-------------支付环境"), t(function () {
+        if (void 0 == _typeof2(e.server_name) || "" == String(e.server_name) || "undefined" == String(e.server_name)) return void o({ code: 0, msg: "缺少服务器名" });if (void 0 == _typeof2(e.role_name) || "" == String(e.role_name) || "undefined" == String(e.role_name)) return void o({ code: 0, msg: "缺少角色名" });var t = { game_appid: v, extra_info: e.extra_info, goods_count: e.goods_count, goods_name: e.goods_name, pay_amount: e.pay_amount, account_id: _, redirect_uri: e.redirect_uri, role_name: e.role_name, server_name: e.server_name, channel_id: g, sub_channel_id: w, order_sn: e.order_sn, sign: y, gdt: x, version: u, platform: M },
+            a = +new Date() - n;console.log("request_before", a), wx.request({ url: p + "/api/wx/wxgame_create", method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, data: t, success: function (e) {
+            var i = +new Date() - n;if ("develop" == f && console.log(e.data, "支付接口返回", i), e.data.code) 2 == e.data.data.pay_type ? wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageTitle: e.data.data.order_sn, sendMessagePath: JSON.stringify(t), sendMessageImg: p + "/kefuIcon.png", success: function (e) {
+                wx.hideLoading(), console.log(e, "客服回调");
+              }, fail: function (e) {
+                wx.hideLoading(), o({ code: 0, msg: "取消支付" }), console.log(e, "客服回调fail");
+              } }) : 1 == e.data.data.pay_type ? wx.navigateToMiniProgram({ appId: "wxab2e839b6578e72c", path: "pages/come/come?scene=" + e.data.data.id, extraData: { game_appid: v, openid: _ }, envVersion: "release", success: function (e) {
+                wx.hideLoading(), console.log(e, "res");
+              }, fail: function (e) {
+                wx.hideLoading(), console.log(e, "fff");
+              }, complete: function (e) {
+                wx.hideLoading();
+              } }) : 3 == e.data.data.pay_type ? wx.request({ url: p + "/api/wx/native_pay", method: "POST", data: { id: e.data.data.id }, header: { "content-type": "application/json" }, success: function (e) {
+                if (console.log(e, "sss"), e.data.code) {
+                  var o = p + "/" + e.data.data.url;console.log(o), wx.previewImage({ current: o, urls: [o, o], success: function (e) {
+                      wx.hideLoading();
+                    }, fail: function (e) {
+                      wx.hideLoading(), console.log(e, "prf");
+                    }, complete: function (e) {
+                      wx.hideLoading(), console.log(e, "com");
+                    } });
+                }
+              } }) : 4 == e.data.data.pay_type ? wx.request({ url: p + "/api/mini/getUnlimit", method: "POST", data: { scene: e.data.data.id, appid: "wxab2e839b6578e72c" }, header: { "content-type": "application/json" }, success: function (e) {
+                console.log(e, "sss"), e.data.code && (console.log(p + "/" + e.data.data.url), wx.previewImage({ current: p + "/" + e.data.data.url, urls: [p + "/" + e.data.data.url], success: function (e) {
+                    wx.hideLoading();
+                  }, fail: function (e) {
+                    wx.hideLoading(), console.log(e, "prf");
+                  } }));
+              } }) : "android" == M || "windows" == M ? wx.requestMidasPayment({ mode: e.data.data.param.mode, offerId: e.data.data.param.offerId, currencyType: e.data.data.param.currencyType, platform: e.data.data.param.platform, buyQuantity: e.data.data.param.buyQuantity, success: function (n) {
+                o({ code: 1, msg: "支付成功" }), "develop" == f && console.log("支付成功回调函数");var t = 0,
+                    a = e.data.data.order_sn,
+                    i = setInterval(function () {
+                  wx.request({ url: p + "/api/wx/wxgame_notify", method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, data: { bill_no: a, game_appid: v, account_id: _, sign: y }, success: function (e) {
+                      "develop" == f && console.log(e.data, "支付成功查询回调"), (1 == e.data.code || t > 10) && clearInterval(i), t++;
+                    }, complete: function (e) {
+                      t > 30 && clearInterval(i);
+                    } });
+                }, 2e3);
+              }, fail: function (e) {
+                "develop" == f && console.log("支付失败", e), wx.hideLoading(), o({ code: 0, msg: "支付失败" });var t = +new Date() - n;console.log("fail_time", t), e.request_before = a, e.req_success = i, e.failTime = t, e.appid = v, e.openid = _, wx.request({ url: p + "/api/wx/fail_pay", method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, data: e, success: function (e) {} });
+              } }) : (wx.hideLoading(), wx.showModal({ title: "提示", content: "请使用手机完成支付", showCancel: !1, cancelColor: "cancelColor" }));else {
+              wx.hideLoading();var s = e.data.data.data;s && 90011 == s.errcode && (_ = "", wx.removeStorageSync("sop_user")), o({ code: 0, msg: e.data.msg });
+            }
+          }, fail: function (e) {
+            o({ code: 0, msg: "请求失败" });
+          } });
+      });
+    }, transfer: function () {
+      var e = { game_appid: v, account_id: _, sign: y, platform: "ios" == M ? "Trial" : "Develop" };wx.request({ url: p + "/api/wx/transfer", method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, data: e, success: function (e) {
+          var o = e.data;console.log(o, "ssssssss"), 1 == o.code && wx.showModal({ title: "转移大福利", content: "转移微端送福利！！！  \n福利1：转端至尊大礼包*1  \n福利2：微端微信账号相互通，想在哪玩就在哪玩！  \n各位道友，可点击前往领取参与转端活动，如有疑问，可联系官方客服QQ：800821618", confirmText: "立即前往", cancelText: "暂时跳过", success: function (e) {
+              e.confirm ? (console.log("用户点击确定"), wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageTitle: "转移", sendMessagePath: M, success: function (e) {
+                  console.log(e, "客服回调");
+                }, fail: function (e) {
+                  console.log(e, "客服回调fail"), wx.showModal({ title: "转移大福利", content: "转移微端送福利！！！  \n福利1：转端至尊大礼包*1  \n福利2：微端微信账号相互通，想在哪玩就在哪玩！  \n各位道友，可点击前往领取参与转端活动，如有疑问，可联系官方客服QQ：800821618", confirmText: "立即前往", cancelText: "暂时跳过", success: function (e) {
+                      e.confirm ? (console.log("用户点击确定"), wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageTitle: "转移", sendMessagePath: M, success: function (e) {
+                          console.log(e, "客服回调");
+                        }, fail: function (e) {
+                          console.log(e, "客服回调fail");
+                        } })) : console.log("用户点击取消");
+                    } });
+                } })) : console.log("用户点击取消");
+            } });
+        }, fail: function (e) {
+          console.log("transfer", e);
+        } });
+    }, subscribeMsg: function (o, n) {
+      var t = [],
+          a = [];for (var i in o) wx.getStorageSync(o[i]) || t.push(o[i]);if (0 == t.length) return console.log("已经订阅"), void n({ code: 2, msg: "已经订阅" });var s = [];wx.requestSubscribeMessage({ tmplIds: t, success: function (o) {
+          if (console.log(o, "success-ssssssss"), "requestSubscribeMessage:ok" == o.errMsg) {
+            for (var i in t) wx.getStorageSync(t[i]) || ("accept" == o[t[i]] ? (a.push(t[i]), console.log(a, "upppppppp")) : (s.push(t[i]), wx.showModal({ title: "订阅", content: "为了及时了解游戏动态,请订阅通知", cancelColor: "cancelColor", success: function (e) {
+                if (!e.confirm) return void n({ code: 0, msg: "拒绝订阅" });wx.openSetting({ withSubscriptions: !0, success: function (e) {
+                    console.log(e, "openSetting");var o = e.subscriptionsSetting.itemSettings;for (var n in s) wx.getStorageSync(s[n]) || "accept" == o[s[n]] && (a[t[n]] = t[n]);
+                  } });
+              } })));e(a, n);
+          }
+        }, fail: function (o) {
+          console.log(o, "fail"), wx.openSetting({ withSubscriptions: !0, success: function (o) {
+              console.log(o, "openSetting");var i = o.subscriptionsSetting.itemSettings;for (var s in t) wx.getStorageSync(t[s]) || "accept" == i[t[s]] && a.push(t[s]);e(a, n);
+            }, fail: function () {
+              n({ code: 0, msg: "拒绝订阅" });
+            } });
+        } });
+    }, onShare: function (e) {
+      if ("develop" == f && console.log("----------设置转发-------------"), e.query && !a(e.query)) return void console.log("query error");wx.showShareMenu({ showShareItems: ["shareAppMessage", "shareTimeline"], withShareTicket: !0 }), wx.onShareAppMessage(function () {
+        return { title: e.title, imageUrl: e.imageUrl, query: "subchid=" + w + "&sharetype=onshare&shareid=" + _ + "&" + e.query };
+      });
+    }, share: function (e) {
+      "develop" == f && console.log("----------主动转发-------------"), t(function () {
+        if (e.query && !a(e.query)) return void console.log("query error");wx.showShareMenu({ showShareItems: ["shareAppMessage", "shareTimeline"], withShareTicket: !0 }), wx.shareAppMessage({ title: e.title, imageUrl: e.imageUrl, query: "subchid=" + w + "&sharetype=share&shareid=" + _ + "&" + e.query });
+      });
+    }, dot: function (e, o) {
+      var n = { game_appid: v, account_id: _, step: e, sign: y, version: u, platform: M };wx.request({ url: p + "/api/wx/dot_record", method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, data: n, success: function (e) {
+          o(e.data);
+        }, fail: function (e) {
+          o({ code: 0, msg: "网络请求失败", res: e });
+        } });
+    }, createVideoAd: function (e, o) {
+      if (c = !1, "develop" == f && console.log(void 0 === r ? "undefined" : _typeof2(r), "typeof(video)"), "object" != (void 0 === r ? "undefined" : _typeof2(r))) "develop" == f && console.log(d, "typeof(adUnitId11)"), d = e, r = wx.createRewardedVideoAd({ adUnitId: e }), r.onError(function (e) {
+        var n = {};"develop" == f && console.log(e, "----------onError-------------"), n.msg = e.errMsg, n.state = "error", n.isEnded = !1, n.res = e, o(n);
+      }), r.onClose(function (e) {
+        if (c) ;else {
+          var n = {};O.advertisement("close", function (e) {}), n.state = "close", n.isEnded = e.isEnded, n.msg = "视频广告关闭", o(n);
+        }
+      }), r.load().then(function () {
+        console.log("激励视频加载成功"), r.show().then(function (e) {
+          O.advertisement("show", function (e) {}), o({ state: "show", msg: "视频展示成功", isEnded: !1 });
+        }).catch(function (e) {
+          var n = {};n.code = 2, n.state = "error", n.msg = e.errMsg, n.isEnded = !1, o(e);
+        });
+      }).catch(function (e) {
+        console.log("激励视频加载失败", e);
+      });else if (d != e) {
+        "develop" == f && console.log(d, e, "typeof(new)"), d = e;var n = wx.createRewardedVideoAd({ adUnitId: e });n.load().then(function () {
+          n.show().then(function (e) {
+            O.advertisement("show", function (e) {}), o({ state: "show", msg: "视频展示成功", isEnded: !1 });
+          }).catch(function (e) {
+            var n = {};n.code = 2, n.state = "error", n.msg = e.errMsg, n.isEnded = !1, o(e);
+          });
+        }).catch(function (e) {
+          console.log("激励视频加载失败", e);
+        });
+      } else "develop" == f && console.log(r, "----------createVideoAd-------------"), r.show().then(function (e) {
+        O.advertisement("show", function (e) {}), o({ state: "show", msg: "视频展示成功", isEnded: !1 });
+      }).catch(function (e) {
+        var n = {};n.code = 2, n.state = "error", n.msg = e.errMsg, n.isEnded = !1, o(e);
+      });
+    }, advertisement: function (e, o) {
+      "develop" == f && console.log(e, "----------上报广告-------------"), t(function () {
+        var n = { openid: _, game_appid: v, sign: y, version: u, platform: M },
+            t = "";"show" == e ? t = p + "/api/wx/videoClick" : "close" == e ? t = p + "/api/wx/watch" : "share" == e && (t = p + "/api/wx/share"), wx.request({ url: t, data: n, method: "post", header: { "content-type": "application/x-www-form-urlencoded" }, complete: function (e) {
+            o(e.data);
+          } });
+      });
+    }, gameLevel: function (e, o) {
+      var n = {};n.openid = _, n.appid = v, n.sign = y, n.level = e, n.version = u, n.platform = M, wx.request({ url: p + "/api/wx/game_level", data: n, method: "post", header: { "content-type": "application/x-www-form-urlencoded" }, complete: function (e) {
+          o(e.data);
+        } });
+    }, msg_check: function (e, o) {
+      var n = {};n.content = e, n.appid = v, n.openid = _, n.version = u, wx.request({ url: p + "/api/wx/msg_sec_check", data: n, method: "post", header: { "content-type": "application/x-www-form-urlencoded" }, success: function (e) {
+          o(e.data);
+        } });
+    }, img_check: function (e, o) {
+      wx.uploadFile({ url: p + "/api/v2/img_sec_check", filePath: e, name: "media", formData: { appid: v, openid: _ }, success: function (e) {
+          o(e.data);
+        } });
+    }, media_check: function (e, o, n) {
+      wx.request({ url: p + "/api/v2/media_check", data: { appid: v, media_url: e, type: o }, method: "post", header: { "content-type": "application/x-www-form-urlencoded" }, success: function (e) {
+          n(e.data);
+        } });
+    } };!function () {
+    S = wx.getStorageSync("sop_user"), _ = S.openid, y = S.sign, console.log("==wxsdk version==", u), f = l.env, p = l.url, v = l.appid, n(), wx.onHide(function () {
+      console.log("onhide", q), o(), q = +new Date();
+    }), wx.onShow(function (e) {
+      q = +new Date(), console.log(JSON.stringify(e), "show");var o = e.referrerInfo;if (console.log(o, "refer"), o.extraData) {
+        "success" == o.extraData.pay ? wx.showToast({ title: "成功", icon: "success", duration: 2e3, fail: function (e) {
+            console.log(e, "eeeeeee");
+          } }) : wx.showToast({ title: "支付失败", icon: "success", duration: 2e3, fail: function (e) {
+            console.log(e, "eeeeeee");
+          } });
+      }
+    }), i(I, "2.10.3") >= 0 && wx.onAddToFavorites(function () {}), window.dyb = O;
+  }();
+}();

@@ -1,0 +1,1326 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "composeConfig",
+  "json": {
+    "1": {
+      "itemid": "I5001",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "基本剑术",
+      "main_type": 1,
+      "sub_type": 1,
+      "item": [
+        [
+          "I4002",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        1000
+      ]
+    },
+    "2": {
+      "itemid": "I5003",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "刺杀剑术",
+      "main_type": 1,
+      "sub_type": 1,
+      "item": [
+        [
+          "I4003",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        2000
+      ]
+    },
+    "3": {
+      "itemid": "I5005",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "半月弯刀",
+      "main_type": 1,
+      "sub_type": 1,
+      "item": [
+        [
+          "I4004",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        4000
+      ]
+    },
+    "4": {
+      "itemid": "I5002",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "攻杀剑术",
+      "main_type": 1,
+      "sub_type": 1,
+      "item": [
+        [
+          "I4005",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        10000
+      ]
+    },
+    "5": {
+      "itemid": "I5004",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "野蛮冲撞",
+      "main_type": 1,
+      "sub_type": 1,
+      "item": [
+        [
+          "I4006",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        20000
+      ]
+    },
+    "6": {
+      "itemid": "I5007",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "护体真气",
+      "main_type": 1,
+      "sub_type": 1,
+      "item": [
+        [
+          "I4007",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        50000
+      ]
+    },
+    "7": {
+      "itemid": "I5006",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "烈火剑法",
+      "main_type": 1,
+      "sub_type": 1,
+      "item": [
+        [
+          "I4008",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        100000
+      ]
+    },
+    "8": {
+      "itemid": "I5201",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "火球术",
+      "main_type": 1,
+      "sub_type": 2,
+      "item": [
+        [
+          "I4002",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        1000
+      ]
+    },
+    "9": {
+      "itemid": "I5202",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "雷电术",
+      "main_type": 1,
+      "sub_type": 2,
+      "item": [
+        [
+          "I4003",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        2000
+      ]
+    },
+    "10": {
+      "itemid": "I5203",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "火墙",
+      "main_type": 1,
+      "sub_type": 2,
+      "item": [
+        [
+          "I4004",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        4000
+      ]
+    },
+    "11": {
+      "itemid": "I5207",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "诱惑之光",
+      "main_type": 1,
+      "sub_type": 2,
+      "item": [
+        [
+          "I4005",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        10000
+      ]
+    },
+    "12": {
+      "itemid": "I5206",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "法术精通",
+      "main_type": 1,
+      "sub_type": 2,
+      "item": [
+        [
+          "I4006",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        20000
+      ]
+    },
+    "13": {
+      "itemid": "I5204",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "魔法盾",
+      "main_type": 1,
+      "sub_type": 2,
+      "item": [
+        [
+          "I4007",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        50000
+      ]
+    },
+    "14": {
+      "itemid": "I5205",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "冰咆哮",
+      "main_type": 1,
+      "sub_type": 2,
+      "item": [
+        [
+          "I4008",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        100000
+      ]
+    },
+    "15": {
+      "itemid": "I5101",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "精神力战法",
+      "main_type": 1,
+      "sub_type": 3,
+      "item": [
+        [
+          "I4002",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        1000
+      ]
+    },
+    "16": {
+      "itemid": "I5102",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "治疗术",
+      "main_type": 1,
+      "sub_type": 3,
+      "item": [
+        [
+          "I4002",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        1000
+      ]
+    },
+    "17": {
+      "itemid": "I5103",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "灵魂火符",
+      "main_type": 1,
+      "sub_type": 3,
+      "item": [
+        [
+          "I4003",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        2000
+      ]
+    },
+    "18": {
+      "itemid": "I5104",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "施毒术",
+      "main_type": 1,
+      "sub_type": 3,
+      "item": [
+        [
+          "I4004",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        4000
+      ]
+    },
+    "19": {
+      "itemid": "I5105",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "召唤术",
+      "main_type": 1,
+      "sub_type": 3,
+      "item": [
+        [
+          "I4005",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        10000
+      ]
+    },
+    "20": {
+      "itemid": "I5106",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "隐身术",
+      "main_type": 1,
+      "sub_type": 3,
+      "item": [
+        [
+          "I4006",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        20000
+      ]
+    },
+    "21": {
+      "itemid": "I5107",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "神圣战甲术",
+      "main_type": 1,
+      "sub_type": 3,
+      "item": [
+        [
+          "I4007",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        50000
+      ]
+    },
+    "22": {
+      "itemid": "I5108",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 105,
+      "name": "无极真气",
+      "main_type": 1,
+      "sub_type": 3,
+      "item": [
+        [
+          "I4008",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        100000
+      ]
+    },
+    "23": {
+      "itemid": "I8002",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "二",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8001",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        10
+      ]
+    },
+    "24": {
+      "itemid": "I8003",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "三",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8002",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        30
+      ]
+    },
+    "25": {
+      "itemid": "I8004",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "四",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8003",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        100
+      ]
+    },
+    "26": {
+      "itemid": "I8005",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "五",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8004",
+          4
+        ]
+      ],
+      "gold": [
+        1,
+        200
+      ]
+    },
+    "27": {
+      "itemid": "I8006",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "六",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8005",
+          4
+        ]
+      ],
+      "gold": [
+        1,
+        500
+      ]
+    },
+    "28": {
+      "itemid": "I8007",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "七",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8006",
+          4
+        ]
+      ],
+      "gold": [
+        1,
+        1000
+      ]
+    },
+    "29": {
+      "itemid": "I8008",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "八",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8007",
+          5
+        ]
+      ],
+      "gold": [
+        1,
+        10000
+      ]
+    },
+    "30": {
+      "itemid": "I8009",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "九",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8008",
+          5
+        ]
+      ],
+      "gold": [
+        1,
+        150000
+      ]
+    },
+    "31": {
+      "itemid": "I8010",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "十",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8009",
+          5
+        ]
+      ],
+      "gold": [
+        1,
+        500000
+      ]
+    },
+    "32": {
+      "itemid": "I8011",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "十一",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8010",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        1000000
+      ]
+    },
+    "33": {
+      "itemid": "I8012",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "十二",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8011",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        2000000
+      ]
+    },
+    "34": {
+      "itemid": "I8013",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "十三",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8012",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        5000000
+      ]
+    },
+    "35": {
+      "itemid": "I8014",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "十四",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8013",
+          4
+        ]
+      ],
+      "gold": [
+        1,
+        10000000
+      ]
+    },
+    "36": {
+      "itemid": "I8015",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 107,
+      "name": "十五",
+      "main_type": 2,
+      "sub_type": 0,
+      "item": [
+        [
+          "I8014",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        20000000
+      ]
+    },
+    "40": {
+      "itemid": "I7104",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 108,
+      "name": "单身贵族",
+      "main_type": 3,
+      "sub_type": 0,
+      "item": [
+        [
+          "I7102",
+          1
+        ],
+        [
+          "I7103",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        10000
+      ]
+    },
+    "41": {
+      "itemid": "I7107",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 108,
+      "name": "好事成双",
+      "main_type": 3,
+      "sub_type": 0,
+      "item": [
+        [
+          "I7105",
+          1
+        ],
+        [
+          "I7106",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        10000
+      ]
+    },
+    "42": {
+      "itemid": "I7110",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 108,
+      "name": "圣诞帽",
+      "main_type": 3,
+      "sub_type": 0,
+      "item": [
+        [
+          "I7108",
+          1
+        ],
+        [
+          "I7109",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        1000000
+      ]
+    },
+    "43": {
+      "itemid": "I7113",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 108,
+      "name": "缤纷新年",
+      "main_type": 3,
+      "sub_type": 0,
+      "item": [
+        [
+          "I7111",
+          1
+        ],
+        [
+          "I7112",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        1000000
+      ]
+    },
+    "201": {
+      "itemid": "I3918",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 102,
+      "name": "金刚石",
+      "main_type": 3,
+      "sub_type": 0,
+      "item": [
+        [
+          "I3919",
+          4
+        ]
+      ],
+      "gold": [
+        1,
+        100000
+      ]
+    },
+    "501": {
+      "itemid": "D000005",
+      "kind": 2,
+      "comtype": 3,
+      "cid": 2002,
+      "name": "轮回面具",
+      "main_type": 3,
+      "sub_type": 0,
+      "equip": [],
+      "item": [
+        [
+          "I3913",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        1000000
+      ]
+    },
+    "502": {
+      "itemid": "D000006",
+      "kind": 2,
+      "comtype": 2,
+      "cid": 2002,
+      "name": "轮回面甲",
+      "main_type": 3,
+      "sub_type": 0,
+      "equip": [
+        [
+          "D000005",
+          1,
+          4
+        ]
+      ],
+      "item": [
+        [
+          "I3914",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        5000000
+      ]
+    },
+    "503": {
+      "itemid": "D000007",
+      "kind": 2,
+      "comtype": 2,
+      "cid": 2002,
+      "name": "轮回仙冠",
+      "main_type": 3,
+      "sub_type": 0,
+      "equip": [
+        [
+          "D000006",
+          1,
+          4
+        ]
+      ],
+      "item": [
+        [
+          "I3914",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        5000000
+      ]
+    },
+    "504": {
+      "itemid": "D000008",
+      "kind": 2,
+      "comtype": 2,
+      "cid": 2002,
+      "name": "轮回圣盔",
+      "main_type": 3,
+      "sub_type": 0,
+      "equip": [
+        [
+          "D000007",
+          1,
+          4
+        ]
+      ],
+      "item": [
+        [
+          "I3915",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        5000000
+      ]
+    },
+    "505": {
+      "itemid": "D000010",
+      "kind": 2,
+      "comtype": 2,
+      "cid": 2002,
+      "name": "往生面具",
+      "main_type": 3,
+      "sub_type": 0,
+      "equip": [
+        [
+          "D000008",
+          1,
+          4
+        ]
+      ],
+      "item": [
+        [
+          "I3923",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        10000000
+      ]
+    },
+    "510": {
+      "itemid": "I6010",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 106,
+      "name": "惊雷宝匣",
+      "main_type": 3,
+      "sub_type": 1,
+      "item": [
+        [
+          "I6009",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        5000000
+      ]
+    },
+    "511": {
+      "itemid": "I6011",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 106,
+      "name": "寒霜宝匣",
+      "main_type": 3,
+      "sub_type": 2,
+      "item": [
+        [
+          "I6009",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        5000000
+      ]
+    },
+    "512": {
+      "itemid": "I6012",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 106,
+      "name": "倚天宝匣",
+      "main_type": 3,
+      "sub_type": 3,
+      "item": [
+        [
+          "I6009",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        5000000
+      ]
+    },
+    "513": {
+      "itemid": "I6010",
+      "kind": 1,
+      "comtype": 4,
+      "cid": 2002,
+      "name": "惊雷宝匣",
+      "main_type": 3,
+      "sub_type": 1,
+      "equip": [
+        [
+          "E700033",
+          2,
+          4
+        ]
+      ],
+      "item": [
+        [
+          "I8010",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        2500000
+      ]
+    },
+    "514": {
+      "itemid": "I6011",
+      "kind": 1,
+      "comtype": 4,
+      "cid": 2002,
+      "name": "寒霜宝匣",
+      "main_type": 3,
+      "sub_type": 2,
+      "equip": [
+        [
+          "E700034",
+          2,
+          4
+        ]
+      ],
+      "item": [
+        [
+          "I8010",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        2500000
+      ]
+    },
+    "515": {
+      "itemid": "I6012",
+      "kind": 1,
+      "comtype": 4,
+      "cid": 2002,
+      "name": "倚天宝匣",
+      "main_type": 3,
+      "sub_type": 3,
+      "equip": [
+        [
+          "E700035",
+          2,
+          4
+        ]
+      ],
+      "item": [
+        [
+          "I8010",
+          1
+        ]
+      ],
+      "gold": [
+        1,
+        2500000
+      ]
+    },
+    "1001": {
+      "itemid": "I1002",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 101,
+      "name": "小瓶金疮药",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I1001",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        2
+      ]
+    },
+    "1002": {
+      "itemid": "I1003",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 101,
+      "name": "中瓶金疮药",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I1002",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        2
+      ]
+    },
+    "1003": {
+      "itemid": "I1004",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 101,
+      "name": "大瓶金疮药",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I1003",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        4
+      ]
+    },
+    "1004": {
+      "itemid": "I1005",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 101,
+      "name": "超级金疮药",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I1004",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        20
+      ]
+    },
+    "1005": {
+      "itemid": "I1006",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 101,
+      "name": "特级金疮药",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I1005",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        40
+      ]
+    },
+    "1006": {
+      "itemid": "I2002",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 101,
+      "name": "小瓶法力药",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I2001",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        2
+      ]
+    },
+    "1007": {
+      "itemid": "I2003",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 101,
+      "name": "中瓶法力药",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I2002",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        2
+      ]
+    },
+    "1008": {
+      "itemid": "I2004",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 101,
+      "name": "大瓶法力药",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I2003",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        4
+      ]
+    },
+    "1009": {
+      "itemid": "I2005",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 101,
+      "name": "超级法力药",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I2004",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        20
+      ]
+    },
+    "1010": {
+      "itemid": "I2006",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 101,
+      "name": "特级法力药",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I2005",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        40
+      ]
+    },
+    "1011": {
+      "itemid": "I2102",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 101,
+      "name": "太阳水",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I2101",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        1000
+      ]
+    },
+    "1012": {
+      "itemid": "I2103",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 101,
+      "name": "强效太阳水",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I2102",
+          2
+        ]
+      ],
+      "gold": [
+        1,
+        1000
+      ]
+    },
+    "1013": {
+      "itemid": "I3928",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 102,
+      "name": "木萃灵气",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I3927",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        50000
+      ]
+    },
+    "1014": {
+      "itemid": "I3929",
+      "kind": 1,
+      "comtype": 1,
+      "cid": 102,
+      "name": "云珞灵气",
+      "main_type": 4,
+      "sub_type": 0,
+      "item": [
+        [
+          "I3928",
+          3
+        ]
+      ],
+      "gold": [
+        1,
+        100000
+      ]
+    }
+  }
+}

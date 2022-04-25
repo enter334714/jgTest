@@ -1,2 +1,2 @@
 var B = wx.$z;
-require('zBFzz.js'), window[B[440906]][B[440907]][B[440908]] = null, window['client_pb'] = require('zzCLIENz.js'), window[B[440909]] = window[B[440906]][B[440910]][B[440911]](client_pb);
+require('zBFzz.js'), window[B[440980]][B[440981]][B[440982]] = null, window['client_pb'] = require('zzCLIENz.js'), window[B[440983]] = window[B[440980]][B[440984]][B[440985]](client_pb);

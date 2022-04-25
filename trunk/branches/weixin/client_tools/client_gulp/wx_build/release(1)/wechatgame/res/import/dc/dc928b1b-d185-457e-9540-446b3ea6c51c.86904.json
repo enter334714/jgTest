@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_bazhentu_tips_xiao_3",
+    "texture": "eesdQXe9JKjLRMRxEpBh+Y",
+    "rect": [
+      0,
+      0,
+      195,
+      281
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      195,
+      281
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

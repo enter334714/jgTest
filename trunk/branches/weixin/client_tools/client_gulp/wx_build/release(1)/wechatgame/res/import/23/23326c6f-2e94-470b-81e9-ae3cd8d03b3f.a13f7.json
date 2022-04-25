@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_star_icon_201",
+    "texture": "8f3Vx1Md5M8bDlgcyZf9ei",
+    "rect": [
+      17,
+      6,
+      34,
+      49
+    ],
+    "offset": [
+      2,
+      1.5
+    ],
+    "originalSize": [
+      64,
+      64
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

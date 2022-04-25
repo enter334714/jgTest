@@ -1,0 +1,514 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "guideConfig",
+  "json": {
+    "10101": {
+      "group": 1,
+      "step": 1,
+      "type": 1,
+      "condition": 1,
+      "main": "baseRoot",
+      "controls": "gameui/view/bottom/panel/1",
+      "shade": 1,
+      "arrows_type": 1,
+      "desc": "点击查看背包和角色信息"
+    },
+    "10102": {
+      "group": 1,
+      "step": 2,
+      "type": 1,
+      "condition": 1,
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/bag/panel/view/content/bagitem3",
+      "shade": 1,
+      "arrows_type": 5,
+      "desc": "点击查看装备信息"
+    },
+    "10103": {
+      "group": 1,
+      "step": 3,
+      "type": 1,
+      "condition": 1,
+      "main": "topRoot",
+      "controls": "equipInfo/view/pnlValue/bottom/bottom/user",
+      "shade": 1,
+      "arrows_type": 5,
+      "desc": "点击穿戴装备"
+    },
+    "10104": {
+      "group": 1,
+      "step": 4,
+      "type": 1,
+      "condition": 1,
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/bag/panel/view/content/bagitem2",
+      "shade": 1,
+      "arrows_type": 5,
+      "desc": "点击查看装备信息"
+    },
+    "10105": {
+      "group": 1,
+      "step": 5,
+      "type": 1,
+      "condition": 1,
+      "main": "topRoot",
+      "controls": "equipInfo/view/pnlValue/bottom/bottom/user",
+      "shade": 1,
+      "arrows_type": 5,
+      "desc": "点击穿戴装备"
+    },
+    "10106": {
+      "group": 1,
+      "step": 6,
+      "type": 1,
+      "condition": 1,
+      "main": "baseRoot",
+      "controls": "gameui/view/bottom/panel/0",
+      "shade": 1,
+      "arrows_type": 1,
+      "desc": "返回战斗界面"
+    },
+    "10107": {
+      "group": 1,
+      "step": 7,
+      "type": 1,
+      "condition": 1,
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/GameView/taskview/taskbtn",
+      "shade": 1,
+      "arrows_type": 4,
+      "desc": "点击查看任务"
+    },
+    "10108": {
+      "group": 1,
+      "step": 8,
+      "type": 1,
+      "condition": 1,
+      "main": "topRoot",
+      "controls": "taskview/view/panel/tijiaobtn",
+      "shade": 0,
+      "arrows_type": 1,
+      "desc": "点击领取奖励"
+    },
+    "10201": {
+      "group": 2,
+      "step": 1,
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        1001
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/GameView/view/game/mapmask/minimap/map/1",
+      "shade": 0,
+      "arrows_type": 1,
+      "desc": "前往新地图"
+    },
+    "10301": {
+      "group": 3,
+      "step": 1,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1021
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/bottom/panel/1",
+      "shade": 1,
+      "arrows_type": 1,
+      "desc": "点击角色"
+    },
+    "10302": {
+      "group": 3,
+      "step": 2,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1021
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/bottom/scrollView/view/content/tabNode1",
+      "shade": 0,
+      "arrows_type": 1,
+      "desc": "点击对话云游商人"
+    },
+    "10303": {
+      "group": 3,
+      "step": 3,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1021
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/business/yunyou/btn1",
+      "shade": 0,
+      "arrows_type": 5,
+      "desc": "贿赂商人可提高回收比例！"
+    },
+    "10304": {
+      "group": 3,
+      "step": 4,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1021
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/business/yunyou/sellNode/item_0/btn_chushou",
+      "shade": 0,
+      "arrows_type": 5,
+      "desc": "点击回收装备"
+    },
+    "10401": {
+      "group": 4,
+      "step": 1,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1013
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/GameView/city/view/panel/npc/view/content/0",
+      "shade": 1,
+      "arrows_type": 5,
+      "desc": "点击铁匠，打造装备"
+    },
+    "10501": {
+      "group": 5,
+      "step": 1,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1034
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/GameView/view/game/mapmask/minimap/infobtn/setting0",
+      "shade": 1,
+      "arrows_type": 4,
+      "desc": "点击设置"
+    },
+    "10502": {
+      "group": 5,
+      "step": 2,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1034
+      ],
+      "main": "baseRoot",
+      "controls": "setting/view/ScrollView/view/content/pnlPickUp/conditionSkill/auto",
+      "shade": 0,
+      "arrows_type": 4,
+      "desc": "自动回收无用职业书"
+    },
+    "10503": {
+      "group": 5,
+      "step": 3,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1034
+      ],
+      "main": "baseRoot",
+      "controls": "setting/view/ScrollView/view/content/pnlPickUp/condition2/auto",
+      "shade": 0,
+      "arrows_type": 4,
+      "desc": "自动回收白装"
+    },
+    "10504": {
+      "group": 5,
+      "step": 4,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1034
+      ],
+      "main": "baseRoot",
+      "controls": "setting/view/ScrollView/view/content/pnlPickUp/condition3/auto",
+      "shade": 0,
+      "arrows_type": 4,
+      "desc": "自动回收绿装"
+    },
+    "10601": {
+      "group": 6,
+      "step": 1,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1050
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/GameView/city/view/panel/npc/view/content/0",
+      "shade": 1,
+      "arrows_type": 5,
+      "desc": "点击铁匠，打造装备"
+    },
+    "10701": {
+      "group": 7,
+      "step": 1,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1073
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/GameView/city/view/panel/npc/view/content/0",
+      "shade": 1,
+      "arrows_type": 5,
+      "desc": "点击铁匠，打造装备"
+    },
+    "10801": {
+      "group": 8,
+      "step": 1,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1121
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/GameView/city/view/panel/npc/view/content/3",
+      "shade": 1,
+      "arrows_type": 5,
+      "desc": "点击女巫，切换世界"
+    },
+    "10802": {
+      "group": 8,
+      "step": 2,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1121
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/GameView/city/view/panel/yishiwunvNPC/jinjieList/view/content/2/btn",
+      "shade": 1,
+      "arrows_type": 5,
+      "desc": "切换轮回境"
+    },
+    "10901": {
+      "group": 9,
+      "step": 1,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1058
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/GameView/view/game/mapmask/minimap/infobtn/setting0",
+      "shade": 1,
+      "arrows_type": 4,
+      "desc": "点击设置"
+    },
+    "10902": {
+      "group": 9,
+      "step": 2,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1058
+      ],
+      "main": "baseRoot",
+      "controls": "setting/view/ScrollView/view/content/pnlReply/combobox/pnlHp/DropDownBox",
+      "shade": 0,
+      "arrows_type": 5,
+      "desc": "选择金疮药"
+    },
+    "10903": {
+      "group": 9,
+      "step": 3,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1058
+      ],
+      "main": "baseRoot",
+      "controls": "setting/view/ScrollView/view/content/pnlReply/combobox/pnlHp/DropDownBox/Template/view/content/2",
+      "shade": 0,
+      "arrows_type": 5,
+      "desc": "选择中瓶金疮药，增加回复"
+    },
+    "10904": {
+      "group": 9,
+      "step": 4,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1058
+      ],
+      "main": "baseRoot",
+      "controls": "setting/view/ScrollView/view/content/pnlReply/combobox/pnlMp/DropDownBox",
+      "shade": 0,
+      "arrows_type": 5,
+      "desc": "选择法力药"
+    },
+    "10905": {
+      "group": 9,
+      "step": 5,
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1058
+      ],
+      "main": "baseRoot",
+      "controls": "setting/view/ScrollView/view/content/pnlReply/combobox/pnlMp/DropDownBox/Template/view/content/2",
+      "shade": 0,
+      "arrows_type": 5,
+      "desc": "选择中瓶法力药，增加回复"
+    },
+    "20101": {
+      "group": 1,
+      "step": 1,
+      "type": 2,
+      "condition": 5,
+      "limit": [
+        "strong"
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/strengthen/view/panel/start",
+      "shade": 0,
+      "arrows_type": 5,
+      "desc": "点击强化装备"
+    },
+    "20102": {
+      "group": 1,
+      "step": 2,
+      "type": 2,
+      "condition": 5,
+      "limit": [
+        "strong"
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/strengthen/view/panel/start",
+      "shade": 0,
+      "arrows_type": 5,
+      "desc": "点击强化装备"
+    },
+    "20103": {
+      "group": 1,
+      "step": 3,
+      "type": 2,
+      "condition": 5,
+      "limit": [
+        "strong"
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/strengthen/view/panel/start",
+      "shade": 0,
+      "arrows_type": 5,
+      "desc": "点击强化装备"
+    },
+    "20104": {
+      "group": 1,
+      "step": 4,
+      "type": 2,
+      "condition": 5,
+      "limit": [
+        "strong"
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/strengthen/view/panel/all",
+      "shade": 0,
+      "arrows_type": 5,
+      "desc": "全身强化+10还会有额外属性加成"
+    },
+    "20201": {
+      "group": 2,
+      "step": 1,
+      "type": 2,
+      "condition": 5,
+      "limit": [
+        "weapon"
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/weaponView/btnNext",
+      "shade": 0,
+      "arrows_type": 1,
+      "desc": "点击可查看其他神兵"
+    },
+    "20202": {
+      "group": 2,
+      "step": 2,
+      "type": 2,
+      "condition": 5,
+      "limit": [
+        "weapon"
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/weaponView/btnNext",
+      "shade": 0,
+      "arrows_type": 1,
+      "desc": "点击可查看其他神兵"
+    },
+    "20203": {
+      "group": 2,
+      "step": 3,
+      "type": 2,
+      "condition": 5,
+      "limit": [
+        "weapon"
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/weaponView/skilltap",
+      "shade": 0,
+      "arrows_type": 2,
+      "desc": "点击查看神兵技能"
+    },
+    "20204": {
+      "group": 2,
+      "step": 4,
+      "type": 2,
+      "condition": 5,
+      "limit": [
+        "weapon"
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/weaponView/btnHelp",
+      "shade": 0,
+      "arrows_type": 2,
+      "desc": "查看玩法说明"
+    },
+    "20301": {
+      "group": 3,
+      "step": 1,
+      "type": 2,
+      "condition": 5,
+      "limit": [
+        "star"
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/starView/star2Btn",
+      "shade": 0,
+      "arrows_type": 2,
+      "desc": "点击查看星宿技能"
+    },
+    "20302": {
+      "group": 3,
+      "step": 2,
+      "type": 2,
+      "condition": 5,
+      "limit": [
+        "star"
+      ],
+      "main": "baseRoot",
+      "controls": "gameui/view/gameContainer/bag/starView/star2/btnRule",
+      "shade": 0,
+      "arrows_type": 2,
+      "desc": "查看玩法说明"
+    },
+    "20401": {
+      "group": 4,
+      "step": 1,
+      "type": 2,
+      "condition": 5,
+      "limit": [
+        "Pk"
+      ],
+      "main": "baseRoot",
+      "controls": "PkView/btn_help",
+      "shade": 0,
+      "arrows_type": 2,
+      "desc": "查看玩法说明"
+    }
+  }
+}

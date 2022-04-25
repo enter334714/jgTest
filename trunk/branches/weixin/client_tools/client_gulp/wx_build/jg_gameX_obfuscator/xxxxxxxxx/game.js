@@ -1,1 +1,2 @@
-var u=wx.$x;import"xxMAIx.js";
+var u = wx.$x;
+import 'xxMAIx.js';

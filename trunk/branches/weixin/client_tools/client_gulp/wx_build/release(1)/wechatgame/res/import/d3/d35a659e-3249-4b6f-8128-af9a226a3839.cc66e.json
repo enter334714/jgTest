@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_jiaobiao_liaotian_lan",
+    "texture": "2cKwYrwRxBe4dhK/6Q92oR",
+    "rect": [
+      0,
+      0,
+      23,
+      20
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      23,
+      20
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

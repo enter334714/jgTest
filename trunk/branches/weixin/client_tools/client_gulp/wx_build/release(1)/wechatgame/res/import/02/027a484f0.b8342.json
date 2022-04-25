@@ -1,0 +1,347 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_16",
+      "texture": "e55BSdbvtEkr3I85CpsFqJ",
+      "rect": [
+        0,
+        0,
+        207,
+        150
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        207,
+        150
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_23",
+      "texture": "3aaYsxaFtK1ZujIfDb0WvK",
+      "rect": [
+        0,
+        0,
+        207,
+        150
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        207,
+        150
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "huoqiangshu-big",
+    "_duration": 0.6333333333333333,
+    "sample": 30,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "64M4e83iFFzbHY1gnhjEui"
+              }
+            },
+            {
+              "frame": 0.06666666666666667,
+              "value": {
+                "__uuid__": "0fMNJds45EWLTdfVwFEiC5"
+              }
+            },
+            {
+              "frame": 0.13333333333333333,
+              "value": {
+                "__uuid__": "80rXsSEjRFNoPT9rnogf8U"
+              }
+            },
+            {
+              "frame": 0.2,
+              "value": {
+                "__uuid__": "9fRpmALZZIFJdQL8nadXxi"
+              }
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": {
+                "__uuid__": "d9AtTt2HlPKrenBuPLPZLg"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "60NZEoZ/xKh7CoSxSCgG94"
+              }
+            },
+            {
+              "frame": 0.4,
+              "value": {
+                "__uuid__": "8eMZY5asJNSZC2kzY20igN"
+              }
+            },
+            {
+              "frame": 0.4666666666666667,
+              "value": {
+                "__uuid__": "41F8x5UPpF5bczI/2UW9EG"
+              }
+            },
+            {
+              "frame": 0.5333333333333333,
+              "value": {
+                "__uuid__": "18Fqgii9VOOahG6D2qefEl"
+              }
+            },
+            {
+              "frame": 0.6,
+              "value": {
+                "__uuid__": "95ayHCRKZIOqgA17zhCTtu"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_22",
+      "texture": "13WBFg8L5AzZBvtydpH6Xe",
+      "rect": [
+        0,
+        0,
+        207,
+        150
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        207,
+        150
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_20_cf",
+      "texture": "3ftcCwKEpN54wLKTJkxm8E",
+      "rect": [
+        0,
+        0,
+        207,
+        150
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        207,
+        150
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_15",
+      "texture": "8fBgfF3YZK9pamfMRPssIB",
+      "rect": [
+        0,
+        0,
+        207,
+        150
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        207,
+        150
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_17_cf",
+      "texture": "29ieU8IKNP4K16baBoGKJa",
+      "rect": [
+        0,
+        0,
+        207,
+        150
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        207,
+        150
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_21_cf",
+      "texture": "6fEBcysxlHx4ogF1b7OegU",
+      "rect": [
+        0,
+        0,
+        207,
+        150
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        207,
+        150
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_24",
+      "texture": "71H4/FiRRDy7Njw45YhDaC",
+      "rect": [
+        0,
+        0,
+        207,
+        150
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        207,
+        150
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_18_cf",
+      "texture": "efMQREokFI/7Adbs9tpV0T",
+      "rect": [
+        0,
+        0,
+        207,
+        150
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        207,
+        150
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_19_cf",
+      "texture": "60RxUMIMRPoIPXn6fZH622",
+      "rect": [
+        0,
+        0,
+        207,
+        150
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        207,
+        150
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

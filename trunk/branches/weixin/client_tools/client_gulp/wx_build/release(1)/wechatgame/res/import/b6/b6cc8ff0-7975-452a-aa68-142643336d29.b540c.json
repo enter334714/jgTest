@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_jiaobiao_touxiang_zi",
+    "texture": "94mvO5NAVOzYEv4NAb4CJ0",
+    "rect": [
+      0,
+      0,
+      23,
+      20
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      23,
+      20
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

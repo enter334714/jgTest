@@ -6,7 +6,7 @@ var config = {
     game_pkg: 'tjqy_tjqyywwxxcxmjhhh_OP',
     partner_label: 'yiwuwxxcx',
     partner_id: '545',
-    game_ver: '45.0.3',
+    game_ver: '45.0.5',
 	tmpId: {1:'NN1YCPJX7NxKTYX6hl_Ez1tF26wWIZyz6PnZ6BE0n8c', 2:'Psoq5IIW1ce86t9BkX2-1UGzmTlTbOCSYTDkJZSyB1I', 3:'35Wn_fzdFuvvys_5l1EgXrsiRzi8ASSZ1wgNySUBZf4'},  // 订阅的类型 和 模板id
     is_auth: false, //授权登录
 };

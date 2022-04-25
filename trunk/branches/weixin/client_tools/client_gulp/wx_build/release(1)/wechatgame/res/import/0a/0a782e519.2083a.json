@@ -1,0 +1,268 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_ayts_faguang01_09",
+      "texture": "c3Pboy6MpN3rvaBAUT717O",
+      "rect": [
+        14,
+        13,
+        28,
+        28
+      ],
+      "offset": [
+        0,
+        1
+      ],
+      "originalSize": [
+        56,
+        56
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_ayts_faguang02",
+      "texture": "8cM0hDcf9D8JBAE32qrX9p",
+      "rect": [
+        10,
+        9,
+        36,
+        36
+      ],
+      "offset": [
+        0,
+        1
+      ],
+      "originalSize": [
+        56,
+        56
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_ayts_faguang_bg01",
+      "texture": "2cuJz9qAVOCqaWmBWLwS2z",
+      "rect": [
+        0,
+        0,
+        60,
+        53
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        60,
+        53
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "anyuani",
+    "_duration": 1.1333333333333333,
+    "sample": 30,
+    "curveData": {
+      "paths": {
+        "bg": {
+          "comps": {
+            "cc.Sprite": {
+              "spriteFrame": [
+                {
+                  "frame": 0,
+                  "value": {
+                    "__uuid__": "62nfoTbz9IMJZwhFEBV+ZO"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "blink": {
+          "comps": {
+            "cc.Sprite": {
+              "spriteFrame": [
+                {
+                  "frame": 0,
+                  "value": {
+                    "__uuid__": "0dSRw2XD5CuodQKeXAiAJg"
+                  }
+                },
+                {
+                  "frame": 0.1,
+                  "value": {
+                    "__uuid__": "2epz0mS/pKraCbDMRnFZMr"
+                  }
+                },
+                {
+                  "frame": 0.2,
+                  "value": {
+                    "__uuid__": "80FPywOJlCFY0S9htZhhZc"
+                  }
+                },
+                {
+                  "frame": 0.3,
+                  "value": {
+                    "__uuid__": "a8YrSYAHpHnrUAMGH/XPaD"
+                  }
+                },
+                {
+                  "frame": 0.4,
+                  "value": {
+                    "__uuid__": "f9F9Au0XVGdqbKHjuMSvI4"
+                  }
+                },
+                {
+                  "frame": 0.5,
+                  "value": {
+                    "__uuid__": "80FPywOJlCFY0S9htZhhZc"
+                  }
+                },
+                {
+                  "frame": 0.6,
+                  "value": {
+                    "__uuid__": "a8YrSYAHpHnrUAMGH/XPaD"
+                  }
+                },
+                {
+                  "frame": 0.7,
+                  "value": {
+                    "__uuid__": "f9F9Au0XVGdqbKHjuMSvI4"
+                  }
+                },
+                {
+                  "frame": 0.8,
+                  "value": {
+                    "__uuid__": "a8YrSYAHpHnrUAMGH/XPaD"
+                  }
+                },
+                {
+                  "frame": 0.9,
+                  "value": {
+                    "__uuid__": "80FPywOJlCFY0S9htZhhZc"
+                  }
+                },
+                {
+                  "frame": 1,
+                  "value": {
+                    "__uuid__": "2epz0mS/pKraCbDMRnFZMr"
+                  }
+                },
+                {
+                  "frame": 1.1,
+                  "value": {
+                    "__uuid__": "0dSRw2XD5CuodQKeXAiAJg"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_ayts_faguang03_06",
+      "texture": "3an5foDlhFBItZSzave637",
+      "rect": [
+        5,
+        3,
+        46,
+        47
+      ],
+      "offset": [
+        0,
+        1.5
+      ],
+      "originalSize": [
+        56,
+        56
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_ayts_faguang04_07",
+      "texture": "946Z4xhztOSoy710mJwMid",
+      "rect": [
+        1,
+        1,
+        54,
+        55
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        56,
+        56
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_ayts_faguang05_08",
+      "texture": "50GdK0hZFC57kfYH9OmeX5",
+      "rect": [
+        1,
+        1,
+        54,
+        55
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        56,
+        56
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

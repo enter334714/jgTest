@@ -1,0 +1,345 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_shifang_10",
+      "texture": "9d0tNsl0lLhY/ujMitcLMs",
+      "rect": [
+        0,
+        55,
+        206,
+        90
+      ],
+      "offset": [
+        -27.5,
+        30
+      ],
+      "originalSize": [
+        261,
+        260
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_shifang_05",
+      "texture": "d1SpV2j2NOepC/H95cWKID",
+      "rect": [
+        39,
+        26,
+        202,
+        198
+      ],
+      "offset": [
+        9.5,
+        5
+      ],
+      "originalSize": [
+        261,
+        260
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_shifang_06",
+      "texture": "2fFtxjMoNI3qVA/yZmFGtY",
+      "rect": [
+        21,
+        13,
+        240,
+        210
+      ],
+      "offset": [
+        10.5,
+        12
+      ],
+      "originalSize": [
+        261,
+        260
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_shifang_01",
+      "texture": "23L8NzDK1KPb2Dv/5FhZcH",
+      "rect": [
+        53,
+        96,
+        180,
+        138
+      ],
+      "offset": [
+        12.5,
+        -35
+      ],
+      "originalSize": [
+        261,
+        260
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_shifang_03",
+      "texture": "bd/NJCWD9IvJ9riUpaa+og",
+      "rect": [
+        69,
+        51,
+        178,
+        209
+      ],
+      "offset": [
+        27.5,
+        -25.5
+      ],
+      "originalSize": [
+        261,
+        260
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_shifang_08",
+      "texture": "ad2qR+7mFHwL8x+w8sa/Kb",
+      "rect": [
+        11,
+        11,
+        225,
+        151
+      ],
+      "offset": [
+        -7,
+        43.5
+      ],
+      "originalSize": [
+        261,
+        260
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_shifang_07",
+      "texture": "afq+Zc+odMfaczCoURwg8d",
+      "rect": [
+        9,
+        0,
+        249,
+        214
+      ],
+      "offset": [
+        3,
+        23
+      ],
+      "originalSize": [
+        261,
+        260
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_shifang_09",
+      "texture": "90QKKkgxpNbYJVTvo35xE6",
+      "rect": [
+        10,
+        25,
+        230,
+        132
+      ],
+      "offset": [
+        -5.5,
+        39
+      ],
+      "originalSize": [
+        261,
+        260
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_shifang_04",
+      "texture": "d1wHCD71FFUovmXzK2t5Os",
+      "rect": [
+        60,
+        26,
+        181,
+        224
+      ],
+      "offset": [
+        20,
+        -8
+      ],
+      "originalSize": [
+        261,
+        260
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_shifang_02",
+      "texture": "f76vLh5ytDC53XVQJiP168",
+      "rect": [
+        62,
+        77,
+        167,
+        163
+      ],
+      "offset": [
+        15,
+        -28.5
+      ],
+      "originalSize": [
+        261,
+        260
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "liehuojianfa-b2",
+    "_duration": 0.31666666666666665,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "6aCcz33AJK9rMaoW1nGK5x"
+              }
+            },
+            {
+              "frame": 0.03333333333333333,
+              "value": {
+                "__uuid__": "d5bBqktO1KOaHY9HgwIebe"
+              }
+            },
+            {
+              "frame": 0.06666666666666667,
+              "value": {
+                "__uuid__": "87NNys0i1NdIIPirORuQBE"
+              }
+            },
+            {
+              "frame": 0.1,
+              "value": {
+                "__uuid__": "caLJP9NF5Ij5dCYERtUezN"
+              }
+            },
+            {
+              "frame": 0.13333333333333333,
+              "value": {
+                "__uuid__": "2dpXEqKvxOk5/VQlfGTcSK"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "5dgRKO1fdG+IJzZ9ClcbY1"
+              }
+            },
+            {
+              "frame": 0.2,
+              "value": {
+                "__uuid__": "b5In5Pa6tIv7a++EHNwQvs"
+              }
+            },
+            {
+              "frame": 0.23333333333333334,
+              "value": {
+                "__uuid__": "88lr/5vZJJ3pAlnEtF2spi"
+              }
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": {
+                "__uuid__": "b930bv8zhNI4QdAxsXd0Ue"
+              }
+            },
+            {
+              "frame": 0.3,
+              "value": {
+                "__uuid__": "2bWqBN3NxHV45XILhVUe/Z"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+]

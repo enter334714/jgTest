@@ -1,0 +1,76 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "chaozhigifttypeConfig",
+  "json": {
+    "1": {
+      "desc": "成长礼包",
+      "first_gift": 101,
+      "args": [
+        1,
+        1
+      ],
+      "duration": 0,
+      "sort": 10
+    },
+    "2": {
+      "desc": "金币礼包",
+      "first_gift": 201,
+      "args": [
+        20,
+        1
+      ],
+      "duration": 86400,
+      "sort": 20
+    },
+    "3": {
+      "desc": "洗练石礼包",
+      "first_gift": 301,
+      "args": [
+        30,
+        1
+      ],
+      "duration": 86400,
+      "sort": 50
+    },
+    "4": {
+      "desc": "书页礼包",
+      "first_gift": 401,
+      "args": [
+        30,
+        1
+      ],
+      "duration": 86400,
+      "sort": 30
+    },
+    "5": {
+      "desc": "装备精华礼包",
+      "first_gift": 501,
+      "args": [
+        30,
+        1
+      ],
+      "duration": 604800,
+      "sort": 40
+    },
+    "6": {
+      "desc": "淬炼石礼包",
+      "first_gift": 601,
+      "args": [
+        50,
+        4
+      ],
+      "duration": 86400,
+      "sort": 60
+    },
+    "7": {
+      "desc": "符文礼包",
+      "first_gift": 701,
+      "args": [
+        50,
+        4
+      ],
+      "duration": 604800,
+      "sort": 70
+    }
+  }
+}

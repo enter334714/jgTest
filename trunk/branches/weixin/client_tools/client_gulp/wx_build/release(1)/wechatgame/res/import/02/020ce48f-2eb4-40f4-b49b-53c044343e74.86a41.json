@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_xingongneng_icon_shenbing",
+    "texture": "5fJ1m7zY9LPJjN0AbZVSzE",
+    "rect": [
+      8,
+      0,
+      80,
+      104
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      96,
+      104
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

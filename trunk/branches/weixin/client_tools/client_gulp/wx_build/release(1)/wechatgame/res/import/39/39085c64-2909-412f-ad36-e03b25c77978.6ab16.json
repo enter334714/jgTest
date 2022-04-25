@@ -1,0 +1,206 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "astrolabeConfig",
+  "json": {
+    "1": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 101,
+      "star_fashi": 501,
+      "star_daoshi": 601
+    },
+    "2": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 102,
+      "star_fashi": 502,
+      "star_daoshi": 602
+    },
+    "3": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 103,
+      "star_fashi": 503,
+      "star_daoshi": 603
+    },
+    "4": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 104,
+      "star_fashi": 504,
+      "star_daoshi": 604
+    },
+    "5": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 201,
+      "star_fashi": 201,
+      "star_daoshi": 201
+    },
+    "6": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 202,
+      "star_fashi": 202,
+      "star_daoshi": 202
+    },
+    "7": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 203,
+      "star_fashi": 203,
+      "star_daoshi": 203
+    },
+    "8": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 204,
+      "star_fashi": 204,
+      "star_daoshi": 204
+    },
+    "9": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 301,
+      "star_fashi": 301,
+      "star_daoshi": 301
+    },
+    "10": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 302,
+      "star_fashi": 302,
+      "star_daoshi": 302
+    },
+    "11": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 303,
+      "star_fashi": 303,
+      "star_daoshi": 303
+    },
+    "12": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 304,
+      "star_fashi": 304,
+      "star_daoshi": 304
+    },
+    "13": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 401,
+      "star_fashi": 401,
+      "star_daoshi": 401
+    },
+    "14": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 402,
+      "star_fashi": 402,
+      "star_daoshi": 402
+    },
+    "15": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 403,
+      "star_fashi": 403,
+      "star_daoshi": 403
+    },
+    "16": {
+      "type": 0,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 404,
+      "star_fashi": 404,
+      "star_daoshi": 404
+    },
+    "1001": {
+      "type": 1,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 701,
+      "star_fashi": 701,
+      "star_daoshi": 701
+    },
+    "1002": {
+      "type": 1,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 702,
+      "star_fashi": 702,
+      "star_daoshi": 702
+    },
+    "1003": {
+      "type": 1,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 703,
+      "star_fashi": 703,
+      "star_daoshi": 703
+    },
+    "1004": {
+      "type": 1,
+      "lev": 55,
+      "ress": 0,
+      "gem": 200,
+      "star_zhanshi": 704,
+      "star_fashi": 704,
+      "star_daoshi": 704
+    },
+    "2001": {
+      "type": 2,
+      "lev": 55,
+      "ress": 0
+    },
+    "2002": {
+      "type": 2,
+      "lev": 70,
+      "ress": 500
+    },
+    "2003": {
+      "type": 2,
+      "lev": 75,
+      "ress": 1000
+    },
+    "2004": {
+      "type": 2,
+      "lev": 80,
+      "ress": 2000
+    }
+  }
+}

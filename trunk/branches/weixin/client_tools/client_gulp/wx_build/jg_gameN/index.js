@@ -10,6 +10,7 @@ window.ENV = 1;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
+window.isWaiFangWx = false;
 window.PF_INFO = {
   base_cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
   cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
@@ -264,10 +265,10 @@ window.sdkInit = function() {
 /*sdk初始化回调*/
 window.sdkOnInited = function(res) {
   var develop = res.develop;
+  sdkInitRes = res;
   // res.game_ver = "1.0.86";
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
   console.log("#初始化成功   提审状态:"+ develop +"   是否提审:"+ (develop == 1) +"   提审版本号:"+res.game_ver +"   当前版本号:"+window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
-  sdkInitRes = res;
   if (!res.game_ver || window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
     console.log("#正式版=============================");
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
@@ -521,7 +522,7 @@ window.reqPkgOptionsCallBack = function(data) {
 }
 
 
-window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback) {
+window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback, appleprd_id) {
   productId = String(productId)
   var productname = productName
   var productdesc = productDesc
@@ -698,11 +699,11 @@ window.reqPlayerAskInfo = function(packageName, role_id, serverId, callBack) {
   }, callBack);
 }
 //调起订阅消息
-window.openSubscribeMsg = function(ids, callback) {
+window.openSubscribeMsg = function (ids, callback,objIds) {
   function onTouchEnd(res) {
     var data = [];
     var tmpIds = [];
-    var tmpObj = window.config.tmpId;
+    var tmpObj = objIds || window.config.tmpId;
     for (var id in tmpObj) {
         var idn = Number(id);
         if (!ids || !ids.length || ids.indexOf(idn)!=-1) { //ids为空表示所有都请求
@@ -1024,12 +1025,6 @@ window.reqServerRecommendCallBack = function(data) {
   }
 }
 window.changeServerName = function(lst) {
-  if(!lst && lst.length <= 0) return lst;
-  for(let i = 0; i < lst.length; i++) {
-      if(lst[i].is_recommend && lst[i].is_recommend == 1) {
-          lst[i].server_name += "(推荐)";
-      }
-  }
   return lst;
 }
 window.req_server_notice = function(server_id, callback) {
@@ -1226,7 +1221,11 @@ window.enterToGame = function() {
           platData[k] = window.pkgOptions[k];
         }
       }
-
+      setTimeout(() => {
+        AKSDK.openBox(()=>{
+          
+        });
+      }, 5000);
       window.MainWX.instance.initPlatdata(platData);
       if (PF_INFO.selectedServer && PF_INFO.selectedServer.server_id) localStorage.setItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account, PF_INFO.selectedServer.server_id);
     }

@@ -1,0 +1,308 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_npc_jianding",
+      "texture": "e5vit4hW5PG7tfwEUR0JvV",
+      "rect": [
+        2,
+        236,
+        76,
+        76
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        76,
+        76
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_npc_tianguanlaoren",
+      "texture": "e5vit4hW5PG7tfwEUR0JvV",
+      "rect": [
+        2,
+        158,
+        76,
+        76
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        76,
+        76
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "npc_shudian",
+      "texture": "e5vit4hW5PG7tfwEUR0JvV",
+      "rect": [
+        158,
+        2,
+        76,
+        76
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        76,
+        76
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_npc_wunv",
+      "texture": "e5vit4hW5PG7tfwEUR0JvV",
+      "rect": [
+        158,
+        80,
+        76,
+        76
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        76,
+        76
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "npc_yunyoushangren",
+      "texture": "e5vit4hW5PG7tfwEUR0JvV",
+      "rect": [
+        2,
+        2,
+        76,
+        76
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        76,
+        76
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "npc_laobing",
+      "texture": "e5vit4hW5PG7tfwEUR0JvV",
+      "rect": [
+        2,
+        80,
+        76,
+        76
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        76,
+        76
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "npc_huishou",
+      "texture": "e5vit4hW5PG7tfwEUR0JvV",
+      "rect": [
+        80,
+        80,
+        76,
+        76
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        76,
+        76
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteAtlas",
+    "_name": "city.plist",
+    "_spriteFrames": {
+      "img_npc_jianding": {
+        "__uuid__": "10LHfrxcxO5Iu09iX0xcYa"
+      },
+      "img_npc_kuangkengshouwei": {
+        "__uuid__": "calI2UoPlPsbHQVVSDoRBt"
+      },
+      "img_npc_meilaoban": {
+        "__uuid__": "e8ZF+a26ZJI7ydRrXoh+TZ"
+      },
+      "img_npc_tianguanlaoren": {
+        "__uuid__": "1ai2oTjQBB8KFFOYTGiswK"
+      },
+      "img_npc_wunv": {
+        "__uuid__": "41DMJKZHNIkqAO2jRkjUAy"
+      },
+      "npc_huishou": {
+        "__uuid__": "62NosroMVJkKPOFNejm1vw"
+      },
+      "npc_laobing": {
+        "__uuid__": "619UX39YBIH7TqAhJ/2yZd"
+      },
+      "npc_shudian": {
+        "__uuid__": "2fZjQIKURD2rQofdSOZmcV"
+      },
+      "npc_yaodian": {
+        "__uuid__": "9fi5Rm/5pOtIgck8DdWmJ0"
+      },
+      "npc_yunyoushangren": {
+        "__uuid__": "589xRUGPpO4oCBDJDio/th"
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "npc_yaodian",
+      "texture": "e5vit4hW5PG7tfwEUR0JvV",
+      "rect": [
+        80,
+        2,
+        76,
+        76
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        76,
+        76
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_npc_kuangkengshouwei",
+      "texture": "e5vit4hW5PG7tfwEUR0JvV",
+      "rect": [
+        158,
+        158,
+        76,
+        76
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        76,
+        76
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_npc_meilaoban",
+      "texture": "e5vit4hW5PG7tfwEUR0JvV",
+      "rect": [
+        80,
+        158,
+        76,
+        76
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        76,
+        76
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

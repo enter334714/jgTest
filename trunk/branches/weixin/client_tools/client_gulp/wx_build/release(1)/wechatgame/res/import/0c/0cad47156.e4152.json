@@ -1,0 +1,530 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "btn_lingqujiangli",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        103,
+        397,
+        104,
+        34
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        104,
+        34
+      ],
+      "rotated": 1,
+      "capInsets": [
+        17,
+        12,
+        16,
+        10
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbao_648",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        10,
+        987,
+        85,
+        16
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        85,
+        16
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbaobeijing_6",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        119,
+        657,
+        71,
+        42
+      ],
+      "offset": [
+        0.5,
+        0
+      ],
+      "originalSize": [
+        130,
+        130
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbaobeijing_328",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        10,
+        397,
+        115,
+        73
+      ],
+      "offset": [
+        0.5,
+        -0.5
+      ],
+      "originalSize": [
+        130,
+        130
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbaobeijing_98",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        10,
+        657,
+        96,
+        53
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        130,
+        130
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbao_328",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        83,
+        657,
+        87,
+        16
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        87,
+        16
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbao_398",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        10,
+        882,
+        85,
+        16
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        85,
+        16
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_tequanhuowu_bg",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        10,
+        10,
+        152,
+        207
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        152,
+        207
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteAtlas",
+    "_name": "chongzhi.plist",
+    "_spriteFrames": {
+      "img_tequanhuowu_bg": {
+        "__uuid__": "64k4wtLcdFx5lJF3c/Vh7I"
+      },
+      "guangxiao": {
+        "__uuid__": "f3egsI7dNNRq3nBSQRHQFt"
+      },
+      "yuanbaobeijing_328": {
+        "__uuid__": "24f/Js1u9Jqb9yjrJA+l7H"
+      },
+      "yuanbaobeijing_648": {
+        "__uuid__": "d62CSS/5JGnYTSYjoCMKxp"
+      },
+      "btn_lingqujiangli": {
+        "__uuid__": "05zZ8DuFZOjZbTOheD3rd5"
+      },
+      "yuanbaobeijing_98": {
+        "__uuid__": "2c/9+pJ6xKva/O4TxdmE/q"
+      },
+      "yuanbaobeijing_198": {
+        "__uuid__": "baJQvGTvFPH7xQuQmKDMFA"
+      },
+      "yuanbao_328": {
+        "__uuid__": "30Nv4c+6ZC0oT3Zlqj048U"
+      },
+      "yuanbao_398": {
+        "__uuid__": "57NilIkfxOSaeEj3hYaizc"
+      },
+      "yuanbao_648": {
+        "__uuid__": "17hgTWgllK9K4y+FK2hIk0"
+      },
+      "yuanbao_198": {
+        "__uuid__": "ee6vuY6y9J3bDWL3mz7mba"
+      },
+      "yuanbaobeijing_30": {
+        "__uuid__": "ef+UG2nKVG+K37yCWKRgkn"
+      },
+      "yuanbao_30": {
+        "__uuid__": "d9MvtF8UJM36wLBGsO4gMJ"
+      },
+      "yuanbao_98": {
+        "__uuid__": "84r7xJVrZIfaQ5+MN+EyWE"
+      },
+      "yuanbaobeijing_6": {
+        "__uuid__": "21jdTwL89HgJQsRlb6q0+j"
+      },
+      "yuanbao_6": {
+        "__uuid__": "ddLUcx/FZNsIFoN3WTQyeS"
+      },
+      "yuanbaobeijing_398": {
+        "__uuid__": "f6Fwn8GvtJbbVjz06Es7xl"
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbao_98",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        112,
+        764,
+        73,
+        16
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        73,
+        16
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbaobeijing_198",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        10,
+        773,
+        82,
+        89
+      ],
+      "offset": [
+        -2,
+        -0.5
+      ],
+      "originalSize": [
+        130,
+        130
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbaobeijing_648",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        10,
+        532,
+        105,
+        100
+      ],
+      "offset": [
+        0.5,
+        0
+      ],
+      "originalSize": [
+        130,
+        130
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbao_30",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        115,
+        979,
+        74,
+        16
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        16
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbao_6",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        148,
+        748,
+        63,
+        16
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        63,
+        16
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbao_198",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        46,
+        882,
+        81,
+        16
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        81,
+        16
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbaobeijing_30",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        82,
+        882,
+        77,
+        48
+      ],
+      "offset": [
+        0.5,
+        0
+      ],
+      "originalSize": [
+        130,
+        130
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "guangxiao",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        10,
+        237,
+        140,
+        140
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        140,
+        140
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yuanbaobeijing_398",
+      "texture": "5ewAjPTgBMlZe4XPbivYvJ",
+      "rect": [
+        10,
+        397,
+        115,
+        73
+      ],
+      "offset": [
+        0.5,
+        -0.5
+      ],
+      "originalSize": [
+        130,
+        130
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

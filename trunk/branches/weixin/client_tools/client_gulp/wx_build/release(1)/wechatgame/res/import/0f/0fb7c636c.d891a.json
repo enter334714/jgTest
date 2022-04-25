@@ -1,0 +1,129 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_tongyong",
+      "texture": "86U+NTOu9I4oZmmFMCJwk1",
+      "rect": [
+        27,
+        2,
+        23,
+        20
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        23,
+        20
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_daoshitb",
+      "texture": "86U+NTOu9I4oZmmFMCJwk1",
+      "rect": [
+        24,
+        24,
+        23,
+        20
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        23,
+        20
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_fashitb",
+      "texture": "86U+NTOu9I4oZmmFMCJwk1",
+      "rect": [
+        2,
+        24,
+        23,
+        20
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        23,
+        20
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_zhanshitb",
+      "texture": "86U+NTOu9I4oZmmFMCJwk1",
+      "rect": [
+        2,
+        2,
+        23,
+        20
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        23,
+        20
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteAtlas",
+    "_name": "markIcon.plist",
+    "_spriteFrames": {
+      "img_daoshitb": {
+        "__uuid__": "10JcEA/SREIKE4Ylr25Imh"
+      },
+      "img_fashitb": {
+        "__uuid__": "12qzT6OkpEsLw2PNbmI9K/"
+      },
+      "img_tongyong": {
+        "__uuid__": "00V5swVQRB2IUPNJhMly0O"
+      },
+      "img_zhanshitb": {
+        "__uuid__": "43XkHwJSZMmafsb8Y7AwU0"
+      }
+    }
+  }
+]

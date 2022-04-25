@@ -10,6 +10,7 @@ window.ENV = 1;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
+window.isWaiFangWx = false;
 window.PF_INFO = {
   base_cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
   cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",

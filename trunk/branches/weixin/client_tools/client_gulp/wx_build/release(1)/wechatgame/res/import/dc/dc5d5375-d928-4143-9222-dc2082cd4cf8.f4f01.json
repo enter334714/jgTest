@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_icon_shengshenzhanjiashu_01",
+    "texture": "a8oRx8eERJoI/gNyVr+F1h",
+    "rect": [
+      10,
+      12,
+      60,
+      58
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      80,
+      80
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

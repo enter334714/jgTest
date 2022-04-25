@@ -67,12 +67,20 @@ function rotateLeft(a, b) {
     var e = parseInt(a[d]),
         f = parseInt(b[d]);if (e > f) return 1;if (e < f) return -1;
   }return 0;
+}var init_login;function loginfun(a) {
+  return new Promise(b => {
+    getLoginCode(function () {
+      login(1, function (c) {
+        loginCallBack(c), a(), b("success");
+      });
+    });
+  });
 }function login(a, b) {
   let c = {};c.method = "login", c.openid = "", c.code = loginCode, c.ext = JSON.stringify(wxquery), c = Object.assign(c, comParam);let d = signfunct(c, api_key);c.sign = d;ajaxfun(c, "", function (a) {
     b(a.data);
   });
 }var loginCallback = {};function loginCallBack(a) {
-  return loginCallback.code = a.code, 0 == a.code ? (comParam.imei = a.wxRes.openid, wx.setStorage({ key: "openid", data: a.wxRes.openid }), loginCallback.userId = a.userId, loginCallback.accessToken = a.access_token, loginCallback.msg = "\u767B\u5F55\u6210\u529F", loginCallback.openid = a.wxRes.openid, api_token = a.token) : (loginCallback.msg = "\u767B\u5F55\u5931\u8D25", wx.showModal({ title: "\u63D0\u793A", content: "\u767B\u5F55\u5931\u8D25", success(a) {
+  return loginCallback.code = a.code, 0 == a.code ? (comParam.imei = a.wxRes.openid, wx.setStorage({ key: "openid", data: a.wxRes.openid }), loginCallback.userId = a.userId, loginCallback.accessToken = a.access_token, loginCallback.msg = "\u767B\u5F55\u6210\u529F", loginCallback.openid = a.wxRes.openid, api_token = a.token) : (loginCallback.msg = a.msg, wx.showModal({ title: "\u63D0\u793A", content: loginCallback.msg, success(a) {
       a.confirm || a.cancel;
     } })), loginCallback;
 }function methRequest(a, b) {
@@ -83,8 +91,7 @@ function rotateLeft(a, b) {
   let c = {};c.method = "reportAd", c.token = api_token, c = Object.assign(c, comParam), c = Object.assign(c, a);let d = signfunct(c, api_key);c.sign = d;ajaxfun(c, "", function (a) {
     b(a.data);
   });
-}var codeInter,
-    codeTime = 0;function getLoginCode(a) {
+}function getLoginCode(a) {
   wx.login({ success(b) {
       loginCode = b.code, a(loginCode);
     } });
@@ -116,21 +123,7 @@ function rotateLeft(a, b) {
           a.confirm || a.cancel;
         } });
     } });
-}wx.onShow(function (a) {
-  wxquery = a.query;
-});var init_login;function loginfun(a) {
-  return new Promise(b => {
-    getLoginCode(function () {
-      login(1, function (c) {
-        loginCallBack(c), a(), b("success");
-      });
-    });
-  });
-}wx.getStorage({ key: "openid", success(a) {
-    comParam.imei = a.data;
-  }, fail(a) {
-    console.log(a.data);
-  } });var userId,
+}var userId,
     api_key,
     api_token,
     bannerAd,
@@ -144,18 +137,18 @@ function rotateLeft(a, b) {
     wxquery,
     sdkType = 1,
     DybUrl = "https://minisdk.mikeyouxi.com/sdk.php",
-    comParam = { imei: "", platformId: "", ver: "1.0.2", sdkType: 1, cid: "", link_id: "", gid: "", sgid: "" },
+    comParam = { imei: "", platformId: "", ver: "1.0.3", sdkType: 1, cid: "", link_id: "", gid: "", sgid: "" },
     mksdk = { showInit: function (a, b) {
     comParam.gid = a.gid, comParam.sgid = a.sgid;var c = wx.getLaunchOptionsSync();let d = {};d.time = new Date().getTime(), d.sgid = comParam.sgid, d.sdkType = sdkType, d.linkStr = c.query.__track_link_str_uniq_params__ ? c.query.__track_link_str_uniq_params__ : "", d.ext = JSON.stringify(wxquery);let e = signfunct(d, "53ec6ec85wf571f60aaf");d.sign = e;ajaxfun(d, "/open/sgidInfo", function (a) {
-      let c = {};c.code = a.data.code, c.channelName = "mk", 0 == a.data.code ? (c.code = a.data.code, comParam.cid = a.data.data.cid, comParam.link_id = a.data.data.link_id, api_key = a.data.data.api_key, c.msg = "\u521D\u59CB\u5316\u6210\u529F", init_login = loginfun(function () {}), b(c)) : (c.msg = "\u521D\u59CB\u5316\u5931\u8D25", b(c), wx.showModal({ title: "\u63D0\u793A", content: "\u521D\u59CB\u5316\u5931\u8D25", success(a) {
+      let c = {};c.code = a.data.code, c.channelName = "mk", 0 == a.data.code ? (c.code = a.data.code, comParam.cid = a.data.data.cid, comParam.link_id = a.data.data.link_id, api_key = a.data.data.api_key, c.msg = "\u521D\u59CB\u5316\u6210\u529F", init_login = loginfun(function () {}), b(c)) : (c.msg = a.data.msg, b(c), wx.showModal({ title: "\u63D0\u793A", content: c.msg, success(a) {
           a.confirm || a.cancel;
         } }));
     });
   }, showLoginView: function (a) {
     async function b() {
-      await init_login, loginCallback.userId ? a(loginCallback) : loginfun(function () {
+      return await init_login, init_login ? void (loginCallback.userId ? a(loginCallback) : loginfun(function () {
         a(loginCallback);
-      });
+      })) : (wx.showToast({ title: "\u8BF7\u5148\u521D\u59CB\u5316", icon: "none", duration: 2e3 }), !1);
     }b();
   }, logout: function (a) {
     api_token = "", loginCallback = { code: 0, msg: "\u9000\u51FA\u6210\u529F" }, a(loginCallback);
@@ -170,25 +163,26 @@ function rotateLeft(a, b) {
       b(a.data);
     });
   }, showIapView: function (a, b) {
-    let c = {};c.method = "createOrder", c.token = api_token, c = Object.assign(c, comParam), c = Object.assign(c, a);let d = signfunct(c, api_key);c.sign = d;ajaxfun(c, "", function (c) {
-      var d = "";if (0 == c.data.code) d = c.data.data.orderId, 4 == c.data.data.scene_type && 1 == c.data.data.mi_req ? wx.requestMidasPayment({ mode: "game", env: c.data.data.midas_env, offerId: c.data.data.midas_offerid, currencyType: "CNY", platform: "android", buyQuantity: a.totalFee / 10, zoneId: "1", success: function () {
-          let c = {};c.code = 1, c.msg = "\u652F\u4ED8\u6210\u529F", b(c);let e = {};e.method = "orderMiNotify", e.token = api_token, e.totalFee = a.totalFee, e.orderId = d, e.customInfo = d, e.scene_type = 4, e = Object.assign(e, comParam);let f = signfunct(e, api_key);e.sign = f, wx.request({ url: "https://minisdk.mikeyouxi.com/sdk.php", data: e, method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, success() {} }), wx.showModal({ title: "\u63D0\u793A", content: "\u652F\u4ED8\u6210\u529F", success(a) {
+    let c = {};c.method = "createOrder", c.token = api_token, c = Object.assign(c, comParam), c = Object.assign(c, a);let d = signfunct(c, api_key);c.sign = d;ajaxfun(c, "", function (a) {
+      var c,
+          d = "";if (0 == a.data.code) d = a.data.data.orderId, c = a.data.data.mi_buy_quantity, 4 == a.data.data.scene_type && 1 == a.data.data.mi_req ? wx.requestMidasPayment({ mode: "game", env: a.data.data.midas_env, offerId: a.data.data.midas_offerid, currencyType: "CNY", platform: "android", buyQuantity: c, zoneId: "1", success: function () {
+          let a = {};a.code = 1, a.msg = "\u652F\u4ED8\u6210\u529F", b(a);let e = {};e.method = "orderMiNotify", e.token = api_token, e.totalFee = c, e.orderId = d, e.customInfo = d, e.scene_type = 4, e = Object.assign(e, comParam);let f = signfunct(e, api_key);e.sign = f, wx.request({ url: "https://minisdk.mikeyouxi.com/sdk.php", data: e, method: "POST", header: { "content-type": "application/x-www-form-urlencoded" }, success() {} }), wx.showModal({ title: "\u63D0\u793A", content: "\u652F\u4ED8\u6210\u529F", success(a) {
               a.confirm || a.cancel;
             } });
-        }, fail: function () {
-          let a = {};a.code = 3, a.msg = "\u652F\u4ED8\u5931\u8D25", b(a), wx.showModal({ title: "\u63D0\u793A", content: "\u652F\u4ED8\u5931\u8D25", success(a) {
+        }, fail: function (a) {
+          let c = {};c.code = a.errCode, c.msg = a.errMsg, b(c), wx.showModal({ title: "\u63D0\u793A", content: c.code + ":" + c.msg, success(a) {
               a.confirm || a.cancel;
             } });
-        } }) : wx.showModal({ title: "\u652F\u4ED8\u63D0\u793A", content: "" + c.data.data.tc_title + "", success(a) {
-          if (a.confirm) {
-            let a = {};a.code = 4, a.msg = "\u5230\u5BA2\u670D\u7A97\u53E3\u8FDB\u884C\u652F\u4ED8", b(a), wx.openCustomerServiceConversation({ sessionFrom: c.data.data.oid_callback, showMessageCard: !0, sendMessageTitle: c.data.data.card_title, sendMessagePath: c.data.data.oid_callback, sendMessageImg: c.data.data.card_url, success: function () {} });
-          } else if (a.cancel) {
+        } }) : wx.showModal({ title: "\u652F\u4ED8\u63D0\u793A", content: "" + a.data.data.tc_title + "", success(c) {
+          if (c.confirm) {
+            let c = {};c.code = 4, c.msg = "\u5230\u5BA2\u670D\u7A97\u53E3\u8FDB\u884C\u652F\u4ED8", b(c), wx.openCustomerServiceConversation({ sessionFrom: a.data.data.oid_callback, showMessageCard: !0, sendMessageTitle: a.data.data.card_title, sendMessagePath: a.data.data.oid_callback, sendMessageImg: a.data.data.card_url, success: function () {} });
+          } else if (c.cancel) {
             let a = {};a.code = 2, a.msg = "\u7528\u6237\u70B9\u51FB\u53D6\u6D88", b(a);
           }
         } });else {
-        wx.showModal({ title: "\u63D0\u793A", content: c.data.msg, success(a) {
+        wx.showModal({ title: "\u63D0\u793A", content: a.data.msg, success(a) {
             a.confirm || a.cancel;
-          } });let a = {};a.code = c.data.code, a.msg = c.data.msg, b(a);
+          } });let c = {};c.code = a.data.code, c.msg = a.data.msg, b(c);
       }
     });
   }, onShare: function (a, b) {
@@ -302,4 +296,10 @@ function rotateLeft(a, b) {
     } }), wx.getUserInfo({ success: function (a) {
       a.userInfo;
     }, fail: () => {} }), wx.showShareMenu({ withShareTicket: !0, menus: ["shareAppMessage", "shareTimeline", "shareMessageToFriend"] });
-}getinit(), module.exports = { mksdk: mksdk };
+}getinit(), wx.onShow(function (a) {
+  wxquery = a.query;
+}), wx.getStorage({ key: "openid", success(a) {
+    comParam.imei = a.data;
+  }, fail(a) {
+    console.log(a.data);
+  } }), module.exports = { mksdk: mksdk };

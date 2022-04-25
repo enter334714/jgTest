@@ -1,0 +1,170 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "PlaceOfTrialTypeConfig",
+  "json": {
+    "1001": {
+      "type": 1,
+      "resource": "img_fontclib_shilianzhidi_jingyanzhishilian",
+      "name": "经验试炼",
+      "numType": 1,
+      "time": 60,
+      "day": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "text": "全周开启",
+      "freeNum": 2,
+      "payNum": 4,
+      "numPrice": [
+        {
+          "2": 200
+        },
+        {
+          "2": 400
+        },
+        {
+          "2": 600
+        },
+        {
+          "2": 800
+        }
+      ],
+      "show": 1,
+      "itemId": "I3940",
+      "map": 1091
+    },
+    "1002": {
+      "type": 2,
+      "resource": "img_fontclib_shilianzhidi_jinbishilian",
+      "name": "金币试炼",
+      "numType": 1,
+      "time": 60,
+      "day": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "text": "全周开启",
+      "freeNum": 2,
+      "payNum": 4,
+      "numPrice": [
+        {
+          "2": 100
+        },
+        {
+          "2": 200
+        },
+        {
+          "2": 300
+        },
+        {
+          "2": 400
+        }
+      ],
+      "show": 1,
+      "itemId": "I3941",
+      "map": 1092
+    },
+    "1003": {
+      "type": 3,
+      "resource": "img_fontclib_shilianzhidi_xilianshishilian",
+      "name": "洗练试炼",
+      "numType": 1,
+      "time": 60,
+      "day": [
+        5,
+        6
+      ],
+      "text": "周五、六开启",
+      "freeNum": 2,
+      "payNum": 4,
+      "numPrice": [
+        {
+          "2": 50
+        },
+        {
+          "2": 100
+        },
+        {
+          "2": 150
+        },
+        {
+          "2": 200
+        }
+      ],
+      "show": 0,
+      "itemId": "I3942",
+      "map": 1093
+    },
+    "1004": {
+      "type": 4,
+      "resource": "img_fontclib_shilianzhidi_cuilianshishilian",
+      "name": "淬炼试炼",
+      "numType": 1,
+      "time": 60,
+      "day": [
+        5,
+        6
+      ],
+      "text": "周五、六开启",
+      "freeNum": 2,
+      "payNum": 4,
+      "numPrice": [
+        {
+          "2": 50
+        },
+        {
+          "2": 100
+        },
+        {
+          "2": 150
+        },
+        {
+          "2": 200
+        }
+      ],
+      "show": 0,
+      "itemId": "I3943",
+      "map": 1094
+    },
+    "1005": {
+      "type": 5,
+      "resource": "img_fontclib_shilianzhidi_fuwenshilian",
+      "name": "符文试炼",
+      "numType": 1,
+      "time": 60,
+      "day": [
+        7
+      ],
+      "text": "周日开启",
+      "freeNum": 2,
+      "payNum": 4,
+      "numPrice": [
+        {
+          "2": 50
+        },
+        {
+          "2": 100
+        },
+        {
+          "2": 150
+        },
+        {
+          "2": 200
+        }
+      ],
+      "show": 0,
+      "itemId": "I3944",
+      "map": 1095
+    }
+  }
+}

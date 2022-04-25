@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "picframe_duanbingxiangjie_55",
+    "texture": "b27jClK/hD7Z+b5ICea1Zt",
+    "rect": [
+      29,
+      11,
+      146,
+      49
+    ],
+    "offset": [
+      0,
+      1.5
+    ],
+    "originalSize": [
+      204,
+      74
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

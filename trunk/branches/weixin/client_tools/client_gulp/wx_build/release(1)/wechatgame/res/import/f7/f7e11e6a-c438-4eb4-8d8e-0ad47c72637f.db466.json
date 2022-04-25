@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ppicframe_shatangpaidui_52",
+    "texture": "c1OlSxJlpCoKeU0hjUyfQa",
+    "rect": [
+      36,
+      6,
+      131,
+      61
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      204,
+      74
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

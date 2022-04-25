@@ -1,0 +1,5020 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "taskConfig",
+  "json": {
+    "1001": {
+      "type": 1,
+      "condition": 1,
+      "limit": [
+        2
+      ],
+      "next_id": 1002,
+      "name": "<color=#ffd87d>【1-1】</c>穿戴任意2件装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，找到在背包中的装备，穿上它们，开始传奇的一生吧",
+      "award_item": {
+        "I1001": 20,
+        "I3006": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1002": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        2,
+        1
+      ],
+      "next_id": 1003,
+      "name": "<color=#ffd87d>【1-2】</c>前往[银杏村外]",
+      "desc": "点击地图上的<color=#ffd87d>[银杏村外]</c>，踏足江湖的第一步，崭新的世界从此开始",
+      "award_item": {
+        "I2001": 20,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1003": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        5
+      ],
+      "next_id": 1004,
+      "name": "<color=#ffd87d>【1-3】</c>消灭村外的怪物",
+      "desc": "<color=#ffd87d>[银杏村外]</c>有些变异的家禽，快去消灭它们，小试身手！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "award_item1": [
+        {
+          "id": "I5003",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "I5202",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "I5103",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "change": 0
+    },
+    "1004": {
+      "type": 1,
+      "condition": 12,
+      "limit": [
+        2
+      ],
+      "next_id": 1005,
+      "name": "<color=#ffd87d>【1-4】</c>学习2个职业技能",
+      "desc": "前往<color=#ffd87d>[角色]</c>→<color=#ffd87d>[技能]</c>面板，学习1个新的<color=#ffd87d>技能</c>！",
+      "award_item": {
+        "I3004": 5,
+        "I3006": 2
+      },
+      "jump": 1003,
+      "change": 0
+    },
+    "1005": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        4
+      ],
+      "next_id": 1006,
+      "name": "<color=#ffd87d>【1-5】</c>角色达到4级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1006": {
+      "type": 1,
+      "condition": 1,
+      "limit": [
+        3
+      ],
+      "next_id": 1007,
+      "name": "<color=#ffd87d>【1-6】</c>穿戴任意3件装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，在背包中的穿戴，若装备不足，可击杀怪物获取！",
+      "award_res": {
+        "1": 20000
+      },
+      "award_item": {
+        "I1001": 20,
+        "I3006": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1007": {
+      "type": 1,
+      "condition": 5,
+      "limit": [
+        3
+      ],
+      "next_id": 1008,
+      "name": "<color=#ffd87d>【1-7】</c>强化任意装备3次",
+      "desc": "强化可提升装备属性，<color=#ffd87d>[角色]</c>→<color=#ffd87d>[强化]</c>，金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I1001": 20,
+        "I3006": 2
+      },
+      "jump": 1002,
+      "change": 0
+    },
+    "1008": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        5
+      ],
+      "next_id": 1009,
+      "name": "<color=#ffd87d>【1-8】</c>继续消灭怪物",
+      "desc": "<color=#ffd87d>[银杏村外]</c>有些变异的家禽，快去消灭它们，小试身手！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1009": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        6,
+        1
+      ],
+      "next_id": 1010,
+      "name": "<color=#ffd87d>【1-9】</c>前往比奇城南",
+      "desc": "往上前进，进入<color=#ffd87d>[比奇城南]</c>，若战力不足，可穿戴更强的装备或强化装备",
+      "award_item": {
+        "I1001": 20,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1010": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        5
+      ],
+      "next_id": 1011,
+      "name": "<color=#ffd87d>【1-10】</c>消灭城外的怪物",
+      "desc": "<color=#ffd87d>[比奇城南]</c>有些怪物在游荡，快去消灭它们，为民除害！",
+      "award_item": {
+        "I2001": 20,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1011": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        6
+      ],
+      "next_id": 1012,
+      "name": "<color=#ffd87d>【2-1】</c>角色达到6级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_res": {
+        "3": 6000
+      },
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2,
+        "I3001": 5
+      },
+      "change": 0
+    },
+    "1012": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        3,
+        1
+      ],
+      "next_id": 1013,
+      "name": "<color=#ffd87d>【2-2】</c>初进比奇城",
+      "desc": "往上前进，即可进入<color=#ffd87d>[比奇城]</c>",
+      "award_item": {
+        "I3006": 10
+      },
+      "change": 0
+    },
+    "1013": {
+      "type": 1,
+      "condition": 10,
+      "limit": [
+        3
+      ],
+      "next_id": 1014,
+      "name": "<color=#ffd87d>【2-3】</c>打造3件勇者装备",
+      "desc": "前往<color=#ffd87d>[比奇城]</c>，找到<color=#ffd87d>[铁匠]</c>对话，打造3件勇者装备~",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1014": {
+      "type": 1,
+      "condition": 6,
+      "limit": [
+        1
+      ],
+      "next_id": 1015,
+      "name": "<color=#ffd87d>【2-4】</c>洗练1次勇者装备",
+      "desc": "选中刚刚打造的装备，点击<color=#ffd87d>[改造]</c>，可根据自身的需求的洗练，洗练出极品属性",
+      "award_item": {
+        "I3006": 2,
+        "I3003": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1015": {
+      "type": 1,
+      "condition": 1,
+      "limit": [
+        4
+      ],
+      "next_id": 1016,
+      "name": "<color=#ffd87d>【2-5】</c>穿戴任意4件装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，在背包中的穿戴，若装备不足，可击杀怪物获取！",
+      "award_item": {
+        "I1001": 20,
+        "I3006": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1016": {
+      "type": 1,
+      "condition": 7,
+      "limit": [
+        "I3006",
+        1
+      ],
+      "next_id": 1017,
+      "name": "<color=#ffd87d>【2-6】</c>使用金锭获得金币",
+      "desc": "前往<color=#ffd87d>[背包]</c>，使用<color=#ffd87d>[金锭]</c>获得大量金币，助你快速提升战力！",
+      "award_item": {
+        "I3001": 10,
+        "I3006": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1017": {
+      "type": 1,
+      "condition": 5,
+      "limit": [
+        10
+      ],
+      "next_id": 1018,
+      "name": "<color=#ffd87d>【2-7】</c>强化任意装备10次",
+      "desc": "强化可提升装备属性，<color=#ffd87d>[角色]</c>→<color=#ffd87d>[强化]</c>，建议使用强化自动跳转。金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I1001": 20,
+        "I3006": 2
+      },
+      "jump": 1002,
+      "change": 0
+    },
+    "1018": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        5,
+        1
+      ],
+      "next_id": 1019,
+      "name": "<color=#ffd87d>【2-8】</c>前往比奇城西",
+      "desc": "从比奇城出发，向左进入<color=#ffd87d>[比奇城西]</c>，若战力不足，可穿戴更强的装备或强化装备！",
+      "award_item": {
+        "I2001": 20,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1019": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        5
+      ],
+      "next_id": 1020,
+      "name": "<color=#ffd87d>【2-9】</c>消灭城外的怪物",
+      "desc": "<color=#ffd87d>[比奇城西]</c>有些怪物在游荡，快去消灭它们，为民除害！",
+      "award_item": {
+        "I3001": 10,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1020": {
+      "type": 1,
+      "condition": 1,
+      "limit": [
+        5
+      ],
+      "next_id": 1021,
+      "name": "<color=#ffd87d>【2-10】</c>穿戴任意5件装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，在背包中的穿戴，若装备不足，可击杀怪物获取！",
+      "award_item": {
+        "I3003": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1021": {
+      "type": 1,
+      "condition": 4,
+      "limit": [
+        1
+      ],
+      "next_id": 1022,
+      "name": "<color=#ffd87d>【3-1】</c>清理背包",
+      "desc": "进入<color=#ffd87d>[角色]</c>界面，点击下方的<color=#ffd87d>[商人]</c>即可进行回收操作，腾出背包空间！",
+      "award_item": {
+        "I1001": 20,
+        "I3006": 2
+      },
+      "jump": 1001,
+      "change": 0
+    },
+    "1022": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        10
+      ],
+      "next_id": 1023,
+      "name": "<color=#ffd87d>【3-2】</c>消灭城外的怪物",
+      "desc": "<color=#ffd87d>[比奇城西]</c>有些怪物在游荡，快去消灭它们，为民除害！",
+      "award_item": {
+        "I1001": 20,
+        "I3006": 2,
+        "I6001": 1
+      },
+      "change": 0
+    },
+    "1023": {
+      "type": 1,
+      "condition": 7,
+      "limit": [
+        "I6001",
+        1
+      ],
+      "next_id": 1024,
+      "name": "<color=#ffd87d>【3-3】</c>使用8级礼包",
+      "desc": "前往<color=#ffd87d>[角色]</c>→<color=#ffd87d>[背包]</c>，使用<color=#ffd87d>[8级礼包]</c>，获取补给！",
+      "award_item": {
+        "I3004": 5,
+        "I3006": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1024": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        10
+      ],
+      "next_id": 1025,
+      "name": "<color=#ffd87d>【3-4】</c>角色达到10级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1025": {
+      "type": 1,
+      "condition": 25,
+      "limit": [
+        5
+      ],
+      "next_id": 1026,
+      "name": "<color=#ffd87d>【3-5】</c>全身装备强化至+5",
+      "desc": "全身各部位强化到5级，建议使用强化自动跳转。金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I1001": 20,
+        "I3006": 2
+      },
+      "award_equip1": [
+        {
+          "id": "E000018",
+          "quality": "4",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "E000018",
+          "quality": "4",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "E000018",
+          "quality": "4",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "jump": 1002,
+      "change": 0
+    },
+    "1026": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1001,
+        1
+      ],
+      "next_id": 1027,
+      "name": "<color=#ffd87d>【3-6】</c>击杀Boss-半兽勇士",
+      "desc": "从<color=#ffd87d>[比奇城西]</c>往上走，到达<color=#ffd87d>[沃玛森林]</c>，并击杀此处的Boss——半兽勇士，用你的实力击败它！",
+      "award_item": {
+        "I3001": 10,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1027": {
+      "type": 1,
+      "condition": 1,
+      "limit": [
+        6
+      ],
+      "next_id": 1028,
+      "name": "<color=#ffd87d>【3-7】</c>穿戴任意6件装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，在背包中的穿戴，若装备不足，可击杀怪物获取！",
+      "award_item": {
+        "I1001": 20,
+        "I3006": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1028": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        10
+      ],
+      "next_id": 1029,
+      "name": "<color=#ffd87d>【3-8】</c>继续消灭怪物",
+      "desc": "<color=#ffd87d>[沃玛森林]</c>怪物众多，快去消灭它们，为民除害！",
+      "award_item": {
+        "I1002": 20,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1029": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        12
+      ],
+      "next_id": 1030,
+      "name": "<color=#ffd87d>【3-9】</c>角色达到12级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1030": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        7,
+        1
+      ],
+      "next_id": 1031,
+      "name": "<color=#ffd87d>【3-10】</c>前往比奇城北",
+      "desc": "路线：<color=#ffd87d>[比奇城]</c>→<color=#ffd87d>[比奇城北]</c>",
+      "award_item": {
+        "I2002": 20,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1031": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        10
+      ],
+      "next_id": 1032,
+      "name": "<color=#ffd87d>【4-1】</c>消灭城外的怪物",
+      "desc": "<color=#ffd87d>[比奇城北]</c>有些怪物在游荡，快去消灭它们，为民除害！",
+      "award_item": {
+        "I3004": 10,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1032": {
+      "type": 1,
+      "condition": 4,
+      "limit": [
+        1
+      ],
+      "next_id": 1033,
+      "name": "<color=#ffd87d>【4-2】</c>清理背包",
+      "desc": "进入<color=#ffd87d>[角色]</c>界面，点击下方的<color=#ffd87d>[商人]</c>即可进行回收操作，腾出背包空间！",
+      "award_item": {
+        "I3004": 10,
+        "I3006": 2
+      },
+      "jump": 1001,
+      "change": 0
+    },
+    "1033": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        9,
+        1
+      ],
+      "next_id": 1034,
+      "name": "<color=#ffd87d>【4-3】</c>前往骷髅洞1层",
+      "desc": "路线：<color=#ffd87d>[比奇城]</c>→<color=#ffd87d>[比奇城北]</c>→<color=#ffd87d>[骷髅洞1层]</c>，若战力不足，可穿戴更强的装备，或强化您的装备",
+      "award_item": {
+        "I1002": 20,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1034": {
+      "type": 1,
+      "condition": 13,
+      "limit": [
+        "setting"
+      ],
+      "next_id": 1035,
+      "name": "<color=#ffd87d>【4-4】</c>调整拾取设置",
+      "desc": "前往<color=#ffd87d>[设置]</c>，可根据自身需求调整拾取设置，建议勾选自动回收非本职业装备",
+      "award_item": {
+        "I2002": 20,
+        "I3006": 2
+      },
+      "jump": 1018,
+      "change": 0
+    },
+    "1035": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        15
+      ],
+      "next_id": 1036,
+      "name": "<color=#ffd87d>【4-5】</c>扫荡骷髅洞",
+      "desc": "<color=#ffd87d>[骷髅洞]</c>内鬼怪众多，快去消灭它们！",
+      "award_item": {
+        "I1002": 20,
+        "I3003": 2,
+        "I3006": 20
+      },
+      "change": 0
+    },
+    "1036": {
+      "type": 1,
+      "condition": 19,
+      "limit": [
+        0,
+        1
+      ],
+      "next_id": 1037,
+      "name": "<color=#ffd87d>【4-6】</c>在坊市购买1个小飞鞋",
+      "desc": "坊市中出售各种道具，物超所值，不要错过哦！",
+      "award_res": {
+        "1": 10000
+      },
+      "award_item": {
+        "I1002": 20,
+        "I3006": 2
+      },
+      "jump": 1010,
+      "change": 0
+    },
+    "1037": {
+      "type": 1,
+      "condition": 25,
+      "limit": [
+        10
+      ],
+      "next_id": 1038,
+      "name": "<color=#ffd87d>【4-7】</c>全身装备强化至+10",
+      "desc": "全身各部位强化到10级，<color=#ffd87d>[角色]</c>→<color=#ffd87d>[强化]</c>，建议使用强化自动跳转。金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I3001": 10,
+        "I3006": 2
+      },
+      "award_equip1": [
+        {
+          "id": "E000016",
+          "quality": "4",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "E000016",
+          "quality": "4",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "E000016",
+          "quality": "4",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "jump": 1002,
+      "change": 0
+    },
+    "1038": {
+      "type": 1,
+      "condition": 1,
+      "limit": [
+        7
+      ],
+      "next_id": 1039,
+      "name": "<color=#ffd87d>【4-8】</c>穿戴任意7件装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，在背包中的穿戴，若装备不足，可通过挂机或打造获取！",
+      "award_item": {
+        "I3001": 10,
+        "I3006": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1039": {
+      "type": 1,
+      "condition": 7,
+      "limit": [
+        "I3006",
+        1
+      ],
+      "next_id": 1040,
+      "name": "<color=#ffd87d>【4-9】</c>使用金锭获得金币",
+      "desc": "前往<color=#ffd87d>[背包]</c>，使用<color=#ffd87d>[金锭]</c>获得大量金币，助你快速提升战力！",
+      "award_item": {
+        "I1002": 20
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1040": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        15
+      ],
+      "next_id": 1041,
+      "name": "<color=#ffd87d>【4-10】</c>角色达到15级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "award_equip1": [
+        {
+          "id": "E000020",
+          "quality": "4",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "E000020",
+          "quality": "4",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "E000020",
+          "quality": "4",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "change": 0
+    },
+    "1041": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        11,
+        1
+      ],
+      "next_id": 1042,
+      "name": "<color=#ffd87d>【5-1】</c>前往骷髅洞3层",
+      "desc": "路线：<color=#ffd87d>[比奇城]</c>→<color=#ffd87d>[比奇城北]</c>→<color=#ffd87d>[骷髅洞1层]</c>→<color=#ffd87d>[骷髅洞2层]</c>→<color=#ffd87d>[骷髅洞3层]</c>",
+      "award_item": {
+        "I1002": 20,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1042": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1002,
+        1
+      ],
+      "next_id": 1043,
+      "name": "<color=#ffd87d>【5-2】</c>击杀Boss-骷髅精灵",
+      "desc": "前往<color=#ffd87d>[骷髅洞3层]</c>，并击杀常驻于此的Boss——骷髅精灵，用你的实力击败它！",
+      "award_item": {
+        "I2002": 20,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1043": {
+      "type": 1,
+      "condition": 1,
+      "limit": [
+        9
+      ],
+      "next_id": 1044,
+      "name": "<color=#ffd87d>【5-3】</c>穿戴任意9件装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，在背包中的穿戴，若装备不足，可通过挂机或打造获取！",
+      "award_item": {
+        "I3001": 10,
+        "I3006": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1044": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        16
+      ],
+      "next_id": 1045,
+      "name": "<color=#ffd87d>【5-4】</c>角色达到16级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1045": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        10
+      ],
+      "next_id": 1046,
+      "name": "<color=#ffd87d>【5-5】</c>清剿怪物",
+      "desc": "<color=#ffd87d>[骷髅洞]</c>内鬼怪众多，快去消灭它们！",
+      "award_item": {
+        "I1001": 20,
+        "I3003": 2,
+        "I3001": 50
+      },
+      "change": 0
+    },
+    "1046": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        18
+      ],
+      "next_id": 1047,
+      "name": "<color=#ffd87d>【5-6】</c>角色达到18级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！别忘了去使用18级礼包哦！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "award_item1": [
+        {
+          "id": "I5005",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "I5203",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "I5104",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "change": 0
+    },
+    "1047": {
+      "type": 1,
+      "condition": 7,
+      "limit": [
+        "I6002",
+        1
+      ],
+      "next_id": 1048,
+      "name": "<color=#ffd87d>【5-7】</c>使用18级礼包",
+      "desc": "前往<color=#ffd87d>[角色]</c>→<color=#ffd87d>[背包]</c>，使用<color=#ffd87d>[18级礼包]</c>，获取补给！",
+      "award_item": {
+        "I3004": 5
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1048": {
+      "type": 1,
+      "condition": 12,
+      "limit": [
+        3
+      ],
+      "next_id": 1049,
+      "name": "<color=#ffd87d>【5-8】</c>学习3个职业技能",
+      "desc": "前往<color=#ffd87d>[角色]</c>→<color=#ffd87d>[背包]</c>，使用群攻技能书，即可学习超强群攻！",
+      "award_item": {
+        "I3001": 10,
+        "I3006": 2,
+        "I9147": 2
+      },
+      "jump": 1003,
+      "change": 0
+    },
+    "1049": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        3,
+        1
+      ],
+      "next_id": 1050,
+      "name": "<color=#ffd87d>【5-9】</c>回到[比奇城]",
+      "desc": "打开右边的世界地图，传送回到<color=#ffd87d>比奇城</c>。",
+      "award_res": {
+        "3": 6000
+      },
+      "award_item": {
+        "I1002": 30,
+        "I3006": 2
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1050": {
+      "type": 1,
+      "condition": 32,
+      "limit": [
+        3
+      ],
+      "next_id": 1051,
+      "name": "<color=#ffd87d>【5-10】</c>再打造3件勇者装备",
+      "desc": "前往<color=#ffd87d>[比奇城]</c>，找到<color=#ffd87d>[铁匠]</c>对话，再次打造3件勇者装备。出门在外，装备最重要！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1051": {
+      "type": 1,
+      "condition": 6,
+      "limit": [
+        1
+      ],
+      "next_id": 1052,
+      "name": "<color=#ffd87d>【6-1】</c>洗练1次勇者装备",
+      "desc": "选中刚刚打造的装备，点击<color=#ffd87d>[改造]</c>，可根据自身的需求的洗练，洗练出极品属性",
+      "award_item": {
+        "I1002": 20,
+        "I3003": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1052": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        14,
+        1
+      ],
+      "next_id": 1053,
+      "name": "<color=#ffd87d>【6-2】</c>前往比奇城东的矿洞",
+      "desc": "路线：<color=#ffd87d>[比奇城]</c>→<color=#ffd87d>[比奇城东]</c>→<color=#ffd87d>[矿洞]</c>→<color=#ffd87d>[东部矿区]</c>→<color=#ffd87d>[采矿所]</c>",
+      "award_item": {
+        "I2002": 30,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1053": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        15
+      ],
+      "next_id": 1054,
+      "name": "<color=#ffd87d>【6-3】</c>清剿怪物",
+      "desc": "<color=#ffd87d>[矿洞]</c>内鬼怪众多，快去消灭它们！",
+      "award_item": {
+        "I1002": 30,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1054": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        33,
+        1
+      ],
+      "next_id": 1055,
+      "name": "<color=#ffd87d>【6-4】</c>前往采矿所1层",
+      "desc": "路线：<color=#ffd87d>[比奇城]</c>→<color=#ffd87d>[比奇城东]</c>→<color=#ffd87d>[矿洞]</c>→<color=#ffd87d>[东部矿区]</c>→<color=#ffd87d>[采矿所]</c>",
+      "award_item": {
+        "I2002": 30,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1055": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        15
+      ],
+      "next_id": 1056,
+      "name": "<color=#ffd87d>【6-5】</c>清剿怪物",
+      "desc": "<color=#ffd87d>[矿洞]</c>内鬼怪众多，快去消灭它们！",
+      "award_item": {
+        "I1002": 30,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1056": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        20
+      ],
+      "next_id": 1057,
+      "name": "<color=#ffd87d>【6-6】</c>角色达到20级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1057": {
+      "type": 1,
+      "condition": 25,
+      "limit": [
+        15
+      ],
+      "next_id": 1058,
+      "name": "<color=#ffd87d>【6-7】</c>全身各装备强化至+15",
+      "desc": "强化可提升装备属性，<color=#ffd87d>[角色]</c>→<color=#ffd87d>[强化]</c>，建议使用强化自动跳转。金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I1003": 100,
+        "I2003": 100
+      },
+      "jump": 1002,
+      "change": 0
+    },
+    "1058": {
+      "type": 1,
+      "condition": 13,
+      "limit": [
+        "setting"
+      ],
+      "next_id": 1059,
+      "name": "<color=#ffd87d>【6-8】</c>设置使用中级药品",
+      "desc": "前往<color=#ffd87d>[设置]</c>调整药品设置，低级的药品已无法保证您的续航。建议血量及蓝量低于70%时，选择使用<color=#ffd87d>中级药品</c>。",
+      "award_item": {
+        "I2003": 20,
+        "I3006": 10
+      },
+      "jump": 1018,
+      "change": 0
+    },
+    "1059": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        34,
+        1
+      ],
+      "next_id": 1060,
+      "name": "<color=#ffd87d>【6-9】</c>前往采矿所2层",
+      "desc": "路线：<color=#ffd87d>[比奇城]</c>→<color=#ffd87d>[比奇城东]</c>→<color=#ffd87d>[矿洞]</c>→<color=#ffd87d>[东部矿区]</c>→<color=#ffd87d>[采矿所]</c>",
+      "award_item": {
+        "I2003": 30,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1060": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1003,
+        1
+      ],
+      "next_id": 1061,
+      "name": "<color=#ffd87d>【6-10】</c>击杀Boss-尸王",
+      "desc": "杀常驻于此的Boss——尸王，用你的实力击败它！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1061": {
+      "type": 1,
+      "condition": 1,
+      "limit": [
+        10
+      ],
+      "next_id": 1062,
+      "name": "<color=#ffd87d>【7-1】</c>穿戴任意10件装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，在背包中的穿戴，若装备不足，可通过挂机或打造获取！",
+      "award_item": {
+        "I3001": 10,
+        "I3006": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1062": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        20
+      ],
+      "next_id": 1063,
+      "name": "<color=#ffd87d>【7-2】</c>清剿怪物",
+      "desc": "<color=#ffd87d>[矿洞]</c>内鬼怪众多，快去消灭它们！",
+      "award_item": {
+        "I1003": 30,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1063": {
+      "type": 1,
+      "condition": 28,
+      "limit": [
+        4800
+      ],
+      "next_id": 1064,
+      "name": "<color=#ffd87d>【7-3】</c>战力达到4800",
+      "desc": "强化、洗练、学习技能、穿戴更好的装备，可以提高战力！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "award_equip1": [
+        {
+          "id": "E000019",
+          "quality": "4",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "E000019",
+          "quality": "4",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "E000019",
+          "quality": "4",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "jump": 1002,
+      "change": 0
+    },
+    "1064": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        8,
+        1
+      ],
+      "next_id": 1065,
+      "name": "<color=#ffd87d>【7-4】</c>前往毒蛇山谷",
+      "desc": "路线：<color=#ffd87d>[比奇城]</c>→<color=#ffd87d>[比奇城东]</c>→<color=#ffd87d>[毒蛇山谷]</c>。也可使用小飞鞋传送。",
+      "award_item": {
+        "I2003": 20,
+        "I3003": 2
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1065": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        10
+      ],
+      "next_id": 1066,
+      "name": "<color=#ffd87d>【7-5】</c>消灭谷中的魔物",
+      "desc": "前方有些魔物，可能有毒，快去消灭它们！",
+      "award_item": {
+        "I1003": 20,
+        "I3006": 2,
+        "I3001": 20
+      },
+      "change": 0
+    },
+    "1066": {
+      "type": 1,
+      "condition": 7,
+      "limit": [
+        "I3006",
+        1
+      ],
+      "next_id": 1067,
+      "name": "<color=#ffd87d>【7-6】</c>使用金锭获得金币",
+      "desc": "前往<color=#ffd87d>[背包]</c>，使用<color=#ffd87d>[金锭]</c>获得大量金币，助你快速提升战力！",
+      "award_item": {
+        "I1003": 20
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1067": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        24
+      ],
+      "next_id": 1068,
+      "name": "<color=#ffd87d>【7-7】</c>角色达到24级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3001": 10,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1068": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        10
+      ],
+      "next_id": 1069,
+      "name": "<color=#ffd87d>【7-8】</c>继续消灭魔物",
+      "desc": "前方有些魔物，可能有毒，快去消灭它们！",
+      "award_item": {
+        "I1003": 20,
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1069": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        25
+      ],
+      "next_id": 1070,
+      "name": "<color=#ffd87d>【7-9】</c>角色达到25级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1070": {
+      "type": 1,
+      "condition": 11,
+      "limit": [
+        1
+      ],
+      "next_id": 1071,
+      "name": "<color=#ffd87d>【7-10】</c>采集黑铁矿石",
+      "desc": "点击下方<color=#ffd87d>[更多]</c>标签，找到<color=#ffd87d>[矿洞]</c>，开始采集黑铁矿石吧！",
+      "award_item": {
+        "I1003": 20,
+        "I3905": 20
+      },
+      "jump": 1009,
+      "change": 0
+    },
+    "1071": {
+      "type": 1,
+      "condition": 17,
+      "limit": [
+        0,
+        1
+      ],
+      "next_id": 1072,
+      "name": "<color=#ffd87d>【8-1】</c>神兵升级1次",
+      "desc": "对神兵系统进行1次升级提升战力吧！",
+      "award_item": {
+        "I1004": 200,
+        "I9147": 5,
+        "I3007": 10
+      },
+      "jump": 1004,
+      "change": 0
+    },
+    "1072": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        22,
+        1
+      ],
+      "next_id": 1073,
+      "name": "<color=#ffd87d>【8-2】</c>前往盟重",
+      "desc": "[盟重]城位于比奇城东边，请打开世界地图查看，也可使用小飞鞋传送。",
+      "award_res": {
+        "3": 6000
+      },
+      "award_item": {
+        "I1003": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1073": {
+      "type": 1,
+      "condition": 40,
+      "limit": [
+        3
+      ],
+      "next_id": 1074,
+      "name": "<color=#ffd87d>【8-3】</c>打造任意3件装备",
+      "desc": "在<color=#ffd87d>[盟重]</c>中找到<color=#ffd87d>[铁匠]</c>对话，即可打造心仪的装备，提高自身战力",
+      "award_item": {
+        "I1003": 20,
+        "I3003": 2,
+        "I3007": 2
+      },
+      "jump": 1015,
+      "change": 0
+    },
+    "1074": {
+      "type": 1,
+      "condition": 26,
+      "limit": [
+        210
+      ],
+      "next_id": 1075,
+      "name": "<color=#ffd87d>【8-4】</c>全身总强化等级达到210",
+      "desc": "强化可提升装备属性，<color=#ffd87d>[角色]</c>→<color=#ffd87d>[强化]</c>，金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I1003": 20,
+        "I3006": 2
+      },
+      "jump": 1002,
+      "change": 0
+    },
+    "1075": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        21,
+        1
+      ],
+      "next_id": 1076,
+      "name": "<color=#ffd87d>【8-5】</c>前往盟重沙漠",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[盟重沙漠]</c>。也可使用小飞鞋传送。",
+      "award_item": {
+        "I1003": 20,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1076": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1004,
+        1
+      ],
+      "next_id": 1077,
+      "name": "<color=#ffd87d>【8-6】</c>击杀Boss-巨型多角虫",
+      "desc": "杀常驻于此的Boss——巨型多角虫。若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I2003": 20,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1077": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        50
+      ],
+      "next_id": 1078,
+      "name": "<color=#ffd87d>【8-7】</c>消灭沙漠中的怪物",
+      "desc": "前方有些怪物，虽然很丑，但会掉装备！快去消灭它们！",
+      "award_item": {
+        "I1003": 20,
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1078": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        28
+      ],
+      "next_id": 1079,
+      "name": "<color=#ffd87d>【8-8】</c>角色达到28级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3004": 5,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1079": {
+      "type": 1,
+      "condition": 27,
+      "limit": [
+        5
+      ],
+      "next_id": 1080,
+      "name": "<color=#ffd87d>【8-9】</c>通关天关第5层",
+      "desc": "点击下方<color=#ffd87d>[更多]</c>标签，找到<color=#ffd87d>[天关]</c>，通关天关第5层，可解锁<color=#ffd87d>称谓系统</c>！",
+      "award_item": {
+        "I1004": 40,
+        "I3007": 3
+      },
+      "jump": 1008,
+      "change": 0
+    },
+    "1080": {
+      "type": 1,
+      "condition": 31,
+      "limit": [
+        1001,
+        1
+      ],
+      "next_id": 1081,
+      "name": "<color=#ffd87d>【8-10】</c>晋升称谓[比奇新人]",
+      "desc": "<color=#ffd87d>[角色]</c>→<color=#ffd87d>[称谓]</c>，晋升称谓，提升属性！",
+      "award_res": {
+        "9": 100
+      },
+      "award_item": {
+        "I2004": 40,
+        "I3007": 3
+      },
+      "jump": 1042,
+      "change": 0
+    },
+    "1081": {
+      "type": 1,
+      "condition": 19,
+      "limit": [
+        6,
+        1
+      ],
+      "next_id": 1082,
+      "name": "<color=#ffd87d>【9-1】</c>在天关商店购买1个水泽灵气",
+      "desc": "挑战[天关]可以获得天关积分，天关积分可以兑换<color=#ffd87d>[灵气]</c>以及<color=#ffd87d>[称谓徽章]</c>。快去兑换一个灵气吧~",
+      "award_item": {
+        "I2003": 30,
+        "I3006": 2
+      },
+      "jump": 1008,
+      "change": 0
+    },
+    "1082": {
+      "type": 1,
+      "condition": 42,
+      "limit": [
+        101,
+        1
+      ],
+      "next_id": 1083,
+      "name": "<color=#ffd87d>【9-2】</c>进行一次聚灵",
+      "desc": "<color=#ffd87d>[角色]</c>→<color=#ffd87d>[称谓]</c>，聚集灵气，提升属性！",
+      "award_item": {
+        "I1003": 20,
+        "I3006": 2
+      },
+      "jump": 1042,
+      "change": 0
+    },
+    "1083": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        24,
+        1
+      ],
+      "next_id": 1084,
+      "name": "<color=#ffd87d>【9-3】</c>前往蜈蚣洞",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[蜈蚣洞]</c>。也可使用小飞鞋传送。",
+      "award_item": {
+        "I1003": 20,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1084": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        50
+      ],
+      "next_id": 1085,
+      "name": "<color=#ffd87d>【9-4】</c>铲除怪物",
+      "desc": "前方有些怪物，虽然很丑，但会掉装备！快去消灭它们！",
+      "award_item": {
+        "I2003": 20,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1085": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        30
+      ],
+      "next_id": 1086,
+      "name": "<color=#ffd87d>【9-5】</c>角色达到30级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3004": 5,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1086": {
+      "type": 1,
+      "condition": 7,
+      "limit": [
+        "I6003",
+        1
+      ],
+      "next_id": 1087,
+      "name": "<color=#ffd87d>【9-6】</c>使用30级礼包",
+      "desc": "前往<color=#ffd87d>[角色]</c>→<color=#ffd87d>[背包]</c>，使用<color=#ffd87d>[30级礼包]</c>，获取补给！",
+      "award_item": {
+        "I3004": 5,
+        "I3006": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1087": {
+      "type": 1,
+      "condition": 26,
+      "limit": [
+        250
+      ],
+      "next_id": 1088,
+      "name": "<color=#ffd87d>【9-7】</c>全身总强化等级达到250",
+      "desc": "强化可提升装备属性，<color=#ffd87d>[角色]</c>→<color=#ffd87d>[强化]</c>，金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I1003": 20,
+        "I3006": 2
+      },
+      "jump": 1002,
+      "change": 0
+    },
+    "1088": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        38,
+        1
+      ],
+      "next_id": 1089,
+      "name": "<color=#ffd87d>【9-8】</c>前往幽冥圣域",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[蜈蚣洞]</c>→<color=#ffd87d>[黑暗地带]</c>→<color=#ffd87d>[幽冥圣域]</c>。也可使用小飞鞋传送。",
+      "award_item": {
+        "I1003": 20,
+        "I3003": 2,
+        "I3007": 2
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1089": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1012,
+        1
+      ],
+      "next_id": 1090,
+      "name": "<color=#ffd87d>【9-9】</c>击杀Boss-邪恶钳虫",
+      "desc": "杀常驻于此的Boss——邪恶钳虫，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I1003": 20,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1090": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        50
+      ],
+      "next_id": 1091,
+      "name": "<color=#ffd87d>【9-10】</c>消灭圣域中的怪物",
+      "desc": "前方有些怪物，虽然很丑，但会掉装备！快去消灭它们！",
+      "award_item": {
+        "I2003": 20,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1091": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        41,
+        1
+      ],
+      "next_id": 1092,
+      "name": "<color=#ffd87d>【10-1】</c>前往恐怖空间",
+      "desc": "路线：<color=#ffd87d>[幽冥圣域]</c>→<color=#ffd87d>[恐怖空间]</c>。也可使用小飞鞋传送。",
+      "award_item": {
+        "I1003": 20,
+        "I3003": 2,
+        "I3007": 2
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1092": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        50
+      ],
+      "next_id": 1093,
+      "name": "<color=#ffd87d>【10-2】</c>消灭怪物",
+      "desc": "前方有些魔物，长得很邪恶，可能有毒，快去消灭它们！",
+      "award_item": {
+        "I1003": 20,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1093": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        26,
+        1
+      ],
+      "next_id": 1094,
+      "name": "<color=#ffd87d>【10-3】</c>前往死亡棺材",
+      "desc": "路线：<color=#ffd87d>[幽冥圣域]</c>→<color=#ffd87d>[恐怖空间]</c>→<color=#ffd87d>[死亡棺材]</c>。也可使用小飞鞋传送。",
+      "award_item": {
+        "I2003": 20,
+        "I3007": 2
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1094": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1005,
+        1
+      ],
+      "next_id": 1095,
+      "name": "<color=#ffd87d>【10-4】</c>击杀Boss-触龙神",
+      "desc": "杀常驻于此的Boss——触龙神，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I1003": 20,
+        "I3003": 2,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1095": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        35
+      ],
+      "next_id": 1096,
+      "name": "<color=#ffd87d>【10-5】</c>角色达到35级",
+      "desc": "35级开启境界，修炼境界，提升实力。消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3004": 5,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1096": {
+      "type": 1,
+      "condition": 36,
+      "limit": [
+        5,
+        1
+      ],
+      "next_id": 1097,
+      "name": "<color=#ffd87d>【10-6】</c>提升凡人境·五重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I9147": 2,
+        "I3006": 10
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1097": {
+      "type": 1,
+      "condition": 26,
+      "limit": [
+        300
+      ],
+      "next_id": 1098,
+      "name": "<color=#ffd87d>【10-7】</c>全身总强化等级达到300",
+      "desc": "强化可提升装备属性，<color=#ffd87d>[角色]</c>→<color=#ffd87d>[强化]</c>，金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I1003": 20,
+        "I3006": 2
+      },
+      "jump": 1002,
+      "change": 0
+    },
+    "1098": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        50
+      ],
+      "next_id": 1099,
+      "name": "<color=#ffd87d>【10-8】</c>清剿怪物",
+      "desc": "前方有些怪物，虽然很丑，但会掉装备！快去消灭它们！",
+      "award_item": {
+        "I1003": 20,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1099": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        27,
+        1
+      ],
+      "next_id": 1100,
+      "name": "<color=#ffd87d>【10-9】</c>前往石墓洞穴",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[石墓洞穴]</c>",
+      "award_item": {
+        "I1003": 20,
+        "I3003": 2,
+        "I3007": 2
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1100": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        50
+      ],
+      "next_id": 1101,
+      "name": "<color=#ffd87d>【10-10】</c>清剿洞穴",
+      "desc": "前方有些怪物，虽然很丑，但会掉装备！快去消灭它们！",
+      "award_item": {
+        "I1003": 20,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1101": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        43,
+        1
+      ],
+      "next_id": 1102,
+      "name": "<color=#ffd87d>【11-1】</c>前往石墓2层",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[石墓洞穴]</c>",
+      "award_item": {
+        "I2003": 20,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1102": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1013,
+        1
+      ],
+      "next_id": 4100,
+      "name": "<color=#ffd87d>【11-2】</c>击杀Boss-白野猪",
+      "desc": "杀常驻于此的Boss——白野猪，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I1003": 20,
+        "I3003": 2,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1103": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        40
+      ],
+      "next_id": 1104,
+      "name": "<color=#ffd87d>【11-9】</c>角色达到40级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3004": 5,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1104": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        18,
+        1
+      ],
+      "next_id": 1105,
+      "name": "<color=#ffd87d>【11-10】</c>前往沃玛寺庙",
+      "desc": "路线：<color=#ffd87d>[比奇城西]</c>→<color=#ffd87d>[沃玛森林]</c>→<color=#ffd87d>[沃玛寺庙]</c>",
+      "award_item": {
+        "I1003": 20,
+        "I3007": 2
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1105": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        50
+      ],
+      "next_id": 1106,
+      "name": "<color=#ffd87d>【12-1】</c>清剿寺中怪物",
+      "desc": "前方有些怪物，虽然很丑，但会掉装备！快去消灭它们！",
+      "award_item": {
+        "I2003": 20,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1106": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        19,
+        1
+      ],
+      "next_id": 1107,
+      "name": "<color=#ffd87d>【12-2】</c>前往沃玛寺庙2层",
+      "desc": "路线：<color=#ffd87d>[比奇城西]</c>→<color=#ffd87d>[沃玛森林]</c>→<color=#ffd87d>[沃玛寺庙]</c>",
+      "award_item": {
+        "I1004": 20,
+        "I3004": 2,
+        "I3007": 3
+      },
+      "change": 0
+    },
+    "1107": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        50
+      ],
+      "next_id": 1108,
+      "name": "<color=#ffd87d>【12-3】</c>清剿寺中怪物",
+      "desc": "前方有些怪物，虽然很丑，但会掉装备！快去消灭它们！",
+      "award_item": {
+        "I1004": 40,
+        "I3007": 3
+      },
+      "change": 0
+    },
+    "1108": {
+      "type": 1,
+      "condition": 26,
+      "limit": [
+        350
+      ],
+      "next_id": 1109,
+      "name": "<color=#ffd87d>【12-4】</c>全身总强化等级达到350",
+      "desc": "强化可提升装备属性，<color=#ffd87d>[角色]</c>→<color=#ffd87d>[强化]</c>，金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I1003": 20,
+        "I3006": 2
+      },
+      "jump": 1002,
+      "change": 0
+    },
+    "1109": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        20,
+        1
+      ],
+      "next_id": 1110,
+      "name": "<color=#ffd87d>【12-5】</c>前往沃玛寺庙3层",
+      "desc": "路线：<color=#ffd87d>[比奇城西]</c>→<color=#ffd87d>[沃玛森林]</c>→<color=#ffd87d>[沃玛寺庙]</c>",
+      "award_item": {
+        "I2004": 30,
+        "I3007": 3
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1110": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1006,
+        1
+      ],
+      "next_id": 1111,
+      "name": "<color=#ffd87d>【12-6】</c>击杀Boss-沃玛教主",
+      "desc": "杀常驻于此的Boss——沃玛教主，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I1004": 20,
+        "I3004": 2,
+        "I3007": 3
+      },
+      "change": 0
+    },
+    "1111": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        45
+      ],
+      "next_id": 1112,
+      "name": "<color=#ffd87d>【12-7】</c>角色达到45级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3004": 5,
+        "I3006": 2
+      },
+      "award_equip1": [
+        {
+          "id": "E000030",
+          "quality": "4",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "E000030",
+          "quality": "4",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "E000030",
+          "quality": "4",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "change": 0
+    },
+    "1112": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        44,
+        1
+      ],
+      "next_id": 1113,
+      "name": "<color=#ffd87d>【12-8】</c>前往石墓3层",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[石墓洞穴]</c>",
+      "award_item": {
+        "I2003": 20,
+        "I3007": 2
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1113": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        50
+      ],
+      "next_id": 1114,
+      "name": "<color=#ffd87d>【12-9】</c>清剿石墓3层",
+      "desc": "前方有些怪物，虽然很丑，但会掉装备！快去消灭它们！",
+      "award_item": {
+        "I1003": 20,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1114": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        46,
+        1
+      ],
+      "next_id": 1115,
+      "name": "<color=#ffd87d>【12-10】</c>前往石墓5层",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[石墓洞穴]</c>",
+      "award_item": {
+        "I2003": 20,
+        "I3007": 2
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1115": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        50
+      ],
+      "next_id": 1116,
+      "name": "<color=#ffd87d>【13-1】</c>清剿石墓5层",
+      "desc": "前方有些怪物，虽然很丑，但会掉装备！快去消灭它们！",
+      "award_item": {
+        "I1003": 20,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1116": {
+      "type": 1,
+      "condition": 27,
+      "limit": [
+        10
+      ],
+      "next_id": 1117,
+      "name": "<color=#ffd87d>【13-2】</c>通关天关第10层",
+      "desc": "点击下方<color=#ffd87d>[更多]</c>标签，找到<color=#ffd87d>[天关]</c>，通关天关第5层，可解锁<color=#ffd87d>称谓系统</c>！",
+      "award_item": {
+        "I1004": 40,
+        "I3007": 3
+      },
+      "jump": 1008,
+      "change": 0
+    },
+    "1117": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        48
+      ],
+      "next_id": 1118,
+      "name": "<color=#ffd87d>【13-3】</c>角色达到48级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I3010": 2
+      },
+      "change": 0
+    },
+    "1118": {
+      "type": 1,
+      "condition": 8,
+      "limit": [
+        1
+      ],
+      "next_id": 1119,
+      "name": "<color=#ffd87d>【13-4】</c>初尝擂台",
+      "desc": "点击下方<color=#ffd87d>[更多]</c>标签，找到<color=#ffd87d>[擂台]</c>，开始挑战吧！擂台在48级开启！",
+      "award_item": {
+        "I2003": 20,
+        "I3010": 3
+      },
+      "jump": 1007,
+      "change": 0
+    },
+    "1119": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        50
+      ],
+      "next_id": 1120,
+      "name": "<color=#ffd87d>【13-5】</c>角色达到50级",
+      "desc": "消灭怪物可获得大量经验，提升角色等级！",
+      "award_item": {
+        "I9147": 5,
+        "I3102": 1
+      },
+      "award_equip1": [
+        {
+          "id": "E000031",
+          "quality": "4",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "E000031",
+          "quality": "4",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "E000031",
+          "quality": "4",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "change": 0
+    },
+    "1120": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1,
+        1
+      ],
+      "next_id": 1121,
+      "name": "<color=#ffd87d>【13-6】</c>回到[银杏村]",
+      "desc": "打开世界地图，前往<color=#ffd87d>[银杏村]</c>，另一个世界的征程！",
+      "award_item": {
+        "I1004": 40,
+        "I3007": 3
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1121": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1001,
+        1
+      ],
+      "next_id": 1122,
+      "name": "<color=#ffd87d>【13-7】</c>对话[异世巫女]进入<color=#ffa800>轮回</c>地图",
+      "desc": "与[银杏村]中的<color=#ffd87d>异世女巫</c>对话，切换轮回之境，踏入新的世界！",
+      "award_item": {
+        "I2004": 30,
+        "I6006": 1
+      },
+      "change": 0
+    },
+    "1122": {
+      "type": 1,
+      "condition": 7,
+      "limit": [
+        "I6006",
+        1
+      ],
+      "next_id": 1123,
+      "name": "<color=#ffd87d>【13-8】</c>使用[轮回宝箱]",
+      "desc": "前往<color=#ffd87d>[角色]</c>→<color=#ffd87d>[背包]</c>，使用<color=#ffd87d>[轮回宝箱]</c>，获取补给！",
+      "award_item": {
+        "I7001": 2,
+        "I3903": 1
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1123": {
+      "type": 1,
+      "condition": 33,
+      "limit": [
+        2
+      ],
+      "next_id": 1124,
+      "name": "<color=#ffd87d>【13-9】</c>穿戴任意2件轮回装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，找到在背包中的轮回装备，穿上它们！",
+      "award_item": {
+        "I8001": 1,
+        "I8002": 1,
+        "I8003": 1
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1124": {
+      "type": 1,
+      "condition": 34,
+      "limit": [
+        1
+      ],
+      "next_id": 1125,
+      "name": "<color=#ffd87d>【13-10】</c>身上激活1个符文之语",
+      "desc": "点击轮回装备，镶嵌符文，激活符文之语，穿在身上吧！符文不足可以进行【合成】",
+      "award_item": {
+        "I3006": 2,
+        "I3903": 2
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1125": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1002,
+        1
+      ],
+      "next_id": 1126,
+      "name": "<color=#ffd87d>【14-1】</c>前往<color=#ffa800>轮回</c>[银杏村外]",
+      "desc": "轮回之境的世界，咋看与凡人之境无异，去<color=#ffd87d>[银杏村外]</c>探探路！",
+      "award_item": {
+        "I1004": 20,
+        "I3004": 2,
+        "I3007": 3
+      },
+      "change": 0
+    },
+    "1126": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        10
+      ],
+      "next_id": 1127,
+      "name": "<color=#ffd87d>【14-2】</c>清剿轮回怪物",
+      "desc": "轮回境的怪物似乎异常强大，但也不用太过担心，消灭他们！",
+      "award_item": {
+        "I7001": 5
+      },
+      "change": 0
+    },
+    "1127": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1003,
+        1
+      ],
+      "next_id": 1128,
+      "name": "<color=#ffd87d>【14-3】</c>前往<color=#ffa800>轮回</c>[比奇城]",
+      "desc": "路线：轮回<color=#ffd87d>[银杏村]</c>→<color=#ffd87d>[比奇城]</c>",
+      "award_item": {
+        "I1004": 40,
+        "I3007": 3
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1128": {
+      "type": 1,
+      "condition": 7,
+      "limit": [
+        "I7001",
+        1
+      ],
+      "next_id": 1129,
+      "name": "<color=#ffd87d>【14-4】</c>使用[符文宝箱]",
+      "desc": "前往<color=#ffd87d>[角色]</c>→<color=#ffd87d>[背包]</c>，使用<color=#ffd87d>[符文宝箱]</c>，获取补给！",
+      "award_item": {
+        "I8001": 1,
+        "I8002": 1,
+        "I8003": 1
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1129": {
+      "type": 1,
+      "condition": 34,
+      "limit": [
+        2
+      ],
+      "next_id": 1130,
+      "name": "<color=#ffd87d>【14-5】</c>身上激活2个符文之语",
+      "desc": "符文之语的属性需要用符文激活哦！穿戴2件激活了[符文之语]的装备吧！符文不足可以进行【合成】",
+      "award_item": {
+        "I3903": 2
+      },
+      "award_equip1": [
+        {
+          "id": "L000017",
+          "quality": "4",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "L000017",
+          "quality": "4",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "L000017",
+          "quality": "4",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "jump": 1024,
+      "change": 0
+    },
+    "1130": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1005,
+        1
+      ],
+      "next_id": 1131,
+      "name": "<color=#ffd87d>【14-6】</c>前往<color=#ffa800>轮回</c>[比奇城西]",
+      "desc": "进入轮回境，前往轮回·<color=#ffd87d>[比奇城西]</c>",
+      "award_item": {
+        "I3006": 2,
+        "I3903": 2
+      },
+      "change": 0
+    },
+    "1131": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        10
+      ],
+      "next_id": 1132,
+      "name": "<color=#ffd87d>【14-7】</c>消灭10只轮回怪物",
+      "desc": "消灭轮回怪物，掉落轮回装备。激活符文，进一步提升属性。",
+      "award_item": {
+        "I7001": 5
+      },
+      "change": 0
+    },
+    "1132": {
+      "type": 1,
+      "condition": 33,
+      "limit": [
+        4
+      ],
+      "next_id": 1133,
+      "name": "<color=#ffd87d>【14-8】</c>穿戴4件轮回装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，找到在背包中的轮回装备，穿上它们！",
+      "award_item": {
+        "I7001": 5
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1133": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1017,
+        1
+      ],
+      "next_id": 1134,
+      "name": "<color=#ffd87d>【14-9】</c>前往<color=#ffa800>轮回</c>[沃玛森林]",
+      "desc": "路线：轮回<color=#ffd87d>[比奇城]</c>→<color=#ffd87d>[比奇西]</c>→<color=#ffd87d>[沃玛森林]</c>",
+      "award_item": {
+        "I8002": 1,
+        "I8003": 1
+      },
+      "award_equip1": [
+        {
+          "id": "L000018",
+          "quality": "4",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "L000018",
+          "quality": "4",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "L000018",
+          "quality": "4",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "change": 0
+    },
+    "1134": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51001,
+        1
+      ],
+      "next_id": 1135,
+      "name": "<color=#ffd87d>【14-10】</c>消灭<color=#ffa800>轮回</c>·半兽勇士",
+      "desc": "杀常驻于此的Boss——轮回·半兽勇士，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I7001": 5
+      },
+      "change": 0
+    },
+    "1135": {
+      "type": 1,
+      "condition": 33,
+      "limit": [
+        6
+      ],
+      "next_id": 1136,
+      "name": "<color=#ffd87d>【15-1】</c>穿戴6件轮回装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，找到在背包中的轮回装备，穿上它们！",
+      "award_item": {
+        "I7001": 8
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1136": {
+      "type": 1,
+      "condition": 7,
+      "limit": [
+        "I7001",
+        1
+      ],
+      "next_id": 1137,
+      "name": "<color=#ffd87d>【15-2】</c>使用[符文宝箱]",
+      "desc": "前往<color=#ffd87d>[角色]</c>→<color=#ffd87d>[背包]</c>，使用<color=#ffd87d>[符文宝箱]</c>，获取补给！",
+      "award_item": {
+        "I8001": 1,
+        "I8002": 1,
+        "I8003": 1
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1137": {
+      "type": 1,
+      "condition": 34,
+      "limit": [
+        4
+      ],
+      "next_id": 1138,
+      "name": "<color=#ffd87d>【15-3】</c>身上激活4个符文之语",
+      "desc": "符文之语的属性需要用符文激活哦！穿戴4件激活了[符文之语]的装备吧！符文不足可以进行【合成】",
+      "award_item": {
+        "I7001": 1,
+        "I3903": 4
+      },
+      "award_equip1": [
+        {
+          "id": "L000020",
+          "quality": "4",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "L000020",
+          "quality": "4",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "L000020",
+          "quality": "4",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "jump": 1024,
+      "change": 0
+    },
+    "1138": {
+      "type": 1,
+      "condition": 20,
+      "limit": [
+        1
+      ],
+      "next_id": 1139,
+      "name": "<color=#ffd87d>【15-4】</c>淬炼1次轮回装备",
+      "desc": "选择一件轮回装备，点击<color=#ffd87d>[改造]</c>，可根据自身的需求的洗练，洗练出极品属性",
+      "award_item": {
+        "I8001": 1,
+        "I8002": 1
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1139": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1011,
+        1
+      ],
+      "next_id": 1140,
+      "name": "<color=#ffd87d>【15-5】</c>前往<color=#ffa800>轮回</c>·骷髅洞3层",
+      "desc": "路线：轮回<color=#ffd87d>[比奇城]</c>→<color=#ffd87d>[比奇北]</c>→<color=#ffd87d>[骷髅洞]</c>",
+      "award_item": {
+        "I8001": 1,
+        "I8002": 1
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1140": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51002,
+        1
+      ],
+      "next_id": 1141,
+      "name": "<color=#ffd87d>【15-6】</c>消灭<color=#ffa800>轮回</c>·骷髅精灵",
+      "desc": "前往轮回·<color=#ffd87d>[骷髅洞3层]</c>，并击杀常驻于此的Boss——骷髅精灵，用你的实力击败它！",
+      "award_item": {
+        "I8002": 1,
+        "I8003": 1
+      },
+      "award_equip1": [
+        {
+          "id": "L000022",
+          "quality": "4",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "L000022",
+          "quality": "4",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "L000022",
+          "quality": "4",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "change": 0
+    },
+    "1141": {
+      "type": 1,
+      "condition": 33,
+      "limit": [
+        8
+      ],
+      "next_id": 1142,
+      "name": "<color=#ffd87d>【15-7】</c>穿戴8件轮回装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，找到在背包中的轮回装备，穿上它们！",
+      "award_item": {
+        "I1004": 40,
+        "I7001": 3
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1142": {
+      "type": 1,
+      "condition": 34,
+      "limit": [
+        8
+      ],
+      "next_id": 1143,
+      "name": "<color=#ffd87d>【15-8】</c>身上激活8个符文之语",
+      "desc": "符文之语的属性需要用符文激活哦！穿戴8件激活了[符文之语]的装备吧！符文不足可以进行【合成】",
+      "award_item": {
+        "I7001": 1,
+        "I3903": 4
+      },
+      "award_equip1": [
+        {
+          "id": "L000018",
+          "quality": "4",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "L000018",
+          "quality": "4",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "L000018",
+          "quality": "4",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "jump": 1024,
+      "change": 0
+    },
+    "1143": {
+      "type": 1,
+      "condition": 20,
+      "limit": [
+        1
+      ],
+      "next_id": 1144,
+      "name": "<color=#ffd87d>【15-9】</c>淬炼1次轮回装备",
+      "desc": "选择一件轮回装备，点击<color=#ffd87d>[改造]</c>，可根据自身的需求的洗练，洗练出极品属性",
+      "award_item": {
+        "I8001": 1,
+        "I8002": 1
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1144": {
+      "type": 1,
+      "condition": 33,
+      "limit": [
+        10
+      ],
+      "next_id": 1145,
+      "name": "<color=#ffd87d>【15-10】</c>穿戴任意10件轮回装备",
+      "desc": "点击下方<color=#ffd87d><color=#ffd87d>[角色]</c></c>标签，找到在背包中的轮回装备，穿上它们！",
+      "award_item": {
+        "I1004": 40,
+        "I7001": 3
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1145": {
+      "type": 1,
+      "condition": 34,
+      "limit": [
+        10
+      ],
+      "next_id": 1146,
+      "name": "<color=#ffd87d>【16-1】</c>身上激活10个符文之语",
+      "desc": "符文之语的属性需要用符文激活哦！穿戴10件激活了[符文之语]的装备吧！符文不足可以进行【合成】",
+      "award_item": {
+        "I8001": 1,
+        "I8002": 1
+      },
+      "award_equip1": [
+        {
+          "id": "L000019",
+          "quality": "4",
+          "count": "1",
+          "prof": "1"
+        },
+        {
+          "id": "L000019",
+          "quality": "4",
+          "count": "1",
+          "prof": "2"
+        },
+        {
+          "id": "L000019",
+          "quality": "4",
+          "count": "1",
+          "prof": "3"
+        }
+      ],
+      "jump": 1024,
+      "change": 0
+    },
+    "1146": {
+      "type": 1,
+      "condition": 35,
+      "limit": [
+        1000
+      ],
+      "next_id": 1147,
+      "name": "<color=#ffd87d>【16-2】</c>轮回之力达到1000",
+      "desc": "轮回装备上有轮回之力，穿戴更好的<color=#ffd87d>轮回装备</c>，提升轮回之力！",
+      "award_item": {
+        "I8002": 1,
+        "I8003": 1
+      },
+      "change": 0
+    },
+    "1147": {
+      "type": 1,
+      "condition": 41,
+      "limit": [
+        101,
+        1
+      ],
+      "next_id": 1148,
+      "name": "<color=#ffd87d>【16-3】</c>提升到轮回境·一重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I8003": 1,
+        "I8004": 1
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1148": {
+      "type": 1,
+      "condition": 26,
+      "limit": [
+        400
+      ],
+      "next_id": 1149,
+      "name": "<color=#ffd87d>【16-4】</c>全身总强化等级达到400",
+      "desc": "强化可提升装备属性，<color=#ffd87d>[角色]</c>→<color=#ffd87d>[强化]</c>，金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I1003": 20,
+        "I3006": 2
+      },
+      "jump": 1002,
+      "change": 0
+    },
+    "1149": {
+      "type": 1,
+      "condition": 28,
+      "limit": [
+        16000
+      ],
+      "next_id": 1150,
+      "name": "<color=#ffd87d>【16-5】</c>战力达到16000",
+      "desc": "强化、洗练、境界、学习技能、穿戴更好的装备，可以提高战力！",
+      "award_item": {
+        "I8001": 1,
+        "I8002": 1
+      },
+      "change": 0
+    },
+    "1150": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1034,
+        1
+      ],
+      "next_id": 1151,
+      "name": "<color=#ffd87d>【16-6】</c>前往<color=#ffa800>轮回</c>·采矿所2层",
+      "desc": "路线：<color=#ffd87d>[比奇城]</c>→<color=#ffd87d>[比奇城东]</c>→<color=#ffd87d>[矿洞]</c>→<color=#ffd87d>[东部矿区]</c>→<color=#ffd87d>[采矿所]</c>",
+      "award_item": {
+        "I8001": 1,
+        "I8002": 1
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1151": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51003,
+        1
+      ],
+      "next_id": 1152,
+      "name": "<color=#ffd87d>【16-7】</c>击杀<color=#ffa800>轮回</c>·Boss-尸王",
+      "desc": "杀常驻于此的Boss——尸王，用你的实力击败它！",
+      "award_item": {
+        "I8002": 1,
+        "I8003": 1
+      },
+      "change": 0
+    },
+    "1152": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        29,
+        1
+      ],
+      "next_id": 1153,
+      "name": "<color=#ffd87d>【16-8】</c>前往凡人·石墓7层",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[石墓洞穴]</c>",
+      "award_item": {
+        "I2003": 20,
+        "I3007": 2
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1153": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1007,
+        1
+      ],
+      "next_id": 1154,
+      "name": "<color=#ffd87d>【16-9】</c>击杀凡人Boss-石墓尸王",
+      "desc": "杀常驻于此的Boss——石墓尸王，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I1003": 20,
+        "I3007": 2
+      },
+      "change": 0
+    },
+    "1154": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        55
+      ],
+      "next_id": 1155,
+      "name": "<color=#ffd87d>【16-10】</c>等级达到55级",
+      "desc": "凡人境挂机经验更高哦！",
+      "award_item": {
+        "I3006": 10,
+        "I3131": 2
+      },
+      "change": 0
+    },
+    "1155": {
+      "type": 1,
+      "condition": 36,
+      "limit": [
+        10,
+        1
+      ],
+      "next_id": 1156,
+      "name": "<color=#ffd87d>【17-1】</c>提升凡人境·十重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I9147": 5,
+        "I3006": 10
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1156": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        30,
+        1
+      ],
+      "next_id": 1157,
+      "name": "<color=#ffd87d>【17-2】</c>前往祖玛寺庙",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[祖玛寺庙]</c>",
+      "award_item": {
+        "I1004": 40,
+        "I3007": 3
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1157": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        50
+      ],
+      "next_id": 1158,
+      "name": "<color=#ffd87d>【17-3】</c>铲除怪物",
+      "desc": "前方有些怪物，虽然很丑，但会掉装备！快去消灭它们！",
+      "award_item": {
+        "I2004": 30,
+        "I3007": 3
+      },
+      "change": 0
+    },
+    "1158": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        31,
+        1
+      ],
+      "next_id": 1159,
+      "name": "<color=#ffd87d>【17-4】</c>前往祖玛5层",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[祖玛寺庙]</c>",
+      "award_item": {
+        "I2004": 30,
+        "I3007": 3
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1159": {
+      "type": 1,
+      "condition": 3,
+      "limit": [
+        0,
+        50
+      ],
+      "next_id": 1160,
+      "name": "<color=#ffd87d>【17-5】</c>清剿寺中怪物",
+      "desc": "前方有些怪物，虽然很丑，但会掉装备！快去消灭它们！",
+      "award_item": {
+        "I1004": 20,
+        "I3004": 2,
+        "I3007": 3
+      },
+      "change": 0
+    },
+    "1160": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        32,
+        1
+      ],
+      "next_id": 1161,
+      "name": "<color=#ffd87d>【17-6】</c>前往祖玛教主大厅",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[祖玛寺庙]</c>",
+      "award_item": {
+        "I2004": 30,
+        "I3007": 3
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1161": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1008,
+        1
+      ],
+      "next_id": 1162,
+      "name": "<color=#ffd87d>【17-7】</c>击杀凡人·祖玛教主",
+      "desc": "杀常驻于此的Boss——祖玛教主，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I1004": 20,
+        "I3004": 2,
+        "I3007": 3
+      },
+      "change": 0
+    },
+    "1162": {
+      "type": 1,
+      "condition": 31,
+      "limit": [
+        1003,
+        1
+      ],
+      "next_id": 1163,
+      "name": "<color=#ffd87d>【17-8】</c>晋升称谓[半兽猎人]",
+      "desc": "<color=#ffd87d>[角色]</c>→<color=#ffd87d>[称谓]</c>，晋升称谓，提升属性！",
+      "award_item": {
+        "I3901": 20,
+        "I3007": 3
+      },
+      "jump": 1042,
+      "change": 0
+    },
+    "1163": {
+      "type": 1,
+      "condition": 26,
+      "limit": [
+        430
+      ],
+      "next_id": 1164,
+      "name": "<color=#ffd87d>【17-9】</c>全身总强化等级达到430",
+      "desc": "强化可提升装备属性，<color=#ffd87d>[角色]</c>→<color=#ffd87d>[强化]</c>，金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I1003": 20,
+        "I3006": 2
+      },
+      "jump": 1002,
+      "change": 0
+    },
+    "1164": {
+      "type": 1,
+      "condition": 28,
+      "limit": [
+        18000
+      ],
+      "next_id": 1165,
+      "name": "<color=#ffd87d>【17-10】</c>战力达到18000",
+      "desc": "强化、洗练、境界、学习技能、穿戴更好的装备，可以提高战力！",
+      "award_item": {
+        "I3003": 2,
+        "I3006": 2
+      },
+      "change": 0
+    },
+    "1165": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1021,
+        1
+      ],
+      "next_id": 1166,
+      "name": "<color=#ffd87d>【18-1】</c>前往<color=#ffa800>轮回</c>·盟重沙漠",
+      "desc": "路线：<color=#ffd87d>[比奇城东]</c>→<color=#ffd87d>[毒蛇山谷]</c>→<color=#ffd87d>[盟重沙漠]</c>。也可使用小飞鞋传送。",
+      "award_item": {
+        "I8002": 1,
+        "I8003": 1
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1166": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51004,
+        1
+      ],
+      "next_id": 1167,
+      "name": "<color=#ffd87d>【18-2】</c>击杀<color=#ffa800>轮回</c>Boss-巨型多角虫",
+      "desc": "杀常驻于此的Boss——巨型多角虫。若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I8001": 1,
+        "I8003": 1
+      },
+      "change": 0
+    },
+    "1167": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1038,
+        1
+      ],
+      "next_id": 1168,
+      "name": "<color=#ffd87d>【18-3】</c>前往<color=#ffa800>轮回</c>·幽冥圣域",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[蜈蚣洞]</c>→<color=#ffd87d>[黑暗地带]</c>→<color=#ffd87d>[幽冥圣域]</c>。也可使用小飞鞋传送。",
+      "award_item": {
+        "I8002": 1,
+        "I8003": 1
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1168": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51012,
+        1
+      ],
+      "next_id": 1169,
+      "name": "<color=#ffd87d>【18-4】</c>击杀<color=#ffa800>轮回</c>Boss-邪恶钳虫",
+      "desc": "杀常驻于此的Boss——邪恶钳虫，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I8001": 1,
+        "I8003": 1
+      },
+      "change": 0
+    },
+    "1169": {
+      "type": 1,
+      "condition": 35,
+      "limit": [
+        3000
+      ],
+      "next_id": 1170,
+      "name": "<color=#ffd87d>【18-5】</c>轮回之力达到3000",
+      "desc": "轮回装备上有轮回之力，穿戴更好的<color=#ffd87d>轮回装备</c>，提升轮回之力！",
+      "award_item": {
+        "I8002": 1,
+        "I8003": 1
+      },
+      "change": 0
+    },
+    "1170": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1026,
+        1
+      ],
+      "next_id": 1171,
+      "name": "<color=#ffd87d>【18-6】</c>前往<color=#ffa800>轮回</c>·死亡棺材",
+      "desc": "路线：<color=#ffd87d>[幽冥圣域]</c>→<color=#ffd87d>[恐怖空间]</c>→<color=#ffd87d>[死亡棺材]</c>。也可使用小飞鞋传送。",
+      "award_item": {
+        "I8002": 1,
+        "I8003": 1
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1171": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51005,
+        1
+      ],
+      "next_id": 1172,
+      "name": "<color=#ffd87d>【18-7】</c>击杀<color=#ffa800>轮回</c>Boss-触龙神",
+      "desc": "杀常驻于此的Boss——触龙神，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I8002": 1,
+        "I8003": 1
+      },
+      "change": 0
+    },
+    "1172": {
+      "type": 1,
+      "condition": 41,
+      "limit": [
+        102,
+        1
+      ],
+      "next_id": 1173,
+      "name": "<color=#ffd87d>【18-8】</c>提升轮回境·二重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I8002": 1,
+        "I8003": 1
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1173": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1043,
+        1
+      ],
+      "next_id": 1174,
+      "name": "<color=#ffd87d>【18-9】</c>前往<color=#ffa800>轮回</c>·石墓2层",
+      "desc": "路线：<color=#ffd87d>[盟重]</c>→<color=#ffd87d>[石墓洞穴]</c>",
+      "award_item": {
+        "I3006": 20,
+        "I3007": 3
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1174": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51013,
+        1
+      ],
+      "next_id": 1175,
+      "name": "<color=#ffd87d>【18-10】</c>击杀<color=#ffa800>轮回</c>Boss-白野猪",
+      "desc": "杀常驻于此的Boss——白野猪，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I9147": 5,
+        "I8004": 1
+      },
+      "change": 0
+    },
+    "1175": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        60
+      ],
+      "next_id": 1176,
+      "name": "<color=#ffd87d>【19-1】</c>等级达到60级",
+      "desc": "60级开启八阵图。凡人境挂机经验更高哦！",
+      "award_item": {
+        "I2102": 20,
+        "I3003": 2
+      },
+      "change": 0
+    },
+    "1176": {
+      "type": 1,
+      "condition": 22,
+      "limit": [
+        1
+      ],
+      "next_id": 1177,
+      "name": "<color=#ffd87d>【19-2】</c>挑战1次封魔谷",
+      "desc": "封魔谷，上古封印众多魔物之地。如今封印松动，请前往镇压！点击下方<color=#ffd87d>[更多]</c>标签，找到<color=#ffd87d>[八阵图]</c>，开始挑战吧！",
+      "award_item": {
+        "B1002": 1,
+        "B1118": 1
+      },
+      "jump": 1032,
+      "change": 0
+    },
+    "1177": {
+      "type": 1,
+      "condition": 38,
+      "limit": [
+        1
+      ],
+      "next_id": 1178,
+      "name": "<color=#ffd87d>【19-3】</c>穿戴1件八卦装备",
+      "desc": "点击<color=#ffd87d>[更多]</c>→<color=#ffd87d>[八阵图]</c>，穿上八卦装备。",
+      "award_item": {
+        "B1002": 2,
+        "I3006": 5
+      },
+      "jump": 1031,
+      "change": 0
+    },
+    "1178": {
+      "type": 1,
+      "condition": 39,
+      "limit": [
+        1
+      ],
+      "next_id": 1179,
+      "name": "<color=#ffd87d>【19-4】</c>强化1次八卦装备",
+      "desc": "强化八卦，属性飞升。<color=#ffd87d>[强化晶石]</c>可从八卦商店和封魔谷获得！",
+      "award_item": {
+        "B1002": 1,
+        "B1008": 1
+      },
+      "jump": 1031,
+      "change": 0
+    },
+    "1179": {
+      "type": 1,
+      "condition": 7,
+      "limit": [
+        "B1008",
+        1
+      ],
+      "next_id": 1180,
+      "name": "<color=#ffd87d>【19-5】</c>使用封魔谷卷轴",
+      "desc": "前往<color=#ffd87d>[角色]</c>→<color=#ffd87d>[背包]</c>，使用<color=#ffd87d>[封魔谷卷轴]</c>，获取挑战次数！",
+      "award_item": {
+        "I9147": 1,
+        "I3006": 10
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "1180": {
+      "type": 1,
+      "condition": 22,
+      "limit": [
+        1
+      ],
+      "next_id": 1181,
+      "name": "<color=#ffd87d>【19-6】</c>再次挑战封魔谷",
+      "desc": "封魔谷，上古封印众多魔物之地。如今封印松动，请前往镇压！点击下方<color=#ffd87d>[更多]</c>标签，找到<color=#ffd87d>[八阵图]</c>，开始挑战吧！",
+      "award_item": {
+        "B1002": 1,
+        "B1114": 1
+      },
+      "jump": 1032,
+      "change": 0
+    },
+    "1181": {
+      "type": 1,
+      "condition": 38,
+      "limit": [
+        2
+      ],
+      "next_id": 1182,
+      "name": "<color=#ffd87d>【19-7】</c>穿戴2件件八卦装备",
+      "desc": "点击<color=#ffd87d>[更多]</c>→<color=#ffd87d>[八阵图]</c>，穿上八卦装备。",
+      "award_item": {
+        "B1002": 2,
+        "I3006": 5
+      },
+      "jump": 1031,
+      "change": 0
+    },
+    "1182": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        56,
+        1
+      ],
+      "next_id": 1183,
+      "name": "<color=#ffd87d>【19-8】</c>前往凡人·峡谷广场",
+      "desc": "路线：<color=#ffd87d>[白日门</c>→<color=#ffd87d>[赤月峡谷]</c>→<color=#ffd87d>[峡谷广场]</c>",
+      "award_item": {
+        "I2102": 20,
+        "I3003": 1
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1183": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1009,
+        1
+      ],
+      "next_id": 1184,
+      "name": "<color=#ffd87d>【19-9】</c>击杀凡人Boss双头血魔",
+      "desc": "杀常驻于此的Boss——双头血魔，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I3006": 10,
+        "I3901": 20
+      },
+      "change": 0
+    },
+    "1184": {
+      "type": 1,
+      "condition": 26,
+      "limit": [
+        500
+      ],
+      "next_id": 1185,
+      "name": "<color=#ffd87d>【19-10】</c>全身总强化等级达到500",
+      "desc": "强化可提升装备属性，<color=#ffd87d>[角色]</c>→<color=#ffd87d>[强化]</c>，金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I1003": 20,
+        "I3006": 2
+      },
+      "jump": 1002,
+      "change": 0
+    },
+    "1185": {
+      "type": 1,
+      "condition": 36,
+      "limit": [
+        15,
+        1
+      ],
+      "next_id": 1186,
+      "name": "<color=#ffd87d>【20-1】</c>提升凡人境·十五重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I9147": 5,
+        "I3006": 10
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1186": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        59,
+        1
+      ],
+      "next_id": 1187,
+      "name": "<color=#ffd87d>【20-2】</c>前往凡人·恶魔祭坛",
+      "desc": "现在可以公开的情报：恶魔祭坛位于白日门东北边！",
+      "award_item": {
+        "I2102": 20,
+        "I3003": 2
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1187": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1010,
+        1
+      ],
+      "next_id": 1188,
+      "name": "<color=#ffd87d>【20-3】</c>击杀凡人Boss-双头金刚",
+      "desc": "杀常驻于此的Boss——双头金刚，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I3006": 10,
+        "I3901": 20
+      },
+      "change": 0
+    },
+    "1188": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        65
+      ],
+      "next_id": 1189,
+      "name": "<color=#ffd87d>【20-4】</c>等级达到65级",
+      "desc": "凡人境挂机经验更高哦！",
+      "award_item": {
+        "I2102": 20,
+        "I3003": 2
+      },
+      "change": 0
+    },
+    "1189": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        60,
+        1
+      ],
+      "next_id": 1190,
+      "name": "<color=#ffd87d>【20-5】</c>前往凡人·赤月巢穴",
+      "desc": "现在可以公开的情报：恶魔祭坛位于白日门东北边！",
+      "award_item": {
+        "I2102": 20,
+        "I3003": 2
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1190": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1011,
+        1
+      ],
+      "next_id": 1191,
+      "name": "<color=#ffd87d>【20-6】</c>击杀凡人Boss-赤月恶魔",
+      "desc": "杀常驻于此的Boss——赤月恶魔，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I3006": 10,
+        "I3901": 20
+      },
+      "change": 0
+    },
+    "1191": {
+      "type": 1,
+      "condition": 36,
+      "limit": [
+        20,
+        1
+      ],
+      "next_id": 1192,
+      "name": "<color=#ffd87d>【20-7】</c>提升凡人境·二十重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I9147": 5,
+        "I3006": 10
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1192": {
+      "type": 1,
+      "condition": 31,
+      "limit": [
+        1005,
+        1
+      ],
+      "next_id": 1193,
+      "name": "<color=#ffd87d>【20-8】</c>晋升称谓[白日门徒]",
+      "desc": "<color=#ffd87d>[角色]</c>→<color=#ffd87d>[称谓]</c>，晋升称谓，提升属性！",
+      "award_item": {
+        "I3901": 40,
+        "I3007": 3
+      },
+      "jump": 1042,
+      "change": 0
+    },
+    "1193": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1020,
+        1
+      ],
+      "next_id": 1194,
+      "name": "<color=#ffd87d>【20-9】</c>前往<color=#ffa800>轮回</c>·沃玛寺庙3层",
+      "desc": "前往轮回境，现在可以公开的情报：沃玛寺庙位于[比奇城]西部。",
+      "award_item": {
+        "I2102": 20,
+        "I3003": 1
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1194": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51006,
+        1
+      ],
+      "next_id": 1195,
+      "name": "<color=#ffd87d>【20-10】</c>击杀<color=#ffa800>轮回</c>Boss-沃玛教主",
+      "desc": "杀常驻于此的Boss——沃玛教主，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I7001": 2,
+        "I8001": 1
+      },
+      "change": 0
+    },
+    "1195": {
+      "type": 1,
+      "condition": 35,
+      "limit": [
+        5000
+      ],
+      "next_id": 1196,
+      "name": "<color=#ffd87d>【21-1】</c>轮回之力达到5000",
+      "desc": "轮回装备上有轮回之力，穿戴更好的<color=#ffd87d>轮回装备</c>，提升轮回之力！",
+      "award_item": {
+        "I8002": 1,
+        "I8003": 1
+      },
+      "change": 0
+    },
+    "1196": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1029,
+        1
+      ],
+      "next_id": 1197,
+      "name": "<color=#ffd87d>【21-2】</c>前往<color=#ffa800>轮回</c>·石墓7层",
+      "desc": "前往轮回境，现在可以公开的情报：石墓7层位于[盟重]南部。",
+      "award_item": {
+        "I7001": 1,
+        "I8001": 3
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1197": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51007,
+        1
+      ],
+      "next_id": 1198,
+      "name": "<color=#ffd87d>【21-3】</c>击杀<color=#ffa800>轮回</c>Boss-石墓尸王",
+      "desc": "杀常驻于此的Boss——石墓尸王，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I7001": 3,
+        "I8001": 1
+      },
+      "change": 0
+    },
+    "1198": {
+      "type": 1,
+      "condition": 35,
+      "limit": [
+        6000
+      ],
+      "next_id": 1199,
+      "name": "<color=#ffd87d>【21-4】</c>轮回之力达到6000",
+      "desc": "轮回装备上有轮回之力，穿戴更好的<color=#ffd87d>轮回装备</c>，提升轮回之力！",
+      "award_item": {
+        "I2102": 50,
+        "I3003": 1
+      },
+      "change": 0
+    },
+    "1199": {
+      "type": 1,
+      "condition": 22,
+      "limit": [
+        1
+      ],
+      "next_id": 1200,
+      "name": "<color=#ffd87d>【21-5】</c>挑战1次封魔谷",
+      "desc": "封魔谷，上古封印众多魔物之地。如今封印松动，请前往镇压！点击下方<color=#ffd87d>[更多]</c>标签，找到<color=#ffd87d>[八阵图]</c>，开始挑战吧！",
+      "award_item": {
+        "B1002": 2
+      },
+      "jump": 1032,
+      "change": 0
+    },
+    "1200": {
+      "type": 1,
+      "condition": 38,
+      "limit": [
+        3
+      ],
+      "next_id": 1201,
+      "name": "<color=#ffd87d>【21-6】</c>穿戴3件八卦装备",
+      "desc": "点击<color=#ffd87d>[更多]</c>→<color=#ffd87d>[八阵图]</c>，穿上八卦装备。",
+      "award_item": {
+        "B1002": 2,
+        "I3006": 5
+      },
+      "jump": 1031,
+      "change": 0
+    },
+    "1201": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        70
+      ],
+      "next_id": 4000,
+      "name": "<color=#ffd87d>【21-7】</c>等级达到70级",
+      "desc": "70级开启星辰系统，搭配属于你的流派。凡人境挂机经验更高哦！",
+      "award_item": {
+        "I2102": 20,
+        "I3901": 25
+      },
+      "change": 0
+    },
+    "1202": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        66,
+        1
+      ],
+      "next_id": 1203,
+      "name": "<color=#ffd87d>【21-9】</c>前往凡人·魔龙旧寨",
+      "desc": "现在可以公开的情报：魔龙旧寨位于[魔龙城]郊外！",
+      "award_item": {
+        "I2102": 20,
+        "I3006": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1203": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1014,
+        1
+      ],
+      "next_id": 1204,
+      "name": "<color=#ffd87d>【21-10】</c>击杀凡人Boss-魔龙巨蛾",
+      "desc": "杀常驻于此的Boss——魔龙巨蛾，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I3006": 40,
+        "I3901": 40
+      },
+      "change": 0
+    },
+    "1204": {
+      "type": 1,
+      "condition": 26,
+      "limit": [
+        600
+      ],
+      "next_id": 1205,
+      "name": "<color=#ffd87d>【22-1】</c>全身总强化等级达到600",
+      "desc": "强化可提升装备属性，<color=#ffd87d>[角色]</c>→<color=#ffd87d>[强化]</c>，金币不足可使用背包中的<color=#ffd87d>[金锭]</c>获取哦！",
+      "award_item": {
+        "I1003": 20,
+        "I3006": 2
+      },
+      "jump": 1002,
+      "change": 0
+    },
+    "1205": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        69,
+        1
+      ],
+      "next_id": 1206,
+      "name": "<color=#ffd87d>【22-2】</c>前往凡人·魔龙岭",
+      "desc": "现在可以公开的情报：魔龙岭位于[魔龙城]郊外！",
+      "award_item": {
+        "I2102": 30,
+        "I3006": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1206": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1015,
+        1
+      ],
+      "next_id": 1207,
+      "name": "<color=#ffd87d>【22-3】</c>击杀凡人Boss-魔龙力士",
+      "desc": "杀常驻于此的Boss——魔龙力士，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I3006": 40,
+        "I3901": 40
+      },
+      "change": 0
+    },
+    "1207": {
+      "type": 1,
+      "condition": 22,
+      "limit": [
+        1
+      ],
+      "next_id": 1208,
+      "name": "<color=#ffd87d>【22-4】</c>挑战1次封魔谷",
+      "desc": "封魔谷，上古封印众多魔物之地。如今封印松动，请前往镇压！点击下方<color=#ffd87d>[更多]</c>标签，找到<color=#ffd87d>[八阵图]</c>，开始挑战吧！",
+      "award_item": {
+        "B1002": 2
+      },
+      "jump": 1032,
+      "change": 0
+    },
+    "1208": {
+      "type": 1,
+      "condition": 38,
+      "limit": [
+        5
+      ],
+      "next_id": 1209,
+      "name": "<color=#ffd87d>【22-5】</c>穿戴5件八卦装备",
+      "desc": "点击<color=#ffd87d>[更多]</c>→<color=#ffd87d>[八阵图]</c>，穿上八卦装备。",
+      "award_item": {
+        "B1002": 2,
+        "I3006": 5
+      },
+      "jump": 1031,
+      "change": 0
+    },
+    "1209": {
+      "type": 1,
+      "condition": 39,
+      "limit": [
+        5
+      ],
+      "next_id": 1210,
+      "name": "<color=#ffd87d>【22-6】</c>强化5次八卦装备",
+      "desc": "强化八卦，属性飞升。<color=#ffd87d>[强化晶石]</c>可从八卦商店和封魔谷获得！",
+      "award_item": {
+        "I9147": 2,
+        "I3006": 10
+      },
+      "jump": 1031,
+      "change": 0
+    },
+    "1210": {
+      "type": 1,
+      "condition": 36,
+      "limit": [
+        25,
+        1
+      ],
+      "next_id": 1211,
+      "name": "<color=#ffd87d>【22-7】</c>提升凡人境·二十五重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I9147": 2,
+        "I3006": 10
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1211": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1032,
+        1
+      ],
+      "next_id": 1212,
+      "name": "<color=#ffd87d>【22-8】</c>前往<color=#ffa800>轮回</c>·祖玛教主大厅",
+      "desc": "前往轮回境，现在可以公开的情报：祖玛教主大厅位于[盟重]东边！",
+      "award_item": {
+        "I7001": 3,
+        "I7002": 1
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1212": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51008,
+        1
+      ],
+      "next_id": 1213,
+      "name": "<color=#ffd87d>【22-9】</c>击杀<color=#ffa800>轮回</c>Boss-祖玛教主",
+      "desc": "杀常驻于此的Boss——祖玛教主，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I7001": 3,
+        "I8002": 1
+      },
+      "change": 0
+    },
+    "1213": {
+      "type": 1,
+      "condition": 41,
+      "limit": [
+        103,
+        1
+      ],
+      "next_id": 1214,
+      "name": "<color=#ffd87d>【22-10】</c>提升轮回境·三重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I3102": 1,
+        "I8000": 5
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1214": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        75
+      ],
+      "next_id": 1215,
+      "name": "<color=#ffd87d>【23-1】</c>等级达到75级",
+      "desc": "凡人境挂机经验更高哦！",
+      "award_item": {
+        "B1116": 1,
+        "B1008": 1
+      },
+      "change": 0
+    },
+    "1215": {
+      "type": 1,
+      "condition": 22,
+      "limit": [
+        1
+      ],
+      "next_id": 1216,
+      "name": "<color=#ffd87d>【23-2】</c>挑战1次封魔谷",
+      "desc": "封魔谷，上古封印众多魔物之地。如今封印松动，请前往镇压！点击下方<color=#ffd87d>[更多]</c>标签，找到<color=#ffd87d>[八阵图]</c>，开始挑战吧！",
+      "award_item": {
+        "B1002": 2
+      },
+      "jump": 1032,
+      "change": 0
+    },
+    "1216": {
+      "type": 1,
+      "condition": 38,
+      "limit": [
+        8
+      ],
+      "next_id": 1217,
+      "name": "<color=#ffd87d>【23-3】</c>穿戴8件八卦装备",
+      "desc": "点击<color=#ffd87d>[更多]</c>→<color=#ffd87d>[八阵图]</c>，穿上八卦装备。",
+      "award_item": {
+        "B1002": 2,
+        "I3006": 5
+      },
+      "jump": 1031,
+      "change": 0
+    },
+    "1217": {
+      "type": 1,
+      "condition": 39,
+      "limit": [
+        10
+      ],
+      "next_id": 1218,
+      "name": "<color=#ffd87d>【23-4】</c>强化10次八卦装备",
+      "desc": "强化八卦，属性飞升。<color=#ffd87d>[强化晶石]</c>可从八卦商店和封魔谷获得！",
+      "award_item": {
+        "I9147": 2,
+        "I3006": 10
+      },
+      "jump": 1031,
+      "change": 0
+    },
+    "1218": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1056,
+        1
+      ],
+      "next_id": 1219,
+      "name": "<color=#ffd87d>【23-5】</c>前往<color=#ffa800>轮回</c>·峡谷广场",
+      "desc": "路线：<color=#ffd87d>[白日门</c>→<color=#ffd87d>[赤月峡谷]</c>→<color=#ffd87d>[峡谷广场]</c>",
+      "award_item": {
+        "I3006": 10,
+        "I3901": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1219": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51009,
+        1
+      ],
+      "next_id": 1220,
+      "name": "<color=#ffd87d>【23-6】</c>击杀<color=#ffa800>轮回</c>Boss-双头血魔",
+      "desc": "杀常驻于此的Boss——双头血魔，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I7001": 3,
+        "I8002": 1
+      },
+      "change": 0
+    },
+    "1220": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        72,
+        1
+      ],
+      "next_id": 1221,
+      "name": "<color=#ffd87d>【23-7】</c>前往凡人·魔龙谷",
+      "desc": "现在可以公开的情报：魔龙谷位于[魔龙城]郊外！",
+      "award_item": {
+        "I1006": 100,
+        "I3006": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1221": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1016,
+        1
+      ],
+      "next_id": 1222,
+      "name": "<color=#ffd87d>【23-8】</c>击杀凡人Boss-魔龙战将",
+      "desc": "杀常驻于此的Boss——魔龙战将，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I3006": 40,
+        "I3901": 40
+      },
+      "change": 0
+    },
+    "1222": {
+      "type": 1,
+      "condition": 36,
+      "limit": [
+        30,
+        1
+      ],
+      "next_id": 1223,
+      "name": "<color=#ffd87d>【23-9】</c>提升凡人境·三十重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I9147": 2,
+        "I3006": 10
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1223": {
+      "type": 1,
+      "condition": 31,
+      "limit": [
+        1007,
+        1
+      ],
+      "next_id": 1224,
+      "name": "<color=#ffd87d>【23-10】</c>晋升称谓[盟重统领]",
+      "desc": "<color=#ffd87d>[角色]</c>→<color=#ffd87d>[称谓]</c>，晋升称谓，提升属性！",
+      "award_item": {
+        "I3901": 40,
+        "I3007": 3
+      },
+      "jump": 1042,
+      "change": 0
+    },
+    "1224": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1059,
+        1
+      ],
+      "next_id": 1225,
+      "name": "<color=#ffd87d>【24-1】</c>前往<color=#ffa800>轮回</c>·恶魔祭坛",
+      "desc": "前往轮回境，现在可以公开的情报：恶魔祭坛位于[白日门]东北边！",
+      "award_item": {
+        "I3006": 10,
+        "I3901": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1225": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51010,
+        1
+      ],
+      "next_id": 1226,
+      "name": "<color=#ffd87d>【24-2】</c>击杀<color=#ffa800>轮回</c>Boss-双头金刚",
+      "desc": "杀常驻于此的Boss——双头金刚，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I7001": 3,
+        "I7002": 1
+      },
+      "change": 0
+    },
+    "1226": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1060,
+        1
+      ],
+      "next_id": 1227,
+      "name": "<color=#ffd87d>【24-3】</c>前往<color=#ffa800>轮回</c>·赤月巢穴",
+      "desc": "前往轮回境，现在可以公开的情报：恶魔祭坛位于白日门东北边！",
+      "award_item": {
+        "I1006": 100,
+        "I3006": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1227": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51011,
+        1
+      ],
+      "next_id": 1228,
+      "name": "<color=#ffd87d>【24-4】</c>击杀<color=#ffa800>轮回</c>Boss-赤月恶魔",
+      "desc": "杀常驻于此的Boss——赤月恶魔，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I7001": 3,
+        "I7002": 1
+      },
+      "change": 0
+    },
+    "1228": {
+      "type": 1,
+      "condition": 35,
+      "limit": [
+        10000
+      ],
+      "next_id": 1229,
+      "name": "<color=#ffd87d>【24-5】</c>轮回之力达到10000",
+      "desc": "轮回装备上有轮回之力，穿戴更好的<color=#ffd87d>轮回装备</c>，提升轮回之力！",
+      "award_item": {
+        "I7001": 3,
+        "I7002": 1
+      },
+      "change": 0
+    },
+    "1229": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        78
+      ],
+      "next_id": 1230,
+      "name": "<color=#ffd87d>【24-6】</c>等级达到78级",
+      "desc": "凡人境挂机经验更高哦！",
+      "award_item": {
+        "B1116": 1,
+        "B1008": 1
+      },
+      "change": 0
+    },
+    "1230": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        74,
+        1
+      ],
+      "next_id": 1231,
+      "name": "<color=#ffd87d>【24-7】</c>前往凡人·魔龙血域",
+      "desc": "现在可以公开的情报：魔龙血域位于[魔龙城]最北部！",
+      "award_item": {
+        "I1006": 100,
+        "I3006": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1231": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1017,
+        1
+      ],
+      "next_id": 1232,
+      "name": "<color=#ffd87d>【24-8】</c>击杀凡人Boss-魔龙教主",
+      "desc": "杀常驻于此的Boss——魔龙教主，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I3006": 40,
+        "I3901": 40
+      },
+      "change": 0
+    },
+    "1232": {
+      "type": 1,
+      "condition": 36,
+      "limit": [
+        33,
+        1
+      ],
+      "next_id": 1233,
+      "name": "<color=#ffd87d>【24-9】</c>提升凡人境·三十三重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "B1002": 2,
+        "I3006": 5
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1233": {
+      "type": 1,
+      "condition": 39,
+      "limit": [
+        20
+      ],
+      "next_id": 1234,
+      "name": "<color=#ffd87d>【24-10】</c>八卦总强化等级达到20级",
+      "desc": "强化八卦，属性飞升。<color=#ffd87d>[强化晶石]</c>可从八卦商店和封魔谷获得！",
+      "award_item": {
+        "I3006": 40,
+        "I3901": 10,
+        "I3132": 3
+      },
+      "jump": 1031,
+      "change": 0
+    },
+    "1234": {
+      "type": 1,
+      "condition": 28,
+      "limit": [
+        43000
+      ],
+      "next_id": 1235,
+      "name": "<color=#ffd87d>【25-1】</c>战力达到43000",
+      "desc": "强化、洗练、境界、八阵图、穿戴更好的装备，可以提高战力！",
+      "award_item": {
+        "I3132": 3,
+        "I3006": 20
+      },
+      "change": 0
+    },
+    "1235": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        77,
+        1
+      ],
+      "next_id": 1236,
+      "name": "<color=#ffd87d>【25-2】</c>前往凡人·雷炎洞穴1层",
+      "desc": "现在可以公开的情报：雷炎洞穴位于[盟重]东北部！",
+      "award_item": {
+        "I1006": 100,
+        "I3006": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1236": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1018,
+        1
+      ],
+      "next_id": 1237,
+      "name": "<color=#ffd87d>【25-3】</c>击杀凡人Boss-圣殿将军",
+      "desc": "杀常驻于此的Boss——圣殿将军，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I3006": 40,
+        "I3901": 40
+      },
+      "change": 0
+    },
+    "1237": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        80
+      ],
+      "next_id": 1238,
+      "name": "<color=#ffd87d>【25-4】</c>等级达到80级",
+      "desc": "凡人境挂机经验更高哦！",
+      "award_item": {
+        "I3006": 40,
+        "I3901": 10,
+        "I3132": 3
+      },
+      "change": 0
+    },
+    "1238": {
+      "type": 1,
+      "condition": 31,
+      "limit": [
+        1008,
+        1
+      ],
+      "next_id": 1239,
+      "name": "<color=#ffd87d>【25-5】</c>晋升称谓[屠龙勇士]",
+      "desc": "<color=#ffd87d>[角色]</c>→<color=#ffd87d>[称谓]</c>，晋升称谓，提升属性！",
+      "award_item": {
+        "I3901": 40,
+        "I3007": 3
+      },
+      "jump": 1042,
+      "change": 0
+    },
+    "1239": {
+      "type": 1,
+      "condition": 36,
+      "limit": [
+        35,
+        1
+      ],
+      "next_id": 1240,
+      "name": "<color=#ffd87d>【25-6】</c>提升凡人境·三十五重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I9147": 2,
+        "I3006": 10
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1240": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1066,
+        1
+      ],
+      "next_id": 1241,
+      "name": "<color=#ffd87d>【25-7】</c>前往<color=#ffa800>轮回</c>·魔龙旧寨",
+      "desc": "前往轮回境，现在可以公开的情报：魔龙旧寨位于[魔龙城]郊外！",
+      "award_item": {
+        "I1006": 100,
+        "I3006": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1241": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51014,
+        1
+      ],
+      "next_id": 1242,
+      "name": "<color=#ffd87d>【25-8】</c>击杀<color=#ffa800>轮回</c>Boss-魔龙巨蛾",
+      "desc": "杀常驻于此的Boss——魔龙巨蛾，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I7001": 3,
+        "I7002": 1
+      },
+      "change": 0
+    },
+    "1242": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        78,
+        1
+      ],
+      "next_id": 1243,
+      "name": "<color=#ffd87d>【25-9】</c>前往凡人·雷炎洞穴2层",
+      "desc": "现在可以公开的情报：雷炎洞穴位于[盟重]东北部！",
+      "award_item": {
+        "I1006": 100,
+        "I3006": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1243": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1019,
+        1
+      ],
+      "next_id": 1244,
+      "name": "<color=#ffd87d>【25-10】</c>击杀凡人Boss-雷炎蛛王",
+      "desc": "杀常驻于此的Boss——雷炎蛛王，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I3006": 40,
+        "I3901": 40
+      },
+      "change": 0
+    },
+    "1244": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1069,
+        1
+      ],
+      "next_id": 1245,
+      "name": "<color=#ffd87d>【26-1】</c>前往<color=#ffa800>轮回</c>·魔龙岭",
+      "desc": "前往轮回境，现在可以公开的情报：魔龙岭位于[魔龙城]郊外！",
+      "award_item": {
+        "I1006": 100,
+        "I3006": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1245": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51015,
+        1
+      ],
+      "next_id": 1246,
+      "name": "<color=#ffd87d>【26-2】</c>击杀<color=#ffa800>轮回</c>Boss-魔龙力士",
+      "desc": "杀常驻于此的Boss——魔龙力士，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I7001": 3,
+        "I7002": 1
+      },
+      "change": 0
+    },
+    "1246": {
+      "type": 1,
+      "condition": 35,
+      "limit": [
+        12000
+      ],
+      "next_id": 1247,
+      "name": "<color=#ffd87d>【26-3】</c>轮回之力达到12000",
+      "desc": "轮回装备上有轮回之力，穿戴更好的<color=#ffd87d>轮回装备</c>，提升轮回之力！",
+      "award_item": {
+        "I7001": 3,
+        "I7002": 1,
+        "I3006": 20
+      },
+      "change": 0
+    },
+    "1247": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1072,
+        1
+      ],
+      "next_id": 1248,
+      "name": "<color=#ffd87d>【26-4】</c>前往<color=#ffa800>轮回</c>·魔龙谷",
+      "desc": "前往轮回境，现在可以公开的情报：魔龙谷位于[魔龙城]郊外！",
+      "award_item": {
+        "I1006": 100,
+        "I3006": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1248": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51016,
+        1
+      ],
+      "next_id": 1249,
+      "name": "<color=#ffd87d>【26-5】</c>击杀<color=#ffa800>轮回</c>Boss-魔龙战将",
+      "desc": "杀常驻于此的Boss——魔龙战将，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I7001": 3,
+        "I7002": 1
+      },
+      "change": 0
+    },
+    "1249": {
+      "type": 1,
+      "condition": 41,
+      "limit": [
+        104,
+        1
+      ],
+      "next_id": 1250,
+      "name": "<color=#ffd87d>【26-6】</c>提升轮回境·四重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I7001": 5,
+        "I7002": 1
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1250": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        1074,
+        1
+      ],
+      "next_id": 1251,
+      "name": "<color=#ffd87d>【26-7】</c>前往<color=#ffa800>轮回</c>·魔龙血域",
+      "desc": "前往轮回境，现在可以公开的情报：魔龙血域位于[魔龙城]最北部！",
+      "award_item": {
+        "I1006": 100,
+        "I3006": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1251": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        51017,
+        1
+      ],
+      "next_id": 1252,
+      "name": "<color=#ffd87d>【26-8】</c>击杀<color=#ffa800>轮回</c>Boss-魔龙教主",
+      "desc": "杀常驻于此的Boss——魔龙教主，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I7001": 3,
+        "I7002": 1
+      },
+      "change": 0
+    },
+    "1252": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        85
+      ],
+      "next_id": 1253,
+      "name": "<color=#ffd87d>【26-9】</c>等级达到85级",
+      "desc": "凡人境挂机经验更高哦！",
+      "award_item": {
+        "I3006": 40,
+        "I3901": 20,
+        "I3132": 3
+      },
+      "change": 0
+    },
+    "1253": {
+      "type": 1,
+      "condition": 31,
+      "limit": [
+        1010,
+        1
+      ],
+      "next_id": 1254,
+      "name": "<color=#ffd87d>【26-10】</c>晋升称谓[祖玛统帅]",
+      "desc": "<color=#ffd87d>[角色]</c>→<color=#ffd87d>[称谓]</c>，晋升称谓，提升属性！",
+      "award_item": {
+        "I3901": 40,
+        "I3007": 3
+      },
+      "jump": 1042,
+      "change": 0
+    },
+    "1254": {
+      "type": 1,
+      "condition": 36,
+      "limit": [
+        38,
+        1
+      ],
+      "next_id": 1255,
+      "name": "<color=#ffd87d>【27-1】</c>提升凡人境·三十八重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I9147": 2,
+        "I3006": 10
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1255": {
+      "type": 1,
+      "condition": 28,
+      "limit": [
+        68000
+      ],
+      "next_id": 1256,
+      "name": "<color=#ffd87d>【27-2】</c>战力达到68000",
+      "desc": "强化、洗练、境界、八阵图、穿戴更好的装备，可以提高战力！",
+      "award_item": {
+        "I3132": 3,
+        "I3006": 20
+      },
+      "change": 0
+    },
+    "1256": {
+      "type": 1,
+      "condition": 2,
+      "limit": [
+        80,
+        1
+      ],
+      "next_id": 1257,
+      "name": "<color=#ffd87d>【27-3】</c>前往凡人·封印之地",
+      "desc": "封印之地，无人染指，暂无情报。。",
+      "award_item": {
+        "I1006": 100,
+        "I3006": 20
+      },
+      "jump": 1028,
+      "change": 0
+    },
+    "1257": {
+      "type": 1,
+      "condition": 30,
+      "limit": [
+        1020,
+        1
+      ],
+      "next_id": 1258,
+      "name": "<color=#ffd87d>【27-4】</c>击杀凡人Boss-雷炎主宰",
+      "desc": "杀常驻于此的Boss——雷炎主宰，用你的实力击败它！若战败，尝试使用高级恢复药品！",
+      "award_item": {
+        "I3006": 40,
+        "I3901": 40
+      },
+      "change": 0
+    },
+    "1258": {
+      "type": 1,
+      "condition": 36,
+      "limit": [
+        40,
+        1
+      ],
+      "next_id": 1259,
+      "name": "<color=#ffd87d>【27-5】</c>提升凡人境·四十重",
+      "desc": "提升境界，实力狂暴提升！<color=#ffd87d>[角色]</c>→<color=#ffd87d>[境界]</c>",
+      "award_item": {
+        "I9147": 2,
+        "I3006": 10
+      },
+      "jump": 1005,
+      "change": 0
+    },
+    "1259": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        90
+      ],
+      "name": "<color=#ffd87d>【27-6】</c>等级达到90级",
+      "desc": "独孤求败。。。",
+      "award_item": {
+        "I7185": 1,
+        "I3901": 40
+      },
+      "change": 0
+    },
+    "2001": {
+      "type": 2,
+      "condition": 14,
+      "limit": [
+        1
+      ],
+      "name": "【日常】登录游戏",
+      "desc": "登录游戏即可完成任务！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1024,
+      "desc2": "日活\n跃值",
+      "sort": 1
+    },
+    "2002": {
+      "type": 2,
+      "condition": 6,
+      "limit": [
+        10
+      ],
+      "name": "【日常】洗练10次装备",
+      "desc": "选中身上的装备，点击<color=#ffd87d>[改造]</c>，进行10次洗练吧！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1024,
+      "desc2": "日活\n跃值",
+      "sort": 4
+    },
+    "2003": {
+      "type": 2,
+      "condition": 11,
+      "limit": [
+        1
+      ],
+      "name": "【日常】采集1次黑铁矿",
+      "desc": "找到地图中的矿洞，深入矿洞深处即可发现黑铁矿洞！",
+      "lv": 30,
+      "Active": 10,
+      "jump_id": 1009,
+      "desc2": "日活\n跃值",
+      "sort": 11
+    },
+    "2004": {
+      "type": 2,
+      "condition": 10,
+      "limit": [
+        2
+      ],
+      "name": "【日常】打造2次装备",
+      "desc": "前往<color=#ffd87d>[比奇城]</c>中，与<color=#ffd87d>[铁匠]</c>对话，进行2次打造吧",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1035,
+      "desc2": "日活\n跃值",
+      "sort": 2
+    },
+    "2005": {
+      "type": 2,
+      "condition": 4,
+      "limit": [
+        50
+      ],
+      "name": "【日常】回收50件装备",
+      "desc": "进入<color=#ffd87d>[角色]</c>界面，点击下方的<color=#ffd87d>[商人]</c>即可与云游商人对话，回收5次装备吧！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1001,
+      "desc2": "日活\n跃值",
+      "sort": 3
+    },
+    "2006": {
+      "type": 2,
+      "condition": 3,
+      "limit": [
+        0,
+        500
+      ],
+      "name": "【日常】击杀500只普通怪物",
+      "desc": "到战斗界面击杀500只普通怪物吧！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1028,
+      "desc2": "日活\n跃值",
+      "sort": 7
+    },
+    "2007": {
+      "type": 2,
+      "condition": 16,
+      "limit": [
+        2
+      ],
+      "name": "【日常】进行装备献祭2次",
+      "desc": "对装备进行2次献祭提升战力吧！",
+      "lv": 1,
+      "Active": 20,
+      "jump_id": 1024,
+      "desc2": "日活\n跃值",
+      "sort": 6
+    },
+    "2008": {
+      "type": 2,
+      "condition": 17,
+      "limit": [
+        0,
+        1
+      ],
+      "name": "【日常】神兵升级1次",
+      "desc": "对神兵系统进行1次升级提升战力吧！",
+      "lv": 30,
+      "Active": 10,
+      "jump_id": 1004,
+      "desc2": "日活\n跃值",
+      "sort": 10
+    },
+    "2009": {
+      "type": 2,
+      "condition": 3,
+      "limit": [
+        0,
+        200
+      ],
+      "name": "【日常】击杀200只普通怪物",
+      "desc": "到战斗界面击杀200只普通怪物吧！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1028,
+      "desc2": "日活\n跃值",
+      "sort": 7
+    },
+    "2010": {
+      "type": 2,
+      "condition": 19,
+      "limit": [
+        0,
+        50
+      ],
+      "name": "【日常】在任意坊市购买道具50个",
+      "desc": "在任意坊市购买50个道具吧！",
+      "lv": 1,
+      "Active": 20,
+      "jump_id": 1011,
+      "desc2": "日活\n跃值",
+      "sort": 9
+    },
+    "2011": {
+      "type": 2,
+      "condition": 20,
+      "limit": [
+        10
+      ],
+      "name": "【日常】淬炼10次装备",
+      "desc": "选中身上的装备，点击<color=#ffd87d>[改造]</c>，进行10次洗练吧！",
+      "lv": 50,
+      "Active": 10,
+      "jump_id": 1024,
+      "desc2": "日活\n跃值",
+      "sort": 5
+    },
+    "2012": {
+      "type": 2,
+      "condition": 15,
+      "limit": [
+        4,
+        50
+      ],
+      "name": "【日常】击杀50只boss",
+      "desc": "到战斗界面击杀50只boss吧！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1028,
+      "desc2": "日活\n跃值",
+      "sort": 8
+    },
+    "2013": {
+      "type": 2,
+      "condition": 22,
+      "limit": [
+        1
+      ],
+      "name": "【日常】完成挑战封魔谷1次",
+      "desc": "选中身上的装备，点击<color=#ffd87d>[改造]</c>，进行11次洗练吧！",
+      "lv": 60,
+      "Active": 10,
+      "jump_id": 1032,
+      "desc2": "日活\n跃值",
+      "sort": 13
+    },
+    "2014": {
+      "type": 2,
+      "condition": 15,
+      "limit": [
+        4,
+        20
+      ],
+      "name": "【日常】击杀20只boss",
+      "desc": "到战斗界面击杀20只boss吧！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1028,
+      "desc2": "日活\n跃值",
+      "sort": 8
+    },
+    "3001": {
+      "type": 3,
+      "condition": 14,
+      "limit": [
+        7
+      ],
+      "name": "【周常】登录游戏",
+      "desc": "连续7天登录游戏即可完成任务！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1024,
+      "desc2": "周活\n跃值",
+      "sort": 1
+    },
+    "3002": {
+      "type": 3,
+      "condition": 6,
+      "limit": [
+        50
+      ],
+      "name": "【周常】洗练50次装备",
+      "desc": "选中身上的装备，点击<color=#ffd87d>[改造]</c>，进行50次洗练吧！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1024,
+      "desc2": "周活\n跃值",
+      "sort": 4
+    },
+    "3003": {
+      "type": 3,
+      "condition": 11,
+      "limit": [
+        7
+      ],
+      "name": "【周常】采集7次黑铁矿",
+      "desc": "找到地图中的矿洞，深入矿洞深处即可发现黑铁矿洞！",
+      "lv": 30,
+      "Active": 10,
+      "jump_id": 1009,
+      "desc2": "周活\n跃值",
+      "sort": 11
+    },
+    "3004": {
+      "type": 3,
+      "condition": 10,
+      "limit": [
+        20
+      ],
+      "name": "【周常】打造20次装备",
+      "desc": "前往<color=#ffd87d>[比奇城]</c>中，与<color=#ffd87d>[铁匠]</c>对话，进行20次打造吧",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1035,
+      "desc2": "周活\n跃值",
+      "sort": 2
+    },
+    "3005": {
+      "type": 3,
+      "condition": 4,
+      "limit": [
+        500
+      ],
+      "name": "【周常】回收500件装备",
+      "desc": "进入<color=#ffd87d>[角色]</c>界面，点击下方的<color=#ffd87d>[商人]</c>即可与云游商人对话，回收50次装备吧！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1001,
+      "desc2": "周活\n跃值",
+      "sort": 3
+    },
+    "3006": {
+      "type": 3,
+      "condition": 15,
+      "limit": [
+        4,
+        500
+      ],
+      "name": "【周常】击杀500只boss",
+      "desc": "到战斗界面击杀500只boss吧！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1028,
+      "desc2": "周活\n跃值",
+      "sort": 8
+    },
+    "3007": {
+      "type": 3,
+      "condition": 16,
+      "limit": [
+        15
+      ],
+      "name": "【周常】进行装备献祭15次",
+      "desc": "对装备进行15次献祭提升战力吧！",
+      "lv": 1,
+      "Active": 20,
+      "jump_id": 1024,
+      "desc2": "周活\n跃值",
+      "sort": 6
+    },
+    "3008": {
+      "type": 3,
+      "condition": 17,
+      "limit": [
+        0,
+        10
+      ],
+      "name": "【周常】神兵升级10次",
+      "desc": "对神兵系统进行10次升级提升战力吧！",
+      "lv": 30,
+      "Active": 10,
+      "jump_id": 1004,
+      "desc2": "周活\n跃值",
+      "sort": 10
+    },
+    "3009": {
+      "type": 3,
+      "condition": 15,
+      "limit": [
+        4,
+        300
+      ],
+      "name": "【周常】击杀300只boss",
+      "desc": "到战斗界面击杀300只boss吧！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1028,
+      "desc2": "周活\n跃值",
+      "sort": 8
+    },
+    "3010": {
+      "type": 3,
+      "condition": 19,
+      "limit": [
+        2,
+        100
+      ],
+      "name": "【周常】在元宝坊市购买道具100个",
+      "desc": "在元宝坊市购买100个道具吧！",
+      "lv": 1,
+      "Active": 20,
+      "jump_id": 1011,
+      "desc2": "周活\n跃值",
+      "sort": 9
+    },
+    "3011": {
+      "type": 3,
+      "condition": 20,
+      "limit": [
+        50
+      ],
+      "name": "【周常】淬炼50次装备",
+      "desc": "选中身上的装备，点击<color=#ffd87d>[改造]</c>，进行50次洗练吧！",
+      "lv": 50,
+      "Active": 10,
+      "jump_id": 1024,
+      "desc2": "周活\n跃值",
+      "sort": 5
+    },
+    "3012": {
+      "type": 3,
+      "condition": 3,
+      "limit": [
+        0,
+        5000
+      ],
+      "name": "【周常】击杀5000只普通怪物",
+      "desc": "到战斗界面击杀5000只普通怪物吧！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1028,
+      "desc2": "周活\n跃值",
+      "sort": 7
+    },
+    "3013": {
+      "type": 3,
+      "condition": 22,
+      "limit": [
+        7
+      ],
+      "name": "【周常】完成挑战封魔谷7次",
+      "desc": "前往挑战封魔谷7次！",
+      "lv": 60,
+      "Active": 10,
+      "jump_id": 1032,
+      "desc2": "周活\n跃值",
+      "sort": 13
+    },
+    "3014": {
+      "type": 3,
+      "condition": 3,
+      "limit": [
+        0,
+        3000
+      ],
+      "name": "【周常】击杀3000只普通怪物",
+      "desc": "到战斗界面击杀3000只普通怪物吧！",
+      "lv": 1,
+      "Active": 10,
+      "jump_id": 1028,
+      "desc2": "周活\n跃值",
+      "sort": 7
+    },
+    "4000": {
+      "type": 1,
+      "condition": 43,
+      "limit": [
+        1
+      ],
+      "next_id": 1202,
+      "name": "<color=#ffd87d>【21-8】</c>星辰等级达到1级",
+      "desc": "点击<color=#ffd87d>[更多]</c>→<color=#ffd87d>[星辰]</c>，兑换星辰之力，装备星宿！",
+      "award_item": {
+        "I2102": 20,
+        "I3003": 2
+      },
+      "jump": 1006,
+      "change": 0
+    },
+    "4100": {
+      "type": 1,
+      "condition": 21,
+      "limit": [
+        38
+      ],
+      "next_id": 4101,
+      "name": "<color=#ffd87d>【11-3】</c>等级达到38级",
+      "desc": "38级开启行会。沙城传说，由你续写。消灭怪物可获得大量经验，提升角色等级！",
+      "award_res": {
+        "10": 20
+      },
+      "award_item": {
+        "I3006": 5
+      },
+      "jump": 1027,
+      "change": 0
+    },
+    "4101": {
+      "type": 1,
+      "condition": 44,
+      "limit": [
+        1
+      ],
+      "next_id": 4102,
+      "name": "<color=#ffd87d>【11-4】</c>加入行会",
+      "desc": "加入一个行会，沙城传说，由你续写。",
+      "award_res": {
+        "10": 20
+      },
+      "award_item": {
+        "I3006": 5
+      },
+      "jump": 1027,
+      "change": 0
+    },
+    "4102": {
+      "type": 1,
+      "condition": 45,
+      "limit": [
+        1
+      ],
+      "next_id": 4103,
+      "name": "<color=#ffd87d>【11-5】</c>捐赠一次帮贡",
+      "desc": "加入行会后，前往【行会大厅】捐赠一次帮贡。",
+      "award_res": {
+        "10": 60
+      },
+      "award_item": {
+        "I9170": 1
+      },
+      "jump": 1027,
+      "change": 0
+    },
+    "4103": {
+      "type": 1,
+      "condition": 46,
+      "limit": [
+        1
+      ],
+      "next_id": 4104,
+      "name": "<color=#ffd87d>【11-6】</c>打造一个勋章",
+      "desc": "加入行会后，前往【行会铁匠】打造一个勋章。",
+      "award_res": {
+        "1": 5000
+      },
+      "award_item": {
+        "I9161": 10
+      },
+      "jump": 1027,
+      "change": 0
+    },
+    "4104": {
+      "type": 1,
+      "condition": 47,
+      "limit": [
+        1
+      ],
+      "next_id": 4105,
+      "name": "<color=#ffd87d>【11-7】</c>穿戴勋章",
+      "desc": "选择一个勋章，点击装备。战力飞升！",
+      "award_res": {
+        "1": 5000
+      },
+      "award_item": {
+        "I9161": 10
+      },
+      "jump": 1024,
+      "change": 0
+    },
+    "4105": {
+      "type": 1,
+      "condition": 24,
+      "limit": [
+        2001,
+        1
+      ],
+      "next_id": 1103,
+      "name": "<color=#ffd87d>【11-8】</c>强化1次勋章",
+      "desc": "点击勋章，前往改造，强化勋章，获得海量属性！",
+      "award_res": {
+        "10": 10
+      },
+      "award_item": {
+        "I3006": 5
+      },
+      "jump": 1024,
+      "change": 0
+    }
+  }
+}

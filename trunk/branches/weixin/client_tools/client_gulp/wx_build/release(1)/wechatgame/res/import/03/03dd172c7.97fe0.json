@@ -1,0 +1,94 @@
+[
+  [
+    {
+      "__type__": "cc.Prefab",
+      "_name": "xilian",
+      "data": {
+        "__id__": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "xilian",
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 1
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_spriteFrame": {
+            "__uuid__": "daWwZ/CYRH7Jk5EcGWcdqE"
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "09AEZpVoVBKZu1MJHbqGlm"
+        },
+        "fileId": "b2YTqoVMdFKZL88wPpAmIp"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 385,
+        "height": 677
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "x": 0.5,
+        "y": 1
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0.9,
+          0.9,
+          0.9
+        ]
+      }
+    }
+  ],
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xilian",
+      "texture": "4aTqTOoW9Ai4f9t0DuceVR",
+      "rect": [
+        6,
+        0,
+        385,
+        677
+      ],
+      "offset": [
+        2.5,
+        0.5
+      ],
+      "originalSize": [
+        392,
+        678
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

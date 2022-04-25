@@ -1,0 +1,155 @@
+[
+  {
+    "__type__": "cc.BitmapFont",
+    "_name": "shenbinSkill",
+    "spriteFrame": {
+      "__uuid__": "ccOeak/15EF5koUI4cAuOU"
+    },
+    "fontSize": 32,
+    "_fntConfig": {
+      "commonHeight": 32,
+      "fontSize": 32,
+      "atlasName": "shenbinSkill_0.png",
+      "fontDefDictionary": {
+        "48": {
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 14,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 14
+        },
+        "49": {
+          "rect": {
+            "x": 15,
+            "y": 0,
+            "width": 14,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 14
+        },
+        "50": {
+          "rect": {
+            "x": 30,
+            "y": 0,
+            "width": 14,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 14
+        },
+        "51": {
+          "rect": {
+            "x": 45,
+            "y": 0,
+            "width": 14,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 14
+        },
+        "52": {
+          "rect": {
+            "x": 60,
+            "y": 0,
+            "width": 14,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 14
+        },
+        "53": {
+          "rect": {
+            "x": 75,
+            "y": 0,
+            "width": 14,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 14
+        },
+        "54": {
+          "rect": {
+            "x": 90,
+            "y": 0,
+            "width": 14,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 14
+        },
+        "55": {
+          "rect": {
+            "x": 105,
+            "y": 0,
+            "width": 14,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 14
+        },
+        "56": {
+          "rect": {
+            "x": 120,
+            "y": 0,
+            "width": 14,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 14
+        },
+        "57": {
+          "rect": {
+            "x": 135,
+            "y": 0,
+            "width": 14,
+            "height": 20
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 14
+        }
+      },
+      "kerningDict": {}
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shenbinSkill_0",
+      "texture": "21nTASdVdCaY8FUre7drqm",
+      "rect": [
+        1,
+        0,
+        147,
+        20
+      ],
+      "offset": [
+        -53.5,
+        118
+      ],
+      "originalSize": [
+        256,
+        256
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

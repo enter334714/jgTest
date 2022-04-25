@@ -1,0 +1,98 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "2",
+      "texture": "14b6ca1c6",
+      "rect": [
+        682,
+        660,
+        18,
+        19
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        18,
+        19
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "3",
+      "texture": "14b6ca1c6",
+      "rect": [
+        682,
+        685,
+        18,
+        19
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        18,
+        19
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "1",
+      "texture": "14b6ca1c6",
+      "rect": [
+        682,
+        710,
+        18,
+        19
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        18,
+        19
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteAtlas",
+    "_name": "zhiye.plist",
+    "_spriteFrames": {
+      "1": {
+        "__uuid__": "71CFGL0yVDBpBMG1ysqfOK"
+      },
+      "2": {
+        "__uuid__": "3cxWhKX/RGbYFpck1qgyMW"
+      },
+      "3": {
+        "__uuid__": "5ePC23T9pMpYiD7Ll3Ifiu"
+      }
+    }
+  }
+]

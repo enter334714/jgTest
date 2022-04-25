@@ -1,0 +1,279 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "guangbi",
+      "texture": "17hp67Q09HSIesFi/WeJqS",
+      "rect": [
+        396,
+        826,
+        51,
+        51
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        51,
+        51
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xiaobiaoti",
+      "texture": "17hp67Q09HSIesFi/WeJqS",
+      "rect": [
+        489,
+        826,
+        188,
+        26
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        188,
+        26
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "anniu01",
+      "texture": "17hp67Q09HSIesFi/WeJqS",
+      "rect": [
+        0,
+        826,
+        192,
+        64
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        192,
+        64
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteAtlas",
+    "_name": "weiduanfuli.plist",
+    "_spriteFrames": {
+      "bg_01": {
+        "__uuid__": "a6s1MXMaxPP6QWEDdG64zK"
+      },
+      "anniu01": {
+        "__uuid__": "35xSWRSURMs68U6TD7v9Kc"
+      },
+      "fenggexian": {
+        "__uuid__": "81k6oVghFLvYSNWllL/jb3"
+      },
+      "weiduanfuli": {
+        "__uuid__": "83cTJxyh1Hoo3KZXxnergz"
+      },
+      "tishi01": {
+        "__uuid__": "93kUhWFzBBeaB5gB7ysnLW"
+      },
+      "guangbi": {
+        "__uuid__": "1aiQzrPTtJ86wjF4q3K9PL"
+      },
+      "tishi": {
+        "__uuid__": "e1c+zN2iZJ7oZM+imSMc4O"
+      },
+      "xiaobiaoti": {
+        "__uuid__": "26aGukBddB9o07qckQqRzO"
+      },
+      "fontclib_chunjietehui": {
+        "__uuid__": "f5vKA2MwFKupCNMGFCyyG6"
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "fenggexian",
+      "texture": "17hp67Q09HSIesFi/WeJqS",
+      "rect": [
+        0,
+        890,
+        355,
+        4
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        355,
+        4
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "weiduanfuli",
+      "texture": "17hp67Q09HSIesFi/WeJqS",
+      "rect": [
+        192,
+        826,
+        204,
+        52
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        204,
+        52
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tishi01",
+      "texture": "17hp67Q09HSIesFi/WeJqS",
+      "rect": [
+        355,
+        878,
+        170,
+        21
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        170,
+        21
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "bg_01",
+      "texture": "17hp67Q09HSIesFi/WeJqS",
+      "rect": [
+        0,
+        0,
+        573,
+        826
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        573,
+        826
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tishi",
+      "texture": "17hp67Q09HSIesFi/WeJqS",
+      "rect": [
+        447,
+        826,
+        42,
+        42
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        42,
+        42
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "fontclib_chunjietehui",
+      "texture": "17hp67Q09HSIesFi/WeJqS",
+      "rect": [
+        677,
+        0,
+        344,
+        85
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        344,
+        85
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

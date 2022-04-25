@@ -1,0 +1,116 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "legendaryThinkTask",
+  "json": {
+    "1": {
+      "name": "击杀BOSS",
+      "exp": 100,
+      "condition": 1,
+      "goal": 100,
+      "des": "累计击杀"
+    },
+    "2": {
+      "name": "获取洗练石",
+      "itemid": "I3001",
+      "limit": "(不包含洗练返还)",
+      "exp": 200,
+      "condition": 2,
+      "goal": 250,
+      "des": "累计获取"
+    },
+    "3": {
+      "name": "获取淬炼石",
+      "itemid": "I3903",
+      "limit": "(不包含淬炼返还)",
+      "exp": 200,
+      "condition": 3,
+      "goal": 250,
+      "des": "累计获取"
+    },
+    "4": {
+      "name": "刷新铁匠",
+      "exp": 100,
+      "condition": 4,
+      "goal": 5,
+      "des": "累计刷新"
+    },
+    "5": {
+      "name": "获取黑铁矿石",
+      "itemid": "I3101",
+      "exp": 200,
+      "condition": 5,
+      "goal": 7500,
+      "des": "累计获取"
+    },
+    "6": {
+      "name": "获取赤血陨铁",
+      "itemid": "I3905",
+      "exp": 200,
+      "condition": 6,
+      "goal": 50,
+      "des": "累计获取"
+    },
+    "7": {
+      "name": "获取赤血结晶",
+      "itemid": "I3906",
+      "exp": 300,
+      "condition": 7,
+      "goal": 20,
+      "des": "累计获取"
+    },
+    "8": {
+      "name": "获取命运陨铁",
+      "itemid": "I3907",
+      "exp": 200,
+      "condition": 8,
+      "goal": 40,
+      "des": "累计获取"
+    },
+    "9": {
+      "name": "获取命运结晶",
+      "itemid": "I3908",
+      "exp": 300,
+      "condition": 9,
+      "goal": 10,
+      "des": "累计获取"
+    },
+    "10": {
+      "name": "强化精炼",
+      "exp": 400,
+      "condition": 10,
+      "goal": 2,
+      "des": "累计精炼"
+    },
+    "11": {
+      "name": "获取噬魂陨铁",
+      "itemid": "I3916",
+      "exp": 200,
+      "condition": 8,
+      "goal": 40,
+      "des": "累计获取"
+    },
+    "12": {
+      "name": "获取噬魂结晶",
+      "itemid": "I3917",
+      "exp": 400,
+      "condition": 9,
+      "goal": 10,
+      "des": "累计获取"
+    },
+    "13": {
+      "name": "获取宝石朱粒",
+      "itemid": "I3920",
+      "exp": 300,
+      "condition": 11,
+      "goal": 20,
+      "des": "累计获取"
+    },
+    "14": {
+      "name": "擂台挑战",
+      "exp": 200,
+      "condition": 14,
+      "goal": 3,
+      "des": "累计获取"
+    }
+  }
+}

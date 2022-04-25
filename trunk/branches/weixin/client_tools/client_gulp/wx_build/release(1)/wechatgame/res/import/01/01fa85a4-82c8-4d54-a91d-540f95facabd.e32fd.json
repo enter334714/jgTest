@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ppicframe_longzhenghudou_53",
+    "texture": "6cU5bwpOdHyas+SSPAUM7i",
+    "rect": [
+      17,
+      13,
+      170,
+      49
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      204,
+      74
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

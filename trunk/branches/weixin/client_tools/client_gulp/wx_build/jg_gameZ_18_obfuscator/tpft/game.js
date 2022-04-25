@@ -1,1 +1,2 @@
-var v=wx.$d;require("tBFtt.js"),window[v[0]][v[1]][v[2]]=null,window.client_pb=require("tCLIENTtt.js"),window[v[3]]=window[v[0]][v[4]][v[5]](client_pb);
+var v = wx.$d;
+require('tBFtt.js'), window[v[899]][v[900]][v[901]] = null, window['client_pb'] = require('tCLIENTtt.js'), window[v[902]] = window[v[899]][v[903]][v[904]](client_pb);

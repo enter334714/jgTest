@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "fontclip_biaoshi_zixuan",
+    "texture": "5camJOq7dJm40wBEN8zY1H",
+    "rect": [
+      2,
+      0,
+      35,
+      14
+    ],
+    "offset": [
+      0.5,
+      0.5
+    ],
+    "originalSize": [
+      38,
+      15
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

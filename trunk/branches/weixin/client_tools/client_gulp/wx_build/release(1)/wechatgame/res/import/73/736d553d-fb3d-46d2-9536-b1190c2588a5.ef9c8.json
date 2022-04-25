@@ -1,0 +1,222 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "MergeLuckyGuagualeConfig",
+  "json": {
+    "1": {
+      "num": 1,
+      "color": 2,
+      "rewards_a": {
+        "I3905": 15,
+        "I3907": 12,
+        "I3916": 12
+      },
+      "weight": 200,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "2": {
+      "num": 2,
+      "color": 2,
+      "rewards_a": {
+        "I3906": 4,
+        "I3908": 2,
+        "I3917": 2
+      },
+      "weight": 200,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "3": {
+      "num": 3,
+      "color": 2,
+      "rewards_a": {
+        "I3001": 80,
+        "I3903": 80,
+        "I3103": 1
+      },
+      "weight": 200,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "4": {
+      "num": 4,
+      "color": 2,
+      "rewards_a": {
+        "I8000": 10,
+        "B1008": 1,
+        "I7002": 4
+      },
+      "weight": 200,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "5": {
+      "num": 5,
+      "color": 3,
+      "rewards_a": {
+        "I3920": 30,
+        "I3921": 15,
+        "I3922": 15
+      },
+      "weight": 10,
+      "ceiling": 6,
+      "floor": 10
+    },
+    "6": {
+      "num": 6,
+      "color": 3,
+      "rewards_a": {
+        "B1005": 1,
+        "I7022": 1,
+        "I8000": 40
+      },
+      "weight": 10,
+      "ceiling": 12,
+      "floor": 0
+    },
+    "7": {
+      "num": 7,
+      "color": 3,
+      "rewards_a": {
+        "B1006": 1,
+        "I3152": 1,
+        "I7189": 1
+      },
+      "weight": 5,
+      "ceiling": 15,
+      "floor": 0
+    },
+    "8": {
+      "num": 8,
+      "color": 3,
+      "rewards_a": {
+        "B1002": 30,
+        "B1003": 1,
+        "B1004": 1
+      },
+      "weight": 10,
+      "ceiling": 10,
+      "floor": 0
+    },
+    "9": {
+      "num": 9,
+      "color": 1,
+      "rewards_a": {
+        "I4001": 80
+      },
+      "weight": 500,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "10": {
+      "num": 10,
+      "color": 1,
+      "rewards_a": {
+        "I3004": 50
+      },
+      "weight": 500,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "11": {
+      "num": 11,
+      "color": 1,
+      "rewards_a": {
+        "I3926": 1
+      },
+      "weight": 500,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "12": {
+      "num": 12,
+      "color": 1,
+      "rewards_a": {
+        "I3903": 30
+      },
+      "weight": 500,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "13": {
+      "num": 13,
+      "color": 1,
+      "rewards_a": {
+        "B1007": 25
+      },
+      "weight": 1000,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "14": {
+      "num": 14,
+      "color": 1,
+      "rewards_a": {
+        "I3102": 1
+      },
+      "weight": 1000,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "15": {
+      "num": 15,
+      "color": 1,
+      "rewards_a": {
+        "I3909": 60
+      },
+      "weight": 1000,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "16": {
+      "num": 16,
+      "color": 1,
+      "rewards_a": {
+        "I3910": 4
+      },
+      "weight": 1000,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "17": {
+      "num": 17,
+      "color": 1,
+      "rewards_a": {
+        "I3007": 30
+      },
+      "weight": 1000,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "18": {
+      "num": 18,
+      "color": 1,
+      "rewards_a": {
+        "B1007": 25
+      },
+      "weight": 1000,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "19": {
+      "num": 19,
+      "color": 1,
+      "rewards_a": {
+        "I3001": 30
+      },
+      "weight": 500,
+      "ceiling": 0,
+      "floor": 0
+    },
+    "20": {
+      "num": 20,
+      "color": 1,
+      "rewards_a": {
+        "I3903": 30
+      },
+      "weight": 500,
+      "ceiling": 0,
+      "floor": 0
+    }
+  }
+}

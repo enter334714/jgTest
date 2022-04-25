@@ -1,0 +1,18 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "chargegiftConfig",
+  "json": {
+    "1": {
+      "level": 1,
+      "times": 1,
+      "resource": {
+        "1": 100000
+      },
+      "item": {
+        "I6111": 1,
+        "I3001": 20
+      },
+      "refresh": 1
+    }
+  }
+}

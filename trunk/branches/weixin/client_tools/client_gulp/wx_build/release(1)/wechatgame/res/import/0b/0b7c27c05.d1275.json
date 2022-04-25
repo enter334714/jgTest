@@ -1,0 +1,251 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhongjiangtexiao_01",
+      "texture": "140d065ac",
+      "rect": [
+        835,
+        402,
+        55,
+        55
+      ],
+      "offset": [
+        -13.5,
+        -13.5
+      ],
+      "originalSize": [
+        222,
+        276
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhongjiangtexiao_07",
+      "texture": "11e545fc1",
+      "rect": [
+        442,
+        910,
+        110,
+        110
+      ],
+      "offset": [
+        -14,
+        -14
+      ],
+      "originalSize": [
+        222,
+        276
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhongjiangtexiao_03",
+      "texture": "165b67a29",
+      "rect": [
+        218,
+        414,
+        169,
+        218
+      ],
+      "offset": [
+        -15.5,
+        29
+      ],
+      "originalSize": [
+        222,
+        276
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhongjiangtexiao_06",
+      "texture": "1ab33d0bb",
+      "rect": [
+        827,
+        161,
+        222,
+        186
+      ],
+      "offset": [
+        0,
+        -15
+      ],
+      "originalSize": [
+        222,
+        276
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhongjiangtexiao_02",
+      "texture": "1668e6971",
+      "rect": [
+        915,
+        3,
+        116,
+        106
+      ],
+      "offset": [
+        -19,
+        -9
+      ],
+      "originalSize": [
+        222,
+        276
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhongjiangtexiao_05",
+      "texture": "1e3d5c5da",
+      "rect": [
+        660,
+        824,
+        186,
+        250
+      ],
+      "offset": [
+        -12,
+        13
+      ],
+      "originalSize": [
+        222,
+        276
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "zhongjianganime",
+    "_duration": 0.7,
+    "sample": 10,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "24+KQF1ypLxr43L1l5Eia/"
+              }
+            },
+            {
+              "frame": 0.1,
+              "value": {
+                "__uuid__": "73ZlzN/CRMHatDf7D3UUW7"
+              }
+            },
+            {
+              "frame": 0.2,
+              "value": {
+                "__uuid__": "4e7itbQ81LX6kypiMJhtw9"
+              }
+            },
+            {
+              "frame": 0.3,
+              "value": {
+                "__uuid__": "f4hUdhi5RGrILOkqNh2Jx9"
+              }
+            },
+            {
+              "frame": 0.4,
+              "value": {
+                "__uuid__": "c3JOvxNxBKQ6RcC6g12bj7"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "52HHGsHkBI24JQZ3iFhw9w"
+              }
+            },
+            {
+              "frame": 0.6,
+              "value": {
+                "__uuid__": "30urTIwoZMHolwEwP3hDk9"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhongjiangtexiao_04",
+      "texture": "14f5641e0",
+      "rect": [
+        862,
+        692,
+        159,
+        221
+      ],
+      "offset": [
+        -16.5,
+        -27.5
+      ],
+      "originalSize": [
+        222,
+        276
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

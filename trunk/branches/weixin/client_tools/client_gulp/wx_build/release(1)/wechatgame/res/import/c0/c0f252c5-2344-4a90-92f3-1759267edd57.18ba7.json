@@ -1,0 +1,314 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "Outlandexplore_awardConfig",
+  "json": {
+    "1": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I3001": 40
+      },
+      "weight": 120,
+      "ceiling": 0,
+      "order": 2
+    },
+    "2": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I3903": 40
+      },
+      "weight": 120,
+      "ceiling": 0,
+      "order": 3
+    },
+    "3": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I4001": 40
+      },
+      "weight": 120,
+      "ceiling": 0,
+      "order": 8
+    },
+    "4": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I3004": 50
+      },
+      "weight": 120,
+      "ceiling": 0,
+      "order": 4
+    },
+    "5": {
+      "id_nd": 1,
+      "rewards_a": {
+        "B1007": 25
+      },
+      "weight": 120,
+      "ceiling": 0,
+      "order": 9
+    },
+    "6": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I3102": 1
+      },
+      "weight": 30,
+      "ceiling": 0,
+      "order": 10
+    },
+    "7": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I3909": 50
+      },
+      "weight": 40,
+      "ceiling": 0,
+      "order": 11
+    },
+    "8": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I3910": 8
+      },
+      "weight": 40,
+      "ceiling": 0,
+      "order": 5
+    },
+    "9": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I3007": 10
+      },
+      "weight": 120,
+      "ceiling": 0,
+      "order": 6
+    },
+    "10": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I3905": 10
+      },
+      "weight": 50,
+      "ceiling": 0,
+      "order": 12
+    },
+    "11": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I3907": 10
+      },
+      "weight": 40,
+      "ceiling": 0,
+      "order": 13
+    },
+    "12": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I3916": 10
+      },
+      "weight": 40,
+      "ceiling": 0,
+      "order": 14
+    },
+    "13": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I3920": 10
+      },
+      "weight": 40,
+      "ceiling": 0,
+      "order": 7
+    },
+    "14": {
+      "id_nd": 1,
+      "rewards_a": {
+        "I3924": 1
+      },
+      "search": 40,
+      "weight": 50,
+      "ceiling": 30,
+      "order": 1
+    },
+    "101": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3001": 80
+      },
+      "weight": 100,
+      "ceiling": 0,
+      "order": 9
+    },
+    "102": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3903": 80
+      },
+      "weight": 100,
+      "ceiling": 0,
+      "order": 10
+    },
+    "103": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I4001": 80
+      },
+      "weight": 100,
+      "ceiling": 0,
+      "order": 16
+    },
+    "104": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3004": 100
+      },
+      "weight": 100,
+      "ceiling": 0,
+      "order": 11
+    },
+    "105": {
+      "id_nd": 2,
+      "rewards_a": {
+        "B1007": 50
+      },
+      "weight": 100,
+      "ceiling": 0,
+      "order": 17
+    },
+    "106": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3102": 2
+      },
+      "weight": 30,
+      "ceiling": 0,
+      "order": 18
+    },
+    "107": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3909": 100
+      },
+      "weight": 60,
+      "ceiling": 0,
+      "order": 19
+    },
+    "108": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3910": 15
+      },
+      "weight": 60,
+      "ceiling": 0,
+      "order": 12
+    },
+    "109": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3906": 10
+      },
+      "weight": 60,
+      "ceiling": 0,
+      "order": 13
+    },
+    "110": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3908": 5
+      },
+      "weight": 50,
+      "ceiling": 0,
+      "order": 14
+    },
+    "111": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3917": 5
+      },
+      "weight": 50,
+      "ceiling": 0,
+      "order": 15
+    },
+    "112": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3921": 10
+      },
+      "weight": 30,
+      "ceiling": 0,
+      "order": 2
+    },
+    "113": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3922": 10
+      },
+      "weight": 30,
+      "ceiling": 0,
+      "order": 3
+    },
+    "114": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I8000": 30
+      },
+      "weight": 20,
+      "ceiling": 0,
+      "order": 20
+    },
+    "115": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3918": 10
+      },
+      "weight": 30,
+      "ceiling": 0,
+      "order": 4
+    },
+    "116": {
+      "id_nd": 2,
+      "rewards_a": {
+        "B1003": 1
+      },
+      "weight": 30,
+      "ceiling": 0,
+      "order": 7
+    },
+    "117": {
+      "id_nd": 2,
+      "rewards_a": {
+        "B1004": 1
+      },
+      "weight": 25,
+      "ceiling": 0,
+      "order": 8
+    },
+    "118": {
+      "id_nd": 2,
+      "rewards_a": {
+        "B1005": 1
+      },
+      "weight": 10,
+      "ceiling": 0,
+      "order": 5
+    },
+    "119": {
+      "id_nd": 2,
+      "rewards_a": {
+        "B1006": 1
+      },
+      "weight": 5,
+      "ceiling": 0,
+      "order": 6
+    },
+    "120": {
+      "id_nd": 2,
+      "rewards_a": {
+        "I3925": 1
+      },
+      "search": 40,
+      "weight": 50,
+      "ceiling": 35,
+      "order": 1
+    }
+  }
+}

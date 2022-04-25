@@ -1,0 +1,2080 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "AppearanceConfig",
+  "json": {
+    "1001": {
+      "name": "国庆纪念徽章",
+      "condition": 1,
+      "itemid": "I7101",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_guoqingjinian_33",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n防御+10",
+      "true_value": "主属性+10 防御+10",
+      "magic_value": {
+        "7": 10,
+        "9": 10
+      },
+      "power": 100
+    },
+    "1002": {
+      "name": "单身贵族",
+      "condition": 1,
+      "itemid": "I7102",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_danshenguizu_01",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10",
+      "true_value": "主属性+10",
+      "magic_value": {
+        "7": 10
+      },
+      "power": 100
+    },
+    "1003": {
+      "name": "单身贵族",
+      "condition": 1,
+      "itemid": "I7103",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_danshenguizu_02",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n攻速+50",
+      "true_value": "主属性+10 攻速+50",
+      "magic_value": {
+        "7": 10,
+        "14": 50
+      },
+      "power": 100
+    },
+    "1004": {
+      "name": "单身贵族",
+      "condition": 1,
+      "itemid": "I7104",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_danshenguizu_03",
+      "gain": "限时活动获得",
+      "view_value": "主属性+20 \n攻速+50",
+      "true_value": "主属性+20 攻速+50",
+      "magic_value": {
+        "7": 20,
+        "14": 50
+      },
+      "power": 100
+    },
+    "1005": {
+      "name": "好事成双",
+      "condition": 1,
+      "itemid": "I7105",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_haoshichengshuang_04",
+      "gain": "限时活动获得",
+      "view_value": "固定伤害+10 \n固定减伤+5",
+      "true_value": "固定伤害+10 固定减伤+5",
+      "magic_value": {
+        "15": 10,
+        "17": 5
+      },
+      "power": 100
+    },
+    "1006": {
+      "name": "好事成双",
+      "condition": 1,
+      "itemid": "I7106",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_haoshichengshuang_05",
+      "gain": "限时活动获得",
+      "view_value": "固定伤害+20 \n固定减伤+10",
+      "true_value": "固定伤害+20 固定减伤+10",
+      "magic_value": {
+        "15": 20,
+        "17": 10
+      },
+      "power": 100
+    },
+    "1007": {
+      "name": "好事成双",
+      "condition": 1,
+      "itemid": "I7107",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_haoshichengshuang_06",
+      "gain": "限时活动获得",
+      "view_value": "固定伤害+40 \n固定减伤+15",
+      "true_value": "固定伤害+40 固定减伤+15",
+      "magic_value": {
+        "15": 40,
+        "17": 15
+      },
+      "power": 100
+    },
+    "1008": {
+      "name": "圣诞帽",
+      "condition": 1,
+      "itemid": "I7108",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_shengdanmao_27",
+      "gain": "限时活动获得",
+      "view_value": "生命+100 \n生命+1%",
+      "true_value": "生命+100 生命+1%",
+      "magic_value": {
+        "10": 100,
+        "11": 100
+      },
+      "power": 100
+    },
+    "1009": {
+      "name": "圣诞帽",
+      "condition": 1,
+      "itemid": "I7109",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_shengdanmao_28",
+      "gain": "限时活动获得",
+      "view_value": "生命+100 \n生命+3%",
+      "true_value": "生命+100 生命+3%",
+      "magic_value": {
+        "10": 100,
+        "11": 300
+      },
+      "power": 100
+    },
+    "1010": {
+      "name": "圣诞帽",
+      "condition": 1,
+      "itemid": "I7110",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_shengdanmao_29",
+      "gain": "限时活动获得",
+      "view_value": "生命+200 \n生命+5%",
+      "true_value": "生命+200 生命+5%",
+      "magic_value": {
+        "10": 200,
+        "11": 500
+      },
+      "power": 100
+    },
+    "1011": {
+      "name": "缤纷新年",
+      "condition": 1,
+      "itemid": "I7111",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_binfenxinnian_30",
+      "gain": "限时活动获得",
+      "view_value": "主属性+20",
+      "true_value": "主属性+20",
+      "magic_value": {
+        "7": 20
+      },
+      "power": 100
+    },
+    "1012": {
+      "name": "缤纷新年",
+      "condition": 1,
+      "itemid": "I7112",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_binfenxinnian_31",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n主属性+1%",
+      "true_value": "主属性+10 主属性+1%",
+      "magic_value": {
+        "7": 10,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1013": {
+      "name": "缤纷新年",
+      "condition": 1,
+      "itemid": "I7113",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_binfenxinnian_32",
+      "gain": "限时活动获得",
+      "view_value": "主属性+30 \n主属性+1.5%",
+      "true_value": "主属性+30 主属性+1.5%",
+      "magic_value": {
+        "7": 30,
+        "38": 150
+      },
+      "power": 100
+    },
+    "1014": {
+      "name": "幸运星",
+      "condition": 1,
+      "itemid": "I7114",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_xingyunxing_07",
+      "gain": "限时活动获得",
+      "view_value": "极品概率+10% \n装备掉率+5% \n幸运+1",
+      "true_value": "极品概率+10% 装备掉率+5% 幸运+1",
+      "magic_value": {
+        "8": 1,
+        "21": 1000,
+        "22": 500
+      },
+      "power": 100
+    },
+    "1015": {
+      "name": "牛气冲天",
+      "condition": 1,
+      "itemid": "I7115",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 15,
+      "img": "picframe_niuqichongtian_08",
+      "gain": "限时活动获得",
+      "view_value": "生命+100 \n防御+10",
+      "true_value": "生命+100 防御+10",
+      "magic_value": {
+        "9": 10,
+        "10": 100
+      },
+      "power": 100
+    },
+    "1016": {
+      "name": "牛运当头",
+      "condition": 1,
+      "itemid": "I7116",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 15,
+      "img": "picframe_niuyundangtou_09",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n攻击速度+20",
+      "true_value": "主属性+10 攻击速度+20",
+      "magic_value": {
+        "7": 10,
+        "14": 20
+      },
+      "power": 100
+    },
+    "1017": {
+      "name": "团团如月",
+      "condition": 1,
+      "itemid": "I7117",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_tuantuanruyue_10",
+      "gain": "限时活动获得",
+      "view_value": "生命+200 \n伤害增幅+1%",
+      "true_value": "生命+200 伤害增幅+1%",
+      "magic_value": {
+        "10": 200,
+        "16": 100
+      },
+      "power": 100
+    },
+    "1018": {
+      "name": "半边天",
+      "condition": 1,
+      "itemid": "I7118",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_banbiantian_11",
+      "gain": "限时活动获得",
+      "view_value": "生命+100 \n生命吸取+5",
+      "true_value": "生命+100 生命吸取+5",
+      "magic_value": {
+        "10": 200,
+        "19": 5
+      },
+      "power": 100
+    },
+    "1019": {
+      "name": "草长莺飞",
+      "condition": 1,
+      "itemid": "I7119",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 15,
+      "img": "picframe_caozhangyingfei_14",
+      "gain": "限时活动获得",
+      "view_value": "攻击速度+8% \n生命+8%",
+      "true_value": "攻击速度+8% 生命+8%",
+      "magic_value": {
+        "11": 800,
+        "39": 800
+      },
+      "power": 100
+    },
+    "1020": {
+      "name": "扶摇直上",
+      "condition": 1,
+      "itemid": "I7120",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 15,
+      "img": "picframe_fuyaozhishang_12",
+      "gain": "限时活动获得",
+      "view_value": "防御+20 \n固定减伤+10%",
+      "true_value": "防御+20 固定减伤+10%",
+      "magic_value": {
+        "9": 20,
+        "30": 1000
+      },
+      "power": 100
+    },
+    "1021": {
+      "name": "拾翠踏青",
+      "condition": 1,
+      "itemid": "I7121",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 15,
+      "img": "picframe_shicuitaqing_13",
+      "gain": "限时活动获得",
+      "view_value": "生命+100 \n固定伤害+30",
+      "true_value": "生命+100 固定伤害+30",
+      "magic_value": {
+        "10": 100,
+        "15": 30
+      },
+      "power": 100
+    },
+    "1022": {
+      "name": "暮春四月",
+      "condition": 1,
+      "itemid": "I7122",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 15,
+      "img": "picframe_muchunsiyue_15",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10\n生命+200",
+      "true_value": "主属性+10 生命+200",
+      "magic_value": {
+        "7": 10,
+        "10": 200
+      },
+      "power": 100
+    },
+    "1023": {
+      "name": "风雨同舟",
+      "condition": 1,
+      "itemid": "I7123",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_fengyutongzhou_16",
+      "gain": "献给那些饱经风霜仍然不离不弃的勇士",
+      "view_value": "打怪经验加成+5% \n极品概率+5%",
+      "true_value": "打怪经验加成+5% 极品概率+5%",
+      "magic_value": {
+        "21": 500,
+        "55": 500
+      },
+      "power": 100
+    },
+    "1024": {
+      "name": "劳动光荣",
+      "condition": 1,
+      "itemid": "I7124",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_laodongguangrong_17",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n主属性+1% \n法力+100",
+      "true_value": "主属性+10 主属性+1% 法力+100",
+      "magic_value": {
+        "7": 10,
+        "12": 100,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1025": {
+      "name": "周年纪念徽章",
+      "condition": 1,
+      "itemid": "I7125",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_zhounianjinian_18",
+      "gain": "限时活动获得",
+      "view_value": "主属性+20 \n防御+10",
+      "true_value": "主属性+20 防御+10",
+      "magic_value": {
+        "7": 20,
+        "9": 10
+      },
+      "power": 100
+    },
+    "1026": {
+      "name": "一路同行",
+      "condition": 1,
+      "itemid": "I7126",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_yilutongxing_19",
+      "gain": "限时活动获得",
+      "view_value": "极品概率+10% \n主属性+1% \n幸运+1",
+      "true_value": "极品概率+10% 主属性+1% 幸运+1",
+      "magic_value": {
+        "8": 1,
+        "21": 1000,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1027": {
+      "name": "真爱无敌",
+      "condition": 1,
+      "itemid": "I7127",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_zhenaiwudi_20",
+      "gain": "限时活动获得",
+      "view_value": "生命+300 \n生命+3%",
+      "true_value": "生命+300 生命+3%",
+      "magic_value": {
+        "10": 300,
+        "11": 300
+      },
+      "power": 100
+    },
+    "1028": {
+      "name": "六一快乐",
+      "condition": 1,
+      "itemid": "I7128",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_liuyikuaile_21",
+      "gain": "限时活动获得",
+      "view_value": "生命+300 \n固定减伤+15",
+      "true_value": "生命+300 固定减伤+15",
+      "magic_value": {
+        "10": 300,
+        "17": 15
+      },
+      "power": 100
+    },
+    "1029": {
+      "name": "并肩作战",
+      "condition": 1,
+      "itemid": "I7129",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_bingjianzuozhan_22",
+      "gain": "合服活动获得",
+      "view_value": "极品概率+5% \n固定伤害+10 \n幸运+1",
+      "true_value": "极品概率+5% 固定伤害+10 幸运+1",
+      "magic_value": {
+        "8": 1,
+        "15": 10,
+        "21": 500
+      },
+      "power": 100
+    },
+    "1030": {
+      "name": "齐心协力",
+      "condition": 1,
+      "itemid": "I7130",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_qixinxieli_23",
+      "gain": "合服活动获得",
+      "view_value": "极品概率+5% \n固定伤害+10 \n幸运+1",
+      "true_value": "极品概率+5% 固定伤害+10 幸运+1",
+      "magic_value": {
+        "8": 1,
+        "15": 10,
+        "21": 500
+      },
+      "power": 100
+    },
+    "1031": {
+      "name": "同心同德",
+      "condition": 1,
+      "itemid": "I7131",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_tongxintongde_24",
+      "gain": "合服活动获得",
+      "view_value": "极品概率+5% \n固定伤害+10 \n幸运+1",
+      "true_value": "极品概率+5% 固定伤害+10 幸运+1",
+      "magic_value": {
+        "8": 1,
+        "15": 10,
+        "21": 500
+      },
+      "power": 100
+    },
+    "1032": {
+      "name": "团结一致",
+      "condition": 1,
+      "itemid": "I7132",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_tuanjieyizhi_25",
+      "gain": "合服活动获得",
+      "view_value": "极品概率+5% \n固定伤害+10 \n幸运+1",
+      "true_value": "极品概率+5% 固定伤害+10 幸运+1",
+      "magic_value": {
+        "8": 1,
+        "15": 10,
+        "21": 500
+      },
+      "power": 100
+    },
+    "1033": {
+      "name": "一心同体",
+      "condition": 1,
+      "itemid": "I7133",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_yixintongti_26",
+      "gain": "合服活动获得",
+      "view_value": "极品概率+5% \n固定伤害+10 \n幸运+1",
+      "true_value": "极品概率+5% 固定伤害+10 幸运+1",
+      "magic_value": {
+        "8": 1,
+        "15": 10,
+        "21": 500
+      },
+      "power": 100
+    },
+    "1034": {
+      "name": "骄阳似火",
+      "condition": 1,
+      "itemid": "I7134",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_jiaoyangsihuo_47",
+      "gain": "限时活动获得",
+      "view_value": "攻击速度+3% \n生命+5% \n主属性+1%",
+      "true_value": "攻击速度+3% 生命+5% 主属性+1%",
+      "magic_value": {
+        "10": 500,
+        "38": 100,
+        "39": 300
+      },
+      "power": 100
+    },
+    "1035": {
+      "name": "炎炎夏日",
+      "condition": 1,
+      "itemid": "I7135",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_yanyanxiari_49",
+      "gain": "限时活动获得",
+      "view_value": "主属性+15 \n伤害增幅+2%",
+      "true_value": "主属性+15 伤害增幅+2%",
+      "magic_value": {
+        "7": 15,
+        "16": 200
+      },
+      "power": 100
+    },
+    "1036": {
+      "name": "绿树成荫",
+      "condition": 1,
+      "itemid": "I7136",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_lvshuchegnyin_48",
+      "gain": "限时活动获得",
+      "view_value": "生命+300 \n固定减伤+10",
+      "true_value": "生命+300 固定减伤+10",
+      "magic_value": {
+        "10": 300,
+        "17": 10
+      },
+      "power": 100
+    },
+    "1037": {
+      "name": "泳池派对",
+      "condition": 1,
+      "itemid": "I7137",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "ppicframe_yongchipaidui_50",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n生命+2%",
+      "true_value": "主属性+10 \n生命+2%",
+      "magic_value": {
+        "7": 10,
+        "11": 200
+      },
+      "power": 100
+    },
+    "1038": {
+      "name": "仲夏派对",
+      "condition": 1,
+      "itemid": "I7138",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "ppicframe_shengxiapaidui_51",
+      "gain": "限时活动获得",
+      "view_value": "生命+300 \n主属性+1%",
+      "true_value": "生命+300 \n主属性+1%",
+      "magic_value": {
+        "10": 300,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1039": {
+      "name": "中国队加油",
+      "condition": 1,
+      "itemid": "I7139",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "ppicframe_yzhongguoduijiayou_54",
+      "gain": "限时活动获得",
+      "view_value": "生命+200 \n攻速+50",
+      "true_value": "生命+200 \n 攻速+50",
+      "magic_value": {
+        "10": 200,
+        "14": 50
+      },
+      "power": 100
+    },
+    "1040": {
+      "name": "沙滩派对",
+      "condition": 1,
+      "itemid": "I7140",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "ppicframe_shatangpaidui_52",
+      "gain": "限时活动获得",
+      "view_value": "生命+300\n主属性+1%",
+      "true_value": "生命+300 主属性+1%",
+      "magic_value": {
+        "10": 300,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1041": {
+      "name": "泳装派对",
+      "condition": 1,
+      "itemid": "I7141",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "ppicframe_yongzhuangpaidui_53",
+      "gain": "限时活动获得",
+      "view_value": "生命+300\n主属性+1%",
+      "true_value": "生命+300 主属性+1%",
+      "magic_value": {
+        "10": 300,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1042": {
+      "name": "桃李天下",
+      "condition": 1,
+      "itemid": "I7142",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "ppicframe_taolitianxia_55",
+      "gain": "邀新有礼获得",
+      "view_value": "固定减伤+10 \n主属性+1% \n法力+100",
+      "true_value": "固定减伤+10 主属性+1% 法力+100",
+      "magic_value": {
+        "12": 100,
+        "17": 10,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1043": {
+      "name": "四面楚歌",
+      "condition": 1,
+      "itemid": "I7143",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_simianchuge_54",
+      "gain": "天关商店购买",
+      "view_value": "固定伤害+10\n固定减伤+5",
+      "true_value": "固定伤害+10 固定减伤+5",
+      "magic_value": {
+        "15": 10,
+        "17": 5
+      },
+      "power": 100
+    },
+    "1044": {
+      "name": "短兵相接",
+      "condition": 1,
+      "itemid": "I7144",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_duanbingxiangjie_55",
+      "gain": "天关商店购买",
+      "view_value": "主属性+10\n主属性+1%",
+      "true_value": "主属性+10 主属性+1%",
+      "magic_value": {
+        "7": 10,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1045": {
+      "name": "金鼓连天",
+      "condition": 1,
+      "itemid": "I7145",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_jinguliantian_56",
+      "gain": "天关商店购买",
+      "view_value": "固定伤害+20\n固定减伤+10",
+      "true_value": "固定伤害+20 固定减伤+10",
+      "magic_value": {
+        "15": 20,
+        "17": 10
+      },
+      "power": 100
+    },
+    "1046": {
+      "name": "千军万马",
+      "condition": 1,
+      "itemid": "I7146",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_qianjunwanma_57",
+      "gain": "天关商店购买",
+      "view_value": "主属性+30\n主属性+1.5%",
+      "true_value": "主属性+30 主属性+1.5%",
+      "magic_value": {
+        "7": 30,
+        "38": 150
+      },
+      "power": 100
+    },
+    "1047": {
+      "name": "势如破竹",
+      "condition": 1,
+      "itemid": "I7147",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_shirupozhu_58",
+      "gain": "天关商店购买",
+      "view_value": "固定伤害+30\n固定减伤+15",
+      "true_value": "固定伤害+30 固定减伤+15",
+      "magic_value": {
+        "15": 30,
+        "17": 15
+      },
+      "power": 100
+    },
+    "1048": {
+      "name": "坚持不懈",
+      "condition": 1,
+      "itemid": "I7148",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_jianchibuxie_59",
+      "gain": "连充活动获得",
+      "view_value": "生命+300\n生命+3%",
+      "true_value": "生命+300 生命+3%",
+      "magic_value": {
+        "10": 300,
+        "11": 300
+      },
+      "power": 100
+    },
+    "1049": {
+      "name": "持之以恒",
+      "condition": 1,
+      "itemid": "I7149",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_chizhiyiheng_60",
+      "gain": "连充活动获得",
+      "view_value": "主属性+10\n生命+200",
+      "true_value": "主属性+10 生命+200",
+      "magic_value": {
+        "7": 10,
+        "10": 200
+      },
+      "power": 100
+    },
+    "1050": {
+      "name": "水滴石穿",
+      "condition": 1,
+      "itemid": "I7150",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_shuidishichuan61",
+      "gain": "连充活动获得",
+      "view_value": "生命+200\n防御+5",
+      "true_value": "生命+200 防御+5",
+      "magic_value": {
+        "9": 5,
+        "10": 100
+      },
+      "power": 100
+    },
+    "1051": {
+      "name": "磨杆成针",
+      "condition": 1,
+      "itemid": "I7151",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_tieganchengzhen_62",
+      "gain": "连充活动获得",
+      "view_value": "固定伤害+10\n固定减伤+5",
+      "true_value": "固定伤害+10 固定减伤+5",
+      "magic_value": {
+        "15": 10,
+        "17": 5
+      },
+      "power": 100
+    },
+    "1052": {
+      "name": "龙争虎斗",
+      "condition": 1,
+      "itemid": "I7152",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "ppicframe_longzhenghudou_53",
+      "gain": "擂台兑换获得",
+      "view_value": "主属性+15\n生命+2%",
+      "true_value": "主属性+15 生命+2%",
+      "magic_value": {
+        "7": 15,
+        "11": 200
+      },
+      "power": 100
+    },
+    "1053": {
+      "name": "巅峰王者",
+      "condition": 1,
+      "itemid": "I7153",
+      "limit_time": 86400,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_dianfengwangzhe_34",
+      "gain": "擂台结算第一名获得，期限1天",
+      "view_value": "经验加成+5% \n极品概率+10%",
+      "true_value": "经验加成+5% \n极品概率+10%",
+      "magic_value": {
+        "21": 1000,
+        "55": 500
+      },
+      "power": 100
+    },
+    "1054": {
+      "name": "万众瞩目",
+      "condition": 1,
+      "itemid": "I7154",
+      "limit_time": 86400,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_wanzhongzhumu_35",
+      "gain": "擂台结算第二名获得，期限1天",
+      "view_value": "经验加成+3% \n极品概率+6%",
+      "true_value": "经验加成+3% \n极品概率+6%",
+      "magic_value": {
+        "21": 600,
+        "55": 300
+      },
+      "power": 100
+    },
+    "1055": {
+      "name": "声名鹊起",
+      "condition": 1,
+      "itemid": "I7155",
+      "limit_time": 86400,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_shengmingqueqi_36",
+      "gain": "擂台结算第三名获得，期限1天",
+      "view_value": "经验加成+1% \n极品概率+3%",
+      "true_value": "经验加成+1% \n极品概率+3%",
+      "magic_value": {
+        "21": 300,
+        "55": 100
+      },
+      "power": 100
+    },
+    "1056": {
+      "name": "秋高气爽",
+      "condition": 1,
+      "itemid": "I7156",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_qiugaoqishuang_63",
+      "gain": "限时活动获得",
+      "view_value": "生命+300\n固定伤害+10",
+      "true_value": "生命+300 固定伤害+10",
+      "magic_value": {
+        "10": 300,
+        "15": 10
+      },
+      "power": 100
+    },
+    "1057": {
+      "name": "秋风瑟瑟",
+      "condition": 1,
+      "itemid": "I7157",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_qiufengsese_64",
+      "gain": "限时活动获得",
+      "view_value": "主属性+30\n主属性+1.5%",
+      "true_value": "主属性+30 主属性+1.5%",
+      "magic_value": {
+        "7": 30,
+        "38": 150
+      },
+      "power": 100
+    },
+    "1058": {
+      "name": "春兰秋菊",
+      "condition": 1,
+      "itemid": "I7158",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_chunlanqiuju_65",
+      "gain": "限时活动获得",
+      "view_value": "生命+500\n主属性+1%",
+      "true_value": "生命+500 主属性+1%",
+      "magic_value": {
+        "10": 500,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1059": {
+      "name": "一叶知秋",
+      "condition": 1,
+      "itemid": "I7159",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_yiyezhiqiu_66",
+      "gain": "限时活动获得",
+      "view_value": "固定减伤+5\n生命+1.5%",
+      "true_value": "固定减伤+5 生命+1.5%",
+      "magic_value": {
+        "11": 150,
+        "17": 5
+      },
+      "power": 100
+    },
+    "1060": {
+      "name": "国庆快乐",
+      "condition": 1,
+      "itemid": "I7160",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_guoqingkuaile_84",
+      "gain": "限时活动获得",
+      "view_value": "固定伤害+10\n生命+2%",
+      "true_value": "固定伤害+10 生命+2%",
+      "magic_value": {
+        "11": 200,
+        "15": 10
+      },
+      "power": 100
+    },
+    "1061": {
+      "name": "秋雨绵绵",
+      "condition": 1,
+      "itemid": "I7161",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_qiuyumianmian_85",
+      "gain": "限时活动获得",
+      "view_value": "生命+200\n伤害增幅+1%",
+      "true_value": "生命+200 伤害增幅+1%",
+      "magic_value": {
+        "10": 200,
+        "16": 100
+      },
+      "power": 100
+    },
+    "1062": {
+      "name": "秋兰飘香",
+      "condition": 1,
+      "itemid": "I7162",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_qiulanpiaoxiang_86",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10\n生命+2%",
+      "true_value": "主属性+10 生命+2%",
+      "magic_value": {
+        "7": 10,
+        "11": 200
+      },
+      "power": 100
+    },
+    "1063": {
+      "name": "粉装玉砌",
+      "condition": 1,
+      "itemid": "I7163",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_fenzhuangyuqi_90",
+      "gain": "限时活动获得",
+      "view_value": "生命+200\n主属性+1%",
+      "true_value": "生命+200\n主属性+1%",
+      "magic_value": {
+        "10": 200,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1064": {
+      "name": "百花生日",
+      "condition": 1,
+      "itemid": "I7164",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_baihuashengri_87",
+      "gain": "限时活动获得",
+      "view_value": "固定伤害+10\n生命+1%",
+      "true_value": "固定伤害+10 生命+1%",
+      "magic_value": {
+        "11": 100,
+        "15": 10
+      },
+      "power": 100
+    },
+    "1065": {
+      "name": "月夜花朝",
+      "condition": 1,
+      "itemid": "I7165",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_yueyehuachao_88",
+      "gain": "限时活动获得",
+      "view_value": "主属性+15\n生命+2%",
+      "true_value": "主属性+15\n生命+2%",
+      "magic_value": {
+        "7": 15,
+        "11": 200
+      },
+      "power": 100
+    },
+    "1066": {
+      "name": "寒冬腊月",
+      "condition": 1,
+      "itemid": "I7166",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_handonglayue_89",
+      "gain": "限时活动获得",
+      "view_value": "生命+200\n主属性+1%",
+      "true_value": "生命+200\n主属性+1%",
+      "magic_value": {
+        "10": 200,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1067": {
+      "name": "沙巴克城主",
+      "condition": 1,
+      "itemid": "I7167",
+      "limit_time": 1209600,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_shabakechengzhu_95",
+      "gain": "行会战结算攻占沙巴克会长获得，期限14天",
+      "view_value": "pvp伤害增幅+15%\npvp伤害减幅+15%",
+      "true_value": "pvp伤害增幅+15%\npvp伤害减幅+15%",
+      "magic_value": {
+        "35": 1500,
+        "36": 1500
+      },
+      "power": 300
+    },
+    "1068": {
+      "name": "沙巴克精英",
+      "condition": 1,
+      "itemid": "I7168",
+      "limit_time": 1209600,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_shabakejingying_96",
+      "gain": "行会战结算攻占沙巴克成员获得，期限14天",
+      "view_value": "pvp伤害增幅+12%\npvp伤害减幅+12%",
+      "true_value": "pvp伤害增幅+12%\npvp伤害减幅+12%",
+      "magic_value": {
+        "35": 1300,
+        "36": 1300
+      },
+      "power": 250
+    },
+    "1069": {
+      "name": "郡城城主",
+      "condition": 1,
+      "itemid": "I7169",
+      "limit_time": 1209600,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_junchengchengzhu_93",
+      "gain": "行会战结算攻占郡城会长获得，期限14天",
+      "view_value": "pvp伤害增幅+10%\npvp伤害减幅+10%",
+      "true_value": "pvp伤害增幅+10%\npvp伤害减幅+10%",
+      "magic_value": {
+        "35": 1000,
+        "36": 1000
+      },
+      "power": 200
+    },
+    "1070": {
+      "name": "郡城英豪",
+      "condition": 1,
+      "itemid": "I7170",
+      "limit_time": 1209600,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_junchengyinghao_94",
+      "gain": "行会战结算攻占郡城成员获得，期限14天",
+      "view_value": "pvp伤害增幅+8%\npvp伤害减幅+8%",
+      "true_value": "pvp伤害增幅+8%\npvp伤害减幅+8%",
+      "magic_value": {
+        "35": 800,
+        "36": 800
+      },
+      "power": 150
+    },
+    "1071": {
+      "name": "县城城主",
+      "condition": 1,
+      "itemid": "I7171",
+      "limit_time": 1209600,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_xianchengchengzhu_91",
+      "gain": "行会战结算攻占县城会长获得，期限14天",
+      "view_value": "pvp伤害增幅+5%\npvp伤害减幅+5%",
+      "true_value": "pvp伤害增幅+5%\npvp伤害减幅+5%",
+      "magic_value": {
+        "35": 500,
+        "36": 500
+      },
+      "power": 100
+    },
+    "1072": {
+      "name": "县城成员",
+      "condition": 1,
+      "itemid": "I7172",
+      "limit_time": 1209600,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_xianchengchengyuan_92",
+      "gain": "行会战结算攻占县城会长获得，期限14天",
+      "view_value": "pvp伤害增幅+3%\npvp伤害减幅+3%",
+      "true_value": "pvp伤害增幅+3%\npvp伤害减幅+3%",
+      "magic_value": {
+        "35": 300,
+        "36": 300
+      },
+      "power": 50
+    },
+    "1073": {
+      "name": "富可敌国",
+      "condition": 1,
+      "itemid": "I7173",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_fukediguo_98",
+      "gain": "限时活动获得",
+      "view_value": "防御+10\n固定减伤+20",
+      "true_value": "防御+10\n固定减伤+20",
+      "magic_value": {
+        "9": 10,
+        "17": 20
+      },
+      "power": 100
+    },
+    "1074": {
+      "name": "家财万贯",
+      "condition": 1,
+      "itemid": "I7174",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_jiacaiwanguan_99",
+      "gain": "终身累充活动获得",
+      "view_value": "防御+20\n伤害减免+2%",
+      "true_value": "防御+20\n伤害减免+2%",
+      "magic_value": {
+        "9": 20,
+        "18": 200
+      },
+      "power": 200
+    },
+    "1075": {
+      "name": "荣华富贵",
+      "condition": 1,
+      "itemid": "I7175",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_ronghuafugui_97",
+      "gain": "限时活动获得",
+      "view_value": "固定伤害+10\n生命+2%",
+      "true_value": "固定伤害+10\n生命+2%",
+      "magic_value": {
+        "11": 200,
+        "15": 20
+      },
+      "power": 100
+    },
+    "1076": {
+      "name": "24K纯金",
+      "condition": 1,
+      "itemid": "I7176",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_24kchunjin_44",
+      "gain": "终身累充活动获得",
+      "view_value": "经验加成+5%\n幸运+1\n极品概率+10%",
+      "true_value": "经验加成+5%\n幸运+1\n极品概率+10%",
+      "magic_value": {
+        "8": 1,
+        "21": 1000,
+        "55": 500
+      },
+      "power": 300
+    },
+    "1077": {
+      "name": "不屈意志",
+      "condition": 1,
+      "itemid": "I7177",
+      "limit_time": 1296000,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "picframe_buquyizhi_43",
+      "gain": "每日充值活动获得",
+      "view_value": "经验加成+3% \n极品概率+3%",
+      "true_value": "经验加成+3% \n极品概率+3%",
+      "magic_value": {
+        "21": 300,
+        "55": 300
+      },
+      "power": 100
+    },
+    "1078": {
+      "name": "祈愿者",
+      "condition": 1,
+      "itemid": "I7178",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_qiyuanzhe_100",
+      "gain": "祈愿神树活动获得",
+      "view_value": "固定伤害+10 \n固定减伤+5",
+      "true_value": "固定伤害+10 \n固定减伤+5",
+      "magic_value": {
+        "15": 10,
+        "17": 5
+      },
+      "power": 100
+    },
+    "1079": {
+      "name": "挥金如土",
+      "condition": 1,
+      "itemid": "I7179",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_huijinrutu_111",
+      "gain": "终身累充活动获得",
+      "view_value": "防御+30 \n幸运+1 \n主属性+3%",
+      "true_value": "防御+30 \n幸运+1 \n主属性+3%",
+      "magic_value": {
+        "8": 1,
+        "9": 30,
+        "38": 300
+      },
+      "power": 300
+    },
+    "1080": {
+      "name": "财大气粗",
+      "condition": 1,
+      "itemid": "I7180",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_caidaqicu_112",
+      "gain": "终身累充活动获得",
+      "view_value": "固定伤害+40 \n幸运+1 \n伤害增幅+3%",
+      "true_value": "固定伤害+40 \n幸运+1 \n伤害增幅+3%",
+      "magic_value": {
+        "8": 1,
+        "15": 40,
+        "16": 300
+      },
+      "power": 300
+    },
+    "1081": {
+      "name": "堆金积玉",
+      "condition": 1,
+      "itemid": "I7181",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_duijinjiyu_113",
+      "gain": "终身累充活动获得",
+      "view_value": "防御+40 \n幸运+1 \n伤害减免+3%",
+      "true_value": "防御+40 \n幸运+1 \n伤害减免+3%",
+      "magic_value": {
+        "8": 1,
+        "9": 40,
+        "18": 300
+      },
+      "power": 300
+    },
+    "1082": {
+      "name": "朱门绣户",
+      "condition": 1,
+      "itemid": "I7182",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_zhumenxiuhu_114",
+      "gain": "终身累充活动获得",
+      "view_value": "主属性+5% \n幸运+1 \n伤害减免+5%",
+      "true_value": "主属性+5% \n幸运+1 \n伤害减免+5%",
+      "magic_value": {
+        "8": 1,
+        "18": 500,
+        "38": 500
+      },
+      "power": 300
+    },
+    "1083": {
+      "name": "富比王侯",
+      "condition": 1,
+      "itemid": "I7183",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_fubiwanghou_115",
+      "gain": "终身累充活动获得",
+      "view_value": "伤害减免+10% \n幸运+1 \n伤害增幅+10%",
+      "true_value": "伤害减免+10% \n幸运+1 \n伤害增幅+10%",
+      "magic_value": {
+        "8": 1,
+        "16": 1000,
+        "18": 1000
+      },
+      "power": 300
+    },
+    "1084": {
+      "name": "忠实玩家",
+      "condition": 1,
+      "itemid": "I7184",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_zhongshiwanjia_118",
+      "gain": "玩家群活动获得",
+      "view_value": "固定伤害+10 \n固定减伤+5",
+      "true_value": "固定伤害+10 \n固定减伤+5",
+      "magic_value": {
+        "15": 10,
+        "17": 5
+      },
+      "power": 100
+    },
+    "1085": {
+      "name": "头号玩家",
+      "condition": 1,
+      "itemid": "I7185",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 15,
+      "img": "picframe_touhaowanjia_119",
+      "gain": "等级达到90级获得",
+      "view_value": "生命+200 \n主属性+1%",
+      "true_value": "生命+200\n主属性+1%",
+      "magic_value": {
+        "10": 200,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1086": {
+      "name": "东海龙王",
+      "condition": 1,
+      "itemid": "I7186",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_donghailongwang_120",
+      "gain": "玩家群活动获得",
+      "view_value": "主属性+10 \n生命+2%",
+      "true_value": "主属性+10 生命+2%",
+      "magic_value": {
+        "7": 10,
+        "11": 200
+      },
+      "power": 100
+    },
+    "1087": {
+      "name": "冷场王",
+      "condition": 1,
+      "itemid": "I7187",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_lengchangwang_121",
+      "gain": "玩家群活动获得",
+      "view_value": "生命+200 \n防御+5",
+      "true_value": "生命+200 防御+5",
+      "magic_value": {
+        "9": 5,
+        "10": 100
+      },
+      "power": 100
+    },
+    "1088": {
+      "name": "虎虎生威",
+      "condition": 1,
+      "itemid": "I7188",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_huhushengwei_122",
+      "gain": "限时活动获得",
+      "view_value": "固定伤害+10 \n固定减伤+10",
+      "true_value": "固定伤害+10 \n固定减伤+10",
+      "magic_value": {
+        "15": 10,
+        "17": 10
+      },
+      "power": 100
+    },
+    "1089": {
+      "name": "虎穴龙潭",
+      "condition": 1,
+      "itemid": "I7189",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "ppicframe_huxuelongtan_01",
+      "gain": "限时活动获得",
+      "view_value": "生命+200\n主属性+1%",
+      "true_value": "生命+200\n主属性+1%",
+      "magic_value": {
+        "10": 200,
+        "38": 100
+      },
+      "power": 100
+    },
+    "1090": {
+      "name": "猛虎出山",
+      "condition": 1,
+      "itemid": "I7190",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_menghuchushan_124",
+      "gain": "限时活动获得",
+      "view_value": "固定伤害+15\n生命+3%",
+      "true_value": "固定伤害+15 生命+3%",
+      "magic_value": {
+        "11": 300,
+        "15": 15
+      },
+      "power": 200
+    },
+    "1091": {
+      "name": "将门虎子",
+      "condition": 1,
+      "itemid": "I7191",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_jiangmenhuzi_125",
+      "gain": "限时活动获得",
+      "view_value": "固定伤害+10\n生命+1%",
+      "true_value": "固定伤害+10 生命+1%",
+      "magic_value": {
+        "11": 100,
+        "15": 10
+      },
+      "power": 100
+    },
+    "1092": {
+      "name": "一刀999",
+      "condition": 1,
+      "itemid": "I7192",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_yidao9999_42",
+      "gain": "传奇币兑换获得",
+      "view_value": "防御+3%\n幸运+2\n主属性+3%\n生命+3%\n主属性+99\n生命+999",
+      "true_value": "防御+3%\n幸运+2\n主属性+3%\n生命+3%\n主属性+99\n生命+999",
+      "magic_value": {
+        "7": 99,
+        "8": 2,
+        "10": 999,
+        "11": 300,
+        "38": 300,
+        "40": 300
+      },
+      "power": 600
+    },
+    "1093": {
+      "name": "天下第一",
+      "condition": 1,
+      "itemid": "I7193",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 45,
+      "img": "picframe_kulougandi_111",
+      "gain": "运营活动获得",
+      "view_value": "pvp伤害增幅+5%\npvp伤害减幅+5%",
+      "true_value": "pvp伤害增幅+5%\npvp伤害减幅+5%",
+      "magic_value": {
+        "35": 500,
+        "36": 500
+      },
+      "power": 100
+    },
+    "1094": {
+      "name": "杏花微雨",
+      "condition": 1,
+      "itemid": "I7194",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 15,
+      "img": "ppicframe_xinghuaweiyu_01",
+      "gain": "限时活动获得",
+      "view_value": "生命+8% \n伤害增幅+3%",
+      "true_value": "生命+8% 伤害增幅+3%",
+      "magic_value": {
+        "11": 800,
+        "16": 300
+      },
+      "power": 100
+    },
+    "2004": {
+      "name": "风雨无阻",
+      "condition": 3,
+      "itemid": "60",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 999,
+      "img": "picframe_fengyuwuzu_37",
+      "gain": "累计登录60天获得",
+      "view_value": "主属性+5 \n伤害增幅+1%",
+      "true_value": "主属性+5 伤害增幅+1%",
+      "magic_value": {
+        "7": 5,
+        "16": 100
+      },
+      "power": 100
+    },
+    "2005": {
+      "name": "玛法勇者",
+      "condition": 4,
+      "itemid": "60000",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "picframe_mafayongzhe_38",
+      "gain": "战力达到60000获得",
+      "view_value": "生命+100 \n生命+1%",
+      "true_value": "生命+100 生命+1%",
+      "magic_value": {
+        "10": 100,
+        "11": 100
+      },
+      "power": 100
+    },
+    "2006": {
+      "name": "玛法霸主",
+      "condition": 5,
+      "itemid": "80",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "picframe_mafabazhu_39",
+      "gain": "等级达到80级获得",
+      "view_value": "生命+1% \n固定伤害+5",
+      "true_value": "生命+1% \n固定伤害+5",
+      "magic_value": {
+        "11": 100,
+        "15": 5
+      },
+      "power": 100
+    },
+    "2007": {
+      "name": "驰骋天关",
+      "condition": 6,
+      "itemid": "40",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "picframe_chichengtianguan_40",
+      "gain": "爬塔达到40层获得",
+      "view_value": "固定减伤+5\n固定伤害+5 ",
+      "true_value": "固定减伤+5\n固定伤害+5 ",
+      "magic_value": {
+        "15": 5,
+        "17": 5
+      },
+      "power": 100
+    },
+    "2008": {
+      "name": "金山银海",
+      "condition": 7,
+      "itemid": "3000000000",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "picframe_jinshanyinhai_45",
+      "gain": "累计获得3亿金币",
+      "view_value": "主属性+10",
+      "true_value": "主属性+10",
+      "magic_value": {
+        "7": 10
+      },
+      "power": 100
+    },
+    "2009": {
+      "name": "领主杀手",
+      "condition": 0,
+      "itemid": "0",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "picframe_lingzhushashou_41",
+      "gain": "敬请期待",
+      "view_value": "未知",
+      "true_value": "极品概率+5% 固定伤害+10 幸运+1",
+      "magic_value": {
+        "8": 1,
+        "15": 10,
+        "21": 500
+      },
+      "power": 100
+    },
+    "2010": {
+      "name": "24K纯金已投",
+      "condition": 0,
+      "itemid": "0",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "picframe_24kchunjin_44",
+      "gain": "敬请期待",
+      "view_value": "未知",
+      "true_value": "极品概率+5% 固定伤害+10 幸运+1",
+      "magic_value": {
+        "8": 1,
+        "15": 10,
+        "21": 500
+      },
+      "power": 100
+    },
+    "2011": {
+      "name": "一刀9999已投",
+      "condition": 0,
+      "itemid": "0",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "picframe_yidao9999_42",
+      "gain": "敬请期待",
+      "view_value": "未知",
+      "true_value": "极品概率+5% 固定伤害+10 幸运+1",
+      "magic_value": {
+        "8": 1,
+        "15": 10,
+        "21": 500
+      },
+      "power": 100
+    },
+    "2012": {
+      "name": "不屈意志已投",
+      "condition": 0,
+      "itemid": "0",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "picframe_buquyizhi_43",
+      "gain": "敬请期待",
+      "view_value": "未知",
+      "true_value": "极品概率+5% 固定伤害+10 幸运+1",
+      "magic_value": {
+        "8": 1,
+        "15": 10,
+        "21": 500
+      },
+      "power": 100
+    },
+    "2013": {
+      "name": "非洲野人",
+      "condition": 0,
+      "itemid": "0",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "picframe_feizhouyeren_46",
+      "gain": "敬请期待",
+      "view_value": "未知",
+      "true_value": "攻击速度+3% 生命+5% 主属性+1%",
+      "magic_value": {
+        "10": 500,
+        "38": 100,
+        "39": 300
+      },
+      "power": 100
+    },
+    "3001": {
+      "name": "比奇新人",
+      "condition": 8,
+      "itemid": "1",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_biqixinren_67",
+      "gain": "称谓达到比奇新人获得",
+      "view_value": "生命+100",
+      "true_value": "生命+100",
+      "magic_value": {
+        "10": 100
+      },
+      "power": 50
+    },
+    "3002": {
+      "name": "比奇小将",
+      "condition": 8,
+      "itemid": "2",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_biqixiaojiang_68",
+      "gain": "称谓达到比奇小将获得",
+      "view_value": "生命+150",
+      "true_value": "生命+150",
+      "magic_value": {
+        "10": 150
+      },
+      "power": 50
+    },
+    "3003": {
+      "name": "半兽猎人",
+      "condition": 8,
+      "itemid": "3",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_banshoulieren_69",
+      "gain": "称谓达到半兽猎人获得",
+      "view_value": "生命+200",
+      "true_value": "生命+200",
+      "magic_value": {
+        "10": 200
+      },
+      "power": 50
+    },
+    "3004": {
+      "name": "骷髅杀手",
+      "condition": 8,
+      "itemid": "4",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_kuloushashou_70",
+      "gain": "称谓达到骷髅杀手获得",
+      "view_value": "pvp增伤+2%",
+      "true_value": "pvp增伤+2%",
+      "magic_value": {
+        "35": 200
+      },
+      "power": 100
+    },
+    "3005": {
+      "name": "白日门徒",
+      "condition": 8,
+      "itemid": "5",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_bairimentu_71",
+      "gain": "称谓达到白日门徒获得",
+      "view_value": "pvp减伤+2%",
+      "true_value": "pvp减伤+2%",
+      "magic_value": {
+        "36": 200
+      },
+      "power": 100
+    },
+    "3006": {
+      "name": "盟重前锋",
+      "condition": 8,
+      "itemid": "6",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_mengzhongqianfeng_72",
+      "gain": "称谓达到盟重前锋获得",
+      "view_value": "主属性+5\n生命+150",
+      "true_value": "主属性+5 生命+150",
+      "magic_value": {
+        "7": 5,
+        "10": 150
+      },
+      "power": 100
+    },
+    "3007": {
+      "name": "盟重统领",
+      "condition": 8,
+      "itemid": "7",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_mengzhongtongling_73",
+      "gain": "称谓达到盟重统领获得",
+      "view_value": "主属性+10\n生命+100",
+      "true_value": "主属性+10 生命+100",
+      "magic_value": {
+        "7": 10,
+        "10": 100
+      },
+      "power": 100
+    },
+    "3008": {
+      "name": "屠龙勇士",
+      "condition": 8,
+      "itemid": "8",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_tulongyongshi_74",
+      "gain": "称谓达到屠龙勇士获得",
+      "view_value": "主属性+15\n生命+100",
+      "true_value": "主属性+15 生命+100",
+      "magic_value": {
+        "7": 15,
+        "10": 100
+      },
+      "power": 100
+    },
+    "3009": {
+      "name": "沃玛主宰",
+      "condition": 8,
+      "itemid": "9",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_womazhuzai_75",
+      "gain": "称谓达到沃玛主宰获得",
+      "view_value": "主属性+15\n生命+150",
+      "true_value": "主属性+15 生命+150",
+      "magic_value": {
+        "7": 15,
+        "10": 150
+      },
+      "power": 100
+    },
+    "3010": {
+      "name": "祖玛统帅",
+      "condition": 8,
+      "itemid": "10",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_zumatongshuai_76",
+      "gain": "称谓达到祖玛统帅获得",
+      "view_value": "固定伤害+5\n生命+100",
+      "true_value": "固定伤害+5 生命+100",
+      "magic_value": {
+        "10": 100,
+        "15": 5
+      },
+      "power": 100
+    },
+    "3011": {
+      "name": "祖玛之主",
+      "condition": 8,
+      "itemid": "11",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_zumazhizhu_77",
+      "gain": "称谓达到祖玛之主获得",
+      "view_value": "主属性+15\n生命+150",
+      "true_value": "主属性+15 生命+150",
+      "magic_value": {
+        "7": 15,
+        "10": 150
+      },
+      "power": 100
+    },
+    "3012": {
+      "name": "赤月王侯",
+      "condition": 8,
+      "itemid": "12",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_chiyuewanghou_78",
+      "gain": "称谓达到赤月王侯获得",
+      "view_value": "固定伤害+5\n生命+100",
+      "true_value": "固定伤害+5 生命+100",
+      "magic_value": {
+        "10": 100,
+        "15": 5
+      },
+      "power": 100
+    },
+    "3013": {
+      "name": "赤月之王",
+      "condition": 8,
+      "itemid": "13",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_chiyuezhiwang_79",
+      "gain": "称谓达到赤月之王获得",
+      "view_value": "固定减伤+5\n生命+100",
+      "true_value": "固定减伤+5 生命+100",
+      "magic_value": {
+        "10": 100,
+        "16": 5
+      },
+      "power": 100
+    },
+    "3014": {
+      "name": "沙场霸主",
+      "condition": 8,
+      "itemid": "14",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_shachangbazhu_80",
+      "gain": "称谓达到沙场霸主获得",
+      "view_value": "pvp增伤+1%\npvp减伤+1%",
+      "true_value": "pvp增伤+1% pvp减伤+1%",
+      "magic_value": {
+        "35": 100,
+        "36": 100
+      },
+      "power": 150
+    },
+    "3015": {
+      "name": "魔龙圣主",
+      "condition": 8,
+      "itemid": "15",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_molongshengzhu_81",
+      "gain": "称谓达到魔龙圣主获得",
+      "view_value": "固定伤害+5\n生命+100",
+      "true_value": "固定伤害+5 生命+150",
+      "magic_value": {
+        "10": 150,
+        "15": 5
+      },
+      "power": 150
+    },
+    "3016": {
+      "name": "轮回之主",
+      "condition": 8,
+      "itemid": "16",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_lunhuizhizhu_82",
+      "gain": "称谓达到轮回之主获得",
+      "view_value": "固定减伤+5\n生命+100",
+      "true_value": "固定减伤+5 生命+150",
+      "magic_value": {
+        "10": 150,
+        "16": 5
+      },
+      "power": 150
+    },
+    "3017": {
+      "name": "玛法之神",
+      "condition": 8,
+      "itemid": "17",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 1,
+      "img": "picframe_mafazhishen_83",
+      "gain": "称谓达到玛法之神获得",
+      "view_value": "pvp增伤+1.5%\npvp减伤+1.5%",
+      "true_value": "pvp增伤+1.5% pvp减伤+1.5%",
+      "magic_value": {
+        "35": 150,
+        "36": 150
+      },
+      "power": 200
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ditu03_button_dixiacheng01",
+    "texture": "3e2jAw7KROXYPZHJl/B5vW",
+    "rect": [
+      0,
+      0,
+      156,
+      45
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      156,
+      45
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

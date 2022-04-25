@@ -1,1 +1,2 @@
-var P=wx.$y;import"ttMAItttt.js";
+var P = wx.$y;
+import 'ttMAItttt.js';

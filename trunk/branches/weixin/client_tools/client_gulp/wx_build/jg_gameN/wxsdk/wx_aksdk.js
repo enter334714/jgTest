@@ -1,13 +1,13 @@
-﻿import FunSdk from './helper'
+﻿import FunSdk from './helper';
 //初始化类
 const sdk=new FunSdk();
 
 var config = {
-    game_id: '88',
+    game_id: '256',
     partner_label: 'manfangwx',
     game_pkg: 'tjqy_tjqymx_GW', //天剑奇缘-空灵服-萌仙-漫方微信小程序-GW
     partner_id: '425',
-    game_ver: '13.0.27',
+    game_ver: '13.0.37',
     is_auth: false, //授权登录
     partner_and_key:'400E6BKDR6',
     partner_ios_key:'400pNvt6G5',
@@ -26,17 +26,25 @@ var partner_user_info = null;
 var sys_info = wx.getSystemInfoSync();
 var platform = sys_info.platform;
 
+var partnerConfig = false;
+
 // 获取渠道配置信息
 function getGameInfo(callback){
+
+    if(partnerConfig){
+        callback && callback(partnerConfig);
+        return ;
+    }
     let partner_game_key = config.partner_ios_key;
     if(platform == 'android' || platform == 'windows'){
         partner_game_key = config.partner_and_key;
     }
 
     sdk.game({
-        "game_key":partner_game_key
+        game_key:partner_game_key
     },function (res) {
         if(res.code == 0){
+            partnerConfig = res.data
             callback && callback(res.data);
         }else{
             callback && callback({});
@@ -265,6 +273,14 @@ function mainSDK() {
                     query: data.query,
                 });
             });
+
+            // getGameInfo(function (res1) {
+            //     var game_key = res1.game_key;
+            //     sdk.sharingInMoments({
+            //         host_url:res1.host_url,
+            //         game_key:res1.game_key
+            //     })
+            // });
         },
 
         logStartShare: function (type) {
@@ -486,6 +502,15 @@ function mainSDK() {
                         if(res.statusCode == 200){
                             var data = res.data;
                             if(data.state){
+                                
+                                var temp_data = data.data.pay_data;
+                                sdk.midasOrderSubmit({host_url:temp_data.host_url,game_key:temp_data.game_key,account:temp_data.account,
+                                    server:temp_data.server,role:temp_data.role,amount:temp_data.amount,extend:temp_data.extend},function(res){
+                                    console.log("上报订单成功"+JSON.stringify(res));
+                                },function(res){
+                                    console.log("上报订单失败"+JSON.stringify(res));
+                                });
+
                                 if(typeof wx.requestPayment == 'undefined'){
                                     if(platform == 'android' || platform == 'windows'){
                                         sdk.midasNotice(data.data.pay_data);
@@ -524,7 +549,8 @@ function mainSDK() {
                     showCancel: false,
                     confirmText: "我知道了",
                     success: function () {
-                        wx.openCustomerServiceConversation();
+                        // wx.openCustomerServiceConversation();
+                        sdk.openCustomerService();
                     }
                 });
             })
@@ -601,7 +627,7 @@ function mainSDK() {
                    "role":data.roleid,
                    "role_name":data.rolename,
                    "level":data.rolelevel,
-                   "type":3
+                   "type":5
                },function (res2) {
                     console.log('[sdk]创角上报渠道成功：'+JSON.stringify(res2));
                });
@@ -655,33 +681,19 @@ function mainSDK() {
                     });
                 }
 
-                sdk.role({
-                    "host_url":res1.host_url,
-                    "game_key":res1.game_key,
-                    "account":partner_user_info.openid,
-                    "server":data.serverid,
-                    "server_name":data.servername,
-                    "role":data.roleid,
-                    "role_name":data.rolename,
-                    "level":data.rolelevel,
-                    "type":0
-                },function (res2) {
-                    console.log('[sdk]完成白屏加载上报渠道成功：'+JSON.stringify(res2));
-                });
-
-                sdk.role({
-                    "host_url":res1.host_url,
-                    "game_key":res1.game_key,
-                    "account":partner_user_info.openid,
-                    "server":data.serverid,
-                    "server_name":data.servername,
-                    "role":data.roleid,
-                    "role_name":data.rolename,
-                    "level":data.rolelevel,
-                    "type":3
-                },function (res2) {
-                    console.log('[sdk]登录上报渠道成功：'+JSON.stringify(res2));
-                });
+                // sdk.role({
+                //     "host_url":res1.host_url,
+                //     "game_key":res1.game_key,
+                //     "account":partner_user_info.openid,
+                //     "server":data.serverid,
+                //     "server_name":data.servername,
+                //     "role":data.roleid,
+                //     "role_name":data.rolename,
+                //     "level":data.rolelevel,
+                //     "type":3
+                // },function (res2) {
+                //     console.log('[sdk]登录上报渠道成功：'+JSON.stringify(res2));
+                // });
 
                 sdk.role({
                     "host_url":res1.host_url,
@@ -695,6 +707,20 @@ function mainSDK() {
                     "type":6
                 },function (res2) {
                     console.log('[sdk]进入上报渠道成功：'+JSON.stringify(res2));
+                });
+
+                sdk.role({
+                    "host_url":res1.host_url,
+                    "game_key":res1.game_key,
+                    "account":partner_user_info.openid,
+                    "server":data.serverid,
+                    "server_name":data.servername,
+                    "role":data.roleid,
+                    "role_name":data.rolename,
+                    "level":data.rolelevel,
+                    "type":0
+                },function (res2) {
+                    console.log('[sdk]完成白屏加载上报渠道成功：'+JSON.stringify(res2));
                 });
             });
         },
@@ -830,7 +856,117 @@ function mainSDK() {
             this.getShareInfo('activity', function (data) {
                 callback && callback({title:data.title,'img':data.img});
             });
-        }
+        },
+        subscribeMessage : function (tmplIds, callback){
+            console.log('[SDK]订阅消息：'+tmplIds);
+            //获取模板ID
+            callbacks['subscribeMessage'] = typeof callback == 'function' ? callback : null;
+
+            // getGameInfo(function (res1) {
+            //     sdk.subscribeToData({
+            //         host_url:res1.host_url,
+            //         game_key:res1.game_key,
+            //         account:partner_user_info.openid,
+            //         tmpl_ids:tmplIds
+            //     },function (res2) {
+            //         console.log("[SDK]订阅消息返回：成功");
+            //         console.log(res2);
+            //         callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res2);
+            //     },function(res3){
+            //         console.log("[SDK]订阅消息返回：失败");
+            //         console.log(res3);
+            //         callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res3);
+            //     });
+            // });
+            wx.requestSubscribeMessage({
+                tmplIds: tmplIds,
+                success (res) {
+                    console.log("[SDK]订阅消息返回：成功");
+                    console.log(res);
+                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+                },
+                fail (res) {
+                    console.log("[SDK]订阅消息返回：失败");
+                    console.log(res);
+                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+                }
+              })
+        }, 
+        //获取验证码
+        sendCode: function(data,callback){
+
+            console.log('开始获取验证码：',data.phone);
+
+            getGameInfo(function (res1) {
+                sdk.phoneCode({
+                    host_url:res1.host_url,
+                    phone: data.phone
+                },function (res2) {
+                    console.log('[sdk]获取验证码：'+JSON.stringify(res2));
+                    if(res2.code==0){
+                        callback && callback(0,res2);
+                    }else{
+                        callback && callback(1,res2);
+                    }
+                });
+            });
+        },
+        //绑定手机
+        bindPhone: function(data,callback){
+
+            console.log('开始绑定手机：',data.phone,data.code);
+            getGameInfo(function (res1) {
+                sdk.phoneBind({
+                    host_url:res1.host_url,
+                    game_key:res1.game_key,
+                    account:partner_user_info.openid,
+                    phone: data.phone,
+                    code: data.code
+                },function (res2) {
+                    console.log('[sdk]绑定手机：'+JSON.stringify(res2));
+                    if(res2.code==0){
+                        callback && callback(0,res2);
+                    }else{
+                        callback && callback(1,res2);
+                    }
+                });
+            });
+        },
+        openBox: function (callback) {
+            console.log("[SDK]点击展开盒子事件上报");
+            getGameInfo(function (res1) {
+                var game_key = res1.game_key;
+                sdk.gameCenter({
+                    "game_key":game_key,
+                    "host_url":res1.host_url,
+                },function(res2){
+                    callback(res2);
+                },function(res3){
+                    callback({code:-1});
+                })
+            });
+        },
+
+        clickBoxGame: function (appid) {
+            console.log("[SDK]点击盒子内游戏事件上报");
+            getGameInfo(function (res1) {
+
+                sdk.openGame({
+                    "account":partner_user_info.openid,
+                    "from_app_id":res1.app_id || res1.app_secret.app_id,
+                    "app_id":appid,
+                    "path":'',
+                    "env_version":'',
+                    "host_url":res1.host_url
+                },function(res){
+                    console.log("跳转成功"+JSON.stringify(res));
+                },
+                function(res){
+                    console.log("跳转失败"+JSON.stringify(res));
+                })
+            });
+            
+        },
 
     }
 }
@@ -931,3 +1067,20 @@ exports.setMessageToFriendQuery = function (data,callback) {
 exports.getFriendShareInfo = function (callback) {
     run('getFriendShareInfo',callback);
 }
+exports.sendCode = function (data,callback) {
+    run('sendCode',data, callback);
+};
+
+exports.bindPhone = function (data,callback) {
+    run('bindPhone',data, callback);
+};
+exports.subscribeMessage = function (data, callback) {
+    run('subscribeMessage', data, callback);
+};
+
+exports.openBox = function (callback) {
+    run('openBox',callback);
+};
+exports.clickBoxGame = function (data) {
+    run('clickBoxGame',data);
+};

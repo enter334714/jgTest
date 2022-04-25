@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dsjn_8",
+    "texture": "91SMDc+9tIbJ8b2lSFD9nc",
+    "rect": [
+      6,
+      2,
+      49,
+      58
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      62,
+      62
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

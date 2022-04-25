@@ -1,0 +1,10 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "activityConfig",
+  "json": {
+    "1": {
+      "dec": "敬请期待下次活动开启！",
+      "icon": 0
+    }
+  }
+}

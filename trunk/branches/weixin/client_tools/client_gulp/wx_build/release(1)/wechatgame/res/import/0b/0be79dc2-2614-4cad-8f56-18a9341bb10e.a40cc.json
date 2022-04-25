@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "but_youjian_button01",
+    "texture": "d7UxfKhDlPEZrK1AafJvKd",
+    "rect": [
+      9,
+      1,
+      78,
+      101
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      96,
+      104
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

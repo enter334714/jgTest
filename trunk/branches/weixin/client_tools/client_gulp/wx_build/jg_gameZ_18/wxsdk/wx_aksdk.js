@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_tjqyhcxmj_PR',
     partner_label: 'xxxyx',
     partner_id: '552',
-    game_ver: '48.0.1',
+    game_ver: '48.0.3',
     is_auth: false, //授权登录
     appId:'f4fb478995f238b7f8b1694f2f3240ef', // AppId 必填
     appBundleId:'com.xxgame.hdxmjvx', // AppBundleId 必填

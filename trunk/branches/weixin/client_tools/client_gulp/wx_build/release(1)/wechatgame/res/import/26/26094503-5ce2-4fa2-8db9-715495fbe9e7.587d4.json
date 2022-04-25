@@ -1,0 +1,66 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "guilddonateConfig",
+  "json": {
+    "1": {
+      "money": 1000,
+      "coin": 0,
+      "contribute": 100,
+      "gold": 10
+    },
+    "2": {
+      "money": 1000,
+      "coin": 23000,
+      "contribute": 100,
+      "gold": 15
+    },
+    "3": {
+      "money": 1000,
+      "coin": 33000,
+      "contribute": 100,
+      "gold": 20
+    },
+    "4": {
+      "money": 1000,
+      "coin": 47000,
+      "contribute": 100,
+      "gold": 25
+    },
+    "5": {
+      "money": 1000,
+      "coin": 65000,
+      "contribute": 100,
+      "gold": 30
+    },
+    "6": {
+      "money": 1000,
+      "coin": 90000,
+      "contribute": 100,
+      "gold": 35
+    },
+    "7": {
+      "money": 1000,
+      "coin": 125000,
+      "contribute": 100,
+      "gold": 40
+    },
+    "8": {
+      "money": 1000,
+      "coin": 170000,
+      "contribute": 100,
+      "gold": 45
+    },
+    "9": {
+      "money": 1000,
+      "coin": 230000,
+      "contribute": 100,
+      "gold": 50
+    },
+    "10": {
+      "money": 1000,
+      "coin": 320000,
+      "contribute": 100,
+      "gold": 55
+    }
+  }
+}

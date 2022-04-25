@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ppicframe_shengxiapaidui_51",
+    "texture": "83VOANZTlAe50scQS+VVDt",
+    "rect": [
+      37,
+      14,
+      131,
+      47
+    ],
+    "offset": [
+      0.5,
+      -0.5
+    ],
+    "originalSize": [
+      204,
+      74
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

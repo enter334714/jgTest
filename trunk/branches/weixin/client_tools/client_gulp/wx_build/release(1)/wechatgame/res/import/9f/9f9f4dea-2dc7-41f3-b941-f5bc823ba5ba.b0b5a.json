@@ -1,0 +1,204 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "lotteryConfig",
+  "json": {
+    "1": {
+      "quality": 3,
+      "item_id": [
+        "I7105",
+        1
+      ],
+      "num": 100,
+      "maxnum": 1,
+      "weight": 950,
+      "name": "好事成双"
+    },
+    "2": {
+      "quality": 3,
+      "item_id": [
+        "I7106",
+        1
+      ],
+      "num": 100,
+      "maxnum": 1,
+      "weight": 50,
+      "name": "好事成双"
+    },
+    "3": {
+      "quality": 2,
+      "item_id": [
+        "I3912",
+        1
+      ],
+      "num": 10,
+      "maxnum": 1,
+      "weight": 25,
+      "name": "绿宝石矿"
+    },
+    "4": {
+      "quality": 2,
+      "item_id": [
+        "I3911",
+        1
+      ],
+      "num": 10,
+      "maxnum": 1,
+      "weight": 25,
+      "name": "紫水晶矿"
+    },
+    "5": {
+      "quality": 2,
+      "item_id": [
+        "I3909",
+        5
+      ],
+      "num": 10,
+      "maxnum": 50,
+      "weight": 500,
+      "name": "天外陨铁"
+    },
+    "6": {
+      "quality": 2,
+      "item_id": [
+        "I3910",
+        1
+      ],
+      "num": 10,
+      "maxnum": 10,
+      "weight": 400,
+      "name": "强者结晶"
+    },
+    "7": {
+      "quality": 2,
+      "item_id": [
+        "I7003",
+        1
+      ],
+      "num": 10,
+      "maxnum": 2,
+      "weight": 50,
+      "name": "高级符文宝箱"
+    },
+    "8": {
+      "quality": 1,
+      "item_id": [
+        "I3001",
+        1
+      ],
+      "num": 1,
+      "maxnum": 100,
+      "weight": 100,
+      "name": "洗练石"
+    },
+    "9": {
+      "quality": 1,
+      "item_id": [
+        "I3001",
+        2
+      ],
+      "num": 1,
+      "maxnum": 25,
+      "weight": 100,
+      "name": "洗练石"
+    },
+    "10": {
+      "quality": 1,
+      "item_id": [
+        "I3903",
+        1
+      ],
+      "num": 1,
+      "maxnum": 100,
+      "weight": 100,
+      "name": "淬炼石"
+    },
+    "11": {
+      "quality": 1,
+      "item_id": [
+        "I3903",
+        2
+      ],
+      "num": 1,
+      "maxnum": 25,
+      "weight": 100,
+      "name": "淬炼石"
+    },
+    "12": {
+      "quality": 1,
+      "item_id": [
+        "I3004",
+        2
+      ],
+      "num": 1,
+      "maxnum": 99999,
+      "weight": 100,
+      "name": "技能丹"
+    },
+    "13": {
+      "quality": 1,
+      "item_id": [
+        "I3004",
+        4
+      ],
+      "num": 1,
+      "maxnum": 99999,
+      "weight": 100,
+      "name": "技能丹"
+    },
+    "14": {
+      "quality": 1,
+      "item_id": [
+        "I4001",
+        2
+      ],
+      "num": 1,
+      "maxnum": 100,
+      "weight": 100,
+      "name": "书页"
+    },
+    "15": {
+      "quality": 1,
+      "item_id": [
+        "I4001",
+        4
+      ],
+      "num": 1,
+      "maxnum": 25,
+      "weight": 100,
+      "name": "书页"
+    },
+    "16": {
+      "quality": 1,
+      "item_id": [
+        "I3006",
+        1
+      ],
+      "num": 1,
+      "maxnum": 99999,
+      "weight": 100,
+      "name": "金锭"
+    },
+    "17": {
+      "quality": 1,
+      "item_id": [
+        "I7001",
+        1
+      ],
+      "num": 1,
+      "maxnum": 50,
+      "weight": 75,
+      "name": "初级符文宝箱"
+    },
+    "18": {
+      "quality": 1,
+      "item_id": [
+        "I7002",
+        1
+      ],
+      "num": 1,
+      "maxnum": 10,
+      "weight": 25,
+      "name": "中级符文宝箱"
+    }
+  }
+}

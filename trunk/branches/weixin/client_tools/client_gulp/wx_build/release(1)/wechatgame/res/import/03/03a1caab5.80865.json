@@ -1,0 +1,148 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_shengongtexiaochongfu03",
+      "texture": "a6uJlzdYNGFqrO35xuz9fp",
+      "rect": [
+        9,
+        22,
+        108,
+        101
+      ],
+      "offset": [
+        -8.5,
+        -2.5
+      ],
+      "originalSize": [
+        143,
+        140
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_shengongtexiaochongfu02",
+      "texture": "17hcaEDr1Ilp8NXyxH2KBs",
+      "rect": [
+        17,
+        4,
+        103,
+        125
+      ],
+      "offset": [
+        -3,
+        3.5
+      ],
+      "originalSize": [
+        143,
+        140
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "loop",
+    "_duration": 0.5166666666666667,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "f4R490lcZI4412JnG+2I6Z"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "8cKL+xaZlInJDzpMKLwrNh"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "27YtVvm9BE0JrIYZ5sHv1i"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "9e4p5hyldK7IjvajTuvpms"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_shengongtexiaochongfu04",
+      "texture": "49mhEDxJFLo5OqiRVUMVvU",
+      "rect": [
+        18,
+        1,
+        99,
+        113
+      ],
+      "offset": [
+        -4,
+        12.5
+      ],
+      "originalSize": [
+        143,
+        140
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_shengongtexiaochongfu01",
+      "texture": "519cDwBbJGNK6An04udMLm",
+      "rect": [
+        16,
+        11,
+        103,
+        113
+      ],
+      "offset": [
+        -4,
+        2.5
+      ],
+      "originalSize": [
+        143,
+        140
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

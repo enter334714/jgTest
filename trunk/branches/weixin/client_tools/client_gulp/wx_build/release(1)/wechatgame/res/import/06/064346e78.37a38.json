@@ -1,0 +1,280 @@
+[
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "molongjiaozhu_other",
+    "_duration": 0.6,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "bdiRm36gpGK7HwhdT14SIg"
+              }
+            },
+            {
+              "frame": 0.08333333333333333,
+              "value": {
+                "__uuid__": "96tvBItQNPV79xSOfzheMU"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "798HO21stB1aUn8JD9I55r"
+              }
+            },
+            {
+              "frame": 0.25,
+              "value": {
+                "__uuid__": "0ephHOOeRDOIAA3gZHP/Ie"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "51pF5FB91O5ZZbPXB+Nol9"
+              }
+            },
+            {
+              "frame": 0.4166666666666667,
+              "value": {
+                "__uuid__": "f6TDd2p79HcZwpk4FEFEtw"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "c4WJWILHFP+LBsyva4ZYm4"
+              }
+            },
+            {
+              "frame": 0.5833333333333334,
+              "value": {
+                "__uuid__": "55hTv9tAFOFqEvOL4IqE8q"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_molongbieren_04",
+      "texture": "d4Rr8Z2YdOgrr7VFmVwlTE",
+      "rect": [
+        3,
+        0,
+        71,
+        90
+      ],
+      "offset": [
+        -7,
+        0.5
+      ],
+      "originalSize": [
+        91,
+        91
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_molongbieren_05",
+      "texture": "49tdyOKt1OPLaukDeQM6Ky",
+      "rect": [
+        7,
+        3,
+        73,
+        88
+      ],
+      "offset": [
+        -2,
+        -1.5
+      ],
+      "originalSize": [
+        91,
+        91
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_molongbieren_08",
+      "texture": "34D981KLNPEIpuXYIR29jD",
+      "rect": [
+        10,
+        2,
+        76,
+        85
+      ],
+      "offset": [
+        2.5,
+        1
+      ],
+      "originalSize": [
+        91,
+        91
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_molongbieren_03",
+      "texture": "c4tNeUo2JD55uHi+TisrWk",
+      "rect": [
+        0,
+        1,
+        79,
+        85
+      ],
+      "offset": [
+        -6,
+        2
+      ],
+      "originalSize": [
+        91,
+        91
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_molongbieren_02",
+      "texture": "e4nli7HltCnb0X6GDGtlzc",
+      "rect": [
+        6,
+        1,
+        77,
+        88
+      ],
+      "offset": [
+        -1,
+        0.5
+      ],
+      "originalSize": [
+        91,
+        91
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_molongbieren_01",
+      "texture": "c9c5En3llPI6ddTgk7ftVx",
+      "rect": [
+        23,
+        6,
+        63,
+        83
+      ],
+      "offset": [
+        9,
+        -2
+      ],
+      "originalSize": [
+        91,
+        91
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_molongbieren_07",
+      "texture": "a4V8UG1aZNzYye0PWUw3Wz",
+      "rect": [
+        9,
+        2,
+        82,
+        89
+      ],
+      "offset": [
+        4.5,
+        -1
+      ],
+      "originalSize": [
+        91,
+        91
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_molongbieren_06",
+      "texture": "62JT3ysO5BybCp3e2HjDVs",
+      "rect": [
+        10,
+        6,
+        76,
+        84
+      ],
+      "offset": [
+        2.5,
+        -2.5
+      ],
+      "originalSize": [
+        91,
+        91
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

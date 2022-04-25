@@ -1,0 +1,480 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "Limitedtime_giftConfig",
+  "json": {
+    "101": {
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=00c0ff>免费福袋</c>",
+      "color": 1,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I2101": 5
+      },
+      "item": "弱效太阳水"
+    },
+    "102": {
+      "charge_id": 901,
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=00c0ff>每日经验礼包</c>",
+      "color": 1,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 150
+      },
+      "reward_item": {
+        "I3102": 1,
+        "I3940": 1
+      },
+      "item": "聚灵珠（小）",
+      "discount": 8
+    },
+    "103": {
+      "charge_id": 902,
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=00c0ff>每日洗练石礼包</c>",
+      "color": 1,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 150
+      },
+      "reward_item": {
+        "I3001": 130,
+        "I3903": 20
+      },
+      "item": "洗练石",
+      "discount": 8
+    },
+    "104": {
+      "charge_id": 903,
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=f702f4>每日书页礼包</c>",
+      "color": 2,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 340
+      },
+      "reward_item": {
+        "I4001": 280,
+        "I3004": 40
+      },
+      "item": "书页",
+      "discount": 8
+    },
+    "105": {
+      "charge_id": 904,
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=ff6c00>每日神兵材料礼包</c>",
+      "color": 3,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 640
+      },
+      "reward_item": {
+        "I3905": 100,
+        "I3101": 1400
+      },
+      "item": "赤血陨铁",
+      "discount": 8
+    },
+    "106": {
+      "charge_id": 905,
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "<color=ff6c00>每日神兵技能礼包</c>",
+      "color": 3,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 1680
+      },
+      "reward_item": {
+        "I3906": 60,
+        "I3101": 2000
+      },
+      "item": "赤血结晶",
+      "discount": 8
+    },
+    "201": {
+      "open_day": [
+        8,
+        14
+      ],
+      "name": "<color=00c0ff>免费福袋</c>",
+      "color": 1,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I2102": 5
+      },
+      "item": "太阳水"
+    },
+    "202": {
+      "charge_id": 920,
+      "open_day": [
+        8,
+        14
+      ],
+      "name": "<color=00c0ff>每日经验礼包</c>",
+      "color": 1,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 150
+      },
+      "reward_item": {
+        "I3103": 1,
+        "I3940": 1
+      },
+      "item": "聚灵珠（中）",
+      "discount": 8
+    },
+    "203": {
+      "charge_id": 921,
+      "open_day": [
+        8,
+        14
+      ],
+      "name": "<color=00c0ff>每日淬炼石礼包</c>",
+      "color": 1,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 150
+      },
+      "reward_item": {
+        "I3903": 100,
+        "I3001": 50
+      },
+      "item": "淬炼石",
+      "discount": 8
+    },
+    "204": {
+      "charge_id": 922,
+      "open_day": [
+        8,
+        14
+      ],
+      "name": "<color=f702f4>每日称谓礼包</c>",
+      "color": 2,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 340
+      },
+      "reward_item": {
+        "I3926": 4,
+        "I3927": 2
+      },
+      "item": "称谓勋章",
+      "discount": 8
+    },
+    "205": {
+      "charge_id": 923,
+      "open_day": [
+        8,
+        14
+      ],
+      "name": "<color=ff6c00>每日星辰丹礼包</c>",
+      "color": 3,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 640
+      },
+      "reward_item": {
+        "I3152": 2,
+        "I3154": 4
+      },
+      "item": "星辰丹(中)",
+      "discount": 8
+    },
+    "206": {
+      "charge_id": 924,
+      "open_day": [
+        8,
+        14
+      ],
+      "name": "<color=ff6c00>每日神兵材料礼包</c>",
+      "color": 3,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 1640
+      },
+      "reward_item": {
+        "I3909": 1180,
+        "I3910": 50
+      },
+      "item": "天外陨铁",
+      "discount": 8
+    },
+    "207": {
+      "charge_id": 925,
+      "open_day": [
+        8,
+        14
+      ],
+      "name": "<color=ff6c00>每日神兵宝石礼包</c>",
+      "color": 3,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 1640
+      },
+      "reward_item": {
+        "I3921": 65,
+        "I3101": 3000
+      },
+      "item": "宝石结晶",
+      "discount": 8
+    },
+    "301": {
+      "open_day": [
+        15,
+        9999
+      ],
+      "name": "<color=00c0ff>免费福袋</c>",
+      "color": 1,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I2103": 5
+      },
+      "item": "强效太阳水"
+    },
+    "302": {
+      "charge_id": 950,
+      "open_day": [
+        15,
+        9999
+      ],
+      "name": "<color=00c0ff>每日经验礼包</c>",
+      "color": 1,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 150
+      },
+      "reward_item": {
+        "I3104": 1,
+        "I3940": 1
+      },
+      "item": "聚灵珠（大）",
+      "discount": 8
+    },
+    "303": {
+      "charge_id": 951,
+      "open_day": [
+        15,
+        9999
+      ],
+      "name": "<color=00c0ff>每日淬炼石礼包</c>",
+      "color": 1,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 150
+      },
+      "reward_item": {
+        "I3903": 120,
+        "I3001": 50
+      },
+      "item": "淬炼石",
+      "discount": 8
+    },
+    "304": {
+      "charge_id": 952,
+      "open_day": [
+        15,
+        9999
+      ],
+      "name": "<color=f702f4>每日称谓礼包</c>",
+      "color": 2,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 340
+      },
+      "reward_item": {
+        "I3926": 4,
+        "I3927": 3
+      },
+      "item": "称谓勋章",
+      "discount": 8
+    },
+    "305": {
+      "charge_id": 953,
+      "open_day": [
+        15,
+        9999
+      ],
+      "name": "<color=ff6c00>每日星辰丹礼包</c>",
+      "color": 3,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 640
+      },
+      "reward_item": {
+        "I3152": 3,
+        "I3154": 5
+      },
+      "item": "星辰丹(中)",
+      "discount": 8
+    },
+    "306": {
+      "charge_id": 954,
+      "open_day": [
+        15,
+        9999
+      ],
+      "name": "<color=ff6c00>每日符文礼包</c>",
+      "color": 3,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 640
+      },
+      "reward_item": {
+        "I8000": 16,
+        "I7002": 4
+      },
+      "item": "零",
+      "discount": 8
+    },
+    "307": {
+      "charge_id": 955,
+      "open_day": [
+        15,
+        9999
+      ],
+      "name": "<color=ff6c00>每日神兵材料礼包</c>",
+      "color": 3,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 1640
+      },
+      "reward_item": {
+        "I3909": 1280,
+        "I3910": 60
+      },
+      "item": "天外陨铁",
+      "discount": 8
+    },
+    "308": {
+      "charge_id": 956,
+      "open_day": [
+        15,
+        9999
+      ],
+      "name": "<color=ff6c00>每日神兵宝石礼包</c>",
+      "color": 3,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 1640
+      },
+      "reward_item": {
+        "I6115": 70,
+        "I3101": 5000
+      },
+      "item": "宝石自选宝箱",
+      "discount": 8
+    },
+    "309": {
+      "charge_id": 957,
+      "open_day": [
+        15,
+        9999
+      ],
+      "name": "<color=ff6c00>每日八卦装备礼包</c>",
+      "color": 3,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 3240
+      },
+      "reward_item": {
+        "I6109": 8,
+        "B1007": 300
+      },
+      "item": "八阵图宝箱",
+      "discount": 8
+    },
+    "310": {
+      "charge_id": 958,
+      "open_day": [
+        15,
+        9999
+      ],
+      "name": "<color=ff6c00>每日八卦材料礼包</c>",
+      "color": 3,
+      "limit_time": 1,
+      "if_open": 1,
+      "refresh": 1,
+      "reward_res": {
+        "2": 3240
+      },
+      "reward_item": {
+        "I6116": 4,
+        "B1006": 1
+      },
+      "item": "八卦材料宝箱",
+      "discount": 8
+    }
+  }
+}

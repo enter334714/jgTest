@@ -1,0 +1,50 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "chuanqibaokuConfig",
+  "json": {
+    "101": {
+      "token": {
+        "I8001": 1,
+        "I8002": 1
+      },
+      "dec": "符文1，2",
+      "type": 1,
+      "rewards": {
+        "I6111": 1
+      },
+      "dec_1": "每日好礼宝箱",
+      "limit": 5,
+      "refresh": 1,
+      "level": 10
+    },
+    "102": {
+      "token": {
+        "I8003": 1,
+        "I8004": 1
+      },
+      "dec": "符文3，4",
+      "type": 3,
+      "rewards": {
+        "2": 100
+      },
+      "dec_1": "100元宝",
+      "limit": 5,
+      "refresh": 0,
+      "level": 20
+    },
+    "103": {
+      "token": {
+        "I8003": 1
+      },
+      "dec": "符文3",
+      "type": 3,
+      "rewards": {
+        "2": 100
+      },
+      "dec_1": "100元宝",
+      "limit": 5,
+      "refresh": 0,
+      "level": 20
+    }
+  }
+}

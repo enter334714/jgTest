@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_waiguan_touxiangkuang_00chushi",
+    "texture": "c1Al/3WmJPHYndF2AWGzBX",
+    "rect": [
+      17,
+      4,
+      76,
+      76
+    ],
+    "offset": [
+      1.5,
+      2.5
+    ],
+    "originalSize": [
+      107,
+      89
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

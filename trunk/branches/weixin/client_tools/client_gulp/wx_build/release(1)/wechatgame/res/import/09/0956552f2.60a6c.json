@@ -1,0 +1,478 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00007",
+      "texture": "e0laQrj6JBTpqvSLIuZZVv",
+      "rect": [
+        94,
+        54,
+        102,
+        99
+      ],
+      "offset": [
+        -25,
+        -7.5
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00001",
+      "texture": "66X+oQD9RMao66WqMeIR1G",
+      "rect": [
+        116,
+        101,
+        55,
+        45
+      ],
+      "offset": [
+        -26.5,
+        -27.5
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "mengji_left",
+    "_duration": 0.4666666666666667,
+    "sample": 30,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "ddTgtv9WpHhaMJRG+fEJZV"
+              }
+            },
+            {
+              "frame": 0.03333333333333333,
+              "value": {
+                "__uuid__": "20vbQ3vhBKZbVE7JEZc8Eq"
+              }
+            },
+            {
+              "frame": 0.06666666666666667,
+              "value": {
+                "__uuid__": "69VXB7FSJEGbdcIc9t7Egn"
+              }
+            },
+            {
+              "frame": 0.1,
+              "value": {
+                "__uuid__": "d2QkzhC/dGuLg65W7e+BUy"
+              }
+            },
+            {
+              "frame": 0.13333333333333333,
+              "value": {
+                "__uuid__": "a9NKpmzbhF5o9UnpkLnRPp"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "cef0lezBpMJb1GpMbPTIPS"
+              }
+            },
+            {
+              "frame": 0.2,
+              "value": {
+                "__uuid__": "98IM4iWGdMC7TxQT0xrsMy"
+              }
+            },
+            {
+              "frame": 0.23333333333333334,
+              "value": {
+                "__uuid__": "101ZHnZcVDUqgDKRMt4JfV"
+              }
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": {
+                "__uuid__": "dbSFconIBBJpr86FVCeP2H"
+              }
+            },
+            {
+              "frame": 0.3,
+              "value": {
+                "__uuid__": "6dOUX6m2VNvJX9NEa42Naa"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "a51HMkGpFNva+5v6laXAPX"
+              }
+            },
+            {
+              "frame": 0.36666666666666664,
+              "value": {
+                "__uuid__": "5cyl+ZTphJcrXxPV72KX1l"
+              }
+            },
+            {
+              "frame": 0.4,
+              "value": {
+                "__uuid__": "975yBkb3NGUJxoMKCGl+ng"
+              }
+            },
+            {
+              "frame": 0.43333333333333335,
+              "value": {
+                "__uuid__": "7co2HhwgpDeLK0tE8RWd6m"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00011",
+      "texture": "dddi4Dc1JBFpKCOLFPYAM8",
+      "rect": [
+        93,
+        52,
+        76,
+        114
+      ],
+      "offset": [
+        -39,
+        -13
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00002",
+      "texture": "59CgwpWlVK6YO4OXNsoBPM",
+      "rect": [
+        116,
+        41,
+        50,
+        98
+      ],
+      "offset": [
+        -29,
+        6
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00009",
+      "texture": "43iTn4JERFl76huNMGRI1t",
+      "rect": [
+        95,
+        53,
+        87,
+        112
+      ],
+      "offset": [
+        -31.5,
+        -13
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00013",
+      "texture": "ebIyVWvltA+rII4uJll4pQ",
+      "rect": [
+        93,
+        55,
+        88,
+        112
+      ],
+      "offset": [
+        -33,
+        -15
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00012",
+      "texture": "6cWyGzOcBN4asRzKjoahFq",
+      "rect": [
+        93,
+        53,
+        84,
+        114
+      ],
+      "offset": [
+        -35,
+        -14
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00006",
+      "texture": "72SZ1BSatLqZuxHx0bO/sz",
+      "rect": [
+        95,
+        53,
+        139,
+        84
+      ],
+      "offset": [
+        -5.5,
+        1
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00010",
+      "texture": "178/Sqx31KyLr8uJ8YbR47",
+      "rect": [
+        94,
+        52,
+        74,
+        114
+      ],
+      "offset": [
+        -39,
+        -13
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00004",
+      "texture": "b6fQCBh05BFrkunz5/s6oA",
+      "rect": [
+        118,
+        33,
+        117,
+        85
+      ],
+      "offset": [
+        6.5,
+        20.5
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00005",
+      "texture": "7cH0LnDmFF25+vT5fl7+GU",
+      "rect": [
+        96,
+        39,
+        139,
+        83
+      ],
+      "offset": [
+        -4.5,
+        15.5
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00003",
+      "texture": "45rhnv3MVBM4Lu0ZbLEVsB",
+      "rect": [
+        116,
+        33,
+        72,
+        101
+      ],
+      "offset": [
+        -18,
+        12.5
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00008",
+      "texture": "452H2yTmpM9qbl1xHIDw1W",
+      "rect": [
+        95,
+        53,
+        97,
+        106
+      ],
+      "offset": [
+        -26.5,
+        -10
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "mengji02_00000",
+      "texture": "ddLoUNGplKvoDuJSx+Rdf+",
+      "rect": [
+        132,
+        101,
+        40,
+        48
+      ],
+      "offset": [
+        -18,
+        -29
+      ],
+      "originalSize": [
+        340,
+        192
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

@@ -1,0 +1,74 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "doubleDropConfig",
+  "json": {
+    "0": {
+      "activityid": 15,
+      "des": "白怪",
+      "item_prob": 10000,
+      "item_times": 0,
+      "item_limit": 1,
+      "rune_prob": 10000,
+      "rune_times": 0,
+      "equip_prob": 10000,
+      "equip_times": 0,
+      "exp": 10000
+    },
+    "1": {
+      "activityid": 15,
+      "des": "绿怪",
+      "item_prob": 10000,
+      "item_times": 0,
+      "item_limit": 1,
+      "rune_prob": 10000,
+      "rune_times": 0,
+      "equip_prob": 10000,
+      "equip_times": 0,
+      "exp": 10000
+    },
+    "2": {
+      "activityid": 15,
+      "des": "蓝怪",
+      "item_prob": 10000,
+      "item_times": 0,
+      "item_limit": 1,
+      "rune_prob": 10000,
+      "rune_times": 0,
+      "equip_prob": 10000,
+      "equip_times": 0,
+      "exp": 10000
+    },
+    "3": {
+      "activityid": 15,
+      "des": "紫怪",
+      "item_prob": 10000,
+      "item_times": 0,
+      "item_limit": 1,
+      "rune_prob": 10000,
+      "rune_times": 0,
+      "equip_prob": 10000,
+      "equip_times": 0,
+      "exp": 10000
+    },
+    "4": {
+      "activityid": 15,
+      "des": "BOSS",
+      "item_prob": 10000,
+      "item_times": 0,
+      "item_limit": 1,
+      "rune_prob": 10000,
+      "rune_times": 0,
+      "equip_prob": 10000,
+      "equip_times": 30000,
+      "exp": 10000
+    },
+    "5": {
+      "activityid": 16,
+      "des": "广告",
+      "gold_ad": 2,
+      "smithy_ad": 2,
+      "antique_ad": 2,
+      "tili_ad": 2
+    }
+  }
+}

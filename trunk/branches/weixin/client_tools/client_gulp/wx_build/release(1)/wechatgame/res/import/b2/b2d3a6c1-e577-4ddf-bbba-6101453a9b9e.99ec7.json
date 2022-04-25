@@ -1,0 +1,311 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "zhongshenleichongConfig",
+  "json": {
+    "1": {
+      "gear": 6,
+      "big_award": {
+        "I3001": 50
+      },
+      "award": {
+        "I3903": 50
+      },
+      "resource": {
+        "1": 100000
+      },
+      "condition": 0
+    },
+    "2": {
+      "gear": 30,
+      "big_award": {
+        "I3104": 2
+      },
+      "award": {
+        "I3909": 300
+      },
+      "resource": {
+        "1": 300000
+      },
+      "condition": 0
+    },
+    "3": {
+      "gear": 60,
+      "big_award": {
+        "I3153": 2
+      },
+      "award": {
+        "I3910": 80
+      },
+      "resource": {
+        "1": 500000
+      },
+      "condition": 0
+    },
+    "4": {
+      "gear": 128,
+      "big_award": {
+        "I3932": 4
+      },
+      "award": {
+        "I3926": 10
+      },
+      "resource": {
+        "1": 1000000
+      },
+      "condition": 0
+    },
+    "5": {
+      "gear": 328,
+      "big_award": {
+        "I7012": 1
+      },
+      "award": {
+        "I3001": 200
+      },
+      "resource": {
+        "1": 1500000
+      },
+      "condition": 0
+    },
+    "6": {
+      "gear": 648,
+      "big_award": {
+        "I3936": 10
+      },
+      "award": {
+        "I3903": 200
+      },
+      "resource": {
+        "1": 3000000
+      },
+      "condition": 0
+    },
+    "7": {
+      "gear": 1500,
+      "big_award": {
+        "I3938": 10
+      },
+      "award": {
+        "B1002": 150
+      },
+      "resource": {
+        "2": 500
+      },
+      "condition": 0
+    },
+    "8": {
+      "gear": 3000,
+      "big_award": {
+        "I7019": 1
+      },
+      "award": {
+        "B1003": 10
+      },
+      "resource": {
+        "2": 1000
+      },
+      "condition": 0
+    },
+    "9": {
+      "gear": 5000,
+      "big_award": {
+        "I7173": 1
+      },
+      "award": {
+        "B1004": 10
+      },
+      "resource": {
+        "2": 1500
+      },
+      "condition": 0
+    },
+    "10": {
+      "gear": 8000,
+      "big_award": {
+        "I3934": 4
+      },
+      "award": {
+        "B1005": 10
+      },
+      "resource": {
+        "2": 2000
+      },
+      "condition": 8
+    },
+    "11": {
+      "gear": 12000,
+      "big_award": {
+        "B1001": 1
+      },
+      "award": {
+        "B1006": 3
+      },
+      "resource": {
+        "2": 3000
+      },
+      "condition": 8
+    },
+    "12": {
+      "gear": 16888,
+      "big_award": {
+        "I7174": 1
+      },
+      "award": {
+        "I3001": 400
+      },
+      "resource": {
+        "2": 4000
+      },
+      "condition": 8
+    },
+    "13": {
+      "gear": 22888,
+      "big_award": {
+        "I6109": 10
+      },
+      "award": {
+        "B1003": 40
+      },
+      "resource": {
+        "2": 5000
+      },
+      "condition": 11
+    },
+    "14": {
+      "gear": 30000,
+      "big_award": {
+        "I7026": 1
+      },
+      "award": {
+        "B1004": 50
+      },
+      "resource": {
+        "2": 7000
+      },
+      "condition": 11
+    },
+    "15": {
+      "gear": 40000,
+      "big_award": {
+        "B1001": 2
+      },
+      "award": {
+        "B1005": 50
+      },
+      "resource": {
+        "2": 8000
+      },
+      "condition": 11
+    },
+    "16": {
+      "gear": 50000,
+      "big_award": {
+        "I7176": 1
+      },
+      "award": {
+        "B1006": 10
+      },
+      "resource": {
+        "2": 10000
+      },
+      "condition": 11
+    },
+    "17": {
+      "gear": 88888,
+      "big_award": {
+        "I7179": 1
+      },
+      "award": {
+        "B1001": 1
+      },
+      "resource": {
+        "2": 28888
+      },
+      "condition": 16
+    },
+    "18": {
+      "gear": 100000,
+      "big_award": {
+        "I7180": 1,
+        "I6122": 1
+      },
+      "award": {
+        "I8014": 1
+      },
+      "resource": {
+        "2": 13888
+      },
+      "condition": 17
+    },
+    "19": {
+      "gear": 110000,
+      "big_award": {
+        "I7181": 1,
+        "I6122": 1
+      },
+      "award": {
+        "I8014": 1
+      },
+      "resource": {
+        "2": 14888
+      },
+      "condition": 17
+    },
+    "20": {
+      "gear": 120000,
+      "big_award": {
+        "I6119": 1,
+        "I6120": 1
+      },
+      "award": {
+        "I8014": 1
+      },
+      "resource": {
+        "2": 15888
+      },
+      "condition": 18
+    },
+    "21": {
+      "gear": 130000,
+      "big_award": {
+        "I7182": 1,
+        "I6122": 1
+      },
+      "award": {
+        "I8014": 2
+      },
+      "resource": {
+        "2": 16888
+      },
+      "condition": 19
+    },
+    "22": {
+      "gear": 140000,
+      "big_award": {
+        "I6119": 1,
+        "I6120": 1
+      },
+      "award": {
+        "I8015": 1
+      },
+      "resource": {
+        "2": 17888
+      },
+      "condition": 20
+    },
+    "23": {
+      "gear": 150000,
+      "big_award": {
+        "I7183": 1,
+        "I6122": 1
+      },
+      "award": {
+        "I8015": 1
+      },
+      "resource": {
+        "2": 18888
+      },
+      "condition": 21
+    }
+  }
+}

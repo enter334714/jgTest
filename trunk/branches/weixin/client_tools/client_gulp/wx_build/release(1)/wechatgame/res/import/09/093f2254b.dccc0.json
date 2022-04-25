@@ -1,0 +1,147 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_leidianshufufei_tx_qishou_04",
+      "texture": "68Cvcnsx5OFLdESGKwhMUI",
+      "rect": [
+        16,
+        2,
+        13,
+        36
+      ],
+      "offset": [
+        0,
+        52
+      ],
+      "originalSize": [
+        45,
+        144
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_leidianshufufei_tx_qishou_01",
+      "texture": "8brGMdvm5NrbYLomRukkpH",
+      "rect": [
+        0,
+        22,
+        45,
+        122
+      ],
+      "offset": [
+        0,
+        -11
+      ],
+      "originalSize": [
+        45,
+        144
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "tx_leidianshu_qishou",
+    "_duration": 0.26666666666666666,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "55Axyvtt5Jrqse/yl5rQBV"
+              }
+            },
+            {
+              "frame": 0.08333333333333333,
+              "value": {
+                "__uuid__": "b9/uxP/DxLpIXI/X/cNPSc"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "bdKFfqRJFGCpau8IXbUIhq"
+              }
+            },
+            {
+              "frame": 0.25,
+              "value": {
+                "__uuid__": "32HN4HpdtEO7mR82WnoQDt"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_leidianshufufei_tx_qishou_02",
+      "texture": "b2MfRdCatMhLcmH5z+rEB+",
+      "rect": [
+        6,
+        2,
+        32,
+        77
+      ],
+      "offset": [
+        -0.5,
+        31.5
+      ],
+      "originalSize": [
+        45,
+        144
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_leidianshufufei_tx_qishou_03",
+      "texture": "577AlfoTdBko6Ky11uWZDn",
+      "rect": [
+        9,
+        0,
+        26,
+        63
+      ],
+      "offset": [
+        -0.5,
+        40.5
+      ],
+      "originalSize": [
+        45,
+        144
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_icon_mofadun_01",
+    "texture": "bcnIlFZUxDFJCjbim1HKeI",
+    "rect": [
+      20,
+      13,
+      40,
+      56
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      80,
+      80
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

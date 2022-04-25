@@ -1,0 +1,12042 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "shenbingGemAllConfig",
+  "json": {
+    "1": {
+      "type": 1,
+      "slot": 1,
+      "level": 0,
+      "attribute": [
+        {
+          "38": 0
+        },
+        {
+          "10": 0
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        0
+      ],
+      "color": 0,
+      "oshenbinglv": 1
+    },
+    "2": {
+      "type": 1,
+      "slot": 1,
+      "level": 1,
+      "attribute": [
+        {
+          "38": 18
+        },
+        {
+          "10": 4
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        8
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "3": {
+      "type": 1,
+      "slot": 1,
+      "level": 2,
+      "attribute": [
+        {
+          "38": 36
+        },
+        {
+          "10": 8
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        16
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "4": {
+      "type": 1,
+      "slot": 1,
+      "level": 3,
+      "attribute": [
+        {
+          "38": 54
+        },
+        {
+          "10": 12
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        24
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "5": {
+      "type": 1,
+      "slot": 1,
+      "level": 4,
+      "attribute": [
+        {
+          "38": 72
+        },
+        {
+          "10": 16
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        32
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "6": {
+      "type": 1,
+      "slot": 1,
+      "level": 5,
+      "attribute": [
+        {
+          "38": 90
+        },
+        {
+          "10": 20
+        }
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        40
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "7": {
+      "type": 1,
+      "slot": 1,
+      "level": 6,
+      "attribute": [
+        {
+          "38": 108
+        },
+        {
+          "10": 24
+        }
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        48
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "8": {
+      "type": 1,
+      "slot": 1,
+      "level": 7,
+      "attribute": [
+        {
+          "38": 126
+        },
+        {
+          "10": 28
+        }
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        56
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "9": {
+      "type": 1,
+      "slot": 1,
+      "level": 8,
+      "attribute": [
+        {
+          "38": 144
+        },
+        {
+          "10": 32
+        }
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        64
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "10": {
+      "type": 1,
+      "slot": 1,
+      "level": 9,
+      "attribute": [
+        {
+          "38": 162
+        },
+        {
+          "10": 36
+        }
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        72
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "11": {
+      "type": 1,
+      "slot": 1,
+      "level": 10,
+      "attribute": [
+        {
+          "38": 180
+        },
+        {
+          "10": 40
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        80
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "12": {
+      "type": 1,
+      "slot": 1,
+      "level": 11,
+      "attribute": [
+        {
+          "38": 198
+        },
+        {
+          "10": 44
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        88
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "13": {
+      "type": 1,
+      "slot": 1,
+      "level": 12,
+      "attribute": [
+        {
+          "38": 216
+        },
+        {
+          "10": 48
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        96
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "14": {
+      "type": 1,
+      "slot": 1,
+      "level": 13,
+      "attribute": [
+        {
+          "38": 234
+        },
+        {
+          "10": 52
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        104
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "15": {
+      "type": 1,
+      "slot": 1,
+      "level": 14,
+      "attribute": [
+        {
+          "38": 252
+        },
+        {
+          "10": 56
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        112
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "16": {
+      "type": 1,
+      "slot": 1,
+      "level": 15,
+      "attribute": [
+        {
+          "38": 270
+        },
+        {
+          "10": 60
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        120
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "17": {
+      "type": 1,
+      "slot": 1,
+      "level": 16,
+      "attribute": [
+        {
+          "38": 288
+        },
+        {
+          "10": 64
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        128
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "18": {
+      "type": 1,
+      "slot": 1,
+      "level": 17,
+      "attribute": [
+        {
+          "38": 306
+        },
+        {
+          "10": 68
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        136
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "19": {
+      "type": 1,
+      "slot": 1,
+      "level": 18,
+      "attribute": [
+        {
+          "38": 324
+        },
+        {
+          "10": 72
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        144
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "20": {
+      "type": 1,
+      "slot": 1,
+      "level": 19,
+      "attribute": [
+        {
+          "38": 342
+        },
+        {
+          "10": 76
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        152
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "21": {
+      "type": 1,
+      "slot": 1,
+      "level": 20,
+      "attribute": [
+        {
+          "38": 360
+        },
+        {
+          "10": 80
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        160
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "22": {
+      "type": 1,
+      "slot": 1,
+      "level": 21,
+      "attribute": [
+        {
+          "38": 378
+        },
+        {
+          "10": 84
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        168
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "23": {
+      "type": 1,
+      "slot": 1,
+      "level": 22,
+      "attribute": [
+        {
+          "38": 396
+        },
+        {
+          "10": 88
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        176
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "24": {
+      "type": 1,
+      "slot": 1,
+      "level": 23,
+      "attribute": [
+        {
+          "38": 414
+        },
+        {
+          "10": 92
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        184
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "25": {
+      "type": 1,
+      "slot": 1,
+      "level": 24,
+      "attribute": [
+        {
+          "38": 432
+        },
+        {
+          "10": 96
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        192
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "26": {
+      "type": 1,
+      "slot": 1,
+      "level": 25,
+      "attribute": [
+        {
+          "38": 450
+        },
+        {
+          "10": 100
+        }
+      ],
+      "cost1": {
+        "1": 110000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        200
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "27": {
+      "type": 1,
+      "slot": 1,
+      "level": 26,
+      "attribute": [
+        {
+          "38": 468
+        },
+        {
+          "10": 104
+        }
+      ],
+      "cost1": {
+        "1": 110000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        208
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "28": {
+      "type": 1,
+      "slot": 1,
+      "level": 27,
+      "attribute": [
+        {
+          "38": 486
+        },
+        {
+          "10": 108
+        }
+      ],
+      "cost1": {
+        "1": 110000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        216
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "29": {
+      "type": 1,
+      "slot": 1,
+      "level": 28,
+      "attribute": [
+        {
+          "38": 504
+        },
+        {
+          "10": 112
+        }
+      ],
+      "cost1": {
+        "1": 110000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        224
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "30": {
+      "type": 1,
+      "slot": 1,
+      "level": 29,
+      "attribute": [
+        {
+          "38": 522
+        },
+        {
+          "10": 116
+        }
+      ],
+      "cost1": {
+        "1": 110000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        232
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "31": {
+      "type": 1,
+      "slot": 1,
+      "level": 30,
+      "attribute": [
+        {
+          "38": 540
+        },
+        {
+          "10": 120
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        240
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "32": {
+      "type": 1,
+      "slot": 1,
+      "level": 31,
+      "attribute": [
+        {
+          "38": 558
+        },
+        {
+          "10": 124
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        248
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "33": {
+      "type": 1,
+      "slot": 1,
+      "level": 32,
+      "attribute": [
+        {
+          "38": 576
+        },
+        {
+          "10": 128
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        256
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "34": {
+      "type": 1,
+      "slot": 1,
+      "level": 33,
+      "attribute": [
+        {
+          "38": 594
+        },
+        {
+          "10": 132
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        264
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "35": {
+      "type": 1,
+      "slot": 1,
+      "level": 34,
+      "attribute": [
+        {
+          "38": 612
+        },
+        {
+          "10": 136
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        272
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "36": {
+      "type": 1,
+      "slot": 1,
+      "level": 35,
+      "attribute": [
+        {
+          "38": 630
+        },
+        {
+          "10": 140
+        }
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        280
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "37": {
+      "type": 1,
+      "slot": 1,
+      "level": 36,
+      "attribute": [
+        {
+          "38": 648
+        },
+        {
+          "10": 144
+        }
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        288
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "38": {
+      "type": 1,
+      "slot": 1,
+      "level": 37,
+      "attribute": [
+        {
+          "38": 666
+        },
+        {
+          "10": 148
+        }
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        296
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "39": {
+      "type": 1,
+      "slot": 1,
+      "level": 38,
+      "attribute": [
+        {
+          "38": 684
+        },
+        {
+          "10": 152
+        }
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        304
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "40": {
+      "type": 1,
+      "slot": 1,
+      "level": 39,
+      "attribute": [
+        {
+          "38": 702
+        },
+        {
+          "10": 156
+        }
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        312
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "41": {
+      "type": 1,
+      "slot": 1,
+      "level": 40,
+      "attribute": [
+        {
+          "38": 720
+        },
+        {
+          "10": 160
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        320
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "42": {
+      "type": 1,
+      "slot": 1,
+      "level": 41,
+      "attribute": [
+        {
+          "38": 738
+        },
+        {
+          "10": 164
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        328
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "43": {
+      "type": 1,
+      "slot": 1,
+      "level": 42,
+      "attribute": [
+        {
+          "38": 756
+        },
+        {
+          "10": 168
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        336
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "44": {
+      "type": 1,
+      "slot": 1,
+      "level": 43,
+      "attribute": [
+        {
+          "38": 774
+        },
+        {
+          "10": 172
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        344
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "45": {
+      "type": 1,
+      "slot": 1,
+      "level": 44,
+      "attribute": [
+        {
+          "38": 792
+        },
+        {
+          "10": 176
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        352
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "46": {
+      "type": 1,
+      "slot": 1,
+      "level": 45,
+      "attribute": [
+        {
+          "38": 810
+        },
+        {
+          "10": 180
+        }
+      ],
+      "cost1": {
+        "1": 190000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        360
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "47": {
+      "type": 1,
+      "slot": 1,
+      "level": 46,
+      "attribute": [
+        {
+          "38": 828
+        },
+        {
+          "10": 184
+        }
+      ],
+      "cost1": {
+        "1": 190000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        368
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "48": {
+      "type": 1,
+      "slot": 1,
+      "level": 47,
+      "attribute": [
+        {
+          "38": 846
+        },
+        {
+          "10": 188
+        }
+      ],
+      "cost1": {
+        "1": 190000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        376
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "49": {
+      "type": 1,
+      "slot": 1,
+      "level": 48,
+      "attribute": [
+        {
+          "38": 864
+        },
+        {
+          "10": 192
+        }
+      ],
+      "cost1": {
+        "1": 190000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        384
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "50": {
+      "type": 1,
+      "slot": 1,
+      "level": 49,
+      "attribute": [
+        {
+          "38": 882
+        },
+        {
+          "10": 196
+        }
+      ],
+      "cost1": {
+        "1": 190000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        392
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "51": {
+      "type": 1,
+      "slot": 1,
+      "level": 50,
+      "attribute": [
+        {
+          "38": 900
+        },
+        {
+          "10": 200
+        }
+      ],
+      "cost1": {
+        "1": 0
+      },
+      "cost2": {
+        "I3920": 0
+      },
+      "shenbinglv": 1,
+      "zhanli": [
+        400
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "52": {
+      "type": 1,
+      "slot": 2,
+      "level": 0,
+      "attribute": [
+        {
+          "15": 0
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        0
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        0
+      ],
+      "color": 0,
+      "oshenbinglv": 1
+    },
+    "53": {
+      "type": 1,
+      "slot": 2,
+      "level": 1,
+      "attribute": [
+        {
+          "15": 4
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        10
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        12
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "54": {
+      "type": 1,
+      "slot": 2,
+      "level": 2,
+      "attribute": [
+        {
+          "15": 8
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        20
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        24
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "55": {
+      "type": 1,
+      "slot": 2,
+      "level": 3,
+      "attribute": [
+        {
+          "15": 12
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        30
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        36
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "56": {
+      "type": 1,
+      "slot": 2,
+      "level": 4,
+      "attribute": [
+        {
+          "15": 16
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        40
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        48
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "57": {
+      "type": 1,
+      "slot": 2,
+      "level": 5,
+      "attribute": [
+        {
+          "15": 20
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        50
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        60
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "58": {
+      "type": 1,
+      "slot": 2,
+      "level": 6,
+      "attribute": [
+        {
+          "15": 24
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        60
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        72
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "59": {
+      "type": 1,
+      "slot": 2,
+      "level": 7,
+      "attribute": [
+        {
+          "15": 28
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        70
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        84
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "60": {
+      "type": 1,
+      "slot": 2,
+      "level": 8,
+      "attribute": [
+        {
+          "15": 32
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        80
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        96
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "61": {
+      "type": 1,
+      "slot": 2,
+      "level": 9,
+      "attribute": [
+        {
+          "15": 36
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        90
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        108
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "62": {
+      "type": 1,
+      "slot": 2,
+      "level": 10,
+      "attribute": [
+        {
+          "15": 40
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        100
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        120
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "63": {
+      "type": 1,
+      "slot": 2,
+      "level": 11,
+      "attribute": [
+        {
+          "15": 44
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        110
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        132
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "64": {
+      "type": 1,
+      "slot": 2,
+      "level": 12,
+      "attribute": [
+        {
+          "15": 48
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        120
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        144
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "65": {
+      "type": 1,
+      "slot": 2,
+      "level": 13,
+      "attribute": [
+        {
+          "15": 52
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        130
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        156
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "66": {
+      "type": 1,
+      "slot": 2,
+      "level": 14,
+      "attribute": [
+        {
+          "15": 56
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        140
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        168
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "67": {
+      "type": 1,
+      "slot": 2,
+      "level": 15,
+      "attribute": [
+        {
+          "15": 60
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        150
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        180
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "68": {
+      "type": 1,
+      "slot": 2,
+      "level": 16,
+      "attribute": [
+        {
+          "15": 64
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        160
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        192
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "69": {
+      "type": 1,
+      "slot": 2,
+      "level": 17,
+      "attribute": [
+        {
+          "15": 68
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        170
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        204
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "70": {
+      "type": 1,
+      "slot": 2,
+      "level": 18,
+      "attribute": [
+        {
+          "15": 72
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        180
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        216
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "71": {
+      "type": 1,
+      "slot": 2,
+      "level": 19,
+      "attribute": [
+        {
+          "15": 76
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        190
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        228
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "72": {
+      "type": 1,
+      "slot": 2,
+      "level": 20,
+      "attribute": [
+        {
+          "15": 80
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        200
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        240
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "73": {
+      "type": 1,
+      "slot": 2,
+      "level": 21,
+      "attribute": [
+        {
+          "15": 84
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        210
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        252
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "74": {
+      "type": 1,
+      "slot": 2,
+      "level": 22,
+      "attribute": [
+        {
+          "15": 88
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        220
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        264
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "75": {
+      "type": 1,
+      "slot": 2,
+      "level": 23,
+      "attribute": [
+        {
+          "15": 92
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        230
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        276
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "76": {
+      "type": 1,
+      "slot": 2,
+      "level": 24,
+      "attribute": [
+        {
+          "15": 96
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        240
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        288
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "77": {
+      "type": 1,
+      "slot": 2,
+      "level": 25,
+      "attribute": [
+        {
+          "15": 100
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        250
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        300
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "78": {
+      "type": 1,
+      "slot": 2,
+      "level": 26,
+      "attribute": [
+        {
+          "15": 104
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        260
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        312
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "79": {
+      "type": 1,
+      "slot": 2,
+      "level": 27,
+      "attribute": [
+        {
+          "15": 108
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        270
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        324
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "80": {
+      "type": 1,
+      "slot": 2,
+      "level": 28,
+      "attribute": [
+        {
+          "15": 112
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        280
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        336
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "81": {
+      "type": 1,
+      "slot": 2,
+      "level": 29,
+      "attribute": [
+        {
+          "15": 116
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        290
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        348
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "82": {
+      "type": 1,
+      "slot": 2,
+      "level": 30,
+      "attribute": [
+        {
+          "15": 120
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        300
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        360
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "83": {
+      "type": 1,
+      "slot": 2,
+      "level": 31,
+      "attribute": [
+        {
+          "15": 124
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        310
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        372
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "84": {
+      "type": 1,
+      "slot": 2,
+      "level": 32,
+      "attribute": [
+        {
+          "15": 128
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        320
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        384
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "85": {
+      "type": 1,
+      "slot": 2,
+      "level": 33,
+      "attribute": [
+        {
+          "15": 132
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        330
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        396
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "86": {
+      "type": 1,
+      "slot": 2,
+      "level": 34,
+      "attribute": [
+        {
+          "15": 136
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        340
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        408
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "87": {
+      "type": 1,
+      "slot": 2,
+      "level": 35,
+      "attribute": [
+        {
+          "15": 140
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        350
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        420
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "88": {
+      "type": 1,
+      "slot": 2,
+      "level": 36,
+      "attribute": [
+        {
+          "15": 144
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        360
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        432
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "89": {
+      "type": 1,
+      "slot": 2,
+      "level": 37,
+      "attribute": [
+        {
+          "15": 148
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        370
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        444
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "90": {
+      "type": 1,
+      "slot": 2,
+      "level": 38,
+      "attribute": [
+        {
+          "15": 152
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        380
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        456
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "91": {
+      "type": 1,
+      "slot": 2,
+      "level": 39,
+      "attribute": [
+        {
+          "15": 156
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        390
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        468
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "92": {
+      "type": 1,
+      "slot": 2,
+      "level": 40,
+      "attribute": [
+        {
+          "15": 160
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        400
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        480
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "93": {
+      "type": 1,
+      "slot": 2,
+      "level": 41,
+      "attribute": [
+        {
+          "15": 164
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        410
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        492
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "94": {
+      "type": 1,
+      "slot": 2,
+      "level": 42,
+      "attribute": [
+        {
+          "15": 168
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        420
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        504
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "95": {
+      "type": 1,
+      "slot": 2,
+      "level": 43,
+      "attribute": [
+        {
+          "15": 172
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        430
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        516
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "96": {
+      "type": 1,
+      "slot": 2,
+      "level": 44,
+      "attribute": [
+        {
+          "15": 176
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        440
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        528
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "97": {
+      "type": 1,
+      "slot": 2,
+      "level": 45,
+      "attribute": [
+        {
+          "15": 180
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        450
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        540
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "98": {
+      "type": 1,
+      "slot": 2,
+      "level": 46,
+      "attribute": [
+        {
+          "15": 184
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        460
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        552
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "99": {
+      "type": 1,
+      "slot": 2,
+      "level": 47,
+      "attribute": [
+        {
+          "15": 188
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        470
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        564
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "100": {
+      "type": 1,
+      "slot": 2,
+      "level": 48,
+      "attribute": [
+        {
+          "15": 192
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        480
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        576
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "101": {
+      "type": 1,
+      "slot": 2,
+      "level": 49,
+      "attribute": [
+        {
+          "15": 196
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        490
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        588
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "102": {
+      "type": 1,
+      "slot": 2,
+      "level": 50,
+      "attribute": [
+        {
+          "15": 200
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        500
+      ],
+      "cost1": {
+        "1": 0
+      },
+      "cost2": {
+        "I3921": 0
+      },
+      "shenbinglv": 3,
+      "zhanli": [
+        600
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "103": {
+      "type": 1,
+      "slot": 3,
+      "level": 0,
+      "attribute": [
+        {
+          "7": 0
+        }
+      ],
+      "skillvalue": [
+        0,
+        0,
+        0
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        0
+      ],
+      "color": 0,
+      "oshenbinglv": 1
+    },
+    "104": {
+      "type": 1,
+      "slot": 3,
+      "level": 1,
+      "attribute": [
+        {
+          "7": 4
+        }
+      ],
+      "skillvalue": [
+        1,
+        3000,
+        0
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        22
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "105": {
+      "type": 1,
+      "slot": 3,
+      "level": 2,
+      "attribute": [
+        {
+          "7": 8
+        }
+      ],
+      "skillvalue": [
+        1,
+        6000,
+        0
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        44
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "106": {
+      "type": 1,
+      "slot": 3,
+      "level": 3,
+      "attribute": [
+        {
+          "7": 12
+        }
+      ],
+      "skillvalue": [
+        2,
+        9000,
+        0
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        66
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "107": {
+      "type": 1,
+      "slot": 3,
+      "level": 4,
+      "attribute": [
+        {
+          "7": 16
+        }
+      ],
+      "skillvalue": [
+        2,
+        12000,
+        0
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        88
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "108": {
+      "type": 1,
+      "slot": 3,
+      "level": 5,
+      "attribute": [
+        {
+          "7": 20
+        }
+      ],
+      "skillvalue": [
+        2,
+        15000,
+        0
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        110
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "109": {
+      "type": 1,
+      "slot": 3,
+      "level": 6,
+      "attribute": [
+        {
+          "7": 24
+        }
+      ],
+      "skillvalue": [
+        3,
+        18000,
+        0
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        132
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "110": {
+      "type": 1,
+      "slot": 3,
+      "level": 7,
+      "attribute": [
+        {
+          "7": 28
+        }
+      ],
+      "skillvalue": [
+        3,
+        21000,
+        0
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        154
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "111": {
+      "type": 1,
+      "slot": 3,
+      "level": 8,
+      "attribute": [
+        {
+          "7": 32
+        }
+      ],
+      "skillvalue": [
+        3,
+        24000,
+        0
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        176
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "112": {
+      "type": 1,
+      "slot": 3,
+      "level": 9,
+      "attribute": [
+        {
+          "7": 36
+        }
+      ],
+      "skillvalue": [
+        4,
+        27000,
+        0
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        198
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "113": {
+      "type": 1,
+      "slot": 3,
+      "level": 10,
+      "attribute": [
+        {
+          "7": 40
+        }
+      ],
+      "skillvalue": [
+        4,
+        30000,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        220
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "114": {
+      "type": 1,
+      "slot": 3,
+      "level": 11,
+      "attribute": [
+        {
+          "7": 44
+        }
+      ],
+      "skillvalue": [
+        4,
+        33000,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        242
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "115": {
+      "type": 1,
+      "slot": 3,
+      "level": 12,
+      "attribute": [
+        {
+          "7": 48
+        }
+      ],
+      "skillvalue": [
+        5,
+        36000,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        264
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "116": {
+      "type": 1,
+      "slot": 3,
+      "level": 13,
+      "attribute": [
+        {
+          "7": 52
+        }
+      ],
+      "skillvalue": [
+        5,
+        39000,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        286
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "117": {
+      "type": 1,
+      "slot": 3,
+      "level": 14,
+      "attribute": [
+        {
+          "7": 56
+        }
+      ],
+      "skillvalue": [
+        6,
+        42000,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        308
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "118": {
+      "type": 1,
+      "slot": 3,
+      "level": 15,
+      "attribute": [
+        {
+          "7": 60
+        }
+      ],
+      "skillvalue": [
+        6,
+        45000,
+        0
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        330
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "119": {
+      "type": 1,
+      "slot": 3,
+      "level": 16,
+      "attribute": [
+        {
+          "7": 64
+        }
+      ],
+      "skillvalue": [
+        6,
+        48000,
+        0
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        352
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "120": {
+      "type": 1,
+      "slot": 3,
+      "level": 17,
+      "attribute": [
+        {
+          "7": 68
+        }
+      ],
+      "skillvalue": [
+        7,
+        51000,
+        0
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        374
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "121": {
+      "type": 1,
+      "slot": 3,
+      "level": 18,
+      "attribute": [
+        {
+          "7": 72
+        }
+      ],
+      "skillvalue": [
+        7,
+        54000,
+        0
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        396
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "122": {
+      "type": 1,
+      "slot": 3,
+      "level": 19,
+      "attribute": [
+        {
+          "7": 76
+        }
+      ],
+      "skillvalue": [
+        7,
+        57000,
+        0
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        418
+      ],
+      "color": 1,
+      "oshenbinglv": 1
+    },
+    "123": {
+      "type": 1,
+      "slot": 3,
+      "level": 20,
+      "attribute": [
+        {
+          "7": 80
+        }
+      ],
+      "skillvalue": [
+        8,
+        60000,
+        0
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        440
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "124": {
+      "type": 1,
+      "slot": 3,
+      "level": 21,
+      "attribute": [
+        {
+          "7": 84
+        }
+      ],
+      "skillvalue": [
+        8,
+        63000,
+        0
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        462
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "125": {
+      "type": 1,
+      "slot": 3,
+      "level": 22,
+      "attribute": [
+        {
+          "7": 88
+        }
+      ],
+      "skillvalue": [
+        8,
+        66000,
+        0
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        484
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "126": {
+      "type": 1,
+      "slot": 3,
+      "level": 23,
+      "attribute": [
+        {
+          "7": 92
+        }
+      ],
+      "skillvalue": [
+        9,
+        69000,
+        0
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        506
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "127": {
+      "type": 1,
+      "slot": 3,
+      "level": 24,
+      "attribute": [
+        {
+          "7": 96
+        }
+      ],
+      "skillvalue": [
+        9,
+        72000,
+        0
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        528
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "128": {
+      "type": 1,
+      "slot": 3,
+      "level": 25,
+      "attribute": [
+        {
+          "7": 100
+        }
+      ],
+      "skillvalue": [
+        9,
+        75000,
+        0
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        550
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "129": {
+      "type": 1,
+      "slot": 3,
+      "level": 26,
+      "attribute": [
+        {
+          "7": 104
+        }
+      ],
+      "skillvalue": [
+        10,
+        78000,
+        0
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        572
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "130": {
+      "type": 1,
+      "slot": 3,
+      "level": 27,
+      "attribute": [
+        {
+          "7": 108
+        }
+      ],
+      "skillvalue": [
+        10,
+        81000,
+        0
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        594
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "131": {
+      "type": 1,
+      "slot": 3,
+      "level": 28,
+      "attribute": [
+        {
+          "7": 112
+        }
+      ],
+      "skillvalue": [
+        11,
+        84000,
+        0
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        616
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "132": {
+      "type": 1,
+      "slot": 3,
+      "level": 29,
+      "attribute": [
+        {
+          "7": 116
+        }
+      ],
+      "skillvalue": [
+        11,
+        87000,
+        0
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        638
+      ],
+      "color": 2,
+      "oshenbinglv": 1
+    },
+    "133": {
+      "type": 1,
+      "slot": 3,
+      "level": 30,
+      "attribute": [
+        {
+          "7": 120
+        }
+      ],
+      "skillvalue": [
+        11,
+        90000,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        660
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "134": {
+      "type": 1,
+      "slot": 3,
+      "level": 31,
+      "attribute": [
+        {
+          "7": 124
+        }
+      ],
+      "skillvalue": [
+        12,
+        93000,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        682
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "135": {
+      "type": 1,
+      "slot": 3,
+      "level": 32,
+      "attribute": [
+        {
+          "7": 128
+        }
+      ],
+      "skillvalue": [
+        12,
+        96000,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        704
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "136": {
+      "type": 1,
+      "slot": 3,
+      "level": 33,
+      "attribute": [
+        {
+          "7": 132
+        }
+      ],
+      "skillvalue": [
+        12,
+        99000,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        726
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "137": {
+      "type": 1,
+      "slot": 3,
+      "level": 34,
+      "attribute": [
+        {
+          "7": 136
+        }
+      ],
+      "skillvalue": [
+        13,
+        102000,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        748
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "138": {
+      "type": 1,
+      "slot": 3,
+      "level": 35,
+      "attribute": [
+        {
+          "7": 140
+        }
+      ],
+      "skillvalue": [
+        13,
+        105000,
+        0
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        770
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "139": {
+      "type": 1,
+      "slot": 3,
+      "level": 36,
+      "attribute": [
+        {
+          "7": 144
+        }
+      ],
+      "skillvalue": [
+        13,
+        108000,
+        0
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        792
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "140": {
+      "type": 1,
+      "slot": 3,
+      "level": 37,
+      "attribute": [
+        {
+          "7": 148
+        }
+      ],
+      "skillvalue": [
+        14,
+        111000,
+        0
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        814
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "141": {
+      "type": 1,
+      "slot": 3,
+      "level": 38,
+      "attribute": [
+        {
+          "7": 152
+        }
+      ],
+      "skillvalue": [
+        14,
+        114000,
+        0
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        836
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "142": {
+      "type": 1,
+      "slot": 3,
+      "level": 39,
+      "attribute": [
+        {
+          "7": 156
+        }
+      ],
+      "skillvalue": [
+        15,
+        117000,
+        0
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        858
+      ],
+      "color": 3,
+      "oshenbinglv": 1
+    },
+    "143": {
+      "type": 1,
+      "slot": 3,
+      "level": 40,
+      "attribute": [
+        {
+          "7": 160
+        }
+      ],
+      "skillvalue": [
+        15,
+        120000,
+        0
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        880
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "144": {
+      "type": 1,
+      "slot": 3,
+      "level": 41,
+      "attribute": [
+        {
+          "7": 164
+        }
+      ],
+      "skillvalue": [
+        15,
+        123000,
+        0
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        902
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "145": {
+      "type": 1,
+      "slot": 3,
+      "level": 42,
+      "attribute": [
+        {
+          "7": 168
+        }
+      ],
+      "skillvalue": [
+        16,
+        126000,
+        0
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        924
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "146": {
+      "type": 1,
+      "slot": 3,
+      "level": 43,
+      "attribute": [
+        {
+          "7": 172
+        }
+      ],
+      "skillvalue": [
+        16,
+        129000,
+        0
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        946
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "147": {
+      "type": 1,
+      "slot": 3,
+      "level": 44,
+      "attribute": [
+        {
+          "7": 176
+        }
+      ],
+      "skillvalue": [
+        16,
+        132000,
+        0
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        968
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "148": {
+      "type": 1,
+      "slot": 3,
+      "level": 45,
+      "attribute": [
+        {
+          "7": 180
+        }
+      ],
+      "skillvalue": [
+        17,
+        135000,
+        0
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        990
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "149": {
+      "type": 1,
+      "slot": 3,
+      "level": 46,
+      "attribute": [
+        {
+          "7": 184
+        }
+      ],
+      "skillvalue": [
+        17,
+        138000,
+        0
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        1012
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "150": {
+      "type": 1,
+      "slot": 3,
+      "level": 47,
+      "attribute": [
+        {
+          "7": 188
+        }
+      ],
+      "skillvalue": [
+        17,
+        141000,
+        0
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        1034
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "151": {
+      "type": 1,
+      "slot": 3,
+      "level": 48,
+      "attribute": [
+        {
+          "7": 192
+        }
+      ],
+      "skillvalue": [
+        18,
+        144000,
+        0
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        1056
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "152": {
+      "type": 1,
+      "slot": 3,
+      "level": 49,
+      "attribute": [
+        {
+          "7": 196
+        }
+      ],
+      "skillvalue": [
+        18,
+        147000,
+        0
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        1078
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "153": {
+      "type": 1,
+      "slot": 3,
+      "level": 50,
+      "attribute": [
+        {
+          "7": 200
+        }
+      ],
+      "skillvalue": [
+        18,
+        150000,
+        0
+      ],
+      "cost1": {
+        "1": 0
+      },
+      "cost2": {
+        "I3922": 0
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        1100
+      ],
+      "color": 4,
+      "oshenbinglv": 1
+    },
+    "154": {
+      "type": 2,
+      "slot": 1,
+      "level": 0,
+      "attribute": [
+        {
+          "38": 0
+        },
+        {
+          "10": 0
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        0
+      ],
+      "color": 0,
+      "oshenbinglv": 2
+    },
+    "155": {
+      "type": 2,
+      "slot": 1,
+      "level": 1,
+      "attribute": [
+        {
+          "38": 20
+        },
+        {
+          "10": 6
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        8
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "156": {
+      "type": 2,
+      "slot": 1,
+      "level": 2,
+      "attribute": [
+        {
+          "38": 40
+        },
+        {
+          "10": 12
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        16
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "157": {
+      "type": 2,
+      "slot": 1,
+      "level": 3,
+      "attribute": [
+        {
+          "38": 60
+        },
+        {
+          "10": 18
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        24
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "158": {
+      "type": 2,
+      "slot": 1,
+      "level": 4,
+      "attribute": [
+        {
+          "38": 80
+        },
+        {
+          "10": 24
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        32
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "159": {
+      "type": 2,
+      "slot": 1,
+      "level": 5,
+      "attribute": [
+        {
+          "38": 100
+        },
+        {
+          "10": 30
+        }
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        40
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "160": {
+      "type": 2,
+      "slot": 1,
+      "level": 6,
+      "attribute": [
+        {
+          "38": 120
+        },
+        {
+          "10": 36
+        }
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        48
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "161": {
+      "type": 2,
+      "slot": 1,
+      "level": 7,
+      "attribute": [
+        {
+          "38": 140
+        },
+        {
+          "10": 42
+        }
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        56
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "162": {
+      "type": 2,
+      "slot": 1,
+      "level": 8,
+      "attribute": [
+        {
+          "38": 160
+        },
+        {
+          "10": 48
+        }
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        64
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "163": {
+      "type": 2,
+      "slot": 1,
+      "level": 9,
+      "attribute": [
+        {
+          "38": 180
+        },
+        {
+          "10": 54
+        }
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3920": 10
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        72
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "164": {
+      "type": 2,
+      "slot": 1,
+      "level": 10,
+      "attribute": [
+        {
+          "38": 200
+        },
+        {
+          "10": 60
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        80
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "165": {
+      "type": 2,
+      "slot": 1,
+      "level": 11,
+      "attribute": [
+        {
+          "38": 220
+        },
+        {
+          "10": 66
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        88
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "166": {
+      "type": 2,
+      "slot": 1,
+      "level": 12,
+      "attribute": [
+        {
+          "38": 240
+        },
+        {
+          "10": 72
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        96
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "167": {
+      "type": 2,
+      "slot": 1,
+      "level": 13,
+      "attribute": [
+        {
+          "38": 260
+        },
+        {
+          "10": 78
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        104
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "168": {
+      "type": 2,
+      "slot": 1,
+      "level": 14,
+      "attribute": [
+        {
+          "38": 280
+        },
+        {
+          "10": 84
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        112
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "169": {
+      "type": 2,
+      "slot": 1,
+      "level": 15,
+      "attribute": [
+        {
+          "38": 300
+        },
+        {
+          "10": 90
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        120
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "170": {
+      "type": 2,
+      "slot": 1,
+      "level": 16,
+      "attribute": [
+        {
+          "38": 320
+        },
+        {
+          "10": 96
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        128
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "171": {
+      "type": 2,
+      "slot": 1,
+      "level": 17,
+      "attribute": [
+        {
+          "38": 340
+        },
+        {
+          "10": 102
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        136
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "172": {
+      "type": 2,
+      "slot": 1,
+      "level": 18,
+      "attribute": [
+        {
+          "38": 360
+        },
+        {
+          "10": 108
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        144
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "173": {
+      "type": 2,
+      "slot": 1,
+      "level": 19,
+      "attribute": [
+        {
+          "38": 380
+        },
+        {
+          "10": 114
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 15
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        152
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "174": {
+      "type": 2,
+      "slot": 1,
+      "level": 20,
+      "attribute": [
+        {
+          "38": 400
+        },
+        {
+          "10": 120
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        160
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "175": {
+      "type": 2,
+      "slot": 1,
+      "level": 21,
+      "attribute": [
+        {
+          "38": 420
+        },
+        {
+          "10": 126
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        168
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "176": {
+      "type": 2,
+      "slot": 1,
+      "level": 22,
+      "attribute": [
+        {
+          "38": 440
+        },
+        {
+          "10": 132
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        176
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "177": {
+      "type": 2,
+      "slot": 1,
+      "level": 23,
+      "attribute": [
+        {
+          "38": 460
+        },
+        {
+          "10": 138
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        184
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "178": {
+      "type": 2,
+      "slot": 1,
+      "level": 24,
+      "attribute": [
+        {
+          "38": 480
+        },
+        {
+          "10": 144
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        192
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "179": {
+      "type": 2,
+      "slot": 1,
+      "level": 25,
+      "attribute": [
+        {
+          "38": 500
+        },
+        {
+          "10": 150
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        200
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "180": {
+      "type": 2,
+      "slot": 1,
+      "level": 26,
+      "attribute": [
+        {
+          "38": 520
+        },
+        {
+          "10": 156
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        208
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "181": {
+      "type": 2,
+      "slot": 1,
+      "level": 27,
+      "attribute": [
+        {
+          "38": 540
+        },
+        {
+          "10": 162
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        216
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "182": {
+      "type": 2,
+      "slot": 1,
+      "level": 28,
+      "attribute": [
+        {
+          "38": 560
+        },
+        {
+          "10": 168
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        224
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "183": {
+      "type": 2,
+      "slot": 1,
+      "level": 29,
+      "attribute": [
+        {
+          "38": 580
+        },
+        {
+          "10": 174
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        232
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "184": {
+      "type": 2,
+      "slot": 1,
+      "level": 30,
+      "attribute": [
+        {
+          "38": 600
+        },
+        {
+          "10": 180
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        240
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "185": {
+      "type": 2,
+      "slot": 1,
+      "level": 31,
+      "attribute": [
+        {
+          "38": 620
+        },
+        {
+          "10": 186
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        248
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "186": {
+      "type": 2,
+      "slot": 1,
+      "level": 32,
+      "attribute": [
+        {
+          "38": 640
+        },
+        {
+          "10": 192
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        256
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "187": {
+      "type": 2,
+      "slot": 1,
+      "level": 33,
+      "attribute": [
+        {
+          "38": 660
+        },
+        {
+          "10": 198
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        264
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "188": {
+      "type": 2,
+      "slot": 1,
+      "level": 34,
+      "attribute": [
+        {
+          "38": 680
+        },
+        {
+          "10": 204
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        272
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "189": {
+      "type": 2,
+      "slot": 1,
+      "level": 35,
+      "attribute": [
+        {
+          "38": 700
+        },
+        {
+          "10": 210
+        }
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        280
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "190": {
+      "type": 2,
+      "slot": 1,
+      "level": 36,
+      "attribute": [
+        {
+          "38": 720
+        },
+        {
+          "10": 216
+        }
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        288
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "191": {
+      "type": 2,
+      "slot": 1,
+      "level": 37,
+      "attribute": [
+        {
+          "38": 740
+        },
+        {
+          "10": 222
+        }
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        296
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "192": {
+      "type": 2,
+      "slot": 1,
+      "level": 38,
+      "attribute": [
+        {
+          "38": 760
+        },
+        {
+          "10": 228
+        }
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        304
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "193": {
+      "type": 2,
+      "slot": 1,
+      "level": 39,
+      "attribute": [
+        {
+          "38": 780
+        },
+        {
+          "10": 234
+        }
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        312
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "194": {
+      "type": 2,
+      "slot": 1,
+      "level": 40,
+      "attribute": [
+        {
+          "38": 800
+        },
+        {
+          "10": 240
+        }
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        320
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "195": {
+      "type": 2,
+      "slot": 1,
+      "level": 41,
+      "attribute": [
+        {
+          "38": 820
+        },
+        {
+          "10": 246
+        }
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        328
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "196": {
+      "type": 2,
+      "slot": 1,
+      "level": 42,
+      "attribute": [
+        {
+          "38": 840
+        },
+        {
+          "10": 252
+        }
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        336
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "197": {
+      "type": 2,
+      "slot": 1,
+      "level": 43,
+      "attribute": [
+        {
+          "38": 860
+        },
+        {
+          "10": 258
+        }
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        344
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "198": {
+      "type": 2,
+      "slot": 1,
+      "level": 44,
+      "attribute": [
+        {
+          "38": 880
+        },
+        {
+          "10": 264
+        }
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        352
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "199": {
+      "type": 2,
+      "slot": 1,
+      "level": 45,
+      "attribute": [
+        {
+          "38": 900
+        },
+        {
+          "10": 270
+        }
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        360
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "200": {
+      "type": 2,
+      "slot": 1,
+      "level": 46,
+      "attribute": [
+        {
+          "38": 920
+        },
+        {
+          "10": 276
+        }
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        368
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "201": {
+      "type": 2,
+      "slot": 1,
+      "level": 47,
+      "attribute": [
+        {
+          "38": 940
+        },
+        {
+          "10": 282
+        }
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        376
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "202": {
+      "type": 2,
+      "slot": 1,
+      "level": 48,
+      "attribute": [
+        {
+          "38": 960
+        },
+        {
+          "10": 288
+        }
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        384
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "203": {
+      "type": 2,
+      "slot": 1,
+      "level": 49,
+      "attribute": [
+        {
+          "38": 980
+        },
+        {
+          "10": 294
+        }
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        392
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "204": {
+      "type": 2,
+      "slot": 1,
+      "level": 50,
+      "attribute": [
+        {
+          "38": 1000
+        },
+        {
+          "10": 300
+        }
+      ],
+      "cost1": {
+        "1": 0
+      },
+      "cost2": {
+        "I3920": 0
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        400
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "205": {
+      "type": 2,
+      "slot": 2,
+      "level": 0,
+      "attribute": [
+        {
+          "7": 0
+        }
+      ],
+      "skillvalue": [
+        0,
+        0
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        0
+      ],
+      "color": 0,
+      "oshenbinglv": 2
+    },
+    "206": {
+      "type": 2,
+      "slot": 2,
+      "level": 1,
+      "attribute": [
+        {
+          "7": 4
+        }
+      ],
+      "skillvalue": [
+        10,
+        0
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        12
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "207": {
+      "type": 2,
+      "slot": 2,
+      "level": 2,
+      "attribute": [
+        {
+          "7": 8
+        }
+      ],
+      "skillvalue": [
+        20,
+        0
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        24
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "208": {
+      "type": 2,
+      "slot": 2,
+      "level": 3,
+      "attribute": [
+        {
+          "7": 12
+        }
+      ],
+      "skillvalue": [
+        30,
+        0
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        36
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "209": {
+      "type": 2,
+      "slot": 2,
+      "level": 4,
+      "attribute": [
+        {
+          "7": 16
+        }
+      ],
+      "skillvalue": [
+        40,
+        0
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        48
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "210": {
+      "type": 2,
+      "slot": 2,
+      "level": 5,
+      "attribute": [
+        {
+          "7": 20
+        }
+      ],
+      "skillvalue": [
+        50,
+        0
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        60
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "211": {
+      "type": 2,
+      "slot": 2,
+      "level": 6,
+      "attribute": [
+        {
+          "7": 24
+        }
+      ],
+      "skillvalue": [
+        60,
+        0
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        72
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "212": {
+      "type": 2,
+      "slot": 2,
+      "level": 7,
+      "attribute": [
+        {
+          "7": 28
+        }
+      ],
+      "skillvalue": [
+        70,
+        0
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        84
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "213": {
+      "type": 2,
+      "slot": 2,
+      "level": 8,
+      "attribute": [
+        {
+          "7": 32
+        }
+      ],
+      "skillvalue": [
+        80,
+        0
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        96
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "214": {
+      "type": 2,
+      "slot": 2,
+      "level": 9,
+      "attribute": [
+        {
+          "7": 36
+        }
+      ],
+      "skillvalue": [
+        90,
+        0
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 30
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        108
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "215": {
+      "type": 2,
+      "slot": 2,
+      "level": 10,
+      "attribute": [
+        {
+          "7": 40
+        }
+      ],
+      "skillvalue": [
+        100,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        120
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "216": {
+      "type": 2,
+      "slot": 2,
+      "level": 11,
+      "attribute": [
+        {
+          "7": 44
+        }
+      ],
+      "skillvalue": [
+        110,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        132
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "217": {
+      "type": 2,
+      "slot": 2,
+      "level": 12,
+      "attribute": [
+        {
+          "7": 48
+        }
+      ],
+      "skillvalue": [
+        120,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        144
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "218": {
+      "type": 2,
+      "slot": 2,
+      "level": 13,
+      "attribute": [
+        {
+          "7": 52
+        }
+      ],
+      "skillvalue": [
+        130,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        156
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "219": {
+      "type": 2,
+      "slot": 2,
+      "level": 14,
+      "attribute": [
+        {
+          "7": 56
+        }
+      ],
+      "skillvalue": [
+        140,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        168
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "220": {
+      "type": 2,
+      "slot": 2,
+      "level": 15,
+      "attribute": [
+        {
+          "7": 60
+        }
+      ],
+      "skillvalue": [
+        150,
+        0
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        180
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "221": {
+      "type": 2,
+      "slot": 2,
+      "level": 16,
+      "attribute": [
+        {
+          "7": 64
+        }
+      ],
+      "skillvalue": [
+        160,
+        0
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        192
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "222": {
+      "type": 2,
+      "slot": 2,
+      "level": 17,
+      "attribute": [
+        {
+          "7": 68
+        }
+      ],
+      "skillvalue": [
+        170,
+        0
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        204
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "223": {
+      "type": 2,
+      "slot": 2,
+      "level": 18,
+      "attribute": [
+        {
+          "7": 72
+        }
+      ],
+      "skillvalue": [
+        180,
+        0
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        216
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "224": {
+      "type": 2,
+      "slot": 2,
+      "level": 19,
+      "attribute": [
+        {
+          "7": 76
+        }
+      ],
+      "skillvalue": [
+        190,
+        0
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3921": 35
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        228
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "225": {
+      "type": 2,
+      "slot": 2,
+      "level": 20,
+      "attribute": [
+        {
+          "7": 80
+        }
+      ],
+      "skillvalue": [
+        200,
+        0
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        240
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "226": {
+      "type": 2,
+      "slot": 2,
+      "level": 21,
+      "attribute": [
+        {
+          "7": 84
+        }
+      ],
+      "skillvalue": [
+        210,
+        0
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        252
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "227": {
+      "type": 2,
+      "slot": 2,
+      "level": 22,
+      "attribute": [
+        {
+          "7": 88
+        }
+      ],
+      "skillvalue": [
+        220,
+        0
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        264
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "228": {
+      "type": 2,
+      "slot": 2,
+      "level": 23,
+      "attribute": [
+        {
+          "7": 92
+        }
+      ],
+      "skillvalue": [
+        230,
+        0
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        276
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "229": {
+      "type": 2,
+      "slot": 2,
+      "level": 24,
+      "attribute": [
+        {
+          "7": 96
+        }
+      ],
+      "skillvalue": [
+        240,
+        0
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        288
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "230": {
+      "type": 2,
+      "slot": 2,
+      "level": 25,
+      "attribute": [
+        {
+          "7": 100
+        }
+      ],
+      "skillvalue": [
+        250,
+        0
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        300
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "231": {
+      "type": 2,
+      "slot": 2,
+      "level": 26,
+      "attribute": [
+        {
+          "7": 104
+        }
+      ],
+      "skillvalue": [
+        260,
+        0
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        312
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "232": {
+      "type": 2,
+      "slot": 2,
+      "level": 27,
+      "attribute": [
+        {
+          "7": 108
+        }
+      ],
+      "skillvalue": [
+        270,
+        0
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        324
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "233": {
+      "type": 2,
+      "slot": 2,
+      "level": 28,
+      "attribute": [
+        {
+          "7": 112
+        }
+      ],
+      "skillvalue": [
+        280,
+        0
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        336
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "234": {
+      "type": 2,
+      "slot": 2,
+      "level": 29,
+      "attribute": [
+        {
+          "7": 116
+        }
+      ],
+      "skillvalue": [
+        290,
+        0
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        348
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "235": {
+      "type": 2,
+      "slot": 2,
+      "level": 30,
+      "attribute": [
+        {
+          "7": 120
+        }
+      ],
+      "skillvalue": [
+        300,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        360
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "236": {
+      "type": 2,
+      "slot": 2,
+      "level": 31,
+      "attribute": [
+        {
+          "7": 124
+        }
+      ],
+      "skillvalue": [
+        310,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        372
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "237": {
+      "type": 2,
+      "slot": 2,
+      "level": 32,
+      "attribute": [
+        {
+          "7": 128
+        }
+      ],
+      "skillvalue": [
+        320,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        384
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "238": {
+      "type": 2,
+      "slot": 2,
+      "level": 33,
+      "attribute": [
+        {
+          "7": 132
+        }
+      ],
+      "skillvalue": [
+        330,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        396
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "239": {
+      "type": 2,
+      "slot": 2,
+      "level": 34,
+      "attribute": [
+        {
+          "7": 136
+        }
+      ],
+      "skillvalue": [
+        340,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        408
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "240": {
+      "type": 2,
+      "slot": 2,
+      "level": 35,
+      "attribute": [
+        {
+          "7": 140
+        }
+      ],
+      "skillvalue": [
+        350,
+        0
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        420
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "241": {
+      "type": 2,
+      "slot": 2,
+      "level": 36,
+      "attribute": [
+        {
+          "7": 144
+        }
+      ],
+      "skillvalue": [
+        360,
+        0
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        432
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "242": {
+      "type": 2,
+      "slot": 2,
+      "level": 37,
+      "attribute": [
+        {
+          "7": 148
+        }
+      ],
+      "skillvalue": [
+        370,
+        0
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        444
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "243": {
+      "type": 2,
+      "slot": 2,
+      "level": 38,
+      "attribute": [
+        {
+          "7": 152
+        }
+      ],
+      "skillvalue": [
+        380,
+        0
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        456
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "244": {
+      "type": 2,
+      "slot": 2,
+      "level": 39,
+      "attribute": [
+        {
+          "7": 156
+        }
+      ],
+      "skillvalue": [
+        390,
+        0
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        468
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "245": {
+      "type": 2,
+      "slot": 2,
+      "level": 40,
+      "attribute": [
+        {
+          "7": 160
+        }
+      ],
+      "skillvalue": [
+        400,
+        0
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        480
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "246": {
+      "type": 2,
+      "slot": 2,
+      "level": 41,
+      "attribute": [
+        {
+          "7": 164
+        }
+      ],
+      "skillvalue": [
+        410,
+        0
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        492
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "247": {
+      "type": 2,
+      "slot": 2,
+      "level": 42,
+      "attribute": [
+        {
+          "7": 168
+        }
+      ],
+      "skillvalue": [
+        420,
+        0
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        504
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "248": {
+      "type": 2,
+      "slot": 2,
+      "level": 43,
+      "attribute": [
+        {
+          "7": 172
+        }
+      ],
+      "skillvalue": [
+        430,
+        0
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        516
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "249": {
+      "type": 2,
+      "slot": 2,
+      "level": 44,
+      "attribute": [
+        {
+          "7": 176
+        }
+      ],
+      "skillvalue": [
+        440,
+        0
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        528
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "250": {
+      "type": 2,
+      "slot": 2,
+      "level": 45,
+      "attribute": [
+        {
+          "7": 180
+        }
+      ],
+      "skillvalue": [
+        450,
+        0
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        540
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "251": {
+      "type": 2,
+      "slot": 2,
+      "level": 46,
+      "attribute": [
+        {
+          "7": 184
+        }
+      ],
+      "skillvalue": [
+        460,
+        0
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        552
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "252": {
+      "type": 2,
+      "slot": 2,
+      "level": 47,
+      "attribute": [
+        {
+          "7": 188
+        }
+      ],
+      "skillvalue": [
+        470,
+        0
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        564
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "253": {
+      "type": 2,
+      "slot": 2,
+      "level": 48,
+      "attribute": [
+        {
+          "7": 192
+        }
+      ],
+      "skillvalue": [
+        480,
+        0
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        576
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "254": {
+      "type": 2,
+      "slot": 2,
+      "level": 49,
+      "attribute": [
+        {
+          "7": 196
+        }
+      ],
+      "skillvalue": [
+        490,
+        0
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        588
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "255": {
+      "type": 2,
+      "slot": 2,
+      "level": 50,
+      "attribute": [
+        {
+          "7": 200
+        }
+      ],
+      "skillvalue": [
+        500,
+        0
+      ],
+      "cost1": {
+        "1": 0
+      },
+      "cost2": {
+        "I3921": 0
+      },
+      "shenbinglv": 5,
+      "zhanli": [
+        600
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "256": {
+      "type": 2,
+      "slot": 3,
+      "level": 0,
+      "attribute": [
+        {
+          "16": 0
+        }
+      ],
+      "skillvalue": [
+        0,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        0
+      ],
+      "color": 0,
+      "oshenbinglv": 2
+    },
+    "257": {
+      "type": 2,
+      "slot": 3,
+      "level": 1,
+      "attribute": [
+        {
+          "16": 10
+        }
+      ],
+      "skillvalue": [
+        0,
+        10
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        22
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "258": {
+      "type": 2,
+      "slot": 3,
+      "level": 2,
+      "attribute": [
+        {
+          "16": 20
+        }
+      ],
+      "skillvalue": [
+        0,
+        20
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        44
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "259": {
+      "type": 2,
+      "slot": 3,
+      "level": 3,
+      "attribute": [
+        {
+          "16": 30
+        }
+      ],
+      "skillvalue": [
+        0,
+        30
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        66
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "260": {
+      "type": 2,
+      "slot": 3,
+      "level": 4,
+      "attribute": [
+        {
+          "16": 40
+        }
+      ],
+      "skillvalue": [
+        0,
+        40
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        88
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "261": {
+      "type": 2,
+      "slot": 3,
+      "level": 5,
+      "attribute": [
+        {
+          "16": 50
+        }
+      ],
+      "skillvalue": [
+        0,
+        50
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        110
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "262": {
+      "type": 2,
+      "slot": 3,
+      "level": 6,
+      "attribute": [
+        {
+          "16": 60
+        }
+      ],
+      "skillvalue": [
+        0,
+        60
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        132
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "263": {
+      "type": 2,
+      "slot": 3,
+      "level": 7,
+      "attribute": [
+        {
+          "16": 70
+        }
+      ],
+      "skillvalue": [
+        0,
+        70
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        154
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "264": {
+      "type": 2,
+      "slot": 3,
+      "level": 8,
+      "attribute": [
+        {
+          "16": 80
+        }
+      ],
+      "skillvalue": [
+        0,
+        80
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        176
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "265": {
+      "type": 2,
+      "slot": 3,
+      "level": 9,
+      "attribute": [
+        {
+          "16": 90
+        }
+      ],
+      "skillvalue": [
+        0,
+        90
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3922": 30
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        198
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "266": {
+      "type": 2,
+      "slot": 3,
+      "level": 10,
+      "attribute": [
+        {
+          "16": 100
+        }
+      ],
+      "skillvalue": [
+        0,
+        100
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        220
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "267": {
+      "type": 2,
+      "slot": 3,
+      "level": 11,
+      "attribute": [
+        {
+          "16": 110
+        }
+      ],
+      "skillvalue": [
+        0,
+        110
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        242
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "268": {
+      "type": 2,
+      "slot": 3,
+      "level": 12,
+      "attribute": [
+        {
+          "16": 120
+        }
+      ],
+      "skillvalue": [
+        0,
+        120
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        264
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "269": {
+      "type": 2,
+      "slot": 3,
+      "level": 13,
+      "attribute": [
+        {
+          "16": 130
+        }
+      ],
+      "skillvalue": [
+        0,
+        130
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        286
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "270": {
+      "type": 2,
+      "slot": 3,
+      "level": 14,
+      "attribute": [
+        {
+          "16": 140
+        }
+      ],
+      "skillvalue": [
+        0,
+        140
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        308
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "271": {
+      "type": 2,
+      "slot": 3,
+      "level": 15,
+      "attribute": [
+        {
+          "16": 150
+        }
+      ],
+      "skillvalue": [
+        0,
+        150
+      ],
+      "cost1": {
+        "1": 240000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        330
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "272": {
+      "type": 2,
+      "slot": 3,
+      "level": 16,
+      "attribute": [
+        {
+          "16": 160
+        }
+      ],
+      "skillvalue": [
+        0,
+        160
+      ],
+      "cost1": {
+        "1": 240000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        352
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "273": {
+      "type": 2,
+      "slot": 3,
+      "level": 17,
+      "attribute": [
+        {
+          "16": 170
+        }
+      ],
+      "skillvalue": [
+        0,
+        170
+      ],
+      "cost1": {
+        "1": 240000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        374
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "274": {
+      "type": 2,
+      "slot": 3,
+      "level": 18,
+      "attribute": [
+        {
+          "16": 180
+        }
+      ],
+      "skillvalue": [
+        0,
+        180
+      ],
+      "cost1": {
+        "1": 240000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        396
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "275": {
+      "type": 2,
+      "slot": 3,
+      "level": 19,
+      "attribute": [
+        {
+          "16": 190
+        }
+      ],
+      "skillvalue": [
+        0,
+        190
+      ],
+      "cost1": {
+        "1": 240000
+      },
+      "cost2": {
+        "I3922": 35
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        418
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "276": {
+      "type": 2,
+      "slot": 3,
+      "level": 20,
+      "attribute": [
+        {
+          "16": 200
+        }
+      ],
+      "skillvalue": [
+        0,
+        200
+      ],
+      "cost1": {
+        "1": 260000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        440
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "277": {
+      "type": 2,
+      "slot": 3,
+      "level": 21,
+      "attribute": [
+        {
+          "16": 210
+        }
+      ],
+      "skillvalue": [
+        0,
+        210
+      ],
+      "cost1": {
+        "1": 260000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        462
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "278": {
+      "type": 2,
+      "slot": 3,
+      "level": 22,
+      "attribute": [
+        {
+          "16": 220
+        }
+      ],
+      "skillvalue": [
+        0,
+        220
+      ],
+      "cost1": {
+        "1": 260000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        484
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "279": {
+      "type": 2,
+      "slot": 3,
+      "level": 23,
+      "attribute": [
+        {
+          "16": 230
+        }
+      ],
+      "skillvalue": [
+        0,
+        230
+      ],
+      "cost1": {
+        "1": 260000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        506
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "280": {
+      "type": 2,
+      "slot": 3,
+      "level": 24,
+      "attribute": [
+        {
+          "16": 240
+        }
+      ],
+      "skillvalue": [
+        0,
+        240
+      ],
+      "cost1": {
+        "1": 260000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        528
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "281": {
+      "type": 2,
+      "slot": 3,
+      "level": 25,
+      "attribute": [
+        {
+          "16": 250
+        }
+      ],
+      "skillvalue": [
+        0,
+        250
+      ],
+      "cost1": {
+        "1": 300000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        550
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "282": {
+      "type": 2,
+      "slot": 3,
+      "level": 26,
+      "attribute": [
+        {
+          "16": 260
+        }
+      ],
+      "skillvalue": [
+        0,
+        260
+      ],
+      "cost1": {
+        "1": 300000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        572
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "283": {
+      "type": 2,
+      "slot": 3,
+      "level": 27,
+      "attribute": [
+        {
+          "16": 270
+        }
+      ],
+      "skillvalue": [
+        0,
+        270
+      ],
+      "cost1": {
+        "1": 300000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        594
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "284": {
+      "type": 2,
+      "slot": 3,
+      "level": 28,
+      "attribute": [
+        {
+          "16": 280
+        }
+      ],
+      "skillvalue": [
+        0,
+        280
+      ],
+      "cost1": {
+        "1": 300000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        616
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "285": {
+      "type": 2,
+      "slot": 3,
+      "level": 29,
+      "attribute": [
+        {
+          "16": 290
+        }
+      ],
+      "skillvalue": [
+        0,
+        290
+      ],
+      "cost1": {
+        "1": 300000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        638
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "286": {
+      "type": 2,
+      "slot": 3,
+      "level": 30,
+      "attribute": [
+        {
+          "16": 300
+        }
+      ],
+      "skillvalue": [
+        0,
+        300
+      ],
+      "cost1": {
+        "1": 340000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        660
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "287": {
+      "type": 2,
+      "slot": 3,
+      "level": 31,
+      "attribute": [
+        {
+          "16": 310
+        }
+      ],
+      "skillvalue": [
+        0,
+        310
+      ],
+      "cost1": {
+        "1": 340000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        682
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "288": {
+      "type": 2,
+      "slot": 3,
+      "level": 32,
+      "attribute": [
+        {
+          "16": 320
+        }
+      ],
+      "skillvalue": [
+        0,
+        320
+      ],
+      "cost1": {
+        "1": 340000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        704
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "289": {
+      "type": 2,
+      "slot": 3,
+      "level": 33,
+      "attribute": [
+        {
+          "16": 330
+        }
+      ],
+      "skillvalue": [
+        0,
+        330
+      ],
+      "cost1": {
+        "1": 340000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        726
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "290": {
+      "type": 2,
+      "slot": 3,
+      "level": 34,
+      "attribute": [
+        {
+          "16": 340
+        }
+      ],
+      "skillvalue": [
+        0,
+        340
+      ],
+      "cost1": {
+        "1": 340000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        748
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "291": {
+      "type": 2,
+      "slot": 3,
+      "level": 35,
+      "attribute": [
+        {
+          "16": 350
+        }
+      ],
+      "skillvalue": [
+        0,
+        350
+      ],
+      "cost1": {
+        "1": 400000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        770
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "292": {
+      "type": 2,
+      "slot": 3,
+      "level": 36,
+      "attribute": [
+        {
+          "16": 360
+        }
+      ],
+      "skillvalue": [
+        0,
+        360
+      ],
+      "cost1": {
+        "1": 400000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        792
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "293": {
+      "type": 2,
+      "slot": 3,
+      "level": 37,
+      "attribute": [
+        {
+          "16": 370
+        }
+      ],
+      "skillvalue": [
+        0,
+        370
+      ],
+      "cost1": {
+        "1": 400000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        814
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "294": {
+      "type": 2,
+      "slot": 3,
+      "level": 38,
+      "attribute": [
+        {
+          "16": 380
+        }
+      ],
+      "skillvalue": [
+        0,
+        380
+      ],
+      "cost1": {
+        "1": 400000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        836
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "295": {
+      "type": 2,
+      "slot": 3,
+      "level": 39,
+      "attribute": [
+        {
+          "16": 390
+        }
+      ],
+      "skillvalue": [
+        0,
+        390
+      ],
+      "cost1": {
+        "1": 400000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        858
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "296": {
+      "type": 2,
+      "slot": 3,
+      "level": 40,
+      "attribute": [
+        {
+          "16": 400
+        }
+      ],
+      "skillvalue": [
+        0,
+        400
+      ],
+      "cost1": {
+        "1": 490000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        880
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "297": {
+      "type": 2,
+      "slot": 3,
+      "level": 41,
+      "attribute": [
+        {
+          "16": 410
+        }
+      ],
+      "skillvalue": [
+        0,
+        410
+      ],
+      "cost1": {
+        "1": 490000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        902
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "298": {
+      "type": 2,
+      "slot": 3,
+      "level": 42,
+      "attribute": [
+        {
+          "16": 420
+        }
+      ],
+      "skillvalue": [
+        0,
+        420
+      ],
+      "cost1": {
+        "1": 490000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        924
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "299": {
+      "type": 2,
+      "slot": 3,
+      "level": 43,
+      "attribute": [
+        {
+          "16": 430
+        }
+      ],
+      "skillvalue": [
+        0,
+        430
+      ],
+      "cost1": {
+        "1": 490000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        946
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "300": {
+      "type": 2,
+      "slot": 3,
+      "level": 44,
+      "attribute": [
+        {
+          "16": 440
+        }
+      ],
+      "skillvalue": [
+        0,
+        440
+      ],
+      "cost1": {
+        "1": 490000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        968
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "301": {
+      "type": 2,
+      "slot": 3,
+      "level": 45,
+      "attribute": [
+        {
+          "16": 450
+        }
+      ],
+      "skillvalue": [
+        0,
+        450
+      ],
+      "cost1": {
+        "1": 650000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        990
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "302": {
+      "type": 2,
+      "slot": 3,
+      "level": 46,
+      "attribute": [
+        {
+          "16": 460
+        }
+      ],
+      "skillvalue": [
+        0,
+        460
+      ],
+      "cost1": {
+        "1": 650000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        1012
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "303": {
+      "type": 2,
+      "slot": 3,
+      "level": 47,
+      "attribute": [
+        {
+          "16": 470
+        }
+      ],
+      "skillvalue": [
+        0,
+        470
+      ],
+      "cost1": {
+        "1": 650000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        1034
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "304": {
+      "type": 2,
+      "slot": 3,
+      "level": 48,
+      "attribute": [
+        {
+          "16": 480
+        }
+      ],
+      "skillvalue": [
+        0,
+        480
+      ],
+      "cost1": {
+        "1": 650000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        1056
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "305": {
+      "type": 2,
+      "slot": 3,
+      "level": 49,
+      "attribute": [
+        {
+          "16": 490
+        }
+      ],
+      "skillvalue": [
+        0,
+        490
+      ],
+      "cost1": {
+        "1": 650000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        1078
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "306": {
+      "type": 2,
+      "slot": 3,
+      "level": 50,
+      "attribute": [
+        {
+          "16": 500
+        }
+      ],
+      "skillvalue": [
+        0,
+        500
+      ],
+      "cost1": {
+        "1": 0
+      },
+      "cost2": {
+        "I3922": 0
+      },
+      "shenbinglv": 8,
+      "zhanli": [
+        1100
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "307": {
+      "type": 3,
+      "slot": 1,
+      "level": 0,
+      "attribute": [
+        {
+          "38": 0
+        },
+        {
+          "7": 0
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        0
+      ],
+      "color": 0,
+      "oshenbinglv": 2
+    },
+    "308": {
+      "type": 3,
+      "slot": 1,
+      "level": 1,
+      "attribute": [
+        {
+          "38": 30
+        },
+        {
+          "7": 1
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        8
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "309": {
+      "type": 3,
+      "slot": 1,
+      "level": 2,
+      "attribute": [
+        {
+          "38": 60
+        },
+        {
+          "7": 1
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        16
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "310": {
+      "type": 3,
+      "slot": 1,
+      "level": 3,
+      "attribute": [
+        {
+          "38": 90
+        },
+        {
+          "7": 2
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        24
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "311": {
+      "type": 3,
+      "slot": 1,
+      "level": 4,
+      "attribute": [
+        {
+          "38": 120
+        },
+        {
+          "7": 2
+        }
+      ],
+      "cost1": {
+        "1": 10000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        32
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "312": {
+      "type": 3,
+      "slot": 1,
+      "level": 5,
+      "attribute": [
+        {
+          "38": 150
+        },
+        {
+          "7": 3
+        }
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        40
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "313": {
+      "type": 3,
+      "slot": 1,
+      "level": 6,
+      "attribute": [
+        {
+          "38": 180
+        },
+        {
+          "7": 3
+        }
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        48
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "314": {
+      "type": 3,
+      "slot": 1,
+      "level": 7,
+      "attribute": [
+        {
+          "38": 210
+        },
+        {
+          "7": 4
+        }
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        56
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "315": {
+      "type": 3,
+      "slot": 1,
+      "level": 8,
+      "attribute": [
+        {
+          "38": 240
+        },
+        {
+          "7": 4
+        }
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        64
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "316": {
+      "type": 3,
+      "slot": 1,
+      "level": 9,
+      "attribute": [
+        {
+          "38": 270
+        },
+        {
+          "7": 5
+        }
+      ],
+      "cost1": {
+        "1": 20000
+      },
+      "cost2": {
+        "I3920": 20
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        72
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "317": {
+      "type": 3,
+      "slot": 1,
+      "level": 10,
+      "attribute": [
+        {
+          "38": 300
+        },
+        {
+          "7": 5
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        80
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "318": {
+      "type": 3,
+      "slot": 1,
+      "level": 11,
+      "attribute": [
+        {
+          "38": 330
+        },
+        {
+          "7": 6
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        88
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "319": {
+      "type": 3,
+      "slot": 1,
+      "level": 12,
+      "attribute": [
+        {
+          "38": 360
+        },
+        {
+          "7": 6
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        96
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "320": {
+      "type": 3,
+      "slot": 1,
+      "level": 13,
+      "attribute": [
+        {
+          "38": 390
+        },
+        {
+          "7": 7
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        104
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "321": {
+      "type": 3,
+      "slot": 1,
+      "level": 14,
+      "attribute": [
+        {
+          "38": 420
+        },
+        {
+          "7": 7
+        }
+      ],
+      "cost1": {
+        "1": 50000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        112
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "322": {
+      "type": 3,
+      "slot": 1,
+      "level": 15,
+      "attribute": [
+        {
+          "38": 450
+        },
+        {
+          "7": 8
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        120
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "323": {
+      "type": 3,
+      "slot": 1,
+      "level": 16,
+      "attribute": [
+        {
+          "38": 480
+        },
+        {
+          "7": 8
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        128
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "324": {
+      "type": 3,
+      "slot": 1,
+      "level": 17,
+      "attribute": [
+        {
+          "38": 510
+        },
+        {
+          "7": 9
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        136
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "325": {
+      "type": 3,
+      "slot": 1,
+      "level": 18,
+      "attribute": [
+        {
+          "38": 540
+        },
+        {
+          "7": 9
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        144
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "326": {
+      "type": 3,
+      "slot": 1,
+      "level": 19,
+      "attribute": [
+        {
+          "38": 570
+        },
+        {
+          "7": 10
+        }
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3920": 25
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        152
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "327": {
+      "type": 3,
+      "slot": 1,
+      "level": 20,
+      "attribute": [
+        {
+          "38": 600
+        },
+        {
+          "7": 10
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        160
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "328": {
+      "type": 3,
+      "slot": 1,
+      "level": 21,
+      "attribute": [
+        {
+          "38": 630
+        },
+        {
+          "7": 11
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        168
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "329": {
+      "type": 3,
+      "slot": 1,
+      "level": 22,
+      "attribute": [
+        {
+          "38": 660
+        },
+        {
+          "7": 12
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        176
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "330": {
+      "type": 3,
+      "slot": 1,
+      "level": 23,
+      "attribute": [
+        {
+          "38": 690
+        },
+        {
+          "7": 13
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        184
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "331": {
+      "type": 3,
+      "slot": 1,
+      "level": 24,
+      "attribute": [
+        {
+          "38": 720
+        },
+        {
+          "7": 14
+        }
+      ],
+      "cost1": {
+        "1": 90000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        192
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "332": {
+      "type": 3,
+      "slot": 1,
+      "level": 25,
+      "attribute": [
+        {
+          "38": 750
+        },
+        {
+          "7": 15
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        200
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "333": {
+      "type": 3,
+      "slot": 1,
+      "level": 26,
+      "attribute": [
+        {
+          "38": 780
+        },
+        {
+          "7": 16
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        208
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "334": {
+      "type": 3,
+      "slot": 1,
+      "level": 27,
+      "attribute": [
+        {
+          "38": 810
+        },
+        {
+          "7": 17
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        216
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "335": {
+      "type": 3,
+      "slot": 1,
+      "level": 28,
+      "attribute": [
+        {
+          "38": 840
+        },
+        {
+          "7": 18
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        224
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "336": {
+      "type": 3,
+      "slot": 1,
+      "level": 29,
+      "attribute": [
+        {
+          "38": 870
+        },
+        {
+          "7": 19
+        }
+      ],
+      "cost1": {
+        "1": 130000
+      },
+      "cost2": {
+        "I3920": 30
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        232
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "337": {
+      "type": 3,
+      "slot": 1,
+      "level": 30,
+      "attribute": [
+        {
+          "38": 900
+        },
+        {
+          "7": 20
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 35
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        240
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "338": {
+      "type": 3,
+      "slot": 1,
+      "level": 31,
+      "attribute": [
+        {
+          "38": 930
+        },
+        {
+          "7": 21
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 35
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        248
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "339": {
+      "type": 3,
+      "slot": 1,
+      "level": 32,
+      "attribute": [
+        {
+          "38": 960
+        },
+        {
+          "7": 22
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 35
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        256
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "340": {
+      "type": 3,
+      "slot": 1,
+      "level": 33,
+      "attribute": [
+        {
+          "38": 990
+        },
+        {
+          "7": 23
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 35
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        264
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "341": {
+      "type": 3,
+      "slot": 1,
+      "level": 34,
+      "attribute": [
+        {
+          "38": 1020
+        },
+        {
+          "7": 24
+        }
+      ],
+      "cost1": {
+        "1": 170000
+      },
+      "cost2": {
+        "I3920": 35
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        272
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "342": {
+      "type": 3,
+      "slot": 1,
+      "level": 35,
+      "attribute": [
+        {
+          "38": 1050
+        },
+        {
+          "7": 25
+        }
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3920": 35
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        280
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "343": {
+      "type": 3,
+      "slot": 1,
+      "level": 36,
+      "attribute": [
+        {
+          "38": 1080
+        },
+        {
+          "7": 26
+        }
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3920": 35
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        288
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "344": {
+      "type": 3,
+      "slot": 1,
+      "level": 37,
+      "attribute": [
+        {
+          "38": 1110
+        },
+        {
+          "7": 27
+        }
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3920": 35
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        296
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "345": {
+      "type": 3,
+      "slot": 1,
+      "level": 38,
+      "attribute": [
+        {
+          "38": 1140
+        },
+        {
+          "7": 28
+        }
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3920": 35
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        304
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "346": {
+      "type": 3,
+      "slot": 1,
+      "level": 39,
+      "attribute": [
+        {
+          "38": 1170
+        },
+        {
+          "7": 29
+        }
+      ],
+      "cost1": {
+        "1": 230000
+      },
+      "cost2": {
+        "I3920": 35
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        312
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "347": {
+      "type": 3,
+      "slot": 1,
+      "level": 40,
+      "attribute": [
+        {
+          "38": 1200
+        },
+        {
+          "7": 30
+        }
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3920": 40
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        320
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "348": {
+      "type": 3,
+      "slot": 1,
+      "level": 41,
+      "attribute": [
+        {
+          "38": 1230
+        },
+        {
+          "7": 31
+        }
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3920": 40
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        328
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "349": {
+      "type": 3,
+      "slot": 1,
+      "level": 42,
+      "attribute": [
+        {
+          "38": 1260
+        },
+        {
+          "7": 32
+        }
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3920": 40
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        336
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "350": {
+      "type": 3,
+      "slot": 1,
+      "level": 43,
+      "attribute": [
+        {
+          "38": 1290
+        },
+        {
+          "7": 33
+        }
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3920": 40
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        344
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "351": {
+      "type": 3,
+      "slot": 1,
+      "level": 44,
+      "attribute": [
+        {
+          "38": 1320
+        },
+        {
+          "7": 34
+        }
+      ],
+      "cost1": {
+        "1": 310000
+      },
+      "cost2": {
+        "I3920": 40
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        352
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "352": {
+      "type": 3,
+      "slot": 1,
+      "level": 45,
+      "attribute": [
+        {
+          "38": 1350
+        },
+        {
+          "7": 35
+        }
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3920": 40
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        360
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "353": {
+      "type": 3,
+      "slot": 1,
+      "level": 46,
+      "attribute": [
+        {
+          "38": 1380
+        },
+        {
+          "7": 36
+        }
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3920": 40
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        368
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "354": {
+      "type": 3,
+      "slot": 1,
+      "level": 47,
+      "attribute": [
+        {
+          "38": 1410
+        },
+        {
+          "7": 37
+        }
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3920": 40
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        376
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "355": {
+      "type": 3,
+      "slot": 1,
+      "level": 48,
+      "attribute": [
+        {
+          "38": 1440
+        },
+        {
+          "7": 38
+        }
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3920": 40
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        384
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "356": {
+      "type": 3,
+      "slot": 1,
+      "level": 49,
+      "attribute": [
+        {
+          "38": 1470
+        },
+        {
+          "7": 39
+        }
+      ],
+      "cost1": {
+        "1": 420000
+      },
+      "cost2": {
+        "I3920": 40
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        392
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "357": {
+      "type": 3,
+      "slot": 1,
+      "level": 50,
+      "attribute": [
+        {
+          "38": 1500
+        },
+        {
+          "7": 40
+        }
+      ],
+      "cost1": {
+        "1": 0
+      },
+      "cost2": {
+        "I3920": 0
+      },
+      "shenbinglv": 2,
+      "zhanli": [
+        400
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "358": {
+      "type": 3,
+      "slot": 2,
+      "level": 0,
+      "attribute": [
+        {
+          "18": 0
+        }
+      ],
+      "skillvalue": [
+        0,
+        0
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        0
+      ],
+      "color": 0,
+      "oshenbinglv": 2
+    },
+    "359": {
+      "type": 3,
+      "slot": 2,
+      "level": 1,
+      "attribute": [
+        {
+          "18": 8
+        }
+      ],
+      "skillvalue": [
+        0,
+        40
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        12
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "360": {
+      "type": 3,
+      "slot": 2,
+      "level": 2,
+      "attribute": [
+        {
+          "18": 16
+        }
+      ],
+      "skillvalue": [
+        0,
+        80
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        24
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "361": {
+      "type": 3,
+      "slot": 2,
+      "level": 3,
+      "attribute": [
+        {
+          "18": 24
+        }
+      ],
+      "skillvalue": [
+        0,
+        120
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        36
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "362": {
+      "type": 3,
+      "slot": 2,
+      "level": 4,
+      "attribute": [
+        {
+          "18": 32
+        }
+      ],
+      "skillvalue": [
+        0,
+        160
+      ],
+      "cost1": {
+        "1": 30000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        48
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "363": {
+      "type": 3,
+      "slot": 2,
+      "level": 5,
+      "attribute": [
+        {
+          "18": 40
+        }
+      ],
+      "skillvalue": [
+        0,
+        200
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        60
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "364": {
+      "type": 3,
+      "slot": 2,
+      "level": 6,
+      "attribute": [
+        {
+          "18": 48
+        }
+      ],
+      "skillvalue": [
+        0,
+        240
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        72
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "365": {
+      "type": 3,
+      "slot": 2,
+      "level": 7,
+      "attribute": [
+        {
+          "18": 56
+        }
+      ],
+      "skillvalue": [
+        0,
+        280
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        84
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "366": {
+      "type": 3,
+      "slot": 2,
+      "level": 8,
+      "attribute": [
+        {
+          "18": 64
+        }
+      ],
+      "skillvalue": [
+        0,
+        320
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        96
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "367": {
+      "type": 3,
+      "slot": 2,
+      "level": 9,
+      "attribute": [
+        {
+          "18": 72
+        }
+      ],
+      "skillvalue": [
+        0,
+        360
+      ],
+      "cost1": {
+        "1": 70000
+      },
+      "cost2": {
+        "I3921": 40
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        108
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "368": {
+      "type": 3,
+      "slot": 2,
+      "level": 10,
+      "attribute": [
+        {
+          "18": 80
+        }
+      ],
+      "skillvalue": [
+        0,
+        400
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        120
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "369": {
+      "type": 3,
+      "slot": 2,
+      "level": 11,
+      "attribute": [
+        {
+          "18": 88
+        }
+      ],
+      "skillvalue": [
+        0,
+        440
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        132
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "370": {
+      "type": 3,
+      "slot": 2,
+      "level": 12,
+      "attribute": [
+        {
+          "18": 96
+        }
+      ],
+      "skillvalue": [
+        0,
+        480
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        144
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "371": {
+      "type": 3,
+      "slot": 2,
+      "level": 13,
+      "attribute": [
+        {
+          "18": 104
+        }
+      ],
+      "skillvalue": [
+        0,
+        520
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        156
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "372": {
+      "type": 3,
+      "slot": 2,
+      "level": 14,
+      "attribute": [
+        {
+          "18": 112
+        }
+      ],
+      "skillvalue": [
+        0,
+        560
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        168
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "373": {
+      "type": 3,
+      "slot": 2,
+      "level": 15,
+      "attribute": [
+        {
+          "18": 120
+        }
+      ],
+      "skillvalue": [
+        0,
+        600
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        180
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "374": {
+      "type": 3,
+      "slot": 2,
+      "level": 16,
+      "attribute": [
+        {
+          "18": 128
+        }
+      ],
+      "skillvalue": [
+        0,
+        640
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        192
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "375": {
+      "type": 3,
+      "slot": 2,
+      "level": 17,
+      "attribute": [
+        {
+          "18": 136
+        }
+      ],
+      "skillvalue": [
+        0,
+        680
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        204
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "376": {
+      "type": 3,
+      "slot": 2,
+      "level": 18,
+      "attribute": [
+        {
+          "18": 144
+        }
+      ],
+      "skillvalue": [
+        0,
+        720
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        216
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "377": {
+      "type": 3,
+      "slot": 2,
+      "level": 19,
+      "attribute": [
+        {
+          "18": 152
+        }
+      ],
+      "skillvalue": [
+        0,
+        760
+      ],
+      "cost1": {
+        "1": 120000
+      },
+      "cost2": {
+        "I3921": 45
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        228
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "378": {
+      "type": 3,
+      "slot": 2,
+      "level": 20,
+      "attribute": [
+        {
+          "18": 160
+        }
+      ],
+      "skillvalue": [
+        0,
+        800
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        240
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "379": {
+      "type": 3,
+      "slot": 2,
+      "level": 21,
+      "attribute": [
+        {
+          "18": 168
+        }
+      ],
+      "skillvalue": [
+        0,
+        840
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        252
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "380": {
+      "type": 3,
+      "slot": 2,
+      "level": 22,
+      "attribute": [
+        {
+          "18": 176
+        }
+      ],
+      "skillvalue": [
+        0,
+        880
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        264
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "381": {
+      "type": 3,
+      "slot": 2,
+      "level": 23,
+      "attribute": [
+        {
+          "18": 184
+        }
+      ],
+      "skillvalue": [
+        0,
+        920
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        276
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "382": {
+      "type": 3,
+      "slot": 2,
+      "level": 24,
+      "attribute": [
+        {
+          "18": 192
+        }
+      ],
+      "skillvalue": [
+        0,
+        960
+      ],
+      "cost1": {
+        "1": 140000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        288
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "383": {
+      "type": 3,
+      "slot": 2,
+      "level": 25,
+      "attribute": [
+        {
+          "18": 200
+        }
+      ],
+      "skillvalue": [
+        0,
+        1000
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        300
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "384": {
+      "type": 3,
+      "slot": 2,
+      "level": 26,
+      "attribute": [
+        {
+          "18": 208
+        }
+      ],
+      "skillvalue": [
+        0,
+        1040
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        312
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "385": {
+      "type": 3,
+      "slot": 2,
+      "level": 27,
+      "attribute": [
+        {
+          "18": 216
+        }
+      ],
+      "skillvalue": [
+        0,
+        1080
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        324
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "386": {
+      "type": 3,
+      "slot": 2,
+      "level": 28,
+      "attribute": [
+        {
+          "18": 224
+        }
+      ],
+      "skillvalue": [
+        0,
+        1120
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        336
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "387": {
+      "type": 3,
+      "slot": 2,
+      "level": 29,
+      "attribute": [
+        {
+          "18": 232
+        }
+      ],
+      "skillvalue": [
+        0,
+        1160
+      ],
+      "cost1": {
+        "1": 180000
+      },
+      "cost2": {
+        "I3921": 50
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        348
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "388": {
+      "type": 3,
+      "slot": 2,
+      "level": 30,
+      "attribute": [
+        {
+          "18": 240
+        }
+      ],
+      "skillvalue": [
+        0,
+        1200
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3921": 55
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        360
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "389": {
+      "type": 3,
+      "slot": 2,
+      "level": 31,
+      "attribute": [
+        {
+          "18": 248
+        }
+      ],
+      "skillvalue": [
+        0,
+        1240
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3921": 55
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        372
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "390": {
+      "type": 3,
+      "slot": 2,
+      "level": 32,
+      "attribute": [
+        {
+          "18": 256
+        }
+      ],
+      "skillvalue": [
+        0,
+        1280
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3921": 55
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        384
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "391": {
+      "type": 3,
+      "slot": 2,
+      "level": 33,
+      "attribute": [
+        {
+          "18": 264
+        }
+      ],
+      "skillvalue": [
+        0,
+        1320
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3921": 55
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        396
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "392": {
+      "type": 3,
+      "slot": 2,
+      "level": 34,
+      "attribute": [
+        {
+          "18": 272
+        }
+      ],
+      "skillvalue": [
+        0,
+        1360
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3921": 55
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        408
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "393": {
+      "type": 3,
+      "slot": 2,
+      "level": 35,
+      "attribute": [
+        {
+          "18": 280
+        }
+      ],
+      "skillvalue": [
+        0,
+        1400
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3921": 55
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        420
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "394": {
+      "type": 3,
+      "slot": 2,
+      "level": 36,
+      "attribute": [
+        {
+          "18": 288
+        }
+      ],
+      "skillvalue": [
+        0,
+        1440
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3921": 55
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        432
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "395": {
+      "type": 3,
+      "slot": 2,
+      "level": 37,
+      "attribute": [
+        {
+          "18": 296
+        }
+      ],
+      "skillvalue": [
+        0,
+        1480
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3921": 55
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        444
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "396": {
+      "type": 3,
+      "slot": 2,
+      "level": 38,
+      "attribute": [
+        {
+          "18": 304
+        }
+      ],
+      "skillvalue": [
+        0,
+        1520
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3921": 55
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        456
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "397": {
+      "type": 3,
+      "slot": 2,
+      "level": 39,
+      "attribute": [
+        {
+          "18": 312
+        }
+      ],
+      "skillvalue": [
+        0,
+        1560
+      ],
+      "cost1": {
+        "1": 280000
+      },
+      "cost2": {
+        "I3921": 55
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        468
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "398": {
+      "type": 3,
+      "slot": 2,
+      "level": 40,
+      "attribute": [
+        {
+          "18": 320
+        }
+      ],
+      "skillvalue": [
+        0,
+        1600
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3921": 60
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        480
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "399": {
+      "type": 3,
+      "slot": 2,
+      "level": 41,
+      "attribute": [
+        {
+          "18": 328
+        }
+      ],
+      "skillvalue": [
+        0,
+        1640
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3921": 60
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        492
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "400": {
+      "type": 3,
+      "slot": 2,
+      "level": 42,
+      "attribute": [
+        {
+          "18": 336
+        }
+      ],
+      "skillvalue": [
+        0,
+        1680
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3921": 60
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        504
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "401": {
+      "type": 3,
+      "slot": 2,
+      "level": 43,
+      "attribute": [
+        {
+          "18": 344
+        }
+      ],
+      "skillvalue": [
+        0,
+        1720
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3921": 60
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        516
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "402": {
+      "type": 3,
+      "slot": 2,
+      "level": 44,
+      "attribute": [
+        {
+          "18": 352
+        }
+      ],
+      "skillvalue": [
+        0,
+        1760
+      ],
+      "cost1": {
+        "1": 360000
+      },
+      "cost2": {
+        "I3921": 60
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        528
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "403": {
+      "type": 3,
+      "slot": 2,
+      "level": 45,
+      "attribute": [
+        {
+          "18": 360
+        }
+      ],
+      "skillvalue": [
+        0,
+        1800
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3921": 60
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        540
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "404": {
+      "type": 3,
+      "slot": 2,
+      "level": 46,
+      "attribute": [
+        {
+          "18": 368
+        }
+      ],
+      "skillvalue": [
+        0,
+        1840
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3921": 60
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        552
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "405": {
+      "type": 3,
+      "slot": 2,
+      "level": 47,
+      "attribute": [
+        {
+          "18": 376
+        }
+      ],
+      "skillvalue": [
+        0,
+        1880
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3921": 60
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        564
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "406": {
+      "type": 3,
+      "slot": 2,
+      "level": 48,
+      "attribute": [
+        {
+          "18": 384
+        }
+      ],
+      "skillvalue": [
+        0,
+        1920
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3921": 60
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        576
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "407": {
+      "type": 3,
+      "slot": 2,
+      "level": 49,
+      "attribute": [
+        {
+          "18": 392
+        }
+      ],
+      "skillvalue": [
+        0,
+        1960
+      ],
+      "cost1": {
+        "1": 500000
+      },
+      "cost2": {
+        "I3921": 60
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        588
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "408": {
+      "type": 3,
+      "slot": 2,
+      "level": 50,
+      "attribute": [
+        {
+          "18": 400
+        }
+      ],
+      "skillvalue": [
+        0,
+        2000
+      ],
+      "cost1": {
+        "1": 0
+      },
+      "cost2": {
+        "I3921": 0
+      },
+      "shenbinglv": 4,
+      "zhanli": [
+        600
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "409": {
+      "type": 3,
+      "slot": 3,
+      "level": 0,
+      "attribute": [
+        {
+          "11": 0
+        },
+        {
+          "41": 0
+        }
+      ],
+      "skillvalue": [
+        0,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        0
+      ],
+      "color": 0,
+      "oshenbinglv": 2
+    },
+    "410": {
+      "type": 3,
+      "slot": 3,
+      "level": 1,
+      "attribute": [
+        {
+          "11": 100
+        },
+        {
+          "41": 1
+        }
+      ],
+      "skillvalue": [
+        16,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        22
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "411": {
+      "type": 3,
+      "slot": 3,
+      "level": 2,
+      "attribute": [
+        {
+          "11": 200
+        },
+        {
+          "41": 1
+        }
+      ],
+      "skillvalue": [
+        32,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        44
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "412": {
+      "type": 3,
+      "slot": 3,
+      "level": 3,
+      "attribute": [
+        {
+          "11": 300
+        },
+        {
+          "41": 1
+        }
+      ],
+      "skillvalue": [
+        48,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        66
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "413": {
+      "type": 3,
+      "slot": 3,
+      "level": 4,
+      "attribute": [
+        {
+          "11": 400
+        },
+        {
+          "41": 1
+        }
+      ],
+      "skillvalue": [
+        64,
+        0
+      ],
+      "cost1": {
+        "1": 100000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        88
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "414": {
+      "type": 3,
+      "slot": 3,
+      "level": 5,
+      "attribute": [
+        {
+          "11": 500
+        },
+        {
+          "41": 1
+        }
+      ],
+      "skillvalue": [
+        80,
+        0
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        110
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "415": {
+      "type": 3,
+      "slot": 3,
+      "level": 6,
+      "attribute": [
+        {
+          "11": 600
+        },
+        {
+          "41": 1
+        }
+      ],
+      "skillvalue": [
+        96,
+        0
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        132
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "416": {
+      "type": 3,
+      "slot": 3,
+      "level": 7,
+      "attribute": [
+        {
+          "11": 700
+        },
+        {
+          "41": 1
+        }
+      ],
+      "skillvalue": [
+        112,
+        0
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        154
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "417": {
+      "type": 3,
+      "slot": 3,
+      "level": 8,
+      "attribute": [
+        {
+          "11": 800
+        },
+        {
+          "41": 1
+        }
+      ],
+      "skillvalue": [
+        128,
+        0
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        176
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "418": {
+      "type": 3,
+      "slot": 3,
+      "level": 9,
+      "attribute": [
+        {
+          "11": 900
+        },
+        {
+          "41": 1
+        }
+      ],
+      "skillvalue": [
+        144,
+        0
+      ],
+      "cost1": {
+        "1": 150000
+      },
+      "cost2": {
+        "I3922": 40
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        198
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "419": {
+      "type": 3,
+      "slot": 3,
+      "level": 10,
+      "attribute": [
+        {
+          "11": 1000
+        },
+        {
+          "41": 1
+        }
+      ],
+      "skillvalue": [
+        160,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        220
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "420": {
+      "type": 3,
+      "slot": 3,
+      "level": 11,
+      "attribute": [
+        {
+          "11": 1100
+        },
+        {
+          "41": 2
+        }
+      ],
+      "skillvalue": [
+        176,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        242
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "421": {
+      "type": 3,
+      "slot": 3,
+      "level": 12,
+      "attribute": [
+        {
+          "11": 1200
+        },
+        {
+          "41": 2
+        }
+      ],
+      "skillvalue": [
+        192,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        264
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "422": {
+      "type": 3,
+      "slot": 3,
+      "level": 13,
+      "attribute": [
+        {
+          "11": 1300
+        },
+        {
+          "41": 2
+        }
+      ],
+      "skillvalue": [
+        208,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        286
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "423": {
+      "type": 3,
+      "slot": 3,
+      "level": 14,
+      "attribute": [
+        {
+          "11": 1400
+        },
+        {
+          "41": 2
+        }
+      ],
+      "skillvalue": [
+        224,
+        0
+      ],
+      "cost1": {
+        "1": 220000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        308
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "424": {
+      "type": 3,
+      "slot": 3,
+      "level": 15,
+      "attribute": [
+        {
+          "11": 1500
+        },
+        {
+          "41": 2
+        }
+      ],
+      "skillvalue": [
+        240,
+        0
+      ],
+      "cost1": {
+        "1": 240000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        330
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "425": {
+      "type": 3,
+      "slot": 3,
+      "level": 16,
+      "attribute": [
+        {
+          "11": 1600
+        },
+        {
+          "41": 2
+        }
+      ],
+      "skillvalue": [
+        256,
+        0
+      ],
+      "cost1": {
+        "1": 240000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        352
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "426": {
+      "type": 3,
+      "slot": 3,
+      "level": 17,
+      "attribute": [
+        {
+          "11": 1700
+        },
+        {
+          "41": 2
+        }
+      ],
+      "skillvalue": [
+        272,
+        0
+      ],
+      "cost1": {
+        "1": 240000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        374
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "427": {
+      "type": 3,
+      "slot": 3,
+      "level": 18,
+      "attribute": [
+        {
+          "11": 1800
+        },
+        {
+          "41": 2
+        }
+      ],
+      "skillvalue": [
+        288,
+        0
+      ],
+      "cost1": {
+        "1": 240000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        396
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "428": {
+      "type": 3,
+      "slot": 3,
+      "level": 19,
+      "attribute": [
+        {
+          "11": 1900
+        },
+        {
+          "41": 2
+        }
+      ],
+      "skillvalue": [
+        304,
+        0
+      ],
+      "cost1": {
+        "1": 240000
+      },
+      "cost2": {
+        "I3922": 45
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        418
+      ],
+      "color": 1,
+      "oshenbinglv": 2
+    },
+    "429": {
+      "type": 3,
+      "slot": 3,
+      "level": 20,
+      "attribute": [
+        {
+          "11": 2000
+        },
+        {
+          "41": 2
+        }
+      ],
+      "skillvalue": [
+        320,
+        0
+      ],
+      "cost1": {
+        "1": 260000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        440
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "430": {
+      "type": 3,
+      "slot": 3,
+      "level": 21,
+      "attribute": [
+        {
+          "11": 2100
+        },
+        {
+          "41": 3
+        }
+      ],
+      "skillvalue": [
+        336,
+        0
+      ],
+      "cost1": {
+        "1": 260000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        462
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "431": {
+      "type": 3,
+      "slot": 3,
+      "level": 22,
+      "attribute": [
+        {
+          "11": 2200
+        },
+        {
+          "41": 3
+        }
+      ],
+      "skillvalue": [
+        352,
+        0
+      ],
+      "cost1": {
+        "1": 260000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        484
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "432": {
+      "type": 3,
+      "slot": 3,
+      "level": 23,
+      "attribute": [
+        {
+          "11": 2300
+        },
+        {
+          "41": 3
+        }
+      ],
+      "skillvalue": [
+        368,
+        0
+      ],
+      "cost1": {
+        "1": 260000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        506
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "433": {
+      "type": 3,
+      "slot": 3,
+      "level": 24,
+      "attribute": [
+        {
+          "11": 2400
+        },
+        {
+          "41": 3
+        }
+      ],
+      "skillvalue": [
+        384,
+        0
+      ],
+      "cost1": {
+        "1": 260000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        528
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "434": {
+      "type": 3,
+      "slot": 3,
+      "level": 25,
+      "attribute": [
+        {
+          "11": 2500
+        },
+        {
+          "41": 3
+        }
+      ],
+      "skillvalue": [
+        400,
+        0
+      ],
+      "cost1": {
+        "1": 300000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        550
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "435": {
+      "type": 3,
+      "slot": 3,
+      "level": 26,
+      "attribute": [
+        {
+          "11": 2600
+        },
+        {
+          "41": 3
+        }
+      ],
+      "skillvalue": [
+        416,
+        0
+      ],
+      "cost1": {
+        "1": 300000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        572
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "436": {
+      "type": 3,
+      "slot": 3,
+      "level": 27,
+      "attribute": [
+        {
+          "11": 2700
+        },
+        {
+          "41": 3
+        }
+      ],
+      "skillvalue": [
+        432,
+        0
+      ],
+      "cost1": {
+        "1": 300000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        594
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "437": {
+      "type": 3,
+      "slot": 3,
+      "level": 28,
+      "attribute": [
+        {
+          "11": 2800
+        },
+        {
+          "41": 3
+        }
+      ],
+      "skillvalue": [
+        448,
+        0
+      ],
+      "cost1": {
+        "1": 300000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        616
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "438": {
+      "type": 3,
+      "slot": 3,
+      "level": 29,
+      "attribute": [
+        {
+          "11": 2900
+        },
+        {
+          "41": 3
+        }
+      ],
+      "skillvalue": [
+        464,
+        0
+      ],
+      "cost1": {
+        "1": 300000
+      },
+      "cost2": {
+        "I3922": 50
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        638
+      ],
+      "color": 2,
+      "oshenbinglv": 2
+    },
+    "439": {
+      "type": 3,
+      "slot": 3,
+      "level": 30,
+      "attribute": [
+        {
+          "11": 3000
+        },
+        {
+          "41": 3
+        }
+      ],
+      "skillvalue": [
+        480,
+        0
+      ],
+      "cost1": {
+        "1": 340000
+      },
+      "cost2": {
+        "I3922": 55
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        660
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "440": {
+      "type": 3,
+      "slot": 3,
+      "level": 31,
+      "attribute": [
+        {
+          "11": 3100
+        },
+        {
+          "41": 4
+        }
+      ],
+      "skillvalue": [
+        496,
+        0
+      ],
+      "cost1": {
+        "1": 340000
+      },
+      "cost2": {
+        "I3922": 55
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        682
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "441": {
+      "type": 3,
+      "slot": 3,
+      "level": 32,
+      "attribute": [
+        {
+          "11": 3200
+        },
+        {
+          "41": 4
+        }
+      ],
+      "skillvalue": [
+        512,
+        0
+      ],
+      "cost1": {
+        "1": 340000
+      },
+      "cost2": {
+        "I3922": 55
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        704
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "442": {
+      "type": 3,
+      "slot": 3,
+      "level": 33,
+      "attribute": [
+        {
+          "11": 3300
+        },
+        {
+          "41": 4
+        }
+      ],
+      "skillvalue": [
+        528,
+        0
+      ],
+      "cost1": {
+        "1": 340000
+      },
+      "cost2": {
+        "I3922": 55
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        726
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "443": {
+      "type": 3,
+      "slot": 3,
+      "level": 34,
+      "attribute": [
+        {
+          "11": 3400
+        },
+        {
+          "41": 4
+        }
+      ],
+      "skillvalue": [
+        544,
+        0
+      ],
+      "cost1": {
+        "1": 340000
+      },
+      "cost2": {
+        "I3922": 55
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        748
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "444": {
+      "type": 3,
+      "slot": 3,
+      "level": 35,
+      "attribute": [
+        {
+          "11": 3500
+        },
+        {
+          "41": 4
+        }
+      ],
+      "skillvalue": [
+        560,
+        0
+      ],
+      "cost1": {
+        "1": 400000
+      },
+      "cost2": {
+        "I3922": 55
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        770
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "445": {
+      "type": 3,
+      "slot": 3,
+      "level": 36,
+      "attribute": [
+        {
+          "11": 3600
+        },
+        {
+          "41": 4
+        }
+      ],
+      "skillvalue": [
+        576,
+        0
+      ],
+      "cost1": {
+        "1": 400000
+      },
+      "cost2": {
+        "I3922": 55
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        792
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "446": {
+      "type": 3,
+      "slot": 3,
+      "level": 37,
+      "attribute": [
+        {
+          "11": 3700
+        },
+        {
+          "41": 4
+        }
+      ],
+      "skillvalue": [
+        592,
+        0
+      ],
+      "cost1": {
+        "1": 400000
+      },
+      "cost2": {
+        "I3922": 55
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        814
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "447": {
+      "type": 3,
+      "slot": 3,
+      "level": 38,
+      "attribute": [
+        {
+          "11": 3800
+        },
+        {
+          "41": 4
+        }
+      ],
+      "skillvalue": [
+        608,
+        0
+      ],
+      "cost1": {
+        "1": 400000
+      },
+      "cost2": {
+        "I3922": 55
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        836
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "448": {
+      "type": 3,
+      "slot": 3,
+      "level": 39,
+      "attribute": [
+        {
+          "11": 3900
+        },
+        {
+          "41": 4
+        }
+      ],
+      "skillvalue": [
+        624,
+        0
+      ],
+      "cost1": {
+        "1": 400000
+      },
+      "cost2": {
+        "I3922": 55
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        858
+      ],
+      "color": 3,
+      "oshenbinglv": 2
+    },
+    "449": {
+      "type": 3,
+      "slot": 3,
+      "level": 40,
+      "attribute": [
+        {
+          "11": 4000
+        },
+        {
+          "41": 4
+        }
+      ],
+      "skillvalue": [
+        640,
+        0
+      ],
+      "cost1": {
+        "1": 490000
+      },
+      "cost2": {
+        "I3922": 60
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        880
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "450": {
+      "type": 3,
+      "slot": 3,
+      "level": 41,
+      "attribute": [
+        {
+          "11": 4100
+        },
+        {
+          "41": 5
+        }
+      ],
+      "skillvalue": [
+        656,
+        0
+      ],
+      "cost1": {
+        "1": 490000
+      },
+      "cost2": {
+        "I3922": 60
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        902
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "451": {
+      "type": 3,
+      "slot": 3,
+      "level": 42,
+      "attribute": [
+        {
+          "11": 4200
+        },
+        {
+          "41": 5
+        }
+      ],
+      "skillvalue": [
+        672,
+        0
+      ],
+      "cost1": {
+        "1": 490000
+      },
+      "cost2": {
+        "I3922": 60
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        924
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "452": {
+      "type": 3,
+      "slot": 3,
+      "level": 43,
+      "attribute": [
+        {
+          "11": 4300
+        },
+        {
+          "41": 5
+        }
+      ],
+      "skillvalue": [
+        688,
+        0
+      ],
+      "cost1": {
+        "1": 490000
+      },
+      "cost2": {
+        "I3922": 60
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        946
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "453": {
+      "type": 3,
+      "slot": 3,
+      "level": 44,
+      "attribute": [
+        {
+          "11": 4400
+        },
+        {
+          "41": 5
+        }
+      ],
+      "skillvalue": [
+        704,
+        0
+      ],
+      "cost1": {
+        "1": 490000
+      },
+      "cost2": {
+        "I3922": 60
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        968
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "454": {
+      "type": 3,
+      "slot": 3,
+      "level": 45,
+      "attribute": [
+        {
+          "11": 4500
+        },
+        {
+          "41": 5
+        }
+      ],
+      "skillvalue": [
+        720,
+        0
+      ],
+      "cost1": {
+        "1": 650000
+      },
+      "cost2": {
+        "I3922": 60
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        990
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "455": {
+      "type": 3,
+      "slot": 3,
+      "level": 46,
+      "attribute": [
+        {
+          "11": 4600
+        },
+        {
+          "41": 5
+        }
+      ],
+      "skillvalue": [
+        736,
+        0
+      ],
+      "cost1": {
+        "1": 650000
+      },
+      "cost2": {
+        "I3922": 60
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        1012
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "456": {
+      "type": 3,
+      "slot": 3,
+      "level": 47,
+      "attribute": [
+        {
+          "11": 4700
+        },
+        {
+          "41": 5
+        }
+      ],
+      "skillvalue": [
+        752,
+        0
+      ],
+      "cost1": {
+        "1": 650000
+      },
+      "cost2": {
+        "I3922": 60
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        1034
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "457": {
+      "type": 3,
+      "slot": 3,
+      "level": 48,
+      "attribute": [
+        {
+          "11": 4800
+        },
+        {
+          "41": 5
+        }
+      ],
+      "skillvalue": [
+        768,
+        0
+      ],
+      "cost1": {
+        "1": 650000
+      },
+      "cost2": {
+        "I3922": 60
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        1056
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "458": {
+      "type": 3,
+      "slot": 3,
+      "level": 49,
+      "attribute": [
+        {
+          "11": 4900
+        },
+        {
+          "41": 5
+        }
+      ],
+      "skillvalue": [
+        784,
+        0
+      ],
+      "cost1": {
+        "1": 650000
+      },
+      "cost2": {
+        "I3922": 60
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        1078
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    },
+    "459": {
+      "type": 3,
+      "slot": 3,
+      "level": 50,
+      "attribute": [
+        {
+          "11": 5000
+        },
+        {
+          "41": 5
+        }
+      ],
+      "skillvalue": [
+        800,
+        0
+      ],
+      "cost1": {
+        "1": 0
+      },
+      "cost2": {
+        "I3922": 0
+      },
+      "shenbinglv": 6,
+      "zhanli": [
+        1100
+      ],
+      "color": 4,
+      "oshenbinglv": 2
+    }
+  }
+}

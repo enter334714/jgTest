@@ -1,0 +1,88 @@
+[
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "activity",
+    "_duration": 1.35,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "5fcNtrp4pE7LpjFHEfTlr8"
+              }
+            },
+            {
+              "frame": 1.1666666666666667,
+              "value": {
+                "__uuid__": "8eFPtMVh5F6o6xHox4WxX+"
+              }
+            },
+            {
+              "frame": 1.3333333333333333,
+              "value": {
+                "__uuid__": "8eFPtMVh5F6o6xHox4WxX+"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "but_juese_huodong01",
+      "texture": "14b6ca1c6",
+      "rect": [
+        905,
+        860,
+        92,
+        52
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        92,
+        52
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "but_juese_huodong",
+      "texture": "140d065ac",
+      "rect": [
+        661,
+        438,
+        76,
+        36
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        76,
+        36
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

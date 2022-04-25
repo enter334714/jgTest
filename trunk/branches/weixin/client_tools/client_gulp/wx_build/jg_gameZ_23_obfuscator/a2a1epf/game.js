@@ -1,0 +1,2 @@
+var c = wx.$a;
+require('a5a6uff.js'), window[c[510]][c[496]][c[301]] = null, window['client_pb'] = require('a5a6cleintpb.js'), window[c[532]] = window[c[510]][c[438]][c[342]](client_pb);

@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_xingongneng_icon_jingjie",
+    "texture": "72pn/HnFJKYq5W/Y1oN3Qt",
+    "rect": [
+      8,
+      0,
+      80,
+      104
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      96,
+      104
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

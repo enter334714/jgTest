@@ -1,0 +1,768 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "chaozhigiftConfig",
+  "json": {
+    "101": {
+      "name": "成长礼包",
+      "type": 1,
+      "next_id": 102,
+      "charge_id": 3001,
+      "rewards": [
+        {
+          "I4009": 1
+        }
+      ],
+      "ress": [
+        {
+          "1": 360000
+        },
+        {
+          "3": 120000
+        }
+      ],
+      "tag": "唯一",
+      "discount": 500,
+      "show_price": 240
+    },
+    "102": {
+      "name": "成长礼包",
+      "type": 1,
+      "next_id": 103,
+      "charge_id": 3002,
+      "rewards": [
+        {
+          "I3102": 5
+        },
+        {
+          "I4009": 2
+        }
+      ],
+      "ress": [
+        {
+          "1": 1500000
+        },
+        {
+          "3": 600000
+        }
+      ],
+      "tag": "唯一",
+      "discount": 550,
+      "show_price": 1350
+    },
+    "103": {
+      "name": "成长礼包",
+      "type": 1,
+      "next_id": 104,
+      "charge_id": 3003,
+      "rewards": [
+        {
+          "I3102": 10
+        },
+        {
+          "I4010": 3
+        }
+      ],
+      "ress": [
+        {
+          "1": 4900000
+        },
+        {
+          "3": 1960000
+        }
+      ],
+      "tag": "唯一",
+      "discount": 600,
+      "show_price": 4900
+    },
+    "104": {
+      "name": "成长礼包",
+      "type": 1,
+      "next_id": 105,
+      "charge_id": 3004,
+      "rewards": [
+        {
+          "I3102": 20
+        },
+        {
+          "I4011": 3
+        }
+      ],
+      "ress": [
+        {
+          "1": 6400000
+        },
+        {
+          "3": 2560000
+        }
+      ],
+      "tag": "唯一",
+      "discount": 650,
+      "show_price": 7040
+    },
+    "105": {
+      "name": "成长礼包",
+      "type": 1,
+      "next_id": 106,
+      "charge_id": 3005,
+      "rewards": [
+        {
+          "I3103": 10
+        },
+        {
+          "I4012": 3
+        }
+      ],
+      "ress": [
+        {
+          "1": 16400000
+        },
+        {
+          "3": 6560000
+        }
+      ],
+      "tag": "唯一",
+      "discount": 700,
+      "show_price": 19680
+    },
+    "106": {
+      "name": "成长礼包",
+      "type": 1,
+      "next_id": 0,
+      "charge_id": 3006,
+      "rewards": [
+        {
+          "I3104": 10
+        },
+        {
+          "I4013": 3
+        }
+      ],
+      "ress": [
+        {
+          "1": 32400000
+        },
+        {
+          "3": 12960000
+        }
+      ],
+      "tag": "唯一",
+      "discount": 750,
+      "show_price": 42120
+    },
+    "201": {
+      "name": "金币礼包",
+      "type": 2,
+      "next_id": 202,
+      "charge_id": 3021,
+      "rewards": [
+        {
+          "I3131": 2
+        }
+      ],
+      "ress": [
+        {
+          "1": 360000
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 240
+    },
+    "202": {
+      "name": "金币礼包",
+      "type": 2,
+      "next_id": 203,
+      "charge_id": 3022,
+      "rewards": [
+        {
+          "I3132": 2
+        }
+      ],
+      "ress": [
+        {
+          "1": 1500000
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 1200
+    },
+    "203": {
+      "name": "金币礼包",
+      "type": 2,
+      "next_id": 204,
+      "charge_id": 3023,
+      "rewards": [
+        {
+          "I3133": 4
+        }
+      ],
+      "ress": [
+        {
+          "1": 4900000
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 2720
+    },
+    "204": {
+      "name": "金币礼包",
+      "type": 2,
+      "next_id": 205,
+      "charge_id": 3024,
+      "rewards": [
+        {
+          "I3134": 6
+        }
+      ],
+      "ress": [
+        {
+          "1": 6400000
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 5120
+    },
+    "205": {
+      "name": "金币礼包",
+      "type": 2,
+      "next_id": 206,
+      "charge_id": 3025,
+      "rewards": [
+        {
+          "I3134": 12
+        }
+      ],
+      "ress": [
+        {
+          "1": 16400000
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 13120
+    },
+    "206": {
+      "name": "金币礼包",
+      "type": 2,
+      "next_id": 207,
+      "charge_id": 3026,
+      "rewards": [
+        {
+          "I3134": 16
+        }
+      ],
+      "ress": [
+        {
+          "1": 32400000
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 25920
+    },
+    "207": {
+      "name": "金币礼包",
+      "type": 2,
+      "next_id": 0,
+      "charge_id": 3027,
+      "rewards": [
+        {
+          "I3134": 50
+        }
+      ],
+      "ress": [
+        {
+          "1": 119880000
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 99900
+    },
+    "301": {
+      "name": "洗练石礼包",
+      "type": 3,
+      "next_id": 302,
+      "charge_id": 3041,
+      "rewards": [
+        {
+          "I3001": 200
+        }
+      ],
+      "ress": [
+        {
+          "1": 150000
+        }
+      ],
+      "tag": "超值",
+      "discount": 420,
+      "show_price": 960
+    },
+    "302": {
+      "name": "洗练石礼包",
+      "type": 3,
+      "next_id": 303,
+      "charge_id": 3042,
+      "rewards": [
+        {
+          "I3001": 660
+        }
+      ],
+      "ress": [
+        {
+          "1": 490000
+        }
+      ],
+      "tag": "超值",
+      "discount": 420,
+      "show_price": 3136
+    },
+    "303": {
+      "name": "洗练石礼包",
+      "type": 3,
+      "next_id": 304,
+      "charge_id": 3043,
+      "rewards": [
+        {
+          "I3001": 860
+        }
+      ],
+      "ress": [
+        {
+          "1": 640000
+        }
+      ],
+      "tag": "超值",
+      "discount": 420,
+      "show_price": 4096
+    },
+    "304": {
+      "name": "洗练石礼包",
+      "type": 3,
+      "next_id": 305,
+      "charge_id": 3044,
+      "rewards": [
+        {
+          "I3001": 2200
+        }
+      ],
+      "ress": [
+        {
+          "1": 1640000
+        }
+      ],
+      "tag": "超值",
+      "discount": 420,
+      "show_price": 10496
+    },
+    "305": {
+      "name": "洗练石礼包",
+      "type": 3,
+      "next_id": 306,
+      "charge_id": 3045,
+      "rewards": [
+        {
+          "I3001": 4300
+        }
+      ],
+      "ress": [
+        {
+          "1": 3240000
+        }
+      ],
+      "tag": "超值",
+      "discount": 420,
+      "show_price": 20736
+    },
+    "306": {
+      "name": "洗练石礼包",
+      "type": 3,
+      "next_id": 0,
+      "charge_id": 3046,
+      "rewards": [
+        {
+          "I3001": 13320
+        }
+      ],
+      "ress": [
+        {
+          "1": 11988000
+        }
+      ],
+      "tag": "超值",
+      "discount": 420,
+      "show_price": 63936
+    },
+    "401": {
+      "name": "书页礼包",
+      "type": 4,
+      "next_id": 402,
+      "charge_id": 3061,
+      "rewards": [
+        {
+          "I4001": 450
+        },
+        {
+          "I3004": 150
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 1200
+    },
+    "402": {
+      "name": "书页礼包",
+      "type": 4,
+      "next_id": 403,
+      "charge_id": 3062,
+      "rewards": [
+        {
+          "I4001": 980
+        },
+        {
+          "I3004": 500
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 3920
+    },
+    "403": {
+      "name": "书页礼包",
+      "type": 4,
+      "next_id": 404,
+      "charge_id": 3063,
+      "rewards": [
+        {
+          "I4001": 1280
+        },
+        {
+          "I3004": 600
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 5120
+    },
+    "404": {
+      "name": "书页礼包",
+      "type": 4,
+      "next_id": 405,
+      "charge_id": 3064,
+      "rewards": [
+        {
+          "I4001": 3280
+        },
+        {
+          "I3004": 1500
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 13120
+    },
+    "405": {
+      "name": "书页礼包",
+      "type": 4,
+      "next_id": 406,
+      "charge_id": 3065,
+      "rewards": [
+        {
+          "I4001": 6480
+        },
+        {
+          "I3004": 3000
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 25920
+    },
+    "406": {
+      "name": "书页礼包",
+      "type": 4,
+      "next_id": 0,
+      "charge_id": 3066,
+      "rewards": [
+        {
+          "I4001": 20000
+        },
+        {
+          "I3004": 9000
+        }
+      ],
+      "tag": "畅销",
+      "discount": 500,
+      "show_price": 79920
+    },
+    "501": {
+      "name": "精华礼包",
+      "type": 5,
+      "next_id": 502,
+      "charge_id": 3081,
+      "rewards": [
+        {
+          "I3132": 2
+        }
+      ],
+      "ress": [
+        {
+          "3": 1500000
+        }
+      ],
+      "discount": 500,
+      "show_price": 1200
+    },
+    "502": {
+      "name": "精华礼包",
+      "type": 5,
+      "next_id": 503,
+      "charge_id": 3082,
+      "rewards": [
+        {
+          "I3133": 4
+        }
+      ],
+      "ress": [
+        {
+          "3": 4900000
+        }
+      ],
+      "discount": 500,
+      "show_price": 2720
+    },
+    "503": {
+      "name": "精华礼包",
+      "type": 5,
+      "next_id": 504,
+      "charge_id": 3083,
+      "rewards": [
+        {
+          "I3134": 6
+        }
+      ],
+      "ress": [
+        {
+          "3": 6400000
+        }
+      ],
+      "discount": 500,
+      "show_price": 5120
+    },
+    "504": {
+      "name": "精华礼包",
+      "type": 5,
+      "next_id": 0,
+      "charge_id": 3084,
+      "rewards": [
+        {
+          "I3134": 12
+        }
+      ],
+      "ress": [
+        {
+          "3": 16400000
+        }
+      ],
+      "discount": 500,
+      "show_price": 13120
+    },
+    "601": {
+      "name": "淬炼石礼包",
+      "type": 6,
+      "next_id": 602,
+      "charge_id": 3101,
+      "rewards": [
+        {
+          "I3903": 200
+        }
+      ],
+      "ress": [
+        {
+          "1": 150000
+        }
+      ],
+      "tag": "超值",
+      "discount": 420,
+      "show_price": 960
+    },
+    "602": {
+      "name": "淬炼石礼包",
+      "type": 6,
+      "next_id": 603,
+      "charge_id": 3102,
+      "rewards": [
+        {
+          "I3903": 660
+        }
+      ],
+      "ress": [
+        {
+          "1": 490000
+        }
+      ],
+      "tag": "超值",
+      "discount": 420,
+      "show_price": 3136
+    },
+    "603": {
+      "name": "淬炼石礼包",
+      "type": 6,
+      "next_id": 604,
+      "charge_id": 3103,
+      "rewards": [
+        {
+          "I3903": 860
+        }
+      ],
+      "ress": [
+        {
+          "1": 640000
+        }
+      ],
+      "tag": "超值",
+      "discount": 420,
+      "show_price": 4096
+    },
+    "604": {
+      "name": "淬炼石礼包",
+      "type": 6,
+      "next_id": 605,
+      "charge_id": 3104,
+      "rewards": [
+        {
+          "I3903": 2200
+        }
+      ],
+      "ress": [
+        {
+          "1": 1640000
+        }
+      ],
+      "tag": "超值",
+      "discount": 420,
+      "show_price": 10496
+    },
+    "605": {
+      "name": "淬炼石礼包",
+      "type": 6,
+      "next_id": 606,
+      "charge_id": 3105,
+      "rewards": [
+        {
+          "I3903": 4300
+        }
+      ],
+      "ress": [
+        {
+          "1": 3240000
+        }
+      ],
+      "tag": "超值",
+      "discount": 420,
+      "show_price": 20736
+    },
+    "606": {
+      "name": "淬炼石礼包",
+      "type": 6,
+      "next_id": 0,
+      "charge_id": 3106,
+      "rewards": [
+        {
+          "I3903": 13320
+        }
+      ],
+      "ress": [
+        {
+          "1": 11988000
+        }
+      ],
+      "tag": "超值",
+      "discount": 420,
+      "show_price": 63936
+    },
+    "701": {
+      "name": "符文礼包",
+      "type": 7,
+      "next_id": 702,
+      "charge_id": 3121,
+      "rewards": [
+        {
+          "I8010": 1
+        },
+        {
+          "I7003": 4
+        }
+      ],
+      "discount": 500,
+      "show_price": 3920
+    },
+    "702": {
+      "name": "符文礼包",
+      "type": 7,
+      "next_id": 703,
+      "charge_id": 3122,
+      "rewards": [
+        {
+          "I8012": 1
+        },
+        {
+          "I7003": 10
+        }
+      ],
+      "discount": 800,
+      "show_price": 22960
+    },
+    "703": {
+      "name": "符文礼包",
+      "type": 7,
+      "next_id": 704,
+      "charge_id": 3123,
+      "rewards": [
+        {
+          "I8013": 1
+        },
+        {
+          "I7003": 20
+        }
+      ],
+      "discount": 1200,
+      "show_price": 71280
+    },
+    "704": {
+      "name": "符文礼包",
+      "type": 7,
+      "next_id": 705,
+      "charge_id": 3124,
+      "rewards": [
+        {
+          "I8014": 1
+        },
+        {
+          "I8000": 250
+        }
+      ],
+      "discount": 1200,
+      "show_price": 219780
+    },
+    "705": {
+      "name": "符文礼包",
+      "type": 7,
+      "next_id": 0,
+      "charge_id": 3125,
+      "rewards": [
+        {
+          "I8015": 1
+        },
+        {
+          "I8000": 600
+        }
+      ],
+      "discount": 1300,
+      "show_price": 559720
+    }
+  }
+}

@@ -51,10 +51,14 @@ function sdk6kw() {
       var sdk6kwLaunchOptions = wx.getStorageSync('sdk6kwLaunchOptions');
       var systemInfo = wx.getSystemInfoSync();
       if (!sdk6kwLaunchOptions) {
-        sdk6kwLaunchOptions = wx.getEnterOptionsSync();
+        if (wx.getEnterOptionsSync) {
+          sdk6kwLaunchOptions = wx.getEnterOptionsSync();
+        } else {
+          sdk6kwLaunchOptions = wx.getLaunchOptionsSync();
+        }
         wx.setStorageSync('sdk6kwLaunchOptions', sdk6kwLaunchOptions);
       }
-      console.log("[SDK]调用init初始化接口 %o", wx.getEnterOptionsSync());
+      console.log("[SDK]调用init初始化接口 %o", sdk6kwLaunchOptions);
       //获取微信openId
       console.log(wx.getStorageSync('wxg6kw_openid'));
       if (!wx.getStorageSync('wxg6kw_openid')) {
@@ -127,15 +131,17 @@ function sdk6kw() {
     },
     login: function (callback) {
       console.log("[SDK]调起登录");
-      var enterOptionsData = wx.getEnterOptionsSync();
+      var self = this;
+      var allInfo = self.getPublicData();
+      var enterOptionsData = allInfo.sdk6kwLaunchOptions;
       var enterOPtionsDataBase64 = this.base64_encode(JSON.stringify(enterOptionsData));
       console.log("enterOptionsData is %o", enterOptionsData);
       console.log("enterOptionsData is %o", enterOPtionsDataBase64);
-      var self = this;
+
       callbacks['login'] = typeof callback == 'function' ? callback : null;
       wx.login({
         success: function (res) {
-          var allInfo = self.getPublicData();
+
           var loginInfo = {
             path: 'login/' + config6kw.urlParam,
             data: {
@@ -557,7 +563,11 @@ function sdk6kw() {
       var wxSystemInfo = wx.getSystemInfoSync();
       var sdk6kwLaunchOptions = wx.getStorageSync('sdk6kwLaunchOptions');
       if (!sdk6kwLaunchOptions) {
-        sdk6kwLaunchOptions = wx.getEnterOptionsSync();
+        if (wx.getEnterOptionsSync) {
+          sdk6kwLaunchOptions = wx.getEnterOptionsSync();
+        } else {
+          sdk6kwLaunchOptions = wx.getLaunchOptionsSync();
+        }
         wx.setStorageSync('sdk6kwLaunchOptions', sdk6kwLaunchOptions);
       }
       return {
@@ -620,10 +630,12 @@ function sdk6kw() {
     },
     msgSecCheck: function (options) {
       var content = options.content;
+      var scene = options.scene ? options.scene : "0";
       var callback = options.callback;
       var checkMsgContent = {
         path: 'frontCheckContent/' + config6kw.urlParam,
         data: {
+          scene: scene,
           type: "msg",
           content: content,
           openid: wx.getStorageSync('wxg6kw_openid'),

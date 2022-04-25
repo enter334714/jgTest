@@ -1,0 +1,33 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "GuildfightLvlConfig",
+  "json": {
+    "1001": {
+      "name": "平民",
+      "lvl": 1,
+      "next_lvl": 2,
+      "icon": "img_icon_hhpinmin"
+    },
+    "1002": {
+      "name": "县城",
+      "lvl": 2,
+      "next_lvl": 3,
+      "doc_icon": "fontclip_gzxc",
+      "icon": "picframe_bairimentu_71"
+    },
+    "1003": {
+      "name": "郡城",
+      "lvl": 3,
+      "next_lvl": 4,
+      "doc_icon": "fontclip_gzjc",
+      "icon": "img_icon_hhxiancheng"
+    },
+    "1004": {
+      "name": "沙巴克",
+      "lvl": 4,
+      "next_lvl": 0,
+      "doc_icon": "fontclip_gzsbk",
+      "icon": "img_icon_hhshabake"
+    }
+  }
+}

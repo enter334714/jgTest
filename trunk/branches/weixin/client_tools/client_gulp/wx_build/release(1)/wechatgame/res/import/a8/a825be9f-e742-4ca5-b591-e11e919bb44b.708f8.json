@@ -1,0 +1,20 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "IllustratedBooksshowConfig",
+  "json": {
+    "1": {
+      "cid": [
+        10,
+        11,
+        12,
+        13,
+        9,
+        7,
+        15,
+        39,
+        16,
+        18
+      ]
+    }
+  }
+}

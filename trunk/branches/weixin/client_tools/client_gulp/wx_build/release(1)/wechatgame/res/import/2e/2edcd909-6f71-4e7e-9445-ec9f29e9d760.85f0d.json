@@ -1,0 +1,270 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "specialRingEffectConfig",
+  "json": {
+    "1": {
+      "name": "神力",
+      "chance": 200,
+      "durationtime": -1,
+      "cooldown": 10,
+      "skill_value": [
+        500
+      ],
+      "skillid2": 50100,
+      "des": "攻击时有2%的几率使本次造成的伤害提升5%，每10秒只能触发一次。"
+    },
+    "2": {
+      "name": "神力",
+      "chance": 300,
+      "durationtime": -1,
+      "cooldown": 10,
+      "skill_value": [
+        1000
+      ],
+      "skillid2": 50101,
+      "des": "攻击时有3%的几率使本次造成的伤害提升10%，每10秒只能触发一次。"
+    },
+    "3": {
+      "name": "神力",
+      "chance": 400,
+      "durationtime": -1,
+      "cooldown": 8,
+      "skill_value": [
+        1500
+      ],
+      "skillid2": 50102,
+      "des": "攻击时有4%的几率使本次造成的伤害提升15%，每8秒只能触发一次。"
+    },
+    "4": {
+      "name": "神力",
+      "chance": 600,
+      "durationtime": -1,
+      "cooldown": 8,
+      "skill_value": [
+        2000
+      ],
+      "skillid2": 50103,
+      "des": "攻击时有6%的几率使本次造成的伤害提升20%，每8秒只能触发一次。"
+    },
+    "5": {
+      "name": "神力",
+      "chance": 800,
+      "durationtime": -1,
+      "cooldown": 5,
+      "skill_value": [
+        3000
+      ],
+      "skillid2": 50104,
+      "des": "攻击时有8%的几率使本次造成的伤害提升30%，每5秒只能触发一次。"
+    },
+    "6": {
+      "name": "神力",
+      "chance": 1000,
+      "durationtime": -1,
+      "cooldown": 5,
+      "skill_value": [
+        4000
+      ],
+      "skillid2": 50105,
+      "des": "攻击时有10%的几率使本次造成的伤害提升40%，每5秒只能触发一次。"
+    },
+    "101": {
+      "name": "护身",
+      "chance": 500,
+      "durationtime": -1,
+      "cooldown": 10,
+      "skill_value": [
+        1500
+      ],
+      "skillid2": 50200,
+      "des": "被攻击时有5%的几率使本次受到的伤害降低15%，每10秒只能触发一次。"
+    },
+    "102": {
+      "name": "护身",
+      "chance": 600,
+      "durationtime": -1,
+      "cooldown": 10,
+      "skill_value": [
+        2000
+      ],
+      "skillid2": 50201,
+      "des": "被攻击时有6%的几率使本次受到的伤害降低20%，每10秒只能触发一次。"
+    },
+    "103": {
+      "name": "护身",
+      "chance": 800,
+      "durationtime": -1,
+      "cooldown": 8,
+      "skill_value": [
+        2500
+      ],
+      "skillid2": 50202,
+      "des": "被攻击时有8%的几率使本次受到的伤害降低25%，每8秒只能触发一次。"
+    },
+    "104": {
+      "name": "护身",
+      "chance": 1200,
+      "durationtime": -1,
+      "cooldown": 8,
+      "skill_value": [
+        3000
+      ],
+      "skillid2": 50203,
+      "des": "被攻击时有12%的几率使本次受到的伤害降低30%，每8秒只能触发一次。"
+    },
+    "105": {
+      "name": "护身",
+      "chance": 1600,
+      "durationtime": -1,
+      "cooldown": 5,
+      "skill_value": [
+        4000
+      ],
+      "skillid2": 50204,
+      "des": "被攻击时有16%的几率使本次受到的伤害降低40%，每5秒只能触发一次。"
+    },
+    "106": {
+      "name": "护身",
+      "chance": 1800,
+      "durationtime": -1,
+      "cooldown": 5,
+      "skill_value": [
+        5000
+      ],
+      "skillid2": 50205,
+      "des": "被攻击时有18%的几率使本次受到的伤害降低50%，每5秒只能触发一次。"
+    },
+    "201": {
+      "name": "麻痹",
+      "chance": 200,
+      "durationtime": 1,
+      "cooldown": 60,
+      "skill_value": [
+        500
+      ],
+      "skillid2": 50300,
+      "des": "直接伤害有2%的几率麻痹目标1秒，处于麻痹状态无法移动和攻击，且受到的伤害提高5%，对同一目标每60秒只能触发一次（召唤物无法触发麻痹效果）。"
+    },
+    "202": {
+      "name": "麻痹",
+      "chance": 250,
+      "durationtime": 1,
+      "cooldown": 50,
+      "skill_value": [
+        800
+      ],
+      "skillid2": 50301,
+      "des": "直接伤害有2.5%的几率麻痹目标1秒，处于麻痹状态无法移动和攻击，且受到的伤害提高8%，对同一目标每50秒只能触发一次（召唤物无法触发麻痹效果）。"
+    },
+    "203": {
+      "name": "麻痹",
+      "chance": 300,
+      "durationtime": 1,
+      "cooldown": 40,
+      "skill_value": [
+        1100
+      ],
+      "skillid2": 50302,
+      "des": "直接伤害有3%的几率麻痹目标1秒，处于麻痹状态无法移动和攻击，且受到的伤害提高11%，对同一目标每40秒只能触发一次（召唤物无法触发麻痹效果）。"
+    },
+    "204": {
+      "name": "麻痹",
+      "chance": 400,
+      "durationtime": 2,
+      "cooldown": 30,
+      "skill_value": [
+        1500
+      ],
+      "skillid2": 50303,
+      "des": "直接伤害有4%的几率麻痹目标2秒，处于麻痹状态无法移动和攻击，且受到的伤害提高15%，对同一目标每30秒只能触发一次（召唤物无法触发麻痹效果）。"
+    },
+    "205": {
+      "name": "麻痹",
+      "chance": 500,
+      "durationtime": 3,
+      "cooldown": 15,
+      "skill_value": [
+        2000
+      ],
+      "skillid2": 50304,
+      "des": "直接伤害有5%的几率麻痹目标3秒，处于麻痹状态无法移动和攻击，且受到的伤害提高20%，对同一目标每15秒只能触发一次（召唤物无法触发麻痹效果）。"
+    },
+    "206": {
+      "name": "麻痹",
+      "chance": 600,
+      "durationtime": 3,
+      "cooldown": 15,
+      "skill_value": [
+        2500
+      ],
+      "skillid2": 50305,
+      "des": "直接伤害有6%的几率麻痹目标3秒，处于麻痹状态无法移动和攻击，且受到的伤害提高25%，对同一目标每15秒只能触发一次（召唤物无法触发麻痹效果）。"
+    },
+    "301": {
+      "name": "复活",
+      "chance": 10000,
+      "durationtime": 0,
+      "cooldown": 600,
+      "skill_value": [
+        1500
+      ],
+      "skillid2": 50400,
+      "des": "死亡时会原地重生，回复15%的最大生命值，每600秒只能触发一次。"
+    },
+    "302": {
+      "name": "复活",
+      "chance": 10000,
+      "durationtime": 0,
+      "cooldown": 480,
+      "skill_value": [
+        1500
+      ],
+      "skillid2": 50401,
+      "des": "死亡时会原地重生，回复15%的最大生命值，每480秒只能触发一次。"
+    },
+    "303": {
+      "name": "复活",
+      "chance": 10000,
+      "durationtime": 1,
+      "cooldown": 360,
+      "skill_value": [
+        2000
+      ],
+      "skillid2": 50402,
+      "des": "死亡时会原地重生，回复20%的最大生命值，同时在1秒内免疫所有伤害，每360秒只能触发一次。"
+    },
+    "304": {
+      "name": "复活",
+      "chance": 10000,
+      "durationtime": 2,
+      "cooldown": 300,
+      "skill_value": [
+        2500
+      ],
+      "skillid2": 50403,
+      "des": "死亡时会原地重生，回复25%的最大生命值，同时在2秒内免疫所有伤害，每300秒只能触发一次。"
+    },
+    "305": {
+      "name": "复活",
+      "chance": 10000,
+      "durationtime": 3,
+      "cooldown": 180,
+      "skill_value": [
+        3500
+      ],
+      "skillid2": 50404,
+      "des": "死亡时会原地重生，回复35%的最大生命值，同时在2秒内免疫所有伤害，每180秒只能触发一次。"
+    },
+    "306": {
+      "name": "复活",
+      "chance": 10000,
+      "durationtime": 3,
+      "cooldown": 150,
+      "skill_value": [
+        4500
+      ],
+      "skillid2": 50405,
+      "des": "死亡时会原地重生，回复45%的最大生命值，同时在2秒内免疫所有伤害，每150秒只能触发一次。"
+    }
+  }
+}

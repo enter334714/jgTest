@@ -1,0 +1,181 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_kouxue_kuang05",
+      "texture": "f9v7lfsalPmKmx5i6iKsab",
+      "rect": [
+        0,
+        0,
+        223,
+        165
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        223,
+        165
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "banyuewandao3-5",
+    "_duration": 0.6833333333333333,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "c53bXyVspDSoDnaiJKZsas"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "c7YY7fRbtDfo7m8JEHD6Mr"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "caFc53yFVJyoqzYS1WvWh8"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "b3A6UlddBPRb0TYjnekJ9L"
+              }
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": {
+                "__uuid__": "0fj/WftMBDC4ozDVhJE2M/"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_kouxue_kuang04",
+      "texture": "6eyn9LZP1KgbPcgjcPTKRW",
+      "rect": [
+        0,
+        0,
+        223,
+        165
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        223,
+        165
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_kouxue_kuang01",
+      "texture": "deCMw/+5JKvqesGWPqfLTn",
+      "rect": [
+        0,
+        0,
+        223,
+        165
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        223,
+        165
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_kouxue_kuang02",
+      "texture": "14tZ1MA/ZAQaMoF9GLVaAb",
+      "rect": [
+        0,
+        0,
+        223,
+        165
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        223,
+        165
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_kouxue_kuang03",
+      "texture": "0cURR4UdBJy5fYoQHae2v8",
+      "rect": [
+        0,
+        0,
+        223,
+        165
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        223,
+        165
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

@@ -1,0 +1,69 @@
+[
+  {
+    "__type__": "cc.SpriteAtlas",
+    "_name": "icon.plist",
+    "_spriteFrames": {
+      "weiduanfuli ": {
+        "__uuid__": "d6jsle+UxFYbLN9Dxh5wLm"
+      },
+      "weiduanfuli 1": {
+        "__uuid__": "f4kikFw9FAcrePLrwoT4ku"
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "weiduanfuli ",
+      "texture": "479UkseMJD06vvcHGVS+RH",
+      "rect": [
+        0,
+        0,
+        94,
+        103
+      ],
+      "offset": [
+        2.5,
+        0
+      ],
+      "originalSize": [
+        99,
+        103
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "weiduanfuli 1",
+      "texture": "479UkseMJD06vvcHGVS+RH",
+      "rect": [
+        94,
+        0,
+        94,
+        103
+      ],
+      "offset": [
+        2.5,
+        0
+      ],
+      "originalSize": [
+        99,
+        103
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

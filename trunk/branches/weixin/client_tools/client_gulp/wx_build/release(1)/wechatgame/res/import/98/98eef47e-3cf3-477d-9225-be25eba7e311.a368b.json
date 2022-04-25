@@ -1,0 +1,774 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "LianchonghaoliConfig",
+  "json": {
+    "100601": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第1天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I3001": 5
+      },
+      "charge_days": 1,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100602": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第2天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I2102": 5
+      },
+      "charge_days": 2,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100603": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第3天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I4001": 10
+      },
+      "charge_days": 3,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100604": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第4天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I3004": 10
+      },
+      "charge_days": 4,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100605": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第5天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I3945": 1
+      },
+      "charge_days": 5,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100606": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第6天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I3001": 5
+      },
+      "charge_days": 6,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100607": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第7天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I2102": 5
+      },
+      "charge_days": 7,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100608": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第8天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I4001": 10
+      },
+      "charge_days": 8,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100609": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第9天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I3004": 10
+      },
+      "charge_days": 9,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100610": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第10天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I3945": 1
+      },
+      "charge_days": 10,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100611": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第11天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I3001": 5
+      },
+      "charge_days": 11,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100612": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第12天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I2102": 5
+      },
+      "charge_days": 12,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100613": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第13天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I4001": 10
+      },
+      "charge_days": 13,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100614": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第14天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I3004": 10
+      },
+      "charge_days": 14,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "100615": {
+      "open_day": [
+        1,
+        15
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第15天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 50000
+      },
+      "reward_item": {
+        "I3945": 1,
+        "I7177": 1
+      },
+      "charge_days": 15,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200601": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第1天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I3903": 5
+      },
+      "charge_days": 1,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200602": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第2天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I2102": 5
+      },
+      "charge_days": 2,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200603": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第3天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I4001": 10
+      },
+      "charge_days": 3,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200604": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第4天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I3004": 10
+      },
+      "charge_days": 4,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200605": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第5天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I3945": 1
+      },
+      "charge_days": 5,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200606": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第6天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I3903": 5
+      },
+      "charge_days": 6,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200607": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第7天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I2102": 5
+      },
+      "charge_days": 7,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200608": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第8天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I4001": 10
+      },
+      "charge_days": 8,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200609": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第9天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I3004": 10
+      },
+      "charge_days": 9,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200610": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第10天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I3945": 1
+      },
+      "charge_days": 10,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200611": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第11天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I3903": 5
+      },
+      "charge_days": 11,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200612": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第12天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I2102": 5
+      },
+      "charge_days": 12,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200613": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第13天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I4001": 10
+      },
+      "charge_days": 13,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200614": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第14天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I3004": 10
+      },
+      "charge_days": 14,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "200615": {
+      "open_day": [
+        16,
+        31
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第15天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I3945": 1,
+        "I7177": 1
+      },
+      "charge_days": 15,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300601": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第1天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I3903": 5
+      },
+      "charge_days": 1,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300602": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第2天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I2103": 5
+      },
+      "charge_days": 2,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300603": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第3天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I4001": 10
+      },
+      "charge_days": 3,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300604": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第4天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I3004": 10
+      },
+      "charge_days": 4,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300605": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#00c0ff>连续充值</c><color=#0cff00>6元</c><color=#fff000>第5天</color>",
+      "color": 1,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I3945": 1
+      },
+      "charge_days": 5,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300606": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第6天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I3903": 5
+      },
+      "charge_days": 6,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300607": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第7天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I2103": 5
+      },
+      "charge_days": 7,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300608": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第8天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I4001": 10
+      },
+      "charge_days": 8,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300609": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第9天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I3004": 10
+      },
+      "charge_days": 9,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300610": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#f702f4>连续充值</c><color=#0cff00>6元</c><color=#fff000>第10天</color>",
+      "color": 2,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I3945": 1
+      },
+      "charge_days": 10,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300611": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第11天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I3903": 5
+      },
+      "charge_days": 11,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300612": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第12天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I2103": 5
+      },
+      "charge_days": 12,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300613": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第13天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I4001": 10
+      },
+      "charge_days": 13,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300614": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第14天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I3004": 10
+      },
+      "charge_days": 14,
+      "tips": 1,
+      "charge_num": 6
+    },
+    "300615": {
+      "open_day": [
+        32,
+        9999
+      ],
+      "name": "<color=#ff6c00>连续充值</c><color=#0cff00>6元</c><color=#fff000>第15天</color>",
+      "color": 3,
+      "reward_res": {
+        "1": 200000
+      },
+      "reward_item": {
+        "I3945": 1,
+        "I7177": 1
+      },
+      "charge_days": 15,
+      "tips": 1,
+      "charge_num": 6
+    }
+  }
+}

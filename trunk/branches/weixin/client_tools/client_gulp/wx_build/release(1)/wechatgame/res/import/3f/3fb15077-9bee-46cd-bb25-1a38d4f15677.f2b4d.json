@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_anyushangdian_ui_gezi",
+    "texture": "80CT+QWIlL35Fpe1lJIIvr",
+    "rect": [
+      0,
+      0,
+      188,
+      247
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      188,
+      247
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

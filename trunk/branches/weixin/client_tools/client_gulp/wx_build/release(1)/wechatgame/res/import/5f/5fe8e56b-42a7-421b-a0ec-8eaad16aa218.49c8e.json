@@ -1,0 +1,78 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "guild_hongbaobangConfig",
+  "json": {
+    "1": {
+      "award_res": {
+        "2": 20
+      },
+      "rank": [
+        1,
+        1
+      ],
+      "award_mobai": {
+        "1": 5000
+      }
+    },
+    "2": {
+      "award_res": {
+        "2": 15
+      },
+      "rank": [
+        2,
+        2
+      ],
+      "award_mobai": {
+        "1": 4000
+      }
+    },
+    "3": {
+      "award_res": {
+        "2": 10
+      },
+      "rank": [
+        3,
+        3
+      ],
+      "award_mobai": {
+        "1": 3000
+      }
+    },
+    "4": {
+      "award_res": {
+        "2": 10
+      },
+      "rank": [
+        4,
+        4
+      ],
+      "award_mobai": {
+        "1": 2000
+      }
+    },
+    "5": {
+      "award_res": {
+        "2": 10
+      },
+      "rank": [
+        5,
+        5
+      ],
+      "award_mobai": {
+        "1": 1000
+      }
+    },
+    "6": {
+      "award_res": {
+        "2": 5
+      },
+      "rank": [
+        6,
+        20
+      ],
+      "award_mobai": {
+        "1": 500
+      }
+    }
+  }
+}

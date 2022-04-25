@@ -1,0 +1,398 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_ui_liaotian_icon_touxiang_fashi",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        78,
+        2,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_touxiang_icon_tuchengbazhu",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        154,
+        154,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_touxiang_icon_kulouwang",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        2,
+        306,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_touxiang_icon_womajiaozhu",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        78,
+        154,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_touxiang_icon_zumajiaozhu",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        2,
+        78,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_touxiang_icon_zhenlongtianzi",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        78,
+        78,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_touxiang_icon_yifangzhuhou",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        154,
+        78,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_ui_liaotian_icon_touxiang_zhanshi",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        2,
+        2,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_ui_liaotian_icon_touxiang_daoshi",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        154,
+        2,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_touxiang_icon_longzhenghudou",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        78,
+        230,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_touxiang_icon_lunhuizhizhu",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        2,
+        230,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteAtlas",
+    "_name": "touxiang.plist",
+    "_spriteFrames": {
+      "img_touxiang_icon_kulouwang": {
+        "__uuid__": "1cwgUexGdPm6MVeO78uInT"
+      },
+      "img_touxiang_icon_leiyanzhuwang": {
+        "__uuid__": "b8PBt7rWtDpY3i1EbGL94L"
+      },
+      "img_touxiang_icon_longzhenghudou": {
+        "__uuid__": "89f1xWAE1JhJu6QcyNa6lt"
+      },
+      "img_touxiang_icon_lunhuizhizhu": {
+        "__uuid__": "8ejXPzIGxEq7YFn+Sa99DP"
+      },
+      "img_touxiang_icon_tuchengbazhu": {
+        "__uuid__": "0fmkywzGNH6pgwzGaCBBU0"
+      },
+      "img_touxiang_icon_womajiaozhu": {
+        "__uuid__": "29cMt1cGhKzr1Bhkb7sArl"
+      },
+      "img_touxiang_icon_womayongshi": {
+        "__uuid__": "efH8vGB/ZL15SefhllSPzX"
+      },
+      "img_touxiang_icon_yifangzhuhou": {
+        "__uuid__": "4fKoxaEsdESbGKYc5/9j5s"
+      },
+      "img_touxiang_icon_zhenlongtianzi": {
+        "__uuid__": "3bOV7qeZhHebJ9AQtBJTx8"
+      },
+      "img_touxiang_icon_zumajiaozhu": {
+        "__uuid__": "35+/e87qxHVa2tSLT2ZCuo"
+      },
+      "img_ui_liaotian_icon_touxiang_daoshi": {
+        "__uuid__": "79Qd/u0zFLD6hgfrgXBnLO"
+      },
+      "img_ui_liaotian_icon_touxiang_fashi": {
+        "__uuid__": "06JhZyd2hJN7MS+uDVVMrX"
+      },
+      "img_ui_liaotian_icon_touxiang_zhanshi": {
+        "__uuid__": "5eQMvFuv9LlaDbeh3CO4Pm"
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_touxiang_icon_leiyanzhuwang",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        154,
+        230,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_touxiang_icon_womayongshi",
+      "texture": "72tP9O+lNCa4MA6xLYShvB",
+      "rect": [
+        2,
+        154,
+        74,
+        74
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        74,
+        74
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

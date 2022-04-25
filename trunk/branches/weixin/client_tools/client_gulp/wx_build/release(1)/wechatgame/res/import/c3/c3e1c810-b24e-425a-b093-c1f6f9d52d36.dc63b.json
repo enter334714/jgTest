@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_icon_banyuewandao_03",
+    "texture": "d4RZ4p7/tP+IB9l4b3RJVC",
+    "rect": [
+      4,
+      14,
+      73,
+      56
+    ],
+    "offset": [
+      0.5,
+      -2
+    ],
+    "originalSize": [
+      80,
+      80
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

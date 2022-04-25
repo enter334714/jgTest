@@ -1,0 +1,252 @@
+[
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "huoqiangshu2-a",
+    "_duration": 0.6,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "afcuYh3TZFwYu2bofv2nWN"
+              }
+            },
+            {
+              "frame": 0.08333333333333333,
+              "value": {
+                "__uuid__": "c3y7KX6HNMp7jsBR+KKD2g"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "f8rDQDdCpLI4KH7jj773QW"
+              }
+            },
+            {
+              "frame": 0.25,
+              "value": {
+                "__uuid__": "afcuYh3TZFwYu2bofv2nWN"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "cbycu+K+BKVoYJb+NLbuXB"
+              }
+            },
+            {
+              "frame": 0.4166666666666667,
+              "value": {
+                "__uuid__": "640XJQN3hHtoQU0B/HSG8P"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "703Mp3mu5AdbFJBWn0MOJK"
+              }
+            },
+            {
+              "frame": 0.5833333333333334,
+              "value": {
+                "__uuid__": "36lJZOjwpPbZ4A1hAQPqy1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "16huoqiang",
+      "texture": "e29z7HDndJjoP60T3+Sf1d",
+      "rect": [
+        8,
+        7,
+        96,
+        87
+      ],
+      "offset": [
+        -5,
+        0.5
+      ],
+      "originalSize": [
+        122,
+        102
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "14huoqiang",
+      "texture": "53y1x+Yd1L6YkE51OHkflc",
+      "rect": [
+        8,
+        12,
+        97,
+        84
+      ],
+      "offset": [
+        -4.5,
+        -3
+      ],
+      "originalSize": [
+        122,
+        102
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "15huoqiang",
+      "texture": "30a66Ob8JAxKtKttL0OxT2",
+      "rect": [
+        8,
+        9,
+        96,
+        86
+      ],
+      "offset": [
+        -5,
+        -1
+      ],
+      "originalSize": [
+        122,
+        102
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "12huoqiang",
+      "texture": "afRJ16hlxIeoQCx7j9DHiB",
+      "rect": [
+        8,
+        27,
+        94,
+        75
+      ],
+      "offset": [
+        -6,
+        -13.5
+      ],
+      "originalSize": [
+        122,
+        102
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "10huoqiang",
+      "texture": "664jO1chdAEpjVP7PF8LMP",
+      "rect": [
+        20,
+        0,
+        71,
+        101
+      ],
+      "offset": [
+        -5.5,
+        0.5
+      ],
+      "originalSize": [
+        122,
+        102
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "13huoqiang",
+      "texture": "525xXg9Z9Cyp3sW3ilDhi2",
+      "rect": [
+        7,
+        17,
+        97,
+        82
+      ],
+      "offset": [
+        -5.5,
+        -7
+      ],
+      "originalSize": [
+        122,
+        102
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "11huoqiang",
+      "texture": "d5rlqFKhJFg60rMurKkwau",
+      "rect": [
+        10,
+        40,
+        89,
+        62
+      ],
+      "offset": [
+        -6.5,
+        -20
+      ],
+      "originalSize": [
+        122,
+        102
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

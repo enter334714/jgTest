@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_icon_cishajianshu_02",
+    "texture": "4bv0h2LYtNwoLPRx9ogDNn",
+    "rect": [
+      4,
+      8,
+      73,
+      67
+    ],
+    "offset": [
+      0.5,
+      -1.5
+    ],
+    "originalSize": [
+      80,
+      80
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

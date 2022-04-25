@@ -1,0 +1,344 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "meiritehuiConfig",
+  "json": {
+    "101": {
+      "type": 1,
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_item": {
+        "I3945": 1,
+        "I3905": 10
+      },
+      "item": "洗练石*100",
+      "beizhu": "额外赠送为了利于排版，只有两个空格，若配置的奖励大于两个，建议配置成礼包"
+    },
+    "102": {
+      "type": 2,
+      "open_day": [
+        1,
+        7
+      ],
+      "icon": "img_meiritehui_icon_01",
+      "reward_res": {
+        "1": 20000
+      },
+      "reward_item": {
+        "I3001": 5
+      },
+      "item": "洗练石*100",
+      "beizhu": "免费礼包"
+    },
+    "103": {
+      "charge_id": 661001,
+      "type": 3,
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "6元",
+      "icon": "img_meiritehui_icon_02",
+      "reward_res": {
+        "2": 60
+      },
+      "reward_item": {
+        "I3945": 1,
+        "I3001": 30,
+        "I4001": 30
+      },
+      "item": "洗练石*100",
+      "discount": 300,
+      "beizhu": "6元礼包"
+    },
+    "104": {
+      "charge_id": 661002,
+      "type": 3,
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "18元",
+      "icon": "img_meiritehui_icon_03",
+      "reward_res": {
+        "2": 180
+      },
+      "reward_item": {
+        "I3945": 2,
+        "I3004": 180,
+        "I4001": 90
+      },
+      "item": "洗练石*100",
+      "discount": 300,
+      "beizhu": "18元礼包"
+    },
+    "105": {
+      "charge_id": 661003,
+      "type": 3,
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "30元",
+      "icon": "img_meiritehui_icon_04",
+      "reward_res": {
+        "2": 300
+      },
+      "reward_item": {
+        "I3945": 3,
+        "I3905": 50,
+        "I3001": 50
+      },
+      "item": "洗练石*100",
+      "discount": 300,
+      "beizhu": "30元礼包"
+    },
+    "106": {
+      "charge_id": 661004,
+      "type": 4,
+      "open_day": [
+        1,
+        7
+      ],
+      "name": "45元",
+      "reward_res": {
+        "2": 540
+      },
+      "reward_item": {
+        "I3905": 50,
+        "I3001": 50,
+        "I3004": 180,
+        "I4001": 120,
+        "I3945": 6
+      },
+      "item": "洗练石*100",
+      "beizhu": "54打包购买"
+    },
+    "201": {
+      "type": 1,
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_item": {
+        "I3945": 1,
+        "I3907": 10
+      },
+      "item": "洗练石*100",
+      "beizhu": "额外赠送为了利于排版，只有两个空格，若配置的奖励大于两个，建议配置成礼包"
+    },
+    "202": {
+      "type": 2,
+      "open_day": [
+        8,
+        30
+      ],
+      "icon": "img_meiritehui_icon_01",
+      "reward_res": {
+        "1": 100000
+      },
+      "reward_item": {
+        "I3903": 5
+      },
+      "item": "洗练石*100",
+      "beizhu": "免费礼包"
+    },
+    "203": {
+      "charge_id": 661005,
+      "type": 3,
+      "open_day": [
+        8,
+        30
+      ],
+      "name": "6元",
+      "icon": "img_meiritehui_icon_02",
+      "reward_res": {
+        "2": 60
+      },
+      "reward_item": {
+        "I3945": 1,
+        "I3903": 30,
+        "I4001": 30
+      },
+      "item": "洗练石*100",
+      "discount": 300,
+      "beizhu": "6元礼包"
+    },
+    "204": {
+      "charge_id": 661006,
+      "type": 3,
+      "open_day": [
+        8,
+        30
+      ],
+      "name": "18元",
+      "icon": "img_meiritehui_icon_03",
+      "reward_res": {
+        "2": 180
+      },
+      "reward_item": {
+        "I3945": 2,
+        "I3907": 20,
+        "I4001": 60
+      },
+      "item": "洗练石*100",
+      "discount": 300,
+      "beizhu": "18元礼包"
+    },
+    "205": {
+      "charge_id": 661007,
+      "type": 3,
+      "open_day": [
+        8,
+        30
+      ],
+      "name": "30元",
+      "icon": "img_meiritehui_icon_04",
+      "reward_res": {
+        "2": 300
+      },
+      "reward_item": {
+        "I3945": 3,
+        "I3907": 40,
+        "I3903": 60
+      },
+      "item": "洗练石*100",
+      "discount": 300,
+      "beizhu": "30元礼包"
+    },
+    "206": {
+      "charge_id": 661008,
+      "type": 4,
+      "open_day": [
+        8,
+        30
+      ],
+      "name": "45元",
+      "reward_res": {
+        "2": 540
+      },
+      "reward_item": {
+        "I3907": 60,
+        "I3001": 90,
+        "I4001": 90,
+        "I3945": 6
+      },
+      "item": "洗练石*100",
+      "beizhu": "54打包购买"
+    },
+    "301": {
+      "type": 1,
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_item": {
+        "I3945": 1,
+        "I3920": 10
+      },
+      "item": "洗练石*100",
+      "beizhu": "额外赠送为了利于排版，只有两个空格，若配置的奖励大于两个，建议配置成礼包"
+    },
+    "302": {
+      "type": 2,
+      "open_day": [
+        31,
+        9999
+      ],
+      "icon": "img_meiritehui_icon_01",
+      "reward_res": {
+        "1": 300000
+      },
+      "reward_item": {
+        "I3903": 8
+      },
+      "item": "洗练石*100",
+      "beizhu": "免费礼包"
+    },
+    "303": {
+      "charge_id": 661009,
+      "type": 3,
+      "open_day": [
+        31,
+        9999
+      ],
+      "name": "6元",
+      "icon": "img_meiritehui_icon_02",
+      "reward_res": {
+        "2": 60
+      },
+      "reward_item": {
+        "I3945": 1,
+        "I3903": 30,
+        "I8000": 2
+      },
+      "item": "洗练石*100",
+      "discount": 300,
+      "beizhu": "6元礼包"
+    },
+    "304": {
+      "charge_id": 661010,
+      "type": 3,
+      "open_day": [
+        31,
+        9999
+      ],
+      "name": "18元",
+      "icon": "img_meiritehui_icon_03",
+      "reward_res": {
+        "2": 180
+      },
+      "reward_item": {
+        "I3945": 2,
+        "I3909": 240,
+        "I8000": 4
+      },
+      "item": "洗练石*100",
+      "discount": 300,
+      "beizhu": "18元礼包"
+    },
+    "305": {
+      "charge_id": 661011,
+      "type": 3,
+      "open_day": [
+        31,
+        9999
+      ],
+      "name": "30元",
+      "icon": "img_meiritehui_icon_04",
+      "reward_res": {
+        "2": 300
+      },
+      "reward_item": {
+        "I3945": 3,
+        "I3910": 20,
+        "I3903": 50
+      },
+      "item": "洗练石*100",
+      "discount": 300,
+      "beizhu": "30元礼包"
+    },
+    "306": {
+      "charge_id": 661012,
+      "type": 4,
+      "open_day": [
+        31,
+        9999
+      ],
+      "name": "45元",
+      "reward_res": {
+        "2": 540
+      },
+      "reward_item": {
+        "I3909": 240,
+        "I3910": 20,
+        "I3903": 80,
+        "I8000": 6,
+        "I3945": 6
+      },
+      "item": "洗练石*100",
+      "beizhu": "54打包购买"
+    }
+  }
+}

@@ -1,0 +1,148 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "but_anyushangdian1",
+      "texture": "dbsmv6iO9EbaKXnNdn0SKU",
+      "rect": [
+        3,
+        3,
+        125,
+        45
+      ],
+      "offset": [
+        -1,
+        0.5
+      ],
+      "originalSize": [
+        133,
+        52
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "but_anyushangdian2",
+      "texture": "aa/LwcfyhDx7hXCHJI5S9+",
+      "rect": [
+        2,
+        2,
+        127,
+        47
+      ],
+      "offset": [
+        -1,
+        0.5
+      ],
+      "originalSize": [
+        133,
+        52
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "but_anyushangdian3",
+      "texture": "20er3vD1FB7ICMw42GQ1lE",
+      "rect": [
+        1,
+        2,
+        130,
+        47
+      ],
+      "offset": [
+        -0.5,
+        0.5
+      ],
+      "originalSize": [
+        133,
+        52
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "but_anyu_ani",
+    "_duration": 0.5166666666666667,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "10Vxk1I4dOE7/hgX28cNFJ"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "68EiDDuEFK/41HnSJVIkyW"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "945aG2TBRDEKwMFet9SYfh"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "dfY3JU16lI+oh+0UQ8tsXo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "but_anyushangdian4",
+      "texture": "33l7x14FJB9pi9AIHdsX0T",
+      "rect": [
+        0,
+        0,
+        133,
+        52
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        133,
+        52
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

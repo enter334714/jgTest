@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_shachengzhengba_icon_judian_2",
+    "texture": "bc+2dg1zJKLYwWuzGox5+6",
+    "rect": [
+      0,
+      40,
+      138,
+      318
+    ],
+    "offset": [
+      0,
+      -20
+    ],
+    "originalSize": [
+      138,
+      358
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

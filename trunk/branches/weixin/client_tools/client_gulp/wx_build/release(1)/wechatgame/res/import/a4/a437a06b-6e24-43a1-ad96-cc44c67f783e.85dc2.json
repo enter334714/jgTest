@@ -1,0 +1,2762 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "RandomFuMoConfig",
+  "json": {
+    "0": {
+      "position": 1,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "atk",
+      "statid": 1,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        7
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        9
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "1": {
+      "position": 1,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "mag",
+      "statid": 3,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        7
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        9
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "2": {
+      "position": 1,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "spt",
+      "statid": 5,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        7
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        9
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "3": {
+      "position": 1,
+      "min_level": 30,
+      "weight": 800,
+      "stat": "speed",
+      "statid": 14,
+      "statnum": 2,
+      "attenuation": 5000,
+      "level10": [
+        1,
+        10
+      ],
+      "level20": [
+        1,
+        10
+      ],
+      "level30": [
+        5,
+        15
+      ],
+      "level40": [
+        5,
+        20
+      ],
+      "level50": [
+        5,
+        25
+      ],
+      "level60": [
+        5,
+        30
+      ],
+      "level70": [
+        5,
+        30
+      ],
+      "level80": [
+        5,
+        30
+      ],
+      "level90": [
+        5,
+        40
+      ],
+      "level100": [
+        5,
+        40
+      ],
+      "level110": [
+        5,
+        40
+      ]
+    },
+    "4": {
+      "position": 1,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "BonusDamage",
+      "statid": 15,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        2,
+        6
+      ],
+      "level40": [
+        2,
+        8
+      ],
+      "level50": [
+        2,
+        10
+      ],
+      "level60": [
+        2,
+        10
+      ],
+      "level70": [
+        2,
+        10
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "5": {
+      "position": 1,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "HpDrain",
+      "statid": 19,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        2
+      ],
+      "level30": [
+        1,
+        3
+      ],
+      "level40": [
+        2,
+        4
+      ],
+      "level50": [
+        2,
+        5
+      ],
+      "level60": [
+        2,
+        5
+      ],
+      "level70": [
+        2,
+        5
+      ],
+      "level80": [
+        2,
+        5
+      ],
+      "level90": [
+        2,
+        8
+      ],
+      "level100": [
+        2,
+        8
+      ],
+      "level110": [
+        2,
+        8
+      ]
+    },
+    "6": {
+      "position": 1,
+      "min_level": 30,
+      "weight": 800,
+      "stat": "lucky",
+      "statid": 8,
+      "statnum": 4,
+      "attenuation": 5000,
+      "level10": [
+        1,
+        1
+      ],
+      "level20": [
+        1,
+        1
+      ],
+      "level30": [
+        1,
+        2
+      ],
+      "level40": [
+        1,
+        2
+      ],
+      "level50": [
+        1,
+        2
+      ],
+      "level60": [
+        1,
+        2
+      ],
+      "level70": [
+        1,
+        3
+      ],
+      "level80": [
+        1,
+        3
+      ],
+      "level90": [
+        1,
+        3
+      ],
+      "level100": [
+        1,
+        3
+      ],
+      "level110": [
+        1,
+        3
+      ]
+    },
+    "7": {
+      "position": 2,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "DamageReduction",
+      "statid": 17,
+      "statnum": 4,
+      "attenuation": 5000,
+      "level10": [
+        1,
+        1
+      ],
+      "level20": [
+        1,
+        3
+      ],
+      "level30": [
+        1,
+        4
+      ],
+      "level40": [
+        1,
+        5
+      ],
+      "level50": [
+        1,
+        6
+      ],
+      "level60": [
+        1,
+        8
+      ],
+      "level70": [
+        3,
+        8
+      ],
+      "level80": [
+        3,
+        10
+      ],
+      "level90": [
+        3,
+        15
+      ],
+      "level100": [
+        3,
+        15
+      ],
+      "level110": [
+        3,
+        15
+      ]
+    },
+    "8": {
+      "position": 2,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "magic_find1",
+      "statid": 21,
+      "statnum": 2,
+      "attenuation": 10000,
+      "level10": [
+        100,
+        200
+      ],
+      "level20": [
+        100,
+        200
+      ],
+      "level30": [
+        100,
+        400
+      ],
+      "level40": [
+        100,
+        400
+      ],
+      "level50": [
+        100,
+        500
+      ],
+      "level60": [
+        100,
+        500
+      ],
+      "level70": [
+        100,
+        600
+      ],
+      "level80": [
+        100,
+        600
+      ],
+      "level90": [
+        100,
+        600
+      ],
+      "level100": [
+        100,
+        600
+      ],
+      "level110": [
+        100,
+        600
+      ]
+    },
+    "9": {
+      "position": 2,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "equip_times",
+      "statid": 22,
+      "statnum": 1,
+      "attenuation": 10000,
+      "level10": [
+        50,
+        150
+      ],
+      "level20": [
+        50,
+        150
+      ],
+      "level30": [
+        50,
+        200
+      ],
+      "level40": [
+        50,
+        200
+      ],
+      "level50": [
+        50,
+        200
+      ],
+      "level60": [
+        50,
+        200
+      ],
+      "level70": [
+        50,
+        300
+      ],
+      "level80": [
+        50,
+        300
+      ],
+      "level90": [
+        50,
+        300
+      ],
+      "level100": [
+        50,
+        300
+      ],
+      "level110": [
+        50,
+        300
+      ]
+    },
+    "10": {
+      "position": 2,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "hp_p",
+      "statid": 11,
+      "statnum": 1,
+      "attenuation": 10000,
+      "level10": [
+        100,
+        200
+      ],
+      "level20": [
+        100,
+        300
+      ],
+      "level30": [
+        100,
+        400
+      ],
+      "level40": [
+        100,
+        500
+      ],
+      "level50": [
+        100,
+        600
+      ],
+      "level60": [
+        100,
+        600
+      ],
+      "level70": [
+        100,
+        600
+      ],
+      "level80": [
+        100,
+        600
+      ],
+      "level90": [
+        100,
+        600
+      ],
+      "level100": [
+        100,
+        600
+      ],
+      "level110": [
+        100,
+        600
+      ]
+    },
+    "11": {
+      "position": 2,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "mp_p",
+      "statid": 13,
+      "statnum": 1,
+      "attenuation": 10000,
+      "level10": [
+        100,
+        200
+      ],
+      "level20": [
+        100,
+        300
+      ],
+      "level30": [
+        100,
+        400
+      ],
+      "level40": [
+        100,
+        500
+      ],
+      "level50": [
+        100,
+        600
+      ],
+      "level60": [
+        100,
+        600
+      ],
+      "level70": [
+        100,
+        600
+      ],
+      "level80": [
+        100,
+        600
+      ],
+      "level90": [
+        100,
+        600
+      ],
+      "level100": [
+        100,
+        600
+      ],
+      "level110": [
+        100,
+        600
+      ]
+    },
+    "12": {
+      "position": 2,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "hp",
+      "statid": 10,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        12
+      ],
+      "level20": [
+        10,
+        26
+      ],
+      "level30": [
+        20,
+        45
+      ],
+      "level40": [
+        40,
+        66
+      ],
+      "level50": [
+        60,
+        90
+      ],
+      "level60": [
+        80,
+        120
+      ],
+      "level70": [
+        100,
+        150
+      ],
+      "level80": [
+        140,
+        190
+      ],
+      "level90": [
+        150,
+        250
+      ],
+      "level100": [
+        150,
+        250
+      ],
+      "level110": [
+        150,
+        250
+      ]
+    },
+    "13": {
+      "position": 2,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "mp",
+      "statid": 12,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        6
+      ],
+      "level20": [
+        5,
+        13
+      ],
+      "level30": [
+        10,
+        25
+      ],
+      "level40": [
+        20,
+        35
+      ],
+      "level50": [
+        30,
+        45
+      ],
+      "level60": [
+        40,
+        60
+      ],
+      "level70": [
+        50,
+        75
+      ],
+      "level80": [
+        70,
+        100
+      ],
+      "level90": [
+        90,
+        120
+      ],
+      "level100": [
+        90,
+        120
+      ],
+      "level110": [
+        90,
+        120
+      ]
+    },
+    "14": {
+      "position": 2,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "atk",
+      "statid": 1,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "15": {
+      "position": 2,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "mag",
+      "statid": 3,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "16": {
+      "position": 2,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "spt",
+      "statid": 5,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "17": {
+      "position": 3,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "atk",
+      "statid": 1,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        6
+      ],
+      "level40": [
+        2,
+        8
+      ],
+      "level50": [
+        2,
+        10
+      ],
+      "level60": [
+        2,
+        10
+      ],
+      "level70": [
+        2,
+        10
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "18": {
+      "position": 3,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "mag",
+      "statid": 3,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        6
+      ],
+      "level40": [
+        2,
+        8
+      ],
+      "level50": [
+        2,
+        10
+      ],
+      "level60": [
+        2,
+        10
+      ],
+      "level70": [
+        2,
+        10
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "19": {
+      "position": 3,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "spt",
+      "statid": 5,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        6
+      ],
+      "level40": [
+        2,
+        8
+      ],
+      "level50": [
+        2,
+        10
+      ],
+      "level60": [
+        2,
+        10
+      ],
+      "level70": [
+        2,
+        10
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "20": {
+      "position": 3,
+      "min_level": 1,
+      "weight": 500,
+      "stat": "magic_find1",
+      "statid": 21,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        100,
+        200
+      ],
+      "level20": [
+        100,
+        200
+      ],
+      "level30": [
+        100,
+        400
+      ],
+      "level40": [
+        100,
+        400
+      ],
+      "level50": [
+        100,
+        500
+      ],
+      "level60": [
+        100,
+        500
+      ],
+      "level70": [
+        100,
+        600
+      ],
+      "level80": [
+        100,
+        600
+      ],
+      "level90": [
+        100,
+        600
+      ],
+      "level100": [
+        100,
+        600
+      ],
+      "level110": [
+        100,
+        600
+      ]
+    },
+    "21": {
+      "position": 3,
+      "min_level": 1,
+      "weight": 500,
+      "stat": "DamageReduction",
+      "statid": 17,
+      "statnum": 4,
+      "attenuation": 5000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        3
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        1,
+        6
+      ],
+      "level50": [
+        1,
+        6
+      ],
+      "level60": [
+        1,
+        8
+      ],
+      "level70": [
+        3,
+        8
+      ],
+      "level80": [
+        3,
+        8
+      ],
+      "level90": [
+        3,
+        12
+      ],
+      "level100": [
+        3,
+        12
+      ],
+      "level110": [
+        3,
+        12
+      ]
+    },
+    "22": {
+      "position": 4,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "atk",
+      "statid": 1,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "23": {
+      "position": 4,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "mag",
+      "statid": 3,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "24": {
+      "position": 4,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "spt",
+      "statid": 5,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "25": {
+      "position": 4,
+      "min_level": 30,
+      "weight": 600,
+      "stat": "speed",
+      "statid": 14,
+      "statnum": 2,
+      "attenuation": 3000,
+      "level10": [
+        1,
+        10
+      ],
+      "level20": [
+        1,
+        10
+      ],
+      "level30": [
+        5,
+        15
+      ],
+      "level40": [
+        5,
+        20
+      ],
+      "level50": [
+        5,
+        25
+      ],
+      "level60": [
+        5,
+        30
+      ],
+      "level70": [
+        5,
+        30
+      ],
+      "level80": [
+        5,
+        30
+      ],
+      "level90": [
+        5,
+        40
+      ],
+      "level100": [
+        5,
+        40
+      ],
+      "level110": [
+        5,
+        40
+      ]
+    },
+    "26": {
+      "position": 4,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "BonusDamage",
+      "statid": 15,
+      "statnum": 4,
+      "attenuation": 5000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        3
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        1,
+        6
+      ],
+      "level50": [
+        1,
+        7
+      ],
+      "level60": [
+        1,
+        8
+      ],
+      "level70": [
+        1,
+        9
+      ],
+      "level80": [
+        1,
+        10
+      ],
+      "level90": [
+        1,
+        15
+      ],
+      "level100": [
+        1,
+        15
+      ],
+      "level110": [
+        1,
+        15
+      ]
+    },
+    "27": {
+      "position": 4,
+      "min_level": 80,
+      "weight": 80,
+      "stat": "BonusDamage_p",
+      "statid": 16,
+      "statnum": 2,
+      "attenuation": 5000,
+      "level10": [
+        10,
+        100
+      ],
+      "level20": [
+        10,
+        100
+      ],
+      "level30": [
+        10,
+        100
+      ],
+      "level40": [
+        10,
+        100
+      ],
+      "level50": [
+        10,
+        100
+      ],
+      "level60": [
+        10,
+        100
+      ],
+      "level70": [
+        10,
+        100
+      ],
+      "level80": [
+        10,
+        100
+      ],
+      "level90": [
+        10,
+        150
+      ],
+      "level100": [
+        10,
+        150
+      ],
+      "level110": [
+        10,
+        150
+      ]
+    },
+    "28": {
+      "position": 5,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "atk",
+      "statid": 1,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "29": {
+      "position": 5,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "mag",
+      "statid": 3,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "30": {
+      "position": 5,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "spt",
+      "statid": 5,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "31": {
+      "position": 5,
+      "min_level": 30,
+      "weight": 600,
+      "stat": "speed",
+      "statid": 14,
+      "statnum": 2,
+      "attenuation": 3000,
+      "level10": [
+        1,
+        10
+      ],
+      "level20": [
+        1,
+        10
+      ],
+      "level30": [
+        5,
+        15
+      ],
+      "level40": [
+        5,
+        20
+      ],
+      "level50": [
+        5,
+        25
+      ],
+      "level60": [
+        5,
+        30
+      ],
+      "level70": [
+        5,
+        30
+      ],
+      "level80": [
+        5,
+        30
+      ],
+      "level90": [
+        5,
+        40
+      ],
+      "level100": [
+        5,
+        40
+      ],
+      "level110": [
+        5,
+        40
+      ]
+    },
+    "32": {
+      "position": 5,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "HpDrain",
+      "statid": 19,
+      "statnum": 4,
+      "attenuation": 5000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        2
+      ],
+      "level30": [
+        1,
+        3
+      ],
+      "level40": [
+        1,
+        4
+      ],
+      "level50": [
+        1,
+        5
+      ],
+      "level60": [
+        1,
+        5
+      ],
+      "level70": [
+        1,
+        5
+      ],
+      "level80": [
+        1,
+        5
+      ],
+      "level90": [
+        1,
+        8
+      ],
+      "level100": [
+        1,
+        8
+      ],
+      "level110": [
+        1,
+        8
+      ]
+    },
+    "33": {
+      "position": 5,
+      "min_level": 80,
+      "weight": 80,
+      "stat": "DamageReduction_p",
+      "statid": 18,
+      "statnum": 2,
+      "attenuation": 5000,
+      "level10": [
+        10,
+        100
+      ],
+      "level20": [
+        10,
+        100
+      ],
+      "level30": [
+        10,
+        100
+      ],
+      "level40": [
+        10,
+        100
+      ],
+      "level50": [
+        10,
+        100
+      ],
+      "level60": [
+        10,
+        100
+      ],
+      "level70": [
+        10,
+        100
+      ],
+      "level80": [
+        10,
+        100
+      ],
+      "level90": [
+        10,
+        150
+      ],
+      "level100": [
+        10,
+        150
+      ],
+      "level110": [
+        10,
+        150
+      ]
+    },
+    "34": {
+      "position": 6,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "atk",
+      "statid": 1,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "35": {
+      "position": 6,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "mag",
+      "statid": 3,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "36": {
+      "position": 6,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "spt",
+      "statid": 5,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "37": {
+      "position": 6,
+      "min_level": 1,
+      "weight": 500,
+      "stat": "DamageReduction",
+      "statid": 17,
+      "statnum": 4,
+      "attenuation": 5000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        3
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        1,
+        6
+      ],
+      "level50": [
+        1,
+        8
+      ],
+      "level60": [
+        1,
+        8
+      ],
+      "level70": [
+        3,
+        8
+      ],
+      "level80": [
+        3,
+        8
+      ],
+      "level90": [
+        3,
+        12
+      ],
+      "level100": [
+        3,
+        12
+      ],
+      "level110": [
+        3,
+        12
+      ]
+    },
+    "38": {
+      "position": 6,
+      "min_level": 1,
+      "weight": 500,
+      "stat": "equip_times",
+      "statid": 22,
+      "statnum": 4,
+      "attenuation": 5000,
+      "level10": [
+        50,
+        150
+      ],
+      "level20": [
+        50,
+        150
+      ],
+      "level30": [
+        50,
+        200
+      ],
+      "level40": [
+        50,
+        200
+      ],
+      "level50": [
+        50,
+        200
+      ],
+      "level60": [
+        50,
+        200
+      ],
+      "level70": [
+        50,
+        300
+      ],
+      "level80": [
+        50,
+        300
+      ],
+      "level90": [
+        50,
+        300
+      ],
+      "level100": [
+        50,
+        300
+      ],
+      "level110": [
+        50,
+        300
+      ]
+    },
+    "39": {
+      "position": 7,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "atk",
+      "statid": 1,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "40": {
+      "position": 7,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "mag",
+      "statid": 3,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "41": {
+      "position": 7,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "spt",
+      "statid": 5,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "42": {
+      "position": 7,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "BonusDamage",
+      "statid": 15,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        3
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        1,
+        6
+      ],
+      "level50": [
+        1,
+        7
+      ],
+      "level60": [
+        1,
+        8
+      ],
+      "level70": [
+        1,
+        9
+      ],
+      "level80": [
+        1,
+        10
+      ],
+      "level90": [
+        1,
+        15
+      ],
+      "level100": [
+        1,
+        15
+      ],
+      "level110": [
+        1,
+        15
+      ]
+    },
+    "43": {
+      "position": 7,
+      "min_level": 30,
+      "weight": 500,
+      "stat": "lucky",
+      "statid": 8,
+      "statnum": 4,
+      "attenuation": 5000,
+      "level10": [
+        1,
+        1
+      ],
+      "level20": [
+        1,
+        1
+      ],
+      "level30": [
+        1,
+        1
+      ],
+      "level40": [
+        1,
+        2
+      ],
+      "level50": [
+        1,
+        2
+      ],
+      "level60": [
+        1,
+        2
+      ],
+      "level70": [
+        1,
+        3
+      ],
+      "level80": [
+        1,
+        3
+      ],
+      "level90": [
+        1,
+        3
+      ],
+      "level100": [
+        1,
+        3
+      ],
+      "level110": [
+        1,
+        3
+      ]
+    },
+    "44": {
+      "position": 10,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "atk",
+      "statid": 1,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "45": {
+      "position": 10,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "mag",
+      "statid": 3,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "46": {
+      "position": 10,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "spt",
+      "statid": 5,
+      "statnum": 4,
+      "attenuation": 8000,
+      "level10": [
+        1,
+        2
+      ],
+      "level20": [
+        1,
+        4
+      ],
+      "level30": [
+        1,
+        5
+      ],
+      "level40": [
+        2,
+        6
+      ],
+      "level50": [
+        2,
+        6
+      ],
+      "level60": [
+        2,
+        8
+      ],
+      "level70": [
+        2,
+        8
+      ],
+      "level80": [
+        2,
+        10
+      ],
+      "level90": [
+        2,
+        15
+      ],
+      "level100": [
+        2,
+        15
+      ],
+      "level110": [
+        2,
+        20
+      ]
+    },
+    "47": {
+      "position": 10,
+      "min_level": 1,
+      "weight": 500,
+      "stat": "hp_p",
+      "statid": 11,
+      "statnum": 1,
+      "attenuation": 10000,
+      "level10": [
+        100,
+        200
+      ],
+      "level20": [
+        100,
+        300
+      ],
+      "level30": [
+        100,
+        400
+      ],
+      "level40": [
+        100,
+        500
+      ],
+      "level50": [
+        100,
+        600
+      ],
+      "level60": [
+        100,
+        600
+      ],
+      "level70": [
+        100,
+        600
+      ],
+      "level80": [
+        100,
+        600
+      ],
+      "level90": [
+        100,
+        600
+      ],
+      "level100": [
+        100,
+        600
+      ],
+      "level110": [
+        100,
+        600
+      ]
+    },
+    "48": {
+      "position": 10,
+      "min_level": 1,
+      "weight": 500,
+      "stat": "mp_p",
+      "statid": 13,
+      "statnum": 1,
+      "attenuation": 10000,
+      "level10": [
+        100,
+        200
+      ],
+      "level20": [
+        100,
+        300
+      ],
+      "level30": [
+        100,
+        400
+      ],
+      "level40": [
+        100,
+        500
+      ],
+      "level50": [
+        100,
+        600
+      ],
+      "level60": [
+        100,
+        600
+      ],
+      "level70": [
+        100,
+        600
+      ],
+      "level80": [
+        100,
+        600
+      ],
+      "level90": [
+        100,
+        600
+      ],
+      "level100": [
+        100,
+        600
+      ],
+      "level110": [
+        100,
+        600
+      ]
+    },
+    "49": {
+      "position": 10,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "hp",
+      "statid": 10,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        12
+      ],
+      "level20": [
+        10,
+        26
+      ],
+      "level30": [
+        20,
+        45
+      ],
+      "level40": [
+        40,
+        66
+      ],
+      "level50": [
+        60,
+        90
+      ],
+      "level60": [
+        80,
+        120
+      ],
+      "level70": [
+        100,
+        150
+      ],
+      "level80": [
+        140,
+        190
+      ],
+      "level90": [
+        150,
+        250
+      ],
+      "level100": [
+        150,
+        250
+      ],
+      "level110": [
+        150,
+        250
+      ]
+    },
+    "50": {
+      "position": 10,
+      "min_level": 1,
+      "weight": 1000,
+      "stat": "mp",
+      "statid": 12,
+      "statnum": 4,
+      "attenuation": 10000,
+      "level10": [
+        1,
+        6
+      ],
+      "level20": [
+        5,
+        13
+      ],
+      "level30": [
+        10,
+        25
+      ],
+      "level40": [
+        20,
+        35
+      ],
+      "level50": [
+        30,
+        45
+      ],
+      "level60": [
+        40,
+        60
+      ],
+      "level70": [
+        50,
+        75
+      ],
+      "level80": [
+        70,
+        100
+      ],
+      "level90": [
+        90,
+        120
+      ],
+      "level100": [
+        90,
+        120
+      ],
+      "level110": [
+        90,
+        120
+      ]
+    },
+    "51": {
+      "position": 10,
+      "min_level": 80,
+      "weight": 80,
+      "stat": "DamageReduction_p",
+      "statid": 18,
+      "statnum": 2,
+      "attenuation": 5000,
+      "level10": [
+        10,
+        100
+      ],
+      "level20": [
+        10,
+        100
+      ],
+      "level30": [
+        10,
+        100
+      ],
+      "level40": [
+        10,
+        100
+      ],
+      "level50": [
+        10,
+        100
+      ],
+      "level60": [
+        10,
+        100
+      ],
+      "level70": [
+        10,
+        100
+      ],
+      "level80": [
+        10,
+        100
+      ],
+      "level90": [
+        10,
+        150
+      ],
+      "level100": [
+        10,
+        150
+      ],
+      "level110": [
+        10,
+        150
+      ]
+    }
+  }
+}

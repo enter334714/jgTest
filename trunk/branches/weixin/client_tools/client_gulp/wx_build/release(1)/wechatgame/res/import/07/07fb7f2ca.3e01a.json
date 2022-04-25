@@ -1,0 +1,187 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "btn_jiasu_05",
+      "texture": "1f78d9ee0",
+      "rect": [
+        397,
+        39,
+        58,
+        40
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        58,
+        40
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "btn_jiasu_03",
+      "texture": "1f78d9ee0",
+      "rect": [
+        599,
+        43,
+        58,
+        40
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        58,
+        40
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "btn_jiasu_02",
+      "texture": "1f78d9ee0",
+      "rect": [
+        663,
+        43,
+        58,
+        40
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        58,
+        40
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "btn_jiasu_01_06",
+      "texture": "1f78d9ee0",
+      "rect": [
+        727,
+        43,
+        58,
+        40
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        58,
+        40
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "btn_jiasu_04",
+      "texture": "1f78d9ee0",
+      "rect": [
+        791,
+        43,
+        58,
+        40
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        58,
+        40
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "bossspeedup",
+    "_duration": 0.85,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "95wZlVurJMF5eQ82fM/GMw"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "75AHg6iNJJ/K77pHxR5WIe"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "67/J06ZpRB9JuFrbFx2LAj"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "abY3rGL55NJI++SZTB1VGj"
+              }
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": {
+                "__uuid__": "0fvtEqQOhEjrGgnG1O/h0C"
+              }
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": {
+                "__uuid__": "95wZlVurJMF5eQ82fM/GMw"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_waiguan_liaotiankuang_jianchibuxie",
+    "texture": "72060vG0hN85rWWhRXjHX/",
+    "rect": [
+      0,
+      8,
+      178,
+      67
+    ],
+    "offset": [
+      -4,
+      -1
+    ],
+    "originalSize": [
+      186,
+      81
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

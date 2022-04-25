@@ -1,1 +1,2 @@
-var Z=wx.$L;import"LLLMAIN.js";
+var Z = wx.$L;
+import 'LLLMAIN.js';

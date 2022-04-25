@@ -1,0 +1,181 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "activityShop",
+  "json": {
+    "1": {
+      "city": 4,
+      "item_id": "I7116",
+      "maxnum": 1,
+      "unit_price": 15000,
+      "name": "牛运当头"
+    },
+    "2": {
+      "city": 4,
+      "item_id": "I3920",
+      "maxnum": 200,
+      "unit_price": 40,
+      "name": "宝石朱粒"
+    },
+    "3": {
+      "city": 4,
+      "item_id": "I3921",
+      "maxnum": 200,
+      "unit_price": 80,
+      "name": "宝石结晶"
+    },
+    "4": {
+      "city": 4,
+      "item_id": "I3922",
+      "maxnum": 200,
+      "unit_price": 80,
+      "name": "宝石精华"
+    },
+    "5": {
+      "city": 4,
+      "item_id": "I3005",
+      "maxnum": 99999,
+      "unit_price": 1,
+      "name": "碎金块"
+    },
+    "6": {
+      "city": 4,
+      "item_id": "I4001",
+      "maxnum": 99999,
+      "unit_price": 3,
+      "name": "书页"
+    },
+    "7": {
+      "city": 4,
+      "item_id": "I3001",
+      "maxnum": 9999,
+      "unit_price": 6,
+      "name": "洗练石"
+    },
+    "8": {
+      "city": 4,
+      "item_id": "I3903",
+      "maxnum": 9999,
+      "unit_price": 6,
+      "name": "淬炼石"
+    },
+    "9": {
+      "city": 4,
+      "item_id": "I3905",
+      "maxnum": 200,
+      "unit_price": 16,
+      "name": "神兵陨铁"
+    },
+    "10": {
+      "city": 4,
+      "item_id": "I3906",
+      "maxnum": 50,
+      "unit_price": 90,
+      "name": "神兵精华"
+    },
+    "11": {
+      "city": 4,
+      "item_id": "I3907",
+      "maxnum": 200,
+      "unit_price": 20,
+      "name": "命运陨铁"
+    },
+    "12": {
+      "city": 4,
+      "item_id": "I3908",
+      "maxnum": 50,
+      "unit_price": 180,
+      "name": "命运结晶"
+    },
+    "13": {
+      "city": 4,
+      "item_id": "I3916",
+      "maxnum": 200,
+      "unit_price": 20,
+      "name": "镇魂石"
+    },
+    "14": {
+      "city": 4,
+      "item_id": "I3917",
+      "maxnum": 50,
+      "unit_price": 180,
+      "name": "摄魂晶"
+    },
+    "15": {
+      "city": 4,
+      "item_id": "I3133",
+      "maxnum": 40,
+      "unit_price": 150,
+      "name": "时之璎珞"
+    },
+    "16": {
+      "city": 4,
+      "item_id": "I3131",
+      "maxnum": 40,
+      "unit_price": 100,
+      "name": "时之沙粒"
+    },
+    "17": {
+      "city": 4,
+      "item_id": "I3104",
+      "maxnum": 5,
+      "unit_price": 300,
+      "name": "聚灵珠（大）"
+    },
+    "18": {
+      "city": 4,
+      "item_id": "I8010",
+      "maxnum": 1,
+      "unit_price": 2400,
+      "name": "十"
+    },
+    "19": {
+      "city": 4,
+      "item_id": "I8000",
+      "maxnum": 200,
+      "unit_price": 80,
+      "name": "零"
+    },
+    "20": {
+      "city": 4,
+      "item_id": "B1002",
+      "maxnum": 100,
+      "unit_price": 80,
+      "name": "强化晶石"
+    },
+    "21": {
+      "city": 4,
+      "item_id": "B1003",
+      "maxnum": 20,
+      "unit_price": 320,
+      "name": "突破晶石"
+    },
+    "22": {
+      "city": 4,
+      "item_id": "B1004",
+      "maxnum": 10,
+      "unit_price": 480,
+      "name": "精炼晶石"
+    },
+    "23": {
+      "city": 4,
+      "item_id": "B1005",
+      "maxnum": 10,
+      "unit_price": 1000,
+      "name": "升星光印"
+    },
+    "24": {
+      "city": 4,
+      "item_id": "B1006",
+      "maxnum": 5,
+      "unit_price": 2000,
+      "name": "进阶光印"
+    },
+    "25": {
+      "city": 4,
+      "item_id": "I3154",
+      "maxnum": 50,
+      "unit_price": 200,
+      "name": "星辰沙"
+    }
+  }
+}

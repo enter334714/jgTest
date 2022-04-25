@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "picframe_shirupozhu_58",
+    "texture": "4eFQoAOhlBAJar/5PIoa43",
+    "rect": [
+      36,
+      13,
+      132,
+      50
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      204,
+      74
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+[
+  {
+    "__type__": "cc.BitmapFont",
+    "_name": "fuwen2",
+    "spriteFrame": {
+      "__uuid__": "21UxcdwJ5PjJVbCmzwYFMj"
+    },
+    "fontSize": 32,
+    "_fntConfig": {
+      "commonHeight": 32,
+      "fontSize": 32,
+      "atlasName": "fuwen2_0.png",
+      "fontDefDictionary": {
+        "36": {
+          "rect": {
+            "x": 225,
+            "y": 0,
+            "width": 24,
+            "height": 16
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "49": {
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 24,
+            "height": 16
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "50": {
+          "rect": {
+            "x": 25,
+            "y": 0,
+            "width": 24,
+            "height": 16
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "51": {
+          "rect": {
+            "x": 50,
+            "y": 0,
+            "width": 24,
+            "height": 16
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "52": {
+          "rect": {
+            "x": 75,
+            "y": 0,
+            "width": 24,
+            "height": 16
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "53": {
+          "rect": {
+            "x": 100,
+            "y": 0,
+            "width": 24,
+            "height": 16
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "54": {
+          "rect": {
+            "x": 125,
+            "y": 0,
+            "width": 24,
+            "height": 16
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "55": {
+          "rect": {
+            "x": 150,
+            "y": 0,
+            "width": 24,
+            "height": 16
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "56": {
+          "rect": {
+            "x": 175,
+            "y": 0,
+            "width": 24,
+            "height": 16
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "57": {
+          "rect": {
+            "x": 200,
+            "y": 0,
+            "width": 24,
+            "height": 16
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        }
+      },
+      "kerningDict": {}
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "fuwen2_0",
+      "texture": "faw+kid7JGn47MqBttAOiE",
+      "rect": [
+        0,
+        0,
+        248,
+        16
+      ],
+      "offset": [
+        -4,
+        120
+      ],
+      "originalSize": [
+        256,
+        256
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

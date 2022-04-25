@@ -1,0 +1,24 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "ElkRun",
+  "json": {
+    "1": {
+      "length": 10000,
+      "speed": 100,
+      "buff": {
+        "I9130": 1
+      },
+      "buffvalue": [
+        10,
+        100
+      ],
+      "debuff": {
+        "I9131": 1
+      },
+      "debuffvalue": [
+        -10,
+        100
+      ]
+    }
+  }
+}

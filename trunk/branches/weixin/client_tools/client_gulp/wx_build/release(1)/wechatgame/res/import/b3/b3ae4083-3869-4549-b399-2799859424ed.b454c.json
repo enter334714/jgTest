@@ -1,0 +1,522 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "yaoShopConfig",
+  "json": {
+    "1": {
+      "city": 1,
+      "item_id": "I1001",
+      "unit_price": 3,
+      "name": "微型金疮药"
+    },
+    "2": {
+      "city": 1,
+      "item_id": "I2001",
+      "unit_price": 3,
+      "name": "微型法力药"
+    },
+    "3": {
+      "city": 3,
+      "item_id": "I1001",
+      "unit_price": 3,
+      "name": "微型金疮药"
+    },
+    "4": {
+      "city": 3,
+      "item_id": "I1002",
+      "unit_price": 8,
+      "name": "小瓶金疮药"
+    },
+    "5": {
+      "city": 3,
+      "item_id": "I1003",
+      "unit_price": 18,
+      "name": "中瓶金疮药"
+    },
+    "6": {
+      "city": 3,
+      "item_id": "I1004",
+      "unit_price": 40,
+      "name": "大瓶金疮药"
+    },
+    "7": {
+      "city": 3,
+      "item_id": "I2001",
+      "unit_price": 3,
+      "name": "微型法力药"
+    },
+    "8": {
+      "city": 3,
+      "item_id": "I2002",
+      "unit_price": 8,
+      "name": "小瓶法力药"
+    },
+    "9": {
+      "city": 3,
+      "item_id": "I2003",
+      "unit_price": 18,
+      "name": "中瓶法力药"
+    },
+    "10": {
+      "city": 3,
+      "item_id": "I2004",
+      "unit_price": 40,
+      "name": "大瓶法力药"
+    },
+    "11": {
+      "city": 22,
+      "item_id": "I1003",
+      "unit_price": 18,
+      "name": "中瓶金疮药"
+    },
+    "12": {
+      "city": 22,
+      "item_id": "I1004",
+      "unit_price": 40,
+      "name": "大瓶金疮药"
+    },
+    "13": {
+      "city": 22,
+      "item_id": "I1005",
+      "unit_price": 90,
+      "name": "超级金疮药"
+    },
+    "14": {
+      "city": 22,
+      "item_id": "I1006",
+      "unit_price": 180,
+      "name": "特级金疮药"
+    },
+    "15": {
+      "city": 22,
+      "item_id": "I2003",
+      "unit_price": 18,
+      "name": "中瓶法力药"
+    },
+    "16": {
+      "city": 22,
+      "item_id": "I2004",
+      "unit_price": 40,
+      "name": "大瓶法力药"
+    },
+    "17": {
+      "city": 22,
+      "item_id": "I2005",
+      "unit_price": 90,
+      "name": "超级法力药"
+    },
+    "18": {
+      "city": 22,
+      "item_id": "I2006",
+      "unit_price": 180,
+      "name": "特级法力药"
+    },
+    "19": {
+      "city": 23,
+      "item_id": "I1003",
+      "unit_price": 18,
+      "name": "中瓶金疮药"
+    },
+    "20": {
+      "city": 23,
+      "item_id": "I1004",
+      "unit_price": 40,
+      "name": "大瓶金疮药"
+    },
+    "21": {
+      "city": 23,
+      "item_id": "I1005",
+      "unit_price": 90,
+      "name": "超级金疮药"
+    },
+    "22": {
+      "city": 23,
+      "item_id": "I1006",
+      "unit_price": 180,
+      "name": "特级金疮药"
+    },
+    "23": {
+      "city": 23,
+      "item_id": "I2003",
+      "unit_price": 18,
+      "name": "中瓶法力药"
+    },
+    "24": {
+      "city": 23,
+      "item_id": "I2004",
+      "unit_price": 40,
+      "name": "大瓶法力药"
+    },
+    "25": {
+      "city": 23,
+      "item_id": "I2005",
+      "unit_price": 90,
+      "name": "超级法力药"
+    },
+    "26": {
+      "city": 23,
+      "item_id": "I2006",
+      "unit_price": 180,
+      "name": "特级法力药"
+    },
+    "27": {
+      "city": 53,
+      "item_id": "I1003",
+      "unit_price": 18,
+      "name": "中瓶金疮药"
+    },
+    "28": {
+      "city": 53,
+      "item_id": "I1004",
+      "unit_price": 40,
+      "name": "大瓶金疮药"
+    },
+    "29": {
+      "city": 53,
+      "item_id": "I1005",
+      "unit_price": 90,
+      "name": "超级金疮药"
+    },
+    "30": {
+      "city": 53,
+      "item_id": "I1006",
+      "unit_price": 180,
+      "name": "特级金疮药"
+    },
+    "31": {
+      "city": 53,
+      "item_id": "I2003",
+      "unit_price": 18,
+      "name": "中瓶法力药"
+    },
+    "32": {
+      "city": 53,
+      "item_id": "I2004",
+      "unit_price": 40,
+      "name": "大瓶法力药"
+    },
+    "33": {
+      "city": 53,
+      "item_id": "I2005",
+      "unit_price": 90,
+      "name": "超级法力药"
+    },
+    "34": {
+      "city": 53,
+      "item_id": "I2006",
+      "unit_price": 180,
+      "name": "特级法力药"
+    },
+    "35": {
+      "city": 1001,
+      "item_id": "I1003",
+      "unit_price": 18,
+      "name": "中瓶金疮药"
+    },
+    "36": {
+      "city": 1001,
+      "item_id": "I1004",
+      "unit_price": 40,
+      "name": "大瓶金疮药"
+    },
+    "37": {
+      "city": 1001,
+      "item_id": "I1005",
+      "unit_price": 90,
+      "name": "超级金疮药"
+    },
+    "38": {
+      "city": 1001,
+      "item_id": "I1006",
+      "unit_price": 180,
+      "name": "特级金疮药"
+    },
+    "39": {
+      "city": 1001,
+      "item_id": "I2003",
+      "unit_price": 18,
+      "name": "中瓶法力药"
+    },
+    "40": {
+      "city": 1001,
+      "item_id": "I2004",
+      "unit_price": 40,
+      "name": "大瓶法力药"
+    },
+    "41": {
+      "city": 1001,
+      "item_id": "I2005",
+      "unit_price": 90,
+      "name": "超级法力药"
+    },
+    "42": {
+      "city": 1001,
+      "item_id": "I2006",
+      "unit_price": 180,
+      "name": "特级法力药"
+    },
+    "43": {
+      "city": 1003,
+      "item_id": "I1003",
+      "unit_price": 18,
+      "name": "中瓶金疮药"
+    },
+    "44": {
+      "city": 1003,
+      "item_id": "I1004",
+      "unit_price": 40,
+      "name": "大瓶金疮药"
+    },
+    "45": {
+      "city": 1003,
+      "item_id": "I1005",
+      "unit_price": 90,
+      "name": "超级金疮药"
+    },
+    "46": {
+      "city": 1003,
+      "item_id": "I1006",
+      "unit_price": 180,
+      "name": "特级金疮药"
+    },
+    "47": {
+      "city": 1003,
+      "item_id": "I2003",
+      "unit_price": 18,
+      "name": "中瓶法力药"
+    },
+    "48": {
+      "city": 1003,
+      "item_id": "I2004",
+      "unit_price": 40,
+      "name": "大瓶法力药"
+    },
+    "49": {
+      "city": 1003,
+      "item_id": "I2005",
+      "unit_price": 90,
+      "name": "超级法力药"
+    },
+    "50": {
+      "city": 1003,
+      "item_id": "I2006",
+      "unit_price": 180,
+      "name": "特级法力药"
+    },
+    "51": {
+      "city": 1022,
+      "item_id": "I1003",
+      "unit_price": 18,
+      "name": "中瓶金疮药"
+    },
+    "52": {
+      "city": 1022,
+      "item_id": "I1004",
+      "unit_price": 40,
+      "name": "大瓶金疮药"
+    },
+    "53": {
+      "city": 1022,
+      "item_id": "I1005",
+      "unit_price": 90,
+      "name": "超级金疮药"
+    },
+    "54": {
+      "city": 1022,
+      "item_id": "I1006",
+      "unit_price": 180,
+      "name": "特级金疮药"
+    },
+    "55": {
+      "city": 1022,
+      "item_id": "I2003",
+      "unit_price": 18,
+      "name": "中瓶法力药"
+    },
+    "56": {
+      "city": 1022,
+      "item_id": "I2004",
+      "unit_price": 40,
+      "name": "大瓶法力药"
+    },
+    "57": {
+      "city": 1022,
+      "item_id": "I2005",
+      "unit_price": 90,
+      "name": "超级法力药"
+    },
+    "58": {
+      "city": 1022,
+      "item_id": "I2006",
+      "unit_price": 180,
+      "name": "特级法力药"
+    },
+    "59": {
+      "city": 1023,
+      "item_id": "I1003",
+      "unit_price": 18,
+      "name": "中瓶金疮药"
+    },
+    "60": {
+      "city": 1023,
+      "item_id": "I1004",
+      "unit_price": 40,
+      "name": "大瓶金疮药"
+    },
+    "61": {
+      "city": 1023,
+      "item_id": "I1005",
+      "unit_price": 90,
+      "name": "超级金疮药"
+    },
+    "62": {
+      "city": 1023,
+      "item_id": "I1006",
+      "unit_price": 180,
+      "name": "特级金疮药"
+    },
+    "63": {
+      "city": 1023,
+      "item_id": "I2003",
+      "unit_price": 18,
+      "name": "中瓶法力药"
+    },
+    "64": {
+      "city": 1023,
+      "item_id": "I2004",
+      "unit_price": 40,
+      "name": "大瓶法力药"
+    },
+    "65": {
+      "city": 1023,
+      "item_id": "I2005",
+      "unit_price": 90,
+      "name": "超级法力药"
+    },
+    "66": {
+      "city": 1023,
+      "item_id": "I2006",
+      "unit_price": 180,
+      "name": "特级法力药"
+    },
+    "67": {
+      "city": 1053,
+      "item_id": "I1003",
+      "unit_price": 18,
+      "name": "中瓶金疮药"
+    },
+    "68": {
+      "city": 1053,
+      "item_id": "I1004",
+      "unit_price": 40,
+      "name": "大瓶金疮药"
+    },
+    "69": {
+      "city": 1053,
+      "item_id": "I1005",
+      "unit_price": 90,
+      "name": "超级金疮药"
+    },
+    "70": {
+      "city": 1053,
+      "item_id": "I1006",
+      "unit_price": 180,
+      "name": "特级金疮药"
+    },
+    "71": {
+      "city": 1053,
+      "item_id": "I2003",
+      "unit_price": 18,
+      "name": "中瓶法力药"
+    },
+    "72": {
+      "city": 1053,
+      "item_id": "I2004",
+      "unit_price": 40,
+      "name": "大瓶法力药"
+    },
+    "73": {
+      "city": 1053,
+      "item_id": "I2005",
+      "unit_price": 90,
+      "name": "超级法力药"
+    },
+    "74": {
+      "city": 1053,
+      "item_id": "I2006",
+      "unit_price": 180,
+      "name": "特级法力药"
+    },
+    "75": {
+      "city": 61,
+      "item_id": "I1004",
+      "unit_price": 40,
+      "name": "大瓶金疮药"
+    },
+    "76": {
+      "city": 61,
+      "item_id": "I1005",
+      "unit_price": 90,
+      "name": "超级金疮药"
+    },
+    "77": {
+      "city": 61,
+      "item_id": "I1006",
+      "unit_price": 180,
+      "name": "特级金疮药"
+    },
+    "78": {
+      "city": 61,
+      "item_id": "I2004",
+      "unit_price": 40,
+      "name": "大瓶法力药"
+    },
+    "79": {
+      "city": 61,
+      "item_id": "I2005",
+      "unit_price": 90,
+      "name": "超级法力药"
+    },
+    "80": {
+      "city": 61,
+      "item_id": "I2006",
+      "unit_price": 180,
+      "name": "特级法力药"
+    },
+    "81": {
+      "city": 1061,
+      "item_id": "I1004",
+      "unit_price": 40,
+      "name": "大瓶金疮药"
+    },
+    "82": {
+      "city": 1061,
+      "item_id": "I1005",
+      "unit_price": 90,
+      "name": "超级金疮药"
+    },
+    "83": {
+      "city": 1061,
+      "item_id": "I1006",
+      "unit_price": 180,
+      "name": "特级金疮药"
+    },
+    "84": {
+      "city": 1061,
+      "item_id": "I2004",
+      "unit_price": 40,
+      "name": "大瓶法力药"
+    },
+    "85": {
+      "city": 1061,
+      "item_id": "I2005",
+      "unit_price": 90,
+      "name": "超级法力药"
+    },
+    "86": {
+      "city": 1061,
+      "item_id": "I2006",
+      "unit_price": 180,
+      "name": "特级法力药"
+    }
+  }
+}

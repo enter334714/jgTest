@@ -1,0 +1,97 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "GuildfightTimeConfig",
+  "json": {
+    "1": {
+      "text": "周一行会入围报名",
+      "week": 1,
+      "type": 1,
+      "start_time": 0,
+      "duration_time": 86400
+    },
+    "2": {
+      "text": "周二行会成员报名",
+      "week": 1,
+      "type": 2,
+      "start_time": 86400,
+      "duration_time": 86400
+    },
+    "3": {
+      "text": "周三备战",
+      "week": 2,
+      "type": 3,
+      "start_time": 172800,
+      "duration_time": 72000
+    },
+    "4": {
+      "text": "周三开战20-20:30",
+      "week": 2,
+      "type": 4,
+      "start_time": 244800,
+      "duration_time": 1800
+    },
+    "5": {
+      "text": "周三休息",
+      "week": 2,
+      "type": 5,
+      "start_time": 246600,
+      "duration_time": 12600
+    },
+    "6": {
+      "text": "周四-周五备战",
+      "week": 3,
+      "type": 3,
+      "start_time": 259200,
+      "duration_time": 158400
+    },
+    "7": {
+      "text": "周五开战20-20:30",
+      "week": 3,
+      "type": 4,
+      "start_time": 417600,
+      "duration_time": 1800
+    },
+    "8": {
+      "text": "周五休息",
+      "week": 3,
+      "type": 5,
+      "start_time": 419400,
+      "duration_time": 12600
+    },
+    "9": {
+      "text": "周六-周日备战",
+      "week": 4,
+      "type": 3,
+      "start_time": 432000,
+      "duration_time": 158400
+    },
+    "10": {
+      "text": "周日开战20-20:30",
+      "week": 4,
+      "type": 4,
+      "start_time": 590400,
+      "duration_time": 1800
+    },
+    "11": {
+      "text": "周日休息",
+      "week": 4,
+      "type": 5,
+      "start_time": 592200,
+      "duration_time": 12600
+    },
+    "12": {
+      "text": "第二周展示",
+      "week": 5,
+      "type": 6,
+      "start_time": 604800,
+      "duration_time": 604800
+    },
+    "13": {
+      "text": "第三周展示",
+      "week": 6,
+      "type": 6,
+      "start_time": 1209600,
+      "duration_time": 604800
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "growFundConfig",
+  "json": {
+    "1": {
+      "level": 10,
+      "resource1": {
+        "2": 50
+      },
+      "resource2": {
+        "2": 200
+      }
+    },
+    "2": {
+      "level": 20,
+      "resource1": {
+        "2": 50
+      },
+      "resource2": {
+        "2": 200
+      }
+    },
+    "3": {
+      "level": 30,
+      "resource1": {
+        "2": 50
+      },
+      "resource2": {
+        "2": 200
+      }
+    },
+    "4": {
+      "level": 40,
+      "resource1": {
+        "2": 50
+      },
+      "resource2": {
+        "2": 200
+      }
+    },
+    "5": {
+      "level": 50,
+      "resource1": {
+        "2": 100
+      },
+      "resource2": {
+        "2": 800
+      }
+    },
+    "6": {
+      "level": 55,
+      "resource1": {
+        "2": 100
+      },
+      "resource2": {
+        "2": 800
+      }
+    },
+    "7": {
+      "level": 60,
+      "resource1": {
+        "2": 100
+      },
+      "resource2": {
+        "2": 800
+      }
+    },
+    "8": {
+      "level": 65,
+      "resource1": {
+        "2": 100
+      },
+      "resource2": {
+        "2": 800
+      }
+    },
+    "9": {
+      "level": 70,
+      "resource1": {
+        "2": 100
+      },
+      "resource2": {
+        "2": 2000
+      }
+    },
+    "10": {
+      "level": 75,
+      "resource1": {
+        "2": 200
+      },
+      "resource2": {
+        "2": 2000
+      }
+    },
+    "11": {
+      "level": 80,
+      "resource1": {
+        "2": 200
+      },
+      "resource2": {
+        "2": 2000
+      }
+    },
+    "12": {
+      "level": 85,
+      "resource1": {
+        "2": 200
+      },
+      "resource2": {
+        "2": 2000
+      }
+    },
+    "13": {
+      "level": 90,
+      "resource1": {
+        "2": 200
+      },
+      "resource2": {
+        "2": 2000
+      }
+    },
+    "14": {
+      "level": 95,
+      "resource1": {
+        "2": 200
+      },
+      "resource2": {
+        "2": 2000
+      }
+    }
+  }
+}

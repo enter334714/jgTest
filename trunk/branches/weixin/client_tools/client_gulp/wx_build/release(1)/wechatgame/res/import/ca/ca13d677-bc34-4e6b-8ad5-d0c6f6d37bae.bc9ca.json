@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_star_level_02",
+    "texture": "052W/xIuZLi4sQD9OFQXTW",
+    "rect": [
+      3,
+      4,
+      17,
+      12
+    ],
+    "offset": [
+      1,
+      0.5
+    ],
+    "originalSize": [
+      21,
+      21
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

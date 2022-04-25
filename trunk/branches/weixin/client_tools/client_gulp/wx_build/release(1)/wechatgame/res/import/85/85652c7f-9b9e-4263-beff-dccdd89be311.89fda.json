@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_icon_huoqiang_01",
+    "texture": "c580H+iPdNnKxueO1rl9Jo",
+    "rect": [
+      1,
+      17,
+      75,
+      46
+    ],
+    "offset": [
+      -1.5,
+      0
+    ],
+    "originalSize": [
+      80,
+      80
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

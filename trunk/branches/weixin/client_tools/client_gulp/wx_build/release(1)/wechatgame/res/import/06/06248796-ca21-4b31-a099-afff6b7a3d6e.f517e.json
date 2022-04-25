@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ditu11_button_fengshajiaozhu01",
+    "texture": "0e11pLN3ZL0LbQrvPYQ0Sy",
+    "rect": [
+      0,
+      0,
+      160,
+      49
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      160,
+      49
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

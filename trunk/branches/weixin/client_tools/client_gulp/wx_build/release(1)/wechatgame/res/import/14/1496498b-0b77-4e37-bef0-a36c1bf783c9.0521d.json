@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_shachengzhengba_icon_juncheng_1",
+    "texture": "4fAMptOQxOw4SRfcm+MHan",
+    "rect": [
+      0,
+      0,
+      138,
+      358
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      138,
+      358
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

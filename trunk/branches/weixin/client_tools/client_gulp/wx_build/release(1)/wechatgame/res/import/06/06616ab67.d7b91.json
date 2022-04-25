@@ -1,0 +1,378 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_02",
+      "texture": "43O2/4TXFFDoFYXi+v4RMw",
+      "rect": [
+        36,
+        6,
+        199,
+        227
+      ],
+      "offset": [
+        18,
+        -1
+      ],
+      "originalSize": [
+        235,
+        237
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_10",
+      "texture": "7eEdvKRhVCRo6V5wz8pZfo",
+      "rect": [
+        4,
+        47,
+        63,
+        164
+      ],
+      "offset": [
+        -82,
+        -10.5
+      ],
+      "originalSize": [
+        235,
+        237
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_05",
+      "texture": "e6lPNkZdNFSI5FLet2k78x",
+      "rect": [
+        4,
+        0,
+        229,
+        184
+      ],
+      "offset": [
+        1,
+        26.5
+      ],
+      "originalSize": [
+        235,
+        237
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_03",
+      "texture": "ac/B83jE1PzZVZklmx4ee/",
+      "rect": [
+        36,
+        6,
+        199,
+        227
+      ],
+      "offset": [
+        18,
+        -1
+      ],
+      "originalSize": [
+        235,
+        237
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_07",
+      "texture": "53bxCuPdxOIJMB9W0PmSIC",
+      "rect": [
+        0,
+        6,
+        215,
+        197
+      ],
+      "offset": [
+        -10,
+        14
+      ],
+      "originalSize": [
+        235,
+        237
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "banyuewandao3-1",
+    "_duration": 0.4166666666666667,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "bar0BFrjBJxaYkTPnZgSod"
+              }
+            },
+            {
+              "frame": 0.06666666666666667,
+              "value": {
+                "__uuid__": "1a0dhgEedBZ5HiVJfl37ic"
+              }
+            },
+            {
+              "frame": 0.13333333333333333,
+              "value": {
+                "__uuid__": "2arZ06m51GhY59UCuZOjhW"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "f2HUsPHz5GLaC7xuMsQ+Hd"
+              }
+            },
+            {
+              "frame": 0.2,
+              "value": {
+                "__uuid__": "2aNlMnGMhPZpovST5pvt0P"
+              }
+            },
+            {
+              "frame": 0.23333333333333334,
+              "value": {
+                "__uuid__": "fc14x8sLZOx4q4Tz1M4lQJ"
+              }
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": {
+                "__uuid__": "5aWkvfkxVJWrffUYfJLeux"
+              }
+            },
+            {
+              "frame": 0.3,
+              "value": {
+                "__uuid__": "67Kiu6ZuJB1YC1TAsoL6sG"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "85ux+0jv5EabEc3O0TLIxx"
+              }
+            },
+            {
+              "frame": 0.36666666666666664,
+              "value": {
+                "__uuid__": "26aphyBsNDUKE/ajMMOB0G"
+              }
+            },
+            {
+              "frame": 0.4,
+              "value": {
+                "__uuid__": "8aDUfLrXZODqxfe+EHjTXw"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_08",
+      "texture": "92I59usXhPKpA4rI9pO1zq",
+      "rect": [
+        2,
+        6,
+        213,
+        197
+      ],
+      "offset": [
+        -9,
+        14
+      ],
+      "originalSize": [
+        235,
+        237
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_09",
+      "texture": "86tUO2HDxEg6fg1RcjEqCg",
+      "rect": [
+        2,
+        24,
+        122,
+        179
+      ],
+      "offset": [
+        -54.5,
+        5
+      ],
+      "originalSize": [
+        235,
+        237
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_11",
+      "texture": "c86MMo4QpOq4UkCNz88D3s",
+      "rect": [
+        4,
+        47,
+        63,
+        164
+      ],
+      "offset": [
+        -82,
+        -10.5
+      ],
+      "originalSize": [
+        235,
+        237
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_01",
+      "texture": "56w25Gnb1Jr7kRw/A46vjo",
+      "rect": [
+        141,
+        186,
+        53,
+        51
+      ],
+      "offset": [
+        50,
+        -93
+      ],
+      "originalSize": [
+        235,
+        237
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_04",
+      "texture": "f4c6S1XqRKXKWoUawqIuJe",
+      "rect": [
+        4,
+        6,
+        229,
+        178
+      ],
+      "offset": [
+        1,
+        23.5
+      ],
+      "originalSize": [
+        235,
+        237
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "banyuedaoguang_06",
+      "texture": "5auH9a+cVHRIH7NDqaoFkN",
+      "rect": [
+        0,
+        0,
+        233,
+        184
+      ],
+      "offset": [
+        -1,
+        26.5
+      ],
+      "originalSize": [
+        235,
+        237
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

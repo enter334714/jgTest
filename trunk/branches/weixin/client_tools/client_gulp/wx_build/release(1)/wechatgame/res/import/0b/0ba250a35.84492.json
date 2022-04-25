@@ -1,0 +1,264 @@
+[
+  {
+    "__type__": "cc.BitmapFont",
+    "_name": "font_clip_pk",
+    "spriteFrame": {
+      "__uuid__": "efqod+7XBIZ63Ccx08tl5f"
+    },
+    "fontSize": 32,
+    "_fntConfig": {
+      "commonHeight": 32,
+      "fontSize": 32,
+      "atlasName": "font_clip_pk_0.png",
+      "fontDefDictionary": {
+        "49": {
+          "rect": {
+            "x": 322,
+            "y": 0,
+            "width": 80,
+            "height": 99
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 80
+        },
+        "50": {
+          "rect": {
+            "x": 403,
+            "y": 0,
+            "width": 80,
+            "height": 99
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 80
+        },
+        "51": {
+          "rect": {
+            "x": 0,
+            "y": 154,
+            "width": 80,
+            "height": 99
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 80
+        },
+        "102": {
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 160,
+            "height": 153
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 160
+        },
+        "115": {
+          "rect": {
+            "x": 81,
+            "y": 154,
+            "width": 208,
+            "height": 96
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 208
+        },
+        "119": {
+          "rect": {
+            "x": 161,
+            "y": 0,
+            "width": 160,
+            "height": 153
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 160
+        }
+      },
+      "kerningDict": {}
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "fontclip_timeDown_0",
+      "texture": "5fQ2cK6CZIWpZnp5SZ0v42",
+      "rect": [
+        1,
+        0,
+        247,
+        28
+      ],
+      "offset": [
+        -3.5,
+        114
+      ],
+      "originalSize": [
+        256,
+        256
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.BitmapFont",
+    "_name": "fontclip_timeDown",
+    "spriteFrame": {
+      "__uuid__": "95Ser5vxNK+Jra8B2rL7vd"
+    },
+    "fontSize": 32,
+    "_fntConfig": {
+      "commonHeight": 32,
+      "fontSize": 32,
+      "atlasName": "fontclip_timeDown_0.png",
+      "fontDefDictionary": {
+        "48": {
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 24,
+            "height": 28
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "49": {
+          "rect": {
+            "x": 25,
+            "y": 0,
+            "width": 24,
+            "height": 28
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "50": {
+          "rect": {
+            "x": 50,
+            "y": 0,
+            "width": 24,
+            "height": 28
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "51": {
+          "rect": {
+            "x": 75,
+            "y": 0,
+            "width": 24,
+            "height": 28
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "52": {
+          "rect": {
+            "x": 100,
+            "y": 0,
+            "width": 24,
+            "height": 28
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "53": {
+          "rect": {
+            "x": 125,
+            "y": 0,
+            "width": 24,
+            "height": 28
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "54": {
+          "rect": {
+            "x": 150,
+            "y": 0,
+            "width": 24,
+            "height": 28
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "55": {
+          "rect": {
+            "x": 175,
+            "y": 0,
+            "width": 24,
+            "height": 28
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "56": {
+          "rect": {
+            "x": 200,
+            "y": 0,
+            "width": 24,
+            "height": 28
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        },
+        "57": {
+          "rect": {
+            "x": 225,
+            "y": 0,
+            "width": 24,
+            "height": 28
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 24
+        }
+      },
+      "kerningDict": {}
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "font_clip_pk_0",
+      "texture": "60XIaWQxZP35sxQew8KwQV",
+      "rect": [
+        0,
+        0,
+        483,
+        251
+      ],
+      "offset": [
+        -14.5,
+        130.5
+      ],
+      "originalSize": [
+        512,
+        512
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

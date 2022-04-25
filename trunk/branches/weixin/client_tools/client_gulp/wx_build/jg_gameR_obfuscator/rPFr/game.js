@@ -1,1 +1,1 @@
-var I=wx.$X;require("rBFrr.js"),window.protobuf[I[22319]][I[22320]]=null,window.client_pb=require("rCLIENTPrr.js"),window.protobufRoot=window.protobuf[I[17021]].fromJSON(client_pb);
+var I=wx.$X;require("rBFrr.js"),window[I[36200]][I[36201]][I[36202]]=null,window.client_pb=require("rCLIENTPrr.js"),window[I[32568]]=window[I[36200]][I[32496]][I[32497]](client_pb);

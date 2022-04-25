@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_icon_liehuojianfa_03",
+    "texture": "c094tHyx1Ho6krFyqcaC8e",
+    "rect": [
+      3,
+      5,
+      73,
+      64
+    ],
+    "offset": [
+      -0.5,
+      3
+    ],
+    "originalSize": [
+      80,
+      80
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

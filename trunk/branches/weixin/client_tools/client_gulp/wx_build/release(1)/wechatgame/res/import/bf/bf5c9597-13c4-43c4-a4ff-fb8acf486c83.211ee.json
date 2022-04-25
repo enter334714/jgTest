@@ -1,0 +1,356 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "carnivalConfig",
+  "json": {
+    "1": {
+      "groupid": 1,
+      "items": {
+        "I4001": 50
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "书页"
+    },
+    "2": {
+      "groupid": 1,
+      "items": {
+        "I3001": 80
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "洗练石"
+    },
+    "3": {
+      "groupid": 1,
+      "items": {
+        "I3903": 80
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "淬炼石"
+    },
+    "4": {
+      "groupid": 1,
+      "items": {
+        "I3910": 8
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "强者结晶"
+    },
+    "5": {
+      "groupid": 1,
+      "items": {
+        "I3001": 40
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "洗练石"
+    },
+    "6": {
+      "groupid": 1,
+      "items": {
+        "I3001": 40
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "洗练石"
+    },
+    "7": {
+      "groupid": 1,
+      "items": {
+        "I4001": 50
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "书页"
+    },
+    "8": {
+      "groupid": 1,
+      "items": {
+        "I7002": 4
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "中级符文宝箱"
+    },
+    "9": {
+      "groupid": 1,
+      "items": {
+        "I8000": 20
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "零"
+    },
+    "10": {
+      "groupid": 1,
+      "items": {
+        "I3910": 8
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "强者结晶"
+    },
+    "11": {
+      "groupid": 1,
+      "items": {
+        "I3001": 80
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "洗练石"
+    },
+    "12": {
+      "groupid": 1,
+      "items": {
+        "I3922": 10
+      },
+      "weight": 50,
+      "condition": 0,
+      "suprice": 0,
+      "name": "宝石精华"
+    },
+    "13": {
+      "groupid": 1,
+      "items": {
+        "I8000": 20
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "零"
+    },
+    "14": {
+      "groupid": 1,
+      "items": {
+        "I7001": 10
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "基础符文宝箱"
+    },
+    "15": {
+      "groupid": 1,
+      "items": {
+        "I3001": 80
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "洗练石"
+    },
+    "16": {
+      "groupid": 1,
+      "items": {
+        "I7003": 1
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "高级符文宝箱"
+    },
+    "17": {
+      "groupid": 1,
+      "items": {
+        "I3903": 80
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "淬炼石"
+    },
+    "18": {
+      "groupid": 1,
+      "items": {
+        "I3001": 10
+      },
+      "weight": 20,
+      "condition": 25,
+      "suprice": 1,
+      "name": "大奖"
+    },
+    "19": {
+      "groupid": 1,
+      "items": {
+        "I3903": 80
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "淬炼石"
+    },
+    "20": {
+      "groupid": 1,
+      "items": {
+        "I3910": 12
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "强者结晶"
+    },
+    "21": {
+      "groupid": 1,
+      "items": {
+        "I7003": 1
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "高级符文宝箱"
+    },
+    "22": {
+      "groupid": 1,
+      "items": {
+        "I3909": 100
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "天外陨铁"
+    },
+    "23": {
+      "groupid": 1,
+      "items": {
+        "B1002": 10
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "强化结晶"
+    },
+    "24": {
+      "groupid": 1,
+      "items": {
+        "I3921": 10
+      },
+      "weight": 50,
+      "condition": 0,
+      "suprice": 0,
+      "name": "宝石结晶"
+    },
+    "25": {
+      "groupid": 1,
+      "items": {
+        "I3001": 80
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "洗练石"
+    },
+    "26": {
+      "groupid": 1,
+      "items": {
+        "I3910": 8
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "强者结晶"
+    },
+    "27": {
+      "groupid": 1,
+      "items": {
+        "I3920": 10
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "宝石朱粒"
+    },
+    "28": {
+      "groupid": 1,
+      "items": {
+        "I3909": 100
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "天外陨铁"
+    },
+    "29": {
+      "groupid": 1,
+      "items": {
+        "I4001": 50
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "书页"
+    },
+    "30": {
+      "groupid": 1,
+      "items": {
+        "I3007": 10
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "小金条"
+    },
+    "31": {
+      "groupid": 1,
+      "items": {
+        "I3007": 10
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "小金条"
+    },
+    "32": {
+      "groupid": 1,
+      "items": {
+        "I3903": 40
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "淬炼石"
+    },
+    "33": {
+      "groupid": 1,
+      "items": {
+        "I3903": 40
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "淬炼石"
+    },
+    "34": {
+      "groupid": 1,
+      "items": {
+        "I3903": 80
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "淬炼石"
+    },
+    "35": {
+      "groupid": 1,
+      "items": {
+        "I4001": 100
+      },
+      "weight": 100,
+      "condition": 0,
+      "suprice": 0,
+      "name": "书页"
+    }
+  }
+}

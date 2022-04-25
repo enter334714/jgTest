@@ -1,0 +1,101 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "MineConfig",
+  "json": {
+    "1": {
+      "name": "黑铁矿坑",
+      "zhanli": 500,
+      "p_time": 0,
+      "p_power": 0,
+      "reward": [
+        "I3101",
+        0
+      ],
+      "num": 0,
+      "exploit_power": 0,
+      "rob_power": 0,
+      "protect_item": [
+        "I3009",
+        0
+      ],
+      "protect_time": 0,
+      "color": "#ffd87d"
+    },
+    "2": {
+      "name": "矿坑入口",
+      "zhanli": 500,
+      "p_time": 60,
+      "p_power": 1,
+      "reward": [
+        "I3101",
+        5
+      ],
+      "num": 9000,
+      "exploit_power": 10,
+      "rob_power": 20,
+      "protect_item": [
+        "I3009",
+        0
+      ],
+      "protect_time": 0,
+      "color": "#ffd87d"
+    },
+    "3": {
+      "name": "矿坑中层",
+      "zhanli": 500,
+      "p_time": 60,
+      "p_power": 1,
+      "reward": [
+        "I3101",
+        8
+      ],
+      "num": 180,
+      "exploit_power": 10,
+      "rob_power": 20,
+      "protect_item": [
+        "I3009",
+        1
+      ],
+      "protect_time": 1800,
+      "color": "#00c0ff"
+    },
+    "4": {
+      "name": "矿坑底层",
+      "zhanli": 500,
+      "p_time": 60,
+      "p_power": 1,
+      "reward": [
+        "I3101",
+        16
+      ],
+      "num": 27,
+      "exploit_power": 10,
+      "rob_power": 20,
+      "protect_item": [
+        "I3009",
+        2
+      ],
+      "protect_time": 1800,
+      "color": "#f702f4"
+    },
+    "5": {
+      "name": "矿坑核心",
+      "zhanli": 500,
+      "p_time": 60,
+      "p_power": 1,
+      "reward": [
+        "I3101",
+        20
+      ],
+      "num": 9,
+      "exploit_power": 10,
+      "rob_power": 20,
+      "protect_item": [
+        "I3009",
+        0
+      ],
+      "protect_time": 0,
+      "color": "#ff6c00"
+    }
+  }
+}

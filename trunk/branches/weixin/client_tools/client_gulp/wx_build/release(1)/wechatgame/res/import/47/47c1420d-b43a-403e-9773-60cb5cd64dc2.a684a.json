@@ -1,0 +1,1398 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "iTemsConfig",
+  "json": {
+    "I2006": {
+      "kind": 1,
+      "compose": 0,
+      "name": "特级法力药",
+      "level": 50,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        1200,
+        3
+      ],
+      "duration": -1,
+      "position": "ordinaryMp",
+      "quality": 0,
+      "stack": 1,
+      "description": "立即回复1200法力值，冷却时间3秒"
+    },
+    "I2004": {
+      "kind": 1,
+      "compose": 0,
+      "name": "大瓶法力药",
+      "level": 30,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        480,
+        3
+      ],
+      "duration": -1,
+      "position": "ordinaryMp",
+      "quality": 0,
+      "stack": 1,
+      "description": "立即回复480法力值，冷却时间3秒"
+    },
+    "I2005": {
+      "kind": 1,
+      "compose": 0,
+      "name": "超级法力药",
+      "level": 40,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        800,
+        3
+      ],
+      "duration": -1,
+      "position": "ordinaryMp",
+      "quality": 0,
+      "stack": 1,
+      "description": "立即回复800法力值，冷却时间3秒"
+    },
+    "I2002": {
+      "kind": 1,
+      "compose": 0,
+      "name": "小瓶法力药",
+      "level": 10,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        160,
+        3
+      ],
+      "duration": -1,
+      "position": "ordinaryMp",
+      "quality": 0,
+      "stack": 1,
+      "description": "立即回复160法力值，冷却时间3秒"
+    },
+    "I2003": {
+      "kind": 1,
+      "compose": 0,
+      "name": "中瓶法力药",
+      "level": 20,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        320,
+        3
+      ],
+      "duration": -1,
+      "position": "ordinaryMp",
+      "quality": 0,
+      "stack": 1,
+      "description": "立即回复320法力值，冷却时间3秒"
+    },
+    "I2001": {
+      "kind": 1,
+      "compose": 0,
+      "name": "微型法力药",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        80,
+        3
+      ],
+      "duration": -1,
+      "position": "ordinaryMp",
+      "quality": 0,
+      "stack": 1,
+      "description": "立即回复80法力值，冷却时间3秒"
+    },
+    "I3005": {
+      "kind": 1,
+      "compose": 0,
+      "name": "碎金块",
+      "level": 1,
+      "pro": 0,
+      "use": 1,
+      "max_stack": 99,
+      "magic_value": [
+        500
+      ],
+      "duration": -1,
+      "position": "gold",
+      "quality": 3,
+      "stack": 1,
+      "description": "使用后获得<color=#0CFF00> 500 </color>金币"
+    },
+    "I3004": {
+      "weight_damp": [
+        10000,
+        6000,
+        2000,
+        100
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "技能丹",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 9999,
+      "num_damp": [
+        100,
+        200,
+        300,
+        400
+      ],
+      "magic_value": [
+        100
+      ],
+      "duration": -1,
+      "position": "skillexp",
+      "quality": 3,
+      "stack": 1,
+      "description": "使用后增加<color=#0CFF00> 100 </color>点技能熟练度"
+    },
+    "I3007": {
+      "kind": 1,
+      "compose": 0,
+      "name": "小金条",
+      "level": 1,
+      "pro": 0,
+      "use": 1,
+      "max_stack": 99,
+      "magic_value": [
+        10000
+      ],
+      "duration": -1,
+      "position": "gold",
+      "quality": 3,
+      "stack": 1,
+      "description": "使用后获得<color=#0CFF00> 10000 </color>金币"
+    },
+    "I3006": {
+      "kind": 1,
+      "compose": 0,
+      "name": "金锭",
+      "level": 1,
+      "pro": 0,
+      "use": 1,
+      "max_stack": 99,
+      "magic_value": [
+        2000
+      ],
+      "duration": -1,
+      "position": "gold",
+      "quality": 3,
+      "stack": 1,
+      "description": "使用后获得<color=#0CFF00> 2000 </color>金币"
+    },
+    "I3001": {
+      "weight_damp": [
+        10000,
+        8000,
+        4000,
+        100
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "洗练石",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "num_damp": [
+        40,
+        50,
+        60,
+        80
+      ],
+      "duration": -1,
+      "quality": 3,
+      "stack": 1,
+      "gem": 4,
+      "description": "用来洗练装备的随机属性"
+    },
+    "I3003": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        100
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "古董",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99,
+      "num_damp": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "duration": -1,
+      "quality": 3,
+      "stack": 1,
+      "gem": 10,
+      "description": "可用来贿赂云游商人"
+    },
+    "I3002": {
+      "kind": 1,
+      "compose": 0,
+      "name": "回城卷轴",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "duration": -1,
+      "quality": 2,
+      "stack": 1,
+      "description": "使用后可快速返回城镇"
+    },
+    "I3902": {
+      "kind": 1,
+      "compose": 0,
+      "name": "小型经验丹",
+      "level": 1,
+      "pro": 0,
+      "use": 1,
+      "max_stack": 99,
+      "magic_value": [
+        10000
+      ],
+      "duration": -1,
+      "position": "exp",
+      "quality": 3,
+      "stack": 1,
+      "description": "使用后获得<color=#0CFF00> 10000 </color>角色经验"
+    },
+    "I3901": {
+      "kind": 1,
+      "compose": 0,
+      "name": "小元宝",
+      "level": 1,
+      "pro": 0,
+      "use": 1,
+      "max_stack": 99,
+      "magic_value": [
+        1
+      ],
+      "duration": -1,
+      "position": "gem",
+      "quality": 3,
+      "stack": 1,
+      "description": "使用后获得<color=#0CFF00> 1 </color>元宝"
+    },
+    "I5106": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "隐身术",
+      "level": 1,
+      "pro": 3,
+      "description": "道士使用可学习和升级隐身术，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 306
+    },
+    "I5107": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "神圣战甲术",
+      "level": 1,
+      "pro": 3,
+      "description": "道士使用可学习和升级神圣战甲术，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 307
+    },
+    "I5104": {
+      "weight_damp": [
+        10000,
+        8000,
+        5000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "施毒术",
+      "level": 1,
+      "pro": 3,
+      "description": "道士使用可学习和升级施毒术，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 304
+    },
+    "I5105": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "召唤术",
+      "level": 1,
+      "pro": 3,
+      "description": "道士使用可学习和升级召唤骷髅，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 305
+    },
+    "I5102": {
+      "weight_damp": [
+        10000,
+        8000,
+        5000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "治疗术",
+      "level": 1,
+      "pro": 3,
+      "description": "道士使用可学习和升级治疗术，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 302
+    },
+    "I2201": {
+      "kind": 1,
+      "compose": 0,
+      "name": "回气散",
+      "level": 10,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        200,
+        1
+      ],
+      "duration": -1,
+      "position": "seniorMp",
+      "quality": 1,
+      "stack": 1,
+      "description": "瞬间回复300法力，冷却时间1秒"
+    },
+    "I5101": {
+      "weight_damp": [
+        10000,
+        8000,
+        5000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "精神力战法",
+      "level": 1,
+      "pro": 3,
+      "description": "道士使用可学习和升级精神力战胜法，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 301
+    },
+    "I1003": {
+      "kind": 1,
+      "compose": 0,
+      "name": "中瓶金疮药",
+      "level": 20,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        240,
+        3
+      ],
+      "duration": -1,
+      "position": "ordinaryHp",
+      "quality": 0,
+      "stack": 1,
+      "description": "立即回复240生命值，冷却时间3秒"
+    },
+    "I1002": {
+      "kind": 1,
+      "compose": 0,
+      "name": "小瓶金疮药",
+      "level": 10,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        160,
+        3
+      ],
+      "duration": -1,
+      "position": "ordinaryHp",
+      "quality": 0,
+      "stack": 1,
+      "description": "立即回复160生命值，冷却时间3秒"
+    },
+    "I1001": {
+      "kind": 1,
+      "compose": 0,
+      "name": "微型金疮药",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        80,
+        3
+      ],
+      "duration": -1,
+      "position": "ordinaryHp",
+      "quality": 0,
+      "stack": 1,
+      "description": "立即回复80生命值，冷却时间3秒"
+    },
+    "I2103": {
+      "kind": 1,
+      "compose": 0,
+      "name": "强效太阳水",
+      "level": 30,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        600,
+        1
+      ],
+      "duration": -1,
+      "position": "seniorHp",
+      "quality": 1,
+      "stack": 1,
+      "description": "瞬间回复600生命，冷却时间1秒"
+    },
+    "I2102": {
+      "kind": 1,
+      "compose": 0,
+      "name": "太阳水",
+      "level": 20,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        400,
+        1
+      ],
+      "duration": -1,
+      "position": "seniorHp",
+      "quality": 1,
+      "stack": 1,
+      "description": "瞬间回复400生命，冷却时间1秒"
+    },
+    "I2101": {
+      "kind": 1,
+      "compose": 0,
+      "name": "弱效太阳水",
+      "level": 10,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        200,
+        1
+      ],
+      "duration": -1,
+      "position": "seniorHp",
+      "quality": 1,
+      "stack": 1,
+      "description": "瞬间回复200生命，冷却时间1秒"
+    },
+    "I1004": {
+      "kind": 1,
+      "compose": 0,
+      "name": "大瓶金疮药",
+      "level": 30,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        360,
+        3
+      ],
+      "duration": -1,
+      "position": "ordinaryHp",
+      "quality": 0,
+      "stack": 1,
+      "description": "立即回复360生命值，冷却时间3秒"
+    },
+    "I6002": {
+      "kind": 1,
+      "compose": 0,
+      "name": "18级礼包",
+      "level": 18,
+      "pro": 0,
+      "use": 1,
+      "max_stack": 1,
+      "magic_value": [
+        {
+          "I1003": 200
+        },
+        {
+          "I2003": 200
+        },
+        {
+          "I2101": 30
+        },
+        {
+          "I5005": 1
+        },
+        {
+          "I5104": 1
+        },
+        {
+          "I5203": 1
+        },
+        {
+          "I4001": 100
+        },
+        {
+          "I6003": 1
+        }
+      ],
+      "duration": -1,
+      "position": "gift",
+      "quality": 3,
+      "stack": 0,
+      "description": "18级可开启，获得各职业群体技能和补给"
+    },
+    "I6003": {
+      "kind": 1,
+      "compose": 0,
+      "name": "30级礼包",
+      "level": 30,
+      "pro": 0,
+      "use": 1,
+      "max_stack": 1,
+      "magic_value": [
+        {
+          "I1003": 300
+        },
+        {
+          "I2003": 300
+        },
+        {
+          "I2101": 50
+        },
+        {
+          "I4001": 200
+        },
+        {
+          "I3001": 50
+        }
+      ],
+      "duration": -1,
+      "position": "gift",
+      "quality": 3,
+      "stack": 0,
+      "description": "30级可开启，各种材料和药水补给"
+    },
+    "I6001": {
+      "kind": 1,
+      "compose": 0,
+      "name": "8级礼包",
+      "level": 8,
+      "pro": 0,
+      "use": 1,
+      "max_stack": 1,
+      "magic_value": [
+        {
+          "E000012": 3
+        },
+        {
+          "I1002": 200
+        },
+        {
+          "I2002": 200
+        },
+        {
+          "I2101": 20
+        },
+        {
+          "I5003": 1
+        },
+        {
+          "I5103": 1
+        },
+        {
+          "I5202": 1
+        },
+        {
+          "I6002": 1
+        }
+      ],
+      "duration": -1,
+      "position": "gift",
+      "quality": 3,
+      "stack": 0,
+      "description": "8级可开启，获得各职业基础技能和补给"
+    },
+    "I6004": {
+      "kind": 1,
+      "compose": 0,
+      "name": "最强防御宝箱",
+      "level": 30,
+      "pro": 0,
+      "use": 1,
+      "max_stack": 1,
+      "magic_value": 501,
+      "duration": 10800,
+      "position": "recharge",
+      "quality": 4,
+      "stack": 0,
+      "description": "宝箱上隐隐有金光流动，必有异宝藏匿其中！"
+    },
+    "I5108": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "无极真气",
+      "level": 1,
+      "pro": 3,
+      "description": "道士使用可学习和升级无极真气，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 3,
+      "stack": 1,
+      "skillid": 308
+    },
+    "I4001": {
+      "weight_damp": [
+        10000,
+        8000,
+        4000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "书页",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "num_damp": [
+        100,
+        150,
+        180,
+        200
+      ],
+      "duration": -1,
+      "quality": 2,
+      "stack": 1,
+      "gem": 3,
+      "description": "可用于提升技能等级"
+    },
+    "I4002": {
+      "kind": 1,
+      "compose": 1,
+      "name": "1级技能残卷",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 999,
+      "duration": -1,
+      "quality": 2,
+      "stack": 1,
+      "description": "可用于兑换基本剑术、火球术、治疗术、精神力战法"
+    },
+    "I4003": {
+      "kind": 1,
+      "compose": 1,
+      "name": "2级技能残卷",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 999,
+      "duration": -1,
+      "quality": 2,
+      "stack": 1,
+      "description": "可用于兑换刺杀剑术、灵魂火符、雷电术"
+    },
+    "I4004": {
+      "kind": 1,
+      "compose": 1,
+      "name": "3级技能残卷",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 999,
+      "duration": -1,
+      "quality": 2,
+      "stack": 1,
+      "description": "可用于兑换半月弯刀、施毒术、火墙"
+    },
+    "I4005": {
+      "kind": 1,
+      "compose": 1,
+      "name": "4级技能残卷",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 999,
+      "duration": -1,
+      "quality": 2,
+      "stack": 1,
+      "description": "可用于兑换攻杀剑术、诱惑之光、召唤术"
+    },
+    "I4006": {
+      "kind": 1,
+      "compose": 1,
+      "name": "5级技能残卷",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 999,
+      "duration": -1,
+      "quality": 2,
+      "stack": 1,
+      "description": "可用于兑换野蛮冲撞、隐身术、法术精通"
+    },
+    "I4007": {
+      "kind": 1,
+      "compose": 1,
+      "name": "6级技能残卷",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 999,
+      "duration": -1,
+      "quality": 2,
+      "stack": 1,
+      "description": "可用于兑换护体真气、神圣战甲术、魔法盾"
+    },
+    "I4008": {
+      "kind": 1,
+      "compose": 1,
+      "name": "7级技能残卷",
+      "level": 1,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 999,
+      "duration": -1,
+      "quality": 3,
+      "stack": 1,
+      "description": "可用于兑换烈火剑法、冰咆哮、无极真气"
+    },
+    "I5006": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "烈火剑法",
+      "level": 1,
+      "pro": 1,
+      "description": "战士使用可学习和升级烈火剑法，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 3,
+      "stack": 1,
+      "skillid": 107
+    },
+    "I5005": {
+      "weight_damp": [
+        10000,
+        8000,
+        5000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "半月弯刀",
+      "level": 1,
+      "pro": 1,
+      "description": "战士使用可学习和升级半月弯刀，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 104
+    },
+    "I5004": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "野蛮冲撞",
+      "level": 1,
+      "pro": 1,
+      "description": "战士使用可学习和升级野蛮冲撞，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 105
+    },
+    "I5003": {
+      "weight_damp": [
+        10000,
+        8000,
+        5000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "刺杀剑术",
+      "level": 1,
+      "pro": 1,
+      "description": "战士使用可学习和升级刺杀剑术，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 103
+    },
+    "I5002": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "攻杀剑术",
+      "level": 1,
+      "pro": 1,
+      "description": "战士使用可学习和升级攻杀剑术，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 102
+    },
+    "I5001": {
+      "weight_damp": [
+        10000,
+        8000,
+        5000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "基本剑术",
+      "level": 1,
+      "pro": 1,
+      "description": "战士使用可学习和升级基本剑术，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 101
+    },
+    "I1006": {
+      "kind": 1,
+      "compose": 0,
+      "name": "特级金疮药",
+      "level": 50,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        900,
+        3
+      ],
+      "duration": -1,
+      "position": "ordinaryHp",
+      "quality": 0,
+      "stack": 1,
+      "description": "立即回复900生命值，冷却时间3秒"
+    },
+    "I5007": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "护体真气",
+      "level": 1,
+      "pro": 1,
+      "description": "战士使用可学习和升级护体真气，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 106
+    },
+    "I1005": {
+      "kind": 1,
+      "compose": 0,
+      "name": "超级金疮药",
+      "level": 40,
+      "pro": 0,
+      "use": 0,
+      "max_stack": 99999,
+      "magic_value": [
+        540,
+        3
+      ],
+      "duration": -1,
+      "position": "ordinaryHp",
+      "quality": 0,
+      "stack": 1,
+      "description": "立即回复540生命值，冷却时间3秒"
+    },
+    "I5103": {
+      "weight_damp": [
+        10000,
+        8000,
+        5000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "灵魂火符",
+      "level": 1,
+      "pro": 3,
+      "description": "道士使用可学习和升级灵魂火符，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 303
+    },
+    "I5205": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "冰咆哮",
+      "level": 1,
+      "pro": 2,
+      "description": "法师使用可学习和升级冰咆哮，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 3,
+      "stack": 1,
+      "skillid": 207
+    },
+    "I5204": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "魔法盾",
+      "level": 1,
+      "pro": 2,
+      "description": "法师使用可学习和升级魔法盾，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 205
+    },
+    "I5207": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "诱惑之光",
+      "level": 1,
+      "pro": 2,
+      "description": "法师使用可学习和升级诱惑之光，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 204
+    },
+    "I5206": {
+      "weight_damp": [
+        10000,
+        5000,
+        2000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "法术精通",
+      "level": 1,
+      "pro": 2,
+      "description": "法师使用可学习和升级法术精通，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 206
+    },
+    "I5201": {
+      "weight_damp": [
+        10000,
+        8000,
+        5000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "火球术",
+      "level": 1,
+      "pro": 2,
+      "description": "法师使用可学习和升级火球术，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 201
+    },
+    "I5203": {
+      "weight_damp": [
+        10000,
+        8000,
+        5000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "火墙",
+      "level": 1,
+      "pro": 2,
+      "description": "法师使用可学习和升级火墙，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 203
+    },
+    "I5202": {
+      "weight_damp": [
+        10000,
+        8000,
+        5000,
+        50
+      ],
+      "kind": 1,
+      "compose": 0,
+      "name": "雷电术",
+      "level": 1,
+      "pro": 2,
+      "description": "法师使用可学习和升级雷电术，分解可获得书页",
+      "use": 1,
+      "max_stack": 999,
+      "break": [
+        "I4001",
+        1
+      ],
+      "num_damp": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "duration": -1,
+      "position": "book",
+      "quality": 2,
+      "stack": 1,
+      "skillid": 202
+    }
+  }
+}

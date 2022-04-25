@@ -1,0 +1,280 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_beiji_02",
+      "texture": "4ak36kxPNLpYE/BZ+iT4f7",
+      "rect": [
+        16,
+        55,
+        126,
+        120
+      ],
+      "offset": [
+        -5,
+        -20.5
+      ],
+      "originalSize": [
+        168,
+        189
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_beiji_04",
+      "texture": "46Mem3kxBExbPoMUamOQnm",
+      "rect": [
+        2,
+        79,
+        158,
+        109
+      ],
+      "offset": [
+        -3,
+        -39
+      ],
+      "originalSize": [
+        168,
+        189
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "shidushu-b2",
+    "_duration": 0.4888888888888889,
+    "sample": 45,
+    "wrapMode": 0,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "48LP+XUEFHR7DsKacMLYCn"
+              }
+            },
+            {
+              "frame": 0.06666666666666667,
+              "value": {
+                "__uuid__": "35hQSUK9JCNIKw9d6FGyO9"
+              }
+            },
+            {
+              "frame": 0.15555555555555556,
+              "value": {
+                "__uuid__": "fdqS3cZtpK8INP4t9wvsW1"
+              }
+            },
+            {
+              "frame": 0.2222222222222222,
+              "value": {
+                "__uuid__": "3cS6QEjhhPI6nrMhGkUddZ"
+              }
+            },
+            {
+              "frame": 0.3111111111111111,
+              "value": {
+                "__uuid__": "ffDFgvPKZLe5HCit6vdEvy"
+              }
+            },
+            {
+              "frame": 0.37777777777777777,
+              "value": {
+                "__uuid__": "8cTl74U4pFgpqunDCLPJ79"
+              }
+            },
+            {
+              "frame": 0.4666666666666667,
+              "value": {
+                "__uuid__": "41f1GEZBVOpbQlwpM1WhaO"
+              }
+            }
+          ]
+        }
+      },
+      "props": {
+        "y": [
+          {
+            "frame": 0,
+            "value": 50
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": 0
+          },
+          {
+            "frame": 0.15555555555555556,
+            "value": 0
+          },
+          {
+            "frame": 0.2222222222222222,
+            "value": 0
+          },
+          {
+            "frame": 0.3111111111111111,
+            "value": 0
+          },
+          {
+            "frame": 0.37777777777777777,
+            "value": 0
+          },
+          {
+            "frame": 0.4666666666666667,
+            "value": 0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_beiji_07",
+      "texture": "5eRJG6TTVJpZBIHgu/xplE",
+      "rect": [
+        3,
+        88,
+        153,
+        98
+      ],
+      "offset": [
+        -4.5,
+        -42.5
+      ],
+      "originalSize": [
+        168,
+        189
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_beiji_01",
+      "texture": "c7P1RU68ZGA45ZF0L+G1vM",
+      "rect": [
+        4,
+        0,
+        141,
+        181
+      ],
+      "offset": [
+        -9.5,
+        4
+      ],
+      "originalSize": [
+        168,
+        189
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_beiji_06",
+      "texture": "85V/U9qHpILIzFxOy510cz",
+      "rect": [
+        0,
+        84,
+        163,
+        101
+      ],
+      "offset": [
+        -2.5,
+        -40
+      ],
+      "originalSize": [
+        168,
+        189
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_beiji_03",
+      "texture": "70edCiqCVF6bWGzvGWrXSK",
+      "rect": [
+        4,
+        71,
+        153,
+        118
+      ],
+      "offset": [
+        -3.5,
+        -35.5
+      ],
+      "originalSize": [
+        168,
+        189
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shidushu_beiji_05",
+      "texture": "82FqHPyC5MFa7VTtH/ZcYP",
+      "rect": [
+        0,
+        77,
+        168,
+        109
+      ],
+      "offset": [
+        0,
+        -37
+      ],
+      "originalSize": [
+        168,
+        189
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

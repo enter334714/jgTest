@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_icon_luoleishu_02",
+    "texture": "2d1F2E8vNO2oDd8UJEkSTr",
+    "rect": [
+      1,
+      0,
+      79,
+      73
+    ],
+    "offset": [
+      0.5,
+      3.5
+    ],
+    "originalSize": [
+      80,
+      80
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_shachengzhengba_icon_xiancheng_1",
+    "texture": "cclfebbghGv7naNdLg/C5f",
+    "rect": [
+      0,
+      9,
+      138,
+      349
+    ],
+    "offset": [
+      0,
+      -4.5
+    ],
+    "originalSize": [
+      138,
+      358
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

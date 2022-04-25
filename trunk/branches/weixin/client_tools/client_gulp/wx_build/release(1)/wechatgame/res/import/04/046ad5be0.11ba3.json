@@ -1,0 +1,728 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_juesdj_lv",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        1,
+        425,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_juesekaung_01_fashi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        322,
+        1,
+        105,
+        89
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_juesdj_lan",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        215,
+        421,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_juesekaung_03_daoshi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        215,
+        91,
+        105,
+        85
+      ],
+      "offset": [
+        0,
+        -2
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteAtlas",
+    "_name": "fightframe.plist",
+    "_spriteFrames": {
+      "xinxi_guaiwu_02": {
+        "__uuid__": "36wb4Q6ZxAwacEz9i2vs1R"
+      },
+      "img_juesekaung_01_daoshi": {
+        "__uuid__": "ebux3fqtRDE7RafRIk6TTu"
+      },
+      "img_juesekaung_01_zhanshi": {
+        "__uuid__": "6br/t/q95N7ZxyxJ6T8/Xt"
+      },
+      "img_juesekaung_02_daoshi": {
+        "__uuid__": "78C9CqoNFLN6LQdUWdCwv2"
+      },
+      "img_juesekaung_02_fashi": {
+        "__uuid__": "9cqQgpZd9PHYlWusbRnhkc"
+      },
+      "img_juesekaung_02_zhanshi": {
+        "__uuid__": "74MrDzUaJIjoyjNY6HqzaT"
+      },
+      "img_juesekaung_03_daoshi": {
+        "__uuid__": "202x9DedFOPZZtmlH33zRM"
+      },
+      "img_juesekaung_03_fashi": {
+        "__uuid__": "6540xB1VVHipRDF5TMpv2k"
+      },
+      "img_juesekaung_03_zhanshi": {
+        "__uuid__": "fb9h3YUR5GWISYKQPQ8bEW"
+      },
+      "xinxi_boss": {
+        "__uuid__": "bdZD27DbBLmLpazWPDhfXj"
+      },
+      "xinxi_guaiwu_00": {
+        "__uuid__": "bcZHQ+GiBPSrBls/OXCl3H"
+      },
+      "xinxi_guaiwu_01": {
+        "__uuid__": "9dR3ig0GhHPLONBlq7QUOa"
+      },
+      "img_juesekaung_01_fashi": {
+        "__uuid__": "12GBhPl79HiYrZgW8ma7mB"
+      },
+      "xinxi_guaiwu_03": {
+        "__uuid__": "d8STxM8sxPUaPxwbCqVWh9"
+      },
+      "xinxi_jues": {
+        "__uuid__": "fbElbJhrpOzZNwXGBXYBv9"
+      },
+      "xinxi_jues_daoshi": {
+        "__uuid__": "ddw7WutEpDMb7dGbWEbMsd"
+      },
+      "xinxi_jues_fashi": {
+        "__uuid__": "44vuJj6slAQrN6MiEo81X9"
+      },
+      "xinxi_jues_kulou": {
+        "__uuid__": "e8c+UJ0PpCyJX0x21mgOU7"
+      },
+      "xinxi_jues_shenshou": {
+        "__uuid__": "ddgXnlhi5O8LTBmnoynt6W"
+      },
+      "xinxi_jues_zhanshi": {
+        "__uuid__": "e3Cac8Ls9FAYvJqwwUVX0g"
+      },
+      "xinxi_juesdj_chen": {
+        "__uuid__": "9buzhPTiBI7JDtRz53RLKX"
+      },
+      "xinxi_juesdj_lan": {
+        "__uuid__": "17dCSCF6hFP7ThYCCSJJ/x"
+      },
+      "xinxi_juesdj_lv": {
+        "__uuid__": "0f8EWC1a9N+bdy8lZd/qg/"
+      },
+      "xinxi_juesdj_zi": {
+        "__uuid__": "6cxtNp+51FGL6mDzQ3RFu2"
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_guaiwu_02",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        1,
+        1,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_jues_fashi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        322,
+        326,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_juesekaung_03_fashi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        215,
+        178,
+        105,
+        85
+      ],
+      "offset": [
+        0,
+        -2
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_juesekaung_01_zhanshi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        108,
+        1,
+        105,
+        89
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_juesdj_zi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        108,
+        425,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_juesekaung_02_zhanshi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        215,
+        1,
+        105,
+        88
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_juesekaung_02_daoshi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        108,
+        92,
+        105,
+        88
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_juesdj_chen",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        322,
+        404,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_juesekaung_02_fashi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        1,
+        170,
+        105,
+        88
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_guaiwu_01",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        108,
+        269,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_guaiwu_00",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        215,
+        265,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_boss",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        1,
+        269,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_guaiwu_03",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        322,
+        92,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_jues_shenshou",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        1,
+        347,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_jues_daoshi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        322,
+        248,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_jues_zhanshi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        108,
+        347,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_jues_kulou",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        215,
+        343,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_juesekaung_01_daoshi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        1,
+        79,
+        105,
+        89
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "xinxi_jues",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        322,
+        170,
+        105,
+        76
+      ],
+      "offset": [
+        0,
+        -6.5
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_juesekaung_03_zhanshi",
+      "texture": "5d2x/RhLBFPIbJVjWre2gM",
+      "rect": [
+        108,
+        182,
+        105,
+        85
+      ],
+      "offset": [
+        0,
+        -2
+      ],
+      "originalSize": [
+        105,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

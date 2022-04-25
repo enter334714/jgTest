@@ -1,0 +1,53 @@
+[
+  {
+    "__type__": "cc.Prefab",
+    "_name": "SoundPrefab",
+    "data": {
+      "__id__": 1
+    }
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "SoundPrefab",
+    "_components": [
+      {
+        "__type__": "cc.AudioSource",
+        "node": {
+          "__id__": 1
+        }
+      },
+      {
+        "__type__": "d262fKyivZNubHkDAhJPvoQ",
+        "node": {
+          "__id__": 1
+        }
+      }
+    ],
+    "_prefab": {
+      "__type__": "cc.PrefabInfo",
+      "root": {
+        "__id__": 1
+      },
+      "asset": {
+        "__uuid__": "8e2z2fVrZJc5KGGkWU6EXg"
+      },
+      "fileId": "93q7PBmbZN2oHu1JyN0ttH"
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        667,
+        375,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  }
+]

@@ -1,0 +1,1006 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "buffConfig",
+  "json": {
+    "1": {
+      "name": "天关1角色攻击增幅",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 1,
+      "priority": 100,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "38": 100000
+        }
+      ],
+      "des": "主属性提升%"
+    },
+    "2": {
+      "name": "天关1怪物增幅",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 1,
+      "priority": 200,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "2": 100000
+        },
+        {
+          "11": 300000
+        }
+      ],
+      "des": "攻击提升%，生命提升%"
+    },
+    "3": {
+      "name": "幸运易伤",
+      "type": 0,
+      "pets": 1,
+      "time": -1,
+      "channel": 2,
+      "priority": 300,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "lucky_weakness",
+      "magic_value": [
+        90000
+      ],
+      "des": "自身受到的伤害提升（幸运%）（ 伤害*（1+幸运*系数/10000/100））"
+    },
+    "4": {
+      "name": "普攻免伤",
+      "type": 0,
+      "pets": 1,
+      "time": -1,
+      "channel": 3,
+      "priority": 400,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "BonusDamage_weakness",
+      "magic_value": [
+        1000,
+        100000
+      ],
+      "des": "免疫常规伤害，只受恒定伤害+目标等级*系数/10000的伤害"
+    },
+    "5": {
+      "name": "血量狂暴",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 4,
+      "priority": 500,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "triggers": "hp",
+      "triggers_value": [
+        18000
+      ],
+      "strike_target": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "2": 10000
+        }
+      ],
+      "des": "目标生命值低于指定值，自身对目标造成基础伤害提升"
+    },
+    "6": {
+      "name": "禁止生命药水",
+      "type": 1,
+      "pets": 1,
+      "time": -1,
+      "channel": 5,
+      "priority": 600,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "hppotion_ban",
+      "des": "无法使用生命药水"
+    },
+    "7": {
+      "name": "禁止法力药水",
+      "type": 1,
+      "pets": 1,
+      "time": -1,
+      "channel": 6,
+      "priority": 700,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "manapotion_ban",
+      "des": "无法使用法力药水"
+    },
+    "8": {
+      "name": "固定伤害增幅",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 7,
+      "priority": 800,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "42": 90000
+        }
+      ],
+      "des": "固定伤害提高%"
+    },
+    "9": {
+      "name": "幸运增幅",
+      "type": 0,
+      "pets": 1,
+      "time": -1,
+      "channel": 8,
+      "priority": 900,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "43": 50000
+        }
+      ],
+      "des": "幸运提高%"
+    },
+    "10": {
+      "name": "攻速增幅",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 9,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "39": 20000
+        }
+      ],
+      "des": "攻速提高%"
+    },
+    "11": {
+      "name": "防御增幅",
+      "type": 0,
+      "pets": 1,
+      "time": -1,
+      "channel": 10,
+      "priority": 1100,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "37": 90000
+        }
+      ],
+      "des": "防御提高%"
+    },
+    "12": {
+      "name": "固减增幅",
+      "type": 0,
+      "pets": 1,
+      "time": -1,
+      "channel": 11,
+      "priority": 1200,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "30": 180000
+        }
+      ],
+      "des": "固减提高%"
+    },
+    "13": {
+      "name": "生命增幅",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 12,
+      "priority": 1300,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "11": 10000
+        }
+      ],
+      "des": "生命提高%"
+    },
+    "14": {
+      "name": "生命吸取增幅",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 13,
+      "priority": 1400,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "44": 30000
+        }
+      ],
+      "des": "生命吸取提高%"
+    },
+    "15": {
+      "name": "法力吸取增幅",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 14,
+      "priority": 1500,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "45": 20000
+        }
+      ],
+      "des": "法力吸取提高%"
+    },
+    "16": {
+      "name": "法力狂暴",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 15,
+      "priority": 1600,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "triggers": "mp",
+      "triggers_value": [
+        6000
+      ],
+      "strike_target": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "37": 290000
+        }
+      ],
+      "des": "目标法力值低于指定值，自身防御提升"
+    },
+    "17": {
+      "name": "法力增幅",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 16,
+      "priority": 1700,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "13": 10000
+        }
+      ],
+      "des": "法力提高%"
+    },
+    "18": {
+      "name": "血量狂暴2",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 4,
+      "priority": 500,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "triggers": "hp",
+      "triggers_value": [
+        30000
+      ],
+      "strike_target": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "2": 10000
+        }
+      ],
+      "des": "目标生命值低于指定值，自身对目标造成基础伤害提升"
+    },
+    "19": {
+      "name": "法力狂暴2",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 15,
+      "priority": 1600,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 1,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "triggers": "mp",
+      "triggers_value": [
+        8000
+      ],
+      "strike_target": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "37": 290000
+        }
+      ],
+      "des": "目标法力值低于指定值，自身防御提升"
+    },
+    "101": {
+      "name": "经验加成+0.5%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 17,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "55": 50
+        }
+      ],
+      "des": "成员经验获取+0.5%"
+    },
+    "102": {
+      "name": "经验加成+1%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 17,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "55": 100
+        }
+      ],
+      "des": "成员经验获取+1%"
+    },
+    "103": {
+      "name": "经验加成+1.5%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 17,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "55": 150
+        }
+      ],
+      "des": "成员经验获取+1.5%"
+    },
+    "104": {
+      "name": "经验加成+2%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 17,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "55": 200
+        }
+      ],
+      "des": "成员经验获取+2%"
+    },
+    "105": {
+      "name": "经验加成+2.5%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 17,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "55": 250
+        }
+      ],
+      "des": "成员经验获取+2.5%"
+    },
+    "106": {
+      "name": "经验加成+3%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 17,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "55": 300
+        }
+      ],
+      "des": "成员经验获取+3%"
+    },
+    "107": {
+      "name": "经验加成+3.5%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 17,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "55": 350
+        }
+      ],
+      "des": "成员经验获取+3.5%"
+    },
+    "108": {
+      "name": "经验加成+4%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 17,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "55": 400
+        }
+      ],
+      "des": "成员经验获取+4%"
+    },
+    "109": {
+      "name": "经验加成+4.5%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 17,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "55": 450
+        }
+      ],
+      "des": "成员经验获取+4.5%"
+    },
+    "110": {
+      "name": "经验加成+5%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 17,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "55": 500
+        }
+      ],
+      "des": "成员经验获取+5%"
+    },
+    "111": {
+      "name": "经验加成+5.5%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 17,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "55": 550
+        }
+      ],
+      "des": "成员经验获取+5.5%"
+    },
+    "112": {
+      "name": "经验加成+6%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 17,
+      "priority": 1000,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "55": 600
+        }
+      ],
+      "des": "成员经验获取+6%"
+    },
+    "201": {
+      "name": "攻击加成+10%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 18,
+      "priority": 1001,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "2": 1000
+        }
+      ],
+      "des": "攻击加成+10%"
+    },
+    "202": {
+      "name": "魔法加成+10%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 19,
+      "priority": 1002,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "4": 1000
+        }
+      ],
+      "des": "魔法加成+10%"
+    },
+    "203": {
+      "name": "道术加成+10%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 20,
+      "priority": 1003,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "6": 1000
+        }
+      ],
+      "des": "道术加成+10%"
+    },
+    "204": {
+      "name": "生命加成+10%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 21,
+      "priority": 1004,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "11": 1000
+        }
+      ],
+      "des": "生命加成+10%"
+    },
+    "205": {
+      "name": "固伤伤害+200",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 22,
+      "priority": 1005,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "15": 200
+        }
+      ],
+      "des": "固伤伤害+200"
+    },
+    "206": {
+      "name": "攻速+200",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 23,
+      "priority": 1006,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "14": 200
+        }
+      ],
+      "des": "攻速+200"
+    },
+    "207": {
+      "name": "主属性加成+15%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 24,
+      "priority": 1007,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "38": 1500
+        }
+      ],
+      "des": "主属性加成+15%"
+    },
+    "208": {
+      "name": "固定减伤+100",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 25,
+      "priority": 1008,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "17": 100
+        }
+      ],
+      "des": "固定减伤+100"
+    },
+    "209": {
+      "name": "固定减伤+150",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 25,
+      "priority": 1009,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "17": 150
+        }
+      ],
+      "des": "固定减伤+150"
+    },
+    "210": {
+      "name": "防御+200",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 26,
+      "priority": 1010,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "9": 200
+        }
+      ],
+      "des": "防御+200"
+    },
+    "211": {
+      "name": "无视防御几率+20%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 27,
+      "priority": 1011,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "34": 2000
+        }
+      ],
+      "des": "无视防御几率+20%"
+    },
+    "212": {
+      "name": "主属性加成+20%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 24,
+      "priority": 1012,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "38": 2000
+        }
+      ],
+      "des": "主属性加成+20%"
+    },
+    "213": {
+      "name": "幸运+3",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 28,
+      "priority": 1013,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "8": 3
+        }
+      ],
+      "des": "幸运+3"
+    },
+    "214": {
+      "name": "pvp伤害增幅+10%",
+      "type": 0,
+      "pets": 0,
+      "time": -1,
+      "channel": 29,
+      "priority": 1014,
+      "skill_disperse": 0,
+      "death_disperse": 0,
+      "switchmap_disperse": 0,
+      "overlap": 0,
+      "overlap_type": 0,
+      "overlap_times": 1,
+      "buff_target": 0,
+      "buffstate": "attribute",
+      "magic_value": [
+        {
+          "35": 1000
+        }
+      ],
+      "des": "pvp伤害增幅+10%"
+    }
+  }
+}

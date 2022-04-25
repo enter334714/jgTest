@@ -1,0 +1,280 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumaziji_01",
+      "texture": "62QF30ertPpbiyCpnBrf8Q",
+      "rect": [
+        0,
+        2,
+        83,
+        90
+      ],
+      "offset": [
+        -0.5,
+        -1
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumaziji_04",
+      "texture": "d3LuvCTyZHc7NcjliHGZRA",
+      "rect": [
+        3,
+        1,
+        77,
+        83
+      ],
+      "offset": [
+        -0.5,
+        3.5
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumaziji_07",
+      "texture": "7eQYVRt+xMKLLgKUTSZ834",
+      "rect": [
+        11,
+        2,
+        61,
+        81
+      ],
+      "offset": [
+        -0.5,
+        3.5
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumaziji_02",
+      "texture": "11uPDFgEFERamHhTnIssPM",
+      "rect": [
+        2,
+        0,
+        80,
+        90
+      ],
+      "offset": [
+        0,
+        1
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumaziji_05",
+      "texture": "28jJjRYxRIp5H8FJPQOvSh",
+      "rect": [
+        0,
+        0,
+        84,
+        82
+      ],
+      "offset": [
+        0,
+        5
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumaziji_03",
+      "texture": "30GTjihHZAOpFtaC3kCM4d",
+      "rect": [
+        6,
+        1,
+        70,
+        81
+      ],
+      "offset": [
+        -1,
+        4.5
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumaziji_08",
+      "texture": "26h3tTsHxB6rg9IP2qhZwE",
+      "rect": [
+        8,
+        2,
+        67,
+        81
+      ],
+      "offset": [
+        -0.5,
+        3.5
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "zumajiaozhu_my",
+    "_duration": 0.6,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "0c3jov9MJASb0NFIY0ADkm"
+              }
+            },
+            {
+              "frame": 0.08333333333333333,
+              "value": {
+                "__uuid__": "2e614pBpBHuJHzHki90M4B"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "7eVFHKNzBLLKs6esUhAyeo"
+              }
+            },
+            {
+              "frame": 0.25,
+              "value": {
+                "__uuid__": "23oJK3h+hJ4YK/uI7T+X4s"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "41fMjHiw1KyZu320C2wk2p"
+              }
+            },
+            {
+              "frame": 0.4166666666666667,
+              "value": {
+                "__uuid__": "bfGArzB9hHnbERQtXTDTwp"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "28evElZmFMxag7euYvFJcy"
+              }
+            },
+            {
+              "frame": 0.5833333333333334,
+              "value": {
+                "__uuid__": "89IEvpO7ZK4bYa2okHF3FN"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumaziji_06",
+      "texture": "91RSrtimVCvIedSQge8NfE",
+      "rect": [
+        0,
+        0,
+        83,
+        83
+      ],
+      "offset": [
+        -0.5,
+        4.5
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

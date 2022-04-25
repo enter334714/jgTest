@@ -1,0 +1,131 @@
+[
+  {
+    "__type__": "cc.SpriteAtlas",
+    "_name": "btns.plist",
+    "_spriteFrames": {
+      "btn_queding": {
+        "__uuid__": "ccN4RoUzZG6Iruf0shk0pn"
+      },
+      "btn_quxiao": {
+        "__uuid__": "cbEVWVof1DIrg4P9+KiWbz"
+      },
+      "btn_tipClose": {
+        "__uuid__": "46/XhNNX9CRKaW9txvUK9F"
+      },
+      "btn_zuoyouhuawen": {
+        "__uuid__": "e225n2Rv9BRqbR8ipwcyz4"
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "btn_tipClose",
+      "texture": "f4cD95NmxNbbB8ovUlCR/O",
+      "rect": [
+        2,
+        326,
+        24,
+        21
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        24,
+        21
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "btn_quxiao",
+      "texture": "f4cD95NmxNbbB8ovUlCR/O",
+      "rect": [
+        72,
+        2,
+        189,
+        54
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        189,
+        54
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "btn_queding",
+      "texture": "f4cD95NmxNbbB8ovUlCR/O",
+      "rect": [
+        72,
+        193,
+        146,
+        48
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        146,
+        48
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "btn_zuoyouhuawen",
+      "texture": "f4cD95NmxNbbB8ovUlCR/O",
+      "rect": [
+        2,
+        2,
+        322,
+        68
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        322,
+        68
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

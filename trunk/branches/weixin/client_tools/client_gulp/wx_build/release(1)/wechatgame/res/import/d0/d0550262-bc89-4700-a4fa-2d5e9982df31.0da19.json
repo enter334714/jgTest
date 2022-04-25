@@ -1,0 +1,39 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "activityRank",
+  "json": {
+    "1": {
+      "activityid": 4,
+      "rank": [
+        1,
+        1
+      ],
+      "resource": {
+        "2": 150
+      },
+      "des": "麋鹿赛跑"
+    },
+    "2": {
+      "activityid": 4,
+      "rank": [
+        2,
+        2
+      ],
+      "resource": {
+        "2": 120
+      },
+      "des": "麋鹿赛跑"
+    },
+    "3": {
+      "activityid": 4,
+      "rank": [
+        3,
+        3
+      ],
+      "resource": {
+        "2": 80
+      },
+      "des": "麋鹿赛跑"
+    }
+  }
+}

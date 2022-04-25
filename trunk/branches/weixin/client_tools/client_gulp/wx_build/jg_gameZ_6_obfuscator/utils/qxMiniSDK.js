@@ -51,7 +51,6 @@ var md5 = require('./utility/qx_md5.js'),
 var _globalData = {},
     localUserInfo = {},
 
-
 // 登录后的用户信息
 /* 定义全局变量，在某个时刻会被赋值 */
 microParame = getUuid(); //生成IMEI值

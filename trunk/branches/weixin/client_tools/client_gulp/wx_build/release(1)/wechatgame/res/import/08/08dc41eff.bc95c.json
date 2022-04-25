@@ -1,0 +1,147 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "04shifangbingpaoxiao",
+      "texture": "6eRvUILiVHMbqZHmbxwfs4",
+      "rect": [
+        76,
+        1,
+        11,
+        25
+      ],
+      "offset": [
+        -2,
+        33.5
+      ],
+      "originalSize": [
+        167,
+        94
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "03shifangbingpaoxiao",
+      "texture": "8bJohbmoJFw73J8OJbzch6",
+      "rect": [
+        77,
+        11,
+        10,
+        51
+      ],
+      "offset": [
+        -1.5,
+        10.5
+      ],
+      "originalSize": [
+        167,
+        94
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "01shifangbingpaoxiao",
+      "texture": "28LpH5eENGULe65dxq3xpF",
+      "rect": [
+        78,
+        70,
+        9,
+        23
+      ],
+      "offset": [
+        -1,
+        -34.5
+      ],
+      "originalSize": [
+        167,
+        94
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "02shifangbingpaoxiao",
+      "texture": "87MsymExNHgZloBN3XnHsR",
+      "rect": [
+        77,
+        40,
+        11,
+        30
+      ],
+      "offset": [
+        -1,
+        -8
+      ],
+      "originalSize": [
+        167,
+        94
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "bingpaoxiao",
+    "_duration": 0.26666666666666666,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "4di9gocvJLr6I4O3OZVQWw"
+              }
+            },
+            {
+              "frame": 0.08333333333333333,
+              "value": {
+                "__uuid__": "9efpFn2DdBd7HAOcV+/27A"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "29WzM9ojhNt7MYT/f/MWva"
+              }
+            },
+            {
+              "frame": 0.25,
+              "value": {
+                "__uuid__": "19B67BOo5GJqgSvC0eq8MW"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+]

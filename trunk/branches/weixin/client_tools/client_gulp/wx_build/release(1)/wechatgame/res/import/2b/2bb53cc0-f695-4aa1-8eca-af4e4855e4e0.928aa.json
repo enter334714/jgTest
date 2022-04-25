@@ -1,0 +1,78 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "RebirthConfig",
+  "json": {
+    "0": {
+      "next": 1,
+      "expcost": 0,
+      "roleLevel": 0,
+      "atk": 0,
+      "mag": 0,
+      "spt": 0,
+      "def": 0,
+      "magic_find1": 0,
+      "equip_times": 0,
+      "level_limit": 20
+    },
+    "1": {
+      "next": 2,
+      "expcost": 500000,
+      "roleLevel": 30,
+      "atk": 8,
+      "mag": 8,
+      "spt": 8,
+      "def": 5,
+      "magic_find1": 1000,
+      "equip_times": 500,
+      "level_limit": 30
+    },
+    "2": {
+      "next": 3,
+      "expcost": 4000000,
+      "roleLevel": 40,
+      "atk": 18,
+      "mag": 18,
+      "spt": 18,
+      "def": 12,
+      "magic_find1": 2000,
+      "equip_times": 1000,
+      "level_limit": 40
+    },
+    "3": {
+      "next": 4,
+      "expcost": 20000000,
+      "roleLevel": 50,
+      "atk": 28,
+      "mag": 28,
+      "spt": 28,
+      "def": 20,
+      "magic_find1": 3000,
+      "equip_times": 1500,
+      "level_limit": 50
+    },
+    "4": {
+      "next": 5,
+      "expcost": 100000000,
+      "roleLevel": 60,
+      "atk": 42,
+      "mag": 42,
+      "spt": 42,
+      "def": 30,
+      "magic_find1": 4000,
+      "equip_times": 2000,
+      "level_limit": 60
+    },
+    "5": {
+      "next": -1,
+      "expcost": 200000000,
+      "roleLevel": 70,
+      "atk": 60,
+      "mag": 60,
+      "spt": 60,
+      "def": 44,
+      "magic_find1": 5000,
+      "equip_times": 2500,
+      "level_limit": 70
+    }
+  }
+}

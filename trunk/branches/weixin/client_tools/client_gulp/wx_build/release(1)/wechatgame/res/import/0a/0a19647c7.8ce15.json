@@ -1,0 +1,95 @@
+[
+  [
+    {
+      "__type__": "cc.Prefab",
+      "_name": "gongzhonghao2",
+      "data": {
+        "__id__": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "gongzhonghao2",
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 1
+          },
+          "_materials": [
+            {
+              "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+            }
+          ],
+          "_spriteFrame": {
+            "__uuid__": "f8MvMXir5K77eRi2nsKvaY"
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "32MqKOYDZPT4LIWl4cSfd5"
+        },
+        "fileId": "b2YTqoVMdFKZL88wPpAmIp"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 238,
+        "height": 244
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "x": 0.5,
+        "y": 1
+      },
+      "_trs": {
+        "__type__": "TypedArray",
+        "ctor": "Float64Array",
+        "array": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0.9,
+          0.9,
+          0.9
+        ]
+      }
+    }
+  ],
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "gongzhonghao2",
+      "texture": "11dfc7ad0",
+      "rect": [
+        649,
+        472,
+        238,
+        244
+      ],
+      "offset": [
+        0,
+        3
+      ],
+      "originalSize": [
+        238,
+        250
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

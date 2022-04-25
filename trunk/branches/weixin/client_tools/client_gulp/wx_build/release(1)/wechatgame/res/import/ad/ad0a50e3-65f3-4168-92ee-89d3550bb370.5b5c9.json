@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_icon_17",
+    "texture": "738xZLPvJHNI8RRm7uNFGN",
+    "rect": [
+      4,
+      4,
+      19,
+      26
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      26,
+      34
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

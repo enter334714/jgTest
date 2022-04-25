@@ -1,0 +1,54 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "SkillBuffConfig",
+  "json": {
+    "1": {
+      "name": "scene_buff_bleed",
+      "desc": "流血BUFF"
+    },
+    "2": {
+      "name": "scene_buff_dizzy",
+      "desc": "眩晕BUFF"
+    },
+    "3": {
+      "name": "scene_buff_freeze",
+      "desc": "冰冻BUFF"
+    },
+    "4": {
+      "name": "scene_buff_paralysis",
+      "desc": "麻痹BUFF"
+    },
+    "5": {
+      "name": "scene_buff_burn",
+      "desc": "灼烧BUFF"
+    },
+    "6": {
+      "name": "scene_buff_shield",
+      "desc": "护盾BUFF"
+    },
+    "7": {
+      "name": "scene_buff_hp",
+      "desc": "回血BUFF"
+    },
+    "8": {
+      "name": "scene_buff_poison",
+      "desc": "中毒BUFF"
+    },
+    "9": {
+      "name": "scene_buff_hurt",
+      "desc": "增伤BUFF"
+    },
+    "10": {
+      "name": "scene_buff_petrochemical",
+      "desc": "石化BUFF"
+    },
+    "11": {
+      "name": "scene_buff_invicible",
+      "desc": "无敌BUFF(免疫伤害)"
+    },
+    "101": {
+      "name": "scene_buff_attr",
+      "desc": "属性BUFF"
+    }
+  }
+}

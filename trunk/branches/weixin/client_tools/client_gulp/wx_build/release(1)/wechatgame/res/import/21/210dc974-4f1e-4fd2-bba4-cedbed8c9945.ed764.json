@@ -1,0 +1,3191 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "IntensifyrefineConfig",
+  "json": {
+    "0": {
+      "level": 0,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 0
+        },
+        {
+          "38": 0
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 0
+        },
+        {
+          "37": 0
+        }
+      ],
+      "zhanli": [
+        0,
+        0
+      ],
+      "atknum": 1,
+      "defnum": 1
+    },
+    "1": {
+      "level": 1,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 4
+        },
+        {
+          "38": 50
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 2
+        },
+        {
+          "37": 50
+        }
+      ],
+      "zhanli": [
+        10,
+        10
+      ],
+      "atknum": 2,
+      "defnum": 2
+    },
+    "2": {
+      "level": 2,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 8
+        },
+        {
+          "38": 100
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 4
+        },
+        {
+          "37": 100
+        }
+      ],
+      "zhanli": [
+        20,
+        20
+      ],
+      "atknum": 3,
+      "defnum": 3
+    },
+    "3": {
+      "level": 3,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 12
+        },
+        {
+          "38": 150
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 6
+        },
+        {
+          "37": 150
+        }
+      ],
+      "zhanli": [
+        30,
+        30
+      ],
+      "atknum": 4,
+      "defnum": 4
+    },
+    "4": {
+      "level": 4,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 16
+        },
+        {
+          "38": 200
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 8
+        },
+        {
+          "37": 200
+        }
+      ],
+      "zhanli": [
+        40,
+        40
+      ],
+      "atknum": 5,
+      "defnum": 5
+    },
+    "5": {
+      "level": 5,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 20
+        },
+        {
+          "38": 250
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 10
+        },
+        {
+          "37": 250
+        }
+      ],
+      "zhanli": [
+        50,
+        50
+      ],
+      "atknum": 6,
+      "defnum": 6
+    },
+    "6": {
+      "level": 6,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 24
+        },
+        {
+          "38": 300
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 12
+        },
+        {
+          "37": 300
+        }
+      ],
+      "zhanli": [
+        60,
+        60
+      ],
+      "atknum": 7,
+      "defnum": 7
+    },
+    "7": {
+      "level": 7,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 28
+        },
+        {
+          "38": 350
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 14
+        },
+        {
+          "37": 350
+        }
+      ],
+      "zhanli": [
+        70,
+        70
+      ],
+      "atknum": 8,
+      "defnum": 8
+    },
+    "8": {
+      "level": 8,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 32
+        },
+        {
+          "38": 400
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 16
+        },
+        {
+          "37": 400
+        }
+      ],
+      "zhanli": [
+        80,
+        80
+      ],
+      "atknum": 9,
+      "defnum": 9
+    },
+    "9": {
+      "level": 9,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 36
+        },
+        {
+          "38": 450
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 18
+        },
+        {
+          "37": 450
+        }
+      ],
+      "zhanli": [
+        90,
+        90
+      ],
+      "atknum": 10,
+      "defnum": 10
+    },
+    "10": {
+      "level": 10,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 40
+        },
+        {
+          "38": 500
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 20
+        },
+        {
+          "37": 500
+        }
+      ],
+      "zhanli": [
+        100,
+        100
+      ],
+      "atknum": 11,
+      "defnum": 11
+    },
+    "11": {
+      "level": 11,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 44
+        },
+        {
+          "38": 550
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 22
+        },
+        {
+          "37": 550
+        }
+      ],
+      "zhanli": [
+        110,
+        110
+      ],
+      "atknum": 12,
+      "defnum": 12
+    },
+    "12": {
+      "level": 12,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 48
+        },
+        {
+          "38": 600
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 24
+        },
+        {
+          "37": 600
+        }
+      ],
+      "zhanli": [
+        120,
+        120
+      ],
+      "atknum": 13,
+      "defnum": 13
+    },
+    "13": {
+      "level": 13,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 52
+        },
+        {
+          "38": 650
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 26
+        },
+        {
+          "37": 650
+        }
+      ],
+      "zhanli": [
+        130,
+        130
+      ],
+      "atknum": 14,
+      "defnum": 14
+    },
+    "14": {
+      "level": 14,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 56
+        },
+        {
+          "38": 700
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 28
+        },
+        {
+          "37": 700
+        }
+      ],
+      "zhanli": [
+        140,
+        140
+      ],
+      "atknum": 15,
+      "defnum": 15
+    },
+    "15": {
+      "level": 15,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 60
+        },
+        {
+          "38": 750
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 30
+        },
+        {
+          "37": 750
+        }
+      ],
+      "zhanli": [
+        150,
+        150
+      ],
+      "atknum": 16,
+      "defnum": 16
+    },
+    "16": {
+      "level": 16,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 64
+        },
+        {
+          "38": 800
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 32
+        },
+        {
+          "37": 800
+        }
+      ],
+      "zhanli": [
+        160,
+        160
+      ],
+      "atknum": 17,
+      "defnum": 17
+    },
+    "17": {
+      "level": 17,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 68
+        },
+        {
+          "38": 850
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 34
+        },
+        {
+          "37": 850
+        }
+      ],
+      "zhanli": [
+        170,
+        170
+      ],
+      "atknum": 18,
+      "defnum": 18
+    },
+    "18": {
+      "level": 18,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 72
+        },
+        {
+          "38": 900
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 36
+        },
+        {
+          "37": 900
+        }
+      ],
+      "zhanli": [
+        180,
+        180
+      ],
+      "atknum": 19,
+      "defnum": 19
+    },
+    "19": {
+      "level": 19,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 76
+        },
+        {
+          "38": 950
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 38
+        },
+        {
+          "37": 950
+        }
+      ],
+      "zhanli": [
+        190,
+        190
+      ],
+      "atknum": 20,
+      "defnum": 20
+    },
+    "20": {
+      "level": 20,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 80
+        },
+        {
+          "38": 1000
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 40
+        },
+        {
+          "37": 1000
+        }
+      ],
+      "zhanli": [
+        200,
+        200
+      ],
+      "atknum": 21,
+      "defnum": 21
+    },
+    "21": {
+      "level": 21,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 84
+        },
+        {
+          "38": 1050
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 42
+        },
+        {
+          "37": 1050
+        }
+      ],
+      "zhanli": [
+        210,
+        210
+      ],
+      "atknum": 22,
+      "defnum": 22
+    },
+    "22": {
+      "level": 22,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 88
+        },
+        {
+          "38": 1100
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 44
+        },
+        {
+          "37": 1100
+        }
+      ],
+      "zhanli": [
+        220,
+        220
+      ],
+      "atknum": 23,
+      "defnum": 23
+    },
+    "23": {
+      "level": 23,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 92
+        },
+        {
+          "38": 1150
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 46
+        },
+        {
+          "37": 1150
+        }
+      ],
+      "zhanli": [
+        230,
+        230
+      ],
+      "atknum": 24,
+      "defnum": 24
+    },
+    "24": {
+      "level": 24,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 96
+        },
+        {
+          "38": 1200
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 48
+        },
+        {
+          "37": 1200
+        }
+      ],
+      "zhanli": [
+        240,
+        240
+      ],
+      "atknum": 25,
+      "defnum": 25
+    },
+    "25": {
+      "level": 25,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 100
+        },
+        {
+          "38": 1250
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 50
+        },
+        {
+          "37": 1250
+        }
+      ],
+      "zhanli": [
+        250,
+        250
+      ],
+      "atknum": 26,
+      "defnum": 26
+    },
+    "26": {
+      "level": 26,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 104
+        },
+        {
+          "38": 1300
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 52
+        },
+        {
+          "37": 1300
+        }
+      ],
+      "zhanli": [
+        260,
+        260
+      ],
+      "atknum": 27,
+      "defnum": 27
+    },
+    "27": {
+      "level": 27,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 108
+        },
+        {
+          "38": 1350
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 54
+        },
+        {
+          "37": 1350
+        }
+      ],
+      "zhanli": [
+        270,
+        270
+      ],
+      "atknum": 28,
+      "defnum": 28
+    },
+    "28": {
+      "level": 28,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 112
+        },
+        {
+          "38": 1400
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 56
+        },
+        {
+          "37": 1400
+        }
+      ],
+      "zhanli": [
+        280,
+        280
+      ],
+      "atknum": 29,
+      "defnum": 29
+    },
+    "29": {
+      "level": 29,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 116
+        },
+        {
+          "38": 1450
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 58
+        },
+        {
+          "37": 1450
+        }
+      ],
+      "zhanli": [
+        290,
+        290
+      ],
+      "atknum": 30,
+      "defnum": 30
+    },
+    "30": {
+      "level": 30,
+      "maxlevel": 90,
+      "limit_level": 30,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 120
+        },
+        {
+          "38": 1500
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 60
+        },
+        {
+          "37": 1500
+        }
+      ],
+      "zhanli": [
+        300,
+        300
+      ],
+      "atknum": 31,
+      "defnum": 31
+    },
+    "31": {
+      "level": 31,
+      "maxlevel": 90,
+      "limit_level": 40,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 124
+        },
+        {
+          "38": 1550
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 62
+        },
+        {
+          "37": 1550
+        }
+      ],
+      "zhanli": [
+        310,
+        310
+      ],
+      "atknum": 32,
+      "defnum": 32
+    },
+    "32": {
+      "level": 32,
+      "maxlevel": 90,
+      "limit_level": 40,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 128
+        },
+        {
+          "38": 1600
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 64
+        },
+        {
+          "37": 1600
+        }
+      ],
+      "zhanli": [
+        320,
+        320
+      ],
+      "atknum": 33,
+      "defnum": 33
+    },
+    "33": {
+      "level": 33,
+      "maxlevel": 90,
+      "limit_level": 40,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 132
+        },
+        {
+          "38": 1650
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 66
+        },
+        {
+          "37": 1650
+        }
+      ],
+      "zhanli": [
+        330,
+        330
+      ],
+      "atknum": 34,
+      "defnum": 34
+    },
+    "34": {
+      "level": 34,
+      "maxlevel": 90,
+      "limit_level": 40,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 136
+        },
+        {
+          "38": 1700
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 68
+        },
+        {
+          "37": 1700
+        }
+      ],
+      "zhanli": [
+        340,
+        340
+      ],
+      "atknum": 35,
+      "defnum": 35
+    },
+    "35": {
+      "level": 35,
+      "maxlevel": 90,
+      "limit_level": 40,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 140
+        },
+        {
+          "38": 1750
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 70
+        },
+        {
+          "37": 1750
+        }
+      ],
+      "zhanli": [
+        350,
+        350
+      ],
+      "atknum": 36,
+      "defnum": 36
+    },
+    "36": {
+      "level": 36,
+      "maxlevel": 90,
+      "limit_level": 40,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 144
+        },
+        {
+          "38": 1800
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 72
+        },
+        {
+          "37": 1800
+        }
+      ],
+      "zhanli": [
+        360,
+        360
+      ],
+      "atknum": 37,
+      "defnum": 37
+    },
+    "37": {
+      "level": 37,
+      "maxlevel": 90,
+      "limit_level": 40,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 148
+        },
+        {
+          "38": 1850
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 74
+        },
+        {
+          "37": 1850
+        }
+      ],
+      "zhanli": [
+        370,
+        370
+      ],
+      "atknum": 38,
+      "defnum": 38
+    },
+    "38": {
+      "level": 38,
+      "maxlevel": 90,
+      "limit_level": 40,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 152
+        },
+        {
+          "38": 1900
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 76
+        },
+        {
+          "37": 1900
+        }
+      ],
+      "zhanli": [
+        380,
+        380
+      ],
+      "atknum": 39,
+      "defnum": 39
+    },
+    "39": {
+      "level": 39,
+      "maxlevel": 90,
+      "limit_level": 40,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 156
+        },
+        {
+          "38": 1950
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 78
+        },
+        {
+          "37": 1950
+        }
+      ],
+      "zhanli": [
+        390,
+        390
+      ],
+      "atknum": 40,
+      "defnum": 40
+    },
+    "40": {
+      "level": 40,
+      "maxlevel": 90,
+      "limit_level": 40,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 160
+        },
+        {
+          "38": 2000
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 80
+        },
+        {
+          "37": 2000
+        }
+      ],
+      "zhanli": [
+        400,
+        400
+      ],
+      "atknum": 41,
+      "defnum": 41
+    },
+    "41": {
+      "level": 41,
+      "maxlevel": 90,
+      "limit_level": 50,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 164
+        },
+        {
+          "38": 2050
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 82
+        },
+        {
+          "37": 2050
+        }
+      ],
+      "zhanli": [
+        410,
+        410
+      ],
+      "atknum": 42,
+      "defnum": 42
+    },
+    "42": {
+      "level": 42,
+      "maxlevel": 90,
+      "limit_level": 50,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 168
+        },
+        {
+          "38": 2100
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 84
+        },
+        {
+          "37": 2100
+        }
+      ],
+      "zhanli": [
+        420,
+        420
+      ],
+      "atknum": 43,
+      "defnum": 43
+    },
+    "43": {
+      "level": 43,
+      "maxlevel": 90,
+      "limit_level": 50,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 172
+        },
+        {
+          "38": 2150
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 86
+        },
+        {
+          "37": 2150
+        }
+      ],
+      "zhanli": [
+        430,
+        430
+      ],
+      "atknum": 44,
+      "defnum": 44
+    },
+    "44": {
+      "level": 44,
+      "maxlevel": 90,
+      "limit_level": 50,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 176
+        },
+        {
+          "38": 2200
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 88
+        },
+        {
+          "37": 2200
+        }
+      ],
+      "zhanli": [
+        440,
+        440
+      ],
+      "atknum": 45,
+      "defnum": 45
+    },
+    "45": {
+      "level": 45,
+      "maxlevel": 90,
+      "limit_level": 50,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 180
+        },
+        {
+          "38": 2250
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 90
+        },
+        {
+          "37": 2250
+        }
+      ],
+      "zhanli": [
+        450,
+        450
+      ],
+      "atknum": 46,
+      "defnum": 46
+    },
+    "46": {
+      "level": 46,
+      "maxlevel": 90,
+      "limit_level": 50,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 184
+        },
+        {
+          "38": 2300
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 92
+        },
+        {
+          "37": 2300
+        }
+      ],
+      "zhanli": [
+        460,
+        460
+      ],
+      "atknum": 47,
+      "defnum": 47
+    },
+    "47": {
+      "level": 47,
+      "maxlevel": 90,
+      "limit_level": 50,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 188
+        },
+        {
+          "38": 2350
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 94
+        },
+        {
+          "37": 2350
+        }
+      ],
+      "zhanli": [
+        470,
+        470
+      ],
+      "atknum": 48,
+      "defnum": 48
+    },
+    "48": {
+      "level": 48,
+      "maxlevel": 90,
+      "limit_level": 50,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 192
+        },
+        {
+          "38": 2400
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 96
+        },
+        {
+          "37": 2400
+        }
+      ],
+      "zhanli": [
+        480,
+        480
+      ],
+      "atknum": 49,
+      "defnum": 49
+    },
+    "49": {
+      "level": 49,
+      "maxlevel": 90,
+      "limit_level": 50,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 196
+        },
+        {
+          "38": 2450
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 98
+        },
+        {
+          "37": 2450
+        }
+      ],
+      "zhanli": [
+        490,
+        490
+      ],
+      "atknum": 50,
+      "defnum": 50
+    },
+    "50": {
+      "level": 50,
+      "maxlevel": 90,
+      "limit_level": 50,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 200
+        },
+        {
+          "38": 2500
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 100
+        },
+        {
+          "37": 2500
+        }
+      ],
+      "zhanli": [
+        500,
+        500
+      ],
+      "atknum": 51,
+      "defnum": 51
+    },
+    "51": {
+      "level": 51,
+      "maxlevel": 90,
+      "limit_level": 60,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 204
+        },
+        {
+          "38": 2550
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 102
+        },
+        {
+          "37": 2550
+        }
+      ],
+      "zhanli": [
+        510,
+        510
+      ],
+      "atknum": 52,
+      "defnum": 52
+    },
+    "52": {
+      "level": 52,
+      "maxlevel": 90,
+      "limit_level": 60,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 208
+        },
+        {
+          "38": 2600
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 104
+        },
+        {
+          "37": 2600
+        }
+      ],
+      "zhanli": [
+        520,
+        520
+      ],
+      "atknum": 53,
+      "defnum": 53
+    },
+    "53": {
+      "level": 53,
+      "maxlevel": 90,
+      "limit_level": 60,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 212
+        },
+        {
+          "38": 2650
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 106
+        },
+        {
+          "37": 2650
+        }
+      ],
+      "zhanli": [
+        530,
+        530
+      ],
+      "atknum": 54,
+      "defnum": 54
+    },
+    "54": {
+      "level": 54,
+      "maxlevel": 90,
+      "limit_level": 60,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 216
+        },
+        {
+          "38": 2700
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 108
+        },
+        {
+          "37": 2700
+        }
+      ],
+      "zhanli": [
+        540,
+        540
+      ],
+      "atknum": 55,
+      "defnum": 55
+    },
+    "55": {
+      "level": 55,
+      "maxlevel": 90,
+      "limit_level": 60,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 220
+        },
+        {
+          "38": 2750
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 110
+        },
+        {
+          "37": 2750
+        }
+      ],
+      "zhanli": [
+        550,
+        550
+      ],
+      "atknum": 56,
+      "defnum": 56
+    },
+    "56": {
+      "level": 56,
+      "maxlevel": 90,
+      "limit_level": 60,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 224
+        },
+        {
+          "38": 2800
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 112
+        },
+        {
+          "37": 2800
+        }
+      ],
+      "zhanli": [
+        560,
+        560
+      ],
+      "atknum": 57,
+      "defnum": 57
+    },
+    "57": {
+      "level": 57,
+      "maxlevel": 90,
+      "limit_level": 60,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 228
+        },
+        {
+          "38": 2850
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 114
+        },
+        {
+          "37": 2850
+        }
+      ],
+      "zhanli": [
+        570,
+        570
+      ],
+      "atknum": 58,
+      "defnum": 58
+    },
+    "58": {
+      "level": 58,
+      "maxlevel": 90,
+      "limit_level": 60,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 232
+        },
+        {
+          "38": 2900
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 116
+        },
+        {
+          "37": 2900
+        }
+      ],
+      "zhanli": [
+        580,
+        580
+      ],
+      "atknum": 59,
+      "defnum": 59
+    },
+    "59": {
+      "level": 59,
+      "maxlevel": 90,
+      "limit_level": 60,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 236
+        },
+        {
+          "38": 2950
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 118
+        },
+        {
+          "37": 2950
+        }
+      ],
+      "zhanli": [
+        590,
+        590
+      ],
+      "atknum": 60,
+      "defnum": 60
+    },
+    "60": {
+      "level": 60,
+      "maxlevel": 90,
+      "limit_level": 60,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 240
+        },
+        {
+          "38": 3000
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 120
+        },
+        {
+          "37": 3000
+        }
+      ],
+      "zhanli": [
+        600,
+        600
+      ],
+      "atknum": 61,
+      "defnum": 61
+    },
+    "61": {
+      "level": 61,
+      "maxlevel": 90,
+      "limit_level": 70,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 244
+        },
+        {
+          "38": 3050
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 122
+        },
+        {
+          "37": 3050
+        }
+      ],
+      "zhanli": [
+        610,
+        610
+      ],
+      "atknum": 62,
+      "defnum": 62
+    },
+    "62": {
+      "level": 62,
+      "maxlevel": 90,
+      "limit_level": 70,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 248
+        },
+        {
+          "38": 3100
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 124
+        },
+        {
+          "37": 3100
+        }
+      ],
+      "zhanli": [
+        620,
+        620
+      ],
+      "atknum": 63,
+      "defnum": 63
+    },
+    "63": {
+      "level": 63,
+      "maxlevel": 90,
+      "limit_level": 70,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 252
+        },
+        {
+          "38": 3150
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 126
+        },
+        {
+          "37": 3150
+        }
+      ],
+      "zhanli": [
+        630,
+        630
+      ],
+      "atknum": 64,
+      "defnum": 64
+    },
+    "64": {
+      "level": 64,
+      "maxlevel": 90,
+      "limit_level": 70,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 256
+        },
+        {
+          "38": 3200
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 128
+        },
+        {
+          "37": 3200
+        }
+      ],
+      "zhanli": [
+        640,
+        640
+      ],
+      "atknum": 65,
+      "defnum": 65
+    },
+    "65": {
+      "level": 65,
+      "maxlevel": 90,
+      "limit_level": 70,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 260
+        },
+        {
+          "38": 3250
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 130
+        },
+        {
+          "37": 3250
+        }
+      ],
+      "zhanli": [
+        650,
+        650
+      ],
+      "atknum": 66,
+      "defnum": 66
+    },
+    "66": {
+      "level": 66,
+      "maxlevel": 90,
+      "limit_level": 70,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 264
+        },
+        {
+          "38": 3300
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 132
+        },
+        {
+          "37": 3300
+        }
+      ],
+      "zhanli": [
+        660,
+        660
+      ],
+      "atknum": 67,
+      "defnum": 67
+    },
+    "67": {
+      "level": 67,
+      "maxlevel": 90,
+      "limit_level": 70,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 268
+        },
+        {
+          "38": 3350
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 134
+        },
+        {
+          "37": 3350
+        }
+      ],
+      "zhanli": [
+        670,
+        670
+      ],
+      "atknum": 68,
+      "defnum": 68
+    },
+    "68": {
+      "level": 68,
+      "maxlevel": 90,
+      "limit_level": 70,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 272
+        },
+        {
+          "38": 3400
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 136
+        },
+        {
+          "37": 3400
+        }
+      ],
+      "zhanli": [
+        680,
+        680
+      ],
+      "atknum": 69,
+      "defnum": 69
+    },
+    "69": {
+      "level": 69,
+      "maxlevel": 90,
+      "limit_level": 70,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 276
+        },
+        {
+          "38": 3450
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 138
+        },
+        {
+          "37": 3450
+        }
+      ],
+      "zhanli": [
+        690,
+        690
+      ],
+      "atknum": 70,
+      "defnum": 70
+    },
+    "70": {
+      "level": 70,
+      "maxlevel": 90,
+      "limit_level": 70,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 280
+        },
+        {
+          "38": 3500
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 140
+        },
+        {
+          "37": 3500
+        }
+      ],
+      "zhanli": [
+        700,
+        700
+      ],
+      "atknum": 71,
+      "defnum": 71
+    },
+    "71": {
+      "level": 71,
+      "maxlevel": 90,
+      "limit_level": 80,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 284
+        },
+        {
+          "38": 3550
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 142
+        },
+        {
+          "37": 3550
+        }
+      ],
+      "zhanli": [
+        710,
+        710
+      ],
+      "atknum": 72,
+      "defnum": 72
+    },
+    "72": {
+      "level": 72,
+      "maxlevel": 90,
+      "limit_level": 80,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 288
+        },
+        {
+          "38": 3600
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 144
+        },
+        {
+          "37": 3600
+        }
+      ],
+      "zhanli": [
+        720,
+        720
+      ],
+      "atknum": 73,
+      "defnum": 73
+    },
+    "73": {
+      "level": 73,
+      "maxlevel": 90,
+      "limit_level": 80,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 292
+        },
+        {
+          "38": 3650
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 146
+        },
+        {
+          "37": 3650
+        }
+      ],
+      "zhanli": [
+        730,
+        730
+      ],
+      "atknum": 74,
+      "defnum": 74
+    },
+    "74": {
+      "level": 74,
+      "maxlevel": 90,
+      "limit_level": 80,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 296
+        },
+        {
+          "38": 3700
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 148
+        },
+        {
+          "37": 3700
+        }
+      ],
+      "zhanli": [
+        740,
+        740
+      ],
+      "atknum": 75,
+      "defnum": 75
+    },
+    "75": {
+      "level": 75,
+      "maxlevel": 90,
+      "limit_level": 80,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 300
+        },
+        {
+          "38": 3750
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 150
+        },
+        {
+          "37": 3750
+        }
+      ],
+      "zhanli": [
+        750,
+        750
+      ],
+      "atknum": 76,
+      "defnum": 76
+    },
+    "76": {
+      "level": 76,
+      "maxlevel": 90,
+      "limit_level": 80,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 304
+        },
+        {
+          "38": 3800
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 152
+        },
+        {
+          "37": 3800
+        }
+      ],
+      "zhanli": [
+        760,
+        760
+      ],
+      "atknum": 77,
+      "defnum": 77
+    },
+    "77": {
+      "level": 77,
+      "maxlevel": 90,
+      "limit_level": 80,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 308
+        },
+        {
+          "38": 3850
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 154
+        },
+        {
+          "37": 3850
+        }
+      ],
+      "zhanli": [
+        770,
+        770
+      ],
+      "atknum": 78,
+      "defnum": 78
+    },
+    "78": {
+      "level": 78,
+      "maxlevel": 90,
+      "limit_level": 80,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 312
+        },
+        {
+          "38": 3900
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 156
+        },
+        {
+          "37": 3900
+        }
+      ],
+      "zhanli": [
+        780,
+        780
+      ],
+      "atknum": 79,
+      "defnum": 79
+    },
+    "79": {
+      "level": 79,
+      "maxlevel": 90,
+      "limit_level": 80,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 316
+        },
+        {
+          "38": 3950
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 158
+        },
+        {
+          "37": 3950
+        }
+      ],
+      "zhanli": [
+        790,
+        790
+      ],
+      "atknum": 80,
+      "defnum": 80
+    },
+    "80": {
+      "level": 80,
+      "maxlevel": 90,
+      "limit_level": 80,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 320
+        },
+        {
+          "38": 4000
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 160
+        },
+        {
+          "37": 4000
+        }
+      ],
+      "zhanli": [
+        800,
+        800
+      ],
+      "atknum": 81,
+      "defnum": 81
+    },
+    "81": {
+      "level": 81,
+      "maxlevel": 90,
+      "limit_level": 90,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 324
+        },
+        {
+          "38": 4050
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 162
+        },
+        {
+          "37": 4050
+        }
+      ],
+      "zhanli": [
+        810,
+        810
+      ],
+      "atknum": 82,
+      "defnum": 82
+    },
+    "82": {
+      "level": 82,
+      "maxlevel": 90,
+      "limit_level": 90,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 328
+        },
+        {
+          "38": 4100
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 164
+        },
+        {
+          "37": 4100
+        }
+      ],
+      "zhanli": [
+        820,
+        820
+      ],
+      "atknum": 83,
+      "defnum": 83
+    },
+    "83": {
+      "level": 83,
+      "maxlevel": 90,
+      "limit_level": 90,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 332
+        },
+        {
+          "38": 4150
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 166
+        },
+        {
+          "37": 4150
+        }
+      ],
+      "zhanli": [
+        830,
+        830
+      ],
+      "atknum": 84,
+      "defnum": 84
+    },
+    "84": {
+      "level": 84,
+      "maxlevel": 90,
+      "limit_level": 90,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 336
+        },
+        {
+          "38": 4200
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 168
+        },
+        {
+          "37": 4200
+        }
+      ],
+      "zhanli": [
+        840,
+        840
+      ],
+      "atknum": 85,
+      "defnum": 85
+    },
+    "85": {
+      "level": 85,
+      "maxlevel": 90,
+      "limit_level": 90,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 340
+        },
+        {
+          "38": 4250
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 170
+        },
+        {
+          "37": 4250
+        }
+      ],
+      "zhanli": [
+        850,
+        850
+      ],
+      "atknum": 86,
+      "defnum": 86
+    },
+    "86": {
+      "level": 86,
+      "maxlevel": 90,
+      "limit_level": 90,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 344
+        },
+        {
+          "38": 4300
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 172
+        },
+        {
+          "37": 4300
+        }
+      ],
+      "zhanli": [
+        860,
+        860
+      ],
+      "atknum": 87,
+      "defnum": 87
+    },
+    "87": {
+      "level": 87,
+      "maxlevel": 90,
+      "limit_level": 90,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 348
+        },
+        {
+          "38": 4350
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 174
+        },
+        {
+          "37": 4350
+        }
+      ],
+      "zhanli": [
+        870,
+        870
+      ],
+      "atknum": 88,
+      "defnum": 88
+    },
+    "88": {
+      "level": 88,
+      "maxlevel": 90,
+      "limit_level": 90,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 352
+        },
+        {
+          "38": 4400
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 176
+        },
+        {
+          "37": 4400
+        }
+      ],
+      "zhanli": [
+        880,
+        880
+      ],
+      "atknum": 89,
+      "defnum": 89
+    },
+    "89": {
+      "level": 89,
+      "maxlevel": 90,
+      "limit_level": 90,
+      "item_atk": [
+        "I3911",
+        1
+      ],
+      "atkRefine": [
+        {
+          "7": 356
+        },
+        {
+          "38": 4450
+        }
+      ],
+      "item_def": [
+        "I3912",
+        1
+      ],
+      "defRefine": [
+        {
+          "9": 178
+        },
+        {
+          "37": 4450
+        }
+      ],
+      "zhanli": [
+        890,
+        890
+      ],
+      "atknum": 90,
+      "defnum": 90
+    },
+    "90": {
+      "level": 90,
+      "maxlevel": 90,
+      "limit_level": 90,
+      "item_atk": [
+        "I3911",
+        0
+      ],
+      "atkRefine": [
+        {
+          "7": 360
+        },
+        {
+          "38": 4500
+        }
+      ],
+      "item_def": [
+        "I3912",
+        0
+      ],
+      "defRefine": [
+        {
+          "9": 180
+        },
+        {
+          "37": 4500
+        }
+      ],
+      "zhanli": [
+        900,
+        900
+      ],
+      "atknum": 91,
+      "defnum": 91
+    }
+  }
+}

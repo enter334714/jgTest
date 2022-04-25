@@ -1,2 +1,2 @@
 var G = wx.$E;
-require('DD88DD88FDD88DD88.js'), window[G[581260]][G[581240]][G[580905]] = null, window['client_pb'] = require('DD88DD88IENDD88DD88.js'), window[G[581794]] = window[G[581260]][G[581090]][G[580955]](client_pb);
+require('DD88DD88FDD88DD88.js'), window[G[581401]][G[581382]][G[581049]] = null, window['client_pb'] = require('DD88DD88IENDD88DD88.js'), window[G[581950]] = window[G[581401]][G[581233]][G[581099]](client_pb);

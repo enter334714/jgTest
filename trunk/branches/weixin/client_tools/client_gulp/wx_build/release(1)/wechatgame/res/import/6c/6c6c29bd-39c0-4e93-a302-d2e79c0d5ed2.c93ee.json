@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_xingongneng_icon_shengongmiji",
+    "texture": "8dL7H7xE5A5KnSF3PdHWji",
+    "rect": [
+      0,
+      0,
+      96,
+      104
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      96,
+      104
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

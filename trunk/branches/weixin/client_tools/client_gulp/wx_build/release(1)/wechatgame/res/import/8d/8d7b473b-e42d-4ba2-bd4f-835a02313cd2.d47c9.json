@@ -1,0 +1,8537 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "chongZhiConfig",
+  "json": {
+    "1": {
+      "name": "首充奖励",
+      "m_type": 1001,
+      "charge_type": 0,
+      "rate": 1,
+      "needShow": 1,
+      "btn": {
+        "text": "",
+        "skin": "btn_lingqujiangli.png"
+      },
+      "activity": 0
+    },
+    "2": {
+      "name": "回收特权",
+      "m_type": 1002,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1002",
+      "viptype": 1,
+      "o_price": 30,
+      "money": 30,
+      "continueTime": 2592000,
+      "trigger": 1,
+      "rate": 1,
+      "needShow": 1,
+      "btn": {
+        "text": "30",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "3": {
+      "name": "战神特权",
+      "m_type": 1003,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1003",
+      "viptype": 2,
+      "o_price": 30,
+      "money": 30,
+      "continueTime": 2592000,
+      "trigger": 1,
+      "rate": 1,
+      "needShow": 1,
+      "btn": {
+        "text": "30",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "4": {
+      "name": "回收特权季卡",
+      "m_type": 1004,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1004",
+      "viptype": 1,
+      "o_price": 68,
+      "money": 68,
+      "continueTime": 7776000,
+      "trigger": 1,
+      "rate": 1,
+      "btn": {
+        "text": "68",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "5": {
+      "name": "战神特权季卡",
+      "m_type": 1005,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1005",
+      "viptype": 2,
+      "o_price": 68,
+      "money": 68,
+      "continueTime": 7776000,
+      "trigger": 1,
+      "rate": 1,
+      "btn": {
+        "text": "68",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "6": {
+      "name": "双特权季卡打包",
+      "m_type": 1006,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1006",
+      "viptype": [
+        1,
+        2
+      ],
+      "o_price": 128,
+      "money": 128,
+      "continueTime": 7776000,
+      "trigger": 1,
+      "rate": 1,
+      "btn": {
+        "text": "128",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "7": {
+      "name": "助战礼包",
+      "m_type": 1007,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1007",
+      "index": 7,
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I3004": 100,
+        "I3001": 50,
+        "I4001": 100
+      },
+      "state": 1,
+      "o_price": 30,
+      "money": 30,
+      "des": "助战礼包"
+    },
+    "8": {
+      "name": "背包扩充",
+      "m_type": 1008,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1008",
+      "index": 8,
+      "o_price": 30,
+      "money": 30,
+      "des": "背包扩充"
+    },
+    "9": {
+      "name": "托管助手月卡",
+      "m_type": 1009,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1009",
+      "viptype": 3,
+      "o_price": 30,
+      "money": 30,
+      "continueTime": 2592000,
+      "trigger": 1,
+      "rate": 1,
+      "btn": {
+        "text": "30",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "10": {
+      "name": "托管助手季卡",
+      "m_type": 1010,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1010",
+      "viptype": 3,
+      "o_price": 68,
+      "money": 68,
+      "continueTime": 7776000,
+      "trigger": 1,
+      "rate": 1,
+      "btn": {
+        "text": "68",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "11": {
+      "name": "托管助手永久卡",
+      "m_type": 1011,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1011",
+      "viptype": 3,
+      "o_price": 128,
+      "money": 128,
+      "continueTime": -1,
+      "trigger": 1,
+      "rate": 1,
+      "btn": {
+        "text": "688",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "12": {
+      "name": "仓库扩充",
+      "m_type": 1012,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1012",
+      "index": 11,
+      "o_price": 30,
+      "money": 30,
+      "des": "仓库扩充"
+    },
+    "101": {
+      "name": "6元",
+      "m_type": 1101,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1101",
+      "o_price": 6,
+      "money": 6,
+      "gem": 60,
+      "des": "充值获得60元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "6",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0,
+      "activity_des": "限时活动：额外得50%元宝，即6元得90元宝"
+    },
+    "102": {
+      "name": "12元",
+      "m_type": 1102,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1102",
+      "o_price": 12,
+      "money": 12,
+      "gem": 120,
+      "des": "充值获得120元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "12",
+        "skin": "btn_goumai.png"
+      }
+    },
+    "103": {
+      "name": "30元",
+      "m_type": 1103,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1103",
+      "o_price": 30,
+      "money": 30,
+      "gem": 300,
+      "des": "充值获得300元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "30",
+        "skin": "btn_goumai.png"
+      }
+    },
+    "104": {
+      "name": "98元",
+      "m_type": 1104,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1104",
+      "o_price": 98,
+      "money": 98,
+      "gem": 980,
+      "des": "充值获得980元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "98",
+        "skin": "btn_goumai.png"
+      }
+    },
+    "105": {
+      "name": "198元",
+      "m_type": 1105,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1105",
+      "o_price": 198,
+      "money": 198,
+      "gem": 1980,
+      "des": "充值获得1980元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "198",
+        "skin": "btn_goumai.png"
+      }
+    },
+    "106": {
+      "name": "328元",
+      "m_type": 1106,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1106",
+      "o_price": 328,
+      "money": 328,
+      "gem": 3280,
+      "des": "充值获得3280元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "328",
+        "skin": "btn_goumai.png"
+      }
+    },
+    "107": {
+      "name": "648元",
+      "m_type": 1107,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1107",
+      "o_price": 648,
+      "money": 648,
+      "gem": 6480,
+      "des": "充值获得6480元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "648",
+        "skin": "btn_goumai.png"
+      }
+    },
+    "201": {
+      "name": "金币特惠礼包",
+      "m_type": 1201,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1201",
+      "index": 1,
+      "time": "10800",
+      "resource": {
+        "1": 400000
+      },
+      "state": 1,
+      "o_price": 20,
+      "money": 6,
+      "des": "6元金币特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "202": {
+      "name": "金币特惠礼包",
+      "m_type": 1202,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1202",
+      "index": 1,
+      "time": "10800",
+      "resource": {
+        "1": 2000000
+      },
+      "state": 1,
+      "o_price": 100,
+      "money": 30,
+      "des": "30元金币特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "203": {
+      "name": "金币特惠礼包",
+      "m_type": 1203,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1203",
+      "index": 1,
+      "time": "10800",
+      "resource": {
+        "1": 4560000
+      },
+      "state": 1,
+      "o_price": 228,
+      "money": 68,
+      "des": "68元金币特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "221": {
+      "name": "基金",
+      "m_type": 1221,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1221",
+      "resource": {
+        "2": 1980
+      },
+      "o_price": 198,
+      "money": 198,
+      "des": "基金",
+      "trigger": 1,
+      "rate": 1,
+      "activityId": 1
+    },
+    "222": {
+      "name": "传奇霸业",
+      "m_type": 1222,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1222",
+      "resource": {
+        "2": 980
+      },
+      "o_price": 98,
+      "money": 98,
+      "des": "传奇霸业",
+      "trigger": 1,
+      "rate": 1,
+      "activityId": 3
+    },
+    "223": {
+      "name": "成长基金",
+      "m_type": 221,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1223",
+      "resource": {
+        "2": 980
+      },
+      "o_price": 98,
+      "money": 98,
+      "des": "成长基金",
+      "trigger": 1,
+      "rate": 1,
+      "activityId": 13
+    },
+    "224": {
+      "name": "合服基金",
+      "m_type": 1224,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1224",
+      "resource": {
+        "2": 1980
+      },
+      "o_price": 198,
+      "money": 198,
+      "des": "基金",
+      "trigger": 1,
+      "rate": 1,
+      "activityId": 34
+    },
+    "225": {
+      "name": "合服霸业",
+      "m_type": 1225,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1225",
+      "resource": {
+        "2": 980
+      },
+      "o_price": 98,
+      "money": 98,
+      "des": "传奇霸业",
+      "trigger": 1,
+      "rate": 1,
+      "activityId": 35
+    },
+    "301": {
+      "name": "洗练石特惠礼包",
+      "m_type": 1301,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1301",
+      "index": 2,
+      "time": "10800",
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I3001": 200
+      },
+      "state": 1,
+      "o_price": 60,
+      "money": 30,
+      "des": "30元洗练石特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "302": {
+      "name": "洗练石特惠礼包",
+      "m_type": 1302,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1302",
+      "index": 2,
+      "time": "10800",
+      "resource": {
+        "2": 680
+      },
+      "item": {
+        "I3001": 500
+      },
+      "state": 1,
+      "o_price": 160,
+      "money": 68,
+      "des": "68元洗练石特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "311": {
+      "name": "淬炼石特惠礼包",
+      "m_type": 1311,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1311",
+      "index": 12,
+      "time": "10800",
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I3903": 200
+      },
+      "state": 1,
+      "o_price": 60,
+      "money": 30,
+      "des": "30元淬炼石特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "312": {
+      "name": "淬炼石特惠礼包",
+      "m_type": 1312,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1312",
+      "index": 12,
+      "time": "10800",
+      "resource": {
+        "2": 680
+      },
+      "item": {
+        "I3903": 500
+      },
+      "state": 1,
+      "o_price": 160,
+      "money": 68,
+      "des": "68元淬炼石特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "315": {
+      "name": "时之璎珞特惠礼包",
+      "m_type": 1315,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1315",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I3133": 10
+      },
+      "state": 1,
+      "o_price": 60,
+      "money": 30,
+      "des": "30元时之璎珞特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "316": {
+      "name": "时之璎珞特惠礼包",
+      "m_type": 1316,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1316",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 680
+      },
+      "item": {
+        "I3133": 25
+      },
+      "state": 1,
+      "o_price": 160,
+      "money": 68,
+      "des": "68元时之璎珞特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "321": {
+      "name": "圣诞30元特惠",
+      "m_type": 1321,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1321",
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I4001": 100,
+        "I9111": 5,
+        "I9112": 5
+      },
+      "state": 1,
+      "o_price": 68,
+      "money": 30,
+      "des": "圣诞30元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "322": {
+      "name": "圣诞60元特惠",
+      "m_type": 1322,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1322",
+      "resource": {
+        "2": 680
+      },
+      "item": {
+        "I3001": 100,
+        "I9111": 12,
+        "I9112": 12
+      },
+      "state": 1,
+      "o_price": 128,
+      "money": 60,
+      "des": "圣诞60元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "323": {
+      "name": "圣诞98元特惠",
+      "m_type": 1323,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1323",
+      "resource": {
+        "2": 980
+      },
+      "item": {
+        "I3903": 100,
+        "I9111": 18,
+        "I9112": 18
+      },
+      "state": 1,
+      "o_price": 198,
+      "money": 98,
+      "des": "圣诞98元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "324": {
+      "name": "圣诞198元特惠",
+      "m_type": 1324,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1324",
+      "resource": {
+        "2": 1980
+      },
+      "item": {
+        "I3909": 1000,
+        "I9111": 35,
+        "I9112": 35
+      },
+      "state": 1,
+      "o_price": 328,
+      "money": 198,
+      "des": "圣诞198元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "325": {
+      "name": "圣诞648元特惠",
+      "m_type": 1325,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1325",
+      "resource": {
+        "2": 6480
+      },
+      "item": {
+        "I3910": 400,
+        "I9111": 120,
+        "I9112": 120
+      },
+      "state": 1,
+      "o_price": 1280,
+      "money": 648,
+      "des": "圣诞648元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "326": {
+      "name": "狂欢30元特惠",
+      "m_type": 1326,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1326",
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I9158": 150,
+        "I9159": 20,
+        "I6110": 2
+      },
+      "state": 1,
+      "o_price": 60,
+      "money": 30,
+      "des": "早春30元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "327": {
+      "name": "狂欢60元特惠",
+      "m_type": 1327,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1327",
+      "resource": {
+        "2": 600
+      },
+      "item": {
+        "I9142": 8,
+        "B1002": 30,
+        "B1008": 3
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 60,
+      "des": "早春60元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "328": {
+      "name": "狂欢98元特惠",
+      "m_type": 1328,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1328",
+      "resource": {
+        "2": 980
+      },
+      "item": {
+        "I9158": 500,
+        "I9159": 50,
+        "I3153": 2
+      },
+      "state": 1,
+      "o_price": 198,
+      "money": 98,
+      "des": "早春98元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "329": {
+      "name": "狂欢198元特惠",
+      "m_type": 1329,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1329",
+      "resource": {
+        "2": 1980
+      },
+      "item": {
+        "I9142": 18,
+        "I3153": 4,
+        "B1004": 17
+      },
+      "state": 1,
+      "o_price": 328,
+      "money": 198,
+      "des": "早春198元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "330": {
+      "name": "狂欢328元特惠",
+      "m_type": 1330,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1330",
+      "resource": {
+        "2": 3280
+      },
+      "item": {
+        "I9158": 1500,
+        "I9159": 160,
+        "I3153": 6
+      },
+      "state": 1,
+      "o_price": 588,
+      "money": 328,
+      "des": "早春328元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "331": {
+      "name": "狂欢648元特惠",
+      "m_type": 1331,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1331",
+      "resource": {
+        "2": 6480
+      },
+      "item": {
+        "I9158": 3000,
+        "I9159": 320,
+        "I3153": 12
+      },
+      "state": 1,
+      "o_price": 988,
+      "money": 648,
+      "des": "早春648元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "332": {
+      "name": "狂欢6元特惠",
+      "m_type": 1332,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1332",
+      "resource": {
+        "2": 60
+      },
+      "item": {
+        "I9158": 50,
+        "I3001": 50,
+        "I3903": 50
+      },
+      "state": 1,
+      "o_price": 30,
+      "money": 6,
+      "des": "早春6元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "333": {
+      "name": "6元特惠礼包",
+      "m_type": 1333,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1333",
+      "resource": {
+        "2": 60
+      },
+      "item": {
+        "I3001": 50,
+        "I4001": 50,
+        "I3133": 4
+      },
+      "state": 1,
+      "o_price": 30,
+      "money": 6,
+      "des": "月中6元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "334": {
+      "name": "60元特惠礼包",
+      "m_type": 1334,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1334",
+      "resource": {
+        "2": 600
+      },
+      "item": {
+        "I3920": 30,
+        "I3921": 30,
+        "I3922": 30
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 60,
+      "des": "月中60元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "335": {
+      "name": "98元特惠礼包",
+      "m_type": 1335,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1335",
+      "resource": {
+        "2": 980
+      },
+      "item": {
+        "I3104": 5,
+        "I3930": 5,
+        "I3931": 5
+      },
+      "state": 1,
+      "o_price": 198,
+      "money": 98,
+      "des": "月中98元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "336": {
+      "name": "128元特惠礼包",
+      "m_type": 1336,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1336",
+      "resource": {
+        "2": 1280
+      },
+      "item": {
+        "I3933": 5,
+        "I3921": 60,
+        "I3922": 60
+      },
+      "state": 1,
+      "o_price": 268,
+      "money": 128,
+      "des": "月中128元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "337": {
+      "name": "328元特惠礼包",
+      "m_type": 1337,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1337",
+      "resource": {
+        "2": 3280
+      },
+      "item": {
+        "I3932": 5,
+        "I3926": 25,
+        "I3104": 15
+      },
+      "state": 1,
+      "o_price": 588,
+      "money": 328,
+      "des": "月中328元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "338": {
+      "name": "648元特惠礼包",
+      "m_type": 1338,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1338",
+      "resource": {
+        "2": 6480
+      },
+      "item": {
+        "I3934": 5,
+        "I3921": 200,
+        "I3922": 200
+      },
+      "state": 1,
+      "o_price": 988,
+      "money": 648,
+      "des": "月中648元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "401": {
+      "name": "书页特惠礼包",
+      "m_type": 1401,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1401",
+      "index": 3,
+      "time": "10800",
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I4001": 300,
+        "I3004": 300
+      },
+      "state": 1,
+      "o_price": 45,
+      "money": 30,
+      "des": "30元书页特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "402": {
+      "name": "书页特惠礼包",
+      "m_type": 1402,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1402",
+      "index": 3,
+      "time": "10800",
+      "resource": {
+        "2": 680
+      },
+      "item": {
+        "I4001": 700,
+        "I3004": 680
+      },
+      "state": 1,
+      "o_price": 115,
+      "money": 68,
+      "des": "68元书页特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "403": {
+      "name": "书页特惠礼包",
+      "m_type": 1403,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1403",
+      "index": 3,
+      "time": "10800",
+      "resource": {
+        "2": 1280
+      },
+      "item": {
+        "I4001": 1350,
+        "I3004": 1280
+      },
+      "state": 1,
+      "o_price": 225,
+      "money": 128,
+      "des": "128元书页特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "410": {
+      "name": "命运之刃直升礼包",
+      "m_type": 1410,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1410",
+      "index": 9,
+      "resource": {
+        "2": 1280
+      },
+      "item": {
+        "I3907": 300,
+        "I3908": 50
+      },
+      "state": 1,
+      "o_price": 1280,
+      "money": 128,
+      "des": "命运之刃直升礼包",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 1,
+      "ad": 1
+    },
+    "411": {
+      "name": "金币特惠礼包",
+      "m_type": 1411,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1411",
+      "index": 10,
+      "resource": {
+        "1": 800000,
+        "2": 60
+      },
+      "state": 1,
+      "o_price": 20,
+      "money": 6,
+      "des": "6元金币特惠",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 2,
+      "ad": 2
+    },
+    "412": {
+      "name": "洗练石特惠礼包",
+      "m_type": 1412,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1412",
+      "index": 10,
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I3001": 400
+      },
+      "state": 1,
+      "o_price": 60,
+      "money": 30,
+      "des": "30元洗练石特惠",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 2,
+      "ad": 2
+    },
+    "413": {
+      "name": "书页特惠礼包",
+      "m_type": 1413,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1413",
+      "index": 10,
+      "resource": {
+        "2": 680
+      },
+      "item": {
+        "I4001": 1400,
+        "I3004": 1360
+      },
+      "state": 1,
+      "o_price": 115,
+      "money": 68,
+      "des": "68元书页特惠",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 2,
+      "ad": 2
+    },
+    "414": {
+      "name": "符文特惠",
+      "m_type": 1414,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1414",
+      "index": 10,
+      "resource": {
+        "2": 1980
+      },
+      "item": {
+        "I8012": 1,
+        "I7103": 1,
+        "I3903": 500
+      },
+      "state": 1,
+      "o_price": 1980,
+      "money": 198,
+      "des": "符文特惠",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 2,
+      "ad": 2
+    },
+    "415": {
+      "name": "淬炼石特惠礼包",
+      "m_type": 1415,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1415",
+      "index": 10,
+      "resource": {
+        "2": 1980
+      },
+      "item": {
+        "I8012": 1,
+        "I9110": 120,
+        "I3903": 500
+      },
+      "state": 1,
+      "o_price": 1980,
+      "money": 198,
+      "des": "淬炼石特惠",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 3,
+      "ad": 3
+    },
+    "416": {
+      "name": "嗜魂法杖直升礼包",
+      "m_type": 1416,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1416",
+      "index": 14,
+      "resource": {
+        "2": 1280
+      },
+      "item": {
+        "I3916": 360,
+        "I3917": 130
+      },
+      "state": 1,
+      "o_price": 1280,
+      "money": 128,
+      "des": "嗜魂法杖直升礼包",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 1,
+      "ad": 4
+    },
+    "501": {
+      "name": "神装礼包",
+      "m_type": 1501,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1501",
+      "index": 4,
+      "time": "10800",
+      "item": {
+        "D000004": 1,
+        "I4001": 100,
+        "I3905": 20,
+        "I3906": 20
+      },
+      "state": 1,
+      "o_price": 128,
+      "money": 30
+    },
+    "502": {
+      "name": "技能礼包",
+      "m_type": 1502,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1502",
+      "index": 5,
+      "time": "259200",
+      "item": {
+        "D000005": 1,
+        "I3903": 200,
+        "I3007": 200,
+        "I8001": 1,
+        "I8002": 1,
+        "I8005": 1,
+        "I8009": 1,
+        "I8012": 1
+      },
+      "state": 1,
+      "o_price": 198,
+      "money": 68
+    },
+    "503": {
+      "name": "神装礼包",
+      "m_type": 1503,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1503",
+      "index": 4,
+      "item": {
+        "D000004": 1,
+        "I4001": 100,
+        "I3905": 20,
+        "I3906": 20
+      },
+      "state": 1,
+      "o_price": 128,
+      "money": 60
+    },
+    "504": {
+      "name": "技能礼包",
+      "m_type": 1504,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1504",
+      "index": 5,
+      "item": {
+        "D000005": 1,
+        "I3903": 200,
+        "I3007": 200,
+        "I8001": 1,
+        "I8002": 1,
+        "I8005": 1,
+        "I8009": 1,
+        "I8012": 1
+      },
+      "state": 1,
+      "o_price": 198,
+      "money": 98
+    },
+    "505": {
+      "name": "最强群攻",
+      "m_type": 1505,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1505",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 600
+      },
+      "item": {
+        "I5005": 20,
+        "I4001": 750,
+        "I3004": 400
+      },
+      "state": 1,
+      "o_price": 238,
+      "money": 60,
+      "des": "最强群攻"
+    },
+    "506": {
+      "name": "最强群攻",
+      "m_type": 1506,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1506",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 600
+      },
+      "item": {
+        "I5203": 20,
+        "I4001": 750,
+        "I3004": 400
+      },
+      "state": 1,
+      "o_price": 238,
+      "money": 60,
+      "des": "最强群攻"
+    },
+    "507": {
+      "name": "最强群攻",
+      "m_type": 1507,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1507",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 600
+      },
+      "item": {
+        "I5104": 20,
+        "I4001": 750,
+        "I3004": 400
+      },
+      "state": 1,
+      "o_price": 238,
+      "money": 60,
+      "des": "最强群攻"
+    },
+    "508": {
+      "name": "最强群攻",
+      "m_type": 1508,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1508",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 980
+      },
+      "item": {
+        "I5005": 20,
+        "I4001": 750,
+        "I3004": 400
+      },
+      "state": 1,
+      "o_price": 238,
+      "money": 98,
+      "des": "最强群攻"
+    },
+    "509": {
+      "name": "最强群攻",
+      "m_type": 1509,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1509",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 980
+      },
+      "item": {
+        "I5203": 20,
+        "I4001": 750,
+        "I3004": 400
+      },
+      "state": 1,
+      "o_price": 238,
+      "money": 98,
+      "des": "最强群攻"
+    },
+    "510": {
+      "name": "最强群攻",
+      "m_type": 1510,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1510",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 980
+      },
+      "item": {
+        "I5104": 20,
+        "I4001": 750,
+        "I3004": 400
+      },
+      "state": 1,
+      "o_price": 238,
+      "money": 98,
+      "des": "最强群攻"
+    },
+    "601": {
+      "name": "半月弯刀·碧玉",
+      "m_type": 1601,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1601",
+      "index": 6,
+      "item": {
+        "2": 1
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 30,
+      "des": "半月弯刀·碧玉",
+      "trigger": 1
+    },
+    "602": {
+      "name": "火墙术·朱炎",
+      "m_type": 1602,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1602",
+      "index": 6,
+      "item": {
+        "4": 1
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 30,
+      "des": "火墙术·朱炎",
+      "trigger": 1
+    },
+    "603": {
+      "name": "施毒术·紫祸",
+      "m_type": 1603,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1603",
+      "index": 6,
+      "item": {
+        "6": 1
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 30,
+      "des": "施毒术·紫祸",
+      "trigger": 1
+    },
+    "604": {
+      "name": "烈火剑法·爆炎",
+      "m_type": 1604,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1604",
+      "index": 6,
+      "item": {
+        "8": 1
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 68,
+      "des": "烈火剑法·爆炎",
+      "trigger": 1
+    },
+    "605": {
+      "name": "冰咆哮·冰晶",
+      "m_type": 1605,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1605",
+      "index": 6,
+      "item": {
+        "10": 1
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 68,
+      "des": "冰咆哮·冰晶",
+      "trigger": 1
+    },
+    "606": {
+      "name": "无极真气·湛蓝",
+      "m_type": 1606,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1606",
+      "index": 6,
+      "item": {
+        "12": 1
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 68,
+      "des": "无极真气·湛蓝",
+      "trigger": 1
+    },
+    "701": {
+      "name": "6元自选礼包",
+      "m_type": 1701,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1701",
+      "state": 1,
+      "o_price": 30,
+      "money": 6,
+      "des": "6元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1
+    },
+    "702": {
+      "name": "30元自选礼包",
+      "m_type": 1702,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1702",
+      "state": 1,
+      "o_price": 90,
+      "money": 30,
+      "des": "30元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 2
+    },
+    "703": {
+      "name": "60元自选礼包",
+      "m_type": 1703,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1703",
+      "state": 1,
+      "o_price": 128,
+      "money": 60,
+      "des": "60元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 3
+    },
+    "704": {
+      "name": "98元自选礼包",
+      "m_type": 1704,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1704",
+      "state": 1,
+      "o_price": 188,
+      "money": 98,
+      "des": "98元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 4
+    },
+    "705": {
+      "name": "128元自选礼包",
+      "m_type": 1705,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1705",
+      "state": 1,
+      "o_price": 288,
+      "money": 128,
+      "des": "128元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 5
+    },
+    "706": {
+      "name": "328元自选礼包",
+      "m_type": 1706,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1706",
+      "state": 1,
+      "o_price": 588,
+      "money": 328,
+      "des": "328元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 6
+    },
+    "707": {
+      "name": "648元自选礼包",
+      "m_type": 1707,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1707",
+      "state": 1,
+      "o_price": 988,
+      "money": 648,
+      "des": "648元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 7
+    },
+    "801": {
+      "name": "30元红包",
+      "m_type": 1801,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1801",
+      "resource": {
+        "2": 300,
+        "10": 750
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 30,
+      "des": "30元红包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "802": {
+      "name": "60元红包",
+      "m_type": 1802,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1802",
+      "resource": {
+        "2": 600,
+        "10": 1600
+      },
+      "state": 1,
+      "o_price": 128,
+      "money": 60,
+      "des": "60元红包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "803": {
+      "name": "128元红包",
+      "m_type": 1803,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1803",
+      "resource": {
+        "2": 1280,
+        "10": 3500
+      },
+      "state": 1,
+      "o_price": 248,
+      "money": 128,
+      "des": "128元红包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "804": {
+      "name": "328元红包",
+      "m_type": 1804,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1804",
+      "resource": {
+        "2": 3280,
+        "10": 9000
+      },
+      "state": 1,
+      "o_price": 588,
+      "money": 328,
+      "des": "328元红包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "805": {
+      "name": "648元红包",
+      "m_type": 1805,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t1805",
+      "resource": {
+        "2": 6480,
+        "10": 18800
+      },
+      "state": 1,
+      "o_price": 988,
+      "money": 648,
+      "des": "648元红包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1001": {
+      "name": "首充奖励",
+      "m_type": 1,
+      "charge_type": 1,
+      "rate": 1,
+      "needShow": 1,
+      "btn": {
+        "text": "",
+        "skin": "btn_lingqujiangli.png"
+      },
+      "activity": 0
+    },
+    "1002": {
+      "name": "回收特权",
+      "m_type": 2,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1002",
+      "viptype": 1,
+      "o_price": 30,
+      "money": 30,
+      "continueTime": 2592000,
+      "trigger": 1,
+      "rate": 1,
+      "needShow": 1,
+      "btn": {
+        "text": "30",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "1003": {
+      "name": "战神特权",
+      "m_type": 3,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1003",
+      "viptype": 2,
+      "o_price": 30,
+      "money": 30,
+      "continueTime": 2592000,
+      "trigger": 1,
+      "rate": 1,
+      "needShow": 1,
+      "btn": {
+        "text": "30",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "1004": {
+      "name": "回收特权季卡",
+      "m_type": 4,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1004",
+      "viptype": 1,
+      "o_price": 68,
+      "money": 68,
+      "continueTime": 7776000,
+      "trigger": 1,
+      "rate": 1,
+      "btn": {
+        "text": "68",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "1005": {
+      "name": "战神特权季卡",
+      "m_type": 5,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1005",
+      "viptype": 2,
+      "o_price": 68,
+      "money": 68,
+      "continueTime": 7776000,
+      "trigger": 1,
+      "rate": 1,
+      "btn": {
+        "text": "68",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "1006": {
+      "name": "双特权季卡打包",
+      "m_type": 6,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1006",
+      "viptype": [
+        1,
+        2
+      ],
+      "o_price": 128,
+      "money": 128,
+      "continueTime": 7776000,
+      "trigger": 1,
+      "rate": 1,
+      "btn": {
+        "text": "128",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "1007": {
+      "name": "助战礼包",
+      "m_type": 7,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1007",
+      "index": 7,
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I3004": 100,
+        "I3001": 50,
+        "I4001": 100
+      },
+      "state": 1,
+      "o_price": 30,
+      "money": 30,
+      "des": "助战礼包"
+    },
+    "1008": {
+      "name": "背包扩充",
+      "m_type": 8,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1008",
+      "index": 8,
+      "o_price": 30,
+      "money": 30,
+      "des": "背包扩充"
+    },
+    "1009": {
+      "name": "托管助手月卡",
+      "m_type": 9,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1009",
+      "viptype": 3,
+      "o_price": 30,
+      "money": 30,
+      "continueTime": 2592000,
+      "trigger": 1,
+      "rate": 1,
+      "btn": {
+        "text": "30",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "1010": {
+      "name": "托管助手季卡",
+      "m_type": 10,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1010",
+      "viptype": 3,
+      "o_price": 68,
+      "money": 68,
+      "continueTime": 7776000,
+      "trigger": 1,
+      "rate": 1,
+      "btn": {
+        "text": "68",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "1011": {
+      "name": "托管助手永久卡",
+      "m_type": 11,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1011",
+      "viptype": 3,
+      "o_price": 128,
+      "money": 128,
+      "continueTime": -1,
+      "trigger": 1,
+      "rate": 1,
+      "btn": {
+        "text": "688",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0
+    },
+    "1012": {
+      "name": "仓库扩充",
+      "m_type": 12,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1012",
+      "index": 11,
+      "o_price": 30,
+      "money": 30,
+      "des": "仓库扩充"
+    },
+    "1101": {
+      "name": "6元",
+      "m_type": 101,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1101",
+      "o_price": 6,
+      "money": 6,
+      "gem": 60,
+      "des": "充值获得60元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "6",
+        "skin": "btn_goumai.png"
+      },
+      "activity": 0,
+      "activity_des": "限时活动：额外得50%元宝，即6元得90元宝"
+    },
+    "1102": {
+      "name": "12元",
+      "m_type": 102,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1102",
+      "o_price": 12,
+      "money": 12,
+      "gem": 120,
+      "des": "充值获得120元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "12",
+        "skin": "btn_goumai.png"
+      }
+    },
+    "1103": {
+      "name": "30元",
+      "m_type": 103,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1103",
+      "o_price": 30,
+      "money": 30,
+      "gem": 300,
+      "des": "充值获得300元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "30",
+        "skin": "btn_goumai.png"
+      }
+    },
+    "1104": {
+      "name": "98元",
+      "m_type": 104,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1104",
+      "o_price": 98,
+      "money": 98,
+      "gem": 980,
+      "des": "充值获得980元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "98",
+        "skin": "btn_goumai.png"
+      }
+    },
+    "1105": {
+      "name": "198元",
+      "m_type": 105,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1105",
+      "o_price": 198,
+      "money": 198,
+      "gem": 1980,
+      "des": "充值获得1980元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "198",
+        "skin": "btn_goumai.png"
+      }
+    },
+    "1106": {
+      "name": "328元",
+      "m_type": 106,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1106",
+      "o_price": 328,
+      "money": 328,
+      "gem": 3280,
+      "des": "充值获得3280元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "328",
+        "skin": "btn_goumai.png"
+      }
+    },
+    "1107": {
+      "name": "648元",
+      "m_type": 107,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1107",
+      "o_price": 648,
+      "money": 648,
+      "gem": 6480,
+      "des": "充值获得6480元宝",
+      "trigger": 1,
+      "iffirstrecharge": 1,
+      "rate": 3,
+      "needShow": 1,
+      "btn": {
+        "text": "648",
+        "skin": "btn_goumai.png"
+      }
+    },
+    "1201": {
+      "name": "金币特惠礼包",
+      "m_type": 201,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1201",
+      "index": 1,
+      "time": "10800",
+      "resource": {
+        "1": 400000
+      },
+      "state": 1,
+      "o_price": 20,
+      "money": 6,
+      "des": "6元金币特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1202": {
+      "name": "金币特惠礼包",
+      "m_type": 202,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1202",
+      "index": 1,
+      "time": "10800",
+      "resource": {
+        "1": 2000000
+      },
+      "state": 1,
+      "o_price": 100,
+      "money": 30,
+      "des": "30元金币特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1203": {
+      "name": "金币特惠礼包",
+      "m_type": 203,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1203",
+      "index": 1,
+      "time": "10800",
+      "resource": {
+        "1": 4560000
+      },
+      "state": 1,
+      "o_price": 228,
+      "money": 68,
+      "des": "68元金币特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1221": {
+      "name": "基金",
+      "m_type": 221,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1221",
+      "resource": {
+        "2": 1980
+      },
+      "o_price": 198,
+      "money": 198,
+      "des": "基金",
+      "trigger": 1,
+      "rate": 1,
+      "activityId": 1
+    },
+    "1222": {
+      "name": "传奇霸业",
+      "m_type": 222,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1222",
+      "resource": {
+        "2": 980
+      },
+      "o_price": 98,
+      "money": 98,
+      "des": "传奇霸业",
+      "trigger": 1,
+      "rate": 1,
+      "activityId": 3
+    },
+    "1223": {
+      "name": "成长基金",
+      "m_type": 221,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1223",
+      "resource": {
+        "2": 980
+      },
+      "o_price": 98,
+      "money": 98,
+      "des": "成长基金",
+      "trigger": 1,
+      "rate": 1,
+      "activityId": 13
+    },
+    "1224": {
+      "name": "合服基金",
+      "m_type": 221,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1224",
+      "resource": {
+        "2": 1980
+      },
+      "o_price": 198,
+      "money": 198,
+      "des": "合服基金",
+      "trigger": 1,
+      "rate": 1,
+      "activityId": 34
+    },
+    "1225": {
+      "name": "合服霸业",
+      "m_type": 222,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1225",
+      "resource": {
+        "2": 980
+      },
+      "o_price": 98,
+      "money": 98,
+      "des": "合服霸业",
+      "trigger": 1,
+      "rate": 1,
+      "activityId": 35
+    },
+    "1301": {
+      "name": "洗练石特惠礼包",
+      "m_type": 301,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1301",
+      "index": 2,
+      "time": "10800",
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I3001": 200
+      },
+      "state": 1,
+      "o_price": 60,
+      "money": 30,
+      "des": "30元洗练石特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1302": {
+      "name": "洗练石特惠礼包",
+      "m_type": 302,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1302",
+      "index": 2,
+      "time": "10800",
+      "resource": {
+        "2": 680
+      },
+      "item": {
+        "I3001": 500
+      },
+      "state": 1,
+      "o_price": 160,
+      "money": 68,
+      "des": "68元洗练石特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1311": {
+      "name": "淬炼石特惠礼包",
+      "m_type": 311,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1311",
+      "index": 12,
+      "time": "10800",
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I3903": 200
+      },
+      "state": 1,
+      "o_price": 60,
+      "money": 30,
+      "des": "30元淬炼石特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1312": {
+      "name": "淬炼石特惠礼包",
+      "m_type": 312,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1312",
+      "index": 12,
+      "time": "10800",
+      "resource": {
+        "2": 680
+      },
+      "item": {
+        "I3903": 500
+      },
+      "state": 1,
+      "o_price": 160,
+      "money": 68,
+      "des": "68元淬炼石特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1315": {
+      "name": "时之璎珞特惠礼包",
+      "m_type": 315,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1315",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I3133": 10
+      },
+      "state": 1,
+      "o_price": 60,
+      "money": 30,
+      "des": "30元时之璎珞特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1316": {
+      "name": "时之璎珞特惠礼包",
+      "m_type": 316,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1316",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 680
+      },
+      "item": {
+        "I3133": 25
+      },
+      "state": 1,
+      "o_price": 160,
+      "money": 68,
+      "des": "68元时之璎珞特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1321": {
+      "name": "圣诞30元特惠",
+      "m_type": 321,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1321",
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I4001": 100,
+        "I9111": 5,
+        "I9112": 5
+      },
+      "state": 1,
+      "o_price": 68,
+      "money": 30,
+      "des": "圣诞30元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1322": {
+      "name": "圣诞60元特惠",
+      "m_type": 322,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1322",
+      "resource": {
+        "2": 680
+      },
+      "item": {
+        "I3001": 100,
+        "I9111": 12,
+        "I9112": 12
+      },
+      "state": 1,
+      "o_price": 128,
+      "money": 60,
+      "des": "圣诞60元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1323": {
+      "name": "圣诞98元特惠",
+      "m_type": 323,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1323",
+      "resource": {
+        "2": 980
+      },
+      "item": {
+        "I3903": 100,
+        "I9111": 18,
+        "I9112": 18
+      },
+      "state": 1,
+      "o_price": 198,
+      "money": 98,
+      "des": "圣诞98元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1324": {
+      "name": "圣诞198元特惠",
+      "m_type": 324,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1324",
+      "resource": {
+        "2": 1980
+      },
+      "item": {
+        "I3909": 1000,
+        "I9111": 35,
+        "I9112": 35
+      },
+      "state": 1,
+      "o_price": 328,
+      "money": 198,
+      "des": "圣诞198元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1325": {
+      "name": "圣诞648元特惠",
+      "m_type": 325,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1325",
+      "resource": {
+        "2": 6480
+      },
+      "item": {
+        "I3910": 400,
+        "I9111": 120,
+        "I9112": 120
+      },
+      "state": 1,
+      "o_price": 1280,
+      "money": 648,
+      "des": "圣诞648元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1326": {
+      "name": "狂欢30元特惠",
+      "m_type": 326,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1326",
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I9158": 150,
+        "I9159": 20,
+        "I6110": 2
+      },
+      "state": 1,
+      "o_price": 60,
+      "money": 30,
+      "des": "早春30元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1327": {
+      "name": "狂欢60元特惠",
+      "m_type": 327,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1327",
+      "resource": {
+        "2": 600
+      },
+      "item": {
+        "I9142": 8,
+        "B1002": 30,
+        "B1008": 3
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 60,
+      "des": "早春60元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1328": {
+      "name": "狂欢98元特惠",
+      "m_type": 328,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1328",
+      "resource": {
+        "2": 980
+      },
+      "item": {
+        "I9158": 500,
+        "I9159": 50,
+        "I3153": 2
+      },
+      "state": 1,
+      "o_price": 198,
+      "money": 98,
+      "des": "早春98元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1329": {
+      "name": "狂欢198元特惠",
+      "m_type": 329,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1329",
+      "resource": {
+        "2": 1980
+      },
+      "item": {
+        "I9142": 18,
+        "I3153": 4,
+        "B1004": 17
+      },
+      "state": 1,
+      "o_price": 328,
+      "money": 198,
+      "des": "早春198元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1330": {
+      "name": "狂欢328元特惠",
+      "m_type": 330,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1330",
+      "resource": {
+        "2": 3280
+      },
+      "item": {
+        "I9158": 1500,
+        "I9159": 160,
+        "I3153": 6
+      },
+      "state": 1,
+      "o_price": 588,
+      "money": 328,
+      "des": "早春328元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1331": {
+      "name": "狂欢648元特惠",
+      "m_type": 331,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1331",
+      "resource": {
+        "2": 6480
+      },
+      "item": {
+        "I9158": 3000,
+        "I9159": 320,
+        "I3153": 12
+      },
+      "state": 1,
+      "o_price": 988,
+      "money": 648,
+      "des": "早春648元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1332": {
+      "name": "狂欢6元特惠",
+      "m_type": 332,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1332",
+      "resource": {
+        "2": 60
+      },
+      "item": {
+        "I9158": 50,
+        "I3001": 50,
+        "I3903": 50
+      },
+      "state": 1,
+      "o_price": 30,
+      "money": 6,
+      "des": "早春6元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1333": {
+      "name": "6元特惠礼包",
+      "m_type": 333,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1333",
+      "resource": {
+        "2": 60
+      },
+      "item": {
+        "I3152": 1,
+        "I3133": 4,
+        "I3154": 4
+      },
+      "state": 1,
+      "o_price": 30,
+      "money": 6,
+      "des": "月中6元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1334": {
+      "name": "60元特惠礼包",
+      "m_type": 334,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1334",
+      "resource": {
+        "2": 600
+      },
+      "item": {
+        "I3922": 30,
+        "I3921": 30,
+        "I3154": 10
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 60,
+      "des": "月中60元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1335": {
+      "name": "98元特惠礼包",
+      "m_type": 335,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1335",
+      "resource": {
+        "2": 980
+      },
+      "item": {
+        "I3104": 5,
+        "I3930": 4,
+        "I3154": 15
+      },
+      "state": 1,
+      "o_price": 198,
+      "money": 98,
+      "des": "月中98元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1336": {
+      "name": "128元特惠礼包",
+      "m_type": 336,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1336",
+      "resource": {
+        "2": 1280
+      },
+      "item": {
+        "I3922": 55,
+        "I3931": 5,
+        "I3921": 55
+      },
+      "state": 1,
+      "o_price": 268,
+      "money": 128,
+      "des": "月中128元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1337": {
+      "name": "328元特惠礼包",
+      "m_type": 337,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1337",
+      "resource": {
+        "2": 3280
+      },
+      "item": {
+        "I3104": 15,
+        "I3932": 3,
+        "I3921": 100
+      },
+      "state": 1,
+      "o_price": 588,
+      "money": 328,
+      "des": "月中328元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1338": {
+      "name": "648元特惠礼包",
+      "m_type": 338,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1338",
+      "resource": {
+        "2": 6480
+      },
+      "item": {
+        "I3922": 200,
+        "I3934": 3,
+        "I3921": 200
+      },
+      "state": 1,
+      "o_price": 988,
+      "money": 648,
+      "des": "月中648元特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1401": {
+      "name": "书页特惠礼包",
+      "m_type": 401,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1401",
+      "index": 3,
+      "time": "10800",
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I4001": 300,
+        "I3004": 300
+      },
+      "state": 1,
+      "o_price": 45,
+      "money": 30,
+      "des": "30元书页特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1402": {
+      "name": "书页特惠礼包",
+      "m_type": 402,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1402",
+      "index": 3,
+      "time": "10800",
+      "resource": {
+        "2": 680
+      },
+      "item": {
+        "I4001": 700,
+        "I3004": 680
+      },
+      "state": 1,
+      "o_price": 115,
+      "money": 68,
+      "des": "68元书页特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1403": {
+      "name": "书页特惠礼包",
+      "m_type": 403,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1403",
+      "index": 3,
+      "time": "10800",
+      "resource": {
+        "2": 1280
+      },
+      "item": {
+        "I4001": 1350,
+        "I3004": 1280
+      },
+      "state": 1,
+      "o_price": 225,
+      "money": 128,
+      "des": "128元书页特惠",
+      "trigger": 1,
+      "rate": 1
+    },
+    "1410": {
+      "name": "命运之刃直升礼包",
+      "m_type": 410,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1410",
+      "index": 9,
+      "resource": {
+        "2": 1280
+      },
+      "item": {
+        "I3907": 300,
+        "I3908": 50
+      },
+      "state": 1,
+      "o_price": 1280,
+      "money": 128,
+      "des": "命运之刃直升礼包",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 1,
+      "ad": 1
+    },
+    "1411": {
+      "name": "金币特惠礼包",
+      "m_type": 411,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1411",
+      "index": 10,
+      "resource": {
+        "1": 800000,
+        "2": 60
+      },
+      "state": 1,
+      "o_price": 20,
+      "money": 6,
+      "des": "金币特惠礼包",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 2,
+      "ad": 2
+    },
+    "1412": {
+      "name": "洗练石特惠礼包",
+      "m_type": 412,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1412",
+      "index": 10,
+      "resource": {
+        "2": 300
+      },
+      "item": {
+        "I3001": 400
+      },
+      "state": 1,
+      "o_price": 60,
+      "money": 30,
+      "des": "洗练石特惠礼包",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 2,
+      "ad": 2
+    },
+    "1413": {
+      "name": "书页特惠礼包",
+      "m_type": 413,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1413",
+      "index": 10,
+      "resource": {
+        "2": 680
+      },
+      "item": {
+        "I4001": 1400,
+        "I3004": 1360
+      },
+      "state": 1,
+      "o_price": 115,
+      "money": 68,
+      "des": "书页特惠礼包",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 2,
+      "ad": 2
+    },
+    "1414": {
+      "name": "符文特惠",
+      "m_type": 414,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1414",
+      "index": 10,
+      "resource": {
+        "2": 1980
+      },
+      "item": {
+        "I8012": 1,
+        "I7103": 1,
+        "I3903": 500
+      },
+      "state": 1,
+      "o_price": 1980,
+      "money": 198,
+      "des": "符文特惠",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 2,
+      "ad": 2
+    },
+    "1415": {
+      "name": "符文特惠",
+      "m_type": 415,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1415",
+      "index": 10,
+      "resource": {
+        "2": 1980
+      },
+      "item": {
+        "I8012": 1,
+        "I9110": 120,
+        "I3903": 500
+      },
+      "state": 1,
+      "o_price": 1980,
+      "money": 198,
+      "des": "淬炼石特惠",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 3,
+      "ad": 3
+    },
+    "1416": {
+      "name": "嗜魂法杖直升礼包",
+      "m_type": 416,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1416",
+      "index": 14,
+      "resource": {
+        "2": 1280
+      },
+      "item": {
+        "I3916": 360,
+        "I3917": 130
+      },
+      "state": 1,
+      "o_price": 1280,
+      "money": 128,
+      "des": "嗜魂法杖直升礼包",
+      "trigger": 1,
+      "rate": 1,
+      "t_icon": 1,
+      "ad": 4
+    },
+    "1501": {
+      "name": "神装礼包",
+      "m_type": 501,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1501",
+      "index": 4,
+      "time": "10800",
+      "item": {
+        "D000004": 1,
+        "I4001": 100,
+        "I3905": 20,
+        "I3906": 20
+      },
+      "state": 1,
+      "o_price": 128,
+      "money": 30
+    },
+    "1502": {
+      "name": "技能礼包",
+      "m_type": 502,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1502",
+      "index": 5,
+      "time": "259200",
+      "item": {
+        "D000005": 1,
+        "I3903": 200,
+        "I3007": 200,
+        "I8001": 1,
+        "I8002": 1,
+        "I8005": 1,
+        "I8009": 1,
+        "I8012": 1
+      },
+      "state": 1,
+      "o_price": 198,
+      "money": 68
+    },
+    "1503": {
+      "name": "神装礼包",
+      "m_type": 503,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1503",
+      "index": 4,
+      "item": {
+        "D000004": 1,
+        "I4001": 100,
+        "I3905": 20,
+        "I3906": 20
+      },
+      "state": 1,
+      "o_price": 128,
+      "money": 60
+    },
+    "1504": {
+      "name": "技能礼包",
+      "m_type": 504,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1504",
+      "index": 5,
+      "item": {
+        "D000005": 1,
+        "I3903": 200,
+        "I3007": 200,
+        "I8001": 1,
+        "I8002": 1,
+        "I8005": 1,
+        "I8009": 1,
+        "I8012": 1
+      },
+      "state": 1,
+      "o_price": 198,
+      "money": 98
+    },
+    "1505": {
+      "name": "最强群攻",
+      "m_type": 505,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1505",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 600
+      },
+      "item": {
+        "I5005": 20,
+        "I4001": 750,
+        "I3004": 400
+      },
+      "state": 1,
+      "o_price": 238,
+      "money": 60,
+      "des": "最强群攻"
+    },
+    "1506": {
+      "name": "最强群攻",
+      "m_type": 506,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1506",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 600
+      },
+      "item": {
+        "I5203": 20,
+        "I4001": 750,
+        "I3004": 400
+      },
+      "state": 1,
+      "o_price": 238,
+      "money": 60,
+      "des": "最强群攻"
+    },
+    "1507": {
+      "name": "最强群攻",
+      "m_type": 507,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1507",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 600
+      },
+      "item": {
+        "I5104": 20,
+        "I4001": 750,
+        "I3004": 400
+      },
+      "state": 1,
+      "o_price": 238,
+      "money": 60,
+      "des": "最强群攻"
+    },
+    "1508": {
+      "name": "最强群攻",
+      "m_type": 508,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1508",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 980
+      },
+      "item": {
+        "I5005": 20,
+        "I4001": 750,
+        "I3004": 400
+      },
+      "state": 1,
+      "o_price": 238,
+      "money": 98,
+      "des": "最强群攻"
+    },
+    "1509": {
+      "name": "最强群攻",
+      "m_type": 509,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1509",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 980
+      },
+      "item": {
+        "I5203": 20,
+        "I4001": 750,
+        "I3004": 400
+      },
+      "state": 1,
+      "o_price": 238,
+      "money": 98,
+      "des": "最强群攻"
+    },
+    "1510": {
+      "name": "最强群攻",
+      "m_type": 510,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1510",
+      "index": 13,
+      "time": "10800",
+      "resource": {
+        "2": 980
+      },
+      "item": {
+        "I5104": 20,
+        "I4001": 750,
+        "I3004": 400
+      },
+      "state": 1,
+      "o_price": 238,
+      "money": 98,
+      "des": "最强群攻"
+    },
+    "1601": {
+      "name": "半月弯刀·碧玉",
+      "m_type": 601,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1601",
+      "index": 6,
+      "item": {
+        "2": 1
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 30,
+      "des": "半月弯刀·碧玉",
+      "trigger": 1
+    },
+    "1602": {
+      "name": "火墙术·朱炎",
+      "m_type": 602,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1602",
+      "index": 6,
+      "item": {
+        "4": 1
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 30,
+      "des": "火墙术·朱炎",
+      "trigger": 1
+    },
+    "1603": {
+      "name": "施毒术·紫祸",
+      "m_type": 603,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1603",
+      "index": 6,
+      "item": {
+        "6": 1
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 30,
+      "des": "施毒术·紫祸",
+      "trigger": 1
+    },
+    "1604": {
+      "name": "烈火剑法·爆炎",
+      "m_type": 604,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1604",
+      "index": 6,
+      "item": {
+        "8": 1
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 68,
+      "des": "烈火剑法·爆炎",
+      "trigger": 1
+    },
+    "1605": {
+      "name": "冰咆哮·冰晶",
+      "m_type": 605,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1605",
+      "index": 6,
+      "item": {
+        "10": 1
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 68,
+      "des": "冰咆哮·冰晶",
+      "trigger": 1
+    },
+    "1606": {
+      "name": "无极真气·湛蓝",
+      "m_type": 606,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1606",
+      "index": 6,
+      "item": {
+        "12": 1
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 68,
+      "des": "无极真气·湛蓝",
+      "trigger": 1
+    },
+    "1701": {
+      "name": "6元自选礼包",
+      "m_type": 701,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1701",
+      "state": 1,
+      "o_price": 30,
+      "money": 6,
+      "des": "6元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1
+    },
+    "1702": {
+      "name": "30元自选礼包",
+      "m_type": 702,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1702",
+      "state": 1,
+      "o_price": 90,
+      "money": 30,
+      "des": "30元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 2
+    },
+    "1703": {
+      "name": "60元自选礼包",
+      "m_type": 703,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1703",
+      "state": 1,
+      "o_price": 138,
+      "money": 60,
+      "des": "60元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 3
+    },
+    "1704": {
+      "name": "98元自选礼包",
+      "m_type": 704,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1704",
+      "state": 1,
+      "o_price": 188,
+      "money": 98,
+      "des": "98元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 4
+    },
+    "1705": {
+      "name": "128元自选礼包",
+      "m_type": 705,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1705",
+      "state": 1,
+      "o_price": 288,
+      "money": 128,
+      "des": "128元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 5
+    },
+    "1706": {
+      "name": "328元自选礼包",
+      "m_type": 706,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1706",
+      "state": 1,
+      "o_price": 588,
+      "money": 328,
+      "des": "328元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 6
+    },
+    "1707": {
+      "name": "648元自选礼包",
+      "m_type": 707,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1707",
+      "state": 1,
+      "o_price": 988,
+      "money": 648,
+      "des": "648元自选礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 7
+    },
+    "1801": {
+      "name": "30元红包",
+      "m_type": 801,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1801",
+      "resource": {
+        "2": 300,
+        "10": 750
+      },
+      "state": 1,
+      "o_price": 98,
+      "money": 30,
+      "des": "30元红包",
+      "trigger": 1
+    },
+    "1802": {
+      "name": "60元红包",
+      "m_type": 802,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1802",
+      "resource": {
+        "2": 600,
+        "10": 1600
+      },
+      "state": 1,
+      "o_price": 128,
+      "money": 60,
+      "des": "60元红包",
+      "trigger": 1
+    },
+    "1803": {
+      "name": "128元红包",
+      "m_type": 803,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1803",
+      "resource": {
+        "2": 1280,
+        "10": 3500
+      },
+      "state": 1,
+      "o_price": 248,
+      "money": 128,
+      "des": "128元红包",
+      "trigger": 1
+    },
+    "1804": {
+      "name": "328元红包",
+      "m_type": 804,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1804",
+      "resource": {
+        "2": 3280,
+        "10": 9000
+      },
+      "state": 1,
+      "o_price": 588,
+      "money": 328,
+      "des": "328元红包",
+      "trigger": 1
+    },
+    "1805": {
+      "name": "648元红包",
+      "m_type": 805,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1805",
+      "resource": {
+        "2": 6480,
+        "10": 18800
+      },
+      "state": 1,
+      "o_price": 988,
+      "money": 648,
+      "des": "648元红包",
+      "trigger": 1
+    },
+    "2001": {
+      "name": "每日经验礼包",
+      "m_type": 12001,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "state": 1,
+      "money": 30,
+      "des": "每日经验礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 102
+    },
+    "2002": {
+      "name": "每日洗练石礼包",
+      "m_type": 12002,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1902",
+      "state": 1,
+      "money": 30,
+      "des": "每日洗练石礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 103
+    },
+    "2003": {
+      "name": "每日书页礼包",
+      "m_type": 12003,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1903",
+      "state": 1,
+      "money": 68,
+      "des": "每日书页礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 104
+    },
+    "2004": {
+      "name": "每日神兵材料礼包",
+      "m_type": 12004,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1904",
+      "state": 1,
+      "money": 128,
+      "des": "每日神兵材料礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 105
+    },
+    "2005": {
+      "name": "每日神兵技能礼包",
+      "m_type": 12005,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1905",
+      "state": 1,
+      "money": 328,
+      "des": "每日神兵技能礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 106
+    },
+    "2006": {
+      "name": "每周经验礼包",
+      "m_type": 12006,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1906",
+      "state": 1,
+      "money": 30,
+      "des": "每周经验礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2007": {
+      "name": "每周洗练石礼包",
+      "m_type": 12007,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1907",
+      "state": 1,
+      "money": 30,
+      "des": "每周洗练石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2008": {
+      "name": "每周书页礼包",
+      "m_type": 12008,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1908",
+      "state": 1,
+      "money": 68,
+      "des": "每周书页礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2009": {
+      "name": "每周神兵材料礼包",
+      "m_type": 12009,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1909",
+      "state": 1,
+      "money": 128,
+      "des": "每周神兵材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2010": {
+      "name": "每周神兵技能礼包",
+      "m_type": 12010,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1910",
+      "state": 1,
+      "money": 328,
+      "des": "每周神兵技能礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2011": {
+      "name": "每月经验礼包",
+      "m_type": 12011,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1911",
+      "state": 1,
+      "money": 30,
+      "des": "每月经验礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2012": {
+      "name": "每月洗练石礼包",
+      "m_type": 12012,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1912",
+      "state": 1,
+      "money": 30,
+      "des": "每月洗练石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2013": {
+      "name": "每月书页礼包",
+      "m_type": 12013,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1913",
+      "state": 1,
+      "money": 68,
+      "des": "每月书页礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2014": {
+      "name": "每月神兵材料礼包",
+      "m_type": 12014,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1914",
+      "state": 1,
+      "money": 128,
+      "des": "每月神兵材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2015": {
+      "name": "每月神兵技能礼包",
+      "m_type": 12015,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1915",
+      "state": 1,
+      "money": 328,
+      "des": "每月神兵技能礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2020": {
+      "name": "每日经验礼包",
+      "m_type": 12020,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1920",
+      "state": 1,
+      "money": 30,
+      "des": "每日经验礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 202
+    },
+    "2021": {
+      "name": "每日淬炼石礼包",
+      "m_type": 12021,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1921",
+      "state": 1,
+      "money": 30,
+      "des": "每日淬炼石礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 203
+    },
+    "2022": {
+      "name": "每日称谓礼包",
+      "m_type": 12022,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1922",
+      "state": 1,
+      "money": 68,
+      "des": "每日称谓礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 204
+    },
+    "2023": {
+      "name": "每日星辰丹礼包",
+      "m_type": 12023,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1923",
+      "state": 1,
+      "money": 128,
+      "des": "每日星辰丹礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 205
+    },
+    "2024": {
+      "name": "每日神兵材料礼包",
+      "m_type": 12024,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1924",
+      "state": 1,
+      "money": 328,
+      "des": "每日神兵材料礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 206
+    },
+    "2025": {
+      "name": "每日神兵宝石礼包",
+      "m_type": 12025,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1925",
+      "state": 1,
+      "money": 328,
+      "des": "每日神兵宝石礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 207
+    },
+    "2026": {
+      "name": "每周经验礼包",
+      "m_type": 12026,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1926",
+      "state": 1,
+      "money": 30,
+      "des": "每周经验礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2027": {
+      "name": "每周淬炼石礼包",
+      "m_type": 12027,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1927",
+      "state": 1,
+      "money": 30,
+      "des": "每周淬炼石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2028": {
+      "name": "每周称谓礼包",
+      "m_type": 12028,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1928",
+      "state": 1,
+      "money": 68,
+      "des": "每周称谓礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2029": {
+      "name": "每周神兵材料礼包",
+      "m_type": 12029,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1929",
+      "state": 1,
+      "money": 128,
+      "des": "每周神兵材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2030": {
+      "name": "每周神兵技能礼包",
+      "m_type": 12030,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1930",
+      "state": 1,
+      "money": 128,
+      "des": "每周神兵技能礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2031": {
+      "name": "每周神兵宝石礼包",
+      "m_type": 12031,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1931",
+      "state": 1,
+      "money": 328,
+      "des": "每周神兵宝石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2032": {
+      "name": "每月经验礼包",
+      "m_type": 12032,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1932",
+      "state": 1,
+      "money": 30,
+      "des": "每月经验礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2033": {
+      "name": "每月淬炼石礼包",
+      "m_type": 12033,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1933",
+      "state": 1,
+      "money": 30,
+      "des": "每月淬炼石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2034": {
+      "name": "每月称谓礼包",
+      "m_type": 12034,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1934",
+      "state": 1,
+      "money": 68,
+      "des": "每月称谓礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2035": {
+      "name": "每月神兵材料礼包",
+      "m_type": 12035,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1935",
+      "state": 1,
+      "money": 128,
+      "des": "每月神兵材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2036": {
+      "name": "每月神兵技能礼包",
+      "m_type": 12036,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1936",
+      "state": 1,
+      "money": 128,
+      "des": "每月神兵技能礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2037": {
+      "name": "每月神兵宝石礼包",
+      "m_type": 12037,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1937",
+      "state": 1,
+      "money": 328,
+      "des": "每月神兵宝石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2050": {
+      "name": "每日经验礼包",
+      "m_type": 12050,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1950",
+      "state": 1,
+      "money": 30,
+      "des": "每日经验礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 302
+    },
+    "2051": {
+      "name": "每日淬炼石礼包",
+      "m_type": 12051,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1951",
+      "state": 1,
+      "money": 30,
+      "des": "每日淬炼石礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 303
+    },
+    "2052": {
+      "name": "每日称谓礼包",
+      "m_type": 12052,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1952",
+      "state": 1,
+      "money": 68,
+      "des": "每日称谓礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 304
+    },
+    "2053": {
+      "name": "每日星辰丹礼包",
+      "m_type": 12053,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1953",
+      "state": 1,
+      "money": 128,
+      "des": "每日星辰丹礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 305
+    },
+    "2054": {
+      "name": "每日符文礼包",
+      "m_type": 12054,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1954",
+      "state": 1,
+      "money": 128,
+      "des": "每日符文礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 306
+    },
+    "2055": {
+      "name": "每日神兵材料礼包",
+      "m_type": 12055,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1955",
+      "state": 1,
+      "money": 328,
+      "des": "每日神兵材料礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 307
+    },
+    "2056": {
+      "name": "每日神兵宝石礼包",
+      "m_type": 12056,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1956",
+      "state": 1,
+      "money": 328,
+      "des": "每日神兵宝石礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 308
+    },
+    "2057": {
+      "name": "每日八卦装备礼包",
+      "m_type": 12057,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1957",
+      "state": 1,
+      "money": 648,
+      "des": "每日八卦装备礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 309
+    },
+    "2058": {
+      "name": "每日八卦材料礼包",
+      "m_type": 12058,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1958",
+      "state": 1,
+      "money": 648,
+      "des": "每日八卦材料礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 310
+    },
+    "2059": {
+      "name": "每周经验礼包",
+      "m_type": 12059,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1959",
+      "state": 1,
+      "money": 30,
+      "des": "每周经验礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2060": {
+      "name": "每周淬炼石礼包",
+      "m_type": 12060,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1960",
+      "state": 1,
+      "money": 30,
+      "des": "每周淬炼石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2061": {
+      "name": "每周称谓礼包",
+      "m_type": 12061,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1961",
+      "state": 1,
+      "money": 68,
+      "des": "每周称谓礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2062": {
+      "name": "每周星辰丹礼包",
+      "m_type": 12062,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1962",
+      "state": 1,
+      "money": 128,
+      "des": "每周星辰丹礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2063": {
+      "name": "每周符文礼包",
+      "m_type": 12063,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1963",
+      "state": 1,
+      "money": 128,
+      "des": "每周符文礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2064": {
+      "name": "每周神兵材料礼包",
+      "m_type": 12064,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1964",
+      "state": 1,
+      "money": 128,
+      "des": "每周神兵材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2065": {
+      "name": "每周神兵技能礼包",
+      "m_type": 12065,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1965",
+      "state": 1,
+      "money": 128,
+      "des": "每周神兵技能礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2066": {
+      "name": "每周神兵宝石礼包",
+      "m_type": 12066,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1966",
+      "state": 1,
+      "money": 128,
+      "des": "每周神兵宝石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2067": {
+      "name": "每周八卦装备礼包",
+      "m_type": 12067,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1967",
+      "state": 1,
+      "money": 328,
+      "des": "每周八卦装备礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2068": {
+      "name": "每周八卦材料礼包",
+      "m_type": 12068,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1968",
+      "state": 1,
+      "money": 328,
+      "des": "每周八卦材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2069": {
+      "name": "每月经验礼包",
+      "m_type": 12069,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1969",
+      "state": 1,
+      "money": 30,
+      "des": "每月经验礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2070": {
+      "name": "每月淬炼石礼包",
+      "m_type": 12070,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1970",
+      "state": 1,
+      "money": 30,
+      "des": "每月淬炼石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2071": {
+      "name": "每月称谓礼包",
+      "m_type": 12071,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1971",
+      "state": 1,
+      "money": 68,
+      "des": "每月称谓礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2072": {
+      "name": "每月星辰丹礼包",
+      "m_type": 12072,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1972",
+      "state": 1,
+      "money": 128,
+      "des": "每月星辰丹礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2073": {
+      "name": "每月符文礼包",
+      "m_type": 12073,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1973",
+      "state": 1,
+      "money": 128,
+      "des": "每月符文礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2074": {
+      "name": "每月神兵材料礼包",
+      "m_type": 12074,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1974",
+      "state": 1,
+      "money": 128,
+      "des": "每月神兵材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2075": {
+      "name": "每月神兵技能礼包",
+      "m_type": 12075,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1975",
+      "state": 1,
+      "money": 128,
+      "des": "每月神兵技能礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2076": {
+      "name": "每月神兵宝石礼包",
+      "m_type": 12076,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1976",
+      "state": 1,
+      "money": 128,
+      "des": "每月神兵宝石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2077": {
+      "name": "每月八卦装备礼包",
+      "m_type": 12077,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1977",
+      "state": 1,
+      "money": 328,
+      "des": "每月八卦装备礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "2078": {
+      "name": "每月八卦材料礼包",
+      "m_type": 12078,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1978",
+      "state": 1,
+      "money": 328,
+      "des": "每月八卦材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3001": {
+      "name": "成长礼包1",
+      "m_type": 13001,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 60
+      },
+      "state": 1,
+      "money": 6,
+      "des": "成长礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3002": {
+      "name": "成长礼包2",
+      "m_type": 13002,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 300
+      },
+      "state": 1,
+      "money": 30,
+      "des": "成长礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3003": {
+      "name": "成长礼包3",
+      "m_type": 13003,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "成长礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3004": {
+      "name": "成长礼包4",
+      "m_type": 13004,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 1280
+      },
+      "state": 1,
+      "money": 128,
+      "des": "成长礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3005": {
+      "name": "成长礼包5",
+      "m_type": 13005,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "成长礼包5",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3006": {
+      "name": "成长礼包6",
+      "m_type": 13006,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 6480
+      },
+      "state": 1,
+      "money": 648,
+      "des": "成长礼包6",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3021": {
+      "name": "金币礼包1",
+      "m_type": 13021,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 60
+      },
+      "state": 1,
+      "money": 6,
+      "des": "金币礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3022": {
+      "name": "金币礼包2",
+      "m_type": 13022,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 300
+      },
+      "state": 1,
+      "money": 30,
+      "des": "金币礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3023": {
+      "name": "金币礼包3",
+      "m_type": 13023,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "金币礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3024": {
+      "name": "金币礼包4",
+      "m_type": 13024,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 1280
+      },
+      "state": 1,
+      "money": 128,
+      "des": "金币礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3025": {
+      "name": "金币礼包5",
+      "m_type": 13025,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "金币礼包5",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3026": {
+      "name": "金币礼包6",
+      "m_type": 13026,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 6480
+      },
+      "state": 1,
+      "money": 648,
+      "des": "金币礼包6",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3027": {
+      "name": "金币礼包7",
+      "m_type": 13027,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 19980
+      },
+      "state": 1,
+      "money": 1998,
+      "des": "金币礼包7",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3041": {
+      "name": "洗练石礼包1",
+      "m_type": 13041,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 300
+      },
+      "state": 1,
+      "money": 30,
+      "des": "洗练石礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3042": {
+      "name": "洗练石礼包2",
+      "m_type": 13042,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "洗练石礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3043": {
+      "name": "洗练石礼包3",
+      "m_type": 13043,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 1280
+      },
+      "state": 1,
+      "money": 128,
+      "des": "洗练石礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3044": {
+      "name": "洗练石礼包4",
+      "m_type": 13044,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "洗练石礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3045": {
+      "name": "洗练石礼包5",
+      "m_type": 13045,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 6480
+      },
+      "state": 1,
+      "money": 648,
+      "des": "洗练石礼包5",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3046": {
+      "name": "洗练石礼包6",
+      "m_type": 13046,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 19980
+      },
+      "state": 1,
+      "money": 1998,
+      "des": "洗练石礼包6",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3061": {
+      "name": "书页礼包1",
+      "m_type": 13061,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 300
+      },
+      "state": 1,
+      "money": 30,
+      "des": "书页礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3062": {
+      "name": "书页礼包2",
+      "m_type": 13062,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "书页礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3063": {
+      "name": "书页礼包3",
+      "m_type": 13063,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 1280
+      },
+      "state": 1,
+      "money": 128,
+      "des": "书页礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3064": {
+      "name": "书页礼包4",
+      "m_type": 13064,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "书页礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3065": {
+      "name": "书页礼包5",
+      "m_type": 13065,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 6480
+      },
+      "state": 1,
+      "money": 648,
+      "des": "书页礼包5",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3066": {
+      "name": "书页礼包6",
+      "m_type": 13066,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 19980
+      },
+      "state": 1,
+      "money": 1998,
+      "des": "书页礼包6",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3081": {
+      "name": "精华礼包1",
+      "m_type": 13081,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 300
+      },
+      "state": 1,
+      "money": 30,
+      "des": "精华礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3082": {
+      "name": "精华礼包2",
+      "m_type": 13082,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "精华礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3083": {
+      "name": "精华礼包3",
+      "m_type": 13083,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 1280
+      },
+      "state": 1,
+      "money": 128,
+      "des": "精华礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3084": {
+      "name": "精华礼包4",
+      "m_type": 13084,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "精华礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3101": {
+      "name": "淬炼石礼包1",
+      "m_type": 13101,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 300
+      },
+      "state": 1,
+      "money": 30,
+      "des": "淬炼石礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3102": {
+      "name": "淬炼石礼包2",
+      "m_type": 13102,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "淬炼石礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3103": {
+      "name": "淬炼石礼包3",
+      "m_type": 13103,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 1280
+      },
+      "state": 1,
+      "money": 128,
+      "des": "淬炼石礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3104": {
+      "name": "淬炼石礼包4",
+      "m_type": 13104,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "淬炼石礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3105": {
+      "name": "淬炼石礼包5",
+      "m_type": 13105,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 6480
+      },
+      "state": 1,
+      "money": 648,
+      "des": "淬炼石礼包5",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3106": {
+      "name": "淬炼石礼包6",
+      "m_type": 13106,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 19980
+      },
+      "state": 1,
+      "money": 1998,
+      "des": "淬炼石礼包6",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3121": {
+      "name": "符文礼包1",
+      "m_type": 13121,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "符文礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3122": {
+      "name": "符文礼包2",
+      "m_type": 13122,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "符文礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3123": {
+      "name": "符文礼包3",
+      "m_type": 13123,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 6480
+      },
+      "state": 1,
+      "money": 648,
+      "des": "符文礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3124": {
+      "name": "符文礼包4",
+      "m_type": 13124,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 19980
+      },
+      "state": 1,
+      "money": 1998,
+      "des": "符文礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "3125": {
+      "name": "符文礼包5",
+      "m_type": 13125,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 39980
+      },
+      "state": 1,
+      "money": 3998,
+      "des": "符文礼包5",
+      "trigger": 1,
+      "rate": 1
+    },
+    "4001": {
+      "name": "A精炼礼包",
+      "m_type": 14001,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A精炼礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1
+    },
+    "4002": {
+      "name": "A竞技礼包",
+      "m_type": 14002,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A竞技礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 2
+    },
+    "4003": {
+      "name": "A书页礼包",
+      "m_type": 14003,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A书页礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 3
+    },
+    "4004": {
+      "name": "A神兵礼包",
+      "m_type": 14004,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A神兵礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 4
+    },
+    "4005": {
+      "name": "A符文宝箱",
+      "m_type": 14005,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A符文宝箱",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 5
+    },
+    "4006": {
+      "name": "A聚灵珠礼包",
+      "m_type": 14006,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "A聚灵珠礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 6
+    },
+    "4007": {
+      "name": "ABOSS礼包",
+      "m_type": 14007,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "ABOSS礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 7
+    },
+    "4008": {
+      "name": "A命运之刃礼包",
+      "m_type": 14008,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "A命运之刃礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 8
+    },
+    "4009": {
+      "name": "A嗜魂法杖礼包",
+      "m_type": 14009,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "A嗜魂法杖礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 9
+    },
+    "4010": {
+      "name": "A黄金头盔礼包",
+      "m_type": 14010,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A黄金头盔礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 10
+    },
+    "4011": {
+      "name": "A黄金项链礼包",
+      "m_type": 14011,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A黄金项链礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 11
+    },
+    "4012": {
+      "name": "天启神甲",
+      "m_type": 14012,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "天启神甲",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 12
+    },
+    "4013": {
+      "name": "聚灵珠礼包1",
+      "m_type": 14013,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "聚灵珠礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 13
+    },
+    "4014": {
+      "name": "聚灵珠礼包2",
+      "m_type": 14014,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "聚灵珠礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 14
+    },
+    "4015": {
+      "name": "聚灵珠礼包3",
+      "m_type": 14015,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "聚灵珠礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 15
+    },
+    "4016": {
+      "name": "聚灵珠礼包4",
+      "m_type": 14016,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "聚灵珠礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 16
+    },
+    "4017": {
+      "name": "聚灵珠礼包5",
+      "m_type": 14017,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "聚灵珠礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 17
+    },
+    "4018": {
+      "name": "聚灵珠礼包6",
+      "m_type": 14018,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "聚灵珠礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 18
+    },
+    "4019": {
+      "name": "聚灵珠礼包7",
+      "m_type": 14019,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "聚灵珠礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 19
+    },
+    "4020": {
+      "name": "聚灵珠礼包8",
+      "m_type": 14020,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "聚灵珠礼包8",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 20
+    },
+    "4021": {
+      "name": "聚灵珠礼包9",
+      "m_type": 14021,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "聚灵珠礼包9",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 21
+    },
+    "4022": {
+      "name": "聚灵珠礼包10",
+      "m_type": 14022,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "聚灵珠礼包10",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 22
+    },
+    "4023": {
+      "name": "聚灵珠礼包11",
+      "m_type": 14023,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "聚灵珠礼包11",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 23
+    },
+    "4024": {
+      "name": "精炼礼包1",
+      "m_type": 14024,
+      "charge_type": 1,
+      "state": 1,
+      "money": 6,
+      "des": "精炼礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 24
+    },
+    "4025": {
+      "name": "精炼礼包2",
+      "m_type": 14025,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "精炼礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 25
+    },
+    "4026": {
+      "name": "精炼礼包3",
+      "m_type": 14026,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "精炼礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 26
+    },
+    "4027": {
+      "name": "精炼礼包4",
+      "m_type": 14027,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "精炼礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 27
+    },
+    "4028": {
+      "name": "精炼礼包5",
+      "m_type": 14028,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "精炼礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 28
+    },
+    "4029": {
+      "name": "精炼礼包6",
+      "m_type": 14029,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "精炼礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 29
+    },
+    "4030": {
+      "name": "精炼礼包7",
+      "m_type": 14030,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "精炼礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 30
+    },
+    "4031": {
+      "name": "天关礼包1",
+      "m_type": 14031,
+      "charge_type": 1,
+      "state": 1,
+      "money": 12,
+      "des": "天关礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 31
+    },
+    "4032": {
+      "name": "天关礼包2",
+      "m_type": 14032,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "天关礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 32
+    },
+    "4033": {
+      "name": "擂台礼包1",
+      "m_type": 14033,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "擂台礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 33
+    },
+    "4034": {
+      "name": "擂台登顶礼包",
+      "m_type": 14034,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "擂台登顶礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 34
+    },
+    "4035": {
+      "name": "赤血魔剑礼包1",
+      "m_type": 14035,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "赤血魔剑礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 35
+    },
+    "4036": {
+      "name": "命运之刃礼包1",
+      "m_type": 14036,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "命运之刃礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 36
+    },
+    "4037": {
+      "name": "嗜魂法杖礼包1",
+      "m_type": 14037,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "嗜魂法杖礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 37
+    },
+    "4038": {
+      "name": "赤血魔剑礼包2",
+      "m_type": 14038,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "赤血魔剑礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 38
+    },
+    "4039": {
+      "name": "命运之刃礼包2",
+      "m_type": 14039,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "命运之刃礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 39
+    },
+    "4040": {
+      "name": "嗜魂法杖礼包2",
+      "m_type": 14040,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "嗜魂法杖礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 40
+    },
+    "4041": {
+      "name": "赤血魔剑礼包3",
+      "m_type": 14041,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "赤血魔剑礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 41
+    },
+    "4042": {
+      "name": "命运之刃礼包3",
+      "m_type": 14042,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "命运之刃礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 42
+    },
+    "4043": {
+      "name": "嗜魂法杖礼包3",
+      "m_type": 14043,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "嗜魂法杖礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 43
+    },
+    "4044": {
+      "name": "命运之刃礼包4",
+      "m_type": 14044,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "命运之刃礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 44
+    },
+    "4045": {
+      "name": "嗜魂法杖礼包4",
+      "m_type": 14045,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "嗜魂法杖礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 45
+    },
+    "4046": {
+      "name": "命运之刃礼包5",
+      "m_type": 14046,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "命运之刃礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 46
+    },
+    "4047": {
+      "name": "嗜魂法杖礼包5",
+      "m_type": 14047,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "嗜魂法杖礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 47
+    },
+    "4048": {
+      "name": "命运之刃礼包6",
+      "m_type": 14048,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "命运之刃礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 48
+    },
+    "4049": {
+      "name": "嗜魂法杖礼包6",
+      "m_type": 14049,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "嗜魂法杖礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 49
+    },
+    "4050": {
+      "name": "命运之刃礼包7",
+      "m_type": 14050,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "命运之刃礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 50
+    },
+    "4051": {
+      "name": "嗜魂法杖礼包7",
+      "m_type": 14051,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "嗜魂法杖礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 51
+    },
+    "4052": {
+      "name": "命运之刃礼包8",
+      "m_type": 14052,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "命运之刃礼包8",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 52
+    },
+    "4053": {
+      "name": "嗜魂法杖礼包8",
+      "m_type": 14053,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "嗜魂法杖礼包8",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 53
+    },
+    "4054": {
+      "name": "B精炼礼包",
+      "m_type": 14054,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "B精炼礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1001
+    },
+    "4055": {
+      "name": "B竞技礼包",
+      "m_type": 14055,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "B竞技礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1002
+    },
+    "4056": {
+      "name": "B书页礼包",
+      "m_type": 14056,
+      "charge_type": 1,
+      "state": 1,
+      "money": 68,
+      "des": "B书页礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1003
+    },
+    "4057": {
+      "name": "B神兵礼包",
+      "m_type": 14057,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "B神兵礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1004
+    },
+    "4058": {
+      "name": "B符文宝箱",
+      "m_type": 14058,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "B符文宝箱",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1006
+    },
+    "4059": {
+      "name": "B聚灵珠礼包",
+      "m_type": 14059,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "B聚灵珠礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1007
+    },
+    "4060": {
+      "name": "BBOSS礼包",
+      "m_type": 14060,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "BBOSS礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1008
+    },
+    "4061": {
+      "name": "B命运之刃礼包",
+      "m_type": 14061,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "B命运之刃礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1009
+    },
+    "4062": {
+      "name": "B嗜魂法杖礼包",
+      "m_type": 14062,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "B嗜魂法杖礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1010
+    },
+    "4063": {
+      "name": "B黄金头盔礼包",
+      "m_type": 14063,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "B黄金头盔礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1013
+    },
+    "4064": {
+      "name": "B黄金项链礼包",
+      "m_type": 14064,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "B黄金项链礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1014
+    },
+    "4065": {
+      "name": "召唤技能宝箱",
+      "m_type": 14065,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "召唤技能宝箱",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 54
+    },
+    "4066": {
+      "name": "神秘技能宝箱",
+      "m_type": 14066,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "神秘技能宝箱",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 55
+    },
+    "4067": {
+      "name": "防御技能宝箱",
+      "m_type": 14067,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "防御技能宝箱",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 56
+    },
+    "4068": {
+      "name": "天关礼包3",
+      "m_type": 14068,
+      "charge_type": 1,
+      "state": 1,
+      "money": 12,
+      "des": "天关礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 57
+    },
+    "4069": {
+      "name": "天关礼包4",
+      "m_type": 14069,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "天关礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 58
+    },
+    "4070": {
+      "name": "神兵宝石礼包1",
+      "m_type": 14070,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "神兵宝石礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 59
+    },
+    "4071": {
+      "name": "神兵宝石礼包2",
+      "m_type": 14071,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "神兵宝石礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 60
+    },
+    "4072": {
+      "name": "神兵宝石礼包3",
+      "m_type": 14072,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "神兵宝石礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 61
+    },
+    "4073": {
+      "name": "神兵宝石礼包4",
+      "m_type": 14073,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "神兵宝石礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 62
+    },
+    "4074": {
+      "name": "神兵宝石礼包5",
+      "m_type": 14074,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "神兵宝石礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 63
+    },
+    "4075": {
+      "name": "神兵宝石礼包6",
+      "m_type": 14075,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "神兵宝石礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 64
+    },
+    "4076": {
+      "name": "神兵宝石礼包7",
+      "m_type": 14076,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "神兵宝石礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 65
+    },
+    "4077": {
+      "name": "神兵宝石礼包8",
+      "m_type": 14077,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "神兵宝石礼包8",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 66
+    },
+    "4078": {
+      "name": "神兵宝石礼包9",
+      "m_type": 14078,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "神兵宝石礼包9",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 67
+    },
+    "4079": {
+      "name": "特级星辰丹礼包",
+      "m_type": 14079,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "特级星辰丹礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 68
+    },
+    "4080": {
+      "name": "星辰丹礼包",
+      "m_type": 14080,
+      "charge_type": 1,
+      "state": 1,
+      "money": 6,
+      "des": "星辰丹礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 69
+    },
+    "4081": {
+      "name": "特级星辰丹礼包2",
+      "m_type": 14081,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "特级星辰丹礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 70
+    },
+    "4082": {
+      "name": "专属返利礼包1",
+      "m_type": 14082,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 71
+    },
+    "4083": {
+      "name": "专属返利礼包2",
+      "m_type": 14083,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 72
+    },
+    "4084": {
+      "name": "专属返利礼包3",
+      "m_type": 14084,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 73
+    },
+    "4085": {
+      "name": "专属返利礼包4",
+      "m_type": 14085,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 74
+    },
+    "4086": {
+      "name": "专属返利礼包5",
+      "m_type": 14086,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 75
+    },
+    "4087": {
+      "name": "专属返利礼包6",
+      "m_type": 14087,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 76
+    },
+    "4088": {
+      "name": "专属返利礼包7",
+      "m_type": 14088,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 77
+    },
+    "4089": {
+      "name": "专属返利礼包8",
+      "m_type": 14089,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包8",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 78
+    },
+    "4090": {
+      "name": "专属返利礼包9",
+      "m_type": 14090,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包9",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 79
+    },
+    "4091": {
+      "name": "专属返利礼包10",
+      "m_type": 14091,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包10",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 80
+    },
+    "4092": {
+      "name": "专属返利礼包11",
+      "m_type": 14092,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包11",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 81
+    },
+    "4093": {
+      "name": "专属返利礼包12",
+      "m_type": 14093,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包12",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 82
+    },
+    "4094": {
+      "name": "专属返利礼包13",
+      "m_type": 14094,
+      "charge_type": 1,
+      "state": 1,
+      "money": 1280,
+      "des": "专属返利礼包13",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 83
+    },
+    "4095": {
+      "name": "专属返利礼包14",
+      "m_type": 14095,
+      "charge_type": 1,
+      "state": 1,
+      "money": 1280,
+      "des": "专属返利礼包14",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 84
+    },
+    "4096": {
+      "name": "专属返利礼包15",
+      "m_type": 14096,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包15",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 85
+    },
+    "4097": {
+      "name": "专属返利礼包16",
+      "m_type": 14097,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包16",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 86
+    },
+    "4098": {
+      "name": "专属返利礼包17",
+      "m_type": 14098,
+      "charge_type": 1,
+      "state": 1,
+      "money": 1280,
+      "des": "专属返利礼包17",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 87
+    },
+    "4099": {
+      "name": "暴击勋章礼包",
+      "m_type": 14099,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "暴击勋章礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 88
+    },
+    "4100": {
+      "name": "勋章强化礼包1",
+      "m_type": 14100,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 89
+    },
+    "4101": {
+      "name": "勋章强化礼包2",
+      "m_type": 14101,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 90
+    },
+    "4102": {
+      "name": "勋章强化礼包3",
+      "m_type": 14102,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 91
+    },
+    "4103": {
+      "name": "勋章强化礼包4",
+      "m_type": 14103,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 92
+    },
+    "4104": {
+      "name": "勋章强化礼包5",
+      "m_type": 14104,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 93
+    },
+    "4105": {
+      "name": "勋章强化礼包6",
+      "m_type": 14105,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 94
+    },
+    "4106": {
+      "name": "勋章强化礼包7",
+      "m_type": 14106,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 95
+    },
+    "4107": {
+      "name": "勋章强化礼包8",
+      "m_type": 14107,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包8",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 96
+    },
+    "4108": {
+      "name": "勋章强化礼包9",
+      "m_type": 14108,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包9",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 97
+    },
+    "4109": {
+      "name": "勋章强化礼包10",
+      "m_type": 14109,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包10",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 98
+    },
+    "4110": {
+      "name": "勋章强化礼包11",
+      "m_type": 14110,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包11",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 99
+    },
+    "4111": {
+      "name": "勋章强化礼包12",
+      "m_type": 14111,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包12",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 100
+    },
+    "4112": {
+      "name": "勋章强化礼包13",
+      "m_type": 14112,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包13",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 101
+    },
+    "4113": {
+      "name": "勋章强化礼包14",
+      "m_type": 14113,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包14",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 102
+    },
+    "4114": {
+      "name": "勋章强化礼包15",
+      "m_type": 14114,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包15",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 103
+    },
+    "12001": {
+      "name": "每日经验礼包",
+      "m_type": 2001,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每日经验礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 102
+    },
+    "12002": {
+      "name": "每日洗练石礼包",
+      "m_type": 2002,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1902",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每日洗练石礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 103
+    },
+    "12003": {
+      "name": "每日书页礼包",
+      "m_type": 2003,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1903",
+      "state": 1,
+      "money": 68,
+      "gem": 680,
+      "des": "每日书页礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 104
+    },
+    "12004": {
+      "name": "每日神兵材料礼包",
+      "m_type": 2004,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1904",
+      "state": 1,
+      "money": 128,
+      "gem": 1280,
+      "des": "每日神兵材料礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 105
+    },
+    "12005": {
+      "name": "每日神兵技能礼包",
+      "m_type": 2005,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1905",
+      "state": 1,
+      "money": 328,
+      "gem": 3280,
+      "des": "每日神兵技能礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 106
+    },
+    "12006": {
+      "name": "每周经验礼包",
+      "m_type": 2006,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1906",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每周经验礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12007": {
+      "name": "每周洗练石礼包",
+      "m_type": 2007,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1907",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每周洗练石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12008": {
+      "name": "每周书页礼包",
+      "m_type": 2008,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1908",
+      "state": 1,
+      "money": 68,
+      "gem": 680,
+      "des": "每周书页礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12009": {
+      "name": "每周神兵材料礼包",
+      "m_type": 2009,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1909",
+      "state": 1,
+      "money": 128,
+      "gem": 1280,
+      "des": "每周神兵材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12010": {
+      "name": "每周神兵技能礼包",
+      "m_type": 2010,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1910",
+      "state": 1,
+      "money": 328,
+      "gem": 3280,
+      "des": "每周神兵技能礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12011": {
+      "name": "每月经验礼包",
+      "m_type": 2011,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1911",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每月经验礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12012": {
+      "name": "每月洗练石礼包",
+      "m_type": 2012,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1912",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每月洗练石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12013": {
+      "name": "每月书页礼包",
+      "m_type": 2013,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1913",
+      "state": 1,
+      "money": 68,
+      "gem": 680,
+      "des": "每月书页礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12014": {
+      "name": "每月神兵材料礼包",
+      "m_type": 2014,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1914",
+      "state": 1,
+      "money": 128,
+      "gem": 1280,
+      "des": "每月神兵材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12015": {
+      "name": "每月神兵技能礼包",
+      "m_type": 2015,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1915",
+      "state": 1,
+      "money": 328,
+      "gem": 3280,
+      "des": "每月神兵技能礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12020": {
+      "name": "每日经验礼包",
+      "m_type": 2020,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1920",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每日经验礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 202
+    },
+    "12021": {
+      "name": "每日淬炼石礼包",
+      "m_type": 2021,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1921",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每日淬炼石礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 203
+    },
+    "12022": {
+      "name": "每日称谓礼包",
+      "m_type": 2022,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1922",
+      "state": 1,
+      "money": 68,
+      "gem": 680,
+      "des": "每日称谓礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 204
+    },
+    "12023": {
+      "name": "每日星辰丹礼包",
+      "m_type": 2023,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1923",
+      "state": 1,
+      "money": 128,
+      "gem": 1280,
+      "des": "每日星辰丹礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 205
+    },
+    "12024": {
+      "name": "每日神兵材料礼包",
+      "m_type": 2024,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1924",
+      "state": 1,
+      "money": 328,
+      "gem": 3280,
+      "des": "每日神兵材料礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 206
+    },
+    "12025": {
+      "name": "每日神兵宝石礼包",
+      "m_type": 2025,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1925",
+      "state": 1,
+      "money": 328,
+      "gem": 3280,
+      "des": "每日神兵宝石礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 207
+    },
+    "12026": {
+      "name": "每周经验礼包",
+      "m_type": 2026,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1926",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每周经验礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12027": {
+      "name": "每周淬炼石礼包",
+      "m_type": 2027,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1927",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每周淬炼石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12028": {
+      "name": "每周称谓礼包",
+      "m_type": 2028,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1928",
+      "state": 1,
+      "money": 68,
+      "gem": 680,
+      "des": "每周称谓礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12029": {
+      "name": "每周神兵材料礼包",
+      "m_type": 2029,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1929",
+      "state": 1,
+      "money": 128,
+      "gem": 1280,
+      "des": "每周神兵材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12030": {
+      "name": "每周神兵技能礼包",
+      "m_type": 2030,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1930",
+      "state": 1,
+      "money": 128,
+      "gem": 1280,
+      "des": "每周神兵技能礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12031": {
+      "name": "每周神兵宝石礼包",
+      "m_type": 2031,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1931",
+      "state": 1,
+      "money": 328,
+      "gem": 3280,
+      "des": "每周神兵宝石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12032": {
+      "name": "每月经验礼包",
+      "m_type": 2032,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1932",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每月经验礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12033": {
+      "name": "每月淬炼石礼包",
+      "m_type": 2033,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1933",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每月淬炼石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12034": {
+      "name": "每月称谓礼包",
+      "m_type": 2034,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1934",
+      "state": 1,
+      "money": 68,
+      "gem": 680,
+      "des": "每月称谓礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12035": {
+      "name": "每月神兵材料礼包",
+      "m_type": 2035,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1935",
+      "state": 1,
+      "money": 128,
+      "gem": 1280,
+      "des": "每月神兵材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12036": {
+      "name": "每月神兵技能礼包",
+      "m_type": 2036,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1936",
+      "state": 1,
+      "money": 128,
+      "des": "每月神兵技能礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12037": {
+      "name": "每月神兵宝石礼包",
+      "m_type": 2037,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1937",
+      "state": 1,
+      "money": 328,
+      "des": "每月神兵宝石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12050": {
+      "name": "每日经验礼包",
+      "m_type": 2050,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1950",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每日经验礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 302
+    },
+    "12051": {
+      "name": "每日淬炼石礼包",
+      "m_type": 2051,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1951",
+      "state": 1,
+      "money": 30,
+      "gem": 300,
+      "des": "每日淬炼石礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 303
+    },
+    "12052": {
+      "name": "每日称谓礼包",
+      "m_type": 2052,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1952",
+      "state": 1,
+      "money": 68,
+      "gem": 680,
+      "des": "每日称谓礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 304
+    },
+    "12053": {
+      "name": "每日星辰丹礼包",
+      "m_type": 2053,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1953",
+      "state": 1,
+      "money": 128,
+      "gem": 1280,
+      "des": "每日星辰丹礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 305
+    },
+    "12054": {
+      "name": "每日符文礼包",
+      "m_type": 2054,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1954",
+      "state": 1,
+      "money": 128,
+      "gem": 1280,
+      "des": "每日符文礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 306
+    },
+    "12055": {
+      "name": "每日神兵材料礼包",
+      "m_type": 2055,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1955",
+      "state": 1,
+      "money": 328,
+      "gem": 3280,
+      "des": "每日神兵材料礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 307
+    },
+    "12056": {
+      "name": "每日神兵宝石礼包",
+      "m_type": 2056,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1956",
+      "state": 1,
+      "money": 328,
+      "des": "每日神兵宝石礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 308
+    },
+    "12057": {
+      "name": "每日八卦装备礼包",
+      "m_type": 2057,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1957",
+      "state": 1,
+      "money": 648,
+      "des": "每日八卦装备礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 309
+    },
+    "12058": {
+      "name": "每日八卦材料礼包",
+      "m_type": 2058,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1958",
+      "state": 1,
+      "money": 648,
+      "des": "每日八卦材料礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 310
+    },
+    "12059": {
+      "name": "每周经验礼包",
+      "m_type": 2059,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1959",
+      "state": 1,
+      "money": 30,
+      "des": "每周经验礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12060": {
+      "name": "每周淬炼石礼包",
+      "m_type": 2060,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1960",
+      "state": 1,
+      "money": 30,
+      "des": "每周淬炼石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12061": {
+      "name": "每周称谓礼包",
+      "m_type": 2061,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1961",
+      "state": 1,
+      "money": 68,
+      "des": "每周称谓礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12062": {
+      "name": "每周星辰丹礼包",
+      "m_type": 2062,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1962",
+      "state": 1,
+      "money": 128,
+      "des": "每周星辰丹礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12063": {
+      "name": "每周符文礼包",
+      "m_type": 2063,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1963",
+      "state": 1,
+      "money": 128,
+      "des": "每周符文礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12064": {
+      "name": "每周神兵材料礼包",
+      "m_type": 2064,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1964",
+      "state": 1,
+      "money": 128,
+      "des": "每周神兵材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12065": {
+      "name": "每周神兵技能礼包",
+      "m_type": 2065,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1965",
+      "state": 1,
+      "money": 128,
+      "des": "每周神兵技能礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12066": {
+      "name": "每周神兵宝石礼包",
+      "m_type": 2066,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1966",
+      "state": 1,
+      "money": 128,
+      "des": "每周神兵宝石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12067": {
+      "name": "每周八卦装备礼包",
+      "m_type": 2067,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1967",
+      "state": 1,
+      "money": 328,
+      "des": "每周八卦装备礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12068": {
+      "name": "每周八卦材料礼包",
+      "m_type": 2068,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1968",
+      "state": 1,
+      "money": 328,
+      "des": "每周八卦材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12069": {
+      "name": "每月经验礼包",
+      "m_type": 2069,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1969",
+      "state": 1,
+      "money": 30,
+      "des": "每月经验礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12070": {
+      "name": "每月淬炼石礼包",
+      "m_type": 2070,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1970",
+      "state": 1,
+      "money": 30,
+      "des": "每月淬炼石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12071": {
+      "name": "每月称谓礼包",
+      "m_type": 2071,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1971",
+      "state": 1,
+      "money": 68,
+      "des": "每月称谓礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12072": {
+      "name": "每月星辰丹礼包",
+      "m_type": 2072,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1972",
+      "state": 1,
+      "money": 128,
+      "des": "每月星辰丹礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12073": {
+      "name": "每月符文礼包",
+      "m_type": 2073,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1973",
+      "state": 1,
+      "money": 128,
+      "des": "每月符文礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12074": {
+      "name": "每月神兵材料礼包",
+      "m_type": 2074,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1974",
+      "state": 1,
+      "money": 128,
+      "des": "每月神兵材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12075": {
+      "name": "每月神兵技能礼包",
+      "m_type": 2075,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1975",
+      "state": 1,
+      "money": 128,
+      "des": "每月神兵技能礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12076": {
+      "name": "每月神兵宝石礼包",
+      "m_type": 2076,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1976",
+      "state": 1,
+      "money": 128,
+      "des": "每月神兵宝石礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12077": {
+      "name": "每月八卦装备礼包",
+      "m_type": 2077,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1977",
+      "state": 1,
+      "money": 328,
+      "des": "每月八卦装备礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "12078": {
+      "name": "每月八卦材料礼包",
+      "m_type": 2078,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1978",
+      "state": 1,
+      "money": 328,
+      "des": "每月八卦材料礼包",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13001": {
+      "name": "成长礼包1",
+      "m_type": 3001,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 60
+      },
+      "state": 1,
+      "money": 6,
+      "des": "成长礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13002": {
+      "name": "成长礼包2",
+      "m_type": 3002,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 300
+      },
+      "state": 1,
+      "money": 30,
+      "des": "成长礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13003": {
+      "name": "成长礼包3",
+      "m_type": 3003,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "成长礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13004": {
+      "name": "成长礼包4",
+      "m_type": 3004,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 1280
+      },
+      "state": 1,
+      "money": 128,
+      "des": "成长礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13005": {
+      "name": "成长礼包5",
+      "m_type": 3005,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "成长礼包5",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13006": {
+      "name": "成长礼包6",
+      "m_type": 3006,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 6480
+      },
+      "state": 1,
+      "money": 648,
+      "des": "成长礼包6",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13021": {
+      "name": "金币礼包1",
+      "m_type": 3021,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 60
+      },
+      "state": 1,
+      "money": 6,
+      "des": "金币礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13022": {
+      "name": "金币礼包2",
+      "m_type": 3022,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 300
+      },
+      "state": 1,
+      "money": 30,
+      "des": "金币礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13023": {
+      "name": "金币礼包3",
+      "m_type": 3023,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "金币礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13024": {
+      "name": "金币礼包4",
+      "m_type": 3024,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 1280
+      },
+      "state": 1,
+      "money": 128,
+      "des": "金币礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13025": {
+      "name": "金币礼包5",
+      "m_type": 3025,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "金币礼包5",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13026": {
+      "name": "金币礼包6",
+      "m_type": 3026,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 6480
+      },
+      "state": 1,
+      "money": 648,
+      "des": "金币礼包6",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13027": {
+      "name": "金币礼包7",
+      "m_type": 3027,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 19980
+      },
+      "state": 1,
+      "money": 1998,
+      "des": "金币礼包7",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13041": {
+      "name": "洗练石礼包1",
+      "m_type": 3041,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 300
+      },
+      "state": 1,
+      "money": 30,
+      "des": "洗练石礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13042": {
+      "name": "洗练石礼包2",
+      "m_type": 3042,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "洗练石礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13043": {
+      "name": "洗练石礼包3",
+      "m_type": 3043,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 1280
+      },
+      "state": 1,
+      "money": 128,
+      "des": "洗练石礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13044": {
+      "name": "洗练石礼包4",
+      "m_type": 3044,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "洗练石礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13045": {
+      "name": "洗练石礼包5",
+      "m_type": 3045,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 6480
+      },
+      "state": 1,
+      "money": 648,
+      "des": "洗练石礼包5",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13046": {
+      "name": "洗练石礼包6",
+      "m_type": 3046,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 19980
+      },
+      "state": 1,
+      "money": 1998,
+      "des": "洗练石礼包6",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13061": {
+      "name": "书页礼包1",
+      "m_type": 3061,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 300
+      },
+      "state": 1,
+      "money": 30,
+      "des": "书页礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13062": {
+      "name": "书页礼包2",
+      "m_type": 3062,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "书页礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13063": {
+      "name": "书页礼包3",
+      "m_type": 3063,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 1280
+      },
+      "state": 1,
+      "money": 128,
+      "des": "书页礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13064": {
+      "name": "书页礼包4",
+      "m_type": 3064,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "书页礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13065": {
+      "name": "书页礼包5",
+      "m_type": 3065,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 6480
+      },
+      "state": 1,
+      "money": 648,
+      "des": "书页礼包5",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13066": {
+      "name": "书页礼包6",
+      "m_type": 3066,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 19980
+      },
+      "state": 1,
+      "money": 1998,
+      "des": "书页礼包6",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13081": {
+      "name": "精华礼包1",
+      "m_type": 3081,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 300
+      },
+      "state": 1,
+      "money": 30,
+      "des": "精华礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13082": {
+      "name": "精华礼包2",
+      "m_type": 3082,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "精华礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13083": {
+      "name": "精华礼包3",
+      "m_type": 3083,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 1280
+      },
+      "state": 1,
+      "money": 128,
+      "des": "精华礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13084": {
+      "name": "精华礼包4",
+      "m_type": 3084,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "精华礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13101": {
+      "name": "淬炼石礼包1",
+      "m_type": 3101,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 300
+      },
+      "state": 1,
+      "money": 30,
+      "des": "淬炼石礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13102": {
+      "name": "淬炼石礼包2",
+      "m_type": 3102,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "淬炼石礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13103": {
+      "name": "淬炼石礼包3",
+      "m_type": 3103,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 1280
+      },
+      "state": 1,
+      "money": 128,
+      "des": "淬炼石礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13104": {
+      "name": "淬炼石礼包4",
+      "m_type": 3104,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "淬炼石礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13105": {
+      "name": "淬炼石礼包5",
+      "m_type": 3105,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 6480
+      },
+      "state": 1,
+      "money": 648,
+      "des": "淬炼石礼包5",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13106": {
+      "name": "淬炼石礼包6",
+      "m_type": 3106,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 19980
+      },
+      "state": 1,
+      "money": 1998,
+      "des": "淬炼石礼包6",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13121": {
+      "name": "符文礼包1",
+      "m_type": 3121,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 980
+      },
+      "state": 1,
+      "money": 98,
+      "des": "符文礼包1",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13122": {
+      "name": "符文礼包2",
+      "m_type": 3122,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 3280
+      },
+      "state": 1,
+      "money": 328,
+      "des": "符文礼包2",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13123": {
+      "name": "符文礼包3",
+      "m_type": 3123,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 6480
+      },
+      "state": 1,
+      "money": 648,
+      "des": "符文礼包3",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13124": {
+      "name": "符文礼包4",
+      "m_type": 3124,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 19980
+      },
+      "state": 1,
+      "money": 1998,
+      "des": "符文礼包4",
+      "trigger": 1,
+      "rate": 1
+    },
+    "13125": {
+      "name": "符文礼包5",
+      "m_type": 3125,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t1901",
+      "resource": {
+        "2": 39980
+      },
+      "state": 1,
+      "money": 3998,
+      "des": "符文礼包5",
+      "trigger": 1,
+      "rate": 1
+    },
+    "14001": {
+      "name": "A精炼礼包",
+      "m_type": 4001,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A精炼礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1
+    },
+    "14002": {
+      "name": "A竞技礼包",
+      "m_type": 4002,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A竞技礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 2
+    },
+    "14003": {
+      "name": "A书页礼包",
+      "m_type": 4003,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A书页礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 3
+    },
+    "14004": {
+      "name": "A神兵礼包",
+      "m_type": 4004,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A神兵礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 4
+    },
+    "14005": {
+      "name": "A符文宝箱",
+      "m_type": 4005,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A符文宝箱",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 5
+    },
+    "14006": {
+      "name": "A聚灵珠礼包",
+      "m_type": 4006,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "A聚灵珠礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 6
+    },
+    "14007": {
+      "name": "ABOSS礼包",
+      "m_type": 4007,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "ABOSS礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 7
+    },
+    "14008": {
+      "name": "A命运之刃礼包",
+      "m_type": 4008,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "A命运之刃礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 8
+    },
+    "14009": {
+      "name": "A嗜魂法杖礼包",
+      "m_type": 4009,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "A嗜魂法杖礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 9
+    },
+    "14010": {
+      "name": "A黄金头盔礼包",
+      "m_type": 4010,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A黄金头盔礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 10
+    },
+    "14011": {
+      "name": "A黄金项链礼包",
+      "m_type": 4011,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "A黄金项链礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 11
+    },
+    "14012": {
+      "name": "天启神甲",
+      "m_type": 4012,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "天启神甲",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 12
+    },
+    "14013": {
+      "name": "聚灵珠礼包1",
+      "m_type": 4013,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "聚灵珠礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 13
+    },
+    "14014": {
+      "name": "聚灵珠礼包2",
+      "m_type": 4014,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "聚灵珠礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 14
+    },
+    "14015": {
+      "name": "聚灵珠礼包3",
+      "m_type": 4015,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "聚灵珠礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 15
+    },
+    "14016": {
+      "name": "聚灵珠礼包4",
+      "m_type": 4016,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "聚灵珠礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 16
+    },
+    "14017": {
+      "name": "聚灵珠礼包5",
+      "m_type": 4017,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "聚灵珠礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 17
+    },
+    "14018": {
+      "name": "聚灵珠礼包6",
+      "m_type": 4018,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "聚灵珠礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 18
+    },
+    "14019": {
+      "name": "聚灵珠礼包7",
+      "m_type": 4019,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "聚灵珠礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 19
+    },
+    "14020": {
+      "name": "聚灵珠礼包8",
+      "m_type": 4020,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "聚灵珠礼包8",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 20
+    },
+    "14021": {
+      "name": "聚灵珠礼包9",
+      "m_type": 4021,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "聚灵珠礼包9",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 21
+    },
+    "14022": {
+      "name": "聚灵珠礼包10",
+      "m_type": 4022,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "聚灵珠礼包10",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 22
+    },
+    "14023": {
+      "name": "聚灵珠礼包11",
+      "m_type": 4023,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "聚灵珠礼包11",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 23
+    },
+    "14024": {
+      "name": "精炼礼包1",
+      "m_type": 4024,
+      "charge_type": 1,
+      "state": 1,
+      "money": 6,
+      "des": "精炼礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 24
+    },
+    "14025": {
+      "name": "精炼礼包2",
+      "m_type": 4025,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "精炼礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 25
+    },
+    "14026": {
+      "name": "精炼礼包3",
+      "m_type": 4026,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "精炼礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 26
+    },
+    "14027": {
+      "name": "精炼礼包4",
+      "m_type": 4027,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "精炼礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 27
+    },
+    "14028": {
+      "name": "精炼礼包5",
+      "m_type": 4028,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "精炼礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 28
+    },
+    "14029": {
+      "name": "精炼礼包6",
+      "m_type": 4029,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "精炼礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 29
+    },
+    "14030": {
+      "name": "精炼礼包7",
+      "m_type": 4030,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "精炼礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 30
+    },
+    "14031": {
+      "name": "天关礼包1",
+      "m_type": 4031,
+      "charge_type": 1,
+      "state": 1,
+      "money": 12,
+      "des": "天关礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 31
+    },
+    "14032": {
+      "name": "天关礼包2",
+      "m_type": 4032,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "天关礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 32
+    },
+    "14033": {
+      "name": "擂台礼包1",
+      "m_type": 4033,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "擂台礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 33
+    },
+    "14034": {
+      "name": "擂台登顶礼包",
+      "m_type": 4034,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "擂台登顶礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 34
+    },
+    "14035": {
+      "name": "赤血魔剑礼包1",
+      "m_type": 4035,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "赤血魔剑礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 35
+    },
+    "14036": {
+      "name": "命运之刃礼包1",
+      "m_type": 4036,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "命运之刃礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 36
+    },
+    "14037": {
+      "name": "嗜魂法杖礼包1",
+      "m_type": 4037,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "嗜魂法杖礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 37
+    },
+    "14038": {
+      "name": "赤血魔剑礼包2",
+      "m_type": 4038,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "赤血魔剑礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 38
+    },
+    "14039": {
+      "name": "命运之刃礼包2",
+      "m_type": 4039,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "命运之刃礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 39
+    },
+    "14040": {
+      "name": "嗜魂法杖礼包2",
+      "m_type": 4040,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "嗜魂法杖礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 40
+    },
+    "14041": {
+      "name": "赤血魔剑礼包3",
+      "m_type": 4041,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "赤血魔剑礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 41
+    },
+    "14042": {
+      "name": "命运之刃礼包3",
+      "m_type": 4042,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "命运之刃礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 42
+    },
+    "14043": {
+      "name": "嗜魂法杖礼包3",
+      "m_type": 4043,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "嗜魂法杖礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 43
+    },
+    "14044": {
+      "name": "命运之刃礼包4",
+      "m_type": 4044,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "命运之刃礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 44
+    },
+    "14045": {
+      "name": "嗜魂法杖礼包4",
+      "m_type": 4045,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "嗜魂法杖礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 45
+    },
+    "14046": {
+      "name": "命运之刃礼包5",
+      "m_type": 4046,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "命运之刃礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 46
+    },
+    "14047": {
+      "name": "嗜魂法杖礼包5",
+      "m_type": 4047,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "嗜魂法杖礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 47
+    },
+    "14048": {
+      "name": "命运之刃礼包6",
+      "m_type": 4048,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "命运之刃礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 48
+    },
+    "14049": {
+      "name": "嗜魂法杖礼包6",
+      "m_type": 4049,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "嗜魂法杖礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 49
+    },
+    "14050": {
+      "name": "命运之刃礼包7",
+      "m_type": 4050,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "命运之刃礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 50
+    },
+    "14051": {
+      "name": "嗜魂法杖礼包7",
+      "m_type": 4051,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "嗜魂法杖礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 51
+    },
+    "14052": {
+      "name": "命运之刃礼包8",
+      "m_type": 4052,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "命运之刃礼包8",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 52
+    },
+    "14053": {
+      "name": "嗜魂法杖礼包8",
+      "m_type": 4053,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "嗜魂法杖礼包8",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 53
+    },
+    "14054": {
+      "name": "B精炼礼包",
+      "m_type": 4054,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "B精炼礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1001
+    },
+    "14055": {
+      "name": "B竞技礼包",
+      "m_type": 4055,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "B竞技礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1002
+    },
+    "14056": {
+      "name": "B书页礼包",
+      "m_type": 4056,
+      "charge_type": 1,
+      "state": 1,
+      "money": 68,
+      "des": "B书页礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1003
+    },
+    "14057": {
+      "name": "B神兵礼包",
+      "m_type": 4057,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "B神兵礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1004
+    },
+    "14058": {
+      "name": "B符文宝箱",
+      "m_type": 4058,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "B符文宝箱",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1006
+    },
+    "14059": {
+      "name": "B聚灵珠礼包",
+      "m_type": 4059,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "B聚灵珠礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1007
+    },
+    "14060": {
+      "name": "BBOSS礼包",
+      "m_type": 4060,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "BBOSS礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1008
+    },
+    "14061": {
+      "name": "B命运之刃礼包",
+      "m_type": 4061,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "B命运之刃礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1009
+    },
+    "14062": {
+      "name": "B嗜魂法杖礼包",
+      "m_type": 4062,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "B嗜魂法杖礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1010
+    },
+    "14063": {
+      "name": "B黄金头盔礼包",
+      "m_type": 4063,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "B黄金头盔礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1013
+    },
+    "14064": {
+      "name": "B黄金项链礼包",
+      "m_type": 4064,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "B黄金项链礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 1014
+    },
+    "14065": {
+      "name": "召唤技能宝箱",
+      "m_type": 4065,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "召唤技能宝箱",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 54
+    },
+    "14066": {
+      "name": "神秘技能宝箱",
+      "m_type": 4066,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "神秘技能宝箱",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 55
+    },
+    "14067": {
+      "name": "防御技能宝箱",
+      "m_type": 4067,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "防御技能宝箱",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 56
+    },
+    "14068": {
+      "name": "天关礼包3",
+      "m_type": 4068,
+      "charge_type": 1,
+      "state": 1,
+      "money": 12,
+      "des": "天关礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 57
+    },
+    "14069": {
+      "name": "天关礼包4",
+      "m_type": 4069,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "天关礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 58
+    },
+    "14070": {
+      "name": "神兵宝石礼包1",
+      "m_type": 4070,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "神兵宝石礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 59
+    },
+    "14071": {
+      "name": "神兵宝石礼包2",
+      "m_type": 4071,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "神兵宝石礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 60
+    },
+    "14072": {
+      "name": "神兵宝石礼包3",
+      "m_type": 4072,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "神兵宝石礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 61
+    },
+    "14073": {
+      "name": "神兵宝石礼包4",
+      "m_type": 4073,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "神兵宝石礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 62
+    },
+    "14074": {
+      "name": "神兵宝石礼包5",
+      "m_type": 4074,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "神兵宝石礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 63
+    },
+    "14075": {
+      "name": "神兵宝石礼包6",
+      "m_type": 4075,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "神兵宝石礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 64
+    },
+    "14076": {
+      "name": "神兵宝石礼包7",
+      "m_type": 4076,
+      "charge_type": 1,
+      "state": 1,
+      "money": 30,
+      "des": "神兵宝石礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 65
+    },
+    "14077": {
+      "name": "神兵宝石礼包8",
+      "m_type": 4077,
+      "charge_type": 1,
+      "state": 1,
+      "money": 98,
+      "des": "神兵宝石礼包8",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 66
+    },
+    "14078": {
+      "name": "神兵宝石礼包9",
+      "m_type": 4078,
+      "charge_type": 1,
+      "state": 1,
+      "money": 328,
+      "des": "神兵宝石礼包9",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 67
+    },
+    "14079": {
+      "name": "特级星辰丹礼包",
+      "m_type": 4079,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "特级星辰丹礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 68
+    },
+    "14080": {
+      "name": "星辰丹礼包",
+      "m_type": 4080,
+      "charge_type": 1,
+      "state": 1,
+      "money": 6,
+      "des": "星辰丹礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 69
+    },
+    "14081": {
+      "name": "特级星辰丹礼包2",
+      "m_type": 4081,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "特级星辰丹礼包2",
+      "rate": 1,
+      "option_id": 70
+    },
+    "14082": {
+      "name": "专属返利礼包1",
+      "m_type": 4082,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 71
+    },
+    "14083": {
+      "name": "专属返利礼包2",
+      "m_type": 4083,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 72
+    },
+    "14084": {
+      "name": "专属返利礼包3",
+      "m_type": 4084,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 73
+    },
+    "14085": {
+      "name": "专属返利礼包4",
+      "m_type": 4085,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 74
+    },
+    "14086": {
+      "name": "专属返利礼包5",
+      "m_type": 4086,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 75
+    },
+    "14087": {
+      "name": "专属返利礼包6",
+      "m_type": 4087,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 76
+    },
+    "14088": {
+      "name": "专属返利礼包7",
+      "m_type": 4088,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 77
+    },
+    "14089": {
+      "name": "专属返利礼包8",
+      "m_type": 4089,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包8",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 78
+    },
+    "14090": {
+      "name": "专属返利礼包9",
+      "m_type": 4090,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包9",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 79
+    },
+    "14091": {
+      "name": "专属返利礼包10",
+      "m_type": 4091,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包10",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 80
+    },
+    "14092": {
+      "name": "专属返利礼包11",
+      "m_type": 4092,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包11",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 81
+    },
+    "14093": {
+      "name": "专属返利礼包12",
+      "m_type": 4093,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包12",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 82
+    },
+    "14094": {
+      "name": "专属返利礼包13",
+      "m_type": 4094,
+      "charge_type": 1,
+      "state": 1,
+      "money": 1280,
+      "des": "专属返利礼包13",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 83
+    },
+    "14095": {
+      "name": "专属返利礼包14",
+      "m_type": 4095,
+      "charge_type": 1,
+      "state": 1,
+      "money": 1280,
+      "des": "专属返利礼包14",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 84
+    },
+    "14096": {
+      "name": "专属返利礼包15",
+      "m_type": 4096,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包15",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 85
+    },
+    "14097": {
+      "name": "专属返利礼包16",
+      "m_type": 4097,
+      "charge_type": 1,
+      "state": 1,
+      "money": 648,
+      "des": "专属返利礼包16",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 86
+    },
+    "14098": {
+      "name": "专属返利礼包17",
+      "m_type": 4098,
+      "charge_type": 1,
+      "state": 1,
+      "money": 1280,
+      "des": "专属返利礼包17",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 87
+    },
+    "14099": {
+      "name": "暴击勋章礼包",
+      "m_type": 4099,
+      "charge_type": 1,
+      "state": 1,
+      "money": 128,
+      "des": "暴击勋章礼包",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 88
+    },
+    "14100": {
+      "name": "勋章强化礼包1",
+      "m_type": 4100,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包1",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 89
+    },
+    "14101": {
+      "name": "勋章强化礼包2",
+      "m_type": 4101,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包2",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 90
+    },
+    "14102": {
+      "name": "勋章强化礼包3",
+      "m_type": 4102,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包3",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 91
+    },
+    "14103": {
+      "name": "勋章强化礼包4",
+      "m_type": 4103,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包4",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 92
+    },
+    "14104": {
+      "name": "勋章强化礼包5",
+      "m_type": 4104,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包5",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 93
+    },
+    "14105": {
+      "name": "勋章强化礼包6",
+      "m_type": 4105,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包6",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 94
+    },
+    "14106": {
+      "name": "勋章强化礼包7",
+      "m_type": 4106,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包7",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 95
+    },
+    "14107": {
+      "name": "勋章强化礼包8",
+      "m_type": 4107,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包8",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 96
+    },
+    "14108": {
+      "name": "勋章强化礼包9",
+      "m_type": 4108,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包9",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 97
+    },
+    "14109": {
+      "name": "勋章强化礼包10",
+      "m_type": 4109,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包10",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 98
+    },
+    "14110": {
+      "name": "勋章强化礼包11",
+      "m_type": 4110,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包11",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 99
+    },
+    "14111": {
+      "name": "勋章强化礼包12",
+      "m_type": 4111,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包12",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 100
+    },
+    "14112": {
+      "name": "勋章强化礼包13",
+      "m_type": 4112,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包13",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 101
+    },
+    "14113": {
+      "name": "勋章强化礼包14",
+      "m_type": 4113,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包14",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 102
+    },
+    "14114": {
+      "name": "勋章强化礼包15",
+      "m_type": 4114,
+      "charge_type": 1,
+      "state": 1,
+      "money": 60,
+      "des": "勋章强化礼包15",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 103
+    },
+    "661002": {
+      "name": "第一档18元",
+      "m_type": 881002,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t881002",
+      "state": 1,
+      "money": 18,
+      "des": "第一档18元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 104
+    },
+    "661003": {
+      "name": "第一档30元",
+      "m_type": 881003,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t881003",
+      "state": 1,
+      "money": 30,
+      "des": "第一档30元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 105
+    },
+    "661004": {
+      "name": "第一档打包购买",
+      "m_type": 881004,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t881004",
+      "state": 1,
+      "money": 45,
+      "des": "第一档打包购买",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 106
+    },
+    "661005": {
+      "name": "第二档6元",
+      "m_type": 881005,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t881005",
+      "state": 1,
+      "money": 6,
+      "des": "第二档6元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 203
+    },
+    "661006": {
+      "name": "第二档18元",
+      "m_type": 881006,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t881006",
+      "state": 1,
+      "money": 18,
+      "des": "第二档18元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 204
+    },
+    "661007": {
+      "name": "第二档30元",
+      "m_type": 881007,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t881007",
+      "state": 1,
+      "money": 30,
+      "des": "第二档30元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 205
+    },
+    "661008": {
+      "name": "第二档打包购买",
+      "m_type": 881008,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t881008",
+      "state": 1,
+      "money": 45,
+      "des": "第二档打包购买",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 206
+    },
+    "661009": {
+      "name": "第三档6元",
+      "m_type": 881009,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t881009",
+      "state": 1,
+      "money": 6,
+      "des": "第三档6元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 303
+    },
+    "661010": {
+      "name": "第三档18元",
+      "m_type": 881010,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t881010",
+      "state": 1,
+      "money": 18,
+      "des": "第三档18元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 304
+    },
+    "661011": {
+      "name": "第三档30元",
+      "m_type": 881011,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t881011",
+      "state": 1,
+      "money": 30,
+      "des": "第三档30元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 305
+    },
+    "661012": {
+      "name": "第三档打包购买",
+      "m_type": 881012,
+      "charge_type": 0,
+      "product_ios": "zsfytczb.app.cn.t881012",
+      "state": 1,
+      "money": 45,
+      "des": "第三档打包购买",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 306
+    },
+    "881001": {
+      "name": "第一档6元",
+      "m_type": 661001,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t881001",
+      "state": 1,
+      "money": 6,
+      "des": "第一档6元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 103
+    },
+    "881002": {
+      "name": "第一档18元",
+      "m_type": 661002,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t881002",
+      "state": 1,
+      "money": 18,
+      "des": "第一档18元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 104
+    },
+    "881003": {
+      "name": "第一档30元",
+      "m_type": 661003,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t881003",
+      "state": 1,
+      "money": 30,
+      "des": "第一档30元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 105
+    },
+    "881004": {
+      "name": "第一档打包购买",
+      "m_type": 661004,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t881004",
+      "state": 1,
+      "money": 45,
+      "des": "第一档打包购买",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 106
+    },
+    "881005": {
+      "name": "第二档6元",
+      "m_type": 661005,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t881005",
+      "state": 1,
+      "money": 6,
+      "des": "第二档6元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 203
+    },
+    "881006": {
+      "name": "第二档18元",
+      "m_type": 661006,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t881006",
+      "state": 1,
+      "money": 18,
+      "des": "第二档18元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 204
+    },
+    "881007": {
+      "name": "第二档30元",
+      "m_type": 661007,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t881007",
+      "state": 1,
+      "money": 30,
+      "des": "第二档30元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 205
+    },
+    "881008": {
+      "name": "第二档打包购买",
+      "m_type": 661008,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t881008",
+      "state": 1,
+      "money": 45,
+      "des": "第二档打包购买",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 206
+    },
+    "881009": {
+      "name": "第三档6元",
+      "m_type": 661009,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t881009",
+      "state": 1,
+      "money": 6,
+      "des": "第三档6元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 303
+    },
+    "881010": {
+      "name": "第三档18元",
+      "m_type": 661010,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t881010",
+      "state": 1,
+      "money": 18,
+      "des": "第三档18元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 304
+    },
+    "881011": {
+      "name": "第三档30元",
+      "m_type": 661011,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t881011",
+      "state": 1,
+      "money": 30,
+      "des": "第三档30元",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 305
+    },
+    "881012": {
+      "name": "第三档打包购买",
+      "m_type": 661012,
+      "charge_type": 1,
+      "product_ios": "zsfytczb.app.cn.t881012",
+      "state": 1,
+      "money": 45,
+      "des": "第三档打包购买",
+      "trigger": 1,
+      "rate": 1,
+      "option_id": 306
+    }
+  }
+}

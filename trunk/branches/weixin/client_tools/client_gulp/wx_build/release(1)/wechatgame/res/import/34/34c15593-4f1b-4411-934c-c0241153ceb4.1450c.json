@@ -1,0 +1,3023 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "starAbilityConfig",
+  "json": {
+    "10100": {
+      "starskillid": 101,
+      "name": "角木蛟",
+      "quality": 0,
+      "role": 1,
+      "level": 0,
+      "max_level": 4,
+      "chance": 0,
+      "cooldown": 25,
+      "duration": 1,
+      "skill_value": [
+        10000,
+        500
+      ],
+      "des": "护体真气持续期间有10%的几率反弹所受伤害的100%给对方，并有几率使目标陷入眩晕状态，持续1秒。眩晕25秒内只能触发1次，对Boss无效。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 401
+    },
+    "10101": {
+      "starskillid": 101,
+      "name": "角木蛟",
+      "quality": 1,
+      "role": 1,
+      "level": 1,
+      "max_level": 4,
+      "chance": 500,
+      "cooldown": 25,
+      "duration": 1,
+      "skill_value": [
+        10000,
+        500
+      ],
+      "des": "护体真气持续期间有10%的几率反弹所受伤害的100%给对方，并有几率使目标陷入眩晕状态，持续1秒。眩晕25秒内只能触发1次，对Boss无效。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 401
+    },
+    "10102": {
+      "starskillid": 101,
+      "name": "角木蛟",
+      "quality": 2,
+      "role": 1,
+      "level": 2,
+      "max_level": 4,
+      "chance": 800,
+      "cooldown": 20,
+      "duration": 1,
+      "skill_value": [
+        12000,
+        500
+      ],
+      "des": "护体真气持续期间有12%的几率反弹所受伤害的120%给对方，并有几率使目标陷入眩晕状态，持续1秒。眩晕20秒内只能触发1次，对Boss无效。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 401
+    },
+    "10103": {
+      "starskillid": 101,
+      "name": "角木蛟",
+      "quality": 3,
+      "role": 1,
+      "level": 3,
+      "max_level": 4,
+      "chance": 1200,
+      "cooldown": 20,
+      "duration": 1,
+      "skill_value": [
+        13500,
+        500
+      ],
+      "des": "护体真气持续期间有15%的几率反弹所受伤害的135%给对方，并有几率使目标陷入眩晕状态，持续1秒。眩晕20秒内只能触发1次，对Boss无效。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 401
+    },
+    "10104": {
+      "starskillid": 101,
+      "name": "角木蛟",
+      "quality": 4,
+      "role": 1,
+      "level": 4,
+      "max_level": 4,
+      "chance": 1500,
+      "cooldown": 20,
+      "duration": 2,
+      "skill_value": [
+        15000,
+        500
+      ],
+      "des": "护体真气持续期间有18%的几率反弹所受伤害的150%给对方，并有几率使目标陷入眩晕状态，持续2秒。眩晕20秒内只能触发1次，对Boss无效。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 401
+    },
+    "10200": {
+      "starskillid": 102,
+      "name": "亢金龙",
+      "quality": 0,
+      "role": 1,
+      "level": 0,
+      "max_level": 4,
+      "skill_value": [
+        10000
+      ],
+      "des": "烈火剑法的伤害降低30%，若烈火剑法没有杀死目标，会立刻刷新烈火剑法的冷却时间，此效果12秒内只会触发一次。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 402
+    },
+    "10201": {
+      "starskillid": 102,
+      "name": "亢金龙",
+      "quality": 1,
+      "role": 1,
+      "level": 1,
+      "max_level": 4,
+      "cooldown": 12,
+      "skill_value": [
+        7000
+      ],
+      "des": "烈火剑法的伤害降低30%，若烈火剑法没有杀死目标，会立刻刷新烈火剑法的冷却时间，此效果12秒内只会触发一次。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 402
+    },
+    "10202": {
+      "starskillid": 102,
+      "name": "亢金龙",
+      "quality": 2,
+      "role": 1,
+      "level": 2,
+      "max_level": 4,
+      "cooldown": 12,
+      "skill_value": [
+        8000
+      ],
+      "des": "烈火剑法的伤害降低20%，若烈火剑法没有杀死目标，会立刻刷新烈火剑法的冷却时间，此效果12秒内只会触发一次。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 402
+    },
+    "10203": {
+      "starskillid": 102,
+      "name": "亢金龙",
+      "quality": 3,
+      "role": 1,
+      "level": 3,
+      "max_level": 4,
+      "cooldown": 12,
+      "skill_value": [
+        9000
+      ],
+      "des": "烈火剑法的伤害降低10%，若烈火剑法没有杀死目标，会立刻刷新烈火剑法的冷却时间，此效果12秒内只会触发一次。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 402
+    },
+    "10204": {
+      "starskillid": 102,
+      "name": "亢金龙",
+      "quality": 4,
+      "role": 1,
+      "level": 4,
+      "max_level": 4,
+      "cooldown": 12,
+      "skill_value": [
+        10000
+      ],
+      "des": "若烈火剑法没有杀死目标，会立刻刷新烈火剑法的冷却时间，此效果12秒内只会触发一次。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 402
+    },
+    "10300": {
+      "starskillid": 103,
+      "name": "氐土貉",
+      "quality": 0,
+      "role": 1,
+      "level": 0,
+      "max_level": 4,
+      "skill_value": [
+        10000
+      ],
+      "des": "半月弯刀造成的伤害提高5%。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 403
+    },
+    "10301": {
+      "starskillid": 103,
+      "name": "氐土貉",
+      "quality": 1,
+      "role": 1,
+      "level": 1,
+      "max_level": 4,
+      "skill_value": [
+        10500
+      ],
+      "des": "半月弯刀造成的伤害提高5%。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 403
+    },
+    "10302": {
+      "starskillid": 103,
+      "name": "氐土貉",
+      "quality": 2,
+      "role": 1,
+      "level": 2,
+      "max_level": 4,
+      "skill_value": [
+        11000
+      ],
+      "des": "半月弯刀造成的伤害提高10%。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 403
+    },
+    "10303": {
+      "starskillid": 103,
+      "name": "氐土貉",
+      "quality": 3,
+      "role": 1,
+      "level": 3,
+      "max_level": 4,
+      "skill_value": [
+        11500
+      ],
+      "des": "半月弯刀造成的伤害提高15%。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 403
+    },
+    "10304": {
+      "starskillid": 103,
+      "name": "氐土貉",
+      "quality": 4,
+      "role": 1,
+      "level": 4,
+      "max_level": 4,
+      "skill_value": [
+        12000
+      ],
+      "des": "半月弯刀造成的伤害提高20%。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 403
+    },
+    "10400": {
+      "starskillid": 104,
+      "name": "房日兔",
+      "quality": 0,
+      "role": 1,
+      "level": 0,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        3,
+        6500
+      ],
+      "des": "刺杀剑术伤害降低35%，累计施放2次刺杀剑术后，下次刺杀剑术将对3个目标造成伤害。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 404
+    },
+    "10401": {
+      "starskillid": 104,
+      "name": "房日兔",
+      "quality": 1,
+      "role": 1,
+      "level": 1,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        3,
+        6500
+      ],
+      "des": "刺杀剑术伤害降低35%，累计施放2次刺杀剑术后，下次刺杀剑术将对3个目标造成伤害。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 404
+    },
+    "10402": {
+      "starskillid": 104,
+      "name": "房日兔",
+      "quality": 2,
+      "role": 1,
+      "level": 2,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        3,
+        7000
+      ],
+      "des": "刺杀剑术伤害降低30%，累计施放2次刺杀剑术后，下次刺杀剑术将对3个目标造成伤害。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 404
+    },
+    "10403": {
+      "starskillid": 104,
+      "name": "房日兔",
+      "quality": 3,
+      "role": 1,
+      "level": 3,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        3,
+        8000
+      ],
+      "des": "刺杀剑术伤害降低20%，累计施放2次刺杀剑术后，下次刺杀剑术将对3个目标造成伤害。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 404
+    },
+    "10404": {
+      "starskillid": 104,
+      "name": "房日兔",
+      "quality": 4,
+      "role": 1,
+      "level": 4,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        3,
+        9000
+      ],
+      "des": "刺杀剑术伤害降低10%，累计施放2次刺杀剑术后，下次刺杀剑术将对3个目标造成伤害。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 404
+    },
+    "20100": {
+      "starskillid": 201,
+      "name": "井木犴",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 4,
+      "skill_value": [
+        10,
+        12000
+      ],
+      "des": "累积10次未触发幸运一击时，获得万钧效果，下次攻击必定触发幸运一击，并且伤害额外提高20%。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 413
+    },
+    "20101": {
+      "starskillid": 201,
+      "name": "井木犴",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 4,
+      "skill_value": [
+        10,
+        12000
+      ],
+      "des": "累积10次未触发幸运一击时，获得万钧效果，下次攻击必定触发幸运一击，并且伤害额外提高20%。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 413
+    },
+    "20102": {
+      "starskillid": 201,
+      "name": "井木犴",
+      "quality": 2,
+      "role": 0,
+      "level": 2,
+      "max_level": 4,
+      "skill_value": [
+        10,
+        13000
+      ],
+      "des": "累积10次未触发幸运一击时，获得万钧效果，下次攻击必定触发幸运一击，并且伤害额外提高30%。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 413
+    },
+    "20103": {
+      "starskillid": 201,
+      "name": "井木犴",
+      "quality": 3,
+      "role": 0,
+      "level": 3,
+      "max_level": 4,
+      "skill_value": [
+        10,
+        14000
+      ],
+      "des": "累积10次未触发幸运一击时，获得万钧效果，下次攻击必定触发幸运一击，并且伤害额外提高40%。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 413
+    },
+    "20104": {
+      "starskillid": 201,
+      "name": "井木犴",
+      "quality": 4,
+      "role": 0,
+      "level": 4,
+      "max_level": 4,
+      "skill_value": [
+        8,
+        15000
+      ],
+      "des": "累积8次未触发幸运一击时，获得万钧效果，下次攻击必定触发幸运一击，并且伤害额外提高50%。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 413
+    },
+    "20200": {
+      "starskillid": 202,
+      "name": "鬼金羊",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 4,
+      "cooldown": 60,
+      "skill_value": [
+        10,
+        3
+      ],
+      "des": "连续10次触发幸运一击时，获得灵犀效果，所有技能冷却时间立刻减少3秒，此效果60秒内只能触发1次。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 414
+    },
+    "20201": {
+      "starskillid": 202,
+      "name": "鬼金羊",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 4,
+      "cooldown": 60,
+      "skill_value": [
+        10,
+        3
+      ],
+      "des": "连续10次触发幸运一击时，获得灵犀效果，所有技能冷却时间立刻减少3秒，此效果60秒内只能触发1次。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 414
+    },
+    "20202": {
+      "starskillid": 202,
+      "name": "鬼金羊",
+      "quality": 2,
+      "role": 0,
+      "level": 2,
+      "max_level": 4,
+      "cooldown": 50,
+      "skill_value": [
+        8,
+        4
+      ],
+      "des": "连续8次触发幸运一击时，获得灵犀效果，所有技能冷却时间立刻减少4秒，此效果50秒内只能触发1次。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 414
+    },
+    "20203": {
+      "starskillid": 202,
+      "name": "鬼金羊",
+      "quality": 3,
+      "role": 0,
+      "level": 3,
+      "max_level": 4,
+      "cooldown": 40,
+      "skill_value": [
+        6,
+        5
+      ],
+      "des": "连续6次触发幸运一击时，获得灵犀效果，所有技能冷却时间立刻减少5秒，此效果45秒内只能触发1次。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 414
+    },
+    "20204": {
+      "starskillid": 202,
+      "name": "鬼金羊",
+      "quality": 4,
+      "role": 0,
+      "level": 4,
+      "max_level": 4,
+      "cooldown": 30,
+      "skill_value": [
+        4,
+        5
+      ],
+      "des": "连续4次触发幸运一击时，获得灵犀效果，所有技能冷却时间立刻减少5秒，此效果30秒内只能触发1次。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 414
+    },
+    "20300": {
+      "starskillid": 203,
+      "name": "柳土獐",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 4,
+      "ability": {
+        "20": 0
+      },
+      "skill_value": [
+        500
+      ],
+      "des": "法力吸取+10，生命吸取无效，生命吸取1:1转化为法力吸取，法力低于5%时，法力吸取效果翻倍（同时装备星宿:星日马时无效）。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 415
+    },
+    "20301": {
+      "starskillid": 203,
+      "name": "柳土獐",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 4,
+      "ability": {
+        "20": 10
+      },
+      "skill_value": [
+        1000
+      ],
+      "des": "法力吸取+10，生命吸取无效，生命吸取1:1转化为法力吸取，法力低于10%时，法力吸取效果翻倍（同时装备星宿:星日马时无效）。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 415
+    },
+    "20302": {
+      "starskillid": 203,
+      "name": "柳土獐",
+      "quality": 2,
+      "role": 0,
+      "level": 2,
+      "max_level": 4,
+      "ability": {
+        "20": 20
+      },
+      "skill_value": [
+        1500
+      ],
+      "des": "法力吸取+20，生命吸取无效，生命吸取1:1转化为法力吸取，法力低于15%时，法力吸取效果翻倍（同时装备星宿:星日马时无效）。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 415
+    },
+    "20303": {
+      "starskillid": 203,
+      "name": "柳土獐",
+      "quality": 3,
+      "role": 0,
+      "level": 3,
+      "max_level": 4,
+      "ability": {
+        "20": 40
+      },
+      "skill_value": [
+        2000
+      ],
+      "des": "法力吸取+40，生命吸取无效，生命吸取1:1转化为法力吸取，法力低于20%时，法力吸取效果翻倍（同时装备星宿:星日马时无效）。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 415
+    },
+    "20304": {
+      "starskillid": 203,
+      "name": "柳土獐",
+      "quality": 4,
+      "role": 0,
+      "level": 4,
+      "max_level": 4,
+      "ability": {
+        "20": 80
+      },
+      "skill_value": [
+        2500
+      ],
+      "des": "法力吸取+80，生命吸取无效，生命吸取1:1转化为法力吸取，法力低于25%时，法力吸取效果翻倍（同时装备星宿:星日马时无效）。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 415
+    },
+    "20400": {
+      "starskillid": 204,
+      "name": "星日马",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 4,
+      "ability": {
+        "19": 0
+      },
+      "skill_value": [
+        3000
+      ],
+      "des": "生命吸取+10，法力吸取无效，法力吸取1:1转化为生命吸取，生命低于5%时，生命吸取效果翻倍（同时装备星宿:柳土獐时无效）。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 416
+    },
+    "20401": {
+      "starskillid": 204,
+      "name": "星日马",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 4,
+      "ability": {
+        "19": 10
+      },
+      "skill_value": [
+        500
+      ],
+      "des": "生命吸取+10，法力吸取无效，法力吸取1:1转化为生命吸取，生命低于5%时，生命吸取效果翻倍（同时装备星宿:柳土獐时无效）。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 416
+    },
+    "20402": {
+      "starskillid": 204,
+      "name": "星日马",
+      "quality": 2,
+      "role": 0,
+      "level": 2,
+      "max_level": 4,
+      "ability": {
+        "19": 20
+      },
+      "skill_value": [
+        1000
+      ],
+      "des": "生命吸取+20，法力吸取无效，法力吸取1:1转化为生命吸取，生命低于10%时，生命吸取效果翻倍（同时装备星宿:柳土獐时无效）。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 416
+    },
+    "20403": {
+      "starskillid": 204,
+      "name": "星日马",
+      "quality": 3,
+      "role": 0,
+      "level": 3,
+      "max_level": 4,
+      "ability": {
+        "19": 40
+      },
+      "skill_value": [
+        1500
+      ],
+      "des": "生命吸取+40，法力吸取无效，法力吸取1:1转化为生命吸取，生命低于15%时，生命吸取效果翻倍（同时装备星宿:柳土獐时无效）。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 416
+    },
+    "20404": {
+      "starskillid": 204,
+      "name": "星日马",
+      "quality": 4,
+      "role": 0,
+      "level": 4,
+      "max_level": 4,
+      "ability": {
+        "19": 80
+      },
+      "skill_value": [
+        2000
+      ],
+      "des": "生命吸取+80，法力吸取无效，法力吸取1:1转化为生命吸取，生命低于20%时，生命吸取效果翻倍（同时装备星宿:柳土獐时无效）。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 416
+    },
+    "30100": {
+      "starskillid": 301,
+      "name": "奎木狼",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 4,
+      "ability": {
+        "8": 0,
+        "1000": 0
+      },
+      "des": "幸运+1，全技能等级-2（技能最多降低到1级）。",
+      "zhanli": [
+        1,
+        0
+      ]
+    },
+    "30101": {
+      "starskillid": 301,
+      "name": "奎木狼",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 4,
+      "ability": {
+        "8": 1,
+        "1000": 0
+      },
+      "des": "幸运+1，全技能等级-2（技能最多降低到1级）。",
+      "zhanli": [
+        1,
+        25
+      ]
+    },
+    "30102": {
+      "starskillid": 301,
+      "name": "奎木狼",
+      "quality": 2,
+      "role": 0,
+      "level": 2,
+      "max_level": 4,
+      "ability": {
+        "8": 2,
+        "1000": 0
+      },
+      "des": "幸运+2，全技能等级-2（技能最多降低到1级）。",
+      "zhanli": [
+        1,
+        50
+      ]
+    },
+    "30103": {
+      "starskillid": 301,
+      "name": "奎木狼",
+      "quality": 3,
+      "role": 0,
+      "level": 3,
+      "max_level": 4,
+      "ability": {
+        "8": 3,
+        "1000": 0
+      },
+      "des": "幸运+3，全技能等级-1（技能最多降低到1级）。",
+      "zhanli": [
+        1,
+        75
+      ]
+    },
+    "30104": {
+      "starskillid": 301,
+      "name": "奎木狼",
+      "quality": 4,
+      "role": 0,
+      "level": 4,
+      "max_level": 4,
+      "ability": {
+        "8": 3,
+        "1000": 0
+      },
+      "des": "幸运+3，不再降低技能等级。",
+      "zhanli": [
+        1,
+        100
+      ]
+    },
+    "30200": {
+      "starskillid": 302,
+      "name": "娄金狗",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 4,
+      "ability": {
+        "15": 0
+      },
+      "skill_value": [
+        50,
+        50
+      ],
+      "des": "固定伤害+25，每次攻击附带自身（生命+法力）*0.5%的固定伤害，召唤物不继承此效果。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 417
+    },
+    "30201": {
+      "starskillid": 302,
+      "name": "娄金狗",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 4,
+      "ability": {
+        "15": 25
+      },
+      "skill_value": [
+        50,
+        50
+      ],
+      "des": "固定伤害+25，每次攻击附带自身（生命+法力）*0.5%的固定伤害，召唤物不继承此效果。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 417
+    },
+    "30202": {
+      "starskillid": 302,
+      "name": "娄金狗",
+      "quality": 2,
+      "role": 0,
+      "level": 2,
+      "max_level": 4,
+      "ability": {
+        "15": 50
+      },
+      "skill_value": [
+        75,
+        75
+      ],
+      "des": "固定伤害+50，每次攻击附带自身（生命+法力）*0.75%的固定伤害，召唤物不继承此效果。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 417
+    },
+    "30203": {
+      "starskillid": 302,
+      "name": "娄金狗",
+      "quality": 3,
+      "role": 0,
+      "level": 3,
+      "max_level": 4,
+      "ability": {
+        "15": 75
+      },
+      "skill_value": [
+        100,
+        100
+      ],
+      "des": "固定伤害+75，每次攻击附带自身（生命+法力）*1%的固定伤害，召唤物不继承此效果。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 417
+    },
+    "30204": {
+      "starskillid": 302,
+      "name": "娄金狗",
+      "quality": 4,
+      "role": 0,
+      "level": 4,
+      "max_level": 4,
+      "ability": {
+        "15": 100
+      },
+      "skill_value": [
+        125,
+        125
+      ],
+      "des": "固定伤害+100，每次攻击附带自身（生命+法力）*1.25%的固定伤害，召唤物不继承此效果。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 417
+    },
+    "30300": {
+      "starskillid": 303,
+      "name": "胃土雉",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 4,
+      "ability": {
+        "14": 0,
+        "38": 0,
+        "39": 0
+      },
+      "des": "攻击速度+20，最大攻击速度+3%。",
+      "zhanli": [
+        1,
+        0
+      ]
+    },
+    "30301": {
+      "starskillid": 303,
+      "name": "胃土雉",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 4,
+      "ability": {
+        "14": 20,
+        "38": 0,
+        "39": 300
+      },
+      "des": "攻击速度+20，最大攻击速度+3%。",
+      "zhanli": [
+        1,
+        25
+      ]
+    },
+    "30302": {
+      "starskillid": 303,
+      "name": "胃土雉",
+      "quality": 2,
+      "role": 0,
+      "level": 2,
+      "max_level": 4,
+      "ability": {
+        "14": 30,
+        "38": 0,
+        "39": 600
+      },
+      "des": "攻击速度+20，最大攻击速度+6%。",
+      "zhanli": [
+        1,
+        50
+      ]
+    },
+    "30303": {
+      "starskillid": 303,
+      "name": "胃土雉",
+      "quality": 3,
+      "role": 0,
+      "level": 3,
+      "max_level": 4,
+      "ability": {
+        "14": 40,
+        "38": 0,
+        "39": 900
+      },
+      "des": "攻击速度+40，最大攻击速度+9%。",
+      "zhanli": [
+        1,
+        75
+      ]
+    },
+    "30304": {
+      "starskillid": 303,
+      "name": "胃土雉",
+      "quality": 4,
+      "role": 0,
+      "level": 4,
+      "max_level": 4,
+      "ability": {
+        "14": 50,
+        "38": 0,
+        "39": 1200
+      },
+      "des": "攻击速度+50，最大攻击速度+12%。",
+      "zhanli": [
+        1,
+        100
+      ]
+    },
+    "30400": {
+      "starskillid": 304,
+      "name": "昴日鸡",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 4,
+      "ability": {
+        "7": 0,
+        "38": 0,
+        "39": 0
+      },
+      "des": "角色主属性+10，角色主属性+2%。",
+      "zhanli": [
+        1,
+        0
+      ]
+    },
+    "30401": {
+      "starskillid": 304,
+      "name": "昴日鸡",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 4,
+      "ability": {
+        "7": 10,
+        "38": 200,
+        "39": 0
+      },
+      "des": "角色主属性+10，角色主属性+2%。",
+      "zhanli": [
+        1,
+        25
+      ]
+    },
+    "30402": {
+      "starskillid": 304,
+      "name": "昴日鸡",
+      "quality": 2,
+      "role": 0,
+      "level": 2,
+      "max_level": 4,
+      "ability": {
+        "7": 20,
+        "38": 400,
+        "39": 0
+      },
+      "des": "角色主属性+20，角色主属性+4%。",
+      "zhanli": [
+        1,
+        50
+      ]
+    },
+    "30403": {
+      "starskillid": 304,
+      "name": "昴日鸡",
+      "quality": 3,
+      "role": 0,
+      "level": 3,
+      "max_level": 4,
+      "ability": {
+        "7": 30,
+        "38": 800,
+        "39": 0
+      },
+      "des": "角色主属性+30，角色主属性+6%。",
+      "zhanli": [
+        1,
+        75
+      ]
+    },
+    "30404": {
+      "starskillid": 304,
+      "name": "昴日鸡",
+      "quality": 4,
+      "role": 0,
+      "level": 4,
+      "max_level": 4,
+      "ability": {
+        "7": 50,
+        "38": 1000,
+        "39": 0
+      },
+      "des": "角色主属性+50，角色主属性+8%。",
+      "zhanli": [
+        1,
+        100
+      ]
+    },
+    "40100": {
+      "starskillid": 401,
+      "name": "斗木獬",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 4,
+      "ability": {
+        "0": 0,
+        "17": 0,
+        "30": 1000
+      },
+      "skill_value": [
+        400
+      ],
+      "des": "固定减伤+10，固定减伤+4%，每次受到攻击时回复生命，数值等于固定减伤的4%。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 418
+    },
+    "40101": {
+      "starskillid": 401,
+      "name": "斗木獬",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 4,
+      "ability": {
+        "17": 10,
+        "30": 400,
+        "40": 0
+      },
+      "skill_value": [
+        400
+      ],
+      "des": "固定减伤+10，固定减伤+4%，每次受到攻击时回复生命，数值等于固定减伤的4%。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 418
+    },
+    "40102": {
+      "starskillid": 401,
+      "name": "斗木獬",
+      "quality": 2,
+      "role": 0,
+      "level": 2,
+      "max_level": 4,
+      "ability": {
+        "17": 15,
+        "30": 600,
+        "40": 0
+      },
+      "skill_value": [
+        800
+      ],
+      "des": "固定减伤+15，固定减伤+6%，每次受到攻击时回复生命，数值等于固定减伤的8%。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 418
+    },
+    "40103": {
+      "starskillid": 401,
+      "name": "斗木獬",
+      "quality": 3,
+      "role": 0,
+      "level": 3,
+      "max_level": 4,
+      "ability": {
+        "17": 20,
+        "30": 800,
+        "40": 0
+      },
+      "skill_value": [
+        1200
+      ],
+      "des": "固定减伤+20，固定减伤+8%，每次受到攻击时回复生命，数值等于固定减伤的12%。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 418
+    },
+    "40104": {
+      "starskillid": 401,
+      "name": "斗木獬",
+      "quality": 4,
+      "role": 0,
+      "level": 4,
+      "max_level": 4,
+      "ability": {
+        "17": 25,
+        "30": 1000,
+        "40": 0
+      },
+      "skill_value": [
+        1600
+      ],
+      "des": "固定减伤+25，固定减伤+10%，每次受到攻击时回复生命，数值等于固定减伤的16%。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 418
+    },
+    "40200": {
+      "starskillid": 402,
+      "name": "牛金牛",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 4,
+      "ability": {
+        "10": 0,
+        "11": 0,
+        "40": 0
+      },
+      "skill_value": [
+        2000,
+        500
+      ],
+      "des": "生命+200，生命+10%，受到伤害时最多扣除20%的生命，最少扣除5%的生命。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 419
+    },
+    "40201": {
+      "starskillid": 402,
+      "name": "牛金牛",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 4,
+      "ability": {
+        "10": 200,
+        "11": 1000,
+        "40": 0
+      },
+      "skill_value": [
+        2000,
+        500
+      ],
+      "des": "生命+200，生命+10%，受到伤害时最多扣除20%的生命，最少扣除5%的生命。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 419
+    },
+    "40202": {
+      "starskillid": 402,
+      "name": "牛金牛",
+      "quality": 2,
+      "role": 0,
+      "level": 2,
+      "max_level": 4,
+      "ability": {
+        "10": 400,
+        "11": 1500,
+        "40": 0
+      },
+      "skill_value": [
+        2000,
+        500
+      ],
+      "des": "生命+400，生命+15%，受到伤害时最多扣除20%的生命，最少扣除5%的生命。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 419
+    },
+    "40203": {
+      "starskillid": 402,
+      "name": "牛金牛",
+      "quality": 3,
+      "role": 0,
+      "level": 3,
+      "max_level": 4,
+      "ability": {
+        "10": 600,
+        "11": 2000,
+        "40": 0
+      },
+      "skill_value": [
+        2000,
+        500
+      ],
+      "des": "生命+600，生命+20%，受到伤害时最多扣除20%的生命，最少扣除5%的生命。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 419
+    },
+    "40204": {
+      "starskillid": 402,
+      "name": "牛金牛",
+      "quality": 4,
+      "role": 0,
+      "level": 4,
+      "max_level": 4,
+      "ability": {
+        "10": 800,
+        "11": 2500,
+        "40": 0
+      },
+      "skill_value": [
+        2000,
+        500
+      ],
+      "des": "生命+800，生命+25%，受到伤害时最多扣除20%的生命，最少扣除5%的生命。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 419
+    },
+    "40300": {
+      "starskillid": 403,
+      "name": "女土蝠",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 4,
+      "ability": {
+        "12": 0,
+        "13": 0,
+        "40": 0
+      },
+      "skill_value": [
+        2000
+      ],
+      "des": "法力+200，法力+10%，受到伤害的20%改为由法力来抵挡（法力不足以扣除时依然扣除生命）。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 420
+    },
+    "40301": {
+      "starskillid": 403,
+      "name": "女土蝠",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 4,
+      "ability": {
+        "12": 200,
+        "13": 1000,
+        "40": 0
+      },
+      "skill_value": [
+        2000
+      ],
+      "des": "法力+200，法力+10%，受到伤害的20%改为由法力来抵挡（法力不足以扣除时依然扣除生命）。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 420
+    },
+    "40302": {
+      "starskillid": 403,
+      "name": "女土蝠",
+      "quality": 2,
+      "role": 0,
+      "level": 2,
+      "max_level": 4,
+      "ability": {
+        "12": 400,
+        "13": 1500,
+        "40": 0
+      },
+      "skill_value": [
+        3000
+      ],
+      "des": "法力+400，法力+15%，受到伤害的30%改为由法力来抵挡（法力不足以扣除时依然扣除生命）。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 420
+    },
+    "40303": {
+      "starskillid": 403,
+      "name": "女土蝠",
+      "quality": 3,
+      "role": 0,
+      "level": 3,
+      "max_level": 4,
+      "ability": {
+        "12": 600,
+        "13": 2000,
+        "40": 0
+      },
+      "skill_value": [
+        4000
+      ],
+      "des": "法力+600，法力+20%，受到伤害的40%改为由法力来抵挡（法力不足以扣除时依然扣除生命）。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 420
+    },
+    "40304": {
+      "starskillid": 403,
+      "name": "女土蝠",
+      "quality": 4,
+      "role": 0,
+      "level": 4,
+      "max_level": 4,
+      "ability": {
+        "12": 800,
+        "13": 2500,
+        "40": 0
+      },
+      "skill_value": [
+        5000
+      ],
+      "des": "法力+800，法力+25%，受到伤害的50%改为由法力来抵挡（法力不足以扣除时依然扣除生命）。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 420
+    },
+    "40400": {
+      "starskillid": 404,
+      "name": "虚日鼠",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 4,
+      "skill_value": [
+        10000,
+        3
+      ],
+      "des": "药品的回复效果提高35%，使用冷却时间提高至4秒。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 421
+    },
+    "40401": {
+      "starskillid": 404,
+      "name": "虚日鼠",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 4,
+      "skill_value": [
+        13500,
+        4
+      ],
+      "des": "药品的回复效果提高35%，使用冷却时间提高至4秒。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 421
+    },
+    "40402": {
+      "starskillid": 404,
+      "name": "虚日鼠",
+      "quality": 2,
+      "role": 0,
+      "level": 2,
+      "max_level": 4,
+      "skill_value": [
+        17000,
+        5
+      ],
+      "des": "药品的回复效果提高70%，使用冷却时间提高至5秒。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 421
+    },
+    "40403": {
+      "starskillid": 404,
+      "name": "虚日鼠",
+      "quality": 3,
+      "role": 0,
+      "level": 3,
+      "max_level": 4,
+      "skill_value": [
+        21000,
+        6
+      ],
+      "des": "药品的回复效果提高110%，使用冷却时间提高至6秒。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 421
+    },
+    "40404": {
+      "starskillid": 404,
+      "name": "虚日鼠",
+      "quality": 4,
+      "role": 0,
+      "level": 4,
+      "max_level": 4,
+      "skill_value": [
+        25000,
+        7
+      ],
+      "des": "药品的回复效果提高150%，使用冷却时间提高至7秒。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 421
+    },
+    "50100": {
+      "starskillid": 501,
+      "name": "角木蛟",
+      "quality": 0,
+      "role": 2,
+      "level": 0,
+      "max_level": 4,
+      "chance": 0,
+      "cooldown": 15,
+      "duration": 1,
+      "skill_value": [
+        0,
+        0
+      ],
+      "des": "魔法盾消失时，对3格内的3个目标造成10%魔法的真实伤害，期间受到伤害有几率冰冻目标，持续1秒。冰冻效果15秒内只能触发1次，对Boss无效。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 405
+    },
+    "50101": {
+      "starskillid": 501,
+      "name": "角木蛟",
+      "quality": 1,
+      "role": 2,
+      "level": 1,
+      "max_level": 4,
+      "chance": 1500,
+      "cooldown": 15,
+      "duration": 1,
+      "skill_value": [
+        3,
+        3,
+        1000
+      ],
+      "des": "魔法盾消失时，对3格内的3个目标造成10%魔法的真实伤害，期间受到伤害有几率冰冻目标，持续1秒。冰冻效果15秒内只能触发1次，对Boss无效。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 405
+    },
+    "50102": {
+      "starskillid": 501,
+      "name": "角木蛟",
+      "quality": 2,
+      "role": 2,
+      "level": 2,
+      "max_level": 4,
+      "chance": 1500,
+      "cooldown": 12,
+      "duration": 1,
+      "skill_value": [
+        3,
+        3,
+        1500
+      ],
+      "des": "魔法盾消失时，对3格内的3个目标造成15%魔法的真实伤害，期间受到伤害有几率冰冻目标，持续1秒。冰冻效果12秒内只能触发1次，对Boss无效。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 405
+    },
+    "50103": {
+      "starskillid": 501,
+      "name": "角木蛟",
+      "quality": 3,
+      "role": 2,
+      "level": 3,
+      "max_level": 4,
+      "chance": 1500,
+      "cooldown": 12,
+      "duration": 1,
+      "skill_value": [
+        3,
+        3,
+        2000
+      ],
+      "des": "魔法盾消失时，对3格内的3个目标造成20%魔法的真实伤害，期间受到伤害有几率冰冻目标，持续1秒。冰冻效果12秒内只能触发1次，对Boss无效。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 405
+    },
+    "50104": {
+      "starskillid": 501,
+      "name": "角木蛟",
+      "quality": 4,
+      "role": 2,
+      "level": 4,
+      "max_level": 4,
+      "chance": 1500,
+      "cooldown": 10,
+      "duration": 2,
+      "skill_value": [
+        3,
+        3,
+        2500
+      ],
+      "des": "魔法盾消失时，对3格内的3个目标造成25%魔法的真实伤害，期间受到伤害有几率冰冻目标，持续2秒。冰冻效果10秒内只能触发1次，对Boss无效。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 405
+    },
+    "50200": {
+      "starskillid": 502,
+      "name": "亢金龙",
+      "quality": 0,
+      "role": 2,
+      "level": 0,
+      "max_level": 4,
+      "skill_value": [
+        10000,
+        10000,
+        10000,
+        10000,
+        10000
+      ],
+      "des": "冰咆哮会根据攻击到的目标数量提高伤害，5目标时110%伤害，4目标120%伤害，小于等于3目标时130%伤害。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 406
+    },
+    "50201": {
+      "starskillid": 502,
+      "name": "亢金龙",
+      "quality": 1,
+      "role": 2,
+      "level": 1,
+      "max_level": 4,
+      "skill_value": [
+        11000,
+        12000,
+        13000,
+        13000,
+        13000
+      ],
+      "des": "冰咆哮会根据攻击到的目标数量提高伤害，5目标时110%伤害，4目标120%伤害，小于等于3目标时130%伤害。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 406
+    },
+    "50202": {
+      "starskillid": 502,
+      "name": "亢金龙",
+      "quality": 2,
+      "role": 2,
+      "level": 2,
+      "max_level": 4,
+      "skill_value": [
+        12000,
+        13000,
+        14000,
+        14000,
+        14000
+      ],
+      "des": "冰咆哮会根据攻击到的目标数量提高伤害，5目标时120%伤害，4目标130%伤害，小于等于3目标时140%伤害。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 406
+    },
+    "50203": {
+      "starskillid": 502,
+      "name": "亢金龙",
+      "quality": 3,
+      "role": 2,
+      "level": 3,
+      "max_level": 4,
+      "skill_value": [
+        13000,
+        14000,
+        15000,
+        15000,
+        15000
+      ],
+      "des": "冰咆哮会根据攻击到的目标数量提高伤害，5目标时130%伤害，4目标140%伤害，小于等于3目标时150%伤害。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 406
+    },
+    "50204": {
+      "starskillid": 502,
+      "name": "亢金龙",
+      "quality": 4,
+      "role": 2,
+      "level": 4,
+      "max_level": 4,
+      "skill_value": [
+        14000,
+        15000,
+        16000,
+        16000,
+        16000
+      ],
+      "des": "冰咆哮会根据攻击到的目标数量提高伤害，5目标时140%伤害，4目标150%伤害，小于等于3目标时160%伤害。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 406
+    },
+    "50300": {
+      "starskillid": 503,
+      "name": "氐土貉",
+      "quality": 0,
+      "role": 2,
+      "level": 0,
+      "max_level": 4,
+      "skill_value": [
+        10000
+      ],
+      "des": "火墙造成的伤害提高5%。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 407
+    },
+    "50301": {
+      "starskillid": 503,
+      "name": "氐土貉",
+      "quality": 1,
+      "role": 2,
+      "level": 1,
+      "max_level": 4,
+      "skill_value": [
+        10500
+      ],
+      "des": "火墙造成的伤害提高5%。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 407
+    },
+    "50302": {
+      "starskillid": 503,
+      "name": "氐土貉",
+      "quality": 2,
+      "role": 2,
+      "level": 2,
+      "max_level": 4,
+      "skill_value": [
+        11000
+      ],
+      "des": "火墙造成的伤害提高10%。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 407
+    },
+    "50303": {
+      "starskillid": 503,
+      "name": "氐土貉",
+      "quality": 3,
+      "role": 2,
+      "level": 3,
+      "max_level": 4,
+      "skill_value": [
+        11500
+      ],
+      "des": "火墙造成的伤害提高15%。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 407
+    },
+    "50304": {
+      "starskillid": 503,
+      "name": "氐土貉",
+      "quality": 4,
+      "role": 2,
+      "level": 4,
+      "max_level": 4,
+      "skill_value": [
+        12000
+      ],
+      "des": "火墙造成的伤害提高20%。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 407
+    },
+    "50400": {
+      "starskillid": 504,
+      "name": "房日兔",
+      "quality": 0,
+      "role": 2,
+      "level": 0,
+      "max_level": 4,
+      "skill_value": [
+        1,
+        10000
+      ],
+      "des": "雷电术改为攻击2个目标，但伤害降低45%。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 408
+    },
+    "50401": {
+      "starskillid": 504,
+      "name": "房日兔",
+      "quality": 1,
+      "role": 2,
+      "level": 1,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        5500
+      ],
+      "des": "雷电术改为攻击2个目标，但伤害降低45%。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 408
+    },
+    "50402": {
+      "starskillid": 504,
+      "name": "房日兔",
+      "quality": 2,
+      "role": 2,
+      "level": 2,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        6000
+      ],
+      "des": "雷电术改为攻击2个目标，但伤害降低40%。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 408
+    },
+    "50403": {
+      "starskillid": 504,
+      "name": "房日兔",
+      "quality": 3,
+      "role": 2,
+      "level": 3,
+      "max_level": 4,
+      "skill_value": [
+        3,
+        6000
+      ],
+      "des": "雷电术改为攻击3个目标，但伤害降低40%。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 408
+    },
+    "50404": {
+      "starskillid": 504,
+      "name": "房日兔",
+      "quality": 4,
+      "role": 2,
+      "level": 4,
+      "max_level": 4,
+      "skill_value": [
+        3,
+        7000
+      ],
+      "des": "雷电术改为攻击3个目标，但伤害降低30%。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 408
+    },
+    "60100": {
+      "starskillid": 601,
+      "name": "角木蛟",
+      "quality": 0,
+      "role": 3,
+      "level": 0,
+      "max_level": 4,
+      "chance": 0,
+      "cooldown": 25,
+      "duration": 1,
+      "skill_value": [
+        100,
+        500
+      ],
+      "des": "神圣战甲术持续期间玩家或召唤物受到攻击时有5%几率回复自身1%的生命，同时有几率使目标石化，持续1秒。石化每25秒只能触发一次，对Boss无效。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 409
+    },
+    "60101": {
+      "starskillid": 601,
+      "name": "角木蛟",
+      "quality": 1,
+      "role": 3,
+      "level": 1,
+      "max_level": 4,
+      "chance": 500,
+      "cooldown": 25,
+      "duration": 1,
+      "skill_value": [
+        100,
+        500
+      ],
+      "des": "神圣战甲术持续期间玩家或召唤物受到攻击时有5%几率回复自身1%的生命，同时有几率使目标石化，持续1秒。石化每25秒只能触发一次，对Boss无效。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 409
+    },
+    "60102": {
+      "starskillid": 601,
+      "name": "角木蛟",
+      "quality": 2,
+      "role": 3,
+      "level": 2,
+      "max_level": 4,
+      "chance": 700,
+      "cooldown": 20,
+      "duration": 1,
+      "skill_value": [
+        125,
+        500
+      ],
+      "des": "神圣战甲术持续期间玩家或召唤物受到攻击时有7%几率回复自身1.25%的生命，同时有几率使目标石化，持续1秒。石化每20秒只能触发一次，对Boss无效。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 409
+    },
+    "60103": {
+      "starskillid": 601,
+      "name": "角木蛟",
+      "quality": 3,
+      "role": 3,
+      "level": 3,
+      "max_level": 4,
+      "chance": 900,
+      "cooldown": 20,
+      "duration": 1,
+      "skill_value": [
+        150,
+        500
+      ],
+      "des": "神圣战甲术持续期间玩家或召唤物受到攻击时有9%几率回复自身1.5%的生命，同时有几率使目标石化，持续1秒。石化每20秒只能触发一次，对Boss无效。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 409
+    },
+    "60104": {
+      "starskillid": 601,
+      "name": "角木蛟",
+      "quality": 4,
+      "role": 3,
+      "level": 4,
+      "max_level": 4,
+      "chance": 1100,
+      "cooldown": 20,
+      "duration": 2,
+      "skill_value": [
+        180,
+        500
+      ],
+      "des": "神圣战甲术持续期间玩家或召唤物受到攻击时有11%几率回复自身1.8%的生命，同时有几率使目标石化，持续2秒。石化每20秒只能触发一次，对Boss无效。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 409
+    },
+    "60200": {
+      "starskillid": 602,
+      "name": "亢金龙",
+      "quality": 0,
+      "role": 3,
+      "level": 0,
+      "max_level": 4,
+      "skill_value": [
+        1,
+        10000
+      ],
+      "des": "可以召唤额外一只骷髅/神兽/强化神兽/白虎，但伤害降低47.5%。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 410
+    },
+    "60201": {
+      "starskillid": 602,
+      "name": "亢金龙",
+      "quality": 1,
+      "role": 3,
+      "level": 1,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        5250
+      ],
+      "des": "可以召唤额外一只骷髅/神兽/强化神兽/白虎，但伤害降低47.5%。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 410
+    },
+    "60202": {
+      "starskillid": 602,
+      "name": "亢金龙",
+      "quality": 2,
+      "role": 3,
+      "level": 2,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        5500
+      ],
+      "des": "可以召唤额外一只骷髅/神兽/强化神兽/白虎，但伤害降低45%。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 410
+    },
+    "60203": {
+      "starskillid": 602,
+      "name": "亢金龙",
+      "quality": 3,
+      "role": 3,
+      "level": 3,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        5750
+      ],
+      "des": "可以召唤额外一只骷髅/神兽/强化神兽/白虎，但伤害降低42.5%。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 410
+    },
+    "60204": {
+      "starskillid": 602,
+      "name": "亢金龙",
+      "quality": 4,
+      "role": 3,
+      "level": 4,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        6000
+      ],
+      "des": "可以召唤额外一只骷髅/神兽/强化神兽/白虎，但伤害降低40%。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 410
+    },
+    "60300": {
+      "starskillid": 603,
+      "name": "氐土貉",
+      "quality": 0,
+      "role": 3,
+      "level": 0,
+      "max_level": 4,
+      "skill_value": [
+        10000
+      ],
+      "des": "施毒术造成的伤害提高5%。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 411
+    },
+    "60301": {
+      "starskillid": 603,
+      "name": "氐土貉",
+      "quality": 1,
+      "role": 3,
+      "level": 1,
+      "max_level": 4,
+      "skill_value": [
+        10500
+      ],
+      "des": "施毒术造成的伤害提高5%。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 411
+    },
+    "60302": {
+      "starskillid": 603,
+      "name": "氐土貉",
+      "quality": 2,
+      "role": 3,
+      "level": 2,
+      "max_level": 4,
+      "skill_value": [
+        11000
+      ],
+      "des": "施毒术造成的伤害提高10%。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 411
+    },
+    "60303": {
+      "starskillid": 603,
+      "name": "氐土貉",
+      "quality": 3,
+      "role": 3,
+      "level": 3,
+      "max_level": 4,
+      "skill_value": [
+        11500
+      ],
+      "des": "施毒术造成的伤害提高15%。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 411
+    },
+    "60304": {
+      "starskillid": 603,
+      "name": "氐土貉",
+      "quality": 4,
+      "role": 3,
+      "level": 4,
+      "max_level": 4,
+      "skill_value": [
+        12000
+      ],
+      "des": "施毒术造成的伤害提高20%。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 411
+    },
+    "60400": {
+      "starskillid": 604,
+      "name": "房日兔",
+      "quality": 0,
+      "role": 3,
+      "level": 0,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        5500
+      ],
+      "des": "灵魂火符会额外攻击1个目标，但伤害降低45%。",
+      "zhanli": [
+        1,
+        0
+      ],
+      "skillid": 412
+    },
+    "60401": {
+      "starskillid": 604,
+      "name": "房日兔",
+      "quality": 1,
+      "role": 3,
+      "level": 1,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        5500
+      ],
+      "des": "灵魂火符会额外攻击1个目标，但伤害降低45%。",
+      "zhanli": [
+        1,
+        25
+      ],
+      "skillid": 412
+    },
+    "60402": {
+      "starskillid": 604,
+      "name": "房日兔",
+      "quality": 2,
+      "role": 3,
+      "level": 2,
+      "max_level": 4,
+      "skill_value": [
+        2,
+        6000
+      ],
+      "des": "灵魂火符会额外攻击1个目标，但伤害降低40%。",
+      "zhanli": [
+        1,
+        50
+      ],
+      "skillid": 412
+    },
+    "60403": {
+      "starskillid": 604,
+      "name": "房日兔",
+      "quality": 3,
+      "role": 3,
+      "level": 3,
+      "max_level": 4,
+      "skill_value": [
+        3,
+        6000
+      ],
+      "des": "灵魂火符会额外攻击2个目标，但伤害降低40%。",
+      "zhanli": [
+        1,
+        75
+      ],
+      "skillid": 412
+    },
+    "60404": {
+      "starskillid": 604,
+      "name": "房日兔",
+      "quality": 4,
+      "role": 3,
+      "level": 4,
+      "max_level": 4,
+      "skill_value": [
+        3,
+        7000
+      ],
+      "des": "灵魂火符会额外攻击2个目标，但伤害降低30%。",
+      "zhanli": [
+        1,
+        100
+      ],
+      "skillid": 412
+    },
+    "70100": {
+      "starskillid": 701,
+      "name": "青龙",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 10,
+      "ability": {
+        "12": 0
+      },
+      "des": "最大法力值+100",
+      "zhanli": [
+        1,
+        0
+      ]
+    },
+    "70101": {
+      "starskillid": 701,
+      "name": "青龙",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 10,
+      "ability": {
+        "12": 100
+      },
+      "des": "最大法力值+100",
+      "zhanli": [
+        1,
+        10
+      ]
+    },
+    "70102": {
+      "starskillid": 701,
+      "name": "青龙",
+      "quality": 1,
+      "role": 0,
+      "level": 2,
+      "max_level": 10,
+      "ability": {
+        "12": 200
+      },
+      "des": "最大法力值+200",
+      "zhanli": [
+        1,
+        20
+      ]
+    },
+    "70103": {
+      "starskillid": 701,
+      "name": "青龙",
+      "quality": 1,
+      "role": 0,
+      "level": 3,
+      "max_level": 10,
+      "ability": {
+        "12": 300
+      },
+      "des": "最大法力值+300",
+      "zhanli": [
+        1,
+        30
+      ]
+    },
+    "70104": {
+      "starskillid": 701,
+      "name": "青龙",
+      "quality": 2,
+      "role": 0,
+      "level": 4,
+      "max_level": 10,
+      "ability": {
+        "12": 400
+      },
+      "des": "最大法力值+400",
+      "zhanli": [
+        1,
+        40
+      ]
+    },
+    "70105": {
+      "starskillid": 701,
+      "name": "青龙",
+      "quality": 2,
+      "role": 0,
+      "level": 5,
+      "max_level": 10,
+      "ability": {
+        "12": 500
+      },
+      "des": "最大法力值+500",
+      "zhanli": [
+        1,
+        50
+      ]
+    },
+    "70106": {
+      "starskillid": 701,
+      "name": "青龙",
+      "quality": 2,
+      "role": 0,
+      "level": 6,
+      "max_level": 10,
+      "ability": {
+        "12": 600
+      },
+      "des": "最大法力值+600",
+      "zhanli": [
+        1,
+        60
+      ]
+    },
+    "70107": {
+      "starskillid": 701,
+      "name": "青龙",
+      "quality": 3,
+      "role": 0,
+      "level": 7,
+      "max_level": 10,
+      "ability": {
+        "12": 700
+      },
+      "des": "最大法力值+700",
+      "zhanli": [
+        1,
+        70
+      ]
+    },
+    "70108": {
+      "starskillid": 701,
+      "name": "青龙",
+      "quality": 3,
+      "role": 0,
+      "level": 8,
+      "max_level": 10,
+      "ability": {
+        "12": 800
+      },
+      "des": "最大法力值+800",
+      "zhanli": [
+        1,
+        80
+      ]
+    },
+    "70109": {
+      "starskillid": 701,
+      "name": "青龙",
+      "quality": 3,
+      "role": 0,
+      "level": 9,
+      "max_level": 10,
+      "ability": {
+        "12": 900
+      },
+      "des": "最大法力值+900",
+      "zhanli": [
+        1,
+        90
+      ]
+    },
+    "70110": {
+      "starskillid": 701,
+      "name": "青龙",
+      "quality": 4,
+      "role": 0,
+      "level": 10,
+      "max_level": 10,
+      "ability": {
+        "12": 1000
+      },
+      "des": "最大法力值+1000",
+      "zhanli": [
+        1,
+        100
+      ]
+    },
+    "70200": {
+      "starskillid": 702,
+      "name": "朱雀",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 10,
+      "ability": {
+        "10": 0
+      },
+      "des": "最大生命值+100",
+      "zhanli": [
+        1,
+        0
+      ]
+    },
+    "70201": {
+      "starskillid": 702,
+      "name": "朱雀",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 10,
+      "ability": {
+        "10": 100
+      },
+      "des": "最大生命值+100",
+      "zhanli": [
+        1,
+        10
+      ]
+    },
+    "70202": {
+      "starskillid": 702,
+      "name": "朱雀",
+      "quality": 1,
+      "role": 0,
+      "level": 2,
+      "max_level": 10,
+      "ability": {
+        "10": 200
+      },
+      "des": "最大生命值+200",
+      "zhanli": [
+        1,
+        20
+      ]
+    },
+    "70203": {
+      "starskillid": 702,
+      "name": "朱雀",
+      "quality": 1,
+      "role": 0,
+      "level": 3,
+      "max_level": 10,
+      "ability": {
+        "10": 300
+      },
+      "des": "最大生命值+300",
+      "zhanli": [
+        1,
+        30
+      ]
+    },
+    "70204": {
+      "starskillid": 702,
+      "name": "朱雀",
+      "quality": 2,
+      "role": 0,
+      "level": 4,
+      "max_level": 10,
+      "ability": {
+        "10": 400
+      },
+      "des": "最大生命值+400",
+      "zhanli": [
+        1,
+        40
+      ]
+    },
+    "70205": {
+      "starskillid": 702,
+      "name": "朱雀",
+      "quality": 2,
+      "role": 0,
+      "level": 5,
+      "max_level": 10,
+      "ability": {
+        "10": 500
+      },
+      "des": "最大生命值+500",
+      "zhanli": [
+        1,
+        50
+      ]
+    },
+    "70206": {
+      "starskillid": 702,
+      "name": "朱雀",
+      "quality": 2,
+      "role": 0,
+      "level": 6,
+      "max_level": 10,
+      "ability": {
+        "10": 600
+      },
+      "des": "最大生命值+600",
+      "zhanli": [
+        1,
+        60
+      ]
+    },
+    "70207": {
+      "starskillid": 702,
+      "name": "朱雀",
+      "quality": 3,
+      "role": 0,
+      "level": 7,
+      "max_level": 10,
+      "ability": {
+        "10": 700
+      },
+      "des": "最大生命值+700",
+      "zhanli": [
+        1,
+        70
+      ]
+    },
+    "70208": {
+      "starskillid": 702,
+      "name": "朱雀",
+      "quality": 3,
+      "role": 0,
+      "level": 8,
+      "max_level": 10,
+      "ability": {
+        "10": 800
+      },
+      "des": "最大生命值+800",
+      "zhanli": [
+        1,
+        80
+      ]
+    },
+    "70209": {
+      "starskillid": 702,
+      "name": "朱雀",
+      "quality": 3,
+      "role": 0,
+      "level": 9,
+      "max_level": 10,
+      "ability": {
+        "10": 900
+      },
+      "des": "最大生命值+900",
+      "zhanli": [
+        1,
+        90
+      ]
+    },
+    "70210": {
+      "starskillid": 702,
+      "name": "朱雀",
+      "quality": 4,
+      "role": 0,
+      "level": 10,
+      "max_level": 10,
+      "ability": {
+        "10": 1000
+      },
+      "des": "最大生命值+1000",
+      "zhanli": [
+        1,
+        100
+      ]
+    },
+    "70300": {
+      "starskillid": 703,
+      "name": "白虎",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 10,
+      "ability": {
+        "7": 0
+      },
+      "des": "主属性+20",
+      "zhanli": [
+        1,
+        0
+      ]
+    },
+    "70301": {
+      "starskillid": 703,
+      "name": "白虎",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 10,
+      "ability": {
+        "7": 20
+      },
+      "des": "主属性+20",
+      "zhanli": [
+        1,
+        10
+      ]
+    },
+    "70302": {
+      "starskillid": 703,
+      "name": "白虎",
+      "quality": 1,
+      "role": 0,
+      "level": 2,
+      "max_level": 10,
+      "ability": {
+        "7": 40
+      },
+      "des": "主属性+40",
+      "zhanli": [
+        1,
+        20
+      ]
+    },
+    "70303": {
+      "starskillid": 703,
+      "name": "白虎",
+      "quality": 1,
+      "role": 0,
+      "level": 3,
+      "max_level": 10,
+      "ability": {
+        "7": 60
+      },
+      "des": "主属性+60",
+      "zhanli": [
+        1,
+        30
+      ]
+    },
+    "70304": {
+      "starskillid": 703,
+      "name": "白虎",
+      "quality": 2,
+      "role": 0,
+      "level": 4,
+      "max_level": 10,
+      "ability": {
+        "7": 80
+      },
+      "des": "主属性+80",
+      "zhanli": [
+        1,
+        40
+      ]
+    },
+    "70305": {
+      "starskillid": 703,
+      "name": "白虎",
+      "quality": 2,
+      "role": 0,
+      "level": 5,
+      "max_level": 10,
+      "ability": {
+        "7": 100
+      },
+      "des": "主属性+100",
+      "zhanli": [
+        1,
+        50
+      ]
+    },
+    "70306": {
+      "starskillid": 703,
+      "name": "白虎",
+      "quality": 2,
+      "role": 0,
+      "level": 6,
+      "max_level": 10,
+      "ability": {
+        "7": 120
+      },
+      "des": "主属性+120",
+      "zhanli": [
+        1,
+        60
+      ]
+    },
+    "70307": {
+      "starskillid": 703,
+      "name": "白虎",
+      "quality": 3,
+      "role": 0,
+      "level": 7,
+      "max_level": 10,
+      "ability": {
+        "7": 140
+      },
+      "des": "主属性+140",
+      "zhanli": [
+        1,
+        70
+      ]
+    },
+    "70308": {
+      "starskillid": 703,
+      "name": "白虎",
+      "quality": 3,
+      "role": 0,
+      "level": 8,
+      "max_level": 10,
+      "ability": {
+        "7": 160
+      },
+      "des": "主属性+160",
+      "zhanli": [
+        1,
+        80
+      ]
+    },
+    "70309": {
+      "starskillid": 703,
+      "name": "白虎",
+      "quality": 3,
+      "role": 0,
+      "level": 9,
+      "max_level": 10,
+      "ability": {
+        "7": 180
+      },
+      "des": "主属性+180",
+      "zhanli": [
+        1,
+        90
+      ]
+    },
+    "70310": {
+      "starskillid": 703,
+      "name": "白虎",
+      "quality": 4,
+      "role": 0,
+      "level": 10,
+      "max_level": 10,
+      "ability": {
+        "7": 200
+      },
+      "des": "主属性+200",
+      "zhanli": [
+        1,
+        100
+      ]
+    },
+    "70400": {
+      "starskillid": 704,
+      "name": "玄武",
+      "quality": 0,
+      "role": 0,
+      "level": 0,
+      "max_level": 10,
+      "ability": {
+        "9": 0
+      },
+      "des": "最大防御+10",
+      "zhanli": [
+        1,
+        0
+      ]
+    },
+    "70401": {
+      "starskillid": 704,
+      "name": "玄武",
+      "quality": 1,
+      "role": 0,
+      "level": 1,
+      "max_level": 10,
+      "ability": {
+        "9": 10
+      },
+      "des": "最大防御+10",
+      "zhanli": [
+        1,
+        10
+      ]
+    },
+    "70402": {
+      "starskillid": 704,
+      "name": "玄武",
+      "quality": 1,
+      "role": 0,
+      "level": 2,
+      "max_level": 10,
+      "ability": {
+        "9": 20
+      },
+      "des": "最大防御+20",
+      "zhanli": [
+        1,
+        20
+      ]
+    },
+    "70403": {
+      "starskillid": 704,
+      "name": "玄武",
+      "quality": 1,
+      "role": 0,
+      "level": 3,
+      "max_level": 10,
+      "ability": {
+        "9": 30
+      },
+      "des": "最大防御+30",
+      "zhanli": [
+        1,
+        30
+      ]
+    },
+    "70404": {
+      "starskillid": 704,
+      "name": "玄武",
+      "quality": 2,
+      "role": 0,
+      "level": 4,
+      "max_level": 10,
+      "ability": {
+        "9": 40
+      },
+      "des": "最大防御+40",
+      "zhanli": [
+        1,
+        40
+      ]
+    },
+    "70405": {
+      "starskillid": 704,
+      "name": "玄武",
+      "quality": 2,
+      "role": 0,
+      "level": 5,
+      "max_level": 10,
+      "ability": {
+        "9": 50
+      },
+      "des": "最大防御+50",
+      "zhanli": [
+        1,
+        50
+      ]
+    },
+    "70406": {
+      "starskillid": 704,
+      "name": "玄武",
+      "quality": 2,
+      "role": 0,
+      "level": 6,
+      "max_level": 10,
+      "ability": {
+        "9": 60
+      },
+      "des": "最大防御+60",
+      "zhanli": [
+        1,
+        60
+      ]
+    },
+    "70407": {
+      "starskillid": 704,
+      "name": "玄武",
+      "quality": 3,
+      "role": 0,
+      "level": 7,
+      "max_level": 10,
+      "ability": {
+        "9": 70
+      },
+      "des": "最大防御+70",
+      "zhanli": [
+        1,
+        70
+      ]
+    },
+    "70408": {
+      "starskillid": 704,
+      "name": "玄武",
+      "quality": 3,
+      "role": 0,
+      "level": 8,
+      "max_level": 10,
+      "ability": {
+        "9": 80
+      },
+      "des": "最大防御+80",
+      "zhanli": [
+        1,
+        80
+      ]
+    },
+    "70409": {
+      "starskillid": 704,
+      "name": "玄武",
+      "quality": 3,
+      "role": 0,
+      "level": 9,
+      "max_level": 10,
+      "ability": {
+        "9": 90
+      },
+      "des": "最大防御+90",
+      "zhanli": [
+        1,
+        90
+      ]
+    },
+    "70410": {
+      "starskillid": 704,
+      "name": "玄武",
+      "quality": 4,
+      "role": 0,
+      "level": 10,
+      "max_level": 10,
+      "ability": {
+        "9": 100
+      },
+      "des": "最大防御+100",
+      "zhanli": [
+        1,
+        100
+      ]
+    }
+  }
+}

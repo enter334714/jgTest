@@ -1,0 +1,36 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "starExchangeConfig",
+  "json": {
+    "I3153": {
+      "type": "star_full",
+      "name": "星辰丹(大)",
+      "exp": 20000
+    },
+    "I3124": {
+      "type": "expball_full",
+      "name": "聚灵珠（大）",
+      "exp": 200
+    },
+    "I3122": {
+      "type": "expball_full",
+      "name": "聚灵珠（小）",
+      "exp": 20
+    },
+    "I3123": {
+      "type": "expball_full",
+      "name": "聚灵珠（中）",
+      "exp": 50
+    },
+    "I3151": {
+      "type": "star_full",
+      "name": "星辰丹(小)",
+      "exp": 1000
+    },
+    "I3152": {
+      "type": "star_full",
+      "name": "星辰丹(中)",
+      "exp": 5000
+    }
+  }
+}

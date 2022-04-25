@@ -1,0 +1,154 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "koreashareConfig",
+  "json": {
+    "11": {
+      "award_item": {
+        "I2005": 300,
+        "I2102": 150
+      },
+      "num": 1,
+      "type": 1,
+      "award_res": {
+        "1": 500000
+      },
+      "condition": 200
+    },
+    "12": {
+      "award_item": {
+        "I3004": 100,
+        "I4001": 100
+      },
+      "num": 2,
+      "type": 1,
+      "award_res": {
+        "2": 100
+      },
+      "condition": 500
+    },
+    "13": {
+      "award_item": {
+        "I3124": 1,
+        "I3003": 5
+      },
+      "num": 3,
+      "type": 1,
+      "award_res": {
+        "1": 500000
+      },
+      "condition": 700
+    },
+    "14": {
+      "award_item": {
+        "I3904": 5,
+        "I3001": 100
+      },
+      "num": 4,
+      "type": 1,
+      "award_res": {
+        "2": 200
+      },
+      "condition": 1000
+    },
+    "15": {
+      "award_item": {
+        "I3004": 100,
+        "I3153": 1
+      },
+      "num": 5,
+      "type": 1,
+      "award_res": {
+        "2": 300
+      },
+      "condition": 1500
+    },
+    "21": {
+      "award_item": {
+        "I4001": 100
+      },
+      "num": 1,
+      "type": 2,
+      "award_res": {
+        "2": 100
+      },
+      "condition": 1
+    },
+    "31": {
+      "award_item": {
+        "I4001": 100
+      },
+      "num": 1,
+      "type": 3,
+      "award_res": {
+        "2": 100
+      },
+      "condition": 1
+    },
+    "41": {
+      "award_item": {
+        "I3001": 200
+      },
+      "num": 1,
+      "type": 4,
+      "award_res": {
+        "1": 200000
+      },
+      "condition": 3
+    },
+    "42": {
+      "award_item": {
+        "I4001": 300,
+        "I4007": 5
+      },
+      "num": 2,
+      "type": 4,
+      "condition": 5
+    },
+    "43": {
+      "award_item": {
+        "I3904": 5,
+        "I2102": 150
+      },
+      "num": 3,
+      "type": 4,
+      "award_res": {
+        "1": 200000
+      },
+      "condition": 10
+    },
+    "44": {
+      "award_item": {
+        "I3001": 100,
+        "I2102": 200
+      },
+      "num": 4,
+      "type": 4,
+      "award_res": {
+        "2": 100
+      },
+      "condition": 15
+    },
+    "45": {
+      "award_item": {
+        "I3001": 200,
+        "I3133": 5
+      },
+      "num": 5,
+      "type": 4,
+      "award_res": {
+        "2": 200
+      },
+      "condition": 20
+    },
+    "51": {
+      "award_item": {
+        "I3905": 20,
+        "I3001": 100,
+        "I3010": 5
+      },
+      "num": 1,
+      "type": 5,
+      "condition": 1
+    }
+  }
+}

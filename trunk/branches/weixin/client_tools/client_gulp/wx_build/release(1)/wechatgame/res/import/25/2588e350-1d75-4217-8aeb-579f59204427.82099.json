@@ -1,0 +1,70 @@
+[
+  {
+    "__type__": "cc.Prefab",
+    "_name": "RoleSkillEffectPrefabEx",
+    "data": {
+      "__id__": 1
+    }
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "RoleSkillEffectPrefabEx",
+    "_components": [
+      {
+        "__type__": "cc.Animation",
+        "node": {
+          "__id__": 1
+        }
+      },
+      {
+        "__type__": "cc.Sprite",
+        "_name": "effect<Sprite>",
+        "node": {
+          "__id__": 1
+        },
+        "_materials": [
+          {
+            "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+          }
+        ]
+      },
+      {
+        "__type__": "8a311lh0vRGY6mwh85N6B3E",
+        "node": {
+          "__id__": 1
+        }
+      }
+    ],
+    "_prefab": {
+      "__type__": "cc.PrefabInfo",
+      "root": {
+        "__id__": 1
+      },
+      "asset": {
+        "__uuid__": "25iONQHXVCF4rrV59ZIEQn"
+      },
+      "fileId": "67Pg5GwvZMRpoHrc+JXbj3"
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 38,
+      "height": 43
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        -719.665,
+        -40.481,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  }
+]

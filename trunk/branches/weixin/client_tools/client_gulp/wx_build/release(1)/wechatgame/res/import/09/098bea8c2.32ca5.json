@@ -1,0 +1,98 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "btn_fanhui",
+      "texture": "f3umKJShFP/KnI73XWyXin",
+      "rect": [
+        942,
+        2,
+        72,
+        68
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        72,
+        68
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteAtlas",
+    "_name": "pata.plist",
+    "_spriteFrames": {
+      "btn_fanhui": {
+        "__uuid__": "27lm3MuA9PJ7m4G3OwWu4Q"
+      },
+      "img_bg": {
+        "__uuid__": "ffYUhuh8tGU7G1RS5tAkmN"
+      },
+      "img_ceng": {
+        "__uuid__": "92+LvtpZRJMrJfDdSnfvFM"
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_ceng",
+      "texture": "f3umKJShFP/KnI73XWyXin",
+      "rect": [
+        644,
+        2,
+        296,
+        203
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        296,
+        203
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_bg",
+      "texture": "f3umKJShFP/KnI73XWyXin",
+      "rect": [
+        2,
+        2,
+        640,
+        1136
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        640,
+        1136
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

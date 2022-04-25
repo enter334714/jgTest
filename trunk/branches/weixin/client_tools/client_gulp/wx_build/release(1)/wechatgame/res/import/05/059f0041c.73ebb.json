@@ -1,0 +1,346 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "guangxiao_03",
+      "texture": "d6AZs8GH9ESY9rmVr6BJku",
+      "rect": [
+        24,
+        37,
+        365,
+        64
+      ],
+      "offset": [
+        -3.5,
+        -1
+      ],
+      "originalSize": [
+        420,
+        136
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "taskFinishani",
+    "_duration": 1.5166666666666666,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "8fcE14LZhMqqgzn47Rc0Iq"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "ad4kwrfBRMPbXHIlkSqoII"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "00KVSE3ARJmrzwELn2ehzZ"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "c2zrb/cw1Gd6hObld1EIWP"
+              }
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": {
+                "__uuid__": "dbEROf0rpOI6uUkIqm4VYR"
+              }
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": {
+                "__uuid__": "d1W+SudVxOrKbgwFExqf9l"
+              }
+            },
+            {
+              "frame": 1,
+              "value": {
+                "__uuid__": "95/7Vkx59H2p+w44mnmdBp"
+              }
+            },
+            {
+              "frame": 1.1666666666666667,
+              "value": {
+                "__uuid__": "a3qgJM70FDR5R33a385uJk"
+              }
+            },
+            {
+              "frame": 1.3333333333333333,
+              "value": {
+                "__uuid__": "aeoxSganhEV4/ZwxGSKTBt"
+              }
+            },
+            {
+              "frame": 1.5,
+              "value": {
+                "__uuid__": "eb2EF5LZdKfqj72P00EgMB"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "guangxiao_01",
+      "texture": "90rTerbIVE67bimulNojCy",
+      "rect": [
+        24,
+        37,
+        353,
+        64
+      ],
+      "offset": [
+        -9.5,
+        -1
+      ],
+      "originalSize": [
+        420,
+        136
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "guangxiao_07",
+      "texture": "29LWGSIWVFZq7PFE/MlIqQ",
+      "rect": [
+        24,
+        37,
+        370,
+        64
+      ],
+      "offset": [
+        -1,
+        -1
+      ],
+      "originalSize": [
+        420,
+        136
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "guangxiao_08",
+      "texture": "a2ElLuK49NH4tGDRtAsqnC",
+      "rect": [
+        24,
+        37,
+        366,
+        64
+      ],
+      "offset": [
+        -3,
+        -1
+      ],
+      "originalSize": [
+        420,
+        136
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "guangxiao_02",
+      "texture": "e2UxqDGPJJhIzcmEuqi4H8",
+      "rect": [
+        24,
+        37,
+        367,
+        64
+      ],
+      "offset": [
+        -2.5,
+        -1
+      ],
+      "originalSize": [
+        420,
+        136
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "guangxiao_09",
+      "texture": "e7nHyHv/BIa6lO/++3osvX",
+      "rect": [
+        24,
+        37,
+        363,
+        64
+      ],
+      "offset": [
+        -4.5,
+        -1
+      ],
+      "originalSize": [
+        420,
+        136
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "guangxiao_04",
+      "texture": "689gzIK0pP55rXtzhgflXP",
+      "rect": [
+        24,
+        37,
+        355,
+        64
+      ],
+      "offset": [
+        -8.5,
+        -1
+      ],
+      "originalSize": [
+        420,
+        136
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "guangxiao_06",
+      "texture": "f4T37vxJpKdpcJj0GPtlsN",
+      "rect": [
+        24,
+        37,
+        370,
+        64
+      ],
+      "offset": [
+        -1,
+        -1
+      ],
+      "originalSize": [
+        420,
+        136
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "guangxiao_05",
+      "texture": "26jgvEwpVJXaKrH7MSAYgs",
+      "rect": [
+        24,
+        37,
+        370,
+        64
+      ],
+      "offset": [
+        -1,
+        -1
+      ],
+      "originalSize": [
+        420,
+        136
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "guangxiao_10",
+      "texture": "d4Thi/mP9CV7IhHPOF5yVa",
+      "rect": [
+        24,
+        37,
+        370,
+        64
+      ],
+      "offset": [
+        -1,
+        -1
+      ],
+      "originalSize": [
+        420,
+        136
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

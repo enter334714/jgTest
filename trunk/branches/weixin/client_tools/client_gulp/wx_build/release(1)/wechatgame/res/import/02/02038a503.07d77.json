@@ -1,0 +1,147 @@
+[
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "liehuojianfa-b1",
+    "_duration": 0.11666666666666667,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "6cvl4JTy5JXpTmbTgAWKys"
+              }
+            },
+            {
+              "frame": 0.03333333333333333,
+              "value": {
+                "__uuid__": "6ezd4edKlBzZNUCRW2RZfb"
+              }
+            },
+            {
+              "frame": 0.06666666666666667,
+              "value": {
+                "__uuid__": "c5meiCfxVCP5MXiWfidSp0"
+              }
+            },
+            {
+              "frame": 0.1,
+              "value": {
+                "__uuid__": "b4Z5f4NL5Ao7uXvgulHXD1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_qishou_01",
+      "texture": "f1RIaOPVtB/Y6kabIPKaAy",
+      "rect": [
+        84,
+        46,
+        20,
+        22
+      ],
+      "offset": [
+        42,
+        -12
+      ],
+      "originalSize": [
+        104,
+        90
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_qishou_02",
+      "texture": "72n4vHzpJPkp3exkLwzAGu",
+      "rect": [
+        1,
+        0,
+        91,
+        80
+      ],
+      "offset": [
+        -5.5,
+        5
+      ],
+      "originalSize": [
+        104,
+        90
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_qishou_04",
+      "texture": "b77614bzxK2JyTAkXUvxjn",
+      "rect": [
+        5,
+        23,
+        39,
+        67
+      ],
+      "offset": [
+        -27.5,
+        -11.5
+      ],
+      "originalSize": [
+        104,
+        90
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "liehuo_qishou_03",
+      "texture": "17ok07TOFFnoKTeIdGoSOJ",
+      "rect": [
+        0,
+        10,
+        53,
+        77
+      ],
+      "offset": [
+        -25.5,
+        -3.5
+      ],
+      "originalSize": [
+        104,
+        90
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

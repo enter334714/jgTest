@@ -1,0 +1,270 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "FreeGiftConfig",
+  "json": {
+    "1": {
+      "day": [
+        1,
+        29
+      ],
+      "last_id": 0,
+      "condition": 2,
+      "reward": {
+        "I3926": 1
+      }
+    },
+    "2": {
+      "day": [
+        1,
+        29
+      ],
+      "last_id": 1,
+      "condition": 4,
+      "reward": {
+        "I3926": 2
+      }
+    },
+    "3": {
+      "day": [
+        1,
+        29
+      ],
+      "last_id": 2,
+      "condition": 6,
+      "reward": {
+        "I3926": 3
+      }
+    },
+    "4": {
+      "day": [
+        1,
+        29
+      ],
+      "last_id": 3,
+      "condition": 8,
+      "reward": {
+        "I3926": 4
+      }
+    },
+    "11": {
+      "day": [
+        30,
+        59
+      ],
+      "last_id": 0,
+      "condition": 2,
+      "reward": {
+        "I3927": 1
+      }
+    },
+    "12": {
+      "day": [
+        30,
+        59
+      ],
+      "last_id": 11,
+      "condition": 4,
+      "reward": {
+        "I3927": 2
+      }
+    },
+    "13": {
+      "day": [
+        30,
+        59
+      ],
+      "last_id": 12,
+      "condition": 6,
+      "reward": {
+        "I3927": 3
+      }
+    },
+    "14": {
+      "day": [
+        30,
+        59
+      ],
+      "last_id": 13,
+      "condition": 8,
+      "reward": {
+        "I3927": 4
+      }
+    },
+    "21": {
+      "day": [
+        60,
+        69
+      ],
+      "last_id": 0,
+      "condition": 2,
+      "reward": {
+        "I3928": 1
+      }
+    },
+    "22": {
+      "day": [
+        60,
+        69
+      ],
+      "last_id": 21,
+      "condition": 4,
+      "reward": {
+        "I3928": 2
+      }
+    },
+    "23": {
+      "day": [
+        60,
+        69
+      ],
+      "last_id": 22,
+      "condition": 6,
+      "reward": {
+        "I3928": 3
+      }
+    },
+    "24": {
+      "day": [
+        60,
+        69
+      ],
+      "last_id": 23,
+      "condition": 8,
+      "reward": {
+        "I3928": 4
+      }
+    },
+    "31": {
+      "day": [
+        70,
+        79
+      ],
+      "last_id": 0,
+      "condition": 2,
+      "reward": {
+        "I3929": 1
+      }
+    },
+    "32": {
+      "day": [
+        70,
+        79
+      ],
+      "last_id": 31,
+      "condition": 4,
+      "reward": {
+        "I3929": 2
+      }
+    },
+    "33": {
+      "day": [
+        70,
+        79
+      ],
+      "last_id": 32,
+      "condition": 6,
+      "reward": {
+        "I3929": 3
+      }
+    },
+    "34": {
+      "day": [
+        70,
+        79
+      ],
+      "last_id": 33,
+      "condition": 8,
+      "reward": {
+        "I3929": 4
+      }
+    },
+    "41": {
+      "day": [
+        80,
+        89
+      ],
+      "last_id": 0,
+      "condition": 2,
+      "reward": {
+        "I3930": 1
+      }
+    },
+    "42": {
+      "day": [
+        80,
+        89
+      ],
+      "last_id": 41,
+      "condition": 4,
+      "reward": {
+        "I3930": 2
+      }
+    },
+    "43": {
+      "day": [
+        80,
+        89
+      ],
+      "last_id": 42,
+      "condition": 6,
+      "reward": {
+        "I3930": 3
+      }
+    },
+    "44": {
+      "day": [
+        80,
+        89
+      ],
+      "last_id": 43,
+      "condition": 8,
+      "reward": {
+        "I3930": 4
+      }
+    },
+    "51": {
+      "day": [
+        90,
+        99
+      ],
+      "last_id": 0,
+      "condition": 2,
+      "reward": {
+        "I3931": 1
+      }
+    },
+    "52": {
+      "day": [
+        90,
+        99
+      ],
+      "last_id": 51,
+      "condition": 4,
+      "reward": {
+        "I3931": 2
+      }
+    },
+    "53": {
+      "day": [
+        90,
+        99
+      ],
+      "last_id": 52,
+      "condition": 6,
+      "reward": {
+        "I3931": 3
+      }
+    },
+    "54": {
+      "day": [
+        90,
+        99
+      ],
+      "last_id": 53,
+      "condition": 8,
+      "reward": {
+        "I3931": 4
+      }
+    }
+  }
+}

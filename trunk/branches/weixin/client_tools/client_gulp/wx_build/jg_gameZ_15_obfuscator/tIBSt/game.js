@@ -1,1 +1,2 @@
-var P=wx.$y;require(P[0]);
+var P = wx.$y;
+require(P[0]);

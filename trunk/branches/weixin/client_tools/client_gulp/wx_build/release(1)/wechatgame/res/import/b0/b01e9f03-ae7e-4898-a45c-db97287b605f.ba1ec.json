@@ -1,0 +1,127 @@
+[
+  {
+    "__type__": "cc.Prefab",
+    "_name": "chatitem",
+    "data": {
+      "__id__": 1
+    },
+    "optimizationPolicy": 2
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "chatitem",
+    "_children": [
+      {
+        "__id__": 2
+      }
+    ],
+    "_components": [
+      {
+        "__type__": "d8e3b0x28dBT7L2NxV0xi69",
+        "node": {
+          "__id__": 1
+        },
+        "_N$string": "abcd",
+        "_N$fontSize": 18,
+        "_N$maxWidth": 600,
+        "_N$lineHeight": 25
+      }
+    ],
+    "_prefab": {
+      "__type__": "cc.PrefabInfo",
+      "root": {
+        "__id__": 1
+      },
+      "asset": {
+        "__uuid__": "b0Hp8Drn5ImKRc25coe2Bf"
+      },
+      "fileId": "40d9Ho0QROF5pGZ4sCqm5B"
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 600,
+      "height": 31.5
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        -300,
+        -15.75,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "__type__": "cc.PrivateNode",
+    "_name": "RICHTEXT_CHILD",
+    "_objFlags": 1024,
+    "_parent": {
+      "__id__": 1
+    },
+    "_components": [
+      {
+        "__type__": "cc.Label",
+        "node": {
+          "__id__": 2
+        },
+        "_materials": [
+          {
+            "__uuid__": "ecpdLyjvZBwrvm+cedCcQy"
+          }
+        ],
+        "_string": "abcd",
+        "_N$string": "abcd",
+        "_fontSize": 18,
+        "_lineHeight": 25,
+        "_N$verticalAlign": 1
+      }
+    ],
+    "_prefab": {
+      "__type__": "cc.PrefabInfo",
+      "root": {
+        "__id__": 1
+      },
+      "asset": {
+        "__uuid__": "b0Hp8Drn5ImKRc25coe2Bf"
+      },
+      "fileId": "2dPRMqxfJPW5AWcxHCrEdX"
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 39.03,
+      "height": 31.5
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2"
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        -15.75,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_zIndex": -32768
+  }
+]

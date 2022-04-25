@@ -1,0 +1,284 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhiyin_quan05",
+      "texture": "1668e6971",
+      "rect": [
+        915,
+        125,
+        105,
+        106
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        147,
+        148
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhiyin_quan06",
+      "texture": "14f708880",
+      "rect": [
+        602,
+        324,
+        147,
+        148
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        147,
+        148
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhiyin_quan03",
+      "texture": "1e3d5c5da",
+      "rect": [
+        950,
+        791,
+        71,
+        72
+      ],
+      "offset": [
+        -1,
+        0
+      ],
+      "originalSize": [
+        147,
+        148
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "yindao_quan",
+    "_duration": 0.7333333333333333,
+    "sample": 30,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "c2Q/uiSStP2aRq+3qwqyX2"
+              }
+            },
+            {
+              "frame": 0.1,
+              "value": {
+                "__uuid__": "dfg9G0kotM8Zh7+mz8OCK9"
+              }
+            },
+            {
+              "frame": 0.2,
+              "value": {
+                "__uuid__": "a7hPmun11I6bgT13/Ai6Pm"
+              }
+            },
+            {
+              "frame": 0.3,
+              "value": {
+                "__uuid__": "c5imVC++RFPoJsstTDfsB6"
+              }
+            },
+            {
+              "frame": 0.4,
+              "value": {
+                "__uuid__": "7fzKF2vINF0objoTKoMKsG"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "86Y8WHAvRDjJAOd697+S2u"
+              }
+            },
+            {
+              "frame": 0.6,
+              "value": {
+                "__uuid__": "c6Wu0da4BJbqCJ9q3M+J1A"
+              }
+            },
+            {
+              "frame": 0.7,
+              "value": {
+                "__uuid__": "c7/zQHQhdKt4tmESQd6lFU"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhiyin_quan01",
+      "texture": "1f1669766",
+      "rect": [
+        283,
+        634,
+        81,
+        80
+      ],
+      "offset": [
+        -1,
+        0
+      ],
+      "originalSize": [
+        147,
+        148
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhiyin_quan04",
+      "texture": "1f1669766",
+      "rect": [
+        316,
+        840,
+        81,
+        82
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        147,
+        148
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhiyin_quan07",
+      "texture": "14f708880",
+      "rect": [
+        755,
+        324,
+        147,
+        148
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        147,
+        148
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhiyin_quan08",
+      "texture": "1ff430657",
+      "rect": [
+        171,
+        3,
+        147,
+        148
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        147,
+        148
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tx_zhiyin_quan02",
+      "texture": "1f1669766",
+      "rect": [
+        329,
+        751,
+        81,
+        80
+      ],
+      "offset": [
+        -1,
+        0
+      ],
+      "originalSize": [
+        147,
+        148
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

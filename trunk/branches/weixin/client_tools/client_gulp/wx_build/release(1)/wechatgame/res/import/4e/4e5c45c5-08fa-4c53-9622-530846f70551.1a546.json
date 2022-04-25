@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_waiguan_touxiangkuang_jiacaiwanguan",
+    "texture": "83rwJgtPhJdJpVkF278zZW",
+    "rect": [
+      6,
+      2,
+      92,
+      87
+    ],
+    "offset": [
+      -1.5,
+      -1
+    ],
+    "originalSize": [
+      107,
+      89
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

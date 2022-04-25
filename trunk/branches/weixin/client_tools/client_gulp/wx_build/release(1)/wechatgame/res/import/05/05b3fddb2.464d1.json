@@ -1,0 +1,48 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "01huoqiu",
+      "texture": "d0jzfpbZFO4pXE9CYHXJQ/",
+      "rect": [
+        36,
+        21,
+        21,
+        46
+      ],
+      "offset": [
+        -0.5,
+        -4
+      ],
+      "originalSize": [
+        94,
+        80
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "huoqiushu",
+    "_duration": 0.016666666666666666,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "46tvLt1bBPzaDIcp7DkD05"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,771 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "GuildfightRewardConfig",
+  "json": {
+    "1001": {
+      "lvl": 1,
+      "next_lvl": 0,
+      "type": 1,
+      "day_min": 1,
+      "day_max": 30,
+      "show_a": {
+        "I9151": 100
+      },
+      "award": {},
+      "award_gongxian1": 0,
+      "show_b": {
+        "I9151": 100
+      },
+      "fail_award": {},
+      "award_gongxian2": 100,
+      "award_zijin": 0,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "1002": {
+      "lvl": 2,
+      "next_lvl": 1001,
+      "type": 1,
+      "day_min": 1,
+      "day_max": 30,
+      "show_a": {
+        "I7171": 1,
+        "I7172": 1,
+        "I9151": 200
+      },
+      "award": {},
+      "award_gongxian1": 200,
+      "show_b": {
+        "I9151": 300
+      },
+      "fail_award": {},
+      "award_gongxian2": 300,
+      "award_zijin": 0,
+      "add_award1": {
+        "I7171": 1
+      },
+      "add_award2": {
+        "I7172": 1
+      }
+    },
+    "1003": {
+      "lvl": 3,
+      "next_lvl": 1002,
+      "type": 1,
+      "day_min": 1,
+      "day_max": 30,
+      "show_a": {
+        "I7169": 1,
+        "I7170": 1,
+        "I9151": 600
+      },
+      "award": {},
+      "award_gongxian1": 600,
+      "show_b": {
+        "I9151": 500
+      },
+      "fail_award": {},
+      "award_gongxian2": 500,
+      "award_zijin": 0,
+      "add_award1": {
+        "I7169": 1
+      },
+      "add_award2": {
+        "I7170": 1
+      }
+    },
+    "1004": {
+      "lvl": 4,
+      "next_lvl": 1003,
+      "type": 1,
+      "day_min": 1,
+      "day_max": 30,
+      "show_a": {
+        "I7167": 1,
+        "I7168": 1,
+        "I9151": 1000
+      },
+      "award": {},
+      "award_gongxian1": 1000,
+      "show_b": {},
+      "fail_award": {},
+      "award_gongxian2": 0,
+      "award_zijin": 0,
+      "add_award1": {
+        "I7167": 1
+      },
+      "add_award2": {
+        "I7168": 1
+      }
+    },
+    "1101": {
+      "lvl": 1,
+      "next_lvl": 0,
+      "type": 1,
+      "day_min": 31,
+      "day_max": 90,
+      "show_a": {
+        "I9151": 100
+      },
+      "award": {},
+      "award_gongxian1": 0,
+      "show_b": {
+        "I9151": 100
+      },
+      "fail_award": {},
+      "award_gongxian2": 100,
+      "award_zijin": 0,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "1102": {
+      "lvl": 2,
+      "next_lvl": 1101,
+      "type": 1,
+      "day_min": 31,
+      "day_max": 90,
+      "show_a": {
+        "I7171": 1,
+        "I7172": 1,
+        "I9151": 200
+      },
+      "award": {},
+      "award_gongxian1": 200,
+      "show_b": {
+        "I9151": 300
+      },
+      "fail_award": {},
+      "award_gongxian2": 300,
+      "award_zijin": 0,
+      "add_award1": {
+        "I7171": 1
+      },
+      "add_award2": {
+        "I7172": 1
+      }
+    },
+    "1103": {
+      "lvl": 3,
+      "next_lvl": 1102,
+      "type": 1,
+      "day_min": 31,
+      "day_max": 90,
+      "show_a": {
+        "I7169": 1,
+        "I7170": 1,
+        "I9151": 600
+      },
+      "award": {},
+      "award_gongxian1": 600,
+      "show_b": {
+        "I9151": 500
+      },
+      "fail_award": {},
+      "award_gongxian2": 500,
+      "award_zijin": 0,
+      "add_award1": {
+        "I7169": 1
+      },
+      "add_award2": {
+        "I7170": 1
+      }
+    },
+    "1104": {
+      "lvl": 4,
+      "next_lvl": 1103,
+      "type": 1,
+      "day_min": 31,
+      "day_max": 90,
+      "show_a": {
+        "I7167": 1,
+        "I7168": 1,
+        "I9151": 1000
+      },
+      "award": {},
+      "award_gongxian1": 1000,
+      "show_b": {},
+      "fail_award": {},
+      "award_gongxian2": 0,
+      "award_zijin": 0,
+      "add_award1": {
+        "I7167": 1
+      },
+      "add_award2": {
+        "I7168": 1
+      }
+    },
+    "1201": {
+      "lvl": 1,
+      "next_lvl": 0,
+      "type": 1,
+      "day_min": 91,
+      "day_max": 9999,
+      "show_a": {
+        "I9151": 100
+      },
+      "award": {},
+      "award_gongxian1": 0,
+      "show_b": {
+        "I9151": 100
+      },
+      "fail_award": {},
+      "award_gongxian2": 100,
+      "award_zijin": 0,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "1202": {
+      "lvl": 2,
+      "next_lvl": 1201,
+      "type": 1,
+      "day_min": 91,
+      "day_max": 9999,
+      "show_a": {
+        "I7171": 1,
+        "I7172": 1,
+        "I9151": 200
+      },
+      "award": {},
+      "award_gongxian1": 200,
+      "show_b": {
+        "I9151": 300
+      },
+      "fail_award": {},
+      "award_gongxian2": 300,
+      "award_zijin": 0,
+      "add_award1": {
+        "I7171": 1
+      },
+      "add_award2": {
+        "I7172": 1
+      }
+    },
+    "1203": {
+      "lvl": 3,
+      "next_lvl": 1202,
+      "type": 1,
+      "day_min": 91,
+      "day_max": 9999,
+      "show_a": {
+        "I7169": 1,
+        "I7170": 1,
+        "I9151": 600
+      },
+      "award": {},
+      "award_gongxian1": 600,
+      "show_b": {
+        "I9151": 500
+      },
+      "fail_award": {},
+      "award_gongxian2": 500,
+      "award_zijin": 0,
+      "add_award1": {
+        "I7169": 1
+      },
+      "add_award2": {
+        "I7170": 1
+      }
+    },
+    "1204": {
+      "lvl": 4,
+      "next_lvl": 1203,
+      "type": 1,
+      "day_min": 91,
+      "day_max": 9999,
+      "show_a": {
+        "I7167": 1,
+        "I7168": 1,
+        "I9151": 1000
+      },
+      "award": {},
+      "award_gongxian1": 1000,
+      "show_b": {},
+      "fail_award": {},
+      "award_gongxian2": 0,
+      "award_zijin": 0,
+      "add_award1": {
+        "I7167": 1
+      },
+      "add_award2": {
+        "I7168": 1
+      }
+    },
+    "2001": {
+      "lvl": 1,
+      "next_lvl": 0,
+      "type": 2,
+      "day_min": 1,
+      "day_max": 30,
+      "show_a": {},
+      "award": {},
+      "award_gongxian1": 0,
+      "show_b": {
+        "I3926": 3,
+        "I3935": 4,
+        "I3937": 4
+      },
+      "fail_award": {
+        "10049": 3,
+        "10052": 4
+      },
+      "award_gongxian2": 0,
+      "award_zijin": 64000,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "2002": {
+      "lvl": 2,
+      "next_lvl": 2001,
+      "type": 2,
+      "day_min": 1,
+      "day_max": 30,
+      "show_a": {
+        "I3926": 6,
+        "I3932": 2,
+        "I3933": 2,
+        "I3935": 8,
+        "I3937": 8
+      },
+      "award": {
+        "10049": 6,
+        "10050": 2,
+        "10052": 8
+      },
+      "award_gongxian1": 0,
+      "show_b": {
+        "I3926": 4,
+        "I3932": 1,
+        "I3933": 1,
+        "I3934": 1,
+        "I3935": 5,
+        "I3937": 5,
+        "I3936": 1,
+        "I3938": 1
+      },
+      "fail_award": {
+        "10049": 4,
+        "10050": 1,
+        "10051": 1,
+        "10052": 5,
+        "10053": 1
+      },
+      "award_gongxian2": 0,
+      "award_zijin": 128000,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "2003": {
+      "lvl": 3,
+      "next_lvl": 2002,
+      "type": 2,
+      "day_min": 1,
+      "day_max": 30,
+      "show_a": {
+        "I3926": 8,
+        "I3932": 4,
+        "I3933": 4,
+        "I3934": 2,
+        "I3935": 10,
+        "I3937": 10,
+        "I3936": 4,
+        "I3938": 4
+      },
+      "award": {
+        "10049": 8,
+        "10050": 4,
+        "10051": 2,
+        "10052": 10,
+        "10053": 4
+      },
+      "award_gongxian1": 0,
+      "show_b": {
+        "I3926": 5,
+        "I3932": 3,
+        "I3933": 3,
+        "I3934": 2,
+        "I3935": 6,
+        "I3937": 6,
+        "I3936": 3,
+        "I3938": 3
+      },
+      "fail_award": {
+        "10049": 5,
+        "10050": 3,
+        "10051": 2,
+        "10052": 6,
+        "10053": 3
+      },
+      "award_gongxian2": 0,
+      "award_zijin": 320000,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "2004": {
+      "lvl": 4,
+      "next_lvl": 2003,
+      "type": 2,
+      "day_min": 1,
+      "day_max": 30,
+      "show_a": {
+        "I3926": 10,
+        "I3932": 6,
+        "I3933": 6,
+        "I3934": 4,
+        "I3935": 12,
+        "I3937": 12,
+        "I3936": 6,
+        "I3938": 6
+      },
+      "award": {
+        "10049": 10,
+        "10050": 6,
+        "10051": 4,
+        "10052": 12,
+        "10053": 6
+      },
+      "award_gongxian1": 0,
+      "show_b": {},
+      "fail_award": {},
+      "award_gongxian2": 0,
+      "award_zijin": 448000,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "2101": {
+      "lvl": 1,
+      "next_lvl": 0,
+      "type": 2,
+      "day_min": 31,
+      "day_max": 90,
+      "show_a": {},
+      "award": {},
+      "award_gongxian1": 0,
+      "show_b": {
+        "I3926": 4,
+        "I3932": 1,
+        "I3933": 1,
+        "I3935": 4,
+        "I3937": 4,
+        "I3936": 2,
+        "I3938": 2,
+        "I9150": 2
+      },
+      "fail_award": {
+        "10049": 4,
+        "10050": 1,
+        "10052": 4,
+        "10053": 2,
+        "10054": 2
+      },
+      "award_gongxian2": 0,
+      "award_zijin": 288000,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "2102": {
+      "lvl": 2,
+      "next_lvl": 2101,
+      "type": 2,
+      "day_min": 31,
+      "day_max": 90,
+      "show_a": {
+        "I3926": 8,
+        "I3932": 3,
+        "I3933": 3,
+        "I3935": 8,
+        "I3937": 8,
+        "I3936": 3,
+        "I3938": 3,
+        "I9150": 3
+      },
+      "award": {
+        "10049": 8,
+        "10050": 3,
+        "10052": 8,
+        "10053": 3,
+        "10054": 3
+      },
+      "award_gongxian1": 0,
+      "show_b": {
+        "I3926": 5,
+        "I3932": 2,
+        "I3933": 2,
+        "I3934": 1,
+        "I3935": 6,
+        "I3937": 6,
+        "I3936": 2,
+        "I3938": 2,
+        "I9150": 3
+      },
+      "fail_award": {
+        "10049": 5,
+        "10050": 2,
+        "10051": 1,
+        "10052": 6,
+        "10053": 2,
+        "10054": 3
+      },
+      "award_gongxian2": 0,
+      "award_zijin": 576000,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "2103": {
+      "lvl": 3,
+      "next_lvl": 2102,
+      "type": 2,
+      "day_min": 31,
+      "day_max": 90,
+      "show_a": {
+        "I3926": 10,
+        "I3932": 5,
+        "I3933": 5,
+        "I3934": 3,
+        "I3935": 12,
+        "I3937": 12,
+        "I3936": 6,
+        "I3938": 6,
+        "I9150": 5,
+        "B1006": 1
+      },
+      "award": {
+        "10049": 10,
+        "10050": 5,
+        "10051": 3,
+        "10052": 12,
+        "10053": 6,
+        "10054": 5,
+        "10063": 1
+      },
+      "award_gongxian1": 0,
+      "show_b": {
+        "I3926": 6,
+        "I3932": 4,
+        "I3933": 4,
+        "I3934": 2,
+        "I3935": 8,
+        "I3937": 8,
+        "I3936": 4,
+        "I3938": 4,
+        "I9150": 4
+      },
+      "fail_award": {
+        "10049": 6,
+        "10050": 4,
+        "10051": 2,
+        "10052": 8,
+        "10053": 4,
+        "10054": 4
+      },
+      "award_gongxian2": 0,
+      "award_zijin": 1440000,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "2104": {
+      "lvl": 4,
+      "next_lvl": 2103,
+      "type": 2,
+      "day_min": 31,
+      "day_max": 90,
+      "show_a": {
+        "I3926": 12,
+        "I3932": 8,
+        "I3933": 8,
+        "I3934": 5,
+        "I3935": 16,
+        "I3937": 16,
+        "I3936": 8,
+        "I3938": 8,
+        "I9150": 6,
+        "B1006": 3
+      },
+      "award": {
+        "10049": 12,
+        "10050": 8,
+        "10051": 5,
+        "10052": 16,
+        "10053": 8,
+        "10054": 6,
+        "10063": 3
+      },
+      "award_gongxian1": 0,
+      "show_b": {},
+      "fail_award": {},
+      "award_gongxian2": 0,
+      "award_zijin": 2016000,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "2201": {
+      "lvl": 1,
+      "next_lvl": 0,
+      "type": 2,
+      "day_min": 91,
+      "day_max": 9999,
+      "show_a": {},
+      "award": {},
+      "award_gongxian1": 0,
+      "show_b": {
+        "I3926": 5,
+        "I3932": 2,
+        "I3933": 2,
+        "I3935": 5,
+        "I3937": 5,
+        "I3936": 3,
+        "I3938": 3,
+        "I9150": 3
+      },
+      "fail_award": {
+        "10049": 5,
+        "10050": 2,
+        "10052": 5,
+        "10053": 3,
+        "10054": 3
+      },
+      "award_gongxian2": 0,
+      "award_zijin": 576000,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "2202": {
+      "lvl": 2,
+      "next_lvl": 2201,
+      "type": 2,
+      "day_min": 91,
+      "day_max": 9999,
+      "show_a": {
+        "I3926": 10,
+        "I3932": 4,
+        "I3933": 4,
+        "I3935": 10,
+        "I3937": 10,
+        "I3936": 3,
+        "I3938": 3,
+        "I9150": 3
+      },
+      "award": {
+        "10049": 10,
+        "10050": 4,
+        "10052": 10,
+        "10053": 3,
+        "10054": 3
+      },
+      "award_gongxian1": 0,
+      "show_b": {
+        "I3926": 6,
+        "I3932": 3,
+        "I3933": 3,
+        "I3934": 2,
+        "I3935": 6,
+        "I3937": 6,
+        "I3936": 4,
+        "I3938": 4,
+        "I9150": 3
+      },
+      "fail_award": {
+        "10049": 6,
+        "10050": 3,
+        "10051": 2,
+        "10052": 6,
+        "10053": 4,
+        "10054": 3
+      },
+      "award_gongxian2": 0,
+      "award_zijin": 1152000,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "2203": {
+      "lvl": 3,
+      "next_lvl": 2202,
+      "type": 2,
+      "day_min": 91,
+      "day_max": 9999,
+      "show_a": {
+        "I3926": 12,
+        "I3932": 6,
+        "I3933": 6,
+        "I3934": 4,
+        "I3935": 16,
+        "I3937": 16,
+        "I3936": 8,
+        "I3938": 8,
+        "I9150": 6,
+        "B1006": 1,
+        "B1005": 1
+      },
+      "award": {
+        "10049": 12,
+        "10050": 6,
+        "10051": 4,
+        "10052": 16,
+        "10053": 8,
+        "10054": 6,
+        "10062": 1,
+        "10063": 1
+      },
+      "award_gongxian1": 0,
+      "show_b": {
+        "I3926": 7,
+        "I3932": 4,
+        "I3933": 4,
+        "I3934": 4,
+        "I3935": 10,
+        "I3937": 10,
+        "I3936": 6,
+        "I3938": 6,
+        "I9150": 4
+      },
+      "fail_award": {
+        "10049": 7,
+        "10050": 4,
+        "10051": 4,
+        "10052": 10,
+        "10053": 6,
+        "10054": 4
+      },
+      "award_gongxian2": 0,
+      "award_zijin": 2880000,
+      "add_award1": {},
+      "add_award2": {}
+    },
+    "2204": {
+      "lvl": 4,
+      "next_lvl": 2203,
+      "type": 2,
+      "day_min": 91,
+      "day_max": 9999,
+      "show_a": {
+        "I3926": 14,
+        "I3932": 10,
+        "I3933": 10,
+        "I3934": 6,
+        "I3935": 20,
+        "I3937": 20,
+        "I3936": 10,
+        "I3938": 10,
+        "I9150": 8,
+        "B1006": 3,
+        "B1005": 3
+      },
+      "award": {
+        "10049": 14,
+        "10050": 10,
+        "10051": 6,
+        "10052": 20,
+        "10053": 10,
+        "10054": 8,
+        "10062": 3,
+        "10063": 3
+      },
+      "award_gongxian1": 0,
+      "show_b": {},
+      "fail_award": {},
+      "award_gongxian2": 0,
+      "award_zijin": 4032000,
+      "add_award1": {},
+      "add_award2": {}
+    }
+  }
+}

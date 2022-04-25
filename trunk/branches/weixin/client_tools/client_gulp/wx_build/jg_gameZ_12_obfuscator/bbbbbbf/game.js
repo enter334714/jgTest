@@ -1,1 +1,2 @@
-var _=wx.y$;require("bbbbBuff.js"),window[_[224]][_[210]][_[12]]=null,window.client_pb=require("bbbcleintpb.js"),window[_[522]]=window[_[224]][_[152]][_[53]](client_pb);
+var _ = wx.y$;
+require('bbbbBuff.js'), window[_[30011]][_[30001]][_[29890]] = null, window['client_pb'] = require('bbbcleintpb.js'), window[_[26183]] = window[_[30011]][_[26072]][_[26073]](client_pb);

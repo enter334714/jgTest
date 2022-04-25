@@ -1,0 +1,26 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "Gm",
+  "json": {
+    "1": {
+      "des": "additem,id,num",
+      "order": "additem"
+    },
+    "2": {
+      "des": "addequip,id,num,quality",
+      "order": "addequip"
+    },
+    "3": {
+      "des": "addresource,(1:gold,2:gem,3:cream,4:exp),num",
+      "order": "addresource"
+    },
+    "4": {
+      "des": "levelup,level",
+      "order": "levelup"
+    },
+    "5": {
+      "des": "ID，价格",
+      "order": "charge"
+    }
+  }
+}

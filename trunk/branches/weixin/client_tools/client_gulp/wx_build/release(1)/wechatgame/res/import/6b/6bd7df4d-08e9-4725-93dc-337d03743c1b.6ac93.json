@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "but_weicheng_tishnegchengwei",
+    "texture": "66ES+bF8FAY7dPXx7bcbYl",
+    "rect": [
+      0,
+      0,
+      191,
+      52
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      191,
+      52
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

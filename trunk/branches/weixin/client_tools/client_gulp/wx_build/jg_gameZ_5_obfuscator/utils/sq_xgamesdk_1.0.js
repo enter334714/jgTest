@@ -1,1 +1,205 @@
-var F=wx.$D;var config={game_id:"",package_name:"",package_version:"1",channel_id:50};var SQ_XGAMESDK=xgamesdk();var HOST="https://xzsdk.wdiyi.com";var game_version="";var D1W4I2X=null;var is_init=0;function xgamesdk(){var r={};return{order_info:{},init:function(e,a){console.log("SQ_XGAMESDK:CP\u8c03\u7528init\u63a5\u53e3"),game_version=e&&e.game_version?e.game_version:0;var o=e&&e.game_id?e.game_id:"";var n=e&&e.package_name?e.package_name:"";var t=e&&e.package_version?e.package_version:"";""!=o&&""!=n&&""!=t?(config.game_id=o,config.package_name=n,config.package_version=t,n=wx.getStorageSync("xz_pt_uuid")?0:(o=this.uuid(16,32),wx.setStorageSync("xz_pt_uuid",o),1),this.active({is_first_active:n}),wx.showShareMenu(),game_version?this.checkDev(game_version,function(e){a&&a(1,e,"\u521d\u59cb\u5316\u6210\u529f")}):a&&a(1,e,"\u521d\u59cb\u5316\u6210\u529f"),is_init=1):a&&a(0,{},"\u521d\u59cb\u5316\u5931\u8d25")},checkDev:function(e,o){console.log("SQ_XGAMESDK:\u68c0\u67e5\u6e38\u620f\u7248\u672c"),wx.request({url:HOST+"/?ct=xgame&ac=checkDev",method:"POST",dataType:"json",header:{"content-type":"application/x-www-form-urlencoded"},data:{game_id:config.game_id,game_version:e,package_version:config.package_version,channel_id:config.channel_id,package_name:config.package_name},success:function(e){var a;console.log("SQ_XGAMESDK:\u83b7\u53d6\u6e38\u620f\u7248\u672c\u7ed3\u679c"),console.log(e.data),200==e.statusCode&&(a=e.data).state?o&&o({develop:a.data.develop}):o&&o({develop:0})},fail:function(e){console.log(e)}})},active:function(e,a){var o=wx.getLaunchOptionsSync();var n=JSON.stringify(o);console.log("SQ_XGAMESDK:\u5c0f\u6e38\u620f\u542f\u52a8\u53c2\u6570"),console.log(JSON.stringify(o)),e.is_first_active&&o.query&&o.query.adcode&&wx.setStorageSync("xz_pt_adcode",o.query.adcode);o=this.getCommonParams();o.launch_options=n,o.is_first_active=e.is_first_active,wx.request({url:HOST+"/?ct=xgame&ac=active",method:"POST",dataType:"json",header:{"content-type":"application/x-www-form-urlencoded"},data:o,success:function(e){console.log("SQ_XGAMESDK:\u521d\u59cb\u5316\u63a5\u53e3\u7ed3\u679c\uff1a"),console.log(e.data)}})},login:function(e,a){var o=this;var n;console.log("SQ_XGAMESDK:\u8c03\u8d77\u767b\u5f55"),r.login="function"==typeof a?a:null,is_init?(a=wx.getLaunchOptionsSync(),n=JSON.stringify(a),wx.login({success:function(e){var a;console.log("\u5fae\u4fe1\u767b\u5f55\u6210\u529f\u8fd4\u56de"+JSON.stringify(e)),e.code?((a=o.getCommonParams()).code=e.code,a.launch_options=n,wx.request({url:HOST+"/?ct=xgame&ac=login",method:"POST",dataType:"json",header:{"content-type":"application/x-www-form-urlencoded"},data:a,success:function(e){if(console.log("SQ_XGAMESDK:\u767b\u5f55\u63a5\u53e3\u7ed3\u679c\uff1a"),console.log(e.data),200==e.statusCode){var a=e.data;if(a.state){e={uid:a.data.uid,code:a.data.code};try{wx.setStorageSync("xz_pt_uid",a.data.uid),wx.setStorageSync("xz_pt_sdk_token",a.data.sdk_token),wx.setStorageSync("xz_pt_sk",a.data.sk)}catch(e){}r.login&&r.login(1,e),a.data.tips&&a.data.tips.content&&(e=a.data.tips.title||"\u6e29\u99a8\u63d0\u793a",wx.showModal({title:e,content:a.data.tips.content,cancelText:"\u53d6\u6d88",confirmText:a.data.tips.confirmText,success:function(e){e.confirm?wx.setClipboardData({data:a.data.tips.bgr,success:function(e){a.data.tips.bgr&&wx.showToast({title:"\u5df2\u590d\u5236"})}}):e.cancel&&console.log("\u7528\u6237\u70b9\u51fb\u53d6\u6d88")}}))}else r.login&&r.login(0,{},a.msg)}else r.login&&r.login(0,{},"\u5e73\u53f0\u670d\u52a1\u5668\u8bf7\u6c42\u9519\u8bef")}})):r.login&&r.login(0,{},e.errMsg)},fail:function(e){console.log("\u5fae\u4fe1\u767b\u5f55\u5931\u8d25"+JSON.stringify(e)),(-1<e.errMsg.indexOf("auth deny")||-1<e.errMsg.indexOf("auth denied"))&&r.login&&r.login(0,{},e.errMsg)}})):r.login&&r.login(0,{},"\u8bf7\u5148\u521d\u59cb\u5316\u5e73\u53f0sdk")},role:function(e){e=e||{};var a=wx.getStorageSync("xz_pt_uid");var o;is_init&&((o={}).game_id=config.game_id,o.package_name=config.package_name,o.uid=a,o.role_id=e.role_id||"",o.role_level=e.role_level||"",o.role_name=e.role_name||"",o.server_id=e.server_id||"",o.server_name=e.server_name||"",o.update_time=e.update_time||"",wx.request({url:HOST+"/?ct=xgame&ac=role",method:"POST",dataType:"json",header:{"content-type":"application/x-www-form-urlencoded"},data:o,success:function(e){console.log("SQ_XGAMESDK:\u89d2\u8272\u4e0a\u62a5\u63a5\u53e3\u7ed3\u679c\uff1a"),console.log(e.data)}}))},pay:function(e,a){var o=this;r.pay="function"==typeof a?a:null,is_init?wx.checkSession({success:function(){o.makeOrder(e,a)},fail:function(){console.log("SQ_XGAMESDK:session\u8fc7\u671f\u91cd\u65b0\u767b\u5f55"),o.login({},function(){o.makeOrder(e,a)})}}):r.pay&&r.pay(0,{},"\u8bf7\u5148\u521d\u59cb\u5316\u5e73\u53f0sdk")},makeOrder:function(e,a){console.log("SQ_XGAMESDK:\u8c03\u8d77\u652f\u4ed8\uff0cCP\u4f20\u503c\uff1a"),console.log(e);var o=this;var n=wx.getStorageSync("xz_pt_sdk_token");var t=wx.getStorageSync("xz_pt_uid");var i=wx.getStorageSync("xz_pt_sk");var c,s;n&&i?((c=o.getCommonParams()).uid=t,c.cp_order_num=e.cp_order_num,c.product_id=e.product_id,c.server_id=e.server_id,c.server_name=e.server_name,c.role_id=e.role_id,c.role_level=e.role_level,c.role_name=e.role_name,c.total_fee=e.total_fee,c.ext=e.ext,c.sdk_token=n,c.session_key=i,o.order_info=c,s=wx.getSystemInfoSync(),wx.request({url:HOST+"/?ct=xgame&ac=makeOrder",method:"POST",dataType:"json",header:{"content-type":"application/x-www-form-urlencoded"},data:c,success:function(e){console.log("SQ_XGAMESDK:\u8ba2\u5355\u521b\u5efa\u63a5\u53e3"),console.log(e.data),200==e.statusCode?(e=e.data).state?"android"==s.platform||"windows"==s.platform||"devtools"==s.platform?e.data.android_pay?o.virtualPay(e.data):wx.showModal({title:"\u6e29\u99a8\u63d0\u793a",content:"\u6e38\u620f\u4e0d\u652f\u6301\u652f\u4ed8",confirmText:"\u6211\u77e5\u9053\u4e86",showCancel:!1}):e.data.ios_pay?1==e.data.ios_pay_type&&(e.data.ios_pay_appid?o.jminPay(e.data):wx.showModal({title:"\u652f\u4ed8\u63d0\u793a",content:"\u7531\u4e8e\u82f9\u679c\u653f\u7b56\u9650\u5236\uff0c\u6682\u65f6\u65e0\u6cd5\u4f7f\u7528\u652f\u4ed8",confirmText:"\u6211\u77e5\u9053\u4e86",showCancel:!1})):wx.showModal({title:"\u652f\u4ed8\u63d0\u793a",content:"\u7531\u4e8e\u82f9\u679c\u653f\u7b56\u9650\u5236\uff0c\u6682\u65f6\u65e0\u6cd5\u4f7f\u7528\u652f\u4ed8",confirmText:"\u6211\u77e5\u9053\u4e86",showCancel:!1}):r.pay&&r.pay(0,{},e.msg):r.pay&&r.pay(0,{},"\u8bf7\u6c42\u5e73\u53f0\u670d\u52a1\u5668\u5931\u8d25")}})):r.pay&&r.pay(0,{},"\u7528\u6237\u672a\u767b\u5f55\uff0c\u652f\u4ed8\u5931\u8d25\uff01")},virtualPay:function(a){var o=this;a.buyQuantity<=a.balance?(console.log("SQ_XGAMESDK:\u5f53\u524d\u5269\u4f59\u6e38\u620f\u5e01\u8db3\u591f"),wx.showModal({title:"\u652f\u4ed8\u63d0\u793a",content:"\u60a8\u5269\u4f59"+a.balance+"\u4e2a\u6e38\u620f\u5e01\u672a\u6d88\u8d39\uff0c\u672c\u6b21\u652f\u4ed8\u6263\u9664"+a.buyQuantity+"\u6e38\u620f\u5e01",showCancel:!1,confirmText:"\u6211\u77e5\u9053\u4e86",success:function(){o.midasDeductBalance(a)}})):(console.log("SQ_XGAMESDK:\u5f53\u524d\u5269\u4f59\u6e38\u620f\u5e01\u4e0d\u8db3\uff0c\u8c03\u8d77\u7c73\u5927\u5e08\u652f\u4ed8"),console.log(a),wx.requestMidasPayment({mode:"game",env:a.env,offerId:a.offerId,currencyType:a.currencyType,platform:"android",buyQuantity:a.buyQuantity,zoneId:a.zoneId,success:function(e){"requestMidasPayment:ok"==e.errMsg&&(console.log("SQ_XGAMESDK:\u7c73\u5927\u5e08\u652f\u4ed8\u5b8c\u6210"),o.midasDeductBalance(a))},fail:function(e){-1!==e.errMsg.indexOf("\u7528\u6237\u53d6\u6d88")?r.pay&&r.pay(0,{},"\u7528\u6237\u53d6\u6d88\u652f\u4ed8"):r.pay&&r.pay(0,{},"\u652f\u4ed8\u5931\u8d25:"+e.errMsg+"("+e.errCode+")")},complete:function(e){}}))},jminPay:function(e){console.log(e),console.log("pages/payment/result?token_id="+e.tokenId),wx.navigateToMiniProgram({appId:e.ios_pay_appid,path:"pages/payment/result?token_id="+e.tokenId,extraData:{},envVersion:"release",success:function(){}})},midasDeductBalance:function(a,e){console.log("SQ_XGAMESDK:\u6263\u9664\u6e38\u620f\u5e01");var o=this;var n=wx.getStorageSync("xz_pt_sdk_token");var t=wx.getStorageSync("xz_pt_uid");var i=wx.getStorageSync("xz_pt_sk");wx.request({url:HOST+"/?ct=xgame&ac=midasPay",method:"POST",dataType:"json",header:{"content-type":"application/x-www-form-urlencoded"},data:{sdk_token:n,uid:t,pt_order_num:a.pt_order_num,time:a.time,sign:a.sign,session_key:i},success:function(e){console.log("SQ_XGAMESDK:\u7c73\u5927\u5e08\u6263\u9664\u6e38\u620f\u5e01\u7ed3\u679c"),console.log(e.data),200==e.statusCode&&(1==e.data.state?(e={cp_order_num:o.order_info.cp_order_num,pt_order_num:a.pt_order_num,total_fee:o.order_info.total_fee,ext:o.order_info.ext},r.pay&&r.pay(1,e,"\u652f\u4ed8\u6210\u529f")):r.pay&&r.pay(0,{},"\u652f\u4ed8\u5931\u8d25"))},fail:function(){}})},uuid:function(e,a){var o="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split("");var n,t=[];var i;if(e=e||o.length,a)for(n=0;n<a;n++)t[n]=o[0|Math.random()*e];else for(t[8]=t[13]=t[18]=t[23]="-",t[14]="4",n=0;n<36;n++)t[n]||(i=0|16*Math.random(),t[n]=o[19==n?3&i|8:i]);return t.join("")},getCommonParams:function(){var e=wx.getSystemInfoSync();var a=wx.getStorageSync("xz_pt_adcode");var o=wx.getStorageSync("xz_pt_uuid");return{game_id:config.game_id,package_name:config.package_name,package_version:config.package_version,channel_id:config.channel_id,uuid:o,device_name:e.model,device_version:e.system,game_version:game_version,platform:e.platform,device_type:"android"==e.platform?2:1,adcode:a}},msgCheck:function(e,a){console.log("[SQ_XGAMESDK]\u67e5\u770b\u6587\u672c\u662f\u5426\u6709\u8fdd\u89c4\u5185\u5bb9"),e=e||"";var o=wx.getStorageSync("xz_pt_uid");var n;is_init&&((n={}).game_id=config.game_id,n.package_name=config.package_name,n.uid=o,n.content=e,wx.request({url:HOST+"/?ct=xgame&ac=msgCheck",method:"POST",dataType:"json",header:{"content-type":"application/x-www-form-urlencoded"},data:n,success:function(e){console.log("SQ_XGAMESDK:\u67e5\u770b\u6587\u672c\u662f\u5426\u6709\u8fdd\u89c4\u5185\u5bb9\u63a5\u53e3\u7ed3\u679c\uff1a"),console.log(e.data);e=e.data;e.state?a&&a(1,{is_sec:e.data.is_sec}):a&&a(0,{},e.msg)}}))},log:function(e){e=JSON.stringify(e);wx.request({url:HOST+"/?ct=xgame&ac=log",method:"POST",dataType:"json",header:{"content-type":"application/x-www-form-urlencoded"},data:{content:e},success:function(e){},fail:function(){}})}}}function run(e,a,o){e in SQ_XGAMESDK&&SQ_XGAMESDK[e](a,o)}exports.D12I=function(e,a){run("init",e,a)},exports.sdkLogin=function(e){run("login","",e)},exports.sdkPay=function(e,a){run("pay",e,a)},exports.sdkRole=function(e){run("role",e)},exports.sdkGetConfig=function(){return{game_id:config.game_id,package_name:config.package_name,package_version:config.package_version}},exports.sdkOpenCustomerService=function(){wx.openCustomerServiceConversation()},exports.sdkMsgCheck=function(e,a){run("msgCheck",e,a)};
+var F = wx.$D;
+// ** sq_xgamesdk v1.2
+var config = { game_id: '', /*10003*/package_name: '', /*cq_wxmin_1*/package_version: '1', channel_id: 50 };
+var SQ_XGAMESDK = xgamesdk();var HOST = 'https://xzsdk.wdiyi.com';var game_version = '';var D1W4I2X = null;var is_init = 0;
+function xgamesdk() {
+  var a = {};return { order_info: {}, init: function (g, h) {
+      console.log("SQ_XGAMESDK:CP调用init接口");game_version = g && g.game_version ? g.game_version : 0;var b = g && g.game_id ? g.game_id : "";var d = g && g.package_name ? g.package_name : "";var e = g && g.package_version ? g.package_version : "";if (b == "" || d == "" || e == "") {
+        h && h(0, {}, "初始化失败");return;
+      }config.game_id = b;config.package_name = d;config.package_version = e;var f = wx.getStorageSync("xz_pt_uuid");var c;if (!f) {
+        f = this.uuid(16, 32);wx.setStorageSync("xz_pt_uuid", f);c = 1;
+      } else {
+        c = 0;
+      }this.active({ is_first_active: c });wx.showShareMenu();if (game_version) {
+        this.checkDev(game_version, function (i) {
+          h && h(1, i, "初始化成功");
+        });
+      } else {
+        h && h(1, g, "初始化成功");
+      }is_init = 1;
+    }, checkDev: function (b, c) {
+      console.log("SQ_XGAMESDK:检查游戏版本");wx.request({ url: HOST + "/?ct=xgame&ac=checkDev", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: { game_id: config.game_id, game_version: b, package_version: config.package_version, channel_id: config.channel_id, package_name: config.package_name }, success: function (d) {
+          console.log("SQ_XGAMESDK:获取游戏版本结果");console.log(d.data);if (d.statusCode == 200) {
+            var e = d.data;if (e.state) {
+              c && c({ develop: e.data.develop });
+            } else {
+              c && c({ develop: 0 });
+            }
+          } else {
+            c && c({ develop: 0 });
+          }
+        }, fail: function (d) {
+          console.log(d);
+        } });
+    }, active: function (d, g) {
+      var f = this;var e = wx.getLaunchOptionsSync();var c = JSON.stringify(e);console.log("SQ_XGAMESDK:小游戏启动参数");console.log(JSON.stringify(e));if (d.is_first_active && e.query) {
+        if (e.query.adcode) {
+          wx.setStorageSync("xz_pt_adcode", e.query.adcode);
+        }
+      }var b = f.getCommonParams();b.launch_options = c;b.is_first_active = d.is_first_active;wx.request({ url: HOST + "/?ct=xgame&ac=active", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: b, success: function (h) {
+          console.log("SQ_XGAMESDK:初始化接口结果：");console.log(h.data);
+        } });
+    }, login: function (c, f) {
+      var e = this;console.log("SQ_XGAMESDK:调起登录");a["login"] = typeof f == "function" ? f : null;if (!is_init) {
+        a["login"] && a["login"](0, {}, "请先初始化平台sdk");return;
+      }var d = wx.getLaunchOptionsSync();var b = JSON.stringify(d);wx.login({ success: function (g) {
+          console.log("微信登录成功返回" + JSON.stringify(g));if (g.code) {
+            var h = e.getCommonParams();h["code"] = g.code;h["launch_options"] = b;wx.request({ url: HOST + "/?ct=xgame&ac=login", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: h, success: function (j) {
+                console.log("SQ_XGAMESDK:登录接口结果：");console.log(j.data);if (j.statusCode == 200) {
+                  var l = j.data;if (l.state) {
+                    var i = { uid: l.data.uid, code: l.data.code };try {
+                      wx.setStorageSync("xz_pt_uid", l.data.uid);wx.setStorageSync("xz_pt_sdk_token", l.data.sdk_token);wx.setStorageSync("xz_pt_sk", l.data.sk);
+                    } catch (m) {}a["login"] && a["login"](1, i);if (l.data.tips && l.data.tips.content) {
+                      var k = l.data.tips.title || "温馨提示";wx.showModal({ title: k, content: l.data.tips.content, cancelText: "取消", confirmText: l.data.tips.confirmText, success: function (n) {
+                          if (n.confirm) {
+                            wx.setClipboardData({ data: l.data.tips.bgr, success: function (o) {
+                                if (l.data.tips.bgr) {
+                                  wx.showToast({ title: "已复制" });
+                                }
+                              } });
+                          } else {
+                            if (n.cancel) {
+                              console.log("用户点击取消");
+                            }
+                          }
+                        } });
+                    }
+                  } else {
+                    a["login"] && a["login"](0, {}, l.msg);
+                  }
+                } else {
+                  a["login"] && a["login"](0, {}, "平台服务器请求错误");
+                }
+              } });
+          } else {
+            a["login"] && a["login"](0, {}, g.errMsg);
+          }
+        }, fail: function (g) {
+          console.log("微信登录失败" + JSON.stringify(g));if (g.errMsg.indexOf("auth deny") > -1 || g.errMsg.indexOf("auth denied") > -1) {
+            a["login"] && a["login"](0, {}, g.errMsg);
+          }
+        } });
+    }, role: function (d) {
+      d = d || {};var c = wx.getStorageSync("xz_pt_uid");if (!is_init) {
+        return;
+      }var b = {};b["game_id"] = config.game_id;b["package_name"] = config.package_name;b["uid"] = c;b["role_id"] = d.role_id || "";b["role_level"] = d.role_level || "";b["role_name"] = d.role_name || "";b["server_id"] = d.server_id || "";b["server_name"] = d.server_name || "";b["update_time"] = d.update_time || "";wx.request({ url: HOST + "/?ct=xgame&ac=role", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: b, success: function (e) {
+          console.log("SQ_XGAMESDK:角色上报接口结果：");console.log(e.data);
+        } });
+    }, pay: function (b, d) {
+      var c = this;a["pay"] = typeof d == "function" ? d : null;if (!is_init) {
+        a["pay"] && a["pay"](0, {}, "请先初始化平台sdk");return;
+      }wx.checkSession({ success: function () {
+          c.makeOrder(b, d);
+        }, fail: function () {
+          console.log("SQ_XGAMESDK:session过期重新登录");c.login({}, function () {
+            c.makeOrder(b, d);
+          });
+        } });
+    }, makeOrder: function (f, i) {
+      console.log("SQ_XGAMESDK:调起支付，CP传值：");console.log(f);var h = this;var g = wx.getStorageSync("xz_pt_sdk_token");var c = wx.getStorageSync("xz_pt_uid");var e = wx.getStorageSync("xz_pt_sk");if (!g || !e) {
+        a["pay"] && a["pay"](0, {}, "用户未登录，支付失败！");return;
+      }var b = h.getCommonParams();b["uid"] = c;b["cp_order_num"] = f.cp_order_num;b["product_id"] = f.product_id;b["server_id"] = f.server_id;b["server_name"] = f.server_name;b["role_id"] = f.role_id;b["role_level"] = f.role_level;b["role_name"] = f.role_name;b["total_fee"] = f.total_fee;b["ext"] = f.ext;b["sdk_token"] = g;b["session_key"] = e;h.order_info = b;var d = wx.getSystemInfoSync();wx.request({ url: HOST + "/?ct=xgame&ac=makeOrder", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: b, success: function (j) {
+          console.log("SQ_XGAMESDK:订单创建接口");console.log(j.data);if (j.statusCode == 200) {
+            var k = j.data;if (k.state) {
+              if (d.platform == "android" || d.platform == "windows" || d.platform == "devtools") {
+                if (k.data.android_pay) {
+                  h.virtualPay(k.data);
+                } else {
+                  wx.showModal({ title: "温馨提示", content: "游戏不支持支付", confirmText: "我知道了", showCancel: false });
+                }
+              } else {
+                if (k.data.ios_pay) {
+                  if (k.data.ios_pay_type == 1) {
+                    if (k.data.ios_pay_appid) {
+                      h.jminPay(k.data);
+                    } else {
+                      wx.showModal({ title: "支付提示", content: "由于苹果政策限制，暂时无法使用支付", confirmText: "我知道了", showCancel: false });
+                    }
+                  }
+                } else {
+                  wx.showModal({ title: "支付提示", content: "由于苹果政策限制，暂时无法使用支付", confirmText: "我知道了", showCancel: false });
+                }
+              }
+            } else {
+              a["pay"] && a["pay"](0, {}, k.msg);
+            }
+          } else {
+            a["pay"] && a["pay"](0, {}, "请求平台服务器失败");
+          }
+        } });
+    }, virtualPay: function (b) {
+      var c = this;if (b.buyQuantity <= b.balance) {
+        console.log("SQ_XGAMESDK:当前剩余游戏币足够");wx.showModal({ title: "支付提示", content: "您剩余" + b.balance + "个游戏币未消费，本次支付扣除" + b.buyQuantity + "游戏币", showCancel: false, confirmText: "我知道了", success: function () {
+            c.midasDeductBalance(b);
+          } });
+      } else {
+        console.log("SQ_XGAMESDK:当前剩余游戏币不足，调起米大师支付");console.log(b);wx.requestMidasPayment({ mode: "game", env: b.env, offerId: b.offerId, currencyType: b.currencyType, platform: "android", buyQuantity: b.buyQuantity, zoneId: b.zoneId, success: function (d) {
+            if (d.errMsg == "requestMidasPayment:ok") {
+              console.log("SQ_XGAMESDK:米大师支付完成");c.midasDeductBalance(b);
+            }
+          }, fail: function (d) {
+            if (d.errMsg.indexOf("用户取消") !== -1) {
+              a["pay"] && a["pay"](0, {}, "用户取消支付");
+            } else {
+              a["pay"] && a["pay"](0, {}, "支付失败:" + d.errMsg + "(" + d.errCode + ")");
+            }
+          }, complete: function (d) {} });
+      }
+    }, jminPay: function (b) {
+      var c = this;console.log(b);console.log("pages/payment/result?token_id=" + b.tokenId);wx.navigateToMiniProgram({ appId: b.ios_pay_appid, path: "pages/payment/result?token_id=" + b.tokenId, extraData: {}, envVersion: "release", success: function () {} });
+    }, midasDeductBalance: function (e, b) {
+      console.log("SQ_XGAMESDK:扣除游戏币");var g = this;var f = wx.getStorageSync("xz_pt_sdk_token");var c = wx.getStorageSync("xz_pt_uid");var d = wx.getStorageSync("xz_pt_sk");wx.request({ url: HOST + "/?ct=xgame&ac=midasPay", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: { sdk_token: f, uid: c, pt_order_num: e.pt_order_num, time: e.time, sign: e.sign, session_key: d }, success: function (i) {
+          console.log("SQ_XGAMESDK:米大师扣除游戏币结果");console.log(i.data);if (i.statusCode == 200) {
+            if (i.data.state == 1) {
+              var h = { cp_order_num: g.order_info.cp_order_num, pt_order_num: e.pt_order_num, total_fee: g.order_info.total_fee, ext: g.order_info.ext };a["pay"] && a["pay"](1, h, "支付成功");
+            } else {
+              a["pay"] && a["pay"](0, {}, "支付失败");
+            }
+          }
+        }, fail: function () {} });
+    }, uuid: function (e, b) {
+      var g = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split("");var d = [],
+          c;e = e || g.length;if (b) {
+        for (c = 0; c < b; c++) {
+          d[c] = g[0 | Math.random() * e];
+        }
+      } else {
+        var f;d[8] = d[13] = d[18] = d[23] = "-";d[14] = "4";for (c = 0; c < 36; c++) {
+          if (!d[c]) {
+            f = 0 | Math.random() * 16;d[c] = g[c == 19 ? f & 3 | 8 : f];
+          }
+        }
+      }return d.join("");
+    }, getCommonParams: function () {
+      var d = wx.getSystemInfoSync();var c = wx.getStorageSync("xz_pt_adcode");var b = wx.getStorageSync("xz_pt_uuid");return { game_id: config.game_id, package_name: config.package_name, package_version: config.package_version, channel_id: config.channel_id, uuid: b, device_name: d.model, device_version: d.system, game_version: game_version, platform: d.platform, device_type: d.platform == "android" ? 2 : 1, adcode: c };
+    }, msgCheck: function (d, e) {
+      console.log("[SQ_XGAMESDK]查看文本是否有违规内容");d = d || "";var c = wx.getStorageSync("xz_pt_uid");if (!is_init) {
+        return;
+      }var b = {};b["game_id"] = config.game_id;b["package_name"] = config.package_name;b["uid"] = c;b["content"] = d;wx.request({ url: HOST + "/?ct=xgame&ac=msgCheck", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: b, success: function (f) {
+          console.log("SQ_XGAMESDK:查看文本是否有违规内容接口结果：");console.log(f.data);var g = f.data;if (g.state) {
+            e && e(1, { is_sec: g.data.is_sec });
+          } else {
+            e && e(0, {}, g.msg);
+          }
+        } });
+    }, log: function (b) {
+      var c = JSON.stringify(b);wx.request({ url: HOST + "/?ct=xgame&ac=log", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: { content: c }, success: function (d) {}, fail: function () {} });
+    } };
+};
+function run(method, data, callback) {
+  method in SQ_XGAMESDK && SQ_XGAMESDK[method](data, callback);
+}exports.D12I = function (data, callback) {
+  run("init", data, callback);
+};exports.sdkLogin = function (callback) {
+  run("login", "", callback);
+};exports.sdkPay = function (data, callback) {
+  run("pay", data, callback);
+};exports.sdkRole = function (data) {
+  run("role", data);
+};exports.sdkGetConfig = function () {
+  return { game_id: config.game_id, package_name: config.package_name, package_version: config.package_version };
+};exports.sdkOpenCustomerService = function () {
+  wx.openCustomerServiceConversation();
+};exports.sdkMsgCheck = function (data, callback) {
+  run('msgCheck', data, callback);
+};

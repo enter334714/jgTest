@@ -1,1 +1,2 @@
-var v=wx.$d;require(v[936]);
+var v = wx.$d;
+require(v[0]);

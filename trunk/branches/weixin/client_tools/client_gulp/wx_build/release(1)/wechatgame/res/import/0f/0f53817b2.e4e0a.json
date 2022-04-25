@@ -1,0 +1,313 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_dierban_shifang_03",
+      "texture": "146GazBgBGJaZOcHMSC3RD",
+      "rect": [
+        34,
+        27,
+        182,
+        160
+      ],
+      "offset": [
+        11,
+        7
+      ],
+      "originalSize": [
+        228,
+        228
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_dierban_shifang_04",
+      "texture": "157VGr6xVEC7x9EtIJq1Vl",
+      "rect": [
+        62,
+        64,
+        101,
+        107
+      ],
+      "offset": [
+        -1.5,
+        -3.5
+      ],
+      "originalSize": [
+        228,
+        228
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_dierban_shifang_05",
+      "texture": "2d0sumRO1BSKqPAaPma0mA",
+      "rect": [
+        0,
+        1,
+        227,
+        227
+      ],
+      "offset": [
+        -0.5,
+        -0.5
+      ],
+      "originalSize": [
+        228,
+        228
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_dierban_shifang_07",
+      "texture": "201L1dnvVEq5fbAVasGa+h",
+      "rect": [
+        0,
+        0,
+        228,
+        228
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        228,
+        228
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_dierban_shifang_01",
+      "texture": "042RF8xQNOV5J6TidIPUEx",
+      "rect": [
+        61,
+        68,
+        103,
+        95
+      ],
+      "offset": [
+        -1.5,
+        -1.5
+      ],
+      "originalSize": [
+        228,
+        228
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_dierban_shifang_09",
+      "texture": "c08Ajce4FLh76/m0FHauCo",
+      "rect": [
+        25,
+        23,
+        170,
+        176
+      ],
+      "offset": [
+        -4,
+        3
+      ],
+      "originalSize": [
+        228,
+        228
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "huoqiang_shifa",
+    "_duration": 1.025,
+    "sample": 40,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "8e+jLqSy9Ih6uooZdnTsoT"
+              }
+            },
+            {
+              "frame": 0.125,
+              "value": {
+                "__uuid__": "b8Qwt18tNObLbwKSHqWen6"
+              }
+            },
+            {
+              "frame": 0.25,
+              "value": {
+                "__uuid__": "0f2KEHROpKMbV4IDvfpCA4"
+              }
+            },
+            {
+              "frame": 0.375,
+              "value": {
+                "__uuid__": "33vUZ+RaVBraiiDbLwPQfj"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "564NN2LbNLb6jclVGf4c6M"
+              }
+            },
+            {
+              "frame": 0.625,
+              "value": {
+                "__uuid__": "b00wCe691Hxr5bMDVtba1g"
+              }
+            },
+            {
+              "frame": 0.75,
+              "value": {
+                "__uuid__": "5dNbWyJghJC4fyvOdUVaUL"
+              }
+            },
+            {
+              "frame": 0.875,
+              "value": {
+                "__uuid__": "c1BMMAsbRAHKiXrWhujZfN"
+              }
+            },
+            {
+              "frame": 1,
+              "value": {
+                "__uuid__": "91r0NyPxBEvoSF1KtcDWOE"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_dierban_shifang_06",
+      "texture": "53rOAzb6dCYq29q/l1ifvJ",
+      "rect": [
+        0,
+        0,
+        228,
+        228
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        228,
+        228
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_dierban_shifang_02",
+      "texture": "b3KLXscLlNQ56OgqIBc67J",
+      "rect": [
+        56,
+        59,
+        112,
+        112
+      ],
+      "offset": [
+        -2,
+        -1
+      ],
+      "originalSize": [
+        228,
+        228
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "huoqiangshu_dierban_shifang_08",
+      "texture": "3axZKD4aVBSqG6WJ18vgtn",
+      "rect": [
+        8,
+        5,
+        204,
+        209
+      ],
+      "offset": [
+        -4,
+        4.5
+      ],
+      "originalSize": [
+        228,
+        228
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "characterFrameConfig",
+  "json": {
+    "1": {
+      "name": "擂台霸主"
+    },
+    "2": {
+      "name": "擂台大师"
+    },
+    "3": {
+      "name": "擂台精英"
+    }
+  }
+}

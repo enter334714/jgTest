@@ -1,0 +1,226 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "IntensifyBuffConfig",
+  "json": {
+    "10": {
+      "BonusDamage_p": [
+        16,
+        100
+      ],
+      "DamageReduction_p": [
+        18,
+        100
+      ],
+      "hp_p": [
+        11,
+        300
+      ],
+      "mp_p": [
+        13,
+        300
+      ],
+      "zhanli": [
+        "fight",
+        260
+      ]
+    },
+    "20": {
+      "BonusDamage_p": [
+        16,
+        150
+      ],
+      "DamageReduction_p": [
+        18,
+        150
+      ],
+      "hp_p": [
+        11,
+        600
+      ],
+      "mp_p": [
+        13,
+        600
+      ],
+      "zhanli": [
+        "fight",
+        420
+      ]
+    },
+    "30": {
+      "BonusDamage_p": [
+        16,
+        200
+      ],
+      "DamageReduction_p": [
+        18,
+        200
+      ],
+      "hp_p": [
+        11,
+        900
+      ],
+      "mp_p": [
+        13,
+        900
+      ],
+      "zhanli": [
+        "fight",
+        580
+      ]
+    },
+    "40": {
+      "BonusDamage_p": [
+        16,
+        250
+      ],
+      "DamageReduction_p": [
+        18,
+        250
+      ],
+      "hp_p": [
+        11,
+        1200
+      ],
+      "mp_p": [
+        13,
+        1200
+      ],
+      "zhanli": [
+        "fight",
+        740
+      ]
+    },
+    "50": {
+      "BonusDamage_p": [
+        16,
+        300
+      ],
+      "DamageReduction_p": [
+        18,
+        300
+      ],
+      "hp_p": [
+        11,
+        1500
+      ],
+      "mp_p": [
+        13,
+        1500
+      ],
+      "zhanli": [
+        "fight",
+        900
+      ]
+    },
+    "60": {
+      "BonusDamage_p": [
+        16,
+        350
+      ],
+      "DamageReduction_p": [
+        18,
+        350
+      ],
+      "hp_p": [
+        11,
+        1800
+      ],
+      "mp_p": [
+        13,
+        1800
+      ],
+      "zhanli": [
+        "fight",
+        1060
+      ]
+    },
+    "70": {
+      "BonusDamage_p": [
+        16,
+        400
+      ],
+      "DamageReduction_p": [
+        18,
+        400
+      ],
+      "hp_p": [
+        11,
+        2100
+      ],
+      "mp_p": [
+        13,
+        2100
+      ],
+      "zhanli": [
+        "fight",
+        1220
+      ]
+    },
+    "80": {
+      "BonusDamage_p": [
+        16,
+        420
+      ],
+      "DamageReduction_p": [
+        18,
+        420
+      ],
+      "hp_p": [
+        11,
+        2200
+      ],
+      "mp_p": [
+        13,
+        2200
+      ],
+      "zhanli": [
+        "fight",
+        1380
+      ]
+    },
+    "90": {
+      "BonusDamage_p": [
+        16,
+        450
+      ],
+      "DamageReduction_p": [
+        18,
+        450
+      ],
+      "hp_p": [
+        11,
+        2300
+      ],
+      "mp_p": [
+        13,
+        2300
+      ],
+      "zhanli": [
+        "fight",
+        1440
+      ]
+    },
+    "100": {
+      "BonusDamage_p": [
+        16,
+        460
+      ],
+      "DamageReduction_p": [
+        18,
+        460
+      ],
+      "hp_p": [
+        11,
+        2400
+      ],
+      "mp_p": [
+        13,
+        2400
+      ],
+      "zhanli": [
+        "fight",
+        1500
+      ]
+    }
+  }
+}

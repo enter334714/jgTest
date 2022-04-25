@@ -1,0 +1,543 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "WishtreeConfig",
+  "json": {
+    "101": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_res": {
+        "1": 100000
+      },
+      "pos": 1,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "102": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_res": {
+        "1": 150000
+      },
+      "pos": 2,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "103": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_res": {
+        "1": 200000
+      },
+      "pos": 3,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "104": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_item": {
+        "I3001": 20
+      },
+      "name": "洗练石",
+      "pos": 4,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "105": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_item": {
+        "I4001": 20
+      },
+      "name": "书页",
+      "pos": 5,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "106": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_item": {
+        "I3004": 20
+      },
+      "name": "技能丹",
+      "pos": 6,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "107": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_item": {
+        "I3905": 10
+      },
+      "name": "赤血陨铁",
+      "pos": 7,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "108": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_item": {
+        "I3906": 10
+      },
+      "name": "赤血结晶",
+      "pos": 8,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "109": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_item": {
+        "I3001": 20
+      },
+      "name": "洗练石",
+      "pos": 9,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "110": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_item": {
+        "I4001": 20
+      },
+      "name": "书页",
+      "pos": 10,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "111": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_item": {
+        "I3004": 20
+      },
+      "name": "技能丹",
+      "pos": 11,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "112": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_item": {
+        "I3905": 10
+      },
+      "name": "赤血陨铁",
+      "pos": 12,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "113": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_item": {
+        "I3906": 10
+      },
+      "name": "赤血结晶",
+      "pos": 13,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "114": {
+      "open_day": [
+        1,
+        7
+      ],
+      "reward_item": {
+        "I7178": 1
+      },
+      "name": "祈愿者",
+      "pos": 14,
+      "weight": 100,
+      "ceiling": 12
+    },
+    "201": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_res": {
+        "1": 100000
+      },
+      "pos": 1,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "202": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_res": {
+        "1": 150000
+      },
+      "pos": 2,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "203": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_res": {
+        "1": 200000
+      },
+      "pos": 3,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "204": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_item": {
+        "I3001": 20
+      },
+      "name": "洗练石",
+      "pos": 4,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "205": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_item": {
+        "I4001": 20
+      },
+      "name": "书页",
+      "pos": 5,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "206": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_item": {
+        "I3004": 20
+      },
+      "name": "技能丹",
+      "pos": 6,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "207": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_item": {
+        "I3905": 10
+      },
+      "name": "赤血陨铁",
+      "pos": 7,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "208": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_item": {
+        "I3906": 10
+      },
+      "name": "赤血结晶",
+      "pos": 8,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "209": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_item": {
+        "I3001": 20
+      },
+      "name": "洗练石",
+      "pos": 9,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "210": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_item": {
+        "I3903": 20
+      },
+      "name": "淬炼石",
+      "pos": 10,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "211": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_item": {
+        "I3103": 1
+      },
+      "name": "聚灵珠（中）",
+      "pos": 11,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "212": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_item": {
+        "I3907": 8
+      },
+      "name": "命运陨铁",
+      "pos": 12,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "213": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_item": {
+        "I3908": 8
+      },
+      "name": "命运结晶",
+      "pos": 13,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "214": {
+      "open_day": [
+        8,
+        30
+      ],
+      "reward_item": {
+        "I7178": 1
+      },
+      "name": "祈愿者",
+      "pos": 14,
+      "weight": 100,
+      "ceiling": 12
+    },
+    "301": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_res": {
+        "1": 100000
+      },
+      "pos": 1,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "302": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_res": {
+        "1": 150000
+      },
+      "pos": 2,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "303": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_res": {
+        "1": 200000
+      },
+      "pos": 3,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "304": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_item": {
+        "I3001": 20
+      },
+      "name": "洗练石",
+      "pos": 4,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "305": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_item": {
+        "I4001": 20
+      },
+      "name": "书页",
+      "pos": 5,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "306": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_item": {
+        "I3004": 20
+      },
+      "name": "技能丹",
+      "pos": 6,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "307": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_item": {
+        "I3001": 20
+      },
+      "name": "洗练石",
+      "pos": 7,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "308": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_item": {
+        "I3903": 20
+      },
+      "name": "淬炼石",
+      "pos": 8,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "309": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_item": {
+        "I3926": 2
+      },
+      "name": "称谓勋章",
+      "pos": 9,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "310": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_item": {
+        "I3152": 1
+      },
+      "name": "星辰丹(中)",
+      "pos": 10,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "311": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_item": {
+        "I3103": 1
+      },
+      "name": "聚灵珠（中）",
+      "pos": 11,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "312": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_item": {
+        "I3907": 8
+      },
+      "name": "命运陨铁",
+      "pos": 12,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "313": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_item": {
+        "I3908": 8
+      },
+      "name": "命运结晶",
+      "pos": 13,
+      "weight": 100,
+      "ceiling": 0
+    },
+    "314": {
+      "open_day": [
+        31,
+        9999
+      ],
+      "reward_item": {
+        "I7178": 1
+      },
+      "name": "祈愿者",
+      "pos": 14,
+      "weight": 100,
+      "ceiling": 12
+    }
+  }
+}

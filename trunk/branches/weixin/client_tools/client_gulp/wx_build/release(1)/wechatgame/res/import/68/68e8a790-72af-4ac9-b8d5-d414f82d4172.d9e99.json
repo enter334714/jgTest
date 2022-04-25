@@ -1,0 +1,30 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "advertisementConfig",
+  "json": {
+    "1": {
+      "remarks": "行会战广告",
+      "priority": 2,
+      "path": "prefab/guild/GuildPvPAdView",
+      "lvlShow": 30,
+      "type": 2,
+      "timeType": 3
+    },
+    "2": {
+      "remarks": "托管",
+      "priority": 0,
+      "path": "prefab/autoShow",
+      "lvlShow": 1,
+      "type": 3,
+      "timeType": 3
+    },
+    "3": {
+      "remarks": "离线挂机",
+      "priority": 1,
+      "path": "prefab/OfflineGiftView",
+      "lvlShow": 1,
+      "type": 4,
+      "timeType": 3
+    }
+  }
+}

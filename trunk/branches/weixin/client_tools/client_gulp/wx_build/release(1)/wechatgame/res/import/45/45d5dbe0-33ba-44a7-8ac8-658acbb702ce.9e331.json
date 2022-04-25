@@ -1,0 +1,174 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "skypassShopConfig",
+  "json": {
+    "1": {
+      "item_id": "I3926",
+      "maxnum": 5,
+      "unit_price": {
+        "9": 500
+      },
+      "refresh": 0,
+      "level": 28,
+      "stage": 10,
+      "show": 0,
+      "name": "称谓徽章"
+    },
+    "2": {
+      "item_id": "I3927",
+      "maxnum": 4,
+      "unit_price": {
+        "9": 100
+      },
+      "refresh": 0,
+      "level": 28,
+      "stage": 1,
+      "show": 0,
+      "name": "水泽灵气"
+    },
+    "3": {
+      "item_id": "I3928",
+      "maxnum": 4,
+      "unit_price": {
+        "9": 200
+      },
+      "refresh": 0,
+      "level": 30,
+      "stage": 20,
+      "show": 0,
+      "name": "木萃灵气"
+    },
+    "4": {
+      "item_id": "I3929",
+      "maxnum": 4,
+      "unit_price": {
+        "9": 200
+      },
+      "refresh": 0,
+      "level": 30,
+      "stage": 50,
+      "show": 0,
+      "name": "云珞灵气"
+    },
+    "5": {
+      "item_id": "I3930",
+      "maxnum": 2,
+      "unit_price": {
+        "9": 400
+      },
+      "refresh": 0,
+      "level": 30,
+      "stage": 100,
+      "show": 0,
+      "name": "星魂仙气"
+    },
+    "6": {
+      "item_id": "I3931",
+      "maxnum": 2,
+      "unit_price": {
+        "9": 400
+      },
+      "refresh": 0,
+      "level": 30,
+      "stage": 100,
+      "show": 0,
+      "name": "璇玑仙气"
+    },
+    "7": {
+      "item_id": "I3932",
+      "maxnum": 1,
+      "unit_price": {
+        "9": 1000
+      },
+      "refresh": 0,
+      "level": 30,
+      "stage": 200,
+      "show": 0,
+      "name": "天玑圣气"
+    },
+    "8": {
+      "item_id": "I3933",
+      "maxnum": 1,
+      "unit_price": {
+        "9": 1000
+      },
+      "refresh": 0,
+      "level": 30,
+      "stage": 200,
+      "show": 0,
+      "name": "闭月圣气"
+    },
+    "9": {
+      "item_id": "I3934",
+      "maxnum": 1,
+      "unit_price": {
+        "9": 1000
+      },
+      "refresh": 0,
+      "level": 30,
+      "stage": 200,
+      "show": 0,
+      "name": "开阳圣气"
+    },
+    "101": {
+      "item_id": "I7143",
+      "maxnum": 1,
+      "unit_price": {
+        "9": 5000
+      },
+      "refresh": 1,
+      "level": 50,
+      "stage": 100,
+      "show": 0,
+      "name": "四面楚歌"
+    },
+    "102": {
+      "item_id": "I7144",
+      "maxnum": 1,
+      "unit_price": {
+        "9": 8000
+      },
+      "refresh": 1,
+      "level": 50,
+      "stage": 200,
+      "show": 0,
+      "name": "短兵相接"
+    },
+    "103": {
+      "item_id": "I7145",
+      "maxnum": 1,
+      "unit_price": {
+        "9": 10000
+      },
+      "refresh": 1,
+      "level": 50,
+      "stage": 300,
+      "show": 0,
+      "name": "金鼓连天"
+    },
+    "104": {
+      "item_id": "I7146",
+      "maxnum": 1,
+      "unit_price": {
+        "9": 10000
+      },
+      "refresh": 1,
+      "level": 50,
+      "stage": 400,
+      "show": 0,
+      "name": "千军万马"
+    },
+    "105": {
+      "item_id": "I7147",
+      "maxnum": 1,
+      "unit_price": {
+        "9": 10000
+      },
+      "refresh": 1,
+      "level": 50,
+      "stage": 500,
+      "show": 0,
+      "name": "势如破竹"
+    }
+  }
+}

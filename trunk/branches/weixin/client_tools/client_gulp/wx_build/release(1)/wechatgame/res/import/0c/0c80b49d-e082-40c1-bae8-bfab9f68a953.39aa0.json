@@ -1,0 +1,16 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "MiningInfoConfig",
+  "json": {
+    "1": {
+      "max_power": 1000,
+      "re_power": 480,
+      "zhanli_power": 500,
+      "s_cooldown": 60,
+      "l_cooldown": 60,
+      "h_cooldown": 60,
+      "protect_time": 600,
+      "battletime": 120
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "MarfaKingProConfig",
+  "json": {
+    "1": {
+      "progress": 15,
+      "item": {
+        "I4001": 50,
+        "I3004": 50
+      },
+      "resource": {
+        "2": 20
+      },
+      "goal": 1
+    },
+    "2": {
+      "progress": 30,
+      "item": {
+        "I3001": 100,
+        "I2103": 50
+      },
+      "resource": {
+        "2": 50
+      },
+      "goal": 3
+    },
+    "3": {
+      "progress": 45,
+      "item": {
+        "I3001": 100,
+        "I3903": 200
+      },
+      "resource": {
+        "2": 50
+      },
+      "goal": 6
+    },
+    "4": {
+      "progress": 60,
+      "item": {
+        "I3909": 1000,
+        "I3910": 20
+      },
+      "resource": {
+        "2": 100
+      },
+      "goal": 9
+    },
+    "5": {
+      "progress": 75,
+      "item": {
+        "I7011": 1,
+        "I3104": 2
+      },
+      "resource": {
+        "2": 200
+      },
+      "goal": 12
+    }
+  }
+}

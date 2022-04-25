@@ -1,1 +1,2 @@
-var O=wx.$C;import"hhhhmain.js";
+var O = wx.$C;
+import 'hhhhmain.js';

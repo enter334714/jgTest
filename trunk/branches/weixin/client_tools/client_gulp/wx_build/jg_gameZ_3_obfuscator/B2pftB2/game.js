@@ -1,1 +1,2 @@
-var D=wx.$b;require("BBFBB.js"),window[D[501262]][D[501242]][D[500907]]=null,window.client_pb=require("BBIENBB.js"),window[D[501796]]=window[D[501262]][D[501092]][D[500957]](client_pb);
+var D = wx.$b;
+require('BBFBB.js'), window[D[501418]][D[501399]][D[501065]] = null, window['client_pb'] = require('BBIENBB.js'), window[D[501967]] = window[D[501418]][D[501249]][D[501115]](client_pb);

@@ -1,0 +1,1014 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "baguacomposeConfig",
+  "json": {
+    "B1111": {
+      "need_equip": "B1111",
+      "equip_num": 1,
+      "cost_item": {
+        "B1005": 1
+      },
+      "get_item": "B1121"
+    },
+    "B1112": {
+      "need_equip": "B1112",
+      "equip_num": 1,
+      "cost_item": {
+        "B1005": 1
+      },
+      "get_item": "B1122"
+    },
+    "B1113": {
+      "need_equip": "B1113",
+      "equip_num": 1,
+      "cost_item": {
+        "B1005": 1
+      },
+      "get_item": "B1123"
+    },
+    "B1114": {
+      "need_equip": "B1114",
+      "equip_num": 1,
+      "cost_item": {
+        "B1005": 1
+      },
+      "get_item": "B1124"
+    },
+    "B1115": {
+      "need_equip": "B1115",
+      "equip_num": 1,
+      "cost_item": {
+        "B1005": 1
+      },
+      "get_item": "B1125"
+    },
+    "B1116": {
+      "need_equip": "B1116",
+      "equip_num": 1,
+      "cost_item": {
+        "B1005": 1
+      },
+      "get_item": "B1126"
+    },
+    "B1117": {
+      "need_equip": "B1117",
+      "equip_num": 1,
+      "cost_item": {
+        "B1005": 1
+      },
+      "get_item": "B1127"
+    },
+    "B1118": {
+      "need_equip": "B1118",
+      "equip_num": 1,
+      "cost_item": {
+        "B1005": 1
+      },
+      "get_item": "B1128"
+    },
+    "B1121": {
+      "need_equip": "B1111",
+      "equip_num": 2,
+      "cost_item": {
+        "B1005": 2
+      },
+      "get_item": "B1131"
+    },
+    "B1122": {
+      "need_equip": "B1112",
+      "equip_num": 2,
+      "cost_item": {
+        "B1005": 2
+      },
+      "get_item": "B1132"
+    },
+    "B1123": {
+      "need_equip": "B1113",
+      "equip_num": 2,
+      "cost_item": {
+        "B1005": 2
+      },
+      "get_item": "B1133"
+    },
+    "B1124": {
+      "need_equip": "B1114",
+      "equip_num": 2,
+      "cost_item": {
+        "B1005": 2
+      },
+      "get_item": "B1134"
+    },
+    "B1125": {
+      "need_equip": "B1115",
+      "equip_num": 2,
+      "cost_item": {
+        "B1005": 2
+      },
+      "get_item": "B1135"
+    },
+    "B1126": {
+      "need_equip": "B1116",
+      "equip_num": 2,
+      "cost_item": {
+        "B1005": 2
+      },
+      "get_item": "B1136"
+    },
+    "B1127": {
+      "need_equip": "B1117",
+      "equip_num": 2,
+      "cost_item": {
+        "B1005": 2
+      },
+      "get_item": "B1137"
+    },
+    "B1128": {
+      "need_equip": "B1118",
+      "equip_num": 2,
+      "cost_item": {
+        "B1005": 2
+      },
+      "get_item": "B1138"
+    },
+    "B1131": {
+      "cost_item": {
+        "B1006": 1
+      },
+      "get_item": "B1211"
+    },
+    "B1132": {
+      "cost_item": {
+        "B1006": 1
+      },
+      "get_item": "B1212"
+    },
+    "B1133": {
+      "cost_item": {
+        "B1006": 1
+      },
+      "get_item": "B1213"
+    },
+    "B1134": {
+      "cost_item": {
+        "B1006": 1
+      },
+      "get_item": "B1214"
+    },
+    "B1135": {
+      "cost_item": {
+        "B1006": 1
+      },
+      "get_item": "B1215"
+    },
+    "B1136": {
+      "cost_item": {
+        "B1006": 1
+      },
+      "get_item": "B1216"
+    },
+    "B1137": {
+      "cost_item": {
+        "B1006": 1
+      },
+      "get_item": "B1217"
+    },
+    "B1138": {
+      "cost_item": {
+        "B1006": 1
+      },
+      "get_item": "B1218"
+    },
+    "B1211": {
+      "need_equip": "B1111",
+      "equip_num": 3,
+      "cost_item": {
+        "B1005": 3
+      },
+      "get_item": "B1221"
+    },
+    "B1212": {
+      "need_equip": "B1112",
+      "equip_num": 3,
+      "cost_item": {
+        "B1005": 3
+      },
+      "get_item": "B1222"
+    },
+    "B1213": {
+      "need_equip": "B1113",
+      "equip_num": 3,
+      "cost_item": {
+        "B1005": 3
+      },
+      "get_item": "B1223"
+    },
+    "B1214": {
+      "need_equip": "B1114",
+      "equip_num": 3,
+      "cost_item": {
+        "B1005": 3
+      },
+      "get_item": "B1224"
+    },
+    "B1215": {
+      "need_equip": "B1115",
+      "equip_num": 3,
+      "cost_item": {
+        "B1005": 3
+      },
+      "get_item": "B1225"
+    },
+    "B1216": {
+      "need_equip": "B1116",
+      "equip_num": 3,
+      "cost_item": {
+        "B1005": 3
+      },
+      "get_item": "B1226"
+    },
+    "B1217": {
+      "need_equip": "B1117",
+      "equip_num": 3,
+      "cost_item": {
+        "B1005": 3
+      },
+      "get_item": "B1227"
+    },
+    "B1218": {
+      "need_equip": "B1118",
+      "equip_num": 3,
+      "cost_item": {
+        "B1005": 3
+      },
+      "get_item": "B1228"
+    },
+    "B1221": {
+      "need_equip": "B1111",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1231"
+    },
+    "B1222": {
+      "need_equip": "B1112",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1232"
+    },
+    "B1223": {
+      "need_equip": "B1113",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1233"
+    },
+    "B1224": {
+      "need_equip": "B1114",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1234"
+    },
+    "B1225": {
+      "need_equip": "B1115",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1235"
+    },
+    "B1226": {
+      "need_equip": "B1116",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1236"
+    },
+    "B1227": {
+      "need_equip": "B1117",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1237"
+    },
+    "B1228": {
+      "need_equip": "B1118",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1238"
+    },
+    "B1231": {
+      "cost_item": {
+        "B1006": 2
+      },
+      "get_item": "B1311"
+    },
+    "B1232": {
+      "cost_item": {
+        "B1006": 2
+      },
+      "get_item": "B1312"
+    },
+    "B1233": {
+      "cost_item": {
+        "B1006": 2
+      },
+      "get_item": "B1313"
+    },
+    "B1234": {
+      "cost_item": {
+        "B1006": 2
+      },
+      "get_item": "B1314"
+    },
+    "B1235": {
+      "cost_item": {
+        "B1006": 2
+      },
+      "get_item": "B1315"
+    },
+    "B1236": {
+      "cost_item": {
+        "B1006": 2
+      },
+      "get_item": "B1316"
+    },
+    "B1237": {
+      "cost_item": {
+        "B1006": 2
+      },
+      "get_item": "B1317"
+    },
+    "B1238": {
+      "cost_item": {
+        "B1006": 2
+      },
+      "get_item": "B1318"
+    },
+    "B1311": {
+      "need_equip": "B1111",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1321"
+    },
+    "B1312": {
+      "need_equip": "B1112",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1322"
+    },
+    "B1313": {
+      "need_equip": "B1113",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1323"
+    },
+    "B1314": {
+      "need_equip": "B1114",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1324"
+    },
+    "B1315": {
+      "need_equip": "B1115",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1325"
+    },
+    "B1316": {
+      "need_equip": "B1116",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1326"
+    },
+    "B1317": {
+      "need_equip": "B1117",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1327"
+    },
+    "B1318": {
+      "need_equip": "B1118",
+      "equip_num": 4,
+      "cost_item": {
+        "B1005": 4
+      },
+      "get_item": "B1328"
+    },
+    "B1321": {
+      "need_equip": "B1111",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1331"
+    },
+    "B1322": {
+      "need_equip": "B1112",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1332"
+    },
+    "B1323": {
+      "need_equip": "B1113",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1333"
+    },
+    "B1324": {
+      "need_equip": "B1114",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1334"
+    },
+    "B1325": {
+      "need_equip": "B1115",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1335"
+    },
+    "B1326": {
+      "need_equip": "B1116",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1336"
+    },
+    "B1327": {
+      "need_equip": "B1117",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1337"
+    },
+    "B1328": {
+      "need_equip": "B1118",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1338"
+    },
+    "B1331": {
+      "cost_item": {
+        "B1006": 3
+      },
+      "get_item": "B1411"
+    },
+    "B1332": {
+      "cost_item": {
+        "B1006": 3
+      },
+      "get_item": "B1412"
+    },
+    "B1333": {
+      "cost_item": {
+        "B1006": 3
+      },
+      "get_item": "B1413"
+    },
+    "B1334": {
+      "cost_item": {
+        "B1006": 3
+      },
+      "get_item": "B1414"
+    },
+    "B1335": {
+      "cost_item": {
+        "B1006": 3
+      },
+      "get_item": "B1415"
+    },
+    "B1336": {
+      "cost_item": {
+        "B1006": 3
+      },
+      "get_item": "B1416"
+    },
+    "B1337": {
+      "cost_item": {
+        "B1006": 3
+      },
+      "get_item": "B1417"
+    },
+    "B1338": {
+      "cost_item": {
+        "B1006": 3
+      },
+      "get_item": "B1418"
+    },
+    "B1411": {
+      "need_equip": "B1111",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1421"
+    },
+    "B1412": {
+      "need_equip": "B1112",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1422"
+    },
+    "B1413": {
+      "need_equip": "B1113",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1423"
+    },
+    "B1414": {
+      "need_equip": "B1114",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1424"
+    },
+    "B1415": {
+      "need_equip": "B1115",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1425"
+    },
+    "B1416": {
+      "need_equip": "B1116",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1426"
+    },
+    "B1417": {
+      "need_equip": "B1117",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1427"
+    },
+    "B1418": {
+      "need_equip": "B1118",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1428"
+    },
+    "B1421": {
+      "need_equip": "B1111",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1431"
+    },
+    "B1422": {
+      "need_equip": "B1112",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1432"
+    },
+    "B1423": {
+      "need_equip": "B1113",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1433"
+    },
+    "B1424": {
+      "need_equip": "B1114",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1434"
+    },
+    "B1425": {
+      "need_equip": "B1115",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1435"
+    },
+    "B1426": {
+      "need_equip": "B1116",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1436"
+    },
+    "B1427": {
+      "need_equip": "B1117",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1437"
+    },
+    "B1428": {
+      "need_equip": "B1118",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1438"
+    },
+    "B1431": {
+      "cost_item": {
+        "B1006": 4
+      },
+      "get_item": "B1511"
+    },
+    "B1432": {
+      "cost_item": {
+        "B1006": 4
+      },
+      "get_item": "B1512"
+    },
+    "B1433": {
+      "cost_item": {
+        "B1006": 4
+      },
+      "get_item": "B1513"
+    },
+    "B1434": {
+      "cost_item": {
+        "B1006": 4
+      },
+      "get_item": "B1514"
+    },
+    "B1435": {
+      "cost_item": {
+        "B1006": 4
+      },
+      "get_item": "B1515"
+    },
+    "B1436": {
+      "cost_item": {
+        "B1006": 4
+      },
+      "get_item": "B1516"
+    },
+    "B1437": {
+      "cost_item": {
+        "B1006": 4
+      },
+      "get_item": "B1517"
+    },
+    "B1438": {
+      "cost_item": {
+        "B1006": 4
+      },
+      "get_item": "B1518"
+    },
+    "B1511": {
+      "need_equip": "B1111",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1521"
+    },
+    "B1512": {
+      "need_equip": "B1112",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1522"
+    },
+    "B1513": {
+      "need_equip": "B1113",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1523"
+    },
+    "B1514": {
+      "need_equip": "B1114",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1524"
+    },
+    "B1515": {
+      "need_equip": "B1115",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1525"
+    },
+    "B1516": {
+      "need_equip": "B1116",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1526"
+    },
+    "B1517": {
+      "need_equip": "B1117",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1527"
+    },
+    "B1518": {
+      "need_equip": "B1118",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1528"
+    },
+    "B1521": {
+      "need_equip": "B1111",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1531"
+    },
+    "B1522": {
+      "need_equip": "B1112",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1532"
+    },
+    "B1523": {
+      "need_equip": "B1113",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1533"
+    },
+    "B1524": {
+      "need_equip": "B1114",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1534"
+    },
+    "B1525": {
+      "need_equip": "B1115",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1535"
+    },
+    "B1526": {
+      "need_equip": "B1116",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1536"
+    },
+    "B1527": {
+      "need_equip": "B1117",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1537"
+    },
+    "B1528": {
+      "need_equip": "B1118",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1538"
+    },
+    "B1531": {
+      "cost_item": {
+        "B1006": 5
+      },
+      "get_item": "B1611"
+    },
+    "B1532": {
+      "cost_item": {
+        "B1006": 5
+      },
+      "get_item": "B1612"
+    },
+    "B1533": {
+      "cost_item": {
+        "B1006": 5
+      },
+      "get_item": "B1613"
+    },
+    "B1534": {
+      "cost_item": {
+        "B1006": 5
+      },
+      "get_item": "B1614"
+    },
+    "B1535": {
+      "cost_item": {
+        "B1006": 5
+      },
+      "get_item": "B1615"
+    },
+    "B1536": {
+      "cost_item": {
+        "B1006": 5
+      },
+      "get_item": "B1616"
+    },
+    "B1537": {
+      "cost_item": {
+        "B1006": 5
+      },
+      "get_item": "B1617"
+    },
+    "B1538": {
+      "cost_item": {
+        "B1006": 5
+      },
+      "get_item": "B1618"
+    },
+    "B1611": {
+      "need_equip": "B1111",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1621"
+    },
+    "B1612": {
+      "need_equip": "B1112",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1622"
+    },
+    "B1613": {
+      "need_equip": "B1113",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1623"
+    },
+    "B1614": {
+      "need_equip": "B1114",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1624"
+    },
+    "B1615": {
+      "need_equip": "B1115",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1625"
+    },
+    "B1616": {
+      "need_equip": "B1116",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1626"
+    },
+    "B1617": {
+      "need_equip": "B1117",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1627"
+    },
+    "B1618": {
+      "need_equip": "B1118",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1628"
+    },
+    "B1621": {
+      "need_equip": "B1111",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1631"
+    },
+    "B1622": {
+      "need_equip": "B1112",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1632"
+    },
+    "B1623": {
+      "need_equip": "B1113",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1633"
+    },
+    "B1624": {
+      "need_equip": "B1114",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1634"
+    },
+    "B1625": {
+      "need_equip": "B1115",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1635"
+    },
+    "B1626": {
+      "need_equip": "B1116",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1636"
+    },
+    "B1627": {
+      "need_equip": "B1117",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1637"
+    },
+    "B1628": {
+      "need_equip": "B1118",
+      "equip_num": 5,
+      "cost_item": {
+        "B1005": 5
+      },
+      "get_item": "B1638"
+    }
+  }
+}

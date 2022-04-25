@@ -1,0 +1,48 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "01shifanghuofu",
+      "texture": "09TojybVlCpo/RMkggqb1h",
+      "rect": [
+        33,
+        7,
+        57,
+        106
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        123,
+        120
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "linghunhuofu",
+    "_duration": 0.016666666666666666,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "2fTDVj7tlBwp4PesZyN6Bw"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+]

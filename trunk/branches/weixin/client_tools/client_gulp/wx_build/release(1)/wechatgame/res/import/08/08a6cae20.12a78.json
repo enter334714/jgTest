@@ -1,0 +1,280 @@
+[
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "zumajiaozhu_other",
+    "_duration": 0.6,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "85ZElUsg9BirlUR3PymOJp"
+              }
+            },
+            {
+              "frame": 0.08333333333333333,
+              "value": {
+                "__uuid__": "eafMjRmC9KartbvtOaGq5I"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "c35FzCGJBM7LHa17DefXbl"
+              }
+            },
+            {
+              "frame": 0.25,
+              "value": {
+                "__uuid__": "abcl3lHI5K0IF0UMhc/FQN"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "f8X1ajg8BFAKofyW0M5fg9"
+              }
+            },
+            {
+              "frame": 0.4166666666666667,
+              "value": {
+                "__uuid__": "e5OyYeX6tDqI6GHYvc3WGD"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "82S117E0NKkqkgutChnlpO"
+              }
+            },
+            {
+              "frame": 0.5833333333333334,
+              "value": {
+                "__uuid__": "d8upsb0fBD874yEABBzn0V"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumabeiren_07",
+      "texture": "5cfCeNdK5MU4PrJVyjXOhv",
+      "rect": [
+        11,
+        2,
+        61,
+        81
+      ],
+      "offset": [
+        -0.5,
+        3.5
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumabeiren_01",
+      "texture": "65GH/uNWhLgaxRjfBjgVE/",
+      "rect": [
+        0,
+        2,
+        83,
+        90
+      ],
+      "offset": [
+        -0.5,
+        -1
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumabeiren_04",
+      "texture": "5fZUG00q9LdZOallLKAB7a",
+      "rect": [
+        3,
+        1,
+        77,
+        83
+      ],
+      "offset": [
+        -0.5,
+        3.5
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumabeiren_03",
+      "texture": "2bta5Q80RAlalVPg7dczyw",
+      "rect": [
+        6,
+        1,
+        70,
+        81
+      ],
+      "offset": [
+        -1,
+        4.5
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumabeiren_08",
+      "texture": "7eIPDBaitBmoDxXhXmIEnA",
+      "rect": [
+        8,
+        2,
+        67,
+        81
+      ],
+      "offset": [
+        -0.5,
+        3.5
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumabeiren_06",
+      "texture": "e4XSjXeMZJaouYxVEjCGsw",
+      "rect": [
+        0,
+        0,
+        83,
+        83
+      ],
+      "offset": [
+        -0.5,
+        4.5
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumabeiren_02",
+      "texture": "4fCKPP8YBJMruhChGVRSQ1",
+      "rect": [
+        2,
+        0,
+        80,
+        90
+      ],
+      "offset": [
+        0,
+        1
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_zumabeiren_05",
+      "texture": "6euSAEdNVH2ZHPH2qEBUYk",
+      "rect": [
+        0,
+        0,
+        84,
+        82
+      ],
+      "offset": [
+        0,
+        5
+      ],
+      "originalSize": [
+        84,
+        92
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

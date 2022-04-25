@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_icon_linghunhuofu_03",
+    "texture": "70wyQuFe5HL69Wgz5Qcxym",
+    "rect": [
+      2,
+      6,
+      77,
+      72
+    ],
+    "offset": [
+      0.5,
+      -2
+    ],
+    "originalSize": [
+      80,
+      80
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

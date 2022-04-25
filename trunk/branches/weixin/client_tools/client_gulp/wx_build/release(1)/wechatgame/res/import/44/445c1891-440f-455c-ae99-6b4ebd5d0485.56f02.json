@@ -1,0 +1,387 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "AppearanceHeadConfig",
+  "json": {
+    "3001": {
+      "name": "初始头像",
+      "condition": -1,
+      "job": 1,
+      "itemid": "0",
+      "limit_time": -1,
+      "jihuomode": 0,
+      "view_level": 0,
+      "img": "img_ui_liaotian_icon_touxiang_zhanshi",
+      "view_value": "无属性加成",
+      "magic_value": {},
+      "power": 0
+    },
+    "3002": {
+      "name": "初始头像",
+      "condition": -1,
+      "job": 2,
+      "itemid": "0",
+      "limit_time": -1,
+      "jihuomode": 0,
+      "view_level": 0,
+      "img": "img_ui_liaotian_icon_touxiang_fashi",
+      "view_value": "无属性加成",
+      "magic_value": {},
+      "power": 0
+    },
+    "3003": {
+      "name": "初始头像",
+      "condition": -1,
+      "job": 3,
+      "itemid": "0",
+      "limit_time": -1,
+      "jihuomode": 0,
+      "view_level": 0,
+      "img": "img_ui_liaotian_icon_touxiang_daoshi",
+      "view_value": "无属性加成",
+      "magic_value": {},
+      "power": 0
+    },
+    "3004": {
+      "name": "沃玛教主",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3004",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_touxiang_icon_womajiaozhu",
+      "text": "“沃玛教将征服所有人”",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n攻速+50",
+      "magic_value": {
+        "7": 10,
+        "14": 50
+      },
+      "power": 100
+    },
+    "3005": {
+      "name": "祖玛教主",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3005",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_touxiang_icon_zumajiaozhu",
+      "text": "“祖玛存在的意义是...”",
+      "gain": "限时活动获得",
+      "view_value": "固定伤害+10 \n固定减伤+5",
+      "magic_value": {
+        "15": 10,
+        "17": 5
+      },
+      "power": 100
+    },
+    "3006": {
+      "name": "骷髅王",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3006",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_touxiang_icon_kulouwang",
+      "text": "“非我族类，必杀之”",
+      "gain": "限时活动获得",
+      "view_value": "生命+200 \n生命+5%",
+      "magic_value": {
+        "10": 200,
+        "11": 500
+      },
+      "power": 100
+    },
+    "3007": {
+      "name": "土城霸主",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3007",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_touxiang_icon_tuchengbazhu",
+      "text": "土城霸主，守护着这座城",
+      "gain": "限时活动获得",
+      "view_value": "生命+200 \n攻速+50",
+      "magic_value": {
+        "10": 200,
+        "14": 50
+      },
+      "power": 100
+    },
+    "3008": {
+      "name": "雷炎蛛王",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3008",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_touxiang_icon_leiyanzhuwang",
+      "text": "凶残的蛛王，无人能敌",
+      "gain": "限时活动获得",
+      "view_value": "生命+5% \n伤害增幅+2%",
+      "magic_value": {
+        "11": 500,
+        "16": 200
+      },
+      "power": 100
+    },
+    "3009": {
+      "name": "一方诸侯",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3009",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_touxiang_icon_yifangzhuhou",
+      "text": "镇守一方，守护国土",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n伤害增幅+1%",
+      "magic_value": {
+        "7": 10,
+        "16": 100
+      },
+      "power": 100
+    },
+    "3010": {
+      "name": "狩龙者",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3010",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_touxiang_icon_zhenlongtianzi",
+      "text": "“猎龙，那只是我的兴趣”",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n生命+200",
+      "magic_value": {
+        "7": 10,
+        "10": 200
+      },
+      "power": 100
+    },
+    "3011": {
+      "name": "轮回之主",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3011",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_touxiang_icon_lunhuizhizhu",
+      "text": "“轮回，何时才能到头...”",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n防御+10",
+      "magic_value": {
+        "7": 10,
+        "9": 10
+      },
+      "power": 100
+    },
+    "3012": {
+      "name": "沃玛勇士",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3012",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_touxiang_icon_womayongshi",
+      "text": "“守卫神殿，是我唯一的任务”",
+      "gain": "连充活动获得",
+      "view_value": "主属性+10 \n防御+10",
+      "magic_value": {
+        "7": 10,
+        "9": 10
+      },
+      "power": 100
+    },
+    "3013": {
+      "name": "龙争虎斗",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3013",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 0,
+      "img": "img_touxiang_icon_longzhenghudou",
+      "text": "“龙争虎斗，鹿死谁手”",
+      "gain": "擂台坊市兑换获得",
+      "view_value": "主属性+15 \n防御+10",
+      "magic_value": {
+        "7": 15,
+        "9": 10
+      },
+      "power": 100
+    },
+    "3014": {
+      "name": "雷霆领主",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3014",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "img_touxiang_icon_leitingwanjun",
+      "text": "“雷霆之力，由我主宰”",
+      "gain": "限时活动获得",
+      "view_value": "主属性+10 \n生命+2%",
+      "magic_value": {
+        "7": 10,
+        "11": 200
+      },
+      "power": 100
+    },
+    "3015": {
+      "name": "火焰领主",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3015",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "img_touxiang_icon_lieyantongtian",
+      "text": "“火焰之力，燃尽一切”",
+      "gain": "限时活动获得",
+      "view_value": "生命+200 \n生命+2%",
+      "magic_value": {
+        "10": 200,
+        "11": 200
+      },
+      "power": 100
+    },
+    "3016": {
+      "name": "圣诞雪人",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3016",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "img_touxiang_icon_shengdanxueren",
+      "text": "“圣诞节偶然遇到的雪人”",
+      "gain": "限时活动获得",
+      "view_value": "生命+200\n固定伤害+5",
+      "magic_value": {
+        "10": 200,
+        "15": 5
+      },
+      "power": 100
+    },
+    "3017": {
+      "name": "暴风领主",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3017",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "img_touxiang_icon_baofengxue",
+      "text": "“风暴之力，听我号令”",
+      "gain": "限时活动获得",
+      "view_value": "防御+10 \n主属性+2%",
+      "magic_value": {
+        "9": 10,
+        "38": 200
+      },
+      "power": 300
+    },
+    "3018": {
+      "name": "新年快乐",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3018",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "img_touxiang_icon_xinniankuaile",
+      "text": "“龙争虎斗，鹿死谁手”",
+      "gain": "限时活动获得",
+      "view_value": "主属性+15 \n防御+10",
+      "magic_value": {
+        "7": 15,
+        "9": 10
+      },
+      "power": 100
+    },
+    "3019": {
+      "name": "魔龙力士",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3019",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "img_touxiang_icon_molonglishi",
+      "text": "“龙争虎斗，鹿死谁手”",
+      "gain": "限时活动获得",
+      "view_value": "主属性+15 \n防御+10",
+      "magic_value": {
+        "7": 15,
+        "9": 10
+      },
+      "power": 100
+    },
+    "3020": {
+      "name": "玛法面具",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3020",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "img_touxiang_icon_zumamianju",
+      "text": "“龙争虎斗，鹿死谁手”",
+      "gain": "限时活动获得",
+      "view_value": "主属性+15 \n防御+10",
+      "magic_value": {
+        "7": 15,
+        "9": 10
+      },
+      "power": 100
+    },
+    "3021": {
+      "name": "离火恶魔",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3021",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "img_touxiang_icon_molongzhixin",
+      "text": "“龙争虎斗，鹿死谁手”",
+      "gain": "限时活动获得",
+      "view_value": "主属性+15 \n防御+10",
+      "magic_value": {
+        "7": 15,
+        "9": 10
+      },
+      "power": 100
+    },
+    "3022": {
+      "name": "火龙神",
+      "condition": 1,
+      "job": 0,
+      "itemid": "W3022",
+      "limit_time": -1,
+      "jihuomode": 1,
+      "view_level": 200,
+      "img": "img_touxiang_icon_huolongshen",
+      "text": "“龙争虎斗，鹿死谁手”",
+      "gain": "限时活动获得",
+      "view_value": "主属性+15 \n防御+10",
+      "magic_value": {
+        "7": 15,
+        "9": 10
+      },
+      "power": 100
+    }
+  }
+}

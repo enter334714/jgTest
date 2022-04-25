@@ -1,0 +1,655 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "collectActivityConfig",
+  "json": {
+    "101": {
+      "activity_id": 14,
+      "item_id": "I3006",
+      "type": 1,
+      "num": 1,
+      "restriction": 9999,
+      "price_type": 3,
+      "token": [
+        {
+          "I9158": 2
+        }
+      ],
+      "unit_price": -1,
+      "name": "金锭",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "102": {
+      "activity_id": 14,
+      "item_id": "I4001",
+      "type": 1,
+      "num": 1,
+      "restriction": 1000,
+      "price_type": 3,
+      "token": [
+        {
+          "I9158": 2
+        }
+      ],
+      "unit_price": -1,
+      "name": "书页",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "103": {
+      "activity_id": 14,
+      "item_id": "I3001",
+      "type": 1,
+      "num": 1,
+      "restriction": 1000,
+      "price_type": 3,
+      "token": [
+        {
+          "I9158": 4
+        }
+      ],
+      "unit_price": -1,
+      "name": "洗练石",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "104": {
+      "activity_id": 14,
+      "item_id": "I3903",
+      "type": 1,
+      "num": 1,
+      "restriction": 1000,
+      "price_type": 3,
+      "token": [
+        {
+          "I9158": 4
+        }
+      ],
+      "unit_price": -1,
+      "name": "淬炼石",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "105": {
+      "activity_id": 14,
+      "item_id": "I3905",
+      "type": 1,
+      "num": 1,
+      "restriction": 100,
+      "price_type": 3,
+      "token": [
+        {
+          "I9158": 15
+        }
+      ],
+      "unit_price": -1,
+      "name": "神兵陨铁",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "106": {
+      "activity_id": 14,
+      "item_id": "I3906",
+      "type": 1,
+      "num": 1,
+      "restriction": 50,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 2
+        }
+      ],
+      "unit_price": -1,
+      "name": "神兵精华",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "107": {
+      "activity_id": 14,
+      "item_id": "I3907",
+      "type": 1,
+      "num": 1,
+      "restriction": 100,
+      "price_type": 3,
+      "token": [
+        {
+          "I9158": 18
+        }
+      ],
+      "unit_price": -1,
+      "name": "命运陨铁",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "108": {
+      "activity_id": 14,
+      "item_id": "I3907",
+      "type": 1,
+      "num": 1,
+      "restriction": 200,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 2
+        }
+      ],
+      "unit_price": -1,
+      "name": "命运陨铁",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "109": {
+      "activity_id": 14,
+      "item_id": "I3908",
+      "type": 1,
+      "num": 1,
+      "restriction": 50,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 10
+        }
+      ],
+      "unit_price": -1,
+      "name": "命运结晶",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "110": {
+      "activity_id": 14,
+      "item_id": "I3916",
+      "type": 1,
+      "num": 1,
+      "restriction": 100,
+      "price_type": 3,
+      "token": [
+        {
+          "I9158": 18
+        }
+      ],
+      "unit_price": -1,
+      "name": "镇魂石",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "111": {
+      "activity_id": 14,
+      "item_id": "I3916",
+      "type": 1,
+      "num": 1,
+      "restriction": 200,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 2
+        }
+      ],
+      "unit_price": -1,
+      "name": "镇魂石",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "112": {
+      "activity_id": 14,
+      "item_id": "I3917",
+      "type": 1,
+      "num": 1,
+      "restriction": 50,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 10
+        }
+      ],
+      "unit_price": -1,
+      "name": "摄魂晶",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "113": {
+      "activity_id": 14,
+      "item_id": "I3102",
+      "type": 1,
+      "num": 1,
+      "restriction": 5,
+      "price_type": 3,
+      "token": [
+        {
+          "I9158": 25
+        }
+      ],
+      "unit_price": -1,
+      "name": "聚灵珠（小）",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "114": {
+      "activity_id": 14,
+      "item_id": "I3103",
+      "type": 1,
+      "num": 1,
+      "restriction": 5,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 4
+        }
+      ],
+      "unit_price": -1,
+      "name": "聚灵珠（中）",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "115": {
+      "activity_id": 14,
+      "item_id": "I3104",
+      "type": 1,
+      "num": 1,
+      "restriction": 5,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 12
+        }
+      ],
+      "unit_price": -1,
+      "name": "聚灵珠（大）",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 1
+    },
+    "117": {
+      "activity_id": 14,
+      "item_id": "I7115",
+      "type": 1,
+      "num": 1,
+      "restriction": 1,
+      "price_type": 3,
+      "token": [
+        {
+          "I9158": 500
+        },
+        {
+          "I9159": 100
+        }
+      ],
+      "unit_price": -1,
+      "name": "牛气冲天",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 1
+    },
+    "118": {
+      "activity_id": 14,
+      "item_id": "I8000",
+      "type": 1,
+      "num": 1,
+      "restriction": 200,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 4
+        }
+      ],
+      "unit_price": -1,
+      "name": "零",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "119": {
+      "activity_id": 14,
+      "item_id": "I3104",
+      "type": 1,
+      "num": 1,
+      "restriction": 5,
+      "price_type": 2,
+      "unit_price": 400,
+      "name": "聚灵珠（大）",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "120": {
+      "activity_id": 14,
+      "item_id": "I8012",
+      "type": 1,
+      "num": 1,
+      "restriction": 1,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 200
+        }
+      ],
+      "unit_price": -1,
+      "name": "十二",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "121": {
+      "activity_id": 14,
+      "item_id": "I8013",
+      "type": 1,
+      "num": 1,
+      "restriction": 1,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 420
+        }
+      ],
+      "unit_price": -1,
+      "name": "十三",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "123": {
+      "activity_id": 14,
+      "item_id": "I8014",
+      "type": 1,
+      "num": 1,
+      "restriction": 1,
+      "price_type": 3,
+      "token": [
+        {
+          "I8013": 2
+        }
+      ],
+      "unit_price": -1,
+      "name": "十四",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "124": {
+      "activity_id": 14,
+      "item_id": "I7023",
+      "type": 1,
+      "num": 1,
+      "restriction": 5,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 30
+        }
+      ],
+      "unit_price": -1,
+      "name": "八阵乾坤宝箱",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 1
+    },
+    "125": {
+      "activity_id": 14,
+      "item_id": "B1003",
+      "type": 1,
+      "num": 1,
+      "restriction": 30,
+      "price_type": 3,
+      "token": [
+        {
+          "I9158": 25
+        }
+      ],
+      "unit_price": -1,
+      "name": "突破晶石",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "126": {
+      "activity_id": 14,
+      "item_id": "B1004",
+      "type": 1,
+      "num": 1,
+      "restriction": 30,
+      "price_type": 3,
+      "token": [
+        {
+          "I9158": 20
+        }
+      ],
+      "unit_price": -1,
+      "name": "精炼晶石",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "127": {
+      "activity_id": 14,
+      "item_id": "B1005",
+      "type": 1,
+      "num": 1,
+      "restriction": 10,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 30
+        }
+      ],
+      "unit_price": -1,
+      "name": "升星光印",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    },
+    "128": {
+      "activity_id": 14,
+      "item_id": "B1006",
+      "type": 1,
+      "num": 1,
+      "restriction": 10,
+      "price_type": 3,
+      "token": [
+        {
+          "I9159": 60
+        }
+      ],
+      "unit_price": -1,
+      "name": "进阶光印",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 1
+    },
+    "129": {
+      "activity_id": 14,
+      "item_id": "W5003",
+      "type": 1,
+      "num": 1,
+      "restriction": 1,
+      "price_type": 3,
+      "token": [
+        {
+          "I9158": 600
+        },
+        {
+          "I9159": 120
+        }
+      ],
+      "unit_price": -1,
+      "name": "春暖花开",
+      "level": 1,
+      "jingjie": 0,
+      "zhiye": 0,
+      "refresh": 0,
+      "m_show": [
+        "I9158",
+        "I9159"
+      ],
+      "mainshow": 0
+    }
+  }
+}

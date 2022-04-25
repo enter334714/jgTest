@@ -1,0 +1,26 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "FailedJumpConfig",
+  "json": {
+    "1": {
+      "jumpId": 1024,
+      "icon": "img_woyaobianqiang_icon_zhuangbeichuandai",
+      "name": "装备穿戴"
+    },
+    "2": {
+      "jumpId": 1003,
+      "icon": "img_woyaobianqiang_icon_jinengshengji",
+      "name": "技能升级"
+    },
+    "3": {
+      "jumpId": 1004,
+      "icon": "img_woyaobianqiang_icon_shenbingpeiyang",
+      "name": "神兵培养"
+    },
+    "4": {
+      "jumpId": 1005,
+      "icon": "img_woyaobianqiang_icon_tishengjingjie",
+      "name": "境界提升"
+    }
+  }
+}

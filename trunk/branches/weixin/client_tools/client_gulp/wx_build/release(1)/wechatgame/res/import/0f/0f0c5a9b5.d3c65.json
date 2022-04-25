@@ -1,0 +1,339 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_waiguan_touxiangkuang_chunnuanhuakai",
+      "texture": "9b2JjnG4RLAps24q4Umnsz",
+      "rect": [
+        95,
+        174,
+        91,
+        85
+      ],
+      "offset": [
+        -6,
+        -1
+      ],
+      "originalSize": [
+        107,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_waiguan_touxiangkuang_tayunzhuyue",
+      "texture": "9b2JjnG4RLAps24q4Umnsz",
+      "rect": [
+        2,
+        2,
+        107,
+        81
+      ],
+      "offset": [
+        0,
+        1
+      ],
+      "originalSize": [
+        107,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_waiguan_touxiangkuang_00chushi",
+      "texture": "9b2JjnG4RLAps24q4Umnsz",
+      "rect": [
+        85,
+        425,
+        77,
+        77
+      ],
+      "offset": [
+        1,
+        3
+      ],
+      "originalSize": [
+        107,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_waiguan_touxiangkuang_dongrinuanyang",
+      "texture": "9b2JjnG4RLAps24q4Umnsz",
+      "rect": [
+        2,
+        425,
+        83,
+        81
+      ],
+      "offset": [
+        -2,
+        4
+      ],
+      "originalSize": [
+        107,
+        89
+      ],
+      "rotated": 1,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_waiguan_touxiangkuang_tangguobinfen",
+      "texture": "9b2JjnG4RLAps24q4Umnsz",
+      "rect": [
+        111,
+        2,
+        97,
+        81
+      ],
+      "offset": [
+        0,
+        1
+      ],
+      "originalSize": [
+        107,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_waiguan_touxiangkuang_qingliangyixia",
+      "texture": "9b2JjnG4RLAps24q4Umnsz",
+      "rect": [
+        93,
+        261,
+        87,
+        85
+      ],
+      "offset": [
+        -4,
+        -1
+      ],
+      "originalSize": [
+        107,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_waiguan_touxiangkuang_xinchunkuaile",
+      "texture": "9b2JjnG4RLAps24q4Umnsz",
+      "rect": [
+        2,
+        259,
+        89,
+        81
+      ],
+      "offset": [
+        8,
+        1
+      ],
+      "originalSize": [
+        107,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_waiguan_touxiangkuang_qiuyehongfeng",
+      "texture": "9b2JjnG4RLAps24q4Umnsz",
+      "rect": [
+        2,
+        342,
+        87,
+        81
+      ],
+      "offset": [
+        5,
+        0
+      ],
+      "originalSize": [
+        107,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteAtlas",
+    "_name": "touxiangkuang.plist",
+    "_spriteFrames": {
+      "img_waiguan_touxiangkuang_00chushi": {
+        "__uuid__": "3ark0hMzBKdLEHy/6dlsGH"
+      },
+      "img_waiguan_touxiangkuang_chunnuanhuakai": {
+        "__uuid__": "05Zf/+8ytEarwZqmh6hM6h"
+      },
+      "img_waiguan_touxiangkuang_dongrinuanyang": {
+        "__uuid__": "3dOX5QZhJKcqhxqrgk5Lhq"
+      },
+      "img_waiguan_touxiangkuang_jiacaiwanguan": {
+        "__uuid__": "f4Aa+xodZM35I5VitMW8oS"
+      },
+      "img_waiguan_touxiangkuang_jianchibuxie": {
+        "__uuid__": "e2XVpUaKRG6pwdTJvlSkWk"
+      },
+      "img_waiguan_touxiangkuang_longzhenghudou": {
+        "__uuid__": "ddgBqggO5Li4HWUqqkFpTn"
+      },
+      "img_waiguan_touxiangkuang_qingliangyixia": {
+        "__uuid__": "7bGq+KV1ZHGaDWyskQCK4e"
+      },
+      "img_waiguan_touxiangkuang_qiuyehongfeng": {
+        "__uuid__": "a9fagPgAFOC5HDgbR/ZWLA"
+      },
+      "img_waiguan_touxiangkuang_tangguobinfen": {
+        "__uuid__": "48A7By+PZPQ6iBV/r7kCy2"
+      },
+      "img_waiguan_touxiangkuang_tayunzhuyue": {
+        "__uuid__": "21enb2UJhI4a0CKafjPZHE"
+      },
+      "img_waiguan_touxiangkuang_xinchunkuaile": {
+        "__uuid__": "a2qUCsxahMsIcycMLNIffj"
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_waiguan_touxiangkuang_longzhenghudou",
+      "texture": "9b2JjnG4RLAps24q4Umnsz",
+      "rect": [
+        2,
+        85,
+        95,
+        85
+      ],
+      "offset": [
+        3,
+        -2
+      ],
+      "originalSize": [
+        107,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_waiguan_touxiangkuang_jianchibuxie",
+      "texture": "9b2JjnG4RLAps24q4Umnsz",
+      "rect": [
+        2,
+        172,
+        91,
+        85
+      ],
+      "offset": [
+        8,
+        2
+      ],
+      "originalSize": [
+        107,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_waiguan_touxiangkuang_jiacaiwanguan",
+      "texture": "9b2JjnG4RLAps24q4Umnsz",
+      "rect": [
+        99,
+        85,
+        93,
+        87
+      ],
+      "offset": [
+        -2,
+        -1
+      ],
+      "originalSize": [
+        107,
+        89
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

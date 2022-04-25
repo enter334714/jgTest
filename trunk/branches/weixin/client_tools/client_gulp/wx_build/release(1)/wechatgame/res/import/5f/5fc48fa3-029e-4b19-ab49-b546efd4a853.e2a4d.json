@@ -1,0 +1,66 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "DropConfig",
+  "json": {
+    "0": {
+      "dec": "普通怪装备掉落概率、染色概率、数量加成",
+      "equip_prob": 10000,
+      "magic_find1": 10000,
+      "equip_times": 0,
+      "item_prob": 10000,
+      "item_times": 0,
+      "rune_prob": 10000,
+      "rune_times": 0,
+      "activity_prob": 10000,
+      "activity_times": 0
+    },
+    "1": {
+      "dec": "精英怪装备掉落概率、染色概率、数量加成",
+      "equip_prob": 200000,
+      "magic_find1": 20000,
+      "equip_times": 5000,
+      "item_prob": 10000,
+      "item_times": 0,
+      "rune_prob": 15000,
+      "rune_times": 0,
+      "activity_prob": 10000,
+      "activity_times": 0
+    },
+    "2": {
+      "dec": "头目怪装备掉落概率、染色概率、数量加成",
+      "equip_prob": 200000,
+      "magic_find1": 50000,
+      "equip_times": 10000,
+      "item_prob": 10000,
+      "item_times": 0,
+      "rune_prob": 20000,
+      "rune_times": 0,
+      "activity_prob": 10000,
+      "activity_times": 0
+    },
+    "3": {
+      "dec": "统领怪装备掉落概率、染色概率、数量加成",
+      "equip_prob": 200000,
+      "magic_find1": 100000,
+      "equip_times": 20000,
+      "item_prob": 10000,
+      "item_times": 0,
+      "rune_prob": 30000,
+      "rune_times": 0,
+      "activity_prob": 10000,
+      "activity_times": 0
+    },
+    "4": {
+      "dec": "BOSS怪装备掉落概率、染色概率、数量加成",
+      "equip_prob": 200000,
+      "magic_find1": 20000,
+      "equip_times": 0,
+      "item_prob": 10000,
+      "item_times": 0,
+      "rune_prob": 10000,
+      "rune_times": 0,
+      "activity_prob": 10000,
+      "activity_times": 0
+    }
+  }
+}

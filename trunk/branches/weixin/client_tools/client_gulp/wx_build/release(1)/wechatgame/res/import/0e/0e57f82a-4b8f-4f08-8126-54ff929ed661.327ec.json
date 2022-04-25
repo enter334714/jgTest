@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ppicframe_yongzhuangpaidui_53",
+    "texture": "37z2RCxQpJYoQ5kcturA9o",
+    "rect": [
+      38,
+      6,
+      127,
+      64
+    ],
+    "offset": [
+      -0.5,
+      -1
+    ],
+    "originalSize": [
+      204,
+      74
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

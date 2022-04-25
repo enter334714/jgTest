@@ -1,0 +1,260 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yiyutansuo0",
+      "texture": "81fVTonrBKP7mSPXx7I8FW",
+      "rect": [
+        5,
+        5,
+        92,
+        96
+      ],
+      "offset": [
+        1.5,
+        -1.5
+      ],
+      "originalSize": [
+        99,
+        103
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shouchong1",
+      "texture": "4eTal53sNFvKNdjfu9gMG8",
+      "rect": [
+        0,
+        1,
+        99,
+        102
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        99,
+        103
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "shouchong0",
+      "texture": "36xpdJdblMjJAKXepNCUSY",
+      "rect": [
+        5,
+        5,
+        92,
+        96
+      ],
+      "offset": [
+        1.5,
+        -1.5
+      ],
+      "originalSize": [
+        99,
+        103
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "tequan",
+    "_duration": 0.6833333333333333,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "f97tC0J4VJKIUAP9xuoNSY"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "757CHalYJOtq8keS/jKkWQ"
+              }
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": {
+                "__uuid__": "757CHalYJOtq8keS/jKkWQ"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tequan1",
+      "texture": "66SpOZ0U1AiJBHMYylPs53",
+      "rect": [
+        0,
+        1,
+        99,
+        102
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        99,
+        103
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "yiyutansuo1",
+      "texture": "4fYfy3XtBKQ4J9P8LNU9kW",
+      "rect": [
+        0,
+        1,
+        99,
+        102
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        99,
+        103
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "yiyutansuo",
+    "_duration": 0.6833333333333333,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "0dAxHmcTVIXbgDaKh21cn/"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "c83X03W4BI1I28FDIPOwG8"
+              }
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": {
+                "__uuid__": "c83X03W4BI1I28FDIPOwG8"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "shouchong",
+    "_duration": 0.6833333333333333,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "2bv07098FIA7WE6/A3ylBT"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "2a06DrdrVODpQpjtn+BGgI"
+              }
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": {
+                "__uuid__": "2a06DrdrVODpQpjtn+BGgI"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "tequan0",
+      "texture": "b5KaYb4W1DvaJTgFQMTPrf",
+      "rect": [
+        5,
+        5,
+        92,
+        96
+      ],
+      "offset": [
+        1.5,
+        -1.5
+      ],
+      "originalSize": [
+        99,
+        103
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

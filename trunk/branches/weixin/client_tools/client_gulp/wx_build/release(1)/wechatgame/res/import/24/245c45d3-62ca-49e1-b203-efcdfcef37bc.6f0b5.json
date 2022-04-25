@@ -1,0 +1,366 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "StrategyXingXiuConfig",
+  "json": {
+    "1001": {
+      "role": 0,
+      "subtypename": "<color=#ff0000>角木蛟</color>",
+      "subdes": "<color=#ff0000>战士pk强力星宿有伤害有控制</color>",
+      "picid": 0
+    },
+    "1002": {
+      "role": 0,
+      "subtypename": "<color=#ff0000>亢金龙</color>",
+      "subdes": "<color=#ff0000>战士pk强力星宿</color>",
+      "picid": 1
+    },
+    "1003": {
+      "role": 0,
+      "subtypename": "<color=#ff0000>氐土貉</color>",
+      "subdes": "<color=#ff0000>pk专用增加伤害，影响刷怪速度</color>",
+      "picid": 2
+    },
+    "1004": {
+      "role": 0,
+      "subtypename": "<color=#ff0000>房日兔</color>",
+      "subdes": "<color=#ff0000>pk不推荐，刷怪专用</color>",
+      "picid": 3
+    },
+    "1005": {
+      "role": 0,
+      "subtypename": "井木犴",
+      "subdes": "暂时不推荐",
+      "picid": 4
+    },
+    "1006": {
+      "role": 0,
+      "subtypename": "鬼金羊",
+      "subdes": "PK可用，刷怪天关效果不明显。",
+      "picid": 5
+    },
+    "1007": {
+      "role": 0,
+      "subtypename": "柳土獐",
+      "subdes": "暂时不推荐",
+      "picid": 6
+    },
+    "1008": {
+      "role": 0,
+      "subtypename": "星日马",
+      "subdes": "强化生存能力，可用",
+      "picid": 7
+    },
+    "1009": {
+      "role": 0,
+      "subtypename": "奎木狼",
+      "subdes": "大后期技能等级溢出可用，前期不推荐",
+      "picid": 8
+    },
+    "1010": {
+      "role": 0,
+      "subtypename": "娄金狗",
+      "subdes": "通用星宿增伤效果明显，无副作用。",
+      "picid": 9
+    },
+    "1011": {
+      "role": 0,
+      "subtypename": "胃土雉",
+      "subdes": "攻速+20，攻速+10%，主属性-5%",
+      "picid": 10
+    },
+    "1012": {
+      "role": 0,
+      "subtypename": "昴日鸡",
+      "subdes": "主属性+10，主属性+5%，攻速-10%",
+      "picid": 11
+    },
+    "1013": {
+      "role": 0,
+      "subtypename": "斗木獬",
+      "subdes": "pk可以克制道士双宠物，每次宠物攻击都回复1次生命。但是防御降低会被其他高爆发职业克制",
+      "picid": 12
+    },
+    "1014": {
+      "role": 0,
+      "subtypename": "牛金牛",
+      "subdes": "暂时不推荐",
+      "picid": 13
+    },
+    "1015": {
+      "role": 0,
+      "subtypename": "女土蝠",
+      "subdes": "天关特定关卡有用",
+      "picid": 14
+    },
+    "1016": {
+      "role": 0,
+      "subtypename": "虚日鼠",
+      "subdes": "平民党省药可用",
+      "picid": 15
+    },
+    "1017": {
+      "role": 0,
+      "subtypename": "青龙",
+      "subdes": "暂时不推荐",
+      "picid": 16
+    },
+    "1018": {
+      "role": 0,
+      "subtypename": "朱雀",
+      "subdes": " 可用，优先选技能",
+      "picid": 17
+    },
+    "1019": {
+      "role": 0,
+      "subtypename": "白虎",
+      "subdes": " 可用，优先选技能",
+      "picid": 18
+    },
+    "1020": {
+      "role": 0,
+      "subtypename": "玄武",
+      "subdes": " 可用，优先选技能",
+      "picid": 19
+    },
+    "2001": {
+      "role": 1,
+      "subtypename": "<color=#00c0ff>角木蛟</color>",
+      "subdes": "<color=#00c0ff>法师pk强力星宿，控制效果好</color>",
+      "picid": 0
+    },
+    "2002": {
+      "role": 1,
+      "subtypename": "<color=#00c0ff>亢金龙</color>",
+      "subdes": "<color=#00c0ff>法师pk，天关boss强力星宿，刷小怪一般都是满怪几乎没用</color>",
+      "picid": 1
+    },
+    "2003": {
+      "role": 1,
+      "subtypename": "<color=#00c0ff>氐土貉</color>",
+      "subdes": "<color=#00c0ff>法师pk，天关boss图强力星宿增加伤害，影响刷怪速度</color>",
+      "picid": 2
+    },
+    "2004": {
+      "role": 1,
+      "subtypename": "<color=#00c0ff>房日兔</color>",
+      "subdes": "<color=#00c0ff>pk不推荐，刷怪专用</color>",
+      "picid": 3
+    },
+    "2005": {
+      "role": 1,
+      "subtypename": "井木犴",
+      "subdes": "暂时不推荐",
+      "picid": 4
+    },
+    "2006": {
+      "role": 1,
+      "subtypename": "鬼金羊",
+      "subdes": "PK可用，刷怪天关效果不明显。",
+      "picid": 5
+    },
+    "2007": {
+      "role": 1,
+      "subtypename": "柳土獐",
+      "subdes": "暂时不推荐",
+      "picid": 6
+    },
+    "2008": {
+      "role": 1,
+      "subtypename": "星日马",
+      "subdes": "强化生存能力，可用",
+      "picid": 7
+    },
+    "2009": {
+      "role": 1,
+      "subtypename": "奎木狼",
+      "subdes": "大后期技能等级溢出可用，前期不推荐",
+      "picid": 8
+    },
+    "2010": {
+      "role": 1,
+      "subtypename": "娄金狗",
+      "subdes": "通用星宿增伤效果明显，无副作用。",
+      "picid": 9
+    },
+    "2011": {
+      "role": 1,
+      "subtypename": "胃土雉",
+      "subdes": "攻速+20，攻速+10%，主属性-5%",
+      "picid": 10
+    },
+    "2012": {
+      "role": 1,
+      "subtypename": "昴日鸡",
+      "subdes": "主属性+10，主属性+5%，攻速-10%",
+      "picid": 11
+    },
+    "2013": {
+      "role": 1,
+      "subtypename": "斗木獬",
+      "subdes": "pk可以克制道士双宠物，每次宠物攻击都回复1次生命。但是防御降低会被其他高爆发职业克制",
+      "picid": 12
+    },
+    "2014": {
+      "role": 1,
+      "subtypename": "牛金牛",
+      "subdes": "暂时不推荐",
+      "picid": 13
+    },
+    "2015": {
+      "role": 1,
+      "subtypename": "女土蝠",
+      "subdes": "天关特定关卡有用",
+      "picid": 14
+    },
+    "2016": {
+      "role": 1,
+      "subtypename": "虚日鼠",
+      "subdes": "平民党省药可用",
+      "picid": 15
+    },
+    "2017": {
+      "role": 1,
+      "subtypename": "青龙",
+      "subdes": "暂时不推荐",
+      "picid": 16
+    },
+    "2018": {
+      "role": 1,
+      "subtypename": "朱雀",
+      "subdes": " 可用，优先选技能",
+      "picid": 17
+    },
+    "2019": {
+      "role": 1,
+      "subtypename": "白虎",
+      "subdes": " 可用，优先选技能",
+      "picid": 18
+    },
+    "2020": {
+      "role": 1,
+      "subtypename": "玄武",
+      "subdes": " 可用，优先选技能",
+      "picid": 19
+    },
+    "3001": {
+      "role": 2,
+      "subtypename": "<color=#0cff00>角木蛟</color>",
+      "subdes": "<color=#0cff00>道士pk强力星宿，恢复和控制一体</color>",
+      "picid": 0
+    },
+    "3002": {
+      "role": 2,
+      "subtypename": "<color=#0cff00>亢金龙</color>",
+      "subdes": "<color=#0cff00>道士主力星宿，安逸卡怪</color>",
+      "picid": 1
+    },
+    "3003": {
+      "role": 2,
+      "subtypename": "<color=#0cff00>氐土貉</color>",
+      "subdes": "<color=#0cff00>道士pk，天关boss图强力星宿增加伤害，影响刷怪速度</color>",
+      "picid": 2
+    },
+    "3004": {
+      "role": 2,
+      "subtypename": "<color=#0cff00>房日兔</color>",
+      "subdes": "<color=#0cff00>pk不推荐，刷怪专用</color>",
+      "picid": 3
+    },
+    "3005": {
+      "role": 2,
+      "subtypename": "井木犴",
+      "subdes": "暂时不推荐",
+      "picid": 4
+    },
+    "3006": {
+      "role": 2,
+      "subtypename": "鬼金羊",
+      "subdes": "PK可用，刷怪天关效果不明显。",
+      "picid": 5
+    },
+    "3007": {
+      "role": 2,
+      "subtypename": "柳土獐",
+      "subdes": "暂时不推荐",
+      "picid": 6
+    },
+    "3008": {
+      "role": 2,
+      "subtypename": "星日马",
+      "subdes": "强化生存能力，可用",
+      "picid": 7
+    },
+    "3009": {
+      "role": 2,
+      "subtypename": "奎木狼",
+      "subdes": "大后期技能等级溢出可用，前期不推荐",
+      "picid": 8
+    },
+    "3010": {
+      "role": 2,
+      "subtypename": "娄金狗",
+      "subdes": "通用星宿增伤效果明显，无副作用。",
+      "picid": 9
+    },
+    "3011": {
+      "role": 2,
+      "subtypename": "胃土雉",
+      "subdes": "攻速+20，攻速+10%，主属性-5%",
+      "picid": 10
+    },
+    "3012": {
+      "role": 2,
+      "subtypename": "昴日鸡",
+      "subdes": "主属性+10，主属性+5%，攻速-10%",
+      "picid": 11
+    },
+    "3013": {
+      "role": 2,
+      "subtypename": "斗木獬",
+      "subdes": "pk可以克制道士双宠物，每次宠物攻击都回复1次生命。但是防御降低会被其他高爆发职业克制",
+      "picid": 12
+    },
+    "3014": {
+      "role": 2,
+      "subtypename": "牛金牛",
+      "subdes": "暂时不推荐",
+      "picid": 13
+    },
+    "3015": {
+      "role": 2,
+      "subtypename": "女土蝠",
+      "subdes": "天关特定关卡有用",
+      "picid": 14
+    },
+    "3016": {
+      "role": 2,
+      "subtypename": "虚日鼠",
+      "subdes": "平民党省药可用",
+      "picid": 15
+    },
+    "3017": {
+      "role": 2,
+      "subtypename": "青龙",
+      "subdes": "暂时不推荐",
+      "picid": 16
+    },
+    "3018": {
+      "role": 2,
+      "subtypename": "朱雀",
+      "subdes": " 可用，优先选技能",
+      "picid": 17
+    },
+    "3019": {
+      "role": 2,
+      "subtypename": "白虎",
+      "subdes": " 可用，优先选技能",
+      "picid": 18
+    },
+    "3020": {
+      "role": 2,
+      "subtypename": "玄武",
+      "subdes": " 可用，优先选技能",
+      "picid": 19
+    }
+  }
+}

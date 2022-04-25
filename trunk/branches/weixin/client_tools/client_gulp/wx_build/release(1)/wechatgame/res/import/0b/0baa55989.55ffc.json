@@ -1,0 +1,280 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_womaziji_06",
+      "texture": "6fLl5qFLRKA5e/Mw21KSvA",
+      "rect": [
+        3,
+        6,
+        77,
+        108
+      ],
+      "offset": [
+        -6,
+        -3
+      ],
+      "originalSize": [
+        95,
+        114
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_womaziji_04",
+      "texture": "51UlIGAAlJr6xILJFvc4MB",
+      "rect": [
+        4,
+        1,
+        80,
+        112
+      ],
+      "offset": [
+        -3.5,
+        0
+      ],
+      "originalSize": [
+        95,
+        114
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "womajiaozhu_my",
+    "_duration": 0.6,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "e9oMxqMmlExpqB8ATTCXoH"
+              }
+            },
+            {
+              "frame": 0.08333333333333333,
+              "value": {
+                "__uuid__": "ddz/Xn1xlI55kw0CwTjh/2"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "4eUlckR/dNsL+omovPvXKL"
+              }
+            },
+            {
+              "frame": 0.25,
+              "value": {
+                "__uuid__": "2agHrzyEVBiKN+uiZa5YcF"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "dentoEhFVKd5kQzPm36maZ"
+              }
+            },
+            {
+              "frame": 0.4166666666666667,
+              "value": {
+                "__uuid__": "1al/Uq2t1Fy5+hp3pRptOV"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "328o4eOLpMdaT+kzYVmADa"
+              }
+            },
+            {
+              "frame": 0.5833333333333334,
+              "value": {
+                "__uuid__": "59QEGA7zNDxKbKBjdas0hN"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_womaziji_07",
+      "texture": "999PwCI6dKLqVtaHVChM7y",
+      "rect": [
+        9,
+        6,
+        79,
+        102
+      ],
+      "offset": [
+        1,
+        0
+      ],
+      "originalSize": [
+        95,
+        114
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_womaziji_03",
+      "texture": "40r9mzCs5KM4jjyihchiej",
+      "rect": [
+        1,
+        7,
+        85,
+        101
+      ],
+      "offset": [
+        -4,
+        -0.5
+      ],
+      "originalSize": [
+        95,
+        114
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_womaziji_08",
+      "texture": "17dRKxrfJJi4BHSST+4mxA",
+      "rect": [
+        9,
+        5,
+        81,
+        106
+      ],
+      "offset": [
+        2,
+        -1
+      ],
+      "originalSize": [
+        95,
+        114
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_womaziji_02",
+      "texture": "5aJ8TB5lxEAacRmBUx41qO",
+      "rect": [
+        2,
+        8,
+        87,
+        101
+      ],
+      "offset": [
+        -2,
+        -1.5
+      ],
+      "originalSize": [
+        95,
+        114
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_womaziji_05",
+      "texture": "76hYVmctBAwaeN/Huzu1F5",
+      "rect": [
+        0,
+        0,
+        84,
+        111
+      ],
+      "offset": [
+        -5.5,
+        1.5
+      ],
+      "originalSize": [
+        95,
+        114
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_saipao_womaziji_01",
+      "texture": "52NQygtkJPOLtBhbA/G1Qj",
+      "rect": [
+        8,
+        7,
+        87,
+        99
+      ],
+      "offset": [
+        4,
+        0.5
+      ],
+      "originalSize": [
+        95,
+        114
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

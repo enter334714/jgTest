@@ -1,0 +1,286 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_myts_faguang04_07",
+      "texture": "8cxL2A9mZKs6HT7y+He3T3",
+      "rect": [
+        1,
+        0,
+        54,
+        55
+      ],
+      "offset": [
+        0,
+        0.5
+      ],
+      "originalSize": [
+        56,
+        56
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_myts_faguang03_06",
+      "texture": "9eqaTHmW5Pc5l8EORnujIS",
+      "rect": [
+        5,
+        3,
+        47,
+        47
+      ],
+      "offset": [
+        0.5,
+        1.5
+      ],
+      "originalSize": [
+        56,
+        56
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_myts_faguang02",
+      "texture": "37JJfuTA1KRZ/NhBegn7S/",
+      "rect": [
+        7,
+        5,
+        42,
+        42
+      ],
+      "offset": [
+        0,
+        2
+      ],
+      "originalSize": [
+        56,
+        56
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "moyuani",
+    "_duration": 1.2333333333333334,
+    "sample": 30,
+    "curveData": {
+      "paths": {
+        "bg": {
+          "comps": {
+            "cc.Sprite": {
+              "spriteFrame": [
+                {
+                  "frame": 0,
+                  "value": {
+                    "__uuid__": "e8EIhSPWlFzJ4Ov/L4J/Ky"
+                  }
+                }
+              ]
+            }
+          },
+          "props": {
+            "position": [
+              {
+                "frame": 0,
+                "value": [
+                  -1,
+                  2,
+                  0
+                ]
+              }
+            ]
+          }
+        },
+        "blink": {
+          "comps": {
+            "cc.Sprite": {
+              "spriteFrame": [
+                {
+                  "frame": 0,
+                  "value": {
+                    "__uuid__": "e1Jula+F5Kgqy1A/jkxPY/"
+                  }
+                },
+                {
+                  "frame": 0.1,
+                  "value": {
+                    "__uuid__": "6dsVSf3q1FLLIuemU5XIfv"
+                  }
+                },
+                {
+                  "frame": 0.2,
+                  "value": {
+                    "__uuid__": "61WntnSv5Fd5sghP5ZbmFk"
+                  }
+                },
+                {
+                  "frame": 0.3,
+                  "value": {
+                    "__uuid__": "50M9zUrRtMgaNUBbBJ4Nbd"
+                  }
+                },
+                {
+                  "frame": 0.4,
+                  "value": {
+                    "__uuid__": "f71++2l8hF/JX3M+r/0sVq"
+                  }
+                },
+                {
+                  "frame": 0.5,
+                  "value": {
+                    "__uuid__": "50M9zUrRtMgaNUBbBJ4Nbd"
+                  }
+                },
+                {
+                  "frame": 0.6,
+                  "value": {
+                    "__uuid__": "61WntnSv5Fd5sghP5ZbmFk"
+                  }
+                },
+                {
+                  "frame": 0.7,
+                  "value": {
+                    "__uuid__": "50M9zUrRtMgaNUBbBJ4Nbd"
+                  }
+                },
+                {
+                  "frame": 0.8,
+                  "value": {
+                    "__uuid__": "f71++2l8hF/JX3M+r/0sVq"
+                  }
+                },
+                {
+                  "frame": 0.9,
+                  "value": {
+                    "__uuid__": "50M9zUrRtMgaNUBbBJ4Nbd"
+                  }
+                },
+                {
+                  "frame": 1,
+                  "value": {
+                    "__uuid__": "61WntnSv5Fd5sghP5ZbmFk"
+                  }
+                },
+                {
+                  "frame": 1.1,
+                  "value": {
+                    "__uuid__": "6dsVSf3q1FLLIuemU5XIfv"
+                  }
+                },
+                {
+                  "frame": 1.2,
+                  "value": {
+                    "__uuid__": "e1Jula+F5Kgqy1A/jkxPY/"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_myts_faguang01_09",
+      "texture": "a3Nmn6yW5AzrL3vsbi4Ny8",
+      "rect": [
+        12,
+        10,
+        32,
+        32
+      ],
+      "offset": [
+        0,
+        2
+      ],
+      "originalSize": [
+        56,
+        56
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_myts_faguang_bg01",
+      "texture": "3cU66jJVlKbaV0glp8q2dg",
+      "rect": [
+        0,
+        0,
+        62,
+        53
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        62,
+        53
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "img_icon_myts_faguang05_08",
+      "texture": "1cWfwFySxK5LDgrNkfF5u+",
+      "rect": [
+        1,
+        0,
+        54,
+        55
+      ],
+      "offset": [
+        0,
+        0.5
+      ],
+      "originalSize": [
+        56,
+        56
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

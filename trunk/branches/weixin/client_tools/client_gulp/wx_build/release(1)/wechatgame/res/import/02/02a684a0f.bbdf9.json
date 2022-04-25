@@ -1,0 +1,247 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "zuiqiangjineng2",
+      "texture": "d9782Uqz9LS7SDcU5rf9m5",
+      "rect": [
+        0,
+        1,
+        64,
+        66
+      ],
+      "offset": [
+        -1,
+        0.5
+      ],
+      "originalSize": [
+        66,
+        69
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "zuiqiangjineng5",
+      "texture": "a0KAj2jyxLmqjZJG1rBzvz",
+      "rect": [
+        0,
+        0,
+        64,
+        67
+      ],
+      "offset": [
+        -1,
+        1
+      ],
+      "originalSize": [
+        66,
+        69
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "zuiqiangjineng",
+    "_duration": 0.5166666666666667,
+    "wrapMode": 2,
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "d9P7xVfNdOF5uIZUGysMEO"
+              }
+            },
+            {
+              "frame": 0.08333333333333333,
+              "value": {
+                "__uuid__": "e2vzvluUROx4Y8ZojpzXz6"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "0fHYfIs11BTL8l05t2U/fu"
+              }
+            },
+            {
+              "frame": 0.25,
+              "value": {
+                "__uuid__": "3a0pY05UdCn5RsmtBAz/OQ"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "66GPklaw1ItabnzrS/mjaY"
+              }
+            },
+            {
+              "frame": 0.4166666666666667,
+              "value": {
+                "__uuid__": "1bUnQrW45PMrjy7aSg3FDt"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "cbrJUEg+JGiKHw9e5IkutS"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "zuiqiangjineng3",
+      "texture": "15TMpoegZJw76Foto7qt/0",
+      "rect": [
+        0,
+        0,
+        64,
+        67
+      ],
+      "offset": [
+        -1,
+        1
+      ],
+      "originalSize": [
+        66,
+        69
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "zuiqiangjineng4",
+      "texture": "c7/EbDuaZJJKsOSVHBHXng",
+      "rect": [
+        0,
+        0,
+        64,
+        67
+      ],
+      "offset": [
+        -1,
+        1
+      ],
+      "originalSize": [
+        66,
+        69
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "zuiqiangjineng6",
+      "texture": "0518nNY7FPcp1IVUXQBr/4",
+      "rect": [
+        0,
+        2,
+        66,
+        65
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        66,
+        69
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "zuiqiangjineng0",
+      "texture": "bdMocRLZRLsoilEkgddoZx",
+      "rect": [
+        5,
+        5,
+        92,
+        96
+      ],
+      "offset": [
+        1.5,
+        -1.5
+      ],
+      "originalSize": [
+        99,
+        103
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "zuiqiangjineng1",
+      "texture": "3fKcH1QpxM44iL96gJ3PJK",
+      "rect": [
+        0,
+        1,
+        99,
+        102
+      ],
+      "offset": [
+        0,
+        -0.5
+      ],
+      "originalSize": [
+        99,
+        103
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

@@ -1,0 +1,108 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "worldbosstaskConfig",
+  "json": {
+    "1": {
+      "condition": 1,
+      "limit": 50000,
+      "award_item": {
+        "I3001": 1,
+        "I3004": 1
+      }
+    },
+    "2": {
+      "condition": 1,
+      "limit": 100000,
+      "award_item": {
+        "I3001": 1,
+        "I3004": 2
+      }
+    },
+    "3": {
+      "condition": 1,
+      "limit": 150000,
+      "award_item": {
+        "I3001": 2,
+        "I3004": 3
+      }
+    },
+    "4": {
+      "condition": 1,
+      "limit": 250000,
+      "award_item": {
+        "I3001": 2,
+        "I3004": 4
+      }
+    },
+    "5": {
+      "condition": 1,
+      "limit": 500000,
+      "award_item": {
+        "I3001": 4,
+        "I3004": 5
+      }
+    },
+    "6": {
+      "condition": 1,
+      "limit": 1000000,
+      "award_item": {
+        "I3001": 4,
+        "I3004": 6
+      }
+    },
+    "7": {
+      "condition": 1,
+      "limit": 2000000,
+      "award_item": {
+        "I3903": 1,
+        "I3909": 5,
+        "I3006": 1
+      }
+    },
+    "8": {
+      "condition": 1,
+      "limit": 4000000,
+      "award_item": {
+        "I3903": 1,
+        "I3909": 10,
+        "I3006": 2
+      }
+    },
+    "9": {
+      "condition": 1,
+      "limit": 6000000,
+      "award_item": {
+        "I3903": 2,
+        "I3909": 10,
+        "I3006": 3
+      }
+    },
+    "10": {
+      "condition": 1,
+      "limit": 7500000,
+      "award_item": {
+        "I3903": 2,
+        "I3909": 15,
+        "I3006": 4
+      }
+    },
+    "11": {
+      "condition": 1,
+      "limit": 10000000,
+      "award_item": {
+        "I3903": 4,
+        "I3909": 15,
+        "I3006": 5
+      }
+    },
+    "12": {
+      "condition": 1,
+      "limit": 15000000,
+      "award_item": {
+        "I3903": 4,
+        "I3909": 20,
+        "I3006": 6
+      }
+    }
+  }
+}

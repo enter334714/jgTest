@@ -1,0 +1,791 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "skinConfig",
+  "json": {
+    "1": {
+      "version": 0,
+      "name": "半月弯刀·基础",
+      "type": 1,
+      "quality": 0,
+      "role": 1,
+      "chargeid": 0,
+      "type_value": 104,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 1,
+      "effect": 1,
+      "time": -1,
+      "skinIcon": "img_icon_banyuewandao_01"
+    },
+    "2": {
+      "version": 0,
+      "name": "半月弯刀·碧玉",
+      "type": 1,
+      "quality": 1,
+      "role": 1,
+      "chargeid": 601,
+      "type_value": 104,
+      "valuetype": 1,
+      "mag_value1": [
+        2104,
+        500
+      ],
+      "mag_value2": [
+        1,
+        2
+      ],
+      "des": "半月弯刀伤害+5%",
+      "zhanli": 100,
+      "defaultskin": 1,
+      "effect": 37,
+      "time": 3600,
+      "skinIcon": "img_icon_banyuewandao_02"
+    },
+    "3": {
+      "version": 0,
+      "name": "火墙术·基础",
+      "type": 1,
+      "quality": 0,
+      "role": 2,
+      "chargeid": 0,
+      "type_value": 203,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 3,
+      "effect": 10,
+      "time": -1,
+      "skinIcon": "img_icon_huoqiang_01"
+    },
+    "4": {
+      "version": 0,
+      "name": "火墙术·朱炎",
+      "type": 1,
+      "quality": 1,
+      "role": 2,
+      "chargeid": 602,
+      "type_value": 203,
+      "valuetype": 1,
+      "mag_value1": [
+        2203,
+        500
+      ],
+      "mag_value2": [
+        1,
+        2
+      ],
+      "des": "火墙伤害+5%",
+      "zhanli": 100,
+      "defaultskin": 3,
+      "effect": 39,
+      "time": 3600,
+      "skinIcon": "img_icon_huoqiang_02"
+    },
+    "5": {
+      "version": 0,
+      "name": "施毒术·基础",
+      "type": 1,
+      "quality": 0,
+      "role": 3,
+      "chargeid": 0,
+      "type_value": 304,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 5,
+      "effect": 21,
+      "time": -1,
+      "skinIcon": "img_icon_shidushu_01"
+    },
+    "6": {
+      "version": 0,
+      "name": "施毒术·紫祸",
+      "type": 1,
+      "quality": 1,
+      "role": 3,
+      "chargeid": 603,
+      "type_value": 304,
+      "valuetype": 1,
+      "mag_value1": [
+        2304,
+        500
+      ],
+      "mag_value2": [
+        1,
+        2
+      ],
+      "des": "施毒术伤害+5%",
+      "zhanli": 100,
+      "defaultskin": 5,
+      "effect": 42,
+      "time": 3600,
+      "skinIcon": "img_icon_shidushu_02"
+    },
+    "7": {
+      "version": 0,
+      "name": "烈火剑法·基础",
+      "type": 1,
+      "quality": 0,
+      "role": 1,
+      "chargeid": 0,
+      "type_value": 107,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 7,
+      "effect": 15,
+      "time": -1,
+      "skinIcon": "img_icon_liehuojianfa_01"
+    },
+    "8": {
+      "version": 0,
+      "name": "烈火剑法·爆炎",
+      "type": 1,
+      "quality": 1,
+      "role": 1,
+      "chargeid": 604,
+      "type_value": 107,
+      "valuetype": 2,
+      "mag_value1": [
+        2107,
+        1000
+      ],
+      "mag_value2": [
+        1,
+        2
+      ],
+      "des": "烈火剑法伤害提高10%",
+      "zhanli": 100,
+      "defaultskin": 7,
+      "effect": 58,
+      "time": 3600,
+      "skinIcon": "img_icon_liehuojianfa_02"
+    },
+    "9": {
+      "version": 0,
+      "name": "冰咆哮·基础",
+      "type": 1,
+      "quality": 0,
+      "role": 2,
+      "chargeid": 0,
+      "type_value": 207,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 9,
+      "effect": 4,
+      "time": -1,
+      "skinIcon": "img_icon_bingpaoxiao_01"
+    },
+    "10": {
+      "version": 0,
+      "name": "冰咆哮·冰晶",
+      "type": 1,
+      "quality": 1,
+      "role": 2,
+      "chargeid": 605,
+      "type_value": 207,
+      "valuetype": 2,
+      "mag_value1": [
+        2207,
+        1000
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "冰咆哮伤害提高10%",
+      "zhanli": 100,
+      "defaultskin": 9,
+      "effect": 52,
+      "time": 3600,
+      "skinIcon": "img_icon_bingpaoxiao_02"
+    },
+    "11": {
+      "version": 0,
+      "name": "无极真气·基础",
+      "type": 1,
+      "quality": 0,
+      "role": 3,
+      "chargeid": 0,
+      "type_value": 308,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 11,
+      "effect": 30,
+      "time": -1,
+      "skinIcon": "img_icon_wujizhenqi_01"
+    },
+    "12": {
+      "version": 0,
+      "name": "无极真气·湛蓝",
+      "type": 1,
+      "quality": 1,
+      "role": 3,
+      "chargeid": 606,
+      "type_value": 308,
+      "valuetype": 2,
+      "mag_value1": [
+        2308,
+        1000
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "无极真气伤害提高10%",
+      "zhanli": 100,
+      "defaultskin": 11,
+      "effect": 55,
+      "time": 3600,
+      "skinIcon": "img_icon_wujizhenqi_02"
+    },
+    "13": {
+      "version": 0,
+      "name": "野蛮冲撞·基础",
+      "type": 1,
+      "quality": 0,
+      "role": 1,
+      "chargeid": 0,
+      "type_value": 105,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 13,
+      "effect": 23,
+      "time": -1,
+      "skinIcon": "img_icon_yemanchongzhuang_01"
+    },
+    "14": {
+      "version": 0,
+      "name": "野蛮冲撞·幻影",
+      "type": 1,
+      "quality": 1,
+      "role": 1,
+      "chargeid": 0,
+      "type_value": 105,
+      "valuetype": 1,
+      "mag_value1": [
+        2105,
+        1500
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "野蛮冲撞伤害+15%",
+      "zhanli": 100,
+      "defaultskin": 13,
+      "effect": 85,
+      "time": 3600,
+      "skinIcon": "img_icon_yemanchongzhuang_02"
+    },
+    "15": {
+      "version": 0,
+      "name": "诱惑之光.基础",
+      "type": 1,
+      "quality": 0,
+      "role": 2,
+      "chargeid": 0,
+      "type_value": 204,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 15,
+      "effect": 31,
+      "time": -1,
+      "skinIcon": "img_icon_fashizhaohuan_01"
+    },
+    "16": {
+      "version": 0,
+      "name": "诱惑之光.月白",
+      "type": 1,
+      "quality": 1,
+      "role": 2,
+      "chargeid": 0,
+      "type_value": 204,
+      "valuetype": 1,
+      "mag_value1": [
+        2204,
+        500
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "诱惑之光伤害+5%",
+      "zhanli": 100,
+      "defaultskin": 15,
+      "effect": 101,
+      "time": 3600,
+      "skinIcon": "img_icon_fashizhaohuan_02"
+    },
+    "17": {
+      "version": 0,
+      "name": "召唤术.基础",
+      "type": 1,
+      "quality": 0,
+      "role": 3,
+      "chargeid": 0,
+      "type_value": 305,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 17,
+      "effect": 27,
+      "time": -1,
+      "skinIcon": "img_icon_daoshizhaohuan_01"
+    },
+    "18": {
+      "version": 0,
+      "name": "召唤术.唤灵",
+      "type": 1,
+      "quality": 1,
+      "role": 3,
+      "chargeid": 0,
+      "type_value": 305,
+      "valuetype": 1,
+      "mag_value1": [
+        2305,
+        500
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "召唤术伤害+5%",
+      "zhanli": 100,
+      "defaultskin": 17,
+      "effect": 91,
+      "time": 3600,
+      "skinIcon": "img_icon_daoshizhaohuan_02"
+    },
+    "19": {
+      "version": 0,
+      "name": "刺杀剑术·基础",
+      "type": 1,
+      "quality": 0,
+      "role": 1,
+      "chargeid": 0,
+      "type_value": 103,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 19,
+      "effect": 6,
+      "time": -1,
+      "skinIcon": "img_icon_cishajianshu_01"
+    },
+    "20": {
+      "version": 0,
+      "name": "刺杀剑术·烈炎",
+      "type": 1,
+      "quality": 1,
+      "role": 1,
+      "chargeid": 0,
+      "type_value": 103,
+      "valuetype": 1,
+      "mag_value1": [
+        2102,
+        1000
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "刺杀剑术伤害+10%",
+      "zhanli": 100,
+      "defaultskin": 19,
+      "effect": 113,
+      "time": 3600,
+      "skinIcon": "img_icon_cishajianshu_02"
+    },
+    "21": {
+      "version": 0,
+      "name": "雷电术·基础",
+      "type": 1,
+      "quality": 0,
+      "role": 2,
+      "chargeid": 0,
+      "type_value": 202,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 21,
+      "effect": 13,
+      "time": -1,
+      "skinIcon": "img_icon_luoleishu_01"
+    },
+    "22": {
+      "version": 0,
+      "name": "雷电术·紫雷",
+      "type": 1,
+      "quality": 1,
+      "role": 2,
+      "chargeid": 0,
+      "type_value": 202,
+      "valuetype": 1,
+      "mag_value1": [
+        2202,
+        1000
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "雷电术伤害+10%",
+      "zhanli": 100,
+      "defaultskin": 21,
+      "effect": 117,
+      "time": 3600,
+      "skinIcon": "img_icon_luoleishu_02"
+    },
+    "23": {
+      "version": 0,
+      "name": "灵魂火符·基础",
+      "type": 1,
+      "quality": 0,
+      "role": 3,
+      "chargeid": 0,
+      "type_value": 303,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 23,
+      "effect": 16,
+      "time": -1,
+      "skinIcon": "img_icon_linghunhuofu_01"
+    },
+    "24": {
+      "version": 0,
+      "name": "灵魂火符·驱魔",
+      "type": 1,
+      "quality": 1,
+      "role": 3,
+      "chargeid": 0,
+      "type_value": 303,
+      "valuetype": 1,
+      "mag_value1": [
+        2303,
+        1000
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "灵魂火符伤害+10%",
+      "zhanli": 100,
+      "defaultskin": 23,
+      "effect": 119,
+      "time": 3600,
+      "skinIcon": "img_icon_linghunhuofu_02"
+    },
+    "25": {
+      "version": 0,
+      "name": "半月弯刀·炎灭",
+      "type": 1,
+      "quality": 1,
+      "role": 1,
+      "chargeid": 0,
+      "type_value": 104,
+      "valuetype": 1,
+      "mag_value1": [
+        2104,
+        500
+      ],
+      "mag_value2": [
+        1,
+        2
+      ],
+      "des": "半月弯刀伤害+5%",
+      "zhanli": 100,
+      "defaultskin": 1,
+      "effect": 124,
+      "time": 3600,
+      "skinIcon": "img_icon_banyuewandao_03"
+    },
+    "26": {
+      "version": 0,
+      "name": "火墙术·天照",
+      "type": 1,
+      "quality": 1,
+      "role": 2,
+      "chargeid": 0,
+      "type_value": 203,
+      "valuetype": 1,
+      "mag_value1": [
+        2203,
+        500
+      ],
+      "mag_value2": [
+        1,
+        2
+      ],
+      "des": "火墙伤害+5%",
+      "zhanli": 100,
+      "defaultskin": 3,
+      "effect": 126,
+      "time": 3600,
+      "skinIcon": "img_icon_huoqiang_03"
+    },
+    "27": {
+      "version": 0,
+      "name": "施毒术·沼溺",
+      "type": 1,
+      "quality": 1,
+      "role": 3,
+      "chargeid": 0,
+      "type_value": 304,
+      "valuetype": 1,
+      "mag_value1": [
+        2304,
+        500
+      ],
+      "mag_value2": [
+        1,
+        2
+      ],
+      "des": "施毒术伤害+5%",
+      "zhanli": 100,
+      "defaultskin": 5,
+      "effect": 131,
+      "time": 3600,
+      "skinIcon": "img_icon_shidushu_03"
+    },
+    "28": {
+      "version": 0,
+      "name": "刺杀剑术·惩戒",
+      "type": 1,
+      "quality": 1,
+      "role": 1,
+      "chargeid": 0,
+      "type_value": 103,
+      "valuetype": 1,
+      "mag_value1": [
+        2102,
+        500
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "刺杀剑术伤害+5%",
+      "zhanli": 100,
+      "defaultskin": 19,
+      "effect": 133,
+      "time": 3600,
+      "skinIcon": "img_icon_cishajianshu_03"
+    },
+    "29": {
+      "version": 0,
+      "name": "冰咆哮·白絮",
+      "type": 1,
+      "quality": 1,
+      "role": 2,
+      "chargeid": 0,
+      "type_value": 207,
+      "valuetype": 2,
+      "mag_value1": [
+        2207,
+        500
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "冰咆哮伤害+5%",
+      "zhanli": 100,
+      "defaultskin": 9,
+      "effect": 141,
+      "time": 3600,
+      "skinIcon": "img_icon_bingpaoxiao_03"
+    },
+    "30": {
+      "version": 0,
+      "name": "灵魂火符·惊雷",
+      "type": 1,
+      "quality": 1,
+      "role": 3,
+      "chargeid": 0,
+      "type_value": 303,
+      "valuetype": 1,
+      "mag_value1": [
+        2303,
+        500
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "灵魂火符伤害+5%",
+      "zhanli": 100,
+      "defaultskin": 23,
+      "effect": 143,
+      "time": 3600,
+      "skinIcon": "img_icon_linghunhuofu_03"
+    },
+    "31": {
+      "version": 0,
+      "name": "烈火剑法·猛击",
+      "type": 1,
+      "quality": 1,
+      "role": 1,
+      "chargeid": 0,
+      "type_value": 107,
+      "valuetype": 2,
+      "mag_value1": [
+        2107,
+        500
+      ],
+      "mag_value2": [
+        1,
+        2
+      ],
+      "des": "烈火剑法伤害提高5%",
+      "zhanli": 100,
+      "defaultskin": 7,
+      "effect": 146,
+      "time": 3600,
+      "skinIcon": "img_icon_liehuojianfa_03"
+    },
+    "32": {
+      "version": 0,
+      "name": "魔法盾·基础",
+      "type": 1,
+      "quality": 0,
+      "role": 2,
+      "chargeid": 0,
+      "type_value": 205,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 32,
+      "effect": 17,
+      "time": -1,
+      "skinIcon": "img_icon_mofadun_01"
+    },
+    "33": {
+      "version": 0,
+      "name": "魔法盾·冰环",
+      "type": 1,
+      "quality": 1,
+      "role": 2,
+      "chargeid": 0,
+      "type_value": 205,
+      "valuetype": 1,
+      "mag_value1": [
+        2205,
+        200
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "魔法盾魔法提高2%",
+      "zhanli": 100,
+      "defaultskin": 32,
+      "effect": 154,
+      "time": 3600,
+      "skinIcon": "img_icon_mofadun_02"
+    },
+    "34": {
+      "version": 0,
+      "name": "神圣战甲术·基础",
+      "type": 1,
+      "quality": 0,
+      "role": 3,
+      "chargeid": 0,
+      "type_value": 307,
+      "valuetype": 1,
+      "mag_value1": [
+        0,
+        0
+      ],
+      "mag_value2": [],
+      "des": "无",
+      "zhanli": 0,
+      "defaultskin": 34,
+      "effect": 19,
+      "time": -1,
+      "skinIcon": "img_icon_shengshenzhanjiashu_01"
+    },
+    "35": {
+      "version": 0,
+      "name": "神圣战甲术·铁块",
+      "type": 1,
+      "quality": 1,
+      "role": 3,
+      "chargeid": 0,
+      "type_value": 307,
+      "valuetype": 1,
+      "mag_value1": [
+        2307,
+        50
+      ],
+      "mag_value2": [
+        1
+      ],
+      "des": "神圣战甲术道术提高0.5%",
+      "zhanli": 100,
+      "defaultskin": 34,
+      "effect": 155,
+      "time": 3600,
+      "skinIcon": "img_icon_shengshenzhanjiashu_02"
+    }
+  }
+}

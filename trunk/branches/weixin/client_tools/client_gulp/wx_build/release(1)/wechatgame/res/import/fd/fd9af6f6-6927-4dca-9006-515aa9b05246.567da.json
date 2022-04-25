@@ -1,0 +1,3965 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "pushgiftConfig",
+  "json": {
+    "1": {
+      "mutex_gift_id": 1001,
+      "condition": 1,
+      "limit": [
+        2
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        100000
+      ],
+      "charge_id": 4001,
+      "slogan": "感谢您登录两天\n我们为您准备了精炼礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3912": 1
+        },
+        {
+          "I3911": 1
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 54000,
+      "yield": 900,
+      "giftname": "精炼礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "2": {
+      "mutex_gift_id": 1002,
+      "condition": 1,
+      "limit": [
+        2
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        100000
+      ],
+      "charge_id": 4002,
+      "slogan": "感谢您登录两天\n我们为您准备了竞技礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3010": 20
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        },
+        {
+          "8": 2000
+        }
+      ],
+      "closetime": 54000,
+      "yield": 500,
+      "giftname": "竞技礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "3": {
+      "mutex_gift_id": 1003,
+      "condition": 1,
+      "limit": [
+        3
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        100000
+      ],
+      "charge_id": 4003,
+      "slogan": "感谢您登录三天\n我们为您准备了书页礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I4001": 600
+        },
+        {
+          "I3004": 200
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 54000,
+      "yield": 550,
+      "giftname": "书页礼包",
+      "icon": "Skillbookgiftbag01",
+      "word": "Skillbookgiftbag"
+    },
+    "4": {
+      "mutex_gift_id": 1004,
+      "condition": 1,
+      "limit": [
+        3
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        100000
+      ],
+      "charge_id": 4004,
+      "slogan": "感谢您登录三天\n我们为您准备了赤血魔剑礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3905": 70
+        },
+        {
+          "I3906": 20
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 54000,
+      "yield": 666,
+      "giftname": "神兵礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "5": {
+      "mutex_gift_id": 1006,
+      "condition": 1,
+      "limit": [
+        6
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        100000
+      ],
+      "charge_id": 4005,
+      "slogan": "感谢您登录六天\n我们为您准备了符文宝箱，助您征战玛法大陆！",
+      "item": [
+        {
+          "I7003": 4
+        },
+        {
+          "I7002": 1
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 54000,
+      "yield": 700,
+      "giftname": "符文宝箱",
+      "icon": "Runegiftbag01",
+      "word": "Runegiftbag"
+    },
+    "6": {
+      "mutex_gift_id": 1007,
+      "condition": 1,
+      "limit": [
+        5
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        100000
+      ],
+      "charge_id": 4006,
+      "slogan": "感谢您登录五天\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 5
+        },
+        {
+          "I3103": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 54000,
+      "yield": 600,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "7": {
+      "mutex_gift_id": 1008,
+      "condition": 1,
+      "limit": [
+        5
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        100000
+      ],
+      "charge_id": 4007,
+      "slogan": "感谢您登录五天\n我们为您准备了BOSS礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3132": 5
+        },
+        {
+          "I3133": 8
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 54000,
+      "yield": 850,
+      "giftname": "BOSS礼包",
+      "icon": "Runegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "8": {
+      "mutex_gift_id": 1009,
+      "condition": 1,
+      "limit": [
+        4
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        100000
+      ],
+      "charge_id": 4008,
+      "slogan": "感谢您登录四天\n我们为您准备了命运之刃礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3907": 200
+        },
+        {
+          "I3908": 15
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 54000,
+      "yield": 750,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "9": {
+      "mutex_gift_id": 1010,
+      "condition": 1,
+      "limit": [
+        4
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        100000
+      ],
+      "charge_id": 4009,
+      "slogan": "感谢您登录四天\n我们为您准备了嗜魂法杖礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3916": 250
+        },
+        {
+          "I3917": 15
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 54000,
+      "yield": 850,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "10": {
+      "mutex_gift_id": 1013,
+      "condition": 2,
+      "limit": [
+        1005
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        100000
+      ],
+      "charge_id": 4010,
+      "slogan": "恭喜您击杀了触龙神\nBOSS掉落了黄金头盔宝箱！立即打开宝箱！",
+      "item": [
+        {
+          "I6129": 1
+        },
+        {
+          "I3007": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 21600,
+      "yield": 999,
+      "giftname": "黄金头盔宝箱",
+      "icon": "toukui",
+      "word": "zhuangbeibaoxiang"
+    },
+    "11": {
+      "mutex_gift_id": 1014,
+      "condition": 2,
+      "limit": [
+        1013
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        100000
+      ],
+      "charge_id": 4011,
+      "slogan": "恭喜您击杀了白野猪\nBOSS掉落了黄金项链宝箱！立即打开宝箱！",
+      "item": [
+        {
+          "I6130": 1
+        },
+        {
+          "I3007": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 21600,
+      "yield": 999,
+      "giftname": "黄金项链宝箱",
+      "icon": "xianglian",
+      "word": "zhuangbeibaoxiang"
+    },
+    "12": {
+      "condition": 2,
+      "limit": [
+        51001
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4012,
+      "slogan": "恭喜您击杀轮回·半兽勇士\nBOSS掉落了天启神甲宝箱！立即打开宝箱！",
+      "item": [
+        {
+          "I6131": 1
+        },
+        {
+          "I6132": 1
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 28800,
+      "yield": 9999,
+      "giftname": "天启神甲",
+      "icon": "Equipmentgiftbag01",
+      "word": "Equipmentgiftbag"
+    },
+    "13": {
+      "condition": 4,
+      "limit": [
+        45
+      ],
+      "player_lev": [
+        45,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4013,
+      "slogan": "恭喜您达到45级\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 2
+        },
+        {
+          "I3103": 7
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "14": {
+      "condition": 4,
+      "limit": [
+        50
+      ],
+      "player_lev": [
+        50,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4014,
+      "slogan": "恭喜您达到50级\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 5
+        },
+        {
+          "I3103": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "15": {
+      "condition": 4,
+      "limit": [
+        55
+      ],
+      "player_lev": [
+        55,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4015,
+      "slogan": "恭喜您达到55级\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 6
+        },
+        {
+          "I3103": 12
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 43200,
+      "yield": 700,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "16": {
+      "condition": 4,
+      "limit": [
+        60
+      ],
+      "player_lev": [
+        60,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4016,
+      "slogan": "恭喜您达到60级\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 6
+        },
+        {
+          "I3103": 12
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 43200,
+      "yield": 700,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "17": {
+      "condition": 4,
+      "limit": [
+        65
+      ],
+      "player_lev": [
+        65,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4017,
+      "slogan": "恭喜您达到65级\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 6
+        },
+        {
+          "I3103": 12
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 43200,
+      "yield": 700,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "18": {
+      "condition": 4,
+      "limit": [
+        69
+      ],
+      "player_lev": [
+        69,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4018,
+      "slogan": "恭喜您达到69级\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 15
+        },
+        {
+          "I3103": 9
+        }
+      ],
+      "resource": [
+        {
+          "2": 980
+        }
+      ],
+      "closetime": 43200,
+      "yield": 800,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "19": {
+      "condition": 4,
+      "limit": [
+        75
+      ],
+      "player_lev": [
+        75,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4019,
+      "slogan": "恭喜您达到75级\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 20
+        },
+        {
+          "I3103": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 800,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "20": {
+      "condition": 4,
+      "limit": [
+        80
+      ],
+      "player_lev": [
+        80,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4020,
+      "slogan": "恭喜您达到80级\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 20
+        },
+        {
+          "I3103": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 800,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "21": {
+      "condition": 4,
+      "limit": [
+        85
+      ],
+      "player_lev": [
+        85,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4021,
+      "slogan": "恭喜您达到85级\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 45
+        },
+        {
+          "I3103": 35
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 750,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "22": {
+      "condition": 4,
+      "limit": [
+        90
+      ],
+      "player_lev": [
+        90,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4022,
+      "slogan": "恭喜您达到90级\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 50
+        },
+        {
+          "I3103": 30
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 800,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "23": {
+      "condition": 4,
+      "limit": [
+        95
+      ],
+      "player_lev": [
+        95,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4023,
+      "slogan": "恭喜您达到95级\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 50
+        },
+        {
+          "I3103": 30
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 800,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "24": {
+      "condition": 3,
+      "limit": [
+        300
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4024,
+      "slogan": "恭喜您全身强化达到+300\n我们为您准备了精炼礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3911": 1
+        },
+        {
+          "I3007": 1
+        }
+      ],
+      "resource": [
+        {
+          "2": 60
+        }
+      ],
+      "closetime": 10800,
+      "yield": 2100,
+      "giftname": "精炼礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "25": {
+      "condition": 3,
+      "limit": [
+        400
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4025,
+      "slogan": "恭喜您全身强化达到+400\n我们为您准备了精炼礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3912": 1
+        },
+        {
+          "I3911": 1
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 21600,
+      "yield": 900,
+      "giftname": "精炼礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "26": {
+      "condition": 3,
+      "limit": [
+        500
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4026,
+      "slogan": "恭喜您全身强化达到+500\n我们为您准备了精炼礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3912": 1
+        },
+        {
+          "I3911": 1
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 21600,
+      "yield": 900,
+      "giftname": "精炼礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "27": {
+      "condition": 3,
+      "limit": [
+        600
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4027,
+      "slogan": "恭喜您全身强化达到+600\n我们为您准备了精炼礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3912": 2
+        },
+        {
+          "I3911": 3
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 43200,
+      "yield": 900,
+      "giftname": "精炼礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "28": {
+      "condition": 3,
+      "limit": [
+        700
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4028,
+      "slogan": "恭喜您全身强化达到+700\n我们为您准备了精炼礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3912": 4
+        },
+        {
+          "I3911": 3
+        }
+      ],
+      "resource": [
+        {
+          "2": 980
+        }
+      ],
+      "closetime": 43200,
+      "yield": 950,
+      "giftname": "精炼礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "29": {
+      "condition": 3,
+      "limit": [
+        800
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4029,
+      "slogan": "恭喜您全身强化达到+800\n我们为您准备了精炼礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3912": 4
+        },
+        {
+          "I3911": 4
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 850,
+      "giftname": "精炼礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "30": {
+      "condition": 3,
+      "limit": [
+        900
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4030,
+      "slogan": "恭喜您全身强化达到+900\n我们为您准备了精炼礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3912": 10
+        },
+        {
+          "I3911": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 830,
+      "giftname": "精炼礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "31": {
+      "condition": 5,
+      "limit": [
+        50
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4031,
+      "slogan": "恭喜您通关天关50层\n我们为您准备了绝版灵气礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3929": 4
+        }
+      ],
+      "resource": [
+        {
+          "2": 120
+        }
+      ],
+      "closetime": 10800,
+      "yield": 999,
+      "giftname": "天关礼包",
+      "icon": "Runegiftbag01",
+      "word": "Auragiftbag"
+    },
+    "32": {
+      "condition": 5,
+      "limit": [
+        70
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4032,
+      "slogan": "恭喜您通关天关70层\n我们为您准备了绝版灵气礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3929": 8
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 21600,
+      "yield": 999,
+      "giftname": "天关礼包",
+      "icon": "Runegiftbag01",
+      "word": "Auragiftbag"
+    },
+    "33": {
+      "condition": 6,
+      "limit": [
+        15
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4033,
+      "slogan": "恭喜您擂台排名挤进前15\n我们为您准备了擂台礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3010": 10
+        },
+        {
+          "I3001": 50
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        },
+        {
+          "8": 2000
+        }
+      ],
+      "closetime": 21600,
+      "yield": 500,
+      "giftname": "擂台礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "34": {
+      "condition": 6,
+      "limit": [
+        1
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        100000,
+        999999999
+      ],
+      "charge_id": 4034,
+      "slogan": "恭喜您登顶擂台！\n我们为您准备了绝版擂台至尊礼包，助您称霸玛法大陆！",
+      "item": [
+        {
+          "I7193": 1
+        },
+        {
+          "I3937": 54
+        },
+        {
+          "I3938": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 86400,
+      "yield": 9999,
+      "giftname": "擂台登顶礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "35": {
+      "condition": 7,
+      "limit": [
+        1,
+        2
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4035,
+      "slogan": "恭喜您赤血魔剑等级升到2级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3905": 140
+        },
+        {
+          "I3906": 40
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 43200,
+      "yield": 666,
+      "giftname": "赤血魔剑礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "36": {
+      "condition": 7,
+      "limit": [
+        2,
+        2
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4036,
+      "slogan": "恭喜您命运之刃等级升到2级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3907": 310
+        },
+        {
+          "I3908": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 43200,
+      "yield": 888,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "37": {
+      "condition": 7,
+      "limit": [
+        3,
+        2
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4037,
+      "slogan": "恭喜您嗜魂法杖等级升到2级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3916": 310
+        },
+        {
+          "I3917": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 43200,
+      "yield": 888,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "38": {
+      "condition": 7,
+      "limit": [
+        1,
+        3
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4038,
+      "slogan": "恭喜您赤血魔剑等级升到3级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3905": 280
+        },
+        {
+          "I3906": 80
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 666,
+      "giftname": "赤血魔剑礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "39": {
+      "condition": 7,
+      "limit": [
+        2,
+        3
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4039,
+      "slogan": "恭喜您命运之刃等级升到3级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3907": 350
+        },
+        {
+          "I3908": 60
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 900,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "40": {
+      "condition": 7,
+      "limit": [
+        3,
+        3
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4040,
+      "slogan": "恭喜您嗜魂法杖等级升到3级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3916": 350
+        },
+        {
+          "I3917": 60
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 900,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "41": {
+      "condition": 7,
+      "limit": [
+        1,
+        4
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4041,
+      "slogan": "恭喜您赤血魔剑等级升到4级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3905": 280
+        },
+        {
+          "I3906": 80
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 666,
+      "giftname": "赤血魔剑礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "42": {
+      "condition": 7,
+      "limit": [
+        2,
+        4
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4042,
+      "slogan": "恭喜您命运之刃等级升到4级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3907": 410
+        },
+        {
+          "I3908": 60
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 950,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "43": {
+      "condition": 7,
+      "limit": [
+        3,
+        4
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4043,
+      "slogan": "恭喜您嗜魂法杖等级升到4级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3916": 410
+        },
+        {
+          "I3917": 60
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 950,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "44": {
+      "condition": 7,
+      "limit": [
+        2,
+        5
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4044,
+      "slogan": "恭喜您命运之刃等级升到5级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3907": 788
+        },
+        {
+          "I3908": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 900,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "45": {
+      "condition": 7,
+      "limit": [
+        3,
+        5
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4045,
+      "slogan": "恭喜您嗜魂法杖等级升到5级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3916": 788
+        },
+        {
+          "I3917": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 900,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "46": {
+      "condition": 7,
+      "limit": [
+        2,
+        6
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4046,
+      "slogan": "恭喜您命运之刃等级升到6级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3907": 788
+        },
+        {
+          "I3908": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 900,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "47": {
+      "condition": 7,
+      "limit": [
+        3,
+        6
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4047,
+      "slogan": "恭喜您嗜魂法杖等级升到6级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3916": 788
+        },
+        {
+          "I3917": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 900,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "48": {
+      "condition": 7,
+      "limit": [
+        2,
+        7
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4048,
+      "slogan": "恭喜您命运之刃等级升到7级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3907": 788
+        },
+        {
+          "I3908": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 900,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "49": {
+      "condition": 7,
+      "limit": [
+        3,
+        7
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4049,
+      "slogan": "恭喜您嗜魂法杖等级升到7级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3916": 788
+        },
+        {
+          "I3917": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 900,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "50": {
+      "condition": 7,
+      "limit": [
+        2,
+        8
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4050,
+      "slogan": "恭喜您命运之刃等级升到8级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3907": 788
+        },
+        {
+          "I3908": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 900,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "51": {
+      "condition": 7,
+      "limit": [
+        3,
+        8
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4051,
+      "slogan": "恭喜您嗜魂法杖等级升到8级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3916": 788
+        },
+        {
+          "I3917": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 900,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "52": {
+      "condition": 7,
+      "limit": [
+        2,
+        9
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4052,
+      "slogan": "恭喜您命运之刃等级升到9级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3907": 1388
+        },
+        {
+          "I3908": 250
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 43200,
+      "yield": 750,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "53": {
+      "condition": 7,
+      "limit": [
+        3,
+        9
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4053,
+      "slogan": "恭喜您嗜魂法杖等级升到9级\n我们为您准备了神兵礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3916": 1388
+        },
+        {
+          "I3917": 250
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 43200,
+      "yield": 750,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "54": {
+      "condition": 2,
+      "limit": [
+        1003
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4065,
+      "slogan": "恭喜您击杀了尸王\nBOSS掉落了神秘召唤宝箱！立即打开宝箱！",
+      "item": [
+        {
+          "I6136": 1
+        },
+        {
+          "I3004": 1000
+        },
+        {
+          "I4001": 750
+        }
+      ],
+      "resource": [
+        {
+          "2": 980
+        }
+      ],
+      "closetime": 21600,
+      "yield": 450,
+      "giftname": "召唤技能宝箱",
+      "icon": "Skillbookgiftbag01",
+      "word": "jinengbaoxiang"
+    },
+    "55": {
+      "condition": 2,
+      "limit": [
+        1012
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4066,
+      "slogan": "恭喜您击杀了邪恶钳虫\nBOSS掉落了神秘技能宝箱！立即打开宝箱！",
+      "item": [
+        {
+          "I6137": 1
+        },
+        {
+          "I3004": 1500
+        },
+        {
+          "I4001": 750
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 21600,
+      "yield": 450,
+      "giftname": "神秘技能宝箱",
+      "icon": "Skillbookgiftbag01",
+      "word": "jinengbaoxiang"
+    },
+    "56": {
+      "condition": 4,
+      "limit": [
+        40
+      ],
+      "player_lev": [
+        40,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4067,
+      "slogan": "恭喜您达到40级\n我们为您准备了防御技能礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I6138": 1
+        },
+        {
+          "I3004": 3000
+        },
+        {
+          "I4001": 1550
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 21600,
+      "yield": 450,
+      "giftname": "防御技能宝箱",
+      "icon": "Skillbookgiftbag01",
+      "word": "jinengbaoxiang"
+    },
+    "57": {
+      "condition": 5,
+      "limit": [
+        30
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4068,
+      "slogan": "恭喜您通关天关30层\n我们为您准备了绝版灵气礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3929": 4
+        }
+      ],
+      "resource": [
+        {
+          "2": 120
+        }
+      ],
+      "closetime": 10800,
+      "yield": 999,
+      "giftname": "天关礼包",
+      "icon": "Runegiftbag01",
+      "word": "Auragiftbag"
+    },
+    "58": {
+      "condition": 5,
+      "limit": [
+        80
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4069,
+      "slogan": "恭喜您通关天关80层\n我们为您准备了绝版灵气礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3929": 8
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 21600,
+      "yield": 999,
+      "giftname": "天关礼包",
+      "icon": "Runegiftbag01",
+      "word": "Auragiftbag"
+    },
+    "59": {
+      "condition": 7,
+      "limit": [
+        1,
+        1
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4070,
+      "slogan": "恭喜您赤血魔剑等级升到1级\n我们为您准备了神兵宝石宝箱，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3920": 30
+        },
+        {
+          "I3905": 50
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 21600,
+      "yield": 566,
+      "giftname": "神兵宝石宝箱",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "60": {
+      "condition": 7,
+      "limit": [
+        1,
+        3
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4071,
+      "slogan": "恭喜您赤血魔剑等级升到3级\n我们为您准备了神兵宝石宝箱，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3921": 90
+        },
+        {
+          "I3905": 50
+        }
+      ],
+      "resource": [
+        {
+          "2": 980
+        }
+      ],
+      "closetime": 21600,
+      "yield": 700,
+      "giftname": "神兵宝石宝箱",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "61": {
+      "condition": 7,
+      "limit": [
+        1,
+        4
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4072,
+      "slogan": "恭喜您赤血魔剑等级升到4级\n我们为您准备了神兵宝石宝箱，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3922": 90
+        },
+        {
+          "I3905": 50
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 21600,
+      "yield": 700,
+      "giftname": "神兵宝石宝箱",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "62": {
+      "condition": 7,
+      "limit": [
+        2,
+        2
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4073,
+      "slogan": "恭喜您命运之刃等级升到2级\n我们为您准备了神兵宝石宝箱，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3920": 30
+        },
+        {
+          "I3907": 50
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "神兵宝石宝箱",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "63": {
+      "condition": 7,
+      "limit": [
+        2,
+        5
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4074,
+      "slogan": "恭喜您命运之刃等级升到5级\n我们为您准备了神兵宝石宝箱，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3921": 90
+        },
+        {
+          "I3907": 50
+        }
+      ],
+      "resource": [
+        {
+          "2": 980
+        }
+      ],
+      "closetime": 21600,
+      "yield": 700,
+      "giftname": "神兵宝石宝箱",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "64": {
+      "condition": 7,
+      "limit": [
+        2,
+        8
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4075,
+      "slogan": "恭喜您命运之刃等级升到8级\n我们为您准备了神兵宝石宝箱，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3922": 240
+        },
+        {
+          "I3907": 70
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 21600,
+      "yield": 700,
+      "giftname": "神兵宝石宝箱",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "65": {
+      "condition": 7,
+      "limit": [
+        3,
+        2
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4076,
+      "slogan": "恭喜您嗜魂法杖等级升到2级\n我们为您准备了神兵宝石宝箱，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3920": 60
+        },
+        {
+          "I3916": 20
+        }
+      ],
+      "resource": [
+        {
+          "2": 300
+        }
+      ],
+      "closetime": 21600,
+      "yield": 780,
+      "giftname": "神兵宝石宝箱",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "66": {
+      "condition": 7,
+      "limit": [
+        3,
+        4
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4077,
+      "slogan": "恭喜您嗜魂法杖等级升到4级\n我们为您准备了神兵宝石宝箱，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3921": 120
+        },
+        {
+          "I3916": 50
+        }
+      ],
+      "resource": [
+        {
+          "2": 980
+        }
+      ],
+      "closetime": 21600,
+      "yield": 900,
+      "giftname": "神兵宝石宝箱",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "67": {
+      "condition": 7,
+      "limit": [
+        3,
+        6
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4078,
+      "slogan": "恭喜您嗜魂法杖等级升到6级\n我们为您准备了神兵宝石宝箱，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3922": 240
+        },
+        {
+          "I3916": 100
+        }
+      ],
+      "resource": [
+        {
+          "2": 3280
+        }
+      ],
+      "closetime": 21600,
+      "yield": 720,
+      "giftname": "神兵宝石宝箱",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "68": {
+      "condition": 4,
+      "limit": [
+        70
+      ],
+      "player_lev": [
+        70,
+        99
+      ],
+      "charge": [
+        10000,
+        999999999
+      ],
+      "charge_id": 4079,
+      "slogan": "恭喜您解锁了星辰系统\n我们为您准备了特级星辰丹礼包，直接获得2点星宿点！",
+      "item": [
+        {
+          "I3153": 1
+        },
+        {
+          "I3154": 7
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 21600,
+      "yield": 510,
+      "giftname": "星辰丹礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "69": {
+      "condition": 4,
+      "limit": [
+        70
+      ],
+      "player_lev": [
+        70,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4080,
+      "slogan": "恭喜您解锁了星辰系统\n我们为您准备了超值星辰丹礼包，助您先人一步！",
+      "item": [
+        {
+          "I3151": 1
+        },
+        {
+          "I3007": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 60
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "星辰丹礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "70": {
+      "condition": 8,
+      "limit": [
+        10
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4081,
+      "slogan": "恭喜您星辰达到10级\n我们为您准备了豪华星辰丹礼包，助您先人一步！",
+      "item": [
+        {
+          "I3153": 6
+        },
+        {
+          "I3154": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "星辰丹礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "71": {
+      "condition": 10,
+      "limit": [
+        4021
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4082,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3104": 90
+        },
+        {
+          "I3103": 70
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 750,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "72": {
+      "condition": 10,
+      "limit": [
+        4022
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4083,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3104": 100
+        },
+        {
+          "I3103": 60
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 800,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "73": {
+      "condition": 10,
+      "limit": [
+        4023
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4084,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3104": 100
+        },
+        {
+          "I3103": 60
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 800,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "74": {
+      "condition": 10,
+      "limit": [
+        4030
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4085,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3912": 15
+        },
+        {
+          "I3911": 15
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 888,
+      "giftname": "精炼礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "75": {
+      "condition": 10,
+      "limit": [
+        4044
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4086,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3907": 1388
+        },
+        {
+          "I3908": 100
+        },
+        {
+          "I3921": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 666,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "76": {
+      "condition": 10,
+      "limit": [
+        4045
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4087,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3916": 1388
+        },
+        {
+          "I3917": 100
+        },
+        {
+          "I3921": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 666,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "77": {
+      "condition": 10,
+      "limit": [
+        4046
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4088,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3907": 1388
+        },
+        {
+          "I3908": 100
+        },
+        {
+          "I3921": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 666,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "78": {
+      "condition": 10,
+      "limit": [
+        4047
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4089,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3916": 1388
+        },
+        {
+          "I3917": 100
+        },
+        {
+          "I3921": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 666,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "79": {
+      "condition": 10,
+      "limit": [
+        4048
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4090,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3907": 1388
+        },
+        {
+          "I3908": 100
+        },
+        {
+          "I3921": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 666,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "80": {
+      "condition": 10,
+      "limit": [
+        4049
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4091,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3916": 1388
+        },
+        {
+          "I3917": 100
+        },
+        {
+          "I3921": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 666,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "81": {
+      "condition": 10,
+      "limit": [
+        4050
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4092,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3907": 1388
+        },
+        {
+          "I3908": 100
+        },
+        {
+          "I3921": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 666,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "82": {
+      "condition": 10,
+      "limit": [
+        4051
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4093,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3916": 1388
+        },
+        {
+          "I3917": 100
+        },
+        {
+          "I3921": 168
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 666,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "83": {
+      "condition": 10,
+      "limit": [
+        4052
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4094,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3907": 1888
+        },
+        {
+          "I3922": 400
+        },
+        {
+          "I3921": 400
+        }
+      ],
+      "resource": [
+        {
+          "2": 12800
+        }
+      ],
+      "closetime": 21600,
+      "yield": 650,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "84": {
+      "condition": 10,
+      "limit": [
+        4053
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4095,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3916": 1888
+        },
+        {
+          "I3922": 400
+        },
+        {
+          "I3921": 400
+        }
+      ],
+      "resource": [
+        {
+          "2": 12800
+        }
+      ],
+      "closetime": 21600,
+      "yield": 650,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "85": {
+      "condition": 10,
+      "limit": [
+        4075
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4096,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3922": 480
+        },
+        {
+          "I3907": 140
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 720,
+      "giftname": "神兵宝石宝箱",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "86": {
+      "condition": 10,
+      "limit": [
+        4078
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4097,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3922": 480
+        },
+        {
+          "I3916": 200
+        }
+      ],
+      "resource": [
+        {
+          "2": 6480
+        }
+      ],
+      "closetime": 21600,
+      "yield": 720,
+      "giftname": "神兵宝石宝箱",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "87": {
+      "condition": 10,
+      "limit": [
+        4081
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4098,
+      "slogan": "感谢勇士一直以来的支持！我们为您准备了专属返利礼包。\n幸运之礼，仅您拥有！",
+      "item": [
+        {
+          "I3153": 12
+        },
+        {
+          "I3154": 30
+        }
+      ],
+      "resource": [
+        {
+          "2": 12800
+        }
+      ],
+      "closetime": 21600,
+      "yield": 650,
+      "giftname": "星辰丹礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "88": {
+      "condition": 13,
+      "limit": [
+        4105
+      ],
+      "player_lev": [
+        38,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4099,
+      "slogan": "恭喜您！开启了勋章系统！\n我们为您准备了专属暴击勋章。极品暴击，毕业属性！",
+      "item": [
+        {
+          "I7036": 1
+        },
+        {
+          "I9161": 200
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 43200,
+      "yield": 999,
+      "giftname": "暴击勋章礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "89": {
+      "condition": 12,
+      "limit": [
+        10
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4100,
+      "slogan": "恭喜您！勋章强化到+10！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "90": {
+      "condition": 12,
+      "limit": [
+        50
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4101,
+      "slogan": "恭喜您！勋章强化到+50！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "91": {
+      "condition": 12,
+      "limit": [
+        100
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4102,
+      "slogan": "恭喜您！勋章强化到+100！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "92": {
+      "condition": 12,
+      "limit": [
+        150
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4103,
+      "slogan": "恭喜您！勋章强化到+150！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "93": {
+      "condition": 12,
+      "limit": [
+        200
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4104,
+      "slogan": "恭喜您！勋章强化到+200！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "94": {
+      "condition": 12,
+      "limit": [
+        250
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4105,
+      "slogan": "恭喜您！勋章强化到+250！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "95": {
+      "condition": 12,
+      "limit": [
+        300
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4106,
+      "slogan": "恭喜您！勋章强化到+300！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "96": {
+      "condition": 12,
+      "limit": [
+        350
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4107,
+      "slogan": "恭喜您！勋章强化到+350！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "97": {
+      "condition": 12,
+      "limit": [
+        400
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4108,
+      "slogan": "恭喜您！勋章强化到+400！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "98": {
+      "condition": 12,
+      "limit": [
+        450
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4109,
+      "slogan": "恭喜您！勋章强化到+450！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "99": {
+      "condition": 12,
+      "limit": [
+        500
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4110,
+      "slogan": "恭喜您！勋章强化到+500！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "100": {
+      "condition": 12,
+      "limit": [
+        550
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4111,
+      "slogan": "恭喜您！勋章强化到+550！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "101": {
+      "condition": 12,
+      "limit": [
+        600
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4112,
+      "slogan": "恭喜您！勋章强化到+600！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "102": {
+      "condition": 12,
+      "limit": [
+        650
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4113,
+      "slogan": "恭喜您！勋章强化到+650！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "103": {
+      "condition": 12,
+      "limit": [
+        680
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        0,
+        999999999
+      ],
+      "charge_id": 4114,
+      "slogan": "恭喜您！勋章强化到+680！\n我们为您准备了勋章强化礼包，助您更上一层楼！",
+      "item": [
+        {
+          "I3007": 120
+        },
+        {
+          "I9161": 120
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 600,
+      "giftname": "勋章强化礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "1001": {
+      "mutex_gift_id": 1,
+      "condition": 1,
+      "limit": [
+        2
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        100001,
+        999999999
+      ],
+      "charge_id": 4054,
+      "slogan": "感谢您连续登录两天\n我们为您准备了精炼礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I6110": 10
+        },
+        {
+          "I3007": 10
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 54000,
+      "yield": 1000,
+      "giftname": "精炼礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "1002": {
+      "mutex_gift_id": 2,
+      "condition": 1,
+      "limit": [
+        2
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        100001,
+        999999999
+      ],
+      "charge_id": 4055,
+      "slogan": "感谢您连续登录两天\n我们为您准备了竞技礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3010": 40
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        },
+        {
+          "8": 4000
+        }
+      ],
+      "closetime": 54000,
+      "yield": 600,
+      "giftname": "竞技礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "xianshilibao1"
+    },
+    "1003": {
+      "mutex_gift_id": 3,
+      "condition": 1,
+      "limit": [
+        3
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        100001,
+        999999999
+      ],
+      "charge_id": 4056,
+      "slogan": "感谢您连续登录三天\n我们为您准备了书页礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I4001": 1200
+        },
+        {
+          "I3004": 400
+        }
+      ],
+      "resource": [
+        {
+          "2": 680
+        }
+      ],
+      "closetime": 54000,
+      "yield": 550,
+      "giftname": "书页礼包",
+      "icon": "Skillbookgiftbag01",
+      "word": "Skillbookgiftbag"
+    },
+    "1004": {
+      "mutex_gift_id": 4,
+      "condition": 1,
+      "limit": [
+        3
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        100001,
+        999999999
+      ],
+      "charge_id": 4057,
+      "slogan": "感谢您连续登录三天\n我们为您准备了赤血魔剑礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3905": 350
+        },
+        {
+          "I3906": 75
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 54000,
+      "yield": 660,
+      "giftname": "神兵礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "1006": {
+      "mutex_gift_id": 5,
+      "condition": 1,
+      "limit": [
+        6
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        100001,
+        999999999
+      ],
+      "charge_id": 4058,
+      "slogan": "感谢您连续登录六天\n我们为您准备了符文宝箱，助您征战玛法大陆！",
+      "item": [
+        {
+          "I7003": 10
+        },
+        {
+          "I7002": 20
+        }
+      ],
+      "resource": [
+        {
+          "2": 980
+        }
+      ],
+      "closetime": 54000,
+      "yield": 900,
+      "giftname": "符文宝箱",
+      "icon": "Runegiftbag01",
+      "word": "Runegiftbag"
+    },
+    "1007": {
+      "mutex_gift_id": 6,
+      "condition": 1,
+      "limit": [
+        5
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        100001,
+        999999999
+      ],
+      "charge_id": 4059,
+      "slogan": "感谢您连续登录五天\n我们为您准备了聚灵珠礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3104": 15
+        },
+        {
+          "I3103": 23
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 54000,
+      "yield": 720,
+      "giftname": "聚灵珠礼包",
+      "icon": "Julingzhugiftbag01",
+      "word": "Julingzhugiftbag"
+    },
+    "1008": {
+      "mutex_gift_id": 7,
+      "condition": 1,
+      "limit": [
+        5
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        100001,
+        999999999
+      ],
+      "charge_id": 4060,
+      "slogan": "感谢您连续登录五天\n我们为您准备了BOSS礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3132": 10
+        },
+        {
+          "I3134": 20
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 54000,
+      "yield": 920,
+      "giftname": "BOSS礼包",
+      "icon": "Runegiftbag01",
+      "word": "xianshilibao1"
+    },
+    "1009": {
+      "mutex_gift_id": 8,
+      "condition": 1,
+      "limit": [
+        4
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        100001,
+        999999999
+      ],
+      "charge_id": 4061,
+      "slogan": "感谢您连续登录四天\n我们为您准备了命运之刃礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3907": 360
+        },
+        {
+          "I3908": 60
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 54000,
+      "yield": 900,
+      "giftname": "命运之刃礼包",
+      "icon": "Magicweapongiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "1010": {
+      "mutex_gift_id": 9,
+      "condition": 1,
+      "limit": [
+        4
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        100001,
+        999999999
+      ],
+      "charge_id": 4062,
+      "slogan": "感谢您连续登录四天\n我们为您准备了嗜魂法杖礼包，助您征战玛法大陆！",
+      "item": [
+        {
+          "I3916": 370
+        },
+        {
+          "I3917": 130
+        }
+      ],
+      "resource": [
+        {
+          "2": 1280
+        }
+      ],
+      "closetime": 54000,
+      "yield": 1400,
+      "giftname": "嗜魂法杖礼包",
+      "icon": "Washingstonegiftbag01",
+      "word": "Magicweapongiftbag"
+    },
+    "1013": {
+      "mutex_gift_id": 10,
+      "condition": 2,
+      "limit": [
+        1005
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        100001,
+        999999999
+      ],
+      "charge_id": 4063,
+      "slogan": "恭喜您击杀了触龙神\nBOSS掉落了黄金头盔宝箱！立即打开宝箱！",
+      "item": [
+        {
+          "I6129": 1
+        },
+        {
+          "I3103": 8
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 999,
+      "giftname": "黄金头盔礼包",
+      "icon": "toukui",
+      "word": "zhuangbeibaoxiang"
+    },
+    "1014": {
+      "mutex_gift_id": 11,
+      "condition": 2,
+      "limit": [
+        1013
+      ],
+      "player_lev": [
+        1,
+        99
+      ],
+      "charge": [
+        100001,
+        999999999
+      ],
+      "charge_id": 4064,
+      "slogan": "恭喜您击杀了白野猪\nBOSS掉落了黄金项链宝箱！立即打开宝箱！",
+      "item": [
+        {
+          "I6130": 1
+        },
+        {
+          "I3103": 8
+        }
+      ],
+      "resource": [
+        {
+          "2": 600
+        }
+      ],
+      "closetime": 21600,
+      "yield": 999,
+      "giftname": "黄金项链礼包",
+      "icon": "xianglian",
+      "word": "zhuangbeibaoxiang"
+    }
+  }
+}

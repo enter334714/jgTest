@@ -1,0 +1,240 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "storageConfig",
+  "json": {
+    "0": {
+      "storage": 10,
+      "gold": 0,
+      "gem": 0,
+      "ad": 0
+    },
+    "1": {
+      "storage": 15,
+      "gold": 200000,
+      "gem": 0,
+      "ad": 1
+    },
+    "2": {
+      "storage": 20,
+      "gold": 500000,
+      "gem": 0,
+      "ad": 1
+    },
+    "3": {
+      "storage": 25,
+      "gold": 1000000,
+      "gem": 0,
+      "ad": 1
+    },
+    "4": {
+      "storage": 30,
+      "gold": 0,
+      "gem": 25,
+      "ad": 1
+    },
+    "5": {
+      "storage": 35,
+      "gold": 0,
+      "gem": 25,
+      "ad": 1
+    },
+    "6": {
+      "storage": 40,
+      "gold": 0,
+      "gem": 25,
+      "ad": 1
+    },
+    "7": {
+      "storage": 45,
+      "gold": 0,
+      "gem": 25,
+      "ad": 1
+    },
+    "8": {
+      "storage": 50,
+      "gold": 0,
+      "gem": 50,
+      "ad": 1
+    },
+    "9": {
+      "storage": 55,
+      "gold": 0,
+      "gem": 50,
+      "ad": 0
+    },
+    "10": {
+      "storage": 60,
+      "gold": 0,
+      "gem": 50,
+      "ad": 0
+    },
+    "11": {
+      "storage": 65,
+      "gold": 0,
+      "gem": 50,
+      "ad": 0
+    },
+    "12": {
+      "storage": 70,
+      "gold": 0,
+      "gem": 100,
+      "ad": 0
+    },
+    "13": {
+      "storage": 75,
+      "gold": 0,
+      "gem": 100,
+      "ad": 0
+    },
+    "14": {
+      "storage": 80,
+      "gold": 0,
+      "gem": 100,
+      "ad": 0
+    },
+    "15": {
+      "storage": 85,
+      "gold": 0,
+      "gem": 100,
+      "ad": 0
+    },
+    "16": {
+      "storage": 90,
+      "gold": 0,
+      "gem": 100,
+      "ad": 0
+    },
+    "17": {
+      "storage": 95,
+      "gold": 0,
+      "gem": 100,
+      "ad": 0
+    },
+    "18": {
+      "storage": 100,
+      "gold": 0,
+      "gem": 200,
+      "ad": 0
+    },
+    "19": {
+      "storage": 105,
+      "gold": 0,
+      "gem": 200,
+      "ad": 0
+    },
+    "20": {
+      "storage": 110,
+      "gold": 0,
+      "gem": 200,
+      "ad": 0
+    },
+    "21": {
+      "storage": 115,
+      "gold": 0,
+      "gem": 200,
+      "ad": 0
+    },
+    "22": {
+      "storage": 120,
+      "gold": 0,
+      "gem": 200,
+      "ad": 0
+    },
+    "23": {
+      "storage": 125,
+      "gold": 0,
+      "gem": 200,
+      "ad": 0
+    },
+    "24": {
+      "storage": 130,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "25": {
+      "storage": 135,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "26": {
+      "storage": 140,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "27": {
+      "storage": 145,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "28": {
+      "storage": 150,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "29": {
+      "storage": 155,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "30": {
+      "storage": 160,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "31": {
+      "storage": 165,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "32": {
+      "storage": 170,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "33": {
+      "storage": 175,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "34": {
+      "storage": 180,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "35": {
+      "storage": 185,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "36": {
+      "storage": 190,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "37": {
+      "storage": 195,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    },
+    "38": {
+      "storage": 200,
+      "gold": 0,
+      "gem": 250,
+      "ad": 0
+    }
+  }
+}
