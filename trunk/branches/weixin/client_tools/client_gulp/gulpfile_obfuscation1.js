@@ -434,6 +434,129 @@ gulp.task('set-param-Z_999', function () {
 
 /**-------------------------------------------------微信小游戏--Z9包 天剑vs墨雪--蜀山御剑仙 end-----------------------------------------------------------*/
 
+/**-------------------------------------------------微信小游戏--其他 z888start-----------------------------------------------------------*/
+
+//混淆
+gulp.task('build-babel-obfuscator-Z_888', function (cb) {
+    // sequence("set-param-Z_999","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_888","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'cocos','myMainJs','myProtoJs','ledege_other','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    // sequence("set-param-Z_888","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier',  'build-js-babel', 'cocos','myMainJs','myProtoJs',"cleanGameJs",'build-end-babel',cb);
+
+});
+
+
+/**其他包参数*/
+var set_param_Z_888 = function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = '../../client/wx_dist/packageZ_888/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameZ_888';
+        INIT_PATH = '/';
+        // SCOPE = 'abcdefghklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ij';
+        PREFIX = 'C$99';
+        sourceProject = "wx_build/jg_gameZ_888_new";
+        targetProject = "wx_build/jg_gameZ_888_obfuscator";
+        targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
+        mainJsName = "z9992Mz999Iz9992.js";
+        libsMainJs = "z9992Gz999MEz9992.js";
+        packageName1 = "myMainJs";
+        packageName2 = "myProtoJs";
+        packageName3 = "z999z999z999z999z999";
+        var clinetPbName = "z999z999IENz999z999.js";
+        filesMap = {
+            //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
+            // "myMainJs": {url:packageName1},
+            // "myProtoJs": {url:packageName2},
+            "myMainJs/project.js": {url:"myMainJs/project.js",extractStr:true,count:1,strLen:1},
+            "myProtoJs/protolib.js": {url:"myProtoJs/protolib.js",extractStr:true,count:1,strLen:1},
+            "src/7cwan_sdk.js": {url:"src/7cwan_sdk.js",extractStr:true,count:1,strLen:1},
+            "src/settings.js": {url:"src/settings.js",extractStr:true,count:1,strLen:1},
+            // "src/zlib.min.js": {url:"src/zlib.min.js",extractStr:true,count:1,strLen:2},
+            "cocos/cocos2d-js-min.js": {url:"cocos/cocos2d-js-min.js",extractStr:true,count:1,strLen:1},
+            "main.js": {url:"main.js",extractStr:true,count:1,strLen:1},
+            "ccRequire.js": {url:"ccRequire.js",extractStr:true,count:1,strLen:1},
+            "game.js": {url:"game.js",extractStr:true,count:1,strLen:1},
+            // "adapter-min.js": {url:"adapter-min.js",extractStr:true,count:1,strLen:3},
+            // "init.min.js":  {url:packageName1+"/z999z999INIz999az999.js",extractStr:true,count:1,strLen:3,replace:true},
+            // "libs/dom.js":  {url:packageName1+"/z999z999DOz999z999.js"},
+            // "libs/dom_parser.js":  {url:packageName1+"/z999z999parsaz999.js"},
+            // "libs/laya.wxmini.js":  {url:packageName1+"/z999z999Mtadz999z999.js"},
+            // "libs/libs.min.js":  {url:packageName1+"/z999z999Iz9991z999z999.js",extractStr:false,count:5,strLen:3},
+            // "libs/md5.min.js":  {url:packageName1+"/z999z999bfz999z999.js"},
+            // "libs/sax.js":  {url:packageName1+"/z999z999cz999z999.js"},
+            // "libs/weapp-adapter.js":  {url:"xv2/z999z999E4z999z999.js"},
+            // "libs/zlib.js":  {url:packageName1+"/z999z99911z999z999.js"},
+
+
+
+
+        };
+        mt1Replace = {
+
+        }
+        strFilePath = "/Z9991es";
+        strFileName = "/Z9991iles.zip";
+        // globleKeys = ["$e", "w", "x", "E$", "y"];
+        globleKeys = ["$F", "H", "f", "f3", "f"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        noReplaceJs = packageName1+"/game.js";
+        arrIndex = 0;
+        globleArrs = new Array(arrIndex);
+        numberToHex = true;
+        // needShuffle = true;
+        str_leading1 = "Q3LB8HCG$R26DFSOTAXY9M4UZNJ7KV0IP_WE51";
+        str_leading2 = "ydoq0zr6n1$7iwh9st5_cxk4j8uf3pmeab2lvg";
+        for(var key in  filesMap){
+            var item = filesMap[key];
+            var url = item.url;
+            targetFileMap[url] = item;
+            var repalce = item.replace;
+            if(repalce){
+                replaceMap[url] = true;
+            }
+        }
+        replaceMap[targetGameJs] = true;
+        cb();
+        this.emit("data", file);
+    }
+
+// 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+//混淆
+gulp.task('build-babel-obfuscator-Z_888-minify', function (cb) {
+    sequence("set-param-Z_888","MT1_build_minifyTargetProject",cb);
+});
+
+gulp.task('set-param-Z_888', function () {
+
+    var stream = gulp.src("")
+        .pipe(set_param_Z_888())
+    return stream;
+});
+
+//压缩
+gulp.task('MT1_build_minifyTargetProject', function () {
+    var sourceUrl =  targetProject;// "wx_build/jg_gameMT1_new";
+    var srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/**/protolib.js',"!" + sourceUrl + '/**/project.js',"!" + sourceUrl + '/**/cocos2d-js-min.js'];
+    if(PREFIX == "G" || PREFIX=="k$" || PREFIX == "J_" || buildPACK == "Z_21"){
+        //g,j包SDK都不處理
+        srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/utils/**/*.js',"!" + sourceUrl + '/**/'+mainJsName];
+    }
+    var stream = gulp.src(srcs)
+        .pipe(js_minify())
+        .pipe(gulp.dest(sourceUrl + '/'))
+    return stream;
+});
+
+
+
+/**-------------------------------------------------微信小游戏--Z888 end-----------------------------------------------------------*/
 
 
 /**文件压缩*/
@@ -527,6 +650,7 @@ var imgRes1 = "wxloading_atlas";//图片资源文件夹1
 var imgRes2 = "wxlogin_atlas";//图片资源文件夹2
 var imgRes3  = "wxeff_btn_atlas";//图片资源文件夹3
 var libsMainJs = ""; //入口包game 应该require的文件
+var buildPACK = "";
 /**生成随机变量名*/
 var identifier_create = function (rate) {
     function onFile(file, enc, cb) {
@@ -719,7 +843,7 @@ var identifier_create = function (rate) {
         // }
         console.log("是否打乱数组",leading)
         //生成混淆用的标识符
-        for (var n = 1; n < 7; n++) { //字符数量
+        for (var n = 1; n <8; n++) { //字符数量
             for (var m = 0; m < leading.length; m++) {
                 perm(leading.slice(m, m + n), obfuscatorArrObj, '');
             }
@@ -802,6 +926,10 @@ var js_checkStrCount =  function () {
                         return;
                     }
                     if(tempstr.indexOf(PREFIX)!= -1 && !isChinese){ //不需要提取
+                        return;
+                    }
+                    if(tempstr.indexOf("_super")!=-1){
+                        console.log("_super 排除")
                         return;
                     }
                     if(tempstr.length>=1000){
@@ -927,6 +1055,10 @@ var js_babel = function () {
                         return;
                     }
                     if(tempstr.indexOf(PREFIX)!= -1 && !isChinese){ //不需要提取
+                        return;
+                    }
+                    if(tempstr.indexOf("_super")!=-1){
+                        console.log("_super 排除")
                         return;
                     }
                     var count = config.count || 0;
@@ -1339,7 +1471,7 @@ gulp.task('build-babel', function (cb) {
 });
 
 /**混淆*/
-var js_obfuscator = function (rate) {
+var js_obfuscator = function (rate,renameGlobals) {
     function onFile(file, enc, cb) {
         if (file.isStream()) {
             this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
@@ -1348,7 +1480,7 @@ var js_obfuscator = function (rate) {
         var contents = "" + file.contents;
 
 
-        console.info("混淆提取文件：" + file.path + "  rate=" + rate);
+        console.info("混淆提取文件：" + file.path + "  rate=" + rate,"renameGlobals:",renameGlobals);
 
         var excludeFiles = globleKeys[5] || [];
         var obfuscationResult = jsobfuscator.obfuscate(contents,
@@ -1366,22 +1498,35 @@ var js_obfuscator = function (rate) {
                 // stringArrayWrappersParametersMaxCount: 4,
                 // stringArrayWrappersType: 'function',
                 splitStrings: false,  //将文字字符串拆分为带有splitStringsChunkLength选项值长度的块
-                splitStringsChunkLength: 1,  //设置splitStrings选项的块长度
+                splitStringsChunkLength: 0,  //设置splitStrings选项的块长度
                 shuffleStringArray: false,  //随机stringArray排列数组项
                 exclude: excludeFiles,  //文件名或glob，指示要从混淆中排除的文件
-                reservedStrings: ['wx', 'qq', 'window', 'globle', 'document', 'GameGlobal', 'console', 'exports', 'require', 'module', '\\r', '\\w', '\\t', ']]>', '//', '<!--', '-->', '\\*', '\\?', '\\$', '\\^'],  //禁用字符串文字的转换，该文字与通过的RegExp模式匹配
-                reservedNames: ['wx', 'qq', 'window', 'globle', 'document', 'GameGlobal', 'console', 'exports', 'require', 'module'],  //禁用混淆和标识符的生成，这些标识符与通过的RegExp模式匹配
+                reservedStrings: [
+                    'onEnable','onDisable',
+                    'boundSuperCalls','SuperCallReg','invokeOnEnable','createInvokeImpl','OneOffInvoker','LifeCycleInvoker','ComponentScheduler',
+                    'compileProps','_extends','extends',
+                    '_super','super','_Class','Class','_Class1','Class1','_Class2','Class2','_Class3','Class3',
+                    'RenderComponent','Node','wx', 'qq', 'window', 'globle', 'document', 'GameGlobal', 'console', 'exports', 'require', 'module','_renderComponent',
+                    '\\r', '\\w', '\\t', ']]>', '//', '<!--', '-->', '\\*', '\\?', '\\$', '\\^'],  //禁用字符串文字的转换，该文字与通过的RegExp模式匹配
+                reservedNames: [
+                    'onEnable','onDisable',
+                    'boundSuperCalls','SuperCallReg','invokeOnEnable','createInvokeImpl','OneOffInvoker','LifeCycleInvoker','ComponentScheduler',
+                    'compileProps','_extends','extends',
+                    '_super','super','_Class','Class','_Class1','Class1','_Class2','Class2','_Class3','Class3',
+                    'RenderComponent','Node','wx', 'qq', 'window', 'globle', 'document', 'GameGlobal', 'console', 'exports', 'require', 'module',"_renderComponent"],  //禁用混淆和标识符的生成，这些标识符与通过的RegExp模式匹配
                 identifierNamesGenerator: "dictionary",  //mangled  dictionary  设置标识符名称生成器。dictionary：identifiersDictionary列表中的标识符名称，hexadecimal：标识符名称，例如 _0xabc123，mangled：短标识符的名称，如a，b，c，mangled-shuffled：与...相同，mangled但字母乱序
                 identifiersDictionary: identifiersObfuscatorArray,  //为identifierNamesGenerator：dictionary选项设置标识符字典。字典中的每个标识符将在几种变体中使用，每个字符使用不同的大小写。因此，字典中标识符的数量应取决于原始源代码中的标识符数量。
                 identifiersPrefix: globleKeys[4],  //为所有全局标识符设置前缀
-                renameGlobals: true,  //4 启用全局变量和函数名与声明的混淆 此选项可能会破坏您的代码。只有当你知道它的功能时才启用它！
-                renameProperties: false,  //启用属性名称的重命名  启用属性名称的重命名。所有内置的DOM属性和核心JavaScript类中的属性都将被忽略。此选项可能会破坏您的代码。只有当你知道它的功能时才启用它！
+                renameGlobals: renameGlobals,  //4 启用全局变量和函数名与声明的混淆 此选项可能会破坏您的代码。只有当你知道它的功能时才启用它！
+                renameProperties: false,  //启用属性名称的重命名  启用属性名称boundSuperCalls的重命名。所有内置的DOM属性和核心JavaScript类中的属性都将被忽略。此选项可能会破坏您的代码。只有当你知道它的功能时才启用它！
                 renamePropertiesMode: "safe",//Type: string Default: safe 即使在安全模式下，renameProperties选项也可能会破坏代码 如果一个文件正在使用其他文件的属性，请使用identifierNameCache选项在这些文件之间保持相同的属性名称。
-                numbersToExpressions: false,  //允许将数字转换为表达式
+                numbersToExpressions: true,  //允许将数字转换为表达式
                 disableConsoleOutput: false,  //控制台输出
                 unicodeEscapeSequence: false, //允许启用/禁用字符串转换为Unicode转义序列
-                deadCodeInJection: false, // 使用此选项，将随机废代码添加到混淆代码中  该选项显著的增加混淆代码的大小（200%），如果贵混淆代码大小不敏感的时候启用改选项 。开启该选项将强制启用stringArray选项
+                deadCodeInJection: true, // 使用此选项，将随机废代码添加到混淆代码中  该选项显著的增加混淆代码的大小（200%），如果贵混淆代码大小不敏感的时候启用改选项 。开启该选项将强制启用stringArray选项
                 optionsPreset: 'default',//可用参数 default,low-obfuscation,medium-obfuscation,high-obfuscation,所有副将选项将于改名称对应的预设选项合并
+                // seed:0, //此选项为随机生成器设置种子。这对于创建可重复的结果很有用。 如果seed为0，则随机生成器将在没有seed的情况下工作
+
                 //rotateStringArray:true,//将stringArray移动固定和随机（在代码混淆处生成）位置。这使得将删除的字符串的顺序与其原始位置进行匹配变得更加困难。
                 //seed:0,Type: string|number Default: 0 此选项设置随机生成器的种子。这对于创建可重复结果很有用,如果种子是0-随机生成器将工作无种子。
                 // sourceMap:true,
@@ -1427,24 +1572,59 @@ var js_obfuscator = function (rate) {
 gulp.task("build-libs-obfuscator", function () {
     var stream = gulp
         .src(targetProject + '/' + filesMap["libs"].url + '/**/*.js')
-        .pipe(js_obfuscator(1))
+        .pipe(js_obfuscator(1,true))
         .pipe(gulp.dest(targetProject + '/' + filesMap["libs"].url))
     return stream;
 });
 gulp.task("build-myDebugthm-obfuscator", function () {
     var stream = gulp
-        .src(targetProject + '/' +"myDebugthm" + '/**/*.js')
-        .pipe(js_obfuscator(1))
-        .pipe(gulp.dest(targetProject + '/' + "myDebugthm/"))
+        .src(targetProject + '/' +"myMainJs" + '/**/*.js')
+        .pipe(js_obfuscator(1,true))
+        .pipe(gulp.dest(targetProject + '/' + "myMainJs/"))
     return stream;
 });
+
+gulp.task("myMainJs", function () {
+    var stream = gulp
+        .src(targetProject + '/' +"myMainJs" + '/**/*.js')
+        .pipe(js_obfuscator(1,true))
+        .pipe(gulp.dest(targetProject + '/' + "myMainJs/"))
+    return stream;
+});
+
 gulp.task("build-myDebugMainJs-obfuscator", function () {
     var stream = gulp
         .src(targetProject + '/' + "myDebugMainJs"+ '/**/*.js')
-        .pipe(js_obfuscator(1))
+        .pipe(js_obfuscator(1,true))
         .pipe(gulp.dest(targetProject + '/' + "myDebugMainJs/"))
     return stream;
 });
+
+gulp.task("cocos", function () {
+    var stream = gulp
+        .src(targetProject + '/' + "cocos"+ '/**/*.js')
+        .pipe(js_obfuscator(1,false))
+        .pipe(gulp.dest(targetProject + '/' + "cocos/"))
+    return stream;
+});
+
+gulp.task("myProtoJs", function () {
+    var stream = gulp
+        .src(targetProject + '/' + "myProtoJs"+ '/**/*.js')
+        .pipe(js_obfuscator(1,true))
+        .pipe(gulp.dest(targetProject + '/' + "myProtoJs/"))
+    return stream;
+});
+
+gulp.task("ledege_other", function () {
+    var srcs = [targetProject + '/**/*.js', "!" + targetProject + '/**/protolib.js',"!" + targetProject + '/**/project.js',"!" + targetProject + '/**/cocos2d-js-min.js'];
+    var stream = gulp
+        .src(srcs)
+        .pipe(js_obfuscator(1,true))
+        .pipe(gulp.dest(targetProject + '/'))
+    return stream;
+});
+
 gulp.task("build-workers-obfuscator", function () {
     var stream = gulp
         .src(targetProject + '/' + filesMap["workers"].url + '/**/*.js')
@@ -1454,7 +1634,7 @@ gulp.task("build-workers-obfuscator", function () {
 gulp.task("build-js-obfuscator", function () {
     var stream = gulp
         .src(targetProject + '/**/*.js')
-        .pipe(js_obfuscator(1))
+        .pipe(js_obfuscator(1,true))
         .pipe(gulp.dest(targetProject + '/'))
     return stream;
 });
@@ -1522,7 +1702,7 @@ gulp.task('MT1_COPY', function () {
                     var dirs = defineDirname.split("/");
                     if (dirs.length <= 1) { //直接是文件
                         console.log("文件名字:", path.basename, "修改文件名为:", dirs[0]);
-                        path.basename = dirs[0];
+                        path.basename = path.basename;
                     } else {  //有路径
                         var curFileName = dirs.pop();
                         var dirPath = dirs.join("/");
@@ -1630,10 +1810,6 @@ gulp.task('MT1_COPY', function () {
                         "name": packageName2,
                         "root": packageName2+"/"
                     },
-                    {
-                        "name": packageName3,
-                        "root": packageName3+"/"
-                    }
                 ];
                 console.log(json)
                 file.contents = Buffer.from(JSON.stringify(json), "utf-8")
@@ -1670,6 +1846,14 @@ gulp.task('cleanGameJs',function(){
     return stream;
 })
 
+gulp.task('CREATE_REFUSEFILE_Z_888', function (cb) {
+    sequence("set-param-Z_888","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_Z_888', function (cb) {
+    sequence("set-param-Z_888","DEL_REFUSEFILE",cb)
+});
+
 
 //随机产生辣鸡空文件
 gulp.task('CREATE_REFUSEFILE', function () {
@@ -1690,280 +1874,6 @@ gulp.task('DEL_REFUSEFILE', function () {
         .pipe(gulp.dest(targetUrl + '/'));
 });
 
-gulp.task('CREATE_REFUSEFILE_B', function (cb) {
-    sequence("set-param-b","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_B', function (cb) {
-    sequence("set-param-b","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_C', function (cb) {
-    sequence("set-param-c","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_C', function (cb) {
-    sequence("set-param-c","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_D', function (cb) {
-    sequence("set-param-d","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_D', function (cb) {
-    sequence("set-param-d","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_E', function (cb) {
-    sequence("set-param-e","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_E', function (cb) {
-    sequence("set-param-e","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_F', function (cb) {
-    sequence("set-param-f","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_F', function (cb) {
-    sequence("set-param-f","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_G', function (cb) {
-    sequence("set-param-g","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_G', function (cb) {
-    sequence("set-param-g","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_H', function (cb) {
-    sequence("set-param-h","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_H', function (cb) {
-    sequence("set-param-h","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_I', function (cb) {
-    sequence("set-param-i","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_I', function (cb) {
-    sequence("set-param-i","DEL_REFUSEFILE",cb)
-});
-
-
-gulp.task('CREATE_REFUSEFILE_J', function (cb) {
-    sequence("set-param-j","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_J', function (cb) {
-    sequence("set-param-j","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_K', function (cb) {
-    sequence("set-param-k","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_K', function (cb) {
-    sequence("set-param-k","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_L', function (cb) {
-    sequence("set-param-l","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_L', function (cb) {
-    sequence("set-param-l","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_M', function (cb) {
-    sequence("set-param-m","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_M', function (cb) {
-    sequence("set-param-m","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_N', function (cb) {
-    sequence("set-param-n","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_N', function (cb) {
-    sequence("set-param-n","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_O', function (cb) {
-    sequence("set-param-O","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_O', function (cb) {
-    sequence("set-param-O","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_P', function (cb) {
-    sequence("set-param-P","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_P', function (cb) {
-    sequence("set-param-P","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_Q', function (cb) {
-    sequence("set-param-Q","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_Q', function (cb) {
-    sequence("set-param-Q","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_R', function (cb) {
-    sequence("set-param-R","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_R', function (cb) {
-    sequence("set-param-R","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_S', function (cb) {
-    sequence("set-param-S","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_S', function (cb) {
-    sequence("set-param-S","DEL_REFUSEFILE",cb)
-});
-
-
-gulp.task('CREATE_REFUSEFILE_T', function (cb) {
-    sequence("set-param-T","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_T', function (cb) {
-    sequence("set-param-T","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_U', function (cb) {
-    sequence("set-param-U","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_U', function (cb) {
-    sequence("set-param-U","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_V', function (cb) {
-    sequence("set-param-V","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_V', function (cb) {
-    sequence("set-param-V","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_W', function (cb) {
-    sequence("set-param-W","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_W', function (cb) {
-    sequence("set-param-W","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_X', function (cb) {
-    sequence("set-param-X","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_X', function (cb) {
-    sequence("set-param-X","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_Y', function (cb) {
-    sequence("set-param-Y","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_Y', function (cb) {
-    sequence("set-param-Y","DEL_REFUSEFILE",cb)
-});
-
-
-gulp.task('CREATE_REFUSEFILE_Z', function (cb) {
-    sequence("set-param-Z","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_Z', function (cb) {
-    sequence("set-param-Z","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_Z_1', function (cb) {
-    sequence("set-param-Z_1","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_Z_1', function (cb) {
-    sequence("set-param-Z_1","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_Z_2', function (cb) {
-    sequence("set-param-Z_2","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_Z_2', function (cb) {
-    sequence("set-param-Z_2","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_Z_3', function (cb) {
-    sequence("set-param-Z_3","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_Z_3', function (cb) {
-    sequence("set-param-Z_3","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_Z_4', function (cb) {
-    sequence("set-param-Z_4","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_Z_4', function (cb) {
-    sequence("set-param-Z_4","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_Z_5', function (cb) {
-    sequence("set-param-Z_5","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_Z_5', function (cb) {
-    sequence("set-param-Z_5","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_Z_6', function (cb) {
-    sequence("set-param-Z_6","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_Z_6', function (cb) {
-    sequence("set-param-Z_6","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_Z_7', function (cb) {
-    sequence("set-param-Z_7","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_Z_7', function (cb) {
-    sequence("set-param-Z_7","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_Z_8', function (cb) {
-    sequence("set-param-Z_8","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_Z_8', function (cb) {
-    sequence("set-param-Z_8","DEL_REFUSEFILE",cb)
-});
-
-gulp.task('CREATE_REFUSEFILE_Z_9', function (cb) {
-    sequence("set-param-Z_9","CREATE_REFUSEFILE",cb)
-});
-
-gulp.task('DEL_REFUSEFILE_Z_9', function (cb) {
-    sequence("set-param-Z_9","DEL_REFUSEFILE",cb)
-});
 
 //无网络 使用这个图片压缩
 gulp.task('gulp-imagemin', function (cb) {
@@ -2148,6 +2058,7 @@ var createRefuseFile = function () {
     // 不处理end 使用默认的end
     return through.obj(onFile);
 }
+
 
 
 //自动命名资源 暂时没写好没用

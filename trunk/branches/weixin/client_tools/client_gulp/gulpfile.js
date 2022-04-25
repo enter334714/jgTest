@@ -80,7 +80,7 @@ var modify_scope = function () {
         }
 
         //替换 return ret;
-        var reg = /(return )[a-zA-Z\$_+" ]{0,20}(ret;)/g;
+        var reg = /(return )[a-zA-Z\$_+" ]{0,30}(ret;)/g;
         var mch = contents.match(reg);
         if (mch && mch.length == 1) {
             let repl = 'return ' + (PREFIX.length>0 ? '"'+PREFIX+'" + ' : "") + 'ret;';
@@ -212,24 +212,24 @@ var minify_main = function () {
         console.log("条件编译参数：",global_defsParam)
         var options = {
             compress: {
-                global_defs: global_defsParam,            //使用debug.html测试时不能打开
-                drop_debugger: true,
-                toplevel: true,
-                if_return: true,
-                join_vars: true,
-                booleans: true,
-                dead_code: true,
-                properties: true,
+                // global_defs: global_defsParam,            //使用debug.html测试时不能打开
+                // drop_debugger: true,
+                // toplevel: true,
+                // if_return: true,
+                // join_vars: true,
+                // booleans: true,
+                // dead_code: true,
+                // properties: true,
             },
             mangle: {
-                toplevel: true,
-                eval: true,
-                keep_fnames: false,
-                reserved: ["Main","MainWX","LayaGPU"],
+                // toplevel: true,
+                // eval: true,
+                // keep_fnames: false,
+                // reserved: ["Main","MainWX","LayaGPU"],
                 properties:{
                     // debug: true,
                     ///1.以p_|P_开头，以Cfg结尾；2.大写字母开头，某类词结尾；3. get,set,do方法
-                    regex: /(^((p|P|n|N)_.{3,100})|(.{2,100}Cfg)$)|(^[A-Z].*(Panel|Alert|Model|Mod|Ctrl|Ctl|Item|Itm|View|Mgr)$)|(^(get|set|do)_[A-Z].{3,100})$/,
+                    // regex: /(^((p|P|n|N)_.{3,100})|(.{2,100}Cfg)$)|(^[A-Z].*(Panel|Alert|Model|Mod|Ctrl|Ctl|Item|Itm|View|Mgr)$)|(^(get|set|do)_[A-Z].{3,100})$/,
                     // reserved: ["LayaGPU"],
                 }
             },
@@ -326,6 +326,7 @@ var minify_init = function () {
                 properties: true,
             },
             mangle: {
+
                 toplevel: false,
                 eval: true,
                 keep_fnames: false,
@@ -334,7 +335,7 @@ var minify_init = function () {
                     // debug: true,
                     //以p_|P_开头，以Cfg结尾，或者一些指定单词
                     //regex: /(^((p|P|n)_.{3,100})|(.{2,100}Cfg)$)|(^(assets)$|^(mesh)$|^(particle)$|^(behavior)$|^(component)$|^(common)$)/,
-                    regex: /(^((p|P|n|N)_.{1,100})$)/,
+                    // regex: /(^((p|P|n|N)_.{1,100})$)/,
                 }
             },
             output: {
@@ -391,7 +392,34 @@ gulp.task('libs-mini', function () {
         .pipe(gulp.dest(DEST + PACK + "/libs/"))
 	return stream;
 });
+gulp.task('init-cocos2d-js-min', function () {
+    var stream = gulp.src([
+        BIN + 'cocos2d-js-min.js'
+    ])
+        .pipe(js_minify())
+        .pipe(gulp.dest(DEST + PACK + "/"))
+    return stream;
+});
 
+
+
+gulp.task('init-cocos2d-protolib-min', function () {
+    var stream = gulp.src([
+        BIN + 'protolib.js'
+    ])
+        .pipe(minify_libs())
+        .pipe(gulp.dest(DEST + PACK + "/myProtoJs/"))
+    return stream;
+});
+
+gulp.task('init-cocos2d-main-min', function () {
+    var stream = gulp.src([
+        BIN + 'project.js'
+    ])
+        .pipe(minify_libs())
+        .pipe(gulp.dest(DEST + PACK + "/myMainJs/"))
+    return stream;
+});
 
 //init
 gulp.task('init-modify', function () {
@@ -431,6 +459,15 @@ gulp.task('main-mini', function () {
         .pipe(minify_main())
         .pipe(concat(mainName))
         .pipe(gulp.dest(DEST + PACK + "/subPackage/"))
+    return stream;
+});
+
+gulp.task('main-cocos2d-main', function () {
+    var stream = gulp.src([
+        BIN + '/project.js'
+    ])
+        .pipe(js_minify())
+        .pipe(gulp.dest(DEST + PACK + "/myMainJs/"))
     return stream;
 });
 //main.js备份
@@ -1901,6 +1938,114 @@ gulp.task('build-all-Z_5', function (cb) {
 
 /**-------------------------------------------------微信小游戏--Z_5-斯琪_主宰领域_混淆  end-----------------------------------------------------------*/
 
+/**-------------------------------------------------微信小游戏--  Z_888  start-----------------------------------------------------------*/
+/**Z_888包参数*/
+var set_param_Z_888= function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = 'wx_dist/packageZ_888/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameZ_888';
+        INIT_PATH = '/';
+        SCOPE = 'sMTXxcluEOUp_RqGgfJPtrNwkADhQvzBoCmYIyeVbLSKZn$FWajiHd'; //WX
+        PREFIX = 'C$99';
+        sourceProject = "wx_build1/jg_gameZ_888_new";
+        targetProject = "wx_build1/jg_gameZ_888_obfuscator";
+
+        cb();
+
+        this.emit("data", file);
+    }
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-Z_888', function () {
+    var stream = gulp.src("")
+        .pipe(set_param_Z_888()
+        )
+    return stream;
+});
+
+//设置混淆参数（Z_888包）
+gulp.task('scope-Z_888', function (cb) {
+    sequence('set-param-Z_888', 'scope-modify', cb)
+});
+
+//打包所有（Z_888包）
+gulp.task('build-all-Z_888', function (cb) {
+    sequence('scope-Z_888', 'scope-check', 'main-cocos2d-main', 'init-cocos2d-js-min',  'init-cocos2d-protolib-min', 'copy', cb)
+});
+
+/**-------------------------------------------------微信小游戏--Z_888-斯琪_主宰领域_混淆  end-----------------------------------------------------------*/
+var js_minify = function () {
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+        var contents = "" + file.contents;
+
+        console.info("minify文件：" + file.path);
+
+        var options = {
+            compress: {
+                global_defs: {DEBUG: false},
+                drop_debugger: true,
+                toplevel: false, //干掉顶层作用域中没有被引用的函数 ("funcs")和/或变量("vars")
+                if_return: true,
+                join_vars: false, //合并连续 var 声明
+                booleans: true,
+                dead_code: true,
+                properties: true, //用.来重写属性引用，例如foo["bar"] → foo.bar
+            },
+            mangle: {
+                toplevel: false, //混淆那些定义在顶层作用域的名字
+                eval: false,
+                keep_fnames: true, //true表示不混淆函数名
+                reserved: ["Main", "MainWX", "LayaGPU"],
+                // properties: {
+                //     regex: /(^((p|P|n|N)_.{3,100})|(.{2,100}Cfg)$)|(^[A-Z].*(Panel|Alert|Model|Mod|Ctrl|Ctl|Item|Itm|View|Mgr)$)|(^(get|set|do)_[A-Z].{3,100})$/,
+                // }
+            },
+            output: {
+                beautify: false,
+                ascii_only: true
+            },
+            sourceMap: {
+                includeSources: true,
+                filename: "main.js"
+                // root: path.join(root, "js/"),
+            },
+        };
+        var mainres = uglifyjs.minify(contents, options);
+
+        if (mainres.error) {
+            throw Error("压缩报错：" + mainres.error);
+        }
+
+        if (mainres.code) {
+            contents = mainres.code;// + "\n//@ sourceMappingURL=js/main.min.map";
+        }
+
+        if (mainres.map) {
+            var mapbuf = Buffer.alloc(Buffer.byteLength(mainres.map), mainres.map);
+            fs.writeFileSync(file.path.replace('.extends.js', '.min.map'), mapbuf);
+        }
+
+        var bf = new Buffer.from(contents);
+        file.contents = bf;
+        cb();
+        this.emit("data", file);
+    }
+
+    // 不处理end 使用默认的end
+    return through.obj(onFile);
+};
 
 
 /**+++++++++++++++++++++++++++++++++++++++++++++++++VIVO小游戏--A包 start+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
