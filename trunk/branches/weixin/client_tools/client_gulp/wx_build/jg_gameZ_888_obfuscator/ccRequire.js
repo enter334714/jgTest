@@ -1,18 +1,14 @@
 'use strict';
 
 var H = wx.$F;
-var fkx8uj = H[0x0],
-    fau8e3pm = H[0x1],
-    fi$97hsw = H[0x2],
-    fx_k5c4j = H[0x3],
-    moduleMap = {};moduleMap[fkx8uj] = function fro6q() {
-  require(fkx8uj);
-}, moduleMap[fau8e3pm] = function fe2bapl() {
-  require(H[0x4]);
-}, moduleMap[fi$97hsw] = function fbvlgae2() {
-  require(fi$97hsw);
-}, moduleMap[fx_k5c4j] = function fhtsc_() {
-  require(H[0x5]);
-}, window[H[0x6]] = function (moduleName) {
-  var j4kucx8 = moduleMap[moduleName];j4kucx8 && j4kucx8();
+var moduleMap = { 'src/assets/Script/engine/7cwan_sdk.js': function fgelbav2() {
+    require(H[0x0]);
+  }, 'src/assets/Script/engine/protolib.js': function fhwi7s$() {
+    require(H[0x1]);
+  }, 'src/assets/Script/engine/zlib.min.js': function fs97w$ih() {
+    require(H[0x2]);
+  }, 'src/project.js': function f$71z6nr() {
+    require(H[0x3]);
+  } };window[H[0x4]] = function (moduleName) {
+  var n$61z0 = moduleMap[moduleName];n$61z0 && n$61z0();
 };

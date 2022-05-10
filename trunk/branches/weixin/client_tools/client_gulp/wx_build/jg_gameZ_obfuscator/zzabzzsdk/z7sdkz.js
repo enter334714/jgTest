@@ -702,6 +702,24 @@ function z0RDY0J() {
             } else {
                 callback && callback({ status: 0, msg: B[441952] });
             }
+        },
+        subscribeMessage: function (tmplIds, callback) {
+            console.log(B[441966] + tmplIds);
+            //获取模板ID
+            callbacks[B[440320]] = typeof callback == B[441091] ? callback : null;
+            wx.requestSubscribeMessage({
+                tmplIds: tmplIds,
+                success(res) {
+                    console.log(B[441967]);
+                    console.log(res);
+                    callbacks[B[440320]] && callbacks[B[440320]](res);
+                },
+                fail(res) {
+                    console.log(B[441968]);
+                    console.log(res);
+                    callbacks[B[440320]] && callbacks[B[440320]](res);
+                }
+            });
         }
     };
 }
@@ -772,7 +790,7 @@ exports.share = function (type) {
 };
 
 exports.downloadClient = function () {
-    run(B[441966]);
+    run(B[441969]);
 };
 
 exports.getConfig = function () {
@@ -799,9 +817,17 @@ exports.switchGame = function (callback) {
 };
 
 exports.sendCode = function (data, callback) {
-    run(B[441967], data, callback);
+    run(B[441970], data, callback);
 };
 
 exports.bindPhone = function (data, callback) {
-    run(B[441968], data, callback);
+    run(B[441971], data, callback);
+};
+
+exports.subscribeMessage = function (data, callback) {
+    run(B[440320], data, callback);
+};
+
+exports.weiduanHelper = function (data, callback) {
+    run(B[440303], data, callback);
 };

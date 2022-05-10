@@ -1,1 +1,0 @@
-var I=wx.$X;import"rrMAINrr.js";

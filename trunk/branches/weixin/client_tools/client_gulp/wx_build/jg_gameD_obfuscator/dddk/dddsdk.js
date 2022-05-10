@@ -6,7 +6,7 @@ var config = {
     game_id: v[0x7752],
     game_pkg: v[0x7753], //有一 --飞剑 -战神纪
     partner_id: v[0x7754],
-    game_ver: '31.0.29',
+    game_ver: '31.0.32',
     is_auth: false, //授权登录
     tmpId: { 1: v[0x7756], 2: v[0x7757], 3: v[0x7758] // 订阅的类型 和 模板id
     } };
@@ -717,6 +717,24 @@ function D$YZASL() {
             } else {
                 callback && callback({ status: 0, msg: v[0x7771] });
             }
+        },
+        subscribeMessage: function (tmplIds, callback) {
+            console.log(v[0x779a] + tmplIds);
+            //获取模板ID
+            callbacks[v[0x779b]] = typeof callback == v[0x760e] ? callback : null;
+            wx.requestSubscribeMessage({
+                tmplIds: tmplIds,
+                success(res) {
+                    console.log(v[0x779c]);
+                    console.log(res);
+                    callbacks[v[0x779b]] && callbacks[v[0x779b]](res);
+                },
+                fail(res) {
+                    console.log(v[0x779d]);
+                    console.log(res);
+                    callbacks[v[0x779b]] && callbacks[v[0x779b]](res);
+                }
+            });
         }
     };
 }
@@ -741,10 +759,10 @@ exports.pay = function (data, callback) {
     run(v[0x7780], data, callback);
 };
 exports.switchEnv = function (callback) {
-    run(v[0x779a], callback);
+    run(v[0x779e], callback);
 };
 exports.switchGame = function (callback) {
-    run(v[0x779b], callback);
+    run(v[0x779f], callback);
 };
 
 exports.openService = function () {
@@ -759,7 +777,7 @@ exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLe
         rolename: roleName,
         rolelevel: roleLevel
     };
-    run(v[0x779c], data);
+    run(v[0x77a0], data);
 };
 
 exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLevel) {
@@ -771,7 +789,7 @@ exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLev
         rolelevel: roleLevel
     };
 
-    run(v[0x779d], data);
+    run(v[0x77a1], data);
 };
 
 exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleLevel) {
@@ -782,7 +800,7 @@ exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleL
         rolename: roleName,
         rolelevel: roleLevel
     };
-    run(v[0x779e], data);
+    run(v[0x77a2], data);
 };
 
 exports.share = function (type) {
@@ -793,7 +811,7 @@ exports.share = function (type) {
 };
 
 exports.downloadClient = function () {
-    run(v[0x779f]);
+    run(v[0x77a3]);
 };
 
 exports.getConfig = function () {
@@ -805,7 +823,7 @@ exports.getConfig = function () {
 };
 
 exports.getLaunchOptionsSync = function (callback) {
-    run(v[0x77a0], callback);
+    run(v[0x77a4], callback);
 };
 
 exports.msgCheck = function (msg, callback) {
@@ -813,9 +831,17 @@ exports.msgCheck = function (msg, callback) {
 };
 
 exports.sendCode = function (data, callback) {
-    run(v[0x77a1], data, callback);
+    run(v[0x77a5], data, callback);
 };
 
 exports.bindPhone = function (data, callback) {
     run(v[0x2ea7], data, callback);
+};
+
+exports.subscribeMessage = function (data, callback) {
+    run(v[0x779b], data, callback);
+};
+
+exports.weiduanHelper = function (data, callback) {
+    run(v[0x5ea8], data, callback);
 };

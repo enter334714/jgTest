@@ -1,178 +1,198 @@
 var H = wx.$F;
-let fiw1h$ = { 'game_id': '11', 'game_pkg': 'wzcq-q2-_q2wxxcxgrzh_J', 'partner_id': '4', 'is_auth': !(-0x3 * -0xad5 + -0x1a3a + 0x1 * -0x644), 'from': null };window['config'] = fiw1h$;let fma83eu = ft95_swh(),
-    fkx_5tsc = 'https://sdk.5tun.cn',
-    fm2pebl = null,
-    fpj83ue = null,
-    frn7z$6 = '';function ft95_swh() {
-  var sw_h95t = {};return { 'order_data': {}, 'init': function (j3kux8, t5hc9_) {
-      frn7z$6 = j3kux8 && j3kux8['game_ver'] ? j3kux8['game_ver'] : 0x9e * 0x16 + 0xc3c + 0x8 * -0x33a, console['log']('[SDK]CP调用init接口');var _5xcj4k,
-          i9$71w = wx['getStorageSync']('plat_uuid');i9$71w ? _5xcj4k = 0x33f * -0xa + -0x2a * 0x61 + 0x60c * 0x8 : (i9$71w = this['uuid'](-0x42 * -0x3b + 0x2168 * 0x1 + -0x308e, -0x16cf + -0x1 * -0x2090 + -0x9a1), wx['setStorageSync']('plat_uuid', i9$71w), _5xcj4k = -0x5 * -0x136 + -0x1e37 + 0x182a);var vbam2e = wx['getStorageSync']('plat_idfv');vbam2e || (vbam2e = this['uuid'](-0x26 * -0x81 + 0xcf4 * 0x2 + -0x167f * 0x2, -0x655 + 0x8e2 + -0x26d), wx['setStorageSync']('plat_idfv', vbam2e));var c_9sx5t = wx['getLaunchOptionsSync'](),
-          k38pju = c_9sx5t['scene'] ? c_9sx5t['scene'] : '';if (console['log']('[SDK]小游戏启动参数'), console['log'](c_9sx5t), _5xcj4k && c_9sx5t['query'] && c_9sx5t['query']['ad_code'] && wx['setStorageSync']('plat_ad_code', c_9sx5t['query']['ad_code']), c_9sx5t['query'] && c_9sx5t['query']['from'] && '' != c_9sx5t['query']['from']) _5xcj4k && wx['setStorageSync']('plat_from', c_9sx5t['query']['from']), fiw1h$['from'] = c_9sx5t['query']['from'];else {
-        var nh$w7i = wx['getStorageSync']('plat_from');nh$w7i || '' == nh$w7i || (fiw1h$['from'] = nh$w7i);
-      }console['log'](fiw1h$['from']);var $s7i9hw = { 'install': _5xcj4k, 'scene': k38pju };this['log']('start', $s7i9hw), wx['showShareMenu'](), frn7z$6 && this['checkGameVersion'](frn7z$6, function ($n6r0z1) {
-        t5hc9_ && t5hc9_($n6r0z1);
+let fp2lame = { 'game_id': '11', 'game_pkg': 'wzcq-q2-_q2wxxcxqd_H', 'partner_id': '4', 'is_auth': !(-0x5 * 0x7a7 + 0x427 * 0x3 + -0x19cf * -0x1), 'from': null };window['config'] = fp2lame;let fe3pmb2a = febua3pm(),
+    fts5c9x_ = 'https://sdk.5tun.cn',
+    feblv2m = null,
+    fs5wht_ = null,
+    f$w9s7i = '';function febua3pm() {
+  var zd6orq = {};return { 'order_data': {}, 'init': function (m3puj84, k5j4) {
+      f$w9s7i = m3puj84 && m3puj84['game_ver'] ? m3puj84['game_ver'] : 0x500 + -0xe5 * 0x2 + -0x1 * 0x336, console['log']('[SDK]CP调用init接口');var vlbeg2,
+          mapl2e = wx['getStorageSync']('plat_uuid');mapl2e ? vlbeg2 = 0x1e2e + 0xcd3 * 0x1 + -0x2b01 : (mapl2e = this['uuid'](0x269 * -0xd + 0xbbc + 0x13a9 * 0x1, -0x1ea9 * 0x1 + 0x2351 + -0x488), wx['setStorageSync']('plat_uuid', mapl2e), vlbeg2 = -0x1 * -0x15db + 0x6 * -0x366 + -0x1 * 0x176);var hw59s = wx['getStorageSync']('plat_idfv');hw59s || (hw59s = this['uuid'](0xd7f * -0x2 + 0x279 * -0x1 + 0x1d87 * 0x1, 0x1feb * -0x1 + 0x15cf + 0x4 * 0x28f), wx['setStorageSync']('plat_idfv', hw59s));var jpmu348 = wx['getLaunchOptionsSync'](),
+          levmb2 = jpmu348['scene'] ? jpmu348['scene'] : '';if (console['log']('[SDK]小游戏启动参数'), console['log'](jpmu348), vlbeg2 && jpmu348['query'] && jpmu348['query']['ad_code'] && wx['setStorageSync']('plat_ad_code', jpmu348['query']['ad_code']), jpmu348['query'] && jpmu348['query']['from'] && '' != jpmu348['query']['from']) vlbeg2 && wx['setStorageSync']('plat_from', jpmu348['query']['from']), fp2lame['from'] = jpmu348['query']['from'];else {
+        var jupm3 = wx['getStorageSync']('plat_from');jupm3 || '' == jupm3 || (fp2lame['from'] = jupm3);
+      }console['log'](fp2lame['from']);var apu8 = { 'install': vlbeg2, 'scene': levmb2 };this['log']('start', apu8), wx['showShareMenu'](), f$w9s7i && this['checkGameVersion'](f$w9s7i, function (w59th_) {
+        k5j4 && k5j4(w59th_);
       });
-    }, 'login': function (emjp, evmal2b) {
-      console['log']('[SDK]调起登录');var it7hs9 = this;sw_h95t['login'] = 'function' == typeof evmal2b ? evmal2b : null, fiw1h$['is_auth'] ? wx['getSetting']({ 'success': function (yq0doz) {
-          if (yq0doz['authSetting']['scope.userInfo']) console['log']('[SDK]获得授权设置\uFF1A已授权'), it7hs9['do_login']();else {
-            console['log']('[SDK]获得授权设置\uFF1A未授权'), wx['hideLoading']({});var cth59_s = wx['getSystemInfoSync'](),
-                rn617i = (cth59_s['screenWidth'], cth59_s['screenHeight'], wx['createUserInfoButton']({ 'type': 'text', 'text': '授权登录游戏', 'withCredentials': !(0x1a8a + 0x1 * 0x262f + -0x6d * 0x98), 'style': { 'top': cth59_s['windowHeight'] / (-0x1 * 0x155d + 0x712 * 0x1 + 0x7 * 0x20b) + cth59_s['windowHeight'] / (-0x16eb * 0x1 + -0x86e + 0xd9 * 0x25), 'left': cth59_s['windowWidth'] / (-0x1e25 + 0x53 * 0x78 + -0x2eb * 0x3) - (-0x166 + 0x146f * 0x1 + -0x12a5 * 0x1), 'width': 0xc8, 'height': 0x28, 'lineHeight': 0x28, 'backgroundColor': '#07c160', 'color': '#ffffff', 'textAlign': 'center', 'fontSize': 0x10, 'borderRadius': 0x4 } }));rn617i['show'](), rn617i['onTap'](wni6$7 => {
-              console['log'](wni6$7), f33BL8({ 'title': '正在登录游戏' }), 'getUserInfo:ok' == wni6$7['errMsg'] ? it7hs9['do_login']({ 'head_img': wni6$7['userInfo']['avatarUrl'] || '', 'nick_name': wni6$7['userInfo']['nickName'] || '' }) : it7hs9['do_login'](), rn617i['destroy']();
+    }, 'login': function ($7iw1h9, x4juck8) {
+      console['log']('[SDK]调起登录');var ihtw7s = this;zd6orq['login'] = 'function' == typeof x4juck8 ? x4juck8 : null, fp2lame['is_auth'] ? wx['getSetting']({ 'success': function (sw_9t) {
+          if (sw_9t['authSetting']['scope.userInfo']) console['log']('[SDK]获得授权设置\uFF1A已授权'), ihtw7s['do_login']();else {
+            console['log']('[SDK]获得授权设置\uFF1A未授权'), wx['hideLoading']({});var b2vgale = wx['getSystemInfoSync'](),
+                s5hwit = (b2vgale['screenWidth'], b2vgale['screenHeight'], wx['createUserInfoButton']({ 'type': 'text', 'text': '授权登录游戏', 'withCredentials': !(-0x10a5 + -0x2560 + 0x3606), 'style': { 'top': b2vgale['windowHeight'] / (-0x4 * -0x886 + 0x256c + -0x36 * 0x153) + b2vgale['windowHeight'] / (0x15d * -0x1 + -0x1994 + 0x1af5), 'left': b2vgale['windowWidth'] / (0x49a + -0x3 * -0xaec + -0x255c) - (0x1a4c + -0x1 * 0x557 + -0x1491), 'width': 0xc8, 'height': 0x28, 'lineHeight': 0x28, 'backgroundColor': '#07c160', 'color': '#ffffff', 'textAlign': 'center', 'fontSize': 0x10, 'borderRadius': 0x4 } }));s5hwit['show'](), s5hwit['onTap'](ku8jp43 => {
+              console['log'](ku8jp43), f33BL8({ 'title': '正在登录游戏' }), 'getUserInfo:ok' == ku8jp43['errMsg'] ? ihtw7s['do_login']({ 'head_img': ku8jp43['userInfo']['avatarUrl'] || '', 'nick_name': ku8jp43['userInfo']['nickName'] || '' }) : ihtw7s['do_login'](), s5hwit['destroy']();
             });
           }
         }, 'fail': function () {
-          console['log']('[SDK]获得授权设置\uFF1A失败'), it7hs9['do_login']();
-        } }) : (console['log']('[SDK]授权登录' + fiw1h$['is_auth']), it7hs9['do_login']());
-    }, 'do_login': function (_k4x8c) {
-      var dzqyr0o = this;wx['login']({ 'success': function (x5_ks) {
-          if (console['log']('微信登录成功返回' + JSON['stringify'](x5_ks)), x5_ks['code']) {
-            var s9_tcx5 = dzqyr0o['getPublicData']();s9_tcx5['mo'] = 0x1 * -0x18df + 0x621 * 0x1 + 0x12bf, s9_tcx5['code'] = x5_ks['code'], s9_tcx5['nick_name'] = _k4x8c ? _k4x8c['nick_name'] : '', s9_tcx5['head_img'] = _k4x8c ? _k4x8c['head_img'] : '', fiw1h$['is_auth'] ? wx['getUserInfo']({ 'success': function (jp384mu) {
-                var rd0qyoz = jp384mu['encryptedData'],
-                    mpj483u = jp384mu['iv'],
-                    lepam2 = jp384mu['signature'];s9_tcx5['encryptedData'] = rd0qyoz, s9_tcx5['iv'] = mpj483u, s9_tcx5['signature'] = lepam2, wx['request']({ 'url': fkx_5tsc + '/partner/auth', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': s9_tcx5, 'success': function (qnozr0) {
-                    if (console['log']('[SDK]登录结果\uFF1A'), console['log'](qnozr0), -0x85c + -0x2 * 0x1066 + 0xb * 0x3d0 == qnozr0['statusCode']) {
-                      var k_54xct = qnozr0['data'];if (k_54xct['state']) {
-                        var u4jxk8 = { 'userid': k_54xct['data']['user_id'], 'account': k_54xct['data']['nick_name'], 'token': k_54xct['data']['token'] };try {
-                          wx['setStorageSync']('plat_sdk_token', k_54xct['data']['sdk_token']), wx['setStorageSync']('plat_uid', k_54xct['data']['user_id']), wx['setStorageSync']('plat_username', k_54xct['data']['username']), wx['setStorageSync']('wx_openid', k_54xct['data']['openid']), k_54xct['data']['ext'] && wx['setStorageSync']('plat_session_key', k_54xct['data']['ext']);
-                        } catch (v2blmae) {}sw_h95t['login'] && sw_h95t['login'](-0x1 * 0x6cb + 0x1c * -0x5a + 0x10a3, u4jxk8);
-                      } else sw_h95t['login'] && sw_h95t['login'](0x2 * -0x941 + -0x196c + 0x2bef, { 'errMsg': k_54xct['msg'] });
-                    } else sw_h95t['login'] && sw_h95t['login'](-0x94 * 0x2e + 0xbf * -0xf + 0x25ca, { 'errMsg': '请求平台服务器失败\uFF01#1' });
-                  }, 'fail': function (r6n0zo) {
-                    sw_h95t['login'] && sw_h95t['login'](0x2425 + -0xb86 * -0x1 + -0x2faa, { 'errMsg': r6n0zo['errMsg'] });
+          console['log']('[SDK]获得授权设置\uFF1A失败'), ihtw7s['do_login']();
+        } }) : (console['log']('[SDK]授权登录' + fp2lame['is_auth']), ihtw7s['do_login']());
+    }, 'do_login': function (e8mpju) {
+      var kscx_5t = this;wx['login']({ 'success': function (r0oqd) {
+          if (console['log']('微信登录成功返回' + JSON['stringify'](r0oqd)), r0oqd['code']) {
+            var xu3j84k = kscx_5t['getPublicData']();xu3j84k['mo'] = -0x889 * -0x1 + -0x804 + 0xc * -0xb, xu3j84k['code'] = r0oqd['code'], xu3j84k['nick_name'] = e8mpju ? e8mpju['nick_name'] : '', xu3j84k['head_img'] = e8mpju ? e8mpju['head_img'] : '', fp2lame['is_auth'] ? wx['getUserInfo']({ 'success': function (auep8) {
+                var i9$1w7h = auep8['encryptedData'],
+                    k_5xts = auep8['iv'],
+                    u8cjk4 = auep8['signature'];xu3j84k['encryptedData'] = i9$1w7h, xu3j84k['iv'] = k_5xts, xu3j84k['signature'] = u8cjk4, wx['request']({ 'url': fts5c9x_ + '/partner/auth', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': xu3j84k, 'success': function (p8emu3) {
+                    if (console['log']('[SDK]登录结果\uFF1A'), console['log'](p8emu3), 0xe88 + 0x13c2 + 0x10c1 * -0x2 == p8emu3['statusCode']) {
+                      var kj4p3u = p8emu3['data'];if (kj4p3u['state']) {
+                        var g2ebal = { 'userid': kj4p3u['data']['user_id'], 'account': kj4p3u['data']['nick_name'], 'token': kj4p3u['data']['token'] };try {
+                          wx['setStorageSync']('plat_sdk_token', kj4p3u['data']['sdk_token']), wx['setStorageSync']('plat_uid', kj4p3u['data']['user_id']), wx['setStorageSync']('plat_username', kj4p3u['data']['username']), wx['setStorageSync']('wx_openid', kj4p3u['data']['openid']), kj4p3u['data']['ext'] && wx['setStorageSync']('plat_session_key', kj4p3u['data']['ext']);
+                        } catch (i6nr71) {}zd6orq['login'] && zd6orq['login'](-0xa53 * -0x2 + -0x1 * -0x2222 + -0x36c8, g2ebal);
+                      } else zd6orq['login'] && zd6orq['login'](-0x259 * -0x5 + 0x2 * 0x923 + 0x1e02 * -0x1, { 'errMsg': kj4p3u['msg'] });
+                    } else zd6orq['login'] && zd6orq['login'](0x10d0 + -0x4f4 + 0x25f * -0x5, { 'errMsg': '请求平台服务器失败\uFF01#1' });
+                  }, 'fail': function (irn6) {
+                    zd6orq['login'] && zd6orq['login'](0xfd1 * 0x1 + -0x151 * 0x3 + -0xbdd, { 'errMsg': irn6['errMsg'] });
                   } });
-              }, 'fail': function (wi7h$9) {
-                sw_h95t['login'] && sw_h95t['login'](-0xe0 * -0x3 + 0x2177 + -0x2416, { 'errMsg': wi7h$9['errMsg'] });
-              } }) : wx['request']({ 'url': fkx_5tsc + '/partner/auth', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': s9_tcx5, 'success': function (e2abgvl) {
-                if (console['log']('[SDK]登录结果\uFF1A'), console['log'](e2abgvl), -0x1fa9 * -0x1 + -0x15c5 + 0xd4 * -0xb == e2abgvl['statusCode']) {
-                  var sh$7w9i = e2abgvl['data'];if (sh$7w9i['state']) {
-                    var dzyroq0 = { 'userid': sh$7w9i['data']['user_id'], 'account': sh$7w9i['data']['nick_name'], 'token': sh$7w9i['data']['token'] };try {
-                      wx['setStorageSync']('plat_sdk_token', sh$7w9i['data']['sdk_token']), wx['setStorageSync']('plat_uid', sh$7w9i['data']['user_id']), wx['setStorageSync']('plat_username', sh$7w9i['data']['username']), wx['setStorageSync']('wx_openid', sh$7w9i['data']['openid']), sh$7w9i['data']['ext'] && wx['setStorageSync']('plat_session_key', sh$7w9i['data']['ext']);
-                    } catch (ks_tc5x) {}sw_h95t['login'] && sw_h95t['login'](-0x17ff + 0x1898 + -0x99, dzyroq0);
-                  } else sw_h95t['login'] && sw_h95t['login'](-0xcf5 + -0x4a * 0x78 + 0x2fa6, { 'errMsg': sh$7w9i['msg'] });
-                } else sw_h95t['login'] && sw_h95t['login'](0xc0e + -0x20e6 + 0x14d9, { 'errMsg': '请求平台服务器失败\uFF01#2' });
+              }, 'fail': function (orn0q) {
+                zd6orq['login'] && zd6orq['login'](-0x154d + 0x3 * -0x1e9 + 0x1b09, { 'errMsg': orn0q['errMsg'] });
+              } }) : wx['request']({ 'url': fts5c9x_ + '/partner/auth', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': xu3j84k, 'success': function ($i9h1) {
+                if (console['log']('[SDK]登录结果\uFF1A'), console['log']($i9h1), -0xa * 0x238 + 0x1 * -0x1ae3 + -0x1 * -0x31db == $i9h1['statusCode']) {
+                  var pbmau3e = $i9h1['data'];if (pbmau3e['state']) {
+                    var eaup8m = { 'userid': pbmau3e['data']['user_id'], 'account': pbmau3e['data']['nick_name'], 'token': pbmau3e['data']['token'] };try {
+                      wx['setStorageSync']('plat_sdk_token', pbmau3e['data']['sdk_token']), wx['setStorageSync']('plat_uid', pbmau3e['data']['user_id']), wx['setStorageSync']('plat_username', pbmau3e['data']['username']), wx['setStorageSync']('wx_openid', pbmau3e['data']['openid']), pbmau3e['data']['ext'] && wx['setStorageSync']('plat_session_key', pbmau3e['data']['ext']);
+                    } catch (ap2me3) {}zd6orq['login'] && zd6orq['login'](0x1c42 + -0x1845 + -0x1 * 0x3fd, eaup8m);
+                  } else zd6orq['login'] && zd6orq['login'](0x259 * 0x1 + 0x9 * 0x1a5 + -0x1125, { 'errMsg': pbmau3e['msg'] });
+                } else zd6orq['login'] && zd6orq['login'](-0x1 * 0x204d + 0x1d33 * -0x1 + 0x3d81, { 'errMsg': '请求平台服务器失败\uFF01#2' });
               } });
-          } else sw_h95t['login'] && sw_h95t['login'](0x1bd4 + -0x9a9 * -0x4 + 0xcd * -0x53, { 'errMsg': x5_ks['errMsg'] });
-        }, 'fail': function (xc9_s) {
-          console['log']('微信登录失败' + JSON['stringify'](xc9_s)), (xc9_s['errMsg']['indexOf']('auth deny') > -(-0x1 * 0x18e1 + -0xb2b * -0x1 + 0xdb7) || xc9_s['errMsg']['indexOf']('auth denied') > -(-0x1 * 0x563 + -0x1a9b + 0x1fff)) && sw_h95t['login'] && sw_h95t['login'](-0x12ba + 0x4f9 * -0x4 + 0x1 * 0x269f, { 'errMsg': xc9_s['errMsg'] });
+          } else zd6orq['login'] && zd6orq['login'](0x12cc + 0xa96 + 0x6d * -0x45, { 'errMsg': r0oqd['errMsg'] });
+        }, 'fail': function (p2aembl) {
+          console['log']('微信登录失败' + JSON['stringify'](p2aembl)), (p2aembl['errMsg']['indexOf']('auth deny') > -(0x2208 + -0x2 * 0x1141 + -0x7b * -0x1) || p2aembl['errMsg']['indexOf']('auth denied') > -(0x147 * -0x3 + -0xc * -0xfd + -0x1a * 0x4f)) && zd6orq['login'] && zd6orq['login'](-0x6a * 0x4f + -0x1213 * -0x2 + -0x36f, { 'errMsg': p2aembl['errMsg'] });
         } });
-    }, 'checkGameVersion': function (l2apem, jk4u38p) {
-      console['log']('[SDK]检查游戏版本'), wx['getStorageSync']('plat_sdk_token'), wx['request']({ 'url': fkx_5tsc + '/game/min/?ac=checkGameVersion', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': { 'game_pkg': fiw1h$['game_pkg'], 'partner_id': fiw1h$['partner_id'], 'game_ver': l2apem }, 'success': function (tk_5) {
-          if (console['log']('[SDK]获取游戏版本结果'), console['log'](tk_5), -0x185 * -0x1 + 0x3 * -0x4b2 + 0xd59 == tk_5['statusCode']) {
-            var j4m = tk_5['data'];j4m['state'] ? jk4u38p && jk4u38p(j4m['data']) : jk4u38p && jk4u38p({ 'develop': 0x0 });
-          } else jk4u38p && jk4u38p({ 'develop': 0x0 });
-        }, 'fail': function (eump3b) {
-          console['log'](eump3b);
+    }, 'checkGameVersion': function (rz0n$61, lpmab2) {
+      console['log']('[SDK]检查游戏版本'), wx['getStorageSync']('plat_sdk_token'), wx['request']({ 'url': fts5c9x_ + '/game/min/?ac=checkGameVersion', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': { 'game_pkg': fp2lame['game_pkg'], 'partner_id': fp2lame['partner_id'], 'game_ver': rz0n$61 }, 'success': function (_45cxkj) {
+          if (console['log']('[SDK]获取游戏版本结果'), console['log'](_45cxkj), 0x17c1 + 0x2482 + -0x1 * 0x3b7b == _45cxkj['statusCode']) {
+            var w$ih7s = _45cxkj['data'];w$ih7s['state'] ? lpmab2 && lpmab2(w$ih7s['data']) : lpmab2 && lpmab2({ 'develop': 0x0 });
+          } else lpmab2 && lpmab2({ 'develop': 0x0 });
+        }, 'fail': function (_swht59) {
+          console['log'](_swht59);
         } });
-    }, 'pay': function (mp4j3, pamlb) {
-      var z60$r1 = this;wx['checkSession']({ 'success': function () {
-          z60$r1['startPay'](mp4j3, pamlb);
+    }, 'pay': function ($w79his, sxtc_9) {
+      var r$6n7i1 = this;wx['checkSession']({ 'success': function () {
+          r$6n7i1['startPay']($w79his, sxtc_9);
         }, 'fail': function () {
-          console['log']('[SDK]session过期需要重新登录'), z60$r1['login']({}, function () {
-            z60$r1['startPay'](mp4j3, pamlb);
+          console['log']('[SDK]session过期需要重新登录'), r$6n7i1['login']({}, function () {
+            r$6n7i1['startPay']($w79his, sxtc_9);
           });
         } });
-    }, 'startPay': function (ts_c5kx, is$7w9h) {
-      console['log']('[SDK]调起支付\uFF0CCP传值\uFF1A'), console['log'](ts_c5kx);var on06rzq = this;sw_h95t['pay'] = 'function' == typeof is$7w9h ? is$7w9h : null, -0xd8e + -0x30d * -0x8 + -0xada;var lga2e = wx['getStorageSync']('plat_sdk_token'),
-          n7ri16 = wx['getStorageSync']('plat_session_key');if (lga2e && n7ri16) {
-        var v2ambl = wx['getSystemInfoSync'](),
-            lpb2m = { 'cpbill': ts_c5kx['cpbill'], 'productid': ts_c5kx['productid'], 'productname': ts_c5kx['productname'], 'productdesc': ts_c5kx['productdesc'], 'serverid': ts_c5kx['serverid'], 'servername': ts_c5kx['servername'], 'roleid': ts_c5kx['roleid'], 'rolename': ts_c5kx['rolename'], 'rolelevel': ts_c5kx['rolelevel'], 'price': ts_c5kx['price'], 'extension': ts_c5kx['extension'], 'sdk_token': lga2e, 'session_key': n7ri16, 'platform': v2ambl['platform'] };on06rzq['order_data'] = lpb2m;var $1hwni = on06rzq['getPublicData']();$1hwni['order_data'] = JSON['stringify'](lpb2m), wx['request']({ 'url': fkx_5tsc + '/partner/order', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': $1hwni, 'success': function (u4kxj83) {
-            if (console['log']('[SDK]完成创建订单'), console['log'](u4kxj83), 0x1e7e + 0x28 + -0x1dde == u4kxj83['statusCode']) {
-              var u384jkx = u4kxj83['data'];u384jkx['state'] ? void (-0x252f + 0x24b7 * 0x1 + 0x6 * 0x14) === wx['requestPayment'] ? 'android' == v2ambl['platform'] || 'windows' == v2ambl['platform'] || 'devtools' == v2ambl['platform'] ? u384jkx['data']['is_android_pay'] ? on06rzq['kfPay'](u384jkx['data']) : on06rzq['gamePay'](u384jkx['data']) : u384jkx['data']['is_ios_pay'] ? 0x1 * 0x8c6 + 0x1f47 * 0x1 + -0x280c == u384jkx['data']['ios_pay_type'] && on06rzq['kfPay'](u384jkx['data']) : wx['showModal']({ 'title': '支付提示', 'content': '很抱歉，由于苹果政策，暂时不能支付，安卓手机不受影响', 'confirmText': '我知道了', 'showCancel': !(0xf2b + -0x94 * -0xc + -0x161a) }) : on06rzq['minPay'](u384jkx['data']) : sw_h95t['pay'] && sw_h95t['pay'](-0x8 * -0x23d + -0xe69 + -0x37e, { 'errMsg': u384jkx['msg'] });
-            } else sw_h95t['login'] && sw_h95t['login'](0xe3c + -0x2d1 + -0xb6a, { 'errMsg': '请求平台服务器失败\uFF01#3' });
+    }, 'startPay': function (mea32bp, yr0zod) {
+      console['log']('[SDK]调起支付\uFF0CCP传值\uFF1A'), console['log'](mea32bp);var i17wnh = this;zd6orq['pay'] = 'function' == typeof yr0zod ? yr0zod : null, -0x7 * 0xd7 + 0x804 + -0x223;var dorq0yz = wx['getStorageSync']('plat_sdk_token'),
+          or0yzq = wx['getStorageSync']('plat_session_key');if (dorq0yz && or0yzq) {
+        var ju38p4k = wx['getSystemInfoSync'](),
+            j4xu83k = { 'cpbill': mea32bp['cpbill'], 'productid': mea32bp['productid'], 'productname': mea32bp['productname'], 'productdesc': mea32bp['productdesc'], 'serverid': mea32bp['serverid'], 'servername': mea32bp['servername'], 'roleid': mea32bp['roleid'], 'rolename': mea32bp['rolename'], 'rolelevel': mea32bp['rolelevel'], 'price': mea32bp['price'], 'extension': mea32bp['extension'], 'sdk_token': dorq0yz, 'session_key': or0yzq, 'platform': ju38p4k['platform'] };i17wnh['order_data'] = j4xu83k;var ampue3 = i17wnh['getPublicData']();ampue3['order_data'] = JSON['stringify'](j4xu83k), wx['request']({ 'url': fts5c9x_ + '/partner/order', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': ampue3, 'success': function (nq60ozr) {
+            if (console['log']('[SDK]完成创建订单'), console['log'](nq60ozr), -0x1063 + 0x367 * 0x7 + -0x17 * 0x4a == nq60ozr['statusCode']) {
+              var i$w7hs9 = nq60ozr['data'];i$w7hs9['state'] ? void (0x28d + -0xa37 + 0x7aa) === wx['requestPayment'] ? 'android' == ju38p4k['platform'] || 'windows' == ju38p4k['platform'] || 'devtools' == ju38p4k['platform'] ? i$w7hs9['data']['is_android_pay'] ? i17wnh['kfPay'](i$w7hs9['data']) : i17wnh['gamePay'](i$w7hs9['data']) : i$w7hs9['data']['is_ios_pay'] ? -0x249d * -0x1 + -0x2586 + 0x75 * 0x2 == i$w7hs9['data']['ios_pay_type'] && i17wnh['kfPay'](i$w7hs9['data']) : wx['showModal']({ 'title': '支付提示', 'content': '很抱歉，由于苹果政策，暂时不能支付，安卓手机不受影响', 'confirmText': '我知道了', 'showCancel': !(0x1a * -0x4f + -0x13f * 0x1a + 0x286d) }) : i17wnh['minPay'](i$w7hs9['data']) : zd6orq['pay'] && zd6orq['pay'](-0x547 * 0x2 + 0x1ec + 0x8a3, { 'errMsg': i$w7hs9['msg'] });
+            } else zd6orq['login'] && zd6orq['login'](0x21dd * -0x1 + 0x15 * -0x32 + -0x798 * -0x5, { 'errMsg': '请求平台服务器失败\uFF01#3' });
           } });
-      } else sw_h95t['pay'] && sw_h95t['pay'](-0xb1b + 0x3bf + 0x75d, { 'errMsg': '用户未登录，支付失败！' });
-    }, 'gamePay': function (nh$i17w) {
-      var mva = this;nh$i17w['buyQuantity'] <= nh$i17w['balance'] ? (console['log']('[SDK]游戏币充值直接扣除'), wx['showModal']({ 'title': '支付提示', 'content': '您还有' + nh$i17w['balance'] + '个游戏币未消费，本次支付将扣除' + nh$i17w['buyQuantity'] + '游戏币', 'showCancel': !(0xe79 + -0x7 * -0x2b + 0xfa5 * -0x1), 'confirmText': '我知道了', 'success': function () {
-          mva['gameGoPay'](nh$i17w);
-        } })) : (console['log']('[SDK]调起米大师支付'), console['log'](nh$i17w), wx['requestMidasPayment']({ 'mode': 'game', 'env': nh$i17w['env'], 'offerId': nh$i17w['offerId'], 'currencyType': nh$i17w['currencyType'], 'platform': nh$i17w['platform'], 'buyQuantity': nh$i17w['buyQuantity'], 'zoneId': nh$i17w['zoneId'], 'success': function (ma8ep3) {
-          'requestMidasPayment:ok' == ma8ep3['errMsg'] && mva['gameGoPay'](nh$i17w);
-        }, 'fail': function ($h7iw) {
-          -(0x501 + 0x266f + -0x2b6f) !== $h7iw['errMsg']['indexOf']('用户取消') ? sw_h95t['pay'] && sw_h95t['pay'](0x215f + -0x2621 * 0x1 + 0x4c4, { 'errMsg': '用户取消支付' }) : sw_h95t['pay'] && sw_h95t['pay'](0x2c0 + -0x25ce + -0x1 * -0x230f, { 'errMsg': '支付失败:' + $h7iw['errMsg'] + '(' + $h7iw['errCode'] + ')' });
-        }, 'complete': function (ct95h) {} }));
-    }, 'kfPay': function (tih59ws) {
-      fpj83ue = tih59ws['orderId'], wx['showModal']({ 'title': '支付提示', 'content': '进入客服会话\uFF0C点击右下角小卡片或输入"cz"或"充值"获取支付链接', 'showCancel': !(0x22a + 0x1 * -0x1613 + 0x13ea), 'confirmText': '我知道了', 'success': function () {
-          wx['openCustomerServiceConversation']({ 'showMessageCard': !(-0x2 * -0x20e + 0x52f * -0x5 + -0x15cf * -0x1), 'sendMessageTitle': '不用点这个卡片', 'sendMessageImg': 'https://static.357pk.net/uploads/2109/weixin_pay_img1.png' });
+      } else zd6orq['pay'] && zd6orq['pay'](-0xae0 + -0x193f + 0x2420, { 'errMsg': '用户未登录，支付失败！' });
+    }, 'gamePay': function (cjk54_x) {
+      var levma2b = this;cjk54_x['buyQuantity'] <= cjk54_x['balance'] ? (console['log']('[SDK]游戏币充值直接扣除'), wx['showModal']({ 'title': '支付提示', 'content': '您还有' + cjk54_x['balance'] + '个游戏币未消费，本次支付将扣除' + cjk54_x['buyQuantity'] + '游戏币', 'showCancel': !(0x2 * 0x1087 + -0xaf0 + 0x9 * -0x275), 'confirmText': '我知道了', 'success': function () {
+          levma2b['gameGoPay'](cjk54_x);
+        } })) : (console['log']('[SDK]调起米大师支付'), console['log'](cjk54_x), wx['requestMidasPayment']({ 'mode': 'game', 'env': cjk54_x['env'], 'offerId': cjk54_x['offerId'], 'currencyType': cjk54_x['currencyType'], 'platform': cjk54_x['platform'], 'buyQuantity': cjk54_x['buyQuantity'], 'zoneId': cjk54_x['zoneId'], 'success': function (bmeap2l) {
+          'requestMidasPayment:ok' == bmeap2l['errMsg'] && levma2b['gameGoPay'](cjk54_x);
+        }, 'fail': function (u3a8mpe) {
+          -(-0x3 * -0xab2 + 0x18d2 + -0x38e7) !== u3a8mpe['errMsg']['indexOf']('用户取消') ? zd6orq['pay'] && zd6orq['pay'](-0x186 * -0x2 + -0x1290 + 0xf86, { 'errMsg': '用户取消支付' }) : zd6orq['pay'] && zd6orq['pay'](-0xec1 * -0x1 + 0x1536 * 0x1 + -0x11fb * 0x2, { 'errMsg': '支付失败:' + u3a8mpe['errMsg'] + '(' + u3a8mpe['errCode'] + ')' });
+        }, 'complete': function (i7h$nw) {} }));
+    }, 'kfPay': function (ep32ma) {
+      fs5wht_ = ep32ma['orderId'], wx['showModal']({ 'title': '支付提示', 'content': '进入客服会话\uFF0C点击右下角小卡片或输入"cz"或"充值"获取支付链接', 'showCancel': !(0x14b8 + 0x5a * 0x51 + -0x3131), 'confirmText': '我知道了', 'success': function () {
+          wx['openCustomerServiceConversation']({ 'showMessageCard': !(0x1a96 + -0x9b2 * -0x4 + -0x415e), 'sendMessageTitle': '不用点这个卡片', 'sendMessageImg': 'https://static.357pk.net/uploads/2109/weixin_pay_img1.png' });
         } });
-    }, 'gameGoPay': function (p2ambel, bm2pla) {
-      console['log']('[SDK]米大师支付完毕\uFF0C通知服务器发货');var dqor = this,
-          lve2gba = wx['getStorageSync']('plat_session_key');wx['request']({ 'url': fkx_5tsc + '/partner/pay/' + fiw1h$['partner_id'] + '/' + fiw1h$['game_pkg'] + '/', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': { 'order_id': p2ambel['orderId'], 'time': p2ambel['time'], 'sign': p2ambel['sign'], 'session_key': lve2gba }, 'success': function (_kj48cx) {
-          if (console['log']('[SDK]米大师支付结果'), console['log'](_kj48cx), -0x1b5 + -0xb31 * 0x3 + 0x4 * 0x904 == _kj48cx['statusCode']) {
-            if (-0x1019 + -0x18be + 0x28d8 == _kj48cx['data']['state']) {
-              var hi17w$n = { 'cpOrderNo': dqor['order_data']['cpbill'], 'orderNo': p2ambel['orderId'], 'amount': dqor['order_data']['price'], 'extension': dqor['order_data']['extension'] };sw_h95t['pay'] && sw_h95t['pay'](0x155e + -0x1ec2 * -0x1 + -0x3420, hi17w$n);
-            } else sw_h95t['pay'] && sw_h95t['pay'](-0x190b * 0x1 + -0xfc7 + 0x7 * 0x5d5, { 'errMsg': '支付失败' });
+    }, 'gameGoPay': function (rq0y, mpa3e2) {
+      console['log']('[SDK]米大师支付完毕\uFF0C通知服务器发货');var n16rz$7 = this,
+          blage2 = wx['getStorageSync']('plat_session_key');wx['request']({ 'url': fts5c9x_ + '/partner/pay/' + fp2lame['partner_id'] + '/' + fp2lame['game_pkg'] + '/', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': { 'order_id': rq0y['orderId'], 'time': rq0y['time'], 'sign': rq0y['sign'], 'session_key': blage2 }, 'success': function (ih95tws) {
+          if (console['log']('[SDK]米大师支付结果'), console['log'](ih95tws), -0x1d1b + -0x1fd1 + -0x2 * -0x1eda == ih95tws['statusCode']) {
+            if (0x1ad3 + 0x1 * -0x11b6 + 0x2c * -0x35 == ih95tws['data']['state']) {
+              var ep38uam = { 'cpOrderNo': n16rz$7['order_data']['cpbill'], 'orderNo': rq0y['orderId'], 'amount': n16rz$7['order_data']['price'], 'extension': n16rz$7['order_data']['extension'] };zd6orq['pay'] && zd6orq['pay'](0x549 + -0x29 * -0xbb + -0x233c, ep38uam);
+            } else zd6orq['pay'] && zd6orq['pay'](0xd56 + -0x1 * 0x52 + -0xd03, { 'errMsg': '支付失败' });
           }
         }, 'fail': function () {} });
-    }, 'logCreateRole': function (ablv2e) {
-      var melab2p = wx['getStorageSync']('plat_uid'),
-          j3x8k4u = wx['getStorageSync']('plat_username'),
-          k38jx = {};k38jx['user_id'] = melab2p, k38jx['user_name'] = j3x8k4u, k38jx['role_id'] = ablv2e['roleid'], k38jx['role_lev'] = ablv2e['rolelevel'], k38jx['role_name'] = ablv2e['rolename'], k38jx['server_id'] = ablv2e['serverid'], ablv2e['roleid'] && ablv2e['serverid'] && (fm2pebl = { 'role_id': ablv2e['roleid'], 'server_id': ablv2e['serverid'] }), this['log']('create', k38jx);
-    }, 'logEnterGame': function (zr06dqo) {
-      var tcs5_9x = wx['getStorageSync']('plat_uid'),
-          zdr6o = wx['getStorageSync']('plat_username'),
-          mp3beau = {};mp3beau['user_id'] = tcs5_9x, mp3beau['user_name'] = zdr6o, mp3beau['role_id'] = zr06dqo['roleid'], mp3beau['role_lev'] = zr06dqo['rolelevel'], mp3beau['role_name'] = zr06dqo['rolename'], mp3beau['server_id'] = zr06dqo['serverid'], zr06dqo['roleid'] && zr06dqo['serverid'] && (fm2pebl = { 'role_id': zr06dqo['roleid'], 'server_id': zr06dqo['serverid'] }), this['log']('enter', mp3beau);
-    }, 'logRoleUpLevel': function (s7hwti9) {
-      var ith9ws5 = wx['getStorageSync']('plat_uid'),
-          ea2mb = wx['getStorageSync']('plat_username'),
-          n6w$i1 = {};n6w$i1['user_id'] = ith9ws5, n6w$i1['user_name'] = ea2mb, n6w$i1['role_id'] = s7hwti9['roleid'], n6w$i1['role_lev'] = s7hwti9['rolelevel'], n6w$i1['role_name'] = s7hwti9['rolename'], n6w$i1['server_id'] = s7hwti9['serverid'], s7hwti9['roleid'] && s7hwti9['serverid'] && (fm2pebl = { 'role_id': s7hwti9['roleid'], 'server_id': s7hwti9['serverid'] }), this['log']('levelup', n6w$i1);
-    }, 'uuid': function (sw9ih5t, vb2alem) {
-      var r6d0o,
-          _st59c,
-          j8k4xcu = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'['split'](''),
-          _ckxt = [];if (sw9ih5t = sw9ih5t || j8k4xcu['length'], vb2alem) {
-        for (r6d0o = 0x1a73 + -0x409 + -0x2 * 0xb35; r6d0o < vb2alem; r6d0o++) _ckxt[r6d0o] = j8k4xcu[0x2b7 * 0x1 + 0x700 + -0x9b7 | Math['random']() * sw9ih5t];
+    }, 'logCreateRole': function (yqodrz) {
+      var p4mu8j = wx['getStorageSync']('plat_uid'),
+          almbve = wx['getStorageSync']('plat_username'),
+          cth9_5s = {};cth9_5s['user_id'] = p4mu8j, cth9_5s['user_name'] = almbve, cth9_5s['role_id'] = yqodrz['roleid'], cth9_5s['role_lev'] = yqodrz['rolelevel'], cth9_5s['role_name'] = yqodrz['rolename'], cth9_5s['server_id'] = yqodrz['serverid'], yqodrz['roleid'] && yqodrz['serverid'] && (feblv2m = { 'role_id': yqodrz['roleid'], 'server_id': yqodrz['serverid'] }), this['log']('create', cth9_5s);
+    }, 'logEnterGame': function (pabmel2) {
+      var qdozr0 = wx['getStorageSync']('plat_uid'),
+          $n176iw = wx['getStorageSync']('plat_username'),
+          q1z0rn = {};q1z0rn['user_id'] = qdozr0, q1z0rn['user_name'] = $n176iw, q1z0rn['role_id'] = pabmel2['roleid'], q1z0rn['role_lev'] = pabmel2['rolelevel'], q1z0rn['role_name'] = pabmel2['rolename'], q1z0rn['server_id'] = pabmel2['serverid'], pabmel2['roleid'] && pabmel2['serverid'] && (feblv2m = { 'role_id': pabmel2['roleid'], 'server_id': pabmel2['serverid'] }), this['log']('enter', q1z0rn);
+    }, 'logRoleUpLevel': function (au3) {
+      var m3uep8a = wx['getStorageSync']('plat_uid'),
+          geblav = wx['getStorageSync']('plat_username'),
+          ba2emp = {};ba2emp['user_id'] = m3uep8a, ba2emp['user_name'] = geblav, ba2emp['role_id'] = au3['roleid'], ba2emp['role_lev'] = au3['rolelevel'], ba2emp['role_name'] = au3['rolename'], ba2emp['server_id'] = au3['serverid'], au3['roleid'] && au3['serverid'] && (feblv2m = { 'role_id': au3['roleid'], 'server_id': au3['serverid'] }), this['log']('levelup', ba2emp);
+    }, 'uuid': function (m2eapbl, balpme) {
+      var hwi7$9s,
+          zr0dyq,
+          lgbe2 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'['split'](''),
+          ws9iht7 = [];if (m2eapbl = m2eapbl || lgbe2['length'], balpme) {
+        for (hwi7$9s = -0x150 + 0x1 * -0xa21 + 0x65 * 0x1d; hwi7$9s < balpme; hwi7$9s++) ws9iht7[hwi7$9s] = lgbe2[0x2050 + -0xdd8 + -0x1278 | Math['random']() * m2eapbl];
       } else {
-        for (_ckxt[-0x5d2 * 0x4 + 0xe5e + -0x2 * -0x479] = _ckxt[-0x2ff * -0x3 + -0x1 * 0x3ba + -0x536] = _ckxt[0x22e7 + 0x548 + -0x281d] = _ckxt[0x195c + 0x22a0 + -0x10d * 0x39] = '-', _ckxt[-0x1 * 0xe3 + 0x1 * -0x648 + 0x739] = '4', r6d0o = 0xb63 + -0x1d09 + 0x8d3 * 0x2; r6d0o < 0x1 * -0x1ac0 + 0x260b * -0x1 + 0x40ef; r6d0o++) _ckxt[r6d0o] || (_st59c = 0x10e2 + -0xa * 0x182 + -0x1ce | (-0x2b2 + 0x2615 + -0x2353) * Math['random'](), _ckxt[r6d0o] = j8k4xcu[0x1f89 + 0x1ebf + -0x3e35 == r6d0o ? 0x1d * -0xbf + 0x14 * 0x141 + -0x36e & _st59c | -0x1a04 + 0xc19 + 0xdf3 * 0x1 : _st59c]);
-      }return _ckxt['join']('');
+        for (ws9iht7[0x6 * -0x62b + -0xd * 0x198 + 0x39c2 * 0x1] = ws9iht7[-0xbf4 + -0x4ff + 0x1100 * 0x1] = ws9iht7[-0x133 + 0x1d78 + -0x1c33 * 0x1] = ws9iht7[-0x1c0f + 0x991 * 0x3 + -0x3 * 0x2f] = '-', ws9iht7[-0x4 * -0x20e + -0x5d * 0x27 + 0x1 * 0x601] = '4', hwi7$9s = -0xd * 0x1 + -0x26a + -0x277 * -0x1; hwi7$9s < -0xb1b * -0x3 + 0x26a1 + -0x1 * 0x47ce; hwi7$9s++) ws9iht7[hwi7$9s] || (zr0dyq = 0x1 * -0x489 + 0x1f73 + -0x1aea | (-0x6 * 0x32 + -0x217b * -0x1 + 0x7f * -0x41) * Math['random'](), ws9iht7[hwi7$9s] = lgbe2[-0xe * -0x14 + 0x214 * -0x6 + 0xb73 * 0x1 == hwi7$9s ? -0x62 + 0x9 * 0x106 + -0x25 * 0x3d & zr0dyq | 0x2 * 0xcb9 + -0x2007 + 0x69d : zr0dyq]);
+      }return ws9iht7['join']('');
     }, 'getPublicData': function () {
-      var nh71$wi = wx['getSystemInfoSync'](),
-          $016r = wx['getStorageSync']('plat_uuid'),
-          h9is5t = wx['getStorageSync']('plat_idfv'),
-          w71$i9h = wx['getStorageSync']('plat_ad_code');return { 'game_id': fiw1h$['game_id'], 'game_pkg': fiw1h$['game_pkg'], 'partner_id': fiw1h$['partner_id'], 'ad_code': w71$i9h, 'uuid': $016r, 'idfv': h9is5t, 'dname': nh71$wi['model'], 'mac': '0000', 'net_type': -0x1430 + -0x1f0 * -0x2 + 0x1050 == nh71$wi['wifiSignal'] ? '4G' : 'WIFI', 'os_ver': nh71$wi['system'], 'sdk_ver': nh71$wi['version'], 'game_ver': frn7z$6, 'device': 'android' == nh71$wi['platform'] ? 0x2c3 + 0x74c * 0x2 + -0x115a : -0x19f8 + -0x12a7 + 0x2ca1, 'is_from_min': 0x1 };
-    }, 'log': function (vbal2, xuk34j8) {
-      var w617$in = this['getPublicData']();for (var wh5ti in xuk34j8) w617$in[wh5ti] = xuk34j8[wh5ti];console['log']('[SDK]上报数据\uFF1A' + vbal2), console['log'](w617$in), wx['request']({ 'url': fkx_5tsc + '/partner/h5Log/?type=' + vbal2 + '&data=' + encodeURIComponent(JSON['stringify'](w617$in)) });
+      var sc_xkt5 = wx['getSystemInfoSync'](),
+          nih71$w = wx['getStorageSync']('plat_uuid'),
+          q16nr0z = wx['getStorageSync']('plat_idfv'),
+          n7r61z$ = wx['getStorageSync']('plat_ad_code');return { 'game_id': fp2lame['game_id'], 'game_pkg': fp2lame['game_pkg'], 'partner_id': fp2lame['partner_id'], 'ad_code': n7r61z$, 'uuid': nih71$w, 'idfv': q16nr0z, 'dname': sc_xkt5['model'], 'mac': '0000', 'net_type': -0x2d * -0xbd + -0x11b5 + -0xf84 == sc_xkt5['wifiSignal'] ? '4G' : 'WIFI', 'os_ver': sc_xkt5['system'], 'sdk_ver': sc_xkt5['version'], 'game_ver': f$w9s7i, 'device': 'android' == sc_xkt5['platform'] ? 0xfc * 0x24 + 0x2339 + -0x46a8 : -0x16ff + 0x2 * -0x6da + 0x24b5 * 0x1, 'is_from_min': 0x1 };
+    }, 'log': function (cskx_5, doqzr0y) {
+      var n61i7 = this['getPublicData']();for (var c_xk5j in doqzr0y) n61i7[c_xk5j] = doqzr0y[c_xk5j];console['log']('[SDK]上报数据\uFF1A' + cskx_5), console['log'](n61i7), wx['request']({ 'url': fts5c9x_ + '/partner/h5Log/?type=' + cskx_5 + '&data=' + encodeURIComponent(JSON['stringify'](n61i7)) });
     }, 'getDate': function () {
-      var $7r1i = new Date();return $7r1i['getFullYear']() + '-' + $7r1i['getMonth']() + '-' + $7r1i['getDate']();
+      var n0z61r = new Date();return n0z61r['getFullYear']() + '-' + n0z61r['getMonth']() + '-' + n0z61r['getDate']();
     }, 'downloadClient': function () {
-      var yqor0dz = '微端-不用点这个卡片-' + wx['getStorageSync']('wx_openid');wx['showModal']({ 'title': '微端下载提示', 'content': '进入客服会话，点击右下角小卡片获取微端下载链接', 'showCancel': !(-0xa * 0xbf + -0x13e4 + 0x1b5b), 'confirmText': '我知道了', 'success': function () {
-          var cst_5k = { 'showMessageCard': !(0xa8b + -0x2 * 0x5c1 + -0xd * -0x13), 'sendMessageTitle': yqor0dz, 'sendMessageImg': 'https://static.357pk.net/uploads/2109/weixin_download_img2.jpg' };wx['openCustomerServiceConversation'](cst_5k);
+      var j43kup = '微端-不用点这个卡片-' + wx['getStorageSync']('wx_openid');wx['showModal']({ 'title': '微端下载提示', 'content': '进入客服会话，点击右下角小卡片获取微端下载链接', 'showCancel': !(0xf0d * 0x2 + -0xef3 + -0x793 * 0x2), 'confirmText': '我知道了', 'success': function () {
+          var p8jmu3 = { 'showMessageCard': !(0x370 + -0x1 * 0x24db + -0x216b * -0x1), 'sendMessageTitle': j43kup, 'sendMessageImg': 'https://static.357pk.net/uploads/2109/weixin_download_img2.jpg' };wx['openCustomerServiceConversation'](p8jmu3);
         } });
-    }, 'checkMsg': function (cs5x9t, c84j_k) {
-      console['log']('[SDK]查看文本是否有违规内容');var m83upae = wx['getStorageSync']('plat_sdk_token');wx['request']({ 'url': fkx_5tsc + '/game/min/?ac=msgCheck', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': { 'game_pkg': fiw1h$['game_pkg'], 'partner_id': fiw1h$['partner_id'], 'sdk_token': m83upae, 'content': cs5x9t }, 'success': function (ge2bavl) {
-          console['log']('[SDK]查看文本是否有违规内容结果返回:'), c84j_k && c84j_k(0x26da + -0x16a0 + 0x3e * -0x43 == ge2bavl['data']['code'] ? 0xbb9 * -0x1 + -0x5 * 0x761 + 0x1cd * 0x1b : -0x39 * 0xb + 0x1774 + -0x1 * 0x1501, ge2bavl['data']['msg']);
+    }, 'checkMsg': function (r0qz6no, e2agb) {
+      console['log']('[SDK]查看文本是否有违规内容');var _ckxj45 = wx['getStorageSync']('plat_sdk_token');wx['request']({ 'url': fts5c9x_ + '/game/min/?ac=msgCheck', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': { 'game_pkg': fp2lame['game_pkg'], 'partner_id': fp2lame['partner_id'], 'sdk_token': _ckxj45, 'content': r0qz6no }, 'success': function (no60z) {
+          console['log']('[SDK]查看文本是否有违规内容结果返回:'), e2agb && e2agb(0xf91 + 0x1f * -0x31 + -0x9a2 == no60z['data']['code'] ? -0xe82 + -0x8f0 + 0x1773 : 0x2376 + 0x2627 + -0x499d, no60z['data']['msg']);
         } });
-    }, 'checkMsgV2': function (kcs_x5t, pebma3) {
-      console['log']('[SDK]查看文本是否有违规内容');var xktcs5_ = wx['getStorageSync']('plat_sdk_token');wx['request']({ 'url': fkx_5tsc + '/game/min/?ac=msgCheckV2', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': { 'game_pkg': fiw1h$['game_pkg'], 'partner_id': fiw1h$['partner_id'], 'sdk_token': xktcs5_, 'content': kcs_x5t, 'scene': 0x1 }, 'success': function (ts9i7w) {
-          console['log']('[SDK]查看文本是否有违规内容结果返回:'), pebma3 && pebma3(0x23df + -0x1 * -0x9e7 + -0x2dc6 == ts9i7w['data']['code'] ? -0x22a1 + -0x123 * -0x8 + -0x198a * -0x1 : 0x1181 * -0x2 + 0x3 * -0x349 + 0x2cdd, ts9i7w['data']['msg']);
+    }, 'checkMsgV2': function (ck54xt, w7hi$n1) {
+      console['log']('[SDK]查看文本是否有违规内容');var ukj8cx = wx['getStorageSync']('plat_sdk_token');wx['request']({ 'url': fts5c9x_ + '/game/min/?ac=msgCheckV2', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': { 'game_pkg': fp2lame['game_pkg'], 'partner_id': fp2lame['partner_id'], 'sdk_token': ukj8cx, 'content': ck54xt, 'scene': 0x1 }, 'success': function (eupjm38) {
+          console['log']('[SDK]查看文本是否有违规内容结果返回:'), w7hi$n1 && w7hi$n1(-0x26ed * -0x1 + 0x70c + -0x3 * 0xf53 == eupjm38['data']['code'] ? 0xe3 * 0x1f + 0x26c4 + 0x109 * -0x40 : 0x1d * 0xd7 + -0x30 * -0x43 + 0x2d7 * -0xd, eupjm38['data']['msg']);
         } });
-    }, 'sendMessage': function (hsi7$w9, cs_5kx, $inw176) {
-      console['log']('[SDK]发送订阅消息');var noqr0z6 = wx['getStorageSync']('plat_sdk_token');wx['request']({ 'url': fkx_5tsc + '/game/min/?ac=sendMessage', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': { 'game_pkg': fiw1h$['game_pkg'], 'partner_id': fiw1h$['partner_id'], 'sdk_token': noqr0z6, 'template_id': hsi7$w9, 'data': cs_5kx }, 'success': function (sh9i7w) {
-          console['log']('[SDK]订阅消息发送成功'), $inw176 && $inw176(-0x1b21 * 0x1 + -0x1d5 * 0x7 + -0x13fa * -0x2 == sh9i7w['data']['code'] ? -0xe6 * -0x13 + 0x4 * 0x543 + -0x377 * 0xb : 0x174b * 0x1 + 0x2507 + 0x2 * -0x1e29, sh9i7w['data']['msg']);
+    }, 'sendMessage': function (d06qoz, nz1$76r, qn0zor) {
+      console['log']('[SDK]发送订阅消息');var mbp2eal = wx['getStorageSync']('plat_sdk_token');wx['request']({ 'url': fts5c9x_ + '/game/min/?ac=sendMessage', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': { 'game_pkg': fp2lame['game_pkg'], 'partner_id': fp2lame['partner_id'], 'sdk_token': mbp2eal, 'template_id': d06qoz, 'data': nz1$76r }, 'success': function (ths95iw) {
+          console['log']('[SDK]订阅消息发送成功'), qn0zor && qn0zor(-0xfbd + 0x2573 + -0x15b6 * 0x1 == ths95iw['data']['code'] ? 0xb2c + 0x1cc1 + -0x27ec : 0xb57 + -0x250b + 0xa * 0x292, ths95iw['data']['msg']);
+        } });
+    }, 'videoAdvert': function (v2bal, e2abvg) {
+      wx['request']({ 'url': fts5c9x_ + '/?method=user.gameConfig', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': { 'game_pkg': fp2lame['game_pkg'], 'partner_id': fp2lame['partner_id'] }, 'success': function (bmaev2l) {
+          var pu8am3e = bmaev2l['data']['data']['weixin_advert_id'];let rq60nz1 = null;(rq60nz1 = wx['createRewardedVideoAd']({ 'adUnitId': pu8am3e }))['show']()['catch'](() => {
+            rq60nz1['load']()['then'](() => rq60nz1['show']())['catch'](nh17w$ => {
+              console['log']('激励视频\x20广告显示失败');
+            });
+          }), rq60nz1['onError'](h_s5c9t => {
+            console['log'](h_s5c9t);
+          }), rq60nz1['onClose'](e83puma => {
+            rq60nz1 && (rq60nz1['offClose'](), e83puma && e83puma['isEnded'] || void (0x9 * 0x3e8 + -0x37 * -0x95 + -0x432b) === e83puma ? console['log']('正常播放结束，需要下发奖励') : console['log']('播放退出，不下发奖励'));
+          });
+        } });
+    }, 'getGameConfig': function ($0zn6r1) {
+      console['log']('[SDK]获取游戏配置'), wx['request']({ 'url': fts5c9x_ + '/?method=user.gameConfig', 'method': 'POST', 'dataType': 'json', 'header': { 'content-type': 'application/x-www-form-urlencoded' }, 'data': { 'game_pkg': fp2lame['game_pkg'], 'partner_id': fp2lame['partner_id'] }, 'success': function ($19h7i) {
+          var aevb2g = $19h7i['data']['data'];console['log']('[SDK]获取游戏配置成功'), console['log']($19h7i['data']);var _c5kxt;_c5kxt = { 'pay_switch': aevb2g['pay_switch'], 'game_ver': aevb2g['game_ver'] }, $0zn6r1 && $0zn6r1(_c5kxt);
         } });
     } };
-}function fmvaeb(w17nih$, ck4_8, m8pae3u) {
-  w17nih$ in fma83eu && fma83eu[w17nih$](ck4_8, m8pae3u);
-}const fs9iwt = {};window['cwan'] = fs9iwt, fs9iwt['init'] = function (roq0z, hw9s5_t) {
-  fmvaeb('init', roq0z, hw9s5_t);
-}, fs9iwt['login'] = function (ag2l) {
-  fmvaeb('login', '', ag2l);
-}, fs9iwt['pay'] = function (mp8eua3, n1i6r$7) {
-  fmvaeb('pay', mp8eua3, n1i6r$7);
-}, fs9iwt['logCreateRole'] = function (w59h_t, r$6ni7, laeg2bv, lvebm2a, c4x_8j) {
-  fmvaeb('logCreateRole', { 'serverid': w59h_t, 'servername': r$6ni7, 'roleid': laeg2bv, 'rolename': lvebm2a, 'rolelevel': c4x_8j });
-}, fs9iwt['logEnterGame'] = function (mbae2lv, tih97, lba2epm, b23mpa, gba2le) {
-  fmvaeb('logEnterGame', { 'serverid': mbae2lv, 'servername': tih97, 'roleid': lba2epm, 'rolename': b23mpa, 'rolelevel': gba2le });
-}, fs9iwt['logRoleUpLevel'] = function (kc8_xj4, me3au8p, t7hw, odrzq, c54_xkt) {
-  fmvaeb('logRoleUpLevel', { 'serverid': kc8_xj4, 'servername': me3au8p, 'roleid': t7hw, 'rolename': odrzq, 'rolelevel': c54_xkt });
-}, fs9iwt['downloadClient'] = function () {
-  fmvaeb('downloadClient');
-}, fs9iwt['getConfig'] = function () {
-  return { 'game_id': fiw1h$['game_id'], 'game_pkg': fiw1h$['game_pkg'], 'partner_id': fiw1h$['partner_id'] };
-}, fs9iwt['getPublicData'] = function () {
-  fmvaeb('getPublicData');
-}, fs9iwt['checkMsg'] = function (yrdz0, r1$60n) {
-  fmvaeb('checkMsg', yrdz0, r1$60n);
-}, fs9iwt['checkMsgV2'] = function (xtck54_, shiw$9) {
-  fmvaeb('checkMsgV2', xtck54_, shiw$9);
-}, fs9iwt['sendMessage'] = function (n$ir617, u38pjk4, k8pj3) {
-  fmvaeb('sendMessage', n$ir617, u38pjk4, k8pj3);
+}function fkct5sx_(p4m83u, n6r$17, emj3pu8) {
+  p4m83u in fe3pmb2a && fe3pmb2a[p4m83u](n6r$17, emj3pu8);
+}const fbg2evl = {};window['cwan'] = fbg2evl, fbg2evl['init'] = function (kcxj8u, e2bp3ma) {
+  fkct5sx_('init', kcxj8u, e2bp3ma);
+}, fbg2evl['login'] = function (w$7n6i1) {
+  fkct5sx_('login', '', w$7n6i1);
+}, fbg2evl['pay'] = function (kj8cxu4, whts9) {
+  fkct5sx_('pay', kj8cxu4, whts9);
+}, fbg2evl['logCreateRole'] = function (mep38, iw7s$h, p38jku, rn1$6z7, kuj4xc) {
+  fkct5sx_('logCreateRole', { 'serverid': mep38, 'servername': iw7s$h, 'roleid': p38jku, 'rolename': rn1$6z7, 'rolelevel': kuj4xc });
+}, fbg2evl['logEnterGame'] = function (ba32ep, drqyz, e2plb, w1$7ihn, xkt5c) {
+  fkct5sx_('logEnterGame', { 'serverid': ba32ep, 'servername': drqyz, 'roleid': e2plb, 'rolename': w1$7ihn, 'rolelevel': xkt5c });
+}, fbg2evl['logRoleUpLevel'] = function ($hw7i1, hw7s9i$, w7h9i, cxj8k4, hi1$7w9) {
+  fkct5sx_('logRoleUpLevel', { 'serverid': $hw7i1, 'servername': hw7s9i$, 'roleid': w7h9i, 'rolename': cxj8k4, 'rolelevel': hi1$7w9 });
+}, fbg2evl['downloadClient'] = function () {
+  fkct5sx_('downloadClient');
+}, fbg2evl['getConfig'] = function () {
+  return { 'game_id': fp2lame['game_id'], 'game_pkg': fp2lame['game_pkg'], 'partner_id': fp2lame['partner_id'] };
+}, fbg2evl['getPublicData'] = function () {
+  fkct5sx_('getPublicData');
+}, fbg2evl['checkMsg'] = function (jm38e, rqd0yzo) {
+  fkct5sx_('checkMsg', jm38e, rqd0yzo);
+}, fbg2evl['checkMsgV2'] = function (t9hcs5, x_c8j) {
+  fkct5sx_('checkMsgV2', t9hcs5, x_c8j);
+}, fbg2evl['sendMessage'] = function (peum8a, malp2be, c_j54) {
+  fkct5sx_('sendMessage', peum8a, malp2be, c_j54);
+}, fbg2evl['videoAdvert'] = function (c_9ht5s, ts5ck) {
+  fkct5sx_('videoAdvert', c_9ht5s, ts5ck);
+}, fbg2evl['getGameConfig'] = function (amp2elb) {
+  fkct5sx_('getGameConfig', amp2elb);
 };

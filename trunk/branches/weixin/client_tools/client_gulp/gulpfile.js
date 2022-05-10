@@ -397,7 +397,7 @@ gulp.task('init-cocos2d-js-min', function () {
         BIN + 'cocos2d-js-min.js'
     ])
         .pipe(js_minify())
-        .pipe(gulp.dest(DEST + PACK + "/"))
+        .pipe(gulp.dest(DEST + PACK + "cocos/"))
     return stream;
 });
 
@@ -1952,7 +1952,7 @@ var set_param_Z_888= function () {
         PACK = 'jg_gameZ_888';
         INIT_PATH = '/';
         SCOPE = 'sMTXxcluEOUp_RqGgfJPtrNwkADhQvzBoCmYIyeVbLSKZn$FWajiHd'; //WX
-        PREFIX = 'C$99';
+        PREFIX = 'C$zu';
         sourceProject = "wx_build1/jg_gameZ_888_new";
         targetProject = "wx_build1/jg_gameZ_888_obfuscator";
 

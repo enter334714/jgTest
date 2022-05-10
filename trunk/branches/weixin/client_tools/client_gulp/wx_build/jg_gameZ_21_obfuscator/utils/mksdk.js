@@ -76,7 +76,7 @@ function rotateLeft(a, b) {
     });
   });
 }function login(a, b) {
-  let c = {};c.method = "login", c.openid = "", c.code = loginCode, c.ext = JSON.stringify(wxquery), c = Object.assign(c, comParam);let d = signfunct(c, api_key);c.sign = d;ajaxfun(c, "", function (a) {
+  var c = wx.getLaunchOptionsSync();let d = {};d.method = "login", d.openid = "", d.code = loginCode, d.ext = JSON.stringify(c.query), d = Object.assign(d, comParam);let e = signfunct(d, api_key);d.sign = e;ajaxfun(d, "", function (a) {
     b(a.data);
   });
 }var loginCallback = {};function loginCallBack(a) {
@@ -123,7 +123,11 @@ function rotateLeft(a, b) {
           a.confirm || a.cancel;
         } });
     } });
-}var userId,
+}var comParam = { imei: "", platformId: "", ver: "1.0.4", sdkType: 1, cid: "", link_id: "", gid: "", sgid: "" };wx.getStorage({ key: "openid", success(a) {
+    comParam.imei = a.data;
+  }, fail(a) {
+    console.log(a.data);
+  } });var userId,
     api_key,
     api_token,
     bannerAd,
@@ -137,9 +141,8 @@ function rotateLeft(a, b) {
     wxquery,
     sdkType = 1,
     DybUrl = "https://minisdk.mikeyouxi.com/sdk.php",
-    comParam = { imei: "", platformId: "", ver: "1.0.3", sdkType: 1, cid: "", link_id: "", gid: "", sgid: "" },
     mksdk = { showInit: function (a, b) {
-    comParam.gid = a.gid, comParam.sgid = a.sgid;var c = wx.getLaunchOptionsSync();let d = {};d.time = new Date().getTime(), d.sgid = comParam.sgid, d.sdkType = sdkType, d.linkStr = c.query.__track_link_str_uniq_params__ ? c.query.__track_link_str_uniq_params__ : "", d.ext = JSON.stringify(wxquery);let e = signfunct(d, "53ec6ec85wf571f60aaf");d.sign = e;ajaxfun(d, "/open/sgidInfo", function (a) {
+    comParam.gid = a.gid, comParam.sgid = a.sgid;var c = wx.getLaunchOptionsSync();let d = {};d.time = new Date().getTime(), d.sgid = comParam.sgid, d.sdkType = sdkType, d.linkStr = c.query.__track_link_str_uniq_params__ ? c.query.__track_link_str_uniq_params__ : "", d.ext = JSON.stringify(c.query);let e = signfunct(d, "53ec6ec85wf571f60aaf");d.sign = e;ajaxfun(d, "/open/sgidInfo", function (a) {
       let c = {};c.code = a.data.code, c.channelName = "mk", 0 == a.data.code ? (c.code = a.data.code, comParam.cid = a.data.data.cid, comParam.link_id = a.data.data.link_id, api_key = a.data.data.api_key, c.msg = "\u521D\u59CB\u5316\u6210\u529F", init_login = loginfun(function () {}), b(c)) : (c.msg = a.data.msg, b(c), wx.showModal({ title: "\u63D0\u793A", content: c.msg, success(a) {
           a.confirm || a.cancel;
         } }));
@@ -296,10 +299,4 @@ function rotateLeft(a, b) {
     } }), wx.getUserInfo({ success: function (a) {
       a.userInfo;
     }, fail: () => {} }), wx.showShareMenu({ withShareTicket: !0, menus: ["shareAppMessage", "shareTimeline", "shareMessageToFriend"] });
-}getinit(), wx.onShow(function (a) {
-  wxquery = a.query;
-}), wx.getStorage({ key: "openid", success(a) {
-    comParam.imei = a.data;
-  }, fail(a) {
-    console.log(a.data);
-  } }), module.exports = { mksdk: mksdk };
+}getinit(), module.exports = { mksdk: mksdk };

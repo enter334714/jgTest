@@ -1,4 +1,4 @@
-let config = { game_id: "11", game_pkg: "wzcq-q2-_q2wxxcxgrzh_J", partner_id: "4", is_auth: !1, from: null };window.config = config;let PARTNER_SDK = mainSDK(),
+let config = { game_id: "11", game_pkg: "wzcq-q2-_q2wxxcxqd_H", partner_id: "4", is_auth: !1, from: null };window.config = config;let PARTNER_SDK = mainSDK(),
     HOST = "https://sdk.5tun.cn",
     user_game_info = null,
     this_order_id = null,
@@ -141,6 +141,22 @@ let config = { game_id: "11", game_pkg: "wzcq-q2-_q2wxxcxgrzh_J", partner_id: "4
       console.log("[SDK]\u53d1\u9001\u8ba2\u9605\u6d88\u606f");var t = wx.getStorageSync("plat_sdk_token");wx.request({ url: HOST + "/game/min/?ac=sendMessage", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: t, template_id: e, data: o }, success: function (e) {
           console.log("[SDK]\u8ba2\u9605\u6d88\u606f\u53d1\u9001\u6210\u529f"), n && n(0 == e.data.code ? 1 : 0, e.data.msg);
         } });
+    }, videoAdvert: function (e, o) {
+      wx.request({ url: HOST + "/?method=user.gameConfig", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id }, success: function (e) {
+          var o = e.data.data.weixin_advert_id;let n = null;(n = wx.createRewardedVideoAd({ adUnitId: o })).show().catch(() => {
+            n.load().then(() => n.show()).catch(e => {
+              console.log("\u6fc0\u52b1\u89c6\u9891 \u5e7f\u544a\u663e\u793a\u5931\u8d25");
+            });
+          }), n.onError(e => {
+            console.log(e);
+          }), n.onClose(e => {
+            n && (n.offClose(), e && e.isEnded || void 0 === e ? console.log("\u6b63\u5e38\u64ad\u653e\u7ed3\u675f\uff0c\u9700\u8981\u4e0b\u53d1\u5956\u52b1") : console.log("\u64ad\u653e\u9000\u51fa\uff0c\u4e0d\u4e0b\u53d1\u5956\u52b1"));
+          });
+        } });
+    }, getGameConfig: function (e) {
+      console.log("[SDK]\u83b7\u53d6\u6e38\u620f\u914d\u7f6e"), wx.request({ url: HOST + "/?method=user.gameConfig", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id }, success: function (o) {
+          var n = o.data.data;console.log("[SDK]\u83b7\u53d6\u6e38\u620f\u914d\u7f6e\u6210\u529f"), console.log(o.data);var t;t = { pay_switch: n.pay_switch, game_ver: n.game_ver }, e && e(t);
+        } });
     } };
 }function run(e, o, n) {
   e in PARTNER_SDK && PARTNER_SDK[e](o, n);
@@ -168,4 +184,8 @@ let config = { game_id: "11", game_pkg: "wzcq-q2-_q2wxxcxgrzh_J", partner_id: "4
   run("checkMsgV2", e, o);
 }, tempobj.sendMessage = function (e, o, n) {
   run("sendMessage", e, o, n);
+}, tempobj.videoAdvert = function (e, o) {
+  run("videoAdvert", e, o);
+}, tempobj.getGameConfig = function (e) {
+  run("getGameConfig", e);
 };

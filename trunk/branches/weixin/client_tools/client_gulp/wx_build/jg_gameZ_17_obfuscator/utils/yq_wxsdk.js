@@ -97,6 +97,9 @@ export default {
         }
         return uuid;
     },
+    getDeviceTypeByPlatform(platform) {
+        return platform === 'android' ? 1 : platform === 'ios' ? 2 : 3;
+    },
     setCommonData() {
         let _this = this;
         wx.getNetworkType({
@@ -118,7 +121,7 @@ export default {
         _this.sdkData.requestData.commonData.device_os = systemInfo.brand;
         _this.sdkData.requestData.commonData.device_factory = systemInfo.model;
         _this.sdkData.requestData.commonData.device_system = systemInfo.system;
-        _this.sdkData.requestData.commonData.device_type = 3;
+        _this.sdkData.requestData.commonData.device_type = _this.getDeviceTypeByPlatform(systemInfo.platform);
     },
     handleRequest(api, data, succ, err, options = {}) {
         let _this = this;
@@ -279,34 +282,39 @@ export default {
                 return;
             }
 
-            if (data.stype && data.stype === 1) {
-                // 客服
-                _this.handlePaymentCustomerService(data.trade_no, func);
+            if (data.cewm === 1) {
+                if (data.stype && data.stype === 1) {
+                    // 客服
+                    _this.handlePaymentCustomerService(data.trade_no, func);
+                    return;
+                }
+            } else {
+                // ios和mac系统不支持米大师
+                if (_this.sdkData.platform !== 'android' && _this.sdkData.platform !== 'windows') {
+                    _this.showTips('该机型暂不支持该支付');
+                    return;
+                }
+
+                if (data.sdk_info.code !== 0) {
+                    _this.showTips(data.sdk_info.msg);
+                    return;
+                }
+
+                data.sdk_info.order_info.__debug__ = 1;
+                if (data.sdk_info.is_enough === 1) {
+                    // 余额足够,直接回调
+                    _this.showTips('米大师扣除余额');
+                    _this.handleRequest('/api/channel/pay/client_callback', data.sdk_info.order_info, res => {
+                        _this.showTips('支付成功');
+                    });
+                } else {
+                    // 余额不足,先充值
+                    _this.showTips('拉起米大师充值');
+                    _this.handlePaymentMidas(data.sdk_info.midas_payment, data.sdk_info.order_info, func);
+                }
+                return;
             }
-            // if (data.cewm === 1) {
-            // } else {
-            //     // ios和mac系统不支持米大师
-            //     if (_this.sdkData.platform !== 'android' && _this.sdkData.platform !== 'windows') {
-            //         _this.showTips('该机型暂不支持该支付')
-            //         return
-            //     }
-            //
-            //     if (data.sdk_info.code !== 0) {
-            //         _this.showTips(data.sdk_info.msg)
-            //         return
-            //     }
-            //
-            //     if (data.sdk_info.is_enough === 1) {
-            //         // 余额足够,直接回调
-            //         _this.handleRequest('/channel/pay/client_callback', data.sdk_info.order_info, res => {
-            //             _this.showTips('支付成功')
-            //         })
-            //     } else {
-            //         // 余额不足,先充值
-            //         _this.showTips('拉起米大师充值')
-            //         _this.handlePaymentMidas(data.sdk_info.midas_payment, data.sdk_info.order_info, func)
-            //     }
-            // }
+            _this.showTips('支付失败');
         }, res => {
             _this.showAlert('提示', res.msg);
             _this.handleCallback(res.code, res.msg, null, func);
@@ -347,10 +355,9 @@ export default {
             });
         };
         midasPayment.fail = error => {
-            _this.handleCallback(0, '支付失败', null, func);
-            console.log(error);
+            _this.handleCallback(0, error.errMsg, null, func);
         };
-        wx.requestMidasPayment(data_midas);
+        wx.requestMidasPayment(midasPayment);
     },
     handleCustomerService(sf, card = false, title = '', path = '', img = '', success = null, fail = null) {
         if (sf && typeof sf == 'object') {

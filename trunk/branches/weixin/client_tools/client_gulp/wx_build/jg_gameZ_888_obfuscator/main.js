@@ -1,40 +1,40 @@
 'use strict';
 
 var H = wx.$F;
-window[H[0x27]] = function () {
-  var j43ku8p = window[H[0x28]];window[H[0x28]] = undefined;if (!j43ku8p[H[0x29]]) {
-    var w_9sht5 = j43ku8p[H[0x2a]],
-        eu8a3mp = j43ku8p[H[0x2b]],
-        uj8mep = j43ku8p[H[0x2c]],
-        c_5xst9 = j43ku8p[H[0x2b]] = {};for (var a83pmeu in eu8a3mp) {
-      var h9st5_w = eu8a3mp[a83pmeu],
-          $rnz617 = c_5xst9[a83pmeu] = {};for (var $in7wh in h9st5_w) {
-        var _9hsw5 = h9st5_w[$in7wh],
-            n1$h7wi = _9hsw5[0x42a * -0x6 + 0x4 * -0x20f + -0x69 * -0x51];typeof n1$h7wi === H[0x2d] && (_9hsw5[0x1 * -0x1749 + 0xa * -0x5 + 0x177c] = uj8mep[n1$h7wi]), $rnz617[w_9sht5[$in7wh] || $in7wh] = _9hsw5;
+window[H[0x25]] = function () {
+  var bm3pe2a = window[H[0x26]];window[H[0x26]] = undefined;if (!bm3pe2a[H[0x27]]) {
+    var $ni6r7 = bm3pe2a[H[0x28]],
+        m3u8pj = bm3pe2a[H[0x29]],
+        euj38pm = bm3pe2a[H[0x2a]],
+        x84ujk = bm3pe2a[H[0x29]] = {};for (var z0qdyr in m3u8pj) {
+      var x_tcs5k = m3u8pj[z0qdyr],
+          w97sh$i = x84ujk[z0qdyr] = {};for (var n6q0ozr in x_tcs5k) {
+        var hs9t_w = x_tcs5k[n6q0ozr],
+            m3eap2b = hs9t_w[-0x586 * -0x6 + -0x257b + 0x458];typeof m3eap2b === H[0x2b] && (hs9t_w[-0xd15 + -0x6ed + 0x1403] = euj38pm[m3eap2b]), w97sh$i[$ni6r7[n6q0ozr] || n6q0ozr] = hs9t_w;
       }
-    }var hi19w7$ = j43ku8p[H[0x2e]];for (var lbamp2 = 0x1ecb + -0x1bcc + -0x2ff; lbamp2 < hi19w7$[H[0x2f]]; ++lbamp2) {
-      var cx5t4_ = hi19w7$[lbamp2];typeof cx5t4_[H[0x30]] === H[0x2d] && (cx5t4_[H[0x30]] = w_9sht5[cx5t4_[H[0x30]]]);
-    }var pumeab = j43ku8p[H[0x31]];for (var iws7t9 in pumeab) {
-      var r$z671 = pumeab[iws7t9];for (var blv2a = -0xbb6 + -0x1793 + -0x2349 * -0x1; blv2a < r$z671[H[0x2f]]; ++blv2a) {
-        typeof r$z671[blv2a] === H[0x2d] && (r$z671[blv2a] = w_9sht5[r$z671[blv2a]]);
+    }var dy0o = bm3pe2a[H[0x2c]];for (var n671w$ = -0x234a + -0x1 * 0xff1 + -0x2b * -0x131; n671w$ < dy0o[H[0x2d]]; ++n671w$) {
+      var hiws5 = dy0o[n671w$];typeof hiws5[H[0x2e]] === H[0x2b] && (hiws5[H[0x2e]] = $ni6r7[hiws5[H[0x2e]]]);
+    }var hn$wi71 = bm3pe2a[H[0x2f]];for (var n6$i1w in hn$wi71) {
+      var z1n0r6$ = hn$wi71[n6$i1w];for (var hwi95t = 0x2 * -0x3ee + -0xe87 + 0xb * 0x209; hwi95t < z1n0r6$[H[0x2d]]; ++hwi95t) {
+        typeof z1n0r6$[hwi95t] === H[0x2b] && (z1n0r6$[hwi95t] = $ni6r7[z1n0r6$[hwi95t]]);
       }
-    }var q10rn6z = j43ku8p[H[0x32]];for (var k8ux4 in q10rn6z) {
-      var kjc45 = q10rn6z[k8ux4][H[0x2a]];if (kjc45) for (var r160qn = -0x870 + 0x1d78 + -0x1508, hi719 = kjc45[H[0x2f]]; r160qn < hi719; r160qn++) {
-        typeof kjc45[r160qn] === H[0x2d] && (kjc45[r160qn] = w_9sht5[kjc45[r160qn]]);
+    }var qyz0o = bm3pe2a[H[0x30]];for (var qro0zd in qyz0o) {
+      var ema2b3p = qyz0o[qro0zd][H[0x28]];if (ema2b3p) for (var r$17zn6 = -0x293 * 0xb + 0x9f * -0x1 + 0x1cf0, uxjk34 = ema2b3p[H[0x2d]]; r$17zn6 < uxjk34; r$17zn6++) {
+        typeof ema2b3p[r$17zn6] === H[0x2b] && (ema2b3p[r$17zn6] = $ni6r7[ema2b3p[r$17zn6]]);
       }
     }
-  }var ck5_4 = function i$7hnw() {
-    cc[H[0x14]][H[0x33]][H[0x34]] = j43ku8p[H[0x32]], cc[H[0xe]][H[0x35]](!![]), cc[H[0xe]][H[0x36]](!![]);var hw9i$17 = j43ku8p[H[0x37]];cc[H[0x38]][H[0x39]](hw9i$17, null, function () {
-      cc[H[0x14]][H[0x3a]] = null, console[H[0x3b]](H[0x3c] + hw9i$17);
+  }var qd0rz6 = function u8e3() {
+    cc[H[0x12]][H[0x31]][H[0x32]] = bm3pe2a[H[0x30]], cc[H[0xc]][H[0x33]](!![]), cc[H[0xc]][H[0x34]](!![]);var eabm3p2 = bm3pe2a[H[0x35]];cc[H[0x36]][H[0x37]](eabm3p2, null, function () {
+      cc[H[0x12]][H[0x38]] = null, console[H[0x39]](H[0x3a] + eabm3p2);
     });
   },
-      bl2em = j43ku8p[H[0x3d]],
-      wh$s9i7 = j43ku8p[H[0x29]] ? H[0x3e] : H[0x3];bl2em ? (bl2em = bl2em[H[0x3f]](function (p8k3ju4) {
-    return H[0x40] + p8k3ju4;
-  }), bl2em[H[0x41]](wh$s9i7)) : bl2em = [wh$s9i7];var p2bem3 = H[0x42];const elbvg2 = wx[H[0x43]]({ 'name': p2bem3, 'success': function (cxkt_4) {
-      var bap2e = H[0x44];const wni$7h = wx[H[0x43]]({ 'name': bap2e, 'success': function (is79wth) {
-          var u8xcj = cc[H[0x19]][H[0x1a]] === cc[H[0x19]][H[0x1b]],
-              _th95w = { 'id': H[0x45], 'scenes': j43ku8p[H[0x2e]], 'debugMode': j43ku8p[H[0x29]] ? cc[H[0x29]][H[0x46]][H[0x47]] : cc[H[0x29]][H[0x46]][H[0x48]], 'showFPS': !u8xcj && j43ku8p[H[0x29]], 'frameRate': 0x3c, 'jsList': bl2em, 'groupList': j43ku8p[H[0x49]], 'collisionMatrix': j43ku8p[H[0x4a]] };cc[H[0x4b]][H[0x8]]({ 'libraryPath': H[0x4c], 'rawAssetsBase': H[0x4d], 'rawAssets': j43ku8p[H[0x2b]], 'packedAssets': j43ku8p[H[0x31]], 'md5AssetsMap': j43ku8p[H[0x4e]], 'subpackages': j43ku8p[H[0x32]] }), cc[H[0x1d]][H[0x4f]](_th95w, ck5_4);
-        }, 'fail': function (or06qz) {}, 'compelete': function (s5xtck_) {} });
-    }, 'fail': function (x5k4_t) {}, 'compelete': function (kj34x8) {} });
+      vbagel = bm3pe2a[H[0x3b]],
+      yor0q = bm3pe2a[H[0x27]] ? H[0x3c] : H[0x3d];vbagel ? (vbagel = vbagel[H[0x3e]](function (i$91h7w) {
+    return H[0x3f] + i$91h7w;
+  }), vbagel[H[0x40]](yor0q)) : vbagel = [yor0q];var mjp83 = H[0x41];const sw9i7$ = wx[H[0x42]]({ 'name': mjp83, 'success': function (nh7i) {
+      var eamp = H[0x43];const pbeum = wx[H[0x42]]({ 'name': eamp, 'success': function (n0qzor) {
+          var r0zq1n = cc[H[0x17]][H[0x18]] === cc[H[0x17]][H[0x19]],
+              tswi9h5 = { 'id': H[0x44], 'scenes': bm3pe2a[H[0x2c]], 'debugMode': bm3pe2a[H[0x27]] ? cc[H[0x27]][H[0x45]][H[0x46]] : cc[H[0x27]][H[0x45]][H[0x47]], 'showFPS': !r0zq1n && bm3pe2a[H[0x27]], 'frameRate': 0x3c, 'jsList': vbagel, 'groupList': bm3pe2a[H[0x48]], 'collisionMatrix': bm3pe2a[H[0x49]] };cc[H[0x4a]][H[0x6]]({ 'libraryPath': H[0x4b], 'rawAssetsBase': H[0x4c], 'rawAssets': bm3pe2a[H[0x29]], 'packedAssets': bm3pe2a[H[0x2f]], 'md5AssetsMap': bm3pe2a[H[0x4d]], 'subpackages': bm3pe2a[H[0x30]] }), cc[H[0x1b]][H[0x4e]](tswi9h5, qd0rz6);
+        }, 'fail': function (z10n$r) {}, 'compelete': function (_ch5t9s) {} });
+    }, 'fail': function (sxt_c5) {}, 'compelete': function (v2bemal) {} });
 };

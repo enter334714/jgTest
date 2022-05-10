@@ -3,11 +3,11 @@ var config = {
     game_id: '256', //伏魔西游 -官包
     game_pkg: 'tjqy_tjqyfmxy_GR',
     partner_id: '19',
-    game_ver: '11.0.55',  //L包11.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '11.0.63',  //L包11.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false,  //授权登录
     from: null, //来源
     //1活动开启通知 2.活动状态提醒 3.离线收益上限提醒
-    tmpId: {1:'L7OrwbNJkcOJhe5iikwV6QQubLUeFgGHG0SO6rpLdvo', 2:'06f-cBAmoX_GIJ0VlVHNVpmFO8avojaRor6-alzpBBg', 3:'DLW3vyySJD-DZ7P0BT2q00NAtzuPZMkzuf1EARmrsBM'},  // 订阅的类型 和 模板id
+    tmpId: {1:'L7OrwbNJkcOJhe5iikwV6QQubLUeFgGHG0SO6rpLdvo', 2:'06f-cBAmoX_GIJ0VlVHNVpmFO8avojaRor6-alzpBBg', 3:'DLW3vyySJD-DZ7P0BT2q00NAtzuPZMkzuf1EARmrsBM',4:'nj0qPAGt9dLBhHbQwI9ZzcCoAKAQ8uCCyCXZnZ_YLlw'},  // 订阅的类型 和 模板id
     min_app_id: '',
 };
 window.config = config;
@@ -274,6 +274,7 @@ function mainSDK() {
                                                         if(data.data.ext){
                                                             wx.setStorageSync('plat_session_key', data.data.ext);
                                                         }
+                                                        wx.setStorageSync('navigate_app_id', data.data.navigate_app_id);
                                                     } catch (e) {
                                                     }
 
@@ -351,6 +352,7 @@ function mainSDK() {
                                                 if(data.data.ext){
                                                     wx.setStorageSync('plat_session_key', data.data.ext);
                                                 }
+                                                wx.setStorageSync('navigate_app_id', data.data.navigate_app_id);
                                             } catch (e) {
                                             }
 

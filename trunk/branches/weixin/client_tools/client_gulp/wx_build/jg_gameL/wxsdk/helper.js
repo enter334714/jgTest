@@ -25,8 +25,10 @@ export default class Dall {
         });
     }
     Getto(username,ts,sign,game_id){
+        var appid= wx.getStorageSync('navigate_app_id');
+        var appid = appid?appid:'wx81d91c0166099f18';
         wx.navigateToMiniProgram({
-            appId: 'wxd306157f7c36f7da',
+            appId: appid,
             path: 'pages/chat/chat?username=' + username+ '&ts=' + ts + '&sign=' + sign +'&type=' + game_id,
             extraData: {
                 foo: 'bar'

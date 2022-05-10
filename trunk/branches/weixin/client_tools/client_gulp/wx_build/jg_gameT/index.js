@@ -1156,7 +1156,7 @@ window.checkBanSuccess = function() {
 
 window.initMain = function() {
   if(window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer) {
-    if (!window.MainWX.instance) {
+    if (window.MainWX && !window.MainWX.instance) {
       console.log("Main 初始化"+window.MainWX.instance);
       var info = wx.getLaunchOptionsSync();
       var scene = info.scene?info.scene:0;

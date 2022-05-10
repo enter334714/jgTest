@@ -1,2 +1,2 @@
 var B = wx.$z;
-require('Z11dBuff.js'), window[B[0x427]][B[0x428]][B[0x429]] = null, window['client_pb'] = require('Z11cleintpb.js'), window[B[0x42a]] = window[B[0x427]][B[0x42b]][B[0x42c]](client_pb);
+require('Z11dBuff.js'), window[B[0x782f]][B[0x7830]][B[0x7831]] = null, window['client_pb'] = require('Z11cleintpb.js'), window[B[0x69c4]] = window[B[0x782f]][B[0x696c]][B[0x696d]](client_pb);

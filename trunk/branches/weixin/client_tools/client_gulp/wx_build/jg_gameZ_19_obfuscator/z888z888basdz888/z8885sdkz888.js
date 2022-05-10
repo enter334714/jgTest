@@ -843,8 +843,8 @@ exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLev
         rolename: roleName,
         rolelevel: roleLevel,
         rolecreatetime: rolecreatetime,
-        rolepower: extra.rolepower,
-        callback: extra.callback
+        rolepower: extra?(extra.rolepower || 0):0,
+        callback: extra?extra.callback:null
     };
 
     run(u[408], data);
@@ -858,8 +858,8 @@ exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleL
         rolename: roleName,
         rolelevel: roleLevel,
         rolecreatetime: rolecreatetime,
-        rolepower: extra.rolepower,
-        callback: extra.callback
+        rolepower: extra?extra.rolepower:0,
+        callback: extra?extra.callback:null
     };
     run(u[411], data);
 };

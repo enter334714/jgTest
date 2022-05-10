@@ -4,12 +4,13 @@ var config = {
     game_pkg: 'tjqy_tjqyjzxc_MM', //666-多梦江湖-剑斩星辰
     partner_label: 'ddt6',
     partner_id: '489',
-    game_ver: '39.0.5',
+    game_ver: '39.0.15',
     platId: 1000,
     gameId: 289,
     channelVer: 'mxsdk_tjqy_jzxc',
     mode: 2,
     is_auth: true, //授权登录
+    tmpId: {1:'YQqcq7DpbnW4I57HKAC949m1K-Bm-PdiIB2b02YZQJU', 2:'sW0tm-i3pUkCVLMmBSbkUvFT9M-ZOW4erPqYxGNMYlU', 3:'jhx54Ti8YmQ4cq4_YcfIKQjhhJ1uOB_0v66YZSHSTBw'},  // 订阅的类型 和 模板id
 };
 window.config = config;
 var PARTNER_SDK = mainSDK();
@@ -251,7 +252,8 @@ function mainSDK() {
         },
 
         openService: function () {
-            wx.openCustomerServiceConversation();
+            // wx.openCustomerServiceConversation();
+            ddtSDKPlat.toService();
         },
 
         checkGameVersion: function (game_ver, callback) {

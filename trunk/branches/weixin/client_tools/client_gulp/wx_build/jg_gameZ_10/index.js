@@ -12,6 +12,7 @@ window.ENV = 1;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
+window.isWaiFangWx = false;
 window.PF_INFO = {
   base_cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
   cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
@@ -523,7 +524,7 @@ window.reqPkgOptionsCallBack = function(data) {
 }
 
 
-window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback) {
+window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback, appleprd_id) {
   productId = String(productId)
   var productname = productName
   var productdesc = productDesc
@@ -662,7 +663,7 @@ window.openService = function(){
 
 //微端引导
 window.microPortGuide = function(){
-  AKSDK.weiduanHelper();
+  AKSDK.weiduanHelper && AKSDK.weiduanHelper();
 }
 
 //绑定有礼请求短信验证码
@@ -700,11 +701,11 @@ window.reqPlayerAskInfo = function(packageName, role_id, serverId, callBack) {
   }, callBack);
 }
 //调起订阅消息
-window.openSubscribeMsg = function(ids, callback) {
+window.openSubscribeMsg = function (ids, callback,objIds) {
   function onTouchEnd(res) {
     var data = [];
     var tmpIds = [];
-    var tmpObj = window.config.tmpId;
+    var tmpObj = objIds || window.config.tmpId;
     for (var id in tmpObj) {
         var idn = Number(id);
         if (!ids || !ids.length || ids.indexOf(idn)!=-1) { //ids为空表示所有都请求
@@ -1026,12 +1027,6 @@ window.reqServerRecommendCallBack = function(data) {
   }
 }
 window.changeServerName = function(lst) {
-  if(!lst && lst.length <= 0) return lst;
-  for(let i = 0; i < lst.length; i++) {
-      if(lst[i].is_recommend && lst[i].is_recommend == 1) {
-          lst[i].server_name += "(推荐)";
-      }
-  }
   return lst;
 }
 window.req_server_notice = function(server_id, callback) {

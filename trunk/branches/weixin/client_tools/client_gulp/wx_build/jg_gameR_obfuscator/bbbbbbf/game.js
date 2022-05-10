@@ -1,0 +1,2 @@
+var _ = wx.y$;
+require('bbbbBuff.js'), window[_[0x753b]][_[0x7531]][_[0x74c2]] = null, window['client_pb'] = require('bbbcleintpb.js'), window[_[0x6647]] = window[_[0x753b]][_[0x65d8]][_[0x65d9]](client_pb);
