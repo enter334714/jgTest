@@ -1,4 +1,4 @@
-﻿import sdk6kw from './utils/sdkFrom6kw.com';
+﻿import sdk6kw from '../utils/sdkFrom6kw.com';
 
 //TODO 替换对应参数
 var config = {
@@ -6,7 +6,7 @@ var config = {
     game_pkg: 'tjqy_tjqytmld_KN',
     partner_label: '6KW',
     partner_id: '242',
-    game_ver: '37.0.7',
+    game_ver: '37.0.17',
     is_auth: true, //授权登录
 };
 window.config = config;
@@ -334,25 +334,24 @@ function mainSDK() {
         msgCheck: function (content, callback) {
             console.log("[SDK]查看文本是否有违规内容");
             var sdk_token = wx.getStorageSync('plat_sdk_token');
-            wx.request({
-                url: 'https://' + HOST + '/partner/data/msgSecCheck/'+config.partner_id+'/'+config.game_pkg,
-                method: 'POST',
-                dataType: 'json',
-                header: {
-                    'content-type': 'application/x-www-form-urlencoded' // 默认值
-                },
-                data: {
-                    game_pkg: config.game_pkg,
-                    partner_id: config.partner_id,
-                    sdk_token: sdk_token,
-                    content:content
-                },
-                success: function (res) {
-                    console.log("[SDK]查看文本是否有违规内容结果返回:");
-                    console.log(res);
-                    callback && callback(res);
+            sdk6kw.msgSecCheck({
+                content: content,
+                callback: (data, res)=> {
+                  console.log("check result is %o", data);
+                  let ret = {
+                    data:{}
+                };
+                  if(res.data.result.suggest == "pass"){
+                    ret.statusCode = 200;
+                    ret.data.state = 1;
+                  }else{
+                    ret.statusCode = 200;
+                    ret.data.state = 0;
+                  }
+                  callback && callback(ret);
                 }
-            });
+              })
+          
         },
 
         pay: function (data, callback) {

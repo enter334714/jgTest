@@ -1,2 +1,1 @@
-var c = wx.$a;
-import 'amain.js';
+var c=wx.$a;import"amain.js";

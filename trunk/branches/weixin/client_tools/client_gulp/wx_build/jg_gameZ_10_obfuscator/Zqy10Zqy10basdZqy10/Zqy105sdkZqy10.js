@@ -7,7 +7,7 @@ var config = {
     game_pkg: J[0x75e],
     partner_label: J[0x75f],
     partner_id: J[0x760],
-    game_ver: J[0x761],
+    game_ver: "37.0.17",
     is_auth: true //授权登录
 };
 window.config = config;
