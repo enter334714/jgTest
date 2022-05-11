@@ -1,41 +1,8 @@
-require('adapter-min.js');
-__globalAdapter.init();
-var fs = wx.getFileSystemManager(); wx.getFileSystemManager().unzip({
-  zipFilePath: "/Z9991es/Z9991iles.zip", targetPath: wx.env.USER_DATA_PATH + "/f/", success: r => {
-    "unzip:ok" == r.errMsg ? fs.readFile({
-      filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8", success: function (r) {
-        if ("readFile:ok" == r.errMsg && r.data) {
-          try {
-            wx.$F = JSON.parse(r.data);
-          } catch (r) {
-            console.error(r);
-          }
-          wx.loadSubpackage({
-            name: 'cocos',
-            success: function(res) {
-              console.log("cocos 分包加载成功");
-              console.log(res);
-              if (res && res.errMsg == "loadSubpackage:ok") {
-                require('./game1.js');     
-              } else {
-               
-              }
-            },
-            fail: function(res) {
-              console.log("protobuf 分包加载失败");
-              console.log(res);
-              setTimeout(function() {
-                window.loadProbuf();
-              }, 500);
-            },
-          });
-              
-        }
-      }, fail: function (r) {
-        console.error(r.errMsg);
-      }
-    }) : console.error(r.errMsg);
-  }, fail: r => {
-    console.error(r.errMsg);
-  }
-});
+'use strict';
+
+var H = wx.$F;
+require(H[0x5]), __globalAdapter[H[0x6]](), require(H[0x7]), __globalAdapter[H[0x8]](), require(H[0x9]), require(H[0xa]), require(H[0xb]), cc[H[0xc]][H[0xd]] = 0x4, window[H[0xe]] = remoteDownloader, remoteDownloader[H[0xf]] = H[0x10], remoteDownloader[H[0x11]] = '';var fn$716i = cc[H[0x12]][H[0x13]] || cc[H[0x12]][H[0x14]] || cc[H[0x12]][H[0x15]];cc[H[0x12]][H[0x16]](fn$716i, remoteDownloader);if (cc[H[0x17]][H[0x18]] === cc[H[0x17]][H[0x19]]) {
+  var fpm3aeu = require(H[0x1a]);cc[H[0x1b]][H[0x1c]](cc[H[0x1b]][H[0x1d]], function () {
+    cc[H[0x1e]][H[0x1f]][H[0x20]][H[0x21]](H[0x22], fpm3aeu);
+  });
+} else cc[H[0x23]][H[0x24]] = !![];remoteDownloader[H[0x6]](), window[H[0x25]]();

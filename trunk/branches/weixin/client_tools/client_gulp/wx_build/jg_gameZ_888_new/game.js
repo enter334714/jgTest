@@ -4,6 +4,7 @@ require('adapter-min.js');
 
 __globalAdapter.init();
 
+// requirePlugin('cocos');
 require("cocos/cocos2d-js-min.js");
 
 __globalAdapter.adaptEngine();
@@ -21,7 +22,7 @@ cc.view._maxPixelRatio = 4; // downloader polyfill
 
 window.wxDownloader = remoteDownloader; // handle remote downloader
 
-remoteDownloader.REMOTE_SERVER_ROOT = "https://h5wxtest.q2.5tun.cn/dev";
+remoteDownloader.REMOTE_SERVER_ROOT = "https://h5wxtest.q2.5tun.cn/tsDev";
 remoteDownloader.SUBCONTEXT_ROOT = "";
 var pipeBeforeDownloader = cc.loader.subPackPipe || cc.loader.md5Pipe || cc.loader.assetLoader;
 cc.loader.insertPipeAfter(pipeBeforeDownloader, remoteDownloader);
