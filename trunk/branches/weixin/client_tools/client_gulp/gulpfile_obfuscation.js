@@ -2104,8 +2104,8 @@ var set_param_h = function () {
         globleArrs = new Array(arrIndex);
         numberToHex = true;
         // needShuffle = true;
-        str_leading1 = "XYU6RHS90AQ3CP7LOM1BKW4$V2NZF85E_IJDGT";
-        str_leading2 = "kmto5lcpu$8rz9jdhw0xq7134fgv_nsya62ibe";
+        str_leading1 = "PAWFSDRC3$TVHMJ6EUBL9GY4X_8ZI1NO5K07Q2";
+        str_leading2 = "4l63kzcu5idb8nsjrq1etm$72w9apf0goyx_hv";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -3710,7 +3710,7 @@ var set_param_O = function () {
             "libs/dom.js":  {url:packageName1+"/ooooDOM.js"},
             "libs/dom_parser.js":  {url:packageName1+"/oooooparse.js"},
             "libs/laya.wxmini.js":  {url:packageName1+"/oooWXMsad.js"},
-            "libs/libs.min.js":  {url:packageName1+"/ooooLIBsdsa.js",extractStr:false,count:5,strLen:3},
+            "libs/libs.min.js":  {url:packageName1+"/ooooLIBsdsa.js",extractStr:true,count:1,strLen:3},
             "libs/md5.min.js":  {url:packageName1+"/oooMDadfa.js"},
             "libs/sax.js":  {url:packageName1+"/oooSAX.js"},
             "libs/weapp-adapter.js":  {url:"aa3891/oooWEs1.js"},
@@ -12573,7 +12573,7 @@ var set_param_Z_25 = function () {
         PACK = 'jg_gameZ_25';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
-        PREFIX = '$';
+        PREFIX = 'T$';
         sourceProject = "wx_build/jg_gameZ_25_new";
         targetProject = "wx_build/jg_gameZ_25_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
@@ -12589,11 +12589,11 @@ var set_param_Z_25 = function () {
             "libs/dom.js":  {url:"bbblibs/bbbdom.js"},
             "libs/dom_parser.js":  {url:"bbblibs/bbbdomparser.js"},
             "libs/laya.wxmini.js":  {url:"bbblibs/bbbwxmini.js"},
-            "libs/libs.min.js":  {url:"bbblibs/bbblibsmin.js",extractStr:false},
-            "libs/md5.min.js":  {url:"bbblibs/bbbmd5min.js"},
-            "libs/sax.js":  {url:"bbblibs/bbbsax.js"},
+            "libs/libs.min.js":  {url:"bbblibs/bbblibsmin.js",extractStr:true,count:1,strLen:3},
+            "libs/md5.min.js":  {url:"bbblibs/bbbmd5min.js",extractStr:true,count:1,strLen:3},
+            "libs/sax.js":  {url:"bbblibs/bbbsax.js",extractStr:true,count:1,strLen:3},
             "libs/weapp-adapter.js":  {url:"bbssss/bbbweasaf.js"},
-            "libs/zlib.js":  {url:"bbblibs/bbbzlibs.js"},
+            "libs/zlib.js":  {url:"bbblibs/bbbzlibs.js",extractStr:true,count:1,strLen:3},
             // "libs/game.js":  {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
             "wxsdk":  {url:"bbbk"},
             "wxsdk/wx_aksdk.js":  {url:"bbbk/bbbsdk.js",extractStr:true,count:1,strLen:3},
@@ -12761,10 +12761,10 @@ var set_param_Z_25 = function () {
         packageName3 = "bbbbbbbbb";
         arrIndex = 0;
         globleArrs = new Array(arrIndex);
-        numberToHex = true;
+        numberToHex = false;
         // needShuffle = true;
-        str_leading1 = "2_VR50I$T4Z8UWQNMGDSXA1LHBO9CYFK67PE3J";
-        str_leading2 = "8xc_amvkf$93r0ozhq6swdl7pgn2b4yieju5t1";
+        str_leading1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789";
+        str_leading2 = "abcdefghijklmnopqrstuvwxyz$_0123456789";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -13089,7 +13089,7 @@ var set_param_Z_27 = function () {
         PACK = 'jg_gameZ_27';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
-        PREFIX = '$';
+        PREFIX = 'T$';
         sourceProject = "wx_build/jg_gameZ_27_new";
         targetProject = "wx_build/jg_gameZ_27_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
@@ -13102,14 +13102,14 @@ var set_param_Z_27 = function () {
             "libs_game.js": {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
             "index.js": {url:"bbblibs/bbbindex.js",extractStr:true,count:1,strLen:3},
             "init.min.js":  {url:"bbblibs/bbbinitmin.js",extractStr:true,count:1,strLen:3,replace:true},
-            "libs/dom.js":  {url:"bbblibs/bbbdom.js"},
-            "libs/dom_parser.js":  {url:"bbblibs/bbbdomparser.js"},
-            "libs/laya.wxmini.js":  {url:"bbblibs/bbbwxmini.js"},
+            "libs/dom.js":  {url:"bbblibs/bbbdom.js",extractStr:true,count:1,strLen:3},
+            "libs/dom_parser.js":  {url:"bbblibs/bbbdomparser.js",extractStr:true,count:1,strLen:3},
+            "libs/laya.wxmini.js":  {url:"bbblibs/bbbwxmini.js",extractStr:true,count:1,strLen:3},
             "libs/libs.min.js":  {url:"bbblibs/bbblibsmin.js",extractStr:false},
-            "libs/md5.min.js":  {url:"bbblibs/bbbmd5min.js"},
-            "libs/sax.js":  {url:"bbblibs/bbbsax.js"},
+            "libs/md5.min.js":  {url:"bbblibs/bbbmd5min.js",extractStr:true,count:1,strLen:3},
+            "libs/sax.js":  {url:"bbblibs/bbbsax.js",extractStr:true,count:1,strLen:3},
             "libs/weapp-adapter.js":  {url:"bbssss/bbbweasaf.js"},
-            "libs/zlib.js":  {url:"bbblibs/bbbzlibs.js"},
+            "libs/zlib.js":  {url:"bbblibs/bbbzlibs.js",extractStr:true,count:1,strLen:3},
             // "libs/game.js":  {url:"bbblibs/game.js",extractStr:true,count:1,strLen:3},
             "wxsdk":  {url:"bbbk"},
             "wxsdk/wx_aksdk.js":  {url:"bbbk/bbbsdk.js",extractStr:true,count:1,strLen:3},
@@ -13279,8 +13279,8 @@ var set_param_Z_27 = function () {
         globleArrs = new Array(arrIndex);
         numberToHex = true;
         // needShuffle = true;
-        str_leading1 = "6MTG0YH2EDSINRB17J8QK5PX4_WCLVUOA3$9ZF";
-        str_leading2 = "j$lms761nxi248rfy_uh0kvd3at9qpbcweo5gz";
+        str_leading1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ$_0123456789";
+        str_leading2 = "abcdefghijklmnopqrstuvwxyz$_0123456789";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
@@ -13523,8 +13523,8 @@ var set_param_Z_28 = function () {
         globleArrs = new Array(arrIndex);
         numberToHex = true;
         // needShuffle = true;
-        str_leading1 = "JR8GXO3K4MA$SIZYQUDN7T1CPV5L_92W0HF6BE";
-        str_leading2 = "25xlgwtnbj8h$19rfm_siod7q04cau3z6evpky";
+        str_leading1 = "38LCKBZ5PWOHJ02$XMDV6IFYE_U7G41RTSNQ9A";
+        str_leading2 = "597u0d1yaxbq6s4tnr2pg$o8iev_kfw3ljcmhz";
         for(var key in  filesMap){
             var item = filesMap[key];
             var url = item.url;
