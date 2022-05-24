@@ -843,7 +843,7 @@ var identifier_create = function (rate) {
         // }
         console.log("是否打乱数组",leading)
         //生成混淆用的标识符
-        for (var n = 1; n <8; n++) { //字符数量
+        for (var n = 1; n <7; n++) { //字符数量
             for (var m = 0; m < leading.length; m++) {
                 perm(leading.slice(m, m + n), obfuscatorArrObj, '');
             }
@@ -1520,10 +1520,10 @@ var js_obfuscator = function (rate,renameGlobals) {
                 renameGlobals: renameGlobals,  //4 启用全局变量和函数名与声明的混淆 此选项可能会破坏您的代码。只有当你知道它的功能时才启用它！
                 renameProperties: false,  //启用属性名称的重命名  启用属性名称boundSuperCalls的重命名。所有内置的DOM属性和核心JavaScript类中的属性都将被忽略。此选项可能会破坏您的代码。只有当你知道它的功能时才启用它！
                 renamePropertiesMode: "safe",//Type: string Default: safe 即使在安全模式下，renameProperties选项也可能会破坏代码 如果一个文件正在使用其他文件的属性，请使用identifierNameCache选项在这些文件之间保持相同的属性名称。
-                numbersToExpressions: true,  //允许将数字转换为表达式
+                numbersToExpressions: false,  //允许将数字转换为表达式
                 disableConsoleOutput: false,  //控制台输出
                 unicodeEscapeSequence: false, //允许启用/禁用字符串转换为Unicode转义序列
-                deadCodeInJection: true, // 使用此选项，将随机废代码添加到混淆代码中  该选项显著的增加混淆代码的大小（200%），如果贵混淆代码大小不敏感的时候启用改选项 。开启该选项将强制启用stringArray选项
+                deadCodeInJection: false, // 使用此选项，将随机废代码添加到混淆代码中  该选项显著的增加混淆代码的大小（200%），如果贵混淆代码大小不敏感的时候启用改选项 。开启该选项将强制启用stringArray选项
                 optionsPreset: 'default',//可用参数 default,low-obfuscation,medium-obfuscation,high-obfuscation,所有副将选项将于改名称对应的预设选项合并
                 // seed:0, //此选项为随机生成器设置种子。这对于创建可重复的结果很有用。 如果seed为0，则随机生成器将在没有seed的情况下工作
 
