@@ -745,7 +745,7 @@ gulp.task('build-all-B', function (cb) {
 });
 //混淆
 gulp.task('build-babel-obfuscator-B', function (cb) {
-    sequence("set-param-b","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
+    sequence("set-param-b","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb)
 });
 
 //混淆
@@ -990,7 +990,7 @@ gulp.task('set-param-c', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-C', function (cb) {
-    sequence("set-param-c","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
+    sequence("set-param-c","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb)
 });
 
 /**-------------------------------------------------微信小游戏--C包  end-----------------------------------------------------------*/
@@ -1230,7 +1230,7 @@ gulp.task('set-param-d', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-D', function (cb) {
-    sequence("set-param-d","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
+    sequence("set-param-d","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb)
 });
 
 //混淆
@@ -1478,7 +1478,7 @@ gulp.task('set-param-e', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-E', function (cb) {
-    sequence("set-param-e","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-e","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -1728,7 +1728,7 @@ gulp.task('set-param-f', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-F', function (cb) {
-    sequence("set-param-f","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-f","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -1980,7 +1980,7 @@ gulp.task('set-param-g', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-G', function (cb) {
-    sequence("set-param-g","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-g","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -2229,7 +2229,7 @@ gulp.task('set-param-h', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-H', function (cb) {
-    sequence("set-param-h","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-h","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -2480,7 +2480,7 @@ gulp.task('set-param-i', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-I', function (cb) {
-    sequence("set-param-i","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-i","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -2729,7 +2729,7 @@ gulp.task('set-param-j', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-J', function (cb) {
-    sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -2982,7 +2982,7 @@ gulp.task('set-param-k', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-K', function (cb) {
-    sequence("set-param-k","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-k","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -3234,7 +3234,7 @@ gulp.task('set-param-l', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-L', function (cb) {
-    sequence("set-param-l","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-l","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -3514,7 +3514,7 @@ gulp.task('set-param-m', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-M', function (cb) {
-    sequence("set-param-m","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-m","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -3759,7 +3759,7 @@ gulp.task('set-param-n', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-N', function (cb) {
-    sequence("set-param-n","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-n","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -4006,7 +4006,7 @@ gulp.task('set-param-O', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-O', function (cb) {
-    sequence("set-param-O","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-O","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -4253,7 +4253,7 @@ gulp.task('set-param-P', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-P', function (cb) {
-    sequence("set-param-P","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-P","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -4497,7 +4497,7 @@ gulp.task('set-param-Q', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Q', function (cb) {
-    sequence("set-param-Q","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Q","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -4742,7 +4742,7 @@ gulp.task('set-param-R', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-R', function (cb) {
-    sequence("set-param-R","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-R","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -4987,7 +4987,7 @@ gulp.task('set-param-S', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-S', function (cb) {
-    sequence("set-param-S","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-S","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -5225,7 +5225,7 @@ gulp.task('set-param-T', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-T', function (cb) {
-    sequence("set-param-T","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-T","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -5503,7 +5503,7 @@ gulp.task('set-param-U', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-U', function (cb) {
-    sequence("set-param-U","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-U","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -5750,7 +5750,7 @@ gulp.task('set-param-V', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-V', function (cb) {
-    sequence("set-param-V","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-V","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -5998,7 +5998,7 @@ gulp.task('set-param-W', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-W', function (cb) {
-    sequence("set-param-W","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-W","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -6243,7 +6243,7 @@ gulp.task('set-param-X', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-X', function (cb) {
-    sequence("set-param-X","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-X","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -6496,7 +6496,7 @@ gulp.task('set-param-Y', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Y', function (cb) {
-    sequence("set-param-Y","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Y","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 
 });
@@ -6739,7 +6739,7 @@ gulp.task('set-param-Z', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z', function (cb) {
-    sequence("set-param-Z","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -6984,7 +6984,7 @@ gulp.task('set-param-Z_1', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_1', function (cb) {
-    sequence("set-param-Z_1","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_1","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 
@@ -7229,7 +7229,7 @@ gulp.task('set-param-Z_2', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_2', function (cb) {
-    sequence("set-param-Z_2","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_2","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -7474,7 +7474,7 @@ gulp.task('set-param-Z_3', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_3', function (cb) {
-    sequence("set-param-Z_3","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_3","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 //混淆
 gulp.task('build-babel-obfuscator-Z_3_minify', function (cb) {
@@ -7721,7 +7721,7 @@ gulp.task('set-param-Z_4', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_4', function (cb) {
-    sequence("set-param-Z_4","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_4","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 /**-------------------------------------------------微信小游戏--Z5包 9130vs掌上-我和我的影子 end-----------------------------------------------------------*/
@@ -7960,7 +7960,7 @@ gulp.task('set-param-Z_5', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_5', function (cb) {
-    sequence("set-param-Z_5","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_5","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -8205,7 +8205,7 @@ gulp.task('set-param-Z_6', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_6', function (cb) {
-    sequence("set-param-Z_6","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_6","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -8450,7 +8450,7 @@ gulp.task('set-param-Z_7', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_7', function (cb) {
-    sequence("set-param-Z_7","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_7","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -8695,7 +8695,7 @@ gulp.task('set-param-Z_8', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_8', function (cb) {
-    sequence("set-param-Z_8","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_8","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 
@@ -8937,7 +8937,7 @@ gulp.task('set-param-Z_9', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_9', function (cb) {
-    sequence("set-param-Z_9","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_9","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 
@@ -9181,11 +9181,11 @@ gulp.task('set-param-Z_10', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_10', function (cb) {
-    sequence("set-param-Z_10","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_10","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 gulp.task('build-Z_10-test', function (cb) {
-    sequence("set-param-Z_10",'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', cb);
+    sequence("set-param-Z_10",'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', cb);
 });
 
 //混淆
@@ -9432,7 +9432,7 @@ gulp.task('set-param-Z_11', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_11', function (cb) {
-    sequence("set-param-Z_11","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
+    sequence("set-param-Z_11","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb)
 });
 
 //混淆
@@ -9680,7 +9680,7 @@ gulp.task('build-all-Z_12', function (cb) {
 });
 //混淆
 gulp.task('build-babel-obfuscator-Z_12', function (cb) {
-    sequence("set-param-Z_12","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
+    sequence("set-param-Z_12","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb)
 });
 
 //混淆
@@ -9927,7 +9927,7 @@ gulp.task('set-param-Z_13', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_13', function (cb) {
-    sequence("set-param-Z_13","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_13","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -10173,7 +10173,7 @@ gulp.task('set-param-Z_14', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_14', function (cb) {
-    sequence("set-param-Z_14","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_14","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -10418,7 +10418,7 @@ gulp.task('set-param-Z_15', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_15', function (cb) {
-    sequence("set-param-Z_15","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_15","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -10663,7 +10663,7 @@ gulp.task('set-param-Z_16', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_16', function (cb) {
-    sequence("set-param-Z_16","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_16","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -10909,7 +10909,7 @@ gulp.task('set-param-Z_17', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_17', function (cb) {
-    sequence("set-param-Z_17","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_17","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -11154,7 +11154,7 @@ gulp.task('set-param-Z_18', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_18', function (cb) {
-    sequence("set-param-Z_18","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_18","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -11400,7 +11400,7 @@ gulp.task('set-param-Z_19', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_19', function (cb) {
-    sequence("set-param-Z_19","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_19","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -11650,7 +11650,7 @@ gulp.task('set-param-Z_20', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_20', function (cb) {
-    sequence("set-param-Z_20","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_20","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -11896,7 +11896,7 @@ gulp.task('set-param-Z_21', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_21', function (cb) {
-    sequence("set-param-Z_21","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_21","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -12145,7 +12145,7 @@ gulp.task('set-param-Z_22', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_22', function (cb) {
-    sequence("set-param-Z_22","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_22","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -12393,7 +12393,7 @@ gulp.task('set-param-Z_23', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_23', function (cb) {
-    sequence("set-param-Z_23","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_23","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -12640,11 +12640,11 @@ gulp.task('set-param-Z_24', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_24', function (cb) {
-    sequence("set-param-Z_24","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_24","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 gulp.task('build-Z_24-test', function (cb) {
-    sequence("set-param-Z_24",'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', cb);
+    sequence("set-param-Z_24",'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', cb);
 });
 
 //混淆
@@ -12888,7 +12888,7 @@ gulp.task('set-param-Z_25', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_25', function (cb) {
-    sequence("set-param-Z_25","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_25","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -13160,7 +13160,7 @@ gulp.task('set-param-Z_26', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_26', function (cb) {
-    sequence("set-param-Z_26","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_26","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -13404,7 +13404,7 @@ gulp.task('set-param-Z_27', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_27', function (cb) {
-    sequence("set-param-Z_27","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_27","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -13648,7 +13648,7 @@ gulp.task('set-param-Z_28', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_28', function (cb) {
-    sequence("set-param-Z_28","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_28","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -13924,7 +13924,7 @@ gulp.task('set-param-Z_29', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_29', function (cb) {
-    sequence("set-param-Z_29","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_29","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -14172,7 +14172,7 @@ gulp.task('set-param-Z_30', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_30', function (cb) {
-    sequence("set-param-Z_30","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_30","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -14418,7 +14418,7 @@ gulp.task('set-param-Z_31', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_31', function (cb) {
-    sequence("set-param-Z_31","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_31","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -14664,7 +14664,7 @@ gulp.task('set-param-Z_32', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_32', function (cb) {
-    sequence("set-param-Z_32","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_32","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -14911,7 +14911,7 @@ gulp.task('set-param-Z_33', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_33', function (cb) {
-    sequence("set-param-Z_33","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_33","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -15158,7 +15158,7 @@ gulp.task('set-param-Z_34', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_34', function (cb) {
-    sequence("set-param-Z_34","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_34","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -15404,7 +15404,7 @@ gulp.task('set-param-Z_35', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_35', function (cb) {
-    sequence("set-param-Z_35","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_35","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -15653,7 +15653,7 @@ gulp.task('set-param-Z_36', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_36', function (cb) {
-    sequence("set-param-Z_36","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_36","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -15897,7 +15897,7 @@ gulp.task('set-param-Z_37', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_37', function (cb) {
-    sequence("set-param-Z_37","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
+    sequence("set-param-Z_37","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb)
 });
 
 //混淆
@@ -16143,7 +16143,7 @@ gulp.task('set-param-Z_38', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_38', function (cb) {
-    sequence("set-param-Z_38","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_38","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -16385,7 +16385,7 @@ gulp.task('set-param-Z_39', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_39', function (cb) {
-    sequence("set-param-Z_39","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_39","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -16634,7 +16634,7 @@ gulp.task('set-param-Z_40', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_40', function (cb) {
-    sequence("set-param-Z_40","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_40","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -16882,11 +16882,11 @@ gulp.task('set-param-Z_41', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_41', function (cb) {
-    sequence("set-param-Z_41","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_41","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 gulp.task('build-Z_41-test', function (cb) {
-    sequence("set-param-Z_41",'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', cb);
+    sequence("set-param-Z_41",'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', cb);
 });
 
 //混淆
@@ -17135,7 +17135,8 @@ gulp.task('set-param-Z_42', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_42', function (cb) {
-    sequence("set-param-Z_42","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_42","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);    sequence("set-param-Z_41",'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', cb);
+
 });
 
 //混淆
@@ -17380,7 +17381,7 @@ gulp.task('set-param-Z_43', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_43', function (cb) {
-    sequence("set-param-Z_43","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_43","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);    sequence("set-param-Z_41",'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -17624,7 +17625,7 @@ gulp.task('set-param-Z_44', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_44', function (cb) {
-    sequence("set-param-Z_44","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_44","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -17650,7 +17651,7 @@ var set_param_Z_45 = function () {
         PACK = 'jg_gameZ_45';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghijklmnopqrstuvwxyzCDEFGHIJKLMNOPQRSTUVWXYZ$_AB';
-        PREFIX = '';
+        PREFIX = 'e$';
         sourceProject = "wx_build/jg_gameZ_45_new";
         targetProject = "wx_build/jg_gameZ_45_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
@@ -17868,7 +17869,7 @@ gulp.task('set-param-Z_45', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_45', function (cb) {
-    sequence("set-param-Z_45","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_45","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -18112,7 +18113,7 @@ gulp.task('set-param-Z_46', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_46', function (cb) {
-    sequence("set-param-Z_46","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_46","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     // sequence("set-param-j","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel',cb);
 });
 
@@ -18357,7 +18358,7 @@ gulp.task('set-param-Z_47', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_47', function (cb) {
-    sequence("set-param-Z_47","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb)
+    sequence("set-param-Z_47","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -18603,7 +18604,7 @@ gulp.task('set-param-Z_48', function () {
 
 //混淆
 gulp.task('build-babel-obfuscator-Z_48', function (cb) {
-    sequence("set-param-Z_48","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    sequence("set-param-Z_48","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 });
 
 //混淆
@@ -18613,6 +18614,513 @@ gulp.task('build-babel-obfuscator-Z_48-minify', function (cb) {
 
 
 /**-------------------------------------------------微信小游戏--Z_48 纵游 掌上修仙  end-----------------------------------------------------------*/
+
+
+/**-------------------------------------------------微信小游戏--Z_53 6KW奇趣-微信 天羽传奇（独立服务器）-Z_53 start-----------------------------------------------------------*/
+
+
+/**Z_53包参数*/
+var set_param_Z_53 = function () {
+
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = '../../client/wx_dist/packageZ_53/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameZ_53';
+        INIT_PATH = '/';
+        // SCOPE = 'abcdefghklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ij';
+        PREFIX = 'H$';
+        sourceProject = "wx_build/jg_gameZ_53_new";
+        targetProject = "wx_build/jg_gameZ_53_obfuscator";
+        targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
+        mainJsName = "Zqy102MZqy10IZqy102.js";
+        libsMainJs = "Zqy102GZqy10MEZqy102.js";
+        packageName1 = "Zqy102IZqy102";
+        packageName2 = "Zqy102pftZqy102";
+        packageName3 = "Zqy10Zqy10Zqy10Zqy10Zqy10";
+        var clinetPbName = "Zqy10Zqy10IENZqy10Zqy10.js";
+        filesMap = {
+            //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
+            "libs": {url:packageName1},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
+            "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
+            "index.js": {url:packageName1+"/Zqy10INDZqy10Zqy10.js",extractStr:true,count:1,strLen:3},
+            "init.min.js":  {url:packageName1+"/Zqy10Zqy10INIZqy10aZqy10.js",extractStr:true,count:1,strLen:3,replace:true},
+            "libs/dom.js":  {url:packageName1+"/Zqy10Zqy10DOZqy10Zqy10.js"},
+            "libs/dom_parser.js":  {url:packageName1+"/Zqy10Zqy10parsaZqy10.js"},
+            "libs/laya.wxmini.js":  {url:packageName1+"/Zqy10Zqy10MtadZqy10Zqy10.js"},
+            "libs/libs.min.js":  {url:packageName1+"/Zqy10Zqy10IZqy101Zqy10Zqy10.js",extractStr:false,count:5,strLen:3},
+            "libs/md5.min.js":  {url:packageName1+"/Zqy10Zqy10bfZqy10Zqy10.js"},
+            "libs/sax.js":  {url:packageName1+"/Zqy10Zqy10cZqy10Zqy10.js"},
+            "libs/weapp-adapter.js":  {url:"xv2/Zqy10Zqy10E4Zqy10Zqy10.js"},
+            "libs/zlib.js":  {url:packageName1+"/Zqy10Zqy1011Zqy10Zqy10.js"},
+            "wxsdk":  {url:"Zqy10Zqy10basdZqy10"},
+            "wxsdk/wx_aksdk.js":  {url:"Zqy10Zqy10basdZqy10/Zqy105sdkZqy10.js",extractStr:true,count:1,strLen:3},
+            "wxsdk/helper.js":  {url:"Zqy10Zqy10basdZqy10/a5sshZqy10Zqy10.js",extractStr:true,count:1,strLen:3},
+            "protobuf":  {url:packageName2},
+            "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:2,strLen:3},
+            "protobuf/protobuf.js":  {url: packageName2 + "/Zqy10Zqy10FZqy10Zqy10.js",extractStr:true,count:2,strLen:3},
+            "protobuf/game.js":  {url: packageName2 + "/game.js",extractStr:true,count:5,strLen:3},
+            "subPackage":  {url:packageName3},
+            "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
+            "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
+            // "untils/ddtSDKPlat.js":  {url:"untils/ddtSDKPlat.js",extractStr:false,count:1,strLen:3},
+            "wxsdk/utils/sdkFrom6kw.com.js":  {url:"Zqy10Zqy10basdZqy10/utils/sdkFrom6kw.com.js",extractStr:false,count:1,strLen:3},
+
+            "wxloading_atlas": {url:"Zqy10Zqy10dZqy10"},
+            "wxlogin_atlas": {url:"Zqy10Zqy10lgrZqy10Zqy10"},
+            "wxeff_btn_atlas":{url:"Zqy10yZqy10"},
+
+
+            "wxloading_atlas/btn_loding_abcelq0.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy101a.png"},
+            "wxloading_atlas/btn_loding_abcelq1.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy102a.png"},
+            "wxloading_atlas/image_loading_bg.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy103a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy104a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom2.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy105a.jpg"},
+            "wxloading_atlas/image_loading_bg_left.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy106a.jpg"},
+            "wxloading_atlas/image_loading_bg_left2.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy107a.jpg"},
+            "wxloading_atlas/image_loading_bg_right.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy108a.jpg"},
+            "wxloading_atlas/image_loading_bg_right2.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy109a.jpg"},
+            "wxloading_atlas/image_loading_bg_top.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1010a.jpg"},
+            "wxloading_atlas/image_loading_bg_top2.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1011a.jpg"},
+            "wxloading_atlas/image_loading_bg2.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1012a.jpg"},
+
+
+            "wxloading_atlas/image_loding_bar0.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1013a.png"},
+            "wxloading_atlas/image_loding_bar1.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1014a.png"},
+            "wxloading_atlas/image_loding_bar02.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1015a.png"},
+            "wxloading_atlas/image_loding_bar2.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1016a.png"},
+            "wxloading_atlas/image_loding_bar3.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1017a.png"},
+            "wxloading_atlas/image_login_point1.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1018a.png"},
+            "wxloading_atlas/image_login_point2.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1019a.png"},
+            "wxloading_atlas/image_login_point3.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1020a.png"},
+
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy10199b.png"},
+            "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy101b.png"},
+            "wxlogin_atlas/shenhezizi.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy10123b.png"},
+            "wxlogin_atlas/image_login_loginbg.jpg": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy102b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_bottom.jpg": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy103b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_left.jpg": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy104b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_right.jpg": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy105b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_top.jpg": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy106b.jpg"},
+            "wxlogin_atlas/image_login_logo.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy107b.png"},
+            "wxlogin_atlas/image_login_notice.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy108b.png"},
+            "wxlogin_atlas/image_xuanfu_xfbg.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy109b.png"},
+
+            "wxlogin_atlas/btn_com_chuangback.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1010b.png"},
+            "wxlogin_atlas/btn_login_gonggao.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1011b.png"},
+            "wxlogin_atlas/btn_login_loginanniu.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1012b.png"},
+            "wxlogin_atlas/btn_login_yingsi.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1013b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniuhuang.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1014b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniulan.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1015b.png"},
+            "wxlogin_atlas/btn_xuanqu_quanniu.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1016b.png"},
+            "wxlogin_atlas/image_com_tuichu.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1017b.png"},
+            "wxlogin_atlas/image_login_changtong.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1018b.png"},
+            "wxlogin_atlas/image_login_fanmang.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1019b.png"},
+            "wxlogin_atlas/image_login_weihu.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1020b.png"},
+            "wxlogin_atlas/image_login_xuanqubg.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1021b.png"},
+            "wxlogin_atlas/image_login_init.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1022b.png"},
+            "wxlogin_atlas/btn_com_chuangback1.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1023b.png"},
+            "wxlogin_atlas/btn_com_long0.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1024b.png"},
+            "wxlogin_atlas/btn_com_long1.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1025b.png"},
+            "wxlogin_atlas/image_login_notice1.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1026b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1027b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1028b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1029b.png"},
+
+            "wxeff_btn_atlas/0.png": {url:"Zqy10yZqy10/Zqy10Zqy101c.png"},
+            "wxeff_btn_atlas/1.png": {url:"Zqy10yZqy10/Zqy10Zqy102c.png"},
+            "wxeff_btn_atlas/2.png": {url:"Zqy10yZqy10/Zqy10Zqy103c.png"},
+            "wxeff_btn_atlas/3.png": {url:"Zqy10yZqy10/Zqy10Zqy104c.png"},
+            "wxeff_btn_atlas/4.png": {url:"Zqy10yZqy10/Zqy10Zqy105c.png"},
+        };
+        mt1Replace = {
+            "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
+            "./helper": "./" + "a5sshZqy10Zqy10",
+            "./sax": "./Zqy10Zqy10cZqy10Zqy10",
+            "./dom": "./Zqy10Zqy10DOZqy10Zqy10",
+            "client_pb.js": clinetPbName,
+            "protobuf.js": "Zqy10Zqy10FZqy10Zqy10.js",
+            "main.min.js": mainJsName,
+            "wxlogin_atlas": "Zqy10Zqy10lgrZqy10Zqy10",
+            "wxeff_btn_atlas": "Zqy10yZqy10",
+            "wxloading_atlas": "Zqy10Zqy10dZqy10",
+            // "res/atlas/": "gafda/",
+
+            "btn_loding_abcelq0.png": "Zqy10Zqy101a.png",
+            "btn_loding_abcelq1.png": "Zqy10Zqy102a.png",
+            "image_loading_bg.jpg": "Zqy10Zqy103a.jpg",
+            "image_loading_bg_bottom.jpg": "Zqy10Zqy104a.jpg",
+            "image_loading_bg_bottom2.jpg": "Zqy10Zqy105a.jpg",
+            "image_loading_bg_left.jpg": "Zqy10Zqy106a.jpg",
+            "image_loading_bg_left2.jpg": "Zqy10Zqy107a.jpg",
+            "image_loading_bg_right.jpg": "Zqy10Zqy108a.jpg",
+            "image_loading_bg_right2.jpg": "Zqy10Zqy109a.jpg",
+            "image_loading_bg_top.jpg": "Zqy10Zqy1010a.jpg",
+            "image_loading_bg_top2.jpg": "Zqy10Zqy1011a.jpg",
+            "image_loading_bg2.jpg": "Zqy10Zqy1012a.jpg",
+
+
+            "image_loding_bar0.png": "Zqy10Zqy1013a.png",
+            "image_loding_bar1.png": "Zqy10Zqy1014a.png",
+            "image_loding_bar02.png": "Zqy10Zqy1015a.png",
+            "image_loding_bar2.png": "Zqy10Zqy1016a.png",
+            "image_loding_bar3.png": "Zqy10Zqy1017a.png",
+            "image_login_point1.png": "Zqy10Zqy1018a.png",
+            "image_login_point2.png":"Zqy10Zqy1019a.png",
+            "image_login_point3.png": "Zqy10Zqy1020a.png",
+
+
+            "image_xuanqu_ztjb0.png": "Zqy10Zqy10199b.png",
+            "image_denglu_txtshenpi.png": "Zqy10Zqy101b.png",
+            "shenhezizi.png": "Zqy10Zqy10123b.png",
+            "image_login_loginbg.jpg": "Zqy10Zqy102b.jpg",
+            "image_login_loginbg_bottom.jpg": "Zqy10Zqy103b.jpg",
+            "image_login_loginbg_left.jpg": "Zqy10Zqy104b.jpg",
+            "image_login_loginbg_right.jpg": "Zqy10Zqy105b.jpg",
+            "image_login_loginbg_top.jpg": "Zqy10Zqy106b.jpg",
+            "image_login_logo.png": "Zqy10Zqy107b.png",
+            "image_login_notice.png": "Zqy10Zqy108b.png",
+            "image_xuanfu_xfbg.png": "Zqy10Zqy109b.png",
+
+            "btn_com_chuangback.png": "Zqy10Zqy1010b.png",
+            "btn_login_gonggao.png": "Zqy10Zqy1011b.png",
+            "btn_login_loginanniu.png": "Zqy10Zqy1012b.png",
+            "btn_login_yingsi.png": "Zqy10Zqy1013b.png",
+            "btn_xuanqu_anniuhuang.png": "Zqy10Zqy1014b.png",
+            "btn_xuanqu_anniulan.png": "Zqy10Zqy1015b.png",
+            "btn_xuanqu_quanniu.png": "Zqy10Zqy1016b.png",
+            "image_com_tuichu.png": "Zqy10Zqy1017b.png",
+            "image_login_changtong.png": "Zqy10Zqy1018b.png",
+            "image_login_fanmang.png": "Zqy10Zqy1019b.png",
+            "image_login_weihu.png": "Zqy10Zqy1020b.png",
+            "image_login_xuanqubg.png": "Zqy10Zqy1021b.png",
+            "image_login_init.png": "Zqy10Zqy1022b.png",
+            "btn_com_chuangback1.png": "Zqy10Zqy1023b.png",
+            "btn_com_long0.png":"Zqy10Zqy1024b.png",
+            "btn_com_long1.png":"Zqy10Zqy1025b.png",
+            "image_login_notice1.png":"Zqy10Zqy1026b.png",
+            "image_loding_txtbhcc.png":"Zqy10Zqy1027b.png",
+            "image_xuanfu_gx0.png": "Zqy10Zqy1028b.png",
+            "image_xuanfu_gx1.png": "Zqy10Zqy1029b.png",
+
+            "0.png": "Zqy10Zqy101c.png",
+            "1.png": "Zqy10Zqy102c.png",
+            "2.png": "Zqy10Zqy103c.png",
+            "3.png": "Zqy10Zqy104c.png",
+            "4.png": "Zqy10Zqy105c.png",
+
+        }
+        strFilePath = "/qyZ_53res";
+        strFileName = "/qyZ_53Files.zip";
+        // globleKeys = ["$e", "w", "x", "E$", "y"];
+        globleKeys = ["h$", "J", "J", "J1", "g"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        noReplaceJs = packageName1+"/game.js";
+        arrIndex = 0;
+        globleArrs = new Array(arrIndex);
+        numberToHex = false;
+        // needShuffle = true;
+        str_leading1 = "G5JQ4RT321OCSNZBMDEVX8A$Y7IUK9_6FPLH0W";
+        str_leading2 = "s$f9w2_pezhtc86dgk0bq5oyrvj7xin143ualm";
+        for(var key in  filesMap){
+            var item = filesMap[key];
+            var url = item.url;
+            targetFileMap[url] = item;
+            var repalce = item.replace;
+            if(repalce){
+                replaceMap[url] = true;
+            }
+        }
+        replaceMap[targetGameJs] = true;
+        cb();
+        this.emit("data", file);
+    }
+
+// 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-Z_53', function () {
+
+    var stream = gulp.src("")
+        .pipe(set_param_Z_53())
+    return stream;
+});
+
+//混淆
+gulp.task('build-babel-obfuscator-Z_53', function (cb) {
+    sequence("set-param-Z_53","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'clear-ast', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', 'minify-temp', 'clear-ast', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+});
+
+gulp.task('build-Z_53-test', function (cb) {
+    sequence("set-param-Z_53",'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', cb);
+});
+
+//混淆
+gulp.task('build-babel-obfuscator-Z_53_minify', function (cb) {
+    sequence("set-param-Z_53","MT1_build_minifyTargetProject",cb);
+});
+
+
+/**-------------------------------------------------微信小游戏--Z_53 6KW奇趣-微信 天羽传奇（独立服务器） end-----------------------------------------------------------*/
+
+/**-------------------------------------------------微信小游戏--Z_54 6KW奇趣-微信 精灵纪元（混天宇传奇）-Z_54 start-----------------------------------------------------------*/
+
+
+/**Z_54包参数*/
+var set_param_Z_54 = function () {
+
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+
+        DEST = '../../client/wx_dist/packageZ_54/';
+        BUILD = 'wx_build/';
+        PACK = 'jg_gameZ_54';
+        INIT_PATH = '/';
+        // SCOPE = 'abcdefghklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ij';
+        PREFIX = 'H$';
+        sourceProject = "wx_build/jg_gameZ_54_new";
+        targetProject = "wx_build/jg_gameZ_54_obfuscator";
+        targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
+        mainJsName = "Zqy102MZqy10IZqy102.js";
+        libsMainJs = "Zqy102GZqy10MEZqy102.js";
+        packageName1 = "Zqy102IZqy102";
+        packageName2 = "Zqy102pftZqy102";
+        packageName3 = "Zqy10Zqy10Zqy10Zqy10Zqy10";
+        var clinetPbName = "Zqy10Zqy10IENZqy10Zqy10.js";
+        filesMap = {
+            //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
+            "libs": {url:packageName1},
+            "game.js": {url:packageName1+"/"+libsMainJs,extractStr:true,count:1,strLen:3},
+            "libs_game.js": {url:packageName1+"/game.js",extractStr:true,count:1,strLen:3},
+            "index.js": {url:packageName1+"/Zqy10INDZqy10Zqy10.js",extractStr:true,count:1,strLen:3},
+            "init.min.js":  {url:packageName1+"/Zqy10Zqy10INIZqy10aZqy10.js",extractStr:true,count:1,strLen:3,replace:true},
+            "libs/dom.js":  {url:packageName1+"/Zqy10Zqy10DOZqy10Zqy10.js"},
+            "libs/dom_parser.js":  {url:packageName1+"/Zqy10Zqy10parsaZqy10.js"},
+            "libs/laya.wxmini.js":  {url:packageName1+"/Zqy10Zqy10MtadZqy10Zqy10.js"},
+            "libs/libs.min.js":  {url:packageName1+"/Zqy10Zqy10IZqy101Zqy10Zqy10.js",extractStr:false,count:5,strLen:3},
+            "libs/md5.min.js":  {url:packageName1+"/Zqy10Zqy10bfZqy10Zqy10.js"},
+            "libs/sax.js":  {url:packageName1+"/Zqy10Zqy10cZqy10Zqy10.js"},
+            "libs/weapp-adapter.js":  {url:"xv2/Zqy10Zqy10E4Zqy10Zqy10.js"},
+            "libs/zlib.js":  {url:packageName1+"/Zqy10Zqy1011Zqy10Zqy10.js"},
+            "wxsdk":  {url:"Zqy10Zqy10basdZqy10"},
+            "wxsdk/wx_aksdk.js":  {url:"Zqy10Zqy10basdZqy10/Zqy105sdkZqy10.js",extractStr:true,count:1,strLen:3},
+            "wxsdk/helper.js":  {url:"Zqy10Zqy10basdZqy10/a5sshZqy10Zqy10.js",extractStr:true,count:1,strLen:3},
+            "protobuf":  {url:packageName2},
+            "protobuf/client_pb.js":  {url: packageName2 + "/"+clinetPbName,extractStr:true,count:2,strLen:3},
+            "protobuf/protobuf.js":  {url: packageName2 + "/Zqy10Zqy10FZqy10Zqy10.js",extractStr:true,count:2,strLen:3},
+            "protobuf/game.js":  {url: packageName2 + "/game.js",extractStr:true,count:5,strLen:3},
+            "subPackage":  {url:packageName3},
+            "subPackage/main.min.js":  {url:packageName3+"/"+mainJsName,extractStr:true,count:1,strLen:3},
+            "subPackage/game.js":  {url:packageName3+"/game.js",extractStr:true,count:1,strLen:3},
+            // "untils/ddtSDKPlat.js":  {url:"untils/ddtSDKPlat.js",extractStr:false,count:1,strLen:3},
+            "wxsdk/utils/sdkFrom6kw.com.js":  {url:"Zqy10Zqy10basdZqy10/utils/sdkFrom6kw.com.js",extractStr:false,count:1,strLen:3},
+
+            "wxloading_atlas": {url:"Zqy10Zqy10dZqy10"},
+            "wxlogin_atlas": {url:"Zqy10Zqy10lgrZqy10Zqy10"},
+            "wxeff_btn_atlas":{url:"Zqy10yZqy10"},
+
+
+            "wxloading_atlas/btn_loding_abcelq0.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy101a.png"},
+            "wxloading_atlas/btn_loding_abcelq1.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy102a.png"},
+            "wxloading_atlas/image_loading_bg.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy103a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy104a.jpg"},
+            "wxloading_atlas/image_loading_bg_bottom2.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy105a.jpg"},
+            "wxloading_atlas/image_loading_bg_left.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy106a.jpg"},
+            "wxloading_atlas/image_loading_bg_left2.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy107a.jpg"},
+            "wxloading_atlas/image_loading_bg_right.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy108a.jpg"},
+            "wxloading_atlas/image_loading_bg_right2.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy109a.jpg"},
+            "wxloading_atlas/image_loading_bg_top.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1010a.jpg"},
+            "wxloading_atlas/image_loading_bg_top2.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1011a.jpg"},
+            "wxloading_atlas/image_loading_bg2.jpg": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1012a.jpg"},
+
+
+            "wxloading_atlas/image_loding_bar0.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1013a.png"},
+            "wxloading_atlas/image_loding_bar1.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1014a.png"},
+            "wxloading_atlas/image_loding_bar02.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1015a.png"},
+            "wxloading_atlas/image_loding_bar2.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1016a.png"},
+            "wxloading_atlas/image_loding_bar3.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1017a.png"},
+            "wxloading_atlas/image_login_point1.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1018a.png"},
+            "wxloading_atlas/image_login_point2.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1019a.png"},
+            "wxloading_atlas/image_login_point3.png": {url:"Zqy10Zqy10dZqy10/Zqy10Zqy1020a.png"},
+
+            "wxlogin_atlas/image_xuanqu_ztjb0.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy10199b.png"},
+            "wxlogin_atlas/image_denglu_txtshenpi.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy101b.png"},
+            "wxlogin_atlas/shenhezizi.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy10123b.png"},
+            "wxlogin_atlas/image_login_loginbg.jpg": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy102b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_bottom.jpg": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy103b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_left.jpg": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy104b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_right.jpg": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy105b.jpg"},
+            "wxlogin_atlas/image_login_loginbg_top.jpg": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy106b.jpg"},
+            "wxlogin_atlas/image_login_logo.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy107b.png"},
+            "wxlogin_atlas/image_login_notice.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy108b.png"},
+            "wxlogin_atlas/image_xuanfu_xfbg.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy109b.png"},
+
+            "wxlogin_atlas/btn_com_chuangback.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1010b.png"},
+            "wxlogin_atlas/btn_login_gonggao.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1011b.png"},
+            "wxlogin_atlas/btn_login_loginanniu.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1012b.png"},
+            "wxlogin_atlas/btn_login_yingsi.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1013b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniuhuang.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1014b.png"},
+            "wxlogin_atlas/btn_xuanqu_anniulan.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1015b.png"},
+            "wxlogin_atlas/btn_xuanqu_quanniu.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1016b.png"},
+            "wxlogin_atlas/image_com_tuichu.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1017b.png"},
+            "wxlogin_atlas/image_login_changtong.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1018b.png"},
+            "wxlogin_atlas/image_login_fanmang.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1019b.png"},
+            "wxlogin_atlas/image_login_weihu.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1020b.png"},
+            "wxlogin_atlas/image_login_xuanqubg.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1021b.png"},
+            "wxlogin_atlas/image_login_init.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1022b.png"},
+            "wxlogin_atlas/btn_com_chuangback1.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1023b.png"},
+            "wxlogin_atlas/btn_com_long0.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1024b.png"},
+            "wxlogin_atlas/btn_com_long1.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1025b.png"},
+            "wxlogin_atlas/image_login_notice1.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1026b.png"},
+            "wxlogin_atlas/image_loding_txtbhcc.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1027b.png"},
+            "wxlogin_atlas/image_xuanfu_gx0.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1028b.png"},
+            "wxlogin_atlas/image_xuanfu_gx1.png": {url:"Zqy10Zqy10lgrZqy10Zqy10/Zqy10Zqy1029b.png"},
+
+            "wxeff_btn_atlas/0.png": {url:"Zqy10yZqy10/Zqy10Zqy101c.png"},
+            "wxeff_btn_atlas/1.png": {url:"Zqy10yZqy10/Zqy10Zqy102c.png"},
+            "wxeff_btn_atlas/2.png": {url:"Zqy10yZqy10/Zqy10Zqy103c.png"},
+            "wxeff_btn_atlas/3.png": {url:"Zqy10yZqy10/Zqy10Zqy104c.png"},
+            "wxeff_btn_atlas/4.png": {url:"Zqy10yZqy10/Zqy10Zqy105c.png"},
+        };
+        mt1Replace = {
+            "./wxsdk/wx_aksdk.js": "../" + filesMap["wxsdk/wx_aksdk.js"].url,
+            "./helper": "./" + "a5sshZqy10Zqy10",
+            "./sax": "./Zqy10Zqy10cZqy10Zqy10",
+            "./dom": "./Zqy10Zqy10DOZqy10Zqy10",
+            "client_pb.js": clinetPbName,
+            "protobuf.js": "Zqy10Zqy10FZqy10Zqy10.js",
+            "main.min.js": mainJsName,
+            "wxlogin_atlas": "Zqy10Zqy10lgrZqy10Zqy10",
+            "wxeff_btn_atlas": "Zqy10yZqy10",
+            "wxloading_atlas": "Zqy10Zqy10dZqy10",
+            // "res/atlas/": "gafda/",
+
+            "btn_loding_abcelq0.png": "Zqy10Zqy101a.png",
+            "btn_loding_abcelq1.png": "Zqy10Zqy102a.png",
+            "image_loading_bg.jpg": "Zqy10Zqy103a.jpg",
+            "image_loading_bg_bottom.jpg": "Zqy10Zqy104a.jpg",
+            "image_loading_bg_bottom2.jpg": "Zqy10Zqy105a.jpg",
+            "image_loading_bg_left.jpg": "Zqy10Zqy106a.jpg",
+            "image_loading_bg_left2.jpg": "Zqy10Zqy107a.jpg",
+            "image_loading_bg_right.jpg": "Zqy10Zqy108a.jpg",
+            "image_loading_bg_right2.jpg": "Zqy10Zqy109a.jpg",
+            "image_loading_bg_top.jpg": "Zqy10Zqy1010a.jpg",
+            "image_loading_bg_top2.jpg": "Zqy10Zqy1011a.jpg",
+            "image_loading_bg2.jpg": "Zqy10Zqy1012a.jpg",
+
+
+            "image_loding_bar0.png": "Zqy10Zqy1013a.png",
+            "image_loding_bar1.png": "Zqy10Zqy1014a.png",
+            "image_loding_bar02.png": "Zqy10Zqy1015a.png",
+            "image_loding_bar2.png": "Zqy10Zqy1016a.png",
+            "image_loding_bar3.png": "Zqy10Zqy1017a.png",
+            "image_login_point1.png": "Zqy10Zqy1018a.png",
+            "image_login_point2.png":"Zqy10Zqy1019a.png",
+            "image_login_point3.png": "Zqy10Zqy1020a.png",
+
+
+            "image_xuanqu_ztjb0.png": "Zqy10Zqy10199b.png",
+            "image_denglu_txtshenpi.png": "Zqy10Zqy101b.png",
+            "shenhezizi.png": "Zqy10Zqy10123b.png",
+            "image_login_loginbg.jpg": "Zqy10Zqy102b.jpg",
+            "image_login_loginbg_bottom.jpg": "Zqy10Zqy103b.jpg",
+            "image_login_loginbg_left.jpg": "Zqy10Zqy104b.jpg",
+            "image_login_loginbg_right.jpg": "Zqy10Zqy105b.jpg",
+            "image_login_loginbg_top.jpg": "Zqy10Zqy106b.jpg",
+            "image_login_logo.png": "Zqy10Zqy107b.png",
+            "image_login_notice.png": "Zqy10Zqy108b.png",
+            "image_xuanfu_xfbg.png": "Zqy10Zqy109b.png",
+
+            "btn_com_chuangback.png": "Zqy10Zqy1010b.png",
+            "btn_login_gonggao.png": "Zqy10Zqy1011b.png",
+            "btn_login_loginanniu.png": "Zqy10Zqy1012b.png",
+            "btn_login_yingsi.png": "Zqy10Zqy1013b.png",
+            "btn_xuanqu_anniuhuang.png": "Zqy10Zqy1014b.png",
+            "btn_xuanqu_anniulan.png": "Zqy10Zqy1015b.png",
+            "btn_xuanqu_quanniu.png": "Zqy10Zqy1016b.png",
+            "image_com_tuichu.png": "Zqy10Zqy1017b.png",
+            "image_login_changtong.png": "Zqy10Zqy1018b.png",
+            "image_login_fanmang.png": "Zqy10Zqy1019b.png",
+            "image_login_weihu.png": "Zqy10Zqy1020b.png",
+            "image_login_xuanqubg.png": "Zqy10Zqy1021b.png",
+            "image_login_init.png": "Zqy10Zqy1022b.png",
+            "btn_com_chuangback1.png": "Zqy10Zqy1023b.png",
+            "btn_com_long0.png":"Zqy10Zqy1024b.png",
+            "btn_com_long1.png":"Zqy10Zqy1025b.png",
+            "image_login_notice1.png":"Zqy10Zqy1026b.png",
+            "image_loding_txtbhcc.png":"Zqy10Zqy1027b.png",
+            "image_xuanfu_gx0.png": "Zqy10Zqy1028b.png",
+            "image_xuanfu_gx1.png": "Zqy10Zqy1029b.png",
+
+            "0.png": "Zqy10Zqy101c.png",
+            "1.png": "Zqy10Zqy102c.png",
+            "2.png": "Zqy10Zqy103c.png",
+            "3.png": "Zqy10Zqy104c.png",
+            "4.png": "Zqy10Zqy105c.png",
+
+        }
+        strFilePath = "/qyZ_54res";
+        strFileName = "/qyZ_54Files.zip";
+        // globleKeys = ["$e", "w", "x", "E$", "y"];
+        globleKeys = ["h$", "J", "J", "J1", "g"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        noReplaceJs = packageName1+"/game.js";
+        arrIndex = 0;
+        globleArrs = new Array(arrIndex);
+        numberToHex = false;
+        // needShuffle = true;
+        str_leading1 = "G5JQ4RT321OCSNZBMDEVX8A$Y7IUK9_6FPLH0W";
+        str_leading2 = "s$f9w2_pezhtc86dgk0bq5oyrvj7xin143ualm";
+        for(var key in  filesMap){
+            var item = filesMap[key];
+            var url = item.url;
+            targetFileMap[url] = item;
+            var repalce = item.replace;
+            if(repalce){
+                replaceMap[url] = true;
+            }
+        }
+        replaceMap[targetGameJs] = true;
+        cb();
+        this.emit("data", file);
+    }
+
+// 不处理end 使用默认的end
+    return through.obj(onFile);
+};
+
+gulp.task('set-param-Z_54', function () {
+
+    var stream = gulp.src("")
+        .pipe(set_param_Z_54())
+    return stream;
+});
+
+//混淆
+gulp.task('build-babel-obfuscator-Z_54', function (cb) {
+    sequence("set-param-Z_54","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+});
+
+gulp.task('build-Z_54-test', function (cb) {
+    sequence("set-param-Z_54",'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', cb);
+});
+
+//混淆
+gulp.task('build-babel-obfuscator-Z_54_minify', function (cb) {
+    sequence("set-param-Z_54","MT1_build_minifyTargetProject",cb);
+});
+
+
+/**-------------------------------------------------微信小游戏--Z_54 6KW奇趣-微信 精灵纪元（混天宇传奇） end-----------------------------------------------------------*/
+
+
 
 /**文件压缩*/
 var js_minify = function () {
@@ -19025,10 +19533,11 @@ var js_checkStrCount =  function () {
         var pretransform = pipeline.pretransform.bind(pipeline);
         var rst = pretransform(contents);
         rst.opts = rst.initOptions({plugins : [
-            {
-                'visitor' : visitor
-            }
-        ]});
+                {
+                    'visitor' : visitor
+                }
+            ],"compact" : false
+        });
         rst.buildPluginsForOptions(rst.opts);
         contents = rst.transform().code;
         //这里存起来放到下个task里用
@@ -19274,10 +19783,10 @@ var js_babel = function () {
         }
         rst.opts = rst.initOptions({plugins : [
             {'visitor' : visitor}
-        ]});
+        ],"compact" : false});
         rst.buildPluginsForOptions(rst.opts);
         contents = rst.transform().code;
-        rst = AST[url] = null; //内存回收
+        // rst = AST[url] = null; //内存回收
 
         var bf = new Buffer.from(contents);
         file.contents = bf;
@@ -19433,10 +19942,11 @@ var js_babel_str = function () {
         }
         rst.opts = rst.initOptions({plugins : [
             {'visitor' : visitor}
-        ]});
+        ],"compact" : false});
         rst.buildPluginsForOptions(rst.opts);
         contents = rst.transform().code;
-        rst = AST[url] = null; //内存回收
+        // rst = AST[url] = null; //内存回收
+        console.log("url : " + url);
 
         var bf = new Buffer.from(contents);
         file.contents = bf;
@@ -19489,13 +19999,49 @@ var end_babel = function () {
         });
 
         // fs.writeFileSync("./qq_build/jg_gameA_identifiersMap.txt", identifiersRenameMapStr, {encoding:"utf8"});
-
+        //console.timeEnd('obfuscator-time');
 
     }
 
     // 不处理end 使用默认的end
     return through.obj(onFile);
 };
+
+// 压缩空白符
+var minifyJsTemp = function (){
+    function onFile(file, enc, cb) {
+        if (file.isStream()) {
+            this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+            return cb();
+        }
+        var contents = "" + file.contents;
+        var url = file.relative.replace(/\\/g,"/");
+        console.info("压缩空白符处理：" + file.path);
+
+        var rst = AST[url];
+        if(rst){
+            rst.pluginPasses = [];
+            rst.pluginVisitors = [];
+            //console.log("suc 从缓存中拿到ast:" + url);
+        }else{
+           return ;
+        }
+        rst.opts = rst.initOptions({"compact" : true});
+        rst.buildPluginsForOptions(rst.opts);
+        contents = rst.transform().code;
+
+        var bf = new Buffer.from(contents);
+        file.contents = bf;
+        //console.log(url + ",ast处理完成");
+        cb();
+        this.emit("data", file);
+    }
+     // 不处理end 使用默认的end
+     return through.obj(onFile);
+}
+gulp.task("clear-ast", function () {
+    AST = {};
+});
 gulp.task("build-js-babel", function () {
     var stream = gulp
         .src(sourceProject + '/**/*.js')
@@ -19521,6 +20067,13 @@ gulp.task("build-js-babel-target-string", function () {
     var stream = gulp
         .src(targetProject + '/**/*.js')
         .pipe(js_babel_str())
+        .pipe(gulp.dest(targetProject + "/"))
+    return stream;
+});
+gulp.task("minify-temp", function () {
+    var stream = gulp
+        .src(targetProject + '/**/*.js')
+        .pipe(minifyJsTemp())
         .pipe(gulp.dest(targetProject + "/"))
     return stream;
 });
@@ -19550,7 +20103,7 @@ var js_obfuscator = function (rate) {
         var excludeFiles = globleKeys[5] || [];
         var obfuscationResult = jsobfuscator.obfuscate(contents,
             {
-                compact: true,  //紧凑的代码输出在一行上
+                compact: false,  //紧凑的代码输出在一行上
                 simplify: true,  //通过简化启用其他代码混淆
                 controlFlowFlattening: false,  //包含混淆器选项的JS/JSON配置文件的名称。这些将被直接传递给CLI的选项覆盖，此选项对性能的影响最大为运行速度降低1.5倍
                 controlFlowFlatteningThreshold: 0,  //转换将应用于任何给定节点的概率，此设置对于大代码量特别有用，因为大量的控制流转换会降低代码速度并增加代码大小
@@ -19679,7 +20232,7 @@ gulp.task('MT1_build_minify', function () {
         srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/utils/**/*.js',"!" + sourceUrl + '/**/'+mainJsName];
     }
     var stream = gulp.src(srcs)
-        .pipe(js_minify())
+        // .pipe(js_minify())
         .pipe(gulp.dest(sourceUrl + '/'))
     return stream;
 });
@@ -20513,6 +21066,22 @@ gulp.task('CREATE_REFUSEFILE_Z_48', function (cb) {
 
 gulp.task('DEL_REFUSEFILE_Z_48', function (cb) {
     sequence("set-param-Z_48","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_Z_53', function (cb) {
+    sequence("set-param-Z_53","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_Z_53', function (cb) {
+    sequence("set-param-Z_53","DEL_REFUSEFILE",cb)
+});
+
+gulp.task('CREATE_REFUSEFILE_Z_54', function (cb) {
+    sequence("set-param-Z_54","CREATE_REFUSEFILE",cb)
+});
+
+gulp.task('DEL_REFUSEFILE_Z_54', function (cb) {
+    sequence("set-param-Z_54","DEL_REFUSEFILE",cb)
 });
 //无网络 使用这个图片压缩
 gulp.task('gulp-imagemin', function (cb) {
