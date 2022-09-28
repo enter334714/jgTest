@@ -10,6 +10,7 @@ window.ENV = 1;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
+window.isWaiFangWx = false;
 window.PF_INFO = {
   base_cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
   cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
@@ -157,6 +158,7 @@ window.toEnterGame = function(value) {
 window.onApiError = function(str) {
   // console.log('on api error');
   // AKSDK.logout(function(){});
+  window.toErrorAlarm(14, "onApiError "+str);
   window.loginAlert('on api error');
   var info = {
     id: window.PF_INFO.roleId,
@@ -175,6 +177,17 @@ window.onApiError = function(str) {
   var infostr = JSON.stringify(info);
   console.error("API错误："+ infostr);
   window.clientlog(infostr);
+}
+// 错误警报
+window.toErrorAlarm = function (type, info) {
+  sendApi(PF_INFO.logurl, 'log.client_error', {
+    'game_pkg': PF_INFO.pkgName,
+    'partner_id': PF_INFO.partnerId,
+    'server_id': (PF_INFO.selectedServer&&PF_INFO.selectedServer.server_id>0 ? PF_INFO.selectedServer.server_id : 0),
+    'uid': (PF_INFO.account > 0 ? PF_INFO.account : 0),
+    'type': type,
+    'info': info,
+  }) 
 }
 window.reqRecordError = function(str) {
   var info = JSON.parse(str);
@@ -298,6 +311,7 @@ window.sdkLoginRetry = 5;
 window.sdkOnLogin = function(status, data) {
   if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
+    PF_INFO.wx_channel = data.wx_channel;
     var self = this;
     wxShowLoading({ title: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {
@@ -319,6 +333,7 @@ window.sdkOnLogin = function(status, data) {
       window.sdkLoginRetry--;
       AKSDK.login(this.sdkOnLogin.bind(this));
     } else {
+      window.toErrorAlarm(1, "AKSDK.login fail: status="+status+",errMsg="+(data ? data.errMsg : ""));
       window.reqRecordInfo("sdkOnLoginError", JSON.stringify({ status: status, data: data }));
       window.loginAlert("登录/注册失败" + (data&&data.errMsg ? "，"+data.errMsg : ""));
     }
@@ -327,13 +342,19 @@ window.sdkOnLogin = function(status, data) {
 
 window.onUserLogin = function (response) {
   if (!response) {
+    window.toErrorAlarm(2, "User.login fail: response is null");
     window.reqRecordInfo("userLoginError", "response is null");
     window.loginAlert('User.login failed');
     return;
   }
   if (response.state != 'success') {
+    window.toErrorAlarm(2, "User.login fail: state="+response.state);
     window.reqRecordInfo("userLoginError", JSON.stringify(response));
     window.loginAlert('User.login failed: ' + response.state);
+    return;
+  }
+  if (response.ban_state == 1) {
+    window.loginAlert("账号已被封禁！");
     return;
   }
 
@@ -370,14 +391,17 @@ window.getDefaultServers = function() {
 }
 window.onUserLoginDefaultServers = function(response) {
   if (!response) {
+    window.toErrorAlarm(3, 'Server.defaultServer failed');
     window.loginAlert('Server.defaultServer failed');
     return;
   }
   if (response.state != 'success') {
+    window.toErrorAlarm(3, 'Server.defaultServer failed: ' + response.state);
     window.loginAlert('Server.defaultServer failed: ' + response.state);
     return;
   }
   if (!response.data || response.data.length == 0) {
+    window.toErrorAlarm(3, 'Server.defaultServer failed: data null');
     window.loginAlert('服务器尚未开启');
     return;
   }
@@ -392,14 +416,17 @@ window.getCheckServers = function(lastSerId) {
 }
 window.onUserLoginCheckServers = function(response) {
   if (!response) {
+    window.toErrorAlarm(4, 'Server.check_server failed');
     this.getDefaultServers();
     return;
   }
   if (response.state != 'success') {
+    window.toErrorAlarm(4, 'Server.check_server failed: ' + response.state);
     this.getDefaultServers();
     return;
   }
   if (!response.data || response.data.length == 0) {
+    window.toErrorAlarm(4, 'Server.check_server failed: data null');
     this.getDefaultServers();
     return;
   }
@@ -418,6 +445,8 @@ window.updCurServer = function(response) {
     'entry_port': parseInt(response.data[0].entry_port),
     'status': get_status(response.data[0]),
     'start_time': response.data[0].start_time,
+    'maintain_time': response.data[0].maintain_time ? response.data[0].maintain_time : "",
+    'is_recommend': response.data[0].is_recommend,
     'cdn': PF_INFO.cdn,
   }
   this.initComplete();
@@ -436,6 +465,7 @@ window.initComplete = function () {
     if (PF_INFO.newRegister == 1) { //新用户，发送验证
       var status = PF_INFO.selectedServer.status;
       if (status === -1 || status === 0) {
+      window.toErrorAlarm(15, 'new register selectedServer status error: id='+PF_INFO.selectedServer.id+',status='+PF_INFO.selectedServer.status);
         window.loginAlert(status === -1 ? "当前服务器在维护中" : "当前服务器尚未开启，敬请期待");
         return;
       }
@@ -475,14 +505,17 @@ window.loadVersionConfig = function() {
 }
 window.reqVersionConfigCallBack = function(data) {
     if (!data) {
+        window.toErrorAlarm(5, 'User.getCdnVersion failed');
         window.loginAlert('User.getCdnVersion failed');
         return;
     }
     if (data.state != 'success') {
+        window.toErrorAlarm(5, 'User.getCdnVersion failed: state=' + data.state);
         window.loginAlert('User.getCdnVersion failed: state=' + data.state);
         return;
     }
     if (!data.data || !data.data.version) {
+        window.toErrorAlarm(5, 'User.getCdnVersion failed: version=' + (data.data && data.data.version));
         window.loginAlert('User.getCdnVersion failed: version=' + (data.data&&data.data.version));
         return;
     }
@@ -507,12 +540,13 @@ window.reqPkgOptions = function() {
   }, this.reqPkgOptionsCallBack.bind(this), apiRetryAmount, onApiError);
 }
 window.reqPkgOptionsCallBack = function(data) {
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
     window.pkgOptions = data.data;
     for (var k in data.data) {
       PF_INFO[k] = data.data[k];
     }
   } else {            
+    window.toErrorAlarm(11, 'Common.get_option_pkg failed');
     console.info("reqPkgOptionsCallBack "+data.state);
   }
   window.loadOption = true;
@@ -520,7 +554,7 @@ window.reqPkgOptionsCallBack = function(data) {
 }
 
 
-window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback) {
+window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback, appleprd_id) {
   productId = String(productId)
   var productname = productName
   var productdesc = productDesc
@@ -553,8 +587,7 @@ window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, pric
 
 }
 window.toPayCallBack = function(data) {
-  if (data) {
-    if (data.errCode === 200 || data.state == 'success') {
+  if (data && (data.errCode === 200 || data.state == 'success')) {
       var info = PF_INFO.pay_infos[String(data.product_id)]
       if (info.callback)
         info.callback(data.product_id, data.cp_order_id, -1);
@@ -589,8 +622,9 @@ window.toPayCallBack = function(data) {
         }
       });
     } else {
-      alert(data.info);
-    }
+    var err = (data ? "errCode="+data.errCode+",state="+data.state+",info="+data.info : "获取订单失败");
+    window.toErrorAlarm(13, "Order.order fail: " + err);
+    alert(err);
   }
 }
 
@@ -647,10 +681,10 @@ window.toRealName = function(callback) {
 }
 
 //调起分享
-window.openShare = function(callback){
-  AKSDK.share('share', function (data) {
-      callback && callback(data);
-  }); 
+window.openShare = function (callback, cardid) {
+  AKSDK.share('share', {activity_id: cardid},function (data) {
+    callback && callback(data);
+  });
 }
 //调起客服
 window.openService = function(){
@@ -697,11 +731,11 @@ window.reqPlayerAskInfo = function(packageName, role_id, serverId, callBack) {
   }, callBack);
 }
 //调起订阅消息
-window.openSubscribeMsg = function(ids, callback) {
+window.openSubscribeMsg = function (ids, callback,objIds) {
   function onTouchEnd(res) {
     var data = [];
     var tmpIds = [];
-    var tmpObj = window.config.tmpId;
+    var tmpObj = objIds || window.config.tmpId;
     for (var id in tmpObj) {
         var idn = Number(id);
         if (!ids || !ids.length || ids.indexOf(idn)!=-1) { //ids为空表示所有都请求
@@ -917,7 +951,7 @@ window.req_server_group = function(step) {
   }, reqServerGroupCallBack, apiRetryAmount, onApiError)
 }
 window.reqServerGroupCallBack = function(data) {
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
     data.data.unshift({
       'id': -2,
       'name': "最新服"
@@ -930,7 +964,9 @@ window.reqServerGroupCallBack = function(data) {
     if (window.initPanel) window.initPanel.showGroupList();
   } else {
     PF_INFO.hasGroupReq = false;
-    window.loginAlert("reqServerGroupCallBack " + data.state);
+    var err = (data ? data.state : "");
+    window.toErrorAlarm(7, "Server.getServerGroup fail: " + err);
+    window.loginAlert("reqServerGroupCallBack " + err);
   }
 }
 
@@ -945,14 +981,16 @@ window.req_server_owner = function(step) {
 }
 window.reqServerOwnerCallBack = function(data) {
   PF_INFO.hasServerReq = false;
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
     for (var i = 0; i < data.data.length; i++) {
       data.data[i].status = get_status(data.data[i]);
     }
     PF_INFO.serverList[-1] = window.changeServerName(data.data);
     window.initPanel.showServerList(-1);
   } else {
-    window.loginAlert("reqServerOwnerCallBack " + data.state);
+    var err = (data ? data.state : "");
+    window.toErrorAlarm(8, "Server.getServerByUid fail: " + err);
+    window.loginAlert("reqServerOwnerCallBack " + err);
   }
 }
 window.req_server_owner_status = function(callback) {
@@ -977,7 +1015,7 @@ window.req_server_list = function(step, group_id) {
 }
 window.reqServerListCallBack = function(data) {
   PF_INFO.hasServerReq = false;
-  if (data.state === "success" && data.data && data.data.data) {
+  if (data && data.state === "success" && data.data && data.data.data) {
     var groupid = data.data.server_group_id;
     var server_list = [];
     for (var i = 0; i < data.data.data.length; i++) {
@@ -990,7 +1028,9 @@ window.reqServerListCallBack = function(data) {
     PF_INFO.serverList[groupid] = window.changeServerName(server_list);
     window.initPanel.showServerList(groupid);
   } else {
-    window.loginAlert("reqServerListCallBack " + data.state);
+    var err = (data ? data.state : "");
+    window.toErrorAlarm(9, "Server.getServerByGroup fail: " + err);
+    window.loginAlert("reqServerListCallBack " + err);
   }
 }
 window.req_recommend_server_list = function(step) {
@@ -1004,23 +1044,19 @@ window.req_recommend_server_list = function(step) {
 }
 window.reqServerRecommendCallBack = function(data) {
   PF_INFO.hasServerReq = false;
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
       for (var i = 0; i < data.data.length; i++) {
           data.data[i].status = get_status(data.data[i]);
       }
       PF_INFO.serverList[-2] = window.changeServerName(data.data);
       window.initPanel.showServerList(-2);
   } else {
-      alert("reqServerRecommendCallBack " + data.state);
+    var err = (data ? data.state : "");
+    window.toErrorAlarm(10, "Server.getRecommendServerList fail: " + err);
+    alert("reqServerRecommendCallBack " + err);
   }
 }
 window.changeServerName = function(lst) {
-  if(!lst && lst.length <= 0) return lst;
-  for(let i = 0; i < lst.length; i++) {
-      if(lst[i].is_recommend && lst[i].is_recommend == 1) {
-          lst[i].server_name += "(推荐)";
-      }
-  }
   return lst;
 }
 window.req_server_notice = function(server_id, callback) {
@@ -1049,10 +1085,13 @@ window.req_privacy = function(pkgName, callback) {
 window.get_status = function (server) {
   if (server) {
     if (server.status == 1) {
-      if (server.online_status == 1)
+      if (server.online_status == 3) {
+        return 3;
+      } else if (server.online_status == 1) {
         return 2;
-      else
+      } else {
         return 1;
+      }
     } else if (server.status == 0) {
       return 0;
     } else {
@@ -1064,7 +1103,7 @@ window.get_status = function (server) {
 
 
 
-window.req_server_check_ban = function (step, server_id) {
+window.req_server_check_ban = function(step, server_id) {
   var show = window.youYiCofig.showSwitchOn == 1;
   //切量不给进游戏
   if (show) {
@@ -1095,7 +1134,7 @@ window.req_server_check_ban = function (step, server_id) {
 }
 window.reqServerCheckBanCallBack = function(data) {
   var self = this;
-  if (data.state === "success" && data.data) {
+  if (data && data.state === "success" && data.data) {
     var server = PF_INFO.selectedServer;
     server.channel_num = PF_INFO.channelNum;
     server.sign = String(data.data.login_sign);
@@ -1121,8 +1160,10 @@ window.reqServerCheckBanCallBack = function(data) {
     checkBanSuccess();
   } else {
     if (PF_INFO.last_check_ban.step >= 3) {
+      var err = (data ? data.state : "");
+      window.toErrorAlarm(12, "User.checkInfo fail: " + err);
       onApiError(JSON.stringify(data));
-      window.loginAlert('User.checkInfo failed: ' + data.state);
+      window.loginAlert('User.checkInfo failed: ' + err);
     } else {
       sendApi(PF_INFO.apiurl, 'User.login', {
         'platform': PF_INFO.sdk_name,
@@ -1202,7 +1243,6 @@ window.enterToGame = function() {
         channel: window.PF_INFO.channel,
         account: window.PF_INFO.account,
         userId: window.PF_INFO.userId,
-        serverId: selectedServer.server_id,
         cdn: window.PF_INFO.cdn,
         data: window.PF_INFO.data,
         package: window.PF_INFO.package,
@@ -1217,6 +1257,7 @@ window.enterToGame = function() {
         debugUsers: window.PF_INFO.debugUsers,
         wxMenuTop: top,
         wxShield: window.PF_INFO.wxShield,
+        wx_channel: window.PF_INFO.wx_channel,
       };
 
       if (window.pkgOptions) {
@@ -1231,4 +1272,18 @@ window.enterToGame = function() {
   } else {
     console.info("【登录】loadProbPkg:"+window.loadProbPkg+",loadMainPkg:"+window.loadMainPkg+",loadServerRes:"+window.loadServerRes+",loadLoadingRes:"+window.loadLoadingRes+",loadVersion:"+window.loadVersion+",loadServer:"+window.loadServer+",isCheckBan:"+window.isCheckBan+",loadOption:"+window.loadOption);
   }
+}
+
+window.setQrCodeView = function(obj){
+  if(!window.window_WinMgr){
+    console.error("游戏未初始化")
+    return;
+  }
+ var show = obj.show;
+ if(show == 1){
+     window.window_WinMgr.open(8999,obj)     
+ }
+ else{
+   window.window_WinMgr.close(8999)
+ }
 }

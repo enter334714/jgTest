@@ -1,0 +1,4 @@
+{
+  "projectname": "%E8%8D%A3%E8%80%80-%E5%87%A1%E4%BA%BA%E4%BF%AE%E7%9C%9F-Z_31",
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
+}

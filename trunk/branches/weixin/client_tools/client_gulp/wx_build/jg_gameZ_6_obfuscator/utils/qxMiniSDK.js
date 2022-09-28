@@ -1,4 +1,4 @@
-const version = '3.0';
+const version = '4.0';
 const sdkVersion = '8.0';
 var channel_cfg_version = 1;
 
@@ -48,7 +48,10 @@ var md5 = require('./utility/qx_md5.js'),
 } = qx_auth;
 
 // 定义全局变量，用于除保存账户信息以外的数据
-var _globalData = {},
+var _globalData = {
+  loginTipsNum: 0, //转端提醒次数
+  otherGame: {}
+},
     localUserInfo = {},
 
 // 登录后的用户信息
@@ -56,7 +59,7 @@ var _globalData = {},
 microParame = getUuid(); //生成IMEI值
 
 
-/* 
+/*
  * 本地分享参数
  * 在初始化接口中如果存在返回值，那么在分享接口调时则会覆本地分享参数
  */
@@ -65,11 +68,11 @@ var shareCfg = {
   title: '千禧游戏'
 
   /* ************函数开始************** */
-  /* 
+  /*
    * 封装一个请求方法---->> request(ct, ac, params = {}, is_jsdk = 1)
    * is_jsdk = 1 代表是is_jsdk = 1 ， 其他代表为js
    */
-};function request(ct, ac, params = {}, is_jsdk = 1) {
+};function request(ct, ac, params = {}, is_jsdk = 1, headers = {}) {
   let KEY = String(new Date().getTime()).substr(0, 10);
   var domainkey = params.domain || 'yisdk';
   if (params.hasOwnProperty('domain')) {
@@ -102,9 +105,9 @@ var shareCfg = {
     wx.request({
       url,
       data: _obj,
-      header: {
+      header: Object.assign({
         'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-      },
+      }, headers),
       'method': 'POST',
       success(res) {
         // 对返回值进行解密
@@ -135,7 +138,7 @@ var shareCfg = {
   });
 }
 /* 格式化角色信息 */
-function getRoleBaseMsg(arg) {
+function getRoleBaseInfo(arg) {
   return {
     server_id: arg.serverId,
     server_name: arg.serverName,
@@ -166,7 +169,6 @@ function extFooter() {
     version, // 必填	融合SDK版本号
     game_version: '1.0', // 必填	游戏版本号
     platform_version: systemInfo.SDKVersion, //	必填	渠道版本号
-    server_version: '1.2', // 服务端版本号
     imei: microParame.replace(/-/g, ''), // 手机IMEI/IDFA
     mac: microParame.replace(/-/g, ''), // 手机mac网卡地址
     utma: microParame.replace(/-/g, ''), // 设备标识
@@ -242,14 +244,47 @@ function getZjwlScene() {
   return 0;
 }
 
-// 获取头条推广参数 --clue_token
-function getTtParams(name) {
+// 获取投放推广参数
+function getTfParams(name) {
   let query = wx.getLaunchOptionsSync().query;
-  console.log('[头条query参数]', query);
-  if (name) {
-    return query[name];
+  let result = {};
+  if (query.ksChannel && query.ksChannel == 'kuaishou') {
+    result = {
+      ad_source: 'ks_wx',
+      ad_id: query.ksUnitId,
+      adgroup_id: query.ksCampaignId,
+      callback: query.callback
+    };
+  } else if (query.clue_token) {
+    result = {
+      ad_source: 'tt_wx',
+      ad_id: query.ad_id,
+      clue_token: query.clue_token
+    };
+  } else if (query.gdt_vid) {
+    result = {
+      ad_source: 'gdt',
+      gdt_vid: query.gdt_vid
+    };
+    var arrs = query.weixinadinfo.split(".");
+    result.ad_id = arrs['0'] || '';
+    console.log('[推广参数result]', result);
+  } else if (query.qxad_extra) {
+    // 用于默认参数，用于动态创建生成url scheme主动塞参数进入
+    //var qxad_extra = decodeURIComponent(query.qxad_extra);
+    result = {
+      qxad_extra: decodeURIComponent(query.qxad_extra)
+    };
+  } else if (query.qx_channel) {
+    result = {
+      ad_source: query.qx_channel,
+      trackid: query.qx_trackid
+    };
   }
-  return query;
+  if (name) {
+    return result[name] || '';
+  }
+  return result;
 }
 
 // 合并参数
@@ -263,14 +298,26 @@ var __assign = Object.assign || function __assign(t) {
   return t;
 };
 
+// 获取从另一个游戏跳转过来的数据
+function getOtherGameData(name) {
+  if (!_globalData.otherGame.game_id) {
+    var extraData = wx.getEnterOptionsSync();
+    if (extraData.referrerInfo.extraData && extraData.referrerInfo.extraData.game_id) {
+      _globalData.otherGame = extraData.referrerInfo.extraData;
+    }
+  }
+  if (name) {
+    return _globalData.otherGame[name] || '';
+  }
+  return _globalData.otherGame;
+}
+
 /* ************函数结束************** */
 var qxMiniSDK = {
   // sdk 标识
   sdkChannel: 'minigame',
   initData: {
-    channel: 'gowan',
-    clue_token: getTtParams('clue_token') || '', //头条推广参数
-    ad_id: getTtParams('ad_id') || '' //头条推广参数
+    channel: 'gowan'
   },
   /* 请求开始标识*/
   apiStart() {
@@ -281,11 +328,10 @@ var qxMiniSDK = {
   apiEnd() {
     this.apiRuning = false;
   },
-
   // 直播室数据
   liveDt: {},
 
-  /* 
+  /*
    * 接口请求状态
    * 返回值 true / false
    */
@@ -305,26 +351,23 @@ var qxMiniSDK = {
     that.apiStart();
     let scene = getZjwlScene();
     let from_id = scene ? scene : initParams.channel_id;
-    var accountInfo = {};
+    let wxmini_appid = initParams.wxmini_appid || '';
     // wx.getAccountInfoSync 接口存在兼容性问题
-    if (wx.getAccountInfoSync) {
-      accountInfo = wx.getAccountInfoSync();
+    if (!wxmini_appid && wx.getAccountInfoSync) {
+      let accountInfo = wx.getAccountInfoSync();
+      wxmini_appid = accountInfo.miniProgram.appId;
     }
-    var wxmini_appid = initParams.wxmini_appid || accountInfo.miniProgram.appId;
-    this.initData.wxmini_appid = wxmini_appid;
     // 显示游戏圈--部分游戏需要
     // this.showGameClub()
-
+    getOtherGameData();
     // 组装全局参数
     let _initData = {
       game_id: initParams.game_id,
       channel: that.initData.channel,
       game_name: initParams.game_name,
       from_id: from_id, // fuse 默认为 0
-      // cookie_uuid: microParame,
       original_from_id: initParams.channel_id,
-      wxmini_appid: wxmini_appid || ''
-
+      wxmini_appid: wxmini_appid
     };
     that.initData = __assign(that.initData, _initData);
     that.reqEnv = initParams.req_env || 'prod';
@@ -332,6 +375,7 @@ var qxMiniSDK = {
     let initReq = __assign({}, _initData, extFooter(), {
       channel: that.sdkChannel
     });
+
     /** ********** 发送js_load请求*********************/
     request('init', 'index', initReq, 1).then(resulte => {
       that.apiEnd();
@@ -341,6 +385,9 @@ var qxMiniSDK = {
         if (initReslute.share) {
           shareCfg = __assign(shareCfg, initReslute.share);
         }
+        _globalData.pay_wxappid = initReslute.pay_wxappid || 'wxb42f1c9f32c599b2';
+        // 渠道版本配置
+        channel_cfg_version = initReslute.channel_cfg_version || channel_cfg_version;
         // 公告
         let notice = initReslute.init_notice;
         if (notice) {
@@ -355,14 +402,11 @@ var qxMiniSDK = {
             }
           });
         }
-        // 渠道版本配置
-        channel_cfg_version = initReslute.channel_cfg_version || channel_cfg_version;
-
         // 激活
-        that._active();
-
+        if (!_globalData.otherGame.game_id) {
+          that._active();
+        }
         var launchOptions = wx.getLaunchOptionsSync();
-
         callback && callback({
           statusCode: 0,
           status: '初始化成功',
@@ -385,10 +429,10 @@ var qxMiniSDK = {
     var that = this;
     wx.checkSession({
       success(res) {
-        let gowanUserInfo = getStorageSync(USER_INFO);
+        let qxyxUserInfo = getStorageSync(USER_INFO);
         let xcxUserInfo = getStorageSync(XCX_USER_INFO);
         let type = 'checkSession';
-        if (gowanUserInfo && gowanUserInfo.ext.openid) {
+        if (qxyxUserInfo && qxyxUserInfo.ext.openid) {
           console.log('[session_key 未过期------->直接执行登录方法]');
           that._dologin(xcxUserInfo, type, callback);
         } else {
@@ -434,37 +478,62 @@ var qxMiniSDK = {
       return;
     }
     that.apiStart();
-    let gowanUserInfo = getStorageSync(USER_INFO);
+    let qxyxUserInfo = getStorageSync(USER_INFO);
     wx.login({
       success: ret => {
         let code = ret.code;
         let userinfo = encodeURIComponent(JSON.stringify(xcxUserInfo));
         let ext_header = {};
-        let header = {
+        var otherGame = getOtherGameData();
+        if (otherGame.game_id) {
+          ext_header = {
+            game_id: otherGame.game_id,
+            game_name: otherGame.game_name,
+            from_id: otherGame.from_id,
+            user_id: otherGame.user_id,
+            guid: otherGame.guid,
+            wxmini_appid: otherGame.wxmini_appid
+          };
+        }
+        let dt_header = {
           code,
           userinfo
           // 获取主动分享的玩家信息
           // var shareOptions = wx.getLaunchOptionsSync()
         };if (type == 'checkSession') {
-          header['uopenid'] = gowanUserInfo.ext.openid;
+          dt_header['uopenid'] = qxyxUserInfo.ext.openid;
         }
         let loginParams = __assign({}, {
           ext: JSON.stringify(ext_header),
-          data: JSON.stringify(header)
-        }, that.initData, extFooter(), {
-          channel_cfg_version
-        });
+          data: JSON.stringify(dt_header)
+        }, that.initData, extFooter());
+        loginParams.channel_cfg_version = channel_cfg_version;
+        // 广告参数 getTfParams()
+        let tfData = getTfParams();
+        let headers = {};
+        if (Object.keys(tfData).length) {
+          if (tfData.ad_source) {
+            loginParams.ad_source = tfData.ad_source;
+          }
+          headers['qxyx-ad'] = JSON.stringify(tfData);
+        }
         /* 发送登录请求 */
-        request('minigame', 'login', loginParams, 1).then(result => {
+        request('minigame', 'login', loginParams, 1, headers).then(result => {
           that.apiEnd();
           if (result.code == 0) {
+            // 替换原始游戏参数
+            if (result.data.relationship) {
+              that.initData.new_gameid = that.initData.game_id;
+              that.initData = __assign(that.initData, result.data.relationship);
+            }
+            console.log('[initData]', that.initData);
             let loginResult = result.data;
             //获取unionid--0 不需要获取，1 需要获取
             if (loginResult.ext.is_bind_user == 1) {
               that.getUnionid(loginResult);
             }
             /* 清除本地缓存 */
-            if (gowanUserInfo) {
+            if (qxyxUserInfo) {
               removeStorageSync(USER_INFO);
             }
             saveStorageSync(USER_INFO, loginResult); // 存储gowan服务端返回的用户信息
@@ -571,15 +640,15 @@ var qxMiniSDK = {
   loginDuration(time = 0, callback) {
     var nowTime = new Date().getTime();
     var poorTime = nowTime - time;
-    var goWanUserInfo = getStorageSync(USER_INFO);
+    var qxyxUserInfo = getStorageSync(USER_INFO);
     let that = this;
-    let jsActive = __assign({}, extFooter(), that.initData, {
-      user_id: goWanUserInfo.user_id,
-      guid: goWanUserInfo.guid,
+    let reqData = __assign({}, extFooter(), that.initData, {
+      user_id: qxyxUserInfo.user_id,
+      guid: qxyxUserInfo.guid,
       duration: poorTime / 1000
     });
     /** ********** 发送登录时长上报请求*********************/
-    request('loadlog', 'login_duration', jsActive, 1).then(resulte => {
+    request('loadlog', 'login_duration', reqData, 1).then(resulte => {
       if (resulte.code == 0) {
         callback && callback({
           statusCode: 0,
@@ -597,17 +666,18 @@ var qxMiniSDK = {
   /* 支付 */
   recharge(args, callback) {
     var that = this;
-    let goWanUserInfo = getStorageSync(USER_INFO);
-    let user_id = goWanUserInfo.user_id;
-    let openid = goWanUserInfo.ext.openid;
+    let qxyxUserInfo = getStorageSync(USER_INFO);
+    let user_id = qxyxUserInfo.user_id;
+    let openid = qxyxUserInfo.ext.openid;
     let ext = {
       openid,
-      pf: wx.getSystemInfoSync().system.indexOf('iOS') == 0 ? 'ios' : 'android'
+      pf: wx.getSystemInfoSync().system.indexOf('iOS') == 0 ? 'ios' : 'android',
+      new_gameid: that.initData.new_gameid || ''
     };
     let payParams = __assign({}, {
       ext: JSON.stringify(ext),
       user_id
-    }, extFooter(), getRoleBaseMsg(args), that.initData, {
+    }, extFooter(), getRoleBaseInfo(args), that.initData, {
       product_name: args.productName,
       amount: args.amount, // 必填充值金额 单位：分
       notify_url: args.callbackURL, // 必填 CP通知URL
@@ -621,7 +691,7 @@ var qxMiniSDK = {
     /**
      * 下单说明
      * 如果存在real_name，并且real_name的值是1，则需要进行实名认证，否则，不需要
-     * 
+     *
      */
     if (localUserInfo.ext.is_realname && localUserInfo.ext.is_realname == 1) {
       this._isRealName(payParams, callback);
@@ -630,14 +700,14 @@ var qxMiniSDK = {
     }
   },
 
-  /* 是否实名 
+  /* 是否实名
    * 0 -- 已实名
    * 1 -- 未实名
    */
   _isRealName(payParams, callback) {
     let that = this;
-    let goWanUserInfo = getStorageSync(USER_INFO);
-    let user_id = goWanUserInfo.user_id;
+    let qxyxUserInfo = getStorageSync(USER_INFO);
+    let user_id = qxyxUserInfo.user_id;
     let args = __assign({}, extFooter(), that.initData, {
       user_id,
       real_name: '',
@@ -694,10 +764,10 @@ var qxMiniSDK = {
 
   _doMakeOrder(payParams, callback) {
     var that = this;
-    let goWanUserInfo = getStorageSync(USER_INFO);
+    let qxyxUserInfo = getStorageSync(USER_INFO);
     let order_id = '';
-    let user_id = goWanUserInfo.user_id;
-    let openid = goWanUserInfo.ext.openid;
+    let user_id = qxyxUserInfo.user_id;
+    let openid = qxyxUserInfo.ext.openid;
     request('minigame', 'make_order', payParams, 1).then(resulte => {
       if (resulte.code == 0) {
         let payResult = resulte.data;
@@ -722,7 +792,9 @@ var qxMiniSDK = {
           openid,
           pf: wx.getSystemInfoSync().system.indexOf('iOS') == 0 ? 'ios' : 'android',
           ts,
+          channel_cfg_version,
           game_id: that.initData.game_id, // when pay的时cp传进来的参数里有
+          new_gameid: that.initData.new_gameid || '',
           sign: md5(order_id + user_id + openid + payParams.amount + that.initData.game_id + ts),
           channel: that.initData.channel
         };
@@ -792,7 +864,7 @@ var qxMiniSDK = {
         } else if (op_type == -3) {
           //进入微信小程序支付
           wx.navigateToMiniProgram({
-            appId: 'wxb42f1c9f32c599b2',
+            appId: _globalData.pay_wxappid,
             path: `pages/wxpay/wxpay?order_id=${payResult.order_id}`,
             extraData: {},
             envVersion: 'release',
@@ -812,6 +884,27 @@ var qxMiniSDK = {
             content: resulte.msg
           });
         }
+      } else if (resulte.code == 2000) {
+        var modal = resulte.data.modal;
+        var new_wxappid = resulte.data.new_wxappid;
+        wx.showModal({
+          title: modal.title,
+          showCancel: false,
+          content: modal.content,
+          success: function () {
+            wx.navigateToMiniProgram({
+              appId: new_wxappid,
+              extraData: {
+                game_id: that.initData.game_id,
+                game_name: that.initData.game_name,
+                from_id: that.initData.from_id,
+                wxmini_appid: that.initData.wxmini_appid,
+                user_id: user_id,
+                guid: qxyxUserInfo.guid
+                // envVersion: 'develop'
+              } });
+          }
+        });
       } else {
         if (resulte.msg !== '') {
           wx.showModal({
@@ -933,24 +1026,27 @@ var qxMiniSDK = {
       console.log('[isOpenReturn]', isOpen);
       return;
     }
-    if (params.content) {
-      var times = getStorageSync('login_tips_times');
-      times = times ? parseInt(times, 10) : 0;
-      if (times >= 5) {
-        delete localUserInfo.ext.login_tips;
-        return;
-      }
-      saveStorageSync('login_tips_times', times + 1);
+
+    if (_globalData.loginTipsNum >= 5) {
+      delete localUserInfo.ext.login_tips;
+      return;
+    }
+    _globalData.loginTipsNum++;
+    // mode说明 -- 1- 旧版，弹框，2-新版
+    var mode = params.mode;
+    if (mode == 1) {
       this._loginTipsItem(type);
+    } else if (mode == 2) {
+      this._showActionSheet();
     }
   },
 
   // type--1 表示谈转端图片，其他表示转客服会话
   _loginTipsItem(type = 0) {
     var that = this;
-    var goWanUserInfo = getStorageSync(USER_INFO);
-    var login_tips = goWanUserInfo.ext.login_tips;
-    if (!login_tips.title) {
+    var qxyxUserInfo = getStorageSync(USER_INFO);
+    var login_tips = qxyxUserInfo.ext.login_tips;
+    if (!login_tips.title || !login_tips.content) {
       return false;
     }
     wx.showModal({
@@ -966,7 +1062,7 @@ var qxMiniSDK = {
             return;
           }
           // 功能1，前往客服
-          var user_id = goWanUserInfo.user_id;
+          var user_id = qxyxUserInfo.user_id;
           var initData = that.initData;
           let pr = {
             game_id: initData.game_id,
@@ -984,7 +1080,7 @@ var qxMiniSDK = {
   /* 创建角色上报 */
   createRole(params) {
     let type = 'add';
-    let input = __assign({}, this.initData, extFooter(), getRoleBaseMsg(params), {
+    let input = __assign({}, this.initData, extFooter(), getRoleBaseInfo(params), {
       user_id: localUserInfo.user_id
     });
     this._loginTips(params);
@@ -996,7 +1092,7 @@ var qxMiniSDK = {
   /* 切换角色上报 */
   changeRole(params) {
     let type = 'login';
-    let input = __assign({}, this.initData, extFooter(), getRoleBaseMsg(params), {
+    let input = __assign({}, this.initData, extFooter(), getRoleBaseInfo(params), {
       user_id: localUserInfo.user_id
     });
     this._loginTips(params);
@@ -1010,7 +1106,7 @@ var qxMiniSDK = {
     let type = 'level';
     let input = __assign({}, this.initData, extFooter(), {
       user_id: localUserInfo.user_id
-    }, getRoleBaseMsg(params));
+    }, getRoleBaseInfo(params));
     this._loginTips(params);
     return new Promise((resolve, reject) => {
       this._reportRequst(type, input, resolve);
@@ -1273,7 +1369,7 @@ var qxMiniSDK = {
       // 获取设备类型
     };var systemInfo = wx.getSystemInfoSync();
     let pf = systemInfo.system.indexOf('iOS') == 0 ? 2 : 1;
-    let input = __assign({}, this.initData, getRoleBaseMsg(params), {
+    let input = __assign({}, this.initData, getRoleBaseInfo(params), {
       os: pf,
       platform: systemInfo.platform,
       is_test: params.isTest || 0 // 1 审核环境， 0 非审核环境
@@ -1297,9 +1393,9 @@ var qxMiniSDK = {
       statusCode: 0, // 0 表示已绑定，其他值表示未绑定
       status: ''
     };
-    var goWanUserInfo = getStorageSync(USER_INFO);
+    var qxyxUserInfo = getStorageSync(USER_INFO);
     var reqData = __assign({}, this.initData, sdkFooter(), {
-      user_id: goWanUserInfo.user_id,
+      user_id: qxyxUserInfo.user_id,
       domain: 'api'
     });
     request('user', 'check_bind_phone', reqData, 0).then(res => {
@@ -1349,7 +1445,7 @@ var qxMiniSDK = {
       statusCode: 0,
       status: ''
     };
-    var goWanUserInfo = getStorageSync(USER_INFO);
+    var qxyxUserInfo = getStorageSync(USER_INFO);
     var bindSendCodeRes = _globalData.bindSendCodeRes;
     if (!bindSendCodeRes) {
       result = {
@@ -1361,7 +1457,7 @@ var qxMiniSDK = {
     }
     delete _globalData.bindSendCodeRes;
     var reqData = __assign({}, {
-      user_id: goWanUserInfo.user_id,
+      user_id: qxyxUserInfo.user_id,
       phone: params.phone,
       code: params.code,
       code_sign: bindSendCodeRes.code_sign,
@@ -1443,10 +1539,9 @@ var qxMiniSDK = {
         status: "隐藏"
       });
     }
-    console.log('[是否展示悬浮窗isOpen]', isOpen);
+    console.log('[是否显示转端isOpen]', isOpen);
     return isOpen;
   },
-
   // 判断玩家是否从我的小程序进入
   isSourceMy(callback) {
     var source = wx.getLaunchOptionsSync();
@@ -1515,14 +1610,16 @@ var qxMiniSDK = {
   },
 
   //显示游戏圈
-  showGameClub() {
+  showGameClub(params = {}) {
     wx.createGameClubButton({
-      icon: 'light',
+      type: params.type || "image",
+      icon: params.icon || "light",
+      text: params.text || "",
       style: {
-        left: 10,
-        top: 76,
-        width: 40,
-        height: 40
+        left: params.left || 10,
+        top: params.top || 76,
+        width: params.width || 40,
+        height: params.height || 40
       }
     });
   },
@@ -1562,12 +1659,13 @@ var qxMiniSDK = {
 
   // 检测文本
   msgSecCheck(params = {}, callback) {
-    var goWanUserInfo = getStorageSync(USER_INFO);
-    var openid = goWanUserInfo.ext.openid;
+    var qxyxUserInfo = getStorageSync(USER_INFO);
+    var openid = qxyxUserInfo.ext.openid;
     var dt = {
       openid: openid,
       scene: params.scene,
-      wxmini_appid: this.initData.wxmini_appid || params.wxmini_appid,
+      game_id: this.initData.game_id,
+      wxmini_appid: this.initData.wxmini_appid,
       content: params.content,
       domain: "box"
     };
@@ -1589,12 +1687,13 @@ var qxMiniSDK = {
 
   // 检测图片或者音频
   mediaCheckAsync(params = {}, callback) {
-    var goWanUserInfo = getStorageSync(USER_INFO);
-    var openid = goWanUserInfo.ext.openid;
+    var qxyxUserInfo = getStorageSync(USER_INFO);
+    var openid = qxyxUserInfo.ext.openid;
     var dt = {
       openid: openid,
       scene: params.scene,
-      wxmini_appid: this.initData.wxmini_appid || params.wxmini_appid,
+      game_id: this.initData.game_id,
+      wxmini_appid: this.initData.wxmini_appid,
       content: params.content,
       domain: "box"
     };
@@ -1630,12 +1729,12 @@ var qxMiniSDK = {
       });
       return;
     }
-    var goWanUserInfo = getStorageSync(USER_INFO);
-    var openid = goWanUserInfo.ext.openid;
+    var qxyxUserInfo = getStorageSync(USER_INFO);
+    var openid = qxyxUserInfo.ext.openid;
     var dt = {
       openid: openid,
-      user_id: goWanUserInfo.user_id,
-      wxmini_appid: this.initData.wxmini_appid || params.wxmini_appid,
+      user_id: qxyxUserInfo.user_id,
+      wxmini_appid: this.initData.wxmini_appid,
       game_id: this.initData.game_id,
       channel: this.initData.channel,
       domain: "box"
@@ -1660,17 +1759,75 @@ var qxMiniSDK = {
 
   // 前往绑定手机号码小程序
   goBindPhone() {
-    var goWanUserInfo = getStorageSync(USER_INFO);
-    console.log(`/pages/index/index?game_id=${this.initData.game_id}&from_id=${this.initData.original_from_id}&user_id=${goWanUserInfo.user_id}&wxmini_appid=${this.initData.wxmini_appid}&channel=${this.initData.channel}&guid=${goWanUserInfo.guid}`);
-    var path = `/pages/news/news?game_id=${this.initData.game_id}&from_id=${this.initData.original_from_id}&user_id=${goWanUserInfo.user_id}&wxmini_appid=${this.initData.wxmini_appid}&channel=${this.initData.channel}&guid=${goWanUserInfo.guid}`;
+    var qxyxUserInfo = getStorageSync(USER_INFO);
+    let initData = this.initData;
+    console.log(`/pages/index/index?game_id=${initData.game_id}&from_id=${initData.original_from_id}&user_id=${qxyxUserInfo.user_id}&wxmini_appid=${initData.wxmini_appid}&channel=${initData.channel}&guid=${qxyxUserInfo.guid}`);
+    var path = `/pages/news/news?game_id=${initData.game_id}&from_id=${initData.original_from_id}&user_id=${qxyxUserInfo.user_id}&wxmini_appid=${initData.wxmini_appid}&channel=${initData.channel}&guid=${qxyxUserInfo.guid}`;
     wx.navigateToMiniProgram({
       appId: "wx7be2eb52189caebf",
       path: path
       // envVersion: "develop"
     });
+  },
+
+  // 显示转端列表
+  _showActionSheet() {
+    this._getActionSheet().then(res => {
+      var itemList = [];
+      res.list.forEach(i => {
+        itemList.push(i.desc);
+      });
+      wx.showActionSheet({
+        alertText: res.title,
+        itemList: itemList,
+        success(res2) {
+          var tapIndex = res2.tapIndex;
+          var type = res.list[tapIndex]['type'];
+          var text = res.list[tapIndex]['text'];
+          if (type == 1) {
+            wx.setClipboardData({
+              data: text
+            });
+          } else if (type == 2) {
+            wx.previewImage({
+              current: text,
+              urls: [text]
+            });
+          }
+        },
+        fail(res) {
+          console.log(res.errMsg);
+        }
+      });
+    });
+  },
+
+  // 获取ActionSheet
+  _getActionSheet() {
+    return new Promise(resolve => {
+      var loginTipsSheet = _globalData.loginTipsSheet;
+      if (!loginTipsSheet) {
+        let qxyxUserInfo = getStorageSync(USER_INFO);
+        let user_id = qxyxUserInfo.user_id;
+        let openid = qxyxUserInfo.ext.openid;
+        var dt = __assign({}, {
+          openid: openid,
+          user_id: user_id,
+          domain: "box"
+        }, this.initData);
+        request('wxa', 'login_tips', dt, 1).then(res => {
+          console.log('[res]', res);
+          _globalData.loginTipsSheet = res.data;
+          if (res.code == 0) {
+            resolve(res.data);
+          }
+        });
+      } else if (loginTipsSheet.title) {
+        resolve(_globalData.loginTipsSheet);
+      }
+    });
   }
 };
-
 if (typeof module !== "undefined") {
   module.exports = qxMiniSDK;
   if (typeof window !== "undefined") {

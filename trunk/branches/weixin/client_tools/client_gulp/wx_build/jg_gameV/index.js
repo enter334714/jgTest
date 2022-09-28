@@ -10,6 +10,7 @@ window.ENV = 1;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
+window.isWaiFangWx = false;
 window.PF_INFO = {
   base_cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
   cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
@@ -310,6 +311,7 @@ window.sdkLoginRetry = 5;
 window.sdkOnLogin = function(status, data) {
   if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
+    PF_INFO.wx_channel = data.wx_channel;
     var self = this;
     wxShowLoading({ title: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {
@@ -349,6 +351,10 @@ window.onUserLogin = function (response) {
     window.toErrorAlarm(2, "User.login fail: state="+response.state);
     window.reqRecordInfo("userLoginError", JSON.stringify(response));
     window.loginAlert('User.login failed: ' + response.state);
+    return;
+  }
+  if (response.ban_state == 1) {
+    window.loginAlert("账号已被封禁！");
     return;
   }
 
@@ -439,6 +445,7 @@ window.updCurServer = function(response) {
     'entry_port': parseInt(response.data[0].entry_port),
     'status': get_status(response.data[0]),
     'start_time': response.data[0].start_time,
+    'maintain_time': response.data[0].maintain_time ? response.data[0].maintain_time : "",
     'cdn': PF_INFO.cdn,
   }
   this.initComplete();
@@ -698,11 +705,11 @@ window.reqPlayerAskInfo = function(packageName, role_id, serverId, callBack) {
   }, callBack);
 }
 //调起订阅消息
-window.openSubscribeMsg = function(ids, callback) {
+window.openSubscribeMsg = function (ids, callback,objIds) {
   function onTouchEnd(res) {
     var data = [];
     var tmpIds = [];
-    var tmpObj = window.config.tmpId;
+    var tmpObj = objIds || window.config.tmpId;
     for (var id in tmpObj) {
         var idn = Number(id);
         if (!ids || !ids.length || ids.indexOf(idn)!=-1) { //ids为空表示所有都请求
@@ -1213,6 +1220,7 @@ window.enterToGame = function() {
         debugUsers: window.PF_INFO.debugUsers,
         wxMenuTop: top,
         wxShield: window.PF_INFO.wxShield,
+        wx_channel: window.PF_INFO.wx_channel,
       };
 
       if (window.pkgOptions) {

@@ -466,11 +466,6 @@ window.initComplete = function () {
   window.enterToGame();
 }
 
-window.forceJumpMiniGame = function () {
-  AKSDK.switchGame(function (res) {
-    console.log("跳转小游戏" + JSON.stringify(res));  //res {"status":0,"msg":"没开启跳转"} status:0失败 1：成功 msg：提示语
-  })
-}
 
 // 加载version_config版本文件，读取lastVersion号，外网是从后台请求获取
 window.loadVersionConfig = function () {
@@ -707,11 +702,11 @@ window.reqPlayerAskInfo = function (packageName, role_id, serverId, callBack) {
   }, callBack);
 }
 //调起订阅消息
-window.openSubscribeMsg = function (ids, callback) {
+window.openSubscribeMsg = function (ids, callback,objIds) {
   function onTouchEnd(res) {
     var data = [];
     var tmpIds = [];
-    var tmpObj = window.config.tmpId;
+    var tmpObj = objIds || window.config.tmpId;
     for (var id in tmpObj) {
       var idn = Number(id);
       if (!ids || !ids.length || ids.indexOf(idn) != -1) { //ids为空表示所有都请求

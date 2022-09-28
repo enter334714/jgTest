@@ -37,7 +37,6 @@
     "disableUseStrict": false,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true,
     "useStaticServer": true
   },
   "compileType": "game",

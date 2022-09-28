@@ -1,1 +1,1308 @@
-var _=wx.y$;let ln_tool={getSign(e="",t={}){return md5(this.getSortAsciiQuery(t)+(e?"&"+e:""))},getSignedParams(e,t={}){const o=JSON.parse(JSON.stringify(t));t=this.getSign(e,o);return o.sign=t,o},getSortAsciiQuery(e){const t=[];let o=0;for(const r in e)t[o]=r,o++;var a=t.sort();let n="";for(const s in a)n+=a[s]+"="+e[a[s]]+"&";return n=n.replace(new RegExp("^\\&+|\\&+$","g"),"")},getPhpNow(){return(new Date).getTime()},getDeviceType:()=>{const e=wx.getSystemInfoSync();let t;return t=-1<e.system.toLowerCase().indexOf("android")?"android":-1<e.system.toLowerCase().indexOf("ios")?"ios":-1<e.system.toLowerCase().indexOf("win")?"win":"unknow"},getCurrAppid(){const e=wx.getSystemInfoSync();let t="62044";return t=!(-1<e.system.toLowerCase().indexOf("android"))&&-1<e.system.toLowerCase().indexOf("ios")?"62046":"62044"},getDeviceUUid(){var e=wx.getSystemInfoSync();e=e.model+e.screenHeight+e.screenWidth;return console.log(e),md5(e)}};let wxLN_uid="";let wxApp_id="";wx.onShow(e=>{var t=e.query;wxLN_uid=e.query.ln_uid,wxApp_id=e.query.wxAppid,setAdData(t,"onShow")}),wx.onHide(e=>{console.log(e)});let btnClickNum=0;let commonParams={time:ln_tool.getPhpNow(),udid:ln_tool.getDeviceUUid(),uuid:ln_tool.getDeviceUUid(),sdkver:"h5",adver:"1.0",device:"ios"==ln_tool.getDeviceType()?2:1,idfa:"",idfv:"",imei:"",oaid:"",android_id:"",imsi:"",encryptedData:"",iv:"",channel_version:"1.0",sysname:"",screen:"",model:"",version:"1.0",ver:"c399ec3638",network:"",appid:ln_tool.getCurrAppid(),adver_ext:""};let initStoreData={alive:"",access_token:""};let wxParams={openid:"",appid:"",env:"",offer_id:"",encryptedData:"",iv:""};let miniProgramParams={};let appInfo={app_key:""};const api="https://apisdk2.lnqwe.com";const ln_api="https://apisdk.lnqwe.com";const msgSecCheck=function({version:e=2,scene:t=4,content:o=""},a){e={version:e,scene:t,content:o,access_token:initStoreData.access_token};wx.request({url:api+"/sdk/wxgame/msgSecCheck",data:{data:JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,e)),mode:0},method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},mode:0,success:e=>{e=e.data;0==e.errcode&&(100==e.result.label?a({status:e.result.label}):a({status:0}))}})};const init=function(){var e=wx.getLaunchOptionsSync().query;setAdData(e,"getLaunchOptionsSync");"function"!=typeof this.initLoginCallback?console.error("\u6ca1\u6709\u5b9e\u73b0 initLoginCallback \u521d\u59cb\u5316\u56de\u8c03"):wxLogin(this)};const setAdData=function(o,a){let e="";o&&o.app?(e=o.app,commonParams.appid=o.app):e=commonParams.appid;a={appid:e,type:a,query:"{}"==JSON.stringify(o)?"":JSON.stringify(o)};if(setAdDataToRequest(a),o){a=o.gdt_vid;let e=o.weixinadinfo;let t="";var n;e&&(n=e.split("."),t=n[0]),commonParams.adver_ext=JSON.stringify(o),o.weixinadinfo&&("android"==ln_tool.getDeviceType()?(commonParams.imei=a||"",commonParams.oaid=t||""):"ios"==ln_tool.getDeviceType()&&(commonParams.idfa=a||"",commonParams.idfv=t||""))}};const setAdDataToRequest=e=>{wx.request({url:api+"/api/config/logWxgame",data:ln_tool.getSignedParams("6c18d6359290b17f12e85b7b77d7e009",e),method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},mode:0,success:e=>{console.log(e)}})};const wxLogin=function(o){console.log("\u8fdb\u6765\u4e86\u767b\u5f55\u4e8622222222222222222222222"),wx.login({success:e=>{var t;e.code?(e=e.code,t={appid:commonParams.appid,time:commonParams.time,notch_height:0,bottom_height:0},initConfig(o,t,e)):wxLogin(o)},fail:e=>{console.log("\u5fae\u4fe1\u767b\u5f55\u5931\u8d25:",e)}})};const initConfig=function(o,e,a){console.log("\u8fdb\u6765\u4e86\u521d\u59cb\u5316\u4e86"),wx.request({url:api+"/api/config/get",data:ln_tool.getSignedParams("6c18d6359290b17f12e85b7b77d7e009",e),method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},mode:0,success:e=>{const t=JSON.parse(e.data.data);0==t.ret&&(wxParams.appid=t.data.channel_params.appid,wxParams.env=t.data.channel_params.env,wxParams.offer_id=t.data.channel_params.offer_id,commonParams.ver=t.data.channel_params.ver||"c399ec3638",commonParams.device="ios"==ln_tool.getDeviceType()?2:1,commonParams.time=ln_tool.getPhpNow(),appInfo.app_key=t.data.app_key,wx.showShareMenu({withShareTicket:!0,menus:["shareAppMessage","shareTimeline"]}),wx.onShareAppMessage(function(){return{title:t.data.channel_params.title||"",imageUrlId:t.data.channel_params.imageUrlId||"",imageUrl:t.data.channel_params.imageUrl||""}}),initData(o,commonParams,a))}})};const initData=function(o,e,a){wx.request({url:api+"/sdk/app/initialize",data:{data:JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,e)),mode:0},method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},mode:0,success:e=>{e=JSON.parse(e.data.data);console.log("\u878d\u5408\u521d\u59cb\u5316adver_ext\u53c2\u6570:"+commonParams.adver_ext);var t={version:commonParams.version,ver:commonParams.ver,network:commonParams.network,time:ln_tool.getPhpNow(),access_token:e.data.access_token,info:JSON.stringify({code:a,login_type:1}),adver_ext:commonParams.adver_ext,wx_game_ln_uid:wx.getLaunchOptionsSync().query.ln_uid||"",wx_game_fu_appid:wx.getLaunchOptionsSync().query.appid||""};initStoreData.alive=e.data.alive,initStoreData.access_token=e.data.access_token,sdkLogin(o,t)}})};const wxgameWhiteUser=function(o){return new Promise((t,e)=>{wx.request({url:api+"/sdk/user/isWxgameWhiteUser",data:{data:JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,o)),mode:0},method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},success:e=>{e=JSON.parse(e.data.data);0==e.ret&&t(e.data.is_white)}})})};const sdkChange=function(t){let o=t;1==t.data.wxChange&&wx.showModal({title:t.data.wxTitle,content:"\u4eb2\u7231\u7684\u4ed9\u53cb\uff0c\u70b9\u51fb\u3010\u786e\u8ba4\u3011\u5373\u53ef\u9886\u53d6\u8f6c\u7aef\u8c6a\u534e\u5927\u793c\u5305\uff0c\u8df3\u8f6c\u5b8c\u6210\u540e\u89d2\u8272\u6570\u636e\u4e0d\u4f1a\u6539\u53d8\r\n\u5728\u65b0\u5fae\u4fe1\u5c0f\u7a0b\u5e8f\u65b9\u53ef\u4f7f\u7528\u793c\u5305\u7801\u54e6\uff0c\u7279\u6b64\u5949\u4e0a\u793c\u5305\u7801\uff1a"+t.data.wxContent,confirmText:"\u786e\u5b9a",success(e){e.confirm?(console.log(t.data.wxAppid),wx.navigateToMiniProgram({appId:t.data.wxAppid,path:`page/index/index?ln_uid=${t.data.union_uid}&appid=`+ln_tool.getCurrAppid(),envVersion:t.data.wxEnvVersion,extraData:{},success:function(e){console.log("\u8df3\u8f6c\u5c0f\u7a0b\u5e8f\u6210\u529f",e)},fail:function(e){console.log(e),sdkChange(o)},complete:function(e){console.log("\u8df3\u8f6c\u5c0f\u7a0b\u5e8f\u5b8c\u6210",e)}})):e.cancel&&(e={time:t.time,access_token:t.access_token,ln_uid:t.data.union_uid},wxgameWhiteUser(e).then(e=>{0==e&&sdkChange(o)}))}})};let postLogin=0;const sdkLogin=function(t,o){wx.request({url:api+"/sdk/user/login",data:{data:JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,o)),mode:0},method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},success:e=>{e=JSON.parse(e.data.data);0==e.ret?(wxParams.openid=e.data.openid,(miniProgramParams=e).access_token=o.access_token,miniProgramParams.time=o.time,replenish(),e.data.wxChangeLimitTips&&wx.showModal({title:"\u63d0\u793a",content:e.data.wxChangeLimitTips,showCancel:!1,confirmText:"\u786e\u5b9a",success(){}}),t.initLoginCallback({status:"0",data:{uid:e.data.union_uid,account:e.data.account,token:e.data.login_token},msg:"ok"})):(++postLogin<3&&(console.log(postLogin),wxLogin(t)),3==postLogin&&wx.showModal({title:"\u63d0\u793a",content:e.msg,showCancel:!1,confirmText:"\u786e\u5b9a",success(){}}),t.initLoginCallback({status:"1",data:{},msg:"error"}))}})};const sdkRole=function(e){var t={time:ln_tool.getPhpNow(),access_token:initStoreData.access_token,channel:"",type:e.type,roleid:e.roleId,rolename:e.roleName,level:e.roleLevel,sex:"",server_id:e.serverId,balance:"",partyname:"",sword:"",mount:"",vip:e.vipLevel||"",adver_ext:commonParams.adver_ext};3==e.type&&(e.adver_ext=commonParams.adver_ext,sdkOnline(e)),wx.request({url:api+"/sdk/role/collect",data:{data:JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,t)),mode:0},method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},mode:0,success:e=>{console.log(e)}})};const sdkOnline=function(e){var t={ver:commonParams.ver,roleid:e.roleId,server_id:e.serverId,seconds:0,type:1,time:ln_tool.getPhpNow(),access_token:initStoreData.access_token,adver_ext:commonParams.adver_ext};wx.request({url:api+"/sdk/user/online",data:{data:JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,t)),mode:0},method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},mode:0,success:e=>{console.log(e)}});const o={ver:"",roleid:e.roleId,server_id:e.serverId,seconds:initStoreData.alive,type:2,time:commonParams.time,access_token:initStoreData.access_token,adver_ext:commonParams.adver_ext};setInterval(()=>{wx.request({url:api+"/sdk/user/online",data:{data:JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,o)),mode:0},method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},mode:0,success:e=>{console.log(e)}})},1e3*+initStoreData.alive)};const sdkPay=function(o){if(1!=miniProgramParams.data.wxChange){const a=this;wx.getSystemInfoSync();var e=ln_tool.getDeviceType();let t="unknow";if("ios"==e?t=2:"android"==e?t=1:"win"==e&&(t=3),replenish(),"function"!=typeof this.onPayCallback)console.error("\u6ca1\u6709\u5b9e\u73b0 onPayCallback \u652f\u4ed8\u56de\u8c03");else{let e=["orderId","orderName","amount","serverId","roleLevel","roleName","roleId"];if(e.some(e=>void 0===o[e]))wx.showModal({title:"\u63d0\u793a",content:"\u53c2\u6570\u6821\u9a8c\u9519\u8bef\uff0c\u8bf7\u8054\u7cfb\u7ba1\u7406\u5458",showCancel:!1,confirmText:"\u786e\u5b9a",success(){}});else{const n={order_id:o.orderId||"",order_name:o.orderName||"",ver:commonParams.ver,is_lnpay:"0",ln_pay_req:1,amount:o.amount||0,total_fee:o.amount||0,server:o.serverId||"",role:o.roleName,roleid:o.roleId,level:o.roleLevel||"",time:ln_tool.getPhpNow(),device:t,access_token:initStoreData.access_token,weixin_code:"weixin_game",ext:o.ext||"",adver_ext:commonParams.adver_ext};wx.showLoading({title:"\u6b63\u5728\u652f\u4ed8\u4e2d",mask:!0}),wx.login({success(e){n.code=e.code,console.log("params",n),wx.request({url:api+"/sdk/pay/request",data:{data:JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,n)),mode:0},method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},success:e=>{wx.hideLoading();let t=JSON.parse(e.data.data);if(0==t.ret)switch(a.onPayCallback({status:"0",msg:"\u652f\u4ed8\u53c2\u6570\u6b63\u786e\uff0c\u6b63\u5728\u652f\u4ed8"}),wx.hideLoading(),parseInt(t.data.check_pay)){case 0:wx.showModal({title:"\u6e29\u99a8\u63d0\u793a",content:"\u8bf7\u6309\u786e\u5b9a\u540e\u8fdb\u5165\u5ba2\u670d\u7a97\u53e3\uff0c\u5982\u679c\u672a\u6536\u5230\u672c\u8ba2\u5355\u652f\u4ed8\u5165\u53e3\uff0c\u8bf7\u53d1\u9001\u7a97\u53e3\u53f3\u4e0b\u89d2\u5361\u7247\u83b7\u53d6.\u795d\u60a8\u6e38\u620f\u6109\u5feb!",showCancel:!1,confirmText:"\u786e\u5b9a",success(){wx.openCustomerServiceConversation({showMessageCard:!0,sendMessageTitle:t.data.order_id,sendMessagePath:JSON.stringify(n),sendMessageImg:getLinkUrl(t.data.order_id),sessionFrom:JSON.stringify(n),success:function(e){console.log("\u6267\u884csuccess\u4e86"),console.log(e)},fail:function(e){console.log(e)},complete:function(e){}})}});break;case 1:var o=JSON.parse(t.data.config).buyQuantity;console.log(o),wx.requestMidasPayment({mode:"game",env:wxParams.env,offerId:wxParams.offer_id,currencyType:"CNY",zoneId:1,platform:"android",buyQuantity:o,success(e){console.log(e),sendResult(t.data.order_id)},fail(e){console.log("\u7c73\u7ed3\u679c\u53c2\u6570",e)},complete(e){console.log("\u7c73\u7ed3\u679c\u53c2\u6570",e)}});break;case 5:let e={};e.goods_name=n.productName,e.gameOrderid=t.gameOrderid,e.money=t.money,e.out_code=t.out_code,e.paytype=t.paytype,wx.navigateToMiniProgram({appId:t.appid,path:"pages/sdk/page",envVersion:"release",extraData:e,success:function(e){console.log("\u8df3\u8f6c\u5c0f\u7a0b\u5e8f\u6210\u529f",e)},fail:function(e){console.log("\u8df3\u8f6c\u5c0f\u7a0b\u5e8f\u5931\u8d25",e)},complete:function(e){console.log("\u8df3\u8f6c\u5c0f\u7a0b\u5e8f\u5b8c\u6210",e)}})}else wx.showModal({title:"\u63d0\u793a",content:unescape(t.msg.replace(/\\u/g,"%u")),showCancel:!1,confirmText:"\u786e\u5b9a",success(){a.onPayCallback({status:"1",msg:"\u652f\u4ed8\u5931\u8d25"})}})}})}})}}}else sdkChange(miniProgramParams)};const sendResult=function(o){var e={order_id:o,time:ln_tool.getPhpNow(),access_token:initStoreData.access_token,ver:commonParams.ver};let a=wx.getStorageSync("orderList");a=a||[],wx.request({url:api+"/sdk/wxgame/notify",data:{data:JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,e)),mode:0},method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},success(e){const t=JSON.parse(e.data.data);console.log(t),0!=t.ret&&wx.showModal({title:"\u63d0\u793a",content:unescape(t.msg.replace(/\\u/g,"%u")),showCancel:!1,confirmText:"\u786e\u5b9a",success(){a.push(o),wx.setStorageSync("orderList",a)}})},fail(e){a.push(o),wx.setStorageSync("orderList",a)}})};const replenish=function(){let a=wx.getStorageSync("orderList");var e={time:ln_tool.getPhpNow(),access_token:initStoreData.access_token,ver:commonParams.ver};if(console.log(a),0!==a.length)for(let o in a)wx.request({url:api+"/sdk/wxgame/notify",data:{data:JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,Object.assign({order_id:a[o]},e))),mode:0},method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},success(e){const t=JSON.parse(e.data.data);0==t.ret?(a.splice(o,1),wx.setStorageSync("orderList",a)):0!=t.ret&&wx.showModal({title:"\u63d0\u793a",content:unescape(t.msg.replace(/\\u/g,"%u")),showCancel:!1,confirmText:"\u786e\u5b9a",success(){}})}})};const sdkTransferApp=function(){wx.showModal({title:"\u6e29\u99a8\u63d0\u793a",content:"\u8bf7\u6309\u786e\u5b9a\u540e\u8fdb\u5165\u5ba2\u670d\u7a97\u53e3",showCancel:!1,confirmText:"\u786e\u5b9a",success(){wx.openCustomerServiceConversation({showMessageCard:!0,sendMessageTitle:"bind-"+commonParams.appid,sendMessagePath:"",sendMessageImg:"https://apisdk2.lnqwe.com/wxgame_exchange.jpg",sessionFrom:"",success:function(e){console.log("\u6267\u884csuccess\u4e86"),console.log(e)},fail:function(e){console.log(e)},complete:function(e){}})}})};const sdkGameAuth=function(e){let o=wx.createUserInfoButton({type:"text",text:"",style:{left:e.left,top:e.top,width:e.width,height:e.height,lineHeight:e.height,backgroundColor:"#ff0000",color:"#ffffff",textAlign:"center",fontSize:16,borderRadius:4}});o.onTap(e=>{var t;console.log(e.errMsg),console.log(btnClickNum),btnClickNum?console.log("\u4e0d\u53ef\u591a\u6b21\u70b9\u51fb"):(btnClickNum=1,"getUserInfo:ok"==e.errMsg?(t={query:JSON.stringify(commonParams),type:"reg2"},setAdDataToRequest(t),wxParams.encryptedData=e.encryptedData,wxParams.iv=e.iv,initConfig(SDKln,configParams,jscode),o.destroy()):(t={query:JSON.stringify(commonParams),type:"reg3"},setAdDataToRequest(t),btnClickNum=0))})};const createButton=function(o,a,n){var e=wx.getSystemInfoSync();var t=e.screenWidth;e=e.screenHeight;var r=t/750;var s=418*r;r*=80;let i=wx.createUserInfoButton({type:"text",text:"\u6388\u6743\u767b\u5f55",style:{left:t/2-s/2,top:e/2+80,width:s,height:r,lineHeight:r,backgroundColor:"#ff0000",color:"#ffffff",textAlign:"center",fontSize:16,borderRadius:4}});i.onTap(e=>{var t;console.log(e.errMsg),console.log(btnClickNum),btnClickNum?console.log("\u4e0d\u53ef\u591a\u6b21\u70b9\u51fb"):(btnClickNum=1,"getUserInfo:ok"==e.errMsg?(t={query:JSON.stringify(commonParams),type:"reg2"},setAdDataToRequest(t),wxParams.encryptedData=e.encryptedData,wxParams.iv=e.iv,initConfig(o,a,n),i.destroy()):(t={query:JSON.stringify(commonParams),type:"reg3"},setAdDataToRequest(t),btnClickNum=0))})};const getLinkUrl=function(e){return`https://apisdk2.lnqwe.com/sdk/pay/wxkf?appid=${commonParams.appid}&ln_order_id=${e}&wxAppid=${wxParams.appid}&wxOpenId=${wxParams.openid}&access_token=`+initStoreData.access_token};const sendLinkUser=function(e){e={appid:commonParams.appid,ln_order_id:e,wxAppid:wxParams.appid,wxOpenId:wxParams.openid,access_token:initStoreData.access_token};console.log(wxParams.openid),console.log(e),wx.request({url:api+"/sdk/pay/wxkf",data:{data:JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,e)),mode:0},method:"POST",header:{"content-type":"application/x-www-form-urlencoded"},success(e){e=JSON.parse(e.data.data);console.log(e)}})};function md5(e){var t;Array();var o,a,n,r,l,s,i,d,c;for(t=ConvertToWordArray(e=Utf8Encode(e)),s=1732584193,i=4023233417,d=2562383102,c=271733878,o=0;o<t.length;o+=16)s=FF(a=s,n=i,r=d,l=c,t[o+0],7,3614090360),c=FF(c,s,i,d,t[o+1],12,3905402710),d=FF(d,c,s,i,t[o+2],17,606105819),i=FF(i,d,c,s,t[o+3],22,3250441966),s=FF(s,i,d,c,t[o+4],7,4118548399),c=FF(c,s,i,d,t[o+5],12,1200080426),d=FF(d,c,s,i,t[o+6],17,2821735955),i=FF(i,d,c,s,t[o+7],22,4249261313),s=FF(s,i,d,c,t[o+8],7,1770035416),c=FF(c,s,i,d,t[o+9],12,2336552879),d=FF(d,c,s,i,t[o+10],17,4294925233),i=FF(i,d,c,s,t[o+11],22,2304563134),s=FF(s,i,d,c,t[o+12],7,1804603682),c=FF(c,s,i,d,t[o+13],12,4254626195),d=FF(d,c,s,i,t[o+14],17,2792965006),s=GG(s,i=FF(i,d,c,s,t[o+15],22,1236535329),d,c,t[o+1],5,4129170786),c=GG(c,s,i,d,t[o+6],9,3225465664),d=GG(d,c,s,i,t[o+11],14,643717713),i=GG(i,d,c,s,t[o+0],20,3921069994),s=GG(s,i,d,c,t[o+5],5,3593408605),c=GG(c,s,i,d,t[o+10],9,38016083),d=GG(d,c,s,i,t[o+15],14,3634488961),i=GG(i,d,c,s,t[o+4],20,3889429448),s=GG(s,i,d,c,t[o+9],5,568446438),c=GG(c,s,i,d,t[o+14],9,3275163606),d=GG(d,c,s,i,t[o+3],14,4107603335),i=GG(i,d,c,s,t[o+8],20,1163531501),s=GG(s,i,d,c,t[o+13],5,2850285829),c=GG(c,s,i,d,t[o+2],9,4243563512),d=GG(d,c,s,i,t[o+7],14,1735328473),s=HH(s,i=GG(i,d,c,s,t[o+12],20,2368359562),d,c,t[o+5],4,4294588738),c=HH(c,s,i,d,t[o+8],11,2272392833),d=HH(d,c,s,i,t[o+11],16,1839030562),i=HH(i,d,c,s,t[o+14],23,4259657740),s=HH(s,i,d,c,t[o+1],4,2763975236),c=HH(c,s,i,d,t[o+4],11,1272893353),d=HH(d,c,s,i,t[o+7],16,4139469664),i=HH(i,d,c,s,t[o+10],23,3200236656),s=HH(s,i,d,c,t[o+13],4,681279174),c=HH(c,s,i,d,t[o+0],11,3936430074),d=HH(d,c,s,i,t[o+3],16,3572445317),i=HH(i,d,c,s,t[o+6],23,76029189),s=HH(s,i,d,c,t[o+9],4,3654602809),c=HH(c,s,i,d,t[o+12],11,3873151461),d=HH(d,c,s,i,t[o+15],16,530742520),s=II(s,i=HH(i,d,c,s,t[o+2],23,3299628645),d,c,t[o+0],6,4096336452),c=II(c,s,i,d,t[o+7],10,1126891415),d=II(d,c,s,i,t[o+14],15,2878612391),i=II(i,d,c,s,t[o+5],21,4237533241),s=II(s,i,d,c,t[o+12],6,1700485571),c=II(c,s,i,d,t[o+3],10,2399980690),d=II(d,c,s,i,t[o+10],15,4293915773),i=II(i,d,c,s,t[o+1],21,2240044497),s=II(s,i,d,c,t[o+8],6,1873313359),c=II(c,s,i,d,t[o+15],10,4264355552),d=II(d,c,s,i,t[o+6],15,2734768916),i=II(i,d,c,s,t[o+13],21,1309151649),s=II(s,i,d,c,t[o+4],6,4149444226),c=II(c,s,i,d,t[o+11],10,3174756917),d=II(d,c,s,i,t[o+2],15,718787259),i=II(i,d,c,s,t[o+9],21,3951481745),s=AddUnsigned(s,a),i=AddUnsigned(i,n),d=AddUnsigned(d,r),c=AddUnsigned(c,l);return(WordToHex(s)+WordToHex(i)+WordToHex(d)+WordToHex(c)).toLowerCase()}function RotateLeft(e,t){return e<<t|e>>>32-t}function AddUnsigned(e,t){var o,a,n;return o=2147483648&e,a=2147483648&t,n=(1073741823&e)+(1073741823&t),(e=1073741824&e)&(t=1073741824&t)?2147483648^n^o^a:e|t?1073741824&n?3221225472^n^o^a:1073741824^n^o^a:n^o^a}function F(e,t,o){return e&t|~e&o}function G(e,t,o){return e&o|t&~o}function H(e,t,o){return e^t^o}function I(e,t,o){return t^(e|~o)}function FF(e,t,o,a,n,r,s){return e=AddUnsigned(e,AddUnsigned(AddUnsigned(F(t,o,a),n),s)),AddUnsigned(RotateLeft(e,r),t)}function GG(e,t,o,a,n,r,s){return e=AddUnsigned(e,AddUnsigned(AddUnsigned(G(t,o,a),n),s)),AddUnsigned(RotateLeft(e,r),t)}function HH(e,t,o,a,n,r,s){return e=AddUnsigned(e,AddUnsigned(AddUnsigned(H(t,o,a),n),s)),AddUnsigned(RotateLeft(e,r),t)}function II(e,t,o,a,n,r,s){return e=AddUnsigned(e,AddUnsigned(AddUnsigned(I(t,o,a),n),s)),AddUnsigned(RotateLeft(e,r),t)}function ConvertToWordArray(e){var t;var o=e.length;var a=o+8;a=16*(1+(a-a%64)/64);var n=Array(a-1);var r=0;var s=0;for(;s<o;)r=s%4*8,n[t=(s-s%4)/4]=n[t]|e.charCodeAt(s)<<r,s++;return n[t=(s-s%4)/4]=n[t]|128<<(r=s%4*8),n[a-2]=o<<3,n[a-1]=o>>>29,n}function WordToHex(e){var t,o="",a="";for(t=0;t<=3;t++)o+=(a="0"+(e>>>8*t&255).toString(16)).substr(a.length-2,2);return o}function Utf8Encode(e){var t="";for(var o=0;o<e.length;o++){var a=e.charCodeAt(o);a<128?t+=String.fromCharCode(a):t=127<a&&a<2048?(t+=String.fromCharCode(a>>6|192))+String.fromCharCode(63&a|128):(t=(t+=String.fromCharCode(a>>12|224))+String.fromCharCode(a>>6&63|128))+String.fromCharCode(63&a|128)}return t}var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var o,a,n,r,s,i;var d=0;for(e=Base64._utf8_encode(e);d<e.length;)n=(o=e.charCodeAt(d++))>>2,r=(3&o)<<4|(o=e.charCodeAt(d++))>>4,s=(15&o)<<2|(a=e.charCodeAt(d++))>>6,i=63&a,isNaN(o)?s=i=64:isNaN(a)&&(i=64),t=t+this._keyStr.charAt(n)+this._keyStr.charAt(r)+this._keyStr.charAt(s)+this._keyStr.charAt(i);return t},decode:function(e){var t="";var o,a;var n,r,s,i;var d=0;for(e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");d<e.length;)n=this._keyStr.indexOf(e.charAt(d++)),o=(15&(r=this._keyStr.indexOf(e.charAt(d++))))<<4|(s=this._keyStr.indexOf(e.charAt(d++)))>>2,a=(3&s)<<6|(i=this._keyStr.indexOf(e.charAt(d++))),t+=String.fromCharCode(n<<2|r>>4),64!=s&&(t+=String.fromCharCode(o)),64!=i&&(t+=String.fromCharCode(a));return t=Base64._utf8_decode(t)},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var o=0;o<e.length;o++){var a=e.charCodeAt(o);a<128?t+=String.fromCharCode(a):t=127<a&&a<2048?(t+=String.fromCharCode(a>>6|192))+String.fromCharCode(63&a|128):(t=(t+=String.fromCharCode(a>>12|224))+String.fromCharCode(a>>6&63|128))+String.fromCharCode(63&a|128)}return t},_utf8_decode:function(e){var t="";var o=0;var a;c1=c2=0;for(;o<e.length;)(a=e.charCodeAt(o))<128?(t+=String.fromCharCode(a),o++):191<a&&a<224?(c2=e.charCodeAt(o+1),t+=String.fromCharCode((31&a)<<6|63&c2),o+=2):(c2=e.charCodeAt(o+1),c3=e.charCodeAt(o+2),t+=String.fromCharCode((15&a)<<12|(63&c2)<<6|63&c3),o+=3);return t}};module.exports={init:init,sdkRole:sdkRole,sdkPay:sdkPay,msgSecCheck:msgSecCheck,sdkTransferApp:sdkTransferApp};
+let ln_tool = {
+	getSign(app_key = '', params = {}) {
+		const sortedParamsQuery = this.getSortAsciiQuery(params);
+		const app_key_params = app_key ? `&${app_key}` : '';
+		const resultQuery = `${sortedParamsQuery}${app_key_params}`;
+		const sign = md5(resultQuery);
+		// console.log('明文:', resultQuery);
+		// console.log('MD5加密后:', sign);
+		return sign;
+	},
+	getSignedParams(app_key, params = {}) {
+		// console.log(app_key);
+		const reqParams = JSON.parse(JSON.stringify(params));
+		const sign = this.getSign(app_key, reqParams);
+		reqParams.sign = sign;
+		return reqParams;
+	},
+	getSortAsciiQuery(obj) {
+		const arr = [];
+		let num = 0;
+		for (const i in obj) {
+			arr[num] = i;
+			num++;
+		}
+		const sortArr = arr.sort();
+		// let sortObj = {};    //完成排序值
+		let str = ''; // 自定义排序字符串
+		for (const i in sortArr) {
+			str += sortArr[i] + '=' + obj[sortArr[i]] + '&';
+			// sortObj[sortArr[i]] = obj[sortArr[i]];
+		}
+		// 去除两侧字符串
+		const char = '&';
+		str = str.replace(new RegExp('^\\' + char + '+|\\' + char + '+$', 'g'), '');
+		return str;
+	},
+	getPhpNow() {
+		const now = new Date().getTime();
+    return now;
+	},
+	getDeviceType: () => {
+		const systemInfo = wx.getSystemInfoSync()
+		// console.log(systemInfo)
+		let osType
+		if (systemInfo.system.toLowerCase().indexOf('android') > -1) {
+			osType = 'android'
+		} else if (systemInfo.system.toLowerCase().indexOf('ios') > -1) {
+			osType = 'ios'
+		} else if (systemInfo.system.toLowerCase().indexOf('win') > -1) {
+			osType = 'win'
+		} else {
+			osType = 'unknow'
+		}
+		return osType
+	},
+	getCurrAppid() {
+		const systemInfo = wx.getSystemInfoSync();
+		let appid = '62044';
+		if (systemInfo.system.toLowerCase().indexOf('android') > -1) {
+			appid = '62044'
+		} else if (systemInfo.system.toLowerCase().indexOf('ios') > -1) {
+			appid = '62046'
+		} else {
+			appid = '62044'
+		}
+		return appid
+	},
+	getDeviceUUid() {
+		const system = wx.getSystemInfoSync();
+		let strSystem = system.model + system.screenHeight + system.screenWidth;
+		console.log(strSystem);
+		return md5(strSystem);
+	}
+}
+let wxLN_uid = '';
+let wxApp_id = '';
+	// 广告数据上报
+wx.onShow((res) => {
+		let query = res.query;
+		// console.log("onShow方法1----weixinadinfo：" + query.weixinadinfo)
+		// console.log(res)
+		// console.log("onShow方法1----weixinadinfo：" + query.weixinadinfo)
+		// console.log("onShow方法1----gdt_vid: " + query.weixinadinfo)
+		wxLN_uid = res.query.ln_uid;
+		wxApp_id = res.query.wxAppid;
+		setAdData(query, 'onShow')
+})
+	wx.onHide(res => {
+		let query = res;
+		console.log(query)
+	})	
+// 防止授权登录按钮多次点击
+let btnClickNum = 0
+let commonParams = {
+	time: ln_tool.getPhpNow(),
+	udid: ln_tool.getDeviceUUid(),
+	uuid: ln_tool.getDeviceUUid(),
+	sdkver: 'h5',
+	adver: '1.0',
+	device: ln_tool.getDeviceType() == 'ios' ? 2 : 1,
+	idfa: '',
+	idfv: '',
+	imei: '',
+	oaid: '',
+	android_id: '',
+	imsi: '',
+	encryptedData: '',
+	iv: '',
+	channel_version: '1.0',
+	sysname: '',
+	screen: '',
+	model: '',
+	version: '1.0',
+	ver: 'c399ec3638',
+	network: '',
+	appid: ln_tool.getCurrAppid(),
+	adver_ext: ''
+	// app_key: 'mjsgcecys0dtogfpmhei6o00cec8qp5j',
+}
+let initStoreData = {
+	alive: '',
+	access_token: ''
+}
+let wxParams = {
+	openid: '', // 微信openid
+	appid: '', // 微信应用id
+	env: '', // 环境配置
+	offer_id: '', // 在米大师侧申请的应用id,
+	encryptedData: '', // 授权相关
+	iv: ''
+}
+let miniProgramParams = {}; // 微信小程序转移相关数据
+let appInfo  = {
+	app_key: ''
+}
+const api = "https://apisdk2.lnqwe.com";
+const ln_api = "https://apisdk.lnqwe.com";
+// 微信内容安全调整
+const msgSecCheck = function({version=2,scene=4, content= ''}, callback) {
+	const params = {version: version, scene: scene, content: content, access_token: initStoreData.access_token,}
+	wx.request({
+		url: api + '/sdk/wxgame/msgSecCheck',
+		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0},
+		method: 'POST',
+		header: {
+			'content-type': 'application/x-www-form-urlencoded'
+		},
+		mode: 0,
+		success: (res) => {
+			let rest = res.data;
+			if (rest.errcode == 0) {
+				if (rest.result.label == 100) {
+					callback({status: rest.result.label})
+				} else {
+					callback({status: 0})
+				}
+			}
+		 }
+	});
+}
+const init = function () {
+	// 广告数据上报
+	let data = wx.getLaunchOptionsSync().query;
+  setAdData(data, 'getLaunchOptionsSync')
+	let SDKln = this;
+	if (typeof SDKln.initLoginCallback != 'function') {
+		console.error("没有实现 initLoginCallback 初始化回调")
+	} else {
+		// 广告数据上报
+		wxLogin(SDKln);
+	}
+}
+	// 设置广告数据
+	const setAdData = function(query, flag){
+		// 广告混端投放
+		let adAppid = '';
+		if (query.app) {
+			adAppid = query.app;
+			commonParams.appid = query.app;
+			localStorage.setItem('mixappid', query.app);
+		} else if (localStorage.getItem('mixappid')) {
+			adAppid = localStorage.getItem('mixappid');
+			commonParams.appid = localStorage.getItem('mixappid');
+		} else {
+			adAppid = commonParams.appid;
+		}
+		let currQuery = '';
+		if (JSON.stringify(query)!='{}') {
+			currQuery = JSON.stringify(query);
+			localStorage.setItem('mixquery', JSON.stringify(query));
+		} else {
+			currQuery = localStorage.getItem('mixquery') || '';
+		}
+		let data = {appid: adAppid, type: flag, query: currQuery};
+		setAdDataToRequest(data);
+		if(query){
+			let gdt_vid =  query.gdt_vid;
+			let weixinadinfo = query.weixinadinfo;
+			let aid = '';
+			if (weixinadinfo) {
+				let weixinadinfoArr = weixinadinfo.split('.');
+				aid = weixinadinfoArr[0]
+			}
+			commonParams.adver_ext = currQuery;
+			// 判断query不是空对象，为空就不管
+			if(query.weixinadinfo){
+				if (ln_tool.getDeviceType() == 'android') {
+					commonParams.imei = gdt_vid || '';
+					commonParams.oaid = aid || '';
+				} else if (ln_tool.getDeviceType() == 'ios') {
+					commonParams.idfa = gdt_vid || '';
+					commonParams.idfv = aid || '';
+				}
+			}
+		}
+	}
+// 记录广告值
+const setAdDataToRequest = (params) => {
+	wx.request({
+		url: api + '/api/config/logWxgame',
+		data: ln_tool.getSignedParams('6c18d6359290b17f12e85b7b77d7e009', params),
+		method: 'POST',
+		header: {
+			'content-type': 'application/x-www-form-urlencoded'
+		},
+		mode: 0,
+		success: (res) => {
+       console.log(res)
+		 }
+		});
+} 
+
+// 微信登录
+const wxLogin = function(SDKln) {
+	console.log('进来了登录了22222222222222222222222')
+	wx.login({
+		success: (res) => {
+			if (!res.code) {
+				wxLogin(SDKln);
+			} else {
+				let jscode = res.code;
+				let configParams = {
+					appid: commonParams.appid,
+					time: commonParams.time,
+					notch_height: 0,
+					bottom_height: 0
+				};
+				// 授权后开始融合
+				// wx.getSetting({
+				// 	complete(com) {
+				// 		if (com.authSetting['scope.userInfo']) {
+				// 			wx.getUserInfo({
+				// 				success(res) {
+				// 					wxParams.encryptedData = res.encryptedData;
+				// 					wxParams.iv = res.iv;
+				// 					initConfig(SDKln, configParams, jscode)
+				// 				}
+				// 			})
+				// 		} else {
+				// 			let regiData = {query: JSON.stringify(commonParams), type: 'reg1'}
+				// 			setAdDataToRequest(regiData);
+				// 			createButton(SDKln, configParams, jscode);
+				// 		}
+				// 	}
+				// })
+				
+				initConfig(SDKln, configParams, jscode);
+			}
+		},
+		fail: (err) => {
+			// createButton(SDKln, {}, {});
+			console.log("微信登录失败:", err)
+		}
+	});
+}
+// 初始化融合配置接口
+const initConfig = function (SDKln, params, jscode) {
+	console.log('进来了初始化了')
+	wx.request({
+		url: api + '/api/config/get',
+		data: ln_tool.getSignedParams('6c18d6359290b17f12e85b7b77d7e009', params),
+		method: 'POST',
+		header: {
+			'content-type': 'application/x-www-form-urlencoded'
+		},
+		mode: 0,
+		success: (res) => {
+			const ret = JSON.parse(res.data.data);
+			if (ret.ret == 0) {
+				wxParams.appid = ret.data.channel_params.appid;
+				wxParams.env = ret.data.channel_params.env;
+				wxParams.offer_id = ret.data.channel_params.offer_id;
+				commonParams.ver = ret.data.channel_params.ver || 'c399ec3638';
+				commonParams.device = ln_tool.getDeviceType() == 'ios' ? 2 : 1;
+				commonParams.time = ln_tool.getPhpNow();
+				appInfo.app_key = ret.data.app_key;
+				// 分享
+				wx.showShareMenu({
+					withShareTicket: true,
+					menus: ['shareAppMessage', 'shareTimeline']
+				})
+				wx.onShareAppMessage(function () {
+					return {
+						title: ret.data.channel_params.title || '',
+						imageUrlId: ret.data.channel_params.imageUrlId || '',
+            imageUrl: ret.data.channel_params.imageUrl || ''
+					}
+				})
+				initData(SDKln, commonParams, jscode);
+			} 
+			 // else {
+				// wx.showModal({
+				// 	title: "提示",
+				// 	content: unescape(ret.msg.replace(/\\u/g, "%u")),
+				// 	showCancel: false,
+				// 	confirmText: "确定",
+				// 	success() {
+				// 	}
+				// });
+		  	// }
+		}
+	})
+}
+// 初始化sdk接口数据
+const initData =  function (SDKln, params, jscode) {
+	wx.request({
+		url: api + '/sdk/app/initialize',
+		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0},
+		method: 'POST',
+		header: {
+			'content-type': 'application/x-www-form-urlencoded'
+		},
+		mode: 0,
+		success: (res) => {
+			// delete params.sign;
+			const data = JSON.parse(res.data.data);
+			console.log('融合初始化adver_ext参数:' + commonParams.adver_ext)
+			let loginParams = {
+				version: commonParams.version,
+				ver: commonParams.ver,
+				network: commonParams.network,
+				time: ln_tool.getPhpNow(),
+				access_token: data.data.access_token,
+				info: JSON.stringify({code: jscode, login_type: 1}),
+				adver_ext: commonParams.adver_ext,
+				wx_game_ln_uid: wx.getLaunchOptionsSync().query.ln_uid || '',
+				wx_game_fu_appid: wx.getLaunchOptionsSync().query.appid || ''
+			}
+			// console.log(wxParams.encryptedData)
+			initStoreData.alive = data.data.alive;
+			initStoreData.access_token = data.data.access_token;
+			// console.log(loginParams)
+			sdkLogin(SDKln, loginParams);
+		}
+	})
+}
+// 转移白名单
+const wxgameWhiteUser = function(params) {
+	return new Promise((resolve,reject) => {
+		wx.request({
+			url: api + '/sdk/user/isWxgameWhiteUser',
+			data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0},
+			method: 'POST',
+			header: {
+				'content-type': 'application/x-www-form-urlencoded'
+			},
+			success: (res) => {
+				let resData = JSON.parse(res.data.data);
+				if (resData.ret == 0) {
+					resolve(resData.data.is_white)
+ 				}
+			}
+		})
+	})
+}
+// 小程序转移
+const sdkChange = function(data) {
+	let loginBackParams = data
+	if (data.data.wxChange == 1) {
+		wx.showModal({
+      title: data.data.wxTitle,
+			content: '亲爱的仙友，点击【确认】即可领取转端豪华大礼包，跳转完成后角色数据不会改变\r\n在新微信小程序方可使用礼包码哦，特此奉上礼包码：' + data.data.wxContent,
+			confirmText: '确定',
+      success (res) {
+        if (res.confirm) {
+					console.log(data.data.wxAppid)
+          wx.navigateToMiniProgram({
+            appId: data.data.wxAppid,
+            path: `page/index/index?ln_uid=${data.data.union_uid}&appid=${ln_tool.getCurrAppid()}`,
+            envVersion: data.data.wxEnvVersion,
+            extraData: {},
+            success: function(res) {
+              console.log('跳转小程序成功', res)
+            },
+            fail: function(err) {
+							console.log(err)
+              sdkChange(loginBackParams)
+            },
+            complete: function(com) {
+              console.log('跳转小程序完成', com)
+            }
+          })
+        } else if (res.cancel) {
+          // 判断是否已经转移过进入白名单 0否 1是
+					let whiteParams = {
+						time: data.time,
+						access_token: data.access_token,
+						ln_uid: data.data.union_uid
+					}
+					wxgameWhiteUser(whiteParams).then(isChange => {
+						if (isChange == 0) {
+							sdkChange(loginBackParams)
+						}
+					})
+        }
+      }
+    })
+	}
+}
+
+// sdk登录
+let postLogin = 0;
+const sdkLogin = function(SDKln, params) {
+	wx.request({
+		url: api + '/sdk/user/login',
+		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,params)), mode: 0},
+		method: 'POST',
+		header: {
+			'content-type': 'application/x-www-form-urlencoded'
+		},
+		success: (res) => {
+			// 设置授权按钮可以点击
+			// delete params.sign;
+			let loginData = JSON.parse(res.data.data);
+			if (loginData.ret == 0) {
+				wxParams.openid = loginData.data.openid;
+				miniProgramParams = loginData;
+				miniProgramParams.access_token = params.access_token,
+				miniProgramParams.time = params.time
+				replenish();
+				if (loginData.data.wxChangeLimitTips) {
+					wx.showModal({
+						title: "提示",
+						content: loginData.data.wxChangeLimitTips,
+						showCancel: false,
+						confirmText: "确定",
+						success() {
+						}
+					});
+				}
+				// 登录成功执行回调
+				SDKln.initLoginCallback({
+					status: '0',
+					data: {
+						uid: loginData.data.union_uid,
+						account: loginData.data.account,
+						token: loginData.data.login_token
+					},
+					msg: 'ok'
+				})
+			} else {
+				postLogin ++;
+				if (postLogin < 3) {
+					console.log(postLogin)
+					wxLogin(SDKln);
+				}
+				if (postLogin == 3) {
+					wx.showModal({
+						title: "提示",
+						content: loginData.msg,
+						showCancel: false,
+						confirmText: "确定",
+						success() {
+						}
+					});
+				}
+				SDKln.initLoginCallback({
+					status: '1',
+					data: {},
+					msg: 'error'
+				})
+			}
+		}
+	})
+}
+// 角色上报
+const sdkRole = function(params) {
+  let roleParams = {
+		time: ln_tool.getPhpNow(),
+		access_token: initStoreData.access_token,
+		channel: '',
+		type: params.type,
+		roleid: params.roleId,
+		rolename: params.roleName,
+		level: params.roleLevel,
+		sex: '',
+		server_id: params.serverId,
+		balance: '',
+		partyname: '',
+		sword: '',
+		mount: '',
+		vip: params.vipLevel || '',
+		adver_ext: commonParams.adver_ext
+	}
+	if (params.type == 3) {
+		params.adver_ext = commonParams.adver_ext;
+		sdkOnline(params)
+	}
+	wx.request({
+		url: api + '/sdk/role/collect',
+		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, roleParams)), mode: 0},
+		method: 'POST',
+		header: {
+			'content-type': 'application/x-www-form-urlencoded'
+		},
+		mode: 0,
+		success: (res) => {
+			console.log(res);
+		}
+	})
+}
+
+// 在线时长上报
+const sdkOnline = function(params) {
+  const roleParams = {
+		ver: commonParams.ver,
+		roleid: params.roleId,
+		server_id: params.serverId,
+		seconds: 0,
+		type: 1,
+		time: ln_tool.getPhpNow(),
+		access_token: initStoreData.access_token,
+		adver_ext: commonParams.adver_ext
+	}
+	// 进入游戏开始上报
+	wx.request({
+		url: api + '/sdk/user/online',
+		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, roleParams)), mode: 0},
+		method: 'POST',
+		header: {
+			'content-type': 'application/x-www-form-urlencoded'
+		},
+		mode: 0,
+		success: (res) => {
+			console.log(res);
+		}
+	})
+	const roleParamsInter = {
+		ver: '',
+		roleid: params.roleId,
+		server_id: params.serverId,
+		seconds: initStoreData.alive,
+		type: 2,
+		time: commonParams.time,
+		access_token: initStoreData.access_token,
+		adver_ext: commonParams.adver_ext
+	}
+	let timer = null;
+	// 后续定时上报
+	timer = setInterval(() => {
+		wx.request({
+			url: api + '/sdk/user/online',
+			data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, roleParamsInter)), mode: 0},
+			method: 'POST',
+			header: {
+				'content-type': 'application/x-www-form-urlencoded'
+			},
+			mode: 0,
+			success: (res) => {
+				console.log(res);
+			}
+		})
+	}, +initStoreData.alive * 1000);
+}
+
+// 支付
+const sdkPay = function(payData) {
+	// 点击支付判断小程序是否转移
+	if(miniProgramParams.data.wxChange == 1) {
+		sdkChange(miniProgramParams);
+		return
+	}
+	const SDKln = this;
+	const systemInfo = wx.getSystemInfoSync()
+	const osType = ln_tool.getDeviceType();
+	let deviceType = 'unknow'
+	if (osType == 'ios') {
+		deviceType = 2
+	} else if (osType == 'android') {
+		deviceType = 1
+	} else if (osType == 'win') {
+		deviceType = 3
+	}
+	replenish(); // 下单前是否存在未完成的单
+	if (typeof this.onPayCallback != 'function') {
+		console.error("没有实现 onPayCallback 支付回调")
+	} else {
+		let list = ["orderId","orderName","amount","serverId","roleLevel","roleName","roleId"];
+		const payParamsPass = list.some(v=> {return payData[v] === undefined})
+		if(payParamsPass){
+				wx.showModal({
+					title: "提示",
+					content: "参数校验错误，请联系管理员",
+					showCancel: false,
+					confirmText: "确定",
+					success() {
+					}
+				});
+			return;
+		}
+		const params = {
+			order_id: payData.orderId? payData.orderId: '',
+			order_name: payData.orderName? payData.orderName: '',
+			ver: commonParams.ver,
+			is_lnpay: '0',
+			ln_pay_req: 1,
+			amount: payData.amount? payData.amount: 0,
+			total_fee: payData.amount? payData.amount: 0,
+			server: payData.serverId? payData.serverId: '',
+			role: payData.roleName,
+			roleid: payData.roleId,
+			level: payData.roleLevel? payData.roleLevel: '',
+			time: ln_tool.getPhpNow(),
+			device: deviceType,
+			access_token: initStoreData.access_token,
+			weixin_code: 'weixin_game',
+			ext: payData.ext || '',
+			adver_ext: commonParams.adver_ext
+		}
+
+		wx.showLoading({
+			title: '正在支付中',
+			mask: true
+		})
+		wx.login({
+			success(res) {
+				params.code = res.code;
+				console.log("params", params);
+				wx.request({
+					url: api + '/sdk/pay/request',
+					data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0},
+					method: 'POST',
+					header: {
+						'content-type': 'application/x-www-form-urlencoded'
+					},
+					success: (payRes) => {
+						wx.hideLoading()
+						let ret = JSON.parse(payRes.data.data);
+						if (ret.ret == 0) {
+							SDKln.onPayCallback({
+								"status": '0',
+								"msg": '支付参数正确，正在支付'
+							})
+							wx.hideLoading()
+							let checkWay = parseInt(ret.data.check_pay);
+							// console.log(getLinkUrl(ret.data.order_id));
+							switch (checkWay) {
+								case 0:
+									wx.showModal({
+										title: "温馨提示",
+										content: "请按确定后进入客服窗口，如果未收到本订单支付入口，请发送窗口右下角卡片获取.祝您游戏愉快!",
+										showCancel: false,
+										confirmText: "确定",
+										success() {
+											wx.openCustomerServiceConversation({
+												showMessageCard: true,	
+												sendMessageTitle: ret.data.order_id,
+												sendMessagePath: JSON.stringify(params),
+												sendMessageImg: getLinkUrl(ret.data.order_id),
+												sessionFrom: JSON.stringify(params),
+												success: function (res) {
+													console.log('执行success了');
+													console.log(res)
+													// 打开客服窗口成功后，发送链接给玩家
+													// sendLinkUser(ret.data.order_id);
+												},
+												fail: function (res) {
+													console.log(res);
+												},
+												complete: function (res) {
+													// console.log('执行complete了');
+													// sendLinkUser(ret.data.order_id);
+												}
+											})
+										}
+									})
+								break;
+								case 1:
+									 let payBuyQuantity = JSON.parse(ret.data.config).buyQuantity;
+									 console.log(payBuyQuantity)
+										wx.requestMidasPayment({
+											mode: "game",
+											env: wxParams.env,
+											offerId: wxParams.offer_id,
+											currencyType: "CNY",
+											zoneId: 1,
+											platform: "android",
+											buyQuantity: payBuyQuantity,
+											success(res) {
+												// wx.setStorageSync('orderList', orderList);
+												console.log(res);
+												sendResult(ret.data.order_id)
+											},
+											fail(com) {
+												// wx.showModal({
+												// 	title: "提示",
+												// 	content: com.errMsg + com.errCode,
+												// 	showCancel: false,
+												// 	confirmText: "确定",
+												// 	success() {
+												// 	}
+												// });
+												
+												console.log("米结果参数", com)
+											},
+											complete(com) {
+												console.log("米结果参数", com)
+												// sendResult(ret.data.order_id)
+											}
+										})
+									break;
+								case 5:
+									let Minidata = {};
+									Minidata.goods_name = params.productName
+									Minidata.gameOrderid = ret.gameOrderid
+									Minidata.money = ret.money
+									Minidata.out_code = ret.out_code
+									Minidata.paytype = ret.paytype
+									wx.navigateToMiniProgram({
+										appId: ret.appid,
+										path: 'pages/sdk/page',
+										envVersion: 'release',
+										extraData: Minidata,
+										success: function(res) {
+											console.log('跳转小程序成功', res)
+										},
+										fail: function(err) {
+											console.log('跳转小程序失败', err)
+										},
+										complete: function(com) {
+											console.log('跳转小程序完成', com)
+										}
+									})
+									break;
+							}
+						} else {
+							wx.showModal({
+								title: "提示",
+								content: unescape(ret.msg.replace(/\\u/g, "%u")),
+								showCancel: false,
+								confirmText: "确定",
+								success() {
+									SDKln.onPayCallback({
+										"status": '1',
+										"msg": "支付失败"
+									})
+								}
+							});
+						}
+					}
+				})
+			}
+		})
+	}
+}
+// 米大师支付成功调融合api
+const sendResult = function(order_id) {
+	let params = {order_id: order_id, time: ln_tool.getPhpNow(), access_token: initStoreData.access_token, ver: commonParams.ver};
+	let orderList = wx.getStorageSync('orderList');
+	if (!orderList) {
+		orderList = []	
+	}
+	wx.request({
+		url: api + "/sdk/wxgame/notify",
+		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0},
+		method: 'POST',
+		header: {
+			'content-type': 'application/x-www-form-urlencoded'
+		},
+		success(res) {
+			const resData = JSON.parse(res.data.data);
+			console.log(resData);
+			if (resData.ret != 0) {
+				wx.showModal({
+					title: "提示",
+					content: unescape(resData.msg.replace(/\\u/g, "%u")),
+					showCancel: false,
+					confirmText: "确定",
+					success() {
+						orderList.push(order_id);
+						wx.setStorageSync('orderList', orderList);
+					}
+				});
+			}
+		},
+		fail(res) {
+			orderList.push(order_id);
+			wx.setStorageSync('orderList', orderList);
+		}
+	})
+}
+// 校验是否发送到融合接口
+const replenish = function() {
+	let orderList = wx.getStorageSync('orderList');
+	// const params = {time: ln_tool.getPhpNow(), access_token: initStoreData.access_token, ver: commonParams.ver};
+	console.log(orderList);
+	if (orderList.length !== 0) {
+		for (let i in orderList) {
+				wx.request({
+						url: api + "/sdk/wxgame/notify",
+						data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, {order_id: orderList[i], time: ln_tool.getPhpNow(), access_token: initStoreData.access_token, ver: commonParams.ver})), mode: 0},
+						method: 'POST',
+						header: {
+							'content-type': 'application/x-www-form-urlencoded'
+						},
+						success(res) {
+							const resData = JSON.parse(res.data.data);
+							if (resData.ret == 0) {
+								orderList.splice(i, 1);
+								wx.setStorageSync('orderList', orderList);
+							} else {
+								if (resData.ret != 0) {
+									wx.showModal({
+										title: "提示",
+										content: unescape(resData.msg.replace(/\\u/g, "%u")),
+										showCancel: false,
+										confirmText: "确定",
+										success() {
+										}
+									});
+								}
+							}
+						}
+				})
+		}
+	}
+}
+
+// 游戏内转端
+const sdkTransferApp =  function() {
+	wx.showModal({
+		title: "温馨提示",
+		content: "请按确定后进入客服窗口",
+		showCancel: false,
+		confirmText: "确定",
+		success() {
+			wx.openCustomerServiceConversation({
+				showMessageCard: true,	
+				sendMessageTitle: `bind-${commonParams.appid}`,
+				sendMessagePath: '',
+				sendMessageImg: 'https://apisdk2.lnqwe.com/wxgame_exchange.jpg',
+				sessionFrom: '',
+				success: function (res) {
+					console.log('执行success了');
+					console.log(res)
+					// 打开客服窗口成功后，发送链接给玩家
+				},
+				fail: function (res) {
+					console.log(res);
+				},
+				complete: function (res) {
+					// console.log('执行complete了');
+				}
+			})
+		}
+	})
+}
+
+// 游戏中进行授权
+// width宽，height高，left左，top顶部
+const sdkGameAuth = function(params) {
+	let button = wx.createUserInfoButton({
+		type: 'text',
+		text: '',
+		style: {
+			left: params.left,
+			top: params.top,
+			width: params.width,
+			height: params.height,
+			lineHeight: params.height,
+			backgroundColor: '#ff0000',
+			color: '#ffffff',
+			// opacity: 0,
+			textAlign: 'center',
+			fontSize: 16,
+			borderRadius: 4
+		}
+	})
+	button.onTap((res) => {
+		console.log(res.errMsg)
+		console.log(btnClickNum)
+		if(btnClickNum){
+			console.log('不可多次点击')
+			return;
+		}
+		btnClickNum = 1;
+		if (res.errMsg == 'getUserInfo:ok') {
+			let regData1 = {query: JSON.stringify(commonParams), type: 'reg2'}
+			setAdDataToRequest(regData1);
+			wxParams.encryptedData = res.encryptedData;
+			wxParams.iv = res.iv;
+			initConfig(SDKln, configParams, jscode)
+			button.destroy();
+		}else{
+			let regData2 = {query: JSON.stringify(commonParams), type: 'reg3'}
+			setAdDataToRequest(regData2);
+			btnClickNum = 0;
+		}
+	})
+}
+// 创建授权登录按钮
+const createButton = function (SDKln, configParams, jscode) {
+	let sysInfo = wx.getSystemInfoSync();
+	let screenW = sysInfo.screenWidth;
+  let screenH = sysInfo.screenHeight;
+	let rate = screenW / 750;
+	let width = 418 * rate;
+  let height = 80 * rate;
+	let button = wx.createUserInfoButton({
+		type: 'text',
+		text: '授权登录',
+		style: {
+			left: screenW / 2 - width / 2,
+			top: screenH/2 + 80,
+			width: width,
+			height: height,
+			lineHeight: height,
+			backgroundColor: '#ff0000',
+			color: '#ffffff',
+			textAlign: 'center',
+			fontSize: 16,
+			borderRadius: 4
+		}
+	})
+	button.onTap((res) => {
+		console.log(res.errMsg)
+		console.log(btnClickNum)
+		if(btnClickNum){
+			console.log('不可多次点击')
+			return;
+		}
+		btnClickNum = 1;
+		if (res.errMsg == 'getUserInfo:ok') {
+			let regData1 = {query: JSON.stringify(commonParams), type: 'reg2'}
+			setAdDataToRequest(regData1);
+			wxParams.encryptedData = res.encryptedData;
+			wxParams.iv = res.iv;
+			initConfig(SDKln, configParams, jscode)
+			button.destroy();
+		}else{
+			let regData2 = {query: JSON.stringify(commonParams), type: 'reg3'}
+			setAdDataToRequest(regData2);
+			btnClickNum = 0;
+		}
+	})
+}
+// 生成客服发送快捷卡片图片
+const getLinkUrl = function(ln_order) {
+	let url = `https://apisdk2.lnqwe.com/sdk/pay/wxkf?appid=${commonParams.appid}&ln_order_id=${ln_order}&wxAppid=${wxParams.appid}&wxOpenId=${wxParams.openid}&access_token=${initStoreData.access_token}`;
+	return url;
+}
+const sendLinkUser = function(ln_order) {
+	let params = {
+		appid: commonParams.appid,
+		ln_order_id: ln_order,
+		wxAppid: wxParams.appid,
+		wxOpenId: wxParams.openid,
+		access_token: initStoreData.access_token
+	}
+	console.log(wxParams.openid)
+	console.log(params)
+	wx.request({
+		url: api + "/sdk/pay/wxkf",
+		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0},
+		method: 'POST',
+		header: {
+			'content-type': 'application/x-www-form-urlencoded'
+		},
+		success(res) {
+			// console.log(res);
+			const resData = JSON.parse(res.data.data);
+			console.log(resData);
+			// if ()
+		}
+	})
+}
+
+
+// 以下为md5工具和base64工具 
+// md5
+function md5(string) {
+	var x = Array();
+	var k, AA, BB, CC, DD, a, b, c, d;
+	var S11 = 7,
+		S12 = 12,
+		S13 = 17,
+		S14 = 22;
+	var S21 = 5,
+		S22 = 9,
+		S23 = 14,
+		S24 = 20;
+	var S31 = 4,
+		S32 = 11,
+		S33 = 16,
+		S34 = 23;
+	var S41 = 6,
+		S42 = 10,
+		S43 = 15,
+		S44 = 21;
+	string = Utf8Encode(string);
+	x = ConvertToWordArray(string);
+	a = 0x67452301;
+	b = 0xEFCDAB89;
+	c = 0x98BADCFE;
+	d = 0x10325476;
+	for (k = 0; k < x.length; k += 16) {
+		AA = a;
+		BB = b;
+		CC = c;
+		DD = d;
+		a = FF(a, b, c, d, x[k + 0], S11, 0xD76AA478);
+		d = FF(d, a, b, c, x[k + 1], S12, 0xE8C7B756);
+		c = FF(c, d, a, b, x[k + 2], S13, 0x242070DB);
+		b = FF(b, c, d, a, x[k + 3], S14, 0xC1BDCEEE);
+		a = FF(a, b, c, d, x[k + 4], S11, 0xF57C0FAF);
+		d = FF(d, a, b, c, x[k + 5], S12, 0x4787C62A);
+		c = FF(c, d, a, b, x[k + 6], S13, 0xA8304613);
+		b = FF(b, c, d, a, x[k + 7], S14, 0xFD469501);
+		a = FF(a, b, c, d, x[k + 8], S11, 0x698098D8);
+		d = FF(d, a, b, c, x[k + 9], S12, 0x8B44F7AF);
+		c = FF(c, d, a, b, x[k + 10], S13, 0xFFFF5BB1);
+		b = FF(b, c, d, a, x[k + 11], S14, 0x895CD7BE);
+		a = FF(a, b, c, d, x[k + 12], S11, 0x6B901122);
+		d = FF(d, a, b, c, x[k + 13], S12, 0xFD987193);
+		c = FF(c, d, a, b, x[k + 14], S13, 0xA679438E);
+		b = FF(b, c, d, a, x[k + 15], S14, 0x49B40821);
+		a = GG(a, b, c, d, x[k + 1], S21, 0xF61E2562);
+		d = GG(d, a, b, c, x[k + 6], S22, 0xC040B340);
+		c = GG(c, d, a, b, x[k + 11], S23, 0x265E5A51);
+		b = GG(b, c, d, a, x[k + 0], S24, 0xE9B6C7AA);
+		a = GG(a, b, c, d, x[k + 5], S21, 0xD62F105D);
+		d = GG(d, a, b, c, x[k + 10], S22, 0x2441453);
+		c = GG(c, d, a, b, x[k + 15], S23, 0xD8A1E681);
+		b = GG(b, c, d, a, x[k + 4], S24, 0xE7D3FBC8);
+		a = GG(a, b, c, d, x[k + 9], S21, 0x21E1CDE6);
+		d = GG(d, a, b, c, x[k + 14], S22, 0xC33707D6);
+		c = GG(c, d, a, b, x[k + 3], S23, 0xF4D50D87);
+		b = GG(b, c, d, a, x[k + 8], S24, 0x455A14ED);
+		a = GG(a, b, c, d, x[k + 13], S21, 0xA9E3E905);
+		d = GG(d, a, b, c, x[k + 2], S22, 0xFCEFA3F8);
+		c = GG(c, d, a, b, x[k + 7], S23, 0x676F02D9);
+		b = GG(b, c, d, a, x[k + 12], S24, 0x8D2A4C8A);
+		a = HH(a, b, c, d, x[k + 5], S31, 0xFFFA3942);
+		d = HH(d, a, b, c, x[k + 8], S32, 0x8771F681);
+		c = HH(c, d, a, b, x[k + 11], S33, 0x6D9D6122);
+		b = HH(b, c, d, a, x[k + 14], S34, 0xFDE5380C);
+		a = HH(a, b, c, d, x[k + 1], S31, 0xA4BEEA44);
+		d = HH(d, a, b, c, x[k + 4], S32, 0x4BDECFA9);
+		c = HH(c, d, a, b, x[k + 7], S33, 0xF6BB4B60);
+		b = HH(b, c, d, a, x[k + 10], S34, 0xBEBFBC70);
+		a = HH(a, b, c, d, x[k + 13], S31, 0x289B7EC6);
+		d = HH(d, a, b, c, x[k + 0], S32, 0xEAA127FA);
+		c = HH(c, d, a, b, x[k + 3], S33, 0xD4EF3085);
+		b = HH(b, c, d, a, x[k + 6], S34, 0x4881D05);
+		a = HH(a, b, c, d, x[k + 9], S31, 0xD9D4D039);
+		d = HH(d, a, b, c, x[k + 12], S32, 0xE6DB99E5);
+		c = HH(c, d, a, b, x[k + 15], S33, 0x1FA27CF8);
+		b = HH(b, c, d, a, x[k + 2], S34, 0xC4AC5665);
+		a = II(a, b, c, d, x[k + 0], S41, 0xF4292244);
+		d = II(d, a, b, c, x[k + 7], S42, 0x432AFF97);
+		c = II(c, d, a, b, x[k + 14], S43, 0xAB9423A7);
+		b = II(b, c, d, a, x[k + 5], S44, 0xFC93A039);
+		a = II(a, b, c, d, x[k + 12], S41, 0x655B59C3);
+		d = II(d, a, b, c, x[k + 3], S42, 0x8F0CCC92);
+		c = II(c, d, a, b, x[k + 10], S43, 0xFFEFF47D);
+		b = II(b, c, d, a, x[k + 1], S44, 0x85845DD1);
+		a = II(a, b, c, d, x[k + 8], S41, 0x6FA87E4F);
+		d = II(d, a, b, c, x[k + 15], S42, 0xFE2CE6E0);
+		c = II(c, d, a, b, x[k + 6], S43, 0xA3014314);
+		b = II(b, c, d, a, x[k + 13], S44, 0x4E0811A1);
+		a = II(a, b, c, d, x[k + 4], S41, 0xF7537E82);
+		d = II(d, a, b, c, x[k + 11], S42, 0xBD3AF235);
+		c = II(c, d, a, b, x[k + 2], S43, 0x2AD7D2BB);
+		b = II(b, c, d, a, x[k + 9], S44, 0xEB86D391);
+		a = AddUnsigned(a, AA);
+		b = AddUnsigned(b, BB);
+		c = AddUnsigned(c, CC);
+		d = AddUnsigned(d, DD);
+	}
+	var temp = WordToHex(a) + WordToHex(b) + WordToHex(c) + WordToHex(d);
+	return temp.toLowerCase();
+}
+
+function RotateLeft(lValue, iShiftBits) {
+	return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
+}
+
+function AddUnsigned(lX, lY) {
+	var lX4, lY4, lX8, lY8, lResult;
+	lX8 = (lX & 0x80000000);
+	lY8 = (lY & 0x80000000);
+	lX4 = (lX & 0x40000000);
+	lY4 = (lY & 0x40000000);
+	lResult = (lX & 0x3FFFFFFF) + (lY & 0x3FFFFFFF);
+	if (lX4 & lY4) {
+		return (lResult ^ 0x80000000 ^ lX8 ^ lY8);
+	}
+	if (lX4 | lY4) {
+		if (lResult & 0x40000000) {
+			return (lResult ^ 0xC0000000 ^ lX8 ^ lY8);
+		} else {
+			return (lResult ^ 0x40000000 ^ lX8 ^ lY8);
+		}
+	} else {
+		return (lResult ^ lX8 ^ lY8);
+	}
+}
+
+function F(x, y, z) {
+	return (x & y) | ((~x) & z);
+}
+
+function G(x, y, z) {
+	return (x & z) | (y & (~z));
+}
+
+function H(x, y, z) {
+	return (x ^ y ^ z);
+}
+
+function I(x, y, z) {
+	return (y ^ (x | (~z)));
+}
+
+function FF(a, b, c, d, x, s, ac) {
+	a = AddUnsigned(a, AddUnsigned(AddUnsigned(F(b, c, d), x), ac));
+	return AddUnsigned(RotateLeft(a, s), b);
+}
+
+function GG(a, b, c, d, x, s, ac) {
+	a = AddUnsigned(a, AddUnsigned(AddUnsigned(G(b, c, d), x), ac));
+	return AddUnsigned(RotateLeft(a, s), b);
+}
+
+function HH(a, b, c, d, x, s, ac) {
+	a = AddUnsigned(a, AddUnsigned(AddUnsigned(H(b, c, d), x), ac));
+	return AddUnsigned(RotateLeft(a, s), b);
+}
+
+function II(a, b, c, d, x, s, ac) {
+	a = AddUnsigned(a, AddUnsigned(AddUnsigned(I(b, c, d), x), ac));
+	return AddUnsigned(RotateLeft(a, s), b);
+}
+
+function ConvertToWordArray(string) {
+	var lWordCount;
+	var lMessageLength = string.length;
+	var lNumberOfWords_temp1 = lMessageLength + 8;
+	var lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64)) / 64;
+	var lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16;
+	var lWordArray = Array(lNumberOfWords - 1);
+	var lBytePosition = 0;
+	var lByteCount = 0;
+	while (lByteCount < lMessageLength) {
+		lWordCount = (lByteCount - (lByteCount % 4)) / 4;
+		lBytePosition = (lByteCount % 4) * 8;
+		lWordArray[lWordCount] = (lWordArray[lWordCount] | (string.charCodeAt(lByteCount) << lBytePosition));
+		lByteCount++;
+	}
+	lWordCount = (lByteCount - (lByteCount % 4)) / 4;
+	lBytePosition = (lByteCount % 4) * 8;
+	lWordArray[lWordCount] = lWordArray[lWordCount] | (0x80 << lBytePosition);
+	lWordArray[lNumberOfWords - 2] = lMessageLength << 3;
+	lWordArray[lNumberOfWords - 1] = lMessageLength >>> 29;
+	return lWordArray;
+}
+
+function WordToHex(lValue) {
+	var WordToHexValue = "",
+		WordToHexValue_temp = "",
+		lByte, lCount;
+	for (lCount = 0; lCount <= 3; lCount++) {
+		lByte = (lValue >>> (lCount * 8)) & 255;
+		WordToHexValue_temp = "0" + lByte.toString(16);
+		WordToHexValue = WordToHexValue + WordToHexValue_temp.substr(WordToHexValue_temp.length - 2, 2);
+	}
+	return WordToHexValue;
+}
+
+function Utf8Encode(string) {
+	var utftext = "";
+	for (var n = 0; n < string.length; n++) {
+		var c = string.charCodeAt(n);
+		if (c < 128) {
+			utftext += String.fromCharCode(c);
+		} else if ((c > 127) && (c < 2048)) {
+			utftext += String.fromCharCode((c >> 6) | 192);
+			utftext += String.fromCharCode((c & 63) | 128);
+		} else {
+			utftext += String.fromCharCode((c >> 12) | 224);
+			utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+			utftext += String.fromCharCode((c & 63) | 128);
+		}
+	}
+	return utftext;
+}
+
+var Base64 = {
+	_keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+	encode: function (input) {
+      var output = "";
+      var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+      var i = 0;
+      input = Base64._utf8_encode(input);
+      while (i < input.length) {
+          chr1 = input.charCodeAt(i++);
+          chr2 = input.charCodeAt(i++);
+          chr3 = input.charCodeAt(i++);
+          enc1 = chr1 >> 2;
+          enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+          enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+          enc4 = chr3 & 63;
+          if (isNaN(chr2)) {
+              enc3 = enc4 = 64;
+          } else if (isNaN(chr3)) {
+              enc4 = 64;
+          }
+          output = output +
+              this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
+              this._keyStr.charAt(enc3) +  this._keyStr.charAt(enc4);
+      }
+      return output;
+  },
+	decode: function (input) {
+      var output = "";
+      var chr1, chr2, chr3;
+      var enc1, enc2, enc3, enc4;
+      var i = 0;
+      input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+      while (i < input.length) {
+          enc1 = this._keyStr.indexOf(input.charAt(i++));
+          enc2 = this._keyStr.indexOf(input.charAt(i++));
+          enc3 = this._keyStr.indexOf(input.charAt(i++));
+          enc4 = this._keyStr.indexOf(input.charAt(i++));
+          chr1 = (enc1 << 2) | (enc2 >> 4);
+          chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+          chr3 = ((enc3 & 3) << 6) | enc4;
+          output = output + String.fromCharCode(chr1);
+          if (enc3 != 64) {
+              output = output + String.fromCharCode(chr2);
+          }
+          if (enc4 != 64) {
+              output = output + String.fromCharCode(chr3);
+          }
+      }
+      output = Base64._utf8_decode(output);
+      return output;
+  },
+	_utf8_encode: function (string) {
+      string = string.replace(/\r\n/g, "\n");
+      var utftext = "";
+      for (var n = 0; n < string.length; n++) {
+          var c = string.charCodeAt(n);
+          if (c < 128) {
+              utftext += String.fromCharCode(c);
+          } else if ((c > 127) && (c < 2048)) {
+              utftext += String.fromCharCode((c >> 6) | 192);
+              utftext += String.fromCharCode((c & 63) | 128);
+          } else {
+              utftext += String.fromCharCode((c >> 12) | 224);
+              utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+              utftext += String.fromCharCode((c & 63) | 128);
+          }
+ 
+      }
+      return utftext;
+  },
+	_utf8_decode: function (utftext) {
+      var string = "";
+      var i = 0;
+      var c = c1 = c2 = 0;
+      while (i < utftext.length) {
+          c = utftext.charCodeAt(i);
+          if (c < 128) {
+              string += String.fromCharCode(c);
+              i++;
+          } else if ((c > 191) && (c < 224)) {
+              c2 = utftext.charCodeAt(i + 1);
+              string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+              i += 2;
+          } else {
+              c2 = utftext.charCodeAt(i + 1);
+              c3 = utftext.charCodeAt(i + 2);
+              string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+              i += 3;
+          }
+      }
+      return string;
+  }
+}
+
+module.exports = {
+	init: init,
+	sdkRole: sdkRole,
+	sdkPay: sdkPay,
+	msgSecCheck: msgSecCheck,
+	sdkTransferApp: sdkTransferApp
+}

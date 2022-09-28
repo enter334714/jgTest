@@ -1,0 +1,26 @@
+"use strict";
+
+var f = wx.$B;
+Object.defineProperty(exports, "__esModule", { value: !0 });var _createClass = function () {
+  function a(t, e) {
+    for (var n = 0; n < e.length; n++) {
+      var a = e[n];a.enumerable = a.enumerable || !1, a.configurable = !0, "value" in a && (a.writable = !0), Object.defineProperty(t, a.key, a);
+    }
+  }return function (t, e, n) {
+    return e && a(t.prototype, e), n && a(t, n), t;
+  };
+}();function _classCallCheck(t, e) {
+  if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function");
+}var HOST_SERVICE_DEUBG = "https://api-sandbox.xiyousdk.com/",
+    HOST_SERVICE_RELEASE = "https://api.xiyousdk.com/",
+    HOST_DATA_DEUBG = "https://api-sandbox.xiyousdk.com/",
+    HOST_DATA_RELEASE = "https://api.xiyousdk.com/",
+    DEBUG = !1,
+    instance = void 0,
+    Constant = function () {
+  function t() {
+    if (_classCallCheck(this, t), instance) return instance;(instance = this).Url = { data_report: (DEBUG ? HOST_DATA_DEUBG : HOST_DATA_RELEASE) + "report/extraData", data_report2: "https://analytics.52xiyou.com/mo.json", Login: "", Pay: "" };
+  }return _createClass(t, null, [{ key: "debug", value: function () {
+      return DEBUG;
+    } }]), t;
+}();exports.default = Constant;

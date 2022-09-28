@@ -1,79 +1,75 @@
-var gameSDK = function (n) {
+var gameSDK = function (t) {
   var o = {};function r(e) {
-    if (o[e]) return o[e].exports;var t = o[e] = { i: e, l: !1, exports: {} };return n[e].call(t.exports, t, t.exports, r), t.l = !0, t.exports;
-  }return r.m = n, r.c = o, r.d = function (e, t, n) {
-    r.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: n });
+    if (o[e]) return o[e].exports;var n = o[e] = { i: e, l: !1, exports: {} };return t[e].call(n.exports, n, n.exports, r), n.l = !0, n.exports;
+  }return r.m = t, r.c = o, r.d = function (e, n, t) {
+    r.o(e, n) || Object.defineProperty(e, n, { enumerable: !0, get: t });
   }, r.r = function (e) {
     "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 });
-  }, r.t = function (t, e) {
-    if (1 & e && (t = r(t)), 8 & e) return t;if (4 & e && "object" == typeof t && t && t.__esModule) return t;var n = Object.create(null);if (r.r(n), Object.defineProperty(n, "default", { enumerable: !0, value: t }), 2 & e && "string" != typeof t) for (var o in t) r.d(n, o, function (e) {
-      return t[e];
-    }.bind(null, o));return n;
+  }, r.t = function (n, e) {
+    if (1 & e && (n = r(n)), 8 & e) return n;if (4 & e && "object" == typeof n && n && n.__esModule) return n;var t = Object.create(null);if (r.r(t), Object.defineProperty(t, "default", { enumerable: !0, value: n }), 2 & e && "string" != typeof n) for (var o in n) r.d(t, o, function (e) {
+      return n[e];
+    }.bind(null, o));return t;
   }, r.n = function (e) {
-    var t = e && e.__esModule ? function () {
+    var n = e && e.__esModule ? function () {
       return e.default;
     } : function () {
       return e;
-    };return r.d(t, "a", t), t;
-  }, r.o = function (e, t) {
-    return Object.prototype.hasOwnProperty.call(e, t);
+    };return r.d(n, "a", n), n;
+  }, r.o = function (e, n) {
+    return Object.prototype.hasOwnProperty.call(e, n);
   }, r.p = "", r(r.s = 7);
-}([function (e, t, n) {
+}([function (e, n, t) {
   "use strict";
 
-  Object.defineProperty(t, "__esModule", { value: !0 });var o = function () {
-    function o(e, t) {
-      for (var n = 0; n < t.length; n++) {
-        var o = t[n];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
+  Object.defineProperty(n, "__esModule", { value: !0 });var o = function () {
+    function o(e, n) {
+      for (var t = 0; t < n.length; t++) {
+        var o = n[t];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
       }
-    }return function (e, t, n) {
-      return t && o(e.prototype, t), n && o(e, n), e;
+    }return function (e, n, t) {
+      return n && o(e.prototype, n), t && o(e, t), e;
     };
   }();var r = function (e) {
-    return "xinxin_" + e + "_@";
+    return "buer_" + e + "_@";
   },
       a = function () {
     function e() {
-      !function (e, t) {
-        if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
+      !function (e, n) {
+        if (!(e instanceof n)) throw new TypeError("Cannot call a class as a function");
       }(this, e);
     }return o(e, [{ key: "getItem", value: function (e) {
-        var t = wx.getStorageSync(r(e));return !!t && function (e) {
-          e = unescape(e);for (var t = String.fromCharCode(e.charCodeAt(0) - e.length), n = 1; n < e.length; n++) t += String.fromCharCode(e.charCodeAt(n) - t.charCodeAt(n - 1));return t = JSON.parse(t);
-        }(t);
-      } }, { key: "setItem", value: function (e, t) {
+        var n = wx.getStorageSync(r(e));return !!n && function (e) {
+          e = unescape(e);for (var n = String.fromCharCode(e.charCodeAt(0) - e.length), t = 1; t < e.length; t++) n += String.fromCharCode(e.charCodeAt(t) - n.charCodeAt(t - 1));return n = JSON.parse(n);
+        }(n);
+      } }, { key: "setItem", value: function (e, n) {
         wx.setStorageSync(r(e), function (e) {
-          e = JSON.stringify(e);for (var t = String.fromCharCode(e.charCodeAt(0) + e.length), n = 1; n < e.length; n++) t += String.fromCharCode(e.charCodeAt(n) + e.charCodeAt(n - 1));return escape(t);
-        }(t));
+          e = JSON.stringify(e);for (var n = String.fromCharCode(e.charCodeAt(0) + e.length), t = 1; t < e.length; t++) n += String.fromCharCode(e.charCodeAt(t) + e.charCodeAt(t - 1));return escape(n);
+        }(n));
       } }, { key: "destroyItem", value: function (e) {
         wx.removeStorageSync(r(e));
       } }]), e;
-  }();t.default = new a();
-}, function (e, t, n) {
+  }();n.default = new a();
+}, function (e, n, t) {
   "use strict";
 
-  Object.defineProperty(t, "__esModule", { value: !0 });var o = { GAME_NAME: "风之旅迹", APPID: 267, APPID_IOS: 269, APP_KEY: "ddda8f1083bbef53a2cba230fc4550ac", SHARE_QUERY: "agent_id=2503&site_id=116929", IOS_SHARE_QUERY: "agent_id=2503&site_id=116929", AGENT_ID: 2503, SITE_ID: 116928, IOS_SITE_ID: 116927, adInfo: { gdt_vid: "", weixinadinfo: "" } };t.default = o;
-}, function (e, t, n) {
-  "use strict";
-
-  Object.defineProperty(t, "__esModule", { value: !0 });var o = function () {
-    function o(e, t) {
-      for (var n = 0; n < t.length; n++) {
-        var o = t[n];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
+  Object.defineProperty(n, "__esModule", { value: !0 });var o = function () {
+    function o(e, n) {
+      for (var t = 0; t < n.length; t++) {
+        var o = n[t];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
       }
-    }return function (e, t, n) {
-      return t && o(e.prototype, t), n && o(e, n), e;
+    }return function (e, n, t) {
+      return n && o(e.prototype, n), t && o(e, t), e;
     };
   }();var r = function () {
     function e() {
-      !function (e, t) {
-        if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
+      !function (e, n) {
+        if (!(e instanceof n)) throw new TypeError("Cannot call a class as a function");
       }(this, e), this.systemInfo = {};
     }return o(e, [{ key: "getSystemInfo", value: function () {
-        var n = this,
-            o = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : "";return new Promise(function (e, t) {
-          n.checkSystemInfo(function () {
-            o && o in n.systemInfo ? e(n.systemInfo[o]) : e(n.systemInfo);
+        var t = this,
+            o = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : "";return new Promise(function (e, n) {
+          t.checkSystemInfo(function () {
+            o && o in t.systemInfo ? e(t.systemInfo[o]) : e(t.systemInfo);
           });
         });
       } }, { key: "checkSystemInfo", value: function (e) {
@@ -83,86 +79,111 @@ var gameSDK = function (n) {
           reject(e);
         });
       } }, { key: "getNetwork", value: function () {
-        var o = this;return new Promise(function (t, n) {
+        var o = this;return new Promise(function (n, t) {
           wx.getNetworkType({ success: function (e) {
-              delete e.errMsg, o.systemInfo = Object.assign(e, o.systemInfo), t();
+              delete e.errMsg, o.systemInfo = Object.assign(e, o.systemInfo), n();
             }, fail: function (e) {
-              n(e.errMsg);
+              t(e.errMsg);
             } });
         });
       } }, { key: "getSystem", value: function () {
-        var o = this;return new Promise(function (t, n) {
+        var o = this;return new Promise(function (n, t) {
           wx.getSystemInfo({ success: function (e) {
-              delete e.errMsg, o.systemInfo = Object.assign(e, o.systemInfo), t();
+              delete e.errMsg, o.systemInfo = Object.assign(e, o.systemInfo), n();
             }, fail: function (e) {
-              n(e.errMsg);
+              t(e.errMsg);
             } });
         });
       } }]), e;
-  }();t.default = new r();
-}, function (e, t, n) {
+  }();n.default = new r();
+}, function (e, n, t) {
   "use strict";
 
-  Object.defineProperty(t, "__esModule", { value: !0 });var o = function () {
-    function o(e, t) {
-      for (var n = 0; n < t.length; n++) {
-        var o = t[n];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
+  Object.defineProperty(n, "__esModule", { value: !0 });var o = function () {
+    function o(e, n) {
+      for (var t = 0; t < n.length; t++) {
+        var o = n[t];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
       }
-    }return function (e, t, n) {
-      return t && o(e.prototype, t), n && o(e, n), e;
+    }return function (e, n, t) {
+      return n && o(e.prototype, n), t && o(e, t), e;
     };
   }(),
-      s = r(n(8)),
-      c = r(n(1)),
-      l = r(n(0)),
-      d = r(n(2));function r(e) {
+      c = r(t(8)),
+      l = r(t(0)),
+      d = r(t(1)),
+      g = r(t(3));function r(e) {
     return e && e.__esModule ? e : { default: e };
   }var a = function () {
     function e() {
-      !function (e, t) {
-        if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
+      !function (e, n) {
+        if (!(e instanceof n)) throw new TypeError("Cannot call a class as a function");
       }(this, e);
-    }return o(e, [{ key: "api", value: function (a, i) {
-        var u = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : "post",
-            f = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : "";return new Promise(function (t, n) {
-          var o = l.default.getItem("adQuery"),
-              e = l.default.getItem("is_ad_user");f || i.appid || (i.appid = c.default.APPID), i.agent_id = !1 !== o ? o.agent_id : c.default.AGENT_ID, i.site_id = !1 !== o ? o.site_id : c.default.SITE_ID, console.log("query,is_ad_user", o, e), !1 === o && !1 === e && (i.agent_id = 1e5, i.site_id = 1e5), i.launchScene = l.default.getItem("launchScene");var r = a in s.default && s.default[a];!1 === r && n("type error"), d.default.getSystemInfo("platform").then(function (e) {
-            "ios" === e && !1 === o && (i.site_id = c.default.IOS_SITE_ID), i.ad_click_id = c.default.adInfo.gdt_vid, i.weixinadinfo = c.default.adInfo.weixinadinfo, i.env = e, wx.request({ url: r, header: { "Content-Type": "application/x-www-form-urlencoded" }, method: u, data: i, success: function (e) {
-                200 === e.statusCode ? 1 === e.data.ret || "ok" === e.data ? t(e.data.data) : n(e.data.msg) : n("network error " + e.statusCode);
+    }return o(e, [{ key: "api", value: function (i, u) {
+        var f = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : "post",
+            s = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : "";return new Promise(function (n, t) {
+          var o = g.default.getGameConfig(),
+              r = l.default.getItem("adQuery"),
+              e = l.default.getItem("is_ad_user");s || u.appid || (u.appid = o.APPID), u.agent_id = !1 !== r ? r.agent_id : o.AGENT_ID, u.site_id = !1 !== r ? r.site_id : o.SITE_ID, !1 === r && !1 === e && (u.agent_id = 1e5, u.site_id = 1e5), u.launchScene = l.default.getItem("launchScene"), u.queryData = o.QUERY_DATA;var a = i in c.default && c.default[i];!1 === a && t("type error"), d.default.getSystemInfo("platform").then(function (e) {
+            "ios" === e && !1 === r && (u.site_id = o.IOS_SITE_ID), u.ad_click_id = o.adInfo.gdt_vid, u.weixinadinfo = o.adInfo.weixinadinfo, u.env = e, wx.request({ url: a, header: { "Content-Type": "application/x-www-form-urlencoded" }, method: f, data: u, success: function (e) {
+                200 === e.statusCode ? 1 === e.data.ret || "ok" === e.data ? n(e.data.data) : t(e.data.msg) : t("network error " + e.statusCode);
               }, fail: function (e) {
-                n(e.errMsg);
+                t(e.errMsg);
               } });
           });
         });
       } }]), e;
-  }();t.default = new a();
-}, function (e, t, n) {
+  }();n.default = new a();
+}, function (e, n, t) {
   "use strict";
 
-  Object.defineProperty(t, "__esModule", { value: !0 });var o = function () {
-    function o(e, t) {
-      for (var n = 0; n < t.length; n++) {
-        var o = t[n];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
+  Object.defineProperty(n, "__esModule", { value: !0 });var o = function () {
+    function o(e, n) {
+      for (var t = 0; t < n.length; t++) {
+        var o = n[t];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
       }
-    }return function (e, t, n) {
-      return t && o(e.prototype, t), n && o(e, n), e;
+    }return function (e, n, t) {
+      return n && o(e.prototype, n), t && o(e, t), e;
+    };
+  }();var r = function () {
+    function e() {
+      !function (e, n) {
+        if (!(e instanceof n)) throw new TypeError("Cannot call a class as a function");
+      }(this, e), this.gameConfig = {};
+    }return o(e, [{ key: "setGameConfig", value: function (e) {
+        this.gameConfig = e;
+      } }, { key: "getGameConfig", value: function () {
+        return this.gameConfig;
+      } }, { key: "getGameConfigByKey", value: function (e) {
+        return !!this.gameConfig.hasOwnProperty(e) && this.gameConfig[e];
+      } }]), e;
+  }();n.default = new r();
+}, function (e, n, t) {
+  "use strict";
+
+  Object.defineProperty(n, "__esModule", { value: !0 });var o = function () {
+    function o(e, n) {
+      for (var t = 0; t < n.length; t++) {
+        var o = n[t];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
+      }
+    }return function (e, n, t) {
+      return n && o(e.prototype, n), t && o(e, t), e;
     };
   }(),
-      r = f(n(0)),
-      a = f(n(3)),
-      i = f(n(2)),
-      u = f(n(5));function f(e) {
+      r = f(t(0)),
+      i = f(t(2)),
+      a = f(t(1)),
+      u = f(t(5));function f(e) {
     return e && e.__esModule ? e : { default: e };
   }var s = function () {
     function e() {
-      !function (e, t) {
-        if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
+      !function (e, n) {
+        if (!(e instanceof n)) throw new TypeError("Cannot call a class as a function");
       }(this, e), this.loginUserInfo = {};
     }return o(e, [{ key: "login", value: function () {
-        var e = this;return new Promise(function (n, o) {
+        var e = this;return new Promise(function (t, o) {
           var r = e;wx.login({ success: function (e) {
-              var t = { code: e.code, avatarUrl: "", nickName: "" };r.serverLogin(t).then(function (e) {
-                n(e);
+              var n = { code: e.code, avatarUrl: "", nickName: "" };r.serverLogin(n).then(function (e) {
+                t(e);
               }).catch(function (e) {
                 o(e);
               });
@@ -171,38 +192,38 @@ var gameSDK = function (n) {
             } });
         });
       } }, { key: "serverLogin", value: function (r) {
-        return new Promise(function (n, o) {
-          i.default.getSystemInfo().then(function (e) {
-            var t = { do: "authorized", code: r.code, avatar: r.avatarUrl, nickName: r.nickName, platform: e.platform, model: e.model, os: e.system };a.default.api("COMMON", t).then(function (e) {
-              n(e);
+        return new Promise(function (t, o) {
+          a.default.getSystemInfo().then(function (e) {
+            var n = { do: "authorized", code: r.code, avatar: r.avatarUrl, nickName: r.nickName, platform: e.platform, model: e.model, os: e.system };i.default.api("COMMON", n).then(function (e) {
+              t(e);
             }).catch(function (e) {
               o(e);
             });
           });
         });
       } }, { key: "getUserInfo", value: function () {
-        return { uid: this.getStorageUserInfo("uid"), access_token: this.getStorageUserInfo("accessToken"), openid: this.getStorageUserInfo("openid"), avatar: this.getStorageUserInfo("avatar"), username: this.getStorageUserInfo("username"), nickname: this.getStorageUserInfo("nickname"), agent_id: this.getStorageUserInfo("agent_id"), site_id: this.getStorageUserInfo("site_id"), is_ad_user: this.getStorageUserInfo("is_ad_user") };
-      } }, { key: "checkLoginStatus", value: function (t, n) {
+        return { uid: this.getStorageUserInfo("uid"), access_token: this.getStorageUserInfo("accessToken"), openid: this.getStorageUserInfo("openid"), avatar: this.getStorageUserInfo("avatar"), username: this.getStorageUserInfo("username"), nickname: this.getStorageUserInfo("nickname"), agent_id: this.getStorageUserInfo("agent_id"), site_id: this.getStorageUserInfo("site_id"), is_ad_user: this.getStorageUserInfo("is_ad_user"), accountUp: this.getStorageUserInfo("accountUp") };
+      } }, { key: "checkLoginStatus", value: function (n, t) {
         var o = this,
             e = this.getStorageUserInfo();0 === Object.keys(e).length ? this.login().then(function (e) {
-          o.setStorageUserInfo(e), u.default.showShareMenu(), t();
+          o.setStorageUserInfo(e), u.default.showShareMenu(), n();
         }).catch(function (e) {
-          n(e);
+          t(e);
         }) : this.checkServerLoginStatus().then(function () {
-          t();
+          n();
         }).catch(function (e) {
           o.destroyStorageUserInfo(), o.login().then(function (e) {
-            o.setStorageUserInfo(e), u.default.showShareMenu(), t();
+            o.setStorageUserInfo(e), u.default.showShareMenu(), n();
           }).catch(function (e) {
-            n(e);
+            t(e);
           });
         });
       } }, { key: "checkServerLoginStatus", value: function () {
-        var o = this;return new Promise(function (t, n) {
-          var e = { do: "checkLoginStatus", accessToken: o.getStorageUserInfo("accessToken"), uid: o.getStorageUserInfo("uid") };a.default.api("COMMON", e).then(function (e) {
-            t();
+        var o = this;return new Promise(function (n, t) {
+          var e = { do: "checkLoginStatus", accessToken: o.getStorageUserInfo("accessToken"), uid: o.getStorageUserInfo("uid") };i.default.api("COMMON", e).then(function (e) {
+            n();
           }).catch(function (e) {
-            n(e);
+            t(e);
           });
         });
       } }, { key: "getStorageUserInfo", value: function () {
@@ -211,45 +232,62 @@ var gameSDK = function (n) {
         this.loginUserInfo = e, r.default.destroyItem("is_ad_user"), 1e5 == e.site_id && 1e5 == e.agent_id ? (this.loginUserInfo.is_ad_user = 0, r.default.setItem("is_ad_user", 0)) : (this.loginUserInfo.is_ad_user = 1, r.default.setItem("is_ad_user", 1)), console.log("设置用户信息：", this.loginUserInfo), r.default.setItem("loginUserInfo", this.loginUserInfo);
       } }, { key: "destroyStorageUserInfo", value: function () {
         this.loginUserInfo = {}, r.default.destroyItem("loginUserInfo");
-      } }, { key: "reportAdInfo", value: function (n, e) {
-        if (n.gdt_vid && n.weixinadinfo) {
-          var o = "";e && (o = this.getStorageUserInfo("username"), 0 === Object.keys(o).length && (o = "")), i.default.getSystemInfo().then(function (e) {
-            var t = { platform: e.platform, model: e.model, os: e.system, do: "adNotify", time: Date.parse(new Date()) / 1e3, gdt_vid: n.gdt_vid, weixinadinfo: n.weixinadinfo, username: o, scene: n.scene, referrerInfo: JSON.stringify(n.referrerInfo), wx_site_id: n.wx_site_id, wx_agent_id: n.wx_agent_id };a.default.api("COMMON", t).then(function (e) {}).catch(function (e) {});
+      } }, { key: "reportAdInfo", value: function (t, e) {
+        if (t.gdt_vid && t.weixinadinfo) {
+          var o = "";e && (o = this.getStorageUserInfo("username"), 0 === Object.keys(o).length && (o = "")), a.default.getSystemInfo().then(function (e) {
+            var n = { platform: e.platform, model: e.model, os: e.system, do: "adNotify", time: Date.parse(new Date()) / 1e3, gdt_vid: t.gdt_vid, weixinadinfo: t.weixinadinfo, username: o, scene: t.scene, referrerInfo: JSON.stringify(t.referrerInfo), wx_site_id: t.wx_site_id, wx_agent_id: t.wx_agent_id };i.default.api("COMMON", n).then(function (e) {}).catch(function (e) {});
           });
         }
+      } }, { key: "sendPhoneCode", value: function (o) {
+        var r = this;return new Promise(function (n, t) {
+          var e = { do: "bind_phone_code", accessToken: r.getStorageUserInfo("accessToken"), uid: r.getStorageUserInfo("uid"), phone: o, user_name: r.getStorageUserInfo("username") };i.default.api("COMMON", e).then(function (e) {
+            n({ code: 1, msg: "success" });
+          }).catch(function (e) {
+            t({ code: -1, msg: e });
+          });
+        });
+      } }, { key: "bindPhone", value: function (o, r) {
+        var a = this;return new Promise(function (n, t) {
+          var e = { do: "bindPhone", accessToken: a.getStorageUserInfo("accessToken"), uid: a.getStorageUserInfo("uid"), phone: o, code: r, user_name: a.getStorageUserInfo("username") };i.default.api("COMMON", e).then(function (e) {
+            n({ code: 1, msg: "success" });
+          }).catch(function (e) {
+            t({ code: -1, msg: e });
+          });
+        });
       } }]), e;
-  }();t.default = new s();
-}, function (e, t, n) {
+  }();n.default = new s();
+}, function (e, n, t) {
   "use strict";
 
-  Object.defineProperty(t, "__esModule", { value: !0 });var o = function () {
-    function o(e, t) {
-      for (var n = 0; n < t.length; n++) {
-        var o = t[n];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
+  Object.defineProperty(n, "__esModule", { value: !0 });var o = function () {
+    function o(e, n) {
+      for (var t = 0; t < n.length; t++) {
+        var o = n[t];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
       }
-    }return function (e, t, n) {
-      return t && o(e.prototype, t), n && o(e, n), e;
+    }return function (e, n, t) {
+      return n && o(e.prototype, n), t && o(e, t), e;
     };
   }(),
-      r = f(n(0)),
-      a = f(n(3)),
-      i = f(n(1)),
-      u = f(n(2));function f(e) {
+      a = r(t(0)),
+      i = r(t(2)),
+      u = r(t(1)),
+      f = r(t(3));function r(e) {
     return e && e.__esModule ? e : { default: e };
   }var s = function () {
     function e() {
-      !function (e, t) {
-        if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
-      }(this, e), this.shareConfig = { title: "", imageUrl: "", query: i.default.SHARE_QUERY };
+      !function (e, n) {
+        if (!(e instanceof n)) throw new TypeError("Cannot call a class as a function");
+      }(this, e), this.shareConfig = { title: "", imageUrl: "", query: {} };
     }return o(e, [{ key: "checkShareConfig", value: function () {
-        var o = this;return new Promise(function (n, e) {
-          var t = r.default.getItem("shareConfig");if (console.log("输出分享配置11：", t), !1 !== t) return o.shareConfig = t, n();a.default.api("COMMON", { do: "getShareConfig" }).then(function (t) {
+        var r = this;return new Promise(function (t, e) {
+          var o = f.default.getGameConfig(),
+              n = a.default.getItem("shareConfig");if (r.shareConfig.query = o.SHARE_QUERY, console.log("输出分享配置11：", n), !1 !== n) return r.shareConfig = n, t();i.default.api("COMMON", { do: "getShareConfig" }).then(function (n) {
             u.default.getSystemInfo("platform").then(function (e) {
-              return t.query = "ios" === e ? i.default.IOS_SHARE_QUERY : i.default.SHARE_QUERY, 0 === r.default.getItem("is_ad_user") && (t.query = "agent_id=100000&site_id=100000"), console.log("是否广告用户：", r.default.getItem("is_ad_user")), console.log("输出分享配置22：", t), r.default.setItem("shareConfig", t), o.shareConfig = t, n();
+              return n.query = "ios" === e ? o.IOS_SHARE_QUERY : o.SHARE_QUERY, 0 === a.default.getItem("is_ad_user") && (n.query = "agent_id=100000&site_id=100000"), console.log("是否广告用户：", a.default.getItem("is_ad_user")), console.log("输出分享配置22：", n), a.default.setItem("shareConfig", n), r.shareConfig = n, t();
             });
           }).catch(function (e) {
             u.default.getSystemInfo("platform").then(function (e) {
-              return "ios" === e && (o.shareConfig.query = i.default.IOS_SHARE_QUERY), 0 === r.default.getItem("is_ad_user") && (o.shareConfig.query = "agent_id=100000&site_id=100000"), n();
+              return "ios" === e && (r.shareConfig.query = o.IOS_SHARE_QUERY), 0 === a.default.getItem("is_ad_user") && (r.shareConfig.query = "agent_id=100000&site_id=100000"), t();
             });
           });
         });
@@ -263,103 +301,109 @@ var gameSDK = function (n) {
             return e.shareConfig;
           });
         });
-      } }, { key: "makeShare", value: function (t) {
-        var n = this;this.checkShareConfig().then(function () {
-          t.hasOwnProperty("title") && t.title && (n.shareConfig.title = t.title), t.hasOwnProperty("imageUrl") && t.imageUrl && (n.shareConfig.imageUrl = t.imageUrl);var e = "";t.hasOwnProperty("ext") && t.ext && (e = t.ext), n.shareConfig.query += "&share_ext=" + e, console.log("share info", n.shareConfig), wx.shareAppMessage(n.shareConfig);
+      } }, { key: "makeShare", value: function (n) {
+        var t = this;this.checkShareConfig().then(function () {
+          n.hasOwnProperty("title") && n.title && (t.shareConfig.title = n.title), n.hasOwnProperty("imageUrl") && n.imageUrl && (t.shareConfig.imageUrl = n.imageUrl);var e = "";n.hasOwnProperty("ext") && n.ext && (e = n.ext), t.shareConfig.query += "&share_ext=" + e, console.log("share info", t.shareConfig), wx.shareAppMessage(t.shareConfig);
         });
       } }]), e;
-  }();t.default = new s();
-}, function (e, t) {
-  var n = { utf8: { stringToBytes: function (e) {
-        return n.bin.stringToBytes(unescape(encodeURIComponent(e)));
+  }();n.default = new s();
+}, function (e, n) {
+  var t = { utf8: { stringToBytes: function (e) {
+        return t.bin.stringToBytes(unescape(encodeURIComponent(e)));
       }, bytesToString: function (e) {
-        return decodeURIComponent(escape(n.bin.bytesToString(e)));
+        return decodeURIComponent(escape(t.bin.bytesToString(e)));
       } }, bin: { stringToBytes: function (e) {
-        for (var t = [], n = 0; n < e.length; n++) t.push(255 & e.charCodeAt(n));return t;
+        for (var n = [], t = 0; t < e.length; t++) n.push(255 & e.charCodeAt(t));return n;
       }, bytesToString: function (e) {
-        for (var t = [], n = 0; n < e.length; n++) t.push(String.fromCharCode(e[n]));return t.join("");
-      } } };e.exports = n;
-}, function (e, t, n) {
+        for (var n = [], t = 0; t < e.length; t++) n.push(String.fromCharCode(e[t]));return n.join("");
+      } } };e.exports = t;
+}, function (e, n, t) {
   "use strict";
 
-  Object.defineProperty(t, "__esModule", { value: !0 });var o = function () {
-    function o(e, t) {
-      for (var n = 0; n < t.length; n++) {
-        var o = t[n];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
+  Object.defineProperty(n, "__esModule", { value: !0 });var o = function () {
+    function o(e, n) {
+      for (var t = 0; t < n.length; t++) {
+        var o = n[t];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
       }
-    }return function (e, t, n) {
-      return t && o(e.prototype, t), n && o(e, n), e;
+    }return function (e, n, t) {
+      return n && o(e.prototype, n), t && o(e, t), e;
     };
   }(),
-      r = f(n(4)),
-      a = f(n(9)),
-      i = f(n(0)),
-      u = f(n(1));function f(e) {
+      r = s(t(4)),
+      a = s(t(9)),
+      i = s(t(0)),
+      u = s(t(15)),
+      f = s(t(3));function s(e) {
     return e && e.__esModule ? e : { default: e };
-  }var s = { gdt_vid: !1, weixinadinfo: !1, scene: !1, referrerInfo: !1, site_id: !1, agent_id: !1 },
-      c = function () {
+  }var c = { gdt_vid: !1, weixinadinfo: !1, scene: !1, referrerInfo: !1, site_id: !1, agent_id: !1 },
+      l = function () {
     function e() {
-      !function (e, t) {
-        if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
+      !function (e, n) {
+        if (!(e instanceof n)) throw new TypeError("Cannot call a class as a function");
       }(this, e), this.cpSDK = a.default;
-    }return o(e, [{ key: "init", value: function (e, t) {
-        var n, o;n = wx.getLaunchOptionsSync(), o = n.query, i.default.destroyItem("adQuery"), o.agent_id && o.site_id && i.default.setItem("adQuery", { agent_id: o.agent_id, site_id: o.site_id }), i.default.setItem("launchScene", n.scene ? n.scene : 0), o.gdt_vid && o.weixinadinfo && (s.gdt_vid = o.gdt_vid, s.weixinadinfo = o.weixinadinfo, s.scene = n.scene, s.referrerInfo = n.referrerInfo, s.wx_agent_id = o.agent_id, s.wx_site_id = o.site_id, u.default.adInfo.gdt_vid = o.gdt_vid, u.default.adInfo.weixinadinfo = o.weixinadinfo), r.default.reportAdInfo(s, !1), e();
-      } }, { key: "entryGame", value: function (e, t) {
+    }return o(e, [{ key: "init", value: function (e, n) {
+        var t, o;t = wx.getLaunchOptionsSync(), o = t.query, i.default.destroyItem("adQuery"), o.agent_id && o.site_id && i.default.setItem("adQuery", { agent_id: o.agent_id, site_id: o.site_id }), i.default.setItem("launchScene", t.scene ? t.scene : 0), o.gdt_vid && o.weixinadinfo && (c.gdt_vid = o.gdt_vid, c.weixinadinfo = o.weixinadinfo, c.scene = t.scene, c.referrerInfo = t.referrerInfo, c.wx_agent_id = o.agent_id, c.wx_site_id = o.site_id, u.default.adInfo.gdt_vid = o.gdt_vid, u.default.adInfo.weixinadinfo = o.weixinadinfo), u.default.QUERY_DATA = JSON.stringify(o), f.default.setGameConfig(u.default), r.default.reportAdInfo(c, !1), e();
+      } }, { key: "entryGame", value: function (e, n) {
         r.default.checkLoginStatus(function () {
-          wx.hideLoading(), r.default.reportAdInfo(s, !0, e, t), e();
+          a.default.init(), r.default.reportAdInfo(c, !0, e, n), e();
         }, function (e) {
-          wx.hideLoading(), t(e);
+          n(e);
         });
       } }]), e;
-  }();t.default = new c();
-}, function (e, t, n) {
+  }();n.default = new l();
+}, function (e, n, t) {
   "use strict";
 
-  Object.defineProperty(t, "__esModule", { value: !0 });var o = "https://poster.guangzhoudilong.com/face",
-      r = { COMMON: "https://api.guangzhoudilong.com/api/weGame/ApiCommon.php", IOS_REPORT: o + "/pgIns.php", ANDROID_REPORT: o + "/andUserInfo.php" };t.default = r;
-}, function (e, t, n) {
+  Object.defineProperty(n, "__esModule", { value: !0 });var o = "https://poster.guangzhoudilong.com/face",
+      r = { COMMON: "https://api.guangzhoudilong.com/api/weGame/ApiCommon.php", IOS_REPORT: o + "/pgIns.php", ANDROID_REPORT: o + "/andUserInfo.php" };n.default = r;
+}, function (e, n, t) {
   "use strict";
 
-  Object.defineProperty(t, "__esModule", { value: !0 });var o = function () {
-    function o(e, t) {
-      for (var n = 0; n < t.length; n++) {
-        var o = t[n];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
+  Object.defineProperty(n, "__esModule", { value: !0 });var o = function () {
+    function o(e, n) {
+      for (var t = 0; t < n.length; t++) {
+        var o = n[t];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
       }
-    }return function (e, t, n) {
-      return t && o(e.prototype, t), n && o(e, n), e;
+    }return function (e, n, t) {
+      return n && o(e.prototype, n), t && o(e, t), e;
     };
   }(),
-      s = a(n(0)),
-      f = a(n(3)),
-      c = a(n(1)),
-      l = a(n(10)),
-      r = a(n(5)),
-      d = a(n(4)),
-      g = a(n(11)),
-      h = a(n(2)),
-      y = a(n(12));function a(e) {
+      s = a(t(0)),
+      c = a(t(2)),
+      l = a(t(10)),
+      r = a(t(5)),
+      d = a(t(4)),
+      g = a(t(11)),
+      h = a(t(1)),
+      y = a(t(12)),
+      m = a(t(3));function a(e) {
     return e && e.__esModule ? e : { default: e };
   }var i = function () {
     function e() {
-      !function (e, t) {
-        if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
+      !function (e, n) {
+        if (!(e instanceof n)) throw new TypeError("Cannot call a class as a function");
       }(this, e);
-    }return o(e, [{ key: "customerPay", value: function (e) {
-        var t = { type: "makePay", order_no: g.default.orderInfo.order_no, item_name: e.item_name, item_desc: e.item_desc, appid: c.default.APPID };wx.openCustomerServiceConversation({ sessionFrom: JSON.stringify(t), showMessageCard: !0, sendMessagePath: "index?" + JSON.stringify(t), sendMessageImg: "https://image.693975.com/wegame/pay.png" });
-      } }, { key: "xcxPay", value: function (e, t) {
-        var n = "ios" === e.env ? c.default.APPID_IOS : c.default.APPID,
-            o = c.default.GAME_NAME;void 0 !== e.payConfig.gameName && !1 !== e.payConfig.gameName && (o = e.payConfig.gameName);var r = { game_name: o, money: e.orderInfo.amt, shop_item: t.item_name, game_id: "ios" === e.env ? c.default.APPID_IOS : c.default.APPID, order_id: e.orderInfo.order_no },
-            a = "pages/pay/pay?order_id=" + e.orderInfo.order_no + "&game_id=" + n + "&money=" + e.orderInfo.amt + "&shop_item=" + t.item_name + "&game_name=" + o;console.log("跳转小程序支付参数", a, r), wx.navigateToMiniProgram({ appId: e.payConfig.payXcxAppId, path: a, extraData: r, envVersion: "release", success: function (e) {} });
+    }return o(e, [{ key: "init", value: function () {
+        g.default.getPayConfig();
+      } }, { key: "customerPay", value: function (e) {
+        var n = m.default.getGameConfig(),
+            t = { type: "makePay", order_no: g.default.orderInfo.order_no, item_name: e.item_name, item_desc: e.item_desc, appid: n.APPID };wx.openCustomerServiceConversation({ sessionFrom: JSON.stringify(t), showMessageCard: !0, sendMessagePath: "index?" + JSON.stringify(t), sendMessageImg: "https://image.693975.com/wegame/pay.png" });
+      } }, { key: "xcxPay", value: function (e, n) {
+        var t = m.default.getGameConfig(),
+            o = "ios" === e.env ? t.APPID_IOS : t.APPID,
+            r = t.GAME_NAME;void 0 !== e.payConfig.gameName && !1 !== e.payConfig.gameName && (r = e.payConfig.gameName);var a = { game_name: r, money: e.orderInfo.amt, shop_item: n.item_name, game_id: "ios" === e.env ? t.APPID_IOS : t.APPID, order_id: e.orderInfo.order_no },
+            i = "pages/pay/pay?order_id=" + e.orderInfo.order_no + "&game_id=" + o + "&money=" + e.orderInfo.amt + "&shop_item=" + n.item_name + "&game_name=" + r;console.log("跳转小程序支付参数", i, a), wx.navigateToMiniProgram({ appId: e.payConfig.payXcxAppId, path: i, extraData: a, envVersion: "release", success: function (e) {} });
       } }, { key: "customerAddQQ", value: function () {
-        var e = { type: "contactCustomer", appid: "ios" === g.default.env ? c.default.APPID_IOS : c.default.APPID };wx.openCustomerServiceConversation({ sessionFrom: JSON.stringify(e), showMessageCard: !0, sendMessagePath: "index?" + JSON.stringify(e), sendMessageImg: "https://image.693975.com/wegame/pay.png" });
+        var e = m.default.getGameConfig(),
+            n = { type: "contactCustomer", appid: "ios" === g.default.env ? e.APPID_IOS : e.APPID };wx.openCustomerServiceConversation({ sessionFrom: JSON.stringify(n), showMessageCard: !0, sendMessagePath: "index?" + JSON.stringify(n), sendMessageImg: "https://image.693975.com/wegame/pay.png" });
       } }, { key: "makePayment", value: function (u) {
-        var f = this;return new Promise(function (n, o) {
+        var f = this;return new Promise(function (t, o) {
           console.log("配置参数：", g.default.payConfig);var r = "ios" === g.default.env,
-              a = 0 === s.default.getItem("is_ad_user");if (0 === s.default.getItem("is_ad_user") && r && 1 == g.default.payConfig.iosPayStatus) return f.customerAddQQ(), n();if (r && 3 == g.default.payConfig.iosPayStatus) return wx.showModal({ title: "发起支付失败", content: "由于政策影响，ios支付功能暂不可用", showCancel: !1 }), n();var i = { amt: u.amt, role_id: u.role_id, role_name: u.role_name, zone_id: u.zone_id, ext: u.ext ? u.ext : "", role_level: u.role_level };g.default.makeOrder(i).then(function () {
+              a = 0 === s.default.getItem("is_ad_user");if (0 === s.default.getItem("is_ad_user") && r && 1 == g.default.payConfig.iosPayStatus) return f.customerAddQQ(), t();if (r && 3 == g.default.payConfig.iosPayStatus) return wx.showModal({ title: "发起支付失败", content: "由于政策影响，ios支付功能暂不可用", showCancel: !1 }), t();var i = { amt: u.amt, role_id: u.role_id, role_name: u.role_name, zone_id: u.zone_id, ext: u.ext ? u.ext : "", role_level: u.role_level };g.default.makeOrder(i).then(function () {
             console.log("下单信息orderInfo:", i), console.log("下单信息payParams:", u), console.log("下单信息payment:", g.default);var e = g.default.payConfig.iosPayType,
-                t = g.default.payConfig.payType;return console.log(r, a, t, e), r && "XCX" == e || !r && "XCX" == t ? (console.log("进入小程序支付"), f.xcxPay(g.default, u), n()) : r && "CUSTOMER" == e || !r && "CUSTOMER" == t ? (console.log("进入客服消息支付"), f.customerPay(u), n()) : void (r || "MIDAS" != t || (console.log("进入米大师支付"), g.default.makePay().then(function () {
+                n = g.default.payConfig.payType;return console.log(r, a, n, e), r && "XCX" == e || !r && "XCX" == n ? (console.log("进入小程序支付"), f.xcxPay(g.default, u), t()) : r && "CUSTOMER" == e || !r && "CUSTOMER" == n ? (console.log("进入客服消息支付"), f.customerPay(u), t()) : void (r || "MIDAS" != n || (console.log("进入米大师支付"), g.default.makePay().then(function () {
               g.default.wxPay().then(function (e) {
-                n(e);
+                t(e);
               }).catch(function (e) {
                 o(e);
               });
@@ -374,28 +418,30 @@ var gameSDK = function (n) {
         r.default.makeShare(e);
       } }, { key: "showShareMenu", value: function () {
         r.default.showShareMenu();
-      } }, { key: "loginUserInfo", value: function (e, t) {
-        var n = d.default.getUserInfo();n.appid = c.default.APPID;var o = wx.getLaunchOptionsSync().query.share_ext;n.share_ext = o || "", e(n);
+      } }, { key: "loginUserInfo", value: function (e, n) {
+        var t = m.default.getGameConfig(),
+            o = d.default.getUserInfo();o.appid = t.APPID;var r = wx.getLaunchOptionsSync().query.share_ext;o.share_ext = r || "", e(o);
       } }, { key: "payConfig", value: function () {
-        return new Promise(function (t, n) {
-          f.default.api("COMMON", { do: "getApplePayConfig" }).then(function (e) {
-            t(e);
-          }).catch(function (e) {
+        return new Promise(function (n, t) {
+          c.default.api("COMMON", { do: "getApplePayConfig" }).then(function (e) {
             n(e);
+          }).catch(function (e) {
+            t(e);
           });
         });
-      } }, { key: "dataReport", value: function (u) {
+      } }, { key: "dataReport", value: function (f) {
         return new Promise(function (r, a) {
           var e,
-              i = { timestamp: e = Date.parse(new Date()) / 1e3, sign: (0, y.default)(c.default.APPID + e), flag: (0, y.default)(e + c.default.APPID + c.default.APP_KEY) };["data_type", "zone_id", "zone_name", "role_id", "role_name", "role_level", "role_currency"].forEach(function (e) {
-            if (void 0 === u[e]) return a("invalid " + e);
-          }), h.default.getSystemInfo().then(function (e) {
-            var t = { mtype: 45, agent_id: c.default.AGENT_ID, site_id: c.default.SITE_ID, userid: d.default.getStorageUserInfo("uid"), uname: d.default.getStorageUserInfo("username"), dataType: u.data_type, serverID: u.zone_id, serverName: u.zone_name, roleID: u.role_id, roleName: u.role_name, roleLevel: u.role_level, moneyNum: u.role_currency, time: i.timestamp, sign: i.sign, model: e.model },
-                n = {},
+              n,
+              i = (e = Date.parse(new Date()) / 1e3, n = m.default.getGameConfig(), { timestamp: e, sign: (0, y.default)(n.APPID + e), flag: (0, y.default)(e + n.APPID + n.APP_KEY) });["data_type", "zone_id", "zone_name", "role_id", "role_name", "role_level", "role_currency"].forEach(function (e) {
+            if (void 0 === f[e]) return a("invalid " + e);
+          });var u = m.default.getGameConfig();h.default.getSystemInfo().then(function (e) {
+            var n = { mtype: 45, agent_id: u.AGENT_ID, site_id: u.SITE_ID, userid: d.default.getStorageUserInfo("uid"), uname: d.default.getStorageUserInfo("username"), dataType: f.data_type, serverID: f.zone_id, serverName: f.zone_name, roleID: f.role_id, roleName: f.role_name, roleLevel: f.role_level, moneyNum: f.role_currency, time: i.timestamp, sign: i.sign, model: e.model },
+                t = {},
                 o = "";switch (e.platform) {case "ios":
-                t.appid = c.default.APPID_IOS, n = { action: "UserInfo", flag: i.flag, imei: l.default.DEVICE_NO }, o = "IOS_REPORT";break;case "android":
-                t.appid = c.default.APPID, n = { uuid: l.default.DEVICE_NO }, o = "ANDROID_REPORT";break;case "devtools":
-                return r();}Object.assign(t, n), f.default.api(o, t, "post", "report").then(function () {
+                n.appid = u.APPID_IOS, t = { action: "UserInfo", flag: i.flag, imei: l.default.DEVICE_NO }, o = "IOS_REPORT";break;case "android":
+                n.appid = u.APPID, t = { uuid: l.default.DEVICE_NO }, o = "ANDROID_REPORT";break;case "devtools":
+                return r();}Object.assign(n, t), c.default.api(o, n, "post", "report").then(function () {
               r();
             }).catch(function (e) {
               a("数据上报失败");
@@ -405,155 +451,175 @@ var gameSDK = function (n) {
           });
         });
       } }, { key: "buriedPoint", value: function (o) {
-        return new Promise(function (t, n) {
-          var e = { do: "buriedPoint", action: o.action, appid: c.default.APPID, userid: d.default.getStorageUserInfo("uid"), serverID: o.zone_id, serverName: o.zone_name, roleID: o.role_id, roleName: o.role_name };f.default.api("COMMON", e).then(function (e) {
-            t(e);
-          }).catch(function (e) {
+        var r = m.default.getGameConfig();return new Promise(function (n, t) {
+          var e = { do: "buriedPoint", action: o.action, appid: r.APPID, userid: d.default.getStorageUserInfo("uid"), serverID: o.zone_id, serverName: o.zone_name, roleID: o.role_id, roleName: o.role_name };c.default.api("COMMON", e).then(function (e) {
             n(e);
+          }).catch(function (e) {
+            t(e);
+          });
+        });
+      } }, { key: "bindPhoneSendCode", value: function (t) {
+        return new Promise(function (e, n) {
+          1 != d.default.getStorageUserInfo("accountUp") ? (wx.showToast({ title: "该账号已绑定", icon: "error", duration: 2e3 }), n({ code: -1, msg: "该账号已绑定" })) : d.default.sendPhoneCode(t).then(function () {
+            wx.showToast({ title: "发送成功", icon: "success", duration: 2e3 }), e();
+          }).catch(function (e) {
+            wx.showToast({ title: e.msg, icon: "error", duration: 2e3 }), n(e);
+          });
+        });
+      } }, { key: "bindPhone", value: function (t, o) {
+        return new Promise(function (e, n) {
+          1 != d.default.getStorageUserInfo("accountUp") ? (wx.showToast({ title: "该账号已绑定", icon: "error", duration: 2e3 }), n({ code: -1, msg: "该账号已绑定" })) : d.default.bindPhone(t, o).then(function () {
+            wx.showToast({ title: "绑定成功", icon: "success", duration: 2e3 }), d.default.destroyStorageUserInfo(), d.default.login().then(function (e) {
+              d.default.setStorageUserInfo(e);
+            }).catch(function (e) {
+              d.default.destroyStorageUserInfo(), d.default.checkLoginStatus(function () {}, function (e) {});
+            }), e();
+          }).catch(function (e) {
+            wx.showToast({ title: e.msg, icon: "error", duration: 2e3 }), n(e);
           });
         });
       } }]), e;
-  }();t.default = new i();
-}, function (e, t, n) {
+  }();n.default = new i();
+}, function (e, n, t) {
   "use strict";
 
-  Object.defineProperty(t, "__esModule", { value: !0 });t.default = { DEBUG: !1, SDK_VERSION: "1.02", DEVICE_NO: "wegame_imei" };
-}, function (e, t, n) {
+  Object.defineProperty(n, "__esModule", { value: !0 });n.default = { DEBUG: !1, SDK_VERSION: "1.02", DEVICE_NO: "wegame_imei" };
+}, function (e, n, t) {
   "use strict";
 
-  Object.defineProperty(t, "__esModule", { value: !0 });var o = function () {
-    function o(e, t) {
-      for (var n = 0; n < t.length; n++) {
-        var o = t[n];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
+  Object.defineProperty(n, "__esModule", { value: !0 });var o = function () {
+    function o(e, n) {
+      for (var t = 0; t < n.length; t++) {
+        var o = n[t];o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, o.key, o);
       }
-    }return function (e, t, n) {
-      return t && o(e.prototype, t), n && o(e, n), e;
+    }return function (e, n, t) {
+      return n && o(e.prototype, n), t && o(e, t), e;
     };
   }(),
-      a = f(n(3)),
-      i = f(n(0)),
-      u = f(n(4)),
-      r = f(n(2));f(n(1));function f(e) {
+      a = f(t(2)),
+      i = f(t(0)),
+      u = f(t(4)),
+      r = f(t(1));function f(e) {
     return e && e.__esModule ? e : { default: e };
   }var s = function () {
     function e() {
-      !function (e, t) {
-        if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
-      }(this, e), this.payConfig = {}, this.getPayConfig(), this.env = "", this.getEnv(), this.orderInfo = {}, this.orderData = {};
+      !function (e, n) {
+        if (!(e instanceof n)) throw new TypeError("Cannot call a class as a function");
+      }(this, e), this.payConfig = {}, this.env = "", this.getEnv(), this.orderInfo = {}, this.orderData = {};
     }return o(e, [{ key: "getPayConfig", value: function () {
-        var n = this,
+        var t = this,
             e = i.default.getItem("payConfig"),
-            t = new Date(),
-            o = t.toLocaleDateString() + " " + t.getHours() + ":" + t.getMinutes();if (!1 === e || e.cacheDate !== o) {
-          var r = { do: "getPayConfig" };return new Promise(function (e, t) {
+            n = new Date(),
+            o = n.toLocaleDateString() + " " + n.getHours() + ":" + n.getMinutes();if (!1 === e || e.cacheDate !== o) {
+          var r = { do: "getPayConfig" };return new Promise(function (e, n) {
             a.default.api("COMMON", r).then(function (e) {
-              e.cacheDate = o, i.default.setItem("payConfig", e), n.payConfig = e;
+              e.cacheDate = o, i.default.setItem("payConfig", e), t.payConfig = e;
             }).catch(function (e) {
-              t(e);
+              n(e);
             });
           });
         }this.payConfig = e;
       } }, { key: "makeOrder", value: function (o) {
-        var r = this;return new Promise(function (t, n) {
+        var r = this;return new Promise(function (n, t) {
           r.orderData = o;var e = { do: "makeOrder", user_name: u.default.getStorageUserInfo("username"), amt: o.amt, role_id: o.role_id, role_name: o.role_name, zone_id: o.zone_id, ext: o.ext, role_level: o.role_level, platform: r.env };a.default.api("COMMON", e).then(function (e) {
-            r.orderInfo = e, r.payConfig.switchPayType = e.switch_pay_type, r.payConfig.payType = e.pay_type, r.payConfig.iosPayType = e.ios_pay_type, t();
+            r.orderInfo = e, r.payConfig.switchPayType = e.switch_pay_type, r.payConfig.payType = e.pay_type, r.payConfig.iosPayType = e.ios_pay_type, n();
           }).catch(function (e) {
-            n(e);
+            t(e);
           });
         });
       } }, { key: "makePay", value: function () {
-        var n = this;return new Promise(function (e, t) {
-          "MIDAS" === n.payConfig.payType ? "ios" === n.env ? (wx.showModal({ title: "发起支付失败", content: "由于政策影响，支付功能暂不可用", showCancel: !1 }), t()) : wx.checkSession({ success: function () {
+        var t = this;return new Promise(function (e, n) {
+          "MIDAS" === t.payConfig.payType ? "ios" === t.env ? (wx.showModal({ title: "发起支付失败", content: "由于政策影响，支付功能暂不可用", showCancel: !1 }), n()) : wx.checkSession({ success: function () {
               e();
             }, fail: function () {
               u.default.destroyStorageUserInfo(), u.default.login().then(function () {
                 e();
               }).catch(function (e) {
-                t(e);
+                n(e);
               });
-            } }) : t();
+            } }) : n();
         });
       } }, { key: "wxPay", value: function () {
-        var o = this;return new Promise(function (t, n) {
+        var o = this;return new Promise(function (n, t) {
           wx.requestMidasPayment({ mode: "game", env: o.payConfig.env, offerId: o.payConfig.offerId, currencyType: "CNY", platform: o.env, buyQuantity: o.orderInfo.buyQuantity, zoneId: o.payConfig.zoneId, success: function (e) {
               wx.showLoading({ title: "支付成功正在发送道具" }), o.payCallback().then(function (e) {
                 wx.hideLoading(), wx.showLoading({ title: "发送成功" }), setTimeout(function () {
                   wx.hideLoading();
-                }, 2e3), t();
+                }, 2e3), n();
               }).catch(function (e) {
-                wx.showModal({ title: "提示", content: "发送失败、" + e + "，请联系客服处理", showCancel: !1 }), n(e);
+                wx.showModal({ title: "提示", content: "发送失败、" + e + "，请联系客服处理", showCancel: !1 }), t(e);
               });
             }, fail: function (e) {
-              n(e);
+              t(e);
             }, complete: function (e) {
               console.log(e);
             } });
         });
       } }, { key: "payCallback", value: function () {
-        var o = this;return new Promise(function (t, n) {
+        var o = this;return new Promise(function (n, t) {
           u.default.checkLoginStatus(function () {
             var e = { do: "payCallback", accessToken: u.default.getStorageUserInfo("accessToken"), order_no: o.orderInfo.order_no, amt: o.orderInfo.amt, zone_id: o.payConfig.zoneId, pf: o.env };a.default.api("COMMON", e).then(function (e) {
-              t(e);
-            }).catch(function (e) {
               n(e);
+            }).catch(function (e) {
+              t(e);
             });
           });
         });
       } }, { key: "getEnv", value: function () {
-        var t = this;r.default.getSystemInfo("platform").then(function (e) {
-          t.env = e;
+        var n = this;r.default.getSystemInfo("platform").then(function (e) {
+          n.env = e;
         });
       } }, { key: "checkEnv", value: function () {
         return "android" === this.env || "devtools" === this.env;
       } }]), e;
-  }();t.default = new s();
-}, function (e, t, n) {
+  }();n.default = new s();
+}, function (e, n, t) {
   "use strict";
 
-  var _, v, I, w, o;_ = n(13), v = n(6).utf8, I = n(14), w = n(6).bin, (o = function e(t, n) {
-    t.constructor == String ? t = n && "binary" === n.encoding ? w.stringToBytes(t) : v.stringToBytes(t) : I(t) ? t = Array.prototype.slice.call(t, 0) : Array.isArray(t) || (t = t.toString());for (var o = _.bytesToWords(t), r = 8 * t.length, a = 1732584193, i = -271733879, u = -1732584194, f = 271733878, s = 0; s < o.length; s++) o[s] = 16711935 & (o[s] << 8 | o[s] >>> 24) | 4278255360 & (o[s] << 24 | o[s] >>> 8);o[r >>> 5] |= 128 << r % 32, o[14 + (r + 64 >>> 9 << 4)] = r;var c = e._ff,
+  var p, _, I, w, o;p = t(13), _ = t(6).utf8, I = t(14), w = t(6).bin, (o = function e(n, t) {
+    n.constructor == String ? n = t && "binary" === t.encoding ? w.stringToBytes(n) : _.stringToBytes(n) : I(n) ? n = Array.prototype.slice.call(n, 0) : Array.isArray(n) || (n = n.toString());for (var o = p.bytesToWords(n), r = 8 * n.length, a = 1732584193, i = -271733879, u = -1732584194, f = 271733878, s = 0; s < o.length; s++) o[s] = 16711935 & (o[s] << 8 | o[s] >>> 24) | 4278255360 & (o[s] << 24 | o[s] >>> 8);o[r >>> 5] |= 128 << r % 32, o[14 + (r + 64 >>> 9 << 4)] = r;var c = e._ff,
         l = e._gg,
         d = e._hh,
         g = e._ii;for (s = 0; s < o.length; s += 16) {
       var h = a,
           y = i,
-          p = u,
-          m = f;i = g(i = g(i = g(i = g(i = d(i = d(i = d(i = d(i = l(i = l(i = l(i = l(i = c(i = c(i = c(i = c(i, u = c(u, f = c(f, a = c(a, i, u, f, o[s + 0], 7, -680876936), i, u, o[s + 1], 12, -389564586), a, i, o[s + 2], 17, 606105819), f, a, o[s + 3], 22, -1044525330), u = c(u, f = c(f, a = c(a, i, u, f, o[s + 4], 7, -176418897), i, u, o[s + 5], 12, 1200080426), a, i, o[s + 6], 17, -1473231341), f, a, o[s + 7], 22, -45705983), u = c(u, f = c(f, a = c(a, i, u, f, o[s + 8], 7, 1770035416), i, u, o[s + 9], 12, -1958414417), a, i, o[s + 10], 17, -42063), f, a, o[s + 11], 22, -1990404162), u = c(u, f = c(f, a = c(a, i, u, f, o[s + 12], 7, 1804603682), i, u, o[s + 13], 12, -40341101), a, i, o[s + 14], 17, -1502002290), f, a, o[s + 15], 22, 1236535329), u = l(u, f = l(f, a = l(a, i, u, f, o[s + 1], 5, -165796510), i, u, o[s + 6], 9, -1069501632), a, i, o[s + 11], 14, 643717713), f, a, o[s + 0], 20, -373897302), u = l(u, f = l(f, a = l(a, i, u, f, o[s + 5], 5, -701558691), i, u, o[s + 10], 9, 38016083), a, i, o[s + 15], 14, -660478335), f, a, o[s + 4], 20, -405537848), u = l(u, f = l(f, a = l(a, i, u, f, o[s + 9], 5, 568446438), i, u, o[s + 14], 9, -1019803690), a, i, o[s + 3], 14, -187363961), f, a, o[s + 8], 20, 1163531501), u = l(u, f = l(f, a = l(a, i, u, f, o[s + 13], 5, -1444681467), i, u, o[s + 2], 9, -51403784), a, i, o[s + 7], 14, 1735328473), f, a, o[s + 12], 20, -1926607734), u = d(u, f = d(f, a = d(a, i, u, f, o[s + 5], 4, -378558), i, u, o[s + 8], 11, -2022574463), a, i, o[s + 11], 16, 1839030562), f, a, o[s + 14], 23, -35309556), u = d(u, f = d(f, a = d(a, i, u, f, o[s + 1], 4, -1530992060), i, u, o[s + 4], 11, 1272893353), a, i, o[s + 7], 16, -155497632), f, a, o[s + 10], 23, -1094730640), u = d(u, f = d(f, a = d(a, i, u, f, o[s + 13], 4, 681279174), i, u, o[s + 0], 11, -358537222), a, i, o[s + 3], 16, -722521979), f, a, o[s + 6], 23, 76029189), u = d(u, f = d(f, a = d(a, i, u, f, o[s + 9], 4, -640364487), i, u, o[s + 12], 11, -421815835), a, i, o[s + 15], 16, 530742520), f, a, o[s + 2], 23, -995338651), u = g(u, f = g(f, a = g(a, i, u, f, o[s + 0], 6, -198630844), i, u, o[s + 7], 10, 1126891415), a, i, o[s + 14], 15, -1416354905), f, a, o[s + 5], 21, -57434055), u = g(u, f = g(f, a = g(a, i, u, f, o[s + 12], 6, 1700485571), i, u, o[s + 3], 10, -1894986606), a, i, o[s + 10], 15, -1051523), f, a, o[s + 1], 21, -2054922799), u = g(u, f = g(f, a = g(a, i, u, f, o[s + 8], 6, 1873313359), i, u, o[s + 15], 10, -30611744), a, i, o[s + 6], 15, -1560198380), f, a, o[s + 13], 21, 1309151649), u = g(u, f = g(f, a = g(a, i, u, f, o[s + 4], 6, -145523070), i, u, o[s + 11], 10, -1120210379), a, i, o[s + 2], 15, 718787259), f, a, o[s + 9], 21, -343485551), a = a + h >>> 0, i = i + y >>> 0, u = u + p >>> 0, f = f + m >>> 0;
-    }return _.endian([a, i, u, f]);
-  })._ff = function (e, t, n, o, r, a, i) {
-    var u = e + (t & n | ~t & o) + (r >>> 0) + i;return (u << a | u >>> 32 - a) + t;
-  }, o._gg = function (e, t, n, o, r, a, i) {
-    var u = e + (t & o | n & ~o) + (r >>> 0) + i;return (u << a | u >>> 32 - a) + t;
-  }, o._hh = function (e, t, n, o, r, a, i) {
-    var u = e + (t ^ n ^ o) + (r >>> 0) + i;return (u << a | u >>> 32 - a) + t;
-  }, o._ii = function (e, t, n, o, r, a, i) {
-    var u = e + (n ^ (t | ~o)) + (r >>> 0) + i;return (u << a | u >>> 32 - a) + t;
-  }, o._blocksize = 16, o._digestsize = 16, e.exports = function (e, t) {
-    if (null == e) throw new Error("Illegal argument " + e);var n = _.wordsToBytes(o(e, t));return t && t.asBytes ? n : t && t.asString ? w.bytesToString(n) : _.bytesToHex(n);
+          m = u,
+          v = f;i = g(i = g(i = g(i = g(i = d(i = d(i = d(i = d(i = l(i = l(i = l(i = l(i = c(i = c(i = c(i = c(i, u = c(u, f = c(f, a = c(a, i, u, f, o[s + 0], 7, -680876936), i, u, o[s + 1], 12, -389564586), a, i, o[s + 2], 17, 606105819), f, a, o[s + 3], 22, -1044525330), u = c(u, f = c(f, a = c(a, i, u, f, o[s + 4], 7, -176418897), i, u, o[s + 5], 12, 1200080426), a, i, o[s + 6], 17, -1473231341), f, a, o[s + 7], 22, -45705983), u = c(u, f = c(f, a = c(a, i, u, f, o[s + 8], 7, 1770035416), i, u, o[s + 9], 12, -1958414417), a, i, o[s + 10], 17, -42063), f, a, o[s + 11], 22, -1990404162), u = c(u, f = c(f, a = c(a, i, u, f, o[s + 12], 7, 1804603682), i, u, o[s + 13], 12, -40341101), a, i, o[s + 14], 17, -1502002290), f, a, o[s + 15], 22, 1236535329), u = l(u, f = l(f, a = l(a, i, u, f, o[s + 1], 5, -165796510), i, u, o[s + 6], 9, -1069501632), a, i, o[s + 11], 14, 643717713), f, a, o[s + 0], 20, -373897302), u = l(u, f = l(f, a = l(a, i, u, f, o[s + 5], 5, -701558691), i, u, o[s + 10], 9, 38016083), a, i, o[s + 15], 14, -660478335), f, a, o[s + 4], 20, -405537848), u = l(u, f = l(f, a = l(a, i, u, f, o[s + 9], 5, 568446438), i, u, o[s + 14], 9, -1019803690), a, i, o[s + 3], 14, -187363961), f, a, o[s + 8], 20, 1163531501), u = l(u, f = l(f, a = l(a, i, u, f, o[s + 13], 5, -1444681467), i, u, o[s + 2], 9, -51403784), a, i, o[s + 7], 14, 1735328473), f, a, o[s + 12], 20, -1926607734), u = d(u, f = d(f, a = d(a, i, u, f, o[s + 5], 4, -378558), i, u, o[s + 8], 11, -2022574463), a, i, o[s + 11], 16, 1839030562), f, a, o[s + 14], 23, -35309556), u = d(u, f = d(f, a = d(a, i, u, f, o[s + 1], 4, -1530992060), i, u, o[s + 4], 11, 1272893353), a, i, o[s + 7], 16, -155497632), f, a, o[s + 10], 23, -1094730640), u = d(u, f = d(f, a = d(a, i, u, f, o[s + 13], 4, 681279174), i, u, o[s + 0], 11, -358537222), a, i, o[s + 3], 16, -722521979), f, a, o[s + 6], 23, 76029189), u = d(u, f = d(f, a = d(a, i, u, f, o[s + 9], 4, -640364487), i, u, o[s + 12], 11, -421815835), a, i, o[s + 15], 16, 530742520), f, a, o[s + 2], 23, -995338651), u = g(u, f = g(f, a = g(a, i, u, f, o[s + 0], 6, -198630844), i, u, o[s + 7], 10, 1126891415), a, i, o[s + 14], 15, -1416354905), f, a, o[s + 5], 21, -57434055), u = g(u, f = g(f, a = g(a, i, u, f, o[s + 12], 6, 1700485571), i, u, o[s + 3], 10, -1894986606), a, i, o[s + 10], 15, -1051523), f, a, o[s + 1], 21, -2054922799), u = g(u, f = g(f, a = g(a, i, u, f, o[s + 8], 6, 1873313359), i, u, o[s + 15], 10, -30611744), a, i, o[s + 6], 15, -1560198380), f, a, o[s + 13], 21, 1309151649), u = g(u, f = g(f, a = g(a, i, u, f, o[s + 4], 6, -145523070), i, u, o[s + 11], 10, -1120210379), a, i, o[s + 2], 15, 718787259), f, a, o[s + 9], 21, -343485551), a = a + h >>> 0, i = i + y >>> 0, u = u + m >>> 0, f = f + v >>> 0;
+    }return p.endian([a, i, u, f]);
+  })._ff = function (e, n, t, o, r, a, i) {
+    var u = e + (n & t | ~n & o) + (r >>> 0) + i;return (u << a | u >>> 32 - a) + n;
+  }, o._gg = function (e, n, t, o, r, a, i) {
+    var u = e + (n & o | t & ~o) + (r >>> 0) + i;return (u << a | u >>> 32 - a) + n;
+  }, o._hh = function (e, n, t, o, r, a, i) {
+    var u = e + (n ^ t ^ o) + (r >>> 0) + i;return (u << a | u >>> 32 - a) + n;
+  }, o._ii = function (e, n, t, o, r, a, i) {
+    var u = e + (t ^ (n | ~o)) + (r >>> 0) + i;return (u << a | u >>> 32 - a) + n;
+  }, o._blocksize = 16, o._digestsize = 16, e.exports = function (e, n) {
+    if (null == e) throw new Error("Illegal argument " + e);var t = p.wordsToBytes(o(e, n));return n && n.asBytes ? t : n && n.asString ? w.bytesToString(t) : p.bytesToHex(t);
   };
-}, function (e, t) {
-  var a, n;a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", n = { rotl: function (e, t) {
-      return e << t | e >>> 32 - t;
-    }, rotr: function (e, t) {
-      return e << 32 - t | e >>> t;
+}, function (e, n) {
+  var a, t;a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", t = { rotl: function (e, n) {
+      return e << n | e >>> 32 - n;
+    }, rotr: function (e, n) {
+      return e << 32 - n | e >>> n;
     }, endian: function (e) {
-      if (e.constructor == Number) return 16711935 & n.rotl(e, 8) | 4278255360 & n.rotl(e, 24);for (var t = 0; t < e.length; t++) e[t] = n.endian(e[t]);return e;
+      if (e.constructor == Number) return 16711935 & t.rotl(e, 8) | 4278255360 & t.rotl(e, 24);for (var n = 0; n < e.length; n++) e[n] = t.endian(e[n]);return e;
     }, randomBytes: function (e) {
-      for (var t = []; 0 < e; e--) t.push(Math.floor(256 * Math.random()));return t;
+      for (var n = []; 0 < e; e--) n.push(Math.floor(256 * Math.random()));return n;
     }, bytesToWords: function (e) {
-      for (var t = [], n = 0, o = 0; n < e.length; n++, o += 8) t[o >>> 5] |= e[n] << 24 - o % 32;return t;
+      for (var n = [], t = 0, o = 0; t < e.length; t++, o += 8) n[o >>> 5] |= e[t] << 24 - o % 32;return n;
     }, wordsToBytes: function (e) {
-      for (var t = [], n = 0; n < 32 * e.length; n += 8) t.push(e[n >>> 5] >>> 24 - n % 32 & 255);return t;
+      for (var n = [], t = 0; t < 32 * e.length; t += 8) n.push(e[t >>> 5] >>> 24 - t % 32 & 255);return n;
     }, bytesToHex: function (e) {
-      for (var t = [], n = 0; n < e.length; n++) t.push((e[n] >>> 4).toString(16)), t.push((15 & e[n]).toString(16));return t.join("");
+      for (var n = [], t = 0; t < e.length; t++) n.push((e[t] >>> 4).toString(16)), n.push((15 & e[t]).toString(16));return n.join("");
     }, hexToBytes: function (e) {
-      for (var t = [], n = 0; n < e.length; n += 2) t.push(parseInt(e.substr(n, 2), 16));return t;
+      for (var n = [], t = 0; t < e.length; t += 2) n.push(parseInt(e.substr(t, 2), 16));return n;
     }, bytesToBase64: function (e) {
-      for (var t = [], n = 0; n < e.length; n += 3) for (var o = e[n] << 16 | e[n + 1] << 8 | e[n + 2], r = 0; r < 4; r++) 8 * n + 6 * r <= 8 * e.length ? t.push(a.charAt(o >>> 6 * (3 - r) & 63)) : t.push("=");return t.join("");
+      for (var n = [], t = 0; t < e.length; t += 3) for (var o = e[t] << 16 | e[t + 1] << 8 | e[t + 2], r = 0; r < 4; r++) 8 * t + 6 * r <= 8 * e.length ? n.push(a.charAt(o >>> 6 * (3 - r) & 63)) : n.push("=");return n.join("");
     }, base64ToBytes: function (e) {
-      e = e.replace(/[^A-Z0-9+\/]/gi, "");for (var t = [], n = 0, o = 0; n < e.length; o = ++n % 4) 0 != o && t.push((a.indexOf(e.charAt(n - 1)) & Math.pow(2, -2 * o + 8) - 1) << 2 * o | a.indexOf(e.charAt(n)) >>> 6 - 2 * o);return t;
-    } }, e.exports = n;
-}, function (e, t, n) {
+      e = e.replace(/[^A-Z0-9+\/]/gi, "");for (var n = [], t = 0, o = 0; t < e.length; o = ++t % 4) 0 != o && n.push((a.indexOf(e.charAt(t - 1)) & Math.pow(2, -2 * o + 8) - 1) << 2 * o | a.indexOf(e.charAt(t)) >>> 6 - 2 * o);return n;
+    } }, e.exports = t;
+}, function (e, n, t) {
   "use strict";
   /*!
    * Determine if an object is a Buffer
@@ -565,8 +631,12 @@ var gameSDK = function (n) {
   function o(e) {
     return !!e.constructor && "function" == typeof e.constructor.isBuffer && e.constructor.isBuffer(e);
   }e.exports = function (e) {
-    return null != e && (o(e) || "function" == typeof (t = e).readFloatLE && "function" == typeof t.slice && o(t.slice(0, 0)) || !!e._isBuffer);var t;
+    return null != e && (o(e) || "function" == typeof (n = e).readFloatLE && "function" == typeof n.slice && o(n.slice(0, 0)) || !!e._isBuffer);var n;
   };
+}, function (e, n, t) {
+  "use strict";
+
+  Object.defineProperty(n, "__esModule", { value: !0 });var o = { GAME_NAME: "天剑奇缘", APPID: 267, APPID_IOS: 269, APP_KEY: "037d02fada8e5fa14b414e916f4ffdb1", SHARE_QUERY: "agent_id=2422&site_id=116929", IOS_SHARE_QUERY: "agent_id=2422&site_id=116929", AGENT_ID: 2422, SITE_ID: 116928, IOS_SITE_ID: 116927, adInfo: { gdt_vid: "", weixinadinfo: "" }, QUERY_DATA: "" };n.default = o;
 }]);
 
 export default gameSDK['default'];

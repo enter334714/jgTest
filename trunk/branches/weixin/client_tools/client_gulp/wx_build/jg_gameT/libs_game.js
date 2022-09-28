@@ -1,1 +1,1 @@
-require("tempPackageGame.js");
+require("tempPackageGame.js")

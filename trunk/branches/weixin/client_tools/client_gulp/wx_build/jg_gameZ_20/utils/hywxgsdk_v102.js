@@ -1,7 +1,10 @@
-/**
- *  sdk版本号:102
+﻿/**
+ *  sdk版本号:106
  *  hywxgsdk
- *  
+ *  更新信息：
+ *  1、加入开启微信分享朋友圈、发送朋友 开关
+ *  2、监控复制短链
+ *  3、对分享盆友、朋友圈、复制短链加如参数
  */
 // 单例对象存储
 let instance
@@ -28,12 +31,12 @@ export default class hywxgsdk{
   //初始化URL 配置
   _sdkConfig(){
 
-    this.version="102"//skd 自定义版本号
+    this.version="106"//skd 自定义版本号
     this.minigameid=""//小游戏appid
     this.miniappid="" //小程序appid
     //api 主机地址，方便切换
     this.apiDomain = "https://game.moleyx.cn/"
-   // this.apiDomain = "http://api.t.com/" //测试
+
     this.isIosPay=0
     this.apiurl = {
         //初始化
@@ -53,7 +56,7 @@ export default class hywxgsdk{
 
   //初始化工作
   _sdkinit(){
-   
+
     //获取启动参数
     //（微信开发api）获取小游戏打开参数，不管是冷启动还是热启动
     var wxentercs = wx.getEnterOptionsSync()
@@ -95,6 +98,7 @@ export default class hywxgsdk{
       method:"POST",
       success (res) {
         var res_data = res.data;
+
         if(res_data.code == 0){
           //再登录处理，这里不再做任何配置设置
           // obj_this.miniappid = res_data.data.miniappid
@@ -102,6 +106,56 @@ export default class hywxgsdk{
           // if(obj_this.cid != res_data.data.cid){
           //   obj_this.cid = res_data.data.cid
           // }
+
+            //处理分享朋友圈、处理发送朋友
+            if(typeof res_data.data.is_get_wx_fx == "undefined" ){
+              res_data.data.is_get_wx_fx = 0
+            }
+            if(res_data.data.is_get_wx_fx == 1){
+              if(typeof  res_data.data.is_get_wx_fx_py_query == "undefined" ){
+                res_data.data.is_get_wx_fx_py_query = "";
+              }
+              if(typeof  res_data.data.is_get_wx_fx_pyq_query == "undefined" ){
+                res_data.data.is_get_wx_fx_pyq_query = "";
+              }
+
+              //盆友
+              wx.onShareAppMessage(() => {
+                return {
+                  query:res_data.data.is_get_wx_fx_py_query
+                }
+              })
+              //盆友圈
+              wx.onShareTimeline(() => {
+                return {
+                  query: res_data.data.is_get_wx_fx_pyq_query
+                }
+              })
+
+              //开启发送朋友 分享朋友圈
+              wx.showShareMenu({
+                withShareTicket: true,
+                menus: ['shareAppMessage', 'shareTimeline']
+              })//
+
+
+
+          } // if end
+        
+          //是否复制短链
+          if(typeof res_data.data.is_get_wx_fzdl == "undefined" ){
+            res_data.data.is_get_wx_fzdl = 0
+          }
+          if(res_data.data.is_get_wx_fzdl == 1){
+            if(typeof  res_data.data.is_get_wx_fzdl_query == "undefined" ){
+              res_data.data.is_get_wx_fzdl_query = "";
+            }
+            // 绑定分享参数
+            wx.onCopyUrl(() => {
+              return { query: res_data.data.is_get_wx_fzdl_query }
+            })
+          } // if end 
+
           console.log("初始化信息成功");
         }else{
           console.log("初始化信息失败");
@@ -208,24 +262,31 @@ export default class hywxgsdk{
                   wx.setStorageSync('hywxgsdk_userid_35fh82',res_data.data.id)
                   obj_this.token= res_data.data.token
                   obj_this.userid =res_data.data.id
-
+                  
                   //获取用户相关信息
-                  wx.getSetting({
-                    success(res) {
-                      if (!res.authSetting['scope.userInfo']) {//没有授权的处理
-                        wx.authorize({
-                          scope: 'scope.userInfo',
-                          success () {
-                                  //获取用户相关信息
-                                 obj_this._getUserInfo()
-                          }
-                        })
-                      }else{//已经授权的处理
-                             //获取用户相关信息
-                             obj_this._getUserInfo()
+                  if(typeof res_data.data.is_get_wx_userinfo == "undefined" ){
+                    res_data.data.is_get_wx_userinfo = 0
+                  }
+                  //是否开启获取用户相关信息
+                  if( res_data.data.is_get_wx_userinfo == 1){
+                    wx.getSetting({
+                      success(res) {
+                        if (!res.authSetting['scope.userInfo']) {//没有授权的处理
+                          wx.authorize({
+                            scope: 'scope.userInfo',
+                            success () {
+                                    //获取用户相关信息
+                                   obj_this._getUserInfo()
+                            }
+                          })
+                        }else{//已经授权的处理
+                               //获取用户相关信息
+                               obj_this._getUserInfo()
+                        }
                       }
-                    }
-                  })
+                    })
+                  }// if end
+
                   var ret_call = {"code":0,"data":{"token":res_data.data.token},"msg":res_data.msg} 
                   loginArgs.success(ret_call);
                 }else{
@@ -278,22 +339,30 @@ export default class hywxgsdk{
                       obj_this.token= res_data.data.token
                       obj_this.userid =res_data.data.id
 
-                      wx.getSetting({
-                        success(res) {
-                          if (!res.authSetting['scope.userInfo']) {//没有授权的处理
-                            wx.authorize({
-                              scope: 'scope.userInfo',
-                              success () {
-                                      //获取用户相关信息
-                                     obj_this._getUserInfo()
-                              }
-                            })
-                          }else{//已经授权的处理
-                                //获取用户相关信息
-                                obj_this._getUserInfo()
+                      //获取用户相关信息
+                      if(typeof res_data.data.is_get_wx_userinfo == "undefined" ){
+                        res_data.data.is_get_wx_userinfo = 0
+                      }
+                      //是否开启获取用户相关信息
+                      if( res_data.data.is_get_wx_userinfo == 1){
+                        wx.getSetting({
+                          success(res) {
+                            if (!res.authSetting['scope.userInfo']) {//没有授权的处理
+                              wx.authorize({
+                                scope: 'scope.userInfo',
+                                success () {
+                                        //获取用户相关信息
+                                      obj_this._getUserInfo()
+                                }
+                              })
+                            }else{//已经授权的处理
+                                  //获取用户相关信息
+                                  obj_this._getUserInfo()
+                            }
                           }
-                        }
-                      })
+                        }) // wx getset
+                      }//if end
+
 
                       var ret_call = {"code":0,"data":{"token":res_data.data.token},"msg":"ok"} 
                       loginArgs.success(ret_call);

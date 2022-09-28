@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_tjqyhcxmj_PR',
     partner_label: 'xxxyx',
     partner_id: '552',
-    game_ver: '48.0.3',
+    game_ver: '48.0.7',
     is_auth: false, //授权登录
     appId:'f4fb478995f238b7f8b1694f2f3240ef', // AppId 必填
     appBundleId:'com.xxgame.hdxmjvx', // AppBundleId 必填
@@ -74,7 +74,7 @@ function mainSDK() {
                     scene: scene
                 };
             }
-
+            console.log('>>>>111');
             // 渠道SDK初始化
             // 创建对象后，也可以⽤全局变量 GameGlobal.xxsdk.init 调⽤
              sdk.init({
@@ -83,7 +83,7 @@ function mainSDK() {
                  appName:config.appName // 游戏名称 必填
              }).then(res=>{
                  // 初始化成功回调 完成回调即可调⽤其他接⼝
-                 console.log('成功回调', res);
+                 console.log('成功回调 sdk.init', res);
              }).catch(err=>{
                 console.log('失败回调', err);
                 callback(1, {
@@ -395,7 +395,7 @@ function mainSDK() {
             console.log("[SDK]查看文本是否有违规内容", content);
                sdk.msgSecCheck(content)
                 .then((res) => {
-                    console.log("成功回调", res);
+                    console.log("成功回调 msgCheck2", res);
                     callback && callback(res);
                 })
                 .catch((err) => {
@@ -417,7 +417,7 @@ function mainSDK() {
 
                sdk.msgSecCheck(content)
                 .then((res) => {
-                    console.log("成功回调", res);
+                    console.log("成功回调 msgSecCheck", res);
                     
                     if(res.code == 1){
 
@@ -525,7 +525,7 @@ function mainSDK() {
                                     sdk.createOrder(order)
                                         .then(res=>{
                                             
-                                            console.log('成功回调', res);
+                                            console.log('成功回调 createOrder', res);
                                         })
                                         .catch(err => {
                                             console.log('失败回调', err);

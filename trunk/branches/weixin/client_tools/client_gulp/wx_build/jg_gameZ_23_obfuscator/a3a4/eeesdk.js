@@ -1,1 +1,820 @@
-var c=wx.$a;import RYSDK from"../utils/sdk";var config={game_id:156,game_pkg:c[533],partner_label:c[534],partner_id:c[535],game_ver:c[536],is_auth:!1};window.config=config;var j61EMB=j6EBM1();var HOST=c[537];var j61EBM=null;var j6EMB1=null;var sysInfo=wx.getSystemInfoSync();var platform=sysInfo.platform;var partner_user_info=null;const rysdk=new RYSDK;function j6EBM1(){var t={};return{order_data:{},init:function(e,r){e=e&&e.game_ver?e.game_ver:0;console.log(c[538]);var o=this;var n;n=wx.getStorageSync(c[539])?0:(n=o.uuid(16,32),wx.setStorageSync(c[539],n),1),wx.getStorageSync(c[540])||(t=o.uuid(16,32),wx.setStorageSync(c[540],t));var t=wx.getLaunchOptionsSync();var a=t.scene||"";wx.showShareMenu(),n&&t.query&&t.query.ad_code&&wx.setStorageSync(c[541],t.query.ad_code),o.log(c[542],{install:n,scene:a});o=t.query&&t.query.invite?t.query.invite:"";t=t.query&&t.query.invite_type?t.query.invite_type:"";o&&(j6EMB1={invite:o,invite_type:t,is_new:n,scene:a}),e&&this.checkGameVersion(e,function(e){r&&r(e)});o={gid:156,pkid:2656,cid:3693,aid:195446,appid:0,appver:e};rysdk.ryInit(o).then(e=>{console.log(c[543],e)}).catch(e=>{console.log(c[544],e)})},login:function(e,r){console.log(c[545]),t[c[546]]=typeof r==c[378]?r:null;var o=this;rysdk.ryLogin().then(e=>{partner_user_info=e,o.do_login(e.info),console.log(c[547]+JSON.stringify(e))}).catch(e=>{console.warn(c[548],e)})},do_login:function(o){var n=this;var e=n.getPublicData();if(e[c[549]]=JSON.stringify(o),j6EMB1&&typeof j6EMB1==c[294])for(var r in j6EMB1)e[r]=j6EMB1[r];wx.request({url:c[550]+HOST+c[551],method:c[552],dataType:c[505],header:{"content-type":c[553]},data:e,success:function(e){if(console.log(c[554]+JSON.stringify(e)),200==e.statusCode){e=e.data;if(e.state){try{wx.setStorageSync(c[555],e.data.sdk_token),wx.setStorageSync(c[556],e.data.user_id),wx.setStorageSync(c[557],e.data.username),e.data.ext&&wx.setStorageSync(c[558],e.data.ext)}catch(e){}var r={userid:e.data.user_id,account:e.data.nick_name,token:e.data.token,invite_uid:e.data.invite_uid||"",invite_nickname:e.data.invite_nickname||"",invite_head_img:e.data.invite_head_img||"",head_img:e.data.head_img||"",is_client:e.data.is_client||"0",ios_pay:e.data.ios_pay||"0",isBindPhone:o.isBindPhone};t[c[546]]&&t[c[546]](0,r)}else t[c[546]]&&t[c[546]](1,{errMsg:e.msg});n.getShareInfo(c[559],function(e){console.log(c[560]),n.logStartShare(c[559]);var r={title:e.title,imageUrl:e.img,query:e.query};rysdk.shareMsg({}).then(e=>{console.log(c[561],e),r[c[562]]=e.msg.title,r[c[563]]=e.msg.img_url}).catch(e=>{console.log(c[564],e)}),console.log(c[565],r),wx.onShareAppMessage(function(){return n.logStartShare(c[559]),r})})}else t[c[546]]&&t[c[546]](1,{errMsg:c[566]})}})},share:function(e){t[c[567]]=typeof callback==c[378]?callback:null;var o=e.type||c[567];console.log(c[568]+o);var n=this;this.getShareInfo(o,function(r){n.logStartShare(o),rysdk.shareMsg({}).then(e=>{console.log(c[561],e),wx.shareAppMessage({title:e.msg.title,imageUrl:e.msg.img_url,query:r.query})}).catch(e=>{console.log(c[564],e)})})},logStartShare:function(e){var r=wx.getStorageSync(c[555]);wx.request({url:c[550]+HOST+c[569],method:c[552],dataType:c[505],header:{"content-type":c[553]},data:{game_pkg:config.game_pkg,partner_id:config.partner_id,sdk_token:r,server_id:j61EBM?j61EBM.server_id:"",role_id:j61EBM?j61EBM.role_id:"",type:e},success:function(e){}})},openService:function(){wx.openCustomerServiceConversation()},checkGameVersion:function(e,o){console.log(c[570]);wx.getStorageSync(c[555]);wx.request({url:c[550]+HOST+c[571],method:c[552],dataType:c[505],header:{"content-type":c[553]},data:{game_pkg:config.game_pkg,partner_id:config.partner_id,game_ver:e},success:function(e){var r;console.log(c[572]+JSON.stringify(e)),200==e.statusCode&&(r=e.data).state?o&&o(r.data):o&&o({develop:0})}})},getShareInfo:function(e,r){console.log(c[573]);var o=wx.getStorageSync(c[555]);wx.request({url:c[550]+HOST+c[574],method:c[552],dataType:c[505],header:{"content-type":c[553]},data:{game_pkg:config.game_pkg,partner_id:config.partner_id,sdk_token:o,type:e,server_id:j61EBM?j61EBM.server_id:"",role_id:j61EBM?j61EBM.role_id:"",no_log:1},success:function(e){console.log(c[575]),console.log(e),200==e.statusCode?(e=e.data).state?r&&r(e.data):t[c[567]]&&t[c[567]](1,{errMsg:c[576]+e.msg}):t[c[567]]&&t[c[567]](1,{errMsg:c[577]})}})},updateShare:function(e,r,o,n,t,a){console.log(c[578]);var i=wx.getStorageSync(c[555]);wx.request({url:c[550]+HOST+c[579],method:c[552],dataType:c[505],header:{"content-type":c[553]},data:{game_pkg:config.game_pkg,partner_id:config.partner_id,sdk_token:i,invite:e,invite_type:r,is_new:o,role_id:n,sever_id:t,scene:a},success:function(e){console.log(c[580]+JSON.stringify(e))}})},msgCheck:function(e,r){console.log(c[581]+e);let o={data:{}};rysdk.ryCheckWord({version:2,scene:4,content:e}).then(e=>{o.statusCode=200,o.data.state=1,r&&r(o)}).catch(e=>{o.statusCode=200,o.data.state=0,r&&r(o)})},pay:function(e,r){this.startPay(e,r)},startPay:function(e,r){console.log(c[582]+JSON.stringify(e));var o=this;t[c[583]]=typeof r==c[378]?r:null;r=wx.getStorageSync(c[555]);var n=wx.getStorageSync(c[558]);r?(e={cpbill:e.cpbill,productid:e.productid,productname:e.productname,productdesc:e.productdesc,serverid:e.serverid,servername:e.servername,roleid:e.roleid,rolename:e.rolename,rolelevel:e.rolelevel,price:e.price,extension:e.extension,sdk_token:r,session_key:n,platform:platform},o.order_data=e,(r=o.getPublicData())[c[585]]=JSON.stringify(e),wx.request({url:c[550]+HOST+c[586],method:c[552],dataType:c[505],header:{"content-type":c[553]},data:r,success:function(e){console.log(c[587]+JSON.stringify(e)),200==e.statusCode?(e=e.data).state?(console.log(c[588]+JSON.stringify(e.data.pay_data)),""==e.data.ext?rysdk.ryPay(e.data.pay_data).then(e=>{console.log(c[589],e)}).catch(e=>{console.log(c[590],e)}):o.extDo({ext1:e.data.ext,ext2:e.data.pay_data})):t[c[583]]&&t[c[583]](1,{errMsg:e.msg}):t[c[546]]&&t[c[546]](1,{errMsg:c[566]})}})):t[c[583]]&&t[c[583]](1,{errMsg:c[584]})},logCreateRole:function(e){var r=wx.getStorageSync(c[556]);var o=wx.getStorageSync(c[557]);var n={};n[c[591]]=r,n[c[592]]=o,n[c[593]]=e.roleid,n[c[594]]=e.rolelevel,n[c[595]]=e.rolename,n[c[596]]=e.serverid,e.roleid&&e.serverid&&(j61EBM={role_id:e.roleid,server_id:e.serverid}),this.log(c[295],n);r={server:e.serverid,roleid:e.roleid,role:e.rolename};rysdk.ryRole(r).then(e=>{console.log(e)}).catch(e=>{console.log(e)})},logEnterGame:function(e){var r=wx.getStorageSync(c[556]);var o=wx.getStorageSync(c[557]);var n={};n[c[591]]=r,n[c[592]]=o,n[c[593]]=e.roleid,n[c[594]]=e.rolelevel,n[c[595]]=e.rolename,n[c[596]]=e.serverid,e.roleid&&e.serverid&&(j61EBM={role_id:e.roleid,server_id:e.serverid}),this.log(c[597],n),j6EMB1&&this.updateShare(j6EMB1.invite,j6EMB1.invite_type,j6EMB1.is_new,e.roleid,e.serverid,j6EMB1.scene);r={server:e.serverid,roleid:e.roleid,role:e.rolename,rolelevel:e.rolelevel};rysdk.ryEntry(r).then(e=>{console.log(e)}).catch(e=>{console.log(e)})},logRoleUpLevel:function(e){var r=wx.getStorageSync(c[556]);var o=wx.getStorageSync(c[557]);var n={};n[c[591]]=r,n[c[592]]=o,n[c[593]]=e.roleid,n[c[594]]=e.rolelevel,n[c[595]]=e.rolename,n[c[596]]=e.serverid,e.roleid&&e.serverid&&(j61EBM={role_id:e.roleid,server_id:e.serverid}),this.log(c[598],n);r={server:e.serverid,roleid:e.roleid,role:e.rolename,rolelevel:e.rolelevel};rysdk.ryLevel(r).then(e=>{console.log(e)}).catch(e=>{console.log(e)})},uuid:function(e,r){var o=c[599].split("");var n,t=[];var a;if(e=e||o.length,r)for(n=0;n<r;n++)t[n]=o[0|Math.random()*e];else for(t[8]=t[13]=t[18]=t[23]="-",t[14]="4",n=0;n<36;n++)t[n]||(a=0|16*Math.random(),t[n]=o[19==n?3&a|8:a]);return t.join("")},getPublicData:function(){var e=wx.getStorageSync(c[539]);var r=wx.getStorageSync(c[540]);var o=wx.getStorageSync(c[541]);return{game_id:config.game_id,game_pkg:config.game_pkg,partner_id:config.partner_id,partner_label:config.partner_label,ad_code:o,uuid:e,idfv:r,mac:c[600],is_from_min:1,dname:sysInfo.model,net_type:0==sysInfo.wifiSignal?"4G":c[601],os_ver:sysInfo.system,sdk_ver:sysInfo.version,game_ver:config.game_ver,device:sysInfo.platform==c[602]?1:2}},log:function(e,r){var o=this.getPublicData();for(var n in r)o[n]=r[n];console.log(c[603]+e),console.log(o),wx.request({url:c[550]+HOST+c[604]+e+c[605]+encodeURIComponent(JSON.stringify(o))})},getDate:function(){var e=new Date;return e.getFullYear()+"-"+e.getMonth()+"-"+e.getDate()},downloadClient:function(){wx.openCustomerServiceConversation()},weiduanHelper:function(e,r){rysdk.ryCheckTurnTerminalMsg({})},sendUrl:function(){rysdk.ryCheckTurnTerminalMsg({})},setMessageToFriendQuery:function(e,r){e=e.activity_id;r(wx.setMessageToFriendQuery({shareMessageToFriendScene:e}))},setLoadingCmp:function(){},sendCode:function(e,r){console.log(c[606],e.phone),rysdk.rySendMessage({phone:e.phone}).then(e=>{r&&r(0,e)}).catch(e=>{r&&r(1,e)})},bindPhone:function(e,r){console.log(c[607],e.phone,e.code),rysdk.ryBindPhone({phone:e.phone,captcha:e.code}).then(e=>{r&&r(0,e)}).catch(e=>{r&&r(1,e)})},subscribeMessage:function(e,r){console.log(c[608]+e),t[c[609]]=typeof r==c[378]?r:null,wx.requestSubscribeMessage({tmplIds:e,success(e){console.log(c[610]),console.log(e),t[c[609]]&&t[c[609]](e)},fail(e){console.log(c[611]),console.log(e),t[c[609]]&&t[c[609]](e)}})}}}function run(e,r,o){e in j61EMB&&j61EMB[e](r,o)}exports.init=function(e,r){run(c[612],e,r)},exports.login=function(e){run(c[546],"",e)},exports.login=function(e){run(c[546],"",e)},exports.pay=function(e,r){run(c[583],e,r)},exports.openService=function(){run(c[613])},exports.logCreateRole=function(e,r,o,n,t){run(c[614],{serverid:e,servername:r,roleid:o,rolename:n,rolelevel:t})},exports.logEnterGame=function(e,r,o,n,t){run(c[615],{serverid:e,servername:r,roleid:o,rolename:n,rolelevel:t})},exports.logRoleUpLevel=function(e,r,o,n,t){run(c[616],{serverid:e,servername:r,roleid:o,rolename:n,rolelevel:t})},exports.share=function(e){run(c[567],{type:e})},exports.msgCheck=function(e,r){run(c[617],e,r)},exports.downloadClient=function(){run(c[618])},exports.getConfig=function(){return{game_id:config.game_id,game_pkg:config.game_pkg,partner_id:config.partner_id}},exports.getPublicData=function(){run(c[619])},exports.weiduanHelper=function(e,r){run(c[620],e,r)},exports.sendUrl=function(){run(c[621])},exports.setMessageToFriendQuery=function(e,r){run(c[622],e,r)},exports.setLoadingCmp=function(){run(c[623])},exports.sendCode=function(e,r){run(c[624],e,r)},exports.bindPhone=function(e,r){run(c[625],e,r)},exports.subscribeMessage=function(e,r){run(c[609],e,r)};
+var c = wx.$a;
+import RYSDK from '../utils/sdk';
+//TODO 替换对应参数
+var config = {
+    game_id: 256,
+    game_pkg: c[31971],
+    partner_label: c[31972],
+    partner_id: c[31973],
+    game_ver: c[31974],
+    is_auth: false //授权登录
+};
+window.config = config;
+var j61EMB = j6EBM1();
+var HOST = c[31975];
+var j61EBM = null;
+var j6EMB1 = null;
+var sysInfo = wx.getSystemInfoSync();
+var platform = sysInfo.platform;
+var partner_user_info = null;
+
+// 渠道SDK初始化
+const rysdk = new RYSDK();
+
+function j6EBM1() {
+    var callbacks = {};
+    var this_pay_order = 0;
+    return {
+        order_data: {},
+        init: function (ops, callback) {
+            var game_ver = ops && ops.game_ver ? ops.game_ver : 0;
+            console.log(c[31976]);
+            var self = this;
+
+            var uuid = wx.getStorageSync(c[31977]);
+            var is_new;
+            if (!uuid) {
+                uuid = self.uuid(16, 32);
+                wx.setStorageSync(c[31977], uuid);
+                is_new = 1;
+            } else {
+                is_new = 0;
+            }
+            var idfv = wx.getStorageSync(c[31978]);
+            if (!idfv) {
+                idfv = self.uuid(16, 32);
+                wx.setStorageSync(c[31978], idfv);
+            }
+
+            var info = wx.getLaunchOptionsSync();
+            var scene = info.scene ? info.scene : '';
+
+            wx.showShareMenu();
+
+            //判断今天是否已经上报过
+            if (is_new && info.query && info.query.ad_code) {
+                wx.setStorageSync(c[31979], info.query.ad_code);
+            }
+
+            var data = {
+                install: is_new,
+                scene: scene
+            };
+            self.log(c[1714], data);
+
+            //玩家是分享过来的，单独上报给服务器
+            var invite = info.query && info.query.invite ? info.query.invite : '';
+            var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
+
+            if (invite) {
+                j6EMB1 = {
+                    invite: invite,
+                    invite_type: invite_type,
+                    is_new: is_new,
+                    scene: scene
+                };
+            }
+
+            //判断版本号
+            if (game_ver) {
+                this.checkGameVersion(game_ver, function (data) {
+                    callback && callback(data);
+                });
+            }
+
+            //渠道初始化
+            let sdk_param = {
+
+                gid: 156, //我方提供
+                pkid: 2656, //我方提供
+                cid: 3693, //我方提供
+                aid: 195446, //我方提供
+                appid: 0, //我方提供
+                appver: game_ver //cp 传入
+
+            };
+
+            rysdk.ryInit(sdk_param).then(res => {
+                //成功后才能执行下面的函数
+                console.log(c[31980], res);
+            }).catch(err => {
+                //失败信息
+                console.log(c[31981], err);
+            });
+        },
+
+        login: function (data, callback) {
+            console.log(c[31982]);
+            callbacks[c[822]] = typeof callback == c[385] ? callback : null;
+            var self = this;
+
+            rysdk.ryLogin().then(res => {
+                //成功后才能执行下面的函数
+                partner_user_info = res;
+                self.do_login(res.info);
+                console.log(c[31983] + JSON.stringify(res));
+            }).catch(err => {
+                //失败信息
+                console.warn(c[31984], err);
+            });
+        },
+
+        do_login: function (info) {
+            var self = this;
+
+            //发起网络请求
+            var public_data = self.getPublicData();
+            public_data[c[31985]] = JSON.stringify(info);
+            if (j6EMB1 && typeof j6EMB1 == c[301]) {
+                for (var key in j6EMB1) {
+                    public_data[key] = j6EMB1[key];
+                }
+            }
+
+            wx.request({
+                url: c[28103] + HOST + c[31986],
+                method: c[787],
+                dataType: c[513],
+                header: {
+                    'content-type': c[979] // 默认值
+                },
+                data: public_data,
+                success: function (res) {
+                    console.log(c[31987] + JSON.stringify(res));
+
+                    if (res.statusCode == 200) {
+                        var data = res.data;
+                        if (data.state) {
+                            try {
+                                wx.setStorageSync(c[31988], data.data.sdk_token);
+                                wx.setStorageSync(c[31989], data.data.user_id);
+                                wx.setStorageSync(c[31990], data.data.username);
+                                if (data.data.ext) {
+                                    wx.setStorageSync(c[31991], data.data.ext);
+                                }
+                            } catch (e) {}
+                            var userData = {
+                                userid: data.data.user_id,
+                                account: data.data.nick_name,
+                                token: data.data.token,
+                                invite_uid: data.data.invite_uid || '',
+                                invite_nickname: data.data.invite_nickname || '',
+                                invite_head_img: data.data.invite_head_img || '',
+                                head_img: data.data.head_img || '',
+                                is_client: data.data.is_client || '0',
+                                ios_pay: data.data.ios_pay || '0',
+                                isBindPhone: info.isBindPhone
+                            };
+                            callbacks[c[822]] && callbacks[c[822]](0, userData);
+                        } else {
+                            callbacks[c[822]] && callbacks[c[822]](1, {
+                                errMsg: data.msg
+                            });
+                        }
+
+                        self.getShareInfo(c[31992], function (data) {
+                            console.log(c[31993]);
+                            self.logStartShare(c[31992]);
+
+                            var share_params = {
+                                title: data.title,
+                                imageUrl: data.img,
+                                query: data.query
+                            };
+                            rysdk.shareMsg({}).then(res => {
+                                console.log(c[31994], res);
+                                share_params[c[1329]] = res.msg.title;
+                                share_params[c[31995]] = res.msg.img_url;
+                            }).catch(err => {
+                                console.log(c[31996], err);
+                            });
+                            console.log(c[31997], share_params);
+
+                            wx.onShareAppMessage(function () {
+                                //记录开始分享
+                                self.logStartShare(c[31992]);
+
+                                return share_params;
+                            });
+                        });
+                    } else {
+                        callbacks[c[822]] && callbacks[c[822]](1, {
+                            errMsg: c[31998]
+                        });
+                    }
+                }
+            });
+        },
+
+        share: function (data) {
+            callbacks[c[935]] = typeof callback == c[385] ? callback : null;
+            var type = data.type || c[935];
+            console.log(c[31999] + type);
+            var self = this;
+            this.getShareInfo(type, function (data) {
+
+                //记录开始分享
+                self.logStartShare(type);
+                rysdk.shareMsg({}).then(res => {
+                    console.log(c[31994], res);
+                    wx.shareAppMessage({
+                        title: res.msg.title,
+                        imageUrl: res.msg.img_url,
+                        query: data.query
+                    });
+                }).catch(err => {
+                    console.log(c[31996], err);
+                });
+            });
+        },
+
+        logStartShare: function (type) {
+            var sdk_token = wx.getStorageSync(c[31988]);
+            wx.request({
+                url: c[28103] + HOST + c[32000],
+                method: c[787],
+                dataType: c[513],
+                header: {
+                    'content-type': c[979] // 默认值
+                },
+                data: {
+                    game_pkg: config.game_pkg,
+                    partner_id: config.partner_id,
+                    sdk_token: sdk_token,
+                    server_id: j61EBM ? j61EBM.server_id : '',
+                    role_id: j61EBM ? j61EBM.role_id : '',
+                    type: type
+                },
+                success: function (res) {}
+            });
+        },
+
+        openService: function () {
+            wx.openCustomerServiceConversation();
+        },
+
+        checkGameVersion: function (game_ver, callback) {
+            console.log(c[32001]);
+            var sdk_token = wx.getStorageSync(c[31988]);
+            wx.request({
+                url: c[28103] + HOST + c[32002],
+                method: c[787],
+                dataType: c[513],
+                header: {
+                    'content-type': c[979] // 默认值
+                },
+                data: {
+                    game_pkg: config.game_pkg,
+                    partner_id: config.partner_id,
+                    game_ver: game_ver
+                },
+                success: function (res) {
+                    console.log(c[32003] + JSON.stringify(res));
+
+                    if (res.statusCode == 200) {
+                        var data = res.data;
+                        if (data.state) {
+                            callback && callback(data.data);
+                        } else {
+                            callback && callback({
+                                develop: 0
+                            });
+                        }
+                    } else {
+                        callback && callback({
+                            develop: 0
+                        });
+                    }
+                }
+            });
+        },
+
+        getShareInfo: function (type, callback) {
+            console.log(c[32004]);
+            var sdk_token = wx.getStorageSync(c[31988]);
+            wx.request({
+                url: c[28103] + HOST + c[32005],
+                method: c[787],
+                dataType: c[513],
+                header: {
+                    'content-type': c[979] // 默认值
+                },
+                data: {
+                    game_pkg: config.game_pkg,
+                    partner_id: config.partner_id,
+                    sdk_token: sdk_token,
+                    type: type,
+                    server_id: j61EBM ? j61EBM.server_id : '',
+                    role_id: j61EBM ? j61EBM.role_id : '',
+                    no_log: 1 //设置为1后就不在这个接口打log，交给logStartShare接口
+                },
+                success: function (res) {
+                    console.log(c[32006]);
+                    console.log(res);
+                    if (res.statusCode == 200) {
+                        var data = res.data;
+                        if (data.state) {
+                            callback && callback(data.data);
+                        } else {
+                            callbacks[c[935]] && callbacks[c[935]](1, {
+                                errMsg: c[32007] + data.msg
+                            });
+                        }
+                    } else {
+                        callbacks[c[935]] && callbacks[c[935]](1, {
+                            errMsg: c[32008]
+                        });
+                    }
+                }
+            });
+        },
+
+        updateShare: function (invite, invite_type, is_new, role_id, server_id, scene) {
+            console.log(c[32009]);
+            var sdk_token = wx.getStorageSync(c[31988]);
+            wx.request({
+                url: c[28103] + HOST + c[32010],
+                method: c[787],
+                dataType: c[513],
+                header: {
+                    'content-type': c[979] // 默认值
+                },
+                data: {
+                    game_pkg: config.game_pkg,
+                    partner_id: config.partner_id,
+                    sdk_token: sdk_token,
+                    invite: invite,
+                    invite_type: invite_type,
+                    is_new: is_new,
+                    role_id: role_id,
+                    sever_id: server_id,
+                    scene: scene
+                },
+                success: function (res) {
+                    console.log(c[32011] + JSON.stringify(res));
+                }
+            });
+        },
+
+        msgCheck: function (content, callback) {
+            console.log(c[32012] + content);
+
+            let ret = {
+                data: {}
+            };
+            rysdk.ryCheckWord({ 'version': 2, 'scene': 4, content: content }).then(res => {
+                ret.statusCode = 200;
+                ret.data.state = 1;
+                callback && callback(ret);
+            }).catch(err => {
+                ret.statusCode = 200;
+                ret.data.state = 0;
+                callback && callback(ret);
+            });
+        },
+
+        pay: function (data, callback) {
+            this.startPay(data, callback);
+        },
+
+        //支付接口
+        startPay: function (data, callback) {
+            console.log(c[32013] + JSON.stringify(data));
+
+            var self = this;
+            callbacks[c[911]] = typeof callback == c[385] ? callback : null;
+            //先下单
+            this_pay_order = 0;
+            var sdk_token = wx.getStorageSync(c[31988]);
+            var session_key = wx.getStorageSync(c[31991]);
+            if (!sdk_token) {
+                callbacks[c[911]] && callbacks[c[911]](1, {
+                    errMsg: c[32014]
+                });
+                return;
+            }
+
+            var order_data = {
+                cpbill: data.cpbill,
+                productid: data.productid,
+                productname: data.productname,
+                productdesc: data.productdesc,
+                serverid: data.serverid,
+                servername: data.servername,
+                roleid: data.roleid,
+                rolename: data.rolename,
+                rolelevel: data.rolelevel,
+                price: data.price,
+                extension: data.extension,
+                sdk_token: sdk_token,
+                session_key: session_key,
+                platform: platform
+            };
+            self.order_data = order_data;
+
+            var public_data = self.getPublicData();
+            public_data[c[32015]] = JSON.stringify(order_data);
+
+            //发起网络请求
+            wx.request({
+                url: c[28103] + HOST + c[32016],
+                method: c[787],
+                dataType: c[513],
+                header: {
+                    'content-type': c[979] // 默认值
+                },
+                data: public_data,
+                success: function (res) {
+                    console.log(c[32017] + JSON.stringify(res));
+                    if (res.statusCode == 200) {
+                        var data = res.data;
+                        if (data.state) {
+
+                            console.log(c[32018] + JSON.stringify(data.data.pay_data));
+
+                            if (data.data.ext == '') {
+
+                                rysdk.ryPay(data.data.pay_data).then(res => {
+                                    console.log(c[32019], res);
+                                }).catch(err => {
+                                    console.log(c[32020], err);
+                                });
+                            } else {
+                                self.extDo({ ext1: data.data.ext, ext2: data.data.pay_data });
+                            }
+                        } else {
+                            callbacks[c[911]] && callbacks[c[911]](1, {
+                                errMsg: data.msg
+                            });
+                        }
+                    } else {
+                        callbacks[c[822]] && callbacks[c[822]](1, {
+                            errMsg: c[31998]
+                        });
+                    }
+                }
+            });
+        },
+
+        //创建角色
+        logCreateRole: function (data) {
+            var uid = wx.getStorageSync(c[31989]);
+            var username = wx.getStorageSync(c[31990]);
+
+            var postData = {};
+            postData[c[32021]] = uid;
+            postData[c[32022]] = username;
+            postData[c[12694]] = data.roleid;
+            postData[c[32023]] = data.rolelevel;
+            postData[c[32024]] = data.rolename;
+            postData[c[560]] = data.serverid;
+
+            if (data.roleid && data.serverid) {
+                j61EBM = {
+                    role_id: data.roleid,
+                    server_id: data.serverid
+                };
+            }
+
+            this.log(c[302], postData);
+
+            // 渠道上报
+            let role_param = {
+                server: data.serverid, //服务器id
+                roleid: data.roleid, //角色id
+                role: data.rolename //角色名称
+            };
+            rysdk.ryRole(role_param).then(res => {
+                console.log(res);
+            }).catch(err => {
+                console.log(err);
+            });
+        },
+
+        //进入游戏
+        logEnterGame: function (data) {
+            var uid = wx.getStorageSync(c[31989]);
+            var username = wx.getStorageSync(c[31990]);
+
+            var postData = {};
+            postData[c[32021]] = uid;
+            postData[c[32022]] = username;
+            postData[c[12694]] = data.roleid;
+            postData[c[32023]] = data.rolelevel;
+            postData[c[32024]] = data.rolename;
+            postData[c[560]] = data.serverid;
+
+            if (data.roleid && data.serverid) {
+                j61EBM = {
+                    role_id: data.roleid,
+                    server_id: data.serverid
+                };
+            }
+
+            this.log(c[7424], postData);
+
+            //进入游戏确认邀请成功
+            if (j6EMB1) {
+                this.updateShare(j6EMB1.invite, j6EMB1.invite_type, j6EMB1.is_new, data.roleid, data.serverid, j6EMB1.scene);
+            }
+            let role_param = {
+                server: data.serverid, //服务器id
+                roleid: data.roleid, //角色id
+                role: data.rolename, //角色名称
+                rolelevel: data.rolelevel //角色等级
+            };
+            rysdk.ryEntry(role_param).then(res => {
+                console.log(res);
+            }).catch(err => {
+                console.log(err);
+            });
+        },
+
+        //角色升级
+        logRoleUpLevel: function (data) {
+            var uid = wx.getStorageSync(c[31989]);
+            var username = wx.getStorageSync(c[31990]);
+
+            var postData = {};
+            postData[c[32021]] = uid;
+            postData[c[32022]] = username;
+            postData[c[12694]] = data.roleid;
+            postData[c[32023]] = data.rolelevel;
+            postData[c[32024]] = data.rolename;
+            postData[c[560]] = data.serverid;
+
+            if (data.roleid && data.serverid) {
+                j61EBM = {
+                    role_id: data.roleid,
+                    server_id: data.serverid
+                };
+            }
+
+            this.log(c[32025], postData);
+
+            let role_param = {
+                server: data.serverid, //服务器id
+                roleid: data.roleid, //角色id
+                role: data.rolename, //角色名称
+                rolelevel: data.rolelevel //角色等级
+            };
+            rysdk.ryLevel(role_param).then(res => {
+                console.log(res);
+            }).catch(err => {
+                console.log(err);
+            });
+        },
+
+        //获取唯一设备码（自定义）
+        uuid: function (radix, len) {
+            var chars = c[32026].split('');
+            var uuid = [],
+                i;
+            radix = radix || chars.length;
+
+            if (len) {
+                for (i = 0; i < len; i++) uuid[i] = chars[0 | Math.random() * radix];
+            } else {
+                var r;
+
+                uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+                uuid[14] = '4';
+
+                for (i = 0; i < 36; i++) {
+                    if (!uuid[i]) {
+                        r = 0 | Math.random() * 16;
+                        uuid[i] = chars[i == 19 ? r & 0x3 | 0x8 : r];
+                    }
+                }
+            }
+
+            return uuid.join('');
+        },
+
+        //获取公共参数
+        getPublicData: function () {
+            var uuid = wx.getStorageSync(c[31977]);
+            var idfv = wx.getStorageSync(c[31978]);
+            var ad_code = wx.getStorageSync(c[31979]);
+
+            return {
+                game_id: config.game_id,
+                game_pkg: config.game_pkg,
+                partner_id: config.partner_id,
+                partner_label: config.partner_label,
+                ad_code: ad_code,
+                uuid: uuid,
+                idfv: idfv,
+                mac: c[32027],
+                is_from_min: 1,
+                dname: sysInfo.model,
+                net_type: sysInfo.wifiSignal == 0 ? '4G' : c[32028],
+                os_ver: sysInfo.system,
+                sdk_ver: sysInfo.version, //存放的是微信版本号
+                game_ver: config.game_ver, //存放的是SDK版本号
+                device: sysInfo.platform == c[652] ? 1 : 2
+            };
+        },
+
+        //统一发送log
+        log: function (type, data) {
+            var public_data = this.getPublicData();
+            for (var key in data) {
+                public_data[key] = data[key];
+            }
+
+            console.log(c[32029] + type);
+            console.log(public_data);
+
+            wx.request({
+                url: c[28103] + HOST + c[32030] + type + c[32031] + encodeURIComponent(JSON.stringify(public_data))
+            });
+        },
+
+        getDate: function () {
+            var date = new Date();
+            return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
+        },
+
+        downloadClient: function () {
+            wx.openCustomerServiceConversation();
+        },
+
+        // 微端小助手
+        weiduanHelper: function (data, callback) {
+            // sdk.toBindAccount();
+            rysdk.ryCheckTurnTerminalMsg({});
+        },
+        // 微端小助手(兼容)
+        sendUrl: function () {
+            rysdk.ryCheckTurnTerminalMsg({});
+        },
+
+        // 设置 wx.shareMessageToFriend 接口 query 字段的值
+        setMessageToFriendQuery: function (data, callback) {
+            var cp_activity_id = data.activity_id;
+            var result = wx.setMessageToFriendQuery({ shareMessageToFriendScene: cp_activity_id });
+
+            callback(result);
+        },
+
+        // 游戏loading完成事件上报
+        setLoadingCmp: function () {
+            // sdk.setLoadingCmp();
+        },
+
+        //获取验证码
+        sendCode: function (data, callback) {
+
+            console.log(c[32032], data.phone);
+
+            rysdk.rySendMessage({ 'phone': data.phone }).then(res => {
+                callback && callback(0, res);
+            }).catch(err => {
+                callback && callback(1, err);
+            });
+        },
+        //绑定手机
+        bindPhone: function (data, callback) {
+
+            console.log(c[32033], data.phone, data.code);
+
+            rysdk.ryBindPhone({ 'phone': data.phone, 'captcha': data.code }).then(res => {
+                callback && callback(0, res);
+            }).catch(err => {
+                callback && callback(1, err);
+            });
+        },
+        subscribeMessage: function (tmplIds, callback) {
+            console.log(c[32034] + tmplIds);
+            //获取模板ID
+            callbacks[c[948]] = typeof callback == c[385] ? callback : null;
+            wx.requestSubscribeMessage({
+                tmplIds: tmplIds,
+                success(res) {
+                    console.log(c[32035]);
+                    console.log(res);
+                    callbacks[c[948]] && callbacks[c[948]](res);
+                },
+                fail(res) {
+                    console.log(c[32036]);
+                    console.log(res);
+                    callbacks[c[948]] && callbacks[c[948]](res);
+                }
+            });
+        }
+
+    };
+}
+
+function run(method, data, callback) {
+    method in j61EMB && j61EMB[method](data, callback);
+}
+
+exports.init = function (data, callback) {
+    run(c[798], data, callback);
+};
+
+exports.login = function (callback) {
+    run(c[822], '', callback);
+};
+
+exports.login = function (callback) {
+    run(c[822], '', callback);
+};
+
+exports.pay = function (data, callback) {
+    run(c[911], data, callback);
+};
+
+exports.openService = function () {
+    run(c[936]);
+};
+
+exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLevel) {
+    var data = {
+        serverid: serverId,
+        servername: serverName,
+        roleid: roleId,
+        rolename: roleName,
+        rolelevel: roleLevel
+    };
+    run(c[926], data);
+};
+
+exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLevel) {
+    var data = {
+        serverid: serverId,
+        servername: serverName,
+        roleid: roleId,
+        rolename: roleName,
+        rolelevel: roleLevel
+    };
+
+    run(c[929], data);
+};
+
+exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleLevel) {
+    var data = {
+        serverid: serverId,
+        servername: serverName,
+        roleid: roleId,
+        rolename: roleName,
+        rolelevel: roleLevel
+    };
+    run(c[932], data);
+};
+
+exports.share = function (type) {
+    var data = {
+        type: type
+    };
+    run(c[935], data);
+};
+
+exports.msgCheck = function (data, callback) {
+    run(c[759], data, callback);
+};
+
+exports.downloadClient = function () {
+    run(c[32037]);
+};
+
+exports.getConfig = function () {
+    return {
+        game_id: config.game_id,
+        game_pkg: config.game_pkg,
+        partner_id: config.partner_id
+    };
+};
+
+exports.getPublicData = function () {
+    run(c[32038]);
+};
+
+exports.weiduanHelper = function (data, callback) {
+    run(c[938], data, callback);
+};
+exports.sendUrl = function () {
+    run(c[32039]);
+};
+
+exports.setMessageToFriendQuery = function (data, callback) {
+    run(c[32040], data, callback);
+};
+
+exports.setLoadingCmp = function () {
+    run(c[32041]);
+};
+
+exports.sendCode = function (data, callback) {
+    run(c[32042], data, callback);
+};
+
+exports.bindPhone = function (data, callback) {
+    run(c[13498], data, callback);
+};
+
+exports.subscribeMessage = function (data, callback) {
+    run(c[948], data, callback);
+};

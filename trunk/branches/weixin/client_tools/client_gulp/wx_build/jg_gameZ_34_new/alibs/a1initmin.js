@@ -1,0 +1,471 @@
+"use strict";
+var ui,
+    __extends = this && this.__extends || function () {
+  var $k = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function ($d, $t) {
+    $d.__proto__ = $t;
+  } || function ($d, $t) {
+    for (var $l in $t) $t.hasOwnProperty($l) && ($d[$l] = $t[$l]);
+  };return function ($d, $t) {
+    function $l() {
+      this.constructor = $d;
+    }$k($d, $t), $d.prototype = null === $t ? Object.create($t) : ($l.prototype = $t.prototype, new $l());
+  };
+}(),
+    View = laya.ui.View,
+    Dialog = laya.ui.Dialog;!function ($l) {
+  var $d = function ($d) {
+    function $t() {
+      return $d.call(this) || this;
+    }return __extends($t, $d), $t.prototype.createChildren = function () {
+      $d.prototype.createChildren.call(this), this.createView($l.$d.uiView);
+    }, $t.uiView = { type: "View", props: { width: 720, name: "P_WXAuthorizationViewUI", height: 1280 }, child: [{ type: "Image", props: { width: 720, var: "bgImg", skin: "a7a2/a103c.jpg", name: "bg", height: 1280, centerY: 0, centerX: 0 } }, { type: "Box", props: { y: 0, width: 720, right: 0, height: 1280 }, child: [{ type: "Image", props: { width: 720, var: "topImg", top: -139, skin: "a7a2/a107c.jpg", height: 139, centerX: 0, anchorY: 1 } }, { type: "Image", props: { width: 720, var: "btmImg", top: 1280, skin: "a7a2/a104c.jpg", height: 139, centerX: 0 } }, { type: "Image", props: { x: -220, width: 220, var: "leftImg", skin: "a7a2/a105c.jpg", left: -220, height: 1280, centerY: 0 } }, { type: "Image", props: { width: 220, var: "rightImg", skin: "a7a2/a106c.jpg", left: 720, height: 1280, centerY: 0 } }] }] }, $t;
+  }(View);$l.$d = $d;
+}(ui || (ui = {})), function ($l) {
+  var $d = function ($d) {
+    function $t() {
+      return $d.call(this) || this;
+    }return __extends($t, $d), $t.prototype.createChildren = function () {
+      $d.prototype.createChildren.call(this), this.createView($l.$t.uiView);
+    }, $t.uiView = { type: "View", props: { width: 720, name: "P_LoadingView", height: 1280 }, child: [{ type: "Image", props: { width: 720, var: "bgImg", name: "bg", height: 1280, centerY: 0, centerX: 0 } }, { type: "Box", props: { y: 0, x: 0, width: 720, height: 1280 }, child: [{ type: "Image", props: { var: "topImg", centerX: 0, bottom: 1280, anchorY: 1 } }, { type: "Image", props: { var: "btmImg", top: 1280, centerX: 0 } }, { type: "Image", props: { var: "leftImg", right: 720, pivotX: 1, centerY: 0 } }, { type: "Image", props: { var: "rightImg", left: 720, centerY: 0 } }] }, { type: "Image", props: { var: "copyRightImg", skin: "a7a2/a101c.png", centerX: 0, bottom: 10 } }, { type: "Box", props: { y: 963, x: 0, width: 720, var: "processBox1", name: "processBox1", height: 130 }, child: [{ type: "Image", props: { y: 46, x: 62, width: 596, var: "loadingBarBg", skin: "a7a1/a13c.png", height: 27, centerX: 0 } }, { type: "Image", props: { y: 49, x: 64, width: 590, var: "loadingBar", skin: "a7a1/a14c.png", height: 21 } }, { type: "Image", props: { y: 55, x: 507, width: 208, var: "loadingImg1", skin: "a7a1/a16c.png", height: 11 } }, { type: "Image", props: { y: 6, x: 628, width: 39, var: "loadingImg2", skin: "a7a1/a17c.png", height: 116 } }, { type: "Label", props: { y: 48, x: 293, width: 134, var: "percentageTips", valign: "middle", text: "88%", strokeColor: "#565353", stroke: 3, height: 24, fontSize: 24, color: "#fbfbf9", centerX: 0, bold: !1, align: "center" } }] }, { type: "Box", props: { y: 1065, x: 0, width: 720, var: "processBox2", name: "processBox2", height: 17 }, child: [{ type: "Image", props: { y: 0, x: 307, var: "point1", skin: "a7a1/a20c.png", centerX: -45 } }, { type: "Image", props: { y: 0, x: 337, var: "point2", skin: "a7a1/a19c.png", centerX: -15 } }, { type: "Image", props: { y: 0, x: 367, var: "point3", skin: "a7a1/a18c.png", centerX: 15 } }, { type: "Image", props: { y: 0, x: 397, var: "point4", skin: "a7a1/a18c.png", centerX: 45 } }] }, { type: "Button", props: { y: 790, x: 55, visible: !1, var: "getTipsBtn", stateNum: 1, skin: "a7a1/a1c.png", name: "getTipsBtn", labelSize: 30, labelFont: "SimHei", labelColors: "#af4158" }, child: [{ type: "Label", props: { y: 155, x: 146, width: 323, var: "txtGetTm", text: "\u7acb\u5373\u9886\u53d6(5s)", name: "txtGetTm", height: 30, fontSize: 30, color: "#bd4f1e", align: "center" } }] }, { type: "Label", props: { y: 1107, width: 500, var: "loadingTips", valign: "middle", text: "\u52a0\u8f7d\u63cf\u8ff0", height: 26, fontSize: 26, color: "#f2ffb5", centerX: 0, bold: !1, align: "center" } }, { type: "Label", props: { y: 10, x: 10, width: 342, var: "versionTxt", valign: "middle", top: 20, text: "\u7248\u672c\uff1a100", strokeColor: "#20385f", stroke: 2, right: 20, height: 32, fontSize: 24, color: "#dfebff", bold: !1, align: "right" } }] }, $t;
+  }(View);$l.$t = $d;
+}(ui || (ui = {})), function ($l) {
+  var $d = function ($d) {
+    function $t() {
+      return $d.call(this) || this;
+    }return __extends($t, $d), $t.prototype.createChildren = function () {
+      View.regComponent("HTMLDivElement", laya.html.dom.HTMLDivElement), View.regComponent("Text", laya.display.Text), $d.prototype.createChildren.call(this), this.createView($l.$l.uiView);
+    }, $t.uiView = { type: "View", props: { width: 720, name: "P_SelectServerViewUI", height: 1280 }, child: [{ type: "Image", props: { width: 720, var: "bgImg", skin: "a7a2/a103c.jpg", name: "bg", height: 1280, centerY: 0, centerX: 0 } }, { type: "Box", props: { y: 0, x: 0, width: 720, height: 1280 }, child: [{ type: "Image", props: { width: 720, var: "topImg", skin: "a7a2/a107c.jpg", bottom: 1279 } }, { type: "Image", props: { width: 720, var: "btmImg", top: 1279, skin: "a7a2/a104c.jpg" } }, { type: "Image", props: { var: "leftImg", skin: "a7a2/a105c.jpg", right: 719, height: 1280 } }, { type: "Image", props: { var: "rightImg", skin: "a7a2/a106c.jpg", left: 719, height: 1280 } }] }, { type: "Image", props: { y: 845, var: "selectServer", skin: "a7a2/a121c.png", centerX: 0 } }, { type: "Image", props: { y: 1102, var: "imgCheatTip", skin: "a7a2/a127c.png", name: "imgCheatTip", centerX: 0 } }, { type: "Image", props: { y: 927, x: 159, var: "hotImage", skin: "a7a2/a118c.png" } }, { type: "Image", props: { var: "copyRightImg", skin: "a7a2/a101c.png", centerX: 0, bottom: 30 } }, { type: "Image", props: { y: 1015, var: "enterBtn", stateNum: 1, skin: "a7a2/e12b.png", name: "enterBtn", centerX: 0 } }, { type: "Image", props: { x: 196, visible: !1, var: "privacyToggle", skin: "a7a2/a129c.png", bottom: 4 } }, { type: "Label", props: { y: 640, x: 0, width: 720, var: "txtTip", valign: "middle", text: "\u63d0\u793a\u5185\u5bb9", strokeColor: "#ffffff", stroke: 2, height: 32, fontSize: 32, color: "#ff0000", bold: !1, align: "center" } }, { type: "Label", props: { y: 932, x: 521, var: "selServer", valign: "middle", text: "\u9009\u670d>", height: 32, fontSize: 30, color: "#feffc0", bold: !1, align: "center" } }, { type: "Label", props: { y: 932, width: 342, var: "serverName", valign: "middle", text: "0000000000001\u670d", height: 32, fontSize: 30, color: "#feffc0", centerX: 0, bold: !1, align: "center" } }, { type: "Label", props: { width: 342, var: "versionTxt", valign: "middle", top: 20, text: "\u7248\u672c\uff1a100", strokeColor: "#20385f", stroke: 2, right: 20, height: 32, fontSize: 24, color: "#dfebff", bold: !1, align: "right" } }, { type: "HTMLDivElement", props: { y: 1255, x: 256, visible: !1, var: "privacyTip", height: 16 } }, { type: "Image", props: { y: 127, x: 593.5, var: "noticeBtn", skin: "a7a2/a112c.png" } }, { type: "Image", props: { y: 257, x: 594, visible: !1, var: "privacyBtn", skin: "a7a2/a113c.png", name: "privacyBtn" } }, { type: "Image", props: { visible: !1, var: "ageTipBtn", top: 1, scaleY: .5, scaleX: .5, name: "privacyBtn", left: 1 } }, { type: "Image", props: { y: 71, x: -2, visible: !1, var: "noticeBg", skin: "a7a2/a109c.png", centerY: 0, centerX: 0 }, child: [{ type: "Image", props: { y: 36.5, x: 616, var: "noticeClose", skin: "a7a2/a111c.png" } }, { type: "Label", props: { y: 72, x: 216, width: 234, var: "noticeTitle", valign: "middle", text: "\u6682\u65e0\u516c\u544a", height: 35, fontSize: 30, color: "#ffffff", bold: !1, align: "center" } }, { type: "Text", props: { y: 142, x: 61, wordWrap: !0, width: 545, var: "noticeContent", valign: "top", overflow: "scroll", mouseEnabled: !0, leading: 4, height: 870, fontSize: 26, color: "#212942" } }] }, { type: "Image", props: { visible: !1, var: "mNoticeBg", skin: "a7a2/a109c.png", centerY: 0, centerX: 0 }, child: [{ type: "Image", props: { y: 36.5, x: 616, var: "mNoticeClose", skin: "a7a2/a111c.png" } }, { type: "Button", props: { y: 904, x: 190, var: "mNoticeClose2", stateNum: 1, skin: "a7a2/a125c.png", labelSize: 30, labelColors: "#263d7d,#263d7d,#263d7d,#263d7d", label: "\u5173\u95ed" } }, { type: "Box", props: { y: 904, x: 34, width: 596, var: "boxTab", height: 59 } }, { type: "Label", props: { y: 72, x: 216, width: 234, var: "mNoticeTitle", valign: "middle", text: "\u6682\u65e0\u516c\u544a", height: 35, fontSize: 30, color: "#ffffff", bold: !1, align: "center" } }, { type: "Panel", props: { y: 142, x: 61, width: 545, var: "mNoticePanel", height: 733 }, child: [{ type: "HTMLDivElement", props: { y: 0, x: 0, width: 545, var: "mNoticeContent", height: 733 } }] }] }, { type: "Image", props: { visible: !1, var: "privacyBg", skin: "a7a2/a109c.png", name: "privacyBg", centerY: 0, centerX: 0 }, child: [{ type: "Image", props: { y: 36.5, x: 616, var: "privacyClose", skin: "a7a2/a111c.png" } }, { type: "Button", props: { y: 904, x: 190, var: "privacyClose2", stateNum: 1, skin: "a7a2/a125c.png", labelSize: 30, labelColors: "#263d7d,#263d7d,#263d7d,#263d7d", label: "\u5173\u95ed" } }, { type: "Box", props: { y: 904, x: 34, width: 596, var: "boxTabPrivacy", height: 59 } }, { type: "Label", props: { y: 72, x: 216, width: 234, var: "privacyTitle", valign: "middle", text: "\u6682\u65e0\u516c\u544a", height: 35, fontSize: 30, color: "#ffffff", bold: !1, align: "center" } }, { type: "Panel", props: { y: 142, x: 61, width: 545, var: "privacyPanel", height: 733 }, child: [{ type: "HTMLDivElement", props: { y: 0, x: 0, width: 545, var: "privacyContent", height: 733 } }] }] }, { type: "Image", props: { visible: !1, var: "listBg", skin: "a7a2/a110c.png", centerY: 0, centerX: 0 }, child: [{ type: "Box", props: { y: 117, x: 61, width: 200, var: "leftListBox", height: 905 } }, { type: "Box", props: { y: 117, x: 293, width: 358, var: "rightListBox", height: 905 } }, { type: "Image", props: { y: 13, x: 642, var: "closeBg", skin: "a7a2/a117c.png" } }] }, { type: "Box", props: { width: 720, visible: !1, var: "jumpBg", mouseThrough: !1, height: 1280, centerY: 0, centerX: 0 }, child: [{ type: "Image", props: { x: 33, width: 655, skin: "a7a2/a109c.png", height: 994, centerY: 0, centerX: 0 } }, { type: "Button", props: { width: 274, var: "btnJump", stateNum: 1, skin: "a7a2/a125c.png", labelSize: 30, labelColors: "#263d7d,#263d7d,#263d7d,#263d7d", label: "\u8df3\u8f6c", height: 59, centerY: 436, centerX: 0 } }, { type: "Label", props: { width: 234, var: "jumpTitle", valign: "middle", text: "\u6682\u65e0\u516c\u544a", fontSize: 30, color: "#ffffff", centerY: -408, centerX: 0, bold: !1, align: "center" } }, { type: "Panel", props: { x: 94, width: 545, var: "jumpPanel", height: 733, centerY: 10 }, child: [{ type: "HTMLDivElement", props: { y: 0, x: 0, width: 545, var: "jumpContent", height: 733 } }] }, { type: "Image", props: { x: 596, visible: !1, var: "closeBtn", skin: "a7a2/a117c.png", name: "closeBtn", centerY: -402 } }] }] }, $t;
+  }(View);$l.$l = $d;
+}(ui || (ui = {})), function ($d) {
+  var $t, $l;$t = $d.$k || ($d.$k = {}), $l = function ($t) {
+    function $d() {
+      return $t.call(this) || this;
+    }return __extends($d, $t), $d.prototype.initialize = function () {
+      $t.prototype.initialize.call(this), this.centerX = 0, this.centerY = 0, this.addEvt(), this.onOpened();
+    }, $d.prototype.addEvt = function () {
+      this.on(Laya.Event.CLICK, this, this.$W);
+    }, $d.prototype.rmEvts = function () {
+      this.off(Laya.Event.CLICK, this, this.$W);
+    }, $d.prototype.onOpened = function () {
+      this.$i = Date.now(), ServerLoading.instance.preloadServer(), ServerLoading.instance.preloadLoading();
+    }, $d.prototype.destroy = function ($d) {
+      void 0 === $d && ($d = !0), this.rmEvts(), $t.prototype.destroy.call(this, $d);
+    }, $d.prototype.$W = function () {
+      1e4 < Date.now() - this.$i && (this.$i -= 1e3, Browser.window.PF_INFO.selectedServer.server_id && (ServerLoading.instance.enterDefaultServer(), ServerLoading.instance.sendRecord()));
+    }, $d;
+  }(ui.$d), $t.AuthorizationPanel = $l;
+}(modules || (modules = {})), function ($d) {
+  var $t, $l, $k, $W, $A, $i;$t = $d.$A || ($d.$A = {}), $l = Laya.Event, $k = Laya.Image, $W = Laya.Component, $A = Laya.Loader, $i = function ($t) {
+    function $o() {
+      var $d = $t.call(this) || this;return $d.$B = new $k(), $d.addChild($d.$B), $d.$o = null, $d.$I = [], $d.$b = !1, $d.$f = 0, $d.$J = !0, $d.$c = 6, $d.$Y = !1, $d.on($l.DISPLAY, $d, $d.$w), $d.on($l.UNDISPLAY, $d, $d.$D), $d;
+    }return __extends($o, $t), $o.create = function ($d, $t, $l, $k, $W, $i, $A) {
+      void 0 === $k && ($k = 0), void 0 === $W && ($W = 6), void 0 === $i && ($i = !0), void 0 === $A && ($A = !1);var $B = new $o();return $B.skin($t, $l, $k), $B.durFrm = $W, $B.loop = $i, $B.atHide = $A, $d && $d.addChild($B), $B;
+    }, $o.play = function ($d) {
+      $d && ($d.visible = !0, $d.play());
+    }, $o.stop = function ($d) {
+      $d && ($d.visible = !1, $d.stop());
+    }, $o.prototype.destroy = function ($d) {
+      Laya.timer.clear(this, this.$z), this.off($l.DISPLAY, this, this.$w), this.off($l.UNDISPLAY, this, this.$D), $t.prototype.destroy.call(this, $d);
+    }, $o.prototype.$w = function () {}, $o.prototype.$D = function () {}, $o.prototype.skin = function ($d, $t, $l) {
+      if (this.$o != $d) {
+        this.$o = $d, this.$I = [];for (var $k = 0, $W = $l; $W <= $t; $W++) this.$I[$k++] = $d + "/" + $W + ".png";var $i = $A.getRes(this.$I[0]);$i && (this.width = $i.sourceWidth, this.height = $i.sourceHeight), this.$z();
+      }
+    }, Object.defineProperty($o.prototype, "atHide", { get: function () {
+        return this.$Y;
+      }, set: function ($d) {
+        this.$Y = $d;
+      }, enumerable: !0, configurable: !0 }), Object.defineProperty($o.prototype, "durFrm", { set: function ($d) {
+        this.$c != $d && (this.$c = $d, this.$b && (Laya.timer.clear(this, this.$z), Laya.timer.loop(this.$c * (1e3 / 60), this, this.$z)));
+      }, enumerable: !0, configurable: !0 }), Object.defineProperty($o.prototype, "loop", { set: function ($d) {
+        this.$J = $d;
+      }, enumerable: !0, configurable: !0 }), $o.prototype.play = function () {
+      this.$b && this.stop(), this.$b = !0, this.$f = 0, Laya.timer.loop(this.$c * (1e3 / 60), this, this.$z), this.$z();
+    }, $o.prototype.stop = function () {
+      this.$b = !1, this.$f = 0, this.$z(), Laya.timer.clear(this, this.$z);
+    }, $o.prototype.pause = function () {
+      this.$b && (this.$b = !1, Laya.timer.clear(this, this.$z));
+    }, $o.prototype.resume = function () {
+      this.$b || (this.$b = !0, Laya.timer.loop(this.$c * (1e3 / 60), this, this.$z), this.$z());
+    }, Object.defineProperty($o.prototype, "isPlay", { get: function () {
+        return this.$b;
+      }, enumerable: !0, configurable: !0 }), $o.prototype.$z = function () {
+      this.$I && 0 != this.$I.length && (this.$B.skin = this.$I[this.$f], this.$b && (this.$f++, this.$f == this.$I.length && (this.$J ? this.$f = 0 : (Laya.timer.clear(this, this.$z), this.$b = !1, this.$Y && (this.visible = !1), this.event($l.COMPLETE)))));
+    }, $o;
+  }($W), $t.PanelEff = $i;
+}(modules || (modules = {})), function ($d) {
+  var $t, $l, $k;$t = $d.$k || ($d.$k = {}), $l = $d.$A.PanelEff, $k = function ($k) {
+    function $d($d, $t) {
+      void 0 === $d && ($d = 0);var $l = $k.call(this) || this;return $l.$e = { bgImgSkin: "a7a1/a3c.jpg", topImgSkin: "a7a1/a10c.jpg", btmImgSkin: "a7a1/a4c.jpg", leftImgSkin: "a7a1/a6c.jpg", rightImgSkin: "a7a1/a8c.jpg", loadingBarBgSkin: "a7a1/a13c.png", copyRightImgBottom: 10, processBox1Y: 963, processBox2Y: 1065, loadingTipsSize: 26, getTipsBtnVisible: !1 }, $l.$g = { bgImgSkin: "a7a1/a12c.jpg", topImgSkin: "a7a1/a11c.jpg", btmImgSkin: "a7a1/a5c.jpg", leftImgSkin: "a7a1/a7c.jpg", rightImgSkin: "a7a1/a9c.jpg", loadingBarBgSkin: "a7a1/a15c.png", copyRightImgBottom: 10, processBox1Y: 963, processBox2Y: 1065, loadingTipsSize: 26, getTipsBtnVisible: !1 }, $l.$H = 0, $l.$R(1 == $d ? $l.$g : $l.$e), $l.copyRightImg.skin = $t, $l;
+    }return __extends($d, $k), $d.prototype.initialize = function () {
+      if ($k.prototype.initialize.call(this), ServerLoading.instance.preloadLoading(), this.$G = Browser.window.PF_INFO, this.centerX = 0, this.centerY = 0, this.$G) {
+        var $d = this.$G.loadingType;this.loadingTips.color = 1 == $d ? "#f2ffb5" : 2 == $d ? "#000000" : 101 == $d ? "#000000" : "#f2ffb5";
+      }this.$q = [this.point1, this.point2, this.point3, this.point4], Browser.window.watPanel = this, wxHideLoading(), ServerLoading.instance.closeAuthor(), ServerLoading.instance.closeServer(), this.onOpened();
+    }, $d.prototype.toAllProgress = function ($d) {
+      var $t = this;if (-1 === $d) return $t.$H = 0, Laya.timer.clear(this, this.toAllProgress), void Laya.timer.frameLoop(1, this, this.toAllProgress);if (-2 !== $d) {
+        $t.$H < .9 ? $t.$H += (.15 * Math.random() + .01) / (100 * Math.random() + 50) : $t.$H < 1 && ($t.$H += 1e-4), .9999 < $t.$H && ($t.$H = .9999, Laya.timer.clear(this, this.toAllProgress), Laya.timer.once(3e3, this, function () {
+          .9 < $t.$H && toAllProgress(-1);
+        }));var $l = $t.$H,
+            $k = 590 * $l;$t.$H = $t.$H > $l ? $t.$H : $l, $t.loadingBar.width = $k;var $W = $t.loadingBar.x + $k;$t.loadingImg2.x = $W - 15, 364 <= $W ? ($t.loadingImg1.visible = !0, $t.loadingImg1.x = $W - 202) : $t.loadingImg1.visible = !1, $t.percentageTips.text = (100 * $l >> 0) + "%", $t.$H < .9999 && Laya.timer.frameLoop(1, this, this.toAllProgress);
+      } else Laya.timer.clear(this, this.toAllProgress);
+    }, $d.prototype.toProgress = function ($d, $t, $l) {
+      var $k = this;1 < $d && ($d = 1);var $W = 590 * $d;$k.$H = $k.$H > $d ? $k.$H : $d, $k.loadingBar.width = $W;var $i = $k.loadingBar.x + $W;$k.loadingImg2.x = $i - 15, 364 <= $i ? ($k.loadingImg1.visible = !0, $k.loadingImg1.x = $i - 202) : $k.loadingImg1.visible = !1, $k.percentageTips.text = (100 * $d >> 0) + "%", $k.loadingTips.text = $t;for (var $A = $l - 1, $B = 0; $B < this.$q.length; $B++) $k.$q[$B].skin = $B < $A ? "a7a1/a20c.png" : $A === $B ? "a7a1/a19c.png" : "a7a1/a18c.png";
+    }, $d.prototype.onOpened = function () {
+      this.toProgress(.1, "\u6b63\u5728\u52a0\u8f7d\u8d44\u6e90...", 1), this.toAllProgress(-1), Browser.window.toAllProgress = this.toAllProgress.bind(this), Browser.window.toProgress = this.toProgress.bind(this), this.versionTxt.text = "\u8d44\u6e90\uff1a" + this.$G.lastVersion + "      \u7248\u672c\uff1a" + this.$G.wxVersion, this.showGetBtn();
+    }, $d.prototype.close = function ($d) {
+      this.resetWinFun(), Laya.timer.clear(this, this.toAllProgress), Laya.timer.clear(this, this.$L), ServerLoading.instance.closeLoading(), this.getTipsBtn.off(Laya.Event.CLICK, this, this.$$);
+    }, $d.prototype.resetWinFun = function () {
+      Browser.window.toAllProgress = function () {}, Browser.window.toProgress = function () {};
+    }, $d.prototype.destroy = function ($d) {
+      void 0 === $d && ($d = !0), this.resetWinFun(), $k.prototype.destroy.call(this, $d);
+    }, $d.prototype.showGetBtn = function () {
+      this.$G.showGetBtn && 1 == this.$G.showGetBtn && (this.getTipsBtn.visible = !0, this.getTipsBtn.tag = !0, this.getTipsBtn.skin = "a7a1/a1c.png", this.getTipsBtn.on(Laya.Event.CLICK, this, this.$$), this.$p(), this.$M(!0));
+    }, $d.prototype.$$ = function () {
+      this.getTipsBtn.tag && (this.getTipsBtn.tag = !1, this.getTipsBtn.skin = "a7a1/a2c.png", this.$T(), this.$M(!1));
+    }, $d.prototype.$R = function ($d) {
+      this.bgImg.skin = $d.bgImgSkin, this.topImg.skin = $d.topImgSkin, this.btmImg.skin = $d.btmImgSkin, this.leftImg.skin = $d.leftImgSkin, this.rightImg.skin = $d.rightImgSkin, this.copyRightImg.bottom = $d.copyRightImgBottom, this.processBox1.y = $d.processBox1Y, this.processBox2.y = $d.processBox2Y, this.loadingBarBg.skin = $d.loadingBarBgSkin, this.loadingTips.fontSize = $d.loadingTipsSize, this.getTipsBtn.visible = this.$G.showGetBtn && 1 == this.$G.showGetBtn, this.getTipsBtn.visible ? this.$p() : this.$T(), this.$M(this.getTipsBtn.visible);
+    }, $d.prototype.$p = function () {
+      this.$r || (this.$r = $l.create(this.getTipsBtn, "a7a6", 4, 0, 12), this.$r.pos(161, 106), this.$r.scale(1.14, 1.15)), $l.play(this.$r);
+    }, $d.prototype.$T = function () {
+      this.$r && $l.stop(this.$r);
+    }, $d.prototype.$M = function ($d) {
+      Laya.timer.clear(this, this.$L), $d ? (this.$S = 9, this.txtGetTm.visible = !0, this.$L(), Laya.timer.loop(1e3, this, this.$L)) : this.txtGetTm.visible = !1;
+    }, $d.prototype.$L = function () {
+      0 < this.$S ? (this.txtGetTm.text = "\u7acb\u5373\u9886\u53d6(" + this.$S + "s)", this.$S--) : (this.txtGetTm.text = "", Laya.timer.clear(this, this.$L), this.$$());
+    }, $d;
+  }(ui.$t), $t.LoadingPanel = $k;
+}(modules || (modules = {})), function ($d) {
+  var $t, $k, $W, $l;$t = $d.$k || ($d.$k = {}), $k = Laya.List, $W = Laya.Event, $l = function ($l) {
+    function $d($d) {
+      void 0 === $d && ($d = "a7a2/a101c.png");var $t = $l.call(this) || this;return $t.$j = 0, $t.$C = "multi_notice_key", $t.$K = 0, $t.$x = 0, $t.$n = "privacy_key", $t.$Q = !0, $t.$y = 0, $t.copyRightImg.skin = $d, $t;
+    }return __extends($d, $l), $d.prototype.initialize = function () {
+      $l.prototype.initialize.call(this), this.centerX = 0, this.centerY = 0, this.copyRightImg.skin = "", ServerLoading.instance.preloadServer(), this.$G = Browser.window.PF_INFO, this.$V = new $k(), this.$V.vScrollBarSkin = "", this.$V.itemRender = $t.SelectLeftListItem, this.$V.top = 5, this.$V.repeatX = 1, this.$V.spaceY = 5, this.$V.width = this.leftListBox.width, this.$V.height = this.leftListBox.height - 8, this.leftListBox.addChild(this.$V), this.$Z = new $k(), this.$Z.vScrollBarSkin = "", this.$Z.itemRender = $t.SelectRightListItem, this.$Z.top = 5, this.$Z.repeatX = 1, this.$Z.spaceY = 5, this.$Z.width = this.rightListBox.width, this.$Z.height = this.rightListBox.height - 8, this.rightListBox.addChild(this.$Z), this.$U = new $k(), this.$U.hScrollBarSkin = "", this.$U.itemRender = $t.NoticeItem, this.$U.repeatY = 1, this.$U.width = this.boxTab.width, this.$U.height = this.boxTab.height, this.boxTab.addChild(this.$U), this.$E = new $k(), this.$E.hScrollBarSkin = "", this.$E.itemRender = $t.PrivacyItem, this.$E.repeatY = 1, this.$E.width = this.boxTab.width, this.$E.height = this.boxTab.height, this.boxTabPrivacy.addChild(this.$E);var $d = this.$G.loadingType;this.$N = 1 == $d ? "#feffc0" : 2 == $d ? "#feffc0" : 3 == $d ? "#feffc0" : 101 == $d ? "#feffc0" : "#93353b", this.enterBtn.size(506, 88), this.$u = [], this.noticeBtn.visible = !1, this.mNoticeContent.color = "#212942", this.mNoticeContent.style.fontSize = 26, this.mNoticeContent.style.lineHeight = 28, this.mNoticeContent.mouseEnabled = !1, this.privacyContent.color = "#212942", this.privacyContent.style.fontSize = 26, this.privacyContent.style.lineHeight = 28, this.privacyContent.mouseEnabled = !1, this.privacyTip.color = "#ffffff", this.privacyTip.style.fontSize = 18, this.privacyTip.style.lineHeight = 18, this.privacyTip.style.stroke = 2, this.privacyTip.style.strokeColor = "#000000", this.privacyTip.style.wordWrap = !1, this.jumpContent.color = "#212942", this.jumpContent.style.fontSize = 26, this.jumpContent.style.lineHeight = 28, this.jumpContent.mouseEnabled = !1, Browser.window.initPanel = this, wxHideLoading(), this.addEvt(), this.onOpened();
+    }, $d.prototype.destroy = function ($d) {
+      void 0 === $d && ($d = !0), this.rmEvts(), this.$h(), this.$s(), this.$P(), this.$X(), this.ageTipsContent = null, this.$V && (this.$V.removeSelf(), this.$V.destroy(), this.$V = null), this.$Z && (this.$Z.removeSelf(), this.$Z.destroy(), this.$Z = null), this.$U && (this.$U.removeSelf(), this.$U.destroy(), this.$U = null), this.$E && (this.$E.removeSelf(), this.$E.destroy(), this.$E = null), Laya.timer.clear(this, this.$m), $l.prototype.destroy.call(this, $d);
+    }, $d.prototype.addEvt = function () {
+      this.bgImg.on(Laya.Event.CLICK, this, this.$O), this.enterBtn.on(Laya.Event.CLICK, this, this.$F), this.selectServer.on(Laya.Event.CLICK, this, this.$a), this.selectServer.on(Laya.Event.CLICK, this, this.$a), this.closeBg.on(Laya.Event.CLICK, this, this.$v), this.closeBtn.on(Laya.Event.CLICK, this, this.$dd), this.noticeBtn.on(Laya.Event.CLICK, this, this.$td), this.noticeClose.on(Laya.Event.CLICK, this, this.$ld), this.noticeContent.on(Laya.Event.MOUSE_DOWN, this, this.$kd), this.mNoticeClose.on(Laya.Event.CLICK, this, this.$Wd), this.mNoticeClose2.on(Laya.Event.CLICK, this, this.$Wd), this.mNoticePanel.on(Laya.Event.MOUSE_DOWN, this, this.$id), this.privacyBtn.on(Laya.Event.CLICK, this, this.$Ad), this.ageTipBtn.on(Laya.Event.CLICK, this, this.$Bd), this.privacyClose.on(Laya.Event.CLICK, this, this.$od), this.privacyClose2.on(Laya.Event.CLICK, this, this.$od), this.privacyPanel.on(Laya.Event.MOUSE_DOWN, this, this.$Id), this.privacyToggle.on(Laya.Event.CLICK, this, this.$bd), this.privacyTip.on(Laya.Event.LINK, this, this.$fd), this.btnJump.on(Laya.Event.CLICK, this, this.$Jd), this.jumpPanel.on(Laya.Event.MOUSE_DOWN, this, this.$cd), this.$U.selectEnable = !0, this.$U.selectHandler = Laya.Handler.create(this, this.$Yd, null, !1), this.$E.selectEnable = !0, this.$E.selectHandler = Laya.Handler.create(this, this.$wd, null, !1);
+    }, $d.prototype.rmEvts = function () {
+      this.bgImg.off(Laya.Event.CLICK, this, this.$O), this.enterBtn.off(Laya.Event.CLICK, this, this.$F), this.selectServer.off(Laya.Event.CLICK, this, this.$a), this.selectServer.off(Laya.Event.CLICK, this, this.$a), this.closeBg.off(Laya.Event.CLICK, this, this.$v), this.noticeBtn.off(Laya.Event.CLICK, this, this.$td), this.closeBtn.off(Laya.Event.CLICK, this, this.$dd), this.noticeClose.off(Laya.Event.CLICK, this, this.$ld), this.noticeContent.off(Laya.Event.MOUSE_DOWN, this, this.$kd), this.mNoticeClose.off(Laya.Event.CLICK, this, this.$Wd), this.mNoticeClose2.off(Laya.Event.CLICK, this, this.$Wd), this.mNoticePanel.off(Laya.Event.MOUSE_DOWN, this, this.$id), this.privacyBtn.off(Laya.Event.CLICK, this, this.$Ad), this.ageTipBtn.off(Laya.Event.CLICK, this, this.$Bd), this.privacyClose.off(Laya.Event.CLICK, this, this.$od), this.privacyClose2.off(Laya.Event.CLICK, this, this.$od), this.privacyPanel.off(Laya.Event.MOUSE_DOWN, this, this.$Id), this.privacyToggle.off(Laya.Event.CLICK, this, this.$bd), this.privacyTip.off(Laya.Event.LINK, this, this.$fd), this.btnJump.off(Laya.Event.CLICK, this, this.$Jd), this.jumpPanel.off(Laya.Event.MOUSE_DOWN, this, this.$cd), this.$U.selectEnable = !1, this.$U.selectHandler = null, this.$E.selectEnable = !1, this.$E.selectHandler = null;
+    }, $d.prototype.onOpened = function () {
+      var $k = this;this.$i = Date.now(), this.$Q = !0, this.$Dd = this.$G.selectedServer.server_id, this.$zd(this.$G.selectedServer), this.$V.dataSource = this.$G.groupList, this.$a(), req_multi_server_notice(4, this.$G.pkgName, this.$G.selectedServer.server_id, this.$ed.bind(this)), Laya.timer.frameOnce(1, this, function () {
+        $k.$gd = $k.$G.privacy_data && $k.$G.privacy_data.list ? $k.$G.privacy_data.list : [], $k.$Hd = null != $k.$G.privacy_login_pkg ? $k.$G.privacy_login_pkg : 0;var $d = "1" == localStorage.getItem($k.$n),
+            $t = 0 != PF_INFO.privacy_save_pkg,
+            $l = 0 == $k.$Hd || 1 == $k.$Hd;$k.$Rd = $t && $d || $l, $k.$Gd();
+      }), this.versionTxt.text = "\u8d44\u6e90\uff1a" + this.$G.lastVersion + "      \u7248\u672c\uff1a" + this.$G.wxVersion, this.serverName.color = this.selServer.color = this.$N, this.imgCheatTip.visible = 1 == this.$G.anti_cheat_pkg, this.txtTip.visible = !1;
+    }, $d.prototype.preload = function () {}, $d.prototype.$O = function () {
+      this.$Rd ? 1e4 < Date.now() - this.$i && (this.$i -= 2e3, ServerLoading.instance.enterDefaultServer()) : this.$qd("\u60a8\u5fc5\u987b\u540c\u610f\u7528\u6237\u534f\u8bae\u624d\u53ef\u8fdb\u5165\u6e38\u620f");
+    }, $d.prototype.$F = function () {
+      this.$Rd ? this.$Ld(this.$G.selectedServer) && (Browser.window.PF_INFO.selectedServer = this.$G.selectedServer, req_server_check_ban(0, this.$G.selectedServer.server_id)) : this.$qd("\u60a8\u5fc5\u987b\u540c\u610f\u7528\u6237\u534f\u8bae\u624d\u53ef\u8fdb\u5165\u6e38\u620f");
+    }, $d.prototype.$a = function () {
+      this.$G.hasGroupReq ? this.listBg.visible = !0 : (this.$G.hasGroupReq = !0, req_server_group(0));
+    }, $d.prototype.$v = function () {
+      this.listBg.visible = !1;
+    }, $d.prototype.$dd = function () {
+      this.jumpBg.visible = !1;
+    }, $d.prototype.$td = function () {
+      this.$$d();
+    }, $d.prototype.$Wd = function () {
+      this.mNoticeBg.visible = !1;
+    }, $d.prototype.$ld = function () {
+      this.noticeBg.visible = !1;
+    }, $d.prototype.$Ad = function () {
+      this.$pd();
+    }, $d.prototype.$od = function () {
+      this.privacyBg.visible = !1;
+    }, $d.prototype.$bd = function () {
+      this.$Rd = !this.$Rd, this.$Rd && localStorage.setItem(this.$n, "1"), this.privacyToggle.skin = "a7a2/" + (this.$Rd ? "a129c.png" : "a128c.png");
+    }, $d.prototype.$fd = function ($d) {
+      this.$pd(Number($d));
+    }, $d.prototype.$Jd = function () {
+      Browser.window.forceJumpMiniGame ? Browser.window.forceJumpMiniGame() : this.$dd();
+    }, $d.prototype.$kd = function () {
+      this.$j = this.noticeContent.mouseY, Laya.stage.on($W.MOUSE_MOVE, this, this.$Md), Laya.stage.on($W.MOUSE_UP, this, this.$h), Laya.stage.on($W.MOUSE_OUT, this, this.$h);
+    }, $d.prototype.$Md = function () {
+      if (this.noticeContent) {
+        var $d = this.$j - this.noticeContent.mouseY;this.noticeContent.scrollY += $d, this.$j = this.noticeContent.mouseY;
+      }
+    }, $d.prototype.$h = function () {
+      Laya.stage.off($W.MOUSE_MOVE, this, this.$Md), Laya.stage.off($W.MOUSE_UP, this, this.$h), Laya.stage.off($W.MOUSE_OUT, this, this.$h);
+    }, $d.prototype.$id = function () {
+      this.$K = this.mNoticePanel.mouseY, Laya.stage.on($W.MOUSE_MOVE, this, this.$Td), Laya.stage.on($W.MOUSE_UP, this, this.$s), Laya.stage.on($W.MOUSE_OUT, this, this.$s);
+    }, $d.prototype.$Td = function () {
+      if (this.mNoticeContent) {
+        var $d = this.$K - this.mNoticePanel.mouseY;this.mNoticeContent.y -= $d, this.mNoticePanel.height < this.mNoticeContent.contextHeight ? this.mNoticeContent.y < this.mNoticePanel.height - this.mNoticeContent.contextHeight ? this.mNoticeContent.y = this.mNoticePanel.height - this.mNoticeContent.contextHeight : 0 < this.mNoticeContent.y && (this.mNoticeContent.y = 0) : this.mNoticeContent.y = 0, this.$K = this.mNoticePanel.mouseY;
+      }
+    }, $d.prototype.$s = function () {
+      Laya.stage.off($W.MOUSE_MOVE, this, this.$Td), Laya.stage.off($W.MOUSE_UP, this, this.$s), Laya.stage.off($W.MOUSE_OUT, this, this.$s);
+    }, $d.prototype.$Id = function () {
+      this.$x = this.privacyPanel.mouseY, Laya.stage.on($W.MOUSE_MOVE, this, this.$rd), Laya.stage.on($W.MOUSE_UP, this, this.$P), Laya.stage.on($W.MOUSE_OUT, this, this.$P);
+    }, $d.prototype.$rd = function () {
+      if (this.privacyContent) {
+        var $d = this.$x - this.privacyPanel.mouseY;this.privacyContent.y -= $d, this.privacyPanel.height < this.privacyContent.contextHeight ? this.privacyContent.y < this.privacyPanel.height - this.privacyContent.contextHeight ? this.privacyContent.y = this.privacyPanel.height - this.privacyContent.contextHeight : 0 < this.privacyContent.y && (this.privacyContent.y = 0) : this.privacyContent.y = 0, this.$x = this.privacyPanel.mouseY;
+      }
+    }, $d.prototype.$P = function () {
+      Laya.stage.off($W.MOUSE_MOVE, this, this.$rd), Laya.stage.off($W.MOUSE_UP, this, this.$P), Laya.stage.off($W.MOUSE_OUT, this, this.$P);
+    }, $d.prototype.$cd = function () {
+      this.$y = this.jumpPanel.mouseY, Laya.stage.on($W.MOUSE_MOVE, this, this.$Sd), Laya.stage.on($W.MOUSE_UP, this, this.$X), Laya.stage.on($W.MOUSE_OUT, this, this.$X);
+    }, $d.prototype.$Sd = function () {
+      if (this.jumpContent) {
+        var $d = this.$y - this.jumpPanel.mouseY;this.jumpContent.y -= $d, this.jumpPanel.height < this.jumpContent.contextHeight ? this.jumpContent.y < this.jumpPanel.height - this.jumpContent.contextHeight ? this.jumpContent.y = this.jumpPanel.height - this.jumpContent.contextHeight : 0 < this.jumpContent.y && (this.jumpContent.y = 0) : this.jumpContent.y = 0, this.$y = this.jumpPanel.mouseY;
+      }
+    }, $d.prototype.$X = function () {
+      Laya.stage.off($W.MOUSE_MOVE, this, this.$Sd), Laya.stage.off($W.MOUSE_UP, this, this.$X), Laya.stage.off($W.MOUSE_OUT, this, this.$X);
+    }, $d.prototype.$Yd = function () {
+      if (this.$U.dataSource) {
+        for (var $d, $t = 0; $t < this.$U.dataSource.length; $t++) {
+          var $l = this.$U.dataSource[$t];$l[1] = $t == this.$U.selectedIndex, $t == this.$U.selectedIndex && ($d = $l[0]);
+        }this.mNoticeTitle.text = $d && $d.title ? $d.title : "", this.mNoticeContent.innerHTML = $d && $d.content ? $d.content : "", this.mNoticeContent.y = 0;
+      }
+    }, $d.prototype.$wd = function () {
+      var $d = this.$E.dataSource;if ($d) {
+        for (var $t = 0; $t < $d.length; $t++) {
+          $d[$t][1] = $t == this.$E.selectedIndex;
+        }var $l = this.$gd[this.$E.selectedIndex];$l && $l.content && ($l.content = $l.content.replace(/(<)(?!(br)).[a-zA-Z]{0,10}(>)/g, "")), this.privacyTitle.text = $l && $l.title ? $l.title : "\u6807\u9898", this.privacyContent.innerHTML = $l && $l.content ? $l.content : "\u52a0\u8f7d\u4e2d...", this.privacyContent.y = 0;
+      }
+    }, $d.prototype.$zd = function ($d) {
+      var $t = $d.server_name;this.serverName.text = $t + this.$jd($d), this.serverName.color = -1 === $d.status ? "#d50000" : 0 === $d.status ? "#49575a" : this.$N, this.hotImage.skin = this.$Cd($d), this.$G.cdn = $d.cdn || "", this.$G.selectedServer = $d, this.noticeBtn.visible = !0;
+    }, $d.prototype.$Kd = function ($d) {
+      this.showGroupList($d);
+    }, $d.prototype.$xd = function ($d) {
+      this.$zd($d), this.listBg.visible = !1;
+    }, $d.prototype.showGroupList = function ($d) {
+      if (void 0 === $d && ($d = 0), this.parent) {
+        var $t = this.$G.groupList;if ($t && 0 !== $t.length) {
+          for (var $l = $t.length, $k = 0; $k < $l; $k++) $t[$k].callBack = this.$Kd.bind(this), $t[$k].select = $k == $d, $t[$k].index = $k;var $W = (this.$V.array = $t)[$d].id;this.$G.serverList[$W] ? this.showServerList($W) : this.$G.hasServerReq || (this.$G.hasServerReq = !0, -1 == $W ? req_server_owner(0) : -2 == $W ? req_recommend_server_list(0) : req_server_list(0, $W));
+        }
+      }
+    }, $d.prototype.showServerList = function ($d) {
+      if (this.parent && this.$G.serverList[$d]) {
+        for (var $t = this.$G.serverList[$d], $l = $t.length, $k = 0; $k < $l; $k++) $t[$k].callBack = this.$xd.bind(this);this.$Z.array = $t;
+      }
+    }, $d.prototype.$Ld = function ($d) {
+      return -1 == $d.status ? (alert("\u670d\u52a1\u5668\u7ef4\u62a4\u4e2d"), !1) : 0 != $d.status || (alert("\u670d\u52a1\u5668\u5c1a\u672a\u5f00\u542f\uff0c\u656c\u8bf7\u671f\u5f85"), !1);
+    }, $d.prototype.$Cd = function ($d) {
+      var $t = $d.status,
+          $l = $d.is_recommend,
+          $k = "a7a2/a119c.png";return 1 !== $t && 2 !== $t || 1 !== $l && 3 !== $l ? 1 !== $t && 2 !== $t || 2 !== $l ? -1 !== $t && 0 !== $t || ($k = "a7a2/a120c.png") : $k = "a7a2/a119c.png" : $k = "a7a2/a118c.png", $k;
+    }, $d.prototype.$jd = function ($d) {
+      var $t = $d.status,
+          $l = "";return 1 == $d.is_recommend || 3 == $d.is_recommend ? $l = "(\u63a8\u8350)" : -1 === $t ? $l = "(\u7ef4\u62a4\u4e2d)" : 0 === $t && ($l = "(\u5f85\u5f00\u670d)"), $l;
+    }, $d.prototype.$ed = function ($d) {
+      console.log("onMultiNoticeCallback, param = ", $d);var $t = Date.now() / 1e3,
+          $l = localStorage.getItem(this.$C),
+          $k = !(this.$u = []);if ("success" == $d.state) for (var $W in $d.data) {
+        var $i = $d.data[$W];if ($i) {
+          var $A = $t < $i.end_time,
+              $B = 1 == $i.pop_type,
+              $o = 2 == $i.pop_type && $i.key + "" != $l;!$k && $A && ($B || $o) && ($k = !0), $A && this.$u.push($i), $o && localStorage.setItem(this.$C, $i.key + "");
+        }
+      }this.$u.sort(function ($d, $t) {
+        return $d.login_id - $t.login_id;
+      }), console.log("onMultiNoticeCallback, datas = ", this.$u), $k && this.$$d();
+    }, $d.prototype.$$d = function () {
+      if (this.$U) {
+        if (this.$u) {
+          this.$U.x = 2 < this.$u.length ? 0 : (this.boxTab.width - 274 * this.$u.length) / 2;for (var $d = [], $t = 0; $t < this.$u.length; $t++) {
+            var $l = this.$u[$t];$d.push([$l, $t == this.$U.selectedIndex]);
+          }0 < (this.$U.dataSource = $d).length ? (this.$U.selectedIndex = 0, this.$U.scrollTo(0)) : (this.mNoticeTitle.text = "\u6682\u65e0\u516c\u544a", this.mNoticeContent.text = ""), this.mNoticeClose2.visible = this.$u.length <= 1, this.boxTab.visible = 1 < this.$u.length;
+        }this.mNoticeBg.visible = !0;
+      }
+    }, $d.prototype.$nd = function ($d) {
+      if (!this.destroyed) {
+        if (console.log("p_onPrivacyCallback, param = ", $d), "success" == $d.state) for (var $t in $d.data) {
+          var $l = Number($t),
+              $k = $d.data[$l];this.$gd && this.$gd[$l] && (this.$gd[$l].content = $k.content);
+        }this.$wd();
+      }
+    }, $d.prototype.$Gd = function () {
+      for (var $d = "", $t = 0; $t < this.$gd.length; $t++) {
+        $d += '<a href="' + $t + '" style="color:#14ff28;text-decoration:none">' + this.$gd[$t].title + "</a>", $t < this.$gd.length - 1 && ($d += "\u3001");
+      }this.privacyTip.innerHTML = "\u6211\u5df2\u7ecf\u8be6\u7ec6\u9605\u8bfb\u5e76\u540c\u610f" + $d, this.privacyToggle.skin = "a7a2/" + (this.$Rd ? "a129c.png" : "a128c.png"), this.privacyTip.x = (720 - this.privacyTip.width) / 2, this.privacyToggle.x = this.privacyTip.x - 30, this.privacyBtn.visible = 0 < this.$gd.length, this.privacyToggle.visible = this.privacyTip.visible = 0 < this.$gd.length && 0 != this.$Hd;
+    }, $d.prototype.$pd = function ($d) {
+      if (void 0 === $d && ($d = 0), this.$E) {
+        if (this.$gd) {
+          this.$E.x = 2 < this.$gd.length ? 0 : (this.boxTab.width - 274 * this.$gd.length) / 2;for (var $t = [], $l = 0; $l < this.$gd.length; $l++) {
+            var $k = this.$gd[$l],
+                $W = $k && $k.title ? $k.title : "",
+                $i = $l == this.$E.selectedIndex;$t.push([$W, $i]);
+          }0 < (this.$E.dataSource = $t).length ? ($d < 0 && ($d = 0), $d > $t.length - 1 && ($d = 0), this.$E.selectedIndex = $d, this.$E.scrollTo($d)) : (this.privacyTitle.text = "\u7a7a", this.privacyContent.text = ""), this.privacyClose2.visible = this.$gd.length <= 1, this.boxTabPrivacy.visible = 1 < this.$gd.length;
+        }this.$Q && (this.$Q = !1, req_privacy(this.$G.pkgName, this.$nd.bind(this))), this.privacyBg.visible = !0;
+      }
+    }, $d.prototype.openJumpView = function ($d, $t, $l, $k) {
+      void 0 === $k && ($k = !1), this.jumpTitle.text = $d || "\u6682\u65e0\u516c\u544a", this.jumpContent.innerHTML = $t || "", this.btnJump.label = $l || "\u786e\u5b9a", this.jumpContent.y = 0, this.jumpBg.visible = !0, this.closeBtn.visible = $k;
+    }, $d.prototype.showAgeTipsBtn = function ($d, $t, $l, $k, $W) {
+      (this.ageTipBtn.visible = $d) && (this.ageTipBtn.skin = $t || "a7a2/a112c.png"), this.ageTipsContent = $l, this.ageTipBtn.x = $k || 0, this.ageTipBtn.y = $W || 0;
+    }, $d.prototype.$Bd = function () {
+      this.openJumpView("\u9002\u9f84\u516c\u544a", this.ageTipsContent, "\u786e\u8ba4", !0);
+    }, $d.prototype.$qd = function ($d) {
+      this.txtTip.text = $d, this.txtTip.y = 640, this.txtTip.visible = !0, this.$Qd = 1, Laya.timer.clear(this, this.$m), this.$m(), Laya.timer.frameLoop(1, this, this.$m);
+    }, $d.prototype.$m = function () {
+      this.txtTip.y -= this.$Qd, this.$Qd *= 1.1, this.txtTip.y <= 590 && (this.txtTip.visible = !1, Laya.timer.clear(this, this.$m));
+    }, $d;
+  }(ui.$l), $t.SelectServerPanel = $l;
+}(modules || (modules = {}));var modules,
+    Browser = Laya.Browser,
+    Font = Laya.Font,
+    Input = Laya.Input,
+    Render = Laya.Render,
+    Handler = Laya.Handler,
+    AuthorizationPanel = modules.$k.AuthorizationPanel,
+    LoadingPanel = modules.$k.LoadingPanel,
+    SelectServerPanel = modules.$k.SelectServerPanel,
+    ServerLoading = function () {
+  function $o($d) {
+    this.m_loadingRes = ["a7a1/a13c.png", "a7a1/a15c.png", "a7a1/a14c.png", "a7a1/a16c.png", "a7a1/a17c.png", "a7a1/a18c.png", "a7a1/a19c.png", "a7a1/a20c.png", "a7a6/a1b.png", "a7a6/a2b.png", "a7a6/a3b.png", "a7a6/a4b.png", "a7a6/a5b.png", "a7a1/a3c.jpg", "a7a1/a12c.jpg", "a7a1/a1c.png", "a7a1/a2c.png", "a7a1/a4c.jpg", "a7a1/a6c.jpg", "a7a1/a8c.jpg", "a7a1/a10c.jpg", "a7a1/a5c.jpg", "a7a1/a7c.jpg", "a7a1/a9c.jpg", "a7a1/a11c.jpg"], this.m_serverRes = ["a7a2/a111c.png", "a7a2/a112c.png", "a7a2/e12b.png", "a7a2/a113c.png", "a7a2/a114c.png", "a7a2/a115c.png", "a7a2/a116c.png", "a7a2/a117c.png", "a7a2/a118c.png", "a7a2/a119c.png", "a7a2/a120c.png", "a7a2/a121c.png", "a7a2/a103c.jpg", "a7a2/a104c.jpg", "a7a2/a105c.jpg", "a7a2/a106c.jpg", "a7a2/a107c.jpg", "a7a2/a101c.png", "a7a2/a109c.png", "a7a2/a110c.png", "a7a2/a124c.png", "a7a2/a125c.png", "a7a2/a127c.png", "a7a2/a129c.png", "a7a2/a128c.png", "a7a2/a102c.png", "a7a2/a100c.png"], this.copyRightUrl = "a7a2/a101c.png", this.m_isPrelodServer = !1, this.m_isPrelodLoading = !1, this.$yd = !1, this.$Vd = "", $o.instance = this, Laya.MiniAdpter.init(), Laya3D.init(0, 0, !1, !1, !1), DecodeTools.init(), Laya.stage.scaleMode = Laya.Stage.SCALE_FIXED_WIDTH, Laya.stage.screenMode = Laya.Stage.SCREEN_NONE, Laya.stage.alignH = Laya.Stage.ALIGN_CENTER, Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE, Laya.stage.frameRate = Laya.Stage.FRAME_SLOW;var $t = Laya.AtlasResourceManager;$t.maxTextureCount = 6, $t.atlasTextureWidth = $t.atlasTextureHeight = 1024, $t._enable(), Laya.URL.rootPath = Laya.URL.basePath = "", Laya.Browser.window.addEventListener(Laya.Event.RESIZE, this.$Zd.bind(this)), Laya.Loader.preLoadedMap["res/atlas/create_role_atlas.atlas"] = { frames: { "btn_chuangjue_kaishi.png": { frame: { h: 88, idx: 0, w: 506, x: 0, y: 0 }, sourceSize: { h: 88, w: 506 }, spriteSourceSize: { x: 0, y: 0 } }, "btn_chuangjue_nan.png": { frame: { h: 98, idx: 0, w: 108, x: 335, y: 89 }, sourceSize: { h: 98, w: 108 }, spriteSourceSize: { x: 0, y: 0 } }, "btn_chuangjue_nv.png": { frame: { h: 98, idx: 0, w: 107, x: 0, y: 164 }, sourceSize: { h: 98, w: 107 }, spriteSourceSize: { x: 0, y: 0 } }, "image_chuangjue_mingbg.png": { frame: { h: 74, idx: 0, w: 334, x: 0, y: 89 }, sourceSize: { h: 74, w: 334 }, spriteSourceSize: { x: 0, y: 0 } }, "image_chuangjue_suiji.png": { frame: { h: 56, idx: 0, w: 52, x: 444, y: 89 }, sourceSize: { h: 56, w: 52 }, spriteSourceSize: { x: 0, y: 0 } }, "a128c.png": { frame: { h: 25, idx: 0, w: 25, x: 444, y: 146 }, sourceSize: { h: 27, w: 26 }, spriteSourceSize: { x: 0, y: 2 } }, "a129c.png": { frame: { h: 27, idx: 0, w: 26, x: 470, y: 146 }, sourceSize: { h: 27, w: 26 }, spriteSourceSize: { x: 0, y: 0 } } }, meta: { image: "create_role_atlas.png", prefix: "create_role_atlas/" } }, Browser.window.resMgrLoad = $o.instance.requestWeb, Browser.window.imgMgrLoad = $o.instance.requestWeb, this.m_layer = new Laya.Component(), this.m_layer.name = "_wxLoadingLayer", Laya.stage.addChild(this.m_layer), this.$Zd();
+  }return $o.prototype.changeServerLoading = function ($d) {
+    $o.instance.m_layer.visible = $d;
+  }, $o.prototype.openAuthor = function () {
+    $o.instance.m_author || ($o.instance.m_author = new AuthorizationPanel()), $o.instance.m_author.parent || $o.instance.m_layer.addChild($o.instance.m_author), $o.instance.$Ud();
+  }, $o.prototype.closeAuthor = function () {
+    this.m_author && this.m_author.parent && (Laya.stage.removeChild(this.m_author), this.m_author.destroy(!0), this.m_author = null);
+  }, $o.prototype.preloadServer = function () {
+    this.m_isPrelodServer || (this.m_isPrelodServer = !0, Laya.loader.load(this.m_serverRes, Handler.create(this, function () {
+      Browser.window.loadServerRes = !0, Browser.window.initMain(), Browser.window.enterToGame();
+    })));
+  }, $o.prototype.$Ed = function () {
+    $o.instance.m_server || ($o.instance.m_server = new SelectServerPanel(this.copyRightUrl)), $o.instance.m_server.parent || $o.instance.m_layer.addChild($o.instance.m_server), $o.instance.$Ud();
+  }, $o.prototype.openJumpView = function ($d, $t, $l, $k) {
+    void 0 === $k && ($k = !1), this.$Ed(), $o.instance.m_server.openJumpView($d, $t, $l, $k);
+  }, $o.prototype.openJumpTipsBtn = function ($d, $t, $l, $k, $W) {
+    this.$Ed(), $o.instance.m_server.showAgeTipsBtn($d, $t, $l, $k, $W);
+  }, $o.prototype.getCertificatePng = function () {
+    window.sdkInitRes = window.sdkInitRes || {};var $d = "a7a2/a102c.png",
+        $t = "a7a2/a101c.png";return 1 == sdkInitRes.develop ? 0 == (PF_INFO.develop_certificate_pkg || 0) ? $d : $t : 0 == PF_INFO.release_certificate_pkg ? $d : $t;
+  }, $o.prototype.openServer = function ($d, $t, $l) {
+    var $k = this;this.copyRightUrl = $l || this.getCertificatePng();for (var $W = function () {
+      $k.$Ed(), $d && $t && $d.call($t);
+    }, $i = !0, $A = 0, $B = this.m_serverRes; $A < $B.length; $A++) {
+      var $o = $B[$A];if (null == Laya.Loader.getRes($o)) {
+        $i = !1;break;
+      }
+    }$i ? $W() : Laya.loader.load(this.m_serverRes, Handler.create(this, $W));
+  }, $o.prototype.closeServer = function () {
+    this.m_server && this.m_server.parent && (Laya.stage.removeChild(this.m_server), this.m_server.destroy(!0), this.m_server = null);
+  }, $o.prototype.preloadLoading = function () {
+    this.m_isPrelodLoading || (this.m_isPrelodLoading = !0, Laya.loader.load(this.m_loadingRes, Handler.create(this, function () {
+      Browser.window.loadLoadingRes = !0, Browser.window.initMain(), Browser.window.enterToGame();
+    })));
+  }, $o.prototype.openLoading = function ($d, $t) {
+    void 0 === $d && ($d = 0), $t = $t || this.getCertificatePng(), Laya.loader.load(this.m_loadingRes, Handler.create(this, function () {
+      $o.instance.m_loading || ($o.instance.m_loading = new LoadingPanel($d, $t)), $o.instance.m_loading.parent || $o.instance.m_layer.addChild($o.instance.m_loading), $o.instance.$Ud();
+    }));
+  }, $o.prototype.closeLoading = function () {
+    this.m_loading && this.m_loading.parent && (Laya.stage.removeChild(this.m_loading), this.m_loading.destroy(!0), this.m_loading = null);for (var $d = 0, $t = this.m_serverRes; $d < $t.length; $d++) {
+      var $l = $t[$d];Laya.Loader.clearCache($o.instance, $l), Laya.Loader.clearRes($l, !0);
+    }for (var $k = 0, $W = this.m_loadingRes; $k < $W.length; $k++) {
+      $l = $W[$k];Laya.Loader.clearCache($o.instance, $l), Laya.Loader.clearRes($l, !0);
+    }this.m_layer.parent && this.m_layer.parent.removeChild(this.m_layer);
+  }, $o.prototype.setShowBtn = function () {
+    this.m_loading && this.m_loading.parent && $o.instance.m_loading.showGetBtn();
+  }, $o.prototype.enterDefaultServer = function () {
+    var $d = Browser.window.PF_INFO.selectedServer;this.$yd || -1 == $d.status || 0 == $d.status || (this.$yd = !0, Browser.window.PF_INFO.selectedServer = $d, req_server_check_ban(0, $d.server_id));
+  }, $o.prototype.sendRecord = function () {
+    var $d = "";$d += "newRegister=" + Browser.window.PF_INFO.newRegister, $d += ", isPrelodServer=" + this.m_isPrelodServer, $d += ", SelectServerPanel=" + (null != $o.instance.m_server), $d += ", isPrelodLoading=" + this.m_isPrelodLoading, $d += ", LoadingPanel=" + (null != $o.instance.m_loading), $d += ", resMgrLoad=" + (Browser.window.resMgrLoad == $o.instance.requestWeb), $d += ", imgMgrLoad=" + (Browser.window.imgMgrLoad == $o.instance.requestWeb), $d += ", errUrls=" + $o.instance.$Vd;for (var $t = 0, $l = this.m_serverRes; $t < $l.length; $t++) {
+      $d += ", " + ($i = $l[$t]) + "=" + (null != Laya.Loader.getRes($i));
+    }for (var $k = 0, $W = this.m_loadingRes; $k < $W.length; $k++) {
+      var $i;$d += ", " + ($i = $W[$k]) + "=" + (null != Laya.Loader.getRes($i));
+    }var $A = Browser.window.PF_INFO.selectedServer;$A && ($d += ", server_status=" + $A.status, $d += ", server_id=" + $A.server_id, $d += ", server_name=" + $A.server_name);var $B = JSON.stringify({ error: "\u521d\u59cb\u754c\u9762\u8d85\u8fc710\u79d2", stack: $d });console.error($B), this.$Nd && this.$Nd == $d || (this.$Nd = $d, reqRecordError($B));
+  }, $o.prototype.$ud = function () {
+    var $d = Laya.stage,
+        $t = Math.floor($d.width),
+        $l = Math.floor($d.height);$l / $t < 1.7777778 ? (this.viewW = Math.floor($t / ($l / 1280)), this.viewH = 1280, this.viewS = $l / 1280) : (this.viewW = 720, this.viewH = Math.floor($l / ($t / 720)), this.viewS = $t / 720);var $k = Math.floor($d.width),
+        $W = Math.floor($d.height);$W / $k < 1.7777778 ? (this.viewW = Math.floor($k / ($W / 1280)), this.viewH = 1280, this.viewS = $W / 1280) : (this.viewW = 720, this.viewH = Math.floor($W / ($k / 720)), this.viewS = $k / 720), this.$Ud();
+  }, $o.prototype.$Ud = function () {
+    this.m_layer && (this.m_layer.size(this.viewW, this.viewH), this.m_layer.scale(this.viewS, this.viewS, !0));
+  }, $o.prototype.$Zd = function () {
+    if (Input.isInputting && Browser.onMobile) {
+      var $d = parseInt(Input.inputContainer.style.top.replace("px", "")),
+          $t = parseInt(Input.inputElement.style.height.replace("px", "")) * this.viewS,
+          $l = Browser.clientWidth / Render.canvas.width;return 0 < ($d = Browser.clientHeight - $t * $l - $d) && ($d = 0), void (Browser.container.style.top = $d + "px");
+    }Browser.container.style.top = "0px";var $k = Math.floor(Browser.width),
+        $W = Math.floor(Browser.height);$k = $k + 1 & 2147483646, $W = $W + 1 & 2147483646;var $i = Laya.stage;3 == ENV ? ($i.scaleMode = Laya.Stage.SCALE_NOSCALE, $i.width = $k, $i.height = $W) : $W < $k ? ($i.scaleMode = Laya.Stage.SCALE_NOSCALE, $i.width = $k, $i.height = $W) : ($i.scaleMode = Laya.Stage.SCALE_FIXED_WIDTH, $i.width = 840, $i.height = Math.floor($W / ($k / 840)) + 1 & 2147483646), this.$ud();
+  }, $o.prototype.requestWeb = function ($d, $t) {
+    function $l() {
+      $k.onload = null, $k.onerror = null;
+    }var $k,
+        $W = $d;($k = new Browser.window.Image()).onload = function () {
+      $l(), $t($W, 200, $k);
+    }, $k.onerror = function () {
+      console.warn("[warn] WX loadImage onerror:", $W), $o.instance.$Vd += $W + "|", $l(), $t($W, 404, null);
+    }, $k.src = $W, -1 == $o.instance.m_serverRes.indexOf($W) && -1 == $o.instance.m_loadingRes.indexOf($W) || Laya.Loader.keepCache($o.instance, $W);
+  }, $o.prototype.$hd = function ($d, $t) {
+    return -1 != $d.indexOf($t, $d.length - $t.length);
+  }, $o;
+}();!function ($d) {
+  var $t, $l;$t = $d.$k || ($d.$k = {}), $l = function ($t) {
+    function $d() {
+      var $d = $t.call(this) || this;return $d.$sd = "#72441d", $d.$Pd = "#263d7d", $d.width = 274, $d.height = 59, $d.$Xd = new Laya.Image(), $d.addChild($d.$Xd), $d.$md = new Laya.Label(), $d.$md.fontSize = 30, $d.$md.color = $d.$Pd, $d.addChild($d.$md), $d.$md.centerX = 0, $d.$md.centerY = 0, $d;
+    }return __extends($d, $t), $d.prototype.initialize = function () {
+      $t.prototype.initialize.call(this), this.$G = Browser.window.PF_INFO;this.$G.loadingType;this.addEvt();
+    }, Object.defineProperty($d.prototype, "dataSource", { set: function ($d) {
+        $d && this.setData($d);
+      }, enumerable: !0, configurable: !0 }), $d.prototype.setData = function ($d) {
+      this.$Od = $d[0], this.$Fd = $d[1], this.$md.text = this.$Od.title, this.$md.color = this.$Fd ? this.$sd : this.$Pd, this.$Xd.skin = this.$Fd ? "a7a2/a125c.png" : "a7a2/a124c.png";
+    }, $d.prototype.destroy = function ($d) {
+      void 0 === $d && ($d = !0), this.rmEvts(), $t.prototype.destroy.call(this, $d);
+    }, $d.prototype.addEvt = function () {}, $d.prototype.rmEvts = function () {}, $d;
+  }(Laya.View), $t.NoticeItem = $l;
+}(modules || (modules = {})), function ($d) {
+  var $t, $l;$t = $d.$k || ($d.$k = {}), $l = function ($t) {
+    function $d() {
+      var $d = $t.call(this) || this;return $d.$sd = "#72441d", $d.$Pd = "#263d7d", $d.width = 274, $d.height = 59, $d.$Xd = new Laya.Image(), $d.addChild($d.$Xd), $d.$md = new Laya.Label(), $d.$md.fontSize = 30, $d.$md.color = $d.$Pd, $d.addChild($d.$md), $d.$md.centerX = 0, $d.$md.centerY = 0, $d;
+    }return __extends($d, $t), $d.prototype.initialize = function () {
+      $t.prototype.initialize.call(this), this.$G = Browser.window.PF_INFO;this.$G.loadingType;this.addEvt();
+    }, Object.defineProperty($d.prototype, "dataSource", { set: function ($d) {
+        $d && this.setData($d);
+      }, enumerable: !0, configurable: !0 }), $d.prototype.setData = function ($d) {
+      this.$ad = $d[0], this.$Fd = $d[1], this.$md.text = this.$ad, this.$md.color = this.$Fd ? this.$sd : this.$Pd, this.$Xd.skin = this.$Fd ? "a7a2/a125c.png" : "a7a2/a124c.png";
+    }, $d.prototype.destroy = function ($d) {
+      void 0 === $d && ($d = !0), this.rmEvts(), $t.prototype.destroy.call(this, $d);
+    }, $d.prototype.addEvt = function () {}, $d.prototype.rmEvts = function () {}, $d;
+  }(Laya.View), $t.PrivacyItem = $l;
+}(modules || (modules = {})), function ($d) {
+  var $t, $l;$t = $d.$k || ($d.$k = {}), $l = function ($t) {
+    function $d() {
+      var $d = $t.call(this) || this;return $d.width = 192, $d.height = 70, $d.$Xd = new Laya.Image(), $d.addChild($d.$Xd), $d.$_d = new Laya.Label(), $d.$_d.fontSize = 28, $d.$_d.color = $d.$N, $d.addChild($d.$_d), $d.$_d.centerX = 0, $d.$_d.centerY = 0, $d.$vd = new Laya.Label(), $d.$vd.fontSize = 22, $d.$vd.color = $d.$N, $d.addChild($d.$vd), $d.$vd.centerX = 0, $d.$vd.y = 11, $d.$dt = new Laya.Label(), $d.$dt.fontSize = 26, $d.$dt.color = $d.$N, $d.addChild($d.$dt), $d.$dt.centerX = 0, $d.$dt.y = 39, $d;
+    }return __extends($d, $t), $d.prototype.initialize = function () {
+      $t.prototype.initialize.call(this), this.$G = Browser.window.PF_INFO;var $d = this.$G.loadingType;this.$N = 1 == $d ? "#263d7d" : 2 == $d ? "#263d7d" : 3 == $d ? "#763042" : "#263d7d", this.addEvt();
+    }, Object.defineProperty($d.prototype, "dataSource", { set: function ($d) {
+        $d && this.setData($d);
+      }, enumerable: !0, configurable: !0 }), $d.prototype.setData = function ($d) {
+      this.$Od = $d;var $t = this.$Od.id,
+          $l = this.$Od.name;if (this.$_d.visible = this.$vd.visible = this.$dt.visible = !1, -1 == $t || -2 == $t) this.$_d.visible = !0, this.$_d.text = $l;else {
+        var $k = $l,
+            $W = "1-10\u670d",
+            $i = $l.match("[0-9]{1,}");$i && null != $i.index && ($k = $l.slice(0, $i.index), $W = $l.slice($i.index)), this.$vd.visible = this.$dt.visible = !0, this.$vd.text = $k, this.$dt.text = $W;
+      }this.$Xd.skin = $d.select ? "a7a2/a114c.png" : "a7a2/a115c.png";
+    }, $d.prototype.destroy = function ($d) {
+      void 0 === $d && ($d = !0), this.rmEvts(), $t.prototype.destroy.call(this, $d);
+    }, $d.prototype.addEvt = function () {
+      this.on(Laya.Event.MOUSE_UP, this, this.clkHdler);
+    }, $d.prototype.rmEvts = function () {
+      this.off(Laya.Event.MOUSE_UP, this, this.clkHdler);
+    }, $d.prototype.clkHdler = function () {
+      this.$Od && this.$Od.callBack && this.$Od.callBack(this.$Od.index);
+    }, $d;
+  }(Laya.View), $t.SelectLeftListItem = $l;
+}(modules || (modules = {})), function ($d) {
+  var $t, $l;$t = $d.$k || ($d.$k = {}), $l = function ($t) {
+    function $d() {
+      var $d = $t.call(this) || this;return $d.width = 358, $d.height = 70, $d.$Xd = new Laya.Image("a7a2/a116c.png"), $d.addChild($d.$Xd), $d.$Xd.graphics.drawRect(0, 0, $d.width, $d.height, "#00sasd"), $d.$tt = new Laya.Image(), $d.$tt.centerY = 0, $d.$tt.x = 7, $d.addChild($d.$tt), $d.$_d = new Laya.Label(), $d.$_d.fontSize = 24, $d.$_d.color = $d.$N, $d.$_d.x = 56, $d.$_d.centerY = 0, $d.addChild($d.$_d), $d.$lt = new Laya.Label(), $d.$lt.fontSize = 24, $d.$lt.color = $d.$N, $d.$lt.x = 246, $d.$lt.centerY = 0, $d.addChild($d.$lt), $d.$kt = new Laya.Image(), $d.$kt.top = 0, $d.$kt.right = 0, $d.addChild($d.$kt), $d.$Wt = new Laya.Label(), $d.$Wt.fontSize = 20, $d.$Wt.color = "#ffffff", $d.$Wt.x = 225, $d.$Wt.y = 46, $d.addChild($d.$Wt), $d;
+    }return __extends($d, $t), $d.prototype.initialize = function () {
+      $t.prototype.initialize.call(this), this.$G = Browser.window.PF_INFO;var $d = this.$G.loadingType;this.$N = 1 == $d ? "#34267d" : 2 == $d ? "#34267d" : 3 == $d ? "#763042" : "#34267d", this.addEvt();
+    }, Object.defineProperty($d.prototype, "dataSource", { set: function ($d) {
+        $d && this.setData($d);
+      }, enumerable: !0, configurable: !0 }), $d.prototype.setData = function ($d) {
+      this.$Od = $d;var $t = this.$Od.status,
+          $l = this.$Od.server_name;this.$tt.skin = this.getStatusSrc(this.$Od), this.$_d.color = -1 === $t ? "#d50000" : 0 === $t ? "#49575a" : this.$N, this.$_d.text = $l, this.$lt.text = -1 === $t ? "\u7ef4\u62a4\u4e2d" : 0 === $t ? "\u672a\u5f00\u670d" : "\u5df2\u5f00\u670d";var $k = 1 == this.$Od.is_recommend || 3 == this.$Od.is_recommend;(this.$kt.visible = $k) && (this.$kt.skin = "a7a2/a100c.png"), this.$Wt.text = -1 == this.$Od.status && this.$Od.maintain_time ? this.$Od.maintain_time : "";
+    }, $d.prototype.destroy = function ($d) {
+      void 0 === $d && ($d = !0), this.rmEvts(), $t.prototype.destroy.call(this, $d);
+    }, $d.prototype.addEvt = function () {
+      this.on(Laya.Event.MOUSE_UP, this, this.clkHdler);
+    }, $d.prototype.rmEvts = function () {
+      this.off(Laya.Event.MOUSE_UP, this, this.clkHdler);
+    }, $d.prototype.clkHdler = function () {
+      this.$Od && this.$Od.callBack && this.$Od.callBack(this.$Od);
+    }, $d.prototype.getStatusSrc = function ($d) {
+      var $t = $d.status,
+          $l = $d.is_recommend,
+          $k = "a7a2/a119c.png";return 1 !== $t && 2 !== $t || 1 !== $l && 3 !== $l ? 1 !== $t && 2 !== $t || 2 !== $l ? -1 !== $t && 0 !== $t || ($k = "a7a2/a120c.png") : $k = "a7a2/a119c.png" : $k = "a7a2/a118c.png", $k;
+    }, $d;
+  }(Laya.View), $t.SelectRightListItem = $l;
+}(modules || (modules = {})), window.ServerLoading = ServerLoading;

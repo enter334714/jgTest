@@ -1,1 +1,1 @@
-var _=wx.y$;require(_[30893]);
+var _=wx.y$;require(_[1979]);

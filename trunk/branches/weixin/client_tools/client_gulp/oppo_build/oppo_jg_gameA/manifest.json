@@ -1,0 +1,35 @@
+{
+  "package": "com.qunong.tjqy.oppominigame",
+  "name": "天剑奇缘",
+  "icon": "/res/logo.png",
+  "versionName": "1.0.1",
+  "versionCode": 1,
+  "minPlatformVersion": 1060,
+  "deviceOrientation": "portrait",
+  "type": "game",
+  "networkTimeout": {
+    "request": 15000,
+    "connectSocket": 1500000,
+    "uploadFile": 1500000,
+    "downloadFile": 1500000
+  },
+  "vConsole": "true",
+  "config": {
+    "logLevel": "log"
+  },
+  "display": {
+    "statusbar": "false",
+    "titleBar": false
+  },
+  "buildType": "release",
+  "subpackages": [
+    {
+      "name": "probuf",
+      "root": "src/protobuf/"
+    },
+    {
+      "name": "sub",
+      "root": "src/subPackage/"
+    }
+  ]
+}

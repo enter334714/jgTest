@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "caseId": "3cd8f114-3067-4052-bae1-0b98f7fc84b9",
+    "caseName": "minitest-1",
+    "remarks": "",
+    "version": "0.0.1",
+    "startTime": 1661495356311,
+    "endTime": 1661495380723,
+    "appid": "wxb1c478b4b39396a2",
+    "casePath": "",
+    "caseType": "normal",
+    "commonParams": [
+      {
+        "key": "1661494748251",
+        "name": "",
+        "value": ""
+      }
+    ]
+  },
+  "env": {
+    "wxapplibVersion": "2.23.2",
+    "openid": "o6zAJs4GvAKsz5C8ZMstygfZNthA",
+    "entry": {
+      "query": "",
+      "scene": 1001
+    },
+    "mock": [
+      "none"
+    ],
+    "maxWaitFor": 10000,
+    "ignoreSelectors": [],
+    "mockAPIs": [],
+    "cleanCache": [
+      "none"
+    ],
+    "groupTouch": true,
+    "recordAPIs": []
+  },
+  "commands": [
+    {
+      "layer": "tool",
+      "commandType": "operate",
+      "command": "startRecord",
+      "waitfor": 0,
+      "timeStamp": 1661495356311,
+      "desc": ""
+    },
+    {
+      "timeStamp": 24412,
+      "waitfor": 10000,
+      "desc": "",
+      "layer": "tool",
+      "commandType": "operate",
+      "command": "stopRecord"
+    }
+  ]
+}

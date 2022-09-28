@@ -1,1 +1,1 @@
-import"main.min.js";
+import 'main.min.js';

@@ -442,6 +442,7 @@ window.updCurServer = function(response) {
     'entry_port': parseInt(response.data[0].entry_port),
     'status': get_status(response.data[0]),
     'start_time': response.data[0].start_time,
+    'maintain_time': response.data[0].maintain_time ? response.data[0].maintain_time : "",
     'cdn': PF_INFO.cdn,
   }
   this.initComplete();

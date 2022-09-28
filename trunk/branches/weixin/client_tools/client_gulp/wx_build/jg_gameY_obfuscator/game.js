@@ -101,4 +101,10 @@ wx.onShow(function (res) {
     window.y20$5(window.y25$);
     window.y25$ = null;
   }
+
+  setTimeout(() => {
+    wx.hideShareMenu({
+      menus: ['shareAppMessage', 'shareTimeline']
+    });
+  }, 2000);
 });

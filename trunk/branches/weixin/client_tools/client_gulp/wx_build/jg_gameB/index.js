@@ -42,7 +42,8 @@ PF_INFO.tick = Date.now();
 
 PF_INFO.configType = "_weixin";
 PF_INFO.exposeType = "_a";
-PF_INFO.loadingType = 0;
+PF_INFO.encryptParam = "";
+PF_INFO.loadingType = 1;
 PF_INFO.lastVersion = 1985;
 PF_INFO.wxVersion = window.versions.wxVersion;
 PF_INFO.wxShield = false;
@@ -153,6 +154,7 @@ window.toEnterGame = function(value) {
   window.ServerLoading.instance.closeAuthor();
   window.ServerLoading.instance.closeServer();
   window.ServerLoading.instance.closeLoading();
+  window.closeFillter();
 }
 
 window.onApiError = function(str) {
@@ -311,6 +313,7 @@ window.sdkLoginRetry = 5;
 window.sdkOnLogin = function(status, data) {
   if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
+    PF_INFO.wx_channel = data.wx_channel;
     var self = this;
     wxShowLoading({ title: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {
@@ -350,6 +353,10 @@ window.onUserLogin = function (response) {
     window.toErrorAlarm(2, "User.login fail: state="+response.state);
     window.reqRecordInfo("userLoginError", JSON.stringify(response));
     window.loginAlert('User.login failed: ' + response.state);
+    return;
+  }
+  if (response.ban_state == 1) {
+    window.loginAlert("账号已被封禁！");
     return;
   }
 
@@ -440,6 +447,8 @@ window.updCurServer = function(response) {
     'entry_port': parseInt(response.data[0].entry_port),
     'status': get_status(response.data[0]),
     'start_time': response.data[0].start_time,
+    'maintain_time': response.data[0].maintain_time ? response.data[0].maintain_time : "",
+    'is_recommend': response.data[0].is_recommend,
     'cdn': PF_INFO.cdn,
   }
   this.initComplete();
@@ -461,6 +470,7 @@ window.initComplete = function() {
     wxHideLoading();
   }
   window.loadServer = true;
+  window.setFillter();
   window.initMain();
   window.enterToGame(); 
 }
@@ -519,11 +529,12 @@ window.reqPkgOptionsCallBack = function(data) {
     console.info("reqPkgOptionsCallBack "+data.state);
   }
   window.loadOption = true;
+  window.setFillter();
   window.enterToGame(); 
 }
 
 
-window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback) {
+window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback, appleprd_id) {
   productId = String(productId)
   var productname = productName
   var productdesc = productDesc
@@ -650,10 +661,10 @@ window.toRealName = function(callback) {
 }
 
 //调起分享
-window.openShare = function(callback){
-  AKSDK.share('share', function (data) {
-      callback && callback(data);
-  }); 
+window.openShare = function (callback, cardid) {
+  AKSDK.share('share', {activity_id: cardid},function (data) {
+    callback && callback(data);
+  });
 }
 //调起客服
 window.openService = function(){
@@ -691,6 +702,12 @@ window.onShow = function(callback){
     window.onShowData = null;
   }
 }
+
+wx.onHideCallBack = null;
+window.miniGameHide = function(callBack){
+  wx.onHideCallBack = callBack;
+}
+
 //获取邀请者
 window.reqPlayerAskInfo = function(packageName, role_id, serverId, callBack) {
   window.send('https://sdk.sh9130.com/game/?ct=min&ac=getInviter', {
@@ -700,11 +717,11 @@ window.reqPlayerAskInfo = function(packageName, role_id, serverId, callBack) {
   }, callBack);
 }
 //调起订阅消息
-window.openSubscribeMsg = function(ids, callback) {
+window.openSubscribeMsg = function(ids, callback,objIds) {
   function onTouchEnd(res) {
     var data = [];
     var tmpIds = [];
-    var tmpObj = window.config.tmpId;
+    var tmpObj = objIds || window.config.tmpId;
     for (var id in tmpObj) {
         var idn = Number(id);
         if (!ids || !ids.length || ids.indexOf(idn)!=-1) { //ids为空表示所有都请求
@@ -1026,12 +1043,6 @@ window.reqServerRecommendCallBack = function(data) {
   }
 }
 window.changeServerName = function(lst) {
-  if(!lst && lst.length <= 0) return lst;
-  for(let i = 0; i < lst.length; i++) {
-      if(lst[i].is_recommend && lst[i].is_recommend == 1) {
-          lst[i].server_name += "(推荐)";
-      }
-  }
   return lst;
 }
 window.req_server_notice = function(server_id, callback) {
@@ -1060,10 +1071,13 @@ window.req_privacy = function(pkgName, callback) {
 window.get_status = function (server) {
   if (server) {
     if (server.status == 1) {
-      if (server.online_status == 1)
+      if (server.online_status == 3) {
+        return 3;
+      } else if (server.online_status == 1) {
         return 2;
-      else
+      } else {
         return 1;
+      }
     } else if (server.status == 0) {
       return 0;
     } else {
@@ -1162,7 +1176,7 @@ window.checkBanSuccess = function() {
 
 window.initMain = function() {
   if(window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer) {
-    if (!window.MainWX.instance) {
+    if (window.MainWX && !window.MainWX.instance) {
       console.log("Main 初始化"+window.MainWX.instance);
       var info = wx.getLaunchOptionsSync();
       var scene = info.scene?info.scene:0;
@@ -1179,9 +1193,18 @@ window.initMain = function() {
         scene:scene
       }
       new window.MainWX(platData, window.PF_INFO.lastVersion, window.workerJsURL);
+
+      var Laya =  window.Laya
+      Laya.stage.on("click",this,()=>{
+        console.log(">>>>>>>>>>>>>>click")
+      })
     }
   }
 }
+
+wx.offTouchEnd(()=>{
+  
+})
 
 window.enterToGame = function() {
   if(window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer && window.isCheckBan && window.loadOption) {
@@ -1221,6 +1244,8 @@ window.enterToGame = function() {
         debugUsers: window.PF_INFO.debugUsers,
         wxMenuTop: top,
         wxShield: window.PF_INFO.wxShield,
+        encryptParam: window.PF_INFO.encryptParam,
+        wx_channel: window.PF_INFO.wx_channel,
       };
 
       if (window.pkgOptions) {
@@ -1247,3 +1272,39 @@ window.subscribeWhatsNew = function () {
   wx.offTouchEnd(window.subscribeWhatsNew)
 }
 
+window.setQrCodeView = function(obj){
+  if(!window.window_WinMgr){
+    console.error("游戏未初始化")
+    return;
+  }
+ var show = obj.show;
+ if(show == 1){
+     window.window_WinMgr.open(8999,obj)     
+ }
+ else{
+   window.window_WinMgr.close(8999)
+ }
+}
+
+window.setFillter = function() {
+  if (!window.loadServer || !window.loadOption) return;
+  var isNew = PF_INFO.newRegister == 1;
+  var isShield = PF_INFO.wxShield;
+  var isCfg = PF_INFO.fillter_tm_pkg && PF_INFO.fillter_tm_pkg > 0;
+  if (isShield || (isNew && isCfg)) {
+    var color = PF_INFO.fillter_ui_pkg;
+    var isColor = color && color.length == 9;
+    if (isColor) {
+      window["ShieldColor"] = color;//格式：#RBGA
+    }
+    var noise = PF_INFO.fillter_mosaic_pkg;
+    var isNoise = noise && noise.split("#").length == 4;
+    if (isNoise) {
+      window["ShieldNoise"] = noise; //格式：随机数(0~100) # 透明度(0~1) # 马赛克宽 # 马赛克高
+    }
+  }
+}
+window.closeFillter = function() {
+  window["ShieldColor"] = null;
+  window["ShieldNoise"] = null;
+}

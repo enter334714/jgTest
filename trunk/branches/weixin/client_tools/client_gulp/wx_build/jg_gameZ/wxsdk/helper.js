@@ -1,4 +1,4 @@
-const state = {
+﻿const state = {
   initStatus: "default",
   loginStatus: "default",
   videoAd: null, // 激励广告
@@ -8,6 +8,7 @@ const state = {
   customAd: null, // 原生模板广告
 };
 const commonParams = {
+  appVersion: "2.0.0",
   referer: "00000_0",
   partner: "309",
   mac: "",
@@ -29,7 +30,8 @@ const commonParams = {
   yy_pf: "WxApp",
   payTip:
     "由于政策原因，暂无法支付，若需要充值，请将游戏分享到微信，在微信PC版打开游戏进行充值",
-
+  showH5On: {}, // 客服切包h5
+  h5BindTelephoneOn: {},
   accountInfo: {},
   envVersion: "",
 
@@ -85,9 +87,9 @@ state.level = {
 
 // 地址
 let api = "https://sdk-js.rpgmoba.com";
-let wanBaApi = "https://wanba.rpgmoba.com/";
+let wanBaApi = "https://wanba.rpgmoba.com";
 let logApi = "https://sdk-data.rpgmoba.com";
-let wxRedApi = "https://idk.rpgmoba.com/";
+let idkApi = "https://idk.rpgmoba.com";
 
 const Tools = {
   getDeviceType: () => {
@@ -216,7 +218,7 @@ const Tools = {
       }
     return ary.join("&");
   },
-  buildRedParams: (params) => {
+  idkBuildParams: (params) => {
     let keyList = Object.keys(params).sort();
     let stringParams = "";
     for (let key of keyList) {
@@ -316,7 +318,7 @@ const active = function (SDKyyw, params, gameId, gameKey) {
           let data = {};
           data.logType = "active";
           data.appId = commonParams.gameId;
-          data.appVersion = "1.0.0";
+          data.appVersion = commonParams.appVersion;
           data.platform = "wxxyx";
           data.source = commonParams.query.source
             ? commonParams.query.source
@@ -360,11 +362,11 @@ const active = function (SDKyyw, params, gameId, gameKey) {
         success: (res) => {
           res = res.data;
           if (res.status === 1) {
-            console.log('切换域名', res.data.host);
+            console.log("切换域名", res.data.host);
             api = `https://sdk-js.${res.data.host}`;
-            wanBaApi = `https://wanba.${res.data.host}/`;
+            wanBaApi = `https://wanba.${res.data.host}`;
             logApi = `https://sdk-data.${res.data.host}`;
-            wxRedApi = `https://idk.${res.data.host}/`;
+            idkApi = `https://idk.${res.data.host}`;
           }
           commonParams.initTimer = setTimeout(() => {
             active(SDKyyw, params, gameId, gameKey);
@@ -374,8 +376,8 @@ const active = function (SDKyyw, params, gameId, gameKey) {
           commonParams.initTimer = setTimeout(() => {
             active(SDKyyw, params, gameId, gameKey);
           }, 2000);
-        }
-      })
+        },
+      });
     },
   });
 };
@@ -392,8 +394,8 @@ const wxLogin = function (SDKyyw) {
         // commonParams.code = res.code
         //获取用户信息
         wx.getSetting({
-          complete(com) {
-            if (com.authSetting["scope.userInfo"]) {
+          success(com) {
+            if (com.authSetting && com.authSetting["scope.userInfo"]) {
               wx.getUserInfo({
                 success(res) {
                   console.log("res", res);
@@ -450,6 +452,7 @@ const sdkLogin = function (SDKyyw, params) {
     success: (res) => {
       let ret = res.data;
       if (ret.status == 1) {
+        // 登录信息
         commonParams.uid = ret.data.uid;
         commonParams.payType = ret.data.payType;
         commonParams.wxid = ret.data.wxid;
@@ -468,6 +471,11 @@ const sdkLogin = function (SDKyyw, params) {
         commonParams.showSquareOn = ret.data.showSquareOn;
         commonParams.QQGroup = ret.data.QQGroup;
         commonParams.JumpGameState = ret.data.JumpGameState;
+        commonParams.showH5On = ret.data.showH5On || {};
+        commonParams.h5BindTelephoneOn = ret.data.h5BindTelephoneOn || {};
+
+        // 打开客服跳转h5
+        commonParams.showH5On.on === 1 ? quantityToH5() : "";
 
         console.log("微信跳转信息", commonParams.referrerInfo);
 
@@ -491,6 +499,9 @@ const sdkLogin = function (SDKyyw, params) {
         if (ret.data.payType === 0) {
           commonParams.payTip = ret.data.payTip;
         }
+        // 监听微信分享事件
+        onShareAppMessage(ret.data.shareAppMessage || {});
+
         state.loginStatus = "success";
         if (commonParams.uid) {
           let data = {};
@@ -502,7 +513,7 @@ const sdkLogin = function (SDKyyw, params) {
           let data = {};
           data.logType = "accountCreate";
           data.appId = commonParams.gameId;
-          data.appVersion = "1.0.0";
+          data.appVersion = commonParams.appVersion;
           data.accountId = commonParams.uid;
           data.deviceType = Tools.getDeviceTypeId();
           data.platform = "wxxyx";
@@ -824,6 +835,36 @@ const shareAppMessage = function (data) {
     imageUrlId: data.imageUrlId,
     toCurrentGroup: data.toCurrentGroup,
     path: data.path,
+  });
+};
+
+// 监听分享事件
+const onShareAppMessage = function (data) {
+  wx.onShareAppMessage(() => {
+    return {
+      promise: new Promise((resolve, reject) => {
+        wx.showLoading({
+          title: "正在请求分享数据...",
+          icon: "none",
+        });
+        wx.request({
+          url: idkApi + "/v2/wx/share/index",
+          data: Tools.idkBuildParams({
+            app_id: commonParams.gameId,
+            uid: commonParams.uid,
+            union_id: commonParams.unionId,
+          }),
+          success: function (res) {
+            wx.hideLoading();
+            if (res.data.status === 200) {
+              resolve(res.data.data);
+            } else {
+              resolve({});
+            }
+          },
+        });
+      }),
+    };
   });
 };
 
@@ -1395,7 +1436,8 @@ const pay = function (payData) {
                       console.log("跳转小程序失败", err);
                       wx.request({
                         url:
-                         api + "/pay/order/wxMiniPayBan?appid=" +
+                          api +
+                          "/pay/order/wxMiniPayBan?appid=" +
                           commonParams.gameId +
                           "&errMsg=" +
                           err.errMsg,
@@ -1486,7 +1528,7 @@ const getRedPagState = function (data) {
   } else {
     if (commonParams.showRedPagOn) {
       wx.request({
-        url: wxRedApi + "wx/redpackage/check/",
+        url: idkApi + "/wx/redpackage/check/",
         data: {
           app_id: commonParams.gameId,
           open_id: commonParams.uid,
@@ -1554,9 +1596,9 @@ const redLogin = function (data) {
           if (!httpLock.httpRedLoginFlag) {
             httpLock.httpRedLoginFlag = true;
             wx.request({
-              url: wxRedApi + "auth/wx/login",
+              url: idkApi + "/auth/wx/login",
               method: "post",
-              data: Tools.buildRedParams(params),
+              data: Tools.idkBuildParams(params),
               header: {
                 "Content-Type": "application/x-www-form-urlencoded",
               },
@@ -1610,8 +1652,8 @@ const getWxUserInfo = function () {
       token: commonParams.token,
     };
     wx.request({
-      url: wxRedApi + "wx/user/info/",
-      data: Tools.buildRedParams(params),
+      url: idkApi + "/wx/user/info/",
+      data: Tools.idkBuildParams(params),
       success(res) {
         let ret = res.data;
         if (ret.status == 200) {
@@ -1649,8 +1691,8 @@ const getRedPackageList = function () {
     if (!httpLock.httpRedListFlag) {
       httpLock.httpRedListFlag = true;
       wx.request({
-        url: wxRedApi + "wx/redpackage/index/",
-        data: Tools.buildRedParams(params),
+        url: idkApi + "/wx/redpackage/index/",
+        data: Tools.idkBuildParams(params),
         success(res) {
           let ret = res.data;
           if (ret.status == 200) {
@@ -1696,8 +1738,8 @@ const getRedConfig = function () {
       token: commonParams.token,
     };
     wx.request({
-      url: wxRedApi + "wx/config/activity/",
-      data: Tools.buildRedParams(params),
+      url: idkApi + "/wx/config/activity/",
+      data: Tools.idkBuildParams(params),
       success(res) {
         let ret = res.data;
         if (ret.status == 200) {
@@ -1738,9 +1780,9 @@ const toReceiveRedPackage = function (data) {
       };
       httpLock.httpReceiveRedPackageFlag = true;
       wx.request({
-        url: wxRedApi + "wx/redpackage/receive",
+        url: idkApi + "/wx/redpackage/receive",
         method: "post",
-        data: Tools.buildRedParams(params),
+        data: Tools.idkBuildParams(params),
         header: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -1788,8 +1830,8 @@ const getRedDetailList = function () {
       token: commonParams.token,
     };
     wx.request({
-      url: wxRedApi + "wx/redpackage/redlist/",
-      data: Tools.buildRedParams(params),
+      url: idkApi + "/wx/redpackage/redlist/",
+      data: Tools.idkBuildParams(params),
       success(res) {
         let ret = res.data;
         if (ret.status == 200) {
@@ -1828,8 +1870,8 @@ const toWithdraw = function (data) {
     if (!httpLock.httpToWithdraw) {
       httpLock.httpToWithdraw = true;
       wx.request({
-        url: wxRedApi + "wx/redpackage/withdraw",
-        data: Tools.buildRedParams(params),
+        url: idkApi + "/wx/redpackage/withdraw",
+        data: Tools.idkBuildParams(params),
         method: "post",
         header: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -1875,8 +1917,8 @@ const toRedShare = function (data) {
     activity_id: data.share_activity_id,
   };
   wx.request({
-    url: wxRedApi + "wx/redpackage/share/",
-    data: Tools.buildRedParams(params),
+    url: idkApi + "/wx/redpackage/share/",
+    data: Tools.idkBuildParams(params),
     success(res) {
       let ret = res.data;
       console.log("获取分享参数", ret);
@@ -1910,8 +1952,8 @@ const getShareList = function (data) {
       token: commonParams.token,
     };
     wx.request({
-      url: wxRedApi + "wx/redpackage/shareList/",
-      data: Tools.buildRedParams(params),
+      url: idkApi + "/wx/redpackage/shareList/",
+      data: Tools.idkBuildParams(params),
       success(res) {
         let ret = res.data;
         if (ret.status == 200) {
@@ -1947,8 +1989,8 @@ const shareBind = function (data) {
           code: res.code,
         };
         wx.request({
-          url: wxRedApi + "wx/redpackage/shareBind/",
-          data: Tools.buildRedParams(params),
+          url: idkApi + "/wx/redpackage/shareBind/",
+          data: Tools.idkBuildParams(params),
           success(res) {
             let ret = res.data;
             console.log("shareBind", ret.data, ret.msg);
@@ -1979,8 +2021,8 @@ const getLuckDrawIndex = function () {
     if (!httpLock.httpLuckDrawIndex) {
       httpLock.httpLuckDrawIndex = true;
       wx.request({
-        url: wxRedApi + "wx/redpackage/luckDrawIndex/",
-        data: Tools.buildRedParams(params),
+        url: idkApi + "/wx/redpackage/luckDrawIndex/",
+        data: Tools.idkBuildParams(params),
         success(res) {
           let ret = res.data;
           if (ret.status == 200) {
@@ -2028,8 +2070,8 @@ const luckyDraw = function () {
     if (!httpLock.httpLuckDrawFlag) {
       httpLock.httpLuckDrawFlag = true;
       wx.request({
-        url: wxRedApi + "wx/redpackage/luckDraw/",
-        data: Tools.buildRedParams(params),
+        url: idkApi + "/wx/redpackage/luckDraw/",
+        data: Tools.idkBuildParams(params),
         success(res) {
           let ret = res.data;
           if (ret.status == 200) {
@@ -2078,8 +2120,8 @@ const getSquareList = function (data) {
       };
       data && data.type ? (params.type = data.type) : "";
       wx.request({
-        url: wxRedApi + "v2/wx/square/index",
-        data: Tools.buildRedParams(params),
+        url: idkApi + "/v2/wx/square/index",
+        data: Tools.idkBuildParams(params),
         success(res) {
           let ret = res.data;
           console.log("getSquareList", ret);
@@ -2105,8 +2147,8 @@ const squareClick = function (data) {
       union_id: commonParams.unionId,
     };
     wx.request({
-      url: wxRedApi + "v2/wx/square/click/",
-      data: Tools.buildRedParams(params),
+      url: idkApi + "/v2/wx/square/click/",
+      data: Tools.idkBuildParams(params),
       success(res) {
         console.log("矩阵点击", res);
         wx.navigateToMiniProgram({
@@ -2137,7 +2179,7 @@ const squareClick = function (data) {
 const squareBind = function (data) {
   wx.login({
     success(ret) {
-      let params = Tools.buildRedParams({
+      let params = Tools.idkBuildParams({
         app_id: commonParams.gameId,
         code: ret.code,
         square_id: data.square_id,
@@ -2146,7 +2188,7 @@ const squareBind = function (data) {
       });
       console.log("squareBind", params);
       wx.request({
-        url: wxRedApi + "v2/wx/square/bind",
+        url: idkApi + "/v2/wx/square/bind",
         data: params,
         timeout: 5000,
         success: (res) => {
@@ -2171,8 +2213,8 @@ const gameWithdraw = function (data) {
     if (!httpLock.httpGameWithdraw) {
       httpLock.httpGameWithdraw = true;
       wx.request({
-        url: wxRedApi + "v2/wx/red_bag/withdraw",
-        data: Tools.buildRedParams(params),
+        url: idkApi + "/v2/wx/red_bag/withdraw",
+        data: Tools.idkBuildParams(params),
         method: "post",
         header: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -2212,8 +2254,8 @@ const toCouponReceive = function (data) {
         params.tag = data.tag;
       }
       wx.request({
-        url: wxRedApi + "v2/wx/coupon/receive",
-        data: Tools.buildRedParams(params),
+        url: idkApi + "/v2/wx/coupon/receive",
+        data: Tools.idkBuildParams(params),
         method: "post",
         success(res) {
           SDKyyw.toCouponReceiveCallback(res);
@@ -2452,9 +2494,9 @@ const gameLive = {
                         } else {
                           params.code = res.code;
                           wx.request({
-                            url: wxRedApi + "v2/wx/live/details",
+                            url: idkApi + "/v2/wx/live/details",
                             method: "post",
-                            data: Tools.buildRedParams(params),
+                            data: Tools.idkBuildParams(params),
                             success(res) {
                               console.log("liveDetails: ", res);
                             },
@@ -2725,8 +2767,8 @@ const gameLive = {
       if (!httpLock.httpLiveTaskFlag) {
         httpLock.httpLiveTaskFlag = true;
         wx.request({
-          url: wxRedApi + "v2/wx/live/index",
-          data: Tools.buildRedParams(params),
+          url: idkApi + "/v2/wx/live/index",
+          data: Tools.idkBuildParams(params),
           success(res) {
             res = res.data;
             SDKyyw.getLiveTaskCallback(res);
@@ -2763,8 +2805,8 @@ const gameLive = {
           level: data.level || "",
         };
         wx.request({
-          url: wxRedApi + "v2/wx/live/receive",
-          data: Tools.buildRedParams(params),
+          url: idkApi + "/v2/wx/live/receive",
+          data: Tools.idkBuildParams(params),
           method: "post",
           success(res) {
             res = res.data;
@@ -2801,8 +2843,8 @@ const gameLive = {
           level: data.level || "",
         };
         wx.request({
-          url: wxRedApi + "v2/wx/live/info",
-          data: Tools.buildRedParams(params),
+          url: idkApi + "/v2/wx/live/info",
+          data: Tools.idkBuildParams(params),
           success(res) {
             res = res.data;
             SDKyyw.getUserLiveInfoCallback(res);
@@ -2819,14 +2861,69 @@ const gameLive = {
       }
     }
   },
+};
+// 客服跳转H5
+const optionServiceToH5 = function () {
+  wx.openCustomerServiceConversation({
+    sessionFrom: commonParams.showH5On.sessionFrom || "",
+    showMessageCard: commonParams.showH5On.showMessageCard || false,
+    sendMessageTitle: commonParams.showH5On.sendMessageTitle || "",
+    sendMessageImg: commonParams.showH5On.sendMessageImg || "",
+    success(res) {},
+    fail(err) {
+      console.log("err: ", err);
+      optionServiceToH5();
+    },
+  });
+};
 
+// 公共客服弹窗
+const openCustomerService = function (type) {
+  if (!type) {
+    console.log("请传类型");
+    return;
+  }
+  if (!commonParams[type]) {
+    console.log("客服类型不正确");
+    return;
+  }
+  wx.openCustomerServiceConversation({
+    sessionFrom: commonParams[type].sessionFrom || "",
+    showMessageCard: commonParams[type].showMessageCard || false,
+    sendMessageTitle: commonParams[type].sendMessageTitle || "",
+    sendMessageImg: commonParams[type].sendMessageImg || "",
+    success(res) {},
+    fail(err) {
+      console.log("err: ", err);
+    },
+  });
+};
+
+// 切量h5 客服跳转
+const quantityToH5 = function () {
+  wx.onTouchStart(() => {
+    optionServiceToH5();
+  });
+  wx.onMouseUp(() => {
+    optionServiceToH5();
+  });
+
+  const h5Info = commonParams.showH5On;
+  wx.showModal({
+    title: h5Info.title,
+    content: h5Info.content,
+    showCancel: false,
+    complete(res) {
+      console.log("res: ", res);
+    },
+  });
 };
 
 const pushData = function (data) {
   if (data.type != "0") {
     data.accountId = commonParams.uid;
     data.appId = commonParams.gameId;
-    data.appVersion = "1.0.0";
+    data.appVersion = commonParams.appVersion;
     data.platform = "wxxyx";
     data.channel = commonParams.partner;
     data.source = commonParams.query.source ? commonParams.query.source : "";
@@ -3217,4 +3314,7 @@ module.exports = {
   toCouponReceive: toCouponReceive,
   gameLive: gameLive,
   toQQGroup: toQQGroup,
+  quantityToH5: quantityToH5,
+  optionServiceToH5: optionServiceToH5,
+  openCustomerService: openCustomerService,
 };

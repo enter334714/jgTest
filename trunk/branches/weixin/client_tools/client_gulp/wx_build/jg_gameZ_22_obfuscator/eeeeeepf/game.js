@@ -1,1 +1,2 @@
-var b=wx.$e;require("eeeeBuff.js"),window[b[30430]][b[30420]][b[30309]]=null,window.client_pb=require("eeecleintpb.js"),window[b[26315]]=window[b[30430]][b[26203]][b[26204]](client_pb);
+var b = wx.$e;
+require('eeeeBuff.js'), window[b[31866]][b[31856]][b[31746]] = null, window['client_pb'] = require('eeecleintpb.js'), window[b[26622]] = window[b[31866]][b[26509]][b[26510]](client_pb);

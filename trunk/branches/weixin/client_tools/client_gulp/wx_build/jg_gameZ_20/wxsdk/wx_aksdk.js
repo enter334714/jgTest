@@ -6,12 +6,11 @@ var config = {
     game_pkg: 'tjqy_tjqymlxyxmffyj_QI',
     partner_label: 'myxyx',
     partner_id: '556',
-    game_ver: '51.0.1',
+    game_ver: '51.0.5',
     is_auth: false, //授权登录
     partner_appid: 'HohOfQEqlG9VnlRQJlS7G8BeAejMTpLF', //游戏appid
 };
 window.config = config;
-
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var user_game_info = null;
@@ -725,24 +724,6 @@ function mainSDK() {
                 }
             });
         },
-        subscribeMessage : function (tmplIds, callback){
-            console.log('[SDK]订阅消息：'+tmplIds);
-            //获取模板ID
-            callbacks['subscribeMessage'] = typeof callback == 'function' ? callback : null;
-            wx.requestSubscribeMessage({
-                tmplIds: tmplIds,
-                success (res) {
-                    console.log("[SDK]订阅消息返回：成功");
-                    console.log(res);
-                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
-                },
-                fail (res) {
-                    console.log("[SDK]订阅消息返回：失败");
-                    console.log(res);
-                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
-                }
-              })
-        }
 
     }
 }
@@ -845,8 +826,4 @@ exports.setMessageToFriendQuery = function (data,callback) {
 
 exports.getSvipInfo  = function (data,callback) {
     run('getSvipInfo',data,callback);
-};
-
-exports.subscribeMessage = function (data, callback) {
-    run('subscribeMessage', data, callback);
 };

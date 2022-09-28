@@ -1,6 +1,6 @@
 !function (t) {
   var e = null,
-      i = { m_Ver: "0.0.21.6beta", m_LogServer: "https://stat.chiji-h5.com/statwx_common.php", m_JsonUrl: "https://jsonconfig.chiji-h5.com/json/", m_IPInfoUrl: "https://wxgame.chiji-h5.com/wxgs_sdk/getcity.action", m_PayUrl: "https://lk-hzres.chiji-h5.com/bgsys/report/", m_RegionObj: null, m_Appid: "", m_Openid: "", m_UnionID: "", m_LogKey: "", m_LogObj: null, m_Channel: "default", m_bLog: !0, m_bPub: !0, m_VersionStatus: null, m_Data: null, m_PayData: null, m_ShareCB: null, m_OpenAppCB: null, m_RewardCB: null, m_Render: null, m_ShareCBTime: 3e3, m_OpenAppCBTime: 3e3, m_OpenAppCBTime: 3e3, m_RewardSceneIOS: 1038, m_RewardSceneDroid: 1038, m_chkRewardSceneDroid: !1, m_chkRewardSceneIOS: !1, m_bInit: !1, V_CloseCB: null, m_city: null, m_getPayData: null, payDataGroup: [], m_AccessToken: null, m_logLevel: 3, m_userData: null, m_login: !0, m_DlgFailCB: null, official_openid: "", official_appid: "", officialScene: [1020, 1035, 1043, 1058, 1067, 1074, 1082, 1091, 1102, 1144], init: function (a) {
+      i = { m_Ver: "0.0.21.6beta", m_LogServer: "https://stat.tg-wangpai.com/statwx_common.php", m_JsonUrl: "https://jsonconfig.tg-wangpai.com/json/", m_IPInfoUrl: "https://wxgame.tg-wangpai.com/wxgs_sdk/getcity.action", m_PayUrl: "https://lk-hzres.tg-wangpai.com/bgsys/report/", m_RegionObj: null, m_Appid: "", m_Openid: "", m_UnionID: "", m_LogKey: "", m_LogObj: null, m_Channel: "default", m_bLog: !0, m_bPub: !0, m_VersionStatus: null, m_Data: null, m_PayData: null, m_ShareCB: null, m_OpenAppCB: null, m_RewardCB: null, m_Render: null, m_ShareCBTime: 3e3, m_OpenAppCBTime: 3e3, m_OpenAppCBTime: 3e3, m_RewardSceneIOS: 1038, m_RewardSceneDroid: 1038, m_chkRewardSceneDroid: !1, m_chkRewardSceneIOS: !1, m_bInit: !1, V_CloseCB: null, m_city: null, m_getPayData: null, payDataGroup: [], m_AccessToken: null, m_logLevel: 3, m_userData: null, m_login: !0, m_DlgFailCB: null, official_openid: "", official_appid: "", officialScene: [1020, 1035, 1043, 1058, 1067, 1074, 1082, 1091, 1102, 1144], clue_token: "", track_id: "", init: function (a) {
       if (this.m_bInit) t.DDSDK.log("sdk===ddsdk already init...");else {
         var n = window.DDSDK_APPKEY,
             o = window.DDSDK_GNAME;if (n.length < 1 || o.length < 1) t.DDSDK.log("sdk===please init config file...");else if (this.m_bInit = !0, this.m_Appid = n, this.m_LogKey = o, "DDSDK_InitRender" in window) {
@@ -9,14 +9,14 @@
           }if (this.m_ResTime = new Date().getTime(), this.m_LoadCompleteCallback = a, this.m_JsonUrl = this.m_JsonUrl, n && o ? (this.loadRes(), this.loadVersionStatus(o), t.DDSDK.log(this.m_JsonUrl), this.getIPInfo(this.getAnyData.bind(this))) : t.DDSDK.log("sdk===DDSDK log mode..."), this.isWx()) {
             var r = wx.getLaunchOptionsSync();t.DDSDK.log("--options--:", r), setTimeout(function () {
               localStorage.getItem("show") || (t.DDSDK.warn("------show-------\x3e>"), window.onshow(r));
-            }, 1e3), "channel" in r.query && i.setChannel(r.query.channel), e && wx.onShow(function (t) {
+            }, 1e3), "channel" in r.query && i.setChannel(r.query.channel), "clue_token" in r.query && i.setClue_token(r.query.clue_token), "trackid" in r.query && i.setTrack_id(r.query.trackid), e && wx.onShow(function (t) {
               e.onShow(t);
             });
           }this.m_getPayData = { appId: "", gameId: "", gameName: "", channel: "", cpOrderNumber: "", productId: "", productDesc: "", amount: 6, totalAmount: 6, env: 0, serverId: "", roleId: "", accountId: "", notifyMinUrl: "", notifyUrl: "", extra: "", openId: "", offerId: "", zoneId: "", buyQuantity: 10, productNum: 1, isNewUser: 1, unionId: "" }, t.DDSDK.log("sdk===ddsdk:", this.m_Ver);
         } else t.DDSDK.log("sdk===DDSDK_InitRender is null!!!");
       }
     }, getAnyData: function (t) {}, setAccount: function (t) {
-      this.isWx() && this.m_login && (this.m_Openid = t.openId, this.m_LogObj || "LJ_LOGEVENT" in window && (this.m_LogObj = window.LJ_LOGEVENT), this.m_LogObj.ljSendOpenid(t));
+      this.isWx() && this.m_login && (this.m_Openid = t.openId, this.m_LogObj || "LJ_LOGEVENT" in window && (this.m_LogObj = window.LJ_LOGEVENT), t.clue_token = this.clue_token, t.track_id = this.track_id, this.m_LogObj.ljSendOpenid(t));
     }, shareAppMessage: function (t) {
       if (this.isWx() && this.m_LogObj) {
         if (t) {
@@ -30,7 +30,7 @@
         let t = i.getData("jump_config");if (i.log("sdk===跳转配置", t), !t.jump_switch) return;localStorage.getItem("jumpTimes") || localStorage.setItem("jumpTimes", 0);let e = localStorage.getItem("jumpTimes");i.log("sdk===登录开关：", this.m_login), 0 == t.jump_num ? this.showUpdateDlg(t) : 1 == this.m_login ? (e++, localStorage.setItem("jumpTimes", e), i.log("sdk===次数：", e), e <= t.jump_num ? this.showUpdateDlg(t) : i.log("sdk===弹框次数超过限定次数！")) : i.log("sdk===非登录状态");
       }
     }, showUpdateDlg: function (e) {
-      if (!this.isWx()) return;var a = { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: this.m_userData.role_id, server_id: this.m_userData.server_id, amount: e.jump_amount };i.log("sdk===传输数据", a);window.wx.request({ url: "https://sdkpoint.chiji-h5.com/record-receive/fun/api/check_subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: this.m_userData.role_id, server_id: this.m_userData.server_id, amount: e.jump_amount }, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(a) {
+      if (!this.isWx()) return;var a = { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: this.m_userData.role_id, server_id: this.m_userData.server_id, amount: e.jump_amount };i.log("sdk===传输数据", a);window.wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/check_subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: this.m_userData.role_id, server_id: this.m_userData.server_id, amount: e.jump_amount }, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(a) {
           a.data && a.data.success && 1 == a.data.success && 1 == a.data.data.subcontract ? (t.DDSDK.log("sdk===成功：", a), wx.showModal({ title: e.jump_title, content: e.jump_desc, showCancel: !1, success(t) {
               if (t.confirm) {
                 var a = function (t, e) {
@@ -131,6 +131,10 @@
       }
     }, setChannel: function (t) {
       this.m_Channel = t;
+    }, setClue_token: function (t) {
+      this.clue_token = t;
+    }, setTrack_id: function (t) {
+      console.log("b站trackid:", t), this.track_id = t;
     }, getChannel: function () {
       return this.m_Channel;
     }, getIPInfo: function (t) {
@@ -181,7 +185,7 @@
     }, giveReward: function (t, e) {
       this.m_RewardCB && this.m_RewardCB(t, e);
     }, loadVersionStatus: function (t) {
-      var i = this;e.ajax("https://jsonconfig.chiji-h5.com/question/json/nzkp/game_version.json", null, function (t) {
+      var i = this;e.ajax("https://jsonconfig.tg-wangpai.com/question/json/nzkp/game_version.json", null, function (t) {
         console.log("版本调整后台配置读取"), console.log(t), i.m_VersionStatus = t;
       }, function (t) {
         e.setTimeout(function () {
@@ -309,6 +313,63 @@
       this.logTag(t, e);
     }, logTag: function (e, i) {
       this.isWx() && this.m_bLog && (this.m_LogObj || "LJ_LOGEVENT" in window && (this.m_LogObj = window.LJ_LOGEVENT), t.DDSDK.log("sdk===日志打点：", e), e = e || "", (i = i || "") && i.replace && (i = i.replace(/&/, "|")), this.m_LogObj.ljSendEvent(e, i));
+    }, safeCheck: function (t) {
+      var e = { game_id: window.DDSDK_GNAME, open_id: this.m_Openid, scene: t.scene, content: t.content };wx.request({ url: "https://payh5crown.tg-wangpai.com/index.php/index/applet/check_content", data: e, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(e) {
+          t.callback(e);
+        }, fail(e) {
+          t.callback(e);
+        } });
+    }, userUpload: function () {
+      var t = this;console.log("抖音激活回传", this.clue_token, "openid:", this.m_Openid), !this.clue_token && this.m_Openid ? wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/check_user_clue_token", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, openid: this.m_Openid }, method: "POST", success: function (e) {
+          console.log("抖音回传获取clue_token", e), e.data.data.clue_token && (t.clue_token = e.data.data.clue_token, wx.request({ url: "https://payh5crown.tg-wangpai.com/index.php/index/applet/upload_user_action", data: { clue_token: t.clue_token, open_id: t.m_Openid, union_id: t.m_UnionID, event_type: 0, game_id: window.DDSDK_GNAME }, method: "POST", success: function (t) {
+              console.log("激活回传成功", t);
+            }, fail: function (t) {
+              console.log("激活回传失败", t);
+            } }));
+        }, fail: function (t) {
+          console.log("抖音回传获取clue_token失败", t);
+        } }) : this.clue_token && this.m_Openid && wx.request({ url: "https://payh5crown.tg-wangpai.com/index.php/index/applet/upload_user_action", data: { clue_token: this.clue_token, open_id: this.m_Openid, union_id: this.m_UnionID, event_type: 0, game_id: window.DDSDK_GNAME }, method: "POST", success: function (t) {
+          console.log("激活回传成功", t);
+        }, fail: function (t) {
+          console.log("激活回传失败", t);
+        } });
+    }, payUpload: function (t) {
+      console.log("抖音付费回传", t), wx.request({ url: "https://payh5crown.tg-wangpai.com/index.php/index/applet/upload_user_action", data: { clue_token: this.clue_token, open_id: this.m_Openid, union_id: this.m_UnionID, event_type: 2, pay_amount: t, game_id: window.DDSDK_GNAME }, method: "POST", success: function (t) {
+          console.log("付费回传成功", t);
+        }, fail: function (t) {
+          console.log("付费回传失败", t);
+        } });
+    }, userUpload_bili: function () {
+      var t = this;console.log("B站激活回传", this.track_id);var e = new Date();if (!this.track_id && this.m_Openid) wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/check_user_clue_token", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, openid: this.m_Openid }, method: "POST", success(a) {
+          if (console.log("bili激活回传获取trackid", a), a.data.data.track_id) {
+            t.track_id = a.data.data.track_id;var n = { conv_type: "FORM_SUBMIT", conv_time: e.getTime(), track_id: a.data.data.track_id };i.getBili(n, 1, "");var o = "https://cm.bilibili.com/conv/api/conversion/ad/cb/v1?conv_type=FORM_SUBMIT&conv_time=" + e.getTime() + "&track_id=" + a.data.data.track_id;wx.request({ url: o, method: "GET", success: function (t) {
+                console.log("激活回传成功", t), i.getBili(n, 2, t);
+              }, fail: function (t) {
+                console.log("激活回传失败", t);
+              } });
+          }
+        }, fail(t) {
+          console.log("bili激活回传获取trackid失败", t);
+        } });else if (this.track_id && this.m_Openid) {
+        var a = { conv_type: "FORM_SUBMIT", conv_time: e.getTime(), track_id: this.track_id };i.getBili(a, 1, "");var n = "https://cm.bilibili.com/conv/api/conversion/ad/cb/v1?conv_type=FORM_SUBMIT&conv_time=" + e.getTime() + "&track_id=" + this.track_id;wx.request({ url: n, method: "GET", success: function (t) {
+            console.log("激活回传成功", t), i.getBili(a, 2, t);
+          }, fail: function (t) {
+            console.log("激活回传失败", t);
+          } });
+      }
+    }, payUpload_bili: function (t) {
+      var e = new Date(),
+          a = { conv_type: "USER_COST", conv_time: e.getTime(), track_id: this.track_id, conv_value: t };i.getBili(a, 1, ""), console.log("B站支付回传", this.track_id);var n = "https://cm.bilibili.com/conv/api/conversion/ad/cb/v1?conv_type=USER_COST&conv_time=" + e.getTime() + "&track_id=" + this.track_id + "&conv_value=" + t;this.track_id && wx.request({ url: n, method: "GET", success: function (t) {
+          console.log("激活回传成功", t), i.getBili(a, 2, t);
+        }, fail: function (t) {
+          console.log("激活回传失败", t);
+        } });
+    }, getBili(t, e, i) {
+      wx.request({ url: "https://payh5crown.tg-wangpai.com/index.php/index/applet/get_bilibili", data: { conv_type: t.conv_type, conv_time: t.conv_time, track_id: t.track_id, conv_value: t.conv_value, type: e, bili_res: i, game_id: window.DDSDK_GNAME }, method: "POST", success: function (t) {
+          console.log("上传bili数据成功", t);
+        }, fail: function (t) {
+          console.log("上传bili数据失败", t);
+        } });
     }, setPayData: function (t) {
       var e = null,
           i = null;"game_midas" in this.m_Data && (e = this.m_Data.game_midas), "mini_program" in this.m_Data && (i = this.m_Data.mini_program), null != i && 0 != i.length ? (this.m_getPayData.appId = i.appId, this.m_getPayData.gameId = i.gameId) : (this.m_getPayData.appId = t.appId, this.m_getPayData.gameId = t.gameid ? t.gameid : t.gameId), null != e && 0 != e.length ? (this.m_getPayData.buyQuantity = e.buyQuantity, this.m_getPayData.env = e.env, this.m_getPayData.offerId = e.offerId) : (this.m_getPayData.buyQuantity = t.buyQuantity, this.m_getPayData.env = t.env, this.m_getPayData.offerId = t.offerId), this.m_getPayData.gameName = t.gname ? t.gname : window.DDSDK_GNAME, this.m_getPayData.cpOrderNumber = t.cp_order_no ? t.cp_order_no : t.cpOrderNumber, this.m_getPayData.productId = t.product_id ? t.product_id : t.productId, this.m_getPayData.productDesc = t.product_desc ? t.product_desc : t.productDesc, this.m_getPayData.serverId = t.server_id ? t.server_id : t.serverId, this.m_getPayData.roleId = t.role_id ? t.role_id : t.roleId, this.m_getPayData.accountId = t.account_id ? t.account_id : t.accountId, this.m_getPayData.notifyUrl = t.notify_url ? t.notify_url : t.notifyUrl, this.m_getPayData.notifyMinUrl = t.notify_minPro_url ? t.notify_minPro_url : t.notifyMinUrl, this.m_getPayData.openId = t.open_id ? t.open_id : t.openId, this.m_getPayData.productNum = t.product_num ? t.product_num : t.productNum, this.m_getPayData.isNewUser = t.is_new_user ? t.is_new_user : t.isNewUser, this.m_getPayData.unionId = t.unionid ? t.unionid : t.unionId, this.m_getPayData.product_name = t.product_id ? t.product_id : t.productId, this.m_getPayData.product_desc = t.product_desc ? t.product_desc : t.productDesc, this.m_getPayData.pay_amount = t.pay_amount ? t.pay_amount : t.amount, this.m_getPayData.channel = t.channel, this.m_getPayData.amount = t.amount, this.m_getPayData.zoneId = t.zoneId, this.m_getPayData.extra = t.extra, this.m_getPayData.totalAmount = t.totalAmount, this.m_getPayData.payData = { gameName: this.m_getPayData.gameName, description: this.m_getPayData.productDesc, openId: this.m_getPayData.openId, value: 100 * this.m_getPayData.amount + "" };
@@ -328,7 +389,7 @@
           n = wx.getLaunchOptionsSync().scene,
           o = i.getData("sceneList") || [],
           s = !0;if ("iOS" === a && -1 != o.indexOf(n) && (s = !1), !s) return void wx.showToast({ title: "苹果系统暂不支持充值,请转至安卓系统进行充值。", icon: "none", duration: 2e3 });let r = parseInt(e.roleId),
-          l = "";"" != e.notifyMinUrl ? l = encodeURIComponent(e.notifyMinUrl) : t.DDSDK.log("sdk====小程序支付回调地址不存在");var d = "gameid=" + e.gameId + "&serverid=" + e.serverId + "&productid=" + e.productId + "&gameuid=" + r + "&game_openid=" + e.openId + "&channel=" + e.channel + "&is_new_user=" + e.isNewUser + "&notify_url=" + l + "&role_id=" + e.roleId + "&account_id=" + e.accountId + "&unionid=" + e.unionId + "&product_name=" + e.product_name + "&product_desc=" + e.product_desc + "&pay_amount=" + e.pay_amount + "&extra=" + e.extra + "&payData=" + JSON.stringify(e.payData);t.DDSDK.log("sdk====小程序支付path", d), wx.navigateToMiniProgram({ appId: e.appId, path: "pages/pay/index?" + d });
+          l = "";"" != e.notifyMinUrl ? l = encodeURIComponent(e.notifyMinUrl) : t.DDSDK.log("sdk====小程序支付回调地址不存在");var d = "gameid=" + e.gameId + "&serverid=" + e.serverId + "&productid=" + e.productId + "&gameuid=" + r + "&game_openid=" + e.openId + "&channel=" + e.channel + "&is_new_user=" + e.isNewUser + "&notify_url=" + l + "&role_id=" + e.roleId + "&account_id=" + e.accountId + "&unionid=" + e.unionId + "&product_name=" + e.product_name + "&product_desc=" + e.product_desc + "&pay_amount=" + e.pay_amount + "&extra=" + e.extra + "&ctoken=" + this.clue_token + "&payData=" + JSON.stringify(e.payData);t.DDSDK.log("sdk====小程序支付path", d), wx.navigateToMiniProgram({ appId: e.appId, path: "pages/pay/index?" + d });
     }, getMidasPay: function (t) {
       let e = t.env + 1,
           a = t.roleId;i.logEvent("createPay", { orderid: t.cpOrderNumber, gameuid: a, openid: t.openId, productid: t.productId, product_num: t.productNum, amount: t.amount, issendbox: e, unionid: t.unionId, paytype: "wxgame", userchannel: t.channel, account_id: t.accountId, is_new_user: t.isNewUser, serverid: t.serverId, cp_order: t.cpOrder });let n = t;n.midas_payed = !1, this.createPay(n, this.getWxMiDas.bind(this));
@@ -341,7 +402,7 @@
         } });
     }, createPay: function (e, a) {
       var n = e,
-          o = this;let s;var r = (s = "midas_pay_url" in o.m_Data && null != o.m_Data.midas_pay_url ? o.m_Data.midas_pay_url : "https://isdk.chiji-h5.com") + "/server/s/" + e.gameName + "/pay/web_create";let l;l = window.DDSDK_MD5KEY && "" != window.DDSDK_MD5KEY ? window.DDSDK_MD5KEY : window.DDSDK_APPKEY, t.DDSDK.log("sdk====获取到米大师余额url", r), window.wx.request({ url: r, data: { nonce_str: "", sign_type: "", sign: "", type: "midas", cp_order_no: n.cpOrderNumber, product_id: n.productId, product_desc: n.productDesc, amount: n.amount, server_id: n.serverId, role_id: n.roleId, notify_url: n.notifyUrl, return_url: "", pay_type: "2", extra: n.extra, user_id: n.openId, account_id: n.accountId, cp_order: n.cpOrder, midas_payed: n.midas_payed, is_new_user: n.isNewUser, channel: n.channel, ak: l, app_id: n.gameName, unionid: n.unionId }, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success: e => {
+          o = this;let s;var r = (s = "midas_pay_url" in o.m_Data && null != o.m_Data.midas_pay_url ? o.m_Data.midas_pay_url : "https://isdk.tg-wangpai.com") + "/server/s/" + e.gameName + "/pay/web_create";let l;l = window.DDSDK_MD5KEY && "" != window.DDSDK_MD5KEY ? window.DDSDK_MD5KEY : window.DDSDK_APPKEY, t.DDSDK.log("sdk====获取到米大师余额url", r), window.wx.request({ url: r, data: { nonce_str: "", sign_type: "", sign: "", type: "midas", cp_order_no: n.cpOrderNumber, product_id: n.productId, product_desc: n.productDesc, amount: n.amount, server_id: n.serverId, role_id: n.roleId, notify_url: n.notifyUrl, return_url: "", pay_type: "2", extra: n.extra, user_id: n.openId, account_id: n.accountId, cp_order: n.cpOrder, midas_payed: n.midas_payed, is_new_user: n.isNewUser, channel: n.channel, ak: l, app_id: n.gameName, unionid: n.unionId }, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success: e => {
           if (t.DDSDK.log("sdk====零境米大师返回数据", e), null != e.data.data && 90013 == e.data.data.status) t.DDSDK.log("sdk====米大师余额不足"), o.getWxMiDas(n);else if (null != e.data.data && 0 == e.data.data.status) i.logEvent("successPay", { orderid: n.cpOrderNumber });else if (null != e.data.data) {
             let t = "充值状态: " + e.data.data.status + " 请联系客服！！！";wx.showToast({ title: t, icon: "none", duration: 2e3 });
           }
@@ -364,14 +425,22 @@
           n = e.roleId;"point_switch" in this.m_Data && null != this.m_Data.point_switch ? 1 == this.m_Data.point_switch ? i.logEvent("createPay", { orderid: e.cpOrderNumber, gameuid: n, openid: e.openId, productid: e.productId, product_num: e.productNum, amount: e.amount, issendbox: a, unionid: e.unionId, paytype: "wxgame", userchannel: e.channel, account_id: e.accountId, is_new_user: e.isNewUser, serverid: e.serverId, cp_order: e.cpOrder, product_desc: e.product_desc, product_name: e.product_name, pay_amount: e.pay_amount }) : t.DDSDK.log("sdk====客户端支付创建订单打点关闭") : t.DDSDK.log("sdk====支付打点参数不存在或为空");let o = e;o.midas_payed = !1, this.createPayV2(o, this.startGetWxMiDas.bind(this));
     }, startGetWxMiDas: function (e) {
       var i = e,
-          a = this;window.wx.requestMidasPayment({ mode: "game", env: i.env, offerId: i.offerId, currencyType: "CNY", platform: "android", zoneId: i.zoneId, buyQuantity: i.amount * i.buyQuantity, success: e => {
-          t.DDSDK.log("sdk====米大师支付成功", e), i.midas_payed = !0, a.createPayV2(i);
+          a = this;window.wx.requestMidasPayment({ mode: "game", env: i.env, offerId: i.offerId, currencyType: "CNY", platform: "android", zoneId: i.zoneId, buyQuantity: i.amount * i.buyQuantity, success: n => {
+          t.DDSDK.log("sdk====米大师支付成功", n), !this.clue_token && this.m_Openid ? wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/check_user_clue_token", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, openid: this.m_Openid }, method: "POST", success: function (t) {
+              console.log("抖音回传获取clue_token", t), a.clue_token = t.data.data.clue_token, t.data.data.clue_token && a.payUpload(100 * e.amount);
+            }, fail: function (t) {
+              console.log("抖音回传获取clue_token失败", t);
+            } }) : this.clue_token && this.m_Openid && this.payUpload(100 * e.amount), !this.track_id && this.m_Openid ? wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/check_user_clue_token", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, openid: this.m_Openid }, method: "POST", success: function (t) {
+              console.log("bili回传获取trackid", t), a.track_id = t.data.data.track_id, t.data.data.track_id && a.payUpload_bili(100 * e.amount);
+            }, fail: function (t) {
+              console.log("bili回传获取trackid失败", t);
+            } }) : this.track_id && this.m_Openid && (console.log("B站付费回传"), this.payUpload_bili(100 * e.amount)), i.midas_payed = !0, a.createPayV2(i);
         }, fail: e => {
           t.DDSDK.log("sdk====米大师支付失败", e);
         } });
     }, createPayV2: function (e, a) {
       var n = e,
-          o = this;let s;var r = (s = "midas_pay_url" in o.m_Data && null != o.m_Data.midas_pay_url ? o.m_Data.midas_pay_url : "https://wxgame.chiji-h5.com") + "/boxpay/" + e.gameName;let l;l = window.DDSDK_MD5KEY && "" != window.DDSDK_MD5KEY ? window.DDSDK_MD5KEY : window.DDSDK_APPKEY, t.DDSDK.log("sdk====获取到米大师余额url", r);n.cpOrderNumber, n.productId, n.amount, n.serverId, n.roleId, n.notifyUrl, n.extra, n.openId, n.accountId, n.cpOrder, n.midas_payed, n.isNewUser, n.channel, n.gameName, n.gameName, n.openId, n.roleId, n.unionId, e.product_desc, e.product_name, e.pay_amount;window.wx.request({ url: r, data: { nonce_str: "", sign_type: "", sign: "", type: "midas", cp_order_no: n.cpOrderNumber, productid: n.productId, amount: n.amount, server_id: n.serverId, role_id: n.roleId, notify_url: n.notifyUrl, return_url: "", pay_type: "2", extra: n.extra, game_openid: n.openId, account_id: n.accountId, cp_order: n.cpOrder, midas_payed: n.midas_payed, is_new_user: n.isNewUser, userchannel: n.channel, ak: l, app_id: n.gameName, gameid: n.gameName, service: "MidasOrderService", device: "android", openid: n.openId, gameuid: n.roleId, unionid: n.unionId, product_desc: e.product_desc, product_name: e.product_name, pay_amount: e.pay_amount }, method: "post", header: { "content-type": "application/json;charset=UTF-8" }, success: e => {
+          o = this;let s;var r = (s = "midas_pay_url" in o.m_Data && null != o.m_Data.midas_pay_url ? o.m_Data.midas_pay_url : "https://wxgame.tg-wangpai.com") + "/boxpay/" + e.gameName;let l;l = window.DDSDK_MD5KEY && "" != window.DDSDK_MD5KEY ? window.DDSDK_MD5KEY : window.DDSDK_APPKEY, t.DDSDK.log("sdk====获取到米大师余额url", r);n.cpOrderNumber, n.productId, n.amount, n.serverId, n.roleId, n.notifyUrl, n.extra, n.openId, n.accountId, n.cpOrder, n.midas_payed, n.isNewUser, n.channel, n.gameName, n.gameName, n.openId, n.roleId, n.unionId, n.product_desc, n.product_name, n.pay_amount;window.wx.request({ url: r, data: { nonce_str: "", sign_type: "", sign: "", type: "midas", cp_order_no: n.cpOrderNumber, productid: n.productId, amount: n.amount, server_id: n.serverId, role_id: n.roleId, notify_url: n.notifyUrl, return_url: "", pay_type: "2", extra: n.extra, game_openid: n.openId, account_id: n.accountId, cp_order: n.cpOrder, midas_payed: n.midas_payed, is_new_user: n.isNewUser, userchannel: n.channel, ak: l, app_id: n.gameName, gameid: n.gameName, service: "MidasOrderService", device: "android", openid: n.openId, gameuid: n.roleId, unionid: n.unionId, product_desc: n.product_desc, product_name: n.product_name, pay_amount: n.pay_amount }, method: "post", header: { "content-type": "application/json;charset=UTF-8" }, success: e => {
           if (t.DDSDK.log("sdk====零境米大师返回数据", e), null != e.data && 90013 == e.data.state) t.DDSDK.log("sdk====米大师余额不足"), o.startGetWxMiDas(n);else if (null != e.data && 0 == e.data.state) "point_switch" in o.m_Data && null != o.m_Data.point_switch ? 1 == o.m_Data.point_switch ? i.logEvent("successPay", { orderid: n.cpOrderNumber }) : t.DDSDK.log("sdk====客户端支付成功打点关闭") : t.DDSDK.log("sdk====支付打点参数不存在或为空");else if (null != e.data) {
             let t = "充值状态: " + e.data.state + " 请联系客服！！！";wx.showToast({ title: t, icon: "none", duration: 2e3 });
           }
@@ -379,7 +448,7 @@
           t.DDSDK.log("sdk====零境米大师请求失败", e);
         } });
     }, adData(e) {
-      var i;i = e.openid ? e.openid : e.openId, e.gname ? e.gname : e.gameName, t.DDSDK.log("sdk===数据回传：", e), window.wx.request({ url: "https://wechat-tools.chiji-h5.com/server/s/' + game_name + '/api/user_action", data: { url: "http://www.qq.com", type: e.type, name: "webuser_action_set", description: e.description, openid: i, value: e.value, source: "web", claim_type: "0", nonce_str: "", sign_type: "", sign: "" }, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(e) {
+      var i;i = e.openid ? e.openid : e.openId, e.gname ? e.gname : e.gameName, t.DDSDK.log("sdk===数据回传：", e), window.wx.request({ url: "https://wechat-tools.tg-wangpai.com/server/s/' + game_name + '/api/user_action", data: { url: "http://www.qq.com", type: e.type, name: "webuser_action_set", description: e.description, openid: i, value: e.value, source: "web", claim_type: "0", nonce_str: "", sign_type: "", sign: "" }, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(e) {
           t.DDSDK.log("sdk===数据回传成功：", e);
         }, fail(e) {
           t.DDSDK.log("sdk===数据回传失败：", e);
@@ -419,13 +488,13 @@
     }, createFeedbackButton: function (t) {
       var e;if (i.isWx()) return "text" == t.type ? e = wx.createFeedbackButton({ type: "text", text: t.text || "打开意见反馈页面", style: { left: t.left, top: t.top, width: t.width, height: t.height, lineHeight: t.lineHeight, backgroundColor: t.backgroundColor || "#ffff0000", color: t.color || "#ffffff", textAlign: t.textAlign || "center", fontSize: t.fontSize || 16, borderRadius: t.borderRadius || 4, borderWidth: t.borderWidth || 1, borderColor: t.borderColor || "" } }) : "image" == t.type && (e = wx.createFeedbackButton({ type: "image", image: t.image || "", style: { left: t.left, top: t.top, width: t.width, height: t.height, lineHeight: t.lineHeight || "", backgroundColor: t.backgroundColor || "", color: t.color || "", textAlign: t.textAlign || "", fontSize: t.fontSize || 16, borderRadius: t.borderRadius || 4, borderWidth: t.borderWidth || 1, borderColor: t.borderColor || "" } })), e;
     }, checkPackage(e) {
-      wx.request({ url: "https://sdkpoint.chiji-h5.com/record-receive/fun/api/v2/check_subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: this.m_userData.role_id, server_id: this.m_userData.server_id, amount: e.jump_amount, union_id: i.m_UnionID }, method: "POST", success: function (e) {
+      wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/v2/check_subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: this.m_userData.role_id, server_id: this.m_userData.server_id, amount: e.jump_amount, union_id: i.m_UnionID }, method: "POST", success: function (e) {
           e.data && t.DDSDK.log(e.data);
         }, fail: function (e) {
           e.data && t.DDSDK.log(e.data);
         } });
     }, setPackage(e) {
-      i.log("提交分包参数：" + e), wx.request({ url: "https://sdkpoint.chiji-h5.com/record-receive/fun/api/v2/subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, union_id: e.unionId }, method: "POST", success: function (e) {
+      i.log("提交分包参数：" + e), wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/v2/subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, union_id: e.unionId }, method: "POST", success: function (e) {
           e.data && t.DDSDK.log(e.data);
         }, fail: function (e) {
           e.data && t.DDSDK.log(e.data);
@@ -436,7 +505,7 @@
           o = i.getData("sceneList") || [],
           s = !0;if ("iOS" === a && -1 != o.indexOf(n) && (s = !1), s) {
         var r = encodeURI(JSON.stringify(e.extra)),
-            l = "game_id=" + e.gameName + "&product_id=" + e.productId + "&game_user_id=" + e.accountId + "&role_id=" + e.roleId + "&order_id=" + r + "&server_id=" + e.serverId + "&user_channel=" + e.channel + "&is_new_user=" + e.isNewUser + "&product_amount=" + e.pay_amount + "&product_name=" + e.product_name + "&product_desc=" + e.product_desc + "&union_id=" + e.unionId;wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageImg: i.getData("cardImg") || "", sendMessageTitle: "", sendMessagePath: "", sessionFrom: `{"receive_param":"ios","params":"${l}"}` || "", success: function (e) {
+            l = "game_id=" + e.gameName + "&product_id=" + e.productId + "&game_user_id=" + e.accountId + "&role_id=" + e.roleId + "&order_id=" + r + "&server_id=" + e.serverId + "&user_channel=" + e.channel + "&is_new_user=" + e.isNewUser + "&product_amount=" + e.pay_amount + "&product_name=" + e.product_name + "&product_desc=" + e.product_desc + "&union_id=" + e.unionId;this.m_Openid && this.clue_token && (l += "&oid=" + this.m_Openid + "&ctoken=" + this.clue_token), this.track_id && (l += "&tid=" + this.track_id), wx.openCustomerServiceConversation({ showMessageCard: !0, sendMessageImg: i.getData("cardImg") || "", sendMessageTitle: "", sendMessagePath: "", sessionFrom: `{"receive_param":"ios","params":"${l}"}` || "", success: function (e) {
             t.DDSDK.log("getCustomerPay:" + e);
           }, fail: function (e) {
             t.DDSDK.log("getCustomerPay:cancel...");
@@ -445,9 +514,9 @@
     }, getCustomerServiceByFB: function (e) {
       if (!this.isWx()) return;var a = i.getData("jump_amount") || 0;t.DDSDK.log("客服参数：", e, a);var n = {};var o = e && e.phone || "";if (0 == a) {
         var s;n.isCard = !0;var r,
-            l = `game_id=${window.DDSDK_GNAME}web&phone=${o}&channel=${i.getChannel()}`;return r = `{"phone": ${o},"channel": "${i.getChannel()}"}`, wx.setClipboardData({ data: r }), s = `{"open_param":"wd","params":"${l}"}`, n.open_param = "wd", n.cardImg = "https://commcdn.chiji-h5.com/ljsdk/test/libao.jpg", n.sessionFrom = s, t.DDSDK.log("客服分包：", n), void t.DDSDK.customerFB(n);
-      }var d = { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: e.roleId || this.m_userData && this.m_userData.role_id || "", server_id: e.serverId || this.m_userData && this.m_userData.server_id || "", amount: a || 0, union_id: e.unionId || this.m_UnionID || "" };t.DDSDK.log("悬浮客服参数：", d), window.wx.request({ url: "https://sdkpoint.chiji-h5.com/record-receive/fun/api/v2/check_subcontract", data: d, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(e) {
-          i.log("sdk===分包: ", e), n.isCard = !0;var a;a = `{"phone": ${o},"channel": "${i.getChannel()}"}`, wx.setClipboardData({ data: a });var s = "";e.data && e.data.success && 1 == e.data.success && 1 == e.data.data.subcontract && (s = `{"open_param":"wd","params":"${`game_id=${window.DDSDK_GNAME}web&phone=${o}&channel=${i.getChannel()}`}"}`, n.open_param = "wd", n.cardImg = "https://commcdn.chiji-h5.com/ljsdk/test/libao.jpg");n.sessionFrom = s, t.DDSDK.log("sdk===客服 跳转 分包：", n), t.DDSDK.customerFB(n);
+            l = `game_id=${window.DDSDK_GNAME}web&phone=${o}&channel=${i.getChannel()}`;return r = `{"phone": ${o},"channel": "${i.getChannel()}"}`, wx.setClipboardData({ data: r }), s = `{"open_param":"wd","params":"${l}"}`, n.open_param = "wd", n.cardImg = "https://commcdn.tg-wangpai.com/ljsdk/test/libao.jpg", n.sessionFrom = s, t.DDSDK.log("客服分包：", n), void t.DDSDK.customerFB(n);
+      }var d = { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: e.roleId || this.m_userData && this.m_userData.role_id || "", server_id: e.serverId || this.m_userData && this.m_userData.server_id || "", amount: a || 0, union_id: e.unionId || this.m_UnionID || "" };t.DDSDK.log("悬浮客服参数：", d), window.wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/v2/check_subcontract", data: d, method: "POST", header: { "content-type": "application/json;charset=UTF-8" }, success(e) {
+          i.log("sdk===分包: ", e), n.isCard = !0;var a;a = `{"phone": ${o},"channel": "${i.getChannel()}"}`, wx.setClipboardData({ data: a });var s = "";e.data && e.data.success && 1 == e.data.success && 1 == e.data.data.subcontract && (s = `{"open_param":"wd","params":"${`game_id=${window.DDSDK_GNAME}web&phone=${o}&channel=${i.getChannel()}`}"}`, n.open_param = "wd", n.cardImg = "https://commcdn.tg-wangpai.com/ljsdk/test/libao.jpg");n.sessionFrom = s, t.DDSDK.log("sdk===客服 跳转 分包：", n), t.DDSDK.customerFB(n);
         }, fail(e) {
           n.isCard = !0, t.DDSDK.log("sdk===失败：", e), t.DDSDK.customerFB(n);
         } });
@@ -463,7 +532,7 @@
       i.log("客服绑定手机号弹窗参数：" + e);let a = this.getData("pop_config") || {};if (a) {
         if (!a.pop_window) return;let n = a.pop_amount,
             o = a.pop_times,
-            s = 1e3 * a.pop_time;wx.request({ url: "https://sdkpoint.chiji-h5.com/record-receive/fun/api/v2/check_subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: e.roleId, server_id: e.serverId, amount: n, union_id: e.unionId }, method: "POST", success: function (a) {
+            s = 1e3 * a.pop_time;wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/v2/check_subcontract", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, role_id: e.roleId, server_id: e.serverId, amount: n, union_id: e.unionId }, method: "POST", success: function (a) {
             if (a.data && (i.log("getCustomPopUI额度判断:", a.data), a.data.data.subcontract)) {
               let i = localStorage.getItem("_has_pop_times") || 0;if (0 == i) localStorage.setItem("_has_pop_time", new Date().getTime());else if (i >= o) {
                 let e = localStorage.getItem("_has_pop_time"),
@@ -479,12 +548,32 @@
     }, checkIsSameDay: function (t, e) {
       let i = new Date(t),
           a = new Date(e);return i.setHours(0, 0, 0, 0) == a.setHours(0, 0, 0, 0);
-    }, loginCheckV: function (t, e, i) {
-      var a = this.m_VersionStatus.default_version,
-          n = this.m_VersionStatus;return t < n.login_pay_amount && 2 == n.status && 2 == n.login_pay_amount_status && (a = n.login_pay_amount_version, console.log(n.login_pay_amount_version)), e == n.login_scene && 2 == n.status && 2 == n.login_scene_status && (a = n.login_scene_version, console.log(n.login_scene_version)), i != n.login_region && 2 == n.status && 2 == n.login_region_status && (a = n.login_region_version, console.log(n.login_region_version)), a;
-    }, iosPayCheckV: function (t, e, i, a) {
-      var n = this.m_VersionStatus.default_version,
-          o = this.m_VersionStatus;return t < o.ios_pay_amount && 2 == o.status && 2 == o.ios_pay_amount_status && (n = o.ios_pay_amount_version, console.log(o.ios_pay_amount_version)), e == o.ios_scene && 2 == o.status && 2 == o.ios_scene_status && (n = o.ios_scene_version, console.log(o.ios_scene_version)), i != o.ios_region && 2 == o.status && 2 == o.ios_region_status && (n = o.ios_region_version, console.log(o.ios_region_version)), a < o.ios_level && 2 == o.status && 2 == o.ios_level_status && (n = o.ios_level_version, console.log(o.ios_level_version)), n;
+    }, getAllPay: function () {
+      var t = this;wx.login({ success: function (e) {
+          wx.request({ url: "https://payh5crown.tg-wangpai.com/index.php/index/applet/get_open_id", data: { code: e.code, game_id: window.DDSDK_GNAME }, method: "POST", success: e => {
+              wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/fun/api/check_user_pay_amount", data: { ak: window.DDSDK_MD5KEY, app_id: window.DDSDK_APPKEY, openid: e.data.openid }, method: "POST", success: e => {
+                  i.log("获取充值金额", e), t.m_allPay = e.data.data.amount, t.m_Fscene = e.data.data.scene;
+                }, fail: t => {
+                  i.log("获取充值金额", t);
+                } });
+            }, fail: t => {
+              console.log("getopenid faild");
+            } });
+        } });
+    }, loginCheckV: function (t) {
+      var e = this;this.m_Fscene || this.getAllPay(), setTimeout(function () {
+        var i = e.m_VersionStatus.login_scene.indexOf(e.m_Fscene),
+            a = e.m_VersionStatus.login_region.indexOf(e.m_city),
+            n = !0,
+            o = e.m_VersionStatus;console.log(e.m_Fscene), console.log(e.m_city), console.log(e.m_allPay), (e.m_allPay > o.login_pay_amount || e.m_allPay == o.login_pay_amount) && 1 == o.status && 1 == o.login_pay_amount_status && (n = !1), i < 0 && 1 == o.status && 1 == o.login_scene_status && (n = !1), a < 0 && 1 == o.status && 1 == o.login_region_status && (n = !1), t(n);
+      }, 1e3);
+    }, iosPayCheckV: function (t) {
+      var e = this;this.m_Fscene || this.getAllPay(), setTimeout(function () {
+        var i = e.m_VersionStatus.ios_scene.indexOf(e.m_Fscene),
+            a = e.m_VersionStatus.ios_region.indexOf(e.m_city),
+            n = !0,
+            o = e.m_VersionStatus;console.log(e.m_Fscene), console.log(e.m_city), console.log(e.m_allPay), console.log(t.level), console.log(o.ios_pay_amount), (e.m_allPay > o.ios_pay_amount || e.m_allPay == o.ios_pay_amount) && 1 == o.status && 1 == o.ios_pay_amount_status && (n = !1), i < 0 && 1 == o.status && 1 == o.ios_scene_status && (n = !1), a < 0 && 1 == o.status && 1 == o.ios_region_status && (n = !1), (t.level > o.ios_level || t.level == o.ios_level) && 1 == o.status && 1 == o.ios_level_status && (n = !1), t.callback(n);
+      }, 1e3);
     }, log: function (t) {
       if (this.m_logLevel >= 3) {
         var e = Array.prototype.slice.call(arguments);e.unshift("DDSDKLOG:"), console.log.apply(null, e);
@@ -498,7 +587,7 @@
         var e = Array.prototype.slice.call(arguments);e.unshift("DDSDKERROR:"), console.error.apply(null, e);
       }
     }, getOpenId(t) {
-      i.isWx() && wx.request({ url: "https://payh5crown.chiji-h5.com/index.php/index/applet/get_open_id", data: { code: t.code, game_id: t.gameId }, method: "POST", success: e => {
+      i.isWx() && wx.request({ url: "https://payh5crown.tg-wangpai.com/index.php/index/applet/get_open_id", data: { code: t.code, game_id: t.gameId }, method: "POST", success: e => {
           i.log("sdk===", e), t.cb && t.cb(e);
         }, fail: e => {
           i.log("sdk===", e), t.cb && t.cb(e);
@@ -600,23 +689,23 @@
           d = "",
           c = !1,
           h = "",
-          m = "",
           u = "",
-          D = "",
-          _ = 0,
-          p = "",
-          g = wx.getLaunchOptionsSync(),
+          m = "",
+          _ = "",
+          p = 0,
+          g = "",
+          D = wx.getLaunchOptionsSync(),
           f = Date.now(),
-          y = "" + Date.now() + Math.floor(1e7 * Math.random()),
           w = "" + Date.now() + Math.floor(1e7 * Math.random()),
+          y = "" + Date.now() + Math.floor(1e7 * Math.random()),
           S = 0,
           v = "",
-          x = "",
-          I = !0,
+          k = "",
+          x = !0,
           b = ["ljSendEvent", "ljOnShareAppMessage", "ljShareAppMessage", "ljOnShareTimeline", "ljSendSession", "ljSendOpenid", "ljOpenEvent", "ljSetUseInfo"];Promise.all([new Promise(function (t, e) {
         wx.getSetting({ success: function (e) {
             e.authSetting["scope.userInfo"] ? wx.getUserInfo({ success: function (e) {
-                x = O(e.userInfo.avatarUrl.split("/")), t(e);
+                k = T(e.userInfo.avatarUrl.split("/")), t(e);
               }, fail: function () {
                 t("");
               } }) : t("");
@@ -644,51 +733,51 @@
             t("");
           } });
       })]).then(function (t) {
-        "" !== t[2] ? (r.lat = t[2].latitude || "", r.lng = t[2].longitude || "", r.spd = t[2].speed || "") : (r.lat = "", r.lng = "", r.spd = ""), "" !== t[1] ? r.nt = t[1].networkType || "" : r.nt = "";var e = j(r);e.tp = "Init", "" !== t[0] && (e.ufo = t[0], v = t[0]), C(e, "Init");
+        "" !== t[2] ? (r.lat = t[2].latitude || "", r.lng = t[2].longitude || "", r.spd = t[2].speed || "") : (r.lat = "", r.lng = "", r.spd = ""), "" !== t[1] ? r.nt = t[1].networkType || "" : r.nt = "";var e = C(r);e.tp = "Init", "" !== t[0] && (e.ufo = t[0], v = t[0]), O(e, "Init");
       }), window.onshow = function (t) {
-        localStorage.setItem("show", 1), t.channel = g.query.channel, p = 0, g = t, S = Date.now(), I || (y = "" + Date.now() + Math.floor(1e7 * Math.random()), o = !1, wx.setStorageSync("lj_ifo", !1)), I = !1;var e = j(r),
-            i = j(r);e.sm = S - f, e.tp = "Show", !t.query.lj_share_src || "1044" !== t.scene && "1007" !== t.scene && "1008" !== t.scene ? t.query.lj_share_src && (i.tp = "ShareClick", t.time = Date.now(), t.channel = g.query.channel, i.ct = "1", C(i, "Event")) : (i.tp = "ShareClick", new Promise(function (t, e) {
-          "1044" == g.scene ? wx.getShareInfo({ shareTicket: g.shareTicket, success: function (e) {
+        localStorage.setItem("show", 1), t.channel = D.query.channel, g = 0, D = t, S = Date.now(), x || (w = "" + Date.now() + Math.floor(1e7 * Math.random()), o = !1, wx.setStorageSync("lj_ifo", !1)), x = !1;var e = C(r),
+            i = C(r);e.sm = S - f, e.tp = "Show", !t.query.lj_share_src || "1044" !== t.scene && "1007" !== t.scene && "1008" !== t.scene ? t.query.lj_share_src && (i.tp = "ShareClick", t.time = Date.now(), t.channel = D.query.channel, i.ct = "1", O(i, "Event")) : (i.tp = "ShareClick", new Promise(function (t, e) {
+          "1044" == D.scene ? wx.getShareInfo({ shareTicket: D.shareTicket, success: function (e) {
               t(e);
             }, fail: function () {
               t("");
             } }) : t("");
         }).then(function (t) {
-          i.ct = t, C(i, "Event");
-        })), C(e, "Show");
+          i.ct = t, O(i, "Event");
+        })), O(e, "Show");
       }, wx.onShow(window.onshow), wx.onHide(function () {
-        S <= 0 && (S = Date.now());var t = j(r);t.tp = "Hide", t.dr = Math.round((Date.now() - S) / 1e3), "" === v ? wx.getSetting({ success: function (e) {
+        S <= 0 && (S = Date.now());var t = C(r);t.tp = "Hide", t.dr = Math.round((Date.now() - S) / 1e3), "" === v ? wx.getSetting({ success: function (e) {
             e.authSetting["scope.userInfo"] ? wx.getUserInfo({ success: function (e) {
-                t.ufo = e, v = e, x = O(e.userInfo.avatarUrl.split("/")), C(t, "Hide");
-              } }) : C(t, "Hide");
-          } }) : C(t, "Hide");
+                t.ufo = e, v = e, k = T(e.userInfo.avatarUrl.split("/")), O(t, "Hide");
+              } }) : O(t, "Hide");
+          } }) : O(t, "Hide");
       }), wx.onError(function (t) {
-        var e = j(r);e.tp = "lj_error_message", e.ct = t, _++, C(e, "Event");
+        var e = C(r);e.tp = "lj_error_message", e.ct = t, p++, O(e, "Event");
       });for (var P = { ljSendEvent: function (e, i) {
-          var a = j(r);"" !== e && "string" == typeof e && e.length <= 2048 ? (a.tp = e, "string" == typeof i && i.length <= 2048 ? (a.ct = String(i), C(a, "Event")) : "object" == typeof i ? (JSON.stringify(i).length >= 2048 && t.DDSDK.error("自定义事件参数不能超过2048个字符"), a.ct = JSON.stringify(i), C(a, "Event")) : void 0 === i || "" === i ? C(a, "Event") : t.DDSDK.error("事件参数必须为String,Object类型,且参数长度不能超过2048个字符")) : t.DDSDK.error("事件名称必须为String类型且不能超过2048个字符");
+          var a = C(r);"" !== e && "string" == typeof e && e.length <= 2048 ? (a.tp = e, "string" == typeof i && i.length <= 2048 ? (a.ct = String(i), O(a, "Event")) : "object" == typeof i ? (JSON.stringify(i).length >= 2048 && t.DDSDK.error("自定义事件参数不能超过2048个字符"), a.ct = JSON.stringify(i), O(a, "Event")) : void 0 === i || "" === i ? O(a, "Event") : t.DDSDK.error("事件参数必须为String,Object类型,且参数长度不能超过2048个字符")) : t.DDSDK.error("事件名称必须为String类型且不能超过2048个字符");
         }, ljOnShareAppMessage: function (e) {
           wx.updateShareMenu({ withShareTicket: !0, complete: function () {
               wx.onShareAppMessage(function () {
-                t.DDSDK.log("----------\x3e>>>>>>>>", g);var i = e(),
+                t.DDSDK.log("----------\x3e>>>>>>>>", D);var i = e(),
                     a = "",
-                    n = "";a = void 0 !== i.success ? i.success : "", n = void 0 !== i.fail ? i.fail : "";i.st = Date.now();var o = "lj_share_src=" + s + "&lj_share_img=" + i.imageUrl + "&lj_share_title=" + i.title + "&lj_share_openid=" + d + "&" + g + "&lj_share_time=" + i.st + "&lj_share_isnew=" + c + "&lj_share_unionid=" + h + "&lj_share_account_id=" + u + "&lj_share_role_id=" + m + "&lj_share_server_id=" + D,
-                    l = j(r);return i.channel = g.query.channel, i.query = o, i.is_new = c, i.unionID = h, l.ct = i, l.tp = "ShareChain", C(l, "Event"), i.success = function (t) {
-                  l.tp = "lj_share_status", C(l, "Event"), "" !== a && a(t);
+                    n = "";a = void 0 !== i.success ? i.success : "", n = void 0 !== i.fail ? i.fail : "";i.st = Date.now();var o = "lj_share_src=" + s + "&lj_share_img=" + i.imageUrl + "&lj_share_title=" + i.title + "&lj_share_openid=" + d + "&" + D + "&lj_share_time=" + i.st + "&lj_share_isnew=" + c + "&lj_share_unionid=" + h + "&lj_share_account_id=" + m + "&lj_share_role_id=" + u + "&lj_share_server_id=" + _,
+                    l = C(r);return i.channel = D.query.channel, i.query = o, i.is_new = c, i.unionID = h, l.ct = i, l.tp = "ShareChain", O(l, "Event"), i.success = function (t) {
+                  l.tp = "lj_share_status", O(l, "Event"), "" !== a && a(t);
                 }, i.fail = function (t) {
-                  l.tp = "lj_share_fail", C(l, "Event"), "" !== n && n(t);
+                  l.tp = "lj_share_fail", O(l, "Event"), "" !== n && n(t);
                 }, i;
               });
             } });
         }, ljOnShareTimeline: function (e) {
           wx.updateShareMenu({ withShareTicket: !0, complete: function () {
               wx.onShareTimeline(function () {
-                t.DDSDK.log("----------\x3e>>>>>>>>", g);var i = e(),
+                t.DDSDK.log("----------\x3e>>>>>>>>", D);var i = e(),
                     a = "",
-                    n = "";a = void 0 !== i.success ? i.success : "", n = void 0 !== i.fail ? i.fail : "";i.st = Date.now();var o = "lj_share_src=" + s + "&lj_share_img=" + i.imageUrl + "&lj_share_title=" + i.title + "&lj_share_openid=" + d + "&" + g + "&lj_share_time=" + i.st + "&lj_share_isnew=" + c + "&lj_share_unionid=" + h + "&lj_share_account_id=" + u + "&lj_share_role_id=" + m + "&lj_share_server_id=" + D,
-                    l = j(r);return i.channel = g.query.channel, i.query = o, i.is_new = c, i.unionID = h, l.ct = i, l.tp = "ShareChainFriends", C(l, "Event"), i.success = function (t) {
-                  l.tp = "lj_share_status", C(l, "Event"), "" !== a && a(t);
+                    n = "";a = void 0 !== i.success ? i.success : "", n = void 0 !== i.fail ? i.fail : "";i.st = Date.now();var o = "lj_share_src=" + s + "&lj_share_img=" + i.imageUrl + "&lj_share_title=" + i.title + "&lj_share_openid=" + d + "&" + D + "&lj_share_time=" + i.st + "&lj_share_isnew=" + c + "&lj_share_unionid=" + h + "&lj_share_account_id=" + m + "&lj_share_role_id=" + u + "&lj_share_server_id=" + _,
+                    l = C(r);return i.channel = D.query.channel, i.query = o, i.is_new = c, i.unionID = h, l.ct = i, l.tp = "ShareChainFriends", O(l, "Event"), i.success = function (t) {
+                  l.tp = "lj_share_status", O(l, "Event"), "" !== a && a(t);
                 }, i.fail = function (t) {
-                  l.tp = "lj_share_fail", C(l, "Event"), "" !== n && n(t);
+                  l.tp = "lj_share_fail", O(l, "Event"), "" !== n && n(t);
                 }, i;
               });
             } });
@@ -696,47 +785,47 @@
           var i = e,
               a = "",
               n = "",
-              o = (a = void 0 !== i.success ? i.success : "", n = void 0 !== i.fail ? i.fail : "", "");for (var l in i) "function" != typeof i[l] && (o += "query" === l ? i[l] + "&" : l + "=" + i[l] + "&");t.DDSDK.log("----------\x3e>>>>>>>>", g.query.channel), i.st = Date.now(), o += "lj_share_src=" + s + "&lj_share_img=" + i.imageUrl + "&lj_share_title=" + i.title + "&lj_share_openid=" + d + "&lj_share_time=" + i.st + "&lj_share_is_new=" + c + "&lj_share_unionid=" + h + "&lj_share_account_id=" + u + "&lj_share_role_id=" + m + "&lj_share_server_id=" + D;var _ = j(r);i.query = o, i.channel = g.query.channel, i.is_new = c, i.unionID = h, _.ct = i, _.tp = "ShareChain", C(_, "Event"), i.success = function (t) {
-            _.tp = "lj_share_status", C(_, "Event"), "" !== a && a(t);
+              o = (a = void 0 !== i.success ? i.success : "", n = void 0 !== i.fail ? i.fail : "", "");for (var l in i) "function" != typeof i[l] && (o += "query" === l ? i[l] + "&" : l + "=" + i[l] + "&");t.DDSDK.log("----------\x3e>>>>>>>>", D.query.channel), i.st = Date.now(), o += "lj_share_src=" + s + "&lj_share_img=" + i.imageUrl + "&lj_share_title=" + i.title + "&lj_share_openid=" + d + "&lj_share_time=" + i.st + "&lj_share_is_new=" + c + "&lj_share_unionid=" + h + "&lj_share_account_id=" + m + "&lj_share_role_id=" + u + "&lj_share_server_id=" + _;var p = C(r);i.query = o, i.channel = D.query.channel, i.is_new = c, i.unionID = h, p.ct = i, p.tp = "ShareChain", O(p, "Event"), i.success = function (t) {
+            p.tp = "lj_share_status", O(p, "Event"), "" !== a && a(t);
           }, i.fail = function (t) {
-            _.tp = "lj_share_fail", C(_, "Event"), "" !== n && n(t);
+            p.tp = "lj_share_fail", O(p, "Event"), "" !== n && n(t);
           }, wx.updateShareMenu({ withShareTicket: !0, complete: function () {
               wx.shareAppMessage(i);
             } });
         }, ljSendSession: function (e) {
           if ("" !== e && e) {
-            var i = j(r);i.tp = "session", i.ct = "session", l = e, "" === v ? wx.getSetting({ success: function (t) {
+            var i = C(r);i.tp = "session", i.ct = "session", l = e, "" === v ? wx.getSetting({ success: function (t) {
                 t.authSetting["scope.userInfo"] ? wx.getUserInfo({ success: function (t) {
-                    i.ufo = t, C(i, "Event");
-                  } }) : C(i, "Event");
-              } }) : (i.ufo = v, "" !== v && (i.gid = ""), C(i, "Event"));
+                    i.ufo = t, O(i, "Event");
+                  } }) : O(i, "Event");
+              } }) : (i.ufo = v, "" !== v && (i.gid = ""), O(i, "Event"));
           } else t.DDSDK.error("请传入从后台获取的session_key");
         }, ljSendOpenid: function (e) {
           if ("" !== e.openId && e.openId) {
-            d = e.openId, c = e.isNewUser;var i = j(r);i.openid = e.openId, i.new = e.isNewUser, e.adId && (i.ad_id = e.adId), e.adChannel && (i.ad_channel = e.adChannel), e.unionId && (i.unionID = e.unionId, h = e.unionId), i.tp = "Openid", i.ct = e, C(i, "Event");
+            d = e.openId, c = e.isNewUser;var i = C(r);i.openid = e.openId, i.new = e.isNewUser, e.adId && (i.ad_id = e.adId), e.adChannel && (i.ad_channel = e.adChannel), e.unionId && (i.unionID = e.unionId, h = e.unionId), i.tp = "Openid", i.ct = e, O(i, "Event");
           } else t.DDSDK.error("openID不能为空");
         }, ljSetUseInfo: function (t) {
-          t.role_id && (m = t.role_id), t.account_id && (u = t.account_id), t.server_id && (D = t.server_id), t.openId && (d = t.openId);var e = j(r);e.tp = "UserInfo", e.ct = t, C(e, "Event");
-        } }, k = 0; k < b.length; k++) !function (t, e) {
+          t.role_id && (u = t.role_id), t.account_id && (m = t.account_id), t.server_id && (_ = t.server_id), t.openId && (d = t.openId);var e = C(r);e.tp = "UserInfo", e.ct = t, O(e, "Event");
+        } }, I = 0; I < b.length; I++) !function (t, e) {
         Object.defineProperty(a, t, { value: e, writable: !1, enumerable: !0, configurable: !0 });
-      }(b[k], P[b[k]]);try {
+      }(b[I], P[b[I]]);try {
         var K = wx.getSystemInfoSync();r.br = K.brand || "", r.md = K.model, r.pr = K.pixelRatio, r.sw = K.screenWidth, r.sh = K.screenHeight, r.ww = K.windowWidth, r.wh = K.windowHeight, r.lang = K.language, r.wv = K.version, r.sv = K.system, r.wvv = K.platform, r.fs = K.fontSizeSetting, r.wsdk = K.SDKVersion, r.bh = K.benchmarkLevel || "", r.bt = K.battery || "", r.wf = K.wifiSignal || "", r.lng = "", r.lat = "", r.nt = "", r.spd = "", r.ufo = null;
       } catch (t) {}
-    }function C(e, a) {
-      e.openid = d, e.role_id = m, e.account_id = u, e.server_id = D, e.app_id = window.DDSDK_GNAME, e.union_id = h, p++, e.as = w, e.at = y, e.rq_c = p, e.ifo = o, e.ak = i.app_key, e.uu = s, e.v = n, e.st = Date.now(), e.ev = a, e.channel = g.query.channel, e.wsr = g, e.ufo = function (t) {
+    }function O(e, a) {
+      e.openid = d, e.role_id = u, e.account_id = m, e.server_id = _, e.app_id = window.DDSDK_GNAME, e.union_id = h, g++, e.as = y, e.at = w, e.rq_c = g, e.ifo = o, e.ak = i.app_key, e.uu = s, e.v = n, e.st = Date.now(), e.ev = a, e.channel = D.query.channel, e.wsr = D, e.ufo = function (t) {
         if (void 0 === t || "" === t) return "";var e = {};for (var i in t) "rawData" != i && "errMsg" != i && (e[i] = t[i]);return e;
-      }(e.ufo), e.ec = _, wx.Queue.push(function () {
+      }(e.ufo), e.ec = p, wx.Queue.push(function () {
         return e.ct && ("openid" == e.ct && (e.ct = '{"openid":"openid"}'), "string" == typeof e.ct && (e.ct = e.ct.replace(/\\/g, ""), e.ct = JSON.parse(e.ct))), new Promise(function (i, a) {
-          t.DDSDK.log("request---------\x3e"), t.DDSDK.log(e), wx.request({ url: "https://sdkpoint.chiji-h5.com/record-receive/api/game", data: e, header: { se: l || "", op: d || "", img: x || "" }, method: "POST", success: function (a) {
+          t.DDSDK.log("request---------\x3e"), t.DDSDK.log(e), wx.request({ url: "https://sdkpoint.tg-wangpai.com/record-receive/api/game", data: e, header: { se: l || "", op: d || "", img: k || "" }, method: "POST", success: function (a) {
               a.data && (t.DDSDK.log(a.data), 1 == a.data.success && DDSDK.m_Data && "isStartLog" in DDSDK.m_Data && 1 == DDSDK.m_Data.isStartLog && t.DDSDK.warn("日志打点：", e.tp)), i("");
             }, fail: function () {
               i("");
             } });
         });
       });
-    }function j(t) {
+    }function C(t) {
       var e = {};for (var i in t) e[i] = t[i];return e;
-    }function O(t) {
+    }function T(t) {
       for (var e = "", i = 0; i < t.length; i++) t[i].length > e.length && (e = t[i]);return e;
     }
   };var i = null;e() && (i = new window.LJ_EVENT()), "undefined" != typeof define && define.amd ? define(function () {
@@ -831,7 +920,7 @@
         var e = t.DDSDK.createFeedbackButton({ type: "text", text: "反馈", left: 0, top: 0, width: 20, height: 40, lineHeight: 10, backgroundColor: "#00000000", color: "#ffffff00", textAlign: "center", fontSize: 16, borderRadius: 4 });this.m_feedback = e;
       }
     }
-  }e.uiView = { type: "View", props: { y: 42, x: 200, width: 400, height: 84, anchorY: .5, anchorX: .5 }, child: [{ type: "Image", props: { y: 0, x: 200, width: 197, var: "m_popbg", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/fball_5.png", height: 88 } }, { type: "Box", props: { y: 0, x: 160, width: 84, var: "m_pop", height: 84 }, child: [{ type: "Box", props: { y: 12, x: 84, width: 120, var: "m_btns", height: 60 }, child: [{ type: "Image", props: { y: 5, x: 22, width: 42, var: "m_popbtn1", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/fball_1.png", height: 37 }, child: [{ type: "Text", props: { y: 40, x: 3, var: "m_popbtn1lbl", text: "客服", fontSize: 18, color: "#000000" } }] }, { type: "Image", props: { y: 6, x: 88, width: 42, var: "m_popbtn2", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/fball_3.png", height: 37 }, child: [{ type: "Text", props: { y: 40, x: 3, var: "m_popbtn2lbl", text: "反馈", fontSize: 18, color: "#000000" } }] }] }] }, { type: "Image", props: { y: 0, x: 160, width: 84, var: "m_btn", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/fball_4.png", height: 84 } }] }, t.DDSDK_Component.floatballUI = e;
+  }e.uiView = { type: "View", props: { y: 42, x: 200, width: 400, height: 84, anchorY: .5, anchorX: .5 }, child: [{ type: "Image", props: { y: 0, x: 200, width: 197, var: "m_popbg", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/fball_5.png", height: 88 } }, { type: "Box", props: { y: 0, x: 160, width: 84, var: "m_pop", height: 84 }, child: [{ type: "Box", props: { y: 12, x: 84, width: 120, var: "m_btns", height: 60 }, child: [{ type: "Image", props: { y: 5, x: 22, width: 42, var: "m_popbtn1", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/fball_1.png", height: 37 }, child: [{ type: "Text", props: { y: 40, x: 3, var: "m_popbtn1lbl", text: "客服", fontSize: 18, color: "#000000" } }] }, { type: "Image", props: { y: 6, x: 88, width: 42, var: "m_popbtn2", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/fball_3.png", height: 37 }, child: [{ type: "Text", props: { y: 40, x: 3, var: "m_popbtn2lbl", text: "反馈", fontSize: 18, color: "#000000" } }] }] }] }, { type: "Image", props: { y: 0, x: 160, width: 84, var: "m_btn", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/fball_4.png", height: 84 } }] }, t.DDSDK_Component.floatballUI = e;
 }("undefined" != typeof window ? window : this), function (t) {
   class e extends Laya.View {
     constructor(t) {
@@ -859,5 +948,5 @@
         }
       }, this);
     }
-  }e.uiView = { x: 0, type: "View", selectedBox: 3, selecteID: 5, props: { top: 0, sceneColor: "#000000", right: 0, left: 0, bottom: 0 }, nodeParent: -1, label: "View", isOpen: !0, isDirectory: !0, hasChild: !0, compId: 1, child: [{ x: 15, type: "Image", props: { var: "m_bg", top: 0, skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/186x186_mask.png", right: 0, name: "m_bg", mouseEnabled: !0, left: 0, bottom: 0, alpha: .6 }, nodeParent: 1, label: "Image(m_bg)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 2, child: [] }, { x: 15, type: "Box", props: { var: "m_pop", centerY: -64, centerX: -31, anchorY: .5, anchorX: .5 }, nodeParent: 1, label: "Box(m_pop)", isOpen: !0, isDirectory: !0, isAniNode: !0, hasChild: !0, compId: 3, child: [{ x: 30, type: "Image", props: { y: 10, x: 10, var: "m_popbg2", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/ui_tishi_02.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbg2)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 5, child: [] }, { x: 30, type: "Image", props: { var: "m_popbg", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbg)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 4, child: [] }, { x: 30, type: "Image", props: { y: 20, x: 20, var: "m_popbtn3", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbtn3)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 6, child: [] }, { x: 30, type: "Image", props: { y: 30, x: 30, var: "m_popbtn2", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbtn2)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 7, child: [] }, { x: 30, type: "Image", props: { y: 40, x: 40, var: "m_popbtn1", skin: "https://commcdn.chiji-h5.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbtn1)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 8, child: [] }] }] }, t.DDSDK_Component.customPopUI = e;
+  }e.uiView = { x: 0, type: "View", selectedBox: 3, selecteID: 5, props: { top: 0, sceneColor: "#000000", right: 0, left: 0, bottom: 0 }, nodeParent: -1, label: "View", isOpen: !0, isDirectory: !0, hasChild: !0, compId: 1, child: [{ x: 15, type: "Image", props: { var: "m_bg", top: 0, skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/186x186_mask.png", right: 0, name: "m_bg", mouseEnabled: !0, left: 0, bottom: 0, alpha: .6 }, nodeParent: 1, label: "Image(m_bg)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 2, child: [] }, { x: 15, type: "Box", props: { var: "m_pop", centerY: -64, centerX: -31, anchorY: .5, anchorX: .5 }, nodeParent: 1, label: "Box(m_pop)", isOpen: !0, isDirectory: !0, isAniNode: !0, hasChild: !0, compId: 3, child: [{ x: 30, type: "Image", props: { y: 10, x: 10, var: "m_popbg2", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/ui_tishi_02.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbg2)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 5, child: [] }, { x: 30, type: "Image", props: { var: "m_popbg", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbg)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 4, child: [] }, { x: 30, type: "Image", props: { y: 20, x: 20, var: "m_popbtn3", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbtn3)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 6, child: [] }, { x: 30, type: "Image", props: { y: 30, x: 30, var: "m_popbtn2", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbtn2)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 7, child: [] }, { x: 30, type: "Image", props: { y: 40, x: 40, var: "m_popbtn1", skin: "https://commcdn.tg-wangpai.com/ljsdk/onlyjs/tryplay/ui_tishi_01.png", mouseEnabled: !0 }, nodeParent: 3, label: "Image(m_popbtn1)", isDirectory: !1, isAniNode: !0, hasChild: !1, compId: 8, child: [] }] }] }, t.DDSDK_Component.customPopUI = e;
 }("undefined" != typeof window ? window : this);

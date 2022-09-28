@@ -4,6 +4,7 @@ var W = wx.$l;
 var _Mathfloor = Math.floor;
 var timer = null;
 var role_data = '';
+var timeNum = 1;
 import md5 from './md5';
 !function () {
     function loginInfo() {
@@ -150,7 +151,8 @@ import md5 from './md5';
         storageUser = 'sdk_user',
         loginType = 2,
         Os = 3,
-        Version = '0.0.1';
+        Version = '0.0.1',
+        newSdkVer = '';
     module.exports = {
         preInit: function (P, Q) {
             return x(P.sdk_ver) ? void console.log('') : void (Version = P.sdk_ver, P.sys_info = wx.getSystemInfoSync(), P.wxOpt = wx.getLaunchOptionsSync(), adApiReq('/sdk/wxinit', P).then(function (R) {
@@ -160,15 +162,22 @@ import md5 from './md5';
 
         $LDN: function (InitialObject, InitFn) {
             let launchRes = wx.getLaunchOptionsSync();
+            InitialObject.query = launchRes.query || '';
+            InitialObject.gdt_vid = launchRes.query.gdt_vid || 0;
+            InitialObject.weixinadinfo = launchRes.query.weixinadinfo || 0;
+            InitialObject.trackid = launchRes.query.trackid || 0;
+            InitialObject.campaignid = launchRes.query.campaignid || 0;
             InitialObject.cid = launchRes.query.cid || 0;
             InitialObject.link_id = launchRes.query.link_id || 0;
             InitialObject.clue_token = launchRes.query.clue_token || '';
             InitialObject.ad_id = launchRes.query.ad_id || '';
             InitialObject.creative_id = launchRes.query.creative_id || '';
             showShare(InitialObject.cid, InitialObject.game_id);
-            InitialObject.sdkVersion = '1.1.2';
+            InitialObject.sdkVersion = '1.1.6';
+
+            newSdkVer = InitialObject.sdkVersion;
             Version = InitialObject.sdk_ver, loginInfo().then(function (R) {
-                return 1 > InitialObject.game_id ? void console.log('sub_gid is must contain!') : void (InitialObject.sys_info = wx.getSystemInfoSync(), InitialObject.code = R, InitialObject.wxOpt = wx.getLaunchOptionsSync(), InitialObject.os = Os, adApiReq('/user/login/xcxLogin', InitialObject).then(function (res) {
+                return 1 > InitialObject.game_id ? void console.log('sub_gid is must contain!') : void (InitialObject.sys_info = wx.getSystemInfoSync(), InitialObject.code = R, InitialObject.wxOpt = wx.getLaunchOptionsSync(), InitialObject.os = Os, adApiReq('/user/login/xcxLogin?sdkVersion=' + newSdkVer + '', InitialObject).then(function (res) {
                     if (console.log('wxQLogin_Request_rs: ', res), res && 200 === res.data.status && 200 === res.data.status) {
                         if (res.data.data.get_user_info == 1) {
                             var ManuData = { token: res.data.data.token, game_id: InitialObject.game_id, client_key: InitialObject.client_key };
@@ -215,7 +224,7 @@ import md5 from './md5';
                     timer = true;
                     setTimeout(function () {
                         timer = null;
-                        adApiReq('/game/play/miniGameRole', role_data).then(function (res) {
+                        adApiReq('/game/play/miniGameRole?sdkVersion=' + newSdkVer, role_data).then(function (res) {
                             if (res.data.code == 201) {
                                 console.log('签名参数,', ps);
                             }
@@ -223,16 +232,19 @@ import md5 from './md5';
                     }, 1000);
                 }
             } else {
-                adApiReq('/game/play/miniGameRole', roleData).then(function (res) {
-                    if (res.data.code == 201) {
-                        console.log('签名参数,', ps);
-                    }
-                });
+                timeNum++;
+                setTimeout(() => {
+                    adApiReq('/game/play/miniGameRole?sdkVersion=' + newSdkVer, roleData).then(function (res) {
+                        if (res.data.code == 201) {
+                            console.log('签名参数,', ps);
+                        }
+                    });
+                }, 200 * timeNum);
             }
         },
         sdkGenOrder: function (payData, payFn) {
-            var orderObj = Object.assign({}, payData, { os_ver: roleObject.os_ver, sdkVersion: '1.1.2' });
-            adApiReq('/pay/wechat/miniPay', orderObj).then(function (payRes) {
+            var orderObj = Object.assign({}, payData, { os_ver: roleObject.os_ver, sdkVersion: newSdkVer });
+            adApiReq('/pay/wechat/miniPay?sdkVersion=' + newSdkVer, orderObj).then(function (payRes) {
                 if (payRes && 200 === payRes.statusCode && 200 === payRes.data.status) {
                     var orderData = payRes.data.data;
                     var envType;
@@ -247,12 +259,14 @@ import md5 from './md5';
                         case loginType:
                             if (orderData.jump == 1) {
                                 wx.navigateToMiniProgram({
-                                    appId: 'wx3f44a8453b45fa12',
+                                    appId: orderData.xcx_pay_appid || 'wx3f44a8453b45fa12',
                                     path: 'pages/about/about',
                                     extraData: orderObj,
                                     envVersion: envType,
                                     success(res) {},
-                                    fail(failRes) {}
+                                    fail(failRes) {
+                                        console.log("faile-erro",failRes)
+                                    }
                                 });
                             } else {
                                 wx.showModal({
@@ -314,7 +328,9 @@ import md5 from './md5';
                                     let oder_json = { game_id: orderObj.game_id, order_id: orderData.order_id, user_id: orderObj.user_id, money: orderObj.money };
                                     adApiReq('/pay/notify/midasPay', oder_json).then(function (orderRes) {});
                                 },
-                                fail: function fail(failTRes) {},
+                                fail: function fail(failTRes) {
+                                    console.log("mi-erro",failTRes)
+                                },
                                 complete: function complete(comRes) {}
                             });
                             break;

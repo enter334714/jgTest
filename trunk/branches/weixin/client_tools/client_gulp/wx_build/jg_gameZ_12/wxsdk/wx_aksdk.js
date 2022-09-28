@@ -5,10 +5,11 @@ var config = {
     game_pkg: 'tjqy_tjqyhlxj_KT', //天剑vs可以--幻灵仙境
     partner_label: 'keyiwx',
     partner_id: '450',
-    game_ver: '42.0.3',
+    game_ver: '42.0.13',
     is_auth: false, //授权登录
     partner_game_id:142,
-    partner_ad_id:13318
+    partner_ad_id:13318,
+    tmpId: {1:'dVp4SZB2zNzLWF_h8i5QBCIDre1U5FQXMkBmGTThyis', 2:'Um6dGLMQRRQwUfDDjLhaR052GUfVLfUobWMoSc02vzE', 3:'emaf8nj54mDaKSTECzcwxfa-bcF07n5iZ6QUcLZPmVk'},  // 订阅的类型 和 模板id
 };
 
 window.config = config;

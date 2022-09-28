@@ -6,9 +6,9 @@ var config = {
     game_pkg: 'tjqy_tjqylxzc_HQ',//天剑vs卡卡-六玄之苍
     partner_label: 'kk',
     partner_id: '471',
-    game_ver: '21.0.25',
+    game_ver: '21.0.37',
     is_auth: false, //授权登录
-    tmpId: {1:'', 2:'', 3:''},  // 订阅的类型 和 模板id
+    tmpId: {1:'h_OU-DgYKXObMkWE_9YudNNYACg8OZ5L9JpZv1usMuw', 2:'kwk4SluipX7GXl3mEOcuBxb3rOnWEQbH0rFR4npoK6c', 3:'O5h6gcn5B5dNE4aa-MXXwniBMpodZ670I3df308Q9zU'},  // 订阅的类型 和 模板id
 };
 window.config = config;
 var PARTNER_SDK = mainSDK();

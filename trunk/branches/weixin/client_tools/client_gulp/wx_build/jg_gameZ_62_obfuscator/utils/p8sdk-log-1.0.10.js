@@ -1,0 +1,339 @@
+var f = wx.$B;
+var window = window || GameGlobal;window.P8LogSDK = {};var sdkVersion = "P8sdk-log-1.0.9";var sdklogData = { rg_url: "", key_android: "", site_android: "", key_ios: "", site_ios: "", aid: "" };function print() {
+  let t = "p8LogSdkDebug:";for (let e = 0; e < 20; e++) {
+    if (!arguments[e]) {
+      console.info(t);return;
+    }t += " " + JSON.stringify(arguments[e]);
+  }
+}var p8QuickApp = null;P8LogSDK.initLogData = function (i) {
+  ChangeUndefined(i);Object.assign(sdklogData, i);p8QuickApp = i.quickApp;if (!i.quickApp) {
+    getDevice();
+  } else {
+    sdklogData.key = sdklogData.key_android;sdklogData.site = sdklogData.site_android;sdklogData.platform = "quickApp";
+  }print(" initLogData 传入参数", i);let e = new Promise((r, e) => {
+    if (i.aid != "" && (i.key_android != "" || i.key_ios != "") && (i.site_android != "" || i.site_ios != "")) {
+      let e = `https://ks3-cn-shanghai.ksyun.com/aliyun/${sdklogData.aid}.txt`;HttpRequest(e, "GET", null, t => {
+        if (t.statusCode == 200 || p8QuickApp) {
+          let e = dateOrRes(t);if (e.url_address) {
+            Object.assign(sdklogData, { platform_url: e.url_address.platform_url, data_url: e.url_address.data_url, rg_url: e.url_address.rg_url });print(" 配置的域名信息: ", e.url_address);var i = { result: 0, data: { msg: "初始化成功" } };
+          } else {
+            var i = { result: 1, data: { msg: "域名获取失败，请联系运营配置" } };
+          }r(i);
+        } else {
+          var i = { result: 1, data: { msg: "获取域名地址请求返回失败，返回状态码非200，请联系运营配置" } };r(i);
+        }
+      });
+    } else {
+      var t = { result: 1, data: { msg: "请确认 rg_url、aid、不为空,key_android、site_android/key_ios、site_ios 某平台的key site不能为空" } };r(t);
+    }
+  });return e;
+};function HttpRequest(e, t = "get", i = null, r = null) {
+  if (p8QuickApp) {
+    XmlHttpRequest(e, t, i, r);
+  } else {
+    if (i) {
+      print(" 请求参数: " + " sign: " + i.sign + " site: " + i.site + " time: " + i.time);
+    }wx.request({ url: e, method: t, data: i, header: { "content-type": "application/x-www-form-urlencoded" }, success: function (e) {
+        r(e);
+      } });
+  }
+}P8LogSDK.onActiveFunc = function (s) {
+  print(" =============== 开始激活上报: 传入数据是 " + JSON.stringify(s));ChangeUndefined(s);let e = new Promise((r, e) => {
+    let t = parseInt(new Date().getTime() / 1e3);let i = { aid: sdklogData.aid, site: sdklogData.site, time: t, version: sdkVersion, device: s.device, ip: s.ip, mac: s.mac, modeltype: s.modeltype, gameversion: s.gameversion, device_model: s.device_model, device_resolution: s.device_resolution, device_version: s.device_version, device_net: s.device_net, oaid: s.oaid, ext: s.ext };let n = newSignGetType(i);var d = hex_md5(n);i.sign = d;let a = `${sdklogData.data_url}/log/activate`;print("  激活上报请求服务器参数: " + JSON.stringify(i));let o = a + "?" + keyValueConnect(i);print("激活上报Url: ", o);HttpRequest(o, "POST", i, e => {
+      print(" 激活返回的数据 res： " + JSON.stringify(e));let t = dateOrRes(e);if (t.result) {
+        var i = { result: "1", data: { errorcode: t.data.errorcode, msg: t.data.msg } };
+      } else {
+        var i = { result: "0" };
+      }r(i);
+    });
+  });return e;
+};P8LogSDK.signLog = function (o) {
+  print(" =============== 开始创角上报: 传入的数据是 " + JSON.stringify(o));ChangeUndefined(o);let s = o;if (!o) {
+    s = { sid: "sid", uid: "147258", roleid: "roleid", rolename: "rolename", device: "device", modeltype: "modeltype", mac: "mac", level: "level", gameversion: "gameversion", ip: "ip", device_model: "device_model", device_resolution: "device_resolution", device_version: "device_version", device_net: "device_net" };
+  }let e = new Promise((r, e) => {
+    let t = parseInt(new Date().getTime() / 1e3);s.site = sdklogData.site;s.time = t;s.aid = sdklogData.aid;let i = newSignGetType(s);var n = hex_md5(i);s.sign = n;let d = `${sdklogData.data_url}/log/role`;print("  创角上报请求服务器参数: " + JSON.stringify(s));let a = d + "?" + keyValueConnect(o);print("创角上报请求Url: ", a);HttpRequest(a, "POST", s, e => {
+      let t = dateOrRes(e);print("创角返回的数据 是什么 " + JSON.stringify(t));if (t.result == 0) {
+        print("登录数据上报成功 ");var i = { result: "0", data: { errorcode: t.errorcode, msg: t.msg } };
+      } else {
+        print("登录数据上报失败");var i = { result: "1", data: { errorcode: 200, msg: "登录数据上报失败" } };
+      }r(i);
+    });
+  });return e;
+};function keyValueConnect(e) {
+  let t = "";for (const i in e) {
+    if (e.hasOwnProperty.call(e, i)) {
+      const r = e[i];t += i + "=" + r + "&";
+    }
+  }t = t.substring(0, t.length - 1);return t;
+}P8LogSDK.pushLoginData = function (s) {
+  print(" =============== 开始登录上报: 传入的数据是 " + JSON.stringify(s));ChangeUndefined(s);let e = new Promise((r, e) => {
+    let t = parseInt(new Date().getTime() / 1e3);let i = { aid: sdklogData.aid, uid: s.uid, sid: s.sid, roleid: s.roleid, rolename: s.rolename, level: s.level, vip: s.vip, ip: s.ip, onlinetime: s.onlinetime, device: s.device, modeltype: s.modeltype, device_model: s.device_model ? s.device_model : sdklogData.device_model, device_resolution: s.device_resolution ? s.device_resolution : sdklogData.device_resolution, device_version: s.device_version ? s.device_version : sdklogData.device_version, device_net: s.device_net ? s.device_net : sdklogData.device_net, oaid: s.oaid, site: sdklogData.site, time: t, version: sdkVersion };setheartbeat(i);let n = newSignGetType(i);var d = hex_md5(n);i.sign = d;let a = `${sdklogData.data_url}/log/login`;print(" 登陆上报请求服务器参数: ", i);let o = a + "?" + keyValueConnect(i);print("登陆上报请求Url: ", o);HttpRequest(o, "POST", i, e => {
+      let t = dateOrRes(e);print("登录返回的数据 是什么 " + JSON.stringify(t));if (t.result) {
+        var i = { result: "1", data: { errorcode: t.errorcode, msg: t.msg } };
+      } else {
+        var i = { result: "0", data: { errorcode: 200, msg: "登录数据上报成功" } };
+      }r(i);
+    });
+  });return e;
+};P8LogSDK.upGradeRecord = function (s) {
+  print(" =============== 开始等级上报: 传入的数据是 " + JSON.stringify(s));let e = new Promise((r, e) => {
+    let t = parseInt(new Date().getTime() / 1e3);let i = { aid: sdklogData.aid, uid: s.uid, device: s.device, modeltype: s.modeltype, username: s.username, sid: s.sid, roleid: s.roleid, rolename: s.rolename, level: s.level, vip: s.vip, ip: s.ip, onlinetime: s.onlinetime, device_model: s.device_model, device_resolution: s.device_resolution, device_version: s.device_version, device_net: s.device_net, oaid: s.oaid, site: sdklogData.site, time: t, version: sdkVersion };ChangeUndefined(i);let n = newSignGetType(i);var d = hex_md5(n);i.sign = d;let a = `${sdklogData.data_url}/log/level`;print("  登陆上报请求服务器的参数: " + JSON.stringify(i));let o = a + "?" + keyValueConnect(i);print("登陆上报请求Url: ", o);HttpRequest(o, "POST", i, e => {
+      let t = dateOrRes(e);print("等级数据上报返回的数据 是什么 " + JSON.stringify(t));if (t.result) {
+        var i = { result: "1", data: { errorcode: t.errorcode, msg: t.msg } };
+      } else {
+        var i = { result: "0", data: { errorcode: 200, msg: "等级数据上报成功" } };
+      }r(i);
+    });
+  });return e;
+};P8LogSDK.incomeLog = function (a) {
+  print(" =============== 开始充值上报: 传入的数据是 " + JSON.stringify(a));ChangeUndefined(a);let e = a;if (!e) {
+    a = { username: "username", sid: "sid", roleid: "roleid", rolename: "rolename", level: "level", device_type: "device", order_id: "order_id", ip: "ip", income_channel: "income_channel", income_currency: "income_currency", income_money: "income_money", income_gold: "income_gold", own_gold: "own_gold", income_status: "income_status" };
+  }a.key = sdklogData.key;a.site = sdklogData.site;a.uid = "147285";let o = parseInt(new Date().getTime() / 1e3);let t = new Promise((i, e) => {
+    let t = { site: sdklogData.site, key: sdklogData.key, aid: sdklogData.aid, time: o, uid: a.uid, username: a.username, sid: a.sid, roleid: a.roleid, rolename: a.rolename, level: a.level, device_type: sdklogData.openid, order_id: a.order_id, ip: a.ip, income_channel: a.income_channel, income_currency: a.income_currency, income_money: a.income_money, income_gold: a.income_gold, own_gold: a.own_gold, income_status: a.income_status };let r = newSignGetType(t);var n = hex_md5(r);t.sign = n;let d = `${sdklogData.data_url}/log/income_log`;print("  开始充值上报url " + d);HttpRequest(d, "GET", t, e => {
+      var t = dateOrRes(e);if (t.result == 0) {
+        i({ msg: t.msg ? t.msg : "成功", result: t.result });
+      } else {
+        i({ data: t, result: t.result });
+      }
+    });
+  });return t;
+};function dateOrRes(e) {
+  return e.data ? e.data : e;
+}P8LogSDK.monitor = function (i) {
+  let e = new Promise((r, e) => {
+    if (!i.aid || !i.code) {
+      var t = { result: 1, data: { errorcode: "-1", msg: "aid、code 获取失败" } };r(t);
+    } else {
+      if (i.openid && i.appid && i.code) {
+        let e = { cname: "wxxyx", aid: i.aid, code: i.code, openid: i.openid, appid: i.appid };wx.request({ url: "https://adv.play800.cn/click/monitor/wxxyx/" + i.code, data: e, method: "GET", success: e => {
+            let t = dateOrRes(e);if (!t.result) {
+              var i = { result: 0, data: { data: t.data, msg: "接口正常访问" } };
+            } else {
+              var i = { result: 1, data: { data: t.data, msg: "接口上报失败" } };
+            }r(i);
+          } });
+      } else {
+        var t = { result: 1, data: { data: null, msg: "openid、appid 都必须存在" } };r(t);
+      }
+    }
+  });return e;
+};function newSignGetType(t) {
+  var i = [];for (var e in t) {
+    i.push(e);
+  }i = i.sort();let r = sdklogData.site;for (let e = 0; e < i.length; e++) {
+    const n = t[i[e]];if (e != 0) {
+      r += "&" + i[e] + "=" + n;
+    } else {
+      r += i[e] + "=" + n;
+    }
+  }r += sdklogData.key;return r;
+}function ChangeUndefined(t) {
+  for (let e in t) {
+    if (t.hasOwnProperty(e)) {
+      if (typeof t[e] == "undefined") {
+        t[e] = "";
+      }
+    }
+  }
+}function getDevice() {
+  wx.getNetworkType({ success: function (e) {
+      Object.assign(sdklogData, { device_net: e.networkType });
+    } });var t = "PC",
+      i,
+      r;wx.getSystemInfo({ success: function (e) {
+      print("wx.getSystemInfo.success ", e);if (e.platform == "devtools" || e.platform == "windows") {
+        t = "PC";
+      } else if (e.platform == "ios") {
+        t = "IOS";
+      } else if (e.platform == "android") {
+        t = "Android";
+      } else {
+        t = e.platform;
+      }if (t == "Android") {
+        r = sdklogData.site_android;i = sdklogData.key_android;
+      } else {
+        r = sdklogData.site_ios;i = sdklogData.key_ios;
+      }Object.assign(sdklogData, { platform: t, device_model: e.model, device_resolution: e.screenWidth + "*" + e.screenHeight, device_version: e.system, site: r, key: i });print("sdklogData:", sdklogData);
+    } });
+}function XmlHttpRequest(e, t = "post", i = {}, r = null) {
+  $.get(e, i, e => {
+    if (r) {
+      r(e);
+    }
+  }, "json");
+}var V = V || {};V.Security = V.Security || {};(function () {
+  var S = V.Security;S.maxExactInt = Math.pow(2, 53);S.toUtf8ByteArr = function (e) {
+    var t = [],
+        i;for (var r = 0; r < e.length; r++) {
+      i = e.charCodeAt(r);if (55296 <= i && i <= 56319) {
+        var n = i,
+            d = e.charCodeAt(r + 1);i = (n - 55296) * 1024 + (d - 56320) + 65536;r++;
+      }if (i <= 127) {
+        t[t.length] = i;
+      } else if (i <= 2047) {
+        t[t.length] = (i >>> 6) + 192;t[t.length] = i & 63 | 128;
+      } else if (i <= 65535) {
+        t[t.length] = (i >>> 12) + 224;t[t.length] = i >>> 6 & 63 | 128;t[t.length] = i & 63 | 128;
+      } else if (i <= 1114111) {
+        t[t.length] = (i >>> 18) + 240;t[t.length] = i >>> 12 & 63 | 128;t[t.length] = i >>> 6 & 63 | 128;t[t.length] = i & 63 | 128;
+      } else {
+        throw "Unicode standart supports code points up-to U+10FFFF";
+      }
+    }return t;
+  };S.toHex32 = function (e) {
+    if (e & 2147483648) {
+      e = e & ~2147483648;e += Math.pow(2, 31);
+    }var t = e.toString(16);while (t.length < 8) {
+      t = "0" + t;
+    }return t;
+  };S.reverseBytes = function (e) {
+    var t = 0;t += e >>> 24 & 255;t += (e >>> 16 & 255) << 8;t += (e >>> 8 & 255) << 16;t += (e & 255) << 24;return t;
+  };S.leftRotate = function (e, t) {
+    return e << t | e >>> 32 - t;
+  };S.md5 = function (e) {
+    var t = [7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21];var i = [];for (var r = 0; r <= 63; r++) {
+      i[r] = Math.abs(Math.sin(r + 1)) * Math.pow(2, 32) << 0;
+    }var n = 1732584193,
+        d = 4023233417,
+        a = 2562383102,
+        o = 271733878,
+        s,
+        l;s = S.toUtf8ByteArr(e);e = null;l = s.length;s.push(128);var c = Math.abs(448 - s.length * 8 % 512) / 8;while (c--) {
+      s.push(0);
+    }s.push(l * 8 & 255, l * 8 >> 8 & 255, l * 8 >> 16 & 255, l * 8 >> 24 & 255);var r = 4;while (r--) {
+      s.push(0);
+    }var g = S.leftRotate;var r = 0,
+        u = [];while (r < s.length) {
+      for (var m = 0; m <= 15; m++) {
+        u[m] = (s[r + 4 * m] << 0) + (s[r + 4 * m + 1] << 8) + (s[r + 4 * m + 2] << 16) + (s[r + 4 * m + 3] << 24);
+      }var f = n,
+          _ = d,
+          v = a,
+          h = o,
+          p,
+          y;for (var m = 0; m <= 63; m++) {
+        if (m <= 15) {
+          p = _ & v | ~_ & h;y = m;
+        } else if (m <= 31) {
+          p = h & _ | ~h & v;y = (5 * m + 1) % 16;
+        } else if (m <= 47) {
+          p = _ ^ v ^ h;y = (3 * m + 5) % 16;
+        } else {
+          p = v ^ (_ | ~h);y = 7 * m % 16;
+        }var k = h;h = v;v = _;_ = _ + g(f + p + i[m] + u[y], t[m]);f = k;
+      }n = n + f << 0;d = d + _ << 0;a = a + v << 0;o = o + h << 0;r += 512 / 8;
+    }var D = w(n) + w(d) + w(a) + w(o);function w(e) {
+      return S.toHex32(S.reverseBytes(e));
+    }return D;
+  };
+})();function setheartbeat(e) {
+  let t = setInterval(() => {
+    print("计时器");heartbeat(e);
+  }, 3e5);print("time =", t);
+}function heartbeat(e) {
+  let t = parseInt(new Date().getTime() / 1e3);print("***t", t);let i = { aid: e.aid, uid: e.uid, site: e.site, device: e.device, modeltype: e.modeltype, username: e.username, sid: e.sid, roleid: e.roleid, rolename: e.rolename, level: e.level, vip: e.vip, ip: e.ip, onlinetime: e.onlinetime, device_model: e.device_model, device_resolution: e.device_resolution, device_version: e.device_version, device_net: e.device_net, time: t, oaid: e.oaid };print("n =**", i);ChangeUndefined(i);print("1001", sdklogData.site);let r = newSignGetType(i);print("o=**", r);var n = hex_md5(r);print("=**", n);i.sign = n;let d = `${sdklogData.data_url}/log/onlineTime`;print("n =**", i);HttpRequest(d, "POST", i, e => {
+    print("e==**", e);var t = dateOrRes(e);print("登录时间上报= ", t);
+  });
+}var hexcase = 0;var b64pad = "";function hex_md5(e) {
+  return rstr2hex(rstr_md5(str2rstr_utf8(e)));
+}function rstr_md5(e) {
+  return binl2rstr(binl_md5(rstr2binl(e), e.length * 8));
+}function rstr2hex(e) {
+  try {
+    hexcase;
+  } catch (e) {
+    hexcase = 0;
+  }var t = hexcase ? "0123456789ABCDEF" : "0123456789abcdef";var i = "";var r;for (var n = 0; n < e.length; n++) {
+    r = e.charCodeAt(n);i += t.charAt(r >>> 4 & 15) + t.charAt(r & 15);
+  }return i;
+}function str2rstr_utf8(e) {
+  return unescape(encodeURI(e));
+}function rstr2binl(e) {
+  var t = Array(e.length >> 2);for (var i = 0; i < t.length; i++) t[i] = 0;for (var i = 0; i < e.length * 8; i += 8) t[i >> 5] |= (e.charCodeAt(i / 8) & 255) << i % 32;return t;
+}function binl2rstr(e) {
+  var t = "";for (var i = 0; i < e.length * 32; i += 8) t += String.fromCharCode(e[i >> 5] >>> i % 32 & 255);return t;
+}function binl_md5(e, t) {
+  e[t >> 5] |= 128 << t % 32;e[(t + 64 >>> 9 << 4) + 14] = t;var i = 1732584193;var r = -271733879;var n = -1732584194;var d = 271733878;for (var a = 0; a < e.length; a += 16) {
+    var o = i;var s = r;var l = n;var c = d;i = md5_ff(i, r, n, d, e[a + 0], 7, -680876936);d = md5_ff(d, i, r, n, e[a + 1], 12, -389564586);n = md5_ff(n, d, i, r, e[a + 2], 17, 606105819);r = md5_ff(r, n, d, i, e[a + 3], 22, -1044525330);i = md5_ff(i, r, n, d, e[a + 4], 7, -176418897);d = md5_ff(d, i, r, n, e[a + 5], 12, 1200080426);n = md5_ff(n, d, i, r, e[a + 6], 17, -1473231341);r = md5_ff(r, n, d, i, e[a + 7], 22, -45705983);i = md5_ff(i, r, n, d, e[a + 8], 7, 1770035416);d = md5_ff(d, i, r, n, e[a + 9], 12, -1958414417);n = md5_ff(n, d, i, r, e[a + 10], 17, -42063);r = md5_ff(r, n, d, i, e[a + 11], 22, -1990404162);i = md5_ff(i, r, n, d, e[a + 12], 7, 1804603682);d = md5_ff(d, i, r, n, e[a + 13], 12, -40341101);n = md5_ff(n, d, i, r, e[a + 14], 17, -1502002290);r = md5_ff(r, n, d, i, e[a + 15], 22, 1236535329);i = md5_gg(i, r, n, d, e[a + 1], 5, -165796510);d = md5_gg(d, i, r, n, e[a + 6], 9, -1069501632);n = md5_gg(n, d, i, r, e[a + 11], 14, 643717713);r = md5_gg(r, n, d, i, e[a + 0], 20, -373897302);i = md5_gg(i, r, n, d, e[a + 5], 5, -701558691);d = md5_gg(d, i, r, n, e[a + 10], 9, 38016083);n = md5_gg(n, d, i, r, e[a + 15], 14, -660478335);r = md5_gg(r, n, d, i, e[a + 4], 20, -405537848);i = md5_gg(i, r, n, d, e[a + 9], 5, 568446438);d = md5_gg(d, i, r, n, e[a + 14], 9, -1019803690);n = md5_gg(n, d, i, r, e[a + 3], 14, -187363961);r = md5_gg(r, n, d, i, e[a + 8], 20, 1163531501);i = md5_gg(i, r, n, d, e[a + 13], 5, -1444681467);d = md5_gg(d, i, r, n, e[a + 2], 9, -51403784);n = md5_gg(n, d, i, r, e[a + 7], 14, 1735328473);r = md5_gg(r, n, d, i, e[a + 12], 20, -1926607734);i = md5_hh(i, r, n, d, e[a + 5], 4, -378558);d = md5_hh(d, i, r, n, e[a + 8], 11, -2022574463);n = md5_hh(n, d, i, r, e[a + 11], 16, 1839030562);r = md5_hh(r, n, d, i, e[a + 14], 23, -35309556);i = md5_hh(i, r, n, d, e[a + 1], 4, -1530992060);d = md5_hh(d, i, r, n, e[a + 4], 11, 1272893353);n = md5_hh(n, d, i, r, e[a + 7], 16, -155497632);r = md5_hh(r, n, d, i, e[a + 10], 23, -1094730640);i = md5_hh(i, r, n, d, e[a + 13], 4, 681279174);d = md5_hh(d, i, r, n, e[a + 0], 11, -358537222);n = md5_hh(n, d, i, r, e[a + 3], 16, -722521979);r = md5_hh(r, n, d, i, e[a + 6], 23, 76029189);i = md5_hh(i, r, n, d, e[a + 9], 4, -640364487);d = md5_hh(d, i, r, n, e[a + 12], 11, -421815835);n = md5_hh(n, d, i, r, e[a + 15], 16, 530742520);r = md5_hh(r, n, d, i, e[a + 2], 23, -995338651);i = md5_ii(i, r, n, d, e[a + 0], 6, -198630844);d = md5_ii(d, i, r, n, e[a + 7], 10, 1126891415);n = md5_ii(n, d, i, r, e[a + 14], 15, -1416354905);r = md5_ii(r, n, d, i, e[a + 5], 21, -57434055);i = md5_ii(i, r, n, d, e[a + 12], 6, 1700485571);d = md5_ii(d, i, r, n, e[a + 3], 10, -1894986606);n = md5_ii(n, d, i, r, e[a + 10], 15, -1051523);r = md5_ii(r, n, d, i, e[a + 1], 21, -2054922799);i = md5_ii(i, r, n, d, e[a + 8], 6, 1873313359);d = md5_ii(d, i, r, n, e[a + 15], 10, -30611744);n = md5_ii(n, d, i, r, e[a + 6], 15, -1560198380);r = md5_ii(r, n, d, i, e[a + 13], 21, 1309151649);i = md5_ii(i, r, n, d, e[a + 4], 6, -145523070);d = md5_ii(d, i, r, n, e[a + 11], 10, -1120210379);n = md5_ii(n, d, i, r, e[a + 2], 15, 718787259);r = md5_ii(r, n, d, i, e[a + 9], 21, -343485551);i = safe_add(i, o);r = safe_add(r, s);n = safe_add(n, l);d = safe_add(d, c);
+  }return Array(i, r, n, d);
+}function md5_cmn(e, t, i, r, n, d) {
+  return safe_add(bit_rol(safe_add(safe_add(t, e), safe_add(r, d)), n), i);
+}function md5_ff(e, t, i, r, n, d, a) {
+  return md5_cmn(t & i | ~t & r, e, t, n, d, a);
+}function md5_gg(e, t, i, r, n, d, a) {
+  return md5_cmn(t & r | i & ~r, e, t, n, d, a);
+}function md5_hh(e, t, i, r, n, d, a) {
+  return md5_cmn(t ^ i ^ r, e, t, n, d, a);
+}function md5_ii(e, t, i, r, n, d, a) {
+  return md5_cmn(i ^ (t | ~r), e, t, n, d, a);
+}function safe_add(e, t) {
+  var i = (e & 65535) + (t & 65535);var r = (e >> 16) + (t >> 16) + (i >> 16);return r << 16 | i & 65535;
+}function bit_rol(e, t) {
+  return e << t | e >>> 32 - t;
+}function md5cycle(e, t) {
+  var i = e[0],
+      r = e[1],
+      n = e[2],
+      d = e[3];i = ff(i, r, n, d, t[0], 7, -680876936);d = ff(d, i, r, n, t[1], 12, -389564586);n = ff(n, d, i, r, t[2], 17, 606105819);r = ff(r, n, d, i, t[3], 22, -1044525330);i = ff(i, r, n, d, t[4], 7, -176418897);d = ff(d, i, r, n, t[5], 12, 1200080426);n = ff(n, d, i, r, t[6], 17, -1473231341);r = ff(r, n, d, i, t[7], 22, -45705983);i = ff(i, r, n, d, t[8], 7, 1770035416);d = ff(d, i, r, n, t[9], 12, -1958414417);n = ff(n, d, i, r, t[10], 17, -42063);r = ff(r, n, d, i, t[11], 22, -1990404162);i = ff(i, r, n, d, t[12], 7, 1804603682);d = ff(d, i, r, n, t[13], 12, -40341101);n = ff(n, d, i, r, t[14], 17, -1502002290);r = ff(r, n, d, i, t[15], 22, 1236535329);i = gg(i, r, n, d, t[1], 5, -165796510);d = gg(d, i, r, n, t[6], 9, -1069501632);n = gg(n, d, i, r, t[11], 14, 643717713);r = gg(r, n, d, i, t[0], 20, -373897302);i = gg(i, r, n, d, t[5], 5, -701558691);d = gg(d, i, r, n, t[10], 9, 38016083);n = gg(n, d, i, r, t[15], 14, -660478335);r = gg(r, n, d, i, t[4], 20, -405537848);i = gg(i, r, n, d, t[9], 5, 568446438);d = gg(d, i, r, n, t[14], 9, -1019803690);n = gg(n, d, i, r, t[3], 14, -187363961);r = gg(r, n, d, i, t[8], 20, 1163531501);i = gg(i, r, n, d, t[13], 5, -1444681467);d = gg(d, i, r, n, t[2], 9, -51403784);n = gg(n, d, i, r, t[7], 14, 1735328473);r = gg(r, n, d, i, t[12], 20, -1926607734);i = hh(i, r, n, d, t[5], 4, -378558);d = hh(d, i, r, n, t[8], 11, -2022574463);n = hh(n, d, i, r, t[11], 16, 1839030562);r = hh(r, n, d, i, t[14], 23, -35309556);i = hh(i, r, n, d, t[1], 4, -1530992060);d = hh(d, i, r, n, t[4], 11, 1272893353);n = hh(n, d, i, r, t[7], 16, -155497632);r = hh(r, n, d, i, t[10], 23, -1094730640);i = hh(i, r, n, d, t[13], 4, 681279174);d = hh(d, i, r, n, t[0], 11, -358537222);n = hh(n, d, i, r, t[3], 16, -722521979);r = hh(r, n, d, i, t[6], 23, 76029189);i = hh(i, r, n, d, t[9], 4, -640364487);d = hh(d, i, r, n, t[12], 11, -421815835);n = hh(n, d, i, r, t[15], 16, 530742520);r = hh(r, n, d, i, t[2], 23, -995338651);i = ii(i, r, n, d, t[0], 6, -198630844);d = ii(d, i, r, n, t[7], 10, 1126891415);n = ii(n, d, i, r, t[14], 15, -1416354905);r = ii(r, n, d, i, t[5], 21, -57434055);i = ii(i, r, n, d, t[12], 6, 1700485571);d = ii(d, i, r, n, t[3], 10, -1894986606);n = ii(n, d, i, r, t[10], 15, -1051523);r = ii(r, n, d, i, t[1], 21, -2054922799);i = ii(i, r, n, d, t[8], 6, 1873313359);d = ii(d, i, r, n, t[15], 10, -30611744);n = ii(n, d, i, r, t[6], 15, -1560198380);r = ii(r, n, d, i, t[13], 21, 1309151649);i = ii(i, r, n, d, t[4], 6, -145523070);d = ii(d, i, r, n, t[11], 10, -1120210379);n = ii(n, d, i, r, t[2], 15, 718787259);r = ii(r, n, d, i, t[9], 21, -343485551);e[0] = add32(i, e[0]);e[1] = add32(r, e[1]);e[2] = add32(n, e[2]);e[3] = add32(d, e[3]);
+}function cmn(e, t, i, r, n, d) {
+  t = add32(add32(t, e), add32(r, d));return add32(t << n | t >>> 32 - n, i);
+}function ff(e, t, i, r, n, d, a) {
+  return cmn(t & i | ~t & r, e, t, n, d, a);
+}function gg(e, t, i, r, n, d, a) {
+  return cmn(t & r | i & ~r, e, t, n, d, a);
+}function hh(e, t, i, r, n, d, a) {
+  return cmn(t ^ i ^ r, e, t, n, d, a);
+}function ii(e, t, i, r, n, d, a) {
+  return cmn(i ^ (t | ~r), e, t, n, d, a);
+}function md51(e) {
+  var t = "";var i = e.length,
+      r = [1732584193, -271733879, -1732584194, 271733878],
+      n;for (n = 64; n <= e.length; n += 64) {
+    md5cycle(r, md5blk(e.substring(n - 64, n)));
+  }e = e.substring(n - 64);var d = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];for (n = 0; n < e.length; n++) d[n >> 2] |= e.charCodeAt(n) << (n % 4 << 3);d[n >> 2] |= 128 << (n % 4 << 3);if (n > 55) {
+    md5cycle(r, d);for (n = 0; n < 16; n++) d[n] = 0;
+  }d[14] = i * 8;md5cycle(r, d);return r;
+}function md5blk(e) {
+  var t = [],
+      i;for (i = 0; i < 64; i += 4) {
+    t[i >> 2] = e.charCodeAt(i) + (e.charCodeAt(i + 1) << 8) + (e.charCodeAt(i + 2) << 16) + (e.charCodeAt(i + 3) << 24);
+  }return t;
+}var hex_chr = "0123456789abcdef".split("");function rhex(e) {
+  var t = "",
+      i = 0;for (; i < 4; i++) t += hex_chr[e >> i * 8 + 4 & 15] + hex_chr[e >> i * 8 & 15];return t;
+}function hex(e) {
+  for (var t = 0; t < e.length; t++) e[t] = rhex(e[t]);return e.join("");
+}function md5(e) {
+  return hex(md51(e));
+}function add32(e, t) {
+  return e + t & 4294967295;
+}if (md5("hello") != "5d41402abc4b2a76b9719d911017c592") {
+  function add32(e, t) {
+    var i = (e & 65535) + (t & 65535),
+        r = (e >> 16) + (t >> 16) + (i >> 16);return r << 16 | i & 65535;
+  }
+}(function () {
+  function e(e, t) {
+    var i = e[0],
+        r = e[1],
+        n = e[2],
+        d = e[3];i = a(i, r, n, d, t[0], 7, -680876936);d = a(d, i, r, n, t[1], 12, -389564586);n = a(n, d, i, r, t[2], 17, 606105819);r = a(r, n, d, i, t[3], 22, -1044525330);i = a(i, r, n, d, t[4], 7, -176418897);d = a(d, i, r, n, t[5], 12, 1200080426);n = a(n, d, i, r, t[6], 17, -1473231341);r = a(r, n, d, i, t[7], 22, -45705983);i = a(i, r, n, d, t[8], 7, 1770035416);d = a(d, i, r, n, t[9], 12, -1958414417);n = a(n, d, i, r, t[10], 17, -42063);r = a(r, n, d, i, t[11], 22, -1990404162);i = a(i, r, n, d, t[12], 7, 1804603682);d = a(d, i, r, n, t[13], 12, -40341101);n = a(n, d, i, r, t[14], 17, -1502002290);r = a(r, n, d, i, t[15], 22, 1236535329);i = s(i, r, n, d, t[1], 5, -165796510);d = s(d, i, r, n, t[6], 9, -1069501632);n = s(n, d, i, r, t[11], 14, 643717713);r = s(r, n, d, i, t[0], 20, -373897302);i = s(i, r, n, d, t[5], 5, -701558691);d = s(d, i, r, n, t[10], 9, 38016083);n = s(n, d, i, r, t[15], 14, -660478335);r = s(r, n, d, i, t[4], 20, -405537848);i = s(i, r, n, d, t[9], 5, 568446438);d = s(d, i, r, n, t[14], 9, -1019803690);n = s(n, d, i, r, t[3], 14, -187363961);r = s(r, n, d, i, t[8], 20, 1163531501);i = s(i, r, n, d, t[13], 5, -1444681467);d = s(d, i, r, n, t[2], 9, -51403784);n = s(n, d, i, r, t[7], 14, 1735328473);r = s(r, n, d, i, t[12], 20, -1926607734);i = l(i, r, n, d, t[5], 4, -378558);d = l(d, i, r, n, t[8], 11, -2022574463);n = l(n, d, i, r, t[11], 16, 1839030562);r = l(r, n, d, i, t[14], 23, -35309556);i = l(i, r, n, d, t[1], 4, -1530992060);d = l(d, i, r, n, t[4], 11, 1272893353);n = l(n, d, i, r, t[7], 16, -155497632);r = l(r, n, d, i, t[10], 23, -1094730640);i = l(i, r, n, d, t[13], 4, 681279174);d = l(d, i, r, n, t[0], 11, -358537222);n = l(n, d, i, r, t[3], 16, -722521979);r = l(r, n, d, i, t[6], 23, 76029189);i = l(i, r, n, d, t[9], 4, -640364487);d = l(d, i, r, n, t[12], 11, -421815835);n = l(n, d, i, r, t[15], 16, 530742520);r = l(r, n, d, i, t[2], 23, -995338651);i = c(i, r, n, d, t[0], 6, -198630844);d = c(d, i, r, n, t[7], 10, 1126891415);n = c(n, d, i, r, t[14], 15, -1416354905);r = c(r, n, d, i, t[5], 21, -57434055);i = c(i, r, n, d, t[12], 6, 1700485571);d = c(d, i, r, n, t[3], 10, -1894986606);n = c(n, d, i, r, t[10], 15, -1051523);r = c(r, n, d, i, t[1], 21, -2054922799);i = c(i, r, n, d, t[8], 6, 1873313359);d = c(d, i, r, n, t[15], 10, -30611744);n = c(n, d, i, r, t[6], 15, -1560198380);r = c(r, n, d, i, t[13], 21, 1309151649);i = c(i, r, n, d, t[4], 6, -145523070);d = c(d, i, r, n, t[11], 10, -1120210379);n = c(n, d, i, r, t[2], 15, 718787259);r = c(r, n, d, i, t[9], 21, -343485551);e[0] = g(i, e[0]);e[1] = g(r, e[1]);e[2] = g(n, e[2]);e[3] = g(d, e[3]);
+  }function o(e, t, i, r, n, d) {
+    t = g(g(t, e), g(r, d));return g(t << n | t >>> 32 - n, i);
+  }function a(e, t, i, r, n, d, a) {
+    return o(t & i | ~t & r, e, t, n, d, a);
+  }function s(e, t, i, r, n, d, a) {
+    return o(t & r | i & ~r, e, t, n, d, a);
+  }function l(e, t, i, r, n, d, a) {
+    return o(t ^ i ^ r, e, t, n, d, a);
+  }function c(e, t, i, r, n, d, a) {
+    return o(i ^ (t | ~r), e, t, n, d, a);
+  }function g(e, t) {
+    return e + t & 4294967295;
+  }if (md5("hello") != "5d41402abc4b2a76b9719d911017c592") {
+    function g(e, t) {
+      var i = (e & 65535) + (t & 65535),
+          r = (e >> 16) + (t >> 16) + (i >> 16);return r << 16 | i & 65535;
+    }
+  }
+})();

@@ -705,8 +705,7 @@ window.openSubscribeMsg = function (ids, callback,objIds) {
   function onTouchEnd(res) {
     var data = [];
     var tmpIds = [];
-    // var tmpObj = window.config.tmpId;
-    var tmpObj = objIds;
+    var tmpObj = objIds || window.config.tmpId;
     for (var id in tmpObj) {
       var idn = Number(id);
       if (!ids || !ids.length || ids.indexOf(idn) != -1) { //ids为空表示所有都请求

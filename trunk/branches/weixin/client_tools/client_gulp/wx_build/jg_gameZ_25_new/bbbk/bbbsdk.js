@@ -4,7 +4,7 @@ var config = {
     game_pkg: 'tjqy_tjqyxatl666wxxcx_TC', //666-微信	笑傲天龙-Z_25
     partner_label: 'ddt6',
     partner_id: '489',
-    game_ver: '56.0.1',
+    game_ver: '56.0.5',
     platId: 1000,
     gameId: 298,
     channelVer: 'mxsdk_tjqy_xatl',

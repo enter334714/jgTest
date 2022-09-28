@@ -1,6 +1,6 @@
 var g = wx.u$;
-export default {
-    sdkVersion: '1.0.0',
+const HeiqySdk = {
+    sdkVersion: '1.0.2',
     sdkData: {
         p41: 0,
         sdkCachePrefix: 'yq_cache',
@@ -12,6 +12,7 @@ export default {
             game_id: 0,
             package_id: 0,
             channel: 37,
+            state: {},
             commonData: {}
         },
         requestDomain: 'https://sdk-server.heiqihy-games.com',
@@ -46,59 +47,16 @@ export default {
         let _this = this;
         delete _this.sdkData.requestingApi[api];
     },
-    getCacheKey(key) {
-        let _this = this;
-        return _this.sdkData.sdkCachePrefix + '_' + key;
-    },
-    removeStorage(key) {
-        let _this = this;
-        key = _this.getCacheKey(key);
-        if (this.sdkData.sdkCacheData[key]) {
-            delete this.sdkData.sdkCacheData[key];
-        }
-        try {
-            wx.removeStorage({ key });
-        } catch (e) {}
-    },
-    getStorage(key) {
-        let _this = this;
-        key = _this.getCacheKey(key);
-        let result;
-        try {
-            result = wx.getStorageSync(key);
-        } catch (e) {}
-        if (!result && [false, 0].indexOf(result) === -1) {
-            result = this.sdkData.sdkCacheData[key] || '';
-        }
-        return result;
-    },
-    setStorage(key, data) {
-        let _this = this;
-        key = _this.getCacheKey(key);
-        this.sdkData.sdkCacheData[key] = data;
-        try {
-            wx.setStorageSync(key, data);
-        } catch (e) {}
-    },
-    getUuid() {
-        let _this = this;
-        let uuid = _this.getStorage('uuid');
-        if (!uuid) {
-            let d = new Date().getTime();
-            if (typeof window !== 'undefined' && window.performance && typeof window.performance.now === 'function') {
-                d += performance.now();
-            }
-            uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                let r = (d + Math.random() * 16) % 16 | 0;
-                d = Math.floor(d / 16);
-                return (c === 'x' ? r : r & 0x3 | 0x8).toString(16);
-            });
-            _this.setStorage('uuid', uuid);
-        }
-        return uuid;
-    },
     getDeviceTypeByPlatform(platform) {
         return platform === 'android' ? 1 : platform === 'ios' ? 2 : 3;
+    },
+    setCommonDataLaunchOptionQuery(query) {
+        let _this = this;
+        if (query) {
+            console.log('[YQSDK]]启动参数', query);
+            _this.sdkData.requestData.state = query;
+            _this.sdkData.requestData.package_id = query.package_id || 9999;
+        }
     },
     setCommonData() {
         let _this = this;
@@ -111,7 +69,6 @@ export default {
         });
 
         let systemInfo = wx.getSystemInfoSync();
-        _this.sdkData.requestData.commonData.uuid = _this.getUuid();
         _this.sdkData.requestData.commonData.sdk_version = _this.sdkVersion;
         _this.sdkData.requestData.commonData.wxmini_appid = _this.sdkData.requestData.wxmini_appid;
         _this.sdkData.requestData.commonData.game_id = _this.sdkData.requestData.game_id;
@@ -122,6 +79,25 @@ export default {
         _this.sdkData.requestData.commonData.device_factory = systemInfo.model;
         _this.sdkData.requestData.commonData.device_system = systemInfo.system;
         _this.sdkData.requestData.commonData.device_type = _this.getDeviceTypeByPlatform(systemInfo.platform);
+    },
+    setCommonDataUuid(uuid) {
+        if (!uuid) {
+            return;
+        }
+
+        let _this = this;
+        _this.sdkData.requestData.commonData.uuid = uuid;
+    },
+    getEncodeState() {
+        let _this = this;
+
+        let state = _this.sdkData.requestData.state;
+        let stateKeys = Object.keys(state);
+        if (stateKeys.length === 0) {
+            return '';
+        }
+
+        return encodeURIComponent(stateKeys.map(key => key + '=' + state[key]).join('&'));
     },
     handleRequest(api, data, succ, err, options = {}) {
         let _this = this;
@@ -141,6 +117,8 @@ export default {
         let closeLoading = () => {
             wx.hideLoading();
         };
+
+        data.state = _this.getEncodeState();
         return wx.request({
             url,
             method,
@@ -204,39 +182,21 @@ export default {
             return;
         }
         _this.sdkData.requestData.game_id = gameId;
-        _this.sdkData.requestData.package_id = wx.getLaunchOptionsSync().query.package_id || 9999;
+
         _this.sdkData.platform = wx.getSystemInfoSync().platform.toLocaleLowerCase();
         _this.sdkData.requestData.wxmini_appid = params.wxmini_appid || (wx.getAccountInfoSync ? wx.getAccountInfoSync().miniProgram.appId : 0);
 
-        _this.sdkData.p41 = 1;
+        _this.setCommonDataLaunchOptionQuery(wx.getLaunchOptionsSync().query);
         _this.setCommonData();
-        _this.firstUp();
         _this.getGameWx();
+        _this.sdkData.p41 = 1;
         _this.handleCallback(0, 'success', null, func);
-    },
-    getFirstUpKey(gameId) {
-        let _this = this;
-        return (gameId || _this.sdkData.requestData.game_id) + '_' + _this.getUuid().replaceAll('-', '_');
     },
     getGameWx() {
         let _this = this;
         _this.handleRequest('/api/wx/game_wx', {}, res => {
             _this.sdkData.sdkShareData = res.data;
             _this.handleShare();
-        });
-    },
-    checkFirstUp(gameId) {
-        let _this = this;
-        return !!_this.getStorage(_this.getFirstUpKey(gameId));
-    },
-    firstUp() {
-        let _this = this;
-        if (_this.checkFirstUp()) {
-            return;
-        }
-
-        _this.handleRequest('/api/h5/user/first_up', {}, () => {
-            _this.setStorage(_this.getFirstUpKey(), 1);
         });
     },
     checkInit() {
@@ -256,6 +216,7 @@ export default {
                 _this.handleRequest('/api/h5/user/login', {
                     access_token: res.code
                 }, res => {
+                    _this.setCommonDataUuid(res.data.channel_openid);
                     _this.handleCallback(0, '登录成功', res.data, func);
                 }, () => {
                     _this.handleCallback(res.code, res.msg, null, func);
@@ -273,7 +234,6 @@ export default {
             title: '拉起支付中'
         });
 
-        wx.showLoading();
         _this.handleRequest('/api/h5/pay/create', params, res => {
             let data = res.data;
             if (this.sdkData.platform === 'windows' || _this.sdkData.platform === 'mac') {
@@ -375,12 +335,12 @@ export default {
         });
     },
     msgSecCheck(params = {}, func = null) {
+        let _this = this;
         if (!params.openid || !params.content || !params.scene) {
             _this.handleCallback(-1, '数据缺失', null, func);
             return;
         }
 
-        const _this = this;
         _this.handleRequest('/api/wx/msg_sec_check', params, res => {
             _this.handleCallback(0, '校验完成', res.data, func);
         }, res => {
@@ -388,3 +348,9 @@ export default {
         });
     }
 };
+
+wx.onShow(args => {
+    HeiqySdk.setCommonDataLaunchOptionQuery(args.query);
+});
+
+export default HeiqySdk;

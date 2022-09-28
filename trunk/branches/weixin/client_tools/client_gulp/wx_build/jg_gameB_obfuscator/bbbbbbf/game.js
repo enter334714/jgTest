@@ -1,1 +1,1 @@
-var _=wx.y$;require("bbbbBuff.js"),window[_[30251]][_[30241]][_[30130]]=null,window.client_pb=require("bbbcleintpb.js"),window[_[26360]]=window[_[30251]][_[26249]][_[26250]](client_pb);
+var _=wx.y$;require("bbbbBuff.js"),window[_[30935]][_[30925]][_[30814]]=null,window.client_pb=require("bbbcleintpb.js"),window[_[26819]]=window[_[30935]][_[26708]][_[26709]](client_pb);

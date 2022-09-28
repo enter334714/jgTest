@@ -1,0 +1,58 @@
+"use strict";
+
+var f = wx.$B;
+Object.defineProperty(exports, "__esModule", { value: !0 });var _createClass = function () {
+  function a(e, t) {
+    for (var r = 0; r < t.length; r++) {
+      var a = t[r];a.enumerable = a.enumerable || !1, a.configurable = !0, "value" in a && (a.writable = !0), Object.defineProperty(e, a.key, a);
+    }
+  }return function (e, t, r) {
+    return t && a(e.prototype, t), r && a(e, r), e;
+  };
+}(),
+    _common = require("./common"),
+    _common2 = _interopRequireDefault(_common),
+    _baseparameter = require("./baseparameter"),
+    _baseparameter2 = _interopRequireDefault(_baseparameter),
+    _event = require("./event"),
+    _event2 = _interopRequireDefault(_event),
+    _userinfo = require("./userinfo"),
+    _userinfo2 = _interopRequireDefault(_userinfo);function _interopRequireDefault(e) {
+  return e && e.__esModule ? e : { default: e };
+}function _classCallCheck(e, t) {
+  if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
+}var instance = void 0,
+    GameServer = function () {
+  function e() {
+    if (_classCallCheck(this, e), instance) return instance;(instance = this).baseParams = new _baseparameter2.default(), this.userInfo = new _userinfo2.default(), this.whiteip = this.userInfo.whiteip;
+  }return _createClass(e, [{ key: "getServerList", value: function (e) {
+      var t = wx.getStorageSync("xiyou:servers:entity");if (t) {
+        var r = Date.parse(new Date()) / 1e3,
+            a = wx.getStorageSync("xiyou:servers:time");if (t && r < a) return _common2.default.xylog("Read local server buffer"), void _event2.default.getInstance().emit("onServerListResult", _common2.default.respJson("获取区服列表成功", !0, t));
+      }r = this.baseParams.getSdkInfo(), a = this.baseParams.getQueryParam();a.app_id = r.app_id, a.package_id = r.package_id, _common2.default.wxRequest("server/all", "post", a, function (e) {
+        var t,
+            r = e.data;200 == r.status ? (r = instance.parseServer(r.data.servers), t = Date.parse(new Date()) / 1e3, wx.setStorage({ key: "xiyou:servers:time", data: 300 + t }), wx.setStorage({ key: "xiyou:servers:entity", data: r }), _event2.default.getInstance().emit("onServerListResult", _common2.default.respJson("获取区服列表成功", !0, r))) : (_event2.default.getInstance().emit("onServerListResult", _common2.default.respJson("获取区服列表失败#" + e, !1, null)), _common2.default.xylog("获取区服列表失败：", e));
+      }, function (e) {
+        _event2.default.getInstance().emit("onServerListResult", _common2.default.respJson("获取区服列表失败#" + e, !1, null)), _common2.default.xylog(e);
+      });
+    } }, { key: "parseServer", value: function (e) {
+      var p = [],
+          e = (e.forEach(function (e, t, r) {
+        var a = parseInt(e.pagesize),
+            n = e.customnames,
+            s = e.list;if (null != s) {
+          s.forEach(function (e, t, r) {
+            0 != e.type || instance.whiteip || s.splice(t, 1);
+          });var o = [],
+              i = parseInt(s.length / a);e.length % a != 0 && (i += 1);for (var u = 0; u < i; u++) {
+            var l = {},
+                c = u * a,
+                f = (u + 1) * a,
+                m = (f >= s.length && (f = s.length), instance.subArrayRangAndSort(c, f, s));l.list = m, l.page = o.length + 1, l.name = 1 + c + "—" + f + "服", m <= 1 && (l.name = 1 + c + "服"), o.length < n.length && (l.name = n[o.length]), o[o.length] = l;
+          }var v = {};v.categoryname = e.categoryname, v.groups = o, v.pagesize = a, v.platform = e.platform, p[p.length] = v;
+        }
+      }), {});return e.servers = p, JSON.stringify(e);
+    } }, { key: "subArrayRangAndSort", value: function (e, t, r) {
+      for (var a = [], n = 0, s = e; s < t; s++) a[n] = r[s], n++;return a.sort(_common2.default.compare("serverid")), a;
+    } }]), e;
+}();exports.default = GameServer;

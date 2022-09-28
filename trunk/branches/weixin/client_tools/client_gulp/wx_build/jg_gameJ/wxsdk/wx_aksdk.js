@@ -1,4 +1,4 @@
-﻿require("../utils/config.js");
+require("../utils/config.js");
 require("../utils/ddsdk.js");
 
 
@@ -8,10 +8,11 @@ var config = {
     game_pkg: 'tjqy_tjqypmxj_JQ', //趣侬vs腾庚--寻找藏宝图
     partner_label: 'tkxyx',
     partner_id: '496',
-    game_ver: '30.0.1',
+    game_ver: '30.0.21',
     is_auth: false, //授权登录
     partner_game_id:'tjqycbt',
     partenr_app_id:'wx0523ae2a821c6419',
+    tmpId: {1:'O42gG1CxgO9daEWEgMD-8lr9E1UHRrt2IFfH0uI1gI4', 2:'2ZRrRceg-3WmTpH6pHlX_54WVI2zsIR2kAFNrYpa9Nk', 3:'LKvf47ZKxRJHh9AVgH2F0xLlKlIdRkZAvCI1nQ9zrLw'},  // 订阅的类型 和 模板id
 };
 window.config = config;
 
@@ -85,6 +86,7 @@ function mainSDK() {
                     callback && callback(data);
                 });
             }
+            DDSDK.logEvent("LoadingComplete",{});
         },
         onSdkInited:function(){
           console.log("init ok");
@@ -540,6 +542,13 @@ function mainSDK() {
             };
             DDSDK.setAccount(data1);
 
+            if(data.rolelevel==1){
+
+                this.userUpload();
+
+            }
+            
+
             let userData = {
                 account_id: partner_user_info.openid,
                 role_id: data.roleid,
@@ -552,7 +561,15 @@ function mainSDK() {
             }
             DDSDK.setUserInfo(userData);
         },
-
+        userUpload:function()
+        {
+            console.log('渠道回传信息');
+            if (!wx.getStorageSync('partner_is_new')) {
+                wx.setStorageSync('partner_is_new', 1);
+                DDSDK.userUpload();
+                DDSDK.userUpload_bili();
+            }
+        },
         //角色升级
         logRoleUpLevel: function (data) {
             var uid = wx.getStorageSync('plat_uid');

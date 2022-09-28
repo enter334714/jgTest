@@ -27,16 +27,13 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useIsolateContext": false,
-    "userConfirmedUseIsolateContext": true,
+    "enableEngineNative": false,
+    "useIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "disableUseStrict": false,
-    "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true
+    "showES6CompileOption": false
   },
   "compileType": "game",
   "libVersion": "2.23.2",
@@ -46,36 +43,29 @@
   "simulatorPluginLibVersion": {},
   "projectType": "game",
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
-    "plugin": {
-      "list": []
-    },
     "game": {
       "list": [
         {
-          "id": 0,
           "name": "广告",
           "query": "ad_code=ft_1_2659_243"
         },
         {
-          "id": 1,
           "name": "邀请进入",
           "query": "invite=5ORYZ2G&invite_type=menu&ad_code=ft_0_2659_243"
         },
         {
-          "id": -1,
           "name": "广告来源",
           "query": "ad_code=XXXXXXX22222"
         }
       ]
-    },
-    "miniprogram": {
-      "list": []
     }
+  },
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
   }
 }

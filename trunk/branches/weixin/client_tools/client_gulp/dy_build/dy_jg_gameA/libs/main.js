@@ -1,4 +1,4 @@
-console.info("2 进入libs分包");
+﻿console.info("2 进入libs分包");
 
 import "weapp-adapter.js";
 
@@ -54,6 +54,8 @@ import "libs.min.js";
 import "laya.wxmini.js";
 import "init.min.js";
 import "recorder.js";
+window.Matter = require('matter.min.js');
+require('LayaRender.js');
 
 console.info("3 libs初始化完成");
 
@@ -198,7 +200,7 @@ tt.loadSubpackages = function() {
 window.systemInfo = "";
 wx.getSystemInfo({
   success (res) {
-    window.systemInfo = "品牌："+res.brand+"，型号："+res.model+"，微信版本号："+res.version+"，系统及版本："+res.system+"，客户端平台："+res.platform+"，基础库版本："+res.SDKVersion+"，设备性能等级："+res.benchmarkLevel;
+    window.systemInfo = "品牌："+res.brand+"，型号："+res.model+"，APP名称："+res.appName+"，APP版本号："+res.version+"，系统及版本："+res.system+"，客户端平台："+res.platform+"，基础库版本："+res.SDKVersion+"，机型评分："+(res.deviceScore?(res.deviceScore.cpu+","+res.deviceScore.gpu+","+res.deviceScore.memory+","+res.deviceScore.overall):"");
     console.log(window.systemInfo);
     console.log("设备像素比："+res.pixelRatio+"，屏幕宽度："+res.screenWidth+"，屏幕高度："+res.screenHeight+"，可使用窗口宽度："+res.windowWidth+"，可使用窗口高度："+res.windowHeight+"，状态栏的高度："+res.statusBarHeight+"，安全区域："+(res.safeArea?(res.safeArea.top+","+res.safeArea.bottom+","+res.safeArea.left+","+res.safeArea.right):""));
 
@@ -212,12 +214,12 @@ wx.getSystemInfo({
     window.PF_INFO.wxLimitLoad = false; //model.indexOf("iphonex") != -1;
     window.PF_INFO.wxBenchmarkLevel = 2;
     if (system.indexOf("android") != -1) { //android按设备等级
-      if (res.benchmarkLevel >= 24) 
+      if (res.deviceScore && res.deviceScore.overall >= 7) 
         window.PF_INFO.wxBenchmarkLevel = 3;
       else 
         window.PF_INFO.wxBenchmarkLevel = 2;
     } else if (system.indexOf("ios") != -1) { //ios按型号
-      if(res.benchmarkLevel && res.benchmarkLevel >= 20)
+      if(res.deviceScore && res.deviceScore.overall && res.deviceScore.overall >= 8)
         window.PF_INFO.wxBenchmarkLevel = 3;
       else if (model.indexOf("iphone5") != -1 || model.indexOf("iphone6") != -1 || model.indexOf("iphone7") != -1 
         || model.indexOf("iphonese") != -1 || model.indexOf("ipad") != -1) 
@@ -265,8 +267,8 @@ wx.onMemoryWarning(function () {
   }
   if (window.memoryWarningNum >= 2) {
     window.memoryWarningNum = 0;
-    // console.error('第二次内存警告');
-    // wx.reportMonitor('0', 1);  //上报微信监控
+    console.error('第二次内存警告');
+   // wx.reportMonitor('0', 1);  //上报微信监控
     if(window.PF_INFO && window.PF_INFO.wxIOS) window.reqRecordInfo("内存警告", "");
     if (onMemoryWarningCallBack) onMemoryWarningCallBack();//游戏内画质设为“低”
   }

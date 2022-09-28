@@ -1,0 +1,31 @@
+{
+  "startTime": 1661494071981,
+  "endTime": 1661494082100,
+  "numTotalTests": 1,
+  "numTodoTests": 0,
+  "testResults": [
+    {
+      "replayResults": [
+        {
+          "caseId": "6b3b9e1c-cb3c-40b3-91b0-83d259d5e55b",
+          "commandIndex": 0,
+          "status": "processing"
+        },
+        {
+          "caseId": "6b3b9e1c-cb3c-40b3-91b0-83d259d5e55b",
+          "commandIndex": 1,
+          "status": "processing"
+        }
+      ],
+      "replayResult": "passed",
+      "startTime": 1661494071982,
+      "endTime": 1661494082098,
+      "casePath": "",
+      "caseName": "minitest-1",
+      "caseId": "6b3b9e1c-cb3c-40b3-91b0-83d259d5e55b"
+    }
+  ],
+  "success": true,
+  "numPassedTests": 1,
+  "numFailedTests": 0
+}

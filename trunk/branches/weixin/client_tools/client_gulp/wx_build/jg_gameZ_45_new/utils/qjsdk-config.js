@@ -1,0 +1,1 @@
+var configs = { appId: "100472", channel: "hxfx_zrl", sdkVersion: "1.0.4" };module.exports.appId = configs.appId, module.exports.channel = configs.channel, module.exports.sdkVersion = configs.sdkVersion;

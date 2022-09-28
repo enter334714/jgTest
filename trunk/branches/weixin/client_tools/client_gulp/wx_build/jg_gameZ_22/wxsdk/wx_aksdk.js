@@ -1,17 +1,18 @@
-﻿// 引入渠道JS文件
+// 引入渠道JS文件
 var SDKyyw = require('../utils/SDKyyw.min.js');
 
 var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqysgsyyywxxcx_RM', //上古神域-Z_22
     partner_id: '317',
-    game_ver: '53.0.1',
+    game_ver: '53.0.21',
     is_auth: false, //授权登录
     partner_app_id:'1000238',
     partner_app_key:'9ee82ccddf32dad743546195b68e80a1'
 };
 
 window.config = config;
+
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var user_game_info = null;
@@ -20,6 +21,8 @@ var this_order_id = null;
 var partner_user_info = null;
 
 var partner_swtich_info = null;
+
+var h5BindTelephoneOn = 0;
 
 function mainSDK() {
     var callbacks = {};
@@ -105,7 +108,10 @@ function mainSDK() {
                     showSwitchOn:res.data.showSwitchOn,
                     switchApp:res.data.switchApp,
                     switchContent:res.data.switchContent,
+                    h5BindTelephoneOn:res.data.h5BindTelephoneOn.on
                 }
+                h5BindTelephoneOn = res.data.h5BindTelephoneOn.on || 0;
+
                 partner_user_info =res.data;
                 self.do_login(partner_user_info);
             } ;
@@ -417,9 +423,13 @@ function mainSDK() {
 
                             if(data.data.ext == ''){
                                          //支付回调
-                                SDKyyw.onPayCallback = (data) => {
+                                SDKyyw.onPayCallback = (backRes) => {
                                     //不要通过客户端回调来作为充值判断
                                     //支付成功 data = {status:"1", data: {gameOrderid:"this is order id",money:"充值金额",productId:"商品id"}, msg:"支付成功"}
+                                    console.log('onPayCallback',backRes)
+                                    if (backRes.status === 200 && backRes.type === "scan" && backRes.data.base64) {
+                                        self.wechatscancode(order_data.productname,order_data.price,backRes.data.base64);
+                                    }
                                 }
                                 //拉起支付
                                 let payData = {};
@@ -448,6 +458,16 @@ function mainSDK() {
                     }
                 }
             });
+        },
+        wechatscancode:function(payName,moneyNum,qrCodeUrl){
+
+            if(window.setQrCodeView){
+                var timer = '';
+                window.setQrCodeView({state:1,payName:payName,show:1,moneyNum:moneyNum,qrCodeUrl:qrCodeUrl,callback:(data11)=>{
+                        console.log("弹框打开情况:",data11);
+                    }})
+
+            }
         },
 
         extDo: function(data){
@@ -725,6 +745,16 @@ function mainSDK() {
                 }
               })
         }, 
+        weiduanHelper: function(data,callback){
+            console.log('openCustomerService',h5BindTelephoneOn);
+            if(h5BindTelephoneOn==1)
+            {
+                SDKyyw.openCustomerService("h5BindTelephoneOn");
+            }else{
+                callback && callback({status: 0,msg: "没开启跳转" });
+            }
+            
+        }
     }
 }
 

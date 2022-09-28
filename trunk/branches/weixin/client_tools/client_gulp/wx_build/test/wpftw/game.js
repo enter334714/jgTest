@@ -1,2 +1,0 @@
-var s = wx.$W;
-require('wBFww.js'), window[s[380818]][s[380819]][s[380820]] = null, window['client_pb'] = require('wwCLIENw.js'), window[s[380821]] = window[s[380818]][s[380822]][s[380823]](client_pb);

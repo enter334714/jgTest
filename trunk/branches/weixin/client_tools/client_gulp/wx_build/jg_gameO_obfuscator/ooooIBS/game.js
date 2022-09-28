@@ -1,2 +1,1 @@
-var c = wx.$o;
-require(c[220000]);
+var c=wx.$o;require(c[0]);

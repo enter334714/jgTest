@@ -311,6 +311,7 @@ window.sdkLoginRetry = 5;
 window.sdkOnLogin = function (status, data) {
   if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
+    PF_INFO.wx_channel = data.wx_channel;
     var self = this;
     wxShowLoading({ title: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {
@@ -350,6 +351,10 @@ window.onUserLogin = function (response) {
     window.toErrorAlarm(2, "User.login fail: state="+response.state);
     window.reqRecordInfo("userLoginError", JSON.stringify(response));
     window.loginAlert('User.login failed: ' + response.state);
+    return;
+  }
+  if (response.ban_state == 1) {
+    window.loginAlert("账号已被封禁！");
     return;
   }
 
@@ -427,9 +432,6 @@ window.onUserLoginCheckServers = function(response) {
   }
   this.updCurServer(response);
 
-  if (window.ServerLoading && window.ServerLoading.instance.openJumpTipsBtn) {
-    window.ServerLoading.instance.openJumpTipsBtn(sdkInitRes.isShowSdkAge, sdkInitRes.sdk_age_adaptation_icon, sdkInitRes.sdk_age_adaptation_content, sdkInitRes.coordinate_x, sdkInitRes.coordinate_y)
-  }
 }
 window.updCurServer = function(response) {
   PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;
@@ -440,9 +442,15 @@ window.updCurServer = function(response) {
     'entry_port': parseInt(response.data[0].entry_port),
     'status': get_status(response.data[0]),
     'start_time': response.data[0].start_time,
+    'maintain_time': response.data[0].maintain_time ? response.data[0].maintain_time : "",
+    'is_recommend': response.data[0].is_recommend,
     'cdn': PF_INFO.cdn,
   }
   this.initComplete();
+  
+  if (window.ServerLoading && window.ServerLoading.instance.openJumpTipsBtn) {
+    window.ServerLoading.instance.openJumpTipsBtn(sdkInitRes.isShowSdkAge, sdkInitRes.sdk_age_adaptation_icon, sdkInitRes.sdk_age_adaptation_content, sdkInitRes.coordinate_x, sdkInitRes.coordinate_y)
+  }
 }
 window.youYiCofig = null;
 window.initComplete = function () {
@@ -538,6 +546,7 @@ window.reqPkgOptionsCallBack = function (data) {
     for (var k in data.data) {
       PF_INFO[k] = data.data[k];
     }
+	window.setFillter();
   } else {
     window.toErrorAlarm(11, 'Common.get_option_pkg failed');
     console.info("reqPkgOptionsCallBack " + data.state);
@@ -546,6 +555,22 @@ window.reqPkgOptionsCallBack = function (data) {
   window.enterToGame();
 }
 
+//设置滤镜
+window.setFillter = function() {
+  var isFillter = PF_INFO.wxShield || (PF_INFO.fillter_tm_pkg && PF_INFO.fillter_tm_pkg > 0);//审核状态 或 非审核状态下设置了显示滤镜时长
+  if (isFillter) {
+    var color = PF_INFO.fillter_ui_pkg;
+    var isColor = color && color.length == 9;
+    if (isColor) {
+      window["ShieldColor"] = color;//格式：#RBGA
+    }
+    var noise = PF_INFO.fillter_mosaic_pkg;
+    var isNoise = noise && noise.split("#").length == 4;
+    if (isNoise) {
+      window["ShieldNoise"] = noise; //格式：随机数(0~100) # 透明度(0~1) # 马赛克宽 # 马赛克高
+    }
+  }
+}
 
 window.toPay = function (roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback, appleprd_id) {
   productId = String(productId)
@@ -674,8 +699,8 @@ window.toRealName = function (callback) {
 }
 
 //调起分享
-window.openShare = function (callback) {
-  AKSDK.share('share', function (data) {
+window.openShare = function (callback, cardid) {
+  AKSDK.share('share', {activity_id: cardid},function (data) {
     callback && callback(data);
   });
 }
@@ -1078,10 +1103,13 @@ window.req_privacy = function(pkgName, callback) {
 window.get_status = function (server) {
   if (server) {
     if (server.status == 1) {
-      if (server.online_status == 1)
+      if (server.online_status == 3) {
+        return 3;
+      } else if (server.online_status == 1) {
         return 2;
-      else
+      } else {
         return 1;
+      }
     } else if (server.status == 0) {
       return 0;
     } else {
@@ -1247,6 +1275,7 @@ window.enterToGame = function () {
         debugUsers: window.PF_INFO.debugUsers,
         wxMenuTop: top,
         wxShield: window.PF_INFO.wxShield,
+        wx_channel: window.PF_INFO.wx_channel,
       };
 
       if (window.pkgOptions) {
@@ -1261,4 +1290,18 @@ window.enterToGame = function () {
   } else {
     console.info("【登录】loadProbPkg:" + window.loadProbPkg + ",loadMainPkg:" + window.loadMainPkg + ",loadServerRes:" + window.loadServerRes + ",loadLoadingRes:" + window.loadLoadingRes + ",loadVersion:" + window.loadVersion + ",loadServer:" + window.loadServer + ",isCheckBan:" + window.isCheckBan + ",loadOption:" + window.loadOption);
   }
+}
+
+window.setQrCodeView = function(obj){
+  if(!window.window_WinMgr){
+    console.error("游戏未初始化")
+    return;
+  }
+ var show = obj.show;
+ if(show == 1){
+     window.window_WinMgr.open(8999,obj)     
+ }
+ else{
+   window.window_WinMgr.close(8999)
+ }
 }

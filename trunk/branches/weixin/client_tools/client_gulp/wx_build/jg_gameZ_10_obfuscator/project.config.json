@@ -27,8 +27,9 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useIsolateContext": false,
-    "userConfirmedUseIsolateContext": true,
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "userConfirmedUseIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -36,7 +37,6 @@
     "disableUseStrict": false,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true,
     "useStaticServer": true
   },
   "compileType": "game",

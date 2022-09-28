@@ -3,7 +3,7 @@ var config = {
     game_id: '256', //九歌行--天枢服--官方
     game_pkg: 'tjqy_jgxxyx_AF',
     partner_id: '19',
-    game_ver: '2.0.179',  //B包为2.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '2.0.233',  //B包为2.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false,  //授权登录
     from: null, //来源
     tmpId: {1:'EINuK1ZxS2r8DUPVqymQs_JbjT6nV5o_bo-wc67bbs8', 2:'JJ3T3yUyMvF_XfMKx3fFEPYJV8iZHI4M8Do5ddeN7sM', 3:'snQEtMujGdKT78ppl6C_k6z2Tzvp3W-2E_Tr02w2pB0'},  // 订阅的类型 和 模板id
@@ -22,6 +22,10 @@ var this_order_id = null;
 var checkHandler = null;
 var loginHandler = null;
 var requestCallback = false;
+
+var ad_info = null;
+
+var  develop = 0;
 
 function mainSDK() {
     var callbacks = {};
@@ -84,22 +88,63 @@ function mainSDK() {
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
             var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
+            var cp_activity_id  = info.query && info.query.cp_activity_id ? info.query.cp_activity_id : '';
 
             if(invite){
                 user_invite_info = {
                     invite: invite,
                     invite_type: invite_type,
                     is_new: is_new,
-                    scene: scene
+                    scene: scene,
+                    cp_activity_id: cp_activity_id
                 };
             }
 
             //判断版本号
             if(game_ver){
                 this.checkGameVersion(game_ver, function (data) {
+                    develop = data.develop;
                     callback && callback(data);
                 });
             }
+
+            ad_info = {
+                "temp_info":info,
+                "temp_uuid":uuid,
+                "temp_is_new":is_new,
+            }
+        },
+
+        adLog:function (openid){
+            //发送启动参数
+            var info = ad_info.temp_info;
+            var is_new = ad_info.temp_is_new;
+            var uuid = ad_info.temp_uuid;
+            if(info.query.hasOwnProperty('ad_code')&&info.query.hasOwnProperty('clue_token') && is_new){
+                var temp_data = info.query;
+                temp_data['uuid'] = uuid;
+                temp_data['openid'] = openid;
+                var url = 'https://adapi.sh9130.com/click/?ac=jrttWxMiniGameClick&'+this.convertObj(temp_data);
+                console.log("发送url:"+url);
+                wx.request({
+                    url: url,
+                });
+            }
+        },
+
+        convertObj:function(data) {
+            var _result = [];
+            for (var key in data) {
+                var value = data[key];
+                if (value.constructor == Array) {
+                    value.forEach(function(_value) {
+                        _result.push(key + "=" + _value);
+                    });
+                } else {
+                    _result.push(key + '=' + value);
+                }
+            }
+            return _result.join('&');
         },
 
         //登录接口
@@ -107,7 +152,7 @@ function mainSDK() {
             console.log("[SDK]调起登录");
             var self = this;
             callbacks['login'] = typeof callback == 'function' ? callback : null;
-            
+
             //授权登录
             if(config.is_auth){
                 wx.getSetting({
@@ -210,6 +255,11 @@ function mainSDK() {
                                             if(res.statusCode == 200){
                                                 var data = res.data;
                                                 if(data.state){
+                                                    var launchInfo = wx.getStorageSync('info');
+                                                    var wx_channel = 0;
+                                                    if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
+                                                        wx_channel = 1;
+                                                    }
                                                     var userData = {
                                                         userid: data.data.user_id,
                                                         account: data.data.nick_name,
@@ -220,8 +270,13 @@ function mainSDK() {
                                                         head_img: data.data.head_img || '',
                                                         is_client: data.data.is_client || '0',
                                                         ios_pay: data.data.ios_pay || '0',
-
+                                                        wx_channel:wx_channel,
                                                     };
+                                                    try{
+                                                        self.adLog(data.data.openid);
+                                                    } catch (e) {
+                                                        console.log("上报广告数据:"+JSON.stringify(e));
+                                                    }
                                                     try {
                                                         wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
                                                         wx.setStorageSync('plat_uid', data.data.user_id);
@@ -229,6 +284,7 @@ function mainSDK() {
                                                         if(data.data.ext){
                                                             wx.setStorageSync('plat_session_key', data.data.ext);
                                                         }
+                                                        wx.setStorageSync('navigate_app_id', data.data.navigate_app_id);
                                                     } catch (e) {
                                                     }
 
@@ -282,6 +338,11 @@ function mainSDK() {
                                     if(res.statusCode == 200){
                                         var data = res.data;
                                         if(data.state){
+                                            var launchInfo = wx.getStorageSync('info');
+                                            var wx_channel = 0;
+                                            if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
+                                                wx_channel = 1;
+                                            }
                                             var userData = {
                                                 userid: data.data.user_id,
                                                 account: data.data.nick_name,
@@ -292,8 +353,13 @@ function mainSDK() {
                                                 head_img: data.data.head_img || '',
                                                 is_client: data.data.is_client || '0',
                                                 ios_pay: data.data.ios_pay || '0',
-
+                                                wx_channel:wx_channel,
                                             };
+                                            try{
+                                                self.adLog(data.data.openid);
+                                            } catch (e) {
+                                                console.log("上报广告数据:"+JSON.stringify(e));
+                                            }
                                             try {
                                                 wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
                                                 wx.setStorageSync('plat_uid', data.data.user_id);
@@ -301,6 +367,7 @@ function mainSDK() {
                                                 if(data.data.ext){
                                                     wx.setStorageSync('plat_session_key', data.data.ext);
                                                 }
+                                                wx.setStorageSync('navigate_app_id', data.data.navigate_app_id);
                                             } catch (e) {
                                             }
 
@@ -366,10 +433,13 @@ function mainSDK() {
         share: function (data) {
             callbacks['share'] = typeof callback == 'function' ? callback : null;
             var type = data.type || 'share';
+            var cp_activity_id = data.cp_activity_id || '';
             console.log("[SDK]CP调用分享 type=" + type);
             var self = this;
             this.getShareInfo(type, function (data) {
-
+                if(cp_activity_id !='' && data.query != ''){
+                    data.query = data.query + '&cp_activity_id='+ cp_activity_id;
+                }
                 //记录开始分享
                 self.logStartShare(type);
                 wx.shareAppMessage({
@@ -527,7 +597,7 @@ function mainSDK() {
             console.log("[SDK]查看文本是否有违规内容");
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             wx.request({
-                url: 'https://' + HOST + '/game/min/?ac=msgSecCheck',
+                url: 'https://' + HOST + '/game/min/?ac=msgSecCheck3',
                 method: 'POST',
                 dataType: 'json',
                 header: {
@@ -542,7 +612,21 @@ function mainSDK() {
                 success: function (res) {
                     console.log("[SDK]查看文本是否有违规内容结果返回:");
                     console.log(res);
-                    callback && callback(res);
+                    var ret = {};
+                    ret.data = {};
+                    if(res.data.state == 1){
+                        ret.statusCode = 200;
+                        ret.data.state = 1;
+                    }else{
+                        ret.statusCode = 0;
+                        ret.data.state = 0;
+                    }
+                    if(develop == 0 && res.data.state == 0 && res.data.code == 61010){
+                        ret.statusCode = 200;
+                        ret.data.state = 1;
+                    }
+                    console.log(res);
+                    callback && callback(ret);
                 }
             });
         },
@@ -636,6 +720,8 @@ function mainSDK() {
                                             self.kfPay(data.data);
                                         }else if(data.data.ios_pay_type == 2){
                                             self.xiaoPay(data.data);
+                                        }else if(data.data.ios_pay_type == 3){
+                                            self.wechatscancode(order_data,data.data);
                                         }
 
                                     }else{
@@ -658,6 +744,54 @@ function mainSDK() {
                     }
                 }
             });
+        },
+        wechatscancode:function(order_data,data){
+            var url = 'https://'+HOST+'/pay/pay/?order_id='+data.orderId+'&pay_channel=wechatscancode&json=1';
+            wx.request({
+                url: url,
+                method: 'GET',
+                success:function(res){
+                    var temp_data = res.data.data;
+                    var url1 = temp_data.replace('sdk.fante.com',HOST).replace('ac=qrcode','ac=qrcodeImg');
+                    console.log("微信二维码"+JSON.stringify(res.data.data));
+                    wx.request({
+                        url: url1,
+                        method: 'GET',
+                        success:function(res1){
+                            console.log("图片base64地址:"+JSON.stringify(res1.data.data));
+                            if(window.setQrCodeView){
+                                var timer = '';
+                                window.setQrCodeView({state:1,payName:order_data.productname,show:1,moneyNum:order_data.price,qrCodeUrl:res1.data.data,callback:(data11)=>{
+                                        console.log("弹框打开情况:",data11);
+                                        if(data11==1){
+                                            timer = setInterval(function(){
+                                                var url22 = 'https://'+HOST+'/pay/check/?order_id='+data.orderId;
+                                                wx.request({
+                                                    url: url22,
+                                                    method: 'GET',
+                                                    success:function(res2){
+                                                        if(res2.data.state == 1){
+                                                            clearInterval(timer);
+                                                            window.setQrCodeView({state:2,payName:order_data.productname,show:1,moneyNum:order_data.price,qrCodeUrl:res1.data.data})
+                                                        }
+                                                    }
+                                                })
+                                            },2000);
+                                        }
+                                        if(data11 == 0){
+                                            if(timer != ''){
+                                                clearInterval(timer);
+                                            }
+                                        }
+                                    }})
+
+                            }
+
+                        }
+                    })
+
+                }
+            })
         },
         xiaoPay: function(data){
             var self = this;
@@ -834,6 +968,38 @@ function mainSDK() {
             }
 
             this.log('create', postData);
+
+        },
+        getInviter: function (user_invite_info, role_id, server_id) {
+            console.log("[SDK]创角成功获取邀请者信息返回研发");
+            var sdk_token = wx.getStorageSync('plat_sdk_token');
+            wx.request({
+                url: 'https://' + HOST + '/game/min/?ac=getInviterByCode',
+                method: 'POST',
+                dataType: 'json',
+                header: {
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                data: {
+                    game_pkg: config.game_pkg,
+                    partner_id: config.partner_id,
+                    sdk_token: sdk_token,
+                    invite: user_invite_info.invite,
+                    invite_type: user_invite_info.invite_type,
+                    is_new: user_invite_info.is_new,
+                    scene: user_invite_info.scene,
+                    cp_activity_id: user_invite_info.cp_activity_id,
+                    role_id: role_id,
+                    server_id: server_id,
+                    openid: wx.getStorageSync('partner_openid'),
+                    uid:wx.getStorageSync('plat_uid'),
+                    game_id:config.game_id,
+                },
+                success: function (res) {
+                    console.log("[SDK]getInviter结果返回:");
+                    console.log(res.data.data);
+                }
+            });
         },
 
         //进入游戏
@@ -862,6 +1028,9 @@ function mainSDK() {
             //进入游戏确认邀请成功
             if(user_invite_info){
                 this.updateShare(user_invite_info.invite, user_invite_info.invite_type, user_invite_info.is_new, data.roleid, data.serverid, user_invite_info.scene);
+            }
+            if (user_invite_info && user_invite_info.cp_activity_id != '') {
+                this.getInviter(user_invite_info, data.roleid, data.serverid);
             }
         },
 
@@ -920,6 +1089,11 @@ function mainSDK() {
             var uuid = wx.getStorageSync('plat_uuid');
             var idfv = wx.getStorageSync('plat_idfv');
             var ad_code = wx.getStorageSync('plat_ad_code');
+            var launchInfo = wx.getStorageSync('info');
+            if(!launchInfo) {
+                launchInfo = wx.getLaunchOptionsSync();
+                wx.setStorageSync('info', launchInfo);
+            }
 
             return {
                 game_id: config.game_id,
@@ -935,6 +1109,8 @@ function mainSDK() {
                 sdk_ver: system.version,//存放的是微信版本号
                 game_ver: config.game_ver,//存放的是SDK版本号
                 device: system.platform == 'android' ? 1 : 2,
+                scene: launchInfo.scene,
+                query: JSON.stringify(launchInfo.query)
             };
         },
         subscribeWhatsNew:function (type,callback){
@@ -1005,8 +1181,8 @@ function mainSDK() {
                     console.log(res);
                     callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
                 }
-              })
-        }, 
+            })
+        },
 
         // 微端小助手
         weiduanHelper: function() {
@@ -1064,11 +1240,14 @@ exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleL
     };
     run('logRoleUpLevel', data);
 };
-exports.share = function (type) {
-    var data = {
-        type: type
+exports.share = function (type,data) {
+    var cp_activity_id = data && data.activity_id ? data.activity_id : '';
+
+    var params = {
+        type: type,
+        cp_activity_id:cp_activity_id
     };
-    run('share', data);
+    run('share', params);
 };
 exports.msgCheck = function (data, callback) {
     run('msgCheck', data, callback);

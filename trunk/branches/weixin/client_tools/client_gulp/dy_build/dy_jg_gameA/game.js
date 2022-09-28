@@ -122,5 +122,10 @@ tt.onShow(function (res) {
         tt.onShowData = null;
     }
 })
-
+wx.onHide(function(){
+  console.info("小游戏进入后台");
+  if (wx.onHideCallBack) {
+    wx.onHideCallBack();
+}
+});
 loadLibs();

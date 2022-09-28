@@ -4,7 +4,7 @@ var config = {
     game_pkg: 'tjqy_tjqydyxyx_KI',
     partner_label: 'douyinxyx',
     partner_id: '502',
-    game_ver: '1.0.5',
+    game_ver: '1.0.27',
     is_auth: false, //授权登录
 
 };
@@ -459,6 +459,8 @@ function mainSDK() {
             var self = this;
             var session_key = wx.getStorageSync('plat_session_key');
             cpData['openid'] = partner_user_info.openid;
+            cpData['type'] = 1;
+            cpData['order_id'] = androidData['customId']
             wx.request({
                 url: 'https://' + HOST + '/partner/pay/' + config.partner_id + '/' + config.game_pkg + '/',
                 method: 'POST',

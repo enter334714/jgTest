@@ -1,5 +1,5 @@
 {
-    "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+    "description": "项目配置文件。",
     "setting": {
         "urlCheck": true,
         "es6": false,
@@ -37,12 +37,11 @@
         "disableUseStrict": false,
         "showES6CompileOption": false,
         "useCompilerPlugins": false,
-        "useStaticServer": true,
         "ignoreUploadUnusedFiles": true
     },
     "compileType": "game",
-    "libVersion": "2.24.0",
-    "appid": "wx0bb448d0defa3966",
+    "libVersion": "2.25.3",
+    "appid": "wx8c19d9fd63810cde",
     "projectname": "legend",
     "condition": {},
     "packOptions": {

@@ -297,6 +297,13 @@ wx.onShow(function (res) {
   }
 })
 
+wx.onHide(function(){
+  console.info("小游戏进入后台");
+  if (wx.onHideCallBack) {
+    wx.onHideCallBack();
+}
+});
+
 // 内存警告相关，基础库 2.0.2 开始支持
 window.memoryGCTime = 0;
 window.memoryWarningNum = 0;

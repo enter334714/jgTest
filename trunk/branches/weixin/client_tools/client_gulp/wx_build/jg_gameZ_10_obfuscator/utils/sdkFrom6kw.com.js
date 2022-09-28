@@ -4,9 +4,9 @@ var config6kw = {
   url: 'https://usmini.6kw.com/',
   channel: 0,
   sdkChannelID: 34,
-  subChannelID: 0,
+  subChannelID: "0",
   appID: "1283",
-  appKey: 'aa42d2fa55939ad62b0cbbd10034f78c',
+
   urlParam: '',
   switch: 1
 };
@@ -386,7 +386,9 @@ function sdk6kw() {
                   self.showTips('支付成功');
                   callbacks['pay'] && callbacks['pay'](1, payData.data);
                 } else {
-                  self.showTips('支付失败' + payData.msg);
+                  if (payData.msg.indexOf('取消') == -1) {
+                    self.showTips('支付失败' + payData.msg);
+                  }
                   callbacks['pay'] && callbacks['pay'](0, { errMsg: "支付失败:" + payData.msg });
                 }
               }
@@ -401,7 +403,9 @@ function sdk6kw() {
                   self.showTips('支付成功');
                   callbacks['pay'] && callbacks['pay'](1, payData.data);
                 } else {
-                  self.showTips('支付失败' + payData.msg);
+                  if (payData.msg.indexOf('取消') == -1) {
+                    self.showTips('支付失败' + payData.msg);
+                  }
                   callbacks['pay'] && callbacks['pay'](0, { errMsg: "支付失败:" + payData.msg });
                 }
               }
@@ -411,7 +415,9 @@ function sdk6kw() {
               if (JSON.stringify(error) == "{}") {
                 return;
               }
-              self.showTips('支付失败' + error.errMsg);
+              if (payData.msg.indexOf('取消') == -1) {
+                self.showTips('支付失败' + payData.msg);
+              }
               callbacks['pay'] && callbacks['pay'](0, { errMsg: "支付失败:" + error.errMsg });
             });
           }
@@ -666,6 +672,42 @@ function sdk6kw() {
         }
       });
     },
+    openCustomerWithClientChange() {
+      var self = this;
+      var allInfo = self.getPublicData();
+      var clientChangeInfo = {
+        path: 'kf/' + config6kw.urlParam,
+        data: {
+          type: "clientChange",
+          userID: wx.getStorageSync('wxg6kw_userId'),
+          token: wx.getStorageSync('wxg6kw_token'),
+          openId: wx.getStorageSync('wxg6kw_openid'),
+          channel: allInfo.sdk6kwLaunchOptions.query.channel
+        }
+      };
+      request6kwFunction(clientChangeInfo).then(res => {
+        console.log("response Object %o", res);
+        if (res.data.code == 1) {
+          wx.openCustomerServiceConversation({
+            showMessageCard: true,
+            sendMessageTitle: res.data.data.title,
+            sendMessageImg: res.data.data.img,
+            sessionFrom: JSON.stringify(res.data.data.sessionFrom), //字符串格式
+            success: function () {
+              console.log("[SDK]通知结果");
+              console.log(ret);
+            },
+            fail: function (res) {
+              console.log(res);
+            }
+          });
+        } else {
+          console.log('[SDK]登录失败：' + JSON.stringify(res.data));
+          callbacks['init'] && callbacks['init'](0, { errMsg: res.data.msg });
+          callbacks['login'] && callbacks['login'](0, { errMsg: res.data.msg });
+        }
+      });
+    },
     base64_encode(str) {
       // 编码，配合encodeURIComponent使用
       var c1, c2, c3;
@@ -749,4 +791,7 @@ exports.getPayState = function (data, callback) {
 };
 exports.msgSecCheck = function (options) {
   sdk6kwRun('msgSecCheck', options);
+};
+exports.openCustomerWithClientChange = function () {
+  sdk6kwRun('openCustomerWithClientChange');
 };

@@ -1,4 +1,4 @@
-window.pjsdk = function () {
+﻿window.pjsdk = function () {
 	return {
 		//初始化SDK
 		initSdk: function (channelGameId, channel, appVersion, platformType) {
@@ -298,20 +298,20 @@ window.pjsdk = function () {
 			if (!window.pjsdk.logoUrl) {
 				return;
 			}
-			var ape = new Laya.Sprite();
+			var ape = new Laya.Image();
 			var logoDefHeight = 100;
 			var logoWidth = 90;
 			//拖动限制区域
 			var dragRegion = new Laya.Rectangle(0, 0, stage.width, stage.height);
 			//加载logo
-			ape.loadImage(window.pjsdk.logoUrl,0,0,0,0, Laya.Handler.create(this, function () {
-				ape.zOder = 999999;
-				ape.pos(0, logoDefHeight);
-				stage.addChild(ape);
-				logoWidth = ape.width;
-				//隐藏悬浮球
-				hideFloat(-logoWidth / 2, logoDefHeight);
-			}));
+			ape.skin = window.pjsdk.logoUrl;
+			ape.zOder = 999999;
+			ape.pos(0, logoDefHeight);
+			ape.width=logoWidth;
+			stage.addChild(ape);
+			//隐藏悬浮球
+			hideFloat(-logoWidth / 2, logoDefHeight);
+
 			// 定义标志符
 			let isMouseEvent = false;
 			let targetElement = null;

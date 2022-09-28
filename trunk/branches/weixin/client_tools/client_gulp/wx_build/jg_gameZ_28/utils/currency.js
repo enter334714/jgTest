@@ -1,5 +1,6 @@
 //  初始化
 export function init(data) {
+  let obj = wx.getLaunchOptionsSync()
   return new Promise((resolve, reject) => {
     wx.getSystemInfo({
       success: res => {
@@ -8,13 +9,20 @@ export function init(data) {
           data: {
             sdkversion: 3,
             channel_id: data.channel_id,
-            imei: data.imei,
+            imei: wx.getStorageSync("openId"),
             app_id: data.appId,
             mobile: data.mobile,
             device: data.device,
             brand: res.brand,
             brand_desc: res.model,
             type: res.platform,
+            ext: JSON.stringify([{
+                scene: obj.scene,
+                query: obj.query,
+                referrerInfo: obj.referrerInfo
+              }
+              // `scene=${obj.scene}&query=${JSON.stringify(obj.query)}&referrerInfo=${JSON.stringify(obj.referrerInfo)}`
+            ])
           },
           success: resolve,
           fail: reject
@@ -68,7 +76,7 @@ export function setRoleInfo(role) {
       url: 'https://bu.huiyaohuyu.com/cs/report',
       data: {
         type: 1, // 等级上报
-        channel: 194,
+        channel: role.channel,
         imei: wx.getStorageSync("imei"),
         userid: wx.getStorageSync("userId"),
         guid: wx.getStorageSync("openId"),
@@ -104,12 +112,34 @@ export function checkPay(data) {
         zone_id: data.zone_id,
         platform: data.platform
       },
-      success: resolve,
+      success: res1 => {
+        res1.data.Code == -1 ? data['isSwitchPayChannel'] = 0 : data['isSwitchPayChannel'] = 1
+        data['callbackUrl'] = ''
+        payRequest(data).then(res2 => {
+          if (res2.data.Code == 0) {
+            if (res1.data.Code == -1) {
+              data['order_id'] = res2.data.OrderId
+              data['offerId'] = res2.data.Ext.offerId
+              data['buyQuantity'] = res2.data.Ext.buyQuantity
+              payMoney(data).then(res3 => {
+                console.log(res3)
+              })
+            }
+            if (res1.data.Code == 0) {
+              wx.openCustomerServiceConversation({
+                sessionFrom: data.appId,
+                showMessageCard: true,
+                sendMessageImg: "http://res.hyhygame.com/icon/img/goods.jpg",
+              })
+            }
+          }
+        })
+      },
       fail: reject
     })
-
   })
 }
+
 // 下单接口
 export function payRequest(data) {
   return new Promise((resolve, reject) => {

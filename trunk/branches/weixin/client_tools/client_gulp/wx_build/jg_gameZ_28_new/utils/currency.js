@@ -1,164 +1,41 @@
-//  初始化
-export function init(data) {
-  return new Promise((resolve, reject) => {
-    wx.getSystemInfo({
-      success: res => {
-        wx.request({
-          url: 'https://api.huiyaohuyu.com/hy/init',
-          data: {
-            sdkversion: 3,
-            channel_id: data.channel_id,
-            imei: data.imei,
-            app_id: data.appId,
-            mobile: data.mobile,
-            device: data.device,
-            brand: res.brand,
-            brand_desc: res.model,
-            type: res.platform
-          },
-          success: resolve,
-          fail: reject
+function init(a) {
+  let o = wx.getLaunchOptionsSync();return new Promise((n, t) => {
+    wx.getSystemInfo({ success: e => {
+        wx.request({ url: "https://api.huiyaohuyu.com/hy/init", data: { sdkversion: 3, channel_id: a.channel_id, imei: wx.getStorageSync("openId"), app_id: a.appId, mobile: a.mobile, device: a.device, brand: e.brand, brand_desc: e.model, type: e.platform, ext: JSON.stringify([{ scene: o.scene, query: o.query, referrerInfo: o.referrerInfo }]) }, success: n, fail: t });
+      } });
+  });
+}function getOpenId(a) {
+  return new Promise((n, t) => {
+    wx.login({ success: e => {
+        wx.request({ url: "https://api.huiyaohuyu.com/minigame/getOpenid", data: { code: e.code, app_id: a }, success: n, fail: t });
+      } });
+  });
+}function userLogin(t) {
+  return new Promise((e, n) => {
+    wx.request({ url: "https://u9php.huiyaohuyu.com/login/loginRequest", data: { aid: "0", channelId: t.channel_id, token: wx.getStorageSync("session_key"), ProductId: t.appId, ChannelUserId: wx.getStorageSync("openId"), DeviceId: wx.getStorageSync("device") }, success: e, fail: n });
+  });
+}function setRoleInfo(t) {
+  return new Promise((e, n) => {
+    wx.request({ url: "https://bu.huiyaohuyu.com/cs/report", data: { type: 1, channel: t.channel, imei: wx.getStorageSync("imei"), userid: wx.getStorageSync("userId"), guid: wx.getStorageSync("openId"), app: t.appId, zone_id: t.zone_id, zone_name: t.zone_name, role_id: t.role_id, role_name: t.role_name, role_level: t.role_level, vip: t.vip, party_name: t.party_name, left_coin: t.left_coin, is_role_create: t.is_role_create }, success: e, fail: n });
+  });
+}function checkPay(t) {
+  return new Promise((e, n) => {
+    wx.request({ url: "https://u9php.huiyaohuyu.com/u9/checkPay", method: "GET", data: { total_fee: t.total_fee, u9uid: wx.getStorageSync("userId"), app: t.appId, channel: t.channel_id, role_id: t.role_id, zone_id: t.zone_id, platform: t.platform }, success: n => {
+        -1 == n.data.Code ? t.isSwitchPayChannel = 0 : t.isSwitchPayChannel = 1, t.callbackUrl = "", payRequest(t).then(e => {
+          0 == e.data.Code && (-1 == n.data.Code && (t.order_id = e.data.OrderId, t.offerId = e.data.Ext.offerId, t.buyQuantity = e.data.Ext.buyQuantity, payMoney(t).then(e => {
+            console.log(e);
+          })), 0 == n.data.Code && wx.openCustomerServiceConversation({ sessionFrom: t.appId, showMessageCard: !0, sendMessageImg: "http://res.hyhygame.com/icon/img/goods.jpg" }));
         });
-      }
-    });
+      }, fail: n });
   });
-}
-// 获取openid
-export function getOpenId(appId) {
-  return new Promise((resolve, reject) => {
-    wx.login({
-      success: res => {
-        // 调用接口发送code给后端调用返回一个
-        wx.request({
-          url: 'https://api.huiyaohuyu.com/minigame/getOpenid',
-          data: {
-            code: res.code,
-            app_id: appId
-          },
-          success: resolve,
-          fail: reject
-        });
-      }
-    });
+}function payRequest(t) {
+  return new Promise((e, n) => {
+    wx.request({ url: "https://u9php.huiyaohuyu.com/payRequest/payRequest", data: { ProductId: t.appId, ChannelId: t.channel_id, UserId: wx.getStorageSync("userId"), ProductOrderId: t.productOrderId, Amount: t.amount, IsSwitchPayChannel: t.isSwitchPayChannel, CallbackUrl: t.callbackUrl, Ext: t.ext, AppExt: t.appExt, DeviceId: wx.getStorageSync("device"), zone_name: t.zone_name, zone_id: t.zone_id, role_id: t.role_id }, success: e, fail: n });
   });
-}
-// 登录
-export function userLogin(data) {
-  return new Promise((resolve, reject) => {
-    wx.request({
-      url: 'https://u9php.huiyaohuyu.com/login/loginRequest',
-      data: {
-        aid: "0",
-        channelId: data.channel_id,
-        token: wx.getStorageSync("session_key"),
-        ProductId: data.appId,
-        ChannelUserId: wx.getStorageSync("openId"),
-        DeviceId: wx.getStorageSync("device")
-      },
-      success: resolve,
-      fail: reject
-    });
+}function payMoney(a) {
+  return new Promise((n, t) => {
+    wx.requestMidasPayment({ mode: "game", offerId: a.offerId, currencyType: "CNY", buyQuantity: a.buyQuantity, env: a.env, platform: a.platform, success: e => {
+        wx.request({ url: "https://u9php.huiyaohuyu.com/payNotify/channelPayNotify/" + a.appId + "/" + a.channel_id, method: "POST", data: { order_id: a.order_id, openid: wx.getStorageSync("openId"), amount: a.amount, debug: a.env }, success: n, fail: t });
+      } });
   });
-}
-
-// 角色上报
-export function setRoleInfo(role) {
-  return new Promise((resolve, reject) => {
-    wx.request({
-      url: 'https://bu.huiyaohuyu.com/cs/report',
-      data: {
-        type: 1, // 等级上报
-        channel: 194,
-        imei: wx.getStorageSync("imei"),
-        userid: wx.getStorageSync("userId"),
-        guid: wx.getStorageSync("openId"),
-        app: role.appId,
-        zone_id: role.zone_id,
-        zone_name: role.zone_name,
-        role_id: role.role_id,
-        role_name: role.role_name,
-        role_level: role.role_level,
-        vip: role.vip,
-        party_name: role.party_name,
-        left_coin: role.left_coin,
-        is_role_create: role.is_role_create
-      },
-      success: resolve,
-      fail: reject
-    });
-  });
-}
-
-// 切支付判断
-export function checkPay(data) {
-  return new Promise((resolve, reject) => {
-    wx.request({
-      url: 'https://u9php.huiyaohuyu.com/u9/checkPay',
-      method: "GET",
-      data: {
-        total_fee: data.total_fee,
-        u9uid: wx.getStorageSync('userId'),
-        app: data.appId,
-        channel: data.channel_id,
-        role_id: data.role_id,
-        zone_id: data.zone_id,
-        platform: data.platform
-      },
-      success: resolve,
-      fail: reject
-    });
-  });
-}
-// 下单接口
-export function payRequest(data) {
-  return new Promise((resolve, reject) => {
-    wx.request({
-      url: 'https://u9php.huiyaohuyu.com/payRequest/payRequest',
-      data: {
-        ProductId: data.appId,
-        ChannelId: data.channel_id,
-        UserId: wx.getStorageSync('userId'),
-        ProductOrderId: data.productOrderId,
-        Amount: data.amount,
-        IsSwitchPayChannel: data.isSwitchPayChannel,
-        CallbackUrl: data.callbackUrl,
-        Ext: data.ext,
-        AppExt: data.appExt,
-        DeviceId: wx.getStorageSync('device'),
-        zone_name: data.zone_name,
-        zone_id: data.zone_id,
-        role_id: data.role_id
-      },
-      success: resolve,
-      fail: reject
-    });
-  });
-}
-// 支付
-export function payMoney(data) {
-  return new Promise((resolve, reject) => {
-    wx.requestMidasPayment({
-      mode: "game",
-      offerId: data.offerId, //在米大师侧申请的应用 id
-      currencyType: "CNY",
-      buyQuantity: data.buyQuantity,
-      env: data.env,
-      platform: data.platform,
-      success: res => {
-        // 成功调用
-        wx.request({
-          url: 'https://u9php.huiyaohuyu.com/payNotify/channelPayNotify/' + data.appId + "/" + data.channel_id,
-          method: "POST",
-          data: {
-            order_id: data.order_id,
-            openid: wx.getStorageSync('openId'),
-            amount: data.amount,
-            debug: data.env
-          },
-          success: resolve,
-          fail: reject
-        });
-      }
-    });
-  });
-}
+}export { init, getOpenId, userLogin, setRoleInfo, checkPay, payRequest, payMoney };

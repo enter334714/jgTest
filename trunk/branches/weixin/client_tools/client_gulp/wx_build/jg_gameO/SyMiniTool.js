@@ -169,7 +169,7 @@ var MainController = /** @class */ (function () {
             }
         }
     };
-    MainController.prototype.show = function () {
+    MainController.prototype.show = function () {     
         if (this.tool.data.on === '1') {
             this.main = new ui.demoui.MainUI();
             Laya.stage.addChild(this.main);
@@ -185,9 +185,6 @@ var MainController = /** @class */ (function () {
             this.initEvent();
             this.initView();
             Toast.init();
-            Laya.stage.on(Laya.Event.CLICK,this,function(e){
-                console.log(e.target,e.currentTarget)
-            })
             this.main.bg.x = -750;
         }
     };
@@ -303,20 +300,42 @@ var MainController = /** @class */ (function () {
     };
     MainController.prototype.page1 = function () {
         this.page = 1;
-        this.main.bg.skin = this.tool.data.public_code; //Laya.loader.getRes(Global.getResMap(this.tool.data.public_code));
+        if(!MainController.prototype.page1Bg){
+            MainController.prototype.page1Bg = new Laya.Image(this.tool.data.public_code);
+            this.main.bg.addChildAt(MainController.prototype.page1Bg,0)
+        }
+        if(MainController.prototype.page1Bg) MainController.prototype.page1Bg.visible = true; 
+        if(MainController.prototype.page2Bg) MainController.prototype.page2Bg.visible = false; 
+        if(MainController.prototype.page3Bg) MainController.prototype.page3Bg.visible = false;       
+        //  this.main.bg.skin =  this.tool.data.public_code; //Laya.loader.getRes(Global.getResMap(this.tool.data.public_code));
         this.main.box_1_show.visible = true;
         this.main.box_2_show.visible = false;
         this.main.box_3_show.visible = false;
     };
     MainController.prototype.page2 = function () {
         this.page = 2;
-        this.main.bg.skin = this.tool.data.vip_customer_service; //Laya.loader.getRes(Global.getResMap(this.tool.data.vip_customer_service));
+        if(!MainController.prototype.page2Bg){
+            MainController.prototype.page2Bg = new Laya.Image(this.tool.data.vip_customer_service);
+            this.main.bg.addChildAt(MainController.prototype.page2Bg,0)
+        }
+        if(MainController.prototype.page1Bg) MainController.prototype.page1Bg.visible = false; 
+        if(MainController.prototype.page2Bg) MainController.prototype.page2Bg.visible = true; 
+        if(MainController.prototype.page3Bg) MainController.prototype.page3Bg.visible = false;    
+        // this.main.bg.skin = this.tool.data.vip_customer_service; //Laya.loader.getRes(Global.getResMap(this.tool.data.vip_customer_service));
         this.main.box_1_show.visible = false;
         this.main.box_2_show.visible = true;
         this.main.box_3_show.visible = false;
     };
     MainController.prototype.page3 = function () {
         this.page = 3;
+        if(!MainController.prototype.page3Bg){
+            MainController.prototype.page3Bg = new Laya.Image(this.tool.data.game_center_image_url);
+            this.main.bg.addChildAt(MainController.prototype.page3Bg,0)
+        }
+        if(MainController.prototype.page1Bg) MainController.prototype.page1Bg.visible = false; 
+        if(MainController.prototype.page2Bg) MainController.prototype.page2Bg.visible = false; 
+        if(MainController.prototype.page3Bg) MainController.prototype.page3Bg.visible = true;    
+        MainController.prototype.page1Bg.visible = false;
         this.main.bg.skin = this.tool.data.game_center_image_url; //Laya.loader.getRes(Global.getResMap(this.tool.data.game_center_image_url));
         this.main.box_1_show.visible = false;
         this.main.box_2_show.visible = false;

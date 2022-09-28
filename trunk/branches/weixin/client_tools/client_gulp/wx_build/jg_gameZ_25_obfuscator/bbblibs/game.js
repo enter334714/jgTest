@@ -1,1 +1,2 @@
-var _=wx.y$;require(_[30973]);
+var _ = wx.y$;
+require(_[38846]);

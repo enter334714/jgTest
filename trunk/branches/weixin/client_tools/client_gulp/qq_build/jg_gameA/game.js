@@ -1,4 +1,4 @@
-console.info("0 进入游戏包");
+﻿console.info("0 进入游戏包");
 
 var canvas = qq.wx_canvas = (qq.wx_canvas || qq.createCanvas()); 
 var gl = qq.wx_gl = canvas.getContext('webgl');
@@ -587,6 +587,7 @@ function qqmain() {
 
             if (status == 0 && data && data.token) {
                 PF_INFO.sdk_token = data.token;
+                PF_INFO.wx_channel = data.wx_channel;
                 WX_MAIN.wxShowLoading({ title: '正在验证账号' });
                 WX_MAIN.sendApi(PF_INFO.apiurl, 'User.login', {
                     'platform': PF_INFO.sdk_name,
@@ -624,6 +625,10 @@ function qqmain() {
                 WX_MAIN.toErrorAlarm(2, "User.login fail: state="+response.state);
                 WX_MAIN.reqRecordInfo("userLoginError", JSON.stringify(response));
                 WX_MAIN.loginAlert('User.login failed: ' + response.state);
+                return;
+            }
+            if (response.ban_state == 1) {
+                window.loginAlert("账号已被封禁！");
                 return;
             }
 
@@ -712,6 +717,8 @@ function qqmain() {
                 'entry_port': parseInt(response.data[0].entry_port),
                 'status': WX_MAIN.get_status(response.data[0]),
                 'start_time': response.data[0].start_time,
+                'maintain_time': response.data[0].maintain_time ? response.data[0].maintain_time : "",
+                'is_recommend': response.data[0].is_recommend,
                 'cdn': PF_INFO.cdn,
             }
             
@@ -725,10 +732,13 @@ function qqmain() {
         get_status: function(server) {
             if (server) {
                 if (server.status == 1) {
-                    if (server.online_status == 1)
+                    if (server.online_status == 3) {
+                        return 3;
+                    } else if (server.online_status == 1) {
                         return 2;
-                    else
+                    } else {
                         return 1;
+                    }
                 } else if (server.status == 0) {
                     return 0;
                 } else {
@@ -765,6 +775,11 @@ function qqmain() {
         }
     }
 }
-
+qq.onHide(function(){
+  console.info("小游戏进入后台");
+  if (qq.onHideCallBack) {
+    qq.onHideCallBack();
+}
+});
 WX_MAIN.sdkInit();
 WX_MAIN.loadLibs();

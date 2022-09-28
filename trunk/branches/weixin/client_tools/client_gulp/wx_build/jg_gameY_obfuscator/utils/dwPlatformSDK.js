@@ -276,13 +276,13 @@ var a = wx.$y;
             l = 6 == t,
             p = 7 == t,
             d = 5 == t || l;return function (h, v, y, g) {
-          for (var _, m, S = i(h), x = o(S), w = n(v, y, 3), b = a(x.length), k = 0, I = g || c, O = e ? I(h, b) : r || p ? I(h, 0) : void 0; b > k; k++) if ((d || k in x) && (m = w(_ = x[k], k, S), t)) if (e) O[k] = m;else if (m) switch (t) {case 3:
+          for (var _, m, S = i(h), x = o(S), w = n(v, y, 3), b = a(x.length), k = 0, I = g || c, P = e ? I(h, b) : r || p ? I(h, 0) : void 0; b > k; k++) if ((d || k in x) && (m = w(_ = x[k], k, S), t)) if (e) P[k] = m;else if (m) switch (t) {case 3:
               return !0;case 5:
               return _;case 6:
               return k;case 2:
-              s.call(O, _);} else switch (t) {case 4:
+              s.call(P, _);} else switch (t) {case 4:
               return !1;case 7:
-              s.call(O, _);}return l ? -1 : u || f ? f : O;
+              s.call(P, _);}return l ? -1 : u || f ? f : P;
         };
       };t.exports = { forEach: u(0), map: u(1), filter: u(2), some: u(3), every: u(4), find: u(5), findIndex: u(6), filterReject: u(7) };
     }, 568: function (t, e, r) {
@@ -580,8 +580,8 @@ var a = wx.$y;
           k = function () {
         return this;
       };t.exports = function (t, e, r, i, d, v, I) {
-        c(r, e, i);var O,
-            P,
+        c(r, e, i);var P,
+            O,
             A,
             E = function (t) {
           if (t === d && T) return T;if (!m && t in R) return R[t];switch (t) {case x:case w:case b:
@@ -596,9 +596,9 @@ var a = wx.$y;
             R = t.prototype,
             D = R[S] || R["@@iterator"] || d && R[d],
             T = !m && D || E(d),
-            j = "Array" == e && R.entries || D;if (j && (O = s(j.call(new t()))) !== Object.prototype && O.next && (o || s(O) === _ || (u ? u(O, _) : a(O[S]) || p(O, S, k)), f(O, C, !0, !0), o && (h[C] = k)), y && d == w && D && D.name !== w && (!o && g ? l(R, "name", w) : (B = !0, T = function () {
+            M = "Array" == e && R.entries || D;if (M && (P = s(M.call(new t()))) !== Object.prototype && P.next && (o || s(P) === _ || (u ? u(P, _) : a(P[S]) || p(P, S, k)), f(P, C, !0, !0), o && (h[C] = k)), y && d == w && D && D.name !== w && (!o && g ? l(R, "name", w) : (B = !0, T = function () {
           return D.call(this);
-        })), d) if (P = { values: E(w), keys: v ? T : E(x), entries: E(b) }, I) for (A in P) (m || B || !(A in R)) && p(R, A, P[A]);else n({ target: e, proto: !0, forced: m || B }, P);return o && !I || R[S] === T || p(R, S, T, { name: d }), h[e] = T, P;
+        })), d) if (O = { values: E(w), keys: v ? T : E(x), entries: E(b) }, I) for (A in O) (m || B || !(A in R)) && p(R, A, O[A]);else n({ target: e, proto: !0, forced: m || B }, O);return o && !I || R[S] === T || p(R, S, T, { name: d }), h[e] = T, O;
       };
     }, 6349: function (t, e, r) {
       var n = r(4058),
@@ -1754,8 +1754,8 @@ var a = wx.$y;
           b = r(946),
           k = r(684),
           I = r(7857),
-          O = r(9677),
-          P = r(5988),
+          P = r(9677),
+          O = r(5988),
           A = r(6760),
           E = r(9754),
           C = r(8726),
@@ -1763,12 +1763,12 @@ var a = wx.$y;
           R = r(7748),
           D = r(9418),
           T = r(9813),
-          j = r(1477),
-          M = r(6349),
+          M = r(1477),
+          j = r(6349),
           N = r(904),
           F = r(5402),
-          L = r(3610).forEach,
-          H = B("hidden"),
+          H = r(3610).forEach,
+          L = B("hidden"),
           z = "Symbol",
           K = T("toPrimitive"),
           W = F.set,
@@ -1776,9 +1776,9 @@ var a = wx.$y;
           G = Object.prototype,
           V = o.Symbol,
           X = i("JSON", "stringify"),
+          q = P.f,
           J = O.f,
-          Y = P.f,
-          q = k.f,
+          Y = k.f,
           Z = A.f,
           $ = C("symbols"),
           Q = C("op-symbols"),
@@ -1788,62 +1788,62 @@ var a = wx.$y;
           nt = o.QObject,
           ot = !nt || !nt.prototype || !nt.prototype.findChild,
           it = c && u(function () {
-        return 7 != x(Y({}, "a", { get: function () {
-            return Y(this, "a", { value: 7 }).a;
+        return 7 != x(J({}, "a", { get: function () {
+            return J(this, "a", { value: 7 }).a;
           } })).a;
       }) ? function (t, e, r) {
-        var n = J(G, e);n && delete G[e], Y(t, e, r), n && t !== G && Y(G, e, n);
-      } : Y,
+        var n = q(G, e);n && delete G[e], J(t, e, r), n && t !== G && J(G, e, n);
+      } : J,
           at = function (t, e) {
         var r = $[t] = x(V.prototype);return W(r, { type: z, tag: t, description: e }), c || (r.description = e), r;
       },
           ct = function (t, e, r) {
-        t === G && ct(Q, e, r), v(t);var n = _(e);return v(r), f($, n) ? (r.enumerable ? (f(t, H) && t[H][n] && (t[H][n] = !1), r = x(r, { enumerable: S(0, !1) })) : (f(t, H) || Y(t, H, S(1, {})), t[H][n] = !0), it(t, n, r)) : Y(t, n, r);
+        t === G && ct(Q, e, r), v(t);var n = _(e);return v(r), f($, n) ? (r.enumerable ? (f(t, L) && t[L][n] && (t[L][n] = !1), r = x(r, { enumerable: S(0, !1) })) : (f(t, L) || J(t, L, S(1, {})), t[L][n] = !0), it(t, n, r)) : J(t, n, r);
       },
           st = function (t, e) {
         v(t);var r = g(e),
-            n = w(r).concat(pt(r));return L(n, function (e) {
+            n = w(r).concat(pt(r));return H(n, function (e) {
           c && !ut.call(r, e) || ct(t, e, r[e]);
         }), t;
       },
           ut = function (t) {
         var e = _(t),
-            r = Z.call(this, e);return !(this === G && f($, e) && !f(Q, e)) && (!(r || !f(this, e) || !f($, e) || f(this, H) && this[H][e]) || r);
+            r = Z.call(this, e);return !(this === G && f($, e) && !f(Q, e)) && (!(r || !f(this, e) || !f($, e) || f(this, L) && this[L][e]) || r);
       },
           ft = function (t, e) {
         var r = g(t),
             n = _(e);if (r !== G || !f($, n) || f(Q, n)) {
-          var o = J(r, n);return !o || !f($, n) || f(r, H) && r[H][n] || (o.enumerable = !0), o;
+          var o = q(r, n);return !o || !f($, n) || f(r, L) && r[L][n] || (o.enumerable = !0), o;
         }
       },
           lt = function (t) {
-        var e = q(g(t)),
-            r = [];return L(e, function (t) {
+        var e = Y(g(t)),
+            r = [];return H(e, function (t) {
           f($, t) || f(R, t) || r.push(t);
         }), r;
       },
           pt = function (t) {
         var e = t === G,
-            r = q(e ? Q : g(t)),
-            n = [];return L(r, function (t) {
+            r = Y(e ? Q : g(t)),
+            n = [];return H(r, function (t) {
           !f($, t) || e && !f(G, t) || n.push($[t]);
         }), n;
       };(s || (V = function () {
         if (this instanceof V) throw TypeError("Symbol is not a constructor");var t = arguments.length && void 0 !== arguments[0] ? m(arguments[0]) : void 0,
             e = D(t),
             r = function (t) {
-          this === G && r.call(Q, t), f(this, H) && f(this[H], e) && (this[H][e] = !1), it(this, e, S(1, t));
+          this === G && r.call(Q, t), f(this, L) && f(this[L], e) && (this[L][e] = !1), it(this, e, S(1, t));
         };return c && ot && it(G, e, { configurable: !0, set: r }), at(e, t);
       }, E(V.prototype, "toString", function () {
         return U(this).tag;
       }), E(V, "withoutSetter", function (t) {
         return at(D(t), t);
-      }), A.f = ut, P.f = ct, O.f = ft, b.f = k.f = lt, I.f = pt, j.f = function (t) {
+      }), A.f = ut, O.f = ct, P.f = ft, b.f = k.f = lt, I.f = pt, M.f = function (t) {
         return at(T(t), t);
-      }, c && (Y(V.prototype, "description", { configurable: !0, get: function () {
+      }, c && (J(V.prototype, "description", { configurable: !0, get: function () {
           return U(this).description;
-        } }), a || E(G, "propertyIsEnumerable", ut, { unsafe: !0 }))), n({ global: !0, wrap: !0, forced: !s, sham: !s }, { Symbol: V }), L(w(rt), function (t) {
-        M(t);
+        } }), a || E(G, "propertyIsEnumerable", ut, { unsafe: !0 }))), n({ global: !0, wrap: !0, forced: !s, sham: !s }, { Symbol: V }), H(w(rt), function (t) {
+        j(t);
       }), n({ target: z, stat: !0, forced: !s }, { for: function (t) {
           var e = m(t);if (f(tt, e)) return tt[e];var r = V(e);return tt[e] = r, et[r] = e, r;
         }, keyFor: function (t) {
@@ -1868,7 +1868,7 @@ var a = wx.$y;
         var dt = V.prototype.valueOf;E(V.prototype, K, function () {
           return dt.apply(this, arguments);
         });
-      }N(V, z), R[H] = !0;
+      }N(V, z), R[L] = !0;
     }, 5915: function (t, e, r) {
       r(6349)("matchAll");
     }, 8394: function (t, e, r) {
@@ -2608,11 +2608,11 @@ var a = wx.$y;
                 b = t[e + 12],
                 k = t[e + 13],
                 I = t[e + 14],
-                O = t[e + 15],
-                P = i[0],
+                P = t[e + 15],
+                O = i[0],
                 A = i[1],
                 E = i[2],
-                C = i[3];P = u(P, A, E, C, a, 7, c[0]), C = u(C, P, A, E, s, 12, c[1]), E = u(E, C, P, A, d, 17, c[2]), A = u(A, E, C, P, h, 22, c[3]), P = u(P, A, E, C, v, 7, c[4]), C = u(C, P, A, E, y, 12, c[5]), E = u(E, C, P, A, g, 17, c[6]), A = u(A, E, C, P, _, 22, c[7]), P = u(P, A, E, C, m, 7, c[8]), C = u(C, P, A, E, S, 12, c[9]), E = u(E, C, P, A, x, 17, c[10]), A = u(A, E, C, P, w, 22, c[11]), P = u(P, A, E, C, b, 7, c[12]), C = u(C, P, A, E, k, 12, c[13]), E = u(E, C, P, A, I, 17, c[14]), P = f(P, A = u(A, E, C, P, O, 22, c[15]), E, C, s, 5, c[16]), C = f(C, P, A, E, g, 9, c[17]), E = f(E, C, P, A, w, 14, c[18]), A = f(A, E, C, P, a, 20, c[19]), P = f(P, A, E, C, y, 5, c[20]), C = f(C, P, A, E, x, 9, c[21]), E = f(E, C, P, A, O, 14, c[22]), A = f(A, E, C, P, v, 20, c[23]), P = f(P, A, E, C, S, 5, c[24]), C = f(C, P, A, E, I, 9, c[25]), E = f(E, C, P, A, h, 14, c[26]), A = f(A, E, C, P, m, 20, c[27]), P = f(P, A, E, C, k, 5, c[28]), C = f(C, P, A, E, d, 9, c[29]), E = f(E, C, P, A, _, 14, c[30]), P = l(P, A = f(A, E, C, P, b, 20, c[31]), E, C, y, 4, c[32]), C = l(C, P, A, E, m, 11, c[33]), E = l(E, C, P, A, w, 16, c[34]), A = l(A, E, C, P, I, 23, c[35]), P = l(P, A, E, C, s, 4, c[36]), C = l(C, P, A, E, v, 11, c[37]), E = l(E, C, P, A, _, 16, c[38]), A = l(A, E, C, P, x, 23, c[39]), P = l(P, A, E, C, k, 4, c[40]), C = l(C, P, A, E, a, 11, c[41]), E = l(E, C, P, A, h, 16, c[42]), A = l(A, E, C, P, g, 23, c[43]), P = l(P, A, E, C, S, 4, c[44]), C = l(C, P, A, E, b, 11, c[45]), E = l(E, C, P, A, O, 16, c[46]), P = p(P, A = l(A, E, C, P, d, 23, c[47]), E, C, a, 6, c[48]), C = p(C, P, A, E, _, 10, c[49]), E = p(E, C, P, A, I, 15, c[50]), A = p(A, E, C, P, y, 21, c[51]), P = p(P, A, E, C, b, 6, c[52]), C = p(C, P, A, E, h, 10, c[53]), E = p(E, C, P, A, x, 15, c[54]), A = p(A, E, C, P, s, 21, c[55]), P = p(P, A, E, C, m, 6, c[56]), C = p(C, P, A, E, O, 10, c[57]), E = p(E, C, P, A, g, 15, c[58]), A = p(A, E, C, P, k, 21, c[59]), P = p(P, A, E, C, v, 6, c[60]), C = p(C, P, A, E, w, 10, c[61]), E = p(E, C, P, A, d, 15, c[62]), A = p(A, E, C, P, S, 21, c[63]), i[0] = i[0] + P | 0, i[1] = i[1] + A | 0, i[2] = i[2] + E | 0, i[3] = i[3] + C | 0;
+                C = i[3];O = u(O, A, E, C, a, 7, c[0]), C = u(C, O, A, E, s, 12, c[1]), E = u(E, C, O, A, d, 17, c[2]), A = u(A, E, C, O, h, 22, c[3]), O = u(O, A, E, C, v, 7, c[4]), C = u(C, O, A, E, y, 12, c[5]), E = u(E, C, O, A, g, 17, c[6]), A = u(A, E, C, O, _, 22, c[7]), O = u(O, A, E, C, m, 7, c[8]), C = u(C, O, A, E, S, 12, c[9]), E = u(E, C, O, A, x, 17, c[10]), A = u(A, E, C, O, w, 22, c[11]), O = u(O, A, E, C, b, 7, c[12]), C = u(C, O, A, E, k, 12, c[13]), E = u(E, C, O, A, I, 17, c[14]), O = f(O, A = u(A, E, C, O, P, 22, c[15]), E, C, s, 5, c[16]), C = f(C, O, A, E, g, 9, c[17]), E = f(E, C, O, A, w, 14, c[18]), A = f(A, E, C, O, a, 20, c[19]), O = f(O, A, E, C, y, 5, c[20]), C = f(C, O, A, E, x, 9, c[21]), E = f(E, C, O, A, P, 14, c[22]), A = f(A, E, C, O, v, 20, c[23]), O = f(O, A, E, C, S, 5, c[24]), C = f(C, O, A, E, I, 9, c[25]), E = f(E, C, O, A, h, 14, c[26]), A = f(A, E, C, O, m, 20, c[27]), O = f(O, A, E, C, k, 5, c[28]), C = f(C, O, A, E, d, 9, c[29]), E = f(E, C, O, A, _, 14, c[30]), O = l(O, A = f(A, E, C, O, b, 20, c[31]), E, C, y, 4, c[32]), C = l(C, O, A, E, m, 11, c[33]), E = l(E, C, O, A, w, 16, c[34]), A = l(A, E, C, O, I, 23, c[35]), O = l(O, A, E, C, s, 4, c[36]), C = l(C, O, A, E, v, 11, c[37]), E = l(E, C, O, A, _, 16, c[38]), A = l(A, E, C, O, x, 23, c[39]), O = l(O, A, E, C, k, 4, c[40]), C = l(C, O, A, E, a, 11, c[41]), E = l(E, C, O, A, h, 16, c[42]), A = l(A, E, C, O, g, 23, c[43]), O = l(O, A, E, C, S, 4, c[44]), C = l(C, O, A, E, b, 11, c[45]), E = l(E, C, O, A, P, 16, c[46]), O = p(O, A = l(A, E, C, O, d, 23, c[47]), E, C, a, 6, c[48]), C = p(C, O, A, E, _, 10, c[49]), E = p(E, C, O, A, I, 15, c[50]), A = p(A, E, C, O, y, 21, c[51]), O = p(O, A, E, C, b, 6, c[52]), C = p(C, O, A, E, h, 10, c[53]), E = p(E, C, O, A, x, 15, c[54]), A = p(A, E, C, O, s, 21, c[55]), O = p(O, A, E, C, m, 6, c[56]), C = p(C, O, A, E, P, 10, c[57]), E = p(E, C, O, A, g, 15, c[58]), A = p(A, E, C, O, k, 21, c[59]), O = p(O, A, E, C, v, 6, c[60]), C = p(C, O, A, E, w, 10, c[61]), E = p(E, C, O, A, d, 15, c[62]), A = p(A, E, C, O, S, 21, c[63]), i[0] = i[0] + O | 0, i[1] = i[1] + A | 0, i[2] = i[2] + E | 0, i[3] = i[3] + C | 0;
           }, _doFinalize: function () {
             var e = this._data,
                 r = e.words,
@@ -2841,15 +2841,15 @@ var a = wx.$y;
                 b,
                 k,
                 I,
-                O,
                 P,
+                O,
                 A = this._hash.words,
                 E = l.words,
                 C = p.words,
                 B = c.words,
                 R = s.words,
                 D = u.words,
-                T = f.words;for (w = i = A[0], b = a = A[1], k = d = A[2], I = S = A[3], O = x = A[4], r = 0; r < 80; r += 1) P = i + t[e + B[r]] | 0, P += r < 16 ? h(a, d, S) + E[0] : r < 32 ? v(a, d, S) + E[1] : r < 48 ? y(a, d, S) + E[2] : r < 64 ? g(a, d, S) + E[3] : _(a, d, S) + E[4], P = (P = m(P |= 0, D[r])) + x | 0, i = x, x = S, S = m(d, 10), d = a, a = P, P = w + t[e + R[r]] | 0, P += r < 16 ? _(b, k, I) + C[0] : r < 32 ? g(b, k, I) + C[1] : r < 48 ? y(b, k, I) + C[2] : r < 64 ? v(b, k, I) + C[3] : h(b, k, I) + C[4], P = (P = m(P |= 0, T[r])) + O | 0, w = O, O = I, I = m(k, 10), k = b, b = P;P = A[1] + d + I | 0, A[1] = A[2] + S + O | 0, A[2] = A[3] + x + w | 0, A[3] = A[4] + i + b | 0, A[4] = A[0] + a + k | 0, A[0] = P;
+                T = f.words;for (w = i = A[0], b = a = A[1], k = d = A[2], I = S = A[3], P = x = A[4], r = 0; r < 80; r += 1) O = i + t[e + B[r]] | 0, O += r < 16 ? h(a, d, S) + E[0] : r < 32 ? v(a, d, S) + E[1] : r < 48 ? y(a, d, S) + E[2] : r < 64 ? g(a, d, S) + E[3] : _(a, d, S) + E[4], O = (O = m(O |= 0, D[r])) + x | 0, i = x, x = S, S = m(d, 10), d = a, a = O, O = w + t[e + R[r]] | 0, O += r < 16 ? _(b, k, I) + C[0] : r < 32 ? g(b, k, I) + C[1] : r < 48 ? y(b, k, I) + C[2] : r < 64 ? v(b, k, I) + C[3] : h(b, k, I) + C[4], O = (O = m(O |= 0, T[r])) + P | 0, w = P, P = I, I = m(k, 10), k = b, b = O;O = A[1] + d + I | 0, A[1] = A[2] + S + P | 0, A[2] = A[3] + x + w | 0, A[3] = A[4] + i + b | 0, A[4] = A[0] + a + k | 0, A[0] = O;
           }, _doFinalize: function () {
             var t = this._data,
                 e = t.words,
@@ -2973,8 +2973,8 @@ var a = wx.$y;
                 var w = (A = r[x]).high,
                     b = A.low,
                     k = s[x];k < 32 ? (d = w << k | b >>> 32 - k, h = b << k | w >>> 32 - k) : (d = b << k - 32 | w >>> 64 - k, h = w << k - 32 | b >>> 64 - k);var I = l[u[x]];I.high = d, I.low = h;
-              }var O = l[0],
-                  P = r[0];for (O.high = P.high, O.low = P.low, p = 0; p < 5; p++) for (v = 0; v < 5; v++) {
+              }var P = l[0],
+                  O = r[0];for (P.high = O.high, P.low = O.low, p = 0; p < 5; p++) for (v = 0; v < 5; v++) {
                 var A = r[x = p + 5 * v],
                     E = l[x],
                     C = l[(p + 1) % 5 + 5 * v],
@@ -3015,15 +3015,15 @@ var a = wx.$y;
         }();var f = a.SHA512 = e.extend({ _doReset: function () {
             this._hash = new i.init([new o.init(1779033703, 4089235720), new o.init(3144134277, 2227873595), new o.init(1013904242, 4271175723), new o.init(2773480762, 1595750129), new o.init(1359893119, 2917565137), new o.init(2600822924, 725511199), new o.init(528734635, 4215389547), new o.init(1541459225, 327033209)]);
           }, _doProcessBlock: function (t, e) {
-            for (var r = this._hash.words, n = r[0], o = r[1], i = r[2], a = r[3], c = r[4], f = r[5], l = r[6], p = r[7], d = n.high, h = n.low, v = o.high, y = o.low, g = i.high, _ = i.low, m = a.high, S = a.low, x = c.high, w = c.low, b = f.high, k = f.low, I = l.high, O = l.low, P = p.high, A = p.low, E = d, C = h, B = v, R = y, D = g, T = _, j = m, M = S, N = x, F = w, L = b, H = k, z = I, K = O, W = P, U = A, G = 0; G < 80; G++) {
+            for (var r = this._hash.words, n = r[0], o = r[1], i = r[2], a = r[3], c = r[4], f = r[5], l = r[6], p = r[7], d = n.high, h = n.low, v = o.high, y = o.low, g = i.high, _ = i.low, m = a.high, S = a.low, x = c.high, w = c.low, b = f.high, k = f.low, I = l.high, P = l.low, O = p.high, A = p.low, E = d, C = h, B = v, R = y, D = g, T = _, M = m, j = S, N = x, F = w, H = b, L = k, z = I, K = P, W = O, U = A, G = 0; G < 80; G++) {
               var V,
                   X,
-                  J = u[G];if (G < 16) X = J.high = 0 | t[e + 2 * G], V = J.low = 0 | t[e + 2 * G + 1];else {
-                var Y = u[G - 15],
-                    q = Y.high,
-                    Z = Y.low,
-                    $ = (q >>> 1 | Z << 31) ^ (q >>> 8 | Z << 24) ^ q >>> 7,
-                    Q = (Z >>> 1 | q << 31) ^ (Z >>> 8 | q << 24) ^ (Z >>> 7 | q << 25),
+                  q = u[G];if (G < 16) X = q.high = 0 | t[e + 2 * G], V = q.low = 0 | t[e + 2 * G + 1];else {
+                var J = u[G - 15],
+                    Y = J.high,
+                    Z = J.low,
+                    $ = (Y >>> 1 | Z << 31) ^ (Y >>> 8 | Z << 24) ^ Y >>> 7,
+                    Q = (Z >>> 1 | Y << 31) ^ (Z >>> 8 | Y << 24) ^ (Z >>> 7 | Y << 25),
                     tt = u[G - 2],
                     et = tt.high,
                     rt = tt.low,
@@ -3034,10 +3034,10 @@ var a = wx.$y;
                     ct = it.low,
                     st = u[G - 16],
                     ut = st.high,
-                    ft = st.low;X = (X = (X = $ + at + ((V = Q + ct) >>> 0 < Q >>> 0 ? 1 : 0)) + nt + ((V += ot) >>> 0 < ot >>> 0 ? 1 : 0)) + ut + ((V += ft) >>> 0 < ft >>> 0 ? 1 : 0), J.high = X, J.low = V;
+                    ft = st.low;X = (X = (X = $ + at + ((V = Q + ct) >>> 0 < Q >>> 0 ? 1 : 0)) + nt + ((V += ot) >>> 0 < ot >>> 0 ? 1 : 0)) + ut + ((V += ft) >>> 0 < ft >>> 0 ? 1 : 0), q.high = X, q.low = V;
               }var lt,
-                  pt = N & L ^ ~N & z,
-                  dt = F & H ^ ~F & K,
+                  pt = N & H ^ ~N & z,
+                  dt = F & L ^ ~F & K,
                   ht = E & B ^ E & D ^ B & D,
                   vt = C & R ^ C & T ^ R & T,
                   yt = (E >>> 28 | C << 4) ^ (E << 30 | C >>> 2) ^ (E << 25 | C >>> 7),
@@ -3048,8 +3048,8 @@ var a = wx.$y;
                   xt = St.high,
                   wt = St.low,
                   bt = W + _t + ((lt = U + mt) >>> 0 < U >>> 0 ? 1 : 0),
-                  kt = gt + vt;W = z, U = K, z = L, K = H, L = N, H = F, N = j + (bt = (bt = (bt = bt + pt + ((lt += dt) >>> 0 < dt >>> 0 ? 1 : 0)) + xt + ((lt += wt) >>> 0 < wt >>> 0 ? 1 : 0)) + X + ((lt += V) >>> 0 < V >>> 0 ? 1 : 0)) + ((F = M + lt | 0) >>> 0 < M >>> 0 ? 1 : 0) | 0, j = D, M = T, D = B, T = R, B = E, R = C, E = bt + (yt + ht + (kt >>> 0 < gt >>> 0 ? 1 : 0)) + ((C = lt + kt | 0) >>> 0 < lt >>> 0 ? 1 : 0) | 0;
-            }h = n.low = h + C, n.high = d + E + (h >>> 0 < C >>> 0 ? 1 : 0), y = o.low = y + R, o.high = v + B + (y >>> 0 < R >>> 0 ? 1 : 0), _ = i.low = _ + T, i.high = g + D + (_ >>> 0 < T >>> 0 ? 1 : 0), S = a.low = S + M, a.high = m + j + (S >>> 0 < M >>> 0 ? 1 : 0), w = c.low = w + F, c.high = x + N + (w >>> 0 < F >>> 0 ? 1 : 0), k = f.low = k + H, f.high = b + L + (k >>> 0 < H >>> 0 ? 1 : 0), O = l.low = O + K, l.high = I + z + (O >>> 0 < K >>> 0 ? 1 : 0), A = p.low = A + U, p.high = P + W + (A >>> 0 < U >>> 0 ? 1 : 0);
+                  kt = gt + vt;W = z, U = K, z = H, K = L, H = N, L = F, N = M + (bt = (bt = (bt = bt + pt + ((lt += dt) >>> 0 < dt >>> 0 ? 1 : 0)) + xt + ((lt += wt) >>> 0 < wt >>> 0 ? 1 : 0)) + X + ((lt += V) >>> 0 < V >>> 0 ? 1 : 0)) + ((F = j + lt | 0) >>> 0 < j >>> 0 ? 1 : 0) | 0, M = D, j = T, D = B, T = R, B = E, R = C, E = bt + (yt + ht + (kt >>> 0 < gt >>> 0 ? 1 : 0)) + ((C = lt + kt | 0) >>> 0 < lt >>> 0 ? 1 : 0) | 0;
+            }h = n.low = h + C, n.high = d + E + (h >>> 0 < C >>> 0 ? 1 : 0), y = o.low = y + R, o.high = v + B + (y >>> 0 < R >>> 0 ? 1 : 0), _ = i.low = _ + T, i.high = g + D + (_ >>> 0 < T >>> 0 ? 1 : 0), S = a.low = S + j, a.high = m + M + (S >>> 0 < j >>> 0 ? 1 : 0), w = c.low = w + F, c.high = x + N + (w >>> 0 < F >>> 0 ? 1 : 0), k = f.low = k + L, f.high = b + H + (k >>> 0 < L >>> 0 ? 1 : 0), P = l.low = P + K, l.high = I + z + (P >>> 0 < K >>> 0 ? 1 : 0), A = p.low = A + U, p.high = O + W + (A >>> 0 < U >>> 0 ? 1 : 0);
           }, _doFinalize: function () {
             var t = this._data,
                 e = t.words,
@@ -3180,19 +3180,19 @@ var a = wx.$y;
     }(l || (l = {})), function (t) {
       t[t.FAIL = 0] = "FAIL", t[t.SUCCESS = 1] = "SUCCESS";
     }(p || (p = {})), function (t) {
-      t.INIT_SUCCESS = "init_success", t.INIT_FAIL = "init_fail", t.LOGIN_SUCCESS = "login_success", t.LOGIN_FAIL = "login_fail", t.PAY_SUCCESS = "pay_success", t.PAY_FAIL = "pay_fail", t.PAY_CANCEL = "pay_cancel", t.POST_FAIL = "post_fail", t.POST_SUCCESS = "post_success", t.CHECK_INFO_SUCCESS = "check_info_success", t.CHECK_INFO_FAIL = "check_info_fail", t.CHECK_GAME_INFO_SUCCESS = "check_game_info_success", t.CHECK_GAME_INFO_FAIL = "check_game_info_fail";
+      t.INIT_SUCCESS = "init_success", t.INIT_FAIL = "init_fail", t.LOGIN_SUCCESS = "login_success", t.LOGIN_FAIL = "login_fail", t.PAY_SUCCESS = "pay_success", t.PAY_FAIL = "pay_fail", t.PAY_CANCEL = "pay_cancel", t.POST_FAIL = "post_fail", t.POST_SUCCESS = "post_success", t.CHECK_INFO_SUCCESS = "check_info_success", t.CHECK_INFO_FAIL = "check_info_fail", t.CHECK_GAME_INFO_SUCCESS = "check_game_info_success", t.CHECK_GAME_INFO_FAIL = "check_game_info_fail", t.CHECK_WX_MSG_SUCCESS = "check_wx_msg_success", t.CHECK_WX_MSG_FAIL = "check_wx_msg_fail";
     }(d || (d = {})), function (t) {
       t[t.close = 0] = "close", t[t.open = 1] = "open";
     }(h || (h = {}));var m = function e() {
       t(this, e);
-    };_(m, "request_prefix", "/v1/api"), _(m, "prod_sdk_base_url", "https://sdk.020dianwan.com"), _(m, "dev_sdk_base_url", ""), _(m, "static_resources_url", "https://cdn.020dianwan.com"), _(m, "pay_tips_img_url", "/wxgame/img/migamem.jpg"), _(m, "cs_img_url", "/wxgame/img/wx-cs.jpeg"), _(m, "sdk_config_url", "/config_key"), _(m, "sdk_env_url", "/oauth/wx_get_gameinfo"), _(m, "sdk_game_config_url", "/config"), _(m, "data_up_url", "/log"), _(m, "role_online_duration_up_url", "/oauth/wx_get_roleinfo"), _(m, "login_url", "/oauth/wx_mini_login"), _(m, "place_order_url", "/pay/wx_order"), _(m, "check_order_status_url", "/pay/check"), _(m, "reply_order_url", "/oauth/wx_mini_pay"), _(m, "reply_balance_url", "/oauth/wx_mini_get_balance"), _(m, "initNum", 1), _(m, "initMax", 10), _(m, "loginNum", 1), _(m, "loginMax", 10), _(m, "platExtInfo", {}), _(m, "cmmPlatPayInfo", {}), _(m, "extendParams", { platform: {}, device: {}, game: {}, other: {} }), _(m, "platStorageDataOps", {}), _(m, "entityPayWays", (_(o = {}, i.WXMG, (_(e = {}, f.enterprise, [u.midas, u.wechat, u.nowWechat]), _(e, f.individual, [u.wechat, u.nowWechat]), e)), _(o, i.WXMINI, (_(n = {}, f.enterprise, [u.midas, u.wechat, u.nowWechat]), _(n, f.individual, [u.wechat, u.nowWechat]), n)), o)), _(m, "platAdParams", {});var S = r(8066),
+    };_(m, "request_prefix", "/v1/api"), _(m, "prod_sdk_base_url", "https://sdk.020dianwan.com"), _(m, "dev_sdk_base_url", ""), _(m, "static_resources_url", "https://cdn.020dianwan.com"), _(m, "pay_tips_img_url", "/wxgame/img/migamem.jpg"), _(m, "cs_img_url", "/wxgame/img/wx-cs.jpeg"), _(m, "sdk_config_url", "/config_key"), _(m, "sdk_env_url", "/oauth/wx_get_gameinfo"), _(m, "wx_msg_sec_url", "/oauth/wx_msgSecCheck"), _(m, "sdk_game_config_url", "/config"), _(m, "data_up_url", "/log"), _(m, "role_online_duration_up_url", "/oauth/wx_get_roleinfo"), _(m, "login_url", "/oauth/wx_mini_login"), _(m, "place_order_url", "/pay/wx_order"), _(m, "check_order_status_url", "/pay/check"), _(m, "reply_order_url", "/oauth/wx_mini_pay"), _(m, "reply_balance_url", "/oauth/wx_mini_get_balance"), _(m, "initNum", 1), _(m, "initMax", 10), _(m, "loginNum", 1), _(m, "loginMax", 5), _(m, "platExtInfo", {}), _(m, "conInfo", {}), _(m, "cmmPlatPayInfo", {}), _(m, "extendParams", { platform: {}, device: {}, game: {}, other: {} }), _(m, "platStorageDataOps", {}), _(m, "entityPayWays", (_(o = {}, i.WXMG, (_(e = {}, f.enterprise, [u.midas, u.wechat, u.nowWechat]), _(e, f.individual, [u.wechat, u.nowWechat]), e)), _(o, i.WXMINI, (_(n = {}, f.enterprise, [u.midas, u.wechat, u.nowWechat]), _(n, f.individual, [u.wechat, u.nowWechat]), n)), o)), _(m, "platAdParams", {});var S = r(8066),
         x = r.n(S),
         w = r(5238),
         b = r.n(w),
         k = r(3592),
         I = r.n(k),
-        O = r(1446),
-        P = r.n(O),
+        P = r(1446),
+        O = r.n(P),
         A = r(9996),
         E = r.n(A),
         C = r(3263),
@@ -3200,26 +3200,26 @@ var a = wx.$y;
         R = r(8377),
         D = r.n(R),
         T = r(3038),
-        j = r.n(T);r(8363);var M = r(3882);function N(t) {
-      return N = "function" == typeof O && "symbol" == typeof M ? function (t) {
+        M = r.n(T);r(8363);var j = r(3882);function N(t) {
+      return N = "function" == typeof P && "symbol" == typeof j ? function (t) {
         return typeof t;
       } : function (t) {
-        return t && "function" == typeof O && t.constructor === O && t !== O.prototype ? "symbol" : typeof t;
+        return t && "function" == typeof P && t.constructor === P && t !== P.prototype ? "symbol" : typeof t;
       }, N(t);
     }var F = r(2825),
-        L = r.n(F),
-        H = r(2088),
-        z = r.n(H),
+        H = r.n(F),
+        L = r(2088),
+        z = r.n(L),
         K = r(7648),
         W = r.n(K),
         U = r(9356),
         G = r.n(U),
         V = r(6397),
         X = r.n(V),
-        J = r(1515),
-        Y = r.n(J),
-        q = (r(7997), r(699)),
-        Z = r.n(q);function $(t, e) {
+        q = r(1515),
+        J = r.n(q),
+        Y = (r(7997), r(699)),
+        Z = r.n(Y);function $(t, e) {
       var r = G()(t);if (B()) {
         var n = B()(t);e && (n = Z()(n).call(n, function (e) {
           return D()(t, e).enumerable;
@@ -3229,12 +3229,12 @@ var a = wx.$y;
       for (var e = 1; e < arguments.length; e++) {
         var r = null != arguments[e] ? arguments[e] : {};e % 2 ? $(Object(r), !0).forEach(function (e) {
           _(t, e, r[e]);
-        }) : j() ? Object.defineProperties(t, j()(r)) : $(Object(r)).forEach(function (e) {
+        }) : M() ? Object.defineProperties(t, M()(r)) : $(Object(r)).forEach(function (e) {
           Object.defineProperty(t, e, D()(r, e));
         });
       }return t;
     }function tt(t, e) {
-      var r = void 0 !== P() && E()(t) || t["@@iterator"];if (!r) {
+      var r = void 0 !== O() && E()(t) || t["@@iterator"];if (!r) {
         if (Array.isArray(t) || (r = function (t, e) {
           var r;if (!t) return;if ("string" == typeof t) return et(t, e);var n = b()(r = Object.prototype.toString.call(t)).call(r, 8, -1);"Object" === n && t.constructor && (n = t.constructor.name);if ("Map" === n || "Set" === n) return I()(t);if ("Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return et(t, e);
         }(t)) || e && t && "number" == typeof t.length) {
@@ -3271,7 +3271,7 @@ var a = wx.$y;
       var t = m.platStorageDataOps,
           e = t.openid,
           r = t.osType,
-          n = { device: { device_id: e || "00000000-0000-0000-0000-000000000000", os_type: nt() || r || "unknown", sdk_version: m.sdkVersion }, platform: { ad: m.platAdParams.adver || m.initOps.ad, partner_id: m.initOps.partnerId, scene: m.platAdParams.scene, app_id: m.platAdParams.appId, env_version: m.platAdParams.envVersion }, game: { game_id: String(m.initOps.gameId), game_name: m.initOps.gameName, game_version: m.initOps.gameVersion }, other: { client_time_zone: "GMT+08", client_ts: Date.now(), ad_params: L()(m.platAdParams) } };z()(m.extendParams, n);
+          n = { device: { device_id: e || "00000000-0000-0000-0000-000000000000", os_type: nt() || r || "unknown", sdk_version: m.sdkVersion }, platform: { ad: m.platAdParams.adver || m.initOps.ad, partner_id: m.initOps.partnerId, scene: m.platAdParams.scene, app_id: m.platAdParams.appId, env_version: m.platAdParams.envVersion }, game: { game_id: String(m.initOps.gameId), game_name: m.initOps.gameName, game_version: m.initOps.gameVersion }, other: { client_time_zone: "GMT+08", client_ts: Date.now(), ad_params: H()(m.platAdParams), query_params: H()(m.platAdParams.query_params) } };z()(m.extendParams, n);
     }function at(t) {
       var e,
           r,
@@ -3290,7 +3290,7 @@ var a = wx.$y;
           r = W()(e = G()(t)).call(e),
           n = [];for (var o in r) if (void 0 !== t[r[o]]) {
         var i,
-            a = encodeURIComponent(ot(t[r[o]], "Object") ? L()(t[r[o]]) : t[r[o]]);a = (a = (a = (a = (a = a.replace(/!/g, "%21")).replace(/\*/g, "%2A")).replace(/'/g, "%27")).replace(/\(/g, "%28")).replace(/\)/g, "%29"), n.push(x()(i = "".concat(r[o], "=")).call(i, a));
+            a = encodeURIComponent(ot(t[r[o]], "Object") ? H()(t[r[o]]) : t[r[o]]);a = (a = (a = (a = (a = a.replace(/!/g, "%21")).replace(/\*/g, "%2A")).replace(/'/g, "%27")).replace(/\(/g, "%28")).replace(/\)/g, "%29"), n.push(x()(i = "".concat(r[o], "=")).call(i, a));
       } else n.push("".concat(r[o], "="));return n.join("&");
     }function st(t, e) {
       if (0 === arguments.length || !t) return null;var r,
@@ -3298,7 +3298,7 @@ var a = wx.$y;
           o = t;n = e || "{y}-{m}-{d} {h}:{i}:{s}", "object" === N(t) ? r = t : ("string" == typeof t && (o = /^\d+$/.test(t) ? X()(t, 10) : t.replace(new RegExp(/-/gm), "/")), "number" == typeof t && 10 === t.toString().length && (o *= 1e3), r = new Date(o));var i = { y: r.getFullYear(), m: r.getMonth() + 1, d: r.getDate(), h: r.getHours(), i: r.getMinutes(), s: r.getSeconds(), a: r.getDay() },
           a = n.replace(/{([adhimsy])+}/g, function (t, e) {
         var r,
-            n = i[e];return "a" === e ? ["日", "一", "二", "三", "四", "五", "六"][n] : Y()(r = n.toString()).call(r, 2, "0");
+            n = i[e];return "a" === e ? ["日", "一", "二", "三", "四", "五", "六"][n] : J()(r = n.toString()).call(r, 2, "0");
       });return a;
     }function ut(t) {
       var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "1011727321978575",
@@ -3363,10 +3363,10 @@ var a = wx.$y;
       return It = St || function (t, e) {
         return t.__proto__ = e, t;
       }, It(t, e);
-    }function Ot(t, e) {
+    }function Pt(t, e) {
       if (e && ("object" === N(e) || "function" == typeof e)) return e;if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");return _t(t);
-    }var Pt = r(3662),
-        At = r.n(Pt),
+    }var Ot = r(3662),
+        At = r.n(Ot),
         Et = r(4579),
         Ct = r.n(Et),
         Bt = r(6019),
@@ -3380,11 +3380,11 @@ var a = wx.$y;
       for (var e = 1; e < arguments.length; e++) {
         var r = null != arguments[e] ? arguments[e] : {};e % 2 ? Dt(Object(r), !0).forEach(function (e) {
           _(t, e, r[e]);
-        }) : j() ? Object.defineProperties(t, j()(r)) : Dt(Object(r)).forEach(function (e) {
+        }) : M() ? Object.defineProperties(t, M()(r)) : Dt(Object(r)).forEach(function (e) {
           Object.defineProperty(t, e, D()(r, e));
         });
       }return t;
-    }var jt = function () {
+    }var Mt = function () {
       function e() {
         t(this, e);
       }return g(e, null, [{ key: "postData", value: function (t, e, r) {
@@ -3394,7 +3394,7 @@ var a = wx.$y;
               c = Tt(Tt({}, e), a ? m.extendParams : {}),
               s = m.prod_sdk_base_url + m.request_prefix + t;if (i.WXMINI !== m.initOps.platId) {
             var u = new XMLHttpRequest();u.open(o, s, !0), u.setRequestHeader("Content-Type", "application/json;charset=UTF-8"), u.onreadystatechange = function () {
-              4 !== u.readyState || 200 !== u.status && 304 !== u.status || r.call(this, JSON.parse(u.responseText));
+              4 !== u.readyState || 200 !== u.status && 304 !== u.status && 500 !== u.status || ("string" == typeof u.response ? r.call(this, JSON.parse(u.response)) : r.call(this, u.response));
             }, u.send(c);
           } else wx.request({ url: s, method: o, header: { "Content-Type": "application/json;charset=UTF-8" }, data: c, timeout: 2e3, success: function (t) {
               r.call(this, t.data);
@@ -3402,7 +3402,7 @@ var a = wx.$y;
               r.call(n, t);
             } });
         } }]), e;
-    }();function Mt(t, e) {
+    }();function jt(t, e) {
       var r = G()(t);if (B()) {
         var n = B()(t);e && (n = Z()(n).call(n, function (e) {
           return D()(t, e).enumerable;
@@ -3410,9 +3410,9 @@ var a = wx.$y;
       }return r;
     }function Nt(t) {
       for (var e = 1; e < arguments.length; e++) {
-        var r = null != arguments[e] ? arguments[e] : {};e % 2 ? Mt(Object(r), !0).forEach(function (e) {
+        var r = null != arguments[e] ? arguments[e] : {};e % 2 ? jt(Object(r), !0).forEach(function (e) {
           _(t, e, r[e]);
-        }) : j() ? Object.defineProperties(t, j()(r)) : Mt(Object(r)).forEach(function (e) {
+        }) : M() ? Object.defineProperties(t, M()(r)) : jt(Object(r)).forEach(function (e) {
           Object.defineProperty(t, e, D()(r, e));
         });
       }return t;
@@ -3429,12 +3429,24 @@ var a = wx.$y;
           var e = { game_id: Number(m.initOps.gameId), client_ts: Date.now(), version: m.sdkVersion };t && z()(e, { params: t });var r = function (t) {
             var e = Q({}, t),
                 r = ct(at(Q({}, e)));return rt.MD5(decodeURIComponent(r) + m.platSecretKey.game_secret_key).toString();
-          }(e);jt.postData(m.sdk_env_url, Nt(Nt({}, e), {}, { sign: r }), function (t) {
+          }(e);Mt.postData(m.sdk_env_url, Nt(Nt({}, e), {}, { sign: r }), function (t) {
             if (0 !== t.code && "success" !== t.status) return vt.inst.error("查询AB面失败", t), void ht(m.checkGameInfoCallback, d.CHECK_GAME_INFO_FAIL, t.data);ht(m.checkGameInfoCallback, d.CHECK_GAME_INFO_SUCCESS, t.data);
+          }, "POST", !1);
+        } }, { key: "wxMsgSecCheck", value: function (t) {
+          vt.inst.log("调起内容安全接口");var e = { userid: Number(m.uid), game_id: Number(m.initOps.gameId), content: t, scene: 2 },
+              r = function (t) {
+            var e = Q({}, t),
+                r = ct(at(Q({}, e)));return rt.MD5(decodeURIComponent(r) + m.platSecretKey.game_secret_key).toString();
+          }(e);Mt.postData(m.wx_msg_sec_url, Nt(Nt({}, e), {}, { sign: r }), function (t) {
+            if (0 !== t.errcode || "pass" !== t.result.suggest) {
+              vt.inst.error("内容安全不通过", t), ht(m.wxMsgSecCheckCallback, d.CHECK_WX_MSG_FAIL, { isPass: !1 });
+            } else {
+              ht(m.wxMsgSecCheckCallback, d.CHECK_WX_MSG_SUCCESS, { isPass: !0 });
+            }
           }, "POST", !1);
         } }, { key: "init", value: function () {
           var t,
-              e = this;this.initStorageData();var r = { time: b()(t = Date.now().toString()).call(t, 0, 10), game_id: String(m.initOps.gameId) };jt.postData(m.sdk_config_url, { params: r }, function (t) {
+              e = this;this.initStorageData();var r = { time: b()(t = Date.now().toString()).call(t, 0, 10), game_id: String(m.initOps.gameId) };Mt.postData(m.sdk_config_url, { params: r }, function (t) {
             if (vt.inst.log("初始化", t), 0 !== t.code && "success" !== t.status) return vt.inst.error("获取游戏KEY失败", t), ht(m.callback, d.INIT_FAIL, "初始化失败"), void (m.initNum < m.initMax && Ct()(function () {
               vt.inst.log("重新调起初始化", t), e.init(), m.initNum++;
             }, 2e3));var r = t.data;try {
@@ -3453,9 +3465,13 @@ var a = wx.$y;
         } }, { key: "login", value: function () {
           var t = this,
               e = { code: m.platExtInfo.code },
-              r = pt(e);jt.postData(m.login_url, { params: e, sign: r }, function (e) {
-            if (0 !== e.code && "success" !== e.status) return vt.inst.error("登录失败", e), ht(m.loginCallback, d.LOGIN_FAIL, "登录失败"), void (m.loginNum < m.loginMax && Ct()(function () {
-              vt.inst.log("重新调起初始化", e), t.login(), m.loginNum++;
+              r = pt(e);Mt.postData(m.login_url, { params: e, sign: r }, function (e) {
+            if (0 !== e.code && "success" !== e.status) return ht(m.loginCallback, d.LOGIN_FAIL, "登录失败"), void (m.loginNum < m.loginMax && Ct()(function () {
+              vt.inst.log("重新调起登录", e), wx.login({ success: function (e) {
+                  var r = { code: e.code };z()(m.platExtInfo, r), t.login();
+                }, fail: function (t) {
+                  vt.inst.log("微信授权登录失败", t);
+                } }), m.loginNum++;
             }, 2e3));var r = JSON.parse(ut(e.data.code));m.uid = r.user_id, m.dwPlatExtInfo = Nt({}, r);var n = { token: r.oauth_token, userId: r.user_id, ad: r.ad, mobile_phone: r.mobile_phone, bind_phone: r.bind_phone },
                 o = { openid: r.openid };z()(m.platExtInfo, { userInfo: o }), z()(m.extendParams, { device: Nt(Nt({}, m.extendParams.device), {}, { device_id: r.openid }) }), z()(m.platStorageDataOps, { openid: r.openid, osType: nt() }), t.setStorageData(), t.submitActiveLog(), ht(m.loginCallback, d.LOGIN_SUCCESS, n);
           });
@@ -3476,7 +3492,7 @@ var a = wx.$y;
             it();var r = Q({}, t),
                 n = ct(at(Q(Q({}, m.extendParams), {}, { params: r, role: e })));return rt.MD5(decodeURIComponent(n) + m.platSecretKey.game_secret_key).toString();
           }(o, l) : pt(v),
-              g = p ? { params: o, role: l, sign: y } : { params: v, sign: y };m.roleInfo = e, jt.postData(h, g, function (e) {
+              g = p ? { params: o, role: l, sign: y } : { params: v, sign: y };m.roleInfo = e, Mt.postData(h, g, function (e) {
             if (t == s.upRoleLevel && 1 != m.dwPlatExtInfo.pay_open && 0 != m.dwPlatExtInfo.continue && n.uploadGameRoleInfoOnline(), 0 !== e.code && "success" !== e.status) return vt.inst.error("日志上报失败，类型：".concat(t), e), void ht(m.uploadGameRoleInfoCallback, d.POST_FAIL, { type: t, data: e });if (!p) {
               var r = JSON.parse(ut(e.data.code));vt.inst.log("是否开启支付：", r), m.dwPlatExtInfo.pay_open = r.pay_open, m.dwPlatExtInfo.continue = r.continue;
             }vt.inst.log("日志上报成功，类型：".concat(t), e), ht(m.uploadGameRoleInfoCallback, d.POST_SUCCESS, { type: t, data: e });
@@ -3504,9 +3520,9 @@ var a = wx.$y;
               f = t.serverId,
               l = t.serverName,
               p = t.extension,
-              d = { access_token: m.dwPlatExtInfo.access_token, cp_order_sn: r, product_id: i, product_name: a, product_desc: o, product_price: m.sdkConfigInfoStore.midas_pay_price ? n / m.sdkConfigInfoStore.midas_pay_price * 100 : n, extension: void 0 !== p && "string" != typeof p ? L()(p) : p },
+              d = { access_token: m.dwPlatExtInfo.access_token, cp_order_sn: r, product_id: i, product_name: a, product_desc: o, product_price: n, extension: void 0 !== p && "string" != typeof p ? H()(p) : p },
               h = { role_id: String(c), role_name: String(s), role_level: String(u), role_server_id: String(f), role_server_name: String(l) },
-              v = dt(d, h);jt.postData(m.place_order_url, { params: d, role: h, sign: v }, function (r) {
+              v = dt(d, h);Mt.postData(m.place_order_url, { params: d, role: h, sign: v }, function (r) {
             0 === r.code || "success" === r.status ? (m.cmmPlatPayInfo = Nt({ orderId: r.data.order_id, payWays: r.data.pay_way || [] }, t), e.pay()) : vt.inst.error("下单失败", r);
           });
         } }, { key: "pay", value: function () {
@@ -3518,13 +3534,13 @@ var a = wx.$y;
         } }, { key: "getGameConfig", value: function () {
           var t,
               e = { time: b()(t = Date.now().toString()).call(t, 0, 10) },
-              r = pt(e);jt.postData(m.sdk_game_config_url, { params: e, sign: r }, function (t) {
-            if (0 !== t.code && "success" !== t.status) return vt.inst.error("查询游戏配置信息失败", t), void ht(m.callback, d.INIT_FAIL, "初始化失败");m.sdkConfigInfoStore = t.data, ht(m.callback, d.INIT_SUCCESS, "初始化成功");
+              r = pt(e);Mt.postData(m.sdk_game_config_url, { params: e, sign: r }, function (t) {
+            if (0 !== t.code && "success" !== t.status) return vt.inst.error("查询游戏配置信息失败", t), void ht(m.callback, d.INIT_FAIL, "初始化失败");(m.sdkConfigInfoStore = t.data).is_share_menu ? (console.log("开启分享"), wx.showShareMenu({ menus: ["shareAppMessage", "shareTimeline"] })) : (console.log("关闭分享"), wx.hideShareMenu({ menus: ["shareAppMessage", "shareTimeline"] })), ht(m.callback, d.INIT_SUCCESS, "初始化成功");
           });
         } }, { key: "submitActiveLog", value: function () {
           var t,
               e = { time: b()(t = Date.now().toString()).call(t, 0, 10) },
-              r = pt(e);jt.postData("".concat(m.data_up_url, "/active"), { params: e, sign: r }, function (t) {
+              r = pt(e);Mt.postData("".concat(m.data_up_url, "/active"), { params: e, sign: r }, function (t) {
             0 === t.code || "success" === t.status ? vt.inst.log("日志上报成功，类型：active", t) : vt.inst.error("日志上报失败，类型：active", t);
           });
         } }, { key: "initStorageData", value: function () {
@@ -3544,24 +3560,24 @@ var a = wx.$y;
               a = t.serverName,
               c = { access_token: m.dwPlatExtInfo.access_token, order_id: e },
               s = { role_id: String(r), role_name: String(n), role_level: String(o), role_server_id: String(i), role_server_name: String(a) },
-              u = dt(c, s);jt.postData(m.check_order_status_url, { params: c, role: s, sign: u }, function (t) {
+              u = dt(c, s);Mt.postData(m.check_order_status_url, { params: c, role: s, sign: u }, function (t) {
             if (0 === t.code || "success" === t.status) switch (vt.inst.log("查询订单状态成功", t), t.data.pay_status) {case p.SUCCESS:
                 ht(m.payCallback, d.PAY_SUCCESS, "支付成功"), vt.inst.log("支付成功", t);break;case p.FAIL:
                 ht(m.payCallback, d.PAY_FAIL, "支付失败"), vt.inst.error("支付失败", t);break;default:
                 vt.inst.error("支付状态：", "未知");} else vt.inst.error("查询订单状态失败", t);
           });
         } }]), e;
-    }();function Lt(t, e) {
+    }();function Ht(t, e) {
       var r = G()(t);if (B()) {
         var n = B()(t);e && (n = Z()(n).call(n, function (e) {
           return D()(t, e).enumerable;
         })), r.push.apply(r, n);
       }return r;
-    }function Ht(t) {
+    }function Lt(t) {
       for (var e = 1; e < arguments.length; e++) {
-        var r = null != arguments[e] ? arguments[e] : {};e % 2 ? Lt(Object(r), !0).forEach(function (e) {
+        var r = null != arguments[e] ? arguments[e] : {};e % 2 ? Ht(Object(r), !0).forEach(function (e) {
           _(t, e, r[e]);
-        }) : j() ? Object.defineProperties(t, j()(r)) : Lt(Object(r)).forEach(function (e) {
+        }) : M() ? Object.defineProperties(t, M()(r)) : Ht(Object(r)).forEach(function (e) {
           Object.defineProperty(t, e, D()(r, e));
         });
       }return t;
@@ -3576,7 +3592,7 @@ var a = wx.$y;
         var r,
             n = wt(t);if (e) {
           var o = wt(this).constructor;r = gt()(n, arguments, o);
-        } else r = n.apply(this, arguments);return Ot(this, r);
+        } else r = n.apply(this, arguments);return Pt(this, r);
       };
     }var Kt = function (e) {
       !function (t, e) {
@@ -3606,7 +3622,7 @@ var a = wx.$y;
                 o = r.gdt_vid,
                 i = r.weixinadinfo,
                 a = r.channel_ver,
-                c = t.scene;this.handleSetAndGetAdValues("adver", "soleKey", n, "1"), this.handleSetAndGetAdValues("channel_ver", "channelVerKey", a, ""), this.handleSetAndGetAdValues("gdt_vid", "gdtVidKey", o, ""), this.handleSetAndGetAdValues("weixinadinfo", "weixinadinfoKey", i, ""), z()(m.platAdParams, { gdt_vid: this.gdt_vid, weixinadinfo: this.weixinadinfo, adver: this.adver, channel_ver: this.channel_ver, scene: c });
+                c = t.scene;this.handleSetAndGetAdValues("adver", "soleKey", n, "1"), this.handleSetAndGetAdValues("channel_ver", "channelVerKey", a, ""), this.handleSetAndGetAdValues("gdt_vid", "gdtVidKey", o, ""), this.handleSetAndGetAdValues("weixinadinfo", "weixinadinfoKey", i, ""), z()(m.platAdParams, { gdt_vid: this.gdt_vid, weixinadinfo: this.weixinadinfo, adver: this.adver, channel_ver: this.channel_ver, scene: c, query_params: t.query });
           } else {
             var s = t.miniProgram;z()(m.platAdParams, { appId: s.appId, envVersion: s.envVersion });
           }vt.inst.log("platAdParams", m.platAdParams);
@@ -3614,10 +3630,12 @@ var a = wx.$y;
           bt(wt(n.prototype), "init", this).call(this);
         } }, { key: "checkSDKEnv", value: function (t) {
           bt(wt(n.prototype), "checkSDKEnv", this).call(this, t);
+        } }, { key: "wxMsgSecCheck", value: function (t) {
+          bt(wt(n.prototype), "wxMsgSecCheck", this).call(this, t);
         } }, { key: "getWxSystemInfo", value: function () {
           var t = wx.getSystemInfoSync(),
-              e = Ht(Ht({}, t), {}, { cmmSdkVersion: m.sdkVersion, cmmOsType: /ios/gi.test(t.system) ? "ios" : "android" }),
-              r = Ht({}, m.initOps);z()(m.platExtInfo, { systemInfo: e, initOps: r });
+              e = Lt(Lt({}, t), {}, { cmmSdkVersion: m.sdkVersion, cmmOsType: /ios/gi.test(t.system) ? "ios" : "android" }),
+              r = Lt({}, m.initOps);z()(m.platExtInfo, { systemInfo: e, initOps: r });
         } }, { key: "getPlatformSystemInfo", value: function () {
           bt(wt(n.prototype), "getPlatformSystemInfo", this).call(this);
         } }, { key: "login", value: function () {
@@ -3635,7 +3653,7 @@ var a = wx.$y;
           var t = this,
               e = { server_id: m.cmmPlatPayInfo.serverId, userid: m.uid, openid: m.dwPlatExtInfo.openid },
               r = pt(e),
-              n = Ht(Ht({}, m.extendParams), {}, { params: e, sign: r });jt.postData(m.reply_balance_url, n, function (e) {
+              n = Lt(Lt({}, m.extendParams), {}, { params: e, sign: r });Mt.postData(m.reply_balance_url, n, function (e) {
             var r;0 !== e.code && "success" !== e.status ? vt.inst.error("查询失败", e) : 0 != JSON.parse(ut(e.data.code)).balance && (t.lostOrderId = wx.getStorageSync(t.payLogsSoleKey) || [], vt.inst.log("缓存漏单列表", t.lostOrderId), t.lostOrderId && null !== t.lostOrderId && t.lostOrderId.length > 0 && (t.replyOrder(t.lostOrderId[0]), At()(r = t.lostOrderId).call(r, 0, 1)));
           });
         } }, { key: "pay", value: function () {
@@ -3648,9 +3666,9 @@ var a = wx.$y;
         } }, { key: "goCs", value: function () {
           wx.openCustomerServiceConversation();
         } }, { key: "goCsBindphone", value: function () {
-          wx.showModal({ title: "绑定提示", content: '即将进入客服聊天界面，输入"手机绑定"可以获取绑定链接', showCancel: !1, confirmText: "我知道了", success: function (t) {
+          vt.inst.log("调起客服-绑定手机"), wx.showModal({ title: "绑定提示", content: '即将进入客服聊天界面，输入"手机绑定"可以获取绑定链接', showCancel: !1, confirmText: "我知道了", success: function (t) {
               if (t.confirm) {
-                var e = { openid: m.dwPlatExtInfo.openid, gameId: m.initOps.gameId, userId: m.uid, app_id: m.platAdParams.appId };vt.inst.log("客服PostData", e);var r = { showMessageCard: !0, sendMessagePath: L()(e), sendMessageTitle: "绑定手机", sendMessageImg: m.static_resources_url + m.cs_img_url, complete: function () {
+                var e = { openid: m.dwPlatExtInfo.openid, gameId: m.initOps.gameId, userId: m.uid, app_id: m.platAdParams.appId };vt.inst.log("客服PostData", e);var r = { showMessageCard: !0, sendMessagePath: H()(e), sendMessageTitle: "绑定手机", sendMessageImg: m.static_resources_url + m.cs_img_url, complete: function () {
                     vt.inst.log("客服调起绑定手机接口参数 完成", r);
                   } };wx.openCustomerServiceConversation(r);
               } else t.cancel && console.log("用户点击取消");
@@ -3665,9 +3683,9 @@ var a = wx.$y;
           var e = this,
               r = t.orderId,
               n = t.params,
-              o = n ? Ht(Ht({}, n), {}, { repost: 1 }) : { server_id: m.cmmPlatPayInfo.serverId, userid: m.uid, openid: m.dwPlatExtInfo.openid, order_no: r, amount: m.cmmPlatPayInfo.price },
+              o = n ? Lt(Lt({}, n), {}, { repost: 1 }) : { server_id: m.cmmPlatPayInfo.serverId, userid: m.uid, openid: m.dwPlatExtInfo.openid, order_no: r, amount: m.cmmPlatPayInfo.price },
               i = pt(o),
-              a = Ht(Ht({}, m.extendParams), {}, { params: o, sign: i });vt.inst.log("扣款发货请求参数", a), wx.request({ url: m.prod_sdk_base_url + m.request_prefix + m.reply_order_url, data: a, method: "POST", header: { "Content-Type": "application/json;charset=UTF-8;" }, success: function (t) {
+              a = Lt(Lt({}, m.extendParams), {}, { params: o, sign: i });vt.inst.log("扣款发货请求参数", a), wx.request({ url: m.prod_sdk_base_url + m.request_prefix + m.reply_order_url, data: a, method: "POST", header: { "Content-Type": "application/json;charset=UTF-8;" }, success: function (t) {
               var n = t.data;0 !== n.code && "success" !== n.status ? (vt.inst.error("扣款发货失败", n, n.message), e.lostOrderId.unshift({ orderId: r, params: o }), wx.setStorageSync(e.payLogsSoleKey, e.lostOrderId)) : (vt.inst.log("扣款发货成功", t), wx.setStorageSync(e.payLogsSoleKey, e.lostOrderId));
             }, fail: function (t) {
               vt.inst.error("扣款发货响应失败", t.data.msg), e.lostOrderId.unshift({ orderId: r, params: o }), wx.setStorageSync(e.payLogsSoleKey, e.lostOrderId);
@@ -3676,7 +3694,7 @@ var a = wx.$y;
           bt(wt(n.prototype), "setStorageData", this).call(this), this.platSetStorageData();
         } }, { key: "platSetStorageData", value: function () {
           try {
-            wx.setStorageSync(this.platUserInfoSoleKey, L()(m.platStorageDataOps));
+            wx.setStorageSync(this.platUserInfoSoleKey, H()(m.platStorageDataOps));
           } catch (t) {
             vt.inst.error("wx本地缓存数据出错", t);
           }
@@ -3684,32 +3702,34 @@ var a = wx.$y;
           bt(wt(n.prototype), "getStorageData", this).call(this), this.platGetStorageData();
         } }, { key: "platGetStorageData", value: function () {
           try {
-            var t = wx.getStorageSync(this.platUserInfoSoleKey);z()(m.platStorageDataOps, t ? Ht({}, JSON.parse(t)) : {});
+            var t = wx.getStorageSync(this.platUserInfoSoleKey);z()(m.platStorageDataOps, t ? Lt({}, JSON.parse(t)) : {});
           } catch (t) {
             vt.inst.error("wx获取本地缓存数据出错", t);
           }
         } }, { key: "checkOrderStatus", value: function (t) {
           bt(wt(n.prototype), "checkOrderStatus", this).call(this, t);
         } }, { key: "platPayMidas", value: function () {
-          var t = this;vt.inst.log("支付参数", m.cmmPlatPayInfo), m.cmmPlatPayInfo.payWays.midas ? (vt.inst.log("支付参数", m.cmmPlatPayInfo.payWays.midas), wx.requestMidasPayment({ mode: "game", env: m.cmmPlatPayInfo.payWays.midas.env, offerId: m.cmmPlatPayInfo.payWays.midas.offer_id, platform: m.cmmPlatPayInfo.payWays.midas.platform, currencyType: m.cmmPlatPayInfo.payWays.midas.currency_type, buyQuantity: m.cmmPlatPayInfo.payWays.midas.price, zoneId: m.cmmPlatPayInfo.payWays.midas.zone_id, success: function (e) {
-              vt.inst.log("wx支付成功", e), ht(m.payCallback, d.PAY_SUCCESS, "支付成功");var r = m.cmmPlatPayInfo.orderId;t.replyOrder({ orderId: r });
+          var t = this;vt.inst.log("支付参数", m.cmmPlatPayInfo), m.cmmPlatPayInfo.payWays.midas ? wx.requestMidasPayment({ mode: "game", env: m.cmmPlatPayInfo.payWays.midas.env, offerId: m.cmmPlatPayInfo.payWays.midas.offer_id, platform: m.cmmPlatPayInfo.payWays.midas.platform, currencyType: m.cmmPlatPayInfo.payWays.midas.currency_type, buyQuantity: m.cmmPlatPayInfo.payWays.midas.price, zoneId: m.cmmPlatPayInfo.payWays.midas.zone_id, success: function (e) {
+              vt.inst.log("wx支付成功", e), ht(m.payCallback, d.PAY_SUCCESS, "支付成功"), t.replyOrder({ orderId: m.cmmPlatPayInfo.orderId });
             }, fail: function (t) {
               vt.inst.log("wx支付失败", t), ht(m.payCallback, d.PAY_FAIL, "支付失败");
             }, complete: function (t) {
               vt.inst.log("支付环境", m.sdkConfigInfoStore.midas_env), vt.inst.log("支付完成", t);
-            } })) : vt.inst.log("缺少支付参数pay_way.midas", m.cmmPlatPayInfo);
+            } }) : vt.inst.log("缺少支付参数pay_way.midas", m.cmmPlatPayInfo);
         } }, { key: "platPayCs", value: function () {
           var t = this,
               e = m.cmmPlatPayInfo.orderId,
-              r = { openid: m.dwPlatExtInfo.openid, gameId: m.initOps.gameId, orderId: e, userId: m.uid, adParams: m.platAdParams };vt.inst.log("支付参数", m.cmmPlatPayInfo), vt.inst.log("客服PostData", r);var n = { showMessageCard: !0, sendMessagePath: ft(L()(r)), sendMessageTitle: "您好,回复任意消息继续", sendMessageImg: m.static_resources_url + m.pay_tips_img_url, complete: function () {
+              r = { openid: m.dwPlatExtInfo.openid, gameId: m.initOps.gameId, orderId: e, userId: m.uid, adParams: m.platAdParams };vt.inst.log("支付参数", m.cmmPlatPayInfo), vt.inst.log("客服PostData", r);var n = { showMessageCard: !0, sendMessagePath: ft(H()(r)), sendMessageTitle: "您好,回复任意消息继续", sendMessageImg: m.static_resources_url + m.pay_tips_img_url, complete: function () {
               vt.inst.log("客服：complete！查询订单状态", m.cmmPlatPayInfo), t.checkOrderStatus(m.cmmPlatPayInfo);
             } };vt.inst.log("客服卡片", n), wx.openCustomerServiceConversation(n);
+        } }, { key: "platPayPopup", value: function () {
+          vt.inst.log("弹窗支付", m.cmmPlatPayInfo);
         } }, { key: "platPayMiniProgram", value: function () {
           var t = { appId: m.cmmPlatPayInfo.payWays.jump.appid, path: m.cmmPlatPayInfo.payWays.jump.path, extraData: m.cmmPlatPayInfo.payWays.jump.extra_data, envVersion: m.cmmPlatPayInfo.payWays.jump.env_version, complete: function () {
               vt.inst.log("小程序支付1", m.cmmPlatPayInfo);
             } };vt.inst.log("小程序支付2", t), wx.navigateToMiniProgram(t);
         } }, { key: "platPayEnterprise", value: function () {
-          1 === m.cmmPlatPayInfo.payWays.pay_type ? this.platPayMidas() : 2 === m.cmmPlatPayInfo.payWays.pay_type ? this.platPayCs() : 3 === m.cmmPlatPayInfo.payWays.pay_type ? this.platPayMiniProgram() : vt.inst.error("该支付方式暂不支持");
+          1 === m.cmmPlatPayInfo.payWays.pay_type ? this.platPayMidas() : 2 === m.cmmPlatPayInfo.payWays.pay_type ? this.platPayCs() : 3 === m.cmmPlatPayInfo.payWays.pay_type ? this.platPayMiniProgram() : 4 === m.cmmPlatPayInfo.payWays.pay_type ? this.platPayPopup() : vt.inst.error("该支付方式暂不支持");
         } }, { key: "platPayIndividual", value: function () {
           1 === m.cmmPlatPayInfo.payWays.pay_type || 2 === m.cmmPlatPayInfo.payWays.pay_type ? this.platPayCs() : vt.inst.error("该支付方式暂不支持");
         } }]), n;
@@ -3729,10 +3749,10 @@ var a = wx.$y;
     },
         Gt = function () {
       function e() {
-        t(this, e), _(this, "_version", "1.5.0");
+        t(this, e), _(this, "_version", "1.9.2");
       }return g(e, [{ key: "init", value: function (t, e) {
           var r = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
-              n = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 1;m.initOps = t, m.callback = e, m.pkgName = t.pkgName || "", m.gameVersion = t.gameVersion || "", m.engineType = n, vt.inst.init(r), (m.mPlat = Wt(t.platId) || void 0) && m.mPlat.init();
+              n = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 1;m.initOps = t, m.callback = e, m.pkgName = t.pkgName || "", m.gameVersion = t.gameVersion || "", m.engineType = n, vt.inst.init(r), (m.mPlat = Wt(t.platId) || void 0) && m.mPlat.init(), vt.inst.log("sdk版本号", this._version);
         } }, { key: "login", value: function (t) {
           m.loginCallback = t, m.mPlat && m.mPlat.login();
         } }, { key: "getPlatformSystemInfo", value: function (t) {
@@ -3745,6 +3765,8 @@ var a = wx.$y;
           m.mPlat && m.mPlat.goCs();
         } }, { key: "goCsBindphone", value: function () {
           m.mPlat && m.mPlat.goCsBindphone();
+        } }, { key: "wxMsgSecCheck", value: function (t, e) {
+          e && (m.wxMsgSecCheckCallback = e), m.mPlat && m.mPlat.wxMsgSecCheck(t);
         } }, { key: "checkSDKEnv", value: function (t, e) {
           m.checkGameInfoCallback = t, m.mPlat && m.mPlat.checkSDKEnv(e);
         } }, { key: "midasGetBalance", value: function () {

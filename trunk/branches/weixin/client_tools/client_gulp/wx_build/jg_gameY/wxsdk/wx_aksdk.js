@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_tjqydzxm_IB', //点完-斗战仙魔-盈月服
     partner_label: 'dianwanxcx',
     partner_id: '479',
-    game_ver: '24.0.7',
+    game_ver: '24.0.27',
     is_auth: true, //授权登录
 };
 window.config = config;
@@ -613,7 +613,10 @@ function mainSDK() {
             return uuid.join('');
         },
         weiduanHelper: function() {
-            dwPlatformSDK.goCs()
+            dwPlatformSDK.goCsBindphone();
+        },
+        sendUrl: function () {
+            dwPlatformSDK.goCsBindphone();
         },
 
         //获取公共参数
@@ -764,4 +767,7 @@ exports.subscribeMessage = function (data, callback) {
 
 exports.weiduanHelper = function () {
     run('weiduanHelper');
+};
+exports.sendUrl = function () {
+    run('sendUrl');
 };

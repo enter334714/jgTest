@@ -271,7 +271,7 @@ window.sdkOnInited = function(res) {
   // res.game_ver = "1.0.86";
   wx_develop = develop == 1;
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
-  console.log("#初始化成功   提审状态:"+ develop +"   是否提审:"+ (develop == 1) +"   提审版本号:"+res.game_ver +"   当前版本号:"+window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
+  console.log("#初始化成功   提审状态:"+ develop +"   是否提审:"+ (develop == 1) +"   提审版本号:"+res.game_ver +"   当前版本号:"+window.versions.wxVersion+"   version_name:"+res.version_name); //develop为1的时候说明当前game_ver是提审版本
   if (!res.game_ver || window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
     console.log("#正式版=============================");
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
@@ -279,7 +279,7 @@ window.sdkOnInited = function(res) {
     PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
     PF_INFO.cdn = "https://cdn-tjqy-hs.shzbkj.com/weixin_1/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
-    PF_INFO.version_name = "hs";
+    PF_INFO.version_name = res.version_name;
     PF_INFO.wxShield = false;
   } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0){  //当前版本 == 后台版本
     console.log("#审核版=============================");
@@ -314,6 +314,7 @@ window.sdkLoginRetry = 5;
 window.sdkOnLogin = function(status, data) {
   if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
+    PF_INFO.wx_channel = data.wx_channel;
     var self = this;
     wxShowLoading({ title: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {
@@ -353,6 +354,10 @@ window.onUserLogin = function (response) {
     window.toErrorAlarm(2, "User.login fail: state="+response.state);
     window.reqRecordInfo("userLoginError", JSON.stringify(response));
     window.loginAlert('User.login failed: ' + response.state);
+    return;
+  }
+  if (response.ban_state == 1) {
+    window.loginAlert("账号已被封禁！");
     return;
   }
 
@@ -443,6 +448,7 @@ window.updCurServer = function(response) {
     'entry_port': parseInt(response.data[0].entry_port),
     'status': get_status(response.data[0]),
     'start_time': response.data[0].start_time,
+    'maintain_time': response.data[0].maintain_time ? response.data[0].maintain_time : "",
     'cdn': PF_INFO.cdn,
   }
   this.initComplete();
@@ -1217,6 +1223,7 @@ window.enterToGame = function() {
         debugUsers: window.PF_INFO.debugUsers,
         wxMenuTop: top,
         wxShield: window.PF_INFO.wxShield,
+        wx_channel: window.PF_INFO.wx_channel,
       };
 
       if (window.pkgOptions) {

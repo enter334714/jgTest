@@ -14,7 +14,7 @@ var config = {
   game_pkg: 'tjqy_tjqyhywxxyxntj_RX',
   partner_label: 'hyxyx',
   partner_id: '566',
-  game_ver: '59.0.1',
+  game_ver: '59.0.11',
   is_auth: false, //授权登录
   
 };
@@ -34,259 +34,260 @@ var platform = sysInfo.platform;
 var partner_user_info = null;
 
 function mainSDK() {
-  var callbacks = {};
-  var this_pay_order = 0;
-  return {
-      order_data: {},
-      init: function (ops, callback) {
-          var game_ver = ops && ops.game_ver ? ops.game_ver : 0;
-          console.log("[SDK]CP调用init接口");
-          var self = this;
+    var callbacks = {};
+    var this_pay_order = 0;
+    return {
+        order_data: {},
+        init: function (ops, callback) {
+            var game_ver = ops && ops.game_ver ? ops.game_ver : 0;
+            console.log("[SDK]CP调用init接口");
+            var self = this;
 
-          var uuid = wx.getStorageSync('plat_uuid');
-          var is_new;
-          if (!uuid) {
-              uuid = self.uuid(16, 32);
-              wx.setStorageSync('plat_uuid', uuid);
-              is_new = 1;
-          } else {
-              is_new = 0;
-          }
-          var idfv = wx.getStorageSync('plat_idfv');
-          if (!idfv) {
-              idfv = self.uuid(16, 32);
-              wx.setStorageSync('plat_idfv', idfv);
-          }
+            var uuid = wx.getStorageSync('plat_uuid');
+            var is_new;
+            if (!uuid) {
+                uuid = self.uuid(16, 32);
+                wx.setStorageSync('plat_uuid', uuid);
+                is_new = 1;
+            } else {
+                is_new = 0;
+            }
+            var idfv = wx.getStorageSync('plat_idfv');
+            if (!idfv) {
+                idfv = self.uuid(16, 32);
+                wx.setStorageSync('plat_idfv', idfv);
+            }
 
-          var info = wx.getLaunchOptionsSync();
-          var scene = info.scene ? info.scene : '';
+            var info = wx.getLaunchOptionsSync();
+            var scene = info.scene ? info.scene : '';
 
-          wx.showShareMenu();
+            wx.showShareMenu();
 
-          //判断今天是否已经上报过
-          if (is_new && info.query && info.query.ad_code) {
-              wx.setStorageSync('plat_ad_code', info.query.ad_code);
-          }
+            //判断今天是否已经上报过
+            if (is_new && info.query && info.query.ad_code) {
+                wx.setStorageSync('plat_ad_code', info.query.ad_code);
+            }
 
-          var data = {
-              install: is_new,
-              scene: scene
-          };
-          self.log('start', data);
+            var data = {
+                install: is_new,
+                scene: scene
+            };
+            self.log('start', data);
 
-          //玩家是分享过来的，单独上报给服务器
-          var invite = info.query && info.query.invite ? info.query.invite : '';
-          var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
+            //玩家是分享过来的，单独上报给服务器
+            var invite = info.query && info.query.invite ? info.query.invite : '';
+            var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
 
-          if (invite) {
-              user_invite_info = {
-                  invite: invite,
-                  invite_type: invite_type,
-                  is_new: is_new,
-                  scene: scene
-              };
-          }
+            if (invite) {
+                user_invite_info = {
+                    invite: invite,
+                    invite_type: invite_type,
+                    is_new: is_new,
+                    scene: scene
+                };
+            }
 
-          //判断版本号
-          if (game_ver) {
-              this.checkGameVersion(game_ver, function (data) {
-                  callback && callback(data);
-              });
-          }
+            //判断版本号
+            if (game_ver) {
+                this.checkGameVersion(game_ver, function (data) {
+                    callback && callback(data);
+                });
+            }
 
-          
-      },
+            
+        },
 
-      login: function (data,callback) {
-          console.log("[SDK]调起登录");
-          callbacks['login'] = typeof callback == 'function' ? callback : null;
-          var self = this;
-          
-          //sdk初始化
-          let params = {
-              channel_id: partner_config.channel_id,
-              imei: wx.getStorageSync("imei") || "",
-              appId: partner_config.appId,
-              mobile: "",
-              device: wx.getStorageSync("device") || ""
-          }
+        login: function (data,callback) {
+            console.log("[SDK]调起登录");
+            callbacks['login'] = typeof callback == 'function' ? callback : null;
+            var self = this;
 
-          init(params).then(res => {
-              var data = res.data;
-              console.log('初始化成功返回',JSON.stringify(data));
-              if(data.status==0)
-              {
-                  // console.log(res.data);
-                  wx.setStorageSync('imei', data.data.imei);
-                  wx.setStorageSync('device', data.data.device);
-          
-                  // 获取openid
-                  let openId = wx.getStorageSync("openId")
-                  if (!openId) {
-                      getOpenId(partner_config.appId).then(res1 =>{
-                          var data1 = res1.data;
-                          if(data1.status==0)
-                          {   
-                              console.log('获取openid成功');
-                              wx.setStorageSync('openId', data1.data.openid);
-                              wx.setStorageSync('session_key', data1.data.session_key);
+            // 获取openid
+            let openId = wx.getStorageSync("openId")
+            if (!openId) {
+                getOpenId(partner_config.appId).then(res =>{
+                    let openidData = res.data;
+                    if(openidData.status==0)
+                    {   
+                        console.log('获取openid成功');
+                        wx.setStorageSync('openId', openidData.data.openid);
+                        wx.setStorageSync('session_key', openidData.data.session_key);
 
-                              this.partner_login();
+                        this.partner_login();
 
-                          }else{
-                              console.log('获取openid失败');
-                          }
-                      })
-                  }else{
-                      this.partner_login();
-                  }
+                    }else{
+                        console.log('获取openid失败');
+                    }
+                })
+            }else{
+                this.partner_login();
+            }
+            
+        },
 
-                  
+        partner_login:function()
+        {
 
-              }else{
-                  console.log('初始化失败',JSON.stringify(err));
-              }
-          })
-          
-      },
+              //sdk初始化
+              let params = {
+                channel_id: partner_config.channel_id,
+                imei: wx.getStorageSync("imei") || "",
+                appId: partner_config.appId,
+                mobile: "",
+                device: wx.getStorageSync("device") || ""
+            }
 
-      partner_login:function()
-      {
-          userLogin({
-              channel_id: partner_config.channel_id,
-              appId: partner_config.appId
-          }).then(res2 => {
-              console.log('登录回调',JSON.stringify(res2));
-              var data2 = res2.data;
-              if(data2.Code==0){
-                  wx.setStorageSync('userId', data2.UserId);
-                  this.do_login({UserId:data2.UserId,token: wx.getStorageSync('session_key')});
-              }else{
-                  console.log('渠道登录失败');
-                  callbacks['login'] && callbacks['login'](1, {
-                      errMsg: data2.Message
-                  });
-              }
-              
-          })
-      },
+            init(params).then(res => {
+                var data = res.data;
+                console.log('初始化成功返回',JSON.stringify(data));
+                if(data.status==0)
+                {
+                    // console.log(res.data);
+                    wx.setStorageSync('imei', data.data.imei);
+                    wx.setStorageSync('device', data.data.device);
 
-      do_login: function (info) {
-          var self = this;
+                    userLogin({
+                        channel_id: partner_config.channel_id,
+                        appId: partner_config.appId
+                    }).then(res2 => {
+                        console.log('登录回调',JSON.stringify(res2));
+                        var data2 = res2.data;
+                        if(data2.Code==0){
+                            wx.setStorageSync('userId', data2.UserId);
+                            this.do_login({UserId:data2.UserId,token: wx.getStorageSync('session_key')});
+                        }else{
+                            console.log('渠道登录失败');
+                            callbacks['login'] && callbacks['login'](1, {
+                                errMsg: data2.Message
+                            });
+                        }
+                        
+                    })
+            
+                }else{
+                    console.log('初始化失败',JSON.stringify(err));
+                }
+            })
 
-          //发起网络请求
-          var public_data = self.getPublicData();
-          public_data['user_info'] = JSON.stringify(info);
-          if (user_invite_info && typeof user_invite_info == 'object') {
-              for (var key in user_invite_info) {
-                  public_data[key] = user_invite_info[key];
-              }
-          }
+            
+        },
 
-          wx.request({
-              url: 'https://' + HOST + '/partner/auth',
-              method: 'POST',
-              dataType: 'json',
-              header: {
-                  'content-type': 'application/x-www-form-urlencoded' // 默认值
-              },
-              data: public_data,
-              success: function (res) {
-                  console.log("[SDK]登录结果：" + JSON.stringify(res));
+        do_login: function (info) {
+            var self = this;
 
-                  if (res.statusCode == 200) {
-                      var data = res.data;
-                      if (data.state) {
-                          try {
-                                  wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
-                                  wx.setStorageSync('plat_uid', data.data.user_id);
-                                  wx.setStorageSync('plat_username', data.data.username);
-                                  if(data.data.ext){
-                                      wx.setStorageSync('plat_session_key', data.data.ext);
-                                  }
-                              } catch (e) {
-                              }
-                        var userData = {
-                          userid: data.data.user_id,
-                          account: data.data.nick_name,
-                          token: data.data.token,
-                          invite_uid: data.data.invite_uid || '',
-                          invite_nickname: data.data.invite_nickname || '',
-                          invite_head_img: data.data.invite_head_img || '',
-                          head_img: data.data.head_img || '',
-                          is_client: data.data.is_client || '0',
-                          ios_pay: data.data.ios_pay || '0',
-                          isBindPhone: info.isBindPhone
-                      };
-                          callbacks['login'] && callbacks['login'](0, userData);
-                      } else {
-                          callbacks['login'] && callbacks['login'](1, {
-                              errMsg: data.msg
-                          });
-                      }
+            //发起网络请求
+            var public_data = self.getPublicData();
+            public_data['user_info'] = JSON.stringify(info);
+            if (user_invite_info && typeof user_invite_info == 'object') {
+                for (var key in user_invite_info) {
+                    public_data[key] = user_invite_info[key];
+                }
+            }
 
-                      self.getShareInfo('menu', function (data) {
-                          console.log("[SDK]开始监听右上角菜单分享");
-                          self.logStartShare('menu');
+            wx.request({
+                url: 'https://' + HOST + '/partner/auth',
+                method: 'POST',
+                dataType: 'json',
+                header: {
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                data: public_data,
+                success: function (res) {
+                    console.log("[SDK]登录结果：" + JSON.stringify(res));
 
-                          wx.onShareAppMessage(function () {
-                              //记录开始分享
-                              self.logStartShare('menu');
-                              return {
-                                  title: data.title,
-                                  imageUrl: data.img,
-                                  query: data.query,
-                              }
-                          });
+                    if (res.statusCode == 200) {
+                        var data = res.data;
+                        if (data.state) {
+                            try {
+                                    wx.setStorageSync('plat_sdk_token', data.data.sdk_token);
+                                    wx.setStorageSync('plat_uid', data.data.user_id);
+                                    wx.setStorageSync('plat_username', data.data.username);
+                                    if(data.data.ext){
+                                        wx.setStorageSync('plat_session_key', data.data.ext);
+                                    }
+                                } catch (e) {
+                                }
+                          var userData = {
+                            userid: data.data.user_id,
+                            account: data.data.nick_name,
+                            token: data.data.token,
+                            invite_uid: data.data.invite_uid || '',
+                            invite_nickname: data.data.invite_nickname || '',
+                            invite_head_img: data.data.invite_head_img || '',
+                            head_img: data.data.head_img || '',
+                            is_client: data.data.is_client || '0',
+                            ios_pay: data.data.ios_pay || '0',
+                            isBindPhone: info.isBindPhone
+                        };
+                            callbacks['login'] && callbacks['login'](0, userData);
+                        } else {
+                            callbacks['login'] && callbacks['login'](1, {
+                                errMsg: data.msg
+                            });
+                        }
 
-                      });
-                  } else {
-                      callbacks['login'] && callbacks['login'](1, {
-                          errMsg: '请求平台服务器失败！'
-                      });
-                  }
-              }
-          });
-      },
+                        self.getShareInfo('menu', function (data) {
+                            console.log("[SDK]开始监听右上角菜单分享");
+                            self.logStartShare('menu');
 
-      share: function (data) {
-          callbacks['share'] = typeof callback == 'function' ? callback : null;
-          var type = data.type || 'share';
-          console.log("[SDK]CP调用分享 type=" + type);
-          var self = this;
-          this.getShareInfo(type, function (data) {
+                            wx.onShareAppMessage(function () {
+                                //记录开始分享
+                                self.logStartShare('menu');
+                                return {
+                                    title: data.title,
+                                    imageUrl: data.img,
+                                    query: data.query,
+                                }
+                            });
 
-              //记录开始分享
-              self.logStartShare(type);
+                        });
+                    } else {
+                        callbacks['login'] && callbacks['login'](1, {
+                            errMsg: '请求平台服务器失败！'
+                        });
+                    }
+                }
+            });
+        },
 
-              wx.shareAppMessage({
-                  title: data.title,
-                  imageUrl: data.img,
-                  query: data.query,
-              });
-          });
-      },
+        share: function (data) {
+            callbacks['share'] = typeof callback == 'function' ? callback : null;
+            var type = data.type || 'share';
+            console.log("[SDK]CP调用分享 type=" + type);
+            var self = this;
+            this.getShareInfo(type, function (data) {
 
-      logStartShare: function (type) {
-          var sdk_token = wx.getStorageSync('plat_sdk_token');
-          wx.request({
-              url: 'https://' + HOST + '/game/min/?ac=logStartShare',
-              method: 'POST',
-              dataType: 'json',
-              header: {
-                  'content-type': 'application/x-www-form-urlencoded' // 默认值
-              },
-              data: {
-                  game_pkg: config.game_pkg,
-                  partner_id: config.partner_id,
-                  sdk_token: sdk_token,
-                  server_id: user_game_info ? user_game_info.server_id : '',
-                  role_id: user_game_info ? user_game_info.role_id : '',
-                  type: type,
-              },
-              success: function (res) {}
-          });
-      },
+                //记录开始分享
+                self.logStartShare(type);
+
+                wx.shareAppMessage({
+                    title: data.title,
+                    imageUrl: data.img,
+                    query: data.query,
+                });
+            });
+        },
+
+        logStartShare: function (type) {
+            var sdk_token = wx.getStorageSync('plat_sdk_token');
+            wx.request({
+                url: 'https://' + HOST + '/game/min/?ac=logStartShare',
+                method: 'POST',
+                dataType: 'json',
+                header: {
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                data: {
+                    game_pkg: config.game_pkg,
+                    partner_id: config.partner_id,
+                    sdk_token: sdk_token,
+                    server_id: user_game_info ? user_game_info.server_id : '',
+                    role_id: user_game_info ? user_game_info.role_id : '',
+                    type: type,
+                },
+                success: function (res) {}
+            });
+        },
 
       openService: function () {
           wx.openCustomerServiceConversation();
@@ -496,46 +497,68 @@ function mainSDK() {
                              params['channel_id'] = partner_config.channel_id;
                              params['UserId'] = wx.getStorageSync('userId');
 
-                             checkPay({
-                                  total_fee: params.Amount,
-                                  app: partner_config.appId,
-                                  channel: partner_config.channel_id,
-                                  role_id: params.role_id,
-                                  zone_id: params.zone_id,
-                                  platform: platform
-                            }).then(res1=>{
+                               checkPay({
+                                    total_fee : params.amount,
+                                    u9uid : wx.getStorageSync('userId'),
+                                    channel: partner_config.channel_id,
+                                    channel_id: partner_config.channel_id,
+                                    platform: platform,
+                                    appId: partner_config.appId,
+                                    amount:params.amount,
+                                    productOrderId:params.ProductOrderId,
+                                    ext:params.ext,
+                                    appExt:params.appExt,
+                                    IsSwitchPayChannel:0,
+                                    role_id: params.role_id,
+                                    zone_id: params.zone_id,
+                                    zone_name:params.zone_name,
+                                    env:0,
+                                    DeviceId:wx.getStorageSync('device'),
+                               }).then(res=>{
+                                 console.log('渠道支付返回',res);
+                               });
 
-                                  params['IsSwitchPayChannel'] = res1.data.Code;
-                                  params['CallbackUrl'] = res1.data.url;
-                                  payRequest(params).then(res2=>{
-                                      console.log('payRequest',JSON.stringify(params),JSON.stringify(res2))
-                                      if(res2.data.Code==0){
 
-                                          //支付
-                                          payMoney({
-                                              order_id: res2.data.OrderId,
-                                              amount: params.amount,
-                                              offerId: res2.data.Ext.offerId,
-                                              buyQuantity: res2.data.Ext.buyQuantity,
-                                              env: partner_config.env,
-                                              platform: platform,
-                                              appId: partner_config.appId,
-                                              channel_id: partner_config.channel_id,
-                                          }).then(res3=>{
+                              //  checkPay({
+                              //       total_fee: params.Amount,
+                              //       app: partner_config.appId,
+                              //       channel: partner_config.channel_id,
+                              //       role_id: params.role_id,
+                              //       zone_id: params.zone_id,
+                              //       platform: platform
+                              // }).then(res1=>{
 
-                                                  console.log('支付返回',JSON.stringify(res3));
-                                          }).catch(err=>{
-                                              console.log(err);
-                                          });
+                              //       params['IsSwitchPayChannel'] = res1.data.Code;
+                              //       params['CallbackUrl'] = res1.data.url;
+                              //       payRequest(params).then(res2=>{
+                              //           console.log('payRequest',JSON.stringify(params),JSON.stringify(res2))
+                              //           if(res2.data.Code==0){
 
-                                      }else{
-                                          callbacks['pay'] && callbacks['pay'](1, {
-                                              errMsg: res2.data.Message
-                                          });
-                                      }
-                                  });
-                                  
-                            });
+                              //               //支付
+                              //               payMoney({
+                              //                   order_id: res2.data.OrderId,
+                              //                   amount: params.amount,
+                              //                   offerId: res2.data.Ext.offerId,
+                              //                   buyQuantity: res2.data.Ext.buyQuantity,
+                              //                   env: partner_config.env,
+                              //                   platform: platform,
+                              //                   appId: partner_config.appId,
+                              //                   channel_id: partner_config.channel_id,
+                              //               }).then(res3=>{
+
+                              //                       console.log('支付返回',JSON.stringify(res3));
+                              //               }).catch(err=>{
+                              //                   console.log(err);
+                              //               });
+
+                              //           }else{
+                              //               callbacks['pay'] && callbacks['pay'](1, {
+                              //                   errMsg: res2.data.Message
+                              //               });
+                              //           }
+                              //       });
+                                    
+                              // });
 
                           }else{
                               self.extDo({ext1:data.data.ext,ext2:data.data.pay_data});

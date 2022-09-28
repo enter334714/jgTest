@@ -1,1 +1,2 @@
-var _=wx.y$;import"lsjdflaamain.js";
+var _ = wx.y$;
+import 'lsjdflaamain.js';

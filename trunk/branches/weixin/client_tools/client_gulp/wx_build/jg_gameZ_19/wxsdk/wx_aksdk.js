@@ -866,8 +866,8 @@ exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLev
         rolename: roleName,
         rolelevel: roleLevel,
         rolecreatetime: rolecreatetime,
-        rolepower: extra.rolepower?extra.rolepower:0,
-        callback: extra.callback?extra.callback:null,
+        rolepower: extra?extra.rolepower:0,
+        callback: extra?extra.callback:null,
     };
 
     run('logEnterGame', data);
@@ -881,8 +881,8 @@ exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleL
         rolename: roleName,
         rolelevel: roleLevel,
         rolecreatetime: rolecreatetime,
-        rolepower: extra.rolepower,
-        callback: extra.callback
+        rolepower: extra?extra.rolepower:0,
+        callback: extra?extra.callback:null
     };
     run('logRoleUpLevel', data);
 };

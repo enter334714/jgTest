@@ -1,5 +1,5 @@
-let config = { game_id: "11", game_pkg: "wzcq-q2-_q2wxxcxqd_H", partner_id: "4", is_auth: !1, from: null };window.config = config;let PARTNER_SDK = mainSDK(),
-    HOST = "https://sdk.5tun.cn",
+let config = { game_id: "11", game_pkg: "wzcq-q2-_q2wxxcxgrzh_J", partner_id: "4", is_auth: !1, from: null };window.config = config;let PARTNER_SDK = mainSDK(),
+    HOST = "https://sdk.357pk.net",
     user_game_info = null,
     this_order_id = null,
     game_ver = "";function mainSDK() {
@@ -8,7 +8,7 @@ let config = { game_id: "11", game_pkg: "wzcq-q2-_q2wxxcxqd_H", partner_id: "4",
           t = wx.getStorageSync("plat_uuid");t ? n = 0 : (t = this.uuid(16, 32), wx.setStorageSync("plat_uuid", t), n = 1);var a = wx.getStorageSync("plat_idfv");a || (a = this.uuid(16, 32), wx.setStorageSync("plat_idfv", a));var r = wx.getLaunchOptionsSync(),
           i = r.scene ? r.scene : "";if (console.log("[SDK]\u5c0f\u6e38\u620f\u542f\u52a8\u53c2\u6570"), console.log(r), n && r.query && r.query.ad_code && wx.setStorageSync("plat_ad_code", r.query.ad_code), r.query && r.query.from && "" != r.query.from) n && wx.setStorageSync("plat_from", r.query.from), config.from = r.query.from;else {
         var s = wx.getStorageSync("plat_from");s || "" == s || (config.from = s);
-      }console.log(config.from);var l = { install: n, scene: i };this.log("start", l), wx.showShareMenu(), game_ver && this.checkGameVersion(game_ver, function (e) {
+      }console.log(config.from);var d = { install: n, scene: i };this.log("start", d), wx.showShareMenu(), game_ver && this.checkGameVersion(game_ver, function (e) {
         o && o(e);
       });
     }, login: function (o, n) {
@@ -74,7 +74,7 @@ let config = { game_id: "11", game_pkg: "wzcq-q2-_q2wxxcxqd_H", partner_id: "4",
       console.log("[SDK]\u8c03\u8d77\u652f\u4ed8\uff0cCP\u4f20\u503c\uff1a"), console.log(o);var t = this;e.pay = "function" == typeof n ? n : null, 0;var a = wx.getStorageSync("plat_sdk_token"),
           r = wx.getStorageSync("plat_session_key");if (a && r) {
         var i = wx.getSystemInfoSync(),
-            s = { cpbill: o.cpbill, productid: o.productid, productname: o.productname, productdesc: o.productdesc, serverid: o.serverid, servername: o.servername, roleid: o.roleid, rolename: o.rolename, rolelevel: o.rolelevel, price: o.price, extension: o.extension, sdk_token: a, session_key: r, platform: i.platform };t.order_data = s;var l = t.getPublicData();l.order_data = JSON.stringify(s), wx.request({ url: HOST + "/partner/order", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: l, success: function (o) {
+            s = { cpbill: o.cpbill, productid: o.productid, productname: o.productname, productdesc: o.productdesc, serverid: o.serverid, servername: o.servername, roleid: o.roleid, rolename: o.rolename, rolelevel: o.rolelevel, price: o.price, extension: o.extension, sdk_token: a, session_key: r, platform: i.platform };t.order_data = s;var d = t.getPublicData();d.order_data = JSON.stringify(s), wx.request({ url: HOST + "/partner/order", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: d, success: function (o) {
             if (console.log("[SDK]\u5b8c\u6210\u521b\u5efa\u8ba2\u5355"), console.log(o), 200 == o.statusCode) {
               var n = o.data;n.state ? void 0 === wx.requestPayment ? "android" == i.platform || "windows" == i.platform || "devtools" == i.platform ? n.data.is_android_pay ? t.kfPay(n.data) : t.gamePay(n.data) : n.data.is_ios_pay ? 1 == n.data.ios_pay_type && t.kfPay(n.data) : wx.showModal({ title: "\u652f\u4ed8\u63d0\u793a", content: "\u5f88\u62b1\u6b49\uff0c\u7531\u4e8e\u82f9\u679c\u653f\u7b56\uff0c\u6682\u65f6\u4e0d\u80fd\u652f\u4ed8\uff0c\u5b89\u5353\u624b\u673a\u4e0d\u53d7\u5f71\u54cd", confirmText: "\u6211\u77e5\u9053\u4e86", showCancel: !1 }) : t.minPay(n.data) : e.pay && e.pay(1, { errMsg: n.msg });
             } else e.login && e.login(1, { errMsg: "\u8bf7\u6c42\u5e73\u53f0\u670d\u52a1\u5668\u5931\u8d25\uff01#3" });
@@ -157,6 +157,10 @@ let config = { game_id: "11", game_pkg: "wzcq-q2-_q2wxxcxqd_H", partner_id: "4",
       console.log("[SDK]\u83b7\u53d6\u6e38\u620f\u914d\u7f6e"), wx.request({ url: HOST + "/?method=user.gameConfig", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id }, success: function (o) {
           var n = o.data.data;console.log("[SDK]\u83b7\u53d6\u6e38\u620f\u914d\u7f6e\u6210\u529f"), console.log(o.data);var t;t = { pay_switch: n.pay_switch, game_ver: n.game_ver }, e && e(t);
         } });
+    }, getUserZhuanduanInfo: function (e) {
+      console.log("[SDK]\u83b7\u53d6\u7528\u6237\u8f6c\u7aef\u4fe1\u606f");var o = wx.getStorageSync("plat_sdk_token");wx.request({ url: HOST + "/?method=user.getUserZhuanduanInfo", method: "POST", dataType: "json", header: { "content-type": "application/x-www-form-urlencoded" }, data: { game_pkg: config.game_pkg, partner_id: config.partner_id, sdk_token: o }, success: function (o) {
+          var n = o.data.data;console.log("[SDK]\u83b7\u53d6\u7528\u6237\u8f6c\u7aef\u4fe1\u606f\u6210\u529f");var t;t = { download_url: n.download_url, password: n.password, service_qq: n.service_qq, username: n.username }, e && e(t);
+        } });
     } };
 }function run(e, o, n) {
   e in PARTNER_SDK && PARTNER_SDK[e](o, n);
@@ -188,4 +192,6 @@ let config = { game_id: "11", game_pkg: "wzcq-q2-_q2wxxcxqd_H", partner_id: "4",
   run("videoAdvert", e, o);
 }, tempobj.getGameConfig = function (e) {
   run("getGameConfig", e);
+}, tempobj.getUserZhuanduanInfo = function (e) {
+  run("getUserZhuanduanInfo", e);
 };

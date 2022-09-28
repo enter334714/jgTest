@@ -2,10 +2,10 @@
 //TODO 替换对应参数
 var config = {
     game_id: 256,
-    game_pkg: 'tjqy_tjqypjwxxyxdjx_TN', //泡椒-斗剑仙_Z_26
+    game_pkg: 'tjqy_tjqypjwxxyxdjx_TN', //泡椒-新大话梦缘_Z_26
     partner_label: 'pjxyx',
     partner_id: '570',
-    game_ver: '57.0.1',
+    game_ver: '57.0.3',
     is_auth: false, //授权登录
     partner_config: {
         appId : '11641',

@@ -1,4 +1,4 @@
-window.sdk_config = qq.sdk_config;
+﻿window.sdk_config = qq.sdk_config;
 window.md5 = qq.wx_md5;
 window.AKSDK = qq.AKSDK;
 window.PF_INFO = qq.PF_INFO;
@@ -449,6 +449,10 @@ window.onShow = function(callback){
     qq.wx_onShowData = null;
   }
 }
+qq.onHideCallBack = null;
+window.miniGameHide = function(callBack){
+  qq.onHideCallBack = callBack;
+}
 //跳转活动会场
 window.goToQQAct = function(type) {
 	var jumpUrl = "";
@@ -889,6 +893,7 @@ window.enterToGame = function() {
         debugUsers: window.PF_INFO.debugUsers,
         wxMenuTop: top,
         wxShield: window.PF_INFO.wxShield,
+        wx_channel: window.PF_INFO.wx_channel,
       };
 
       if (window.pkgOptions) {
