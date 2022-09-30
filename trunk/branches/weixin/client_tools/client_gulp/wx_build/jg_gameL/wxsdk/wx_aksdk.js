@@ -3,7 +3,7 @@ var config = {
     game_id: '256', //伏魔西游 -官包
     game_pkg: 'tjqy_tjqyfmxy_GR',
     partner_id: '19',
-    game_ver: '11.0.99',  //L包11.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
+    game_ver: '11.0.101',  //L包11.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
     is_auth: false,  //授权登录
     from: null, //来源
     //1活动开启通知 2.活动状态提醒 3.离线收益上限提醒

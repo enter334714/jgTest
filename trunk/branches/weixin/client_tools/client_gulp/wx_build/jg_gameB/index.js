@@ -1193,18 +1193,9 @@ window.initMain = function() {
         scene:scene
       }
       new window.MainWX(platData, window.PF_INFO.lastVersion, window.workerJsURL);
-
-      var Laya =  window.Laya
-      Laya.stage.on("click",this,()=>{
-        console.log(">>>>>>>>>>>>>>click")
-      })
     }
   }
 }
-
-wx.offTouchEnd(()=>{
-  
-})
 
 window.enterToGame = function() {
   if(window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer && window.isCheckBan && window.loadOption) {
