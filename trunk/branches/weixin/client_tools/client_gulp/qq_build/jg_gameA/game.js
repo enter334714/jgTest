@@ -1,4 +1,4 @@
-﻿console.info("0 进入游戏包");
+console.info("0 进入游戏包");
 
 var canvas = qq.wx_canvas = (qq.wx_canvas || qq.createCanvas()); 
 var gl = qq.wx_gl = canvas.getContext('webgl');

@@ -1,17 +1,6 @@
-﻿import Dall from './helper'
-var config = {
-    game_id: '256', //伏魔西游 -官包
-    game_pkg: 'tjqy_tjqyfmxy_GR',
-    partner_id: '19',
-    game_ver: '11.0.101',  //L包11.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
-    is_auth: false,  //授权登录
-    from: null, //来源
-    //1活动开启通知 2.活动状态提醒 3.离线收益上限提醒
-    tmpId: {1:'L7OrwbNJkcOJhe5iikwV6QQubLUeFgGHG0SO6rpLdvo', 2:'06f-cBAmoX_GIJ0VlVHNVpmFO8avojaRor6-alzpBBg', 3:'DLW3vyySJD-DZ7P0BT2q00NAtzuPZMkzuf1EARmrsBM'},  // 订阅的类型 和 模板id
-    min_app_id: '',
-};
+import Dall from './helper'
+import config from './partner_config.js'
 window.config = config;
-
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var t;
@@ -25,7 +14,9 @@ var loginHandler = null;
 var requestCallback = false;
 
 var ad_info = null;
-var develop = 0;
+
+var  develop = 0;
+
 function mainSDK() {
     var callbacks = {};
     var this_pay_order = 0;
@@ -86,9 +77,10 @@ function mainSDK() {
 
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
-            var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
             var cp_activity_id  = info.query && info.query.cp_activity_id ? info.query.cp_activity_id : '';
-            if(invite){
+            var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
+            var video_type = info.query && info.query.video_type ? info.query.video_type : '';
+            if(invite || cp_activity_id){
                 user_invite_info = {
                     invite: invite,
                     invite_type: invite_type,
@@ -105,10 +97,12 @@ function mainSDK() {
                     callback && callback(data);
                 });
             }
+
             ad_info = {
                 "temp_info":info,
                 "temp_uuid":uuid,
                 "temp_is_new":is_new,
+                "video_type":video_type,
             }
         },
 
@@ -149,7 +143,7 @@ function mainSDK() {
             console.log("[SDK]调起登录");
             var self = this;
             callbacks['login'] = typeof callback == 'function' ? callback : null;
-            
+
             //授权登录
             if(config.is_auth){
                 wx.getSetting({
@@ -257,6 +251,7 @@ function mainSDK() {
                                                     if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
                                                         wx_channel = 1;
                                                     }
+                                                    var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
                                                     var userData = {
                                                         userid: data.data.user_id,
                                                         account: data.data.nick_name,
@@ -268,6 +263,8 @@ function mainSDK() {
                                                         is_client: data.data.is_client || '0',
                                                         ios_pay: data.data.ios_pay || '0',
                                                         wx_channel:wx_channel,
+                                                        video_type:ad_info.video_type,
+                                                        ad_flag:ad_flag,
                                                     };
                                                     try{
                                                         self.adLog(data.data.openid);
@@ -340,6 +337,7 @@ function mainSDK() {
                                             if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
                                                 wx_channel = 1;
                                             }
+                                            var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
                                             var userData = {
                                                 userid: data.data.user_id,
                                                 account: data.data.nick_name,
@@ -351,7 +349,8 @@ function mainSDK() {
                                                 is_client: data.data.is_client || '0',
                                                 ios_pay: data.data.ios_pay || '0',
                                                 wx_channel:wx_channel,
-
+                                                video_type:ad_info.video_type,
+                                                ad_flag:ad_flag,
                                             };
                                             try{
                                                 self.adLog(data.data.openid);
@@ -432,6 +431,7 @@ function mainSDK() {
             callbacks['share'] = typeof callback == 'function' ? callback : null;
             var type = data.type || 'share';
             var cp_activity_id = data.cp_activity_id || '';
+
             console.log("[SDK]CP调用分享 type=" + type);
             var self = this;
             this.getShareInfo(type, function (data) {
@@ -502,10 +502,10 @@ function mainSDK() {
                         if(data.state){
                             callbacks['check'] && callbacks['check'](data.data);
                         }else{
-                            callbacks['check'] && callbacks['check']({develop: 0});
+                            callbacks['check'] && callbacks['check']({develop: 0,success_msg:'state not true'});
                         }
                     }else{
-                        callbacks['check'] && callbacks['check']({develop: 0});
+                        callbacks['check'] && callbacks['check']({develop: 0,success_msg:JSON.stringify(res)});
                     }
                 },
                 fail: function(res){
@@ -514,13 +514,13 @@ function mainSDK() {
                     requestCallback = true;
                     if (checkHandler) clearTimeout(checkHandler);
                     checkHandler = null;
-                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] && callbacks['check']({develop: 0,fail_msg:JSON.stringify(res)});
                 }
             });
             if (!requestCallback) {
                 var timeOutFunc = function() {
                     console.log("[SDK]获取游戏版本超时");
-                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] && callbacks['check']({develop: 0,timeout_msg:'timeout msg'});
                     callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
                 }
                 checkHandler = setTimeout(timeOutFunc, 10000);
@@ -870,7 +870,6 @@ function mainSDK() {
                         }
                     },
                     fail: function (res) {
-                        console.log('调起支付失败'+JSON.stringify(res));
                         if(res.errMsg.indexOf('用户取消') !== -1){
                             callbacks['pay'] && callbacks['pay'](2, {errMsg: "用户取消支付"});
                         }else{
@@ -902,6 +901,7 @@ function mainSDK() {
                     wx.openCustomerServiceConversation(obj);
                 }
             });
+
         },
 
         gameGoPay: function (data, retry) {
@@ -1021,6 +1021,7 @@ function mainSDK() {
                 };
             }
 
+
             this.log('enter', postData);
 
             //进入游戏确认邀请成功
@@ -1087,7 +1088,6 @@ function mainSDK() {
             var uuid = wx.getStorageSync('plat_uuid');
             var idfv = wx.getStorageSync('plat_idfv');
             var ad_code = wx.getStorageSync('plat_ad_code');
-
             var launchInfo = wx.getStorageSync('info');
             if(!launchInfo) {
                 launchInfo = wx.getLaunchOptionsSync();
@@ -1164,7 +1164,6 @@ function mainSDK() {
         downloadClient: function () {
             wx.openCustomerServiceConversation();
         },
-
         subscribeMessage : function (tmplIds, callback){
             console.log('[SDK]订阅消息：'+tmplIds);
             //获取模板ID
@@ -1200,19 +1199,15 @@ function run(method, data, callback) {
 exports.init = function (data, callback) {
     run('init', data, callback);
 };
-
 exports.login = function (callback) {
     run('login', '', callback);
 };
-
 exports.pay = function (data, callback) {
     run('pay', data, callback);
 };
-
 exports.openService = function () {
     run('openService');
 };
-
 exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLevel) {
     var data = {
         serverid: serverId,
@@ -1223,7 +1218,6 @@ exports.logCreateRole = function (serverId, serverName, roleId, roleName, roleLe
     };
     run('logCreateRole', data);
 };
-
 exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLevel) {
     var data = {
         serverid: serverId,
@@ -1235,7 +1229,6 @@ exports.logEnterGame = function (serverId, serverName, roleId, roleName, roleLev
 
     run('logEnterGame', data);
 };
-
 exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleLevel) {
     var data = {
         serverid: serverId,
@@ -1246,7 +1239,6 @@ exports.logRoleUpLevel = function (serverId, serverName, roleId, roleName, roleL
     };
     run('logRoleUpLevel', data);
 };
-
 exports.share = function (type,data) {
     var cp_activity_id = data && data.activity_id ? data.activity_id : '';
 
@@ -1256,18 +1248,15 @@ exports.share = function (type,data) {
     };
     run('share', params);
 };
-
 exports.msgCheck = function (data, callback) {
     run('msgCheck', data, callback);
 };
-
 exports.downloadClient = function () {
     run('downloadClient');
 };
 exports.subscribeMessage = function (data, callback) {
     run('subscribeMessage', data, callback);
 };
-
 exports.getConfig = function () {
     return {
         game_id: config.game_id,
@@ -1275,14 +1264,13 @@ exports.getConfig = function () {
         partner_id: config.partner_id
     }
 };
-
 exports.getPublicData = function(){
     run('getPublicData');
 };
-
 exports.weiduanHelper = function () {
     run('weiduanHelper');
 };
+
 exports.subscribeWhatsNew = function (data, callback) {
     run('subscribeWhatsNew', data, callback);
 };

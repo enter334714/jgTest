@@ -1,153 +1,153 @@
 var J = wx.h$;
-console[J[0x1]](J[0x2]), window[J[0x3]], wx[J[0x4]](function (i1x74) {
-    if (i1x74) {
-        if (i1x74[J[0x5]]) {
-            var b6g = window[J[0x6]][J[0x7]][J[0x8]](new RegExp(/\./, 'g'), '_'),
-                chpe = i1x74[J[0x5]],
-                zt6 = chpe[J[0x9]](/(Zqy10Zqy10Zqy10Zqy10Zqy10\/Zqy102GZqy10MEZqy102.js:)[0-9]{1,60}(:)/g);
-            if (zt6) for (var kqb0d = 0x0; kqb0d < zt6[J[0xa]]; kqb0d++) {
-                if (zt6[kqb0d] && zt6[kqb0d][J[0xa]] > 0x0) {
-                    var d6c8tg = parseInt(zt6[kqb0d][J[0x8]](J[0xb], '')[J[0x8]](':', ''));
-                    chpe = chpe[J[0x8]](zt6[kqb0d], zt6[kqb0d][J[0x8]](':' + d6c8tg + ':', ':' + (d6c8tg - 0x2) + ':'));
+console[J[0x3cb]](J[0x3cc]), window[J[0x3cd]], wx[J[0x3ce]](function (x7nj1i) {
+    if (x7nj1i) {
+        if (x7nj1i[J[0x38]]) {
+            var joy5 = window[J[0x3cf]][J[0x3d0]][J[0xf3]](new RegExp(/\./, 'g'), '_'),
+                kgd8c6 = x7nj1i[J[0x38]],
+                jn1ix7 = kgd8c6[J[0x43]](/(Zqy10Zqy10Zqy10Zqy10Zqy10\/Zqy102GZqy10MEZqy102.js:)[0-9]{1,60}(:)/g);
+            if (jn1ix7) for (var u4n13a = 0x0; u4n13a < jn1ix7[J[0x1f]]; u4n13a++) {
+                if (jn1ix7[u4n13a] && jn1ix7[u4n13a][J[0x1f]] > 0x0) {
+                    var au4l1 = parseInt(jn1ix7[u4n13a][J[0xf3]](J[0x3d1], '')[J[0xf3]](':', ''));
+                    kgd8c6 = kgd8c6[J[0xf3]](jn1ix7[u4n13a], jn1ix7[u4n13a][J[0xf3]](':' + au4l1 + ':', ':' + (au4l1 - 0x2) + ':'));
                 }
             }
-            chpe = chpe[J[0x8]](new RegExp(J[0xc], 'g'), J[0xd] + b6g + J[0xe]), chpe = chpe[J[0x8]](new RegExp(J[0xf], 'g'), J[0xd] + b6g + J[0xe]), i1x74[J[0x5]] = chpe;
+            kgd8c6 = kgd8c6[J[0xf3]](new RegExp(J[0x3d2], 'g'), J[0x3d3] + joy5 + J[0x3d4]), kgd8c6 = kgd8c6[J[0xf3]](new RegExp(J[0x3d5], 'g'), J[0x3d3] + joy5 + J[0x3d4]), x7nj1i[J[0x38]] = kgd8c6;
         }
-        var rjix = {
-            'id': window[J[0x10]][J[0x11]],
-            'role': window[J[0x10]][J[0x12]],
-            'level': window[J[0x10]][J[0x13]],
-            'user': window[J[0x10]][J[0x14]],
-            'version': window[J[0x10]][J[0x15]],
-            'cdn': window[J[0x10]][J[0x16]],
-            'pkgName': window[J[0x10]][J[0x17]],
-            'gamever': window[J[0x6]][J[0x7]],
-            'serverid': window[J[0x10]][J[0x18]] ? window[J[0x10]][J[0x18]][J[0x19]] : 0x0,
-            'systemInfo': window[J[0x1a]],
-            'error': J[0x1b],
-            'stack': i1x74 ? i1x74[J[0x5]] : ''
+        var bk6g0d = {
+            'id': window[J[0x3d6]][J[0x3d7]],
+            'role': window[J[0x3d6]][J[0x3d8]],
+            'level': window[J[0x3d6]][J[0x3d9]],
+            'user': window[J[0x3d6]][J[0x3da]],
+            'version': window[J[0x3d6]][J[0x3db]],
+            'cdn': window[J[0x3d6]][J[0x3dc]],
+            'pkgName': window[J[0x3d6]][J[0x3dd]],
+            'gamever': window[J[0x3cf]][J[0x3d0]],
+            'serverid': window[J[0x3d6]][J[0x3de]] ? window[J[0x3d6]][J[0x3de]][J[0x3df]] : 0x0,
+            'systemInfo': window[J[0x3e0]],
+            'error': J[0x3e1],
+            'stack': x7nj1i ? x7nj1i[J[0x38]] : ''
         },
-            echz8 = JSON[J[0x1c]](rjix);
-        console[J[0x1d]](J[0x1e] + echz8), (!window[J[0x3]] || window[J[0x3]] != rjix[J[0x1d]]) && (window[J[0x3]] = rjix[J[0x1d]], window[J[0x1f]](rjix));
+            rj7xyv = JSON[J[0x3e2]](bk6g0d);
+        console[J[0x14d]](J[0x3e3] + rj7xyv), (!window[J[0x3cd]] || window[J[0x3cd]] != bk6g0d[J[0x14d]]) && (window[J[0x3cd]] = bk6g0d[J[0x14d]], window[J[0x3e4]](bk6g0d));
     }
 });
 import 'Zqy10Zqy10bfZqy10Zqy10.js';
 import 'Zqy10Zqy1011Zqy10Zqy10.js';
-window[J[0x20]] = require(J[0x21]);
+window[J[0x3e5]] = require(J[0x3e6]);
 import 'Zqy10INDZqy10Zqy10.js';
 import 'Zqy10Zqy10IZqy101Zqy10Zqy10.js';
 import 'Zqy10Zqy10MtadZqy10Zqy10.js';
 import 'Zqy10Zqy10INIZqy10aZqy10.js';
-console[J[0x1]](J[0x22]), console[J[0x1]](J[0x23]), J15QJ4({ 'title': J[0x24] });
-var glu3a4m = { 'J1G54QJ': !![] };
-new window[J[0x25]](glu3a4m), window[J[0x25]][J[0x26]][J[0x27]]();
-if (window[J[0x28]]) clearInterval(window[J[0x28]]);
-window[J[0x28]] = null, window[J[0x29]] = function (vry5, b5gk) {
-    if (!vry5 || !b5gk) return 0x0;
-    vry5 = vry5[J[0x2a]]('.'), b5gk = b5gk[J[0x2a]]('.');
-    const q5kb0g = Math[J[0x2b]](vry5[J[0xa]], b5gk[J[0xa]]);
-    while (vry5[J[0xa]] < q5kb0g) {
-        vry5[J[0x2c]]('0');
+console[J[0x3cb]](J[0x3e7]), console[J[0x3cb]](J[0x3e8]), J15QJ4({ 'title': J[0x3e9] });
+var gyvorj5 = { 'J1G54QJ': !![] };
+new window[J[0x3ea]](gyvorj5), window[J[0x3ea]][J[0x3eb]][J[0x3ec]]();
+if (window[J[0x3ed]]) clearInterval(window[J[0x3ed]]);
+window[J[0x3ed]] = null, window[J[0x3ee]] = function (vxry7j, xvji7) {
+    if (!vxry7j || !xvji7) return 0x0;
+    vxry7j = vxry7j[J[0xc9]]('.'), xvji7 = xvji7[J[0xc9]]('.');
+    const ula4m3 = Math[J[0x12d]](vxry7j[J[0x1f]], xvji7[J[0x1f]]);
+    while (vxry7j[J[0x1f]] < ula4m3) {
+        vxry7j[J[0x42]]('0');
     }
-    while (b5gk[J[0xa]] < q5kb0g) {
-        b5gk[J[0x2c]]('0');
+    while (xvji7[J[0x1f]] < ula4m3) {
+        xvji7[J[0x42]]('0');
     }
-    for (var nxvj7i = 0x0; nxvj7i < q5kb0g; nxvj7i++) {
-        const jrix = parseInt(vry5[nxvj7i]),
-              jrx7i = parseInt(b5gk[nxvj7i]);
-        if (jrix > jrx7i) return 0x1;else {
-            if (jrix < jrx7i) return -0x1;
+    for (var zh_pe = 0x0; zh_pe < ula4m3; zh_pe++) {
+        const we9_2p = parseInt(vxry7j[zh_pe]),
+              vjx7ry = parseInt(xvji7[zh_pe]);
+        if (we9_2p > vjx7ry) return 0x1;else {
+            if (we9_2p < vjx7ry) return -0x1;
         }
     }
     return 0x0;
-}, window[J[0x2d]] = wx[J[0x2e]]()[J[0x2d]], console[J[0x2f]](J[0x30] + window[J[0x2d]]);
-var gxijn1 = wx[J[0x31]]();
-gxijn1[J[0x32]](function (u34alm) {
-    console[J[0x2f]](J[0x33] + u34alm[J[0x34]]);
-}), gxijn1[J[0x35]](function () {
-    wx[J[0x36]]({
-        'title': J[0x37],
-        'content': J[0x38],
+}, window[J[0x3ef]] = wx[J[0x3f0]]()[J[0x3ef]], console[J[0xe1]](J[0x3f1] + window[J[0x3ef]]);
+var gw9_e2p = wx[J[0x3f2]]();
+gw9_e2p[J[0x3f3]](function (c6h8t) {
+    console[J[0xe1]](J[0x3f4] + c6h8t[J[0x3f5]]);
+}), gw9_e2p[J[0x3f6]](function () {
+    wx[J[0x3f7]]({
+        'title': J[0x3f8],
+        'content': J[0x3f9],
         'showCancel': ![],
-        'success': function (e2_wzp) {
-            gxijn1[J[0x39]]();
+        'success': function (gdc8t) {
+            gw9_e2p[J[0x3fa]]();
         }
     });
-}), gxijn1[J[0x3a]](function () {
-    console[J[0x2f]](J[0x3b]);
-}), window[J[0x3c]] = function () {
-    console[J[0x2f]](J[0x3d]);
-    var yojv5r = wx[J[0x3e]]({
-        'name': J[0x3f],
-        'success': function (te_hp) {
-            console[J[0x2f]](J[0x40]), console[J[0x2f]](te_hp), te_hp && te_hp[J[0x41]] == J[0x42] ? (window[J[0x43]] = !![], window[J[0x44]](), window[J[0x45]]()) : setTimeout(function () {
-                window[J[0x3c]]();
+}), gw9_e2p[J[0x3fb]](function () {
+    console[J[0xe1]](J[0x3fc]);
+}), window[J[0x3fd]] = function () {
+    console[J[0xe1]](J[0x3fe]);
+    var kbqg0 = wx[J[0x3ff]]({
+        'name': J[0x400],
+        'success': function (chz8) {
+            console[J[0xe1]](J[0x401]), console[J[0xe1]](chz8), chz8 && chz8[J[0x402]] == J[0x403] ? (window[J[0x404]] = !![], window[J[0x405]](), window[J[0x406]]()) : setTimeout(function () {
+                window[J[0x3fd]]();
             }, 0x1f4);
         },
-        'fail': function (g0d68k) {
-            console[J[0x2f]](J[0x46]), console[J[0x2f]](g0d68k), setTimeout(function () {
-                window[J[0x3c]]();
+        'fail': function (we_29p) {
+            console[J[0xe1]](J[0x407]), console[J[0xe1]](we_29p), setTimeout(function () {
+                window[J[0x3fd]]();
             }, 0x1f4);
         }
     });
-    yojv5r && yojv5r[J[0x47]](jvix7r => {});
-}, window[J[0x48]] = function () {
-    console[J[0x2f]](J[0x49]);
-    var e2wp_ = wx[J[0x3e]]({
-        'name': J[0x4a],
-        'success': function (ew_92p) {
-            console[J[0x2f]](J[0x4b]), console[J[0x2f]](ew_92p), ew_92p && ew_92p[J[0x41]] == J[0x42] ? (window[J[0x4c]] = !![], window[J[0x44]](), window[J[0x45]]()) : setTimeout(function () {
-                window[J[0x48]]();
+    kbqg0 && kbqg0[J[0x408]](m3al => {});
+}, window[J[0x409]] = function () {
+    console[J[0xe1]](J[0x40a]);
+    var v7jrxy = wx[J[0x3ff]]({
+        'name': J[0x40b],
+        'success': function (bd60k) {
+            console[J[0xe1]](J[0x40c]), console[J[0xe1]](bd60k), bd60k && bd60k[J[0x402]] == J[0x403] ? (window[J[0x40d]] = !![], window[J[0x405]](), window[J[0x406]]()) : setTimeout(function () {
+                window[J[0x409]]();
             }, 0x1f4);
         },
-        'fail': function (zec8h) {
-            console[J[0x2f]](J[0x4d]), console[J[0x2f]](zec8h), setTimeout(function () {
-                window[J[0x48]]();
+        'fail': function (yxvjr7) {
+            console[J[0xe1]](J[0x40e]), console[J[0xe1]](yxvjr7), setTimeout(function () {
+                window[J[0x409]]();
             }, 0x1f4);
         }
     });
-    e2wp_ && e2wp_[J[0x47]](jvxn => {});
-}, window[J[0x4e]] = function () {
-    window[J[0x29]](window[J[0x2d]], J[0x4f]) >= 0x0 ? (console[J[0x2f]](J[0x50] + window[J[0x2d]] + J[0x51]), window[J[0x52]](), window[J[0x3c]](), window[J[0x48]]()) : (window[J[0x53]](J[0x54], window[J[0x2d]]), wx[J[0x36]]({
-        'title': J[0x55],
-        'content': J[0x56]
+    v7jrxy && v7jrxy[J[0x408]](y7vrx => {});
+}, window[J[0x40f]] = function () {
+    window[J[0x3ee]](window[J[0x3ef]], J[0x410]) >= 0x0 ? (console[J[0xe1]](J[0x411] + window[J[0x3ef]] + J[0x412]), window[J[0x413]](), window[J[0x3fd]](), window[J[0x409]]()) : (window[J[0x414]](J[0x415], window[J[0x3ef]]), wx[J[0x3f7]]({
+        'title': J[0x416],
+        'content': J[0x417]
     }));
-}, window[J[0x1a]] = '', wx[J[0x57]]({
-    'success'(p_2e9) {
-        window[J[0x1a]] = J[0x58] + p_2e9[J[0x59]] + J[0x5a] + p_2e9[J[0x5b]] + J[0x5c] + p_2e9[J[0x5d]] + J[0x5e] + p_2e9[J[0x5f]] + J[0x60] + p_2e9[J[0x61]] + J[0x62] + p_2e9[J[0x2d]] + J[0x63] + p_2e9[J[0x64]], console[J[0x2f]](window[J[0x1a]]), console[J[0x2f]](J[0x65] + p_2e9[J[0x66]] + J[0x67] + p_2e9[J[0x68]] + J[0x69] + p_2e9[J[0x6a]] + J[0x6b] + p_2e9[J[0x6c]] + J[0x6d] + p_2e9[J[0x6e]] + J[0x6f] + p_2e9[J[0x70]] + J[0x71] + (p_2e9[J[0x72]] ? p_2e9[J[0x72]][J[0x73]] + ',' + p_2e9[J[0x72]][J[0x74]] + ',' + p_2e9[J[0x72]][J[0x75]] + ',' + p_2e9[J[0x72]][J[0x76]] : ''));
-        var yoqb50 = p_2e9[J[0x5f]] ? p_2e9[J[0x5f]][J[0x77]]() : '',
-            $swf9 = p_2e9[J[0x5b]] ? p_2e9[J[0x5b]][J[0x77]]()[J[0x8]]('\x20', '') : '';
-        window[J[0x10]][J[0x78]] = yoqb50[J[0x79]](J[0x7a]) != -0x1, window[J[0x10]][J[0x7b]] = yoqb50[J[0x79]](J[0x7c]) != -0x1, window[J[0x10]][J[0x7d]] = yoqb50[J[0x79]](J[0x7a]) != -0x1 || yoqb50[J[0x79]](J[0x7c]) != -0x1, window[J[0x10]][J[0x7e]] = yoqb50[J[0x79]](J[0x7f]) != -0x1 || yoqb50[J[0x79]](J[0x80]) != -0x1, window[J[0x10]][J[0x81]] = p_2e9[J[0x61]] ? p_2e9[J[0x61]][J[0x77]]() : '', window[J[0x10]][J[0x82]] = ![], window[J[0x10]][J[0x83]] = 0x2;
-        if (yoqb50[J[0x79]](J[0x7c]) != -0x1) {
-            if (p_2e9[J[0x64]] >= 0x18) window[J[0x10]][J[0x83]] = 0x3;else window[J[0x10]][J[0x83]] = 0x2;
+}, window[J[0x3e0]] = '', wx[J[0x418]]({
+    'success'(_2zwp) {
+        window[J[0x3e0]] = J[0x419] + _2zwp[J[0x41a]] + J[0x41b] + _2zwp[J[0x41c]] + J[0x41d] + _2zwp[J[0x41e]] + J[0x41f] + _2zwp[J[0x420]] + J[0x421] + _2zwp[J[0x422]] + J[0x423] + _2zwp[J[0x3ef]] + J[0x424] + _2zwp[J[0x425]], console[J[0xe1]](window[J[0x3e0]]), console[J[0xe1]](J[0x426] + _2zwp[J[0x427]] + J[0x428] + _2zwp[J[0x429]] + J[0x42a] + _2zwp[J[0x42b]] + J[0x42c] + _2zwp[J[0x42d]] + J[0x42e] + _2zwp[J[0x42f]] + J[0x430] + _2zwp[J[0x431]] + J[0x432] + (_2zwp[J[0x433]] ? _2zwp[J[0x433]][J[0x434]] + ',' + _2zwp[J[0x433]][J[0x435]] + ',' + _2zwp[J[0x433]][J[0x436]] + ',' + _2zwp[J[0x433]][J[0x437]] : ''));
+        var oq0kb5 = _2zwp[J[0x420]] ? _2zwp[J[0x420]][J[0x67]]() : '',
+            x1n4i7 = _2zwp[J[0x41c]] ? _2zwp[J[0x41c]][J[0x67]]()[J[0xf3]]('\x20', '') : '';
+        window[J[0x3d6]][J[0x438]] = oq0kb5[J[0x92]](J[0x439]) != -0x1, window[J[0x3d6]][J[0x43a]] = oq0kb5[J[0x92]](J[0x43b]) != -0x1, window[J[0x3d6]][J[0x43c]] = oq0kb5[J[0x92]](J[0x439]) != -0x1 || oq0kb5[J[0x92]](J[0x43b]) != -0x1, window[J[0x3d6]][J[0x43d]] = oq0kb5[J[0x92]](J[0x43e]) != -0x1 || oq0kb5[J[0x92]](J[0x43f]) != -0x1, window[J[0x3d6]][J[0x440]] = _2zwp[J[0x422]] ? _2zwp[J[0x422]][J[0x67]]() : '', window[J[0x3d6]][J[0x441]] = ![], window[J[0x3d6]][J[0x442]] = 0x2;
+        if (oq0kb5[J[0x92]](J[0x43b]) != -0x1) {
+            if (_2zwp[J[0x425]] >= 0x18) window[J[0x3d6]][J[0x442]] = 0x3;else window[J[0x3d6]][J[0x442]] = 0x2;
         } else {
-            if (yoqb50[J[0x79]](J[0x7a]) != -0x1) {
-                if (p_2e9[J[0x64]] && p_2e9[J[0x64]] >= 0x14) window[J[0x10]][J[0x83]] = 0x3;else {
-                    if ($swf9[J[0x79]](J[0x84]) != -0x1 || $swf9[J[0x79]](J[0x85]) != -0x1 || $swf9[J[0x79]](J[0x86]) != -0x1 || $swf9[J[0x79]](J[0x87]) != -0x1 || $swf9[J[0x79]](J[0x88]) != -0x1) window[J[0x10]][J[0x83]] = 0x2;else window[J[0x10]][J[0x83]] = 0x3;
+            if (oq0kb5[J[0x92]](J[0x439]) != -0x1) {
+                if (_2zwp[J[0x425]] && _2zwp[J[0x425]] >= 0x14) window[J[0x3d6]][J[0x442]] = 0x3;else {
+                    if (x1n4i7[J[0x92]](J[0x443]) != -0x1 || x1n4i7[J[0x92]](J[0x444]) != -0x1 || x1n4i7[J[0x92]](J[0x445]) != -0x1 || x1n4i7[J[0x92]](J[0x446]) != -0x1 || x1n4i7[J[0x92]](J[0x447]) != -0x1) window[J[0x3d6]][J[0x442]] = 0x2;else window[J[0x3d6]][J[0x442]] = 0x3;
                 }
-            } else window[J[0x10]][J[0x83]] = 0x2;
+            } else window[J[0x3d6]][J[0x442]] = 0x2;
         }
-        console[J[0x2f]](J[0x89] + window[J[0x10]][J[0x82]] + J[0x8a] + window[J[0x10]][J[0x83]]);
+        console[J[0xe1]](J[0x448] + window[J[0x3d6]][J[0x441]] + J[0x449] + window[J[0x3d6]][J[0x442]]);
     }
-}), wx[J[0x8b]]({
-    'success': function (gb0d6k) {
-        console[J[0x2f]](J[0x8c] + gb0d6k[J[0x8d]] + J[0x8e] + gb0d6k[J[0x8f]]);
+}), wx[J[0x44a]]({
+    'success': function (y7rjov) {
+        console[J[0xe1]](J[0x44b] + y7rjov[J[0x44c]] + J[0x44d] + y7rjov[J[0x44e]]);
     }
-}), wx[J[0x90]]({
-    'success': function (gb60dk) {
-        console[J[0x2f]](J[0x91] + gb60dk[J[0x92]]);
+}), wx[J[0x44f]]({
+    'success': function (qb0dk) {
+        console[J[0xe1]](J[0x450] + qb0dk[J[0x451]]);
     }
-}), wx[J[0x93]]({ 'keepScreenOn': !![] }), wx[J[0x94]](function (hz86ct) {
-    console[J[0x2f]](J[0x91] + hz86ct[J[0x92]] + J[0x95] + hz86ct[J[0x96]]);
-}), wx[J[0x97]](function (o5yv) {
-    window[J[0x98]] = o5yv, window[J[0x99]] && window[J[0x98]] && (console[J[0x1]](J[0x9a] + window[J[0x98]][J[0x9b]]), window[J[0x99]](window[J[0x98]]), window[J[0x98]] = null);
-}), window[J[0x9c]] = 0x0, window[J[0x9d]] = 0x0, window[J[0x9e]] = null, wx[J[0x9f]](function () {
-    window[J[0x9d]]++;
-    var dk68g0 = Date[J[0xa0]]();
-    (window[J[0x9c]] == 0x0 || dk68g0 - window[J[0x9c]] > 0x1d4c0) && (console[J[0xa1]](J[0xa2]), wx[J[0xa3]]());
-    if (window[J[0x9d]] >= 0x2) {
-        window[J[0x9d]] = 0x0, console[J[0x1d]](J[0xa4]), wx[J[0xa5]]('0', 0x1);
-        if (window[J[0x10]] && window[J[0x10]][J[0x78]]) window[J[0x53]](J[0xa6], '');
+}), wx[J[0x452]]({ 'keepScreenOn': !![] }), wx[J[0x453]](function (yv5orj) {
+    console[J[0xe1]](J[0x450] + yv5orj[J[0x451]] + J[0x454] + yv5orj[J[0x455]]);
+}), wx[J[0x456]](function (r7jyvo) {
+    window[J[0x457]] = r7jyvo, window[J[0x458]] && window[J[0x457]] && (console[J[0x3cb]](J[0x459] + window[J[0x457]][J[0x45a]]), window[J[0x458]](window[J[0x457]]), window[J[0x457]] = null);
+}), window[J[0x45b]] = 0x0, window[J[0x45c]] = 0x0, window[J[0x45d]] = null, wx[J[0x45e]](function () {
+    window[J[0x45c]]++;
+    var b0g5k = Date[J[0x45f]]();
+    (window[J[0x45b]] == 0x0 || b0g5k - window[J[0x45b]] > 0x1d4c0) && (console[J[0x17f]](J[0x460]), wx[J[0x461]]());
+    if (window[J[0x45c]] >= 0x2) {
+        window[J[0x45c]] = 0x0, console[J[0x14d]](J[0x462]), wx[J[0x463]]('0', 0x1);
+        if (window[J[0x3d6]] && window[J[0x3d6]][J[0x438]]) window[J[0x414]](J[0x464], '');
         if (onMemoryWarningCallBack) onMemoryWarningCallBack();
     }
 });

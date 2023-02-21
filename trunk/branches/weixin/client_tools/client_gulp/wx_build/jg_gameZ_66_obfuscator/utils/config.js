@@ -1,4 +1,4 @@
-var f = wx.$B;
+var f1 = wx.f$;
 module.exports = {
    //正式环境参数
    pro: {

@@ -5,7 +5,7 @@ var config = {
     game_pkg: 'tjqy_tjqybfxjzxyx2_YG',
     partner_label: 'jzxyx2',
     partner_id: '581',
-    game_ver: '92.0.17',
+    game_ver: '92.0.29',
     is_auth: true, //授权登录
     partner_platid: 5,
     partner_gid: '265',

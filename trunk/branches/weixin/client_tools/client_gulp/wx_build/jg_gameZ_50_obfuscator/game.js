@@ -25,7 +25,7 @@ gl.linkProgram(shaderProgram);
 gl.useProgram(shaderProgram);
 
 var image = new Image();
-image.src = "tiv0a/zyd.png";
+image.src = "wxlogin_atlas/zyd.png";
 var buffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
@@ -64,7 +64,7 @@ function render() {
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 }
 render();
-window.e1THEF7 = setInterval(function () {
+window.e1R4$JF = setInterval(function () {
   render();
 }, 16);
 wx.showLoading({ title: "\u6b63\u5728\u52a0\u8f7d" });
@@ -95,10 +95,10 @@ wx.y$ = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({
 });
 //监听小游戏切前台事件
 wx.onShow(function (res) {
-  window.e17H = res;
-  if (window.e1FH7 && window.e17H) {
-    console.info("小游戏切前台事件，场景值：" + window.e17H.scene);
-    window.e1FH7(window.e17H);
-    window.e17H = null;
+  window.e1F4 = res;
+  if (window.e1J4F && window.e1F4) {
+    console.info("小游戏切前台事件，场景值：" + window.e1F4.scene);
+    window.e1J4F(window.e1F4);
+    window.e1F4 = null;
   }
 });

@@ -268,7 +268,7 @@ window.sdkOnInited = function (res) {
   sdkInitRes = res;
   // res.game_ver = "1.0.86";
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
-  console.log("#初始化成功   提审状态:" + develop + "   是否提审:" + (develop == 1) + "   提审版本号:" + res.game_ver + "   当前版本号:" + window.versions.wxVersion+ "   version_name:" + res.version_name); //develop为1的时候说明当前game_ver是提审版本
+  console.log("#初始化成功   提审状态:" + develop + "   是否提审:" + (develop == 1) + "   提审版本号:" + res.game_ver + "   当前版本号:" + window.versions.wxVersion + "   version_name:" + res.version_name); //develop为1的时候说明当前game_ver是提审版本
   if (!res.game_ver || window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
     console.log("#正式版=============================");
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
@@ -311,6 +311,10 @@ window.sdkLoginRetry = 5;
 window.sdkOnLogin = function (status, data) {
   if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
+    PF_INFO.wx_channel = data.wx_channel;
+    PF_INFO.video_type = data.video_type;
+    PF_INFO.zsy_tp_state = data.zsy_tp_state;
+    PF_INFO.ad_flag = data.ad_flag;
     var self = this;
     wxShowLoading({ title: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {
@@ -441,6 +445,7 @@ window.updCurServer = function (response) {
     'status': get_status(response.data[0]),
     'start_time': response.data[0].start_time,
     'maintain_time': response.data[0].maintain_time ? response.data[0].maintain_time : "",
+    'is_recommend': response.data[0].is_recommend,
     'cdn': PF_INFO.cdn,
   }
   this.initComplete();
@@ -1060,10 +1065,13 @@ window.req_privacy = function (pkgName, callback) {
 window.get_status = function (server) {
   if (server) {
     if (server.status == 1) {
-      if (server.online_status == 1)
+      if (server.online_status == 3) {
+        return 3;
+      } else if (server.online_status == 1) {
         return 2;
-      else
+      } else {
         return 1;
+      }
     } else if (server.status == 0) {
       return 0;
     } else {
@@ -1176,7 +1184,15 @@ window.initMain = function () {
         wxParam: { limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.config.from == "txcps" ? 1 : 0), wxSDKVersion: window.SDKVersion },
         configType: window.PF_INFO.configType,
         exposeType: window.PF_INFO.exposeType,
-        scene: scene
+        scene: scene,       
+        video_type: window.PF_INFO.video_type,       
+        ad_flag: window.PF_INFO.ad_flag,
+      }
+      if (window.pkgOptions) {
+        for (var k in window.pkgOptions) {
+          if (!platData[k])
+            platData[k] = window.pkgOptions[k];
+        }
       }
       new window.MainWX(platData, window.PF_INFO.lastVersion, window.workerJsURL);
     }
@@ -1221,6 +1237,8 @@ window.enterToGame = function () {
         debugUsers: window.PF_INFO.debugUsers,
         wxMenuTop: top,
         wxShield: window.PF_INFO.wxShield,
+        wx_channel: window.PF_INFO.wx_channel,
+        zsy_tp_state: window.PF_INFO.zsy_tp_state,
       };
 
       if (window.pkgOptions) {

@@ -1,4 +1,4 @@
-var f = wx.$B;
+var f1 = wx.f$;
 import 'a4ua/a7l.js';console.info("1 \u521d\u59cb\u5316");
 var VSHADER_SOURCE = 'attribute vec4 a_Position;\n' + 'attribute vec2 a_TexCoord;\n' + 'varying vec2 v_TexCoord;\n' + 'void main() {\n' + '  gl_Position = a_Position;\n' + '  v_TexCoord = a_TexCoord;\n' + '}\n';
 
@@ -25,7 +25,7 @@ gl.linkProgram(shaderProgram);
 gl.useProgram(shaderProgram);
 
 var image = new Image();
-image.src = "mf/ld.png";
+image.src = "wxlogin_atlas/ld.png";
 var buffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
@@ -64,7 +64,7 @@ function render() {
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 }
 render();
-window.t19P7AZ = setInterval(function () {
+window._k9P7AZ = setInterval(function () {
   render();
 }, 16);
 wx.showLoading({ title: "\u6b63\u5728\u52a0\u8f7d" });
@@ -74,7 +74,7 @@ wx.y$ = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({
       filePath: wx.env.USER_DATA_PATH + "/f/files", encoding: "utf8", success: function (r) {
         if ("readFile:ok" == r.errMsg && r.data) {
           try {
-            wx.$B = JSON.parse(r.data);
+            wx.f$ = JSON.parse(r.data);
           } catch (r) {
             console.error(r);
           }r = wx.loadSubpackage({
@@ -95,10 +95,10 @@ wx.y$ = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({
 });
 //监听小游戏切前台事件
 wx.onShow(function (res) {
-  window.t1ZP = res;
-  if (window.t1APZ && window.t1ZP) {
-    console.info("小游戏切前台事件，场景值：" + window.t1ZP.scene);
-    window.t1APZ(window.t1ZP);
-    window.t1ZP = null;
+  window._kZP = res;
+  if (window._kAPZ && window._kZP) {
+    console.info("小游戏切前台事件，场景值：" + window._kZP.scene);
+    window._kAPZ(window._kZP);
+    window._kZP = null;
   }
 });

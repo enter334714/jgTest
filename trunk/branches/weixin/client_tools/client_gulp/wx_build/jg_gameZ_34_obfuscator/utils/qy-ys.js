@@ -718,11 +718,24 @@ class YishiSdk {
       'params': params,
       'success': res => {
         if (1 == res.errno) {
-          let canSwitch = res.data.switch;
-          let switchPayType = res.data.switch_params.pay_type;
-          let payMethod = this.getPayMethod(canSwitch, switchPayType);
-          object.data = res.data;
-          if (payMethod) payMethod.call(this, object);
+          let isPaySuccess = res.data.is_pay_success; // 服务端是否查询到玩家有游戏币余额并成功扣除
+          if (isPaySuccess) {
+            // 补单操作
+            let orderId = res.data.order_id;
+            let ret = { 'order_id': orderId };
+            this.alert('您的充值还未下发，请稍后再试，如需帮助请联系客服');
+            object.success(ret);
+          } else {
+            // 正常充值流程
+            let canSwitch = res.data.switch;
+            let switchPayType = res.data.switch_params.pay_type;
+            let payMethod = this.getPayMethod(canSwitch, switchPayType);
+            object.data = res.data;
+            if (payMethod) payMethod.call(this, object);
+          }
+        } else if (4010 == res.errno) {
+          // 4010： 关闭充值
+          this.alert(res.msg);
         } else {
           this.alert('下单失败，请联系客服');
         }
@@ -936,6 +949,13 @@ class YishiSdk {
         let loginInfoKey = "yishi-sdk:login_info";
         if (1 == res.errno) {
           wx.setStorageSync(loginInfoKey, res.data);
+        } else if (3010 == res.errno || 3103 == res.errno) {
+          // 3010: 关闭注册, 3103: 关闭登录
+          this.alert(res.msg);
+          return;
+        } else {
+          this.alert('登录失败，请联系客服');
+          return;
         }
 
         this.apiPushClickData(res.data);
@@ -946,7 +966,8 @@ class YishiSdk {
             'userid': res.data.userid,
             'tstamp': res.data.tstamp,
             'sign': res.data.sign,
-            'open_id': res.data.open_id
+            'open_id': res.data.open_id,
+            'ad_flag': res.data.ad_flag
           },
           'msg': res.msg
         });
@@ -1136,6 +1157,12 @@ class YishiSdk {
       success: res => {
         // 打印请求结果，需注释掉
         console.warn("请求结果：\n", JSON.stringify(res.data));
+
+        if (2 == res.data.errno) {
+          // token信息过期
+          this.alert('登录信息已过期，请重登小游戏');
+          return;
+        }
 
         if ("function" == typeof object.success) object.success(res.data);
       },

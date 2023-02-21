@@ -1,3 +1,4 @@
+var _ = wx.y$;
 let ln_tool = {
 	getSign(app_key = '', params = {}) {
 		const sortedParamsQuery = this.getSortAsciiQuery(params);
@@ -36,61 +37,71 @@ let ln_tool = {
 	},
 	getPhpNow() {
 		const now = new Date().getTime();
-    return now;
+		return now;
 	},
 	getDeviceType: () => {
-		const systemInfo = wx.getSystemInfoSync()
+		const systemInfo = wx.getSystemInfoSync();
 		// console.log(systemInfo)
-		let osType
+		let osType;
 		if (systemInfo.system.toLowerCase().indexOf('android') > -1) {
-			osType = 'android'
+			osType = 'android';
 		} else if (systemInfo.system.toLowerCase().indexOf('ios') > -1) {
-			osType = 'ios'
+			osType = 'ios';
 		} else if (systemInfo.system.toLowerCase().indexOf('win') > -1) {
-			osType = 'win'
+			osType = 'win';
 		} else {
-			osType = 'unknow'
+			osType = 'unknow';
 		}
-		return osType
+		return osType;
 	},
 	getCurrAppid() {
 		const systemInfo = wx.getSystemInfoSync();
 		let appid = '62044';
 		if (systemInfo.system.toLowerCase().indexOf('android') > -1) {
-			appid = '62044'
+			appid = '62044';
 		} else if (systemInfo.system.toLowerCase().indexOf('ios') > -1) {
-			appid = '62046'
+			appid = '62046';
 		} else {
-			appid = '62044'
+			appid = '62044';
 		}
-		return appid
+		return appid;
 	},
 	getDeviceUUid() {
-		const system = wx.getSystemInfoSync();
-		let strSystem = system.model + system.screenHeight + system.screenWidth;
-		console.log(strSystem);
-		return md5(strSystem);
+		// const system = wx.getSystemInfoSync();
+		// console.log(system)
+		// let strSystem = system.model + system.screenHeight + system.screenWidth;
+		// console.log(strSystem);
+		// return md5(strSystem);
+		let timeStr = new Date().valueOf() + Math.floor(Math.random() * 10000000 + 1) + '';
+		let timeMD5 = timeStr;
+		let newUUID = md5(timeMD5);
+		if (localStorage.getItem('lntimeuuid')) {
+			return localStorage.getItem('lntimeuuid');
+		} else {
+			localStorage.setItem('lntimeuuid', newUUID);
+			return newUUID;
+		}
 	}
-}
+};
 let wxLN_uid = '';
 let wxApp_id = '';
-	// 广告数据上报
-wx.onShow((res) => {
-		let query = res.query;
-		// console.log("onShow方法1----weixinadinfo：" + query.weixinadinfo)
-		// console.log(res)
-		// console.log("onShow方法1----weixinadinfo：" + query.weixinadinfo)
-		// console.log("onShow方法1----gdt_vid: " + query.weixinadinfo)
-		wxLN_uid = res.query.ln_uid;
-		wxApp_id = res.query.wxAppid;
-		setAdData(query, 'onShow')
-})
-	wx.onHide(res => {
-		let query = res;
-		console.log(query)
-	})	
+// 广告数据上报
+wx.onShow(res => {
+	let query = res.query;
+	// console.log("onShow方法1----weixinadinfo：" + query.weixinadinfo)
+	// console.log(res)
+	// console.log("onShow方法1----weixinadinfo：" + query.weixinadinfo)
+	// console.log("onShow方法1----gdt_vid: " + query.weixinadinfo)
+	wxLN_uid = res.query.ln_uid;
+	wxApp_id = res.query.wxAppid;
+	setAdData(query, 'onShow');
+});
+wx.onHide(res => {
+	let query = res;
+	console.log(query);
+});
 // 防止授权登录按钮多次点击
-let btnClickNum = 0
+let btnClickNum = 0;
 let commonParams = {
 	time: ln_tool.getPhpNow(),
 	udid: ln_tool.getDeviceUUid(),
@@ -107,20 +118,20 @@ let commonParams = {
 	encryptedData: '',
 	iv: '',
 	channel_version: '1.0',
-	sysname: '',
+	sysname: wx.getSystemInfoSync().system,
 	screen: '',
-	model: '',
+	model: wx.getSystemInfoSync().model.replace('<', '').replace('>', '') || '',
 	version: '1.0',
 	ver: 'c399ec3638',
 	network: '',
 	appid: ln_tool.getCurrAppid(),
 	adver_ext: ''
 	// app_key: 'mjsgcecys0dtogfpmhei6o00cec8qp5j',
-}
+};
 let initStoreData = {
 	alive: '',
 	access_token: ''
-}
+};
 let wxParams = {
 	openid: '', // 微信openid
 	appid: '', // 微信应用id
@@ -128,94 +139,94 @@ let wxParams = {
 	offer_id: '', // 在米大师侧申请的应用id,
 	encryptedData: '', // 授权相关
 	iv: ''
-}
+};
 let miniProgramParams = {}; // 微信小程序转移相关数据
-let appInfo  = {
+let appInfo = {
 	app_key: ''
-}
+};
 const api = "https://apisdk2.lnqwe.com";
 const ln_api = "https://apisdk.lnqwe.com";
 // 微信内容安全调整
-const msgSecCheck = function({version=2,scene=4, content= ''}, callback) {
-	const params = {version: version, scene: scene, content: content, access_token: initStoreData.access_token,}
+const msgSecCheck = function ({ version = 2, scene = 4, content = '' }, callback) {
+	const params = { version: version, scene: scene, content: content, access_token: initStoreData.access_token };
 	wx.request({
 		url: api + '/sdk/wxgame/msgSecCheck',
-		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0},
+		data: { data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0 },
 		method: 'POST',
 		header: {
 			'content-type': 'application/x-www-form-urlencoded'
 		},
 		mode: 0,
-		success: (res) => {
+		success: res => {
 			let rest = res.data;
 			if (rest.errcode == 0) {
 				if (rest.result.label == 100) {
-					callback({status: rest.result.label})
+					callback({ status: rest.result.label });
 				} else {
-					callback({status: 0})
+					callback({ status: 0 });
 				}
 			}
-		 }
+		}
 	});
-}
+};
 const init = function () {
 	// 广告数据上报
 	let data = wx.getLaunchOptionsSync().query;
-  setAdData(data, 'getLaunchOptionsSync')
+	setAdData(data, 'getLaunchOptionsSync');
 	let SDKln = this;
 	if (typeof SDKln.initLoginCallback != 'function') {
-		console.error("没有实现 initLoginCallback 初始化回调")
+		console.error("没有实现 initLoginCallback 初始化回调");
 	} else {
 		// 广告数据上报
 		wxLogin(SDKln);
 	}
-}
-	// 设置广告数据
-	const setAdData = function(query, flag){
-		// 广告混端投放
-		let adAppid = '';
-		if (query.app) {
-			adAppid = query.app;
-			commonParams.appid = query.app;
-			localStorage.setItem('mixappid', query.app);
-		} else if (localStorage.getItem('mixappid')) {
-			adAppid = localStorage.getItem('mixappid');
-			commonParams.appid = localStorage.getItem('mixappid');
-		} else {
-			adAppid = commonParams.appid;
+};
+// 设置广告数据
+const setAdData = function (query, flag) {
+	// 广告混端投放
+	let adAppid = '';
+	if (query.app) {
+		adAppid = query.app;
+		commonParams.appid = query.app;
+		localStorage.setItem('mixappid', query.app);
+	} else if (localStorage.getItem('mixappid')) {
+		adAppid = localStorage.getItem('mixappid');
+		commonParams.appid = localStorage.getItem('mixappid');
+	} else {
+		adAppid = commonParams.appid;
+	}
+	let currQuery = '';
+	if (JSON.stringify(query) != '{}') {
+		currQuery = JSON.stringify(query);
+		localStorage.setItem('mixquery', JSON.stringify(query));
+	} else {
+		currQuery = localStorage.getItem('mixquery') || '';
+	}
+	let data = { appid: adAppid, type: flag, query: currQuery };
+	setAdDataToRequest(data);
+	if (query) {
+		let gdt_vid = query.gdt_vid;
+		let weixinadinfo = query.weixinadinfo;
+		let aid = '';
+		if (weixinadinfo) {
+			let weixinadinfoArr = weixinadinfo.split('.');
+			aid = weixinadinfoArr[0];
 		}
-		let currQuery = '';
-		if (JSON.stringify(query)!='{}') {
-			currQuery = JSON.stringify(query);
-			localStorage.setItem('mixquery', JSON.stringify(query));
-		} else {
-			currQuery = localStorage.getItem('mixquery') || '';
-		}
-		let data = {appid: adAppid, type: flag, query: currQuery};
-		setAdDataToRequest(data);
-		if(query){
-			let gdt_vid =  query.gdt_vid;
-			let weixinadinfo = query.weixinadinfo;
-			let aid = '';
-			if (weixinadinfo) {
-				let weixinadinfoArr = weixinadinfo.split('.');
-				aid = weixinadinfoArr[0]
-			}
-			commonParams.adver_ext = currQuery;
-			// 判断query不是空对象，为空就不管
-			if(query.weixinadinfo){
-				if (ln_tool.getDeviceType() == 'android') {
-					commonParams.imei = gdt_vid || '';
-					commonParams.oaid = aid || '';
-				} else if (ln_tool.getDeviceType() == 'ios') {
-					commonParams.idfa = gdt_vid || '';
-					commonParams.idfv = aid || '';
-				}
+		commonParams.adver_ext = currQuery;
+		// 判断query不是空对象，为空就不管
+		if (query.weixinadinfo) {
+			if (ln_tool.getDeviceType() == 'android') {
+				commonParams.imei = gdt_vid || '';
+				commonParams.oaid = aid || '';
+			} else if (ln_tool.getDeviceType() == 'ios') {
+				commonParams.idfa = gdt_vid || '';
+				commonParams.idfv = aid || '';
 			}
 		}
 	}
+};
 // 记录广告值
-const setAdDataToRequest = (params) => {
+const setAdDataToRequest = params => {
 	wx.request({
 		url: api + '/api/config/logWxgame',
 		data: ln_tool.getSignedParams('6c18d6359290b17f12e85b7b77d7e009', params),
@@ -224,22 +235,24 @@ const setAdDataToRequest = (params) => {
 			'content-type': 'application/x-www-form-urlencoded'
 		},
 		mode: 0,
-		success: (res) => {
-       console.log(res)
-		 }
-		});
-} 
+		success: res => {
+			console.log(res);
+		}
+	});
+};
 
 // 微信登录
-const wxLogin = function(SDKln) {
-	console.log('进来了登录了22222222222222222222222')
+const wxLogin = function (SDKln) {
+	console.log('进来了登录了22222222222222222222222');
 	wx.login({
-		success: (res) => {
+		success: res => {
 			if (!res.code) {
 				wxLogin(SDKln);
 			} else {
 				let jscode = res.code;
 				let configParams = {
+					sysname: commonParams.sysname,
+					model: commonParams.model,
 					appid: commonParams.appid,
 					time: commonParams.time,
 					notch_height: 0,
@@ -263,19 +276,19 @@ const wxLogin = function(SDKln) {
 				// 		}
 				// 	}
 				// })
-				
+
 				initConfig(SDKln, configParams, jscode);
 			}
 		},
-		fail: (err) => {
+		fail: err => {
 			// createButton(SDKln, {}, {});
-			console.log("微信登录失败:", err)
+			console.log("微信登录失败:", err);
 		}
 	});
-}
+};
 // 初始化融合配置接口
 const initConfig = function (SDKln, params, jscode) {
-	console.log('进来了初始化了')
+	console.log('进来了初始化了');
 	wx.request({
 		url: api + '/api/config/get',
 		data: ln_tool.getSignedParams('6c18d6359290b17f12e85b7b77d7e009', params),
@@ -284,7 +297,7 @@ const initConfig = function (SDKln, params, jscode) {
 			'content-type': 'application/x-www-form-urlencoded'
 		},
 		mode: 0,
-		success: (res) => {
+		success: res => {
 			const ret = JSON.parse(res.data.data);
 			if (ret.ret == 0) {
 				wxParams.appid = ret.data.channel_params.appid;
@@ -298,157 +311,189 @@ const initConfig = function (SDKln, params, jscode) {
 				wx.showShareMenu({
 					withShareTicket: true,
 					menus: ['shareAppMessage', 'shareTimeline']
-				})
+				});
 				wx.onShareAppMessage(function () {
 					return {
 						title: ret.data.channel_params.title || '',
 						imageUrlId: ret.data.channel_params.imageUrlId || '',
-            imageUrl: ret.data.channel_params.imageUrl || ''
-					}
-				})
+						imageUrl: ret.data.channel_params.imageUrl || ''
+					};
+				});
 				initData(SDKln, commonParams, jscode);
-			} 
-			 // else {
-				// wx.showModal({
-				// 	title: "提示",
-				// 	content: unescape(ret.msg.replace(/\\u/g, "%u")),
-				// 	showCancel: false,
-				// 	confirmText: "确定",
-				// 	success() {
-				// 	}
-				// });
-		  	// }
+			}
+			// else {
+			// wx.showModal({
+			// 	title: "提示",
+			// 	content: unescape(ret.msg.replace(/\\u/g, "%u")),
+			// 	showCancel: false,
+			// 	confirmText: "确定",
+			// 	success() {
+			// 	}
+			// });
+			// }
 		}
-	})
-}
+	});
+};
 // 初始化sdk接口数据
-const initData =  function (SDKln, params, jscode) {
+const initData = function (SDKln, params, jscode) {
 	wx.request({
 		url: api + '/sdk/app/initialize',
-		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0},
+		data: { data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0 },
 		method: 'POST',
 		header: {
 			'content-type': 'application/x-www-form-urlencoded'
 		},
 		mode: 0,
-		success: (res) => {
+		success: res => {
 			// delete params.sign;
 			const data = JSON.parse(res.data.data);
-			console.log('融合初始化adver_ext参数:' + commonParams.adver_ext)
+			console.log('融合初始化adver_ext参数:' + commonParams.adver_ext);
 			let loginParams = {
 				version: commonParams.version,
 				ver: commonParams.ver,
 				network: commonParams.network,
+				model: commonParams.model,
+				sysname: commonParams.sysname,
 				time: ln_tool.getPhpNow(),
 				access_token: data.data.access_token,
-				info: JSON.stringify({code: jscode, login_type: 1}),
+				info: JSON.stringify({ code: jscode, login_type: 1 }),
 				adver_ext: commonParams.adver_ext,
 				wx_game_ln_uid: wx.getLaunchOptionsSync().query.ln_uid || '',
 				wx_game_fu_appid: wx.getLaunchOptionsSync().query.appid || ''
-			}
-			// console.log(wxParams.encryptedData)
-			initStoreData.alive = data.data.alive;
+				// console.log(wxParams.encryptedData)
+			};initStoreData.alive = data.data.alive;
 			initStoreData.access_token = data.data.access_token;
 			// console.log(loginParams)
 			sdkLogin(SDKln, loginParams);
 		}
-	})
-}
+	});
+};
 // 转移白名单
-const wxgameWhiteUser = function(params) {
-	return new Promise((resolve,reject) => {
+const wxgameWhiteUser = function (params) {
+	return new Promise((resolve, reject) => {
 		wx.request({
 			url: api + '/sdk/user/isWxgameWhiteUser',
-			data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0},
+			data: { data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0 },
 			method: 'POST',
 			header: {
 				'content-type': 'application/x-www-form-urlencoded'
 			},
-			success: (res) => {
+			success: res => {
 				let resData = JSON.parse(res.data.data);
 				if (resData.ret == 0) {
-					resolve(resData.data.is_white)
- 				}
+					resolve(resData.data.is_white);
+				}
 			}
-		})
-	})
-}
+		});
+	});
+};
 // 小程序转移
-const sdkChange = function(data) {
-	let loginBackParams = data
+const sdkChange = function (data) {
+	let loginBackParams = data;
 	if (data.data.wxChange == 1) {
 		wx.showModal({
-      title: data.data.wxTitle,
+			title: data.data.wxTitle,
 			content: '亲爱的仙友，点击【确认】即可领取转端豪华大礼包，跳转完成后角色数据不会改变\r\n在新微信小程序方可使用礼包码哦，特此奉上礼包码：' + data.data.wxContent,
 			confirmText: '确定',
-      success (res) {
-        if (res.confirm) {
-					console.log(data.data.wxAppid)
-          wx.navigateToMiniProgram({
-            appId: data.data.wxAppid,
-            path: `page/index/index?ln_uid=${data.data.union_uid}&appid=${ln_tool.getCurrAppid()}`,
-            envVersion: data.data.wxEnvVersion,
-            extraData: {},
-            success: function(res) {
-              console.log('跳转小程序成功', res)
-            },
-            fail: function(err) {
-							console.log(err)
-              sdkChange(loginBackParams)
-            },
-            complete: function(com) {
-              console.log('跳转小程序完成', com)
-            }
-          })
-        } else if (res.cancel) {
-          // 判断是否已经转移过进入白名单 0否 1是
+			success(res) {
+				if (res.confirm) {
+					console.log(data.data.wxAppid);
+					wx.navigateToMiniProgram({
+						appId: data.data.wxAppid,
+						path: `page/index/index?ln_uid=${data.data.union_uid}&appid=${ln_tool.getCurrAppid()}`,
+						envVersion: data.data.wxEnvVersion,
+						extraData: {},
+						success: function (res) {
+							console.log('跳转小程序成功', res);
+						},
+						fail: function (err) {
+							console.log(err);
+							sdkChange(loginBackParams);
+						},
+						complete: function (com) {
+							console.log('跳转小程序完成', com);
+						}
+					});
+				} else if (res.cancel) {
+					// 判断是否已经转移过进入白名单 0否 1是
 					let whiteParams = {
 						time: data.time,
 						access_token: data.access_token,
 						ln_uid: data.data.union_uid
-					}
+					};
 					wxgameWhiteUser(whiteParams).then(isChange => {
 						if (isChange == 0) {
-							sdkChange(loginBackParams)
+							sdkChange(loginBackParams);
 						}
-					})
-        }
-      }
-    })
+					});
+				}
+			}
+		});
 	}
-}
+};
 
-// sdk登录
-let postLogin = 0;
-const sdkLogin = function(SDKln, params) {
+// 幻灵转端弹窗
+const transTip = function (uid, SDKln, loginData) {
+	const currUid = uid;
 	wx.request({
-		url: api + '/sdk/user/login',
-		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key,params)), mode: 0},
+		url: api + '/Api/AppPopup/isPopupApp',
+		data: { data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, { appid: commonParams.appid, uid: uid })), mode: 0 },
 		method: 'POST',
 		header: {
 			'content-type': 'application/x-www-form-urlencoded'
 		},
-		success: (res) => {
-			// 设置授权按钮可以点击
-			// delete params.sign;
-			let loginData = JSON.parse(res.data.data);
-			if (loginData.ret == 0) {
-				wxParams.openid = loginData.data.openid;
-				miniProgramParams = loginData;
-				miniProgramParams.access_token = params.access_token,
-				miniProgramParams.time = params.time
-				replenish();
-				if (loginData.data.wxChangeLimitTips) {
-					wx.showModal({
-						title: "提示",
-						content: loginData.data.wxChangeLimitTips,
-						showCancel: false,
-						confirmText: "确定",
-						success() {
-						}
+		success: res => {
+			if (res.data.ret == 0) {
+				/**
+     wxPopup: 1开启弹窗 0不开启
+     wxIsClose：弹窗是否可关闭1是、0否，不可关闭时游戏不能继续进行
+     */
+				if (res.data.data.wxPopup == 1) {
+					if (res.data.data.wxIsClose == 1) {
+						// 可关闭，不影响游戏登录流程
+						wx.showModal({
+							title: res.data.data.wxTitle || '提示',
+							content: res.data.data.wxContent,
+							showCancel: false,
+							confirmText: "确定",
+							success() {}
+						});
+						SDKln.initLoginCallback({
+							status: '0',
+							data: {
+								uid: loginData.data.union_uid,
+								account: loginData.data.account,
+								token: loginData.data.login_token
+							},
+							msg: 'ok'
+						});
+					} else {
+						// 弹窗不可关闭（重复弹窗），登录流程不能继续，不回调参数给cp
+						wx.showModal({
+							title: res.data.data.wxTitle || '提示',
+							content: res.data.data.wxContent,
+							showCancel: false,
+							confirmText: "确定",
+							success() {
+								transTip(currUid);
+							}
+						});
+					}
+				} else {
+					// 未开启弹窗，正常走登录流程，回调登录参数给cp
+					// 登录成功执行回调
+					SDKln.initLoginCallback({
+						status: '0',
+						data: {
+							uid: loginData.data.union_uid,
+							account: loginData.data.account,
+							token: loginData.data.login_token
+						},
+						msg: 'ok'
 					});
 				}
-				// 登录成功执行回调
+			} else {
+				// 转端弹窗接口不成功也不影响游戏登录流程
 				SDKln.initLoginCallback({
 					status: '0',
 					data: {
@@ -457,11 +502,58 @@ const sdkLogin = function(SDKln, params) {
 						token: loginData.data.login_token
 					},
 					msg: 'ok'
-				})
+				});
+			}
+		}
+	});
+};
+
+// sdk登录
+let postLogin = 0;
+const sdkLogin = function (SDKln, params) {
+	wx.request({
+		url: api + '/sdk/user/login',
+		data: { data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0 },
+		method: 'POST',
+		header: {
+			'content-type': 'application/x-www-form-urlencoded'
+		},
+		success: res => {
+			// 设置授权按钮可以点击
+			// delete params.sign;
+			let loginData = JSON.parse(res.data.data);
+			if (loginData.ret == 0) {
+				wxParams.openid = loginData.data.openid;
+				miniProgramParams = loginData;
+				miniProgramParams.access_token = params.access_token, miniProgramParams.time = params.time;
+				replenish();
+				if (loginData.data.wxChangeLimitTips) {
+					wx.showModal({
+						title: "提示",
+						content: loginData.data.wxChangeLimitTips,
+						showCancel: false,
+						confirmText: "确定",
+						success() {}
+					});
+				}
+
+				// 幻灵转端登录后弹窗提示，登录回调也放在转端弹窗逻辑
+				transTip(loginData.data.union_uid, SDKln, loginData);
+
+				// 登录成功执行回调
+				// SDKln.initLoginCallback({
+				// 	status: '0',
+				// 	data: {
+				// 		uid: loginData.data.union_uid,
+				// 		account: loginData.data.account,
+				// 		token: loginData.data.login_token
+				// 	},
+				// 	msg: 'ok'
+				// })
 			} else {
-				postLogin ++;
+				postLogin++;
 				if (postLogin < 3) {
-					console.log(postLogin)
+					console.log(postLogin);
 					wxLogin(SDKln);
 				}
 				if (postLogin == 3) {
@@ -470,22 +562,21 @@ const sdkLogin = function(SDKln, params) {
 						content: loginData.msg,
 						showCancel: false,
 						confirmText: "确定",
-						success() {
-						}
+						success() {}
 					});
 				}
 				SDKln.initLoginCallback({
 					status: '1',
 					data: {},
 					msg: 'error'
-				})
+				});
 			}
 		}
-	})
-}
+	});
+};
 // 角色上报
-const sdkRole = function(params) {
-  let roleParams = {
+const sdkRole = function (params) {
+	let roleParams = {
 		time: ln_tool.getPhpNow(),
 		access_token: initStoreData.access_token,
 		channel: '',
@@ -501,28 +592,56 @@ const sdkRole = function(params) {
 		mount: '',
 		vip: params.vipLevel || '',
 		adver_ext: commonParams.adver_ext
-	}
+	};
 	if (params.type == 3) {
 		params.adver_ext = commonParams.adver_ext;
-		sdkOnline(params)
+		sdkOnline(params);
 	}
 	wx.request({
 		url: api + '/sdk/role/collect',
-		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, roleParams)), mode: 0},
+		data: { data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, roleParams)), mode: 0 },
 		method: 'POST',
 		header: {
 			'content-type': 'application/x-www-form-urlencoded'
 		},
 		mode: 0,
-		success: (res) => {
+		success: res => {
 			console.log(res);
 		}
-	})
-}
+	});
+};
+
+// 游戏内主动分享
+const shareAppMessage = function (obj) {
+	wx.showShareMenu({
+		withShareTicket: true,
+		menus: ['shareAppMessage']
+	});
+	let objCurrQuery = JSON.parse(commonParams.adver_ext);
+	let currQuery = '';
+	let index = 0;
+	for (let [key, value] of Object.entries(objCurrQuery)) {
+		index++;
+		currQuery += index == 1 ? `${key}=${value}` : `&${key}=${value}`;
+	}
+	if (obj && obj.query) {
+		if (currQuery) {
+			currQuery = `${currQuery}&${obj.query}`;
+		} else {
+			currQuery = obj.query;
+		}
+	}
+	wx.shareAppMessage({
+		title: shareTitle,
+		imageUrl: shareImgUrl,
+		imageUrlId: shareImageUrlId,
+		query: currQuery
+	});
+};
 
 // 在线时长上报
-const sdkOnline = function(params) {
-  const roleParams = {
+const sdkOnline = function (params) {
+	const roleParams = {
 		ver: commonParams.ver,
 		roleid: params.roleId,
 		server_id: params.serverId,
@@ -531,20 +650,19 @@ const sdkOnline = function(params) {
 		time: ln_tool.getPhpNow(),
 		access_token: initStoreData.access_token,
 		adver_ext: commonParams.adver_ext
-	}
-	// 进入游戏开始上报
-	wx.request({
+		// 进入游戏开始上报
+	};wx.request({
 		url: api + '/sdk/user/online',
-		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, roleParams)), mode: 0},
+		data: { data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, roleParams)), mode: 0 },
 		method: 'POST',
 		header: {
 			'content-type': 'application/x-www-form-urlencoded'
 		},
 		mode: 0,
-		success: (res) => {
+		success: res => {
 			console.log(res);
 		}
-	})
+	});
 	const roleParamsInter = {
 		ver: '',
 		roleid: params.roleId,
@@ -554,104 +672,105 @@ const sdkOnline = function(params) {
 		time: commonParams.time,
 		access_token: initStoreData.access_token,
 		adver_ext: commonParams.adver_ext
-	}
+	};
 	let timer = null;
 	// 后续定时上报
 	timer = setInterval(() => {
 		wx.request({
 			url: api + '/sdk/user/online',
-			data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, roleParamsInter)), mode: 0},
+			data: { data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, roleParamsInter)), mode: 0 },
 			method: 'POST',
 			header: {
 				'content-type': 'application/x-www-form-urlencoded'
 			},
 			mode: 0,
-			success: (res) => {
+			success: res => {
 				console.log(res);
 			}
-		})
+		});
 	}, +initStoreData.alive * 1000);
-}
+};
 
 // 支付
-const sdkPay = function(payData) {
+const sdkPay = function (payData) {
 	// 点击支付判断小程序是否转移
-	if(miniProgramParams.data.wxChange == 1) {
+	if (miniProgramParams.data.wxChange == 1) {
 		sdkChange(miniProgramParams);
-		return
+		return;
 	}
 	const SDKln = this;
-	const systemInfo = wx.getSystemInfoSync()
+	const systemInfo = wx.getSystemInfoSync();
 	const osType = ln_tool.getDeviceType();
-	let deviceType = 'unknow'
+	let deviceType = 'unknow';
 	if (osType == 'ios') {
-		deviceType = 2
+		deviceType = 2;
 	} else if (osType == 'android') {
-		deviceType = 1
+		deviceType = 1;
 	} else if (osType == 'win') {
-		deviceType = 3
+		deviceType = 3;
 	}
 	replenish(); // 下单前是否存在未完成的单
 	if (typeof this.onPayCallback != 'function') {
-		console.error("没有实现 onPayCallback 支付回调")
+		console.error("没有实现 onPayCallback 支付回调");
 	} else {
-		let list = ["orderId","orderName","amount","serverId","roleLevel","roleName","roleId"];
-		const payParamsPass = list.some(v=> {return payData[v] === undefined})
-		if(payParamsPass){
-				wx.showModal({
-					title: "提示",
-					content: "参数校验错误，请联系管理员",
-					showCancel: false,
-					confirmText: "确定",
-					success() {
-					}
-				});
+		let list = ["orderId", "orderName", "amount", "serverId", "roleLevel", "roleName", "roleId"];
+		const payParamsPass = list.some(v => {
+			return payData[v] === undefined;
+		});
+		if (payParamsPass) {
+			wx.showModal({
+				title: "提示",
+				content: "参数校验错误，请联系管理员",
+				showCancel: false,
+				confirmText: "确定",
+				success() {}
+			});
 			return;
 		}
 		const params = {
-			order_id: payData.orderId? payData.orderId: '',
-			order_name: payData.orderName? payData.orderName: '',
+			order_id: payData.orderId ? payData.orderId : '',
+			order_name: payData.orderName ? payData.orderName : '',
 			ver: commonParams.ver,
 			is_lnpay: '0',
 			ln_pay_req: 1,
-			amount: payData.amount? payData.amount: 0,
-			total_fee: payData.amount? payData.amount: 0,
-			server: payData.serverId? payData.serverId: '',
+			amount: payData.amount ? payData.amount : 0,
+			total_fee: payData.amount ? payData.amount : 0,
+			server: payData.serverId ? payData.serverId : '',
 			role: payData.roleName,
 			roleid: payData.roleId,
-			level: payData.roleLevel? payData.roleLevel: '',
+			level: payData.roleLevel ? payData.roleLevel : '',
 			time: ln_tool.getPhpNow(),
 			device: deviceType,
 			access_token: initStoreData.access_token,
 			weixin_code: 'weixin_game',
 			ext: payData.ext || '',
 			adver_ext: commonParams.adver_ext
-		}
+		};
 
 		wx.showLoading({
 			title: '正在支付中',
 			mask: true
-		})
+		});
 		wx.login({
 			success(res) {
 				params.code = res.code;
 				console.log("params", params);
 				wx.request({
 					url: api + '/sdk/pay/request',
-					data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0},
+					data: { data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0 },
 					method: 'POST',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded'
 					},
-					success: (payRes) => {
-						wx.hideLoading()
+					success: payRes => {
+						wx.hideLoading();
 						let ret = JSON.parse(payRes.data.data);
 						if (ret.ret == 0) {
 							SDKln.onPayCallback({
 								"status": '0',
 								"msg": '支付参数正确，正在支付'
-							})
-							wx.hideLoading()
+							});
+							wx.hideLoading();
 							let checkWay = parseInt(ret.data.check_pay);
 							// console.log(getLinkUrl(ret.data.order_id));
 							switch (checkWay) {
@@ -663,14 +782,14 @@ const sdkPay = function(payData) {
 										confirmText: "确定",
 										success() {
 											wx.openCustomerServiceConversation({
-												showMessageCard: true,	
+												showMessageCard: true,
 												sendMessageTitle: ret.data.order_id,
 												sendMessagePath: JSON.stringify(params),
 												sendMessageImg: getLinkUrl(ret.data.order_id),
 												sessionFrom: JSON.stringify(params),
 												success: function (res) {
 													console.log('执行success了');
-													console.log(res)
+													console.log(res);
 													// 打开客服窗口成功后，发送链接给玩家
 													// sendLinkUser(ret.data.order_id);
 												},
@@ -681,66 +800,66 @@ const sdkPay = function(payData) {
 													// console.log('执行complete了');
 													// sendLinkUser(ret.data.order_id);
 												}
-											})
+											});
 										}
-									})
-								break;
+									});
+									break;
 								case 1:
-									 let payBuyQuantity = JSON.parse(ret.data.config).buyQuantity;
-									 console.log(payBuyQuantity)
-										wx.requestMidasPayment({
-											mode: "game",
-											env: wxParams.env,
-											offerId: wxParams.offer_id,
-											currencyType: "CNY",
-											zoneId: 1,
-											platform: "android",
-											buyQuantity: payBuyQuantity,
-											success(res) {
-												// wx.setStorageSync('orderList', orderList);
-												console.log(res);
-												sendResult(ret.data.order_id)
-											},
-											fail(com) {
-												// wx.showModal({
-												// 	title: "提示",
-												// 	content: com.errMsg + com.errCode,
-												// 	showCancel: false,
-												// 	confirmText: "确定",
-												// 	success() {
-												// 	}
-												// });
-												
-												console.log("米结果参数", com)
-											},
-											complete(com) {
-												console.log("米结果参数", com)
-												// sendResult(ret.data.order_id)
-											}
-										})
+									let payBuyQuantity = JSON.parse(ret.data.config).buyQuantity;
+									console.log(payBuyQuantity);
+									wx.requestMidasPayment({
+										mode: "game",
+										env: wxParams.env,
+										offerId: wxParams.offer_id,
+										currencyType: "CNY",
+										zoneId: 1,
+										platform: "android",
+										buyQuantity: payBuyQuantity,
+										success(res) {
+											// wx.setStorageSync('orderList', orderList);
+											console.log(res);
+											sendResult(ret.data.order_id);
+										},
+										fail(com) {
+											// wx.showModal({
+											// 	title: "提示",
+											// 	content: com.errMsg + com.errCode,
+											// 	showCancel: false,
+											// 	confirmText: "确定",
+											// 	success() {
+											// 	}
+											// });
+
+											console.log("米结果参数", com);
+										},
+										complete(com) {
+											console.log("米结果参数", com);
+											// sendResult(ret.data.order_id)
+										}
+									});
 									break;
 								case 5:
 									let Minidata = {};
-									Minidata.goods_name = params.productName
-									Minidata.gameOrderid = ret.gameOrderid
-									Minidata.money = ret.money
-									Minidata.out_code = ret.out_code
-									Minidata.paytype = ret.paytype
+									Minidata.goods_name = params.productName;
+									Minidata.gameOrderid = ret.gameOrderid;
+									Minidata.money = ret.money;
+									Minidata.out_code = ret.out_code;
+									Minidata.paytype = ret.paytype;
 									wx.navigateToMiniProgram({
 										appId: ret.appid,
 										path: 'pages/sdk/page',
 										envVersion: 'release',
 										extraData: Minidata,
-										success: function(res) {
-											console.log('跳转小程序成功', res)
+										success: function (res) {
+											console.log('跳转小程序成功', res);
 										},
-										fail: function(err) {
-											console.log('跳转小程序失败', err)
+										fail: function (err) {
+											console.log('跳转小程序失败', err);
 										},
-										complete: function(com) {
-											console.log('跳转小程序完成', com)
+										complete: function (com) {
+											console.log('跳转小程序完成', com);
 										}
-									})
+									});
 									break;
 							}
 						} else {
@@ -753,26 +872,26 @@ const sdkPay = function(payData) {
 									SDKln.onPayCallback({
 										"status": '1',
 										"msg": "支付失败"
-									})
+									});
 								}
 							});
 						}
 					}
-				})
+				});
 			}
-		})
+		});
 	}
-}
+};
 // 米大师支付成功调融合api
-const sendResult = function(order_id) {
-	let params = {order_id: order_id, time: ln_tool.getPhpNow(), access_token: initStoreData.access_token, ver: commonParams.ver};
+const sendResult = function (order_id) {
+	let params = { order_id: order_id, time: ln_tool.getPhpNow(), access_token: initStoreData.access_token, ver: commonParams.ver };
 	let orderList = wx.getStorageSync('orderList');
 	if (!orderList) {
-		orderList = []	
+		orderList = [];
 	}
 	wx.request({
 		url: api + "/sdk/wxgame/notify",
-		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0},
+		data: { data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0 },
 		method: 'POST',
 		header: {
 			'content-type': 'application/x-www-form-urlencoded'
@@ -797,47 +916,46 @@ const sendResult = function(order_id) {
 			orderList.push(order_id);
 			wx.setStorageSync('orderList', orderList);
 		}
-	})
-}
+	});
+};
 // 校验是否发送到融合接口
-const replenish = function() {
+const replenish = function () {
 	let orderList = wx.getStorageSync('orderList');
 	// const params = {time: ln_tool.getPhpNow(), access_token: initStoreData.access_token, ver: commonParams.ver};
 	console.log(orderList);
 	if (orderList.length !== 0) {
 		for (let i in orderList) {
-				wx.request({
-						url: api + "/sdk/wxgame/notify",
-						data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, {order_id: orderList[i], time: ln_tool.getPhpNow(), access_token: initStoreData.access_token, ver: commonParams.ver})), mode: 0},
-						method: 'POST',
-						header: {
-							'content-type': 'application/x-www-form-urlencoded'
-						},
-						success(res) {
-							const resData = JSON.parse(res.data.data);
-							if (resData.ret == 0) {
-								orderList.splice(i, 1);
-								wx.setStorageSync('orderList', orderList);
-							} else {
-								if (resData.ret != 0) {
-									wx.showModal({
-										title: "提示",
-										content: unescape(resData.msg.replace(/\\u/g, "%u")),
-										showCancel: false,
-										confirmText: "确定",
-										success() {
-										}
-									});
-								}
-							}
+			wx.request({
+				url: api + "/sdk/wxgame/notify",
+				data: { data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, { order_id: orderList[i], time: ln_tool.getPhpNow(), access_token: initStoreData.access_token, ver: commonParams.ver })), mode: 0 },
+				method: 'POST',
+				header: {
+					'content-type': 'application/x-www-form-urlencoded'
+				},
+				success(res) {
+					const resData = JSON.parse(res.data.data);
+					if (resData.ret == 0) {
+						orderList.splice(i, 1);
+						wx.setStorageSync('orderList', orderList);
+					} else {
+						if (resData.ret != 0) {
+							wx.showModal({
+								title: "提示",
+								content: unescape(resData.msg.replace(/\\u/g, "%u")),
+								showCancel: false,
+								confirmText: "确定",
+								success() {}
+							});
 						}
-				})
+					}
+				}
+			});
 		}
 	}
-}
+};
 
 // 游戏内转端
-const sdkTransferApp =  function() {
+const sdkTransferApp = function () {
 	wx.showModal({
 		title: "温馨提示",
 		content: "请按确定后进入客服窗口",
@@ -845,14 +963,14 @@ const sdkTransferApp =  function() {
 		confirmText: "确定",
 		success() {
 			wx.openCustomerServiceConversation({
-				showMessageCard: true,	
+				showMessageCard: true,
 				sendMessageTitle: `bind-${commonParams.appid}`,
 				sendMessagePath: '',
 				sendMessageImg: 'https://apisdk2.lnqwe.com/wxgame_exchange.jpg',
 				sessionFrom: '',
 				success: function (res) {
 					console.log('执行success了');
-					console.log(res)
+					console.log(res);
 					// 打开客服窗口成功后，发送链接给玩家
 				},
 				fail: function (res) {
@@ -861,14 +979,26 @@ const sdkTransferApp =  function() {
 				complete: function (res) {
 					// console.log('执行complete了');
 				}
-			})
+			});
 		}
-	})
-}
+	});
+};
+
+// 天剑用户来源
+const userSource = function (callback) {
+	const query = wx.getLaunchOptionsSync().query;
+	// 入口进来判断用户类型，回传给cp（1：广告量，0：自然量）
+	// console.log(query)
+	if (JSON.stringify(query) != '{}') {
+		callback({ ad_flag: '1' });
+	} else {
+		callback({ ad_flag: '0' });
+	}
+};
 
 // 游戏中进行授权
 // width宽，height高，left左，top顶部
-const sdkGameAuth = function(params) {
+const sdkGameAuth = function (params) {
 	let button = wx.createUserInfoButton({
 		type: 'text',
 		text: '',
@@ -885,43 +1015,43 @@ const sdkGameAuth = function(params) {
 			fontSize: 16,
 			borderRadius: 4
 		}
-	})
-	button.onTap((res) => {
-		console.log(res.errMsg)
-		console.log(btnClickNum)
-		if(btnClickNum){
-			console.log('不可多次点击')
+	});
+	button.onTap(res => {
+		console.log(res.errMsg);
+		console.log(btnClickNum);
+		if (btnClickNum) {
+			console.log('不可多次点击');
 			return;
 		}
 		btnClickNum = 1;
 		if (res.errMsg == 'getUserInfo:ok') {
-			let regData1 = {query: JSON.stringify(commonParams), type: 'reg2'}
+			let regData1 = { query: JSON.stringify(commonParams), type: 'reg2' };
 			setAdDataToRequest(regData1);
 			wxParams.encryptedData = res.encryptedData;
 			wxParams.iv = res.iv;
-			initConfig(SDKln, configParams, jscode)
+			initConfig(SDKln, configParams, jscode);
 			button.destroy();
-		}else{
-			let regData2 = {query: JSON.stringify(commonParams), type: 'reg3'}
+		} else {
+			let regData2 = { query: JSON.stringify(commonParams), type: 'reg3' };
 			setAdDataToRequest(regData2);
 			btnClickNum = 0;
 		}
-	})
-}
+	});
+};
 // 创建授权登录按钮
 const createButton = function (SDKln, configParams, jscode) {
 	let sysInfo = wx.getSystemInfoSync();
 	let screenW = sysInfo.screenWidth;
-  let screenH = sysInfo.screenHeight;
+	let screenH = sysInfo.screenHeight;
 	let rate = screenW / 750;
 	let width = 418 * rate;
-  let height = 80 * rate;
+	let height = 80 * rate;
 	let button = wx.createUserInfoButton({
 		type: 'text',
 		text: '授权登录',
 		style: {
 			left: screenW / 2 - width / 2,
-			top: screenH/2 + 80,
+			top: screenH / 2 + 80,
 			width: width,
 			height: height,
 			lineHeight: height,
@@ -931,47 +1061,47 @@ const createButton = function (SDKln, configParams, jscode) {
 			fontSize: 16,
 			borderRadius: 4
 		}
-	})
-	button.onTap((res) => {
-		console.log(res.errMsg)
-		console.log(btnClickNum)
-		if(btnClickNum){
-			console.log('不可多次点击')
+	});
+	button.onTap(res => {
+		console.log(res.errMsg);
+		console.log(btnClickNum);
+		if (btnClickNum) {
+			console.log('不可多次点击');
 			return;
 		}
 		btnClickNum = 1;
 		if (res.errMsg == 'getUserInfo:ok') {
-			let regData1 = {query: JSON.stringify(commonParams), type: 'reg2'}
+			let regData1 = { query: JSON.stringify(commonParams), type: 'reg2' };
 			setAdDataToRequest(regData1);
 			wxParams.encryptedData = res.encryptedData;
 			wxParams.iv = res.iv;
-			initConfig(SDKln, configParams, jscode)
+			initConfig(SDKln, configParams, jscode);
 			button.destroy();
-		}else{
-			let regData2 = {query: JSON.stringify(commonParams), type: 'reg3'}
+		} else {
+			let regData2 = { query: JSON.stringify(commonParams), type: 'reg3' };
 			setAdDataToRequest(regData2);
 			btnClickNum = 0;
 		}
-	})
-}
+	});
+};
 // 生成客服发送快捷卡片图片
-const getLinkUrl = function(ln_order) {
+const getLinkUrl = function (ln_order) {
 	let url = `https://apisdk2.lnqwe.com/sdk/pay/wxkf?appid=${commonParams.appid}&ln_order_id=${ln_order}&wxAppid=${wxParams.appid}&wxOpenId=${wxParams.openid}&access_token=${initStoreData.access_token}`;
 	return url;
-}
-const sendLinkUser = function(ln_order) {
+};
+const sendLinkUser = function (ln_order) {
 	let params = {
 		appid: commonParams.appid,
 		ln_order_id: ln_order,
 		wxAppid: wxParams.appid,
 		wxOpenId: wxParams.openid,
 		access_token: initStoreData.access_token
-	}
-	console.log(wxParams.openid)
-	console.log(params)
+	};
+	console.log(wxParams.openid);
+	console.log(params);
 	wx.request({
 		url: api + "/sdk/pay/wxkf",
-		data: {data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0},
+		data: { data: JSON.stringify(ln_tool.getSignedParams(appInfo.app_key, params)), mode: 0 },
 		method: 'POST',
 		header: {
 			'content-type': 'application/x-www-form-urlencoded'
@@ -982,9 +1112,8 @@ const sendLinkUser = function(ln_order) {
 			console.log(resData);
 			// if ()
 		}
-	})
-}
-
+	});
+};
 
 // 以下为md5工具和base64工具 
 // md5
@@ -992,21 +1121,21 @@ function md5(string) {
 	var x = Array();
 	var k, AA, BB, CC, DD, a, b, c, d;
 	var S11 = 7,
-		S12 = 12,
-		S13 = 17,
-		S14 = 22;
+	    S12 = 12,
+	    S13 = 17,
+	    S14 = 22;
 	var S21 = 5,
-		S22 = 9,
-		S23 = 14,
-		S24 = 20;
+	    S22 = 9,
+	    S23 = 14,
+	    S24 = 20;
 	var S31 = 4,
-		S32 = 11,
-		S33 = 16,
-		S34 = 23;
+	    S32 = 11,
+	    S33 = 16,
+	    S34 = 23;
 	var S41 = 6,
-		S42 = 10,
-		S43 = 15,
-		S44 = 21;
+	    S42 = 10,
+	    S43 = 15,
+	    S44 = 21;
 	string = Utf8Encode(string);
 	x = ConvertToWordArray(string);
 	a = 0x67452301;
@@ -1092,44 +1221,44 @@ function md5(string) {
 }
 
 function RotateLeft(lValue, iShiftBits) {
-	return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
+	return lValue << iShiftBits | lValue >>> 32 - iShiftBits;
 }
 
 function AddUnsigned(lX, lY) {
 	var lX4, lY4, lX8, lY8, lResult;
-	lX8 = (lX & 0x80000000);
-	lY8 = (lY & 0x80000000);
-	lX4 = (lX & 0x40000000);
-	lY4 = (lY & 0x40000000);
+	lX8 = lX & 0x80000000;
+	lY8 = lY & 0x80000000;
+	lX4 = lX & 0x40000000;
+	lY4 = lY & 0x40000000;
 	lResult = (lX & 0x3FFFFFFF) + (lY & 0x3FFFFFFF);
 	if (lX4 & lY4) {
-		return (lResult ^ 0x80000000 ^ lX8 ^ lY8);
+		return lResult ^ 0x80000000 ^ lX8 ^ lY8;
 	}
 	if (lX4 | lY4) {
 		if (lResult & 0x40000000) {
-			return (lResult ^ 0xC0000000 ^ lX8 ^ lY8);
+			return lResult ^ 0xC0000000 ^ lX8 ^ lY8;
 		} else {
-			return (lResult ^ 0x40000000 ^ lX8 ^ lY8);
+			return lResult ^ 0x40000000 ^ lX8 ^ lY8;
 		}
 	} else {
-		return (lResult ^ lX8 ^ lY8);
+		return lResult ^ lX8 ^ lY8;
 	}
 }
 
 function F(x, y, z) {
-	return (x & y) | ((~x) & z);
+	return x & y | ~x & z;
 }
 
 function G(x, y, z) {
-	return (x & z) | (y & (~z));
+	return x & z | y & ~z;
 }
 
 function H(x, y, z) {
-	return (x ^ y ^ z);
+	return x ^ y ^ z;
 }
 
 function I(x, y, z) {
-	return (y ^ (x | (~z)));
+	return y ^ (x | ~z);
 }
 
 function FF(a, b, c, d, x, s, ac) {
@@ -1156,20 +1285,20 @@ function ConvertToWordArray(string) {
 	var lWordCount;
 	var lMessageLength = string.length;
 	var lNumberOfWords_temp1 = lMessageLength + 8;
-	var lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64)) / 64;
+	var lNumberOfWords_temp2 = (lNumberOfWords_temp1 - lNumberOfWords_temp1 % 64) / 64;
 	var lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16;
 	var lWordArray = Array(lNumberOfWords - 1);
 	var lBytePosition = 0;
 	var lByteCount = 0;
 	while (lByteCount < lMessageLength) {
-		lWordCount = (lByteCount - (lByteCount % 4)) / 4;
-		lBytePosition = (lByteCount % 4) * 8;
-		lWordArray[lWordCount] = (lWordArray[lWordCount] | (string.charCodeAt(lByteCount) << lBytePosition));
+		lWordCount = (lByteCount - lByteCount % 4) / 4;
+		lBytePosition = lByteCount % 4 * 8;
+		lWordArray[lWordCount] = lWordArray[lWordCount] | string.charCodeAt(lByteCount) << lBytePosition;
 		lByteCount++;
 	}
-	lWordCount = (lByteCount - (lByteCount % 4)) / 4;
-	lBytePosition = (lByteCount % 4) * 8;
-	lWordArray[lWordCount] = lWordArray[lWordCount] | (0x80 << lBytePosition);
+	lWordCount = (lByteCount - lByteCount % 4) / 4;
+	lBytePosition = lByteCount % 4 * 8;
+	lWordArray[lWordCount] = lWordArray[lWordCount] | 0x80 << lBytePosition;
 	lWordArray[lNumberOfWords - 2] = lMessageLength << 3;
 	lWordArray[lNumberOfWords - 1] = lMessageLength >>> 29;
 	return lWordArray;
@@ -1177,10 +1306,11 @@ function ConvertToWordArray(string) {
 
 function WordToHex(lValue) {
 	var WordToHexValue = "",
-		WordToHexValue_temp = "",
-		lByte, lCount;
+	    WordToHexValue_temp = "",
+	    lByte,
+	    lCount;
 	for (lCount = 0; lCount <= 3; lCount++) {
-		lByte = (lValue >>> (lCount * 8)) & 255;
+		lByte = lValue >>> lCount * 8 & 255;
 		WordToHexValue_temp = "0" + lByte.toString(16);
 		WordToHexValue = WordToHexValue + WordToHexValue_temp.substr(WordToHexValue_temp.length - 2, 2);
 	}
@@ -1193,13 +1323,13 @@ function Utf8Encode(string) {
 		var c = string.charCodeAt(n);
 		if (c < 128) {
 			utftext += String.fromCharCode(c);
-		} else if ((c > 127) && (c < 2048)) {
-			utftext += String.fromCharCode((c >> 6) | 192);
-			utftext += String.fromCharCode((c & 63) | 128);
+		} else if (c > 127 && c < 2048) {
+			utftext += String.fromCharCode(c >> 6 | 192);
+			utftext += String.fromCharCode(c & 63 | 128);
 		} else {
-			utftext += String.fromCharCode((c >> 12) | 224);
-			utftext += String.fromCharCode(((c >> 6) & 63) | 128);
-			utftext += String.fromCharCode((c & 63) | 128);
+			utftext += String.fromCharCode(c >> 12 | 224);
+			utftext += String.fromCharCode(c >> 6 & 63 | 128);
+			utftext += String.fromCharCode(c & 63 | 128);
 		}
 	}
 	return utftext;
@@ -1208,101 +1338,100 @@ function Utf8Encode(string) {
 var Base64 = {
 	_keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
 	encode: function (input) {
-      var output = "";
-      var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
-      var i = 0;
-      input = Base64._utf8_encode(input);
-      while (i < input.length) {
-          chr1 = input.charCodeAt(i++);
-          chr2 = input.charCodeAt(i++);
-          chr3 = input.charCodeAt(i++);
-          enc1 = chr1 >> 2;
-          enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
-          enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
-          enc4 = chr3 & 63;
-          if (isNaN(chr2)) {
-              enc3 = enc4 = 64;
-          } else if (isNaN(chr3)) {
-              enc4 = 64;
-          }
-          output = output +
-              this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
-              this._keyStr.charAt(enc3) +  this._keyStr.charAt(enc4);
-      }
-      return output;
-  },
+		var output = "";
+		var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+		var i = 0;
+		input = Base64._utf8_encode(input);
+		while (i < input.length) {
+			chr1 = input.charCodeAt(i++);
+			chr2 = input.charCodeAt(i++);
+			chr3 = input.charCodeAt(i++);
+			enc1 = chr1 >> 2;
+			enc2 = (chr1 & 3) << 4 | chr2 >> 4;
+			enc3 = (chr2 & 15) << 2 | chr3 >> 6;
+			enc4 = chr3 & 63;
+			if (isNaN(chr2)) {
+				enc3 = enc4 = 64;
+			} else if (isNaN(chr3)) {
+				enc4 = 64;
+			}
+			output = output + this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) + this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+		}
+		return output;
+	},
 	decode: function (input) {
-      var output = "";
-      var chr1, chr2, chr3;
-      var enc1, enc2, enc3, enc4;
-      var i = 0;
-      input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
-      while (i < input.length) {
-          enc1 = this._keyStr.indexOf(input.charAt(i++));
-          enc2 = this._keyStr.indexOf(input.charAt(i++));
-          enc3 = this._keyStr.indexOf(input.charAt(i++));
-          enc4 = this._keyStr.indexOf(input.charAt(i++));
-          chr1 = (enc1 << 2) | (enc2 >> 4);
-          chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
-          chr3 = ((enc3 & 3) << 6) | enc4;
-          output = output + String.fromCharCode(chr1);
-          if (enc3 != 64) {
-              output = output + String.fromCharCode(chr2);
-          }
-          if (enc4 != 64) {
-              output = output + String.fromCharCode(chr3);
-          }
-      }
-      output = Base64._utf8_decode(output);
-      return output;
-  },
+		var output = "";
+		var chr1, chr2, chr3;
+		var enc1, enc2, enc3, enc4;
+		var i = 0;
+		input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+		while (i < input.length) {
+			enc1 = this._keyStr.indexOf(input.charAt(i++));
+			enc2 = this._keyStr.indexOf(input.charAt(i++));
+			enc3 = this._keyStr.indexOf(input.charAt(i++));
+			enc4 = this._keyStr.indexOf(input.charAt(i++));
+			chr1 = enc1 << 2 | enc2 >> 4;
+			chr2 = (enc2 & 15) << 4 | enc3 >> 2;
+			chr3 = (enc3 & 3) << 6 | enc4;
+			output = output + String.fromCharCode(chr1);
+			if (enc3 != 64) {
+				output = output + String.fromCharCode(chr2);
+			}
+			if (enc4 != 64) {
+				output = output + String.fromCharCode(chr3);
+			}
+		}
+		output = Base64._utf8_decode(output);
+		return output;
+	},
 	_utf8_encode: function (string) {
-      string = string.replace(/\r\n/g, "\n");
-      var utftext = "";
-      for (var n = 0; n < string.length; n++) {
-          var c = string.charCodeAt(n);
-          if (c < 128) {
-              utftext += String.fromCharCode(c);
-          } else if ((c > 127) && (c < 2048)) {
-              utftext += String.fromCharCode((c >> 6) | 192);
-              utftext += String.fromCharCode((c & 63) | 128);
-          } else {
-              utftext += String.fromCharCode((c >> 12) | 224);
-              utftext += String.fromCharCode(((c >> 6) & 63) | 128);
-              utftext += String.fromCharCode((c & 63) | 128);
-          }
- 
-      }
-      return utftext;
-  },
+		string = string.replace(/\r\n/g, "\n");
+		var utftext = "";
+		for (var n = 0; n < string.length; n++) {
+			var c = string.charCodeAt(n);
+			if (c < 128) {
+				utftext += String.fromCharCode(c);
+			} else if (c > 127 && c < 2048) {
+				utftext += String.fromCharCode(c >> 6 | 192);
+				utftext += String.fromCharCode(c & 63 | 128);
+			} else {
+				utftext += String.fromCharCode(c >> 12 | 224);
+				utftext += String.fromCharCode(c >> 6 & 63 | 128);
+				utftext += String.fromCharCode(c & 63 | 128);
+			}
+		}
+		return utftext;
+	},
 	_utf8_decode: function (utftext) {
-      var string = "";
-      var i = 0;
-      var c = c1 = c2 = 0;
-      while (i < utftext.length) {
-          c = utftext.charCodeAt(i);
-          if (c < 128) {
-              string += String.fromCharCode(c);
-              i++;
-          } else if ((c > 191) && (c < 224)) {
-              c2 = utftext.charCodeAt(i + 1);
-              string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
-              i += 2;
-          } else {
-              c2 = utftext.charCodeAt(i + 1);
-              c3 = utftext.charCodeAt(i + 2);
-              string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
-              i += 3;
-          }
-      }
-      return string;
-  }
-}
+		var string = "";
+		var i = 0;
+		var c = c1 = c2 = 0;
+		while (i < utftext.length) {
+			c = utftext.charCodeAt(i);
+			if (c < 128) {
+				string += String.fromCharCode(c);
+				i++;
+			} else if (c > 191 && c < 224) {
+				c2 = utftext.charCodeAt(i + 1);
+				string += String.fromCharCode((c & 31) << 6 | c2 & 63);
+				i += 2;
+			} else {
+				c2 = utftext.charCodeAt(i + 1);
+				c3 = utftext.charCodeAt(i + 2);
+				string += String.fromCharCode((c & 15) << 12 | (c2 & 63) << 6 | c3 & 63);
+				i += 3;
+			}
+		}
+		return string;
+	}
+};
 
 module.exports = {
 	init: init,
 	sdkRole: sdkRole,
 	sdkPay: sdkPay,
 	msgSecCheck: msgSecCheck,
-	sdkTransferApp: sdkTransferApp
-}
+	sdkTransferApp: sdkTransferApp,
+	shareAppMessage: shareAppMessage,
+	userSource: userSource
+};

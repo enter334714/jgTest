@@ -278,7 +278,10 @@ window.sdkOnInited = function (res) {
     PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
     PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixingf_1/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixingf_1/";
-    PF_INFO.version_name = res.version_name;
+    if (!res || !res.version_name) {
+      window.reqRecordError(JSON.stringify({ error: "sdkOnInited version_name error version_name:" + (res ? res.version_name : "null") }));
+    }
+    PF_INFO.version_name = res.version_name ||  "weixingf";
     PF_INFO.wxShield = false;
   } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0) {  //当前版本 == 后台版本
     console.log("#审核版=============================");
@@ -314,6 +317,9 @@ window.sdkOnLogin = function (status, data) {
   if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
     PF_INFO.wx_channel = data.wx_channel;
+    PF_INFO.video_type = data.video_type;
+    PF_INFO.zsy_tp_state = data.zsy_tp_state;
+    PF_INFO.ad_flag = data.ad_flag;
     var self = this;
     wxShowLoading({ title: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {
@@ -1188,7 +1194,15 @@ window.initMain = function () {
         wxParam: { limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.config.from == "txcps" ? 1 : 0), wxSDKVersion: window.SDKVersion },
         configType: window.PF_INFO.configType,
         exposeType: window.PF_INFO.exposeType,
-        scene: scene
+        scene: scene,
+        video_type: window.PF_INFO.video_type,
+        ad_flag: window.PF_INFO.ad_flag,
+      }
+      if (window.pkgOptions) {
+        for (var k in window.pkgOptions) {
+          if (!platData[k])
+            platData[k] = window.pkgOptions[k];
+        }
       }
       new window.MainWX(platData, window.PF_INFO.lastVersion, window.workerJsURL);
     }
@@ -1235,6 +1249,7 @@ window.enterToGame = function () {
         wxShield: window.PF_INFO.wxShield,
         encryptParam: window.PF_INFO.encryptParam,
         wx_channel: window.PF_INFO.wx_channel,
+        zsy_tp_state: window.PF_INFO.zsy_tp_state,
       };
 
       if (window.pkgOptions) {

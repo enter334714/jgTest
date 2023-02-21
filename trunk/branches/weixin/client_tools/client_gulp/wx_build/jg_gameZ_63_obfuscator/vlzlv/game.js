@@ -1,2 +1,2 @@
 var f = wx.$B;
-require('./txhr5a.js'), window[f[32222]][f[32223]][f[32224]] = null, window['client_pb'] = require('./a3rn.js'), window[f[27207]] = window[f[32222]][f[27119]][f[27120]](client_pb);
+require('./txhr5a.js'), window[f[35423]][f[29978]][f[35424]] = null, window['client_pb'] = require('./a3rn.js'), window[f[28225]] = window[f[35423]][f[28128]][f[28129]](client_pb);

@@ -1,16 +1,6 @@
-﻿import Dall from './helper'
-var config = {
-    game_id: '256', //天剑奇缘--天枢服--官方
-    game_pkg: 'tjqy_wxxyxcs_M',
-    partner_id: '19',
-    game_ver: '1.0.581',  //A包为1.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
-    is_auth: false,  //授权登录
-    from: null, //来源
-    tmpId: {1:'pSH28Vom5lPVtCh0-QfVZqUDv1plQ6nvDoKF7gnKEtQ', 2:'ZHiVm5KGXfUpJT779phqRjQ2OsJW2BjJXF1zkPLIEtQ', 3:'pBpwl_Syx8rWKuuEw2P0A0zFbrqei0kIAyBj7EkEkLg',4:'waoZlpFcdNrfGmWVCluivym5rEldyRUU0FGadJywdGc'},  // 订阅的类型 和 模板id
-    min_app_id: '',
-};
+import Dall from './helper'
+import config from './partner_config.js'
 window.config = config;
-
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var t;
@@ -87,10 +77,10 @@ function mainSDK() {
 
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
-            var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
             var cp_activity_id  = info.query && info.query.cp_activity_id ? info.query.cp_activity_id : '';
-
-            if(invite){
+            var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
+            var video_type = info.query && info.query.video_type ? info.query.video_type : '';
+            if(invite || cp_activity_id){
                 user_invite_info = {
                     invite: invite,
                     invite_type: invite_type,
@@ -106,14 +96,15 @@ function mainSDK() {
                     develop = data.develop;
                     callback && callback(data);
                 });
-            };
+            }
+
             ad_info = {
                 "temp_info":info,
                 "temp_uuid":uuid,
                 "temp_is_new":is_new,
+                "video_type":video_type,
             }
         },
-
 
         adLog:function (openid){
             //发送启动参数
@@ -260,6 +251,7 @@ function mainSDK() {
                                                     if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
                                                         wx_channel = 1;
                                                     }
+                                                    var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
                                                     var userData = {
                                                         userid: data.data.user_id,
                                                         account: data.data.nick_name,
@@ -271,6 +263,8 @@ function mainSDK() {
                                                         is_client: data.data.is_client || '0',
                                                         ios_pay: data.data.ios_pay || '0',
                                                         wx_channel:wx_channel,
+                                                        video_type:ad_info.video_type,
+                                                        ad_flag:ad_flag,
                                                     };
                                                     try{
                                                         self.adLog(data.data.openid);
@@ -285,6 +279,7 @@ function mainSDK() {
                                                             wx.setStorageSync('plat_session_key', data.data.ext);
                                                         }
                                                         wx.setStorageSync('navigate_app_id', data.data.navigate_app_id);
+                                                        wx.setStorageSync('partner_vedio_ad_id', data.data.partner_vedio_ad_id);
                                                     } catch (e) {
                                                     }
 
@@ -343,6 +338,7 @@ function mainSDK() {
                                             if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
                                                 wx_channel = 1;
                                             }
+                                            var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
                                             var userData = {
                                                 userid: data.data.user_id,
                                                 account: data.data.nick_name,
@@ -354,6 +350,8 @@ function mainSDK() {
                                                 is_client: data.data.is_client || '0',
                                                 ios_pay: data.data.ios_pay || '0',
                                                 wx_channel:wx_channel,
+                                                video_type:ad_info.video_type,
+                                                ad_flag:ad_flag,
                                             };
                                             try{
                                                 self.adLog(data.data.openid);
@@ -368,6 +366,7 @@ function mainSDK() {
                                                     wx.setStorageSync('plat_session_key', data.data.ext);
                                                 }
                                                 wx.setStorageSync('navigate_app_id', data.data.navigate_app_id);
+                                                wx.setStorageSync('partner_vedio_ad_id', data.data.partner_vedio_ad_id);
                                             } catch (e) {
                                             }
 
@@ -434,6 +433,7 @@ function mainSDK() {
             callbacks['share'] = typeof callback == 'function' ? callback : null;
             var type = data.type || 'share';
             var cp_activity_id = data.cp_activity_id || '';
+
             console.log("[SDK]CP调用分享 type=" + type);
             var self = this;
             this.getShareInfo(type, function (data) {
@@ -504,10 +504,10 @@ function mainSDK() {
                         if(data.state){
                             callbacks['check'] && callbacks['check'](data.data);
                         }else{
-                            callbacks['check'] && callbacks['check']({develop: 0});
+                            callbacks['check'] && callbacks['check']({develop: 0,success_msg:'state not true'});
                         }
                     }else{
-                        callbacks['check'] && callbacks['check']({develop: 0});
+                        callbacks['check'] && callbacks['check']({develop: 0,success_msg:JSON.stringify(res)});
                     }
                 },
                 fail: function(res){
@@ -516,13 +516,13 @@ function mainSDK() {
                     requestCallback = true;
                     if (checkHandler) clearTimeout(checkHandler);
                     checkHandler = null;
-                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] && callbacks['check']({develop: 0,fail_msg:JSON.stringify(res)});
                 }
             });
             if (!requestCallback) {
                 var timeOutFunc = function() {
                     console.log("[SDK]获取游戏版本超时");
-                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] && callbacks['check']({develop: 0,timeout_msg:'timeout msg'});
                     callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
                 }
                 checkHandler = setTimeout(timeOutFunc, 10000);
@@ -1090,7 +1090,6 @@ function mainSDK() {
             var uuid = wx.getStorageSync('plat_uuid');
             var idfv = wx.getStorageSync('plat_idfv');
             var ad_code = wx.getStorageSync('plat_ad_code');
-
             var launchInfo = wx.getStorageSync('info');
             if(!launchInfo) {
                 launchInfo = wx.getLaunchOptionsSync();
@@ -1130,6 +1129,49 @@ function mainSDK() {
             })
         },
 
+        showVideoAd:function(data,callback){
+            let videoAd = null
+
+            // 在页面onLoad回调事件中创建激励视频广告实例
+            if (wx.createRewardedVideoAd) {
+                videoAd = wx.createRewardedVideoAd({
+                    adUnitId: wx.getStorageSync('partner_vedio_ad_id')
+                })
+                videoAd.onLoad(() => {
+                    console.log("video onload");
+                })
+                videoAd.onError((err) => {
+                    console.log("video onError");
+                })
+                videoAd.onClose((res) => {
+                    console.log("video onClose");
+                    if (res && res.isEnded || res === undefined) {
+                        // 正常播放结束，可以下发游戏奖励
+                        console.log("正常播放结束，可以下发游戏奖励");
+                        callback(1)
+                    }
+                    else {
+                        // 播放中途退出，不下发游戏奖励
+                        console.log("播放中途退出，不下发游戏奖励");
+                        callback(0)
+                    }
+                })
+            }
+
+            // 用户触发广告后，显示激励视频广告
+            if (videoAd) {
+                videoAd.show().catch(() => {
+                    // 失败重试
+                    videoAd.load()
+                        .then(() => videoAd.show())
+                        .catch(err => {
+                            console.log('激励视频 广告显示失败')
+                            callback(0)
+                        })
+                })
+            }
+        },
+
         subscriptionsSetting:function (type,callback){
             wx.getWhatsNewSubscriptionsSetting({
                 msgType: 1,    // 消息类型，1=游戏更新提醒，目前只有这种类型
@@ -1155,15 +1197,7 @@ function mainSDK() {
             console.log(public_data);
 
             wx.request({
-                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data)),
-                success: function (res) {
-                    // console.log("[SDK]上报数据成功");
-                    // console.log(res);
-                },
-                fail: function(res){
-                    // console.log("[SDK]上报数据失败");
-                    // console.log(res);
-                }
+                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data))
             });
         },
 
@@ -1212,6 +1246,9 @@ exports.init = function (data, callback) {
 };
 exports.login = function (callback) {
     run('login', '', callback);
+};
+exports.showVideoAd = function (callback) {
+    run('showVideoAd', '', callback);
 };
 exports.pay = function (data, callback) {
     run('pay', data, callback);

@@ -1,7 +1,6 @@
-var m = wx.$g;
 export const openType = {
     auto: 'AUTO',
-    click: 'CLICK'
+    click: 'CLICK',
 };
 
 export const logTypes = {
@@ -43,7 +42,7 @@ export class LogManager {
             userId: this.opt.userId,
             gs: this.opt.gs,
             alias: logType,
-            gsWay: gsWay || this.opt.openType
+            gsWay: gsWay || this.opt.openType,
         });
 
         console.log('[VIP] post log', params);

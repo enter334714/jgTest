@@ -1,4 +1,3 @@
-var m = wx.$g;
 var sdkConfig = require('./config.js');
 var sdk = require('./sdk/sdk.min.js');
 var apmSDK, wallSDK, crossSDK;
@@ -6,20 +5,21 @@ var apmSDK, wallSDK, crossSDK;
 if (sdkConfig.useApm) {
     try {
         apmSDK = require('./sdk/wxapm.min.js');
-    } catch (e) {}
+    } catch (e) { }
 }
 
 if (sdkConfig.useWall) {
     try {
         wallSDK = require('./sdk/wall-sdk.min.js');
-    } catch (e) {}
+    } catch (e) { }
 }
 
 if (sdkConfig.useCross) {
     try {
         crossSDK = require('./sdk/cross-sdk.min.js');
-    } catch (e) {}
+    } catch (e) { }
 }
+
 
 var hortor = {
     config: sdkConfig,
@@ -52,3 +52,4 @@ var hortor = {
         window.hortor = hortor;
     }
 })();
+

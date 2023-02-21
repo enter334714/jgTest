@@ -1,4 +1,3 @@
-var m = wx.$g;
 import { openType, logTypes } from './LogManager';
 const zIndxs = {
     bg: 11,
@@ -81,14 +80,14 @@ export default class VipPage {
     // 添加图片资源
     drawSprite(node, url) {
         let texture = Laya.loader.getRes(url);
-
+        
         if (!texture) {
             return;
         }
 
         let rate = this.rate || 1;
-        let w = rate ? texture.width * rate : this.stageW;
-        let h = rate ? texture.height * rate : this.stageH;
+        let w = rate ? texture.width * rate : this.stageW
+        let h = rate ? texture.height * rate : this.stageH
         node.size(w, h);
         node.graphics.clear();
         node.graphics.drawTexture(texture, 0, 0, w, h);
@@ -108,7 +107,7 @@ export default class VipPage {
         Laya.loader.load(conf.url, Laya.Handler.create(this, () => {
             this.setRate(Laya.loader.getRes(conf.url));
             this.drawSprite(this.bg, conf.url);
-            this.setPos(this.bg, { x: 0, y: 0, z: zIndxs.bg });
+            this.setPos(this.bg, { x: 0, y: 0, z: zIndxs.bg});
             callBack && callBack();
         }));
     }
@@ -153,9 +152,9 @@ export default class VipPage {
         var txt = new Laya.Text();
         txt.text = (conf.title || '') + account;
         txt.fontSize = conf.size || 32;
-        txt.align = conf.textAlign || "center";
+        txt.align = (conf.textAlign || "center");
         txt.color = conf.color || '#ffffff';
-        this.setPos(txt, { x: conf.posX, y: conf.posY, z: zIndxs.account });
+        this.setPos(txt, {x: conf.posX, y: conf.posY, z: zIndxs.account });
         this.bg.addChild(txt);
     }
 
@@ -166,7 +165,7 @@ export default class VipPage {
         // page close log
         this._log && this._log.post(logTypes.pageClose, this._openType);
     }
-
+    
     // 清空
     clear() {
         this.mask.destroy();
@@ -200,16 +199,16 @@ export default class VipPage {
         const secretary = this.config.gameGsConf.secretary || {};
         let exclusiveNumInfo = this.config.gameGsConf.exclusiveNumInfo;
         const number = secretary.number;
-        if (!number) return;
+        if (!number) return
         var txt = new Laya.Text();
 
         txt.text = exclusiveNumInfo.title + number;
         txt.fontSize = 32;
         txt.horizontalAlign = "center".toUpperCase();
-        txt.color = exclusiveNumInfo.color || '#FFFFFF';
-        this.setPos(txt, { x: exclusiveNumInfo.posX, y: exclusiveNumInfo.posY, z: zIndxs.codeNum });
+        txt.color = exclusiveNumInfo.color || '#FFFFFF'
+        this.setPos(txt, {x: exclusiveNumInfo.posX, y: exclusiveNumInfo.posY, z: zIndxs.codeNum });
         this.bg.addChild(txt);
-        this.renderSecretBtn();
+        this.renderSecretBtn()
     }
 
     // 渲染小蜜专属编号按钮
@@ -228,12 +227,12 @@ export default class VipPage {
     clickSercretBtn() {
         const secretary = this.config.gameGsConf.secretary || {};
         const number = secretary.number;
-        if (!number) return;
+        if (!number) return
         if (wx && wx.setClipboardData) {
             wx.setClipboardData({
                 data: number
             });
-
+    
             // copy click log
             this._log && this._log.post(logTypes.number, this._openType);
         }
@@ -245,7 +244,7 @@ export default class VipPage {
             wx.setClipboardData({
                 data: config.wxAccount
             });
-
+    
             // copy click log
             this._log && this._log.post(logTypes.copySecretNum, this._openType);
         }

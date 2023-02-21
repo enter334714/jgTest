@@ -1,15 +1,14 @@
-var m = wx.$g;
 import VipIcon from './VipIcon';
-import VipPage from './VipPage';
+import VipPage from './VipPage'
 import { openType, logTypes, LogManager } from './LogManager';
 
 const consts = {
     HOST: {
         Prod: "https://platform.hortorgames.com",
-        Test: "https://platform-test.hortorgames.com"
+        Test: "https://platform-test.hortorgames.com",
     },
     URLS: {
-        Info: '/customer/api/v1/gs/info'
+        Info: '/customer/api/v1/gs/info',
     }
 };
 
@@ -65,7 +64,7 @@ export default class hortorVip {
         this._log.init({
             gameId: this._conf.vipGameId,
             userId: this._conf.userId || this._conf.openId,
-            host: this._host
+            host: this._host,
         });
     }
 
@@ -78,7 +77,7 @@ export default class hortorVip {
             typeof this._conf.onLoad === 'function' && this._conf.onLoad(err, data);
         };
 
-        let url = `${this._host}${consts.URLS.Info}?gameId=${this._conf.vipGameId}&userId=${this._conf.userId}`;
+        let url = `${this._host}${consts.URLS.Info}?gameId=${this._conf.vipGameId}&userId=${this._conf.userId}`
         let xhr = new Laya.HttpRequest();
         xhr.once(Laya.Event.COMPLETE, this, res => {
             this._vipData = JSON.parse(res);

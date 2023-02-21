@@ -1,2 +1,2 @@
 var f = wx.$B;
-require(f[481]);
+require(f[573]);

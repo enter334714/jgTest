@@ -25,7 +25,7 @@ gl.linkProgram(shaderProgram);
 gl.useProgram(shaderProgram);
 
 var image = new Image();
-image.src = "eeelogin/e22b.png";
+image.src = "wxlogin_atlas/e22b.png";
 var buffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
@@ -64,7 +64,7 @@ function render() {
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 }
 render();
-window.e1I1U0G = setInterval(function () {
+window.e1F$GMY = setInterval(function () {
   render();
 }, 16);
 wx.showLoading({ title: "\u6b63\u5728\u52a0\u8f7d" });
@@ -95,10 +95,10 @@ wx.y$ = [];var fs = wx.getFileSystemManager();wx.getFileSystemManager().unzip({
 });
 //监听小游戏切前台事件
 wx.onShow(function (res) {
-  window.e1G1 = res;
-  if (window.e101G && window.e1G1) {
-    console.info("小游戏切前台事件，场景值：" + window.e1G1.scene);
-    window.e101G(window.e1G1);
-    window.e1G1 = null;
+  window.e1Y$ = res;
+  if (window.e1M$Y && window.e1Y$) {
+    console.info("小游戏切前台事件，场景值：" + window.e1Y$.scene);
+    window.e1M$Y(window.e1Y$);
+    window.e1Y$ = null;
   }
 });

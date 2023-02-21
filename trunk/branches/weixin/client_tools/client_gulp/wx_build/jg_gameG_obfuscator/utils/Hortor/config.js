@@ -1,4 +1,3 @@
-var m = wx.$g;
 module.exports = {
     env: 'Prod', // 必填 运行环境：  测试Test  上线Prod，上线审核开始要把环境改为Prod
     gameId: 'xjtjqymini', // 必填 游戏ID，去平台后台创建
@@ -14,7 +13,7 @@ module.exports = {
     shareData: { // 默认分享数据
         title: '默认分享标题',
         query: 'key=val',
-        imageUrl: 'http://wxmini-resource.hortorgames.com/background-image/share.png'
+        imageUrl: 'http://wxmini-resource.hortorgames.com/background-image/share.png',
     },
     shareSuccessDiff: 2000, // 判断为分享成功的操作时间间隔，单位ms
     openGetShareTheme: true, // 是否开启获取分享方案，默认开启
@@ -24,5 +23,5 @@ module.exports = {
     // stdAutoUpload: true, // 自动上报STD log
     // reportCaptureScreen: true,  // 用户截屏上报，默认关闭
     // reportSubscribeMessage: true, // 订阅消息上报，默认关闭
-    key: 'megkcEDxrbnUZ7NB' // 积分墙key值
+    key: 'megkcEDxrbnUZ7NB', // 积分墙key值
 };

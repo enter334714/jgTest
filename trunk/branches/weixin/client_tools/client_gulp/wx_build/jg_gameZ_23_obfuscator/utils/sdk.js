@@ -24,7 +24,7 @@ let common_param = {
     "payType": 31,
     "payName": 31,
     "account": '',
-    "sdkver": '1.0.9',
+    "sdkver": '1.1.1',
     "platform": '',
     "appver": '1.0.0',
     "xcx_appid": '',
@@ -227,7 +227,7 @@ let common_param = {
                         content: res.info.info.msg,
                         showCancel: false,
                         success: function (res) {
-                            that.ryJump(common_param.jump_appid, common_param.jump_path);
+                            that.ryJump(common_param.jump_appid, common_param.jump_path, 1);
                         }
                     });
                     resolve({ msg: '不用转' });
@@ -294,10 +294,36 @@ let common_param = {
         }
 
         return new Promise((resolve, reject) => {
-            that.getPdata().then(res => {
-                that.logReport('open', { adtype: common_param.adtype, aid: common_param.aid, areaId: common_param.areaid, cid: common_param.cid, game: common_param.gid, pid: common_param.pid });
-                resolve({ msg: '成功' });
-            }).catch(err => {});
+            if (wx.getLaunchOptionsSync().query.ksChannel == 'kuaishou') {
+                that.ryRequest('https://sadmarketcnsy.rongyao666.com/app/channelapi/?_c=weixinAdXcx&_a=index', {
+                    'aid': common_param.aid,
+                    'cid': common_param.cid,
+                    'callback': wx.getLaunchOptionsSync().query.callback,
+                    'ksCampaignId': wx.getLaunchOptionsSync().query.ksCampaignId,
+                    'ksUnitId': wx.getLaunchOptionsSync().query.ksUnitId,
+                    'ksCreativeId': wx.getLaunchOptionsSync().query.ksCreativeId,
+                    'ksChannel': wx.getLaunchOptionsSync().query.ksChannel
+                }).then(res => {
+                    if (res.info.status) {
+                        common_param.aid = res.info.info.aid;
+                        common_param.cid = res.info.info.cid;
+                    }
+                    that.getPdata().then(res => {
+                        that.logReport('open', { adtype: common_param.adtype, aid: common_param.aid, areaId: common_param.areaid, cid: common_param.cid, game: common_param.gid, pid: common_param.pid });
+                        resolve({ msg: '成功' });
+                    }).catch(err => {});
+                }).catch(err => {
+                    that.getPdata().then(res => {
+                        that.logReport('open', { adtype: common_param.adtype, aid: common_param.aid, areaId: common_param.areaid, cid: common_param.cid, game: common_param.gid, pid: common_param.pid });
+                        resolve({ msg: '成功' });
+                    }).catch(err => {});
+                });
+            } else {
+                that.getPdata().then(res => {
+                    that.logReport('open', { adtype: common_param.adtype, aid: common_param.aid, areaId: common_param.areaid, cid: common_param.cid, game: common_param.gid, pid: common_param.pid });
+                    resolve({ msg: '成功' });
+                }).catch(err => {});
+            }
         });
     }
     ryLogin() {
@@ -342,7 +368,7 @@ let common_param = {
                                             'creative_id': common_param.creative_id,
                                             'weixinadinfo': common_param.weixinadinfo,
                                             'type': 'START_APP',
-                                            sdkver: common_param.sdkver
+                                            'sdkver': common_param.sdkver
                                         });
                                         if (res.info.info.live2) {
                                             that.logWxReport({
@@ -479,6 +505,8 @@ let common_param = {
                 }, 1000 * 60 * 5);
                 that.ryPopUp(2, common_param);
                 that.logReport('entry', { adtype: common_param.adtype, aid: common_param.aid, areaId: common_param.areaid, cid: common_param.cid, game: common_param.gid, pid: common_param.pid, roleLevel: data.rolelevel, server: data.server, uid: common_param.uid });
+                that.getCustomerInfo(1);
+                that.getCustomerInfo(2);
                 that.ryPopUp(1, common_param).then(ryPopUp_res => {
                     resolve({ msg: '成功' });
                 }).catch(ryPopUp_err => {
@@ -612,7 +640,8 @@ let common_param = {
             });
         });
     }
-    ryJump(appId, path) {
+    ryJump(appId, path, flag) {
+        let that = this;
         wx.navigateToMiniProgram({
             appId: appId,
             path: path,
@@ -623,6 +652,9 @@ let common_param = {
             },
             fail(res) {
                 console.log(res);
+                if (flag == 1 && res.errMsg == 'navigateToMiniProgramWithoutTapCheck:fail cancel') {
+                    that.ryJump(appId, path, flag);
+                }
             }
         });
     }
@@ -877,7 +909,7 @@ let common_param = {
                                         unionid: common_param.unionid,
                                         sdkver: common_param.sdkver
                                     }).then(res => {
-                                        that.ryJump(res.info.info.subAppId, res.info.info.path);
+                                        that.ryJump(res.info.info.subAppId, res.info.info.path, 0);
                                         resolve({ msg: '成功' });
                                     }).catch(err => {
                                         reject({ msg: err.msg });
@@ -1007,9 +1039,11 @@ let common_param = {
         let that = this;
         let cancel_bool = false; //是否有取消
         let date = new Date();
+        let flag = 1;
         if (mode_type == 2) {
             //半强制
             cancel_bool = true;
+            flag = 0;
             localStorage.setItem("is_pop_up_" + situation + "_" + date.getFullYear() + date.getMonth() + date.getDate(), true);
         }
         return new Promise((resolve, reject) => {
@@ -1020,7 +1054,7 @@ let common_param = {
                 success: function (res) {
                     if (res.confirm == true) {
                         //判断按钮
-                        that.ryJump(jump_appid, jump_path);
+                        that.ryJump(jump_appid, jump_path, flag);
                         reject({ msg: '跳转了' });
                     } else {
                         resolve({ msg: '点击取消' });
@@ -1121,7 +1155,7 @@ let common_param = {
         let show_info = { status: true };
         return new Promise((resolve, reject) => {
             wx.setClipboardData({
-                data: copyText,
+                data: copyText.toString(),
                 success(res) {
                     wx.showToast({
                         title: '复制成功！',
@@ -1137,7 +1171,7 @@ let common_param = {
     getGiftInfo() {
         const that = this;
         const get_gift_url = "https://weixin.rongyao666.com/data/api/ApiGetGiftData.php";
-        const get_gift_param_key = ["gid", "pkid", "uid", "sdkver", "appver"];
+        const get_gift_param_key = ["gid", "pkid", "uid", "sdkver", "appver", "osid"];
         let data = {};
         //过滤参数
         get_gift_param_key.forEach(function (value) {
@@ -1152,32 +1186,31 @@ let common_param = {
                 let copy_context = res.info.info.copy_context;
                 //传参数
                 data["id"] = res.info.info.id;
+                let msg = data;
                 //弹窗
                 wx.showModal({
                     title: title,
                     content: context,
-                    confirmText: '复制礼包', //仅可输入4个字符
-                    showCancel: false, //关闭取消按钮
+                    confirmText: '复制礼包',
+                    showCancel: false,
                     success(res) {
                         //点击复制后
                         if (res.confirm) {
                             that.ryCopy(copy_context).then(res => {
-                                //复制完礼包码
-                                that.setGiftInfo(data);
+                                that.setGiftInfo(msg);
                             });
                         }
                     }
                 });
             }
-        });
+        }).catch(err => {});
     }
-    /* 礼品弹窗操作反馈 */
+
     setGiftInfo(set_gift_param) {
         const that = this;
         const set_gift_url = "https://weixin.rongyao666.com/data/api/ApiSetGiftCopyData.php";
-        const set_gift_param_key = ["id", "gid", "pkid", "uid", "sdkver", "appver"];
+        const set_gift_param_key = ["id", "gid", "pkid", "uid", "sdkver", "appver", "osid"];
         let data = {};
-        //过滤参数
         set_gift_param_key.forEach(function (value) {
             data[value] = set_gift_param[value];
         });
@@ -1187,4 +1220,64 @@ let common_param = {
             console.log(err);
         });
     }
+
+    /* 获取客服信息 
+    * param  type = 1 登录 2活跃
+    */
+    getCustomerInfo(type) {
+        const that = this;
+        const url = "https://weixin.iskywan.com/data/api/ApiGetWecahtXcxCustomer.php";
+        const param_key = ["gid", "pkid", "osid", "uid", "sdkver", "appver"];
+        let data = {};
+        //过滤参数
+        param_key.forEach(function (value) {
+            data[value] = common_param[value];
+        });
+        data['type'] = type;
+        //请求
+        that.ryRequest(url, data).then(res => {
+            if (res.info.status) {
+                let text = '确定';
+                let showCancel = false;
+                if (res.info.info.contact_type == 3) {
+                    text = '复制微信';
+                }
+                if (res.info.info.is_close == 0) {
+                    showCancel = true;
+                }
+                if (type == 1) {
+                    wx.showModal({
+                        title: '客服中心',
+                        content: res.info.info.content,
+                        confirmText: text,
+                        showCancel: showCancel,
+                        success(_res) {
+                            if (res.info.info.contact_type == 3 && _res.confirm) {
+                                that.ryCopy(res.info.info.wechat_num).then(res => {});
+                            } else if (res.info.info.contact_type == 2 && _res.confirm) {
+                                that.ryJump(res.info.info.jump_appid, res.info.info.jump_path, 1);
+                            }
+                        }
+                    });
+                } else if (type == 2) {
+                    setTimeout(function () {
+                        wx.showModal({
+                            title: '客服中心',
+                            content: res.info.info.content,
+                            confirmText: text,
+                            showCancel: showCancel,
+                            success(_res) {
+                                if (res.info.info.contact_type == 3 && _res.confirm) {
+                                    that.ryCopy(res.info.info.wechat_num).then(res => {});
+                                } else if (res.info.info.contact_type == 2 && _res.confirm) {
+                                    that.ryJump(res.info.info.jump_appid, res.info.info.jump_path, 1);
+                                }
+                            }
+                        });
+                    }, res.info.info.time * 1000);
+                }
+            }
+        }).catch(err => {});
+    }
+
 }

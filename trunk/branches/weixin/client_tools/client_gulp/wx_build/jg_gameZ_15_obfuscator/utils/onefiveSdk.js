@@ -37,6 +37,7 @@ class ONEFIVE {
   }
   init(initData, callback) {
     var self = this;
+    var num = 0;
     console.log("[SDK]调用init初始化接口");
     var allInfo = self.getLaunchOptionsAndSystem();
     console.log(allInfo);
@@ -103,7 +104,7 @@ class ONEFIVE {
     });
     /**记录打开 和隐藏后后台运行的日志 end*/
     // self.listenAppShare(initData.query);
-    callbacks_from_onefive['init'] && callbacks_from_onefive['init'](1, {});
+    callbacks_from_onefive['init'] && callbacks_from_onefive['init'](1, { ad_flag: allInfo.LaunchOptions.query.channel > 10000 ? 1 : 0 });
   }
   login(callback) {
     console.log("[SDK]调起登录");
@@ -127,7 +128,8 @@ class ONEFIVE {
             allInfoCache: config_form_onefive.allInfoCache,
             allInfo: allInfo,
             enterInfo: wx.getEnterOptionsSync(),
-            platform: config_form_onefive.platform
+            platform: config_form_onefive.platform,
+            test: 1
           }
         };
         requestFunction(loginInfo).then(res => {
@@ -481,7 +483,7 @@ class ONEFIVE {
     var self = this;
     var allInfo = self.getLaunchOptionsAndSystem();
     var gotopay = {
-      path: 'channel/checkPay/' + config_form_onefive.urlParam,
+      path: 'channel/pay/checkPay/' + config_form_onefive.urlParam,
       data: {
         platform: config_form_onefive.platform,
         os: allInfo.wxSystemInfo.platform,

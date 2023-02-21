@@ -1,19 +1,19 @@
 var g = wx.u$;
-console[g[1]](g[2]), window[g[3]], wx[g[4]](function (kigjy) {
-    if (kigjy) {
-        if (kigjy[g[5]]) {
-            var rtf63 = window[g[6]][g[7]][g[8]](new RegExp(/\./, 'g'), '_'),
-                q295 = kigjy[g[5]],
-                $7loz = q295[g[9]](/(ttttttt\/tGAMEtt.js:)[0-9]{1,60}(:)/g);
-            if ($7loz) for (var t3r61f = 0x0; t3r61f < $7loz[g[10]]; t3r61f++) {
-                if ($7loz[t3r61f] && $7loz[t3r61f][g[10]] > 0x0) {
-                    var xgjiy = parseInt($7loz[t3r61f][g[8]](g[11], '')[g[8]](':', ''));
-                    q295 = q295[g[8]]($7loz[t3r61f], $7loz[t3r61f][g[8]](':' + xgjiy + ':', ':' + (xgjiy - 0x2) + ':'));
+console[g[1]](g[2]), window[g[3]], wx[g[4]](function (igypx4) {
+    if (igypx4) {
+        if (igypx4[g[5]]) {
+            var cpozml = window[g[6]][g[7]][g[8]](new RegExp(/\./, 'g'), '_'),
+                $97bv2 = igypx4[g[5]],
+                sh0ea8 = $97bv2[g[9]](/(ttttttt\/tGAMEtt.js:)[0-9]{1,60}(:)/g);
+            if (sh0ea8) for (var icpxg4 = 0x0; icpxg4 < sh0ea8[g[10]]; icpxg4++) {
+                if (sh0ea8[icpxg4] && sh0ea8[icpxg4][g[10]] > 0x0) {
+                    var l9$bz7 = parseInt(sh0ea8[icpxg4][g[8]](g[11], '')[g[8]](':', ''));
+                    $97bv2 = $97bv2[g[8]](sh0ea8[icpxg4], sh0ea8[icpxg4][g[8]](':' + l9$bz7 + ':', ':' + (l9$bz7 - 0x2) + ':'));
                 }
             }
-            q295 = q295[g[8]](new RegExp(g[12], 'g'), g[13] + rtf63 + g[14]), q295 = q295[g[8]](new RegExp(g[15], 'g'), g[13] + rtf63 + g[14]), kigjy[g[5]] = q295;
+            $97bv2 = $97bv2[g[8]](new RegExp(g[12], 'g'), g[13] + cpozml + g[14]), $97bv2 = $97bv2[g[8]](new RegExp(g[15], 'g'), g[13] + cpozml + g[14]), igypx4[g[5]] = $97bv2;
         }
-        var lo$zb7 = {
+        var qu925v = {
             'id': window[g[16]][g[17]],
             'role': window[g[16]][g[18]],
             'level': window[g[16]][g[19]],
@@ -25,10 +25,10 @@ console[g[1]](g[2]), window[g[3]], wx[g[4]](function (kigjy) {
             'serverid': window[g[16]][g[24]] ? window[g[16]][g[24]][g[25]] : 0x0,
             'systemInfo': window[g[26]],
             'error': g[27],
-            'stack': kigjy ? kigjy[g[5]] : ''
+            'stack': igypx4 ? igypx4[g[5]] : ''
         },
-            h_ew8k = JSON[g[28]](lo$zb7);
-        console[g[29]](g[30] + h_ew8k), (!window[g[3]] || window[g[3]] != lo$zb7[g[29]]) && (window[g[3]] = lo$zb7[g[29]], window[g[31]](lo$zb7));
+            vub2$ = JSON[g[28]](qu925v);
+        console[g[29]](g[30] + vub2$), (!window[g[3]] || window[g[3]] != qu925v[g[29]]) && (window[g[3]] = qu925v[g[29]], window[g[31]](qu925v));
     }
 });
 import 'ttfttt.js';
@@ -39,112 +39,112 @@ import 'ttLIB23tt.js';
 import 'tWXMtadtt.js';
 import 'ttINItt.js';
 console[g[1]](g[34]), console[g[1]](g[35]), p14SH({ 'title': g[36] });
-var _dkw_he = { 'pT1H4S': !![] };
-new window[g[37]](_dkw_he), window[g[37]][g[38]][g[39]]();
+var _db25u = { 'pT1H4S': !![] };
+new window[g[37]](_db25u), window[g[37]][g[38]][g[39]]();
 if (window[g[40]]) clearInterval(window[g[40]]);
-window[g[40]] = null, window[g[41]] = function (jk_ywn, qv5df) {
-    if (!jk_ywn || !qv5df) return 0x0;
-    jk_ywn = jk_ywn[g[42]]('.'), qv5df = qv5df[g[42]]('.');
-    const uf5vq = Math[g[43]](jk_ywn[g[10]], qv5df[g[10]]);
-    while (jk_ywn[g[10]] < uf5vq) {
-        jk_ywn[g[44]]('0');
+window[g[40]] = null, window[g[41]] = function (_ygn, x4py) {
+    if (!_ygn || !x4py) return 0x0;
+    _ygn = _ygn[g[42]]('.'), x4py = x4py[g[42]]('.');
+    const d6q = Math[g[43]](_ygn[g[10]], x4py[g[10]]);
+    while (_ygn[g[10]] < d6q) {
+        _ygn[g[44]]('0');
     }
-    while (qv5df[g[10]] < uf5vq) {
-        qv5df[g[44]]('0');
+    while (x4py[g[10]] < d6q) {
+        x4py[g[44]]('0');
     }
-    for (var v25 = 0x0; v25 < uf5vq; v25++) {
-        const omz7l = parseInt(jk_ywn[v25]),
-              pmzox = parseInt(qv5df[v25]);
-        if (omz7l > pmzox) return 0x1;else {
-            if (omz7l < pmzox) return -0x1;
+    for (var ml7$oz = 0x0; ml7$oz < d6q; ml7$oz++) {
+        const v5q29 = parseInt(_ygn[ml7$oz]),
+              c4mpo = parseInt(x4py[ml7$oz]);
+        if (v5q29 > c4mpo) return 0x1;else {
+            if (v5q29 < c4mpo) return -0x1;
         }
     }
     return 0x0;
 }, window[g[45]] = wx[g[46]]()[g[45]], console[g[47]](g[48] + window[g[45]]);
-var _dyjn4 = wx[g[49]]();
-_dyjn4[g[50]](function ($olzb) {
-    console[g[47]](g[51] + $olzb[g[52]]);
-}), _dyjn4[g[53]](function () {
+var _dxpomc = wx[g[49]]();
+_dxpomc[g[50]](function (v592bu) {
+    console[g[47]](g[51] + v592bu[g[52]]);
+}), _dxpomc[g[53]](function () {
     wx[g[54]]({
         'title': g[55],
         'content': g[56],
         'showCancel': ![],
-        'success': function ($72v9) {
-            _dyjn4[g[57]]();
+        'success': function (lo7$zm) {
+            _dxpomc[g[57]]();
         }
     });
-}), _dyjn4[g[58]](function () {
+}), _dxpomc[g[58]](function () {
     console[g[47]](g[59]);
 }), window[g[60]] = function () {
     console[g[47]](g[61]);
-    var dv5u2q = wx[g[62]]({
+    var rd36 = wx[g[62]]({
         'name': g[63],
-        'success': function (f361) {
-            console[g[47]](g[64]), console[g[47]](f361), f361 && f361[g[65]] == g[66] ? (window[g[67]] = !![], window[g[68]](), window[g[69]]()) : setTimeout(function () {
+        'success': function (loz$m) {
+            console[g[47]](g[64]), console[g[47]](loz$m), loz$m && loz$m[g[65]] == g[66] ? (window[g[67]] = !![], window[g[68]](), window[g[69]]()) : setTimeout(function () {
                 window[g[60]]();
             }, 0x1f4);
         },
-        'fail': function (n4ygji) {
-            console[g[47]](g[70]), console[g[47]](n4ygji), setTimeout(function () {
+        'fail': function (ocmp4x) {
+            console[g[47]](g[70]), console[g[47]](ocmp4x), setTimeout(function () {
                 window[g[60]]();
             }, 0x1f4);
         }
     });
-    dv5u2q && dv5u2q[g[71]]($uvb9 => {});
+    rd36 && rd36[g[71]](k8nwe => {});
 }, window[g[72]] = function () {
     console[g[47]](g[73]);
-    var zlob7$ = wx[g[62]]({
+    var zom7cl = wx[g[62]]({
         'name': g[74],
-        'success': function (jnigy) {
-            console[g[47]](g[75]), console[g[47]](jnigy), jnigy && jnigy[g[65]] == g[66] ? (window[g[76]] = !![], window[g[68]](), window[g[69]]()) : setTimeout(function () {
+        'success': function (v9u2$) {
+            console[g[47]](g[75]), console[g[47]](v9u2$), v9u2$ && v9u2$[g[65]] == g[66] ? (window[g[76]] = !![], window[g[68]](), window[g[69]]()) : setTimeout(function () {
                 window[g[72]]();
             }, 0x1f4);
         },
-        'fail': function (fr65qd) {
-            console[g[47]](g[77]), console[g[47]](fr65qd), setTimeout(function () {
+        'fail': function (pocl) {
+            console[g[47]](g[77]), console[g[47]](pocl), setTimeout(function () {
                 window[g[72]]();
             }, 0x1f4);
         }
     });
-    zlob7$ && zlob7$[g[71]](pig4 => {});
+    zom7cl && zom7cl[g[71]](nigy4j => {});
 }, window[g[78]] = function () {
     window[g[41]](window[g[45]], g[79]) >= 0x0 ? (console[g[47]](g[80] + window[g[45]] + g[81]), window[g[82]](), window[g[60]](), window[g[72]]()) : (window[g[83]](g[84], window[g[45]]), wx[g[54]]({
         'title': g[85],
         'content': g[86]
     }));
 }, window[g[26]] = '', wx[g[87]]({
-    'success'(_ehw8) {
-        window[g[26]] = g[88] + _ehw8[g[89]] + g[90] + _ehw8[g[91]] + g[92] + _ehw8[g[93]] + g[94] + _ehw8[g[95]] + g[96] + _ehw8[g[97]] + g[98] + _ehw8[g[45]] + g[99] + _ehw8[g[100]], console[g[47]](window[g[26]]), console[g[47]](g[101] + _ehw8[g[102]] + g[103] + _ehw8[g[104]] + g[105] + _ehw8[g[106]] + g[107] + _ehw8[g[108]] + g[109] + _ehw8[g[110]] + g[111] + _ehw8[g[112]] + g[113] + (_ehw8[g[114]] ? _ehw8[g[114]][g[115]] + ',' + _ehw8[g[114]][g[116]] + ',' + _ehw8[g[114]][g[117]] + ',' + _ehw8[g[114]][g[118]] : ''));
-        var $lzo = _ehw8[g[95]] ? _ehw8[g[95]][g[119]]() : '',
-            zbl9 = _ehw8[g[91]] ? _ehw8[g[91]][g[119]]()[g[8]]('\x20', '') : '';
-        window[g[16]][g[120]] = $lzo[g[121]](g[122]) != -0x1, window[g[16]][g[123]] = $lzo[g[121]](g[124]) != -0x1, window[g[16]][g[125]] = $lzo[g[121]](g[122]) != -0x1 || $lzo[g[121]](g[124]) != -0x1, window[g[16]][g[126]] = $lzo[g[121]](g[127]) != -0x1 || $lzo[g[121]](g[128]) != -0x1, window[g[16]][g[129]] = _ehw8[g[97]] ? _ehw8[g[97]][g[119]]() : '', window[g[16]][g[130]] = ![], window[g[16]][g[131]] = 0x2;
-        if ($lzo[g[121]](g[124]) != -0x1) {
-            if (_ehw8[g[100]] >= 0x18) window[g[16]][g[131]] = 0x3;else window[g[16]][g[131]] = 0x2;
+    'success'(ipy) {
+        window[g[26]] = g[88] + ipy[g[89]] + g[90] + ipy[g[91]] + g[92] + ipy[g[93]] + g[94] + ipy[g[95]] + g[96] + ipy[g[97]] + g[98] + ipy[g[45]] + g[99] + ipy[g[100]], console[g[47]](window[g[26]]), console[g[47]](g[101] + ipy[g[102]] + g[103] + ipy[g[104]] + g[105] + ipy[g[106]] + g[107] + ipy[g[108]] + g[109] + ipy[g[110]] + g[111] + ipy[g[112]] + g[113] + (ipy[g[114]] ? ipy[g[114]][g[115]] + ',' + ipy[g[114]][g[116]] + ',' + ipy[g[114]][g[117]] + ',' + ipy[g[114]][g[118]] : ''));
+        var _wh8se = ipy[g[95]] ? ipy[g[95]][g[119]]() : '',
+            ufqv5 = ipy[g[91]] ? ipy[g[91]][g[119]]()[g[8]]('\x20', '') : '';
+        window[g[16]][g[120]] = _wh8se[g[121]](g[122]) != -0x1, window[g[16]][g[123]] = _wh8se[g[121]](g[124]) != -0x1, window[g[16]][g[125]] = _wh8se[g[121]](g[122]) != -0x1 || _wh8se[g[121]](g[124]) != -0x1, window[g[16]][g[126]] = _wh8se[g[121]](g[127]) != -0x1 || _wh8se[g[121]](g[128]) != -0x1, window[g[16]][g[129]] = ipy[g[97]] ? ipy[g[97]][g[119]]() : '', window[g[16]][g[130]] = ![], window[g[16]][g[131]] = 0x2;
+        if (_wh8se[g[121]](g[124]) != -0x1) {
+            if (ipy[g[100]] >= 0x18) window[g[16]][g[131]] = 0x3;else window[g[16]][g[131]] = 0x2;
         } else {
-            if ($lzo[g[121]](g[122]) != -0x1) {
-                if (_ehw8[g[100]] && _ehw8[g[100]] >= 0x14) window[g[16]][g[131]] = 0x3;else {
-                    if (zbl9[g[121]](g[132]) != -0x1 || zbl9[g[121]](g[133]) != -0x1 || zbl9[g[121]](g[134]) != -0x1 || zbl9[g[121]](g[135]) != -0x1 || zbl9[g[121]](g[136]) != -0x1) window[g[16]][g[131]] = 0x2;else window[g[16]][g[131]] = 0x3;
+            if (_wh8se[g[121]](g[122]) != -0x1) {
+                if (ipy[g[100]] && ipy[g[100]] >= 0x14) window[g[16]][g[131]] = 0x3;else {
+                    if (ufqv5[g[121]](g[132]) != -0x1 || ufqv5[g[121]](g[133]) != -0x1 || ufqv5[g[121]](g[134]) != -0x1 || ufqv5[g[121]](g[135]) != -0x1 || ufqv5[g[121]](g[136]) != -0x1) window[g[16]][g[131]] = 0x2;else window[g[16]][g[131]] = 0x3;
                 }
             } else window[g[16]][g[131]] = 0x2;
         }
         console[g[47]](g[137] + window[g[16]][g[130]] + g[138] + window[g[16]][g[131]]);
     }
 }), wx[g[139]]({
-    'success': function (_nyjgk) {
-        console[g[47]](g[140] + _nyjgk[g[141]] + g[142] + _nyjgk[g[143]]);
+    'success': function (dv5) {
+        console[g[47]](g[140] + dv5[g[141]] + g[142] + dv5[g[143]]);
     }
 }), wx[g[144]]({
-    'success': function (l7oz$m) {
-        console[g[47]](g[145] + l7oz$m[g[146]]);
+    'success': function (zoc7m) {
+        console[g[47]](g[145] + zoc7m[g[146]]);
     }
-}), wx[g[147]]({ 'keepScreenOn': !![] }), wx[g[148]](function (wk8_n) {
-    console[g[47]](g[145] + wk8_n[g[146]] + g[149] + wk8_n[g[150]]);
-}), wx[g[151]](function (kje_wn) {
-    window[g[152]] = kje_wn, window[g[153]] && window[g[152]] && (console[g[1]](g[154] + window[g[152]][g[155]]), window[g[153]](window[g[152]]), window[g[152]] = null);
+}), wx[g[147]]({ 'keepScreenOn': !![] }), wx[g[148]](function (n4yijg) {
+    console[g[47]](g[145] + n4yijg[g[146]] + g[149] + n4yijg[g[150]]);
+}), wx[g[151]](function (hs8w_e) {
+    window[g[152]] = hs8w_e, window[g[153]] && window[g[152]] && (console[g[1]](g[154] + window[g[152]][g[155]]), window[g[153]](window[g[152]]), window[g[152]] = null);
 }), window[g[156]] = 0x0, window[g[157]] = 0x0, window[g[158]] = null, wx[g[159]](function () {
     window[g[157]]++;
-    var jwk_n = Date[g[160]]();
-    (window[g[156]] == 0x0 || jwk_n - window[g[156]] > 0x1d4c0) && (console[g[161]](g[162]), wx[g[163]]());
+    var frt1 = Date[g[160]]();
+    (window[g[156]] == 0x0 || frt1 - window[g[156]] > 0x1d4c0) && (console[g[161]](g[162]), wx[g[163]]());
     if (window[g[157]] >= 0x2) {
         window[g[157]] = 0x0, console[g[29]](g[164]), wx[g[165]]('0', 0x1);
         if (window[g[16]] && window[g[16]][g[120]]) window[g[83]](g[166], '');

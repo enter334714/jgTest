@@ -42,10 +42,9 @@
     "compileType": "game",
     "libVersion": "2.23.2",
     "appid": "wx04c96c749fc3670e",
-    "projectname": "有一天地决-Z_50",
+    "projectname": "%E6%9C%89%E4%B8%80%E5%A4%A9%E5%9C%B0%E5%86%B3-Z_50",
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},
-    "condition": {},
     "packOptions": {
         "ignore": [],
         "include": []
@@ -53,5 +52,6 @@
     "editorSetting": {
         "tabIndent": "insertSpaces",
         "tabSize": 4
-    }
+    },
+    "condition": {}
 }

@@ -1,2 +1,2 @@
-var f = wx.$B;
-require(f[31249]);
+var f1 = wx.f$;
+require(f1[35118]);

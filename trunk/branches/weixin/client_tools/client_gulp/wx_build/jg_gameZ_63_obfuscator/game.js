@@ -25,7 +25,7 @@ gl.linkProgram(shaderProgram);
 gl.useProgram(shaderProgram);
 
 var image = new Image();
-image.src = "v0a/a2t.png";
+image.src = "wxlogin_atlas/a2t.png";
 var buffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);

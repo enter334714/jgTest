@@ -1,16 +1,6 @@
-﻿import Dall from './helper'
-var config = {
-    game_id: '256', //苍月之戒小程序-HC--官方-天枢服
-    game_pkg: 'tjqy_cyzjxcx_HC',
-    partner_id: '19',
-    game_ver: '19.0.99',  //T包为19.x.x，每次上传版本修改，先设置，上传审核版本的时候保持一致
-    is_auth: false,  //授权登录
-    from: null, //来源
-    tmpId: {1:'VnJ98WKBz-AOAoOJve7O7cVmpkfROB1E2ixAksfALx4', 2:'xruYuyn5zSQrFjDWMxCFuVvpqnCY5_qhsqMg8LfXH_4', 3:'kMHSQtyk1vR9zmyzNPwlA1pXk86dhq59wCIeAdNlM-A'},  // 订阅的类型 和 模板id
-    min_app_id: '',
-};
+import Dall from './helper'
+import config from './partner_config.js'
 window.config = config;
-
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var t;
@@ -25,7 +15,7 @@ var requestCallback = false;
 
 var ad_info = null;
 
-var develop = 0;
+var  develop = 0;
 
 function mainSDK() {
     var callbacks = {};
@@ -87,9 +77,10 @@ function mainSDK() {
 
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
-            var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
             var cp_activity_id  = info.query && info.query.cp_activity_id ? info.query.cp_activity_id : '';
-            if(invite){
+            var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
+            var video_type = info.query && info.query.video_type ? info.query.video_type : '';
+            if(invite || cp_activity_id){
                 user_invite_info = {
                     invite: invite,
                     invite_type: invite_type,
@@ -106,10 +97,12 @@ function mainSDK() {
                     callback && callback(data);
                 });
             }
+
             ad_info = {
                 "temp_info":info,
                 "temp_uuid":uuid,
                 "temp_is_new":is_new,
+                "video_type":video_type,
             }
         },
 
@@ -145,13 +138,12 @@ function mainSDK() {
             return _result.join('&');
         },
 
-
         //登录接口
         login: function (data, callback) {
             console.log("[SDK]调起登录");
             var self = this;
             callbacks['login'] = typeof callback == 'function' ? callback : null;
-            
+
             //授权登录
             if(config.is_auth){
                 wx.getSetting({
@@ -259,6 +251,7 @@ function mainSDK() {
                                                     if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
                                                         wx_channel = 1;
                                                     }
+                                                    var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
                                                     var userData = {
                                                         userid: data.data.user_id,
                                                         account: data.data.nick_name,
@@ -270,6 +263,8 @@ function mainSDK() {
                                                         is_client: data.data.is_client || '0',
                                                         ios_pay: data.data.ios_pay || '0',
                                                         wx_channel:wx_channel,
+                                                        video_type:ad_info.video_type,
+                                                        ad_flag:ad_flag,
                                                     };
                                                     try{
                                                         self.adLog(data.data.openid);
@@ -342,6 +337,7 @@ function mainSDK() {
                                             if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
                                                 wx_channel = 1;
                                             }
+                                            var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
                                             var userData = {
                                                 userid: data.data.user_id,
                                                 account: data.data.nick_name,
@@ -353,6 +349,8 @@ function mainSDK() {
                                                 is_client: data.data.is_client || '0',
                                                 ios_pay: data.data.ios_pay || '0',
                                                 wx_channel:wx_channel,
+                                                video_type:ad_info.video_type,
+                                                ad_flag:ad_flag,
                                             };
                                             try{
                                                 self.adLog(data.data.openid);
@@ -504,10 +502,10 @@ function mainSDK() {
                         if(data.state){
                             callbacks['check'] && callbacks['check'](data.data);
                         }else{
-                            callbacks['check'] && callbacks['check']({develop: 0});
+                            callbacks['check'] && callbacks['check']({develop: 0,success_msg:'state not true'});
                         }
                     }else{
-                        callbacks['check'] && callbacks['check']({develop: 0});
+                        callbacks['check'] && callbacks['check']({develop: 0,success_msg:JSON.stringify(res)});
                     }
                 },
                 fail: function(res){
@@ -516,13 +514,13 @@ function mainSDK() {
                     requestCallback = true;
                     if (checkHandler) clearTimeout(checkHandler);
                     checkHandler = null;
-                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] && callbacks['check']({develop: 0,fail_msg:JSON.stringify(res)});
                 }
             });
             if (!requestCallback) {
                 var timeOutFunc = function() {
                     console.log("[SDK]获取游戏版本超时");
-                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] && callbacks['check']({develop: 0,timeout_msg:'timeout msg'});
                     callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
                 }
                 checkHandler = setTimeout(timeOutFunc, 10000);
@@ -970,6 +968,7 @@ function mainSDK() {
             this.log('create', postData);
 
         },
+
         getInviter: function (user_invite_info, role_id, server_id) {
             console.log("[SDK]创角成功获取邀请者信息返回研发");
             var sdk_token = wx.getStorageSync('plat_sdk_token');
@@ -1089,7 +1088,6 @@ function mainSDK() {
             var uuid = wx.getStorageSync('plat_uuid');
             var idfv = wx.getStorageSync('plat_idfv');
             var ad_code = wx.getStorageSync('plat_ad_code');
-
             var launchInfo = wx.getStorageSync('info');
             if(!launchInfo) {
                 launchInfo = wx.getLaunchOptionsSync();
@@ -1154,15 +1152,7 @@ function mainSDK() {
             console.log(public_data);
 
             wx.request({
-                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data)),
-                success: function (res) {
-                    // console.log("[SDK]上报数据成功");
-                    // console.log(res);
-                },
-                fail: function(res){
-                    // console.log("[SDK]上报数据失败");
-                    // console.log(res);
-                }
+                url: 'https://' + HOST + '/partner/h5Log/?type=' + type + '&data=' + encodeURIComponent(JSON.stringify(public_data))
             });
         },
 
@@ -1190,8 +1180,8 @@ function mainSDK() {
                     console.log(res);
                     callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
                 }
-              })
-        }, 
+            })
+        },
 
         // 微端小助手
         weiduanHelper: function() {
@@ -1280,6 +1270,7 @@ exports.getPublicData = function(){
 exports.weiduanHelper = function () {
     run('weiduanHelper');
 };
+
 exports.subscribeWhatsNew = function (data, callback) {
     run('subscribeWhatsNew', data, callback);
 };

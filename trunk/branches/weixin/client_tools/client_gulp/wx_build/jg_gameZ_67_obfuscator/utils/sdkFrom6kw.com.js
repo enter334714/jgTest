@@ -1,16 +1,20 @@
-var J = wx.h$;
 var config6kw = {
-    sdkVersion: '1.0.11',
+    sdkVersion: '1.0.17-3',
     url: 'https://usmini.6kw.com/',
+    awurl: "https://wxmini.youxigui.com/",
     channel: 0,
     sdkChannelID: 34,
     subChannelID: "2",
-    appID: "1419",
+    mergeId: "",
     wxAppid: "",
-    //wxb7b0b6d8e1154602
     urlParam: '',
     switch: 1
 };
+var adDataInfo = {
+    rewardedVideoAd: null,
+    isFrist: true
+};
+var heartInter = '';
 var sdk6kwFunction = sdk6kw();
 var sdk6kw_user_game_info = {};
 
@@ -39,10 +43,12 @@ const request6kwFunction = param => {
 function sdk6kw() {
     var callbacks = {};
     return {
-        init: function (callback) {
-            console.log("[SDK]调用init初始化接口");
+        init: function (mergeId, callback) {
+            var that = this;
+            config6kw.mergeId = mergeId;
+            console.log("[SDK]调用init初始化接口", mergeId);
             callbacks['init'] = typeof callback == 'function' ? callback : null;
-            config6kw.urlParam = config6kw.appID + '/' + config6kw.sdkChannelID + '/' + config6kw.subChannelID;
+            config6kw.urlParam = config6kw.mergeId + '/' + config6kw.sdkChannelID + '/' + config6kw.subChannelID;
             //开启分享
             wx.showShareMenu({
                 withShareTicket: true
@@ -88,31 +94,12 @@ function sdk6kw() {
                     },
                     fail: function (res) {
                         console.log("微信登录失败，返回" + JSON.stringify(res));
-                        // iOS 和 Android 对于拒绝授权的回调 errMsg 没有统一，需要做一下兼容处理
-                        // if (res.errMsg.indexOf('auth deny') > -1 || res.errMsg.indexOf('auth denied') > -1) {
-                        //   // 处理用户拒绝授权的情况
-                        //   callbacks['init'] && callbacks['init'](0, { errMsg: res.errMsg });
-                        // }
                         callbacks['init'] && callbacks['init'](0, { errMsg: res.errMsg });
                         console.log('[SDK]获取微信用户授权失败');
                     }
                 });
             }
-            /**记录打开 和隐藏后后台运行的日志 start*/
-            wx.onShow(function (opt) {
-                //分享后再次进来会调用这里 
-                //记录打开小程序的时间
-                wx.setStorageSync('wxg6kw_enter_time', 0);
-                var entryTime = Date.parse(new Date()) / 1000;
-                wx.setStorageSync('wxg6kw_enter_time', entryTime);
-            });
-            wx.onHide(function (opt) {
-                //记录切换后台运行的时间
-                wx.setStorageSync('wxg6kw_left_time', 0);
-                wx.setStorageSync('wxg6kw_left_time', Date.parse(new Date()) / 1000);
-                self.recordLog();
-            });
-            /**记录打开 和隐藏后后台运行的日志 end*/
+
             //获取小游戏配置
             var getWayInfo = {
                 path: 'init/' + config6kw.urlParam,
@@ -124,10 +111,12 @@ function sdk6kw() {
             request6kwFunction(getWayInfo).then(res => {
                 console.log('[SDK]获取游戏配置成功：' + JSON.stringify(res.data));
                 config6kw.switch = res.data.data.switch;
-                callbacks['init'] && callbacks['init'](1, { is_switch: res.data.data.switch });
+                callback(1, { is_switch: res.data.data.switch });
+                // callbacks['init'] && callbacks['init'](1, { is_switch: res.data.data.switch });
             }).catch(res => {
                 console.log('[SDK]获取游戏配置异常：' + res.data);
-                callbacks['init'] && callbacks['init'](0, { errMsg: '初始化失败' });
+                callback(0, { errMsg: '初始化失败' });
+                // callbacks['init'] && callbacks['init'](0, { errMsg: '初始化失败' });
             });
         },
         login: function (callback) {
@@ -178,10 +167,6 @@ function sdk6kw() {
                 },
                 fail: function (res) {
                     console.log("微信登录失败，返回" + JSON.stringify(res));
-                    // iOS 和 Android 对于拒绝授权的回调 errMsg 没有统一，需要做一下兼容处理
-                    // if (res.errMsg.indexOf('auth deny') > -1 || res.errMsg.indexOf('auth denied') > -1) {
-                    //   // 处理用户拒绝授权的情况
-                    // }
                     callbacks['login'] && callbacks['login'](0, { errMsg: res.errMsg });
                     console.log('[SDK]获取微信用户授权失败');
                 }
@@ -346,18 +331,16 @@ function sdk6kw() {
                                         },
                                         fail: function (res) {
                                             console.log(res);
-                                            // if (res.errMsg.indexOf('fail cancel') > -1) {
-                                            //   callbacks['pay'] && callbacks['pay'](0, { errMsg: '取消客服会话' });
-                                            //   return false;
-                                            // }
                                             callbacks['pay'] && callbacks['pay'](0, { errMsg: '调起客服会话失败' });
                                         }
                                     });
+                                }).catch(err => {
+                                    console.log(res);
+                                    callbacks['pay'] && callbacks['pay'](0, { errMsg: err });
                                 });
                             }
                         }
                     });
-
                     return false;
                 } else if (res.data.data.isSwitch == 2) {
                     if (!res.data.data.miniprogram_id && !res.data.data.miniprogram_path) {
@@ -365,11 +348,10 @@ function sdk6kw() {
                         callbacks['pay'] && callbacks['pay'](0, { errMsg: '参数丢失' });
                         return false;
                     }
-
                     console.log(res.data.data);
                     wx.navigateToMiniProgram({
                         appId: res.data.data.miniprogram_id,
-                        path: res.data.data.miniprogram_path + '?price=' + res.data.data.total + '&appId=' + config6kw.appID + '&orderId=' + res.data.data.orderId + '&service=' + config6kw.urlParam + '&appKey=' + config6kw.appKey,
+                        path: res.data.data.miniprogram_path + '?price=' + res.data.data.total + '&appId=' + config6kw.mergeId + '&orderId=' + res.data.data.orderId + '&service=' + config6kw.urlParam + '&appKey=' + config6kw.appKey,
                         extraData: {
                             count: res.data.data.total,
                             orderId: res.data.data.orderId,
@@ -399,7 +381,8 @@ function sdk6kw() {
                                     self.showTips('支付成功');
                                     callbacks['pay'] && callbacks['pay'](1, payData.data);
                                 } else {
-                                    self.showTips('支付失败' + payData.msg);
+                                    // self.showTips('支付失败' + payData.msg);
+                                    console.log("支付失败:" + payData.msg);
                                     callbacks['pay'] && callbacks['pay'](0, { errMsg: "支付失败:" + payData.msg });
                                 }
                             }
@@ -414,10 +397,14 @@ function sdk6kw() {
                                     self.showTips('支付成功');
                                     callbacks['pay'] && callbacks['pay'](1, payData.data);
                                 } else {
-                                    if (payData.msg.indexOf('取消') > 0) {
+                                    if (JSON.stringify(error) == "{}") {
+                                        return;
+                                    }
+                                    if (error.errMsg.indexOf('取消') > 0) {
                                         return;
                                     }
                                     self.showTips('支付失败' + payData.msg);
+                                    console.log("支付失败:" + payData.msg);
                                     callbacks['pay'] && callbacks['pay'](0, { errMsg: "支付失败:" + payData.msg });
                                 }
                             }
@@ -427,13 +414,162 @@ function sdk6kw() {
                             if (JSON.stringify(error) == "{}") {
                                 return;
                             }
-                            if (error.errMsg.indexOf('取消') > 0) {
-                                return;
-                            }
-                            self.showTips('支付失败' + error.errMsg);
+                            // self.showTips('支付失败' + error.errMsg);
                             callbacks['pay'] && callbacks['pay'](0, { errMsg: "支付失败:" + error.errMsg });
                         });
                     }
+                }
+            });
+        },
+        showWxAd: function (data, callback) {
+            // uid : 聚合用户UID
+            // token：聚合用户Token
+            // site_id：聚合广告版位ID
+            // type：视频类型，默认为1
+            var self = this;
+            callbacks['showWxAd'] = typeof callback == 'function' ? callback : null;
+            wx.showLoading({
+                title: '视频加载中'
+            });
+            var initAdDataInfo = {
+                path: 'usad/' + config6kw.urlParam,
+                data: {
+                    uid: wx.getStorageSync('wxg6kw_userId'),
+                    token: wx.getStorageSync('wxg6kw_token'),
+                    site_id: data.siteId,
+                    type: data.type
+                }
+            };
+            request6kwFunction(initAdDataInfo).then(res => {
+
+                var resultInfo = res.data;
+                if (resultInfo.code == 1) {
+                    console.log('[SDK]获取游戏广告配置成功：' + JSON.stringify(resultInfo));
+                    if (!adDataInfo.isFrist) {
+                        self.uploadAdState(resultInfo.data[0].request_id, 1);
+                    }
+                    adDataInfo.rewardedVideoAd = wx.createRewardedVideoAd({
+                        adUnitId: resultInfo.data[0].source_id
+                    });
+
+                    const loadListener = () => {
+                        console.log('激励视频 广告加载成功');
+                        if (adDataInfo.isFrist) {
+                            self.showWxAd(data, callback);
+                            adDataInfo.isFrist = false;
+                        }
+                    };
+                    const closeListener = isEnded => {
+                        //视频是否是在用户完整观看的情况下被关闭的
+                        adDataInfo.rewardedVideoAd.offClose(closeListener);
+                        if (isEnded.isEnded) {
+                            self.uploadAdState(resultInfo.data[0].request_id, 3);
+                            callback(true);
+                        } else {
+                            self.uploadAdState(resultInfo.data[0].request_id, 4);
+                            callback(false);
+                        }
+                    };
+                    const errorListener = code => {
+                        // 1000 	后端接口调用失败
+                        // 1001 	参数错误
+                        // 1002 	广告单元无效
+                        // 1003 	内部错误
+                        // 1004 	无合适的广告
+                        // 1005 	广告组件审核中
+                        // 1006 	广告组件被驳回
+                        // 1007 	广告组件被封禁
+                        // 1008 	广告单元已关闭
+                        self.uploadAdState(res.data.request_id, code);
+                        console.log('激励视频 错误码' + code);
+                    };
+                    adDataInfo.rewardedVideoAd.onError(errorListener);
+                    adDataInfo.rewardedVideoAd.onLoad(loadListener);
+                    adDataInfo.rewardedVideoAd.onClose(closeListener);
+                    adDataInfo.rewardedVideoAd.show().catch(err => {
+                        adDataInfo.rewardedVideoAd.onLoad(loadListener);
+                    }).then(() => {
+                        if (adDataInfo.isFrist) {
+                            return;
+                        }
+                        wx.hideLoading();
+                        self.uploadAdState(resultInfo.data[0].request_id, 2);
+                        console.log('激励视频 展示成功');
+                        adDataInfo.rewardedVideoAd.offLoad(loadListener);
+                        return;
+                    });
+                } else {
+                    console.log('[SDK]获取游戏广告配置失败：' + JSON.stringify(resultInfo));
+                }
+            });
+        },
+        startLoadAndPlayAd(resultInfo, callback) {
+            var self = this;
+            self.uploadAdState(resultInfo.data[0].request_id, 1);
+            adDataInfo.rewardedVideoAd = wx.createRewardedVideoAd({
+                adUnitId: resultInfo.data[0].source_id
+            });
+
+            const loadListener = () => {
+                console.log('激励视频 广告加载成功');
+            };
+            const closeListener = isEnded => {
+                //视频是否是在用户完整观看的情况下被关闭的
+                adDataInfo.rewardedVideoAd.offClose(closeListener);
+                if (isEnded.isEnded) {
+                    self.uploadAdState(resultInfo.data[0].request_id, 3);
+                    callback(true);
+                } else {
+                    self.uploadAdState(resultInfo.data[0].request_id, 4);
+                    callback(false);
+                }
+            };
+            const errorListener = code => {
+                // 1000 	后端接口调用失败
+                // 1001 	参数错误
+                // 1002 	广告单元无效
+                // 1003 	内部错误
+                // 1004 	无合适的广告
+                // 1005 	广告组件审核中
+                // 1006 	广告组件被驳回
+                // 1007 	广告组件被封禁
+                // 1008 	广告单元已关闭
+                self.uploadAdState(res.data.request_id, code);
+                console.log('激励视频 错误码' + code);
+            };
+            adDataInfo.rewardedVideoAd.onError(errorListener);
+            adDataInfo.rewardedVideoAd.onLoad(loadListener);
+            adDataInfo.rewardedVideoAd.onClose(closeListener);
+            adDataInfo.rewardedVideoAd.show().catch(err => {
+                adDataInfo.rewardedVideoAd.onLoad(loadListener);
+            }).then(() => {
+                wx.hideLoading();
+                self.uploadAdState(resultInfo.data[0].request_id, 2);
+                console.log('激励视频 展示成功');
+                adDataInfo.rewardedVideoAd.offLoad(loadListener);
+                return;
+            });
+        },
+        uploadAdState(request_id, state) {
+            // usadup 
+            // uid : 聚合用户UID
+            // token：聚合用户Token
+            // request_id ：聚合返回的广告请求Id  多个id以英文逗号为分隔符
+            // state ： 视频广告状态  1  startLoad 请求(请求成功或失败都归到这类)   2  startShow 展示(播放视频成功或者失败都归到这类)    3  onReward 发奖励(回调给CP可能需要联合广告关闭事件)  4  onClick  点击
+            var initAdDataInfo = {
+                path: 'usadup/' + config6kw.urlParam,
+                data: {
+                    uid: wx.getStorageSync('wxg6kw_userId'),
+                    token: wx.getStorageSync('wxg6kw_token'),
+                    request_id: request_id,
+                    state: state
+                }
+            };
+            request6kwFunction(initAdDataInfo).then(res => {
+                if (res.data.code == 1) {
+                    console.log('[SDK]游戏广告上报成功：' + JSON.stringify(res.data));
+                } else {
+                    console.log('[SDK]游戏广告上报失败：' + JSON.stringify(res.data));
                 }
             });
         },
@@ -503,19 +639,22 @@ function sdk6kw() {
         //角色信息   创角 角色升级 角色转区  角色改名 均可调用
         logRole: function (data) {
             var self = this;
-            wx.checkSession({
-                success: function () {
-                    self.postRole(data);
-                },
-                fail: function () {
-                    console.log("[SDK]调用角色信息接口session过期需要重新登录");
-                    self.login(function (status) {
-                        status == 1 && self.postRole(data);
-                    });
-                }
-            });
+            setTimeout(() => {
+                wx.checkSession({
+                    success: function () {
+                        self.postRole(data);
+                    },
+                    fail: function () {
+                        console.log("[SDK]调用角色信息接口session过期需要重新登录");
+                        self.login(function (status) {
+                            status == 1 && self.postRole(data);
+                        });
+                    }
+                });
+            }, 1000);
         },
         postRole: function (data) {
+
             console.log('[SDK]调用角色上传' + JSON.stringify(data));
             var self = this;
             var roleInfo = {
@@ -527,9 +666,13 @@ function sdk6kw() {
                 serverID: data.serverId,
                 serverName: data.serverName,
                 payLevel: data.payLevel,
-                roleCreateTime: data.createTime
+                roleCreateTime: data.createTime,
+                dataType: data.dataType
             };
             sdk6kw_user_game_info = roleInfo;
+            if (data.dataType == "3" || data.dataType == "2") {
+                self.startInter();
+            }
             // console.log(sdk6kw_user_game_info);
             if (!roleInfo.token || !roleInfo.userID) {
                 console.log('用户信息过期导致用户调起角色信息接口失败');
@@ -545,37 +688,71 @@ function sdk6kw() {
                 console.log(res);
             });
         },
-        //记录访问日志  
-        recordLog: function () {
-            console.log('[SDK]访问日志上报');
+
+        /**
+         * 
+         * params.put("event_id", data.getEventId());
+            params.put("event_name", data.getEventName());
+            params.put("event_content", data.getEventContent());
+            params.put("payLevel", data.getRoleVipLevel());
+            params.put("roleID", data.getRoleId());
+            params.put("roleName", data.getRoleName());
+            params.put("roleLevel", data.getRoleLevel());
+            params.put("serverID", data.getServerId());
+            params.put("serverName", data.getServerName());
+            params.put("ce", data.getRoleBatterPower());
+            params.put("gang", data.getRoleLegion());
+            params.put("uid", MergeManager.getInstance().getCurrentUser().getUserId());
+            params.put("token", MergeManager.getInstance().getCurrentUser().getToken());
+         */
+        uploadCustomizeRoleInfo: function (data) {
             var self = this;
-            var allInfo = self.getPublicData();
-            //将onluanch获取到的打开小程序数据发送到服务器
-            var visitParam = {
-                path: 'visit/' + config6kw.urlParam,
-                data: {
-                    openId: wx.getStorageSync('wxg6kw_openid'),
-                    enterTime: wx.getStorageSync('wxg6kw_enter_time'),
-                    leftTime: wx.getStorageSync('wxg6kw_left_time'),
-                    channel: allInfo.sdk6kwLaunchOptions.query.channel,
-                    model: allInfo.wxSystemInfo.model,
-                    platform: allInfo.wxSystemInfo.platform,
-                    brand: allInfo.wxSystemInfo.brand,
-                    system: allInfo.wxSystemInfo.system,
-                    scene: allInfo.sdk6kwLaunchOptions.scene,
-                    id: allInfo.sdk6kwLaunchOptions.query.id,
-                    shareTime: allInfo.sdk6kwLaunchOptions.query.shareTime,
-                    shareId: allInfo.sdk6kwLaunchOptions.query.shareId
+            setTimeout(() => {
+                var roleInfo = {
+                    event_id: data.eventId,
+                    event_name: data.eventName,
+                    event_content: data.eventContent,
+                    payLevel: data.payLevel,
+                    roleID: data.roleId,
+                    roleName: data.roleName,
+                    roleLevel: data.roleLevel,
+                    serverID: data.serverId,
+                    serverName: data.serverName,
+                    ce: data.ce,
+                    gang: data.gang,
+                    uid: wx.getStorageSync('wxg6kw_userId'),
+                    token: wx.getStorageSync('wxg6kw_token')
+                };
+                sdk6kw_user_game_info = roleInfo;
+
+                if (!roleInfo.token || !roleInfo.uid) {
+                    console.log('用户信息过期导致用户调起角色信息接口失败');
                 }
+
+                var roledata = {
+                    path: 'event/' + config6kw.urlParam,
+                    data: roleInfo
+                };
+                request6kwFunction(roledata).then(res => {
+                    console.log(res);
+                });
+            }, 1000);
+        },
+
+        startInter: function () {
+            var that = this;
+            setInterval(() => {
+                that.roleInfoHeartBeat();
+            }, 60000);
+        },
+        roleInfoHeartBeat: function () {
+            console.log('[SDK]心跳调用角色上传' + JSON.stringify(sdk6kw_user_game_info));
+            var roledata = {
+                path: 'ping/' + config6kw.urlParam,
+                data: sdk6kw_user_game_info
             };
-            request6kwFunction(visitParam).then(res => {
-                if (res.data.code == 1) {
-                    console.log('[SDK]访问记录上报成功' + JSON.stringify(res.data));
-                } else {
-                    console.log('[SDK]访问记录上报失败：' + JSON.stringify(res.data));
-                }
-            }).catch(res => {
-                console.log('[SDK]访问记录上报失败' + JSON.stringify(res));
+            request6kwFunction(roledata).then(res => {
+                console.log(res);
             });
         },
         getPublicData: function () {
@@ -606,11 +783,11 @@ function sdk6kw() {
                         if (res.confirm === true) {
                             resolve();
                         } else if (res.cancel === true) {
-                            reject();
+                            reject("取消支付");
                         }
                     },
                     fail: function () {
-                        reject();
+                        reject('支付失败');
                     }
                 });
             });
@@ -618,6 +795,37 @@ function sdk6kw() {
         showImageModel: function () {
             return new Promise((resolve, reject) => {
                 wx.showShareImageMenu({});
+            });
+        },
+
+        showGameClubIcon: function (data) {
+
+            // /** 游戏圈按钮的图标，仅当 object.type 参数为 image 时有效。
+            //  *
+            //  * 可选值：
+            //  * - 'green': 绿色的图标;
+            //  * - 'white': 白色的图标;
+            //  * - 'dark': 有黑色圆角背景的白色图标;
+            //  * - 'light': 有白色圆角背景的绿色图标; */
+            // icon: 'green' | 'white' | 'dark' | 'light'
+            // /** 按钮的样式 */
+            // style: OptionStyle
+            // /** 按钮的类型。
+            //  *
+            //  * 可选值：
+            //  * - 'text': 可以设置背景色和文本的按钮;
+            //  * - 'image': 只能设置背景贴图的按钮，背景贴图会直接拉伸到按钮的宽高; */
+            // type: 'text' | 'image'
+            // /** 按钮的背景图片，仅当 type 为 `image` 时有效 */
+            // image?: string
+            // /** 按钮上的文本，仅当 type 为 `text` 时有效 */
+            // text?: string
+            let button = wx.createGameClubButton({
+                icon: data.icon,
+                image: data.image,
+                style: data.style,
+                type: data.type,
+                text: data.text
             });
         },
         showTips: function (tips) {
@@ -629,7 +837,7 @@ function sdk6kw() {
                 fail: function () {}
             });
         },
-        getPayState: function (data, callback) {
+        getPayState: function (roleInfo, callback) {
             var allInfo = this.getPublicData();
             var payState = {
                 path: 'payState/' + config6kw.urlParam,
@@ -637,13 +845,16 @@ function sdk6kw() {
                     sdkVersion: config6kw.sdkVersion,
                     token: wx.getStorageSync('wxg6kw_token'),
                     userID: wx.getStorageSync('wxg6kw_userId'),
-                    roleID: sdk6kw_user_game_info.roleId,
+                    roleID: sdk6kw_user_game_info.roleID,
                     roleName: sdk6kw_user_game_info.roleName,
                     roleLevel: sdk6kw_user_game_info.roleLevel,
                     os: allInfo.wxSystemInfo.platform,
-                    cpData: data
+                    cpData: roleInfo
                 }
             };
+            if (typeof roleInfo == "undefined") {
+                callback(1, { "switch": 1 });
+            }
             request6kwFunction(payState).then(res => {
                 callback(1, res.data.data);
                 return false;
@@ -673,21 +884,6 @@ function sdk6kw() {
             }).catch(error => {
                 callback(0, error);
                 return false;
-            });
-        },
-        payDebug: function () {
-            wx.navigateToMiniProgram({
-                appId: 'wxb4cda18c9d8daea6',
-                path: 'pages/charge/charge?price=600&productId=10010',
-                extraData: {
-                    count: '600',
-                    productId: 100230
-                },
-                envVersion: 'develop',
-                success(res) {
-                    // 打开成功
-                    console.log("打开成功");
-                }
             });
         },
         openCustomerWithClientChange() {
@@ -762,8 +958,8 @@ function sdk6kw() {
 function sdk6kwRun(method, data, callback) {
     method in sdk6kwFunction && sdk6kwFunction[method](data, callback);
 }
-exports.init = function (callback) {
-    sdk6kwRun('init', callback);
+exports.init = function (data, callback) {
+    sdk6kwRun('init', data, callback);
 };
 exports.login = function (callback) {
     sdk6kwRun('login', callback);
@@ -771,10 +967,7 @@ exports.login = function (callback) {
 exports.pay = function (data, callback) {
     sdk6kwRun('pay', data, callback);
 };
-exports.debugPay = function () {
-    sdk6kwRun('payDebug');
-};
-exports.logRole = function (createTime, serverId, serverName, roleId, roleName, roleLevel, payLevel) {
+exports.logRole = function (createTime, serverId, serverName, roleId, roleName, roleLevel, payLevel, dataType) {
     var data = {
         createTime: createTime,
         serverId: serverId,
@@ -782,11 +975,12 @@ exports.logRole = function (createTime, serverId, serverName, roleId, roleName, 
         roleId: roleId,
         roleName: roleName,
         roleLevel: roleLevel,
-        payLevel: payLevel
+        payLevel: payLevel,
+        dataType: dataType
     };
     sdk6kwRun('logRole', data);
 };
-exports.logEnterGame = function (createTime, serverId, serverName, roleId, roleName, roleLevel, payLevel) {
+exports.logEnterGame = function (createTime, serverId, serverName, roleId, roleName, roleLevel, payLevel, dataType) {
     var data = {
         createTime: createTime,
         serverId: serverId,
@@ -794,7 +988,8 @@ exports.logEnterGame = function (createTime, serverId, serverName, roleId, roleN
         roleId: roleId,
         roleName: roleName,
         roleLevel: roleLevel,
-        payLevel: payLevel
+        payLevel: payLevel,
+        dataType: dataType
     };
     sdk6kwRun('logEnterGame', data);
 };
@@ -812,4 +1007,16 @@ exports.msgSecCheck = function (options) {
 };
 exports.openCustomerWithClientChange = function () {
     sdk6kwRun('openCustomerWithClientChange');
+};
+exports.showWxAd = function (siteId, type, callback) {
+    var data = {
+        siteId, type
+    };
+    sdk6kwRun('showWxAd', data, callback);
+};
+exports.uploadCustomizeRoleInfo = function (data) {
+    sdk6kwRun('uploadCustomizeRoleInfo', data);
+};
+exports.showGameClubIcon = function (data) {
+    sdk6kwRun('showGameClubIcon', data);
 };

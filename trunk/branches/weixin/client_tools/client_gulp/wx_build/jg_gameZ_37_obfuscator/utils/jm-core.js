@@ -1,5 +1,6 @@
 var _ = wx.y$;
 class JmCore {
+
     constructor() {
         this.ad_url = "https://cyapi.7xp9.com";
         this.url = "https://cysdk.7xp9.com";
@@ -11,7 +12,7 @@ class JmCore {
         this.open_id = "";
         this.user_info = null; // 玩家账号信息
         this.user_role_info = null; // 玩家角色信息
-        this.version = 20220426;
+        this.version = 20220706;
     }
 
     static getInstance() {
@@ -86,6 +87,19 @@ class JmCore {
                     success && success(res.data);
                 } else if (res.data.code === 44309) {
                     wx.showModal({
+                        title: '提示',
+                        content: res.data.message,
+                        success: function () {
+                            wx.exitMiniProgram({
+                                success: res => {
+                                    // console.log("已退出")
+                                }
+                            });
+                        }
+                    });
+                } else if (res.data.code == 44117) {
+                    wx.showModal({
+                        showCancel: false,
                         title: '提示',
                         content: res.data.message,
                         success: function () {
@@ -420,6 +434,11 @@ class JmCore {
                 console.log('ok');
             }
         });
+    }
+
+    // 打开客服会话
+    openCustomerService() {
+        wx.openCustomerServiceConversation({});
     }
 
     init(callback) {

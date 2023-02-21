@@ -1,2 +1,2 @@
 var _ = wx.y$;
-require(_[45896]), window[_[45352]][_[45334]][_[45059]] = null, window[_[45897]] = require(_[45898]), window[_[38353]] = window[_[45352]][_[38227]][_[38228]](client_pb);
+require(_[52147]), window[_[51593]][_[42889]][_[51304]] = null, window[_[52148]] = require(_[52149]), window[_[40203]] = window[_[51593]][_[40063]][_[40064]](client_pb);

@@ -1,13 +1,5 @@
 ﻿//TODO 替换对应参数
-var config = {
-    game_id: '256',
-    game_pkg: 'tjqy_tjqydyxyx_KI',
-    partner_label: 'douyinxyx',
-    partner_id: '502',
-    game_ver: '1.0.27',
-    is_auth: false, //授权登录
-
-};
+import config from './partner_config.js'
 window.config = config;
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
@@ -16,7 +8,8 @@ var user_invite_info = null;
 var sysInfo = tt.getSystemInfoSync();
 var platform = sysInfo.platform;
 var partner_user_info = null;
-
+var iosPayData = null;
+var ad_info = null;
 function mainSDK() {
     var callbacks = {};
     var this_pay_order = 0;
@@ -71,13 +64,49 @@ function mainSDK() {
                     scene: scene
                 };
             }
-
+            ad_info = {
+                "temp_info":info,
+                "temp_uuid":uuid,
+                "temp_is_new":is_new,
+            }
             //判断版本号
             if (game_ver) {
                 this.checkGameVersion(game_ver, function (data) {
                     callback && callback(data);
                 });
             }
+        },
+
+        adLog:function (openid){
+            //发送启动参数
+            var info = ad_info.temp_info;
+            var is_new = ad_info.temp_is_new;
+            var uuid = ad_info.temp_uuid;
+            if(info.query.hasOwnProperty('ad_code')&&info.query.hasOwnProperty('clickid')){
+                var temp_data = info.query;
+                temp_data['uuid'] = uuid;
+                temp_data['openid'] = openid;
+                temp_data['query'] = JSON.stringify(info.query);
+                var url = 'https://adapi.sh9130.com/click/?ac=douYinMiniGameClick&'+this.convertObj(temp_data);
+                console.log("发送url:"+url);
+                wx.request({
+                    url: url,
+                });
+            }
+        },
+        convertObj:function(data) {
+            var _result = [];
+            for (var key in data) {
+                var value = data[key];
+                if (value.constructor == Array) {
+                    value.forEach(function(_value) {
+                        _result.push(key + "=" + _value);
+                    });
+                } else {
+                    _result.push(key + '=' + value);
+                }
+            }
+            return _result.join('&');
         },
 
         login: function (data,callback) {
@@ -145,8 +174,13 @@ function mainSDK() {
                             invite_head_img: data.data.invite_head_img || '',
                             head_img: data.data.head_img || '',
                             is_client: data.data.is_client || '0',
-                            ios_pay: data.data.ios_pay || '0'
-                        };
+                            ios_pay: data.data.ios_pay || '0',
+                          };
+                            try{
+                                self.adLog(data.data.openid);
+                            } catch (e) {
+                                console.log("上报广告数据:"+JSON.stringify(e));
+                            }
                             callbacks['login'] && callbacks['login'](0, userData);
                         } else {
                             callbacks['login'] && callbacks['login'](1, {
@@ -352,6 +386,9 @@ function mainSDK() {
         pay: function (data, callback) {
             this.startPay(data, callback);
         },
+        iosPay:function(){
+            tt.openAwemeCustomerService(iosPayData);
+        },
 
         //支付接口
         startPay: function (data, callback) {
@@ -433,11 +470,50 @@ function mainSDK() {
                                 }
                                
                         }else{
-                            tt.showToast({
-                                title: '暂不支持改设备充值',
-                                icon: 'success',
-                                duration: 2000
-                            })
+                                if(sysInfo.version >= '22.5.0' && sysInfo.SDKVersion >= '2.64.0' && sysInfo.appName == 'Douyin'){
+                                    var pay_data = data.data.pay_data;
+                                    iosPayData = {};
+                                    iosPayData['currencyType'] = pay_data['currencyType'];
+                                    iosPayData['buyQuantity'] = pay_data['buyQuantity'];
+                                    iosPayData['zoneId'] = pay_data['zoneId'];
+                                    iosPayData['customId'] = pay_data['customId'];
+                                    iosPayData['extraInfo'] = pay_data['extraInfo'];
+                                    iosPayData['success'] = function(res){
+                                        console.log("ios支付调用成功"+JSON.stringify(res));
+                                    }
+                                    iosPayData['fail'] = function(res){
+                                        console.log("ios支付调用失败"+JSON.stringify(res));
+                                    }
+                                    iosPayData['complete'] = function(res){
+                                        console.log("ios支付调用完成"+JSON.stringify(res));
+                                        tt.offTouchEnd(self.iosPay)
+                                    }
+                                    console.log("ios支付参数"+JSON.stringify(iosPayData));
+                                    tt.onTouchEnd(self.iosPay)
+                                    tt.showModal({
+                                        title: "支付提示",
+                                        content: "再点击一次充值即可调起支付",
+                                        showCancel:false,
+                                        success(res) {
+
+                                        },
+                                        fail(res) {
+                                            console.log(`showModal调用失败`);
+                                        },
+                                    });
+                                }else{
+                                    tt.showModal({
+                                        title: "支付提示",
+                                        content: "请升级到最新版抖音使用该功能",
+                                        showCancel:false,
+                                        success(res) {
+
+                                        },
+                                        fail(res) {
+                                            console.log(`showModal调用失败`);
+                                        },
+                                    });
+                                }
                         }
                         } else {
                             callbacks['pay'] && callbacks['pay'](1, {
@@ -452,6 +528,7 @@ function mainSDK() {
                 }
             });
         },
+       
 
         gameGoPay: function (cpData,androidData) {
             console.log("[SDK]米大师支付完毕，通知服务器发货");

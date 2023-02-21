@@ -1,14 +1,7 @@
-﻿import sdk6kw from '../utils/sdkFrom6kw.com';
+import sdk6kw from '../utils/sdkFrom6kw.com';
 
 //TODO 替换对应参数
-var config = {
-    game_id: '256',
-    game_pkg: 'tjqy_tjqytmld_KN',
-    partner_label: '6KW',
-    partner_id: '242',
-    game_ver: '37.0.17',
-    is_auth: true, //授权登录
-};
+import config from './partner_config.js'
 window.config = config;
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
@@ -57,7 +50,7 @@ function mainSDK() {
             };
             self.log('start', data);
             //TODO 替换对应参数
-            sdk6kw.init(function (status, data) {
+            sdk6kw.init(config.partner_mergeId,function (status, data) {
                 console.log("[SDK]初始化回调：", status, data);
             });
 
@@ -140,6 +133,7 @@ function mainSDK() {
                                 }
                             } catch (e) {
                             }
+                            var ad_flag =  info["status"] == 1?1:0;
                             var userData = {
                                 userid: data.data.user_id,
                                 account: data.data.nick_name,
@@ -149,7 +143,8 @@ function mainSDK() {
                                 invite_head_img: data.data.invite_head_img || '',
                                 head_img: data.data.head_img || '',
                                 is_client: data.data.is_client || '0',
-                                ios_pay: data.data.ios_pay || '0'
+                                ios_pay: data.data.ios_pay || '0',
+                                ad_flag:ad_flag,
                             };
                             callbacks['login'] && callbacks['login'](0, userData);
                         } else {
@@ -336,22 +331,23 @@ function mainSDK() {
             var sdk_token = wx.getStorageSync('plat_sdk_token');
             sdk6kw.msgSecCheck({
                 content: content,
+                scene:1,
                 callback: (data, res)=> {
-                  console.log("check result is %o", data);
-                  let ret = {
-                    data:{}
-                };
-                  if(res.data.result.suggest == "pass"){
-                    ret.statusCode = 200;
-                    ret.data.state = 1;
-                  }else{
-                    ret.statusCode = 200;
-                    ret.data.state = 0;
-                  }
-                  callback && callback(ret);
+                    console.log("check result is %o", data);
+                    let ret = {
+                        data:{}
+                    };
+                    if(res.data.result && res.data.result.suggest == "pass"){
+                        ret.statusCode = 200;
+                        ret.data.state = 1;
+                    }else{
+                        ret.statusCode = 200;
+                        ret.data.state = 0;
+                    }
+                    callback && callback(ret);
                 }
-              })
-          
+            })
+
         },
 
         pay: function (data, callback) {
@@ -663,6 +659,12 @@ function mainSDK() {
             });
         },
 
+        weiduanHelper: function(){
+
+          sdk6kw.openCustomerWithClientChange();
+
+        },
+
         getDate: function () {
             var date = new Date();
             return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
@@ -670,7 +672,26 @@ function mainSDK() {
 
         downloadClient: function () {
             wx.openCustomerServiceConversation();
-        }
+        },
+
+        subscribeMessage : function (tmplIds, callback){
+            console.log('[SDK]订阅消息：'+tmplIds);
+            //获取模板ID
+            callbacks['subscribeMessage'] = typeof callback == 'function' ? callback : null;
+            wx.requestSubscribeMessage({
+                tmplIds: tmplIds,
+                success (res) {
+                    console.log("[SDK]订阅消息返回：成功");
+                    console.log(res);
+                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+                },
+                fail (res) {
+                    console.log("[SDK]订阅消息返回：失败");
+                    console.log(res);
+                    callbacks['subscribeMessage'] && callbacks['subscribeMessage'](res);
+                }
+              })
+        }, 
     }
 }
 
@@ -753,4 +774,11 @@ exports.getConfig = function () {
 };
 exports.getPublicData = function () {
     run('getPublicData');
+};
+exports.subscribeMessage = function (data, callback) {
+    run('subscribeMessage', data, callback);
+};
+
+exports.weiduanHelper = function () {
+  run('weiduanHelper');
 };

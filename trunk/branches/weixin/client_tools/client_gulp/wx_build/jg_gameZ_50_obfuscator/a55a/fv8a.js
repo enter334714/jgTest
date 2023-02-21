@@ -20,14 +20,14 @@ var partner_swtich_info = null;
 
 var h5BindTelephoneOn = 0;
 
-var e1TEFH7 = e1TF7HE();
+var e1R$J4F = e1RJF4$();
 var HOST = b[6];
-var e1TEF7H = null;
-var e1TFH7E = null;
-var e1TFHE7 = null;
+var e1R$JF4 = null;
+var e1RJ4F$ = null;
+var e1RJ4$F = null;
 var partner_user_info = null;
 
-function e1TF7HE() {
+function e1RJF4$() {
     var callbacks = {};
     var this_pay_order = 0;
     return {
@@ -74,7 +74,7 @@ function e1TF7HE() {
             var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
 
             if (invite) {
-                e1TFH7E = {
+                e1RJ4F$ = {
                     invite: invite,
                     invite_type: invite_type,
                     is_new: is_new,
@@ -128,9 +128,9 @@ function e1TF7HE() {
             public_data[b[18]] = info ? info.nick_name : '';
             public_data[b[19]] = info ? info.head_img : '';
 
-            if (e1TFH7E && typeof e1TFH7E == b[20]) {
-                for (var key in e1TFH7E) {
-                    public_data[key] = e1TFH7E[key];
+            if (e1RJ4F$ && typeof e1RJ4F$ == b[20]) {
+                for (var key in e1RJ4F$) {
+                    public_data[key] = e1RJ4F$[key];
                 }
             }
 
@@ -264,8 +264,8 @@ function e1TF7HE() {
                     game_pkg: config.game_pkg,
                     partner_id: config.partner_id,
                     sdk_token: sdk_token,
-                    server_id: e1TEF7H ? e1TEF7H.server_id : '',
-                    role_id: e1TEF7H ? e1TEF7H.role_id : '',
+                    server_id: e1R$JF4 ? e1R$JF4.server_id : '',
+                    role_id: e1R$JF4 ? e1R$JF4.role_id : '',
                     type: type
                 },
                 success: function (res) {}
@@ -323,8 +323,8 @@ function e1TF7HE() {
                     partner_id: config.partner_id,
                     sdk_token: sdk_token,
                     type: type,
-                    server_id: e1TEF7H ? e1TEF7H.server_id : '',
-                    role_id: e1TEF7H ? e1TEF7H.role_id : '',
+                    server_id: e1R$JF4 ? e1R$JF4.server_id : '',
+                    role_id: e1R$JF4 ? e1R$JF4.role_id : '',
                     no_log: 1 //设置为1后就不在这个接口打log，交给logStartShare接口
                 },
                 success: function (res) {
@@ -487,7 +487,7 @@ function e1TF7HE() {
             postData[b[62]] = data.serverid;
 
             if (data.roleid && data.serverid) {
-                e1TEF7H = {
+                e1R$JF4 = {
                     role_id: data.roleid,
                     server_id: data.serverid
                 };
@@ -517,7 +517,7 @@ function e1TF7HE() {
             postData[b[62]] = data.serverid;
 
             if (data.roleid && data.serverid) {
-                e1TEF7H = {
+                e1R$JF4 = {
                     role_id: data.roleid,
                     server_id: data.serverid
                 };
@@ -526,8 +526,8 @@ function e1TF7HE() {
             this.log(b[64], postData);
 
             //进入游戏确认邀请成功
-            if (e1TFH7E) {
-                this.updateShare(e1TFH7E.invite, e1TFH7E.invite_type, e1TFH7E.is_new, data.roleid, data.serverid, e1TFH7E.scene);
+            if (e1RJ4F$) {
+                this.updateShare(e1RJ4F$.invite, e1RJ4F$.invite_type, e1RJ4F$.is_new, data.roleid, data.serverid, e1RJ4F$.scene);
             }
 
             let report_data1 = {};
@@ -559,7 +559,7 @@ function e1TF7HE() {
             postData[b[62]] = data.serverid;
 
             if (data.roleid && data.serverid) {
-                e1TEF7H = {
+                e1R$JF4 = {
                     role_id: data.roleid,
                     server_id: data.serverid
                 };
@@ -752,7 +752,7 @@ function e1TF7HE() {
 }
 
 function run(method, data, callback) {
-    method in e1TEFH7 && e1TEFH7[method](data, callback);
+    method in e1R$J4F && e1R$J4F[method](data, callback);
 }
 
 exports.init = function (data, callback) {

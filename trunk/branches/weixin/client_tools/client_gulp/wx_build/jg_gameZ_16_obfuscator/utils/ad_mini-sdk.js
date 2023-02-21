@@ -265,7 +265,7 @@ import md5 from './md5';
                                     envVersion: envType,
                                     success(res) {},
                                     fail(failRes) {
-                                        console.log("faile-erro",failRes)
+                                        console.log('faile-erro', failRes);
                                     }
                                 });
                             } else {
@@ -329,7 +329,7 @@ import md5 from './md5';
                                     adApiReq('/pay/notify/midasPay', oder_json).then(function (orderRes) {});
                                 },
                                 fail: function fail(failTRes) {
-                                    console.log("mi-erro",failTRes)
+                                    console.log('mi-erro', failTRes);
                                 },
                                 complete: function complete(comRes) {}
                             });

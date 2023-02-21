@@ -1,2 +1,1 @@
-var J = wx.h$;
-require(J[31257]);
+require('Z_67game.js');

@@ -1,16 +1,6 @@
-﻿import Dall from './helper'
-var config = {
-    game_id: '256', //不朽仙迹--天枢服--官方
-    game_pkg: 'tjqy_bxxjgb_VH',
-    partner_id: '19',
-    game_ver: '71.0.35',  //
-    is_auth: false,  //授权登录
-    from: null, //来源
-    tmpId: {},  // 订阅的类型 和 模板id
-    min_app_id: 'wx53817401b7a4dbfa',
-};
+import Dall from './helper'
+import config from './partner_config.js'
 window.config = config;
-
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
 var t;
@@ -89,7 +79,7 @@ function mainSDK() {
             var invite = info.query && info.query.invite ? info.query.invite : '';
             var cp_activity_id  = info.query && info.query.cp_activity_id ? info.query.cp_activity_id : '';
             var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
-
+            var video_type = info.query && info.query.video_type ? info.query.video_type : '';
             if(invite || cp_activity_id){
                 user_invite_info = {
                     invite: invite,
@@ -112,6 +102,7 @@ function mainSDK() {
                 "temp_info":info,
                 "temp_uuid":uuid,
                 "temp_is_new":is_new,
+                "video_type":video_type,
             }
         },
 
@@ -260,6 +251,7 @@ function mainSDK() {
                                                     if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
                                                         wx_channel = 1;
                                                     }
+                                                    var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
                                                     var userData = {
                                                         userid: data.data.user_id,
                                                         account: data.data.nick_name,
@@ -271,6 +263,8 @@ function mainSDK() {
                                                         is_client: data.data.is_client || '0',
                                                         ios_pay: data.data.ios_pay || '0',
                                                         wx_channel:wx_channel,
+                                                        video_type:ad_info.video_type,
+                                                        ad_flag:ad_flag,
                                                     };
                                                     try{
                                                         self.adLog(data.data.openid);
@@ -343,6 +337,7 @@ function mainSDK() {
                                             if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
                                                 wx_channel = 1;
                                             }
+                                            var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
                                             var userData = {
                                                 userid: data.data.user_id,
                                                 account: data.data.nick_name,
@@ -354,6 +349,8 @@ function mainSDK() {
                                                 is_client: data.data.is_client || '0',
                                                 ios_pay: data.data.ios_pay || '0',
                                                 wx_channel:wx_channel,
+                                                video_type:ad_info.video_type,
+                                                ad_flag:ad_flag,
                                             };
                                             try{
                                                 self.adLog(data.data.openid);
@@ -505,10 +502,10 @@ function mainSDK() {
                         if(data.state){
                             callbacks['check'] && callbacks['check'](data.data);
                         }else{
-                            callbacks['check'] && callbacks['check']({develop: 0});
+                            callbacks['check'] && callbacks['check']({develop: 0,success_msg:'state not true'});
                         }
                     }else{
-                        callbacks['check'] && callbacks['check']({develop: 0});
+                        callbacks['check'] && callbacks['check']({develop: 0,success_msg:JSON.stringify(res)});
                     }
                 },
                 fail: function(res){
@@ -517,13 +514,13 @@ function mainSDK() {
                     requestCallback = true;
                     if (checkHandler) clearTimeout(checkHandler);
                     checkHandler = null;
-                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] && callbacks['check']({develop: 0,fail_msg:JSON.stringify(res)});
                 }
             });
             if (!requestCallback) {
                 var timeOutFunc = function() {
                     console.log("[SDK]获取游戏版本超时");
-                    callbacks['check'] && callbacks['check']({develop: 0});
+                    callbacks['check'] && callbacks['check']({develop: 0,timeout_msg:'timeout msg'});
                     callbacks['check'] = null; //回调后置空，以免success或fail里重复回调
                 }
                 checkHandler = setTimeout(timeOutFunc, 10000);

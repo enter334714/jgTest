@@ -1,4 +1,4 @@
-const version = '4.0';
+const version = '4.0.5';
 const sdkVersion = '8.0';
 var channel_cfg_version = 1
 
@@ -84,7 +84,7 @@ function request(ct, ac, params = {}, is_jsdk = 1, headers = {}) {
   let _obj = {
     ts: KEY
   };
-  let _domain = qxMiniSDK.reqEnv == 'test' ? test_domain[domainkey] : domain[domainkey];
+  let _domain = qxyxSDK.reqEnv == 'test' ? test_domain[domainkey] : domain[domainkey];
   // 对第二个参数ac做相关处理
   if (ac === null) {
     url = _domain + `/${ct}`
@@ -106,9 +106,10 @@ function request(ct, ac, params = {}, is_jsdk = 1, headers = {}) {
     wx.request({
       url,
       data: _obj,
-      header: Object.assign({
-        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-      },headers),
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+        ...headers
+      },
       'method': 'POST',
       success(res) {
         // 对返回值进行解密
@@ -138,6 +139,7 @@ function request(ct, ac, params = {}, is_jsdk = 1, headers = {}) {
     })
   })
 }
+
 /* 格式化角色信息 */
 function getRoleBaseInfo(arg) {
   return {
@@ -211,7 +213,7 @@ function removeStorageSync(key) {
   }
 }
 /* 添加本地缓存 */
-function saveStorageSync(key, value = {}) {
+function saveStorageSync(key, value) {
   try {
     wx.setStorageSync(key, value)
   } catch (e) {
@@ -271,10 +273,8 @@ function getTfParams(name) {
     }
     var arrs = (query.weixinadinfo).split(".");
     result.ad_id = arrs['0'] || ''
-    console.log('[推广参数result]', result);
   } else if (query.qxad_extra) {
     // 用于默认参数，用于动态创建生成url scheme主动塞参数进入
-    //var qxad_extra = decodeURIComponent(query.qxad_extra);
     result = {
       qxad_extra: decodeURIComponent(query.qxad_extra)
     }
@@ -282,6 +282,11 @@ function getTfParams(name) {
     result = {
       ad_source: query.qx_channel,
       trackid: query.qx_trackid,
+    }
+  } else if (query.uctrackid) {
+    result = {
+      ad_source: 'uc',
+      uctrackid: query.uctrackid,
     }
   }
   if (name) {
@@ -318,7 +323,7 @@ function getOtherGameData(name) {
 
 
 /* ************函数结束************** */
-var qxMiniSDK = {
+var qxyxSDK = {
   // sdk 标识
   sdkChannel: 'minigame',
   initData: {
@@ -380,8 +385,6 @@ var qxMiniSDK = {
     let initReq = __assign({}, _initData, extFooter(), {
       channel: that.sdkChannel
     })
-
-
     /** ********** 发送js_load请求*********************/
     request('init', 'index', initReq, 1).then((resulte) => {
       that.apiEnd()
@@ -568,6 +571,7 @@ var qxMiniSDK = {
               }
               callback(cbData)
             }
+            this._loginTips({})
           } else {
             if (callback) {
               callback({
@@ -705,6 +709,10 @@ var qxMiniSDK = {
     } else {
       this._doMakeOrder(payParams, callback)
     }
+  },
+
+  pay(args, callback) {
+    this.recharge(args, callback)
   },
 
   /* 是否实名
@@ -874,7 +882,8 @@ var qxMiniSDK = {
             appId: _globalData.pay_wxappid,
             path: `pages/wxpay/wxpay?order_id=${payResult.order_id}`,
             extraData: {},
-            envVersion: 'release',
+            // envVersion: 'release',
+            envVersion: 'develop',
             success(res) {
               // 打开成功
               console.log('[打开小程序成功]')
@@ -1006,9 +1015,18 @@ var qxMiniSDK = {
     let that = this;
     let active_qx_uuid = getStorageSync('active_qx_uuid');
     if (!active_qx_uuid || active_qx_uuid != microParame) {
-      let args = __assign({}, extFooter(), that.initData)
+      let args = __assign(that.initData, extFooter())
+      // 广告参数 getTfParams()
+      let tfData = getTfParams();
+      let headers = {};
+      if ((Object.keys(tfData)).length) {
+        if (tfData.ad_source) {
+          args.ad_source = tfData.ad_source
+        }
+        headers['qxyx-ad'] = JSON.stringify(tfData);
+      }
       /** ********** 发送激活请求*********************/
-      request('loadlog', 'active', args, 1).then((resulte) => {
+      request('loadlog', 'active', args, 1, headers).then((resulte) => {
         saveStorageSync('active_qx_uuid', microParame)
       })
     }
@@ -1019,7 +1037,7 @@ var qxMiniSDK = {
     this._loginTips(roleParams)
   },
 
-  //登录成功显示提示
+  //登录成功显示提示,type--1 表示谈转端图片，其他表示转客服会话
   _loginTips: function (roleParams, type = 0) {
     var params = localUserInfo.ext.login_tips;
     if (!params) {
@@ -1045,6 +1063,7 @@ var qxMiniSDK = {
     _globalData.loginTipsNum++
     // mode说明 -- 1- 旧版，弹框，2-新版
     var mode = params.mode
+    console.log('[mode]',mode);
     if (mode == 1) {
       this._loginTipsItem(type)
     } else if (mode == 2) {
@@ -1063,17 +1082,19 @@ var qxMiniSDK = {
     wx.showModal({
       title: login_tips.title,
       content: login_tips.content,
-      cancelText: "残忍拒绝",
-      confirmText: "去领礼包",
+      showCancel:false,
+      // cancelText: "残忍拒绝",
+      confirmText: "前往修复",
       success: function (res) {
         if (res.confirm) {
           if (type == 1) {
             // 功能2，展示转端图片
-            that.showShareImageMenu()
+            that.showShareImageMenu('zd_lead')
             return
           }
+          that.showShareImageMenu('zd_qrcode2')
           // 功能1，前往客服
-          var user_id = qxyxUserInfo.user_id;
+          /*var user_id = qxyxUserInfo.user_id;
           var initData = that.initData;
           let pr = {
             game_id: initData.game_id,
@@ -1081,7 +1102,7 @@ var qxMiniSDK = {
             channel: initData.channel,
             qx_event_type: "user_account"
           };
-          that._customerService(pr, true, '手机版(token:' + localUserInfo.guid + ')', 'https://yxfile.gowan8.com/upload/image/202008/icon_gift.jpg');
+          that._customerService(pr, true, '手机版(token:' + localUserInfo.guid + ')', 'https://yxfile.gowan8.com/upload/image/202008/icon_gift.jpg');*/
         }
       },
       fail: function () {}
@@ -1557,6 +1578,7 @@ var qxMiniSDK = {
     console.log('[是否显示转端isOpen]', isOpen);
     return isOpen
   },
+
   // 判断玩家是否从我的小程序进入
   isSourceMy(callback) {
     var source = wx.getLaunchOptionsSync()
@@ -1631,7 +1653,7 @@ var qxMiniSDK = {
   showGameClub(params = {}) {
     wx.createGameClubButton({
       type: params.type || "image",
-      icon: params.icon || "light",
+      icon: params.icon || "green",
       text: params.text || "",
       style: {
         left: params.left || 10,
@@ -1732,9 +1754,10 @@ var qxMiniSDK = {
   },
 
   // 显示分享图片菜单
-  showShareImageMenu() {
+  showShareImageMenu(ac = 'zd_lead') {
     // 先判断是否有图片，有图片就不需要发请求
-    var login_url = getStorageSync('login_url')
+    var sKey = ac + 'login_url'
+    var login_url = getStorageSync(sKey)
     if (login_url) {
       wx.downloadFile({
         url: login_url,
@@ -1757,9 +1780,9 @@ var qxMiniSDK = {
       channel: this.initData.channel,
       domain: "box"
     }
-    request('wxa', 'zd_lead', dt, 1).then(res => {
+    request('wxa', ac, dt, 1).then(res => {
       if (res.code == 0) {
-        saveStorageSync('login_url', res.data.login_url)
+        saveStorageSync(sKey, res.data.login_url)
         wx.downloadFile({
           url: res.data.login_url,
           success: (res) => {
@@ -1848,13 +1871,41 @@ var qxMiniSDK = {
         resolve(_globalData.loginTipsSheet)
       }
     })
+  },
+
+  // 获取玩家转端二维码链接
+  zdQrcode(callback) {
+    var qxyxUserInfo = getStorageSync(USER_INFO)
+    var dt = {
+      game_id: this.initData.game_id,
+      channel: this.initData.channel,
+      user_id: qxyxUserInfo.user_id,
+      wxmini_appid: this.initData.wxmini_appid,
+      guid: qxyxUserInfo.guid,
+      domain: "box"
+    }
+    request('wxa', 'zd_qrcode', dt, 1).then(res => {
+      console.log('[返回值res]', res);
+      if (res.code == 0) {
+        callback && callback({
+          statusCode: 0,
+          qrImg: res.data.qr,
+          status: '获取成功'
+        })
+      } else {
+        callback && callback({
+          statusCode: 1,
+          status: '获取失败'
+        })
+      }
+    })
   }
 }
 if (typeof module !== "undefined") {
-  module.exports = qxMiniSDK;
+  module.exports = qxyxSDK;
   if (typeof window !== "undefined") {
-    window.qxMiniSDK = qxMiniSDK
+    window.qxyxSDK = qxyxSDK
   }
 } else if (typeof window !== "undefined") {
-  window.qxMiniSDK = qxMiniSDK
+  window.qxyxSDK = qxyxSDK
 }

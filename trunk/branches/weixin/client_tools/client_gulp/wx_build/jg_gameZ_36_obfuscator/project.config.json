@@ -34,10 +34,10 @@
         "packNpmRelationList": [],
         "minifyWXSS": true,
         "disableUseStrict": false,
+        "useStaticServer": true,
         "showES6CompileOption": false,
         "useCompilerPlugins": false,
-        "ignoreUploadUnusedFiles": true,
-        "useStaticServer": true
+        "ignoreUploadUnusedFiles": true
     },
     "compileType": "game",
     "libVersion": "2.23.2",
@@ -45,7 +45,6 @@
     "projectname": "有一破坏神-Z_36",
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},
-    "condition": {},
     "packOptions": {
         "ignore": [],
         "include": []
@@ -53,5 +52,6 @@
     "editorSetting": {
         "tabIndent": "insertSpaces",
         "tabSize": 4
-    }
+    },
+    "condition": {}
 }

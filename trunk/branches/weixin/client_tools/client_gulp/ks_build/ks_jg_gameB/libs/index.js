@@ -454,6 +454,7 @@ window.updCurServer = function (response) {
         'status': get_status(response.data[0]),
         'start_time': response.data[0].start_time,
         'maintain_time': response.data[0].maintain_time ? response.data[0].maintain_time : "",
+        'is_recommend': response.data[0].is_recommend,
         'cdn': PF_INFO.cdn,
     }
     this.initComplete();
@@ -1102,10 +1103,13 @@ window.req_privacy = function (pkgName, callback) {
 window.get_status = function (server) {
     if (server) {
         if (server.status == 1) {
-            if (server.online_status == 1)
+            if (server.online_status == 3) {
+                return 3;
+            } else if (server.online_status == 1) {
                 return 2;
-            else
+            } else {
                 return 1;
+            }
         } else if (server.status == 0) {
             return 0;
         } else {

@@ -67,10 +67,19 @@ let ln_tool = {
 		return appid;
 	},
 	getDeviceUUid() {
-		const system = wx.getSystemInfoSync();
-		let strSystem = system.model + system.screenHeight + system.screenWidth;
-		console.log(strSystem);
-		return md5(strSystem);
+		// const system = wx.getSystemInfoSync();
+		// let strSystem = system.model + system.screenHeight + system.screenWidth;
+		// console.log(strSystem);
+		// return md5(strSystem);
+		let timeStr = new Date().valueOf() + Math.floor(Math.random() * 10000000 + 1) + '';
+		let timeMD5 = timeStr;
+		let newUUID = md5(timeMD5);
+		if (localStorage.getItem('lntimeuuid')) {
+			return localStorage.getItem('lntimeuuid');
+		} else {
+			localStorage.setItem('lntimeuuid', newUUID);
+			return newUUID;
+		}
 	}
 };
 let wxLN_uid = '';
@@ -108,9 +117,9 @@ let commonParams = {
 	encryptedData: '',
 	iv: '',
 	channel_version: '1.0',
-	sysname: '',
+	sysname: wx.getSystemInfoSync().system,
 	screen: '',
-	model: '',
+	model: wx.getSystemInfoSync().model.replace('<', '').replace('>', '') || '',
 	version: '1.0',
 	ver: 'c399ec3638',
 	network: '',
@@ -175,19 +184,24 @@ const init = function () {
 const setAdData = function (query, flag) {
 	// 广告混端投放
 	let adAppid = '';
-	if (query && query.app) {
+	if (query.app) {
 		adAppid = query.app;
 		commonParams.appid = query.app;
+		localStorage.setItem('mixappid', query.app);
+	} else if (localStorage.getItem('mixappid')) {
+		adAppid = localStorage.getItem('mixappid');
+		commonParams.appid = localStorage.getItem('mixappid');
 	} else {
 		adAppid = commonParams.appid;
 	}
-	let data = { appid: adAppid, type: flag, query: JSON.stringify(query) == '{}' ? '' : JSON.stringify(query) };
-	// data.appid = commonParams.appid;
-	// if(ln_tool.getDeviceType() == 'android'){
-	// 	data.appid = 60434;
-	// } else if (ln_tool.getDeviceType() == 'ios'){
-	// 	data.appid = 60432;
-	// }
+	let currQuery = '';
+	if (JSON.stringify(query) != '{}') {
+		currQuery = JSON.stringify(query);
+		localStorage.setItem('mixquery', JSON.stringify(query));
+	} else {
+		currQuery = localStorage.getItem('mixquery') || '';
+	}
+	let data = { appid: adAppid, type: flag, query: currQuery };
 	setAdDataToRequest(data);
 	if (query) {
 		let gdt_vid = query.gdt_vid;
@@ -197,7 +211,7 @@ const setAdData = function (query, flag) {
 			let weixinadinfoArr = weixinadinfo.split('.');
 			aid = weixinadinfoArr[0];
 		}
-		commonParams.adver_ext = JSON.stringify(query);
+		commonParams.adver_ext = currQuery;
 		// 判断query不是空对象，为空就不管
 		if (query.weixinadinfo) {
 			if (ln_tool.getDeviceType() == 'android') {
@@ -236,6 +250,8 @@ const wxLogin = function (SDKln) {
 			} else {
 				let jscode = res.code;
 				let configParams = {
+					sysname: commonParams.sysname,
+					model: commonParams.model,
 					appid: commonParams.appid,
 					time: commonParams.time,
 					notch_height: 0,
@@ -335,6 +351,8 @@ const initData = function (SDKln, params, jscode) {
 				version: commonParams.version,
 				ver: commonParams.ver,
 				network: commonParams.network,
+				model: commonParams.model,
+				sysname: commonParams.sysname,
 				time: ln_tool.getPhpNow(),
 				access_token: data.data.access_token,
 				info: JSON.stringify({ code: jscode, login_type: 1 }),
@@ -509,6 +527,34 @@ const sdkRole = function (params) {
 		success: res => {
 			console.log(res);
 		}
+	});
+};
+
+// 游戏内主动分享
+const shareAppMessage = function (obj) {
+	wx.showShareMenu({
+		withShareTicket: true,
+		menus: ['shareAppMessage']
+	});
+	let objCurrQuery = JSON.parse(commonParams.adver_ext);
+	let currQuery = '';
+	let index = 0;
+	for (let [key, value] of Object.entries(objCurrQuery)) {
+		index++;
+		currQuery += index == 1 ? `${key}=${value}` : `&${key}=${value}`;
+	}
+	if (obj && obj.query) {
+		if (currQuery) {
+			currQuery = `${currQuery}&${obj.query}`;
+		} else {
+			currQuery = obj.query;
+		}
+	}
+	wx.shareAppMessage({
+		title: shareTitle,
+		imageUrl: shareImgUrl,
+		imageUrlId: shareImageUrlId,
+		query: currQuery
 	});
 };
 
@@ -855,6 +901,18 @@ const sdkTransferApp = function () {
 			});
 		}
 	});
+};
+
+// 天剑用户来源
+const userSource = function (callback) {
+	const query = wx.getLaunchOptionsSync().query;
+	// 入口进来判断用户类型，回传给cp（1：广告量，0：自然量）
+	// console.log(query)
+	if (JSON.stringify(query) != '{}') {
+		callback({ ad_flag: '1' });
+	} else {
+		callback({ ad_flag: '0' });
+	}
 };
 
 // 游戏中进行授权
@@ -1292,5 +1350,7 @@ module.exports = {
 	sdkRole: sdkRole,
 	sdkPay: sdkPay,
 	msgSecCheck: msgSecCheck,
-	sdkTransferApp: sdkTransferApp
+	sdkTransferApp: sdkTransferApp,
+	shareAppMessage: shareAppMessage,
+	userSource: userSource
 };

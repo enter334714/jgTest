@@ -1,9 +1,9 @@
 var W = wx.$l;
 /**
- *  sdk版本号:108
+ *  sdk版本号:109
  *  hywxgsdk
  *  更新信息：
- *  1、加入客服接口
+ *  1、加入微端接口
  * 
  */
 // 单例对象存储
@@ -30,10 +30,9 @@ export default class hywxgsdk {
   //初始化URL 配置
   _sdkConfig() {
 
-    this.version = "108"; //skd 自定义版本号
+    this.version = "109"; //skd 自定义版本号
     this.minigameid = ""; //小游戏appid
     this.miniappid = ""; //小程序appid
-    //api 主机地址，方便切换
     this.apiDomain = "https://game.moleyx.cn/";
 
     this.isIosPay = 0;
@@ -49,7 +48,9 @@ export default class hywxgsdk {
       //上报wx用户信息
       userinfo: this.apiDomain + "api/wxgsdk/wxuserinfo",
       //检测订单是否支付成功
-      checkpay: this.apiDomain + "api/wxgsdk/checkpay"
+      checkpay: this.apiDomain + "api/wxgsdk/checkpay",
+      //端接口
+      transfer: this.apiDomain + "api/wxgsdk/transfer"
     };
   }
 
@@ -80,7 +81,7 @@ export default class hywxgsdk {
     } else {
       this.userid = userid;
     }
-
+    var sysinfo = wx.getSystemInfoSync();
     var obj_this = this;
     //获取初始化数据，并校验 cid appid 是否正确
     wx.request({
@@ -89,7 +90,8 @@ export default class hywxgsdk {
         wxentercs: obj_this.wxentercs,
         cid: obj_this.cid, //cid
         appid: obj_this.gameargs.appid, //平台gameappid
-        minigameid: obj_this.minigameid //小游戏appid
+        minigameid: obj_this.minigameid, //小游戏appid
+        systeminfo: sysinfo
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -272,7 +274,6 @@ export default class hywxgsdk {
         this.cid = wxentercs.query.cid;
       }
     }
-
     // 1检测session_key 是否过期,过期要重新获取
     // 1先拿本地token 去服务端校验是否过期或合法
     // 2如果合法未过期，直接返回用户相关信息
@@ -303,6 +304,7 @@ export default class hywxgsdk {
    */
   _loginLogin(loginArgs, sessionkeyIsValid) {
     var obj_this = this;
+    var sysinfo = wx.getSystemInfoSync();
     console.log("执行登录");
     //session_key有效处理 
     if (sessionkeyIsValid == 1 && obj_this.userid && obj_this.token) {
@@ -317,7 +319,8 @@ export default class hywxgsdk {
           userid: obj_this.userid,
           token: obj_this.token,
           minigameid: obj_this.minigameid, //小游戏appid
-          wxentercs: obj_this.wxentercs
+          wxentercs: obj_this.wxentercs,
+          systeminfo: sysinfo
         },
         method: "POST",
         success(res) {
@@ -526,7 +529,8 @@ export default class hywxgsdk {
                 cid: obj_this.cid,
                 appid: obj_this.gameargs.appid,
                 minigameid: obj_this.minigameid,
-                wxentercs: obj_this.wxentercs
+                wxentercs: obj_this.wxentercs,
+                systeminfo: sysinfo
               },
               method: "POST",
               success(res) {
@@ -1013,6 +1017,84 @@ export default class hywxgsdk {
       }
     }); // request end
   }
+
+  /**
+   * 端
+   */
+  transfer(tranparam) {
+
+    if (!this.gameargs.appid || !this.token) {
+      var ret_call = { "code": 90001, "data": {}, "msg": "请先登录" };
+      tranparam.fail(ret_call);
+      return false;
+    }
+    var obj_this = this;
+    var sysinfo = wx.getSystemInfoSync();
+    wx.request({
+      url: obj_this.apiurl.transfer,
+      data: {
+        cid: obj_this.cid,
+        token: obj_this.token,
+        minigameid: obj_this.minigameid,
+        appid: obj_this.gameargs.appid, //平台gameappid
+        user_id: obj_this.userid,
+        wxentercs: obj_this.wxentercs,
+        systeminfo: sysinfo
+      },
+      method: "POST",
+      success(res) {
+        var res_data = res.data;
+        if (res_data.code == 0 && res_data.data.is_transfer == 0) {
+          var ret_call = { "code": 80099, "data": {}, "msg": res_data.data.transfer_msg };
+          wx.showModal({
+            title: '提示',
+            content: res_data.data.transfer_msg
+          });
+          tranparam.fail(ret_call);
+          return false;
+        } else if (res_data.code == 0) {
+          //开始处理跳转
+          //打开小程序
+          console.log(res_data.data.transfer_miniapp);
+          wx.navigateToMiniProgram({
+            appId: res_data.data.transfer_miniapp,
+            path: res_data.data.transfer_minipath,
+            extraData: {
+              cid: obj_this.cid,
+              user_id: obj_this.userid,
+              token: obj_this.token,
+              minigameid: obj_this.minigameid,
+              appid: obj_this.gameargs.appid, //平台gameappid
+              exstring: res_data.data.transfer_exstring
+            },
+            success(res) {
+              // 打开成功
+              var ret_call = { "code": 0, "data": {}, "msg": "ok" };
+              tranparam.success(ret_call);
+              return true;
+            },
+            fail(res) {
+              console.log(res);
+              var ret_call = { "code": 80003, "data": {}, "msg": "小程序跳转失败" };
+              tranparam.fail(ret_call);
+              return false;
+            }
+          });
+        } else {
+          //失败处理
+          var ret_call = { "code": 80005, "data": {}, "msg": "获取跳转信息失败" };
+          tranparam.fail(ret_call);
+          return false;
+        }
+      },
+      fail(res) {
+        //失败处理
+        var ret_call = { "code": 80006, "data": {}, "msg": "请求服务端失败" };
+        tranparam.fail(ret_call);
+        return false;
+      }
+    });
+  } // transfer
 
 } // class end
 

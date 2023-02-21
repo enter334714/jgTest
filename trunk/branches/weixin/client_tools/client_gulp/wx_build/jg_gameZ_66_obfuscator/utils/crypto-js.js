@@ -1,4 +1,4 @@
-var f = wx.$B;
+var f1 = wx.f$;
 /*
 
  (c) 2012 by Cédric Mesnil. All rights reserved.

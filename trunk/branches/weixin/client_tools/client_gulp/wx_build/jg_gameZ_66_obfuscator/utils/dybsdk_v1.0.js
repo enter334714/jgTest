@@ -1,6 +1,6 @@
 "use strict";
 
-var f = wx.$B;
+var f1 = wx.f$;
 function isIos() {
   var system = wx.getSystemInfoSync();if (typeof system.model != "undefined") {
     dybModel = system.model;
@@ -28,7 +28,7 @@ function isIos() {
       }
     } });
 }function dybSetStorage(data) {
-  var kvDataList = [];kvDataList.push({ key: data.key, value: data.val });var versionRes = t19ZAP7(wx.getSystemInfoSync().SDKVersion, '1.9.92');if (versionRes >= 0) {
+  var kvDataList = [];kvDataList.push({ key: data.key, value: data.val });var versionRes = _k9ZAP7(wx.getSystemInfoSync().SDKVersion, '1.9.92');if (versionRes >= 0) {
     wx.setUserCloudStorage({ KVDataList: kvDataList, success: function (res) {
         console.log('setUserCloudStorage:success');
       } });
@@ -64,7 +64,19 @@ function isIos() {
     if (typeof referrerInfo.extraData === "string") {
       referrerInfo.extraData = JSON.parse(referrerInfo.extraData);
     }channel_id = referrerInfo.extraData.chid;sub_channel_id = referrerInfo.extraData.subchid;shareid = referrerInfo.extraData.shareid ? referrerInfo.extraData.shareid : 0;sharetype = referrerInfo.extraData.sharetype ? referrerInfo.extraData.sharetype : '';
-  }clue_token = query.clue_token ? query.clue_token : '';ad_id_tt = query.ad_id ? query.ad_id : '';dyb_ad_id = query.dyb_ad_id ? query.dyb_ad_id : '';creative_id = query.creative_id ? query.creative_id : '';_source_appid = referrerInfo.appId;return 1;
+  }clue_token = query.clue_token ? query.clue_token : '';ad_id_tt = query.ad_id ? query.ad_id : '';dyb_ad_id = query.dyb_ad_id ? query.dyb_ad_id : '';creative_id = query.creative_id ? query.creative_id : '';_source_appid = referrerInfo.appId;op_pageId = query.pageId ? query.pageId : '0';op_tid = query.tid ? query.tid : '0';op_lbid = query.lbid ? query.lbid : '0';op_adid = query.adid ? query.adid : '0';op_source = query.source ? query.source : '';query_str = JSON.stringify(query);var gdt_vid = query.gdt_vid ? query.gdt_vid : '0';var wx_aid = query.wx_aid ? query.wx_aid : '0';if (gdt_vid && wx_aid == '0') {
+    agent = agent_arr.gdt;
+  }if (wx_aid && wx_aid != '0') {
+    agent = agent_arr.weixinmp;
+  }if (clue_token && clue_token != '0') {
+    agent = agent_arr.jinri;
+  }var bd_vid = query.bd_vid ? query.bd_vid : '0';if (bd_vid && bd_vid != '0') {
+    agent = agent_arr.baidu;
+  }var uctrackid = query.uctrackid ? query.uctrackid : '0';if (uctrackid && uctrackid != '0') {
+    agent = agent_arr.uc;
+  }if (op_tid && op_tid != '0') {
+    agent = agent_arr.oppo;
+  }return 1;
 }function getedition() {
   let version = envVersion;switch (version) {case 'develop':
       envVersion = 'develop';break;case 'trial':
@@ -76,7 +88,7 @@ function isIos() {
     _setting = hd_config.devp;_DybUrl = _setting.url;
   }dybAppId = _setting.appId;dybAppKey = _setting.appKey;dybChannel = _setting.channel;dybSubChannel = _setting.subChannel;dybSdkVersion = _setting.sdkVersion;dybEnv = _setting.env;appEnv = _setting.appEnv;url = _setting.url;img_service = _setting.img_service;adUrl = _setting.adUrl;adGameId = _setting.adGameId;adAppkey = _setting.adAppkey;return 1;
 }function _createUserInfoButton(param, _callback) {
-  var SDKVersionRes = t19ZAP7(wx.getSystemInfoSync().SDKVersion, '1.1.1');if (SDKVersionRes >= 0) {
+  var SDKVersionRes = _k9ZAP7(wx.getSystemInfoSync().SDKVersion, '1.1.1');if (SDKVersionRes >= 0) {
     userinfoBtn = wx.createUserInfoButton({ type: 'image', image: param.imageUrl, lang: 'zh_CN', style: { left: param.left, top: param.top, width: param.width, height: param.height } });userinfoBtn.onTap(function (btnRes) {
       if (btnRes.errMsg === 'getUserInfo:ok' || btnRes.errMsg === 'operateWXData:ok') {
         userinfoBtn.destroy();userinfoBtn = '';btnRes.userInfo.isVisitor = 0;wx.setStorage({ key: 'btnRes', data: btnRes });callbackInfo(btnRes, function dybback(cblack) {
@@ -93,7 +105,7 @@ function isIos() {
   }
 };function checkLogin(_callback) {
   envVersion == 'develop' && console.log("======checkLogin========");wx.checkSession({ success() {
-      envVersion == 'develop' && console.log('session_key 未过期');_open_id = wx.getStorageSync('openid');dybUserId = wx.getStorageSync('dybUserId');dayLogin = wx.getStorageSync('dayLogin');if (!_open_id || !dybUserId || dayLogin != getDay()) {
+      envVersion == 'develop' && console.log('session_key 未过期');_open_id = wx.getStorageSync('openid');dybUserId = wx.getStorageSync('dybUserId');dayLogin = wx.getStorageSync('dayLogin');dybisAU = wx.getStorageSync('isAU');dybisOU = wx.getStorageSync('isOU');if (!_open_id || !dybUserId || dayLogin != getDay()) {
         Dyb.login(function call(callback) {
           if (!_open_id) {
             wx.showModal({ title: '提示', content: '登录异常，请重新打开小游戏' });
@@ -115,11 +127,11 @@ function isIos() {
     } });
 }function callbackInfo(backParam, dybback) {
   envVersion == 'develop' && console.log(_open_id, "======callbackInfo========");var query = {};var user = {};var openCallback = wx.getLaunchOptionsSync();if (typeof backParam.userInfo != "undefined") {
-    dybUserId = wx.getStorageSync("dybUserId");dybToken = wx.getStorageSync("dybToken");user = { thirdId: _open_id, nickname: backParam.userInfo.nickName, avatarUrl: backParam.userInfo.avatarUrl, country: backParam.userInfo.country, province: backParam.userInfo.province, city: backParam.userInfo.city, gender: backParam.userInfo.gender, isVisitor: backParam.userInfo.isVisitor, userId: dybUserId, token: dybToken };
+    dybUserId = wx.getStorageSync("dybUserId");dybToken = wx.getStorageSync("dybToken");user = { thirdId: _open_id, nickname: backParam.userInfo.nickName, avatarUrl: backParam.userInfo.avatarUrl, country: backParam.userInfo.country, province: backParam.userInfo.province, city: backParam.userInfo.city, gender: backParam.userInfo.gender, isVisitor: backParam.userInfo.isVisitor, userId: dybUserId, token: dybToken, isAU: dybisAU, isOU: dybisOU };
   } else {
-    user = { thirdId: _open_id, userId: dybUserId, token: dybToken };
+    user = { thirdId: _open_id, userId: dybUserId, token: dybToken, isAU: dybisAU, isOU: dybisOU };
   }var jsonArr = { code: 1, msg: '成功', data: { user: user, shareInfo: openCallback.query } };dybback(jsonArr);
-}function t19ZAP7(v1, v2) {
+}function _k9ZAP7(v1, v2) {
   v1 = v1.split('.');v2 = v2.split('.');var len = Math.max(v1.length, v2.length);while (v1.length < len) {
     v1.push('0');
   }while (v2.length < len) {
@@ -239,7 +251,7 @@ function isIos() {
   }return format;
 }function getDay() {
   var now = new Date();var year = now.getFullYear();var month = now.getMonth() + 1;var day = now.getDate();var clock = year + "-";if (month < 10) clock += "0";clock += month + "-";if (day < 10) clock += "0";clock += day;return clock;
-}require("./crypto-js.js");var hd_config = require("./config.js");var _sdk_version = 'v2.1';var _DybUrl = '';var userinfoBtn = '';var getServerCfg = '';var envVersion = 'release';var trueReturn = { "err_code": 1, "err_msg": "成功" };var falseReturn = { "err_code": 0, "err_msg": "失败" };var _source_appid = '';var channel_id = '';var sub_channel_id = '';var clue_token = '';var ad_id_tt = '';var creative_id = '';var sharetype = '';var shareid = 0;var _gameAppid = '';var _identify = '';var _secret = '';var _signType = 'sha1';var _open_id = '';var _system = 'ios';var is_start = false;var dybAppId = '';var dybAppKey = '';var dybSource = 1;var dybSecretKey = '';var dybChannel = '';var dybSubChannel = '';var dybModel = '';var dybOperatorOs = '';var dybVersion = '1';var dybSdkVersion = '';var dybDeviceNo = '';var dybDevice = '';var dybClientTime = '';var dybToken = '';var dybUserId = '';var dybThirdId = '';var dybMdsAppId = '';var dybEnv = '';var appEnv = '';var zoneId = '1';var pf = 'android';var img_service = '';var adUrl = '';var adGameId = '';var adAppkey = '';var ad_id = 0;var dyb_ad_id = 0;var aid = 0;var traceid = "";var network = 0;var dayLogin = "";var dybShareTitle = '';var dybShareImageUrl = '';var dybTimestamp = Math.floor(new Date().getTime() / 1000);var url = '';var oExInfoJson = '';var isTouch = false;var Dyb = { getDybUserInfo: function (param, is_auth, _callback) {
+}require("./crypto-js.js");var hd_config = require("./config.js");var _sdk_version = 'v2.1';var _DybUrl = '';var userinfoBtn = '';var getServerCfg = '';var envVersion = 'release';var trueReturn = { "err_code": 1, "err_msg": "成功" };var falseReturn = { "err_code": 0, "err_msg": "失败" };var _source_appid = '';var channel_id = '';var sub_channel_id = '';var clue_token = '';var ad_id_tt = '';var creative_id = '';var sharetype = '';var shareid = 0;var _gameAppid = '';var _identify = '';var _secret = '';var _signType = 'sha1';var _open_id = '';var _system = 'ios';var is_start = false;var dybAppId = '';var dybAppKey = '';var dybSource = 1;var dybSecretKey = '';var dybChannel = '';var dybSubChannel = '';var dybModel = '';var dybOperatorOs = '';var dybVersion = '1';var dybSdkVersion = '';var dybDeviceNo = '';var dybDevice = '';var dybClientTime = '';var dybToken = '';var dybUserId = '';var dybThirdId = '';var dybMdsAppId = '';var dybEnv = '';var appEnv = '';var zoneId = '1';var pf = 'android';var img_service = '';var adUrl = '';var adGameId = '';var adAppkey = '';var ad_id = 0;var dyb_ad_id = 0;var aid = 0;var traceid = "";var network = 0;var dayLogin = "";var dybShareTitle = '';var dybShareImageUrl = '';var dybisAU = 0;var dybisOU = 0;var op_pageId = 0;var op_tid = 0;var op_lbid = 0;var op_adid = 0;var op_source = 0;var query_str = "";var agent_arr = { "weixinmp": 900190003, "gdt": 900190005, "jinri": 900190007, "baidu": 900190009, "uc": 900190011, "oppo": 900190013 };var agent = 0;var dybTimestamp = Math.floor(new Date().getTime() / 1000);var url = '';var oExInfoJson = '';var isTouch = false;var Dyb = { getDybUserInfo: function (param, is_auth, _callback) {
     envVersion == 'develop' && console.log('----------getDybUserInfo-------------');let query = wx.getEnterOptionsSync().query;if (typeof query.ad_id != "undefined") ad_id_tt = query.ad_id;if (typeof query.dyb_ad_id != "undefined") dyb_ad_id = query.dyb_ad_id;traceid = query.gdt_vid;let weixinadinfo = query.weixinadinfo;if (weixinadinfo) {
       let weixinadinfoArr = weixinadinfo.split('.');aid = weixinadinfoArr[0];
     }try {
@@ -367,9 +379,11 @@ function isIos() {
     envVersion == 'develop' && console.log('----------init_Data-------------');dybcall();
   }, login(dybback) {
     envVersion == 'develop' && console.log(_open_id + "======login========");wx.login({ dataType: 'json', success: function (loginCode) {
-        var n = { appId: dybAppId, source: dybSource, advChannel: dybChannel, advSubChannel: dybSubChannel, model: dybModel, operatorOs: dybOperatorOs, version: dybVersion, deviceNo: dybDeviceNo, device: dybDevice, sdkVersion: dybSdkVersion, clientTime: getTime(), network: network, token: JSON.stringify({ token: loginCode.code }) };n.sign = create_sign(n, dybAppKey);envVersion == 'develop' && console.log(n, "初始化登陆logins数据");wx.request({ url: _DybUrl + '/integration/minigame/login', header: { 'content-type': 'application/x-www-form-urlencoded' }, method: 'POST', data: n, dataType: 'json', success: function (res) {
+        var tmp_sub_channel_id = dybChannel;if (agent) {
+          tmp_sub_channel_id = agent;
+        }var n = { appId: dybAppId, source: dybSource, advChannel: dybChannel, advSubChannel: dybSubChannel, subChannel: tmp_sub_channel_id, model: dybModel, operatorOs: dybOperatorOs, version: dybVersion, deviceNo: dybDeviceNo, device: dybDevice, sdkVersion: dybSdkVersion, clientTime: getTime(), network: network, token: JSON.stringify({ token: loginCode.code }) };n.sign = create_sign(n, dybAppKey);envVersion == 'develop' && console.log(n, "初始化登陆logins数据");wx.request({ url: _DybUrl + '/integration/minigame/login', header: { 'content-type': 'application/x-www-form-urlencoded' }, method: 'POST', data: n, dataType: 'json', success: function (res) {
             var user = {};var openCallback = wx.getLaunchOptionsSync();if (res.data.code == 200) {
-              dybUserId = res.data.data.userId;dybToken = res.data.data.token;dybThirdId = res.data.data.thirdId;_open_id = res.data.data.thirdId;var jsonArr = { code: 1, msg: '成功', data: { user: user, shareInfo: openCallback.query } };wx.setStorageSync('openid', res.data.data.thirdId);wx.setStorageSync('dybUserId', res.data.data.userId);wx.setStorageSync('dybToken', res.data.data.token);wx.setStorageSync('dayLogin', getDay());var param = {};if (res.data.data.isRegister) {
+              dybUserId = res.data.data.userId;dybToken = res.data.data.token;dybThirdId = res.data.data.thirdId;_open_id = res.data.data.thirdId;dybisAU = res.data.data.isAU ? 1 : 0;dybisOU = res.data.data.isOU ? 1 : 0;var jsonArr = { code: 1, msg: '成功', data: { user: user, shareInfo: openCallback.query } };wx.setStorageSync('openid', res.data.data.thirdId);wx.setStorageSync('dybUserId', res.data.data.userId);wx.setStorageSync('dybToken', res.data.data.token);wx.setStorageSync('dayLogin', getDay());wx.setStorageSync('isAU', dybisAU);wx.setStorageSync('isOU', dybisOU);var param = {};if (res.data.data.isRegister) {
                 param.userId = res.data.data.userId;Dyb.upRegData(param);
               } else {}if (res.data.data.wxShare) {
                 var shareParam = { title: res.data.data.wxShare.title, imageUrl: res.data.data.wxShare.imageUrl };wx.setStorageSync('dybShare', shareParam);dybShareTitle = shareParam.title;dybShareImageUrl = shareParam.imageUrl;Dyb.onshare(shareParam);
@@ -391,7 +405,19 @@ function isIos() {
         device2 = _open_id;
       }var adData = { game_id: adGameId, app_name: "com.xyx", conv_type: "MOBILEAPP_LOGIN", app_type: app_type, device1: device1, device2: device2, time: Math.floor(new Date().getTime() / 1000) };if (clue_token) {
         adData.clue_token = clue_token;
-      }adData.sign = create_ad_sign(adData, adAppkey);adData.ip = "0000";adData.ver = 3;adData.ad_id = dyb_ad_id;adData.appsflyer_id = aid;adData.advertising_id = traceid;adData.device_type = dybModel;wx.request({ url: adUrl, data: adData, method: 'post', header: { 'content-type': 'application/x-www-form-urlencoded' }, success: function (res) {}, fail: function (res) {}, complete: function (res) {} });
+      }adData.sign = create_ad_sign(adData, adAppkey);adData.ip = "0000";adData.ver = 3;adData.ad_id = dyb_ad_id;adData.appsflyer_id = aid;adData.advertising_id = traceid;adData.device_type = dybModel;if (op_pageId) {
+        adData.pageId = op_pageId;
+      }if (op_tid) {
+        adData.tid = op_tid;
+      }if (op_lbid) {
+        adData.lbid = op_lbid;
+      }if (op_adid) {
+        adData.adid = op_adid;
+      }if (op_source) {
+        adData.source = op_source;
+      }if (query_str) {
+        adData.query_str = query_str;
+      }wx.request({ url: adUrl, data: adData, method: 'post', header: { 'content-type': 'application/x-www-form-urlencoded' }, success: function (res) {}, fail: function (res) {}, complete: function (res) {} });
     });
   }, upRegData(param) {
     envVersion == 'develop' && console.log('----------upRegData-------------');checkLogin(function () {
@@ -405,6 +431,18 @@ function isIos() {
         adData.ad_id_tt = ad_id_tt;
       }if (creative_id) {
         adData.creative_id = creative_id;
+      }if (op_pageId) {
+        adData.pageId = op_pageId;
+      }if (op_tid) {
+        adData.tid = op_tid;
+      }if (op_lbid) {
+        adData.lbid = op_lbid;
+      }if (op_adid) {
+        adData.adid = op_adid;
+      }if (op_source) {
+        adData.source = op_source;
+      }if (query_str) {
+        adData.query_str = query_str;
       }wx.request({ url: adUrl, data: adData, method: 'post', header: { 'content-type': 'application/x-www-form-urlencoded' }, success: function (res) {}, fail: function (res) {}, complete: function (res) {} });
     });
   }, upCostData(param) {

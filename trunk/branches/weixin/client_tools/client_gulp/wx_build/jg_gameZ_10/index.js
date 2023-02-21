@@ -44,6 +44,7 @@ PF_INFO.tick = Date.now();
 
 PF_INFO.configType = "_weixin";
 PF_INFO.exposeType = "_a";
+PF_INFO.encryptParam = "";
 PF_INFO.loadingType = 2;
 PF_INFO.lastVersion = 1985;
 PF_INFO.wxVersion = window.versions.wxVersion;
@@ -155,6 +156,7 @@ window.toEnterGame = function(value) {
   window.ServerLoading.instance.closeAuthor();
   window.ServerLoading.instance.closeServer();
   window.ServerLoading.instance.closeLoading();
+  window.closeFillter();
 }
 
 window.onApiError = function(str) {
@@ -313,6 +315,10 @@ window.sdkLoginRetry = 5;
 window.sdkOnLogin = function(status, data) {
   if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
+    PF_INFO.wx_channel = data.wx_channel;
+    PF_INFO.video_type = data.video_type;
+    PF_INFO.zsy_tp_state = data.zsy_tp_state;
+    PF_INFO.ad_flag = data.ad_flag;
     var self = this;
     wxShowLoading({ title: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {
@@ -352,6 +358,10 @@ window.onUserLogin = function (response) {
     window.toErrorAlarm(2, "User.login fail: state="+response.state);
     window.reqRecordInfo("userLoginError", JSON.stringify(response));
     window.loginAlert('User.login failed: ' + response.state);
+    return;
+  }
+  if (response.ban_state == 1) {
+    window.loginAlert("账号已被封禁！");
     return;
   }
 
@@ -429,9 +439,7 @@ window.onUserLoginCheckServers = function(response) {
   }
   this.updCurServer(response);
 
-  if (window.ServerLoading && window.ServerLoading.instance.openJumpTipsBtn) {
-    window.ServerLoading.instance.openJumpTipsBtn(sdkInitRes.isShowSdkAge, sdkInitRes.sdk_age_adaptation_icon, sdkInitRes.sdk_age_adaptation_content, sdkInitRes.coordinate_x, sdkInitRes.coordinate_y)
-  }
+ 
 }
 window.updCurServer = function(response) {
   PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;
@@ -442,9 +450,14 @@ window.updCurServer = function(response) {
     'entry_port': parseInt(response.data[0].entry_port),
     'status': get_status(response.data[0]),
     'start_time': response.data[0].start_time,
+    'maintain_time': response.data[0].maintain_time ? response.data[0].maintain_time : "",
+    'is_recommend': response.data[0].is_recommend,
     'cdn': PF_INFO.cdn,
   }
   this.initComplete();
+  if (window.ServerLoading && window.ServerLoading.instance.openJumpTipsBtn) {
+    window.ServerLoading.instance.openJumpTipsBtn(sdkInitRes.isShowSdkAge, sdkInitRes.sdk_age_adaptation_icon, sdkInitRes.sdk_age_adaptation_content, sdkInitRes.coordinate_x, sdkInitRes.coordinate_y)
+  }
 }
 
 window.initComplete = function() {
@@ -462,6 +475,7 @@ window.initComplete = function() {
     wxHideLoading();
   }
   window.loadServer = true;
+    window.setFillter();
   window.initMain();
   window.enterToGame(); 
 }
@@ -511,6 +525,8 @@ window.reqPkgOptions = function() {
 }
 window.reqPkgOptionsCallBack = function(data) {
   if (data && data.state === "success" && data.data) {
+    data.data["normal_mini_game_pkg"] = "";
+    data.data["push_flower_pkg"] = 0;
     window.pkgOptions = data.data;
     for (var k in data.data) {
       PF_INFO[k] = data.data[k];
@@ -520,9 +536,33 @@ window.reqPkgOptionsCallBack = function(data) {
     console.info("reqPkgOptionsCallBack "+data.state);
   }
   window.loadOption = true;
+  window.setFillter();
   window.enterToGame(); 
 }
 
+//设置滤镜
+window.setFillter = function() {
+  if (!window.loadServer || !window.loadOption) return;
+  var isNew = PF_INFO.newRegister == 1;
+  var isShield = PF_INFO.wxShield;
+  var isCfg = PF_INFO.fillter_tm_pkg && PF_INFO.fillter_tm_pkg > 0;
+  if (isShield || (isNew && isCfg)) {
+    var color = PF_INFO.fillter_ui_pkg;
+    var isColor = color && color.length == 9;
+    if (isColor) {
+      window["ShieldColor"] = color;//格式：#RBGA
+    }
+    var noise = PF_INFO.fillter_mosaic_pkg;
+    var isNoise = noise && noise.split("#").length == 4;
+    if (isNoise) {
+      window["ShieldNoise"] = noise; //格式：随机数(0~100) # 透明度(0~1) # 马赛克宽 # 马赛克高
+    }
+  }
+}
+window.closeFillter = function() {
+  window["ShieldColor"] = null;
+  window["ShieldNoise"] = null;
+}
 
 window.toPay = function(roleId, roleName, roleLevel, roleCareer, productId, price, productName, productDesc, callback, appleprd_id) {
   productId = String(productId)
@@ -651,10 +691,10 @@ window.toRealName = function(callback) {
 }
 
 //调起分享
-window.openShare = function(callback){
-  AKSDK.share('share', function (data) {
-      callback && callback(data);
-  }); 
+window.openShare = function (callback, cardid) {
+  AKSDK.share('share', {activity_id: cardid},function (data) {
+    callback && callback(data);
+  });
 }
 //调起客服
 window.openService = function(){
@@ -1055,10 +1095,13 @@ window.req_privacy = function(pkgName, callback) {
 window.get_status = function (server) {
   if (server) {
     if (server.status == 1) {
-      if (server.online_status == 1)
+      if (server.online_status == 3) {
+        return 3;
+      } else if (server.online_status == 1) {
         return 2;
-      else
+      } else {
         return 1;
+      }
     } else if (server.status == 0) {
       return 0;
     } else {
@@ -1168,10 +1211,18 @@ window.initMain = function() {
         wxPC: window.PF_INFO.wxPC,
         wxIOS: window.PF_INFO.wxIOS,
         wxAndroid: window.PF_INFO.wxAndroid,
-        wxParam: {limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.config.from=="txcps" ? 1: 0), wxSDKVersion: window.SDKVersion},
+        wxParam: {limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.config.from=="txcps" ? 1: 0), wxSDKVersion: window.SDKVersion, qudao:"6kw"},
         configType: window.PF_INFO.configType, 
         exposeType: window.PF_INFO.exposeType,
-        scene:scene
+        scene: scene,
+        video_type: window.PF_INFO.video_type,
+        ad_flag: window.PF_INFO.ad_flag,
+      }
+      if (window.pkgOptions) {
+        for (var k in window.pkgOptions) {
+          if (!platData[k])
+            platData[k] = window.pkgOptions[k];
+        }
       }
       new window.MainWX(platData, window.PF_INFO.lastVersion, window.workerJsURL);
     }
@@ -1216,6 +1267,9 @@ window.enterToGame = function() {
         debugUsers: window.PF_INFO.debugUsers,
         wxMenuTop: top,
         wxShield: window.PF_INFO.wxShield,
+        encryptParam: window.PF_INFO.encryptParam,
+        wx_channel: window.PF_INFO.wx_channel,
+        zsy_tp_state: window.PF_INFO.zsy_tp_state,
       };
 
       if (window.pkgOptions) {
