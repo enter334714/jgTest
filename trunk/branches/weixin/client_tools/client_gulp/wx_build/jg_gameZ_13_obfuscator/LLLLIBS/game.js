@@ -1,2 +1,0 @@
-var Z = wx.$L;
-require(Z[0]);

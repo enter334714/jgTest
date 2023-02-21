@@ -1,2 +1,0 @@
-var u = wx.$x;
-import 'z8882Mz888Iz8882.js';

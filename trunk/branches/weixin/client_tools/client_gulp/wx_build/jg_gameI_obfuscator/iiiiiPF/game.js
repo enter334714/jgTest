@@ -1,1 +1,0 @@
-var Q=wx.$I;require("iiBF.js"),window[Q[148998]][Q[148999]][Q[149e3]]=null,window.client_pb=require("iiiCLIENTPB.js"),window[Q[145869]]=window[Q[148998]][Q[145757]][Q[145758]](client_pb);

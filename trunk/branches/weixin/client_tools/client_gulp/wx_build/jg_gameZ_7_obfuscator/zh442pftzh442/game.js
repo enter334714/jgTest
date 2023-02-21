@@ -1,2 +1,0 @@
-var E = wx.$F;
-require('zh44zh44Fzh44zh44.js'), window[E[0x1a87]][E[0x1a88]][E[0x1a89]] = null, window[E[0x1a8a]] = require('zh44zh44IENzh44zh44.js'), window[E[0x1a8b]] = window[E[0x1a87]][E[0x1a8c]][E[0x1a8d]](client_pb);

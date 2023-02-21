@@ -1,1 +1,0 @@
-var _=wx.y$;module.exports.APP_ID="wxa684d4c1364dba1e",module.exports.APP_VERSION="1006.0.0",module.exports.GAME_KEY="f6a9f2a6fb29c02f1ddf8bf1beaf126d",module.exports.offerId="1450036055",module.exports.commitId=332;

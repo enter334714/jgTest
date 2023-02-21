@@ -1,1 +1,0 @@
-require("ggggBuff.js"), window.protobuf.util.Long = null, window.client_pb = require("gggcleintpb.js"), window.protobufRoot = window.protobuf.Root.fromJSON(client_pb);

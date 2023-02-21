@@ -1,1 +1,0 @@
-var o=wx.$U;require("uBFuu.js"),window[o[340912]][o[340913]][o[340914]]=null,window.client_pb=require("uCLIENTuu.js"),window[o[340915]]=window[o[340912]][o[340916]][o[340917]](client_pb);

@@ -1,2 +1,0 @@
-var v = wx.$d;
-require('ddddBuff.js'), window[v[0x7b9d]][v[0x7b93]][v[0x7b24]] = null, window['client_pb'] = require('dddcleintpb.js'), window[v[0x677b]] = window[v[0x7b9d]][v[0x670b]][v[0x670c]](client_pb);

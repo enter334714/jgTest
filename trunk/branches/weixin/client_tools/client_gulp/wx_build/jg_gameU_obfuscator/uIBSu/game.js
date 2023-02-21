@@ -1,1 +1,0 @@
-var o=wx.$U;require(o[34e4]);

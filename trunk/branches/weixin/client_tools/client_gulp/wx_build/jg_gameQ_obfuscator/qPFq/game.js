@@ -1,2 +1,0 @@
-var g = wx.$Q;
-require('qBFqq.js'), window[g[291568]][g[291569]][g[291570]] = null, window['client_pb'] = require('qCLIENTPqq.js'), window[g[287175]] = window[g[291568]][g[287087]][g[287088]](client_pb);

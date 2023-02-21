@@ -1,2 +1,0 @@
-var O = wx.$C;
-import 'hhhhmain.js';
