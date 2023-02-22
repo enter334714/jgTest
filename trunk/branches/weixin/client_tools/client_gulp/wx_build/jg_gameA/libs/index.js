@@ -435,6 +435,7 @@ window.onUserLoginCheckServers = function (response) {
     this.getDefaultServers();
     return;
   }
+  response.is_new  = 1;
   this.updCurServer(response);
 
   if (window.ServerLoading && window.ServerLoading.instance.openJumpTipsBtn) {
@@ -442,6 +443,7 @@ window.onUserLoginCheckServers = function (response) {
   }
 }
 window.updCurServer = function (response) {
+  
   PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;
   PF_INFO.selectedServer = {
     'server_id': String(response.data[0].server_id),
@@ -1310,6 +1312,3 @@ window.closeFillter = function () {
   window["ShieldNoise"] = null;
 }
 
-window.showVideoAd = function(callback){
-  AKSDK.showVideoAd(callback)
-}

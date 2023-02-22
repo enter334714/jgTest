@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es5"
+    ],
+    "sourceMap": true,
+    "outFile": "bin/js/wechat_login.js",
+    "allowJs": true,
+    "removeComments": true
+  },
+  "include": [
+    "jslibs/*",
+    "jslibs/**/*",
+    "libs/*",
+    "libs/**/*",
+    "src/*",
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/ui/*"
+  ]
+}

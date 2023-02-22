@@ -83,7 +83,7 @@ var modify_scope = function () {
         var reg = /(return )[a-zA-Z\$_+" ]{0,30}(ret;)/g;
         var mch = contents.match(reg);
         if (mch && mch.length == 1) {
-            let repl = 'return ' + (PREFIX.length>0 ? '"'+PREFIX+'" + ' : "") + 'ret;';
+            var repl = 'return ' + (PREFIX.length>0 ? '"'+PREFIX+'" + ' : "") + 'ret;';
             contents = contents.replace(mch[0], repl);
             console.error("替换前缀参数成功：" + mch[0] + "  替换为  " + repl);
         } else {
@@ -1982,6 +1982,8 @@ gulp.task('build-all-Z_888', function (cb) {
 });
 
 /**-------------------------------------------------微信小游戏--Z_888-斯琪_主宰领域_混淆  end-----------------------------------------------------------*/
+
+
 var js_minify = function () {
     function onFile(file, enc, cb) {
         if (file.isStream()) {
