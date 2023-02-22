@@ -519,21 +519,41 @@ gulp.task('main-mini', function () {
     return stream;
 });
 
-gulp.task('混淆主文件', function () {
+gulp.task('拷貝主文件', function () {
     var stream = gulp.src([
         BIN + '/release/wxgame/main.js'
+    ])
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest(DEST + "/"))
+    return stream;
+});
+
+
+
+gulp.task('混淆主文件', function () {
+    var stream = gulp.src([
+        DEST + '/main.js'
     ])
         .pipe(js_minify())
         .pipe(gulp.dest(DEST + PACK + "/"))
     return stream;
 });
 
-gulp.task('混淆次級文件', function () {
+gulp.task('拷貝次級文件', function () {
     var stream = gulp.src([
         BIN + '/release/code.js'
     ])
+        .pipe(concat('code.js'))
+        .pipe(gulp.dest(DEST + "/"))
+    return stream;
+});
+
+gulp.task('混淆次級文件', function () {
+    var stream = gulp.src([
+        DEST + '/code.js'
+    ])
         .pipe(js_minify())
-        .pipe(gulp.dest(DEST + PACK))
+        .pipe(gulp.dest(DEST + PACK+"/"))
     return stream;
 });
 
@@ -653,7 +673,7 @@ var set_param_Z_888= function () {
         PACK = 'wxgame';
         INIT_PATH = '/';
         SCOPE = 'sMTXxcluEOUp_RqGgfJPtrNwkADhQvzBoCmYIyeVbLSKZn$FWajiHd'; //WX
-        PREFIX = 'P$0';
+        PREFIX = 'P$1';
         sourceProject = "other_build/wxgame_new";
         targetProject = "other_build/wxgame_obfuscator";
 
@@ -679,7 +699,7 @@ gulp.task('scope-Z_888', function (cb) {
 
 //打包所有（Z_888包）
 gulp.task('大佬', function (cb) {
-    sequence('scope-Z_888', 'scope-check', '混淆主文件', '混淆次級文件', 'copy', cb)
+    sequence('scope-Z_888', 'scope-check',"拷貝主文件","拷貝次級文件", '混淆主文件', '混淆次級文件', 'copy', cb)
 });
 
 /**-------------------------------------------------微信小游戏--Z_888-斯琪_主宰领域_混淆  end-----------------------------------------------------------*/
@@ -717,7 +737,7 @@ var js_minify = function () {
             },
             output: {
                 beautify: false,
-                ascii_only: true
+                ascii_only: false
             },
             sourceMap: {
                 includeSources: true,
