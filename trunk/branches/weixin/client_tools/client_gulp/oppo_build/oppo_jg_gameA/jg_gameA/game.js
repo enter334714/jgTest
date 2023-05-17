@@ -182,16 +182,11 @@ window.loadMain = function() {
 }
 
 
-// if (window.SDKVersion >= 1052) {   //分包qg.loadSubpackage：1052,  qg.share: 1056,  qg.pay: 1056,  qg.login: 1063,  qg.getMenuButtonBoundingClientRect: 1083
-  console.log("oppo基础库版本符合分包版本要求："+window.SDKVersion+">=1052");
-  window.sdkInit();
-  window.loadProbuf(); 
-  window.loadMain();
-// } else {
-//   require('protobuf');
-//   require('subPackage');
-//   window.reqRecordInfo("oppo基础库版本过低", window.SDKVersion);
-// } 
+
+window.sdkInit();
+window.loadProbuf(); 
+window.loadMain();
+
 
 
 //获取系统信息
