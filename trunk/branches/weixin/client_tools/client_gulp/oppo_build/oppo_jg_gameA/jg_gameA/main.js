@@ -1,2 +1,2 @@
 //入口文件
-import "./src/game.js";
+require("game.js");

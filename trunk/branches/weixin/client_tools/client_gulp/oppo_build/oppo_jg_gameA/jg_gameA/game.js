@@ -45,19 +45,19 @@ qg.onError(function (error) {
 })
 
 
-import "./libs/qgame-adapter";
-import "./libs/md5_min";
-import "./libs/zlib";
+require("./libs/qgame-adapter");
+require("./libs/md5_min");
+require("./libs/zlib");
 window["Parser"] = require("./libs/dom_parser");
-import "./index";
-import "./libs/libs_min";
-import "./libs/laya_vvmini";
-import "./init_min";
-
+require("./index");
+require("./libs/libs_min");
+require("./libs/laya.quickgamemini");
+require( "./init_min");
+Laya.QGMiniAdapter.init();
 
 console.info("1 初始化");
 
-Laya.Stage.FRAME_SLOW="fast"; //vivo小游戏需要60帧，锁屏下需要30帧
+Laya.Stage.FRAME_SLOW="fast"; 
 Laya.Stage.FRAME_SLEEP="slow";
 
 // 每个分包的图集不一样，采用传参形式
