@@ -1,4 +1,4 @@
-﻿import "./libs/vivo_aksdk";
+﻿import "./libs/oppo_aksdk";
 window.versions = {
   wxVersion: window.config.game_ver,
 };

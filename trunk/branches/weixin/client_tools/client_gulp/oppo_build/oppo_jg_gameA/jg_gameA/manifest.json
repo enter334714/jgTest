@@ -1,8 +1,8 @@
 {
-  "package": "com.qunong.tjqy.oppominigame",
+  "package": "com.qunong.tjqy.vivominigame",
   "name": "天剑奇缘",
-  "versionName": "145.0.1",
-  "versionCode": 14501,
+  "versionName": "1.0.1",
+  "versionCode": 101,
   "minPlatformVersion": 1060,
   "icon": "res/logo.png",
   "orientation": "portrait",
