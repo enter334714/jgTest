@@ -182,16 +182,16 @@ window.loadMain = function() {
 }
 
 
-if (window.SDKVersion >= 1052) {   //分包qg.loadSubpackage：1052,  qg.share: 1056,  qg.pay: 1056,  qg.login: 1063,  qg.getMenuButtonBoundingClientRect: 1083
-  console.log("vivo基础库版本符合分包版本要求："+window.SDKVersion+">=1052");
+// if (window.SDKVersion >= 1052) {   //分包qg.loadSubpackage：1052,  qg.share: 1056,  qg.pay: 1056,  qg.login: 1063,  qg.getMenuButtonBoundingClientRect: 1083
+  console.log("oppo基础库版本符合分包版本要求："+window.SDKVersion+">=1052");
   window.sdkInit();
   window.loadProbuf(); 
   window.loadMain();
-} else {
-  require('protobuf');
-  require('subPackage');
-  window.reqRecordInfo("vivo基础库版本过低", window.SDKVersion);
-} 
+// } else {
+//   require('protobuf');
+//   require('subPackage');
+//   window.reqRecordInfo("oppo基础库版本过低", window.SDKVersion);
+// } 
 
 
 //获取系统信息
@@ -265,7 +265,7 @@ window.memoryWarningNum = 0;
 window.onMemoryWarningCallBack = null;
 // qg.onMemoryWarning(function () {
 //   window.memoryWarningNum++;
-//   qg.triggerGC(); //vivo小游戏垃圾回收;
+//   qg.triggerGC(); //oppo小游戏垃圾回收;
 //   if (window.memoryWarningNum >= 2) {
 //     window.memoryWarningNum = 0;
 //     console.error('第二次内存警告');
