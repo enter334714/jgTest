@@ -1,5 +1,15 @@
-require('./partner_config.js');
-var config = sdk_conf;
+console.log("enter oppoSDK0")
+// var sdk_conf = require('./partner_config.js');
+console.log("enter oppoSDK1")
+console.log("enter oppoSDK33:")
+
+var config = {
+    game_id: '256',
+    game_pkg: 'tjqy_tjqyswoppoxyxb_AGK',
+    partner_id: '47',
+    game_ver: '1.0.3',
+    is_auth: false //授权登录
+  };
 var channel_name = 'OPPO';
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';

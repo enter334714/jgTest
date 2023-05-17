@@ -1,4 +1,6 @@
-﻿import "./libs/oppo_aksdk";
+﻿console.log("enter index.js0")
+require("./libs/oppo_aksdk.js");
+console.log("enter index.js1")
 window.versions = {
   wxVersion: window.config.game_ver,
 };

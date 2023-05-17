@@ -1,1 +1,1 @@
-import './main_min';
+require('subPackage/game.js')

@@ -44,19 +44,28 @@ qg.onError(function (error) {
   }
 })
 
+console.info("0 进入游戏包11:");
+// require("./libs/qgame-adapter.js");
+require("./libs/libs_min.js");
+console.info("0 进入游戏包2");
+require("./libs/md5_min.js");
+console.info("0 进入游戏包3");
+require("./libs/zlib.js");
+console.info("0 进入游戏包4");
+// window["Parser"] = require("./libs/dom_parser");
+console.info("0 进入游戏包5");
+require("./index.js");
+console.info("0 进入游戏包6");
 
-require("./libs/qgame-adapter");
-require("./libs/md5_min");
-require("./libs/zlib");
-window["Parser"] = require("./libs/dom_parser");
-require("./index");
-require("./libs/libs_min");
-require("./libs/laya.quickgamemini");
+require("./libs/laya.quickgamemini.js");
+console.info("0 进入游戏包8:",Laya.QGMiniAdapte);
 Laya.QGMiniAdapter.init();
-require( "./init_min");
+console.info("0 进入游戏包9");
+require( "./init_min.js");
 console.info("1 初始化");
 
 Laya.Stage.FRAME_SLOW="fast"; 
+console.info("0 进入游戏包10");
 Laya.Stage.FRAME_SLEEP="slow";
 
 // 每个分包的图集不一样，采用传参形式

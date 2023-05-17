@@ -1,1 +1,1 @@
-require("./game.js");
+require('subPackage/game.js')

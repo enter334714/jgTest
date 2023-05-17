@@ -5,3 +5,4 @@
   game_ver: '1.0.3',
   is_auth: false //授权登录
 };
+module.exports = sdk_conf;

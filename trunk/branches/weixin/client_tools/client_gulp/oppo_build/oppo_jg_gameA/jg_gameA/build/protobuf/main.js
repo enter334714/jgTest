@@ -1,1 +1,1 @@
-require("./game.js");
+require('protobuf/game.js')
