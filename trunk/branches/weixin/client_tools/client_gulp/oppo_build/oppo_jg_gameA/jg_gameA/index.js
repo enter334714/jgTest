@@ -221,22 +221,40 @@ window.reqRecordInfo = function (error, stack) {
 window.clientlog = function (info) {
   if (window.PF_INFO.wxPlatform == "devtools") return;
   var url = PF_INFO.clientlog + "?account=" + PF_INFO.account;
-  qg.request({
-    url: url,
-    method: "POST",
-    data: info,
-    header: {
-      "content-type": "application/json",
-      "cache-control": "no-cache"
-    },
-    success: function (res) {
-      DEBUG && console.log("clientlog:", url, info, res);
-    },
-    fail: function (res) {
-      DEBUG && console.log("clientlog:", url, info, res);
-    },
-    complete: function () { }
-  })
+  // qg.request({
+  //   url: url,
+  //   method: "POST",
+  //   data: info,
+  //   header: {
+  //     "content-type": "application/json",
+  //     "cache-control": "no-cache"
+  //   },
+  //   success: function (res) {
+  //     DEBUG && console.log("clientlog:", url, info, res);
+  //   },
+  //   fail: function (res) {
+  //     DEBUG && console.log("clientlog:", url, info, res);
+  //   },
+  //   complete: function () { }
+  // })
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function(){
+    if(xhr.readyState === 4 && xhr.status === 200) {
+      console.log(xhr.responseText)
+    }
+  }
+  xhr.onerror = function (e) {
+    console.log("OPPO请求错误URL:",url,"STATUS:",xhr.statusText);
+  };
+  xhr.ontimeout = function(e) {
+    console.error("OPPO请求超时URL:",url)
+  }
+  xhr.timeout  = 15000;
+  xhr.open("POST", url);
+  xhr.setRequestHeader( "content-type","application/json");
+  xhr.setRequestHeader( "cache-control", "no-cache");
+  xhr.send(info)
 }
 
 
@@ -777,38 +795,71 @@ window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess,
       }
     }
   }
-  qg.request({
-    url: url,
-    dataType: "text",
-    method: reqType || "GET",
-    header: { 'content-type': contentType || 'application/json' },
-    data: data,
-    success: function (ret) {
-      if (ret.statusCode == 200 || ret.statusCode == 301) {
-        var response = ret.data;
-        response = JSON.parse(response);
-        console.log("send reply url：" + url + ", response：" + JSON.stringify(response));
+  // qg.request({
+  //   url: url,
+  //   dataType: "text",
+  //   method: reqType || "GET",
+  //   header: { 'content-type': contentType || 'application/json' },
+  //   data: data,
+  //   success: function (ret) {
+  //     if (ret.statusCode == 200 || ret.statusCode == 301) {
+  //       var response = ret.data;
+  //       response = JSON.parse(response);
+  //       console.log("send reply url：" + url + ", response：" + JSON.stringify(response));
 
-        if (!checkSuccess || checkSuccess(response)) {
-          if (callBack) {
-            callBack(response);
-          }
-          return;
-        } else {
-          console.log("url success Fail :", url, "response:", response);
-          console.error(response);
+  //       if (!checkSuccess || checkSuccess(response)) {
+  //         if (callBack) {
+  //           callBack(response);
+  //         }
+  //         return;
+  //       } else {
+  //         console.log("url success Fail :", url, "response:", response);
+  //         console.error(response);
+  //       }
+  //     }
+  //     failFunc(url, data, callBack, retryAmount, errorCB, checkSuccess, ret.statusCode, ret.data, contentType);
+  //   },
+  //   fail: function (error, code) {
+  //     console.log("url fail:", url, "error:", error, "code:", code)
+  //     failFunc(url, data, callBack, retryAmount, errorCB, checkSuccess, -1, { error: error, code: code }, contentType);
+  //   },
+  //   complete:function(res){
+  //     console.log("url request complete:",url,"res:",res)
+  //   }
+  // });
+
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var response = xhr.response;
+      response = JSON.parse(response);
+      console.log("send reply url：" + url + ", response：" + JSON.stringify(response));
+
+      if (!checkSuccess || checkSuccess(response)) {
+        if (callBack) {
+          callBack(response);
         }
+        return;
+      } else {
+        console.log("url success Fail :", url, "response:", response);
+        console.error(response);
       }
-      failFunc(url, data, callBack, retryAmount, errorCB, checkSuccess, ret.statusCode, ret.data, contentType);
-    },
-    fail: function (error, code) {
-      console.log("url fail:", url, "error:", error, "code:", code)
-      failFunc(url, data, callBack, retryAmount, errorCB, checkSuccess, -1, { error: error, code: code }, contentType);
-    },
-    complete:function(res){
-      console.log("url request complete:",url,"res:",res)
     }
-  });
+    failFunc(url, data, callBack, retryAmount, errorCB, checkSuccess, ret.statusCode, ret.data, contentType);
+  }
+  xhr.responseType = "text";
+  xhr.onerror = function (e) {
+    console.log("OPPO请求错误URL:",url,"STATUS:",xhr.statusText);
+  };
+  xhr.ontimeout = function(e) {
+    console.error("OPPO请求超时URL:",url)
+  }
+  xhr.timeout  = 15000;
+  xhr.open("GET", url);
+  xhr.setRequestHeader( "content-type","application/json");
+  // xhr.setRequestHeader( "cache-control", "no-cache");
+  xhr.send()
 }
 
 window.sendApi = function (apiurl, method, param, callBack, retryAmount, errorCallBack, checkSuccess) {
