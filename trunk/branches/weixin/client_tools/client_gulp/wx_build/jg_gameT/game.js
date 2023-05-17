@@ -289,13 +289,14 @@ wx.onNetworkStatusChange(function (res) {
 })
 //监听小游戏切前台事件
 wx.onShow(function (res) {
-  window.onShowData = res;
-  if (window.onShowCallback && window.onShowData) {
-    console.info("小游戏切前台事件，场景值："+window.onShowData.scene);
-    window.onShowCallback(window.onShowData);
-    window.onShowData = null;
-  }
+    wx.onShowData = res;
+    if (wx.onShowCallback && wx.onShowData) {
+        console.info("小游戏切前台事件，场景值："+wx.onShowData.scene);
+        wx.onShowCallback(wx.onShowData);
+        wx.onShowData = null;
+    }
 })
+
 
 wx.onHide(function(){
   console.info("小游戏进入后台");

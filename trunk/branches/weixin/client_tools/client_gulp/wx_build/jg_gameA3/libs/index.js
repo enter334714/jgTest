@@ -234,7 +234,7 @@ window.clientlog = function (info) {
       DEBUG && console.log("clientlog:", url, info, res);
     },
     fail: function (res) {
-      DEBUG &&  console.log("clientlog:", url, info, res);
+      DEBUG && console.log("clientlog:", url, info, res);
     },
     complete: function () { }
   })
@@ -264,14 +264,13 @@ window.sdkInit = function () {
   wxShowLoading({ title: '正在初始化' });
   AKSDK.init(initData, this.sdkOnInited.bind(this));
 }
-
 /*sdk初始化回调*/
 window.sdkOnInited = function (res) {
   var develop = res.develop;
   sdkInitRes = res;
   // res.game_ver = "1.0.86";
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
-  console.log("#初始化成功   提审状态:" + develop + "   是否提审:" + (develop == 1) + "   提审版本号:" + res.game_ver + "   当前版本号:" + window.versions.wxVersion + "   version_name:" + res.version_name); //develop为1的时候说明当前game_ver是提审版本
+  console.log("#初始化成功   提审状态:" + develop + "   是否提审:" + (develop == 1) + "   提审版本号:" + res.game_ver + "   当前版本号:" + window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
   if (!res.game_ver || window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
     console.log("#正式版=============================");
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
@@ -279,14 +278,6 @@ window.sdkOnInited = function (res) {
     PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
     PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixingf_1/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixingf_1/";
-    if (!res || !res.version_name) {       
-        var obj = {};
-        for(var key in res){
-          if(key != "sdk_age_adaptation_content")
-            obj[key] = res[key]
-        }
-        window.reqRecordError(JSON.stringify({error:"sdkOnInited 测试 version_name error version_name:" + JSON.stringify(obj)}));
-    }
     PF_INFO.version_name = res.version_name || "weixingf";
     PF_INFO.wxShield = false;
   } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0) {  //当前版本 == 后台版本
@@ -309,6 +300,7 @@ window.sdkOnInited = function (res) {
     PF_INFO.wxShield = false;
   }
   PF_INFO.from_scene = config.from ? config.from : 0;
+
   this.loadVersionConfig();
   this.reqPkgOptions();
 
@@ -444,10 +436,6 @@ window.onUserLoginCheckServers = function (response) {
     return;
   }
   this.updCurServer(response);
-
-  if (window.ServerLoading && window.ServerLoading.instance.openJumpTipsBtn) {
-    window.ServerLoading.instance.openJumpTipsBtn(sdkInitRes.isShowSdkAge, sdkInitRes.sdk_age_adaptation_icon, sdkInitRes.sdk_age_adaptation_content, sdkInitRes.coordinate_x, sdkInitRes.coordinate_y)
-  }
 }
 window.updCurServer = function (response) {
   PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;
@@ -462,29 +450,40 @@ window.updCurServer = function (response) {
     'is_recommend': response.data[0].is_recommend,
     'cdn': PF_INFO.cdn,
   }
-  this.initComplete();
+  this.loginComplete();
+}
+
+window.loginComplete = function () {
+  window.loadServer = true;
+  window.initComplete();
 }
 
 window.initComplete = function () {
-  if (PF_INFO.newRegister == 1) { //新用户，发送验证
-    var status = PF_INFO.selectedServer.status;
-    if (status === -1 || status === 0) {
-      window.toErrorAlarm(15, 'new register selectedServer status error: id=' + PF_INFO.selectedServer.id + ',status=' + PF_INFO.selectedServer.status);
-      window.loginAlert(status === -1 ? "当前服务器在维护中" : "当前服务器尚未开启，敬请期待");
-      return;
+  if (window.loadServer && window.loadOption) {
+      //0：默认关闭，1：广告量开启，2：自然量开启，3：全部开启
+      var privacyBgCfg = PF_INFO.privacy_wx_login_pkg != undefined ? PF_INFO.privacy_wx_login_pkg : 0; 
+      var adFlag = PF_INFO.ad_flag == undefined ? 0 : PF_INFO.ad_flag;
+      var privacyOpen = ((privacyBgCfg == 1 && adFlag == 1) || (privacyBgCfg == 2 && adFlag != 1) || (privacyBgCfg == 3));
+      console.info("newRegister:" + PF_INFO.newRegister + ", privacyOpen:" + privacyOpen + ", ad_flag:" + PF_INFO.ad_flag + ", privacy_wx_login_pkg:" + PF_INFO.privacy_wx_login_pkg);
+      if (!privacyOpen && PF_INFO.newRegister == 1) { //没开启用户隐私，新用户直接发送验证跳过选服
+        var status = PF_INFO.selectedServer.status;
+        if (status === -1 || status === 0) {
+          window.toErrorAlarm(15, 'new register selectedServer status error: id=' + PF_INFO.selectedServer.id + ',status=' + PF_INFO.selectedServer.status);
+          window.loginAlert(status === -1 ? "当前服务器在维护中" : "当前服务器尚未开启，敬请期待");
+          return;
+        }
+        req_server_check_ban(0, PF_INFO.selectedServer.server_id);
+        window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
+      } else { //老用户，进游戏的选服界面
+        wx.onTouchEnd(window.subscribeWhatsNew);
+        window.ServerLoading.instance.openServer({show:sdkInitRes.isShowSdkAge, skinUrl:sdkInitRes.sdk_age_adaptation_icon, content:sdkInitRes.sdk_age_adaptation_content, x:sdkInitRes.coordinate_x, y:sdkInitRes.coordinate_y});
+        wxHideLoading();
+      }
+      window.setFillter();
+      window.initMain();
+      window.enterToGame();
     }
-    req_server_check_ban(0, PF_INFO.selectedServer.server_id);
-    window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
-  } else { //老用户，进游戏的选服界面
-    wx.onTouchEnd(window.subscribeWhatsNew);
-    window.ServerLoading.instance.openServer();
-    wxHideLoading();
   }
-  window.loadServer = true;
-  window.setFillter();
-  window.initMain();
-  window.enterToGame();
-}
 
 // 加载version_config版本文件，读取lastVersion号，外网是从后台请求获取
 window.loadVersionConfig = function () {
@@ -540,8 +539,7 @@ window.reqPkgOptionsCallBack = function (data) {
     console.info("reqPkgOptionsCallBack " + data.state);
   }
   window.loadOption = true;
-  window.setFillter();
-  window.enterToGame();
+  window.initComplete();
 }
 
 
@@ -683,8 +681,8 @@ window.openService = function () {
 }
 
 //微端引导
-window.microPortGuide = function () {
-  AKSDK.weiduanHelper();
+window.microPortGuide = function (type) {
+  AKSDK.weiduanHelper(type);
 }
 
 //绑定有礼请求短信验证码
@@ -1316,4 +1314,8 @@ window.setFillter = function () {
 window.closeFillter = function () {
   window["ShieldColor"] = null;
   window["ShieldNoise"] = null;
+}
+
+window.showVideoAd = function(callback){
+  AKSDK.showVideoAd(callback)
 }

@@ -1,0 +1,46 @@
+{
+  "_from": "@datarangers/sdk-qg",
+  "_id": "@datarangers/sdk-qg@2.1.1",
+  "_inBundle": false,
+  "_integrity": "sha512-CWMVgHntyuiB1ejN/kFdFJ069lqFgkLvqSHqamaJ51L34mwzTGDfSxGUX4HOCPQm4SicTZaQwSRoaqlaaO4eGA==",
+  "_location": "/@datarangers/sdk-qg",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@datarangers/sdk-qg",
+    "name": "@datarangers/sdk-qg",
+    "escapedName": "@datarangers%2fsdk-qg",
+    "scope": "@datarangers",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@datarangers/sdk-qg/-/sdk-qg-2.1.1.tgz",
+  "_shasum": "be033db40d03f0a9a41e1ee0ebadce6880a30dd6",
+  "_spec": "@datarangers/sdk-qg",
+  "_where": "F:\\workSpace\\waiFangWX\\jg_gameZ_108",
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "",
+  "files": [
+    "esm",
+    "umd",
+    "og8t.js",
+    "index.d.ts",
+    "index.umd.js",
+    "index.umd.d.ts",
+    "sdk.d.ts",
+    "README.md"
+  ],
+  "main": "index.umd.js",
+  "miniprogram": ".",
+  "module": "og8t.js",
+  "name": "@datarangers/sdk-qg",
+  "types": "index.d.ts",
+  "version": "2.1.1"
+}

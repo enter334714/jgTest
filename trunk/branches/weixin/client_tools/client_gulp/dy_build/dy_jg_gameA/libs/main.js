@@ -54,8 +54,7 @@ import "libs.min.js";
 import "laya.wxmini.js";
 import "init.min.js";
 import "recorder.js";
-window.Matter = require('matter.min.js');
-require('LayaRender.js');
+
 
 console.info("3 libs初始化完成");
 

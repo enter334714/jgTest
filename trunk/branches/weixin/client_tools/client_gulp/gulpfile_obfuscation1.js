@@ -343,6 +343,7 @@ gulp.task('build-debug', function (cb) {
 //混淆
 gulp.task('build-babel-obfuscator-Z_999', function (cb) {
     // sequence("set-param-Z_999","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+    // sequence("set-param-Z_999","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-myDebugthm-obfuscator',  'build-myDebugMainJs-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
     sequence("set-param-Z_999","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-myDebugthm-obfuscator',  'build-myDebugMainJs-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 
 });
@@ -439,8 +440,8 @@ gulp.task('set-param-Z_999', function () {
 //混淆
 gulp.task('build-babel-obfuscator-Z_888', function (cb) {
     // sequence("set-param-Z_999","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'build-libs-obfuscator', 'build-protobuf-obfuscator', 'build-subPackage-obfuscator','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
-    sequence("set-param-Z_888","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'cocos','myMainJs','myProtoJs','ledege_other','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
-    // sequence("set-param-Z_888","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier',  'build-js-babel', 'cocos','myMainJs','myProtoJs',"cleanGameJs",'build-end-babel',cb);
+    // sequence("set-param-Z_888","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'cocos','myMainJs','myProtoJs','ledege_other','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
+     sequence("set-param-Z_888","CleanNewFolder","MT1_COPY",'MT1_COPY2',"MT1_build_minify",'build-identifier', 'build-js-babel-source-string-check', 'build-js-babel', 'main文件','code文件','ledege_other','build-js-babel-target-string-check','build-js-babel-target-string', "renameGameJs","cleanGameJs",'build-end-babel',cb);
 
 });
 
@@ -453,34 +454,34 @@ var set_param_Z_888 = function () {
             return cb();
         }
 
-        DEST = '../../client/wx_dist/packageZ_888/';
-        BUILD = 'wx_build/';
-        PACK = 'jg_gameZ_888';
+        DEST = 'wx_dist/package_wxgame/';
+        BUILD = 'other_build/';
+        PACK = 'wxgame';
         INIT_PATH = '/';
         // SCOPE = 'abcdefghklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_ij';
-        PREFIX = 'C$zu';
-        sourceProject = "wx_build/jg_gameZ_888_new";
-        targetProject = "wx_build/jg_gameZ_888_obfuscator";
+        PREFIX = '$pp';
+        sourceProject = "other_build/wxgame_new";
+        targetProject = "other_build/wxgame_obfuscator";
         targetFileMap[targetGameJs] = {url:"game_main.js",extractStr:false,count:5,strLen:13};
-        mainJsName = "z9992Mz999Iz9992.js";
-        libsMainJs = "z9992Gz999MEz9992.js";
-        packageName1 = "myMainJs";
-        packageName2 = "myProtoJs";
-        packageName3 = "z999z999z999z999z999";
-        var clinetPbName = "z999z999IENz999z999.js";
+        mainJsName = "main.js";
+        libsMainJs = "code.js";
+        // packageName1 = "myMainJs";
+        // packageName2 = "myProtoJs";
+        // packageName3 = "z999z999z999z999z999";
+        // var clinetPbName = "z999z999IENz999z999.js";
         filesMap = {
             //extractStr是否提取字符串，count 提取出现大于等于的且字符串长度大于strLen replace是否替换文件里面的资源名称 addGlobleKeys0 是否添加全局变量
             // "myMainJs": {url:packageName1},
             // "myProtoJs": {url:packageName2},
-            "myMainJs/project.js": {url:"myMainJs/project.js",extractStr:true,count:1,strLen:1},
-            "myProtoJs/protolib.js": {url:"myProtoJs/protolib.js",extractStr:true,count:1,strLen:1},
-            "src/7cwan_sdk.js": {url:"src/7cwan_sdk.js",extractStr:true,count:1,strLen:1},
-            "src/settings.js": {url:"src/settings.js",extractStr:true,count:1,strLen:1},
-            // "src/zlib.min.js": {url:"src/zlib.min.js",extractStr:true,count:1,strLen:2},
-            "cocos/cocos2d-js-min.js": {url:"cocos/cocos2d-js-min.js",extractStr:true,count:1,strLen:1},
             "main.js": {url:"main.js",extractStr:true,count:1,strLen:1},
-            "ccRequire.js": {url:"ccRequire.js",extractStr:true,count:1,strLen:1},
-            "game.js": {url:"game.js",extractStr:true,count:1,strLen:1},
+            "code.js": {url:"code.js",extractStr:true,count:1,strLen:1},
+            // "src/7cwan_sdk.js": {url:"src/7cwan_sdk.js",extractStr:true,count:1,strLen:1},
+            // "src/settings.js": {url:"src/settings.js",extractStr:true,count:1,strLen:1},
+            // // "src/zlib.min.js": {url:"src/zlib.min.js",extractStr:true,count:1,strLen:2},
+            // "cocos/cocos2d-js-min.js": {url:"cocos/cocos2d-js-min.js",extractStr:true,count:1,strLen:1},
+            // "main.js": {url:"main.js",extractStr:true,count:1,strLen:1},
+            // "ccRequire.js": {url:"ccRequire.js",extractStr:true,count:1,strLen:1},
+            // "game.js": {url:"game.js",extractStr:true,count:1,strLen:1},
             // "adapter-min.js": {url:"adapter-min.js",extractStr:true,count:1,strLen:3},
             // "init.min.js":  {url:packageName1+"/z999z999INIz999az999.js",extractStr:true,count:1,strLen:3,replace:true},
             // "libs/dom.js":  {url:packageName1+"/z999z999DOz999z999.js"},
@@ -502,7 +503,7 @@ var set_param_Z_888 = function () {
         strFilePath = "/Z9991es";
         strFileName = "/Z9991iles.zip";
         // globleKeys = ["$e", "w", "x", "E$", "y"];
-        globleKeys = ["$F", "H", "f", "f3", "f"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
+        globleKeys = ["$F", "H", "f", "z3", "z"]; //数组全局变量名、数组局部变量名、全局标识符设置前缀、替换全局标识符前缀,为所有全局标识符设置前缀
         noReplaceJs = packageName1+"/game.js";
         arrIndex = 0;
         globleArrs = new Array(arrIndex);
@@ -543,7 +544,8 @@ gulp.task('set-param-Z_888', function () {
 //压缩
 gulp.task('MT1_build_minifyTargetProject', function () {
     var sourceUrl =  targetProject;// "wx_build/jg_gameMT1_new";
-    var srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/**/protolib.js',"!" + sourceUrl + '/**/project.js',"!" + sourceUrl + '/**/cocos2d-js-min.js'];
+    // var srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/**/protolib.js',"!" + sourceUrl + '/**/project.js',"!" + sourceUrl + '/**/cocos2d-js-min.js'];
+    var srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/**/code.js',"!" + sourceUrl + '/**/main.js'];
     if(PREFIX == "G" || PREFIX=="k$" || PREFIX == "J_" || buildPACK == "Z_21"){
         //g,j包SDK都不處理
         srcs = [sourceUrl + '/**/*.js', "!" + sourceUrl + '/utils/**/*.js',"!" + sourceUrl + '/**/'+mainJsName];
@@ -1616,11 +1618,27 @@ gulp.task("myProtoJs", function () {
     return stream;
 });
 
+gulp.task("main文件", function () {
+    var stream = gulp
+        .src(targetProject + '/' + 'main.js')
+        .pipe(js_obfuscator(1,true))
+        .pipe(gulp.dest(targetProject + '/'))
+    return stream;
+});
+
+gulp.task("code文件", function () {
+    var stream = gulp
+        .src(targetProject + '/' + 'code.js')
+        .pipe(js_obfuscator(1,false))
+        .pipe(gulp.dest(targetProject + '/'))
+    return stream;
+});
+
 gulp.task("ledege_other", function () {
-    var srcs = [targetProject + '/**/*.js', "!" + targetProject + '/**/protolib.js',"!" + targetProject + '/**/project.js',"!" + targetProject + '/**/cocos2d-js-min.js'];
+    var srcs = [targetProject + '/**/*.js', targetProject + '/**/*.atlas',"!" + targetProject + '/**/code.js',"!" + targetProject + '/**/main.js'];
     var stream = gulp
         .src(srcs)
-        .pipe(js_obfuscator(1,true))
+        // .pipe(js_obfuscator(1,true))
         .pipe(gulp.dest(targetProject + '/'))
     return stream;
 });
@@ -1674,7 +1692,7 @@ gulp.task('CleanNewFolder',function(){
 })
 
 gulp.task('MT1_COPY', function () {
-    var sourceUrl = "wx_build/"+ PACK;
+    var sourceUrl = BUILD + PACK;
     var targetUrl =  sourceProject;
     return gulp.src(sourceUrl + "/" + '/**/*')
         .pipe(rename(function (path) {
@@ -1795,29 +1813,29 @@ gulp.task('MT1_COPY', function () {
         .pipe(replace(/( name: 'packages')/g, "name: " + "'" + packageName1 + "'"))
         .pipe(replace(/( name: 'main')/g, "name: " + "'" + packageName3 + "'"))
         .pipe(replace(/( name: 'probuf')/g, "name: " + "'" + packageName2 + "'"))
-        .pipe(through.obj(function (file, encode, cb) {
-            // console.log("file:",file,"encode:",encode);
-            if (file.relative == "game.json") {
-                var result = file.contents.toString();
-                var json = JSON.parse(result);
-                console.log("修改game.json：修改分包")
-                json.subpackages = [
-                    {
-                        "name": packageName1,
-                        "root": packageName1+"/"
-                    },
-                    {
-                        "name": packageName2,
-                        "root": packageName2+"/"
-                    },
-                ];
-                console.log(json)
-                file.contents = Buffer.from(JSON.stringify(json), "utf-8")
-
-            }
-            this.push(file);
-            cb();
-        }))
+        // .pipe(through.obj(function (file, encode, cb) {
+        //     // console.log("file:",file,"encode:",encode);
+        //     if (file.relative == "game.json") {
+        //         var result = file.contents.toString();
+        //         var json = JSON.parse(result);
+        //         console.log("修改game.json：修改分包")
+        //         json.subpackages = [
+        //             {
+        //                 "name": packageName1,
+        //                 "root": packageName1+"/"
+        //             },
+        //             {
+        //                 "name": packageName2,
+        //                 "root": packageName2+"/"
+        //             },
+        //         ];
+        //         console.log(json)
+        //         file.contents = Buffer.from(JSON.stringify(json), "utf-8")
+        //
+        //     }
+        //     this.push(file);
+        //     cb();
+        // }))
         .pipe(gulp.dest(targetUrl + '/'))
 });
 

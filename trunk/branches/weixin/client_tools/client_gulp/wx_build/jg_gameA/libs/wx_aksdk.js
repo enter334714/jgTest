@@ -1,4 +1,3 @@
-import Dall from './helper'
 import config from './partner_config.js'
 window.config = config;
 var PARTNER_SDK = mainSDK();
@@ -80,13 +79,15 @@ function mainSDK() {
             var cp_activity_id  = info.query && info.query.cp_activity_id ? info.query.cp_activity_id : '';
             var invite_type = info.query && info.query.invite_type ? info.query.invite_type : '';
             var video_type = info.query && info.query.video_type ? info.query.video_type : '';
+            var s_t = info.query && info.query.s_time ? info.query.s_time : 0;
             if(invite || cp_activity_id){
                 user_invite_info = {
                     invite: invite,
                     invite_type: invite_type,
                     is_new: is_new,
                     scene: scene,
-                    cp_activity_id: cp_activity_id
+                    cp_activity_id: cp_activity_id,
+                    s_t:s_t,
                 };
             }
 
@@ -546,7 +547,8 @@ function mainSDK() {
                     type: type,
                     server_id: user_game_info ? user_game_info.server_id : '',
                     role_id: user_game_info ? user_game_info.role_id : '',
-                    no_log: 1 //设置为1后就不在这个接口打log，交给logStartShare接口
+                    no_log: 1, //设置为1后就不在这个接口打log，交给logStartShare接口
+                    ad_code:wx.getStorageSync('plat_ad_code'),
                 },
                 success: function (res) {
                     console.log("[SDK]获取分享参数结果");
@@ -995,6 +997,7 @@ function mainSDK() {
                     openid: wx.getStorageSync('partner_openid'),
                     uid:wx.getStorageSync('plat_uid'),
                     game_id:config.game_id,
+                    s_t:user_invite_info.s_t,
                 },
                 success: function (res) {
                     console.log("[SDK]getInviter结果返回:");
@@ -1143,7 +1146,15 @@ function mainSDK() {
                 videoAd.onError((err) => {
                     console.log("video onError");
                 })
-                videoAd.onClose((res) => {
+                try{
+                    if(videoAd.closeHandler){
+                        videoAd.offClose(videoAd.closeHandler);
+                        console.log("videoAd.offClose卸载成功");
+                    }
+                }catch{
+                    console.log("videoAd.offClose卸载失败");
+                }
+                videoAd.closeHandler = function(res){
                     console.log("video onClose");
                     if (res && res.isEnded || res === undefined) {
                         // 正常播放结束，可以下发游戏奖励
@@ -1155,7 +1166,8 @@ function mainSDK() {
                         console.log("播放中途退出，不下发游戏奖励");
                         callback(0)
                     }
-                })
+                }
+                videoAd.onClose(videoAd.closeHandler)
             }
 
             // 用户触发广告后，显示激励视频广告
@@ -1166,7 +1178,7 @@ function mainSDK() {
                         .then(() => videoAd.show())
                         .catch(err => {
                             console.log('激励视频 广告显示失败')
-                            callback(0)
+                            callback(2)
                         })
                 })
             }
@@ -1229,10 +1241,52 @@ function mainSDK() {
         },
 
         // 微端小助手
-        weiduanHelper: function() {
-            var da = new Dall()
-            da.stebutonanimation(config.partner_id,config.game_pkg,config.game_id);
+        weiduanHelper: function(type) {
+            let  username = wx.getStorageSync('plat_username');
+            if(type ==undefined || type == '' || type == null){
+                type = 1;
+            }
+            let sign="";
+            let ts= Date.now();
+            console.log('用户username：'+username)
+            let that = this
+            wx.request({
+                url: 'https://' + HOST + '/partner/data/guide_download/' + config.partner_id + '/' + config.game_pkg,
+                method: 'POST',
+                dataType: 'json',
+                header: {
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                data: {
+                    username:username,
+                    ts:ts
+                },
+                success: function (res) {
+                    sign = res.data.data;
+                    that.Getto(username,ts,sign,config.game_id,config.game_pkg,type);
+                }
+            });
         },
+        Getto:function (username,ts,sign,game_id,game_pkg,type){
+            var appid= wx.getStorageSync('navigate_app_id');
+            var appid = appid?appid:'wx81d91c0166099f18';
+            wx.navigateToMiniProgram({
+                appId: appid,
+                path: 'pages/chat/chat?username=' + username+ '&ts=' + ts + '&sign=' + sign +'&type=' + game_id+'&game_pkg='+game_pkg+"&weiduantype="+type,
+                extraData: {
+                    foo: 'bar'
+                },
+                envVersion: 'release',
+                success(res) {
+                    wx.showToast({
+                        title: '跳转成功'
+                    })
+                },
+                fail:function(res){
+                    console.log("跳转失败原因"+JSON.stringify(res));
+                }
+            })
+        }
     }
 }
 
@@ -1315,8 +1369,8 @@ exports.getConfig = function () {
 exports.getPublicData = function(){
     run('getPublicData');
 };
-exports.weiduanHelper = function () {
-    run('weiduanHelper');
+exports.weiduanHelper = function (type) {
+    run('weiduanHelper',type);
 };
 
 exports.subscribeWhatsNew = function (data, callback) {

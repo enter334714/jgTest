@@ -80,7 +80,7 @@ var modify_scope = function () {
         }
 
         //替换 return ret;
-        var reg = /(return )[a-zA-Z\$_+" ]{0,30}(ret;)/g;
+        var reg = /(return )[a-zA-Z\$_+" ]{0,20}(ret;)/g;
         var mch = contents.match(reg);
         if (mch && mch.length == 1) {
             var repl = 'return ' + (PREFIX.length>0 ? '"'+PREFIX+'" + ' : "") + 'ret;';
@@ -521,10 +521,10 @@ gulp.task('main-mini', function () {
 
 gulp.task('拷貝主文件', function () {
     var stream = gulp.src([
-        BIN + '/release/wxgame/main.js'
+        BIN + '/main.js'
     ])
         .pipe(concat('main.js'))
-        .pipe(gulp.dest(DEST + "/"))
+        .pipe(gulp.dest(DEST + PACK + "/"))
     return stream;
 });
 
@@ -532,7 +532,7 @@ gulp.task('拷貝主文件', function () {
 
 gulp.task('混淆主文件', function () {
     var stream = gulp.src([
-        DEST + '/main.js'
+        DEST + PACK +'/main.js'
     ])
         .pipe(js_minify())
         .pipe(gulp.dest(DEST + PACK + "/"))
@@ -541,16 +541,16 @@ gulp.task('混淆主文件', function () {
 
 gulp.task('拷貝次級文件', function () {
     var stream = gulp.src([
-        BIN + '/release/code.js'
+        BIN + '/code.js'
     ])
         .pipe(concat('code.js'))
-        .pipe(gulp.dest(DEST + "/"))
+        .pipe(gulp.dest(DEST + PACK +"/"))
     return stream;
 });
 
 gulp.task('混淆次級文件', function () {
     var stream = gulp.src([
-        DEST + '/code.js'
+        DEST + PACK+ '/code.js'
     ])
         .pipe(js_minify())
         .pipe(gulp.dest(DEST + PACK+"/"))
@@ -673,7 +673,7 @@ var set_param_Z_888= function () {
         PACK = 'wxgame';
         INIT_PATH = '/';
         SCOPE = 'sMTXxcluEOUp_RqGgfJPtrNwkADhQvzBoCmYIyeVbLSKZn$FWajiHd'; //WX
-        PREFIX = 'P$1';
+        PREFIX = '$pp';
         sourceProject = "other_build/wxgame_new";
         targetProject = "other_build/wxgame_obfuscator";
 

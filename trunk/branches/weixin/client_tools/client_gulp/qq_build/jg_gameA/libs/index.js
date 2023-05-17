@@ -1,4 +1,4 @@
-﻿window.sdk_config = qq.sdk_config;
+window.sdk_config = qq.sdk_config;
 window.md5 = qq.wx_md5;
 window.AKSDK = qq.AKSDK;
 window.PF_INFO = qq.PF_INFO;
@@ -87,7 +87,8 @@ qq.initComplete = function() {
   // }
   // new window.ServerLoading(wxData);
   //先请求包配置
-  window.reqPkgOptions();
+  window.loadVersionConfig()
+
 }
 
 // 加载version_config版本文件，读取lastVersion号，外网是从后台请求获取
@@ -116,10 +117,14 @@ window.reqVersionConfigCallBack = function(data) {
     if (data.data.cdn_url && data.data.cdn_url.length > 10) {
         PF_INFO.base_cdn = data.data.cdn_url;
         PF_INFO.cdn = data.data.cdn_url;
+        if(PF_INFO.selectedServer){
+          PF_INFO.selectedServer.cdn = PF_INFO.cdn;
+        }
     }
     if (data.data.version) {
         PF_INFO.lastVersion = data.data.version;
     }
+    window.reqPkgOptions();
     console.info("lastVersion:"+PF_INFO.lastVersion+", version_name:"+PF_INFO.version_name);
     window.loadVersion = true;
     window.initMain();
@@ -163,7 +168,7 @@ window.reqPkgOptionsCallBack = function(data) {
   // if (qq.loadingInterval) clearInterval(qq.loadingInterval);
   // qq.loadingInterval = null;
   window.loadServer = true;
-  window.loadVersionConfig();
+;
   window.initMain();
   window.enterToGame(); 
 }
@@ -318,8 +323,8 @@ window.openService = function(){
 }
 
 //微端引导
-window.microPortGuide = function(){
-  AKSDK.weiduanHelper();
+window.microPortGuide = function(type){
+  AKSDK.weiduanHelper(type);
 }
 
 //绑定有礼请求短信验证码
@@ -848,7 +853,15 @@ window.initMain = function() {
         wxParam: {limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.sdk_config.from ? 1: 0), qqAppPlatform: window.qqAppPlatform},
         configType: window.PF_INFO.configType, 
         exposeType: window.PF_INFO.exposeType,
-        scene:scene
+        scene:scene,
+        video_type: window.PF_INFO.video_type,
+        ad_flag: window.PF_INFO.ad_flag,
+      }
+      if (window.pkgOptions) {
+        for (var k in window.pkgOptions) {
+          if (!platData[k])
+            platData[k] = window.pkgOptions[k];
+        }
       }
       new window.MainWX(platData, window.PF_INFO.lastVersion, window.workerJsURL);
     }
@@ -894,6 +907,7 @@ window.enterToGame = function() {
         wxMenuTop: top,
         wxShield: window.PF_INFO.wxShield,
         wx_channel: window.PF_INFO.wx_channel,
+        zsy_tp_state: window.PF_INFO.zsy_tp_state,
       };
 
       if (window.pkgOptions) {

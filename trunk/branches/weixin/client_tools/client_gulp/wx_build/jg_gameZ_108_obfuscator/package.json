@@ -1,0 +1,14 @@
+{
+  "name": "jg_gamez_108",
+  "version": "1.0.0",
+  "description": "",
+  "main": "og8t.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@datarangers/sdk-qg": "^2.1.1"
+  }
+}

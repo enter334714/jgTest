@@ -63,6 +63,17 @@
       MiniAdpter.EnvConfig.load = Loader.prototype.load;
       Loader.prototype.load = MiniLoader.prototype.load;
 
+      wx.onShow(function() {
+        Laya.stage._setStageVisible(true);
+        console.info("onshow 小游戏进入前台1："+Laya.stage.isVisibility);
+        
+      });
+      wx.onHide(function() {
+        Laya.stage._setStageVisible(false);
+        console.info("小游戏进入后台："+Laya.stage.isVisibility);
+        
+      });
+
       // Loader.prototype._loadImage=MiniImage.prototype._loadImage;
       if (MiniAdpter.isZiYu && isPosMsg) {
         /*__JS__ */

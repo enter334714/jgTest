@@ -113,11 +113,26 @@ var loadLibs = function() {
 //监听小游戏切前台事件
 wx.onShow(function (res) {
     wx.onShowData = res;
+    console.info("onshow1")
     if (wx.onShowCallback && wx.onShowData) {
-        console.info("小游戏切前台事件，场景值："+wx.onShowData.scene);
+        console.info("小游戏切前台事件2，场景值："+wx.onShowData.scene);
         wx.onShowCallback(wx.onShowData);
         wx.onShowData = null;
     }
+})
+
+//监听小游戏切前台事件
+wx.onShow(function (res) {
+    
+    console.info("onshow2")
+ 
+})
+
+//监听小游戏切前台事件
+wx.onShow(function (res) {
+    
+    console.info("onshow3")
+ 
 })
 
 wx.onHide(function(){

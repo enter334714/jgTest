@@ -37,7 +37,7 @@ PF_INFO.selectedServer = {};
 
 PF_INFO.clientlog = "https://jgcenter.sh9130.com/clientlog/";
 PF_INFO.showLogo = false;
-PF_INFO.debugUsers = "39927500|58163716|74597555";
+PF_INFO.debugUsers = "39927500|58163716|74597555|172978096"; //平台账号
 PF_INFO.tick = Date.now();
 
 PF_INFO.configType = "_weixin";
@@ -436,10 +436,6 @@ window.onUserLoginCheckServers = function (response) {
     return;
   }
   this.updCurServer(response);
-
-  if (window.ServerLoading && window.ServerLoading.instance.openJumpTipsBtn) {
-    window.ServerLoading.instance.openJumpTipsBtn(sdkInitRes.isShowSdkAge, sdkInitRes.sdk_age_adaptation_icon, sdkInitRes.sdk_age_adaptation_content, sdkInitRes.coordinate_x, sdkInitRes.coordinate_y)
-  }
 }
 window.updCurServer = function (response) {
   PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;
@@ -454,29 +450,40 @@ window.updCurServer = function (response) {
     'is_recommend': response.data[0].is_recommend,
     'cdn': PF_INFO.cdn,
   }
-  this.initComplete();
+  this.loginComplete();
+}
+
+window.loginComplete = function () {
+  window.loadServer = true;
+  window.initComplete();
 }
 
 window.initComplete = function () {
-  if (PF_INFO.newRegister == 1) { //新用户，发送验证
-    var status = PF_INFO.selectedServer.status;
-    if (status === -1 || status === 0) {
-      window.toErrorAlarm(15, 'new register selectedServer status error: id=' + PF_INFO.selectedServer.id + ',status=' + PF_INFO.selectedServer.status);
-      window.loginAlert(status === -1 ? "当前服务器在维护中" : "当前服务器尚未开启，敬请期待");
-      return;
+  if (window.loadServer && window.loadOption) {
+      //0：默认关闭，1：广告量开启，2：自然量开启，3：全部开启
+      var privacyBgCfg = PF_INFO.privacy_wx_login_pkg != undefined ? PF_INFO.privacy_wx_login_pkg : 0; 
+      var adFlag = PF_INFO.ad_flag == undefined ? 0 : PF_INFO.ad_flag;
+      var privacyOpen = ((privacyBgCfg == 1 && adFlag == 1) || (privacyBgCfg == 2 && adFlag != 1) || (privacyBgCfg == 3));
+      console.info("newRegister:" + PF_INFO.newRegister + ", privacyOpen:" + privacyOpen + ", ad_flag:" + PF_INFO.ad_flag + ", privacy_wx_login_pkg:" + PF_INFO.privacy_wx_login_pkg);
+      if (!privacyOpen && PF_INFO.newRegister == 1) { //没开启用户隐私，新用户直接发送验证跳过选服
+        var status = PF_INFO.selectedServer.status;
+        if (status === -1 || status === 0) {
+          window.toErrorAlarm(15, 'new register selectedServer status error: id=' + PF_INFO.selectedServer.id + ',status=' + PF_INFO.selectedServer.status);
+          window.loginAlert(status === -1 ? "当前服务器在维护中" : "当前服务器尚未开启，敬请期待");
+          return;
+        }
+        req_server_check_ban(0, PF_INFO.selectedServer.server_id);
+        window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
+      } else { //老用户，进游戏的选服界面
+        wx.onTouchEnd(window.subscribeWhatsNew);
+        window.ServerLoading.instance.openServer({show:sdkInitRes.isShowSdkAge, skinUrl:sdkInitRes.sdk_age_adaptation_icon, content:sdkInitRes.sdk_age_adaptation_content, x:sdkInitRes.coordinate_x, y:sdkInitRes.coordinate_y});
+        wxHideLoading();
+      }
+      window.setFillter();
+      window.initMain();
+      window.enterToGame();
     }
-    req_server_check_ban(0, PF_INFO.selectedServer.server_id);
-    window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
-  } else { //老用户，进游戏的选服界面
-    wx.onTouchEnd(window.subscribeWhatsNew);
-    window.ServerLoading.instance.openServer();
-    wxHideLoading();
   }
-  window.loadServer = true;
-  window.setFillter();
-  window.initMain();
-  window.enterToGame();
-}
 
 // 加载version_config版本文件，读取lastVersion号，外网是从后台请求获取
 window.loadVersionConfig = function () {
@@ -532,8 +539,7 @@ window.reqPkgOptionsCallBack = function (data) {
     console.info("reqPkgOptionsCallBack " + data.state);
   }
   window.loadOption = true;
-  window.setFillter();
-  window.enterToGame();
+  window.initComplete();
 }
 
 
@@ -675,8 +681,8 @@ window.openService = function () {
 }
 
 //微端引导
-window.microPortGuide = function () {
-  AKSDK.weiduanHelper();
+window.microPortGuide = function (type) {
+  AKSDK.weiduanHelper(type);
 }
 
 //绑定有礼请求短信验证码
@@ -695,22 +701,20 @@ window.reqSMSCode = function (phone, role_id, uid, game_pkg, partner_id, sign, c
 }
 
 //收藏
-//window.onShowData = null;
-//window.onShowCallback = null;
+wx.onShowData = null;
+wx.onShowCallback = null;
 window.onShow = function (callback) {
-  window.onShowCallback = callback;
-  if (window.onShowCallback && window.onShowData) {
-    console.info("小游戏切前台事件，场景值：" + window.onShowData.scene);
-    window.onShowCallback(window.onShowData);
-    window.onShowData = null;
+  wx.onShowCallback = callback;
+  if (wx.onShowCallback && wx.onShowData) {
+    console.info("小游戏切前台事件，场景值：" + wx.onShowData.scene);
+    wx.onShowCallback(wx.onShowData);
+    wx.onShowData = null;
   }
 }
-
 wx.onHideCallBack = null;
 window.miniGameHide = function (callBack) {
   wx.onHideCallBack = callBack;
 }
-
 //获取邀请者
 window.reqPlayerAskInfo = function (packageName, role_id, serverId, callBack) {
   window.send('https://sdk.sh9130.com/game/?ct=min&ac=getInviter', {
@@ -1310,4 +1314,8 @@ window.setFillter = function () {
 window.closeFillter = function () {
   window["ShieldColor"] = null;
   window["ShieldNoise"] = null;
+}
+
+window.showVideoAd = function(callback){
+  AKSDK.showVideoAd(callback)
 }
