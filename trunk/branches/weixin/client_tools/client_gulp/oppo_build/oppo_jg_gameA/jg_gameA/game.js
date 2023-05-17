@@ -52,9 +52,8 @@ window["Parser"] = require("./libs/dom_parser");
 require("./index");
 require("./libs/libs_min");
 require("./libs/laya.quickgamemini");
-require( "./init_min");
 Laya.QGMiniAdapter.init();
-
+require( "./init_min");
 console.info("1 初始化");
 
 Laya.Stage.FRAME_SLOW="fast"; 
@@ -89,11 +88,11 @@ window.compareVersion = function(v1, v2) {
 }
 
 window.SDKVersion = qg.getSystemInfoSync().platformVersionCode;
-console.log("vivo基础库版本："+window.SDKVersion);
+console.log("oppo基础库版本："+window.SDKVersion);
 
 
 // 版本更新相关
-if (window.SDKVersion >= 1083) { 
+if (window.SDKVersion >= 1094) { 
   const updateManager = qg.getUpdateManager();
   updateManager.onCheckForUpdate(function (res) {
     console.log("是否有新版本："+ res.hasUpdate);
@@ -126,7 +125,7 @@ if (window.SDKVersion >= 1083) {
 window.loadProbuf = function() {
   console.log("protobuf 分包加载");
   var loadProbufTask = qg.loadSubpackage({
-    name: 'probuf',
+    name: 'protobuf',
     success: function(res) {
       console.log("protobuf 分包加载成功");
       console.log(res);
@@ -155,7 +154,7 @@ window.loadProbuf = function() {
 window.loadMain = function() {
   console.log("Main 分包加载");
   var loadMainTask = qg.loadSubpackage({
-    name: 'sub',
+    name: 'subPackage',
     success: function(res) {
       console.log("Main 分包加载成功");
       console.log(res);
@@ -189,8 +188,8 @@ if (window.SDKVersion >= 1052) {   //分包qg.loadSubpackage：1052,  qg.share: 
   window.loadProbuf(); 
   window.loadMain();
 } else {
-  require('probuf');
-  require('sub');
+  require('protobuf');
+  require('subPackage');
   window.reqRecordInfo("vivo基础库版本过低", window.SDKVersion);
 } 
 
