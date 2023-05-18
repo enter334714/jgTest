@@ -1,4 +1,4 @@
-module.exports = {
+window["client_pb"] = {
   "nested": {
     "ProtocolClient": {
       "nested": {
