@@ -100,11 +100,11 @@ window.loginAlert = function (value) {
 }
 window.exitAlert = function (value) {
   console.log("exitAlert", value);
-  qg.showDialog({
+  qg.showModal({
     title: '提示',
-    message: value,
-    buttons: [{ text: '重登' }],
-    complete(res) {
+    content: value,
+    confirmText:'重登',    
+    success(res) {
       console.log("退出游戏");
       qg.exitApplication();
     }
@@ -114,9 +114,19 @@ window.exitAlert = function (value) {
 window.isShowLoading = false;
 window.wxShowLoading = function (value) {
   window.isShowLoading = true;
-  qg.showLoading(value);
+  console.log("wxShowLoading:",value)
+  qg.showLoading({
+    title: value,
+    success(res){
+      console.log("wxShowLoading success")
+    },
+    fail(res){
+      console.log("wxShowLoading fail")
+    }
+  })
 }
 window.wxHideLoading = function () {
+  console.log("wxHideLoading")
   if (window.isShowLoading) {
     window.isShowLoading = false;
     qg.hideLoading();
@@ -263,7 +273,7 @@ window.guild = function () {
   function S4() {
     return (((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1));
   }
-  return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "+" + S4() + S4() + S4());
+  return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "_" + S4() + S4() + S4());
 }
 /*sdk初始化*/
 window.sdkInit = function () {
@@ -278,7 +288,7 @@ window.sdkInit = function () {
   };
   PF_INFO.device_id = this.guild();
 
-  wxShowLoading({ message: '正在初始化' });
+  wxShowLoading('正在初始化');
   AKSDK.init(initData, this.sdkOnInited.bind(this));
 }
 /*sdk初始化回调*/
@@ -321,7 +331,7 @@ window.sdkOnInited = function (res) {
   this.reqPkgOptions();
 
   window.sdkLoginRetry = 5;
-  wxShowLoading({ message: '正在登录账号' });
+  wxShowLoading('正在登录账号');
   AKSDK.login(this.sdkOnLogin.bind(this));
 }
 /*sdk登录回调*/
@@ -333,7 +343,7 @@ window.sdkOnLogin = function (status, data) {
     PF_INFO.zsy_tp_state = data.zsy_tp_state;
     PF_INFO.ad_flag = data.ad_flag;
     var self = this;
-    wxShowLoading({ message: '正在验证账号' });
+    wxShowLoading('正在验证账号');
     sendApi(PF_INFO.apiurl, 'User.login', {
       'platform': PF_INFO.sdk_name,
       'partner_id': PF_INFO.partnerId,
@@ -388,7 +398,7 @@ window.onUserLogin = function (response) {
   PF_INFO.sign = ''; // TODO
 
   var self = this;
-  wxShowLoading({ message: '请求服务器' });
+  wxShowLoading('请求服务器');
 
   var lastSerStr = localStorage.getItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account);
   if (lastSerStr && lastSerStr != "") {
@@ -1073,7 +1083,7 @@ window.req_server_check_ban = function (step, server_id) {
     'server_id': server_id
   };
   var self = this;
-  wxShowLoading({ message: '正在验证角色' });
+  wxShowLoading('正在验证角色');
   sendApi(PF_INFO.apiurl, 'User.checkInfo', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,

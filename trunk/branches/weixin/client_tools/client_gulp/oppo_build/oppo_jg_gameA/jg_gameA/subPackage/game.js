@@ -1,1 +1,1 @@
-require('main_min.js')
+require('subPackage/main_min.js')
