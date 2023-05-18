@@ -251,7 +251,7 @@ qg.setKeepScreenOn({
   keepSrceenOn: true
 })
 //监听网络状态变化事件，基础库 1.1.0 开始支持
-qg.subscribeNetworkStatus(function (res) {
+qg.onNetworkStatusChange(function (res) {
   console.log("网络类型："+res.type+"，是否按照流量计费："+res.metered)
 })
 //监听小游戏切前台事件

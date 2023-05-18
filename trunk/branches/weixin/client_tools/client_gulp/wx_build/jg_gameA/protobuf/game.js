@@ -1,3 +1,4 @@
+debugger;
 require("protobuf.js");
 window["protobuf"].util.Long = null;
 window["client_pb"] = require("client_pb.js");

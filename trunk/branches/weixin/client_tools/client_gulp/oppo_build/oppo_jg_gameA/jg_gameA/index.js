@@ -831,7 +831,7 @@ window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess,
 
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
+    if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 301)) {
       var response = xhr.response;
       response = JSON.parse(response);
       console.log("send reply url：" + url + ", response：" + JSON.stringify(response));
@@ -846,7 +846,7 @@ window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess,
         console.error(response);
       }
     }
-    failFunc(url, data, callBack, retryAmount, errorCB, checkSuccess, ret.statusCode, ret.data, contentType);
+    // failFunc(url, data, callBack, retryAmount, errorCB, checkSuccess, xhr.status, xhr.response, contentType);
   }
   xhr.responseType = "text";
   xhr.onerror = function (e) {
@@ -856,7 +856,7 @@ window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess,
     console.error("OPPO请求超时URL:",url)
   }
   xhr.timeout  = 15000;
-  xhr.open("GET", url);
+  xhr.open(reqType || "GET", url);
   xhr.setRequestHeader( "content-type","application/json");
   // xhr.setRequestHeader( "cache-control", "no-cache");
   xhr.send()
