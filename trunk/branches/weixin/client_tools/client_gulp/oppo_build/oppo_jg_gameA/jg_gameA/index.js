@@ -8,7 +8,7 @@ window.versions = {
 
 window.DEBUG = false;
 window.PLATFORM = 3;
-window.ENV = 3;
+window.ENV = 6;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
@@ -116,20 +116,14 @@ window.wxShowLoading = function (value) {
   window.isShowLoading = true;
   console.log("wxShowLoading:",value)
   qg.showLoading({
-    title: value,
-    success(res){
-      console.log("wxShowLoading success")
-    },
-    fail(res){
-      console.log("wxShowLoading fail")
-    }
+    title: value,   
   })
 }
 window.wxHideLoading = function () {
   console.log("wxHideLoading")
   if (window.isShowLoading) {
     window.isShowLoading = false;
-    qg.hideLoading();
+    qg.hideLoading({}); //必须有{}参数 否则报错
   }
 }
 window.changeServerLoading = function (value) {
@@ -479,6 +473,7 @@ window.updCurServer = function (response) {
 }
 
 window.initComplete = function () {
+  wxHideLoading();
   if (PF_INFO.newRegister == 1) { //新用户，发送验证
     var status = PF_INFO.selectedServer.status;
     if (status === -1 || status === 0) {
@@ -489,8 +484,7 @@ window.initComplete = function () {
     req_server_check_ban(0, PF_INFO.selectedServer.server_id);
     window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
   } else { //老用户，进游戏的选服界面
-    window.ServerLoading.instance.openServer();
-    wxHideLoading();
+    window.ServerLoading.instance.openServer();    
   }
   window.loadServer = true;
   window.initMain();
