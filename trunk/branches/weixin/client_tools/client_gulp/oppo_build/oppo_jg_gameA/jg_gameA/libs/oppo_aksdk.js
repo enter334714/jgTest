@@ -1,8 +1,5 @@
-console.log("enter oppoSDK0")
-// var sdk_conf = require('./partner_config.js');
-console.log("enter oppoSDK1")
-console.log("enter oppoSDK33:")
 
+// var sdk_conf = require('./partner_config.js');
 var config = {
     game_id: '256',
     game_pkg: 'tjqy_tjqyswoppoxyxb_AGK',
