@@ -66,8 +66,8 @@ window.sdkInitRes = null;
 
 window.alert = function (value) {
   console.log("alert", value);
-  wx.hideLoading({});
-  wx.showModal({
+  my.hideLoading({});
+  my.confirm({
     title: '提示',
     content: value,
     success(res) {
@@ -82,21 +82,21 @@ window.alert = function (value) {
 window.loginAlert = function (value) {
   console.log("loginAlert", value);
   wxHideLoading();
-  wx.showModal({
+  my.confirm({
     title: '提示',
     content: value,
-    confirmText: "重试",
-    cancelText: "退出",
+    confirmButtonText: "重试",
+    cancelButtonText: "退出",
     success(res) {
       if (res.confirm) {
         window.sdkInit();
       } else if (res.cancel) {
-        if (wx.restartMiniProgram) {
+        if (my.restartMiniProgram) {
           console.log("重启游戏");
-          wx.restartMiniProgram({});
+          // my.restartMiniProgram({});
         } else {
           console.log("退出游戏");
-          wx.exitMiniProgram({});
+          // my.exitMiniProgram({});
         }
       }
     }
@@ -104,18 +104,18 @@ window.loginAlert = function (value) {
 }
 window.exitAlert = function (value) {
   console.log("exitAlert", value);
-  wx.showModal({
+  my.showModal({
     title: '提示',
     content: value,
     confirmText: "重登",
     showCancel: false,
     complete(res) {
-      if (wx.restartMiniProgram) {
+      if (my.restartMiniProgram) {
         console.log("重启游戏");
-        wx.restartMiniProgram({});
+        // my.restartMiniProgram({});
       } else {
         console.log("退出游戏");
-        wx.exitMiniProgram({});
+        // my.exitMiniProgram({});
       }
     }
   })
@@ -124,12 +124,12 @@ window.exitAlert = function (value) {
 window.isShowLoading = false;
 window.wxShowLoading = function (value) {
   window.isShowLoading = true;
-  wx.showLoading(value);
+  my.showLoading(value);
 }
 window.wxHideLoading = function () {
   if (window.isShowLoading) {
     window.isShowLoading = false;
-    wx.hideLoading({});
+    my.hideLoading({});
   }
 }
 window.changeServerLoading = function (value) {
@@ -232,7 +232,7 @@ window.reqRecordInfo = function (error, stack) {
 window.clientlog = function (info) {
   if (window.PF_INFO.wxPlatform == "devtools") return;
   var url = PF_INFO.clientlog + "?account=" + PF_INFO.account;
-  wx.request({
+  my.request({
     url: url,
     method: "POST",
     data: info,
@@ -271,7 +271,7 @@ window.sdkInit = function () {
   };
   PF_INFO.device_id = this.guild();
 
-  wxShowLoading({ title: '正在初始化' });
+  wxShowLoading({ content: '正在初始化' });
   AKSDK.init(initData, this.sdkOnInited.bind(this));
 }
 /*sdk初始化回调*/
@@ -315,7 +315,7 @@ window.sdkOnInited = function (res) {
   this.reqPkgOptions();
 
   window.sdkLoginRetry = 5;
-  wxShowLoading({ title: '正在登录账号' });
+  wxShowLoading({ content: '正在登录账号' });
   AKSDK.login(this.sdkOnLogin.bind(this));
 }
 window.sdkLoginRetry = 5;
@@ -328,7 +328,7 @@ window.sdkOnLogin = function (status, data) {
     PF_INFO.zsy_tp_state = data.zsy_tp_state;
     PF_INFO.ad_flag = data.ad_flag;
     var self = this;
-    wxShowLoading({ title: '正在验证账号' });
+    wxShowLoading({ content: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {
       'platform': PF_INFO.sdk_name,
       'partner_id': PF_INFO.partnerId,
@@ -385,7 +385,7 @@ window.onUserLogin = function (response) {
   PF_INFO.sign = ''; // TODO
 
   var self = this;
-  wxShowLoading({ title: '请求服务器' });
+  wxShowLoading({ content: '请求服务器' });
 
   var lastSerStr = localStorage.getItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account);
   if (lastSerStr && lastSerStr != "") {
@@ -489,7 +489,7 @@ window.initComplete = function () {
         req_server_check_ban(0, PF_INFO.selectedServer.server_id);
         window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
       } else { //老用户，进游戏的选服界面
-        wx.onTouchEnd(window.subscribeWhatsNew);
+        // my.onTouchEnd(window.subscribeWhatsNew);
         window.ServerLoading.instance.openServer({show:sdkInitRes.isShowSdkAge, skinUrl:sdkInitRes.sdk_age_adaptation_icon, content:sdkInitRes.sdk_age_adaptation_content, x:sdkInitRes.coordinate_x, y:sdkInitRes.coordinate_y});
         wxHideLoading();
       }
@@ -715,19 +715,19 @@ window.reqSMSCode = function (phone, role_id, uid, game_pkg, partner_id, sign, c
 }
 
 //收藏
-wx.onShowData = null;
-wx.onShowCallback = null;
+my.onShowData = null;
+my.onShowCallback = null;
 window.onShow = function (callback) {
-  wx.onShowCallback = callback;
-  if (wx.onShowCallback && wx.onShowData) {
-    console.info("小游戏切前台事件，场景值：" + wx.onShowData.scene);
-    wx.onShowCallback(wx.onShowData);
-    wx.onShowData = null;
+  my.onShowCallback = callback;
+  if (my.onShowCallback && my.onShowData) {
+    console.info("小游戏切前台事件，场景值：" + my.onShowData.scene);
+    my.onShowCallback(my.onShowData);
+    my.onShowData = null;
   }
 }
-wx.onHideCallBack = null;
+my.onHideCallBack = null;
 window.miniGameHide = function (callBack) {
-  wx.onHideCallBack = callBack;
+  my.onHideCallBack = callBack;
 }
 //获取邀请者
 window.reqPlayerAskInfo = function (packageName, role_id, serverId, callBack) {
@@ -739,89 +739,89 @@ window.reqPlayerAskInfo = function (packageName, role_id, serverId, callBack) {
 }
 //调起订阅消息
 window.openSubscribeMsg = function (ids, callback, objIds) {
-  function onTouchEnd(res) {
-    var data = [];
-    var tmpIds = [];
-    var tmpObj = objIds || window.config.tmpId;
-    for (var id in tmpObj) {
-      var idn = Number(id);
-      if (!ids || !ids.length || ids.indexOf(idn) != -1) { //ids为空表示所有都请求
-        tmpIds.push(tmpObj[id]);
-        data.push([idn, 3]); //拒绝、封禁、过滤
-      }
-    }
-    if (window.compareVersion(window.SDKVersion, '2.4.4') >= 0) {
-      console.log("调用订阅");
-      AKSDK.subscribeMessage(tmpIds, function (res) {
-        console.log("订阅回调：");
-        console.log(res);
-        if (res && res.errMsg == "requestSubscribeMessage:ok") {
-          for (var id in tmpObj) {
-            if (res[tmpObj[id]] == 'accept') { //同意
-              var idn = Number(id);
-              for (var i = 0; i < data.length; i++) {
-                if (data[i][0] == idn) {
-                  data[i][1] = 1;
-                  break;
-                }
-              }
-            }
-          }
-        }
-        if (window.compareVersion(window.SDKVersion, '2.10.1') >= 0) {
-          wx.getSetting({
-            withSubscriptions: true, //只返回用户勾选过订阅面板中的“总是保持以上选择，不再询问”的订阅消息。
-            success: function (res1) {
-              var sets = res1.subscriptionsSetting['itemSettings'];
-              if (sets) {
-                console.log("获得订阅设置：");
-                console.log(sets);
-                for (var id in tmpObj) {
-                  if (sets[tmpObj[id]] == 'accept') { //永久同意
-                    var idn = Number(id);
-                    for (var i = 0; i < data.length; i++) {
-                      if (data[i][0] == idn) {
-                        data[i][1] = 2;
-                        break;
-                      }
-                    }
-                  }
-                }
-                console.log(data);
-                callback && callback(data);
-              } else {
-                console.log("获得订阅设置：没有长期订阅消息");
-                console.log(res1);
-                console.log(data);
-                callback && callback(data);
-              }
-            },
-            fail: function () {
-              console.log("获得订阅设置：失败");
-              console.log(data);
-              callback && callback(data);
-            }
-          });
-        } else {
-          console.log("版本过低，获得订阅设置：失败 " + window.SDKVersion);
-          console.log(data);
-          callback && callback(data);
-        }
-      });
-    } else {
-      console.log("版本过低，不支持订阅 " + window.SDKVersion);
-      console.log(data);
-      callback && callback(data);
-    }
-    wx.offTouchEnd(onTouchEnd);
-  }
-  wx.onTouchEnd(onTouchEnd);
+  // function onTouchEnd(res) {
+  //   var data = [];
+  //   var tmpIds = [];
+  //   var tmpObj = objIds || window.config.tmpId;
+  //   for (var id in tmpObj) {
+  //     var idn = Number(id);
+  //     if (!ids || !ids.length || ids.indexOf(idn) != -1) { //ids为空表示所有都请求
+  //       tmpIds.push(tmpObj[id]);
+  //       data.push([idn, 3]); //拒绝、封禁、过滤
+  //     }
+  //   }
+  //   if (window.compareVersion(window.SDKVersion, '2.4.4') >= 0) {
+  //     console.log("调用订阅");
+  //     AKSDK.subscribeMessage(tmpIds, function (res) {
+  //       console.log("订阅回调：");
+  //       console.log(res);
+  //       if (res && res.errMsg == "requestSubscribeMessage:ok") {
+  //         for (var id in tmpObj) {
+  //           if (res[tmpObj[id]] == 'accept') { //同意
+  //             var idn = Number(id);
+  //             for (var i = 0; i < data.length; i++) {
+  //               if (data[i][0] == idn) {
+  //                 data[i][1] = 1;
+  //                 break;
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //       if (window.compareVersion(window.SDKVersion, '2.10.1') >= 0) {
+  //         my.getSetting({
+  //           withSubscriptions: true, //只返回用户勾选过订阅面板中的“总是保持以上选择，不再询问”的订阅消息。
+  //           success: function (res1) {
+  //             var sets = res1.subscriptionsSetting['itemSettings'];
+  //             if (sets) {
+  //               console.log("获得订阅设置：");
+  //               console.log(sets);
+  //               for (var id in tmpObj) {
+  //                 if (sets[tmpObj[id]] == 'accept') { //永久同意
+  //                   var idn = Number(id);
+  //                   for (var i = 0; i < data.length; i++) {
+  //                     if (data[i][0] == idn) {
+  //                       data[i][1] = 2;
+  //                       break;
+  //                     }
+  //                   }
+  //                 }
+  //               }
+  //               console.log(data);
+  //               callback && callback(data);
+  //             } else {
+  //               console.log("获得订阅设置：没有长期订阅消息");
+  //               console.log(res1);
+  //               console.log(data);
+  //               callback && callback(data);
+  //             }
+  //           },
+  //           fail: function () {
+  //             console.log("获得订阅设置：失败");
+  //             console.log(data);
+  //             callback && callback(data);
+  //           }
+  //         });
+  //       } else {
+  //         console.log("版本过低，获得订阅设置：失败 " + window.SDKVersion);
+  //         console.log(data);
+  //         callback && callback(data);
+  //       }
+  //     });
+  //   } else {
+  //     console.log("版本过低，不支持订阅 " + window.SDKVersion);
+  //     console.log(data);
+  //     callback && callback(data);
+  //   }
+  //   // my.offTouchEnd(onTouchEnd);
+  // }
+  // my.onTouchEnd(onTouchEnd);
 }
 //获取电池信息
 window.batteryInfo = { isSuccess: false, level: "100", isCharging: false };
 window.getBatteryInfo = function (callback) {
   // console.log("调用获取电池信息");
-  wx.getBatteryInfo({
+  my.getBatteryInfo({
     success: function (resSuccess) {
       var info = window.batteryInfo;
       info.isSuccess = true;
@@ -839,7 +839,7 @@ window.getBatteryInfo = function (callback) {
 }
 //获取网络类型
 window.getNetworkType = function (callback) {
-  wx.getNetworkType({
+  my.getNetworkType({
     success: function (resSuc) {
       callback && callback(true, resSuc);
     },
@@ -850,17 +850,17 @@ window.getNetworkType = function (callback) {
 }
 //添加网络状态变化监听
 window.onNetworkStatusChange = function (func) {
-  if (func) wx.onNetworkStatusChange(func);
+  if (func) my.onNetworkStatusChange(func);
 }
 //移除网络状态变化监听
 window.offNetworkStatusChange = function (func) {
-  wx.offNetworkStatusChange(func);
+  my.offNetworkStatusChange(func);
 }
 
 window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess, reqType, contentType) {
   if (retryAmount == undefined) retryAmount = 1;
 
-  wx.request({
+  my.request({
     url: url,
     method: (reqType || "GET"),
     dataType: "text",
@@ -1116,7 +1116,7 @@ window.req_server_check_ban = function (step, server_id) {
     'server_id': server_id
   };
   var self = this;
-  wxShowLoading({ title: '正在验证角色' });
+  wxShowLoading({ content: '正在验证角色' });
   sendApi(PF_INFO.apiurl, 'User.checkInfo', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
@@ -1200,7 +1200,7 @@ window.initMain = function () {
   if (window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer) {
     if (window.MainWX && !window.MainWX.instance) {
       console.log("Main 初始化" + window.MainWX.instance);
-      var info = wx.getLaunchOptionsSync();
+      var info = my.getLaunchOptionsSync();
       var scene = info.scene ? info.scene : 0;
       var platData = {
         cdn: window.PF_INFO.cdn,
@@ -1234,14 +1234,16 @@ window.enterToGame = function () {
       bEnterGame = true;
       if (!window.MainWX.instance) window.initMain();
       var top = 0;
-      var rec = wx.getMenuButtonBoundingClientRect(); //基础库 2.1.0 开始支持
-      if (rec) {
-        if (window.PF_INFO.wxPhone) {
-          top = rec.top;
-        }
-        console.info("MenuButton  top:" + rec.top + ",bottom:" + rec.bottom + ",left:" + rec.left + ",right:" + rec.right + ",width:" + rec.width + ",height:" + rec.height);
-      }
+      // var rec = my.getMenuButtonBoundingClientRect(); //基础库 2.1.0 开始支持
+      // if (rec) {
+       
+      //   console.info("MenuButton  top:" + rec.top + ",bottom:" + rec.bottom + ",left:" + rec.left + ",right:" + rec.right + ",width:" + rec.width + ",height:" + rec.height);
+      // }
 
+      if (window.PF_INFO.wxPhone) {
+        top = window.PF_INFO.statusBarHeight;
+      }
+      
       var selectedServer = {};
       for (const key in PF_INFO.selectedServer) {
         selectedServer[key] = PF_INFO.selectedServer[key];
@@ -1284,15 +1286,15 @@ window.enterToGame = function () {
   }
 }
 
-window.subscribeWhatsNew = function () {
-  //更新提醒订阅接口2.10.4才有
-  if (window.compareVersion(window.SDKVersion, '2.10.4') >= 0) {
-    AKSDK.subscribeWhatsNew(null, (confirm) => {
-      console.log("订阅状态confirm：", confirm)
-    })
-  }
-  wx.offTouchEnd(window.subscribeWhatsNew)
-}
+// window.subscribeWhatsNew = function () {
+//   //更新提醒订阅接口2.10.4才有
+//   if (window.compareVersion(window.SDKVersion, '2.10.4') >= 0) {
+//     AKSDK.subscribeWhatsNew(null, (confirm) => {
+//       console.log("订阅状态confirm：", confirm)
+//     })
+//   }
+//   my.offTouchEnd(window.subscribeWhatsNew)
+// }
 
 window.setQrCodeView = function (obj) {
   if (!window.window_WinMgr) {

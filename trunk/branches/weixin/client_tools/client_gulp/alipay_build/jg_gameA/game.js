@@ -1,6 +1,4 @@
 ﻿console.info("0 进入游戏包");
-
-
 // //没有涟漪效果
 // var VSHADER_SOURCE =
 //     'attribute vec4 a_Position;\n' +
@@ -60,7 +58,7 @@
 //     '  gl_FragColor = texture2D(u_MainTex, v_TexCoord + uvOffset);\n' +
 //     '}\n';
 
-// var canvas = wx.canvas = wx.createCanvas(); 
+// var canvas = my.canvas = my.createCanvas(); 
 // var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
 // var verts = new Float32Array([
 //   -360, 640, 0.0, 0.0,
@@ -98,27 +96,27 @@
 // gl.clearColor(1.0, 1.0, 1.0, 1.0);
 
 
-// wx.rainArr = [0.6, 0.1, 1.0, 10000,    6.28, 0.25, 1.0, 0.2,    0.5, 0.5];
+// my.rainArr = [0.6, 0.1, 1.0, 10000,    6.28, 0.25, 1.0, 0.2,    0.5, 0.5];
 
 
-// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_UvOffsetFrequency'), wx.rainArr[0]);
-// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_AmplitudeFactor'), wx.rainArr[1]);
-// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_PhaseFactor'), wx.rainArr[2]);
-// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_spaceDisFactor'), wx.rainArr[3]);
-// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_ripplingFrequency'), wx.rainArr[4]);
-// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_ripplingIntensity'), wx.rainArr[5]);
-// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_ripplingRoundness'), wx.rainArr[6]);
-// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_ripplingVelocity'), wx.rainArr[7]);
-// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_rainFrequency1'), wx.rainArr[8]);
-// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_rainFrequency2'), wx.rainArr[9]);
-// if (wx.rainArr.length >= 14) gl.uniform4f(gl.getUniformLocation(shaderProgram, 'u_rainAreaST'), wx.rainArr[10],wx.rainArr[11],wx.rainArr[12],wx.rainArr[13]);
+// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_UvOffsetFrequency'), my.rainArr[0]);
+// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_AmplitudeFactor'), my.rainArr[1]);
+// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_PhaseFactor'), my.rainArr[2]);
+// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_spaceDisFactor'), my.rainArr[3]);
+// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_ripplingFrequency'), my.rainArr[4]);
+// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_ripplingIntensity'), my.rainArr[5]);
+// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_ripplingRoundness'), my.rainArr[6]);
+// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_ripplingVelocity'), my.rainArr[7]);
+// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_rainFrequency1'), my.rainArr[8]);
+// gl.uniform1f(gl.getUniformLocation(shaderProgram, 'u_rainFrequency2'), my.rainArr[9]);
+// if (my.rainArr.length >= 14) gl.uniform4f(gl.getUniformLocation(shaderProgram, 'u_rainAreaST'), my.rainArr[10],my.rainArr[11],my.rainArr[12],my.rainArr[13]);
     
 // var u_Time1 = gl.getUniformLocation(shaderProgram, 'u_Time1');
 // var u_Time2 = gl.getUniformLocation(shaderProgram, 'u_Time2');
 
 
 // var texture0 = gl.createTexture();
-// var image0 = wx.createImage();
+// var image0 = my.createImage();
 // image0.onload = function() {
 //     gl.activeTexture(gl.TEXTURE0);
 //     gl.bindTexture(gl.TEXTURE_2D, texture0);
@@ -133,7 +131,7 @@
 // image0.src = "wxlogin_atlas/image_new_init.jpg";
 
 // var texture1 = gl.createTexture();
-// var image1 = wx.createImage();
+// var image1 = my.createImage();
 // image1.onload = function() {
 //     gl.activeTexture(gl.TEXTURE1);
 //     gl.bindTexture(gl.TEXTURE_2D, texture1);
@@ -167,7 +165,7 @@
 //   gl.uniform4f(gl.getUniformLocation(shaderProgram, 'u_Size'), wh, th, viewS, viewS);
 // }
 
-// var systemInfo = wx.getSystemInfoSync();
+// var systemInfo = my.getSystemInfoSync();
 // wh = Math.floor(systemInfo.screenWidth * systemInfo.pixelRatio);
 // th = Math.floor(systemInfo.screenHeight * systemInfo.pixelRatio);
 // resizeStage();
@@ -182,24 +180,23 @@
 //     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 // }
 // render();
-// wx.loadingInterval = setInterval(function(){
+// my.loadingInterval = setInterval(function(){
 //     time += 16;
 //     render();
 // }, 16);
 
-
+wx = my;
 console.info("1 加载游戏");
-wx.showLoading({ title: '正在加载' });
+my.showLoading({ content: '正在加载' });
 
 var loadLibs = function() {
     console.log("libs 分包加载");
-    var loadLibsTask = wx.loadSubpackage({
+    var loadLibsTask = my.loadSubpackage({
         name: 'libs',
         success: function(res) {
-            console.log("libs 分包加载成功");
-            console.log(res);
+            console.log("libs 分包加载成功:",res);           
             if (res && res.errMsg == "loadSubpackage:ok") {
-                wx.loadSubpackages();
+                my.loadSubpackages();
             } else {
                 setTimeout(function() {
                     loadLibs();
@@ -220,19 +217,19 @@ var loadLibs = function() {
 }
 
 //监听小游戏切前台事件
-wx.onShow(function (res) {
-    wx.onShowData = res;
-    if (wx.onShowCallback && wx.onShowData) {
-        console.info("小游戏切前台事件，场景值："+wx.onShowData.scene);
-        wx.onShowCallback(wx.onShowData);
-        wx.onShowData = null;
+my.onShow(function (res) {
+    my.onShowData = res;
+    if (my.onShowCallback && my.onShowData) {
+        console.info("小游戏切前台事件，场景值："+my.onShowData.scene);
+        my.onShowCallback(my.onShowData);
+        my.onShowData = null;
     }
 })
 
-wx.onHide(function(){
+my.onHide(function(){
   console.info("小游戏进入后台");
-  if (wx.onHideCallBack) {
-    wx.onHideCallBack();
+  if (my.onHideCallBack) {
+    my.onHideCallBack();
 }
 });
 loadLibs();
