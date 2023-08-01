@@ -9,10 +9,14 @@
   },
   "subpackages": [
     {
+      "name": "libs",
+      "root": "libs/"
+    },
+    {
       "name": "probuf",
       "root": "protobuf/"
     },
-	  {
+    {
       "name": "main",
       "root": "subPackage/"
     }

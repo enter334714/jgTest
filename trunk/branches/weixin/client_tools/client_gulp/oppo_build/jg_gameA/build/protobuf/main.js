@@ -1,0 +1,1 @@
+require('protobuf/game.js')

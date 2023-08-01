@@ -1,4 +1,5 @@
 import config from './partner_config.js'
+const sdk = require('./index.game.cjs.js');
 window.config = config;
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
@@ -15,6 +16,36 @@ var requestCallback = false;
 var ad_info = null;
 
 var  develop = 0;
+
+var test_ios_key = "ios_order";
+
+wx.onShow((result) => {
+    var test = wx.getStorageSync(test_ios_key);
+    console.log("onshow-sdk"+test);
+    var launchInfo = wx.getStorageSync('info');
+    if(launchInfo.query.hasOwnProperty('jrtt')&&launchInfo.query.jrtt ==1){
+        if(test){
+            var test1 = test.split("|");
+            var url = "https://"+HOST+"/pay/check?order_id="+test1[0];
+            wx.request({
+                url: url,
+                success:function(res){
+                    if(res.data.state == 1){
+                        wx.setStorageSync(test_ios_key, '');
+                        sdk.track('active_pay', { pay_amount: test1[1]*100 });
+                        console.log("sdk上报成功")
+                    }else{
+                        console.log("该订单还没支付")
+                    }
+                },
+                fail:function(res){
+                    console.log("查询订单状态失败")
+                },
+            })
+        }
+
+    }
+})
 
 function mainSDK() {
     var callbacks = {};
@@ -252,6 +283,9 @@ function mainSDK() {
                                                     if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
                                                         wx_channel = 1;
                                                     }
+                                                    if(launchInfo.query.hasOwnProperty('jrtt')&&launchInfo.query.jrtt ==1){
+                                                        sdk.init(data.data.openid)
+                                                    }
                                                     var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
                                                     var userData = {
                                                         userid: data.data.user_id,
@@ -338,6 +372,9 @@ function mainSDK() {
                                             var wx_channel = 0;
                                             if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
                                                 wx_channel = 1;
+                                            }
+                                            if(launchInfo.query.hasOwnProperty('jrtt')&&launchInfo.query.jrtt ==1){
+                                                sdk.init(data.data.openid)
                                             }
                                             var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
                                             var userData = {
@@ -725,6 +762,12 @@ function mainSDK() {
                                         }else if(data.data.ios_pay_type == 3){
                                             self.wechatscancode(order_data,data.data);
                                         }
+                                        var launchInfo = wx.getStorageSync('info');
+                                        if(launchInfo.query.hasOwnProperty('jrtt')&&launchInfo.query.jrtt == 1){
+                                            var test  = data.data.orderId+"|"+data.data.money;
+                                            wx.setStorageSync(test_ios_key, test)
+
+                                        }
 
                                     }else{
                                         wx.showModal({
@@ -930,13 +973,17 @@ function mainSDK() {
                     console.log("[SDK]米大师支付结果");
                     console.log(res);
                     if(res.statusCode == 200){
-                        if(res.data.state == 1){
+                        if(res.data == "success"){
                             var ret = {
                                 cpOrderNo: self.order_data.cpbill,
                                 orderNo: data.orderId,
                                 amount: self.order_data.price,
                                 extension: self.order_data.extension
                             };
+                            var launchInfo = wx.getStorageSync('info');
+                            if(launchInfo.query.hasOwnProperty('jrtt')&&launchInfo.query.jrtt ==1){
+                                sdk.track('active_pay', { pay_amount: self.order_data.price*100 })
+                            }
                             callbacks['pay'] && callbacks['pay'](0, ret);
                         }else {
                             callbacks['pay'] && callbacks['pay'](1, {errMsg: "支付失败"});

@@ -11,7 +11,7 @@ window.ENV = 2;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
-window.isWaiFangWx = false;
+window.isWaiFangWx = true;
 
 window.isCheckBan = false;
 window.loadProbPkg = false;

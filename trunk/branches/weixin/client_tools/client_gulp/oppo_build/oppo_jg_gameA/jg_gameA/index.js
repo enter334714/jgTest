@@ -1190,7 +1190,7 @@ window.enterToGame = function () {
       window.bEnterGame = true;
       if (!window.MainWX.instance) window.initMain();
       var top = 0;
-      if (window.SDKVersion >= 1083) {
+      if (window.SDKVersion >= 1095) {
         var rec = qg.getMenuButtonBoundingClientRect(); //基础库 1083 开始支持
         if (rec) {
           if (window.PF_INFO.wxPhone) {
@@ -1235,6 +1235,7 @@ window.enterToGame = function () {
         }
       }
 
+      console.log("wxMenuTop-1:",platData.wxMenuTop)
       window.MainWX.instance.initPlatdata(platData);
       if (PF_INFO.selectedServer && PF_INFO.selectedServer.server_id) localStorage.setItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account, PF_INFO.selectedServer.server_id);
     }

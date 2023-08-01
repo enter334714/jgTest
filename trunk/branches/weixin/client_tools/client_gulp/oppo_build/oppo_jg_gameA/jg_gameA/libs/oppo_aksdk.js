@@ -7,6 +7,7 @@ var config = {
     game_ver: '1.0.3',
     is_auth: false //授权登录
   };
+  window.config = config;
 var channel_name = 'OPPO';
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
@@ -316,6 +317,7 @@ function mainSDK() {
 
         //小游戏支付
         gamePay: function (data) {
+            console.log("开始支付:",JSON.stringify(data))
             qg.pay({
                 appId: data.appId,
                 token: data.token,

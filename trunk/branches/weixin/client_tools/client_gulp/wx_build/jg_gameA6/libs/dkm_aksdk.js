@@ -1,4 +1,4 @@
-﻿
+
 var PARTNER_SDK = DkmMainSDK();
 var HOST = 'sdk.9187.cn';
 var user_game_info = null;
@@ -11,7 +11,7 @@ var config = {
     game_pkg: 'fzjz_fmxyxyx_BY',
     partner_id: '5429',
     partner_label: '9130',
-    game_ver: '11.0.119',
+    game_ver: '11.0.117',
 };
 window.config = config;
 function DkmMainSDK() {

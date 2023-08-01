@@ -1,0 +1,1 @@
+require('subPackage/game.js')

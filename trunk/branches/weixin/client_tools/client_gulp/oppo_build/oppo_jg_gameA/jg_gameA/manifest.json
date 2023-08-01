@@ -1,8 +1,8 @@
 {
-    "package": "com.qunong.tjqy.oppominigame",
+    "package": "com.tjqyoppoxyx.nearme.gamecenter",
     "name": "天剑奇缘",
-    "versionName": "1.0.3",
-    "versionCode": 103,
+    "versionName": "1.0.5",
+    "versionCode": 105,
     "minPlatformVersion": 1060,
     "icon": "./logo.png",
     "features": [

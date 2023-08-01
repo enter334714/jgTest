@@ -1,2 +1,2 @@
 var _j = wx.n$;
-require(_j[654]);
+require(_j[655]);

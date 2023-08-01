@@ -15,6 +15,7 @@ var requestCallback = false;
 var ad_info = null;
 
 var  develop = 0;
+var out_time = 24*60*60*(30)*1000 //15分钟(毫秒格式)
 
 function mainSDK() {
     var callbacks = {};
@@ -50,7 +51,21 @@ function mainSDK() {
             //判断今天是否已经上报过
             if(is_new && info.query && info.query.ad_code){
                 wx.setStorageSync('plat_ad_code', info.query.ad_code);
+                wx.setStorageSync('plat_ad_code_time',Date.now());
+                console.log(Date.now());
             }
+            // else{
+            //     var plat_ad_code_time =  wx.getStorageSync('plat_ad_code_time');
+            //     console.log(Date.now()-plat_ad_code_time);
+            //     if(plat_ad_code_time && (Date.now()-plat_ad_code_time) >= out_time){
+            //         if(info.query && info.query.ad_code){
+            //             console.log("替换ad_code"+info.query.ad_code)
+            //             wx.setStorageSync('plat_ad_code', info.query.ad_code);
+            //         }
+            //     }
+            //     wx.setStorageSync('plat_ad_code_time',Date.now());
+            // }
+
 
             //用户来源，如："txcps"
             if(info.query && info.query.from && info.query.from!=""){
@@ -930,7 +945,7 @@ function mainSDK() {
                     console.log("[SDK]米大师支付结果");
                     console.log(res);
                     if(res.statusCode == 200){
-                        if(res.data.state == 1){
+                        if(res.data == "success"){
                             var ret = {
                                 cpOrderNo: self.order_data.cpbill,
                                 orderNo: data.orderId,

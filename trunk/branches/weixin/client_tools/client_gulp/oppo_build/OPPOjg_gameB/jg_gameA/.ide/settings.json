@@ -1,0 +1,7 @@
+{
+    "hapsetting.apkConfig": {
+        "apkName": "oppo-minigame-apks",
+        "apkPath": "C:\\Users\\Administrator\\AppData\\Roaming\\QuickAppIDE\\Apks\\oppo-minigame-apks.zip"
+    },
+    "quick-app-ide.game.buildType": "release"
+}

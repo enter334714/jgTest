@@ -1,0 +1,39 @@
+{
+    "package": "com.tjqyoppoxyx.nearme.gamecenter",
+    "name": "天剑奇缘",
+    "versionName": "1.0.7",
+    "versionCode": 107,
+    "minPlatformVersion": 1060,
+    "icon": "./logo.png",
+    "features": [
+        {
+            "name": "system.prompt"
+        },
+        {
+            "name": "system.router"
+        },
+        {
+            "name": "system.shortcut"
+        }
+    ],
+    "permissions": [
+        {
+            "origin": "*"
+        }
+    ],
+    "orientation": "portrait",
+    "type": "game",
+    "config": {
+        "logLevel": "log"
+    },
+    "subpackages": [
+        {
+            "name": "subPackage",
+            "root": "subPackage//"
+        },
+        {
+            "name": "protobuf",
+            "root": "protobuf//"
+        }
+    ]
+}

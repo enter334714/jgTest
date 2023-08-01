@@ -79,18 +79,19 @@ var MiniFileMgr$3=(function(){
 		(isSaveFile===void 0)&& (isSaveFile=false);
 		(fileType===void 0)&& (fileType="");
 		(isAutoClear===void 0)&& (isAutoClear=true);
-		MiniFileMgr.fs.readFile({filePath:filePath,encoding:encoding,success:function (data){
-				if (filePath.indexOf("http://")!=-1 || filePath.indexOf("https://")!=-1){
-					if(QGMiniAdapter.autoCacheFile || isSaveFile){
-						MiniFileMgr.copyFile(filePath,readyUrl,callBack,encoding,isAutoClear);
-					}
-				}
-				else
-				callBack !=null && callBack.runWith([0,data]);
-				},fail:function (data){
-				if (data)
-					callBack !=null && callBack.runWith([1,data]);
-		}});
+		callBack !=null && callBack.runWith([1]);
+		// MiniFileMgr.fs.readFile({filePath:filePath,encoding:encoding,success:function (data){
+		// 		if (filePath.indexOf("http://")!=-1 || filePath.indexOf("https://")!=-1){
+		// 			if(QGMiniAdapter.autoCacheFile || isSaveFile){
+		// 				MiniFileMgr.copyFile(filePath,readyUrl,callBack,encoding,isAutoClear);
+		// 			}
+		// 		}
+		// 		else
+		// 		callBack !=null && callBack.runWith([0,data]);
+		// 		},fail:function (data){
+		// 		if (data)
+		// 			callBack !=null && callBack.runWith([1,data]);
+		// }});
 	}
 
 	MiniFileMgr.downOtherFiles=function(fileUrl,callBack,readyUrl,isSaveFile,isAutoClear){
@@ -346,6 +347,7 @@ var MiniImage$3=(function(){
 	var __proto=MiniImage.prototype;
 	/**@private **/
 	__proto._loadImage=function(url){
+		console.log("MiniImage$3.prototype._loadImage url:",url)
 		var thisLoader=this;
 		var urlHeader=QGMiniAdapter.window.qg.env.USER_DATA_PATH;
 		if (url.indexOf(urlHeader)!=-1 || url.indexOf(urlHeader)!=-1){
@@ -1064,7 +1066,21 @@ var QGMiniAdapter=(function(){
 		Input['_createInputElement']=MiniInput$3['_createInputElement'];
 		QGMiniAdapter.EnvConfig.load=Loader.prototype.load;
 		Loader.prototype.load=MiniLoader$3.prototype.load;
-		Loader.prototype._loadImage=MiniImage$3.prototype._loadImage;
+		// Loader.prototype._loadImage=MiniImage$3.prototype._loadImage; //使用libs中自己的loadImage
+		// Browser.window.Image = HTMLImage;		
+		// console.log("Browser.window.Image:",Browser.window.Image)
+		// HTMLImage.prototype.src = function (src) {
+		// 	var self = this;
+		// 	new HTMLImage.create(fileNativeUrl, {
+		// 		onload: function(){
+		// 			console.log("windowImage onload")
+		// 		}, onerror: function(){
+		// 			console.log("windowImage onerror:Load image failed",src)
+		// 		}, onCreate: function (img) {
+		// 			self = img;
+		// 		}
+		// 	});
+		// }
 		QGMiniAdapter.onReciveData();
 		Config.useRetinalCanvas=true;
 	}
@@ -1444,7 +1460,7 @@ var MiniLoader$3=(function(_super){
 			return;
 		};
 		var encoding=QGMiniAdapter.getUrlEncode(url,type);
-		var urlType=Utils.getFileExtension(url);
+		var urlType=Utils.getFileExtension(url);		
 		if ((MiniLoader._fileTypeArr.indexOf(urlType)!=-1)|| type==/*laya.net.Loader.IMAGE*/"image"){
 			QGMiniAdapter.EnvConfig.load.call(this,url,type,cache,group,ignoreCache);
 			}else {
@@ -1616,7 +1632,7 @@ var MiniSound$3=(function(_super){
 					this.onDownLoadCallBack(url,0);
 					}else{
 					if((url.indexOf("http://")==-1 && url.indexOf("https://")==-1)
-						|| url.indexOf(QGMiniAdapter.window.my.env.USER_DATA_PATH)!=-1){
+						|| url.indexOf(QGMiniAdapter.window.qg.env.USER_DATA_PATH)!=-1){
 						this.onDownLoadCallBack(url,0);
 					}else
 					MiniFileMgr$3.downOtherFiles(url,Handler.create(this,this.onDownLoadCallBack,[url]),url);

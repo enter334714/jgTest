@@ -185,26 +185,52 @@ const init = function () {
 const setAdData = function (query, flag) {
 	// 广告混端投放
 	let adAppid = '';
-	if (query.app) {
-		adAppid = query.app;
-		commonParams.appid = query.app;
-		localStorage.setItem('mixappid', query.app);
-	} else if (localStorage.getItem('mixappid')) {
-		adAppid = localStorage.getItem('mixappid');
-		commonParams.appid = localStorage.getItem('mixappid');
-	} else {
-		adAppid = commonParams.appid;
-	}
 	let currQuery = '';
-	if (JSON.stringify(query) != '{}') {
-		currQuery = JSON.stringify(query);
-		localStorage.setItem('mixquery', JSON.stringify(query));
+	// 如果已经注册成功了，后续打开小程序都以第一次成功广告参数为准
+	if (localStorage.getItem('ad_params') && localStorage.getItem('ad_params').appid) {
+		console.log(localStorage.getItem('ad_params').appid, 223333333333333333333);
+		commonParams.appid = localStorage.getItem('ad_params').appid;
+		commonParams.adver_ext = localStorage.getItem('ad_params').adver_ext;
+		currQuery = localStorage.getItem('ad_params').adver_ext;
+		adAppid = localStorage.getItem('ad_params').appid;
+	} else if (localStorage.getItem('initAdParams') && localStorage.getItem('initAdParams').appid) {
+		// 只有初始化没有登录的情况，如果当前有广告参数取最新的广告参数，如果没有取第一次初始化广告参数
+		if (query.campaign_id) {
+			if (query.app) {
+				adAppid = query.app;
+				commonParams.appid = query.app;
+				commonParams.adver_ext = JSON.stringify(query) || '{}';
+				currQuery = JSON.stringify(query) || '{}';
+			} else {
+				adAppid = commonParams.appid;
+				commonParams.adver_ext = JSON.stringify(query) || '{}';
+				currQuery = JSON.stringify(query) || '{}';
+			}
+			// localStorage.setItem('mixappid', query.app);
+		} else {
+			adAppid = localStorage.getItem('initAdParams').appid;
+			commonParams.appid = localStorage.getItem('initAdParams').appid;
+			commonParams.adver_ext = localStorage.getItem('initAdParams').adver_ext;
+			currQuery = localStorage.getItem('initAdParams').adver_ext;
+		}
 	} else {
-		currQuery = localStorage.getItem('mixquery') || '';
+		if (query.app) {
+			adAppid = query.app;
+			commonParams.appid = query.app;
+			// localStorage.setItem('mixappid', query.app);
+		} else {
+			adAppid = commonParams.appid;
+		}
+		if (JSON.stringify(query) != '{}') {
+			currQuery = JSON.stringify(query);
+		}
+		console.log('1111111111,', currQuery);
+		commonParams.adver_ext = currQuery;
 	}
 	let data = { appid: adAppid, type: flag, query: currQuery };
 	setAdDataToRequest(data);
 	if (query) {
+		// console.log(query.gdt_vid)
 		let gdt_vid = query.gdt_vid;
 		let weixinadinfo = query.weixinadinfo;
 		let aid = '';
@@ -212,8 +238,8 @@ const setAdData = function (query, flag) {
 			let weixinadinfoArr = weixinadinfo.split('.');
 			aid = weixinadinfoArr[0];
 		}
-		commonParams.adver_ext = currQuery;
 		// 判断query不是空对象，为空就不管
+		// commonParams.adver_ext = currQuery;
 		if (query.weixinadinfo) {
 			if (ln_tool.getDeviceType() == 'android') {
 				commonParams.imei = gdt_vid || '';
@@ -348,6 +374,8 @@ const initData = function (SDKln, params, jscode) {
 			// delete params.sign;
 			const data = JSON.parse(res.data.data);
 			console.log('融合初始化adver_ext参数:' + commonParams.adver_ext);
+			// 记录初始化广告参数，当只有初始化没有登录时用
+			localStorage.setItem('initAdParams', { appid: commonParams.appid, adver_ext: commonParams.adver_ext });
 			let loginParams = {
 				version: commonParams.version,
 				ver: commonParams.ver,
@@ -387,6 +415,41 @@ const wxgameWhiteUser = function (params) {
 		});
 	});
 };
+// 拉起客服会话窗口
+const kefuDialog = function () {
+	wx.openCustomerServiceConversation({
+		showMessageCard: false,
+		sendMessageTitle: '客服',
+		sendMessagePath: '',
+		sendMessageImg: '',
+		sessionFrom: '',
+		success: function (res) {
+			console.log('执行success了');
+			console.log(res);
+		},
+		fail: function (res) {
+			console.log(res);
+		},
+		complete: function (res) {
+			// console.log('执行complete了');
+			// sendLinkUser(ret.data.order_id);
+		}
+	});
+};
+
+// 2023统计sdk上报
+const sendGameZoneId = function (data) {};
+const mainTask = function (data) {
+	console.log(data);
+};
+const nirvana = function (data) {};
+const createPage = function (data) {};
+const initialize = function (data) {};
+const selectServer = function () {};
+const finishServer = function () {};
+const cert = function () {};
+const enterGame = function () {};
+
 // 小程序转移
 const sdkChange = function (data) {
 	let loginBackParams = data;
@@ -537,6 +600,9 @@ const sdkLogin = function (SDKln, params) {
 					});
 				}
 
+				// 登录成功保存广告参数
+				localStorage.setItem('ad_params', { appid: commonParams.appid, adver_ext: commonParams.adver_ext });
+
 				// 幻灵转端登录后弹窗提示，登录回调也放在转端弹窗逻辑
 				transTip(loginData.data.union_uid, SDKln, loginData);
 
@@ -647,6 +713,7 @@ const sdkOnline = function (params) {
 		server_id: params.serverId,
 		seconds: 0,
 		type: 1,
+		login_id: String(new Date().valueOf()) + 'RD' + Math.floor(Math.random() * 10000000 + 1),
 		time: ln_tool.getPhpNow(),
 		access_token: initStoreData.access_token,
 		adver_ext: commonParams.adver_ext
@@ -669,6 +736,7 @@ const sdkOnline = function (params) {
 		server_id: params.serverId,
 		seconds: initStoreData.alive,
 		type: 2,
+		login_id: String(new Date().valueOf()) + 'RD' + Math.floor(Math.random() * 10000000 + 1),
 		time: commonParams.time,
 		access_token: initStoreData.access_token,
 		adver_ext: commonParams.adver_ext
@@ -1433,5 +1501,16 @@ module.exports = {
 	msgSecCheck: msgSecCheck,
 	sdkTransferApp: sdkTransferApp,
 	shareAppMessage: shareAppMessage,
-	userSource: userSource
+	userSource: userSource,
+	kefuDialog: kefuDialog,
+	sendGameZoneId: sendGameZoneId,
+	mainTask: mainTask,
+	nirvana: nirvana,
+	createPage: createPage,
+	initialize: initialize,
+	selectServer: selectServer,
+	finishServer: finishServer,
+	cert: cert,
+	enterGame: enterGame
+
 };

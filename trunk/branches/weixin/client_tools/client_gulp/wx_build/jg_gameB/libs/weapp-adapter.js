@@ -643,7 +643,7 @@
 	var hasInitWebGLContextConstructor = false;
 
 	function Canvas() {
-	  var canvas = wx.createCanvas();
+	  var canvas = wx.canvas || wx.createCanvas();
 
 	  canvas.type = 'canvas';
 

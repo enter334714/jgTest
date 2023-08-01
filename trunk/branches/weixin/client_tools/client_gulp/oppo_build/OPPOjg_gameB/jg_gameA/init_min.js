@@ -1,0 +1,2138 @@
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) {
+            d.__proto__ = b;
+        }) ||
+        function (d, b) {
+            for (var p in b)
+                if (b.hasOwnProperty(p))
+                    d[p] = b[p];
+        };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() {
+            this.constructor = d;
+        }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var View = laya.ui.View;
+var Dialog = laya.ui.Dialog;
+var ui;
+(function (ui) {
+    var P_WXAuthorizationViewUI = (function (_super) {
+        __extends(P_WXAuthorizationViewUI, _super);
+        function P_WXAuthorizationViewUI() {
+            return _super.call(this) || this;
+        }
+        P_WXAuthorizationViewUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.P_WXAuthorizationViewUI.uiView);
+        };
+        P_WXAuthorizationViewUI.uiView = { "type": "View", "props": { "width": 720, "name": "P_WXAuthorizationViewUI", "height": 1280 }, "child": [{ "type": "Image", "props": { "width": 720, "var": "bgImg", "skin": "wxlogin_atlas/image_login_loginbg.jpg", "name": "bg", "height": 1280, "centerY": 0, "centerX": 0 } }, { "type": "Box", "props": { "width": 720, "height": 1280, "centerY": 0, "centerX": 0 }, "child": [{ "type": "Image", "props": { "width": 720, "var": "topImg", "top": -139, "skin": "wxlogin_atlas/image_login_loginbg_top.jpg", "height": 139, "centerX": 0, "anchorY": 1 } }, { "type": "Image", "props": { "width": 720, "var": "btmImg", "top": 1280, "skin": "wxlogin_atlas/image_login_loginbg_bottom.jpg", "height": 139, "centerX": 0 } }, { "type": "Image", "props": { "x": -220, "width": 220, "var": "leftImg", "skin": "wxlogin_atlas/image_login_loginbg_left.jpg", "left": -220, "height": 1280, "centerY": 0 } }, { "type": "Image", "props": { "width": 220, "var": "rightImg", "skin": "wxlogin_atlas/image_login_loginbg_right.jpg", "left": 720, "height": 1280, "centerY": 0 } }] }] };
+        return P_WXAuthorizationViewUI;
+    }(View));
+    ui.P_WXAuthorizationViewUI = P_WXAuthorizationViewUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var P_WXLoadingViewUI = (function (_super) {
+        __extends(P_WXLoadingViewUI, _super);
+        function P_WXLoadingViewUI() {
+            return _super.call(this) || this;
+        }
+        P_WXLoadingViewUI.prototype.createChildren = function () {
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.P_WXLoadingViewUI.uiView);
+        };
+        P_WXLoadingViewUI.uiView = { "type": "View", "props": { "width": 720, "name": "P_LoadingView", "height": 1280 }, "child": [{ "type": "Image", "props": { "width": 720, "var": "bgImg", "name": "bg", "height": 1280, "centerY": 0, "centerX": 0 } }, { "type": "Box", "props": { "width": 720, "height": 1280, "centerY": 0, "centerX": 0 }, "child": [{ "type": "Image", "props": { "var": "topImg", "centerX": 0, "bottom": 1280, "anchorY": 1 } }, { "type": "Image", "props": { "var": "btmImg", "top": 1280, "centerX": 0 } }, { "type": "Image", "props": { "var": "leftImg", "right": 720, "pivotX": 1, "centerY": 0 } }, { "type": "Image", "props": { "var": "rightImg", "left": 720, "centerY": 0 } }] }, { "type": "Image", "props": { "var": "copyRightImg", "skin": "wxlogin_atlas/image_denglu_txtshenpi.png", "centerX": 0, "bottom": 10 } }, { "type": "Box", "props": { "y": 963, "x": 0, "width": 720, "var": "processBox1", "name": "processBox1", "height": 130 }, "child": [{ "type": "Image", "props": { "y": 46, "x": 62, "width": 596, "var": "loadingBarBg", "skin": "wxloading_atlas/image_loding_bar0.png", "height": 27, "centerX": 0 } }, { "type": "Image", "props": { "y": 49, "x": 64, "width": 590, "var": "loadingBar", "skin": "wxloading_atlas/image_loding_bar1.png", "height": 21 } }, { "type": "Image", "props": { "y": 55, "x": 507, "width": 208, "var": "loadingImg1", "skin": "wxloading_atlas/image_loding_bar2.png", "height": 11 } }, { "type": "Image", "props": { "y": 6, "x": 628, "width": 39, "var": "loadingImg2", "skin": "wxloading_atlas/image_loding_bar3.png", "height": 116 } }, { "type": "Label", "props": { "y": 48, "x": 293, "width": 134, "var": "percentageTips", "valign": "middle", "text": "88%", "strokeColor": "#565353", "stroke": 3, "height": 24, "fontSize": 24, "color": "#fbfbf9", "centerX": 0, "bold": false, "align": "center" } }] }, { "type": "Box", "props": { "y": 1065, "x": 0, "width": 720, "var": "processBox2", "name": "processBox2", "height": 17 }, "child": [{ "type": "Image", "props": { "y": 0, "x": 307, "var": "point1", "skin": "wxloading_atlas/image_login_point3.png", "centerX": -45 } }, { "type": "Image", "props": { "y": 0, "x": 337, "var": "point2", "skin": "wxloading_atlas/image_login_point2.png", "centerX": -15 } }, { "type": "Image", "props": { "y": 0, "x": 367, "var": "point3", "skin": "wxloading_atlas/image_login_point1.png", "centerX": 15 } }, { "type": "Image", "props": { "y": 0, "x": 397, "var": "point4", "skin": "wxloading_atlas/image_login_point1.png", "centerX": 45 } }] }, { "type": "Button", "props": { "y": 790, "x": 55, "visible": false, "var": "getTipsBtn", "stateNum": 1, "skin": "wxloading_atlas/btn_loding_abcelq0.png", "name": "getTipsBtn", "labelSize": 30, "labelFont": "SimHei", "labelColors": "#af4158" }, "child": [{ "type": "Label", "props": { "y": 155, "x": 146, "width": 323, "var": "txtGetTm", "text": "立即领取(5s)", "name": "txtGetTm", "height": 30, "fontSize": 30, "color": "#bd4f1e", "align": "center" } }] }, { "type": "Label", "props": { "y": 1107, "width": 500, "var": "loadingTips", "valign": "middle", "text": "加载描述", "height": 26, "fontSize": 26, "color": "#f2ffb5", "centerX": 0, "bold": false, "align": "center" } }, { "type": "Label", "props": { "y": 10, "x": 10, "width": 342, "var": "versionTxt", "valign": "middle", "top": 20, "text": "版本：100", "strokeColor": "#20385f", "stroke": 2, "right": 20, "height": 32, "fontSize": 24, "color": "#dfebff", "bold": false, "align": "right" } }] };
+        return P_WXLoadingViewUI;
+    }(View));
+    ui.P_WXLoadingViewUI = P_WXLoadingViewUI;
+})(ui || (ui = {}));
+(function (ui) {
+    var P_WXSelectServerViewUI = (function (_super) {
+        __extends(P_WXSelectServerViewUI, _super);
+        function P_WXSelectServerViewUI() {
+            return _super.call(this) || this;
+        }
+        P_WXSelectServerViewUI.prototype.createChildren = function () {
+            View.regComponent("HTMLDivElement", laya.html.dom.HTMLDivElement);
+            View.regComponent("Text", laya.display.Text);
+            _super.prototype.createChildren.call(this);
+            this.createView(ui.P_WXSelectServerViewUI.uiView);
+        };
+        P_WXSelectServerViewUI.uiView = { "type": "View", "props": { "width": 720, "name": "P_SelectServerViewUI", "height": 1280 }, "child": [{ "type": "Image", "props": { "width": 720, "var": "bgImg", "skin": "wxlogin_atlas/image_login_loginbg.jpg", "name": "bg", "height": 1280, "centerY": 0, "centerX": 0 } }, { "type": "Box", "props": { "width": 720, "height": 1280, "centerY": 0, "centerX": 0 }, "child": [{ "type": "Image", "props": { "width": 720, "var": "topImg", "skin": "wxlogin_atlas/image_login_loginbg_top.jpg", "bottom": 1279 } }, { "type": "Image", "props": { "width": 720, "var": "btmImg", "top": 1279, "skin": "wxlogin_atlas/image_login_loginbg_bottom.jpg" } }, { "type": "Image", "props": { "var": "leftImg", "skin": "wxlogin_atlas/image_login_loginbg_left.jpg", "right": 719, "height": 1280 } }, { "type": "Image", "props": { "var": "rightImg", "skin": "wxlogin_atlas/image_login_loginbg_right.jpg", "left": 719, "height": 1280 } }] }, { "type": "Image", "props": { "y": 845, "var": "selectServer", "skin": "wxlogin_atlas/image_login_xuanqubg.png", "centerX": 0 } }, { "type": "Image", "props": { "y": 1102, "var": "imgCheatTip", "skin": "wxlogin_atlas/image_loding_txtbhcc.png", "name": "imgCheatTip", "centerX": 0 } }, { "type": "Image", "props": { "y": 927, "x": 159, "var": "hotImage", "skin": "wxlogin_atlas/image_login_changtong.png" } }, { "type": "Image", "props": { "var": "copyRightImg", "skin": "wxlogin_atlas/image_denglu_txtshenpi.png", "centerX": 0, "bottom": 30 } }, { "type": "Image", "props": { "y": 1015, "var": "enterBtn", "stateNum": 1, "skin": "wxlogin_atlas/btn_login_loginanniu.png", "name": "enterBtn", "centerX": 0 } }, { "type": "Label", "props": { "y": 932, "x": 521, "var": "selServer", "valign": "middle", "text": "选服>", "height": 32, "fontSize": 30, "color": "#feffc0", "bold": false, "align": "center" } }, { "type": "Label", "props": { "y": 932, "width": 342, "var": "serverName", "valign": "middle", "text": "0000000000001服", "height": 32, "fontSize": 30, "color": "#feffc0", "centerX": 0, "bold": false, "align": "center" } }, { "type": "Label", "props": { "width": 342, "var": "versionTxt", "valign": "middle", "top": 20, "text": "版本：100", "strokeColor": "#20385f", "stroke": 2, "right": 20, "height": 32, "fontSize": 24, "color": "#dfebff", "bold": false, "align": "right" } }, { "type": "HTMLDivElement", "props": { "y": 1255, "x": 256, "width": 80, "visible": false, "var": "privacyTip", "innerHTML": "隐私协议", "height": 16 } }, { "type": "Image", "props": { "y": 1249, "x": 196, "visible": false, "var": "privacyToggle", "skin": "wxlogin_atlas/image_xuanfu_gx1.png", "bottom": 4 } }, { "type": "Image", "props": { "y": 55, "x": 624, "var": "noticeBtn", "skin": "wxlogin_atlas/btn_login_gonggao.png" } }, { "type": "Image", "props": { "visible": false, "var": "ageTipBtn", "top": 1, "scaleY": 0.5, "scaleX": 0.5, "name": "privacyBtn", "left": 1 } }, { "type": "Image", "props": { "y": 71, "x": -2, "visible": false, "var": "noticeBg", "skin": "wxlogin_atlas/image_login_notice.png", "centerY": 0, "centerX": 0 }, "child": [{ "type": "Image", "props": { "y": 36.5, "x": 616, "var": "noticeClose", "skin": "wxlogin_atlas/btn_com_chuangback.png" } }, { "type": "Label", "props": { "y": 72, "x": 216, "width": 234, "var": "noticeTitle", "valign": "middle", "text": "暂无公告", "height": 35, "fontSize": 30, "color": "#ffffff", "bold": false, "align": "center" } }, { "type": "Text", "props": { "y": 142, "x": 61, "wordWrap": true, "width": 545, "var": "noticeContent", "valign": "top", "overflow": "scroll", "mouseEnabled": true, "leading": 4, "height": 870, "fontSize": 26, "color": "#212942" } }] }, { "type": "Image", "props": { "visible": false, "var": "mNoticeBg", "skin": "wxlogin_atlas/image_login_notice.png", "centerY": 0, "centerX": 0 }, "child": [{ "type": "Image", "props": { "y": 36.5, "x": 616, "var": "mNoticeClose", "skin": "wxlogin_atlas/btn_com_chuangback.png" } }, { "type": "Button", "props": { "y": 904, "x": 190, "var": "mNoticeClose2", "stateNum": 1, "skin": "wxlogin_atlas/btn_com_long1.png", "labelSize": 30, "labelColors": "#263d7d,#263d7d,#263d7d,#263d7d", "label": "关闭" } }, { "type": "Box", "props": { "y": 904, "x": 34, "width": 596, "var": "boxTab", "height": 59 } }, { "type": "Label", "props": { "y": 72, "x": 216, "width": 234, "var": "mNoticeTitle", "valign": "middle", "text": "暂无公告", "height": 35, "fontSize": 30, "color": "#ffffff", "bold": false, "align": "center" } }, { "type": "Panel", "props": { "y": 142, "x": 61, "width": 545, "var": "mNoticePanel", "height": 733 }, "child": [{ "type": "HTMLDivElement", "props": { "y": 0, "x": 0, "width": 545, "var": "mNoticeContent", "height": 733 } }] }] }, { "type": "Image", "props": { "visible": false, "var": "privacyBg", "skin": "wxlogin_atlas/image_login_notice.png", "name": "privacyBg", "centerY": 0, "centerX": 0 }, "child": [{ "type": "Image", "props": { "y": 983, "x": 186, "width": 274, "skin": "wxlogin_atlas/image_com_hdkuangbg2.png", "height": 40 }, "child": [{ "type": "Label", "props": { "y": 16, "x": 61, "width": 146, "text": "点击空白处退出", "strokeColor": "#6766a2", "stroke": 4, "height": 22, "fontSize": 21, "color": "#ffffff", "bold": false, "align": "center" } }] }, { "type": "Image", "props": { "y": 36.5, "x": 616, "var": "privacyClose", "skin": "wxlogin_atlas/btn_com_chuangback.png" } }, { "type": "Button", "props": { "y": 904, "x": 190, "var": "privacyClose2", "stateNum": 1, "skin": "wxlogin_atlas/btn_com_long1.png", "labelSize": 30, "labelColors": "#263d7d,#263d7d,#263d7d,#263d7d", "label": "关闭" } }, { "type": "Label", "props": { "y": 72, "x": 216, "width": 234, "var": "privacyTitle", "valign": "middle", "text": "暂无公告", "height": 35, "fontSize": 30, "color": "#ffffff", "bold": false, "align": "center" } }, { "type": "Panel", "props": { "y": 142, "x": 61, "width": 545, "var": "privacyPanel", "height": 733 }, "child": [{ "type": "HTMLDivElement", "props": { "y": 0, "x": 0, "width": 545, "var": "privacyContent", "height": 733 } }] }] }, { "type": "Image", "props": { "visible": false, "var": "listBg", "skin": "wxlogin_atlas/image_xuanfu_xfbg.png", "centerY": 0, "centerX": 0 }, "child": [{ "type": "Box", "props": { "y": 117, "x": 61, "width": 200, "var": "leftListBox", "height": 905 } }, { "type": "Box", "props": { "y": 117, "x": 293, "width": 358, "var": "rightListBox", "height": 905 } }, { "type": "Image", "props": { "y": 13, "x": 642, "var": "closeBg", "skin": "wxlogin_atlas/image_com_tuichu.png" } }] }, { "type": "Box", "props": { "width": 720, "visible": false, "var": "jumpBg", "height": 1130, "centerY": 0, "centerX": 0 }, "child": [{ "type": "Image", "props": { "x": 33, "width": 655, "skin": "wxlogin_atlas/image_login_notice.png", "height": 994, "centerY": 0, "centerX": 0 } }, { "type": "Button", "props": { "width": 274, "var": "btnJump", "stateNum": 1, "skin": "wxlogin_atlas/btn_com_long1.png", "labelSize": 30, "labelColors": "#263d7d,#263d7d,#263d7d,#263d7d", "label": "跳转", "height": 59, "centerY": 436, "centerX": 0 } }, { "type": "Label", "props": { "width": 234, "var": "jumpTitle", "valign": "middle", "text": "暂无公告", "fontSize": 30, "color": "#ffffff", "centerY": -408, "centerX": 0, "bold": false, "align": "center" } }, { "type": "Panel", "props": { "x": 94, "width": 545, "var": "jumpPanel", "height": 733, "centerY": 10 }, "child": [{ "type": "HTMLDivElement", "props": { "y": 0, "x": 0, "width": 545, "var": "jumpContent", "height": 733 } }] }, { "type": "Image", "props": { "x": 596, "visible": false, "var": "closeBtn", "skin": "wxlogin_atlas/image_com_tuichu.png", "name": "closeBtn", "centerY": -402 } }] }, { "type": "Label", "props": { "y": 640, "x": 0, "width": 720, "var": "txtTip", "valign": "middle", "text": "提示内容(不要移要在最上层)", "strokeColor": "#ffffff", "stroke": 2, "height": 32, "fontSize": 32, "color": "#ff0000", "bold": false, "align": "center" } }] };
+        return P_WXSelectServerViewUI;
+    }(View));
+    ui.P_WXSelectServerViewUI = P_WXSelectServerViewUI;
+})(ui || (ui = {}));
+var modules;
+(function (modules) {
+    var n_selectServer;
+    (function (n_selectServer) {
+        var AuthorizationPanel = (function (_super) {
+            __extends(AuthorizationPanel, _super);
+            function AuthorizationPanel() {
+                return _super.call(this) || this;
+            }
+            AuthorizationPanel.prototype.initialize = function () {
+                _super.prototype.initialize.call(this);
+                this.centerX = 0;
+                this.centerY = 0;
+                this.addEvt();
+                this.onOpened();
+            };
+            AuthorizationPanel.prototype.addEvt = function () {
+                this.on(Laya.Event.CLICK, this, this.p_onClickHandler);
+            };
+            AuthorizationPanel.prototype.rmEvts = function () {
+                this.off(Laya.Event.CLICK, this, this.p_onClickHandler);
+            };
+            AuthorizationPanel.prototype.onOpened = function () {
+                this.p_openTime = Date.now();
+                ServerLoading.instance.preloadServer();
+                ServerLoading.instance.preloadLoading();
+            };
+            AuthorizationPanel.prototype.destroy = function (destroyChild) {
+                if (destroyChild === void 0) { destroyChild = true; }
+                this.rmEvts();
+                _super.prototype.destroy.call(this, destroyChild);
+            };
+            AuthorizationPanel.prototype.p_onClickHandler = function () {
+                var time = Date.now();
+                if (time - this.p_openTime > 10000) {
+                    this.p_openTime -= 1000;
+                    var server = Browser.window.PF_INFO.selectedServer;
+                    if (server.server_id && n_selectServer.CommonFunc.checkSer(server)) {
+                        ServerLoading.instance.enterDefaultServer();
+                        ServerLoading.instance.sendRecord();
+                    }
+                }
+            };
+            return AuthorizationPanel;
+        }(ui.P_WXAuthorizationViewUI));
+        n_selectServer.AuthorizationPanel = AuthorizationPanel;
+    })(n_selectServer = modules.n_selectServer || (modules.n_selectServer = {}));
+})(modules || (modules = {}));
+var modules;
+(function (modules) {
+    var n_common;
+    (function (n_common) {
+        var Event = Laya.Event;
+        var Image = Laya.Image;
+        var Component = Laya.Component;
+        var Loader = Laya.Loader;
+        var PanelEff = (function (_super) {
+            __extends(PanelEff, _super);
+            function PanelEff() {
+                var _this = _super.call(this) || this;
+                _this.p_img = new Image();
+                _this.addChild(_this.p_img);
+                _this.p_skin = null;
+                _this.p_frmUrls = [];
+                _this.p_isPlay = false;
+                _this.p_curFrmIdx = 0;
+                _this.p_loop = true;
+                _this.p_frmTm = 6;
+                _this.p_atHide = false;
+                _this.on(Event.DISPLAY, _this, _this.p_displayHdler);
+                _this.on(Event.UNDISPLAY, _this, _this.p_undisplayHdler);
+                return _this;
+            }
+            PanelEff.create = function (parentNode, skin, maxFrmIdx, minFrmIdx, durFrm, loop, atHide) {
+                if (minFrmIdx === void 0) { minFrmIdx = 0; }
+                if (durFrm === void 0) { durFrm = 6; }
+                if (loop === void 0) { loop = true; }
+                if (atHide === void 0) { atHide = false; }
+                var eff = new PanelEff();
+                eff.skin(skin, maxFrmIdx, minFrmIdx);
+                eff.durFrm = durFrm;
+                eff.loop = loop;
+                eff.atHide = atHide;
+                if (parentNode) {
+                    parentNode.addChild(eff);
+                }
+                return eff;
+            };
+            PanelEff.play = function (eff) {
+                if (!eff)
+                    return;
+                eff.visible = true;
+                eff.play();
+            };
+            PanelEff.stop = function (eff) {
+                if (!eff)
+                    return;
+                eff.visible = false;
+                eff.stop();
+            };
+            PanelEff.prototype.destroy = function (destroyChild) {
+                Laya.timer.clear(this, this.p_loopHandler);
+                this.off(Event.DISPLAY, this, this.p_displayHdler);
+                this.off(Event.UNDISPLAY, this, this.p_undisplayHdler);
+                _super.prototype.destroy.call(this, destroyChild);
+            };
+            PanelEff.prototype.p_displayHdler = function () {
+            };
+            PanelEff.prototype.p_undisplayHdler = function () {
+            };
+            PanelEff.prototype.skin = function (skin, maxIdx, minIdx) {
+                if (this.p_skin == skin) {
+                    return;
+                }
+                this.p_skin = skin;
+                this.p_frmUrls = [];
+                var count = 0;
+                for (var i = minIdx; i <= maxIdx; i++) {
+                    this.p_frmUrls[count++] = skin + "/" + i + ".png";
+                }
+                var texture = Loader.getRes(this.p_frmUrls[0]);
+                if (texture) {
+                    this.width = texture.sourceWidth;
+                    this.height = texture.sourceHeight;
+                }
+                this.p_loopHandler();
+            };
+            Object.defineProperty(PanelEff.prototype, "atHide", {
+                get: function () {
+                    return this.p_atHide;
+                },
+                set: function (value) {
+                    this.p_atHide = value;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(PanelEff.prototype, "durFrm", {
+                set: function (value) {
+                    if (this.p_frmTm == value) {
+                        return;
+                    }
+                    this.p_frmTm = value;
+                    if (this.p_isPlay) {
+                        Laya.timer.clear(this, this.p_loopHandler);
+                        Laya.timer.loop(this.p_frmTm * (1000 / 60), this, this.p_loopHandler);
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(PanelEff.prototype, "loop", {
+                set: function (value) {
+                    this.p_loop = value;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            PanelEff.prototype.play = function () {
+                if (this.p_isPlay) {
+                    this.stop();
+                }
+                this.p_isPlay = true;
+                this.p_curFrmIdx = 0;
+                Laya.timer.loop(this.p_frmTm * (1000 / 60), this, this.p_loopHandler);
+                this.p_loopHandler();
+            };
+            PanelEff.prototype.stop = function () {
+                this.p_isPlay = false;
+                this.p_curFrmIdx = 0;
+                this.p_loopHandler();
+                Laya.timer.clear(this, this.p_loopHandler);
+            };
+            PanelEff.prototype.pause = function () {
+                if (!this.p_isPlay) {
+                    return;
+                }
+                this.p_isPlay = false;
+                Laya.timer.clear(this, this.p_loopHandler);
+            };
+            PanelEff.prototype.resume = function () {
+                if (this.p_isPlay) {
+                    return;
+                }
+                this.p_isPlay = true;
+                Laya.timer.loop(this.p_frmTm * (1000 / 60), this, this.p_loopHandler);
+                this.p_loopHandler();
+            };
+            Object.defineProperty(PanelEff.prototype, "isPlay", {
+                get: function () {
+                    return this.p_isPlay;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            PanelEff.prototype.p_loopHandler = function () {
+                if (!this.p_frmUrls || this.p_frmUrls.length == 0)
+                    return;
+                this.p_img.skin = this.p_frmUrls[this.p_curFrmIdx];
+                if (!this.p_isPlay)
+                    return;
+                this.p_curFrmIdx++;
+                if (this.p_curFrmIdx == this.p_frmUrls.length) {
+                    if (this.p_loop) {
+                        this.p_curFrmIdx = 0;
+                    }
+                    else {
+                        Laya.timer.clear(this, this.p_loopHandler);
+                        this.p_isPlay = false;
+                        if (this.p_atHide)
+                            this.visible = false;
+                        this.event(Event.COMPLETE);
+                    }
+                }
+            };
+            return PanelEff;
+        }(Component));
+        n_common.PanelEff = PanelEff;
+    })(n_common = modules.n_common || (modules.n_common = {}));
+})(modules || (modules = {}));
+var modules;
+(function (modules) {
+    var n_selectServer;
+    (function (n_selectServer) {
+        var LoadingPanel = (function (_super) {
+            __extends(LoadingPanel, _super);
+            function LoadingPanel(newRegister, copyRightUrl) {
+                if (newRegister === void 0) { newRegister = 0; }
+                var _this = _super.call(this) || this;
+                _this.p_uiData1 = {
+                    "bgImgSkin": "wxloading_atlas/image_loading_bg.jpg",
+                    "topImgSkin": "wxloading_atlas/image_loading_bg_top.jpg",
+                    "btmImgSkin": "wxloading_atlas/image_loading_bg_bottom.jpg",
+                    "leftImgSkin": "wxloading_atlas/image_loading_bg_left.jpg",
+                    "rightImgSkin": "wxloading_atlas/image_loading_bg_right.jpg",
+                    "loadingBarBgSkin": "wxloading_atlas/image_loding_bar0.png",
+                    "copyRightImgBottom": 10,
+                    "processBox1Y": 963,
+                    "processBox2Y": 1065,
+                    "loadingTipsSize": 26,
+                    "getTipsBtnVisible": false,
+                };
+                _this.p_uiData2 = {
+                    "bgImgSkin": "wxloading_atlas/image_loading_bg2.jpg",
+                    "topImgSkin": "wxloading_atlas/image_loading_bg_top2.jpg",
+                    "btmImgSkin": "wxloading_atlas/image_loading_bg_bottom2.jpg",
+                    "leftImgSkin": "wxloading_atlas/image_loading_bg_left2.jpg",
+                    "rightImgSkin": "wxloading_atlas/image_loading_bg_right2.jpg",
+                    "loadingBarBgSkin": "wxloading_atlas/image_loding_bar02.png",
+                    "copyRightImgBottom": 10,
+                    "processBox1Y": 963,
+                    "processBox2Y": 1065,
+                    "loadingTipsSize": 26,
+                    "getTipsBtnVisible": false,
+                };
+                _this.p_loadPer = 0;
+                _this.p_changeLoading((newRegister == 1 ? _this.p_uiData2 : _this.p_uiData1));
+                _this.copyRightImg.skin = "";
+                _this.copyRightImg.skin = copyRightUrl;
+                return _this;
+            }
+            LoadingPanel.prototype.initialize = function () {
+                _super.prototype.initialize.call(this);
+                ServerLoading.instance.preloadLoading();
+                this.P_PFINFO = Browser.window.PF_INFO;
+                this.centerX = 0;
+                this.centerY = 0;
+                if (this.P_PFINFO) {
+                    var loadingType = this.P_PFINFO.loadingType;
+                    if (loadingType == 1) {
+                        this.loadingTips.color = "#f2ffb5";
+                    }
+                    else if (loadingType == 2) {
+                        this.loadingTips.color = "#000000";
+                    }
+                    else if (loadingType == 101) {
+                        this.loadingTips.color = "#000000";
+                    }
+                    else {
+                        this.loadingTips.color = "#f2ffb5";
+                    }
+                }
+                this.p_pointArr = [this.point1, this.point2, this.point3, this.point4];
+                Browser.window.watPanel = this;
+                wxHideLoading();
+                ServerLoading.instance.closeAuthor();
+                ServerLoading.instance.closeServer();
+                this.onOpened();
+            };
+            LoadingPanel.prototype.toAllProgress = function (time) {
+                var loading = this;
+                if (time === -1) {
+                    loading.p_loadPer = 0;
+                    Laya.timer.clear(this, this.toAllProgress);
+                    Laya.timer.frameLoop(1, this, this.toAllProgress);
+                    return;
+                }
+                if (time === -2) {
+                    Laya.timer.clear(this, this.toAllProgress);
+                    return;
+                }
+                if (loading.p_loadPer < 0.9) {
+                    loading.p_loadPer += (Math.random() * 0.15 + 0.01) / (Math.random() * 100 + 50);
+                }
+                else if (loading.p_loadPer < 1) {
+                    loading.p_loadPer += 0.01 / 100;
+                }
+                if (loading.p_loadPer > 0.9999) {
+                    loading.p_loadPer = 0.9999;
+                    Laya.timer.clear(this, this.toAllProgress);
+                    Laya.timer.once(3000, this, function () {
+                        if (loading.p_loadPer > 0.9)
+                            toAllProgress(-1);
+                    });
+                }
+                var perValue = loading.p_loadPer;
+                var pro = perValue * 590;
+                loading.p_loadPer = loading.p_loadPer > perValue ? loading.p_loadPer : perValue;
+                loading.loadingBar.width = pro;
+                var cur = loading.loadingBar.x + pro;
+                loading.loadingImg2.x = cur - 15;
+                if (cur >= 162 + 202) {
+                    loading.loadingImg1.visible = true;
+                    loading.loadingImg1.x = cur - 202;
+                }
+                else {
+                    loading.loadingImg1.visible = false;
+                }
+                loading.percentageTips.text = (perValue * 100 >> 0) + "%";
+                if (loading.p_loadPer < 0.9999) {
+                    Laya.timer.frameLoop(1, this, this.toAllProgress);
+                }
+            };
+            LoadingPanel.prototype.toProgress = function (perValue, str, currTaskIndex) {
+                var loading = this;
+                if (perValue > 1)
+                    perValue = 1;
+                var pro = perValue * 590;
+                loading.p_loadPer = loading.p_loadPer > perValue ? loading.p_loadPer : perValue;
+                loading.loadingBar.width = pro;
+                var cur = loading.loadingBar.x + pro;
+                loading.loadingImg2.x = cur - 15;
+                if (cur >= 162 + 202) {
+                    loading.loadingImg1.visible = true;
+                    loading.loadingImg1.x = cur - 202;
+                }
+                else {
+                    loading.loadingImg1.visible = false;
+                }
+                loading.percentageTips.text = (perValue * 100 >> 0) + "%";
+                loading.loadingTips.text = str;
+                var currPage = currTaskIndex - 1;
+                for (var i = 0; i < this.p_pointArr.length; i++) {
+                    loading.p_pointArr[i].skin = currPage > i ? "wxloading_atlas/image_login_point3.png" : (currPage === i ? "wxloading_atlas/image_login_point2.png" : "wxloading_atlas/image_login_point1.png");
+                }
+            };
+            LoadingPanel.prototype.onOpened = function () {
+                this.toProgress(0.1, "正在加载资源...", 1);
+                this.toAllProgress(-1);
+                Browser.window.toAllProgress = this.toAllProgress.bind(this);
+                Browser.window.toProgress = this.toProgress.bind(this);
+                this.versionTxt.text = "资源：" + this.P_PFINFO.lastVersion + "      版本：" + this.P_PFINFO.wxVersion;
+                this.showGetBtn();
+            };
+            LoadingPanel.prototype.close = function (openId) {
+                this.resetWinFun();
+                Laya.timer.clear(this, this.toAllProgress);
+                Laya.timer.clear(this, this.p_autoGetTimer);
+                ServerLoading.instance.closeLoading();
+                this.getTipsBtn.off(Laya.Event.CLICK, this, this.p_getTipsBtnCLk);
+            };
+            LoadingPanel.prototype.resetWinFun = function () {
+                Browser.window.toAllProgress = function () { };
+                Browser.window.toProgress = function () { };
+            };
+            LoadingPanel.prototype.destroy = function (destroyChild) {
+                if (destroyChild === void 0) { destroyChild = true; }
+                this.resetWinFun();
+                _super.prototype.destroy.call(this, destroyChild);
+            };
+            LoadingPanel.prototype.showGetBtn = function () {
+                if (this.P_PFINFO.showGetBtn && this.P_PFINFO.showGetBtn == 1) {
+                    this.getTipsBtn.visible = true;
+                    this.getTipsBtn.tag = true;
+                    this.getTipsBtn.skin = "wxloading_atlas/btn_loding_abcelq0.png";
+                    this.getTipsBtn.on(Laya.Event.CLICK, this, this.p_getTipsBtnCLk);
+                    this.p_playGetEff();
+                    this.p_updAutoGetTm(true);
+                }
+            };
+            LoadingPanel.prototype.p_getTipsBtnCLk = function () {
+                if (!this.getTipsBtn.tag)
+                    return;
+                this.getTipsBtn.tag = false;
+                this.getTipsBtn.skin = "wxloading_atlas/btn_loding_abcelq1.png";
+                this.p_stopGetEff();
+                this.p_updAutoGetTm(false);
+            };
+            LoadingPanel.prototype.p_changeLoading = function (uiData) {
+                this.bgImg.skin = uiData.bgImgSkin;
+                this.topImg.skin = uiData.topImgSkin;
+                this.btmImg.skin = uiData.btmImgSkin;
+                this.leftImg.skin = uiData.leftImgSkin;
+                this.rightImg.skin = uiData.rightImgSkin;
+                this.copyRightImg.bottom = uiData.copyRightImgBottom;
+                this.processBox1.y = uiData.processBox1Y;
+                this.processBox2.y = uiData.processBox2Y;
+                this.loadingBarBg.skin = uiData.loadingBarBgSkin;
+                this.loadingTips.fontSize = uiData.loadingTipsSize;
+                this.getTipsBtn.visible = (this.P_PFINFO.showGetBtn && this.P_PFINFO.showGetBtn == 1);
+                this.getTipsBtn.visible ? this.p_playGetEff() : this.p_stopGetEff();
+                this.p_updAutoGetTm(this.getTipsBtn.visible);
+            };
+            LoadingPanel.prototype.p_playGetEff = function () {
+            };
+            LoadingPanel.prototype.p_stopGetEff = function () {
+            };
+            LoadingPanel.prototype.p_updAutoGetTm = function (isOpen) {
+                Laya.timer.clear(this, this.p_autoGetTimer);
+                if (isOpen) {
+                    this.p_timerCount = 9;
+                    this.txtGetTm.visible = true;
+                    this.p_autoGetTimer();
+                    Laya.timer.loop(1000, this, this.p_autoGetTimer);
+                }
+                else {
+                    this.txtGetTm.visible = false;
+                }
+            };
+            LoadingPanel.prototype.p_autoGetTimer = function () {
+                if (this.p_timerCount > 0) {
+                    this.txtGetTm.text = "\u7ACB\u5373\u9886\u53D6(" + this.p_timerCount + "s)";
+                    this.p_timerCount--;
+                }
+                else {
+                    this.txtGetTm.text = "";
+                    Laya.timer.clear(this, this.p_autoGetTimer);
+                    this.p_getTipsBtnCLk();
+                }
+            };
+            return LoadingPanel;
+        }(ui.P_WXLoadingViewUI));
+        n_selectServer.LoadingPanel = LoadingPanel;
+    })(n_selectServer = modules.n_selectServer || (modules.n_selectServer = {}));
+})(modules || (modules = {}));
+var modules;
+(function (modules) {
+    var n_selectServer;
+    (function (n_selectServer) {
+        var CommonFunc = (function () {
+            function CommonFunc() {
+            }
+            CommonFunc.checkSer = function (server) {
+                if (!server)
+                    return false;
+                var isRecd = CommonFunc.isRecommend(server.is_recommend);
+                if (server.status == -1) {
+                    var str = "\u670D\u52A1\u5668\u7EF4\u62A4\u4E2D";
+                    var tm = server.maintain_time;
+                    if (tm && tm != "" && tm != " ")
+                        str += "\n(\u9884\u8BA1\u65F6\u95F4" + tm + ")";
+                    alert(str);
+                    return false;
+                }
+                else if (server.status == 0) {
+                    alert("服务器尚未开启，敬请期待");
+                    return false;
+                }
+                else if (server.status === 3 && !isRecd) {
+                    alert("当前区服已爆满，请稍后再试");
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            };
+            CommonFunc.isRecommend = function (val) {
+                return val === 1 || val === 3;
+            };
+            CommonFunc.getStatusSrc = function (server) {
+                var status = server.status;
+                var isRecd = CommonFunc.isRecommend(server.is_recommend);
+                var str = "wxlogin_atlas/image_login_fanmang.png";
+                if (status > 0 && isRecd)
+                    str = "wxlogin_atlas/image_login_changtong.png";
+                else if (status > 0 && !isRecd)
+                    str = "wxlogin_atlas/image_login_fanmang.png";
+                else if (status <= 0)
+                    str = "wxlogin_atlas/image_login_weihu.png";
+                return str;
+            };
+            CommonFunc.getStatusAddStr = function (server) {
+                var status = server.status;
+                var isRecd = CommonFunc.isRecommend(server.is_recommend);
+                var str = "";
+                if (isRecd) {
+                    str = "(推荐)";
+                }
+                else if (status === -1)
+                    str = "(维护中)";
+                else if (status === 0)
+                    str = "(待开服)";
+                return str;
+            };
+            CommonFunc.getStatusAddStr2 = function (server) {
+                var status = server.status;
+                var str = "";
+                if (status === -1)
+                    str = "维护中";
+                else if (status === 0)
+                    str = "未开服";
+                else if (status > 0)
+                    str = "已开服";
+                return str;
+            };
+            CommonFunc.getPreAddStr = function () {
+                var PF_INFO = Browser.window.PF_INFO;
+                var preStr = PF_INFO.ser_name_pkg ? PF_INFO.ser_name_pkg : "";
+                return preStr;
+            };
+            CommonFunc.getStatusTxtColor = function (status, defaultColor) {
+                var str = defaultColor;
+                if (status === -1)
+                    str = "#d50000";
+                else if (status === 0)
+                    str = "#49575a";
+                return str;
+            };
+            return CommonFunc;
+        }());
+        n_selectServer.CommonFunc = CommonFunc;
+        var List = Laya.List;
+        var Event = Laya.Event;
+        var SelectServerPanel = (function (_super) {
+            __extends(SelectServerPanel, _super);
+            function SelectServerPanel(copyRightUrl) {
+                if (copyRightUrl === void 0) { copyRightUrl = "wxlogin_atlas/image_denglu_txtshenpi.png"; }
+                var _this = _super.call(this) || this;
+                _this.p_lastY = 0;
+                _this.p_multiNoticeKey = "multi_notice_key";
+                _this.p_mLastY = 0;
+                _this.p_privacyLastY = 0;
+                _this.p_privacyKey = "privacy_key";
+                _this.p_isSendPrivacy = true;
+                _this.p_jumpLastY = 0;
+                _this.copyRightImg.skin = copyRightUrl;
+                return _this;
+            }
+            ;
+            SelectServerPanel.prototype.initialize = function () {
+                _super.prototype.initialize.call(this);
+                this.centerX = 0;
+                this.centerY = 0;
+                this.copyRightImg.skin = "";
+                ServerLoading.instance.preloadServer();
+                this.P_PFINFO = Browser.window.PF_INFO;
+                this.p_leftList = new List();
+                this.p_leftList.vScrollBarSkin = "";
+                this.p_leftList.itemRender = n_selectServer.SelectLeftListItem;
+                this.p_leftList.top = 5;
+                this.p_leftList.repeatX = 1;
+                this.p_leftList.spaceY = 5;
+                this.p_leftList.width = this.leftListBox.width;
+                this.p_leftList.height = this.leftListBox.height - 8;
+                this.leftListBox.addChild(this.p_leftList);
+                this.p_rightList = new List();
+                this.p_rightList.vScrollBarSkin = "";
+                this.p_rightList.itemRender = n_selectServer.SelectRightListItem;
+                this.p_rightList.top = 5;
+                this.p_rightList.repeatX = 1;
+                this.p_rightList.spaceY = 5;
+                this.p_rightList.width = this.rightListBox.width;
+                this.p_rightList.height = this.rightListBox.height - 8;
+                this.rightListBox.addChild(this.p_rightList);
+                this.p_noticeList = new List();
+                this.p_noticeList.hScrollBarSkin = "";
+                this.p_noticeList.itemRender = n_selectServer.NoticeItem;
+                this.p_noticeList.repeatY = 1;
+                this.p_noticeList.width = this.boxTab.width;
+                this.p_noticeList.height = this.boxTab.height;
+                this.boxTab.addChild(this.p_noticeList);
+                var loadingType = this.P_PFINFO.loadingType;
+                if (loadingType == 1) {
+                    this.p_serTxtColor = "#feffc0";
+                    this.enterBtn.size(506, 88);
+                }
+                else if (loadingType == 2) {
+                    this.p_serTxtColor = "#feffc0";
+                    this.enterBtn.size(506, 88);
+                }
+                else if (loadingType == 3) {
+                    this.p_serTxtColor = "#feffc0";
+                    this.enterBtn.size(506, 88);
+                }
+                else if (loadingType == 101) {
+                    this.p_serTxtColor = "#feffc0";
+                    this.enterBtn.size(506, 88);
+                }
+                else {
+                    this.p_serTxtColor = "#93353b";
+                    this.enterBtn.size(506, 88);
+                }
+                this.p_multiNoticeData = [];
+                this.noticeBtn.visible = false;
+                this.mNoticeContent.color = "#212942";
+                this.mNoticeContent.style.fontSize = 26;
+                this.mNoticeContent.style.lineHeight = 28;
+                this.mNoticeContent.mouseEnabled = false;
+                this.privacyContent.color = "#212942";
+                this.privacyContent.style.fontSize = 26;
+                this.privacyContent.style.lineHeight = 28;
+                this.privacyContent.mouseEnabled = false;
+                this.privacyTip.color = "#ffffff";
+                this.privacyTip.style.fontSize = 18;
+                this.privacyTip.style.lineHeight = 18;
+                this.privacyTip.style.stroke = 2;
+                this.privacyTip.style.strokeColor = "#000000";
+                this.privacyTip.style.wordWrap = false;
+                this.privacyToggle.hitArea = new Laya.Rectangle(-26 + this.privacyToggle.pivotX, -26 + this.privacyToggle.pivotY, 80, 100);
+                this.jumpContent.color = "#212942";
+                this.jumpContent.style.fontSize = 26;
+                this.jumpContent.style.lineHeight = 28;
+                this.jumpContent.mouseEnabled = false;
+                Browser.window.initPanel = this;
+                wxHideLoading();
+                this.addEvt();
+                this.onOpened();
+            };
+            SelectServerPanel.prototype.destroy = function (destroyChild) {
+                if (destroyChild === void 0) { destroyChild = true; }
+                this.rmEvts();
+                this.p_mouseUpNotice();
+                this.p_mouseUpMNotice();
+                this.p_mouseUpPrivacy();
+                this.p_mouseUpJump();
+                this.ageTipsContent = null;
+                if (this.p_leftList) {
+                    this.p_leftList.removeSelf();
+                    this.p_leftList.destroy();
+                    this.p_leftList = null;
+                }
+                if (this.p_rightList) {
+                    this.p_rightList.removeSelf();
+                    this.p_rightList.destroy();
+                    this.p_rightList = null;
+                }
+                if (this.p_noticeList) {
+                    this.p_noticeList.removeSelf();
+                    this.p_noticeList.destroy();
+                    this.p_noticeList = null;
+                }
+                this.p_spr && this.p_spr.graphics.clear();
+                this.p_spr && this.p_spr.removeSelf();
+                Laya.timer.clear(this, this.p_tipFlyTimer);
+                _super.prototype.destroy.call(this, destroyChild);
+            };
+            SelectServerPanel.prototype.addEvt = function () {
+                this.bgImg.on(Laya.Event.CLICK, this, this.p_clickBg);
+                this.enterBtn.on(Laya.Event.CLICK, this, this.p_clickEnter);
+                this.selectServer.on(Laya.Event.CLICK, this, this.p_clickOpenSer);
+                this.selectServer.on(Laya.Event.CLICK, this, this.p_clickOpenSer);
+                this.closeBg.on(Laya.Event.CLICK, this, this.p_clickCloseSer);
+                this.closeBtn.on(Laya.Event.CLICK, this, this.p_closeJumpPanel);
+                this.noticeBtn.on(Laya.Event.CLICK, this, this.p_clickOpenMNotice);
+                this.noticeClose.on(Laya.Event.CLICK, this, this.p_clickCloseNotice);
+                this.noticeContent.on(Laya.Event.MOUSE_DOWN, this, this.p_downClkNotice);
+                this.mNoticeClose.on(Laya.Event.CLICK, this, this.p_clickCloseMNotice);
+                this.mNoticeClose2.on(Laya.Event.CLICK, this, this.p_clickCloseMNotice);
+                this.mNoticePanel.on(Laya.Event.MOUSE_DOWN, this, this.p_downClkMNotice);
+                this.ageTipBtn.on(Laya.Event.CLICK, this, this.p_openAgeTipsPanel);
+                this.privacyClose.on(Laya.Event.CLICK, this, this.p_clickClosePrivacy);
+                this.privacyClose2.on(Laya.Event.CLICK, this, this.p_clickClosePrivacy);
+                this.privacyPanel.on(Laya.Event.MOUSE_DOWN, this, this.p_downClkPrivacy);
+                this.privacyToggle.on(Laya.Event.CLICK, this, this.p_clickToggle);
+                this.privacyTip.on(Laya.Event.LINK, this, this.p_clickLink);
+                this.btnJump.on(Laya.Event.CLICK, this, this.p_clickJump);
+                this.jumpPanel.on(Laya.Event.MOUSE_DOWN, this, this.p_downClkJump);
+                this.p_noticeList.selectEnable = true;
+                this.p_noticeList.selectHandler = Laya.Handler.create(this, this.p_onSelMNoticeItem, null, false);
+            };
+            SelectServerPanel.prototype.rmEvts = function () {
+                this.bgImg.off(Laya.Event.CLICK, this, this.p_clickBg);
+                this.enterBtn.off(Laya.Event.CLICK, this, this.p_clickEnter);
+                this.selectServer.off(Laya.Event.CLICK, this, this.p_clickOpenSer);
+                this.selectServer.off(Laya.Event.CLICK, this, this.p_clickOpenSer);
+                this.closeBg.off(Laya.Event.CLICK, this, this.p_clickCloseSer);
+                this.noticeBtn.off(Laya.Event.CLICK, this, this.p_clickOpenMNotice);
+                this.closeBtn.off(Laya.Event.CLICK, this, this.p_closeJumpPanel);
+                this.noticeClose.off(Laya.Event.CLICK, this, this.p_clickCloseNotice);
+                this.noticeContent.off(Laya.Event.MOUSE_DOWN, this, this.p_downClkNotice);
+                this.mNoticeClose.off(Laya.Event.CLICK, this, this.p_clickCloseMNotice);
+                this.mNoticeClose2.off(Laya.Event.CLICK, this, this.p_clickCloseMNotice);
+                this.mNoticePanel.off(Laya.Event.MOUSE_DOWN, this, this.p_downClkMNotice);
+                this.ageTipBtn.off(Laya.Event.CLICK, this, this.p_openAgeTipsPanel);
+                this.privacyClose.off(Laya.Event.CLICK, this, this.p_clickClosePrivacy);
+                this.privacyClose2.off(Laya.Event.CLICK, this, this.p_clickClosePrivacy);
+                this.privacyPanel.off(Laya.Event.MOUSE_DOWN, this, this.p_downClkPrivacy);
+                this.privacyToggle.off(Laya.Event.CLICK, this, this.p_clickToggle);
+                this.privacyTip.off(Laya.Event.LINK, this, this.p_clickLink);
+                this.btnJump.off(Laya.Event.CLICK, this, this.p_clickJump);
+                this.jumpPanel.off(Laya.Event.MOUSE_DOWN, this, this.p_downClkJump);
+                this.p_noticeList.selectEnable = false;
+                this.p_noticeList.selectHandler = null;
+            };
+            SelectServerPanel.prototype.onOpened = function () {
+                this.p_openTime = Date.now();
+                this.p_isSendPrivacy = true;
+                this.p_defaultServerId = this.P_PFINFO.selectedServer.server_id;
+                this.p_showServer(this.P_PFINFO.selectedServer);
+                this.p_leftList.dataSource = this.P_PFINFO.groupList;
+                this.p_clickOpenSer();
+                req_multi_server_notice(4, this.P_PFINFO.pkgName, this.P_PFINFO.selectedServer.server_id, this.p_onMultiNoticeCallback.bind(this));
+                this.p_privacyData = this.P_PFINFO.privacy_data && this.P_PFINFO.privacy_data.list ? this.P_PFINFO.privacy_data.list : [];
+                this.p_privacyBgCfg = this.P_PFINFO.privacy_wx_login_pkg != undefined ? this.P_PFINFO.privacy_wx_login_pkg : 0;
+                var adFlag = PF_INFO.ad_flag == undefined ? 0 : PF_INFO.ad_flag;
+                this.p_privacyOpen = ((this.p_privacyBgCfg == 1 && adFlag == 1) || (this.p_privacyBgCfg == 2 && adFlag != 1) || (this.p_privacyBgCfg == 3));
+                this.p_isApplyPrivacy = (adFlag == 1 ? true : false);
+                this.p_updPrivacyUI();
+                this.versionTxt.text = "资源：" + this.P_PFINFO.lastVersion + "      版本：" + this.P_PFINFO.wxVersion;
+                this.versionTxt.visible = !this.P_PFINFO.wxShield;
+                this.serverName.color = this.selServer.color = this.p_serTxtColor;
+                this.imgCheatTip.visible = this.P_PFINFO.anti_cheat_pkg == 1;
+                this.txtTip.visible = false;
+                console.log(this.versionTxt.text);
+            };
+            SelectServerPanel.prototype.preload = function () {
+            };
+            SelectServerPanel.prototype.p_clickBg = function () {
+                if (this.listBg.visible) {
+                    this.p_clickCloseSer();
+                }
+                else if (this.privacyBg.visible) {
+                    this.p_clickClosePrivacy();
+                }
+                else if (this.mNoticeBg.visible) {
+                    this.p_clickCloseMNotice();
+                }
+                else if (this.noticeBg.visible) {
+                    this.p_clickCloseNotice();
+                }
+                else {
+                    if (!this.privacyToggle.visible || this.p_isApplyPrivacy) {
+                        var time = Date.now();
+                        if (time - this.p_openTime > 10000 && CommonFunc.checkSer(this.P_PFINFO.selectedServer)) {
+                            this.p_openTime -= 2000;
+                            ServerLoading.instance.enterDefaultServer();
+                        }
+                    }
+                    else {
+                        this.p_showTip("您必须同意用户协议才可进入游戏");
+                    }
+                }
+            };
+            SelectServerPanel.prototype.p_clickEnter = function () {
+                if (!this.privacyToggle.visible || this.p_isApplyPrivacy) {
+                    if (CommonFunc.checkSer(this.P_PFINFO.selectedServer)) {
+                        Browser.window.PF_INFO.selectedServer = this.P_PFINFO.selectedServer;
+                        req_server_check_ban(0, this.P_PFINFO.selectedServer.server_id);
+                    }
+                }
+                else {
+                    this.p_showTip("您必须同意用户协议才可进入游戏");
+                }
+            };
+            SelectServerPanel.prototype.p_clickOpenSer = function () {
+                if (!this.P_PFINFO.hasGroupReq) {
+                    this.P_PFINFO.hasGroupReq = true;
+                    req_server_group(0);
+                }
+                else {
+                    this.listBg.visible = true;
+                }
+            };
+            SelectServerPanel.prototype.p_clickCloseSer = function () {
+                this.listBg.visible = false;
+            };
+            SelectServerPanel.prototype.p_closeJumpPanel = function () {
+                this.jumpBg.visible = false;
+            };
+            SelectServerPanel.prototype.p_clickOpenMNotice = function () {
+                this.p_openMultiNoticeView();
+            };
+            SelectServerPanel.prototype.p_clickCloseMNotice = function () {
+                this.mNoticeBg.visible = false;
+            };
+            SelectServerPanel.prototype.p_clickCloseNotice = function () {
+                this.noticeBg.visible = false;
+            };
+            SelectServerPanel.prototype.p_clickClosePrivacy = function () {
+                this.privacyBg.visible = false;
+            };
+            SelectServerPanel.prototype.p_clickToggle = function () {
+                this.p_isApplyPrivacy = !this.p_isApplyPrivacy;
+                if (this.p_isApplyPrivacy)
+                    localStorage.setItem(this.p_privacyKey, "1");
+                this.privacyToggle.skin = "wxlogin_atlas/" + (this.p_isApplyPrivacy ? "image_xuanfu_gx1.png" : "image_xuanfu_gx0.png");
+            };
+            SelectServerPanel.prototype.p_clickLink = function (param) {
+                this.p_openPrivacyView(Number(param));
+            };
+            SelectServerPanel.prototype.p_clickJump = function () {
+                if (Browser.window.forceJumpMiniGame) {
+                    Browser.window.forceJumpMiniGame();
+                }
+                else {
+                    this.p_closeJumpPanel();
+                }
+            };
+            SelectServerPanel.prototype.p_downClkNotice = function () {
+                this.p_lastY = this.noticeContent.mouseY;
+                Laya.stage.on(Event.MOUSE_MOVE, this, this.p_mouseMvNotice);
+                Laya.stage.on(Event.MOUSE_UP, this, this.p_mouseUpNotice);
+                Laya.stage.on(Event.MOUSE_OUT, this, this.p_mouseUpNotice);
+            };
+            SelectServerPanel.prototype.p_mouseMvNotice = function () {
+                if (!this.noticeContent)
+                    return;
+                var offsetY = this.p_lastY - this.noticeContent.mouseY;
+                this.noticeContent.scrollY += offsetY;
+                this.p_lastY = this.noticeContent.mouseY;
+            };
+            SelectServerPanel.prototype.p_mouseUpNotice = function () {
+                Laya.stage.off(Event.MOUSE_MOVE, this, this.p_mouseMvNotice);
+                Laya.stage.off(Event.MOUSE_UP, this, this.p_mouseUpNotice);
+                Laya.stage.off(Event.MOUSE_OUT, this, this.p_mouseUpNotice);
+            };
+            SelectServerPanel.prototype.p_downClkMNotice = function () {
+                this.p_mLastY = this.mNoticePanel.mouseY;
+                Laya.stage.on(Event.MOUSE_MOVE, this, this.p_mouseMvMNotice);
+                Laya.stage.on(Event.MOUSE_UP, this, this.p_mouseUpMNotice);
+                Laya.stage.on(Event.MOUSE_OUT, this, this.p_mouseUpMNotice);
+            };
+            SelectServerPanel.prototype.p_mouseMvMNotice = function () {
+                if (!this.mNoticeContent)
+                    return;
+                var offsetY = this.p_mLastY - this.mNoticePanel.mouseY;
+                this.mNoticeContent.y -= offsetY;
+                if (this.mNoticePanel.height < this.mNoticeContent.contextHeight) {
+                    if (this.mNoticeContent.y < this.mNoticePanel.height - this.mNoticeContent.contextHeight) {
+                        this.mNoticeContent.y = this.mNoticePanel.height - this.mNoticeContent.contextHeight;
+                    }
+                    else if (this.mNoticeContent.y > 0) {
+                        this.mNoticeContent.y = 0;
+                    }
+                }
+                else {
+                    this.mNoticeContent.y = 0;
+                }
+                this.p_mLastY = this.mNoticePanel.mouseY;
+            };
+            SelectServerPanel.prototype.p_mouseUpMNotice = function () {
+                Laya.stage.off(Event.MOUSE_MOVE, this, this.p_mouseMvMNotice);
+                Laya.stage.off(Event.MOUSE_UP, this, this.p_mouseUpMNotice);
+                Laya.stage.off(Event.MOUSE_OUT, this, this.p_mouseUpMNotice);
+            };
+            SelectServerPanel.prototype.p_downClkPrivacy = function () {
+                this.p_privacyLastY = this.privacyPanel.mouseY;
+                Laya.stage.on(Event.MOUSE_MOVE, this, this.p_mouseMvPrivacy);
+                Laya.stage.on(Event.MOUSE_UP, this, this.p_mouseUpPrivacy);
+                Laya.stage.on(Event.MOUSE_OUT, this, this.p_mouseUpPrivacy);
+            };
+            SelectServerPanel.prototype.p_mouseMvPrivacy = function () {
+                if (!this.privacyContent)
+                    return;
+                var offsetY = this.p_privacyLastY - this.privacyPanel.mouseY;
+                this.privacyContent.y -= offsetY;
+                if (this.privacyPanel.height < this.privacyContent.contextHeight) {
+                    if (this.privacyContent.y < this.privacyPanel.height - this.privacyContent.contextHeight) {
+                        this.privacyContent.y = this.privacyPanel.height - this.privacyContent.contextHeight;
+                    }
+                    else if (this.privacyContent.y > 0) {
+                        this.privacyContent.y = 0;
+                    }
+                }
+                else {
+                    this.privacyContent.y = 0;
+                }
+                this.p_privacyLastY = this.privacyPanel.mouseY;
+            };
+            SelectServerPanel.prototype.p_mouseUpPrivacy = function () {
+                Laya.stage.off(Event.MOUSE_MOVE, this, this.p_mouseMvPrivacy);
+                Laya.stage.off(Event.MOUSE_UP, this, this.p_mouseUpPrivacy);
+                Laya.stage.off(Event.MOUSE_OUT, this, this.p_mouseUpPrivacy);
+            };
+            SelectServerPanel.prototype.p_downClkJump = function () {
+                this.p_jumpLastY = this.jumpPanel.mouseY;
+                Laya.stage.on(Event.MOUSE_MOVE, this, this.p_mouseMvJump);
+                Laya.stage.on(Event.MOUSE_UP, this, this.p_mouseUpJump);
+                Laya.stage.on(Event.MOUSE_OUT, this, this.p_mouseUpJump);
+            };
+            SelectServerPanel.prototype.p_mouseMvJump = function () {
+                if (!this.jumpContent)
+                    return;
+                var offsetY = this.p_jumpLastY - this.jumpPanel.mouseY;
+                this.jumpContent.y -= offsetY;
+                if (this.jumpPanel.height < this.jumpContent.contextHeight) {
+                    if (this.jumpContent.y < this.jumpPanel.height - this.jumpContent.contextHeight) {
+                        this.jumpContent.y = this.jumpPanel.height - this.jumpContent.contextHeight;
+                    }
+                    else if (this.jumpContent.y > 0) {
+                        this.jumpContent.y = 0;
+                    }
+                }
+                else {
+                    this.jumpContent.y = 0;
+                }
+                this.p_jumpLastY = this.jumpPanel.mouseY;
+            };
+            SelectServerPanel.prototype.p_mouseUpJump = function () {
+                Laya.stage.off(Event.MOUSE_MOVE, this, this.p_mouseMvJump);
+                Laya.stage.off(Event.MOUSE_UP, this, this.p_mouseUpJump);
+                Laya.stage.off(Event.MOUSE_OUT, this, this.p_mouseUpJump);
+            };
+            SelectServerPanel.prototype.p_onSelMNoticeItem = function () {
+                var datas = this.p_noticeList.dataSource;
+                if (!datas)
+                    return;
+                var selData;
+                for (var i = 0; i < this.p_noticeList.dataSource.length; i++) {
+                    var data = this.p_noticeList.dataSource[i];
+                    data[1] = i == this.p_noticeList.selectedIndex;
+                    if (i == this.p_noticeList.selectedIndex) {
+                        selData = data[0];
+                    }
+                }
+                this.mNoticeTitle.text = selData && selData.title ? selData.title : "";
+                this.mNoticeContent.innerHTML = selData && selData.content ? selData.content : "";
+                this.mNoticeContent.y = 0;
+            };
+            SelectServerPanel.prototype.p_onSelPrivacyItem = function (index) {
+                var privacyData = this.p_privacyData[index];
+                if (privacyData && privacyData.content) {
+                    privacyData.content = privacyData.content.replace(/(<)(?!(br)).[a-zA-Z]{0,10}(>)/g, "");
+                }
+                this.privacyTitle.text = privacyData && privacyData.title ? privacyData.title : "标题";
+                this.privacyContent.innerHTML = privacyData && privacyData.content ? privacyData.content : "加载中...";
+                this.privacyContent.y = 0;
+            };
+            SelectServerPanel.prototype.p_showServer = function (server) {
+                var name = server.server_name;
+                this.serverName.text = CommonFunc.getPreAddStr() + name + CommonFunc.getStatusAddStr(server);
+                this.serverName.color = CommonFunc.getStatusTxtColor(server.status, this.p_serTxtColor);
+                this.hotImage.skin = CommonFunc.getStatusSrc(server);
+                this.P_PFINFO.cdn = server.cdn || "";
+                this.P_PFINFO.selectedServer = server;
+                this.noticeBtn.visible = !this.P_PFINFO.wxShield;
+            };
+            SelectServerPanel.prototype.p_leftlistClkCallBack = function (index) {
+                this.showGroupList(index);
+            };
+            SelectServerPanel.prototype.p_rightlistClkCallBack = function (data) {
+                this.p_showServer(data);
+                this.listBg.visible = false;
+            };
+            SelectServerPanel.prototype.showGroupList = function (selectIndex) {
+                if (selectIndex === void 0) { selectIndex = 0; }
+                if (!this.parent)
+                    return;
+                var groups = this.P_PFINFO.groupList;
+                if (!groups || groups.length === 0)
+                    return;
+                var len = groups.length;
+                for (var i = 0; i < len; i++) {
+                    groups[i].callBack = this.p_leftlistClkCallBack.bind(this);
+                    if (i == selectIndex) {
+                        groups[i].select = true;
+                    }
+                    else {
+                        groups[i].select = false;
+                    }
+                    groups[i].index = i;
+                }
+                this.p_leftList.array = groups;
+                var groupid = groups[selectIndex].id;
+                if (this.P_PFINFO.serverList[groupid]) {
+                    this.showServerList(groupid);
+                    return;
+                }
+                else {
+                    if (!this.P_PFINFO.hasServerReq) {
+                        this.P_PFINFO.hasServerReq = true;
+                        if (groupid == -1)
+                            req_server_owner(0);
+                        else if (groupid == -2) {
+                            req_recommend_server_list(0);
+                        }
+                        else {
+                            req_server_list(0, groupid);
+                        }
+                    }
+                }
+            };
+            SelectServerPanel.prototype.showServerList = function (groupid) {
+                if (!this.parent)
+                    return;
+                if (!this.P_PFINFO.serverList[groupid])
+                    return;
+                var arr = this.P_PFINFO.serverList[groupid];
+                var len = arr.length;
+                for (var i = 0; i < len; i++) {
+                    arr[i].callBack = this.p_rightlistClkCallBack.bind(this);
+                }
+                this.p_rightList.array = arr;
+            };
+            SelectServerPanel.prototype.p_onMultiNoticeCallback = function (param) {
+                console.log("onMultiNoticeCallback, param = ", param);
+                var nowTm = Date.now() / 1000;
+                var key = localStorage.getItem(this.p_multiNoticeKey);
+                this.p_multiNoticeData = [];
+                var isPop = false;
+                if (param.state == "success") {
+                    for (var val in param.data) {
+                        var data = param.data[val];
+                        if (data) {
+                            var isTm = nowTm < data.end_time;
+                            var isType1 = data.pop_type == 1;
+                            var isType2 = data.pop_type == 2 && (data.key + "") != key;
+                            if (!isPop && isTm && (isType1 || isType2)) {
+                                isPop = true;
+                            }
+                            if (isTm) {
+                                this.p_multiNoticeData.push(data);
+                            }
+                            if (isType2) {
+                                localStorage.setItem(this.p_multiNoticeKey, data.key + "");
+                            }
+                        }
+                    }
+                }
+                this.p_multiNoticeData.sort(function (a, b) {
+                    return a.login_id - b.login_id;
+                });
+                console.log("onMultiNoticeCallback, datas = ", this.p_multiNoticeData);
+                if (isPop) {
+                    this.p_openMultiNoticeView();
+                }
+            };
+            SelectServerPanel.prototype.p_openMultiNoticeView = function () {
+                if (!this.p_noticeList)
+                    return;
+                if (this.p_multiNoticeData) {
+                    this.p_noticeList.x = this.p_multiNoticeData.length > 2 ? 0 : ((this.boxTab.width - this.p_multiNoticeData.length * 274) / 2);
+                    var datas = [];
+                    for (var i = 0; i < this.p_multiNoticeData.length; i++) {
+                        var data = this.p_multiNoticeData[i];
+                        datas.push([data, i == this.p_noticeList.selectedIndex]);
+                    }
+                    this.p_noticeList.dataSource = datas;
+                    if (datas.length > 0) {
+                        this.p_noticeList.selectedIndex = 0;
+                        this.p_noticeList.scrollTo(0);
+                    }
+                    else {
+                        this.mNoticeTitle.text = "\u6682\u65E0\u516C\u544A";
+                        this.mNoticeContent.text = "";
+                    }
+                    this.mNoticeClose2.visible = this.p_multiNoticeData.length <= 1;
+                    this.boxTab.visible = this.p_multiNoticeData.length > 1;
+                }
+                this.mNoticeBg.visible = true;
+            };
+            SelectServerPanel.prototype.p_onPrivacyCallback = function (param) {
+                if (this.destroyed)
+                    return;
+                console.log("p_onPrivacyCallback, param = ", param);
+                if (param.state == "success") {
+                    for (var val in param.data) {
+                        var idx = Number(val);
+                        var data = param.data[idx];
+                        if (this.p_privacyData && this.p_privacyData[idx]) {
+                            this.p_privacyData[idx].content = data.content;
+                        }
+                    }
+                }
+                this.p_onSelPrivacyItem(0);
+            };
+            SelectServerPanel.prototype.p_updPrivacyUI = function () {
+                var str = "";
+                for (var i = 0; i < this.p_privacyData.length; i++) {
+                    var data = this.p_privacyData[i];
+                    str += "<a href=\"" + i + "\" style=\"color:#ffff00;text-decoration:none\"> " + data.title + " </a>";
+                    if (i < this.p_privacyData.length - 1)
+                        str += "\u3001";
+                }
+                this.privacyTip.innerHTML = "\u6211\u5DF2\u7ECF\u8BE6\u7EC6\u9605\u8BFB\u5E76\u540C\u610F " + str;
+                this.privacyToggle.skin = "wxlogin_atlas/" + (this.p_isApplyPrivacy ? "image_xuanfu_gx1.png" : "image_xuanfu_gx0.png");
+                this.privacyTip.x = (720 - this.privacyTip.width) / 2;
+                this.privacyToggle.x = this.privacyTip.x - 30;
+                this.privacyToggle.visible = this.privacyTip.visible = this.p_privacyOpen;
+            };
+            SelectServerPanel.prototype.p_openPrivacyView = function (selIdx) {
+                if (selIdx === void 0) { selIdx = 0; }
+                if (this.p_privacyData) {
+                    if (this.p_privacyData.length > 0) {
+                        if (selIdx < 0)
+                            selIdx = 0;
+                        if (selIdx > this.p_privacyData.length - 1)
+                            selIdx = 0;
+                        this.p_onSelPrivacyItem(selIdx);
+                    }
+                    else {
+                        this.privacyTitle.text = "\u7A7A";
+                        this.privacyContent.text = "";
+                    }
+                    this.privacyClose2.visible = true;
+                }
+                if (this.p_isSendPrivacy) {
+                    this.p_isSendPrivacy = false;
+                    req_privacy(this.P_PFINFO.pkgName, this.p_onPrivacyCallback.bind(this));
+                }
+                this.privacyBg.visible = true;
+            };
+            SelectServerPanel.prototype.showAgeTipsBtn = function (show, skinUrl, content, x, y) {
+                this.ageTipBtn.visible = show;
+                if (show) {
+                    this.ageTipBtn.skin = skinUrl || "wxlogin_atlas/btn_login_gonggao.png";
+                }
+                this.ageTipsContent = content;
+                this.ageTipBtn.left = x || 0;
+                this.ageTipBtn.top = y || 0;
+            };
+            SelectServerPanel.prototype.p_openAgeTipsPanel = function () {
+                this.jumpTitle.text = "适龄公告";
+                this.jumpContent.innerHTML = this.ageTipsContent ? this.ageTipsContent : "";
+                this.btnJump.label = "确认";
+                this.jumpContent.y = 0;
+                this.jumpBg.visible = true;
+                this.closeBtn.visible = true;
+            };
+            SelectServerPanel.prototype.p_showTip = function (tip) {
+                this.txtTip.text = tip;
+                this.txtTip.y = 640;
+                this.txtTip.visible = true;
+                this.p_tipFlySpeed = 1;
+                Laya.timer.clear(this, this.p_tipFlyTimer);
+                this.p_tipFlyTimer();
+                Laya.timer.frameLoop(1, this, this.p_tipFlyTimer);
+            };
+            SelectServerPanel.prototype.p_tipFlyTimer = function () {
+                this.txtTip.y -= this.p_tipFlySpeed;
+                this.p_tipFlySpeed *= 1.1;
+                if (this.txtTip.y <= 590) {
+                    this.txtTip.visible = false;
+                    Laya.timer.clear(this, this.p_tipFlyTimer);
+                }
+            };
+            return SelectServerPanel;
+        }(ui.P_WXSelectServerViewUI));
+        n_selectServer.SelectServerPanel = SelectServerPanel;
+    })(n_selectServer = modules.n_selectServer || (modules.n_selectServer = {}));
+})(modules || (modules = {}));
+var Browser = Laya.Browser;
+var Font = Laya.Font;
+var Input = Laya.Input;
+var Render = Laya.Render;
+var Handler = Laya.Handler;
+var AuthorizationPanel = modules.n_selectServer.AuthorizationPanel;
+var LoadingPanel = modules.n_selectServer.LoadingPanel;
+var SelectServerPanel = modules.n_selectServer.SelectServerPanel;
+var ServerLoading = (function () {
+    function ServerLoading(data) {
+        this.m_loadingRes = ["wxloading_atlas/image_loding_bar0.png", "wxloading_atlas/image_loding_bar02.png", "wxloading_atlas/image_loding_bar1.png", "wxloading_atlas/image_loding_bar2.png", "wxloading_atlas/image_loding_bar3.png", "wxloading_atlas/image_login_point1.png", "wxloading_atlas/image_login_point2.png", "wxloading_atlas/image_login_point3.png",
+            "wxeff_btn_atlas/0.png", "wxeff_btn_atlas/1.png", "wxeff_btn_atlas/2.png", "wxeff_btn_atlas/3.png", "wxeff_btn_atlas/4.png",
+            "wxloading_atlas/image_loading_bg.jpg", "wxloading_atlas/image_loading_bg2.jpg", "wxloading_atlas/btn_loding_abcelq0.png", "wxloading_atlas/btn_loding_abcelq1.png",
+            "wxloading_atlas/image_loading_bg_bottom.jpg", "wxloading_atlas/image_loading_bg_left.jpg", "wxloading_atlas/image_loading_bg_right.jpg", "wxloading_atlas/image_loading_bg_top.jpg",
+            "wxloading_atlas/image_loading_bg_bottom2.jpg", "wxloading_atlas/image_loading_bg_left2.jpg", "wxloading_atlas/image_loading_bg_right2.jpg", "wxloading_atlas/image_loading_bg_top2.jpg"];
+        this.m_serverRes = ["wxlogin_atlas/btn_com_chuangback.png", "wxlogin_atlas/btn_login_gonggao.png", "wxlogin_atlas/btn_login_loginanniu.png", "wxlogin_atlas/btn_login_yingsi.png", "wxlogin_atlas/btn_xuanqu_anniuhuang.png", "wxlogin_atlas/btn_xuanqu_anniulan.png", "wxlogin_atlas/btn_xuanqu_quanniu.png", "wxlogin_atlas/image_com_tuichu.png", "wxlogin_atlas/image_login_changtong.png", "wxlogin_atlas/image_login_fanmang.png", "wxlogin_atlas/image_login_weihu.png", "wxlogin_atlas/image_login_xuanqubg.png", "wxlogin_atlas/image_login_loginbg.jpg",
+            "wxlogin_atlas/image_login_loginbg_bottom.jpg", "wxlogin_atlas/image_login_loginbg_left.jpg", "wxlogin_atlas/image_login_loginbg_right.jpg", "wxlogin_atlas/image_login_loginbg_top.jpg",
+            "wxlogin_atlas/image_denglu_txtshenpi.png", "wxlogin_atlas/image_login_notice.png", "wxlogin_atlas/image_xuanfu_xfbg.png",
+            "wxlogin_atlas/btn_com_long0.png", "wxlogin_atlas/btn_com_long1.png", "wxlogin_atlas/image_loding_txtbhcc.png",
+            "wxlogin_atlas/image_xuanfu_gx1.png", "wxlogin_atlas/image_xuanfu_gx0.png", "wxlogin_atlas/shenhezizi.png",
+            "wxlogin_atlas/image_xuanqu_ztjb0.png"];
+        this.copyRightUrl = "wxlogin_atlas/image_denglu_txtshenpi.png";
+        this.p_addNoise = false;
+        this.m_isPrelodServer = false;
+        this.m_isPrelodLoading = false;
+        this.p_enterServer = false;
+        this.p_errUrls = "";
+        ServerLoading.instance = this;
+        Laya.MiniAdpter.init();
+        Laya3D.init(0, 0, false, false, false);
+        DecodeTools.init();
+        Laya.stage.scaleMode = Laya.Stage.SCALE_FIXED_WIDTH;
+        Laya.stage.screenMode = Laya.Stage.SCREEN_NONE;
+        Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
+        Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
+        Laya.stage.frameRate = Laya.Stage.FRAME_SLOW;
+        var am = Laya.AtlasResourceManager;
+        am.maxTextureCount = 6;
+        am.atlasTextureWidth = am.atlasTextureHeight = 1024;
+        am._enable();
+        Laya.URL.rootPath = Laya.URL.basePath = "";
+        Laya.Browser.window.addEventListener(Laya.Event.RESIZE, this.p_resetStage.bind(this));
+        this.p_defaultCdn = "https://cdn-tjqy.shzbkj.com/wxLoading";
+        this.p_initGetCdn();
+        Browser.window.resMgrLoad = ServerLoading.instance.requestWeb;
+        Browser.window.imgMgrLoad = ServerLoading.instance.requestWeb;
+        this.m_layer = new Laya.Component();
+        this.m_layer.name = "_wxLoadingLayer";
+        Laya.stage.addChild(this.m_layer);
+        this.p_noiseLy = new Laya.Component();
+        this.p_noiseLy.name = "_noiseLy";
+        Laya.stage.addChild(this.p_noiseLy);
+        this.p_noiseLy.mouseEnabled = this.p_noiseLy.mouseThrough = true;
+        this.p_resetStage();
+        modules.n_materials.N_NoiseMaterial1.init();
+        Laya.timer.loop(500, this, this.p_testAddNoise);
+    }
+    ServerLoading.prototype.p_initGetCdn = function () {
+        var _this = this;
+        var game_pkg = (window["config"] || {}).game_pkg;
+        this.p_version = Math.floor(Math.random() * 9999999);
+        if (game_pkg) {
+            if (!DEBUG) {
+                var requestUrl = "";
+                var self_1 = this;
+                if (requestUrl) {
+                    window["sendApi"](requestUrl, "get_cdn", {}, function (data) {
+                        var cdnUrl = data.cdnUrl;
+                        _this.p_requestCdn = cdnUrl;
+                        var version = data.version;
+                        _this.p_version = version;
+                    });
+                }
+            }
+        }
+        else {
+            console.error("未读取到：game_pkg:", game_pkg);
+        }
+    };
+    ServerLoading.prototype.getURL = function (url) {
+        var game_pkg = (window["config"] || {}).game_pkg;
+        if (game_pkg) {
+            var cdn = this.p_requestCdn || this.p_defaultCdn;
+            var imgUrl = cdn + "/" + game_pkg + "/" + url + "?v=" + this.p_version;
+            return imgUrl;
+        }
+        else {
+            console.error("getURL 未读取到：game_pkg:", game_pkg);
+            return url;
+        }
+    };
+    ServerLoading.prototype.p_testAddNoise = function () {
+        if (this.p_addNoise)
+            return;
+        var str = window["ShieldNoise"];
+        if (str) {
+            Laya.timer.clear(this, this.p_testAddNoise);
+            this.addNoise(str);
+        }
+    };
+    ServerLoading.prototype.addNoise = function (str) {
+        if (!str)
+            return;
+        if (this.p_addNoise)
+            return;
+        this.p_addNoise = true;
+        if (this.p_noiseScene) {
+            this.p_noiseScene.removeSelf();
+            this.p_noiseScene.destroyChildren();
+            this.p_noiseScene.destroy();
+            this.p_noiseScene = null;
+        }
+        var params = [0.9, 0.1, 0.0043, 0.0033];
+        var arr = str.split("#");
+        if (arr.length == 4) {
+            params[0] = parseFloat(arr[0]), params[1] = parseFloat(arr[1]), params[2] = parseFloat(arr[2]), params[3] = parseFloat(arr[3]);
+        }
+        var camera = new Laya.Camera(0, 0, 10000);
+        camera.name = "NoiseCamera";
+        camera.orthographic = true;
+        camera.useOcclusionCulling = false;
+        camera.renderingOrder = -2;
+        camera.transform.translate(new Laya.Vector3(0, 0, 0));
+        camera.transform.rotate(new Laya.Vector3(0, 0, 0), true, false);
+        this.p_noiseScene = new Laya.Scene();
+        this.p_noiseScene.name = "NoiseScene";
+        this.p_noiseScene.addChild(camera);
+        this.p_noiseLy.addChild(this.p_noiseScene);
+        var noiseMat = new modules.n_materials.N_NoiseMaterial1();
+        noiseMat.randomSeed = params[0];
+        noiseMat.intensity = params[1];
+        noiseMat.grainSizeX = params[2];
+        noiseMat.grainSizeY = params[3];
+        var noise = new Laya.MeshSprite3D(new Laya.PlaneMesh(30, 30));
+        noise.name = "NoiseMesh";
+        noise.meshRender.material = noiseMat;
+        this.p_noiseScene.addChild(noise);
+        noise.transform.rotate(new Laya.Vector3(90, 0, 0), true, false);
+        noise.transform.translate(new Laya.Vector3(0, 0, 0));
+    };
+    ServerLoading.prototype.removeNoise = function () {
+        this.p_addNoise = false;
+        Laya.timer.clear(this, this.p_testAddNoise);
+        if (this.p_noiseScene) {
+            this.p_noiseScene.removeSelf();
+            this.p_noiseScene.destroyChildren();
+            this.p_noiseScene.destroy();
+            this.p_noiseScene = null;
+        }
+    };
+    ServerLoading.prototype.addTolayer = function (sp) {
+        ServerLoading.instance.m_layer.addChild(sp);
+    };
+    ServerLoading.prototype.changeServerLoading = function (value) {
+        ServerLoading.instance.m_layer.visible = value;
+    };
+    ServerLoading.prototype.openAuthor = function () {
+        if (!ServerLoading.instance.m_author)
+            ServerLoading.instance.m_author = new AuthorizationPanel();
+        if (!ServerLoading.instance.m_author.parent) {
+            ServerLoading.instance.m_layer.addChild(ServerLoading.instance.m_author);
+        }
+        ServerLoading.instance.p_resetWindow();
+    };
+    ServerLoading.prototype.closeAuthor = function () {
+        if (this.m_author && this.m_author.parent) {
+            Laya.stage.removeChild(this.m_author);
+            this.m_author.destroy(true);
+            this.m_author = null;
+        }
+    };
+    ServerLoading.prototype.preloadServer = function () {
+        if (!this.m_isPrelodServer) {
+            this.m_isPrelodServer = true;
+            Laya.loader.load(this.m_serverRes, Handler.create(this, function () {
+                Browser.window.loadServerRes = true;
+                Browser.window.initMain();
+                Browser.window.enterToGame();
+            }));
+        }
+    };
+    ServerLoading.prototype.getCertificatePng = function () {
+        window["sdkInitRes"] = window["sdkInitRes"] || {};
+        var develop = sdkInitRes.develop == 1;
+        var platformPng = "wxlogin_atlas/shenhezizi.png";
+        var myPng = "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";
+        if (develop) {
+            var develop_certificate_pkg = PF_INFO["develop_certificate_pkg"] || 0;
+            if (develop_certificate_pkg == 0) {
+                return platformPng;
+            }
+            else {
+                return "data:image/png;base64," + myPng.substring(1, myPng.length);
+            }
+        }
+        else {
+            var release_certificate_pkg = PF_INFO["release_certificate_pkg"];
+            if (release_certificate_pkg == 0) {
+                return platformPng;
+            }
+            else {
+                return "data:image/png;base64," + myPng.substring(1, myPng.length);
+                ;
+            }
+        }
+    };
+    ;
+    ServerLoading.prototype.openServer = function (param) {
+        var self = this;
+        self.copyRightUrl = self.getCertificatePng();
+        var callback = function () {
+            if (!ServerLoading.instance.m_server)
+                ServerLoading.instance.m_server = new SelectServerPanel(self.copyRightUrl);
+            if (!ServerLoading.instance.m_server.parent) {
+                ServerLoading.instance.m_layer.addChild(ServerLoading.instance.m_server);
+            }
+            if (param) {
+                if (param.skinUrl && param.content) {
+                    ServerLoading.instance.m_server.showAgeTipsBtn(param.show, param.skinUrl, param.content, param.x, param.y);
+                }
+            }
+            ServerLoading.instance.p_resetWindow();
+        };
+        var loaded = true;
+        for (var _i = 0, _a = self.m_serverRes; _i < _a.length; _i++) {
+            var res = _a[_i];
+            if (Laya.Loader.getRes(res) == null) {
+                loaded = false;
+                break;
+            }
+        }
+        if (loaded) {
+            callback();
+        }
+        else {
+            Laya.loader.load(self.m_serverRes, Handler.create(self, callback));
+        }
+    };
+    ServerLoading.prototype.closeServer = function () {
+        if (this.m_server && this.m_server.parent) {
+            Laya.stage.removeChild(this.m_server);
+            this.m_server.destroy(true);
+            this.m_server = null;
+        }
+    };
+    ServerLoading.prototype.preloadLoading = function () {
+        if (!this.m_isPrelodLoading) {
+            this.m_isPrelodLoading = true;
+            Laya.loader.load(this.m_loadingRes, Handler.create(this, function () {
+                Browser.window.loadLoadingRes = true;
+                Browser.window.initMain();
+                Browser.window.enterToGame();
+            }));
+        }
+    };
+    ServerLoading.prototype.openLoading = function (newRegister, copyRightUrl) {
+        if (newRegister === void 0) { newRegister = 0; }
+        copyRightUrl = copyRightUrl ? copyRightUrl : this.getCertificatePng();
+        Laya.loader.load(this.m_loadingRes, Handler.create(this, function () {
+            if (!ServerLoading.instance.m_loading)
+                ServerLoading.instance.m_loading = new LoadingPanel(newRegister, copyRightUrl);
+            if (!ServerLoading.instance.m_loading.parent) {
+                ServerLoading.instance.m_layer.addChild(ServerLoading.instance.m_loading);
+            }
+            ServerLoading.instance.p_resetWindow();
+        }));
+    };
+    ServerLoading.prototype.closeLoading = function () {
+        if (this.m_loading && this.m_loading.parent) {
+            Laya.stage.removeChild(this.m_loading);
+            this.m_loading.destroy(true);
+            this.m_loading = null;
+        }
+        for (var _i = 0, _a = this.m_serverRes; _i < _a.length; _i++) {
+            var res = _a[_i];
+            Laya.Loader.clearCache(ServerLoading.instance, res);
+            Laya.Loader.clearRes(res, true);
+        }
+        for (var _b = 0, _c = this.m_loadingRes; _b < _c.length; _b++) {
+            var res = _c[_b];
+            Laya.Loader.clearCache(ServerLoading.instance, res);
+            Laya.Loader.clearRes(res, true);
+        }
+        if (this.m_layer.parent)
+            this.m_layer.parent.removeChild(this.m_layer);
+        this.removeNoise();
+    };
+    ServerLoading.prototype.setShowBtn = function () {
+        if (this.m_loading && this.m_loading.parent) {
+            ServerLoading.instance.m_loading.showGetBtn();
+        }
+    };
+    ServerLoading.prototype.enterDefaultServer = function () {
+        var server = Browser.window.PF_INFO.selectedServer;
+        if (!this.p_enterServer) {
+            this.p_enterServer = true;
+            Browser.window.PF_INFO.selectedServer = server;
+            req_server_check_ban(0, server.server_id);
+        }
+    };
+    ServerLoading.prototype.sendRecord = function () {
+        var error = "";
+        error += "newRegister=" + Browser.window.PF_INFO.newRegister;
+        error += ", isPrelodServer=" + this.m_isPrelodServer;
+        error += ", SelectServerPanel=" + (ServerLoading.instance.m_server != null);
+        error += ", isPrelodLoading=" + this.m_isPrelodLoading;
+        error += ", LoadingPanel=" + (ServerLoading.instance.m_loading != null);
+        error += ", resMgrLoad=" + (Browser.window.resMgrLoad == ServerLoading.instance.requestWeb);
+        error += ", imgMgrLoad=" + (Browser.window.imgMgrLoad == ServerLoading.instance.requestWeb);
+        error += ", errUrls=" + ServerLoading.instance.p_errUrls;
+        for (var _i = 0, _a = this.m_serverRes; _i < _a.length; _i++) {
+            var res = _a[_i];
+            error += ", " + res + "=" + (Laya.Loader.getRes(res) != null);
+        }
+        for (var _b = 0, _c = this.m_loadingRes; _b < _c.length; _b++) {
+            var res = _c[_b];
+            error += ", " + res + "=" + (Laya.Loader.getRes(res) != null);
+        }
+        var server = Browser.window.PF_INFO.selectedServer;
+        if (server) {
+            error += ", server_status=" + server.status;
+            error += ", server_id=" + server.server_id;
+            error += ", server_name=" + server.server_name;
+        }
+        var message = JSON.stringify({
+            'error': "初始界面超过10秒",
+            'stack': error,
+        });
+        console.error(message);
+        if (!this.p_lastmsg || this.p_lastmsg != error) {
+            this.p_lastmsg = error;
+            reqRecordError(message);
+        }
+    };
+    ServerLoading.prototype.p_resetUI = function () {
+        var stage = Laya.stage;
+        var w = Math.floor(stage.width);
+        var h = Math.floor(stage.height);
+        if (h / w < 1.7777778) {
+            this.viewW = Math.floor(w / (h / 1280));
+            this.viewH = 1280;
+            this.viewS = h / 1280;
+        }
+        else {
+            this.viewW = 720;
+            this.viewH = Math.floor(h / (w / 720));
+            this.viewS = w / 720;
+        }
+        var wNew = Math.floor(stage.width);
+        var hNew = Math.floor(stage.height);
+        if (hNew / wNew < 1.7777778) {
+            this.viewW = Math.floor(wNew / (hNew / 1280));
+            this.viewH = 1280;
+            this.viewS = hNew / 1280;
+        }
+        else {
+            this.viewW = 720;
+            this.viewH = Math.floor(hNew / (wNew / 720));
+            this.viewS = wNew / 720;
+        }
+        this.p_resetWindow();
+    };
+    ServerLoading.prototype.p_resetWindow = function () {
+        if (this.m_layer) {
+            this.m_layer.size(this.viewW, this.viewH);
+            this.m_layer.scale(this.viewS, this.viewS, true);
+        }
+    };
+    ServerLoading.prototype.p_resetStage = function () {
+        if (Input.isInputting && Browser.onMobile) {
+            var top_1 = parseInt(Input.inputContainer.style.top.replace("px", ""));
+            var inputH = parseInt(Input.inputElement.style.height.replace("px", "")) * this.viewS;
+            var rate = Browser.clientWidth / Render.canvas.width;
+            top_1 = Browser.clientHeight - inputH * rate - top_1;
+            if (top_1 > 0)
+                top_1 = 0;
+            Browser.container.style.top = top_1 + "px";
+            return;
+        }
+        else {
+            Browser.container.style.top = "0px";
+        }
+        var w = Math.floor(Browser.width);
+        var h = Math.floor(Browser.height);
+        w = (w + 1) & 0x7FFFFFFE;
+        h = (h + 1) & 0x7FFFFFFE;
+        var stage = Laya.stage;
+        if (ENV == 3 || ENV == 6) {
+            stage.scaleMode = Laya.Stage.SCALE_NOSCALE;
+            stage.width = w;
+            stage.height = h;
+        }
+        else {
+            if (w > h) {
+                stage.scaleMode = Laya.Stage.SCALE_NOSCALE;
+                stage.width = w;
+                stage.height = h;
+            }
+            else {
+                stage.scaleMode = Laya.Stage.SCALE_FIXED_WIDTH;
+                stage.width = 840;
+                stage.height = (Math.floor(h / (w / 840)) + 1) & 0x7FFFFFFE;
+            }
+        }
+        this.p_resetUI();
+    };
+    ServerLoading.prototype.requestWeb = function (_url, _callback) {
+        var url = _url;
+        var image;
+        var clear = function () {
+            image.onload = null;
+            image.onerror = null;
+        };
+        var onload = function () {
+            clear();
+            console.log("onload1:",url)
+            _callback(url, 200, image);
+        };
+        var onerror = function () {
+            console.warn("[warn] WX loadImage onerror:", url);
+            ServerLoading.instance.p_errUrls += url + "|";
+            clear();
+            _callback(url, 404, null);
+        };
+        var cdnUrl = DEBUG ? url : (url.indexOf("http") == -1 ? ServerLoading.instance.getURL(url) : url);
+       
+        image = new Image();     
+        image.addEventListener('load', onload);
+        image.addEventListener('error', onerror);    
+        image.src = cdnUrl;
+      
+
+        
+        // var xhr = new XMLHttpRequest();
+        // xhr.onreadystatechange = function () {
+        //     if(xhr.readyState!=4){
+        //         return;
+        //     }
+        //     var status = xhr.status;
+        //     if ((status === 200 || (status == 0 && xhr.response != null && xhr.response.byteLength > 0))) {
+        //         console.log("登录图 url：", xhr.response);
+        //         _callback(cdnUrl, 200, xhr.response);
+        //     }
+        //     else{
+        //         _callback(cdnUrl, 404, null);
+        //     }
+        //     // failFunc(url, data, callBack, retryAmount, errorCB, checkSuccess, xhr.status, xhr.response, contentType);
+        // }
+        // xhr.responseType = "arraybuffer";
+        // xhr.onerror = function (e) {
+        //     console.log("OPPO请求错误URL:", url, "STATUS:", xhr.statusText);
+        // };
+        // xhr.ontimeout = function (e) {
+        //     console.error("OPPO请求超时URL:", url)
+        // }
+        // xhr.timeout = 15000;
+        // xhr.open("GET", cdnUrl);      
+        // xhr.send()
+
+
+        if (ServerLoading.instance.m_serverRes.indexOf(url) != -1 || ServerLoading.instance.m_loadingRes.indexOf(url) != -1) {
+            Laya.Loader.keepCache(ServerLoading.instance, url);
+        }
+    };
+    ServerLoading.prototype.p_endsWith = function (source, searchString) {
+        return source.indexOf(searchString, source.length - searchString.length) != -1;
+    };
+    return ServerLoading;
+}());
+var modules;
+(function (modules) {
+    var n_selectServer;
+    (function (n_selectServer) {
+        var NoticeItem = (function (_super) {
+            __extends(NoticeItem, _super);
+            function NoticeItem() {
+                var _this = _super.call(this) || this;
+                _this.p_serItemLColorY = "#72441d";
+                _this.p_serItemLColorN = "#263d7d";
+                _this.width = 274;
+                _this.height = 59;
+                _this.p_btnImg = new Laya.Image();
+                _this.addChild(_this.p_btnImg);
+                _this.p_btnText = new Laya.Label();
+                _this.p_btnText.fontSize = 30;
+                _this.p_btnText.color = _this.p_serItemLColorN;
+                _this.addChild(_this.p_btnText);
+                _this.p_btnText.centerX = 0;
+                _this.p_btnText.centerY = 0;
+                return _this;
+            }
+            NoticeItem.prototype.initialize = function () {
+                _super.prototype.initialize.call(this);
+                this.P_PFINFO = Browser.window.PF_INFO;
+                var loadingType = this.P_PFINFO.loadingType;
+                if (loadingType == 1) {
+                }
+                else if (loadingType == 2) {
+                }
+                else if (loadingType == 3) {
+                }
+                else {
+                }
+                this.addEvt();
+            };
+            Object.defineProperty(NoticeItem.prototype, "dataSource", {
+                set: function (value) {
+                    if (!value)
+                        return;
+                    this.setData(value);
+                },
+                enumerable: true,
+                configurable: true
+            });
+            NoticeItem.prototype.setData = function (value) {
+                this.p_data = value[0];
+                this.p_isSel = value[1];
+                this.p_btnText.text = this.p_data.title;
+                this.p_btnText.color = this.p_isSel ? this.p_serItemLColorY : this.p_serItemLColorN;
+                this.p_btnImg.skin = this.p_isSel ? "wxlogin_atlas/btn_com_long1.png" : "wxlogin_atlas/btn_com_long0.png";
+            };
+            NoticeItem.prototype.destroy = function (destroyChild) {
+                if (destroyChild === void 0) { destroyChild = true; }
+                this.rmEvts();
+                _super.prototype.destroy.call(this, destroyChild);
+            };
+            NoticeItem.prototype.addEvt = function () {
+            };
+            NoticeItem.prototype.rmEvts = function () {
+            };
+            return NoticeItem;
+        }(Laya.View));
+        n_selectServer.NoticeItem = NoticeItem;
+    })(n_selectServer = modules.n_selectServer || (modules.n_selectServer = {}));
+})(modules || (modules = {}));
+var modules;
+(function (modules) {
+    var n_selectServer;
+    (function (n_selectServer) {
+        var PrivacyItem = (function (_super) {
+            __extends(PrivacyItem, _super);
+            function PrivacyItem() {
+                var _this = _super.call(this) || this;
+                _this.p_serItemLColorY = "#72441d";
+                _this.p_serItemLColorN = "#263d7d";
+                _this.width = 274;
+                _this.height = 59;
+                _this.p_btnImg = new Laya.Image();
+                _this.addChild(_this.p_btnImg);
+                _this.p_btnText = new Laya.Label();
+                _this.p_btnText.fontSize = 30;
+                _this.p_btnText.color = _this.p_serItemLColorN;
+                _this.addChild(_this.p_btnText);
+                _this.p_btnText.centerX = 0;
+                _this.p_btnText.centerY = 0;
+                return _this;
+            }
+            PrivacyItem.prototype.initialize = function () {
+                _super.prototype.initialize.call(this);
+                this.P_PFINFO = Browser.window.PF_INFO;
+                var loadingType = this.P_PFINFO.loadingType;
+                if (loadingType == 1) {
+                }
+                else if (loadingType == 2) {
+                }
+                else if (loadingType == 3) {
+                }
+                else {
+                }
+                this.addEvt();
+            };
+            Object.defineProperty(PrivacyItem.prototype, "dataSource", {
+                set: function (value) {
+                    if (!value)
+                        return;
+                    this.setData(value);
+                },
+                enumerable: true,
+                configurable: true
+            });
+            PrivacyItem.prototype.setData = function (value) {
+                this.p_title = value[0];
+                this.p_isSel = value[1];
+                this.p_btnText.text = this.p_title;
+                this.p_btnText.color = this.p_isSel ? this.p_serItemLColorY : this.p_serItemLColorN;
+                this.p_btnImg.skin = this.p_isSel ? "wxlogin_atlas/btn_com_long1.png" : "wxlogin_atlas/btn_com_long0.png";
+            };
+            PrivacyItem.prototype.destroy = function (destroyChild) {
+                if (destroyChild === void 0) { destroyChild = true; }
+                this.rmEvts();
+                _super.prototype.destroy.call(this, destroyChild);
+            };
+            PrivacyItem.prototype.addEvt = function () {
+            };
+            PrivacyItem.prototype.rmEvts = function () {
+            };
+            return PrivacyItem;
+        }(Laya.View));
+        n_selectServer.PrivacyItem = PrivacyItem;
+    })(n_selectServer = modules.n_selectServer || (modules.n_selectServer = {}));
+})(modules || (modules = {}));
+var modules;
+(function (modules) {
+    var n_selectServer;
+    (function (n_selectServer) {
+        var SelectLeftListItem = (function (_super) {
+            __extends(SelectLeftListItem, _super);
+            function SelectLeftListItem() {
+                var _this = _super.call(this) || this;
+                _this.width = 192;
+                _this.height = 70;
+                _this.p_btnImg = new Laya.Image();
+                _this.addChild(_this.p_btnImg);
+                _this.p_txtTitle = new Laya.Label();
+                _this.p_txtTitle.fontSize = 28;
+                _this.p_txtTitle.color = _this.p_serTxtColor;
+                _this.addChild(_this.p_txtTitle);
+                _this.p_txtTitle.centerX = 0;
+                _this.p_txtTitle.centerY = 0;
+                _this.p_txtTitle1 = new Laya.Label();
+                _this.p_txtTitle1.fontSize = 22;
+                _this.p_txtTitle1.color = _this.p_serTxtColor;
+                _this.addChild(_this.p_txtTitle1);
+                _this.p_txtTitle1.centerX = 0;
+                _this.p_txtTitle1.y = 11;
+                _this.p_txtTitle2 = new Laya.Label();
+                _this.p_txtTitle2.fontSize = 26;
+                _this.p_txtTitle2.color = _this.p_serTxtColor;
+                _this.addChild(_this.p_txtTitle2);
+                _this.p_txtTitle2.centerX = 0;
+                _this.p_txtTitle2.y = 39;
+                return _this;
+            }
+            SelectLeftListItem.prototype.initialize = function () {
+                _super.prototype.initialize.call(this);
+                this.P_PFINFO = Browser.window.PF_INFO;
+                var loadingType = this.P_PFINFO.loadingType;
+                if (loadingType == 1) {
+                    this.p_serTxtColor = "#263d7d";
+                }
+                else if (loadingType == 2) {
+                    this.p_serTxtColor = "#263d7d";
+                }
+                else if (loadingType == 3) {
+                    this.p_serTxtColor = "#763042";
+                }
+                else {
+                    this.p_serTxtColor = "#263d7d";
+                }
+                this.addEvt();
+            };
+            Object.defineProperty(SelectLeftListItem.prototype, "dataSource", {
+                set: function (value) {
+                    if (!value)
+                        return;
+                    this.setData(value);
+                },
+                enumerable: true,
+                configurable: true
+            });
+            SelectLeftListItem.prototype.setData = function (value) {
+                this.p_data = value;
+                var id = this.p_data.id;
+                var name = this.p_data.name;
+                this.p_txtTitle.visible = this.p_txtTitle1.visible = this.p_txtTitle2.visible = false;
+                if (id == -1 || id == -2) {
+                    this.p_txtTitle.visible = true;
+                    this.p_txtTitle.text = name;
+                }
+                else {
+                    var gName1 = name;
+                    var gName2 = "1-10服";
+                    var match = name.match("[0-9]{1,}");
+                    if (match && match.index != undefined) {
+                        gName1 = name.slice(0, match.index);
+                        gName2 = name.slice(match.index);
+                    }
+                    this.p_txtTitle1.visible = this.p_txtTitle2.visible = true;
+                    this.p_txtTitle1.text = gName1;
+                    this.p_txtTitle2.text = gName2;
+                }
+                this.p_btnImg.skin = value.select ? "wxlogin_atlas/btn_xuanqu_anniuhuang.png" : "wxlogin_atlas/btn_xuanqu_anniulan.png";
+            };
+            SelectLeftListItem.prototype.destroy = function (destroyChild) {
+                if (destroyChild === void 0) { destroyChild = true; }
+                this.rmEvts();
+                _super.prototype.destroy.call(this, destroyChild);
+            };
+            SelectLeftListItem.prototype.addEvt = function () {
+                this.on(Laya.Event.MOUSE_UP, this, this.clkHdler);
+            };
+            SelectLeftListItem.prototype.rmEvts = function () {
+                this.off(Laya.Event.MOUSE_UP, this, this.clkHdler);
+            };
+            SelectLeftListItem.prototype.clkHdler = function () {
+                if (this.p_data && this.p_data.callBack) {
+                    this.p_data.callBack(this.p_data.index);
+                }
+            };
+            return SelectLeftListItem;
+        }(Laya.View));
+        n_selectServer.SelectLeftListItem = SelectLeftListItem;
+    })(n_selectServer = modules.n_selectServer || (modules.n_selectServer = {}));
+})(modules || (modules = {}));
+var modules;
+(function (modules) {
+    var n_selectServer;
+    (function (n_selectServer) {
+        var SelectRightListItem = (function (_super) {
+            __extends(SelectRightListItem, _super);
+            function SelectRightListItem() {
+                var _this = _super.call(this) || this;
+                _this.width = 358;
+                _this.height = 70;
+                _this.p_btnImg = new Laya.Image("wxlogin_atlas/btn_xuanqu_quanniu.png");
+                _this.addChild(_this.p_btnImg);
+                _this.p_btnImg.graphics.drawRect(0, 0, _this.width, _this.height, "#00sasd");
+                _this.p_imgState = new Laya.Image();
+                _this.p_imgState.centerY = 0;
+                _this.p_imgState.x = 7;
+                _this.addChild(_this.p_imgState);
+                _this.p_txtTitle = new Laya.Label();
+                _this.p_txtTitle.fontSize = 24;
+                _this.p_txtTitle.color = _this.p_serTxtColor;
+                _this.p_txtTitle.x = 56;
+                _this.p_txtTitle.centerY = 0;
+                _this.addChild(_this.p_txtTitle);
+                _this.p_txtOpState = new Laya.Label();
+                _this.p_txtOpState.fontSize = 24;
+                _this.p_txtOpState.color = _this.p_serTxtColor;
+                _this.p_txtOpState.x = 246;
+                _this.p_txtOpState.centerY = 0;
+                _this.addChild(_this.p_txtOpState);
+                _this.p_imgTag = new Laya.Image();
+                _this.p_imgTag.top = 0;
+                _this.p_imgTag.right = 0;
+                _this.addChild(_this.p_imgTag);
+                _this.p_txtTm = new Laya.Label();
+                _this.p_txtTm.fontSize = 20;
+                _this.p_txtTm.color = "#ffffff";
+                _this.p_txtTm.x = 225;
+                _this.p_txtTm.y = 46;
+                _this.addChild(_this.p_txtTm);
+                return _this;
+            }
+            SelectRightListItem.prototype.initialize = function () {
+                _super.prototype.initialize.call(this);
+                this.P_PFINFO = Browser.window.PF_INFO;
+                var loadingType = this.P_PFINFO.loadingType;
+                if (loadingType == 1) {
+                    this.p_serTxtColor = "#34267d";
+                }
+                else if (loadingType == 2) {
+                    this.p_serTxtColor = "#34267d";
+                }
+                else if (loadingType == 3) {
+                    this.p_serTxtColor = "#763042";
+                }
+                else {
+                    this.p_serTxtColor = "#34267d";
+                }
+                this.addEvt();
+            };
+            Object.defineProperty(SelectRightListItem.prototype, "dataSource", {
+                set: function (value) {
+                    if (!value)
+                        return;
+                    this.setData(value);
+                },
+                enumerable: true,
+                configurable: true
+            });
+            SelectRightListItem.prototype.setData = function (value) {
+                this.p_data = value;
+                var status = this.p_data.status;
+                var name = this.p_data.server_name;
+                this.p_imgState.skin = n_selectServer.CommonFunc.getStatusSrc(this.p_data);
+                this.p_txtTitle.color = n_selectServer.CommonFunc.getStatusTxtColor(status, this.p_serTxtColor);
+                this.p_txtTitle.text = n_selectServer.CommonFunc.getPreAddStr() + name;
+                this.p_txtOpState.text = n_selectServer.CommonFunc.getStatusAddStr2(this.p_data);
+                var isShowTag = n_selectServer.CommonFunc.isRecommend(this.p_data.is_recommend);
+                this.p_imgTag.visible = isShowTag;
+                if (isShowTag)
+                    this.p_imgTag.skin = "wxlogin_atlas/image_xuanqu_ztjb0.png";
+                this.p_txtTm.text = this.p_data.status == -1 && this.p_data.maintain_time ? this.p_data.maintain_time : "";
+            };
+            SelectRightListItem.prototype.destroy = function (destroyChild) {
+                if (destroyChild === void 0) { destroyChild = true; }
+                this.rmEvts();
+                _super.prototype.destroy.call(this, destroyChild);
+            };
+            SelectRightListItem.prototype.addEvt = function () {
+                this.on(Laya.Event.MOUSE_UP, this, this.clkHdler);
+            };
+            SelectRightListItem.prototype.rmEvts = function () {
+                this.off(Laya.Event.MOUSE_UP, this, this.clkHdler);
+            };
+            SelectRightListItem.prototype.clkHdler = function () {
+                if (this.p_data && this.p_data.callBack) {
+                    this.p_data.callBack(this.p_data);
+                }
+            };
+            return SelectRightListItem;
+        }(Laya.View));
+        n_selectServer.SelectRightListItem = SelectRightListItem;
+    })(n_selectServer = modules.n_selectServer || (modules.n_selectServer = {}));
+})(modules || (modules = {}));
+var modules;
+(function (modules) {
+    var n_materials;
+    (function (n_materials) {
+        var BaseMaterial = Laya.BaseMaterial;
+        var N_NoiseMaterial1 = (function (_super) {
+            __extends(N_NoiseMaterial1, _super);
+            function N_NoiseMaterial1() {
+                var _this = _super.call(this) || this;
+                _this.setShaderName("noise_shader_1");
+                _this.blend = BaseMaterial.BLEND_ENABLE_ALL;
+                _this.blendEquation = BaseMaterial.BLENDEQUATION_ADD;
+                _this.srcBlend = BaseMaterial.BLENDPARAM_SRC_ALPHA;
+                _this.dstBlend = BaseMaterial.BLENDPARAM_ONE;
+                _this.renderQueue = BaseMaterial.RENDERQUEUE_TRANSPARENT;
+                _this.depthWrite = false;
+                _this.depthTest = BaseMaterial.DEPTHTEST_ALWAYS;
+                _this.completeCreate();
+                return _this;
+            }
+            Object.defineProperty(N_NoiseMaterial1.prototype, "randomSeed", {
+                get: function () {
+                    return this._getNumber(23);
+                },
+                set: function (value) {
+                    this._setNumber(23, value);
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(N_NoiseMaterial1.prototype, "grainSizeX", {
+                get: function () {
+                    return this._getNumber(24);
+                },
+                set: function (value) {
+                    this._setNumber(24, value);
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(N_NoiseMaterial1.prototype, "grainSizeY", {
+                get: function () {
+                    return this._getNumber(25);
+                },
+                set: function (value) {
+                    this._setNumber(25, value);
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(N_NoiseMaterial1.prototype, "intensity", {
+                get: function () {
+                    return this._getNumber(26);
+                },
+                set: function (value) {
+                    this._setNumber(26, value);
+                },
+                enumerable: true,
+                configurable: true
+            });
+            N_NoiseMaterial1.init = function () {
+                var noise_vert = "attribute vec4 a_Position;\n" +
+                    "attribute vec2 a_Texcoord0; \n" +
+                    "uniform mat4 u_MvpMatrix;\n" +
+                    "varying vec2 v_Texcoord;\n" +
+                    "void main(){\n" +
+                    "  gl_Position = u_MvpMatrix * a_Position;\n" +
+                    "  v_Texcoord = a_Texcoord0;\n" +
+                    "}";
+                var noise_frag = "#ifdef HIGHPRECISION\n" +
+                    "precision highp float;\n" +
+                    "#else\n" +
+                    "precision mediump float;\n" +
+                    "#endif\n" +
+                    "uniform float u_randomSeed;\n" +
+                    "uniform float u_grainSizeX;\n" +
+                    "uniform float u_grainSizeY;\n" +
+                    "uniform float u_intensity;\n" +
+                    "varying vec2 v_Texcoord;\n" +
+                    "void main(){\n" +
+                    "  vec2 magicVec2 = vec2(0.0041,0.0111);\n" +
+                    "  float magicNum = 2747.0;\n" +
+                    "  float uvX = floor(v_Texcoord.x/u_grainSizeX)*u_grainSizeX;\n" +
+                    "  float uvY = floor(v_Texcoord.y/u_grainSizeY)*u_grainSizeY;\n" +
+                    "  float uvValue = uvX + uvY;\n" +
+                    "  float seed1 = fract(uvValue*u_randomSeed*magicNum*magicVec2.x + magicVec2.y);\n" +
+                    "  float seed2 = fract(seed1*magicNum*magicVec2.x + magicVec2.y);\n" +
+                    "  float seed3 = fract(seed2*magicNum*magicVec2.x + magicVec2.y);\n" +
+                    "  float seedr = fract(seed3*magicNum*magicVec2.x + magicVec2.y);\n" +
+                    "  float seedg = fract(seedr*magicNum*magicVec2.x + magicVec2.y);\n" +
+                    "  float seedb = fract(seedg*magicNum*magicVec2.x + magicVec2.y);\n" +
+                    "  gl_FragColor = vec4(seedr,seedg,seedb,u_intensity);\n" +
+                    "}";
+                Laya.ShaderCompile3D.add(Laya.Shader3D.nameKey.add('noise_shader_1'), noise_vert, noise_frag, {
+                    'a_Position': Laya.VertexElementUsage.POSITION0,
+                    'a_Texcoord0': Laya.VertexElementUsage.TEXTURECOORDINATE0,
+                }, {
+                    'u_MvpMatrix': [Laya.Sprite3D.MVPMATRIX, Laya.Shader3D.PERIOD_SPRITE],
+                    'u_randomSeed': [23, Laya.Shader3D.PERIOD_MATERIAL],
+                    'u_grainSizeX': [24, Laya.Shader3D.PERIOD_MATERIAL],
+                    'u_grainSizeY': [25, Laya.Shader3D.PERIOD_MATERIAL],
+                    'u_intensity': [26, Laya.Shader3D.PERIOD_MATERIAL],
+                });
+            };
+            return N_NoiseMaterial1;
+        }(Laya.BaseMaterial));
+        n_materials.N_NoiseMaterial1 = N_NoiseMaterial1;
+    })(n_materials = modules.n_materials || (modules.n_materials = {}));
+})(modules || (modules = {}));
+//# sourceMappingURL=init_wx_debug.js.map
+window.ServerLoading = ServerLoading;

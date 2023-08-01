@@ -19,33 +19,40 @@
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
     "lazyloadPlaceholderEnable": false,
-    "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
+    "useMultiFrameRuntime": false,
+    "useApiHook": false,
+    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
-    "useIsolateContext": true,
-    "userConfirmedUseIsolateContext": false,
+    "useIsolateContext": false,
+    "userConfirmedUseIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
     "disableUseStrict": false,
+    "useStaticServer": true,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true,
-    "useStaticServer": true
+    "ignoreUploadUnusedFiles": true
   },
   "compileType": "game",
   "libVersion": "2.23.2",
   "appid": "wx28a9187378ce8471",
-  "projectname": "jg_gameA",
+  "projectname": "天剑奇缘-A",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
   "condition": {
     "search": {
       "list": []
@@ -60,13 +67,5 @@
     "miniprogram": {
       "list": []
     }
-  },
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 2
   }
 }

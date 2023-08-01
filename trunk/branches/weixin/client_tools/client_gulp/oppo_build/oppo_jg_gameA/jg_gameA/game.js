@@ -1,4 +1,4 @@
-console.info("0 进入游戏包");
+console.info("1 进入游戏包");
 
 
 
@@ -190,11 +190,12 @@ window.loadMain();
 window.systemInfo = "";
 qg.getSystemInfo({
   success (res) {
-    window.systemInfo = "品牌："+res.brand+"，型号："+res.model+"，系统及版本："+res.osType+","+res.osVersionName+","+res.osVersionCode+"，运行平台版本名："+res.platformVersionName+"，运行平台版本号："+res.platformVersionCode;
-    console.log(window.systemInfo);
+    console.log("getSystemInfo:",res);
+    window.systemInfo = "品牌："+res.brand+"，型号："+res.model+"，系统及版本："+res.system+","+res.coreVersion+","+res.coreVersion+"，运行平台版本名："+res.platformVersionName+"，运行平台版本号："+res.platformVersionCode;
+    
     console.log("屏幕宽度："+res.screenWidth+"，屏幕高度："+res.screenHeight+"，刘海屏高度："+res.statusBarHeight+"，安全区域："+(res.safeArea?(res.safeArea.top+","+res.safeArea.bottom+","+res.safeArea.left+","+res.safeArea.right):""));
 
-    var system = (res.osType ? res.osType.toLowerCase() : "");
+    var system = (res.system ? res.system.toLowerCase() : "");
     var model = (res.model ? res.model.toLowerCase().replace(" ", "") : "");
     window.PF_INFO.wxIOS = system.indexOf("ios") != -1;
     window.PF_INFO.wxAndroid = system.indexOf("android") != -1;
@@ -203,22 +204,7 @@ qg.getSystemInfo({
     window.PF_INFO.wxPlatform = (res.platform ? res.platform.toLowerCase() : "");
     window.PF_INFO.wxLimitLoad = false; //model.indexOf("iphonex") != -1;
     window.PF_INFO.wxBenchmarkLevel = 2;
-    if (system.indexOf("android") != -1) { //android按设备等级
-      if (res.benchmarkLevel >= 24) 
-        window.PF_INFO.wxBenchmarkLevel = 3;
-      else 
-        window.PF_INFO.wxBenchmarkLevel = 2;
-    } else if (system.indexOf("ios") != -1) { //ios按型号
-      if(res.benchmarkLevel && res.benchmarkLevel >= 20)
-        window.PF_INFO.wxBenchmarkLevel = 3;
-      else if (model.indexOf("iphone5") != -1 || model.indexOf("iphone6") != -1 || model.indexOf("iphone7") != -1 
-        || model.indexOf("iphonese") != -1 || model.indexOf("ipad") != -1) 
-        window.PF_INFO.wxBenchmarkLevel = 2;
-      else 
-        window.PF_INFO.wxBenchmarkLevel = 3;
-    } else { //PC
-      window.PF_INFO.wxBenchmarkLevel = 2;
-    }
+ 
     console.log("加载限制："+ window.PF_INFO.wxLimitLoad +"，设备限制等级："+ window.PF_INFO.wxBenchmarkLevel);
   }
 })
