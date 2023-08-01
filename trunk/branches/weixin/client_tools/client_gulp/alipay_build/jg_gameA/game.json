@@ -1,11 +1,11 @@
 {
-  "deviceOrientation": "portrait",
+  "screenOrientation": "portrait",
   "showStatusBar": false,
   "networkTimeout": {
     "request": 15000,
     "connectSocket": 1500000,
-    "uploadFile": 1500000,
-    "downloadFile": 1500000
+    "upload": 1500000,
+    "download": 1500000
   },
   "subpackages": [
     {
