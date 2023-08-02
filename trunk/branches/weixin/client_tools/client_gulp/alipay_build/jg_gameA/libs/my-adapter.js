@@ -1,9 +1,3 @@
-/*!
- * 
- * 			adpater.js
- * 			create time "1.0.1_2004071100"
- * 			
- */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -161,8 +155,7 @@ var Audio = function (_HTMLAudioElement) {
         });
 
         innerAudioContext.onPlay(function () {
-            // this._paused = _innerAudioContextMap.get(this).paused
-            _this._paused = false;
+            _this._paused = _innerAudioContextMap.get(_this).paused;
             _this.dispatchEvent({ type: 'play' });
             if (typeof _this.onplay === "function") {
                 _this.onplay();
@@ -170,7 +163,7 @@ var Audio = function (_HTMLAudioElement) {
         });
 
         innerAudioContext.onPause(function () {
-            _this._paused = true;
+            _this._paused = _innerAudioContextMap.get(_this).paused;
             _this.dispatchEvent({ type: 'pause' });
             if (typeof _this.onpause === "function") {
                 _this.onpause();
@@ -178,9 +171,10 @@ var Audio = function (_HTMLAudioElement) {
         });
 
         innerAudioContext.onEnded(function () {
-            // this._paused = _innerAudioContextMap.get(this).paused
-            _this._paused = false;
-            _this.dispatchEvent({ type: 'ended' });
+            _this._paused = _innerAudioContextMap.get(_this).paused;
+            if (_innerAudioContextMap.get(_this).loop === false) {
+                _this.dispatchEvent({ type: 'ended' });
+            }
             _this.readyState = HAVE_ENOUGH_DATA;
 
             if (typeof _this.onended === "function") {
@@ -189,8 +183,7 @@ var Audio = function (_HTMLAudioElement) {
         });
 
         innerAudioContext.onError(function () {
-            // this._paused = _innerAudioContextMap.get(this).paused
-            _this._paused = true;
+            _this._paused = _innerAudioContextMap.get(_this).paused;
             _this.dispatchEvent({ type: 'error' });
             if (typeof _this.onerror === "function") {
                 _this.onerror();
@@ -371,6 +364,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
 function InvalidCharacterError(message) {
     this.message = message;
 }
@@ -404,7 +398,10 @@ function btoa(input) {
 // decoder
 // [https://gist.github.com/1020396] by [https://github.com/atk]
 function atob(input) {
-    var str = String(input).replace(/[=]+$/, '');
+    var str = String(input).replace(/=+$/, '');
+    if (str.length % 4 === 1) {
+        throw new InvalidCharacterError("'atob' failed: The string to be decoded is not correctly encoded.");
+    }
     var output = '';
     for (
     // initialize result and counters
@@ -623,6 +620,10 @@ var _document2 = _interopRequireDefault(_document);
 
 var _util = __webpack_require__(/*! ../utils/util */ "./src/utils/util.js");
 
+var _TouchEventAdaptor = __webpack_require__(/*! ./TouchEventAdaptor */ "./src/EventIniter/TouchEventAdaptor.js");
+
+var _TouchEventAdaptor2 = _interopRequireDefault(_TouchEventAdaptor);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -654,13 +655,27 @@ var TouchEvent = function (_Event) {
 exports.default = TouchEvent;
 
 
+var adaptor = new _TouchEventAdaptor2.default();
 function eventHandlerFactory(type) {
     return function (rawEvent) {
         if (_util.isIDE) return;
         var event = new TouchEvent(type);
+        var changedTouches;
+        if (type === 'touchstart') {
+            changedTouches = adaptor.appendToTouches(rawEvent.touches);
+        } else if (type === 'touchmove') {
+            changedTouches = adaptor.updateTouches(rawEvent.touches);
+        } else {
+            changedTouches = adaptor.removeFromTouches(rawEvent.touches);
+        }
 
-        event.changedTouches = rawEvent.touches;
-        event.touches = rawEvent.touches;
+        var touches = adaptor.getTouches();
+
+        event.changedTouches = changedTouches;
+        event.touches = touches;
+
+        // event.changedTouches = rawEvent.touches;
+        // event.touches = rawEvent.touches;
         event.targetTouches = Array.prototype.slice.call(rawEvent.touches);
         // event.timeStamp = rawEvent.timeStamp   
         _document2.default.dispatchEvent(event);
@@ -671,6 +686,152 @@ my.onTouchStart(eventHandlerFactory('touchstart'));
 my.onTouchMove(eventHandlerFactory('touchmove'));
 my.onTouchEnd(eventHandlerFactory('touchend'));
 my.onTouchCancel(eventHandlerFactory('touchcancel'));
+
+/***/ }),
+
+/***/ "./src/EventIniter/TouchEventAdaptor.js":
+/*!**********************************************!*\
+  !*** ./src/EventIniter/TouchEventAdaptor.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var TouchEventAdaptor = function () {
+    function TouchEventAdaptor() {
+        _classCallCheck(this, TouchEventAdaptor);
+
+        this.touchesMap = {};
+    }
+
+    _createClass(TouchEventAdaptor, [{
+        key: "appendToTouches",
+        value: function appendToTouches(touches) {
+            var changedTouches = [];
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = touches[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var touch = _step.value;
+
+                    if (this.touchesMap[touch.identifier] === undefined) {
+                        this.touchesMap[touch.identifier] = touch;
+                        changedTouches.push(touch);
+                    }
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+
+            return changedTouches;
+        }
+    }, {
+        key: "updateTouches",
+        value: function updateTouches(touches) {
+            var changedTouches = [];
+            var _iteratorNormalCompletion2 = true;
+            var _didIteratorError2 = false;
+            var _iteratorError2 = undefined;
+
+            try {
+                for (var _iterator2 = touches[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                    var touch = _step2.value;
+
+                    if (this.touchesMap[touch.identifier] === undefined) {
+                        continue;
+                    }
+
+                    var preTouch = this.touchesMap[touch.identifier];
+                    if (preTouch.pageX !== touch.pageX || preTouch.pageY !== touch.pageY) {
+                        this.touchesMap[touch.identifier] = touch;
+                        changedTouches.push(touch);
+                    }
+                }
+            } catch (err) {
+                _didIteratorError2 = true;
+                _iteratorError2 = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                        _iterator2.return();
+                    }
+                } finally {
+                    if (_didIteratorError2) {
+                        throw _iteratorError2;
+                    }
+                }
+            }
+
+            return changedTouches;
+        }
+    }, {
+        key: "removeFromTouches",
+        value: function removeFromTouches(touches) {
+            var changedTouches = [];
+            var _iteratorNormalCompletion3 = true;
+            var _didIteratorError3 = false;
+            var _iteratorError3 = undefined;
+
+            try {
+                for (var _iterator3 = touches[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                    var touch = _step3.value;
+
+                    if (this.touchesMap[touch.identifier] !== undefined) {
+                        delete this.touchesMap[touch.identifier];
+                        changedTouches.push(touch);
+                    }
+                }
+            } catch (err) {
+                _didIteratorError3 = true;
+                _iteratorError3 = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion3 && _iterator3.return) {
+                        _iterator3.return();
+                    }
+                } finally {
+                    if (_didIteratorError3) {
+                        throw _iteratorError3;
+                    }
+                }
+            }
+
+            return changedTouches;
+        }
+    }, {
+        key: "getTouches",
+        value: function getTouches() {
+            return Object.values(this.touchesMap);
+        }
+    }]);
+
+    return TouchEventAdaptor;
+}();
+
+exports.default = TouchEventAdaptor;
 
 /***/ }),
 
@@ -786,8 +947,7 @@ var EventTarget = function () {
             var listeners = _events.get(this)[event.type];
             if (listeners) {
                 for (var i = 0; i < listeners.length; i++) {
-                    var listener = listeners[i];
-                    listener.call(this, event);
+                    listeners[i](event);
                 }
             }
         }
@@ -1084,9 +1244,6 @@ var HTMLMediaElement = function (_HTMLElement) {
     }, {
         key: "play",
         value: function play() {}
-    }, {
-        key: "canPlayType",
-        value: function canPlayType() {}
     }]);
 
     return HTMLMediaElement;
@@ -1165,7 +1322,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Image() {
     var image = my.createImage();
     if (!_util.isIDE) {
-        image.__proto__ = new _HTMLImageElement2.default();
+        image.__proto__.__proto__ = new _HTMLImageElement2.default();
         if (image.tagName === undefined) {
             image.tagName = "IMG";
         }
@@ -1378,12 +1535,7 @@ var WebSocket = function () {
         var task = my.connectSocket({
             url: url,
             multiple: true,
-            protocols: Array.isArray(protocols) ? protocols : [protocols],
-            fail: function fail(res) {
-                if (typeof _this.onerror === 'function') {
-                    _this.onerror(new Error(res.errorMessage));
-                }
-            }
+            protocols: Array.isArray(protocols) ? protocols : [protocols]
         });
         _taskMap.set(this, task);
 
@@ -1403,12 +1555,7 @@ var WebSocket = function () {
         task.onMessage(function (res) {
             if (typeof _this.onmessage === 'function') {
                 if (res.data) {
-                    var data = res.data;
-                    if (data.isBuffer) {
-                        // 对齐web转成arrayBuffer;
-                        data.data = (0, _util.base64ToArrayBuffer)(data.data);
-                    }
-                    _this.onmessage(data);
+                    _this.onmessage(res.data);
                 } else {
                     _this.onmessage(null);
                 }
@@ -1426,8 +1573,6 @@ var WebSocket = function () {
     _createClass(WebSocket, [{
         key: 'send',
         value: function send(data) {
-            var _this2 = this;
-
             if (typeof data !== 'string' && !(data instanceof ArrayBuffer)) {
                 throw new TypeError('Failed to send message: The data ' + data + ' is invalid');
             }
@@ -1437,11 +1582,6 @@ var WebSocket = function () {
                 p.isBuffer = true;
             }
             p.data = data;
-            p.fail = function (res) {
-                if (typeof _this2.onerror === 'function') {
-                    _this2.onerror(new Error(res.errorMessage));
-                }
-            };
             var task = _taskMap.get(this);
             task.send(p);
         }
@@ -1639,7 +1779,7 @@ var XMLHttpRequest = function (_EventTarget) {
           data: data,
           url: _url.get(this),
           method: _method.get(this),
-          headers: _requestHeader.get(this),
+          header: _requestHeader.get(this),
           timeout: this.timeout,
           dataType: this.dataType,
           responseType: this.responseType,
@@ -1682,15 +1822,14 @@ var XMLHttpRequest = function (_EventTarget) {
           },
 
           fail: function fail(res) {
-            var _res$errorMessage = res.errorMessage,
-                errorMessage = _res$errorMessage === undefined ? "" : _res$errorMessage;
+            var errorMessage = res.errorMessage;
 
-            var data = res.data || "";
-            if (data.includes("超时") || errorMessage.includes("超时")) {
+            "";
+            if (res.data.includes("超时")) {
               _triggerEvent.call(_this2, 'timeout');
             }
 
-            _triggerEvent.call(_this2, 'error');
+            _triggerEvent.call(_this2, 'error', errorMessage);
             _triggerEvent.call(_this2, 'loadend');
           }
         });
@@ -1775,8 +1914,6 @@ var _Canvas2 = _interopRequireDefault(_Canvas);
 
 __webpack_require__(/*! ./EventIniter/index.js */ "./src/EventIniter/index.js");
 
-var _WindowProperties = __webpack_require__(/*! ./WindowProperties */ "./src/WindowProperties.js");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var events = {};
@@ -1803,15 +1940,6 @@ var document = {
 
     head: new _HTMLElement2.default("head"),
     body: new _HTMLElement2.default("body"),
-
-    documentElement: {
-        clientWidth: _WindowProperties.screen.width,
-        clientHight: _WindowProperties.screen.height,
-        clientLeft: 0,
-        clientTop: 0,
-        scrollLeft: 0,
-        scrollTop: 0
-    },
 
     createElement: function createElement(tagName) {
         tagName = tagName.toLowerCase();
@@ -2103,7 +2231,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 var location = {
   href: 'game.js',
-  hostname: "alipay.com",
 
   reload: function reload() {},
   replace: function replace() {}
@@ -2169,7 +2296,7 @@ function getCurrentPosition(cb) {
 }
 
 var uaDesc = android ? 'Android; CPU ' + system : 'iPhone; CPU iPhone OS ' + system + ' like Mac OS X';
-var userAgent = "Mozilla/5.0 (" + uaDesc + ") AliApp(AP/" + systemInfo.version + ") AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E8301 MicroMessenger/6.6.0 AlipayMiniGame NetType/WIFI Language/" + language;
+var userAgent = "Mozilla/5.0 (" + uaDesc + ") AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E8301 MicroMessenger/6.6.0 AlipayMiniGame NetType/WIFI Language/" + language;
 if (window.navigator) {
     userAgent = window.navigator.userAgent + " AlipayMiniGame";
 }
@@ -2219,85 +2346,20 @@ function noop() {};
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 exports.isIDE = undefined;
 exports.transformArrayBufferToBase64 = transformArrayBufferToBase64;
-exports.arrayBufferToBase64 = arrayBufferToBase64;
-exports.base64ToArrayBuffer = base64ToArrayBuffer;
 
 var _Base = __webpack_require__(/*! ../Base64 */ "./src/Base64.js");
 
 function transformArrayBufferToBase64(buffer) {
-  var binary = '';
-  var bytes = new Uint8Array(buffer);
-  for (var len = bytes.byteLength, i = 0; i < len; i++) {
-    binary += String.fromCharCode(bytes[i]);
-  }
-  return (0, _Base.btoa)(binary);
-}
-
-function encode(str) {
-  var encodings = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-  var string = String(str);
-  var result = '';
-  var currentIndex = 0;
-  var sum = void 0;
-  while (string.charAt(0 | currentIndex) || (encodings = '=', currentIndex % 1)) {
-    currentIndex += 0.75; // 每次移动3/4个位置
-    var currentCode = string.charCodeAt(currentIndex); // 获取code point
-    if (currentCode > 255) {
-      // 大于255无法处理
-      throw new Error('"btoa" failed');
+    var binary = '';
+    var bytes = new Uint8Array(buffer);
+    for (var len = bytes.byteLength, i = 0; i < len; i++) {
+        binary += String.fromCharCode(bytes[i]);
     }
-    sum = sum << 8 | currentCode; // 每次在上次的基础上左移8位再加上当前code point
-    var encodeIndex = 63 & sum >> 8 - currentIndex % 1 * 8; // 去除多余的位数，再去最后6位
-    result += encodings.charAt(encodeIndex);
-  }
-
-  return result;
-}
-
-function decode(str) {
-  var encodings = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-  var res = '';
-  var string = String(str).replace(/[=]+$/, '');
-  var o,
-      r,
-      i = 0,
-      currentIndex = 0;
-  while (r = string.charAt(currentIndex)) {
-    currentIndex = currentIndex + 1;
-    r = encodings.indexOf(r);
-    if (~r) {
-      o = i % 4 ? 64 * o + r : r;
-      if (i++ % 4) {
-        res += String.fromCharCode(255 & o >> (-2 * i & 6));
-      }
-    }
-  }
-
-  return res;
-}
-
-function arrayBufferToBase64(buffer) {
-  var result = '';
-  var uintArray = new Uint8Array(buffer);
-  var byteLength = uintArray.byteLength;
-  for (var i = 0; i < byteLength; i++) {
-    result += String.fromCharCode(uintArray[i]);
-  }
-  return encode(result);
-}
-
-function base64ToArrayBuffer(base64) {
-  var string = decode(base64);
-  var length = string.length;
-  var uintArray = new Uint8Array(length);
-  for (var i = 0; i < length; i++) {
-    uintArray[i] = string.charCodeAt(i);
-  }
-  return uintArray.buffer;
+    return (0, _Base.btoa)(binary);
 }
 
 var isIDE = exports.isIDE = window.navigator && /AlipayIDE/.test(window.navigator.userAgent);
@@ -2522,7 +2584,6 @@ var location = exports.location = _location2.default;
 
 // 暴露全局的 canvas
 window.screencanvas = window.screencanvas || new _Canvas2.default();
-window.self = window;
 var canvas = exports.canvas = window.screencanvas;
 
 function alert(msg) {
