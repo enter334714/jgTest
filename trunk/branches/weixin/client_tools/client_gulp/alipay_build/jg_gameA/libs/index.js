@@ -1,4 +1,4 @@
-﻿import AKSDK from "./wx_aksdk.js";
+﻿var AKSDK =  require("./wx_aksdk.js");
 window.versions = {
   wxVersion: window.config.game_ver,
 };
@@ -12,8 +12,8 @@ window.WSS = true;
 window.workerJsURL = "";
 window.isWaiFangWx = false;
 window.PF_INFO = {
-  base_cdn: "https://cdn-tjqy.shzbkj.com/weixingf_0/",
-  cdn: "https://cdn-tjqy.shzbkj.com/weixingf_0/",
+  base_cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
+  cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
 }
 
 PF_INFO.pay_infos = {}
@@ -286,27 +286,27 @@ window.sdkOnInited = function (res) {
     PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
     PF_INFO.logurl = "https://log-tjqy.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixingf_1/";
-    PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixingf_1/";
-    PF_INFO.version_name = res.version_name || "weixingf";
+    PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_1/";
+    PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
+    PF_INFO.version_name = res.version_name || "xy";
     PF_INFO.wxShield = false;
   } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0) {  //当前版本 == 后台版本
     console.log("#审核版=============================");
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（审核版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixingf_0/";
-    PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixingf_1/";
-    PF_INFO.version_name = "weixingf";
+    PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/";
+    PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
+    PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = true;                          //屏蔽活动
   } else {
     console.log("#开发版=============================");
     PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（开发版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-    PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixingf_0/";
-    PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixingf_1/";
-    PF_INFO.version_name = "weixingf";
+    PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/";
+    PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
+    PF_INFO.version_name = "weixin";
     PF_INFO.wxShield = false;
   }
   PF_INFO.from_scene = config.from ? config.from : 0;
@@ -1243,7 +1243,7 @@ window.enterToGame = function () {
       if (window.PF_INFO.wxPhone) {
         top = window.PF_INFO.statusBarHeight;
       }
-      
+
       var selectedServer = {};
       for (const key in PF_INFO.selectedServer) {
         selectedServer[key] = PF_INFO.selectedServer[key];

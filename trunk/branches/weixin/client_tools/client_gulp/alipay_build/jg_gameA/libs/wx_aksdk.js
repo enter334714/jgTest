@@ -1,4 +1,5 @@
-import config from './partner_config.js'
+var config = require('./partner_config.js')
+console.log("config:",config)
 window.config = config;
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';

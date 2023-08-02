@@ -1,9 +1,10 @@
 ﻿console.info("2 进入libs分包");
 
-import "weapp-adapter.js";
+require("my-adapter.js");
 
 //监听小程序错误事件。如脚本错误或 API 调用报错等
 window.lastError;
+console.info("3 进入libs分包");
 // my.onError(function (error) {
 //   if (error) {
 //     if (error.message) {
@@ -46,14 +47,21 @@ window.lastError;
 // })
 
 
-import "md5.min.js";
-import "zlib.js";
+require("md5.min.js");
+console.info("4  进入libs分包",window);
+require("zlib.js");
+console.info("5  进入libs分包");
 window["Parser"] = require("dom_parser.js");
-import "index.js";
-import "libs.min.js";
-import "laya.wxmini.js";
-import "init.min.js";
-
+console.info("6  进入libs分包");
+require("index.js");
+console.info("7  进入libs分包");
+require("libs.min.js");
+console.info("8  进入libs分包Laya:",window.Laya);
+require("laya.Alipaymini.js");
+console.info("9  进入libs分包:",Laya.ALIMiniAdapter);
+Laya["ALIMiniAdapter"].init();
+require("init.min.js");
+console.info("10  进入libs分包");
 
 console.info("3 libs初始化完成");
 
@@ -94,27 +102,27 @@ console.log("⽀付宝版本号:"+window.SDKVersion);
 
 
 // 版本更新相关，基础库 1.9.90 开始支持
-var updateManager = my.getUpdateManager();
-updateManager.onCheckForUpdate(function (res) {
-  console.log("是否有新版本："+ res.hasUpdate);
-})
-updateManager.onUpdateReady(function () {
-  my.showModal({
-    title: '更新提示',
-    content: '新版本已经准备好，是否重启应用？',
-    showCancel : false, // 加了取消按钮后，实际不会触发更新
-    success: function (res) {
-      // if (res.confirm) { // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
-        updateManager.applyUpdate();
-      // } else if (res.cancel) {
-      //   console.log('用户点击取消')
-      // }
-    }
-  })
-})
-updateManager.onUpdateFailed(function () {
-  console.log('新版本下载失败 ')
-})
+// var updateManager = my.getUpdateManager();
+// updateManager.onCheckForUpdate(function (res) {
+//   console.log("是否有新版本："+ res.hasUpdate);
+// })
+// updateManager.onUpdateReady(function () {
+//   my.showModal({
+//     title: '更新提示',
+//     content: '新版本已经准备好，是否重启应用？',
+//     showCancel : false, // 加了取消按钮后，实际不会触发更新
+//     success: function (res) {
+//       // if (res.confirm) { // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+//         updateManager.applyUpdate();
+//       // } else if (res.cancel) {
+//       //   console.log('用户点击取消')
+//       // }
+//     }
+//   })
+// })
+// updateManager.onUpdateFailed(function () {
+//   console.log('新版本下载失败 ')
+// })
 
 
 
@@ -123,50 +131,45 @@ window.loadProbuf = function() {
   var loadProbufTask = my.loadSubpackage({
     name: 'probuf',
     success: function(res) {
-      console.log("protobuf 分包加载成功");
-      console.log(res);
-      if (res && res.errMsg == "loadSubpackage:ok") {
+      console.log("protobuf 分包加载成功:",res);
+    
+      // if (res && res.errMsg == "loadSubpackage:ok") {
         window.loadProbPkg = true;
         window.initMain();
         window.enterToGame(); 
-      } else {
-        setTimeout(function() {
-          window.loadProbuf();
-        }, 500);
-      }
+     
     },
     fail: function(res) {
-      console.log("protobuf 分包加载失败");
+      console.log("protobuf 分包加载失败:",res);
       console.log(res);
       setTimeout(function() {
         window.loadProbuf();
       }, 500);
     },
   });
-  loadProbufTask && loadProbufTask.onProgressUpdate(res => {
-    // console.log('protobuf 下载进度:' + res.progress + '%, 已经下载的数据长度', res.totalBytesWritten, '预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
-  });
+  // loadProbufTask && loadProbufTask.onProgressUpdate(res => {
+  //   // console.log('protobuf 下载进度:' + res.progress + '%, 已经下载的数据长度', res.totalBytesWritten, '预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
+  // });
 }
 window.loadMain = function() {
-  console.log("Main 分包加载");
+  console.log("subMain 分包加载");
   var loadMainTask = my.loadSubpackage({
-    name: 'main',
+    name: 'subMain',
     success: function(res) {
-      console.log("Main 分包加载成功");
-      console.log(res);
-      if (res && res.errMsg == "loadSubpackage:ok") {
+      console.log("subMain 分包加载成功:",res);
+      // console.log(res);
+      // if (res && res.errMsg == "loadSubpackage:ok") {
         window.loadMainPkg = true;
         window.initMain();
         window.enterToGame(); 
-      } else {
-        setTimeout(function() {
-          window.loadMain();
-        }, 500);
-      }
+      // } else {
+      //   setTimeout(function() {
+      //     window.loadMain();
+      //   }, 500);
+      // }
     },
     fail: function(res) {
-      console.log("Main 分包加载失败");
-      console.log(res);
+      console.log("Main 分包加载失败:",res);     
       setTimeout(function() {
         window.loadMain();
       }, 500);

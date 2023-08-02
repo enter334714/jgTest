@@ -185,35 +185,35 @@
 //     render();
 // }, 16);
 
-wx = my;
+var wx = my;
 console.info("1 加载游戏");
 my.showLoading({ content: '正在加载' });
 
 var loadLibs = function() {
     console.log("libs 分包加载");
-    var loadLibsTask = my.loadSubpackage({
+    my.loadSubpackage({
         name: 'libs',
         success: function(res) {
-            console.log("libs 分包加载成功:",res);           
-            if (res && res.errMsg == "loadSubpackage:ok") {
+            console.log("libs 分包加载成功:");           
+            console.log("libs 分包加载:",res)
+            // if (res && res.errMsg == "loadSubpackage:ok") {
                 my.loadSubpackages();
-            } else {
-                setTimeout(function() {
-                    loadLibs();
-                }, 500);
-            }
+            // } else {
+            //     // setTimeout(function() {
+            //     //     loadLibs();
+            //     // }, 500);
+            // }
         },
         fail: function(res) {
-            console.log("libs 分包加载失败");
-            console.log(res);
-            setTimeout(function() {
-                loadLibs();
-            }, 500);
+            console.log("libs 分包加载失败:",res);           
+            // setTimeout(function() {
+            //     loadLibs();
+            // }, 500);
         },
     });
-    loadLibsTask && loadLibsTask.onProgressUpdate(res => {
+    // loadLibsTask && loadLibsTask.onProgressUpdate(res => {
         // console.log('libs 下载进度:' + res.progress + '%, 已经下载的数据长度', res.totalBytesWritten, '预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
-    });
+    // });
 }
 
 //监听小游戏切前台事件
