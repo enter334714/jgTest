@@ -163,9 +163,9 @@ window.loadMain = function() {
       }, 500);
     },
   });
-  loadMainTask && loadMainTask.onProgressUpdate(res => {
-    // console.log('Main 下载进度:' + res.progress + '%, 已经下载的数据长度', res.totalBytesWritten, '预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
-  });
+  // loadMainTask && loadMainTask.onProgressUpdate(res => {
+  //   // console.log('Main 下载进度:' + res.progress + '%, 已经下载的数据长度', res.totalBytesWritten, '预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
+  // });
 }
 
 my.loadSubpackages = function() {

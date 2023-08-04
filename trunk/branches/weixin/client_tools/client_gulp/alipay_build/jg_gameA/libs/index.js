@@ -360,31 +360,23 @@ window.sdkOnLogin = function (status, data) {
 }
 
 window.onUserLogin = function (response) {
-  console.log("onUserLogin1")
-  testAlert(JSON.stringify(response));
-  console.log("onUserLogin2")
-  if (!response) {
-    console.log("onUserLogin3")
+  if (!response) {  
     window.toErrorAlarm(2, "User.login fail: response is null");
     window.reqRecordInfo("userLoginError", "response is null");
     window.loginAlert('User.login failed');
     return;
   }
-  if (response.state != 'success') {
-    console.log("onUserLogin4")
+  if (response.state != 'success') {   
     window.toErrorAlarm(2, "User.login fail: state=" + response.state);
     window.reqRecordInfo("userLoginError", JSON.stringify(response));
     window.loginAlert('User.login failed: ' + response.state);
     return;
   }
-  if (response.ban_state == 1) {
-    console.log("onUserLogin5")
+  if (response.ban_state == 1) {    
     window.reqRecordInfo("账号已被封禁", JSON.stringify(response));
     window.loginAlert("账号已被封禁,account:" + response.account);
     return;
-  }
-
-  console.log("onUserLogin6")
+  }  
   PF_INFO.userId = String(response.account);
   PF_INFO.account = String(response.account);
   PF_INFO.platform = String(response.platform);
@@ -873,29 +865,23 @@ window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess,
     // console.log("send:"+url)
   my.request({
     url: url,
-    method: (reqType || "GET"),
-    dataType: "text",
+    method: (reqType || "GET"),   
     data: data,
     headers: {
       "content-type": (contentType || 'application/json'),
     },
     success: function (res) {
-      // DEBUG && console.log("send.success:"+url);
-      // if(url.indexOf("User.login")!=-1){
-      //   console.log("success:"+url)
-      //   testAlert(res);
-      // }
-       
-      if (res && res.status == 200) {
+      var iiis = url.indexOf("")!=-1;               
+      if (res && res.status == 200) {      
         var response = res.data;
-        if (!checkSuccess || checkSuccess(response)) {
+        if (!checkSuccess || checkSuccess(response)) {              
           if (callBack) {
             callBack(response);
           }
-        } else {
+        } else {        
           window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
         }
-      } else {
+      } else {       
         window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
       }
     },
@@ -941,7 +927,7 @@ window.sendApi = function (apiurl, method, param, callBack, retryAmount, errorCB
 
   var extendParam = 'sign=' + md5(md5Str);
 
-  send(apiurl + '?' + reqStr + (reqStr == '' ? '' : '&') + extendParam, null, callBack, retryAmount, errorCB, checkSuccess || function (response) {
+  send(apiurl + '?' + reqStr + (reqStr == '' ? '' : '&') + extendParam, null, callBack, retryAmount, errorCB, checkSuccess || function (response) {   
     return response.state == 'success';
   }, null, 'application/x-www-form-urlencoded');
 }

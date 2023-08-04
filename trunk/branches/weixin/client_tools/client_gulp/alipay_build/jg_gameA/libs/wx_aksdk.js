@@ -386,7 +386,7 @@ function mainSDK() {
                 success: function (res) {
                     console.log("[SDK]获取分享参数结果");
                     console.log(res);
-                    if(res.statusCode == 200){
+                    if(res.status == 200){
                         var data = res.data;
                         if(data.state){
                             callback && callback(data.data);
@@ -731,7 +731,7 @@ function mainSDK() {
                 success: function (res) {
                     console.log("[SDK]米大师支付结果");
                     console.log(res);
-                    if(res.statusCode == 200){
+                    if(res.status == 200){
                         if(res.data.state == 1){
                             var ret = {
                                 cpOrderNo: self.order_data.cpbill,

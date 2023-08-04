@@ -234,10 +234,3 @@ my.onHide(function(){
 }
 });
 loadLibs();
-
-window.testAlert = function(value,title){
-    my.alert({
-        title:title || "console",
-        content:value,
-    })
-}
