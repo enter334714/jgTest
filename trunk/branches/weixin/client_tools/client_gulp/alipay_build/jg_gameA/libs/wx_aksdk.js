@@ -323,12 +323,12 @@ function mainSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[SDK]获取游戏版本成功");
-                    console.log(res);
+                    console.log("[SDK]获取游戏版本成功");                                           
+                    console.log(res);                                
                     requestCallback = true;
                     if (checkHandler) clearTimeout(checkHandler);
                     checkHandler = null;
-                    if(res.statusCode == 200){
+                    if(res.status == 200){
                         var data = res.data;
                         config.min_app_id = data.data.min_app_id;
                         if(data.state){

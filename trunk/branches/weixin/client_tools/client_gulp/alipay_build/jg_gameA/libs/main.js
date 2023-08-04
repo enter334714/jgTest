@@ -1,10 +1,7 @@
 ﻿console.info("2 进入libs分包");
-
 require("my-adapter.js");
-
 //监听小程序错误事件。如脚本错误或 API 调用报错等
 window.lastError;
-console.info("3 进入libs分包");
 // my.onError(function (error) {
 //   if (error) {
 //     if (error.message) {
@@ -48,28 +45,19 @@ console.info("3 进入libs分包");
 
 
 require("md5.min.js");
-console.info("4  进入libs分包",window);
 require("zlib.js");
-console.info("5  进入libs分包");
 window["Parser"] = require("dom_parser.js");
-console.info("6  进入libs分包");
 require("index.js");
-console.info("7  进入libs分包");
 require("libs.min.js");
-console.info("8  进入libs分包Laya:",window.Laya);
 require("laya.Alipaymini.js");
-console.info("9  进入libs分包:",Laya.ALIMiniAdapter);
 Laya["ALIMiniAdapter"].init();
 require("init.min.js");
-console.info("10  进入libs分包");
-
 console.info("3 libs初始化完成");
-
 
 // 每个分包的图集不一样，采用传参形式
 var wxData = {
   showLoadingBtn: true,
-  rainArr: my.rainArr,
+  // rainArr: my.rainArr,
 }
 new window.ServerLoading(wxData);
 window.ServerLoading.instance.openAuthor();

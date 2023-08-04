@@ -87,7 +87,7 @@ window.loginAlert = function (value) {
     content: value,
     confirmButtonText: "重试",
     cancelButtonText: "退出",
-    success(res) {
+    success:function(res) {
       if (res.confirm) {
         window.sdkInit();
       } else if (res.cancel) {
@@ -171,7 +171,7 @@ window.onApiError = function (str) {
   // console.log('on api error');
   // AKSDK.logout(function(){});
   window.toErrorAlarm(14, "onApiError " + str);
-  window.loginAlert('on api error');
+  window.loginAlert('on api error:'+str);
   var info = {
     id: window.PF_INFO.roleId,
     role: window.PF_INFO.roleName,
@@ -321,6 +321,8 @@ window.sdkOnInited = function (res) {
 window.sdkLoginRetry = 5;
 /*sdk登录回调*/
 window.sdkOnLogin = function (status, data) {
+  console.log("sdkOnLogin status:",status)
+ 
   if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
     PF_INFO.wx_channel = data.wx_channel;
@@ -328,6 +330,7 @@ window.sdkOnLogin = function (status, data) {
     PF_INFO.zsy_tp_state = data.zsy_tp_state;
     PF_INFO.ad_flag = data.ad_flag;
     var self = this;
+    console.log("sdkOnLogin1")
     wxShowLoading({ content: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {
       'platform': PF_INFO.sdk_name,
@@ -337,7 +340,7 @@ window.sdkOnLogin = function (status, data) {
       'deviceId': PF_INFO.device_id,
       'scene': 'WX_' + PF_INFO.from_scene,
       'ad_flag':PF_INFO.ad_flag || 0,
-    }, this.onUserLogin.bind(this), apiRetryAmount, onApiError);
+    }, self.onUserLogin.bind(self), apiRetryAmount, onApiError);
   } else {
     if (data && data.errMsg && window.sdkLoginRetry > 0 && (
       data.errMsg.indexOf("fail interrupted") != -1 ||
@@ -347,7 +350,7 @@ window.sdkOnLogin = function (status, data) {
       data.errMsg.indexOf("ERR_CONNECTION_ABORTED") != -1 ||
       data.errMsg.indexOf("ERR_CONNECTION_RESET") != -1)) { //可以自动重试的失败  network api interrupted in suspend state(小程序退后台之后发起网络请求)
       window.sdkLoginRetry--;
-      AKSDK.login(this.sdkOnLogin.bind(this));
+      AKSDK.login(self.sdkOnLogin.bind(self));
     } else {
       window.toErrorAlarm(1, "AKSDK.login fail: status=" + status + ",errMsg=" + (data ? data.errMsg : ""));
       window.reqRecordInfo("sdkOnLoginError", JSON.stringify({ status: status, data: data }));
@@ -357,24 +360,31 @@ window.sdkOnLogin = function (status, data) {
 }
 
 window.onUserLogin = function (response) {
+  console.log("onUserLogin1")
+  testAlert(JSON.stringify(response));
+  console.log("onUserLogin2")
   if (!response) {
+    console.log("onUserLogin3")
     window.toErrorAlarm(2, "User.login fail: response is null");
     window.reqRecordInfo("userLoginError", "response is null");
     window.loginAlert('User.login failed');
     return;
   }
   if (response.state != 'success') {
+    console.log("onUserLogin4")
     window.toErrorAlarm(2, "User.login fail: state=" + response.state);
     window.reqRecordInfo("userLoginError", JSON.stringify(response));
     window.loginAlert('User.login failed: ' + response.state);
     return;
   }
   if (response.ban_state == 1) {
+    console.log("onUserLogin5")
     window.reqRecordInfo("账号已被封禁", JSON.stringify(response));
     window.loginAlert("账号已被封禁,account:" + response.account);
     return;
   }
 
+  console.log("onUserLogin6")
   PF_INFO.userId = String(response.account);
   PF_INFO.account = String(response.account);
   PF_INFO.platform = String(response.platform);
@@ -859,7 +869,8 @@ window.offNetworkStatusChange = function (func) {
 
 window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess, reqType, contentType) {
   if (retryAmount == undefined) retryAmount = 1;
-
+  // if(url.indexOf("User.login")!=-1)
+    // console.log("send:"+url)
   my.request({
     url: url,
     method: (reqType || "GET"),
@@ -869,8 +880,13 @@ window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess,
       "content-type": (contentType || 'application/json'),
     },
     success: function (res) {
-      DEBUG && console.log("send.success:", url, info, res);
-      if (res && res.statusCode == 200) {
+      // DEBUG && console.log("send.success:"+url);
+      // if(url.indexOf("User.login")!=-1){
+      //   console.log("success:"+url)
+      //   testAlert(res);
+      // }
+       
+      if (res && res.status == 200) {
         var response = res.data;
         if (!checkSuccess || checkSuccess(response)) {
           if (callBack) {

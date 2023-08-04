@@ -1,4 +1,5 @@
 ﻿console.info("0 进入游戏包");
+
 // //没有涟漪效果
 // var VSHADER_SOURCE =
 //     'attribute vec4 a_Position;\n' +
@@ -233,3 +234,10 @@ my.onHide(function(){
 }
 });
 loadLibs();
+
+window.testAlert = function(value,title){
+    my.alert({
+        title:title || "console",
+        content:value,
+    })
+}
