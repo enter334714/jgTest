@@ -116,12 +116,10 @@ console.log("⽀付宝版本号:"+window.SDKVersion);
 
 window.loadProbuf = function() {
   console.log("protobuf 分包加载");
-  var loadProbufTask = my.loadSubpackage({
+  my.loadSubpackage({
     name: 'probuf',
     success: function(res) {
       console.log("protobuf 分包加载成功:",res);
-    
-      // if (res && res.errMsg == "loadSubpackage:ok") {
         window.loadProbPkg = true;
         window.initMain();
         window.enterToGame(); 
@@ -135,26 +133,16 @@ window.loadProbuf = function() {
       }, 500);
     },
   });
-  // loadProbufTask && loadProbufTask.onProgressUpdate(res => {
-  //   // console.log('protobuf 下载进度:' + res.progress + '%, 已经下载的数据长度', res.totalBytesWritten, '预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
-  // });
 }
 window.loadMain = function() {
   console.log("subMain 分包加载");
-  var loadMainTask = my.loadSubpackage({
+  my.loadSubpackage({
     name: 'subMain',
     success: function(res) {
       console.log("subMain 分包加载成功:",res);
-      // console.log(res);
-      // if (res && res.errMsg == "loadSubpackage:ok") {
         window.loadMainPkg = true;
         window.initMain();
         window.enterToGame(); 
-      // } else {
-      //   setTimeout(function() {
-      //     window.loadMain();
-      //   }, 500);
-      // }
     },
     fail: function(res) {
       console.log("Main 分包加载失败:",res);     
@@ -163,9 +151,6 @@ window.loadMain = function() {
       }, 500);
     },
   });
-  // loadMainTask && loadMainTask.onProgressUpdate(res => {
-  //   // console.log('Main 下载进度:' + res.progress + '%, 已经下载的数据长度', res.totalBytesWritten, '预期需要下载的数据总长度', res.totalBytesExpectedToWrite);
-  // });
 }
 
 my.loadSubpackages = function() {

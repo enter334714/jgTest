@@ -5,8 +5,8 @@ window.versions = {
 
 
 window.DEBUG = false;
-window.PLATFORM = 1;
-window.ENV = 1;
+window.PLATFORM = 5;
+window.ENV = 8;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
