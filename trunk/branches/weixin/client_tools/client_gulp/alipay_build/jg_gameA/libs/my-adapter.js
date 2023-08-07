@@ -1502,6 +1502,7 @@ var _taskMap = new WeakMap();
 
 var WebSocket = function () {
     function WebSocket(url) {
+        console.log("websocket:",url)
         var _this = this;
 
         var protocols = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
@@ -1513,7 +1514,7 @@ var WebSocket = function () {
         this.CLOSING = WebSocket.CLOSING;
         this.CLOSED = WebSocket.CLOSED;
 
-        this.binaryType = '';
+        this.binaryType = 'arraybuffer';
         this.bufferedAmount = 0;
         this.extensions = '';
 
