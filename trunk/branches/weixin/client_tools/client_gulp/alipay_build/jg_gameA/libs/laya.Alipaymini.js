@@ -56,7 +56,7 @@ var ALIMiniAdapter=(function(){
 		Input['_createInputElement']=MiniInput$6['_createInputElement'];
 		ALIMiniAdapter.EnvConfig.load=Loader.prototype.load;
 		Loader.prototype.load=MiniLoader$6.prototype.load;
-		Loader.prototype._loadImage=MiniImage$6.prototype._loadImage;
+		// Loader.prototype._loadImage=MiniImage$6.prototype._loadImage;
 		LocalStorage._baseClass=MiniLocalStorage$6;
 		MiniLocalStorage$6.__init__();
 		ALIMiniAdapter.onReciveData();
@@ -1391,11 +1391,12 @@ var MiniLoader$6=(function(_super){
 	*@param group
 	*@param ignoreCache
 	*/
-	__proto.load=function(url,type,cache,group,ignoreCache){
+	__proto.load=function(url,type,cache,group,ignoreCache){		
 		(cache===void 0)&& (cache=true);
 		(ignoreCache===void 0)&& (ignoreCache=false);
 		var thisLoader=this;
 		thisLoader._url=url;
+		
 		if (url.indexOf("data:image")===0)thisLoader._type=type=/*laya.net.Loader.IMAGE*/"image";
 		else {
 			thisLoader._type=type || (type=thisLoader.getTypeFromUrl(url));
@@ -1408,15 +1409,18 @@ var MiniLoader$6=(function(_super){
 			this.event(/*laya.events.Event.COMPLETE*/"complete",thisLoader._data);
 			return;
 		}
+		
 		if (Loader.parserMap[type] !=null){
 			thisLoader._customParse=true;
 			if (((Loader.parserMap[type])instanceof laya.utils.Handler ))Loader.parserMap[type].runWith(this);
 			else Loader.parserMap[type].call(null,this);
 			return;
 		};
+		
 		var encoding=ALIMiniAdapter.getUrlEncode(url,type);
 		var urlType=Utils.getFileExtension(url);
-		if ((MiniLoader._fileTypeArr.indexOf(urlType)!=-1)|| type==/*laya.net.Loader.IMAGE*/"image"){
+		
+		if ((MiniLoader._fileTypeArr.indexOf(urlType)!=-1)|| type==/*laya.net.Loader.IMAGE*/"image"){			
 			ALIMiniAdapter.EnvConfig.load.call(this,url,type,cache,group,ignoreCache);
 			}else {
 			if(ALIMiniAdapter.isZiYu && !MiniFileMgr$6.ziyuFileData[url]){
