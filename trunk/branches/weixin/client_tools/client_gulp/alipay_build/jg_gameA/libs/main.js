@@ -2,46 +2,46 @@
 require("my-adapter.js");
 //监听小程序错误事件。如脚本错误或 API 调用报错等
 window.lastError;
-// my.onError(function (error) {
-//   if (error) {
-//     if (error.message) {
-//       var gamever = window.config.game_ver.replace(new RegExp(/\./, "g"), "_");
-//       var message = error.message;
-//       var arr = message.match(/(subPackage\/game.js:)[0-9]{1,60}(:)/g);
-//       if (arr) {
-//         for (var i = 0; i < arr.length; i++) { //行数减2
-//           if (arr[i] && arr[i].length > 0) {
-//             var line = parseInt(arr[i].replace("subPackage/game.js:", "").replace(":", ""));
-//             message = message.replace(arr[i], arr[i].replace(":"+line+":", ":"+(line-2)+":"))
-//           }
-//         }
-//       }
-//       message = message.replace(new RegExp("subPackage/game.js", "g"), "subPackage/main__" + gamever + ".min.js");
-//       message = message.replace(new RegExp("subPackage/main.min.js", "g"), "subPackage/main__" + gamever + ".min.js");
-//       error.message = message;
-//     }
-//     var info = {
-//       id: window.PF_INFO.roleId,
-//       role: window.PF_INFO.roleName,
-//       level: window.PF_INFO.roleLevel,
-//       user: window.PF_INFO.account,
-//       version: window.PF_INFO.lastVersion,
-//       cdn: window.PF_INFO.cdn,
-//       pkgName: window.PF_INFO.pkgName,
-//       gamever: window.config.game_ver,
-//       serverid: (window.PF_INFO.selectedServer ? window.PF_INFO.selectedServer.server_id : 0),
-//       systemInfo: window.systemInfo,
-//       error: "MiniProgramError",
-//       stack: (error ? error.message : ""),
-//     }
-//     var infostr = JSON.stringify(info);
-//     console.error("脚本错误："+ infostr);
-//     if (!window.lastError || window.lastError!=info.error) {
-//       window.lastError = info.error;
-//       window.clientlog(info);
-//     }
-//   }
-// })
+my.onError(function (error) {
+  if (error) {
+    if (error) {
+      var gamever = window.config.game_ver.replace(new RegExp(/\./, "g"), "_");
+      var message = error;
+      var arr = message.match(/(subPackage\/game.js:)[0-9]{1,60}(:)/g);
+      if (arr) {
+        for (var i = 0; i < arr.length; i++) { //行数减2
+          if (arr[i] && arr[i].length > 0) {
+            var line = parseInt(arr[i].replace("subPackage/game.js:", "").replace(":", ""));
+            message = message.replace(arr[i], arr[i].replace(":"+line+":", ":"+(line-2)+":"))
+          }
+        }
+      }
+      message = message.replace(new RegExp("subPackage/game.js", "g"), "subPackage/main__" + gamever + ".min.js");
+      message = message.replace(new RegExp("subPackage/main.min.js", "g"), "subPackage/main__" + gamever + ".min.js");
+      error.message = message;
+    }
+    var info = {
+      id: window.PF_INFO.roleId,
+      role: window.PF_INFO.roleName,
+      level: window.PF_INFO.roleLevel,
+      user: window.PF_INFO.account,
+      version: window.PF_INFO.lastVersion,
+      cdn: window.PF_INFO.cdn,
+      pkgName: window.PF_INFO.pkgName,
+      gamever: window.config.game_ver,
+      serverid: (window.PF_INFO.selectedServer ? window.PF_INFO.selectedServer.server_id : 0),
+      systemInfo: window.systemInfo,
+      error: "MiniProgramError",
+      stack: (error ? error : ""),
+    }
+    var infostr = JSON.stringify(info);
+    console.error("脚本错误："+ infostr);
+    if (!window.lastError || window.lastError!=info.error) {
+      window.lastError = info.error;
+      window.clientlog(info);
+    }
+  }
+})
 
 
 require("md5.min.js");

@@ -104,12 +104,11 @@ window.loginAlert = function (value) {
 }
 window.exitAlert = function (value) {
   console.log("exitAlert", value);
-  my.showModal({
+  my.alert({
     title: '提示',
     content: value,
-    confirmText: "重登",
-    showCancel: false,
-    complete(res) {
+    buttonText: "重登",   
+    success:(res)=> {
       if (my.restartMiniProgram) {
         console.log("重启游戏");
         // my.restartMiniProgram({});
@@ -162,9 +161,13 @@ window.toProgress = function (value, str, currTaskIndex) {
 window.toEnterGame = function (value) {
   console.log("toEnterGame", value);
   window.ServerLoading.instance.closeAuthor();
+  console.log("toEnterGame1", value);
   window.ServerLoading.instance.closeServer();
+  console.log("toEnterGame2", value);
   window.ServerLoading.instance.closeLoading();
+  console.log("toEnterGame3", value);
   window.closeFillter();
+  console.log("toEnterGame4", value);
 }
 
 window.onApiError = function (str) {
