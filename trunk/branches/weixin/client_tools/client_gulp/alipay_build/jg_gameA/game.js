@@ -1,4 +1,4 @@
-﻿console.info("0 进入游戏包");
+﻿console.info("1 进入游戏包");
 
 // //没有涟漪效果
 // var VSHADER_SOURCE =

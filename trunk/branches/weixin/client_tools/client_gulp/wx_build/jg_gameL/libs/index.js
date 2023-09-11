@@ -310,7 +310,7 @@ window.sdkOnInited = function (res) {
 
   window.sdkLoginRetry = 5;
   wxShowLoading({ title: '正在登录账号' });
-  // AKSDK.login(this.sdkOnLogin.bind(this));
+  AKSDK.login(this.sdkOnLogin.bind(this));
 }
 window.sdkLoginRetry = 5;
 /*sdk登录回调*/

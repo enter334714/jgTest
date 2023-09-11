@@ -397,19 +397,20 @@ var MiniFileMgr$6=(function(){
 		(isSaveFile===void 0)&& (isSaveFile=false);
 		(fileType===void 0)&& (fileType="");
 		(isAutoClear===void 0)&& (isAutoClear=true);
-		MiniFileMgr.fs.readFile({filePath:filePath,encoding:encoding,success:function (data){
-				if (filePath.indexOf("http://")!=-1 || filePath.indexOf("https://")!=-1){
-					if(ALIMiniAdapter.autoCacheFile || isSaveFile){
-						callBack !=null && callBack.runWith([0,data]);
-						MiniFileMgr.copyFile(filePath,readyUrl,null,encoding,isAutoClear);
-					}
-				}
-				else
-				callBack !=null && callBack.runWith([0,data]);
-				},fail:function (data){
-				if (data)
-					callBack !=null && callBack.runWith([1,data]);
-		}});
+		callBack && callBack.runWith([1])
+		// MiniFileMgr.fs.readFile({filePath:filePath,encoding:encoding,success:function (data){
+		// 		if (filePath.indexOf("http://")!=-1 || filePath.indexOf("https://")!=-1){
+		// 			if(ALIMiniAdapter.autoCacheFile || isSaveFile){
+		// 				callBack !=null && callBack.runWith([0,data]);
+		// 				MiniFileMgr.copyFile(filePath,readyUrl,null,encoding,isAutoClear);
+		// 			}
+		// 		}
+		// 		else
+		// 		callBack !=null && callBack.runWith([0,data]);
+		// 		},fail:function (data){
+		// 		if (data)
+		// 			callBack !=null && callBack.runWith([1,data]);
+		// }});
 	}
 
 	MiniFileMgr.downOtherFiles=function(fileUrl,callBack,readyUrl,isSaveFile,isAutoClear){
@@ -1500,7 +1501,7 @@ var MiniLoader$6=(function(_super){
 			}
 			thisLoader.onLoaded(tempData);
 			}else if (errorCode==1){
-			console.log("-----------本地加载失败，尝试外网加载----");
+			// console.log("-----------本地加载失败，尝试外网加载----");
 			ALIMiniAdapter.EnvConfig.load.call(thisLoader,url,type,cache,group,ignoreCache);
 		}
 	}

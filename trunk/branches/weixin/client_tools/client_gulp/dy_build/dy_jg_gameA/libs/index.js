@@ -1,4 +1,5 @@
-﻿import AKSDK from "./wx_aksdk.js";
+﻿import AKSDK from "../wx_aksdk.js";
+window.config = AKSDK.getConfig();
 window.versions = {
   wxVersion: window.config.game_ver,
 };
@@ -326,7 +327,7 @@ window.sdkOnLogin = function (status, data) {
       'game_pkg': PF_INFO.pkgName,
       'deviceId': PF_INFO.device_id,
       'scene': 'WX_' + PF_INFO.from_scene,
-      'ad_flag':PF_INFO.ad_flag || 0,
+      'ad_flag': PF_INFO.ad_flag || 0,
     }, this.onUserLogin.bind(this), apiRetryAmount, onApiError);
   } else {
     if (data && data.errMsg && window.sdkLoginRetry > 0 && (
@@ -419,7 +420,7 @@ window.getCheckServers = function (lastSerId) {
   sendApi(PF_INFO.apiurl, 'Server.check_server', {
     'server_id': lastSerId,
     'time': Date.now() / 1000,
-    'uid':PF_INFO.account,
+    'uid': PF_INFO.account,
   }, self.onUserLoginCheckServers.bind(self), apiRetryAmount, onApiError);
 }
 window.onUserLoginCheckServers = function (response) {
@@ -479,7 +480,7 @@ window.initComplete = function () {
       req_server_check_ban(0, PF_INFO.selectedServer.server_id);
       window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
     } else { //老用户，进游戏的选服界面
-      // wx.onTouchEnd(window.subscribeWhatsNew);
+      // wx.onTouchEnd(window.saveAppToDesktop);
       window.ServerLoading.instance.openServer({ show: sdkInitRes.isShowSdkAge, skinUrl: sdkInitRes.sdk_age_adaptation_icon, content: sdkInitRes.sdk_age_adaptation_content, x: sdkInitRes.coordinate_x, y: sdkInitRes.coordinate_y });
       wxHideLoading();
     }
@@ -543,6 +544,7 @@ window.reqPkgOptionsCallBack = function (data) {
     console.info("reqPkgOptionsCallBack " + data.state);
   }
   window.loadOption = true;
+  window.ServerLoading.instance.addPkgConfigRainBg(PF_INFO.rain_pkg ? JSON.parse(PF_INFO.rain_pkg) : null)
   window.initComplete();
 }
 
@@ -727,6 +729,39 @@ window.reqPlayerAskInfo = function (packageName, role_id, serverId, callBack) {
     'server_id': serverId
   }, callBack);
 }
+
+
+window.dyGetSceneInfo = function(){
+  let info  = AKSDK.getSceneInfo();
+  //测试代码
+  window.reqRecordInfo(" AKSDK.getSceneInfo:"+JSON.stringify(info));
+  if(tt.onshowResFirst && tt.onshowResFirst !=888){
+    window.reqRecordInfo("DYFirstOnshow:"+JSON.stringify(tt.onshowResFirst));  
+    tt.onshowResFirst = 888
+  }
+ 
+  return info;
+}
+
+//添加到桌面
+window.saveAppToDesktop = function () {
+  var sceneInfo = AKSDK.getSceneInfo();
+  if (!sceneInfo.hasShortcut) {
+    function onTouchEnd(res) {
+      AKSDK.addShortcut((res) => {
+        if (1 == res) {
+          console.log('添加到桌面成功');
+        } else {
+          console.log('添加到桌面失败');
+        }
+      })
+      wx.offTouchEnd(onTouchEnd);
+    }
+    wx.onTouchEnd(onTouchEnd);
+  }
+}
+
+
 //调起订阅消息
 window.openSubscribeMsg = function (ids, callback, objIds) {
   function onTouchEnd(res) {
@@ -1163,7 +1198,7 @@ window.reqServerCheckBanCallBack = function (data) {
         'game_pkg': PF_INFO.pkgName,
         'deviceId': PF_INFO.device_id,
         'scene': 'WX_' + PF_INFO.from_scene,
-        'ad_flag':PF_INFO.ad_flag || 0,
+        'ad_flag': PF_INFO.ad_flag || 0,
       }, function (response) {
         if (!response || response.state != 'success') {
           window.loginAlert('User.login failed: ' + response && response.state);
@@ -1279,7 +1314,9 @@ window.enterToGame = function () {
   }
 }
 
+
 window.subscribeWhatsNew = function () {
+  
   //更新提醒订阅接口2.10.4才有
   if (window.compareVersion(window.SDKVersion, '2.10.4') >= 0) {
     AKSDK.subscribeWhatsNew(null, (confirm) => {

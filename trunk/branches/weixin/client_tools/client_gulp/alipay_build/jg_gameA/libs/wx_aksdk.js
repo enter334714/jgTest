@@ -1,5 +1,4 @@
 var config = require('./partner_config.js')
-console.log("config:",config)
 window.config = config;
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
@@ -99,7 +98,7 @@ function mainSDK() {
 
             //判断版本号
             if(game_ver){
-                this.checkGameVersion(game_ver, function (data) {
+                this.checkGameVersion(game_ver, function (data) {                    
                     develop = data.develop;
                     callback && callback(data);
                 });
@@ -123,7 +122,7 @@ function mainSDK() {
             callbacks['login'] = typeof callback == 'function' ? callback : null;
             //授权登录
             console.log("[SDK]授权登录"+config.is_auth);
-             self.do_login();
+            self.do_login();
         },
 
         do_login: function (info) {
@@ -151,7 +150,7 @@ function mainSDK() {
                             method: 'POST',
                             dataType: 'json',
                             headers: {
-                                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                                'content-type': 'application/x-www-form-urlencoded' // 默认值
                             },
                             data: public_data,
                             success: function (res) {
@@ -192,49 +191,50 @@ function mainSDK() {
                                             }
                                             my.setStorageSync({key:"navigate_app_id",data:data.data.navigate_app_id});
                                             my.setStorageSync({key:"partner_vedio_ad_id",data:data.data.partner_vedio_ad_id});
+                                            my.setStorageSync({key:"partner_openid",data:data.data.openid});
                                         } catch (e) {
 
                                         }
                                         callbacks['login'] && callbacks['login'](0, userData);
-                                        }else{
-                                            callbacks['login'] && callbacks['login'](1, {type: "my.request.success", errMsg: data.msg, time: (Date.now()-lastTime), res: res});
-                                        }
-                                        //登录成功，加载右上角分享数据
-                                        self.getShareInfo('menu', function (data) {
-                                            console.log("[SDK]开始监听右上角菜单分享");
-                                            my.onShareAppMessage(function () {
-                                                //记录开始分享
-                                                self.logStartShare('menu');
-                                                return {
-                                                    title: data.title,
-                                                    imageUrl: data.img,
-                                                    // query: data.query,
-                                                }
-                                            });
-                                        });
                                     }else{
-                                        callbacks['login'] && callbacks['login'](1, {type: "my.request.success", errMsg: '请求平台服务器失败！', time: (Date.now()-lastTime), res: res});
+                                        callbacks['login'] && callbacks['login'](1, {type: "my.request.success", errMsg: data.msg, time: (Date.now()-lastTime), res: res});
                                     }
-                                },
-                                fail: function(res){
-                                    console.log("[SDK]登录失败");
-                                    console.log(res);
-                                    self.log('event', {event: 'login_exception'});
-                                    requestCallback = true;
-                                    if (loginHandler) clearTimeout(loginHandler);
-                                    loginHandler = null;
-                                    callbacks['login'] && callbacks['login'](1, {type: "my.request.fail", errMsg: res.errMsg, time: (Date.now()-lastTime), res: res});
+                                    //登录成功，加载右上角分享数据
+                                    self.getShareInfo('menu', function (data) {
+                                        console.log("[SDK]开始监听右上角菜单分享");
+                                        my.onShareAppMessage(function () {
+                                            //记录开始分享
+                                            self.logStartShare('menu');
+                                            return {
+                                                title: data.title,
+                                                imageUrl: data.img,
+                                                // query: data.query,
+                                            }
+                                        });
+                                    });
+                                }else{
+                                    callbacks['login'] && callbacks['login'](1, {type: "my.request.success", errMsg: '请求平台服务器失败！', time: (Date.now()-lastTime), res: res});
                                 }
-                            });
-                            if (!requestCallback) {
-                                var timeOutFunc = function() {
-                                    console.log("[SDK]登录超时");
-                                    self.log('event', {event: 'login_time_out'});
-                                    callbacks['login'] && callbacks['login'](1, {type: "my.request", errMsg: "登录超时20秒无返回", time: (Date.now()-lastTime)});
-                                    callbacks['login'] = null; //回调后置空，以免success或fail里重复回调
-                                }
-                                loginHandler = setTimeout(timeOutFunc, 20000);
+                            },
+                            fail: function(res){
+                                console.log("[SDK]登录失败");
+                                console.log(res);
+                                self.log('event', {event: 'login_exception'});
+                                requestCallback = true;
+                                if (loginHandler) clearTimeout(loginHandler);
+                                loginHandler = null;
+                                callbacks['login'] && callbacks['login'](1, {type: "my.request.fail", errMsg: res.errMsg, time: (Date.now()-lastTime), res: res});
                             }
+                        });
+                        if (!requestCallback) {
+                            var timeOutFunc = function() {
+                                console.log("[SDK]登录超时");
+                                self.log('event', {event: 'login_time_out'});
+                                callbacks['login'] && callbacks['login'](1, {type: "my.request", errMsg: "登录超时20秒无返回", time: (Date.now()-lastTime)});
+                                callbacks['login'] = null; //回调后置空，以免success或fail里重复回调
+                            }
+                            loginHandler = setTimeout(timeOutFunc, 20000);
+                        }
 
                     } else {
                         callbacks['login'] && callbacks['login'](1, {type: "my.login.success", errMsg: res.errMsg, res: res});
@@ -323,15 +323,18 @@ function mainSDK() {
                     game_ver: game_ver
                 },
                 success: function (res) {
-                    console.log("[SDK]获取游戏版本成功");                                           
-                    console.log(res);                                
+                    console.log("[SDK]获取游戏版本成功");
+                    console.log(res);
                     requestCallback = true;
                     if (checkHandler) clearTimeout(checkHandler);
                     checkHandler = null;
+                    console.log("[SDK]checkgameVersion1:",res)
                     if(res.status == 200){
                         var data = res.data;
+                        console.log("[SDK]checkgameVersion2:")
                         config.min_app_id = data.data.min_app_id;
                         if(data.state){
+                            console.log("[SDK]checkgameVersion3:")
                             callbacks['check'] && callbacks['check'](data.data);
                         }else{
                             callbacks['check'] && callbacks['check']({develop: 0,success_msg:'state not true'});
@@ -386,7 +389,7 @@ function mainSDK() {
                 success: function (res) {
                     console.log("[SDK]获取分享参数结果");
                     console.log(res);
-                    if(res.status == 200){
+                    if(res.statusCode == 200){
                         var data = res.data;
                         if(data.state){
                             callback && callback(data.data);
@@ -496,19 +499,18 @@ function mainSDK() {
         startPay: function(data, callback){
             console.log("[SDK]调起支付，CP传值：");
             console.log(data);
-            return;
-
             var self = this;
             callbacks['pay'] = typeof callback == 'function' ? callback : null;
             //先下单
             this_pay_order = 0;
-            var sdk_token = my.getStorageSync('plat_sdk_token');
-            var session_key = my.getStorageSync('plat_session_key');
-            if(!sdk_token || !session_key){
+            var sdk_token = my.getStorageSync({key:'plat_sdk_token'});
+            sdk_token = sdk_token.data;
+            if(!sdk_token){
                 callbacks['pay'] && callbacks['pay'](1, {errMsg: "用户未登录，支付失败！"});
                 return;
             }
-
+            var openid = my.getStorageSync({key:'partner_openid'});
+            openid = openid.data;
             var sysInfo = my.getSystemInfoSync();
             var order_data = {
                 cpbill: data.cpbill,
@@ -523,8 +525,9 @@ function mainSDK() {
                 price: data.price,
                 extension: data.extension,
                 sdk_token: sdk_token,
-                session_key: session_key,
+                session_key: '',
                 platform: sysInfo.platform,
+                openid:openid,
             };
             self.order_data = order_data;
 
@@ -544,49 +547,18 @@ function mainSDK() {
                 success: function (res) {
                     console.log("[SDK]完成创建订单");
                     console.log(res);
-                    if(res.statusCode == 200){
+                    if(res.status == 200){
                         var data = res.data;
                         if(data.state){
                             //小程序
-                            if(typeof my.requestPayment == 'undefined'){
-                                // if(data.data.platform == 'android'){
-                                if(sysInfo.platform == 'android' || sysInfo.platform == 'windows'){
-                                    if(data.data.is_android_pay){
-                                        if(data.data.ios_pay_type == 1){
-                                            self.kfPay(data.data);
-                                        }else if(data.data.ios_pay_type == 2){
-                                            self.xiaoPay(data.data);
-                                        }
-                                    }else{
-                                        self.gamePay(data.data);
-                                    }
-                                }else{
-                                    if(data.data.is_ios_pay){
-                                        if(data.data.ios_pay_type == 1){
-                                            self.kfPay(data.data);
-                                        }else if(data.data.ios_pay_type == 2){
-                                            self.xiaoPay(data.data);
-                                        }else if(data.data.ios_pay_type == 3){
-                                            self.wechatscancode(order_data,data.data);
-                                        }
-                                        var launchInfo = my.getStorageSync('info');
-                                        if(launchInfo.query.hasOwnProperty('jrtt')&&launchInfo.query.jrtt == 1){
-                                          var test  = data.data.orderId+"|"+data.data.money;
-                                          my.setStorageSync(test_ios_key, test)
-                                            
-                                        }
-
-                                    }else{
-                                        my.showModal({
-                                            title: "支付提示",
-                                            content: '很抱歉，由于苹果政策，暂时不能支付，安卓手机不受影响',
-                                            confirmText: "我知道了",
-                                            showCancel: false
-                                        });
-                                    }
-                                }
+                            if(sysInfo.platform == "Android" && (sysInfo.version) >= "10.3.90" && my.requestGamePayment){
+                                self.gamePay(data.data.pay_data);
                             }else{
-                                self.minPay(data.data);
+                                my.alert({
+                                    title: "支付提示",
+                                    content: '当前版本不支持内购功能，请您提升版本后再进行付费',
+                                    buttonText: "我知道了",
+                                });
                             }
                         }else{
                             callbacks['pay'] && callbacks['pay'](1, {errMsg: data.msg});
@@ -597,53 +569,6 @@ function mainSDK() {
                 }
             });
         },
-        xiaoPay: function(data){
-            var self = this;
-            my.navigateToMiniProgram({
-                appId: config.min_app_id,
-                path: 'pages/pay/pay?order_id='+data.orderId+'&money='+data.money,
-                extraData: {
-
-                },
-                envVersion: 'release',
-                success(res) {
-                    // 打开成功
-                }
-            })
-        },
-        //小程序支付
-        minPay: function (data) {
-            //正式调起微信支付
-            var self = this;
-            my.requestPayment({
-                timeStamp: data.timeStamp,
-                nonceStr: data.nonceStr,
-                package: data.package,
-                signType: data.signType,
-                paySign: data.paySign,
-                success: function (res) {
-                    if(res.errMsg == 'requestPayment:ok'){
-                        var ret = {
-                            cpOrderNo: self.order_data.cpbill,
-                            orderNo: data.orderId,
-                            amount: self.order_data.price,
-                            extension: self.order_data.extension
-                        };
-                        callbacks['pay'] && callbacks['pay'](0, ret);
-                    }
-                },
-                fail: function (res) {
-                    if(res.errMsg == 'requestPayment:fail cancel'){
-                        callbacks['pay'] && callbacks['pay'](2, {errMsg: "用户取消支付"});
-                    }else{
-                        callbacks['pay'] && callbacks['pay'](1, {errMsg: "支付失败:" + res.err_desc});
-                    }
-                },
-                complete: function (res) {
-
-                }
-            });
-        },
 
         //小游戏支付
         gamePay: function (data) {
@@ -651,63 +576,31 @@ function mainSDK() {
             //游戏币足够，直接扣款
             if(data.buyQuantity <= data.balance){
                 console.log("[SDK]游戏币充值直接扣除");
-                my.showModal({
+                my.alert({
                     title: "支付提示",
                     content: "您还有" + data.balance + "个游戏币未消费，本次支付将扣除" + data.buyQuantity + '游戏币',
-                    showCancel: false,
-                    confirmText: "我知道了",
+                    buttonText: "我知道了",
                     success: function () {
                         self.gameGoPay(data);
                     }
                 });
             }else{
                 console.log("[SDK]调起米大师支付");
-                my.requestMidasPayment({
-                    mode: 'game',
-                    env: data.env,
-                    offerId: data.offerId,
-                    currencyType: data.currencyType,
-                    platform: data.platform,
-                    buyQuantity: data.buyQuantity,
-                    zoneId: data.zoneId,
-                    success: function (res) {
-                        if(res.errMsg == 'requestMidasPayment:ok'){
-                            self.gameGoPay(data);
-                        }
+                my.requestGamePayment({
+                    buyQuantity: data.buyQuantity, // 购买数量，必须满足：金币数量*金币单价 = 限定价格等级（详见金币限定等级）
+                    customId: data.customId, //开发者自定义唯一订单号
+                    success(res) {
+                        console.log("调用函数成功"+res);
                     },
-                    fail: function (res) {
-                        if(res.errMsg.indexOf('用户取消') !== -1){
-                            callbacks['pay'] && callbacks['pay'](2, {errMsg: "用户取消支付"});
-                        }else{
-                            callbacks['pay'] && callbacks['pay'](1, {errMsg: "支付失败:" + res.errMsg});
-                        }
+                    fail(res) {
+                        console.log("调用函数失败");
+                        console.log(res);
                     },
-                    complete: function (res) {
-
-                    }
+                    complete(res) {
+                        console.log("调用完成"+res);
+                    },
                 });
             }
-        },
-
-        kfPay: function (data) {
-            //检查订单支付是否完成
-            var self = this;
-            this_order_id = data.orderId;
-            my.showModal({
-                title: "支付提示",
-                content: '即将打开客服聊天界面，输入"cz"或者"充值"可以获取支付链接',
-                showCancel: false,
-                confirmText: "我知道了",
-                success: function () {
-                    var obj = {
-                        showMessageCard:true,
-                        sendMessageTitle:"点我充值",
-                        sendMessageImg:"https://static.sh9130.com/gw/images/WechatIMG700.png"
-                    };
-                    my.openCustomerServiceConversation(obj);
-                }
-            });
-
         },
 
         gameGoPay: function (data, retry) {
@@ -723,7 +616,7 @@ function mainSDK() {
                     'content-type': 'application/x-www-form-urlencoded' // 默认值
                 },
                 data: {
-                    order_id: data.orderId,
+                    order_id: data.customId,
                     time: data.time,
                     sign: data.sign,
                     session_key: session_key,
@@ -731,18 +624,14 @@ function mainSDK() {
                 success: function (res) {
                     console.log("[SDK]米大师支付结果");
                     console.log(res);
-                    if(res.status == 200){
+                    if(res.statusCode == 200){
                         if(res.data.state == 1){
                             var ret = {
                                 cpOrderNo: self.order_data.cpbill,
-                                orderNo: data.orderId,
+                                orderNo: data.customId,
                                 amount: self.order_data.price,
                                 extension: self.order_data.extension
                             };
-                            var launchInfo = my.getStorageSync('info');
-                            if(launchInfo.query.hasOwnProperty('jrtt')&&launchInfo.query.jrtt ==1){
-                              sdk.track('active_pay', { pay_amount: self.order_data.price*100 })
-                            }
                             callbacks['pay'] && callbacks['pay'](0, ret);
                         }else {
                             callbacks['pay'] && callbacks['pay'](1, {errMsg: "支付失败"});
