@@ -12,7 +12,7 @@ window.ENV = 1;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
-window.isWaiFangWx = false;
+window.isWaiFangWx = true;
 window.PF_INFO = {
   base_cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
   cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
@@ -456,7 +456,7 @@ window.updCurServer = function(response) {
   }
   this.loginComplete();
   if (window.ServerLoading && window.ServerLoading.instance.openJumpTipsBtn) {
-    window.ServerLoading.instance.openJumpTipsBtn(sdkInitRes.isShowSdkAge, sdkInitRes.sdk_age_adaptation_icon, sdkInitRes.sdk_age_adaptation_content, 0, 0)
+    window.ServerLoading.instance.openJumpTipsBtn(sdkInitRes.isShowSdkAge, sdkInitRes.sdk_age_adaptation_icon, sdkInitRes.sdk_age_adaptation_content, sdkInitRes.coordinate_x, sdkInitRes.coordinate_y)
   }
 }
 
@@ -466,7 +466,7 @@ window.loginComplete = function () {
 }
 
 window.initComplete = function() {
-  if (window.loadServer && window.loadProbPkg) {
+  if (window.loadServer && window.loadOption) {
 	  //0：默认关闭，1：广告量开启，2：自然量开启，3：全部开启
 	  var privacyBgCfg = PF_INFO.privacy_wx_login_pkg != undefined ? PF_INFO.privacy_wx_login_pkg : 0; 
 	  var adFlag = PF_INFO.ad_flag == undefined ? 0 : PF_INFO.ad_flag;
@@ -547,8 +547,7 @@ window.reqPkgOptionsCallBack = function(data) {
     console.info("reqPkgOptionsCallBack "+data.state);
   }
   window.loadOption = true;
-  window.setFillter();
-  window.enterToGame(); 
+  window.initComplete(); 
 }
 
 //设置滤镜

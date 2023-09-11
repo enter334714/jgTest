@@ -37,15 +37,15 @@
     "disableUseStrict": false,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
-    "useStaticServer": true
+    "useStaticServer": true,
+    "condition": false
   },
   "compileType": "game",
-  "libVersion": "2.23.2",
+  "libVersion": "2.33.0",
   "appid": "wxb854e377cc43451e",
   "projectname": "%E4%BC%8F%E9%AD%94%E8%A5%BF%E6%B8%B8",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "condition": {},
   "packOptions": {
     "ignore": [],
     "include": []
@@ -53,5 +53,6 @@
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "condition": {}
 }

@@ -161,13 +161,9 @@ window.toProgress = function (value, str, currTaskIndex) {
 window.toEnterGame = function (value) {
   console.log("toEnterGame", value);
   window.ServerLoading.instance.closeAuthor();
-  console.log("toEnterGame1", value);
   window.ServerLoading.instance.closeServer();
-  console.log("toEnterGame2", value);
   window.ServerLoading.instance.closeLoading();
-  console.log("toEnterGame3", value);
   window.closeFillter();
-  console.log("toEnterGame4", value);
 }
 
 window.onApiError = function (str) {
@@ -281,6 +277,7 @@ window.sdkInit = function () {
 window.sdkOnInited = function (res) {
   var develop = res.develop;
   sdkInitRes = res;
+  console.log("sdkOnInited success:",JSON.stringify(res));
   // res.game_ver = "1.0.86";
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
   console.log("#初始化成功   提审状态:" + develop + "   是否提审:" + (develop == 1) + "   提审版本号:" + res.game_ver + "   当前版本号:" + window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
@@ -341,7 +338,7 @@ window.sdkOnLogin = function (status, data) {
       'token': data.token,
       'game_pkg': PF_INFO.pkgName,
       'deviceId': PF_INFO.device_id,
-      'scene': 'WX_' + PF_INFO.from_scene,
+      'scene': 'alipay_' + PF_INFO.from_scene,
       'ad_flag':PF_INFO.ad_flag || 0,
     }, self.onUserLogin.bind(self), apiRetryAmount, onApiError);
   } else {
@@ -558,6 +555,7 @@ window.reqPkgOptionsCallBack = function (data) {
     console.info("reqPkgOptionsCallBack " + data.state);
   }
   window.loadOption = true;
+  window.ServerLoading.instance.addPkgConfigRainBg(PF_INFO.rain_pkg?JSON.parase(PF_INFO.rain_pkg):null)
   window.initComplete();
 }
 

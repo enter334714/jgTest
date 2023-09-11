@@ -49,10 +49,10 @@ wx.onError(function (error) {
 import "md5.min.js";
 import "zlib.js";
 window["Parser"] = require("dom_parser.js");
-import "index.js";
 import "libs.min.js";
 import "laya.wxmini.js";
 import "init.min.js";
+import "index.js";
 
 
 console.info("3 libs初始化完成");
@@ -61,7 +61,7 @@ console.info("3 libs初始化完成");
 // 每个分包的图集不一样，采用传参形式
 var wxData = {
   showLoadingBtn: true,
-  rainArr: wx.rainArr,
+  // rainArr: wx.rainArr,
 }
 new window.ServerLoading(wxData);
 window.ServerLoading.instance.openAuthor();

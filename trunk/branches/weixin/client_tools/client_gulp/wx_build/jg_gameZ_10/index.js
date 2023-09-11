@@ -12,7 +12,7 @@ window.ENV = 1;
 window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
-window.isWaiFangWx = false;
+window.isWaiFangWx = true;
 window.PF_INFO = {
   base_cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
   cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
@@ -454,30 +454,43 @@ window.updCurServer = function(response) {
     'is_recommend': response.data[0].is_recommend,
     'cdn': PF_INFO.cdn,
   }
-  this.initComplete();
+  this.loginComplete();
   if (window.ServerLoading && window.ServerLoading.instance.openJumpTipsBtn) {
     window.ServerLoading.instance.openJumpTipsBtn(sdkInitRes.isShowSdkAge, sdkInitRes.sdk_age_adaptation_icon, sdkInitRes.sdk_age_adaptation_content, sdkInitRes.coordinate_x, sdkInitRes.coordinate_y)
   }
 }
 
-window.initComplete = function() {
-  if (PF_INFO.newRegister == 1) { //新用户，发送验证
-    var status = PF_INFO.selectedServer.status;
-    if (status === -1 || status === 0) {
-      window.toErrorAlarm(15, 'new register selectedServer status error: id='+PF_INFO.selectedServer.id+',status='+PF_INFO.selectedServer.status);
-      window.loginAlert(status === -1 ? "当前服务器在维护中" : "当前服务器尚未开启，敬请期待");
-      return;
-    } 
-    req_server_check_ban(0, PF_INFO.selectedServer.server_id);
-    window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
-  } else { //老用户，进游戏的选服界面
-    window.ServerLoading.instance.openServer();
-    wxHideLoading();
-  }
+window.loginComplete = function () {
   window.loadServer = true;
-    window.setFillter();
-  window.initMain();
-  window.enterToGame(); 
+  window.initComplete();
+}
+
+window.initComplete = function() {
+  if (window.loadServer && window.loadOption) {
+	  //0：默认关闭，1：广告量开启，2：自然量开启，3：全部开启
+	  var privacyBgCfg = PF_INFO.privacy_wx_login_pkg != undefined ? PF_INFO.privacy_wx_login_pkg : 0; 
+	  var adFlag = PF_INFO.ad_flag == undefined ? 0 : PF_INFO.ad_flag;
+	  var privacyOpen = ((privacyBgCfg == 1 && adFlag == 1) || (privacyBgCfg == 2 && adFlag != 1) || (privacyBgCfg == 3));
+	  console.info("newRegister:" + PF_INFO.newRegister + ", privacyOpen:" + privacyOpen + ", ad_flag:" + PF_INFO.ad_flag + ", privacy_wx_login_pkg:" + PF_INFO.privacy_wx_login_pkg);
+	  
+	  if (!privacyOpen && PF_INFO.newRegister == 1) { //没开启用户隐私，新用户直接发送验证跳过选服
+      var status = PF_INFO.selectedServer.status;
+      if (status === -1 || status === 0) {
+        window.toErrorAlarm(15, 'new register selectedServer status error: id=' + PF_INFO.selectedServer.id + ',status=' + PF_INFO.selectedServer.status);
+        window.loginAlert(status === -1 ? "当前服务器在维护中" : "当前服务器尚未开启，敬请期待");
+        return;
+      }
+      req_server_check_ban(0, PF_INFO.selectedServer.server_id);
+      window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
+    } else { //老用户，进游戏的选服界面
+      // wx.onTouchEnd(window.subscribeWhatsNew);
+      window.ServerLoading.instance.openServer({show:sdkInitRes.isShowSdkAge, skinUrl:sdkInitRes.sdk_age_adaptation_icon, content:sdkInitRes.sdk_age_adaptation_content, x:sdkInitRes.coordinate_x, y:sdkInitRes.coordinate_y});
+      wxHideLoading();
+      }
+      window.setFillter();
+      window.initMain();
+      window.enterToGame();
+	}
 }
 
 // 加载version_config版本文件，读取lastVersion号，外网是从后台请求获取
@@ -525,8 +538,6 @@ window.reqPkgOptions = function() {
 }
 window.reqPkgOptionsCallBack = function(data) {
   if (data && data.state === "success" && data.data) {
-    data.data["normal_mini_game_pkg"] = "";
-    data.data["push_flower_pkg"] = 0;
     window.pkgOptions = data.data;
     for (var k in data.data) {
       PF_INFO[k] = data.data[k];
@@ -536,8 +547,8 @@ window.reqPkgOptionsCallBack = function(data) {
     console.info("reqPkgOptionsCallBack "+data.state);
   }
   window.loadOption = true;
-  window.setFillter();
-  window.enterToGame(); 
+  window.ServerLoading.instance.addPkgConfigRainBg(PF_INFO.rain_pkg?JSON.parse(PF_INFO.rain_pkg):null);
+  window.initComplete() 
 }
 
 //设置滤镜

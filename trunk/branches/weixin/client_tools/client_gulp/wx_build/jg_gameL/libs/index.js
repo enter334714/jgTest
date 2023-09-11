@@ -91,8 +91,13 @@ window.loginAlert = function (value) {
       if (res.confirm) {
         window.sdkInit();
       } else if (res.cancel) {
-        console.log("退出游戏");
-        wx.exitMiniProgram({});
+        if (wx.restartMiniProgram) {
+          console.log("重启游戏");
+          wx.restartMiniProgram({});
+        } else {
+          console.log("退出游戏");
+          wx.exitMiniProgram({});
+        }
       }
     }
   })
@@ -260,7 +265,6 @@ window.sdkInit = function () {
     game_ver: PF_INFO.version
   };
   PF_INFO.device_id = this.guild();
-
   wxShowLoading({ title: '正在初始化' });
   AKSDK.init(initData, this.sdkOnInited.bind(this));
 }
@@ -306,7 +310,7 @@ window.sdkOnInited = function (res) {
 
   window.sdkLoginRetry = 5;
   wxShowLoading({ title: '正在登录账号' });
-  AKSDK.login(this.sdkOnLogin.bind(this));
+  // AKSDK.login(this.sdkOnLogin.bind(this));
 }
 window.sdkLoginRetry = 5;
 /*sdk登录回调*/
@@ -543,6 +547,7 @@ window.reqPkgOptionsCallBack = function (data) {
     console.info("reqPkgOptionsCallBack " + data.state);
   }
   window.loadOption = true;
+  window.ServerLoading.instance.addPkgConfigRainBg(PF_INFO.rain_pkg?JSON.parse(PF_INFO.rain_pkg):null);
   window.initComplete();
 }
 
@@ -1196,6 +1201,7 @@ window.initMain = function () {
         cdn: window.PF_INFO.cdn,
         spareCdn: window.PF_INFO.spareCdn,
         newRegister: window.PF_INFO.newRegister,
+        oldRegister: window.PF_INFO.oldRegister,
         wxPC: window.PF_INFO.wxPC,
         wxIOS: window.PF_INFO.wxIOS,
         wxAndroid: window.PF_INFO.wxAndroid,
@@ -1245,6 +1251,7 @@ window.enterToGame = function () {
         data: window.PF_INFO.data,
         package: window.PF_INFO.package,
         newRegister: window.PF_INFO.newRegister,
+        oldRegister: window.PF_INFO.oldRegister,
         pkgName: window.PF_INFO.pkgName,
         partnerId: window.PF_INFO.partnerId,
         platform_uid: window.PF_INFO.platform_uid,
@@ -1298,6 +1305,11 @@ window.setQrCodeView = function (obj) {
   }
 }
 
+window.testresolve = function(resolve){
+  console.log("resolve:",resolve);
+  resolve({ event: 'agree' })
+}
+
 window.setFillter = function () {
   if (!window.loadServer || !window.loadOption) return;
   var isNew = PF_INFO.newRegister == 1;
@@ -1324,3 +1336,4 @@ window.closeFillter = function () {
 window.showVideoAd = function(callback){
   AKSDK.showVideoAd(callback)
 }
+

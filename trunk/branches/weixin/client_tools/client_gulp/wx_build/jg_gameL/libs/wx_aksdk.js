@@ -1394,3 +1394,29 @@ exports.subscribeWhatsNew = function (data, callback) {
 exports.subscriptionsSetting = function (data, callback) {
     run('subscriptionsSetting', data, callback);
 };
+
+wx.onNeedPrivacyAuthorization((resolve, eventInfo) => {
+    console.log('触发本次事件的接口是：' + eventInfo.referrer)
+    // ------ 自定义弹窗逻辑 ------ //
+    // showCustomPopup()
+    // -------弹窗后根据用户操作，进行以下逻辑逻辑 ------- //
+    // // 开发者弹出自定义的隐私弹窗，并调用 resolve 告知平台已经弹窗
+    // resolve({ event: 'exposureAuthorization' })
+    // // 用户点击同意后，开发者调用 resolve 告知平台用户已经同意
+    // resolve({ event: 'agree' })
+    // // 用户点击拒绝后，开发者调用 resolve 告知平台用户已经拒绝
+    // resolve({ event: 'disagree' })
+    // var func = funciton(res){
+       
+    // }
+    // window.testresolve(func);
+  })
+
+wx.requirePrivacyAuthorize({
+    success: () => {
+      // 用户同意授权
+      // runGame() 继续游戏逻辑
+    },
+    fail: () => {}, // 用户拒绝授权
+    complete: () => {}
+  })

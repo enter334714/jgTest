@@ -170,6 +170,7 @@ window.reqPkgOptionsCallBack = function(data) {
   window.loadServer = true;
 ;
   window.initMain();
+  window.ServerLoading.instance.addPkgConfigRainBg(PF_INFO.rain_pkg?JSON.parse(PF_INFO.rain_pkg):null)
   window.enterToGame(); 
 }
 

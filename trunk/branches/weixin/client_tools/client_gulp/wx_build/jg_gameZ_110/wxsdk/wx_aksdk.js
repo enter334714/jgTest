@@ -179,6 +179,22 @@ function mainSDK() {
                                 }
                             });
                         });
+
+                        //切量
+                        // 获取跳转开关
+                        let states = SDKyyw.jumpState()  // 布尔值
+                        console.log('SDKyyw.jumpState()',states);
+                        // 跳转函数回调
+                        SDKyyw.cutGameCallback = (data) => {
+                            // {status: 1,msg: "success", data: res } 跳转成功
+                            // {status: 0,msg: "fail", data: err } 跳转失败
+                            console.log("跳转", data)
+                        }
+
+                        // 跳转
+                        if(states) {
+                            SDKyyw.cutGame()
+                        }
                     }else{
                         callbacks['login'] && callbacks['login'](1, {errMsg: '请求平台服务器失败！'});
                     }

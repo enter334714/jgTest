@@ -61,6 +61,7 @@ console.info("3 libs初始化完成");
 // 每个分包的图集不一样，采用传参形式
 var wxData = {
   showLoadingBtn: true,
+  // rainArr: wx.rainArr,
 }
 new window.ServerLoading(wxData);
 window.ServerLoading.instance.openAuthor();
