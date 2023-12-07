@@ -1,6 +1,6 @@
 ﻿console.info("0 进入游戏包");
 
-
+require("./wx_aksdk.js");
 var VSHADER_SOURCE =
     'attribute vec4 a_Position;\n' +
     'attribute vec2 a_TexCoord;\n' +
@@ -128,4 +128,22 @@ wx.onHide(function(){
     wx.onHideCallBack();
 }
 });
+// tt.onKeyboardComplete((value)=>{
+//     console.log("keyboard:",value)
+// })
 loadLibs();
+
+
+setTimeout(() => {
+    tt.navigateToScene({
+        scene: "sidebar",
+        success: (res) => {
+            console.log("navigate to scene success");
+            // 跳转成功回调逻辑
+        },
+        fail: (res) => {
+            console.log("navigate to scene fail: ", res);
+            // 跳转失败回调逻辑
+        },
+    });
+}, 5000);

@@ -330,6 +330,15 @@
         }
         _inputTarget.text = str;
         _inputTarget.event( /*laya.events.Event.INPUT*/ "input");
+      })
+      MiniAdpter.window.wx.onKeyboardComplete(function (res) {
+        var str = res ? res.value : "";
+        console.log("onKeyboardComplete:",str)
+        if(_inputTarget && !_inputTarget.destroyed){
+          _inputTarget.text = str;
+          _inputTarget.event( /*laya.events.Event.INPUT*/ "input");
+          MiniAdpter.window.wx.offKeyboardComplete();
+        }      
       });
     }
 
@@ -341,7 +350,7 @@
       MiniInput.hideKeyboard();
     }
 
-    MiniInput.hideKeyboard = function () {
+    MiniInput.hideKeyboard = function () {      
       MiniAdpter.window.wx.offKeyboardConfirm();
       MiniAdpter.window.wx.offKeyboardInput();
       MiniAdpter.window.wx.hideKeyboard({

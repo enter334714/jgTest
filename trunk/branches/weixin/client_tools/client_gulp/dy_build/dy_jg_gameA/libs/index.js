@@ -1,4 +1,4 @@
-﻿import AKSDK from "../wx_aksdk.js";
+﻿var AKSDK = require("../wx_aksdk.js");
 window.config = AKSDK.getConfig();
 window.versions = {
   wxVersion: window.config.game_ver,
@@ -237,7 +237,7 @@ window.clientlog = function (info) {
     fail: function (res) {
       DEBUG && console.log("clientlog:", url, info, res);
     },
-    complete: function () { }
+    complete: function () {}
   })
 }
 
@@ -262,7 +262,9 @@ window.sdkInit = function () {
   };
   PF_INFO.device_id = this.guild();
 
-  wxShowLoading({ title: '正在初始化' });
+  wxShowLoading({
+    title: '正在初始化'
+  });
   AKSDK.init(initData, this.sdkOnInited.bind(this));
 }
 /*sdk初始化回调*/
@@ -272,27 +274,27 @@ window.sdkOnInited = function (res) {
   // res.game_ver = "1.0.86";
   // console.info(window.compareVersion("1.0.61", res.game_ver), window.compareVersion("1.0.62", res.game_ver), window.compareVersion("1.0.63", res.game_ver), window.compareVersion("1.1.64", "1.1.64"));
   console.log("#初始化成功   提审状态:" + develop + "   是否提审:" + (develop == 1) + "   提审版本号:" + res.game_ver + "   当前版本号:" + window.versions.wxVersion); //develop为1的时候说明当前game_ver是提审版本
-  if (!res.game_ver || window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
+  if (!res.game_ver || window.compareVersion(window.versions.wxVersion, res.game_ver) < 0) { //当前版本 < 后台版本   
     console.log("#正式版=============================");
-    PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
+    PF_INFO.apiurl = "https://api-tjqy.shzbkj.com"; //正式服（线上版本）
     PF_INFO.logurl = "https://log-tjqy.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
     PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixingf_1/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixingf_1/";
     PF_INFO.version_name = res.version_name || "weixingf";
     PF_INFO.wxShield = false;
-  } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0) {  //当前版本 == 后台版本
+  } else if (window.compareVersion(window.versions.wxVersion, res.game_ver) == 0) { //当前版本 == 后台版本
     console.log("#审核版=============================");
-    PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（审核版本）
+    PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com"; //测试服（审核版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
     PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixingf_0/";
     PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixingf_1/";
     PF_INFO.version_name = "weixingf";
-    PF_INFO.wxShield = true;                          //屏蔽活动
+    PF_INFO.wxShield = true; //屏蔽活动
   } else {
     console.log("#开发版=============================");
-    PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（开发版本）
+    PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com"; //测试服（开发版本）
     PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
     PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
     PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixingf_0/";
@@ -306,7 +308,9 @@ window.sdkOnInited = function (res) {
   this.reqPkgOptions();
 
   window.sdkLoginRetry = 5;
-  wxShowLoading({ title: '正在登录账号' });
+  wxShowLoading({
+    title: '正在登录账号'
+  });
   AKSDK.login(this.sdkOnLogin.bind(this));
 }
 window.sdkLoginRetry = 5;
@@ -319,7 +323,9 @@ window.sdkOnLogin = function (status, data) {
     PF_INFO.zsy_tp_state = data.zsy_tp_state;
     PF_INFO.ad_flag = data.ad_flag;
     var self = this;
-    wxShowLoading({ title: '正在验证账号' });
+    wxShowLoading({
+      title: '正在验证账号'
+    });
     sendApi(PF_INFO.apiurl, 'User.login', {
       'platform': PF_INFO.sdk_name,
       'partner_id': PF_INFO.partnerId,
@@ -331,17 +337,20 @@ window.sdkOnLogin = function (status, data) {
     }, this.onUserLogin.bind(this), apiRetryAmount, onApiError);
   } else {
     if (data && data.errMsg && window.sdkLoginRetry > 0 && (
-      data.errMsg.indexOf("fail interrupted") != -1 ||
-      data.errMsg.indexOf("network api interrupted") != -1 ||
-      data.errMsg.indexOf("Network Error") != -1 ||
-      data.errMsg.indexOf("ERR_TIMED_OUT") != -1 ||
-      data.errMsg.indexOf("ERR_CONNECTION_ABORTED") != -1 ||
-      data.errMsg.indexOf("ERR_CONNECTION_RESET") != -1)) { //可以自动重试的失败  network api interrupted in suspend state(小程序退后台之后发起网络请求)
+        data.errMsg.indexOf("fail interrupted") != -1 ||
+        data.errMsg.indexOf("network api interrupted") != -1 ||
+        data.errMsg.indexOf("Network Error") != -1 ||
+        data.errMsg.indexOf("ERR_TIMED_OUT") != -1 ||
+        data.errMsg.indexOf("ERR_CONNECTION_ABORTED") != -1 ||
+        data.errMsg.indexOf("ERR_CONNECTION_RESET") != -1)) { //可以自动重试的失败  network api interrupted in suspend state(小程序退后台之后发起网络请求)
       window.sdkLoginRetry--;
       AKSDK.login(this.sdkOnLogin.bind(this));
     } else {
       window.toErrorAlarm(1, "AKSDK.login fail: status=" + status + ",errMsg=" + (data ? data.errMsg : ""));
-      window.reqRecordInfo("sdkOnLoginError", JSON.stringify({ status: status, data: data }));
+      window.reqRecordInfo("sdkOnLoginError", JSON.stringify({
+        status: status,
+        data: data
+      }));
       window.loginAlert("登录/注册失败" + (data && data.errMsg ? "，" + data.errMsg : ""));
     }
   }
@@ -373,10 +382,13 @@ window.onUserLogin = function (response) {
   PF_INFO.platform_uid = String(response.platform_uid);
   PF_INFO.php_sign = String(response.sign);
   PF_INFO.php_signtime = String(response.time);
+  PF_INFO.special_id = Number(response.special_id);
   PF_INFO.sign = ''; // TODO
 
   var self = this;
-  wxShowLoading({ title: '请求服务器' });
+  wxShowLoading({
+    title: '请求服务器'
+  });
 
   var lastSerStr = localStorage.getItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account);
   if (lastSerStr && lastSerStr != "") {
@@ -481,7 +493,13 @@ window.initComplete = function () {
       window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
     } else { //老用户，进游戏的选服界面
       // wx.onTouchEnd(window.saveAppToDesktop);
-      window.ServerLoading.instance.openServer({ show: sdkInitRes.isShowSdkAge, skinUrl: sdkInitRes.sdk_age_adaptation_icon, content: sdkInitRes.sdk_age_adaptation_content, x: sdkInitRes.coordinate_x, y: sdkInitRes.coordinate_y });
+      window.ServerLoading.instance.openServer({
+        show: sdkInitRes.isShowSdkAge,
+        skinUrl: sdkInitRes.sdk_age_adaptation_icon,
+        content: sdkInitRes.sdk_age_adaptation_content,
+        x: sdkInitRes.coordinate_x,
+        y: sdkInitRes.coordinate_y
+      });
       wxHideLoading();
     }
     window.setFillter();
@@ -606,7 +624,12 @@ window.toPayCallBack = function (data) {
         info.callback(data.product_id, data.cp_order_id, status);
       }
       //clientlog(JSON.stringify({error: JSON.stringify({type: "paycallback", status: status, data: data, role_name: info.rolename})}))
-      console.info(JSON.stringify({ type: "paycallback", status: status, data: data, role_name: info.rolename }));
+      console.info(JSON.stringify({
+        type: "paycallback",
+        status: status,
+        data: data,
+        role_name: info.rolename
+      }));
 
       if (status === 0) {
         //成功
@@ -677,7 +700,9 @@ window.toRealName = function (callback) {
 
 //调起分享
 window.openShare = function (callback, cardid) {
-  AKSDK.share('share', { activity_id: cardid }, function (data) {
+  AKSDK.share('share', {
+    activity_id: cardid
+  }, function (data) {
     callback && callback(data);
   });
 }
@@ -731,15 +756,15 @@ window.reqPlayerAskInfo = function (packageName, role_id, serverId, callBack) {
 }
 
 
-window.dyGetSceneInfo = function(){
-  let info  = AKSDK.getSceneInfo();
+window.dyGetSceneInfo = function () {
+  let info = AKSDK.getSceneInfo();
   //测试代码
-  window.reqRecordInfo(" AKSDK.getSceneInfo:"+JSON.stringify(info));
-  if(tt.onshowResFirst && tt.onshowResFirst !=888){
-    window.reqRecordInfo("DYFirstOnshow:"+JSON.stringify(tt.onshowResFirst));  
-    tt.onshowResFirst = 888
-  }
- 
+  // window.reqRecordInfo(" AKSDK.getSceneInfo:"+JSON.stringify(info));
+  // if(tt.onshowResFirst && tt.onshowResFirst !=888){
+  //   window.reqRecordInfo("DYFirstOnshow:"+JSON.stringify(tt.onshowResFirst));  
+  //   tt.onshowResFirst = 888
+  // }
+
   return info;
 }
 
@@ -747,20 +772,19 @@ window.dyGetSceneInfo = function(){
 window.saveAppToDesktop = function () {
   var sceneInfo = AKSDK.getSceneInfo();
   if (!sceneInfo.hasShortcut) {
-    function onTouchEnd(res) {
-      AKSDK.addShortcut((res) => {
-        if (1 == res) {
-          console.log('添加到桌面成功');
-        } else {
-          console.log('添加到桌面失败');
-        }
-      })
-      wx.offTouchEnd(onTouchEnd);
-    }
-    wx.onTouchEnd(onTouchEnd);
+    AKSDK.addShortcut((res) => {
+      if (1 == res) {
+        console.log('添加到桌面成功');
+      } else {
+        console.log('添加到桌面失败');
+      }
+    })
   }
 }
 
+window.navigateToScene = function (callBak) {
+  AKSDK.navigateToScene(callBack)
+}
 
 //调起订阅消息
 window.openSubscribeMsg = function (ids, callback, objIds) {
@@ -843,7 +867,11 @@ window.openSubscribeMsg = function (ids, callback, objIds) {
   wx.onTouchEnd(onTouchEnd);
 }
 //获取电池信息
-window.batteryInfo = { isSuccess: false, level: "100", isCharging: false };
+window.batteryInfo = {
+  isSuccess: false,
+  level: "100",
+  isCharging: false
+};
 window.getBatteryInfo = function (callback) {
   // console.log("调用获取电池信息");
   // wx.getBatteryInfo({
@@ -914,7 +942,7 @@ window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess,
       DEBUG && console.log("send.fail:", url, info, res);
       window.sendFail(url, data, callBack, retryAmount, errorCB, checkSuccess, res);
     },
-    complete: function () { }
+    complete: function () {}
   });
 }
 window.sendFail = function (url, data, callBack, retryAmount, errorCB, checkSuccess, res) {
@@ -1143,7 +1171,9 @@ window.req_server_check_ban = function (step, server_id) {
     'server_id': server_id
   };
   var self = this;
-  wxShowLoading({ title: '正在验证角色' });
+  wxShowLoading({
+    title: '正在验证角色'
+  });
   sendApi(PF_INFO.apiurl, 'User.checkInfo', {
     'partner_id': PF_INFO.partnerId,
     'uid': PF_INFO.account,
@@ -1233,10 +1263,16 @@ window.initMain = function () {
         cdn: window.PF_INFO.cdn,
         spareCdn: window.PF_INFO.spareCdn,
         newRegister: window.PF_INFO.newRegister,
+        oldRegister: window.PF_INFO.oldRegister,
         wxPC: window.PF_INFO.wxPC,
         wxIOS: window.PF_INFO.wxIOS,
         wxAndroid: window.PF_INFO.wxAndroid,
-        wxParam: { limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.config.from == "txcps" ? 1 : 0), wxSDKVersion: window.SDKVersion },
+        wxParam: {
+          limitLoad: window.PF_INFO.wxLimitLoad,
+          benchmarkLevel: window.PF_INFO.wxBenchmarkLevel,
+          wxFrom: (window.config.from == "txcps" ? 1 : 0),
+          wxSDKVersion: window.SDKVersion
+        },
         configType: window.PF_INFO.configType,
         exposeType: window.PF_INFO.exposeType,
         scene: scene,
@@ -1282,10 +1318,12 @@ window.enterToGame = function () {
         data: window.PF_INFO.data,
         package: window.PF_INFO.package,
         newRegister: window.PF_INFO.newRegister,
+        oldRegister: window.PF_INFO.oldRegister,
         pkgName: window.PF_INFO.pkgName,
         partnerId: window.PF_INFO.partnerId,
         platform_uid: window.PF_INFO.platform_uid,
         deviceId: window.PF_INFO.device_id,
+        special_id: window.PF_INFO.special_id,
         selectedServer: selectedServer,
         configType: window.PF_INFO.configType,
         exposeType: window.PF_INFO.exposeType,
@@ -1316,7 +1354,7 @@ window.enterToGame = function () {
 
 
 window.subscribeWhatsNew = function () {
-  
+
   //更新提醒订阅接口2.10.4才有
   if (window.compareVersion(window.SDKVersion, '2.10.4') >= 0) {
     AKSDK.subscribeWhatsNew(null, (confirm) => {
@@ -1334,8 +1372,7 @@ window.setQrCodeView = function (obj) {
   var show = obj.show;
   if (show == 1) {
     window.window_WinMgr.open(8999, obj)
-  }
-  else {
+  } else {
     window.window_WinMgr.close(8999)
   }
 }
@@ -1349,7 +1386,7 @@ window.setFillter = function () {
     var color = PF_INFO.fillter_ui_pkg;
     var isColor = color && color.length == 9;
     if (isColor) {
-      window["ShieldColor"] = color;//格式：#RBGA
+      window["ShieldColor"] = color; //格式：#RBGA
     }
     var noise = PF_INFO.fillter_mosaic_pkg;
     var isNoise = noise && noise.split("#").length == 4;
@@ -1365,4 +1402,51 @@ window.closeFillter = function () {
 
 window.showVideoAd = function (callback) {
   AKSDK.showVideoAd(callback)
+}
+
+//收藏引导组件展示
+window.showFavoriteGuide = function () {
+  tt.showFavoriteGuide({
+    type: "bar",
+    content: "一键添加到我的小程序",
+    position: "bottom",
+    success(res) {
+      console.log("[DY]引导组件展示成功");
+    },
+    fail(res) {
+      console.log("[DY]引导组件展示失败");
+    },
+  });
+}
+
+//监听用户点击右上角菜单中的【收藏】按钮时触发的事件
+window.onFavoriteStateChange = function (callback) {
+  if (window.compareVersion(window.SDKVersion, '1.87.0') >= 0) {
+    tt.onFavoriteStateChange((isFavorited) => {
+        if (isFavorited) {
+          console.log("[DY]收藏成功");
+          callback(true);
+        } else {
+          console.log("[DY]收藏失败");
+          callback(false);
+        }
+    });
+  }
+
+}
+
+//监听用户点击右上角菜单中的【收藏】按钮时触发的事件
+//调起引导用户复访的提示弹窗，目前仅抖音宿主支持
+window.showRevisitGuide = function () {
+  if (window.compareVersion(window.SDKVersion, '2.94.0') >= 0) {
+    tt.showRevisitGuide({
+      success() {
+        console.log('成功调起复访引导弹窗');
+      },
+      fail(res) {
+        console.log('调用失败，错误信息：%s', res.errMsg);
+      }
+    })
+  }
+
 }

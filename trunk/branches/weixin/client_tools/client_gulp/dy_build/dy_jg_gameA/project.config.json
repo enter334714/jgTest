@@ -1,7 +1,7 @@
 {
     "description": "项目配置文件。",
     "setting": {
-        "urlCheck": false,
+        "urlCheck": true,
         "es6": true,
         "newFeature": false,
         "postcss": false,
@@ -9,7 +9,8 @@
         "minified": false,
         "nodeModules": false,
         "scripts": false,
-        "mockLogin": false
+        "mockLogin": false,
+        "autoCompile": false
     },
     "compileType": "game",
     "libVersion": "2.1.0",
@@ -25,9 +26,27 @@
             "list": []
         },
         "game": {
-            "currentL": -1,
-            "list": [],
-            "current": -1
+            "current": 1693794144977,
+            "list": [
+                {
+                    "id": 1693794144977,
+                    "name": "侧边栏1",
+                    "query": "",
+                    "scene": "021036",
+                    "launchFrom": "game_room",
+                    "location": "game_list",
+                    "mockUpdateType": "Noupdate"
+                },
+                {
+                    "id": 1693794192384,
+                    "name": "021036",
+                    "query": "",
+                    "scene": "021036",
+                    "launchFrom": "game_room",
+                    "location": "game_list",
+                    "mockUpdateType": "Noupdate"
+                }
+            ]
         },
         "miniprogram": {
             "list": []
