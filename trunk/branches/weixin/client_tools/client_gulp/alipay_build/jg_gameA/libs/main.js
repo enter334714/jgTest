@@ -112,17 +112,25 @@ console.log("⽀付宝版本号:"+window.SDKVersion);
 //   console.log('新版本下载失败 ')
 // })
 
+window.loadPackList = function (succsssCallBack) {
+  window.loadProbuf(function () {
+    window.loadMain(function () {
+      succsssCallBack();
+    })
+  })
+}
 
 
-window.loadProbuf = function() {
+window.loadProbuf = function(succsssCallBack) {
   console.log("protobuf 分包加载");
   my.loadSubpackage({
     name: 'probuf',
     success: function(res) {
       console.log("protobuf 分包加载成功:",res);
         window.loadProbPkg = true;
-        window.initMain();
-        window.enterToGame(); 
+        // window.initMain();
+        // window.enterToGame();
+        succsssCallBack(); 
      
     },
     fail: function(res) {
@@ -134,15 +142,16 @@ window.loadProbuf = function() {
     },
   });
 }
-window.loadMain = function() {
+window.loadMain = function(succsssCallBack) {
   console.log("subMain 分包加载");
   my.loadSubpackage({
     name: 'subMain',
     success: function(res) {
       console.log("subMain 分包加载成功:",res);
         window.loadMainPkg = true;
-        window.initMain();
-        window.enterToGame(); 
+        succsssCallBack();
+        // window.initMain();
+        // window.enterToGame(); 
     },
     fail: function(res) {
       console.log("Main 分包加载失败:",res);     
@@ -153,20 +162,24 @@ window.loadMain = function() {
   });
 }
 
-my.loadSubpackages = function() {
-  // if (window.compareVersion(window.SDKVersion, '2.1.0') >= 0) {   //分包wx.loadSubpackage：2.1.0，SDk的wx.createUserInfoButton：2.0.1
-      // console.log("微信基础库版本符合最低版本要求："+window.SDKVersion+">=2.1.0");
-      window.sdkInit();
-      window.loadProbuf();
-      window.loadMain();
-//   } else {
-//       window.reqRecordInfo("微信基础库版本过低", window.SDKVersion);
-//       my.showModal({
-//           title: '提示',
-//           content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
-//       })
-//   }
-}
+
+
+// my.loadSubpackages = function() {
+//   // if (window.compareVersion(window.SDKVersion, '2.1.0') >= 0) {   //分包wx.loadSubpackage：2.1.0，SDk的wx.createUserInfoButton：2.0.1
+//       // console.log("微信基础库版本符合最低版本要求："+window.SDKVersion+">=2.1.0");
+//       window.sdkInit();
+//       // window.loadProbuf();
+//       // window.loadMain();
+// //   } else {
+// //       window.reqRecordInfo("微信基础库版本过低", window.SDKVersion);
+// //       my.showModal({
+// //           title: '提示',
+// //           content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+// //       })
+// //   }
+// }
+
+// window.
 
 
 //获取系统信息
@@ -184,7 +197,7 @@ my.getSystemInfo({
     window.PF_INFO.wxPhone = platform.indexOf("ios") != -1 || platform.indexOf("android") != -1;
     window.PF_INFO.wxPC = platform.indexOf("windows") != -1 || platform.indexOf("mac") != -1;
     window.PF_INFO.wxPlatform = (res.platform ? res.platform.toLowerCase() : "");
-    window.PF_INFO.wxLimitLoad = false; //model.indexOf("iphonex") != -1;
+    window.PF_INFO.wxLimitLoad = true; //model.indexOf("iphonex") != -1;
     window.PF_INFO.statusBarHeight = res.statusBarHeight;
     window.PF_INFO.titleBarHeight = res.titleBarHeight;
     window.PF_INFO.wxBenchmarkLevel = 2;

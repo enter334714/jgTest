@@ -1,4 +1,6 @@
+console.info("3333 进入游戏包");
 var config = require('./partner_config.js')
+console.info("4444 进入游戏包");
 window.config = config;
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
@@ -27,11 +29,8 @@ function mainSDK() {
             var self = this;
 
             var uuid = my.getStorageSync({key:'plat_uuid'});
-            if(uuid && uuid.data){
-                uuid = uuid.data;
-            }
             var is_new;
-            if(!uuid){
+            if(!uuid.data){
                 uuid = self.uuid(16, 32);
                 my.setStorageSync({key:'plat_uuid',data:uuid});
                 is_new = 1;
@@ -39,10 +38,7 @@ function mainSDK() {
                 is_new = 0;
             }
             var idfv = my.getStorageSync({key:'plat_idfv'});
-            if(idfv && idfv.data){
-                idfv = idfv.data;
-            }
-            if(!idfv){
+            if(!idfv.data){
                 idfv = self.uuid(16, 32);
                 my.setStorageSync({key:'plat_idfv',data:idfv});
             }
@@ -98,7 +94,7 @@ function mainSDK() {
 
             //判断版本号
             if(game_ver){
-                this.checkGameVersion(game_ver, function (data) {                    
+                this.checkGameVersion(game_ver, function (data) {
                     develop = data.develop;
                     callback && callback(data);
                 });
@@ -328,13 +324,10 @@ function mainSDK() {
                     requestCallback = true;
                     if (checkHandler) clearTimeout(checkHandler);
                     checkHandler = null;
-                    console.log("[SDK]checkgameVersion1:",res)
                     if(res.status == 200){
                         var data = res.data;
-                        console.log("[SDK]checkgameVersion2:")
                         config.min_app_id = data.data.min_app_id;
                         if(data.state){
-                            console.log("[SDK]checkgameVersion3:")
                             callbacks['check'] && callbacks['check'](data.data);
                         }else{
                             callbacks['check'] && callbacks['check']({develop: 0,success_msg:'state not true'});
@@ -389,7 +382,7 @@ function mainSDK() {
                 success: function (res) {
                     console.log("[SDK]获取分享参数结果");
                     console.log(res);
-                    if(res.statusCode == 200){
+                    if(res.status == 200){
                         var data = res.data;
                         if(data.state){
                             callback && callback(data.data);
@@ -576,14 +569,15 @@ function mainSDK() {
             //游戏币足够，直接扣款
             if(data.buyQuantity <= data.balance){
                 console.log("[SDK]游戏币充值直接扣除");
-                my.alert({
-                    title: "支付提示",
-                    content: "您还有" + data.balance + "个游戏币未消费，本次支付将扣除" + data.buyQuantity + '游戏币',
-                    buttonText: "我知道了",
-                    success: function () {
-                        self.gameGoPay(data);
-                    }
-                });
+                // my.alert({
+                //     title: "支付提示",
+                //     content: "您还有" + data.balance + "个游戏币未消费，本次支付将扣除" + data.buyQuantity + '游戏币',
+                //     buttonText: "我知道了",
+                //     success: function () {
+                //         self.gameGoPay(data);
+                //     }
+                // });
+                self.gameGoPay(data);
             }else{
                 console.log("[SDK]调起米大师支付");
                 my.requestGamePayment({
@@ -624,7 +618,7 @@ function mainSDK() {
                 success: function (res) {
                     console.log("[SDK]米大师支付结果");
                     console.log(res);
-                    if(res.statusCode == 200){
+                    if(res.status == 200){
                         if(res.data.state == 1){
                             var ret = {
                                 cpOrderNo: self.order_data.cpbill,
@@ -826,11 +820,10 @@ function mainSDK() {
             }
             if(ad_code && ad_code.data){
                 ad_code = ad_code.data;
+            }else{
+                ad_code = "";
             }
-            if(launchInfo && launchInfo.data){
-                launchInfo = launchInfo.data;
-            }
-            if(!launchInfo) {
+            if(!launchInfo.data) {
                 launchInfo = my.getLaunchOptionsSync();
                 my.setStorageSync({key:'info', launchInfo});
             }

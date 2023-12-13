@@ -1,4 +1,4 @@
-﻿console.info("1 进入游戏包");
+﻿console.info("0 进入游戏包");
 
 // //没有涟漪效果
 // var VSHADER_SOURCE =
@@ -198,7 +198,7 @@ var loadLibs = function() {
             console.log("libs 分包加载成功:");           
             console.log("libs 分包加载:",res)
             // if (res && res.errMsg == "loadSubpackage:ok") {
-                my.loadSubpackages();
+                window.sdkInit();
             // } else {
             //     // setTimeout(function() {
             //     //     loadLibs();
