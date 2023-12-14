@@ -15,8 +15,6 @@ window.PF_INFO = {
   base_cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
   cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
 }
-
-console.log("初始化CDN--------:",PF_INFO.cdn)
 PF_INFO.pay_infos = {}
 PF_INFO.package = "0";
 PF_INFO.version = window.versions.wxVersion;
@@ -310,7 +308,7 @@ window.sdkOnInited = function (res) {
     PF_INFO.wxShield = false;
   }
   PF_INFO.from_scene = config.from ? config.from : 0;
-  console.log("cdnUr0000:",PF_INFO.cdn)
+
   window.sdkLoginRetry = 5;
   wxShowLoading({ content: '正在登录账号' });
   AKSDK.login(this.sdkOnLogin.bind(this));
@@ -327,7 +325,6 @@ window.sdkOnLogin = function (status, data) {
     PF_INFO.zsy_tp_state = data.zsy_tp_state;
     PF_INFO.ad_flag = data.ad_flag;
     var self = this;
-    console.log("sdkOnLogin1")
     wxShowLoading({ content: '正在验证账号' });
     sendApi(PF_INFO.apiurl, 'User.login', {
       'platform': PF_INFO.sdk_name,
@@ -396,7 +393,7 @@ window.onUserLogin = function (response) {
 }
 
 window.getCheckServers = function (lastSerId) {
-  console.log("getDefaultServers")
+  
   var self = this;
   sendApi(PF_INFO.apiurl, 'Server.check_server', {
     'server_id': lastSerId,
@@ -406,7 +403,7 @@ window.getCheckServers = function (lastSerId) {
 }
 
 window.getDefaultServers = function () {
-  console.log("getDefaultServers")
+  
   var self = this;
   sendApi(PF_INFO.apiurl, 'Server.defaultServer', {
     'partner_id': PF_INFO.partnerId,
@@ -459,7 +456,6 @@ window.onUserLoginDefaultServers = function (response) {
 window.updCurServer = function (response) {
   PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;
   PF_INFO.oldRegister = response.default != undefined ? response.default : 0;
-  console.log("cdn updCurServers:",response,PF_INFO.cdn)
   PF_INFO.selectedServer = {
     'server_id': String(response.data[0].server_id),
     'server_name': String(response.data[0].server_name),
@@ -476,8 +472,6 @@ window.updCurServer = function (response) {
 
 window.loginComplete = function () {
   window.loadServer = true;
-  console.log("loginComplete")
-  console.log("cdn loginComplete:",PF_INFO.cdn)
   this.loadVersionConfig();
 }
 
@@ -517,7 +511,6 @@ window.loadVersionConfig = function () {
   }, this.reqVersionConfigCallBack.bind(this), apiRetryAmount, onApiError);
 }
 window.reqVersionConfigCallBack = function (data) {
-  console.log("reqVersionConfigCallBack")
   if (!data) {
     window.toErrorAlarm(5, 'User.getCdnVersion failed');
     window.loginAlert('User.getCdnVersion failed');
@@ -538,7 +531,6 @@ window.reqVersionConfigCallBack = function (data) {
     PF_INFO.cdn = data.data.cdn_url;
     PF_INFO.selectedServer.cdn = PF_INFO.cdn;
   }
-  console.log("cdn reqVersionConfigCallBack111:",PF_INFO.cdn,data.data.cdn_url)
   if (data.data.version) {
     PF_INFO.lastVersion = data.data.version;
   }
@@ -569,7 +561,6 @@ window.reqPkgOptionsCallBack = function (data) {
   window.loadOption = true;
   window.ServerLoading.instance.addPkgConfigRainBg(PF_INFO.rain_pkg ? JSON.parase(PF_INFO.rain_pkg) : null)
   wxHideLoading();
-  console.log("cdn reqPkgOptionsCallBack:",PF_INFO.cdn)
   window.initComplete();
 }
 
@@ -1134,8 +1125,7 @@ window.get_status = function (server) {
 
 
 
-window.req_server_check_ban = function (step, server_id) {
-  console.log("cdn req_server_check_ban:",PF_INFO.cdn)
+window.req_server_check_ban = function (step, server_id) {  
   PF_INFO.last_check_ban = {
     'step': step,
     'server_id': server_id
@@ -1169,7 +1159,6 @@ window.reqServerCheckBanCallBack = function (data) {
       server.server_num = parseInt(data.data.server_id);
     server.is_domain = 0;
     server.cdn = PF_INFO.base_cdn;
-    console.log("cdn reqServerCheckBanCallBack:",PF_INFO.cdn,"PF_INFO.base_cdn:",PF_INFO.base_cdn)
     server.resver = data.data.cdn_version;
     server.server_options = data.data.server_options;
     if (data.data.max_create)
@@ -1218,8 +1207,6 @@ window.reqServerCheckBanCallBack = function (data) {
 window.checkBanSuccess = function () {
   ServerLoading.instance.openLoading(PF_INFO.newRegister);
   window.isCheckBan = true;
-  
-  console.log("cdn checkBanSuccess:",PF_INFO.cdn)
   window.loadPackList(function () {
     if (isOpenLoading) //新号
     {
@@ -1252,14 +1239,14 @@ window.initMain = function () {
         video_type: window.PF_INFO.video_type,
         ad_flag: window.PF_INFO.ad_flag,
       }
-      console.log("pkgOptions_cdn:",pkgOptions.cdn)
+      
       if (window.pkgOptions) {
         for (var k in window.pkgOptions) {
           if (!platData[k])
             platData[k] = window.pkgOptions[k];
         }
       }
-      console.log("platData.platData.cdnUrl333::",platData.cdn,PF_INFO.cdn)
+      
       new window.MainWX(platData, window.PF_INFO.lastVersion, window.workerJsURL);
     }
   }
@@ -1310,14 +1297,14 @@ window.enterToGame = function () {
         zsy_tp_state: window.PF_INFO.zsy_tp_state,
       };
 
-      console.log("pkgOptions_enterToGame cdn:",pkgOptions.cdn)
+      
 
       if (window.pkgOptions) {
         for (var k in window.pkgOptions) {
           platData[k] = window.pkgOptions[k];
         }
       }
-      console.log("platData.cdnUrl 22222::",platData.cdn,PF_INFO.cdn)
+      
       window.MainWX.instance.initPlatdata(platData);
       if (PF_INFO.selectedServer && PF_INFO.selectedServer.server_id) localStorage.setItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account, PF_INFO.selectedServer.server_id);
     }
