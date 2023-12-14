@@ -197,9 +197,9 @@ my.getSystemInfo({
     window.PF_INFO.wxPhone = platform.indexOf("ios") != -1 || platform.indexOf("android") != -1;
     window.PF_INFO.wxPC = platform.indexOf("windows") != -1 || platform.indexOf("mac") != -1;
     window.PF_INFO.wxPlatform = (res.platform ? res.platform.toLowerCase() : "");
-    window.PF_INFO.wxLimitLoad = true; //model.indexOf("iphonex") != -1;
-    window.PF_INFO.statusBarHeight = res.statusBarHeight;
-    window.PF_INFO.titleBarHeight = res.titleBarHeight;
+    window.PF_INFO.wxLimitNum = 8; //model.indexOf("iphonex") != -1;
+    window.PF_INFO.statusBarHeight = res.statusBarHeight  || 50;
+    window.PF_INFO.titleBarHeight = res.titleBarHeight || 50;
     window.PF_INFO.wxBenchmarkLevel = 2;
 
     if (platform.indexOf("ios") != -1) { //ios按型号
@@ -211,7 +211,7 @@ my.getSystemInfo({
     } else { //PC
       window.PF_INFO.wxBenchmarkLevel = 2;
     }
-    console.log("加载限制："+ window.PF_INFO.wxLimitLoad +"，设备限制等级："+ window.PF_INFO.wxBenchmarkLevel);
+    console.log("加载限制："+ window.PF_INFO.wxLimitNum +"，设备限制等级："+ window.PF_INFO.wxBenchmarkLevel);
   }
 })
 //获取设备电量

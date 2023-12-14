@@ -16,6 +16,7 @@ window.PF_INFO = {
   cdn: "https://cdn-tjqy.shzbkj.com/weixin_0/",
 }
 
+console.log("初始化CDN--------:",PF_INFO.cdn)
 PF_INFO.pay_infos = {}
 PF_INFO.package = "0";
 PF_INFO.version = window.versions.wxVersion;
@@ -309,7 +310,7 @@ window.sdkOnInited = function (res) {
     PF_INFO.wxShield = false;
   }
   PF_INFO.from_scene = config.from ? config.from : 0;
-
+  console.log("cdnUr0000:",PF_INFO.cdn)
   window.sdkLoginRetry = 5;
   wxShowLoading({ content: '正在登录账号' });
   AKSDK.login(this.sdkOnLogin.bind(this));
@@ -458,6 +459,7 @@ window.onUserLoginDefaultServers = function (response) {
 window.updCurServer = function (response) {
   PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;
   PF_INFO.oldRegister = response.default != undefined ? response.default : 0;
+  console.log("cdn updCurServers:",response,PF_INFO.cdn)
   PF_INFO.selectedServer = {
     'server_id': String(response.data[0].server_id),
     'server_name': String(response.data[0].server_name),
@@ -475,11 +477,11 @@ window.updCurServer = function (response) {
 window.loginComplete = function () {
   window.loadServer = true;
   console.log("loginComplete")
+  console.log("cdn loginComplete:",PF_INFO.cdn)
   this.loadVersionConfig();
 }
 
-window.initComplete = function () {
-  console.log("initComplete")
+window.initComplete = function () { 
   if (window.loadServer && window.loadOption) {
     //0：默认关闭，1：广告量开启，2：自然量开启，3：全部开启
     var privacyBgCfg = PF_INFO.privacy_wx_login_pkg != undefined ? PF_INFO.privacy_wx_login_pkg : 0;
@@ -499,10 +501,9 @@ window.initComplete = function () {
       console.log("initComplete openloading")
       req_server_check_ban(0, PF_INFO.selectedServer.server_id);
     } else { //老用户，进游戏的选服界面
-      // my.onTouchEnd(window.subscribeWhatsNew);
-      console.log("initComplete openServer")
+      // my.onTouchEnd(window.subscribeWhatsNew);    
       window.isOpenLoading = false
-      window.ServerLoading.instance.openServer({ show: sdkInitRes.isShowSdkAge, skinUrl: sdkInitRes.sdk_age_adaptation_icon, content: sdkInitRes.sdk_age_adaptation_content, x: sdkInitRes.coordinate_x, y: sdkInitRes.coordinate_y });
+      window.ServerLoading.instance.openServer({ show: sdkInitRes.isShowSdkAge, skinUrl: sdkInitRes.sdk_age_adaptation_icon, content: sdkInitRes.sdk_age_adaptation_content, x: sdkInitRes.coordinate_x, y: sdkInitRes.coordinate_y });     
       wxHideLoading();
     }
     window.setFillter();
@@ -536,7 +537,9 @@ window.reqVersionConfigCallBack = function (data) {
   if (data.data.cdn_url && data.data.cdn_url.length > 10) {
     PF_INFO.base_cdn = data.data.cdn_url;
     PF_INFO.cdn = data.data.cdn_url;
+    PF_INFO.selectedServer.cdn = PF_INFO.cdn;
   }
+  console.log("cdn reqVersionConfigCallBack111:",PF_INFO.cdn,data.data.cdn_url)
   if (data.data.version) {
     PF_INFO.lastVersion = data.data.version;
   }
@@ -548,6 +551,7 @@ window.reqVersionConfigCallBack = function (data) {
 // 请求隐私、超级VIP、公众号信息
 window.pkgOptions;
 window.reqPkgOptions = function () { 
+  wxShowLoading({ content: '请求配置中' });
   sendApi(PF_INFO.apiurl, 'Common.get_option_pkg', {
     'game_pkg': PF_INFO.pkgName,
   }, this.reqPkgOptionsCallBack.bind(this), apiRetryAmount, onApiError);
@@ -564,9 +568,9 @@ window.reqPkgOptionsCallBack = function (data) {
   }
   
   window.loadOption = true;
- 
   window.ServerLoading.instance.addPkgConfigRainBg(PF_INFO.rain_pkg ? JSON.parase(PF_INFO.rain_pkg) : null)
- 
+  wxHideLoading();
+  console.log("cdn reqPkgOptionsCallBack:",PF_INFO.cdn)
   window.initComplete();
 }
 
@@ -883,7 +887,6 @@ window.send = function (url, data, callBack, retryAmount, errorCB, checkSuccess,
       "content-type": (contentType || 'application/json'),
     },
     success: function (res) {
-      var iiis = url.indexOf("") != -1;
       if (res && res.status == 200) {
         var response = res.data;
         if (!checkSuccess || checkSuccess(response)) {
@@ -1090,11 +1093,17 @@ window.req_server_notice = function (server_id, callback) {
 }
 window.req_multi_server_notice = function (type, pkgName, server_id, callback) {
   server_id = server_id || PF_INFO.selectedServer.server_id;
+  wxShowLoading({ content: '请求公告中' });
+  function call(param){
+    callback(param);
+    // wxHideLoading();
+  }
+
   sendApi(PF_INFO.apiurl, 'Common.get_new_anno', {
     'type': type,
     'game_pkg': pkgName,
     'server_id': server_id,
-  }, callback);
+  }, call);
 }
 window.req_privacy = function (pkgName, callback) {
   sendApi(PF_INFO.apiurl, 'Common.get_option_pkg_detail', {
@@ -1125,6 +1134,7 @@ window.get_status = function (server) {
 
 
 window.req_server_check_ban = function (step, server_id) {
+  console.log("cdn req_server_check_ban:",PF_INFO.cdn)
   PF_INFO.last_check_ban = {
     'step': step,
     'server_id': server_id
@@ -1158,6 +1168,7 @@ window.reqServerCheckBanCallBack = function (data) {
       server.server_num = parseInt(data.data.server_id);
     server.is_domain = 0;
     server.cdn = PF_INFO.base_cdn;
+    console.log("cdn reqServerCheckBanCallBack:",PF_INFO.cdn,"PF_INFO.base_cdn:",PF_INFO.base_cdn)
     server.resver = data.data.cdn_version;
     server.server_options = data.data.server_options;
     if (data.data.max_create)
@@ -1206,7 +1217,8 @@ window.reqServerCheckBanCallBack = function (data) {
 window.checkBanSuccess = function () {
   ServerLoading.instance.openLoading(PF_INFO.newRegister);
   window.isCheckBan = true;
-  console.log("checkBanSuccess")
+  
+  console.log("cdn checkBanSuccess:",PF_INFO.cdn)
   window.loadPackList(function () {
     if (isOpenLoading) //新号
     {
@@ -1222,7 +1234,7 @@ window.checkBanSuccess = function () {
 window.initMain = function () {
   if (window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer) {
     if (window.MainWX && !window.MainWX.instance) {
-      console.log("Main 初始化" + window.MainWX.instance);
+      console.log("Main 初始化" + window.MainWX.instance,PF_INFO.cdn);
       var info = my.getLaunchOptionsSync();
       var scene = info.scene ? info.scene : 0;
       var platData = {
@@ -1232,19 +1244,21 @@ window.initMain = function () {
         wxPC: window.PF_INFO.wxPC,
         wxIOS: window.PF_INFO.wxIOS,
         wxAndroid: window.PF_INFO.wxAndroid,
-        wxParam: { limitLoad: window.PF_INFO.wxLimitLoad, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.config.from == "txcps" ? 1 : 0), wxSDKVersion: window.SDKVersion },
+        wxParam: { limitLoad: window.PF_INFO.wxLimitNum, benchmarkLevel: window.PF_INFO.wxBenchmarkLevel, wxFrom: (window.config.from == "txcps" ? 1 : 0), wxSDKVersion: window.SDKVersion },
         configType: window.PF_INFO.configType,
         exposeType: window.PF_INFO.exposeType,
         scene: scene,
         video_type: window.PF_INFO.video_type,
         ad_flag: window.PF_INFO.ad_flag,
       }
+      console.log("pkgOptions_cdn:",pkgOptions.cdn)
       if (window.pkgOptions) {
         for (var k in window.pkgOptions) {
           if (!platData[k])
             platData[k] = window.pkgOptions[k];
         }
       }
+      console.log("platData.platData.cdnUrl333::",platData.cdn,PF_INFO.cdn)
       new window.MainWX(platData, window.PF_INFO.lastVersion, window.workerJsURL);
     }
   }
@@ -1295,12 +1309,14 @@ window.enterToGame = function () {
         zsy_tp_state: window.PF_INFO.zsy_tp_state,
       };
 
+      console.log("pkgOptions_enterToGame cdn:",pkgOptions.cdn)
+
       if (window.pkgOptions) {
         for (var k in window.pkgOptions) {
           platData[k] = window.pkgOptions[k];
         }
       }
-
+      console.log("platData.cdnUrl 22222::",platData.cdn,PF_INFO.cdn)
       window.MainWX.instance.initPlatdata(platData);
       if (PF_INFO.selectedServer && PF_INFO.selectedServer.server_id) localStorage.setItem("LastSer_" + PF_INFO.pkgName + PF_INFO.account, PF_INFO.selectedServer.server_id);
     }

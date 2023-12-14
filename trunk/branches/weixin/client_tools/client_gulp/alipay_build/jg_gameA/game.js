@@ -1,5 +1,6 @@
 ﻿console.info("0 进入游戏包");
 
+
 // //没有涟漪效果
 // var VSHADER_SOURCE =
 //     'attribute vec4 a_Position;\n' +
@@ -187,6 +188,41 @@
 // }, 16);
 
 var wx = my;
+// let time = Date.now();
+// const task = my.downloadFile({
+//     url: 'https://cdn-tjqy-xy.shzbkj.com/weixinbak2_1/versions/assets/configs__5715.mpacks',
+//     success({ apFilePath }) {
+//         console.log(`downloadFile 下载成功:`,Date.now()-time)
+//     },
+//     fail(res) {
+//       my.alert({
+//         content: res.errorMessage || res.error,
+//       });
+//     },
+//   });
+
+
+
+//   my.request({
+//     url: 'https://cdn-tjqy-xy.shzbkj.com/weixinbak2_1/versions/assets/configs__5715.mpacks',
+//     method: "GET",
+//     dataType:"arraybuffer",
+//     success: function (res) {     
+//       if (res && res.status == 200) {
+//         var response = res.data;
+//         console.log("request加载成功:")
+//         console.log("request加载成功1:",response)
+//         let profile = res.profile;
+//         console.log("request加载成功耗时:",profile.totalTime)
+//         console.log(`request加载成功耗时1:`,Date.now()-time)
+//       }
+//     },
+//     fail: function (res) {
+//       console.log("send.fail:", url, info, res);
+     
+//     },
+//     complete: function () { }
+//   });
 console.info("1 加载游戏");
 my.showLoading({ content: '正在加载' });
 
