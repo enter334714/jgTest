@@ -497,14 +497,13 @@ window.initComplete = function () {
         window.loginAlert(status === -1 ? "当前服务器在维护中" : "当前服务器尚未开启，敬请期待");
         return;
       }
-      window.isOpenLoading = true;
-      console.log("initComplete openloading")
+      window.isOpenLoading = true;     
       req_server_check_ban(0, PF_INFO.selectedServer.server_id);
     } else { //老用户，进游戏的选服界面
       // my.onTouchEnd(window.subscribeWhatsNew);    
       window.isOpenLoading = false
       window.ServerLoading.instance.openServer({ show: sdkInitRes.isShowSdkAge, skinUrl: sdkInitRes.sdk_age_adaptation_icon, content: sdkInitRes.sdk_age_adaptation_content, x: sdkInitRes.coordinate_x, y: sdkInitRes.coordinate_y });     
-      wxHideLoading();
+      // wxHideLoading();
     }
     window.setFillter();
   }
@@ -1096,7 +1095,9 @@ window.req_multi_server_notice = function (type, pkgName, server_id, callback) {
   wxShowLoading({ content: '请求公告中' });
   function call(param){
     callback(param);
-    // wxHideLoading();
+    setTimeout(() => { //打开界面有卡顿延迟
+      wxHideLoading();
+    }, 1500);
   }
 
   sendApi(PF_INFO.apiurl, 'Common.get_new_anno', {
