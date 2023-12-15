@@ -1,0 +1,6 @@
+{
+  "setting": {
+      "es6": true,
+      "minified":false
+  }
+}
