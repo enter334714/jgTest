@@ -1,8 +1,8 @@
-﻿var sdk_conf = {
+var sdk_conf = {
   game_id: '256', 
-  game_pkg: 'tjqy_wfhyhts2_BHY',
+  game_pkg: 'tjqy_wfhyhts2zfbxyxzf_CAS',
   partner_id: '789',
-  game_ver: '159.0.29',  
+  game_ver: '159.0.31',  
   is_auth: false,  //授权登录
   from: null, //来源
   tmpId: "",  // 订阅的类型 和 模板id

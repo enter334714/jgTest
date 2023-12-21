@@ -1,0 +1,97 @@
+npm i -g minidev@1.8.10
+minidev login 登录开发者账号
+game.js 所在目录  
+minidev preview -a 2021004124627381  预览
+minidev preview -a 2021004124627381 --ignore-http-domain-check  预览
+minidev remote-debug -a 2021004124627381
+minidev remote-debug -a 2021004124627381 --ignore-http-domain-check
+
+
+minidev upload -a 2021004124627381 -v 159.0.31 --game 上传
+sudo npm i -g minidev@latest  --registry=https://registry.npmmirror.com 用这个命令升级下minidev版本
+
+uglifyjs waiFang_wx_main.js --compress toplevel,dead_code,if_return,join_vars  -o ./jg_gameA/subPackage/main.min.js
+
+cdn地址不对，等下查找
+
+选服界面 设置 为不缩放
+修改 MiniFileMgr.readFile 为直接调用回调函数	
+需要刪除修改
+readZipEntry
+android 真机调试可以打印，但是不能加载分包，不能断点
+ios 不能真机调试  可以打印
+子包不能叫main
+不能使用import
+使用1.8.5的my-adpater。和 alimini
+改为网站上的my-adpater
+
+	
+APPID：2021004124627381
+后台地址：https://open.alipay.com/develop/arplus/sub/overview?appId=2021004124627381&bundleId=com.alipay.alipaywallet
+
+应用公钥：MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlGrpVkFtcTg3x4Jm7v/V8F8MN00OaaGKbNCQAUqJs2wgidy+LPykfTIlCSabznK4jf11Y7doOOoZEJcEVonM3PIzDdmUxUcsaj/KRx/9xRgZ9w/ICJA4h+msk1QDFuGMjv5EORV0csSTxPuvA3Nwrkq+SPKIpYddPziOO8w5wlJVKibDhE/1kijNRAFFHSEVwWKVk/oxeNcHebJdNWYaxXmxqV6J+6kCF6InmPwHSO3rcVsuTD8I19e06BpvNekFo75lsx2bIti5XamipGb/M1nClz3HgT/hVNP6oVry6ac1n5o6xd19r5soLlbegcULPck6Fq1KZv5dRVsv5mZN/QIDAQAB
+
+
+应用私钥：
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCUaulWQW1xODfHgmbu/9XwXww3TQ5poYps0JABSomzbCCJ3L4s/KR9MiUJJpvOcriN/XVjt2g46hkQlwRWiczc8jMN2ZTFRyxqP8pHH/3FGBn3D8gIkDiH6ayTVAMW4YyO/kQ5FXRyxJPE+68Dc3CuSr5I8oilh10/OI47zDnCUlUqJsOET/WSKM1EAUUdIRXBYpWT+jF41wd5sl01ZhrFebGpXon7qQIXoieY/AdI7etxWy5MPwjX17ToGm816QWjvmWzHZsi2LldqaKkZv8zWcKXPceBP+FU0/qhWvLppzWfmjrF3X2vmyguVt6BxQs9yToWrUpm/l1FWy/mZk39AgMBAAECggEBAIAQJBi2Sd3ouVCgN3tAK3TGPr808Ru6NLwh1jAXBexYf1cVrs8YjEIu04Aq3UPs/0wdiH4rUnXRoSEMfcTCEJAROHZZ6SG0gSGIu1xVwV2gpz7kUiD5eJ3lxnA1jJjgs6zqvylWVu10q2DMHr5mjLMHcVt2Uuwpeg9EGI6GcMw3dLh6zuMaoU92mptYVIlu0so780Oqo4mXe0Tq7kdCWYWOHDaLfGFVidaunO6pFqBf2KmOarQ7cJ1EmKL0NZUtTnJuwGDhD/J7kO6zuSin7i7GBi5AAGnm64GK901EC9WXu3FgWCVrmRwL5yjP56SrUkWnIfndbLLXyemz30WdFSECgYEA4TWSj63qe6OMRkO+CCPL64xU8t4ZbRL/KjLwOavu0EK+h/56dsm1I9H6ime8BwD0kYmjhHMKrJQ7jRWnlM3Jjh1w7Om+BrM83kY5idXu7qkVjYMniFz/m9jVUIvsDdg8qQWboTF0OsU4QfRWYdXG2gdjUOnsMceoJtOU8hFQmFUCgYEAqLWYoyhxN7NxfQc2QnmzMx7oetetaCrQoXoRJyvcpeqtpWOHJOM8lwdpCv16hVxUfCn9D9p9U/seD0KlzqJ49+Pl/3ocoCZF2V68ZFDiP0rRpWXV4xtvdaLvLr5G4mFvCQ3aCFgUk3eI+tuMnqPk6wHVLHukCyc6O2rc0EHsJwkCgYBPYU6zjh2kTtVWvvHwdI2gDOq0YEyeAaAnA6Vg7pVSmvQFg1EvJZHPemfQ+RdxcIjD87vLJ7GPewAyjntvG8n7aa0wFIOCYRMHVcFaMCnzvW13X89DZWRDTn6B0Y/2oU1gVjWw73mEbZeSx8ja2zsoBoqfLpSuRy2h4doSKMA7sQKBgQCSn/EerEFpxZz2qtPvhlHGNjCawuPEyqE0FiDeSHKmCIYOXafQ2WWJZTlYAeEAErSijOORabTOzkrbvHLaWb6Ewx7boMdMMLc4KevVy642j9IQy6bOkMOYG5mAqIJ2sXONDOrXoaWQXK1CSJm4Lnz/+kHJPVPfFaK4jTGIFiMl8QKBgFZPPP1dIbTR1mlfwYuUtjkUg0z2FtiPN66vDFEmx4vLA0L9Jedismi5jrspYY4vId7Fq3tDee4rNBhNtYE12XsqxHCGH42u1crTnI267+JGzVzfzontezsbkhq2hf2TSFzY4H8LMbmnNV0J+cM9re0jOtjIVLm6iXYcmCAm9Su7
+
+
+支付宝公钥：
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxeHvRodA6Ey8x/j3mQd0yDiWuNJR8oYtM2sWuSOn8HVghR3gqriZwgMy8pFgiOSfdoc4rHjvttqYeo3hSXX41nM7Uzop4O/wUXBXCWrVLZgWGoSJATUNwcttKb6A4K5ZKSBX99PNeV8ZdwwMf7pEHPJ1XnTAy4w1wWKb48UPwBGQEEqr9b1y7xiLVCysn6g1u3ODylRXo0HXk3SZhsmE/uJr9sdPnwiKxPwCDClMoqD6rhs9Lzt9yLDTzJmjT3EikTApdOt2wWnvVdxG9DKfrNYnaQngU+pYklMOXWkH/eYbz8LyatrzzQwzb+YlOUYKPwwD04omdpGSUSsxm37y4QIDAQAB
+
+
+支付宝客户端需要更新到10.3.60版本以上；
+
+有没有退出和重启游戏的API 类似  exitMiniProgram restartMiniProgram
+有没有获取顶部刘海信息  类似 getMenuButtonBoundingClientRect
+有没有全局监听错误的  类似 my.onError
+有没有内存警告相关  类似 onMemoryWarning
+ console.log 只能打印字符串？
+
+
+readFile 成功为{success:true,data:{}}
+声音？加载相关
+
+
+
+错误返回字段 没有文档，得一个个尝试
+
+readFile
+fail 
+error: 2
+errorMessage: "invalid parameter!"
+message: "invalid parameter!"
+
+mkdir  
+fail  
+error: 2
+errorMessage: "invalid parameter!"
+message: "invalid parameter!"
+
+unzip
+{error: 2, errorMessage: 'invalid parameter!', message: 'invalid parameter!'}
+
+writeFile
+{error: 2, errorMessage: 'invalid parameter!', message: 'invalid parameter!'}
+
+saveFile
+{error: 10022, errorMessage: '指定的 tempFilePath 找不到文件', message: '指定的 tempFilePath 找不到文件'}
+
+rmdir
+{error: 2, errorMessage: 'invalid parameter!', message: 'invalid parameter!'}
+
+access
+{error: 10022, errorMessage: '文件/目录不存在 https://resource/apml953bb093ebd2834530196f50a4413a87.video', message: '文件/目录不存在 https://resource/apml953bb093ebd2834530196f50a4413a87.video'}
+
+unlink
+{error: 10022, errorMessage: '文件不存在 https://resource/apml953bb093ebd2834530196f50a4413a87.video', message: '文件不存在 https://resource/apml953bb093ebd2834530196f50a4413a87.video'}
+
+removeSavedFile
+{error: 2, errorMessage: 'invalid parameter!', message: 'invalid parameter!'}
+
+getSavedFileList
+{error: 2, errorMessage: 'invalid parameter!', message: 'invalid parameter!'}
+
+downloadFile
+success  apFilePath
+error  12	下载失败    13	没有权限

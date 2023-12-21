@@ -16,6 +16,16 @@ var requestCallback = false;
 var ad_info = null;
 var  develop = 0;
 
+var sceneInfo = {
+    isSidebarCard: 0, //0不展示 1展示
+}
+
+var onShowCallback = function(opt) {
+    console.log("onshow" + JSON.stringify(opt));
+};
+my.onShow(onShowCallback);
+
+
 
 
 function mainSDK() {
@@ -48,7 +58,6 @@ function mainSDK() {
             var scene = info.scene ? info.scene : '';
             console.log("[SDK]小游戏启动参数");
             console.log(info);
-
             //判断今天是否已经上报过
             if(is_new && info.query && info.query.ad_code){
                 my.setStorageSync({key:'plat_ad_code',data:info.query.ad_code});
@@ -130,6 +139,8 @@ function mainSDK() {
                     if (res.authCode) {
                         //发起网络请求
                         var public_data = self.getPublicData();
+                        console.log("1112223333");
+                        console.log("testtest:"+JSON.stringify(public_data));
                         public_data['is_from_min'] = 1;
                         public_data['code'] = res.authCode;
                         public_data['nick_name'] = info ? info.nick_name : '';
@@ -141,6 +152,7 @@ function mainSDK() {
                             }
                         }
                         var lastTime = Date.now();
+
                         my.request({
                             url: 'https://' + HOST + '/partner/auth',
                             method: 'POST',
@@ -188,6 +200,7 @@ function mainSDK() {
                                             my.setStorageSync({key:"navigate_app_id",data:data.data.navigate_app_id});
                                             my.setStorageSync({key:"partner_vedio_ad_id",data:data.data.partner_vedio_ad_id});
                                             my.setStorageSync({key:"partner_openid",data:data.data.openid});
+
                                         } catch (e) {
 
                                         }
@@ -198,15 +211,22 @@ function mainSDK() {
                                     //登录成功，加载右上角分享数据
                                     self.getShareInfo('menu', function (data) {
                                         console.log("[SDK]开始监听右上角菜单分享");
-                                        my.onShareAppMessage(function () {
-                                            //记录开始分享
-                                            self.logStartShare('menu');
+                                        my.onShareAppMessage = function () {
                                             return {
                                                 title: data.title,
                                                 imageUrl: data.img,
-                                                // query: data.query,
+                                                success: function(res) {
+                                                    console.log(res);
+                                                    self.logStartShare('menu');
+                                                },
+                                                fail: function(e) {
+                                                    console.log(e);
+                                                },
+                                                complete: function(e) {
+
+                                                }
                                             }
-                                        });
+                                        }
                                     });
                                 }else{
                                     callbacks['login'] && callbacks['login'](1, {type: "my.request.success", errMsg: '请求平台服务器失败！', time: (Date.now()-lastTime), res: res});
@@ -248,6 +268,33 @@ function mainSDK() {
                 }
             });
         },
+        check_consult:function(data,callback){
+            console.log("[SDK]查看首测任务");
+            var alipay_user_id = my.getStorageSync({key:'partner_openid'});
+            if(alipay_user_id && alipay_user_id.data){
+                alipay_user_id = alipay_user_id.data;
+                my.request({
+                    url: 'https://' + HOST + '/partner/data/check_consult/' + config.partner_id + '/' + config.game_pkg,
+                    method: 'POST',
+                    dataType: 'json',
+                    header: {
+                        'content-type': 'application/x-www-form-urlencoded' // 默认值
+                    },
+                    data: {
+                        alipay_user_id:alipay_user_id,
+                    },
+                    success: function (res) {
+                        console.log("[SDK]查看首测任务结果返回:" + JSON.stringify(res));
+                        console.log(res);
+                        callback && callback({isSidebarCard:res.data.consult_result});
+
+                    }
+                });
+            }else{
+
+            }
+
+        },
 
         share: function (data) {
             callbacks['share'] = typeof callback == 'function' ? callback : null;
@@ -262,11 +309,31 @@ function mainSDK() {
                 }
                 //记录开始分享
                 self.logStartShare(type);
-                my.onShareAppMessage({
-                    title: data.title,
-                    imageUrl: data.img,
-                    query: data.query,
-                });
+                my.onShareAppMessage = function () {
+                    return {
+                        title: data.title,
+                        imageUrl: data.img,
+                        success: function(res) {
+                            console.log(res);
+                            my.showSharePanel({
+                                success: function(res) {
+                                    console.log(res);
+                                },
+                                fail: function(e) {
+                                    console.log(e);
+                                },
+                                complete: function(res) {
+                                }
+                            });
+                        },
+                        fail: function(e) {
+                            console.log(e);
+                        },
+                        complete: function(e) {
+
+                        }
+                    }
+                }
             });
         },
 
@@ -428,64 +495,37 @@ function mainSDK() {
         },
 
         msgCheck: function (content,callback) {
-            console.log("[SDK]查看文本是否有违规内容");
+            console.log("[SDK]查看文本是否有违规内容"+content);
             var sdk_token = my.getStorageSync({key:'plat_sdk_token'});
             if(sdk_token && sdk_token.data){
                 sdk_token = sdk_token.data;
             }
             let ret = {data:{}};
-            ret.statusCode = 200;
-            ret.data.state = 1;
-            callback && callback(ret);
-            // my.request({
-            //     url: 'https://' + HOST + '/game/min/?ac=msgSecCheck3',
-            //     method: 'POST',
-            //     dataType: 'json',
-            //     headers: {
-            //         'content-type': 'application/x-www-form-urlencoded' // 默认值
-            //     },
-            //     data: {
-            //         game_pkg: config.game_pkg,
-            //         partner_id: config.partner_id,
-            //         sdk_token: sdk_token,
-            //         content:content
-            //     },
-            //     success: function (res) {
-            //         console.log("[SDK]查看文本是否有违规内容结果返回:");
-            //         console.log(res);
-            //         var ret = {};
-            //         ret.data = {};
-            //         if(res.data.state == 1){
-            //             ret.statusCode = 200;
-            //             ret.data.state = 1;
-            //         }else{
-            //             ret.statusCode = 0;
-            //             ret.data.state = 0;
-            //         }
-            //         if(develop == 0 && res.data.state == 0 && res.data.code == 61010){
-            //             ret.statusCode = 200;
-            //             ret.data.state = 1;
-            //         }
-            //         console.log(res);
-            //         callback && callback(ret);
-            //     }
-            // });
+
+            my.request({
+                url: 'https://' + HOST + '/partner/data/msg_check/' + config.partner_id + '/' + config.game_pkg,
+                method: 'POST',
+                dataType: 'json',
+                header: {
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                data: {
+                    text:content,
+                },
+                success: function (res) {
+                    console.log("[SDK]查看文本是否有违规内容结果返回:" + JSON.stringify(res));
+                    console.log(res)
+                    ret.statusCode = 200;
+                    ret.data.state = res.data.is_right;
+                    callback && callback(ret);
+                }
+            });
         },
+
 
         pay: function (data, callback) {
             var self = this;
             self.startPay(data, callback);
-            // my.checkSession({
-            //     success: function () {
-            //         self.startPay(data, callback);
-            //     },
-            //     fail: function () {
-            //         console.log("[SDK]session过期需要重新登录");
-            //         self.login({}, function () {
-            //             self.startPay(data, callback);
-            //         });
-            //     }
-            // });
         },
 
         //支付接口
@@ -525,6 +565,7 @@ function mainSDK() {
             self.order_data = order_data;
 
             var public_data = self.getPublicData();
+
             public_data['order_data'] = JSON.stringify(order_data);
             public_data['is_from_min'] = 1;
 
@@ -569,15 +610,14 @@ function mainSDK() {
             //游戏币足够，直接扣款
             if(data.buyQuantity <= data.balance){
                 console.log("[SDK]游戏币充值直接扣除");
-                // my.alert({
-                //     title: "支付提示",
-                //     content: "您还有" + data.balance + "个游戏币未消费，本次支付将扣除" + data.buyQuantity + '游戏币',
-                //     buttonText: "我知道了",
-                //     success: function () {
-                //         self.gameGoPay(data);
-                //     }
-                // });
-                self.gameGoPay(data);
+                my.alert({
+                    title: "支付提示",
+                    content: "您还有" + data.balance + "个游戏币未消费，本次支付将扣除" + data.buyQuantity + '游戏币',
+                    buttonText: "我知道了",
+                    success: function () {
+                        self.gameGoPay(data);
+                    }
+                });
             }else{
                 console.log("[SDK]调起米大师支付");
                 my.requestGamePayment({
@@ -671,7 +711,7 @@ function mainSDK() {
         getInviter: function (user_invite_info, role_id, server_id) {
             console.log("[SDK]创角成功获取邀请者信息返回研发");
             var sdk_token = my.getStorageSync({key:'plat_sdk_token'});
-
+            var openid =my.getStorageSync({key:'partner_openid'});
             my.request({
                 url: 'https://' + HOST + '/game/min/?ac=getInviterByCode',
                 method: 'POST',
@@ -690,7 +730,7 @@ function mainSDK() {
                     cp_activity_id: user_invite_info.cp_activity_id,
                     role_id: role_id,
                     server_id: server_id,
-                    openid: my.getStorageSync('partner_openid'),
+                    openid: openid.data,
                     uid:my.getStorageSync('plat_uid'),
                     game_id:config.game_id,
                     s_t:user_invite_info.s_t,
@@ -827,6 +867,27 @@ function mainSDK() {
                 launchInfo = my.getLaunchOptionsSync();
                 my.setStorageSync({key:'info', launchInfo});
             }
+            console.log("固定场景值:");
+            console.log(launchInfo);
+            console.log("每次获取新的:");
+            var launchInfo1 = my.getLaunchOptionsSync();
+            console.log(launchInfo1);
+            var fufang = 0;
+            if(launchInfo1.query && launchInfo1.query.sourceChannel){
+                if(launchInfo1.query.sourceChannel == "gamecenter"){
+                    fufang = 1;
+                }
+            }
+            var gufeng = 0;
+            if(launchInfo1.query && launchInfo1.query.channel){
+                if(launchInfo1.query.channel == "guafen"){
+                    gufeng = 1;
+                }
+            }
+            var channel = '';
+            if(launchInfo1.query && launchInfo1.query.channel){
+                channel = launchInfo1.query.channel;
+            }
 
             return {
                 game_id: config.game_id,
@@ -843,7 +904,11 @@ function mainSDK() {
                 game_ver: config.game_ver,//存放的是SDK版本号
                 device: system.platform == 'android' ? 1 : 2,
                 scene: launchInfo.scene,
-                query: JSON.stringify(launchInfo.query)
+                query: JSON.stringify(launchInfo.query),
+                zf_query:JSON.stringify(launchInfo1.query),
+                fufang:fufang,
+                gufeng:gufeng,
+                channel:channel,
             };
         },
         subscribeWhatsNew:function (type,callback){
@@ -937,6 +1002,59 @@ function mainSDK() {
             return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
         },
 
+        schemaToParams:function (schema) {
+            if (!schema.startsWith('alipays:')) {
+                return { message: '! 非 alipays: 开头' };
+            }
+            const params = {};
+            const parseQuery = (str) => {
+                return str.replace(/^.*?\?/, '').split('&').map(s => {
+                    const p = s.includes('=') ? s.indexOf('=') : s.length;
+                    return [s.slice(0, p), s.slice(p + 1)].map(decodeURIComponent);
+                });
+            };
+            for (const [k, v] of parseQuery(schema)) {
+                if (k == 'appId') {
+                    if (v.length != 16) {
+                        return { message: `! 非 16 位 appId '${v}'` };
+                    }
+                } else if (k === 'chInfo') {
+                    const tempkey = 'startParam';
+                    const tempValue = params[tempkey] || {};
+                    tempValue[k] = v;
+                    params[tempkey] = tempValue;
+                    continue;
+                } else {
+                    continue;
+                }
+                params[k] = v;
+            }
+            return { params };
+        },
+
+        navigateToScene:function(callback){
+            var schema = "alipays://platformapi/startapp?appId=2021003125685383&url=https%3A%2F%2Frender.alipay.com%2Fp%2Fyuyan%2F180020010001206617%2Findex.html%3FcaprMode%3Dsync&chInfo=gamesetlattice&sms=YES&appClearTop=false";
+            const { params, message } = this.schemaToParams(schema);
+            var successCallback = function() {
+                console.log("successCallback");
+                callback(1);
+            };
+            var failCallback = function() {
+                console.log("failCallback");
+                callback(0);
+            };
+            if (params) {
+                my.navigateToMiniProgram({
+                    ...params,
+                    successCallback,
+                    failCallback,
+                });
+            } else {
+                console.log(`无效的小程序 schema ${schema}: ${message}`);
+                callback(0);
+            }
+        }
+
 
 
 
@@ -1021,4 +1139,11 @@ exports.getConfig = function () {
 };
 exports.getPublicData = function(){
     run('getPublicData');
+};
+exports.getSceneInfo = function (callback) {
+    run('check_consult','',callback);
+};
+
+exports.navigateToScene = function (callback) {
+    run('navigateToScene','',callback);
 };

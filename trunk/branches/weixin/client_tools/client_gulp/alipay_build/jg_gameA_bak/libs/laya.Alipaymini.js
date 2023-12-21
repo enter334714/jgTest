@@ -61,6 +61,18 @@ var ALIMiniAdapter=(function(){
 		MiniLocalStorage$6.__init__();
 		ALIMiniAdapter.onReciveData();
 		Config.useRetinalCanvas=true;
+
+		my.onShow(function () {
+			console.info("小游戏进入前台1：" + Laya.stage.isVisibility);
+			Laya.stage._setStageVisible(true);
+			
+
+		});
+		my.onHide(function () {
+			console.info("小游戏进入后台1：" + Laya.stage.isVisibility);
+			Laya.stage._setStageVisible(false);
+			
+		});
 	}
 
 	ALIMiniAdapter.onReciveData=function(){

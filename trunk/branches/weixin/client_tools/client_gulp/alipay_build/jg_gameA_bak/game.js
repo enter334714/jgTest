@@ -190,7 +190,7 @@
 var wx = my;
 // let time = Date.now();
 // const task = my.downloadFile({
-//     url: 'https://cdn-tjqy-xy.shzbkj.com/weixinbak2_1/versions/assets/configs__5715.mpacks',
+//     url: 'https://cdn-tjqy-xy.sh9130/weixinbak2_1/versions/assets/configs__5715.mpacks',
 //     success({ apFilePath }) {
 //         console.log(`downloadFile 下载成功:`,Date.now()-time)
 //     },
@@ -204,7 +204,7 @@ var wx = my;
 
 
 //   my.request({
-//     url: 'https://cdn-tjqy-xy.shzbkj.com/weixinbak2_1/versions/assets/configs__5715.mpacks',
+//     url: 'https://cdn-tjqy-xy.sh9130/weixinbak2_1/versions/assets/configs__5715.mpacks',
 //     method: "GET",
 //     dataType:"arraybuffer",
 //     success: function (res) {     
@@ -225,7 +225,7 @@ var wx = my;
 //   });
 console.info("1 加载游戏");
 my.showLoading({ content: '正在加载' });
-
+require("./wx_aksdk.js");
 var loadLibs = function() {
     console.log("libs 分包加载");
     my.loadSubpackage({
