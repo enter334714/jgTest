@@ -39,7 +39,8 @@
     "useStaticServer": true,
     "showES6CompileOption": false,
     "disableUseStrict": false,
-    "useCompilerPlugins": false
+    "useCompilerPlugins": false,
+    "condition": false
   },
   "compileType": "game",
   "libVersion": "2.23.2",

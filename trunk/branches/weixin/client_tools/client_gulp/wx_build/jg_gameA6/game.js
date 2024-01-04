@@ -88,7 +88,7 @@ var loadLibs = function() {
         success: function(res) {
             console.log("libs 分包加载成功");
             console.log(res);
-            if (res && res.errMsg == "loadSubpackage:ok") {
+            if (res && (res.errMsg == "loadSubpackage:ok" || res.errMsg == "loadSubPackage:ok")) {
                 wx.loadSubpackages();
             } else {
                 setTimeout(function() {
@@ -125,4 +125,33 @@ wx.onHide(function(){
     wx.onHideCallBack();
 }
 });
+
+
+// 版本更新相关，基础库 1.9.90 开始支持
+wx.updateRecord = "1.start"; //记录日志
+var updateManager = wx.getUpdateManager();
+updateManager.onCheckForUpdate(function (res) {
+    wx.updateRecord += ", 2.onCheckForUpdate:"+res.hasUpdate;
+    console.log("是否有新版本："+ res.hasUpdate);
+})
+updateManager.onUpdateReady(function () {
+    wx.updateRecord += ", 3.onUpdateReady";
+    wx.showModal({
+        title: '更新提示',
+        content: '新版本已经准备好，是否重启应用？',
+        showCancel : false, // 加了取消按钮后，实际不会触发更新
+        success: function (res) {
+            wx.updateRecord += ", 4.applyUpdate";
+            updateManager.applyUpdate(); // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+        }
+    })
+})
+updateManager.onUpdateFailed(function () {
+    wx.updateRecord += ", 5.onUpdateFailed";
+    console.log('新版本下载失败');
+})
+
+
+
+
 loadLibs();

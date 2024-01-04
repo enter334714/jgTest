@@ -1,4 +1,4 @@
-﻿//TODO 替换对应参数
+﻿﻿//TODO 替换对应参数
 import config from './partner_config.js'
 //window.config = config;
 var PARTNER_SDK = mainSDK();
@@ -15,12 +15,12 @@ var sceneInfo = {
     isSidebarCard: 0, //是否侧边栏打开
     SidebarCardNum: 0,//侧边栏打开次数
     isExist: 0, //侧边栏入口场景是否存在
-    hasShortcut: 0,   
+    hasShortcut: 0,
     recommendCard: { //推荐卡片
         card_id : '',
         start_page : '',
         isCome:0
-    } 
+    }
 }
 
 //场景信息
@@ -37,7 +37,7 @@ tt.onShow((res) => {
         console.log("非侧边栏打开");
         sceneInfo['isSidebarCard'] = 0;
     }
- 
+
 
     if (scene === '023040' || scene === '103040') {
         // 可判断小游戏用户通过侧边栏入口场景启动
@@ -51,7 +51,7 @@ tt.onShow((res) => {
         if(LaunchParams.query.card_id){
             sceneInfo['recommendCard']['card_id'] = LaunchParams.query.card_id;
         }
-        
+
     } else {
         console.log("非推荐卡场景打开");
         sceneInfo['recommendCard']['isCome'] = 0;
@@ -341,7 +341,7 @@ function mainSDK() {
         },
 
         openService: function () {
-            // wx.openCustomerServiceConversation();
+            tt.openCustomerServiceConversation({type:2});
         },
 
         checkGameVersion: function (game_ver, callback) {
@@ -570,21 +570,10 @@ function mainSDK() {
                                     }
                                     iosPayData['complete'] = function (res) {
                                         console.log("ios支付调用完成" + JSON.stringify(res));
-                                        tt.offTouchEnd(self.iosPay)
+
                                     }
                                     console.log("ios支付参数" + JSON.stringify(iosPayData));
-                                    tt.onTouchEnd(self.iosPay)
-                                    tt.showModal({
-                                        title: "支付提示",
-                                        content: "再点击一次充值即可调起支付",
-                                        showCancel: false,
-                                        success(res) {
-
-                                        },
-                                        fail(res) {
-                                            console.log(`showModal调用失败`);
-                                        },
-                                    });
+                                    self.iosPay();
                                 } else {
                                     tt.showModal({
                                         title: "支付提示",

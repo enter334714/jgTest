@@ -10,17 +10,17 @@ import AKSDK from "./sdk/qq_aksdk.js";
 qq.AKSDK = AKSDK;
 
 var PF_INFO = qq.PF_INFO = {};
-PF_INFO.base_cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/";
-PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/";
+PF_INFO.base_cdn = "https://cdn-tjqy.sh9130.com/weixin_0/";
+PF_INFO.cdn = "https://cdn-tjqy.sh9130.com/weixin_0/";
 PF_INFO.pay_infos = {}
 PF_INFO.package = "0";
 PF_INFO.version = qq.sdk_config.game_ver;
 PF_INFO.mac = "";
 PF_INFO.os = "1";
 PF_INFO.sdk_name = "9130";
-PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";
-PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
-PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
+PF_INFO.apiurl = "https://api-tjqytest.sh9130.com";
+PF_INFO.logurl = "https://log-tjqytest.sh9130.com";
+PF_INFO.payurl = "https://pay-tjqytest.sh9130.com";
 PF_INFO.apikey = "MQx0mYlUWO5XYKvgAIPKWgK1w722GKih";
 PF_INFO.partnerId = "1";
 PF_INFO.pkgName = "";
@@ -547,29 +547,29 @@ function qqmain() {
             console.info("#初始化成功   提审状态:" + develop + "   是否提审:" + (develop == 1) + "   提审版本号:" + res.game_ver + "   当前版本号:" + PF_INFO.wxVersion);
             if (!res.game_ver || WX_MAIN.compareVersion(PF_INFO.wxVersion, res.game_ver) < 0) {  //当前版本 < 后台版本   
                 console.log("#正式版=============================");
-                PF_INFO.apiurl = "https://api-tjqy.shzbkj.com";    //正式服（线上版本）
-                PF_INFO.logurl = "https://log-tjqy.shzbkj.com";
-                PF_INFO.payurl = "https://pay-tjqy.shzbkj.com";
-                PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_1/";
-                PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
+                PF_INFO.apiurl = "https://api-tjqy.sh9130.com";    //正式服（线上版本）
+                PF_INFO.logurl = "https://log-tjqy.sh9130.com";
+                PF_INFO.payurl = "https://pay-tjqy.sh9130.com";
+                PF_INFO.cdn = "https://cdn-tjqy.sh9130.com/weixin_1/";
+                PF_INFO.spareCdn = "https://cdn-tjqy-ali.sh9130.com/weixin_1/";
                 PF_INFO.version_name = "qqmd";
                 PF_INFO.wxShield = false;
             } else if (WX_MAIN.compareVersion(PF_INFO.wxVersion, res.game_ver) == 0) {  //当前版本 == 后台版本
                 console.log("#审核版=============================");
-                PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（审核版本）
-                PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
-                PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-                PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/";
-                PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
+                PF_INFO.apiurl = "https://api-tjqytest.sh9130.com";    //测试服（审核版本）
+                PF_INFO.logurl = "https://log-tjqytest.sh9130.com";
+                PF_INFO.payurl = "https://pay-tjqytest.sh9130.com";
+                PF_INFO.cdn = "https://cdn-tjqy.sh9130.com/weixin_0/";
+                PF_INFO.spareCdn = "https://cdn-tjqy-ali.sh9130.com/weixin_1/";
                 PF_INFO.version_name = "weixin";
                 PF_INFO.wxShield = true;                          //屏蔽活动
             } else {
                 console.log("#开发版=============================");
-                PF_INFO.apiurl = "https://api-tjqytest.shzbkj.com";    //测试服（开发版本）
-                PF_INFO.logurl = "https://log-tjqytest.shzbkj.com";
-                PF_INFO.payurl = "https://pay-tjqytest.shzbkj.com";
-                PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixin_0/";
-                PF_INFO.spareCdn = "https://cdn-tjqy-ali.shzbkj.com/weixin_1/";
+                PF_INFO.apiurl = "https://api-tjqytest.sh9130.com";    //测试服（开发版本）
+                PF_INFO.logurl = "https://log-tjqytest.sh9130.com";
+                PF_INFO.payurl = "https://pay-tjqytest.sh9130.com";
+                PF_INFO.cdn = "https://cdn-tjqy.sh9130.com/weixin_0/";
+                PF_INFO.spareCdn = "https://cdn-tjqy-ali.sh9130.com/weixin_1/";
                 PF_INFO.version_name = "weixin";
                 PF_INFO.wxShield = false;
             }
@@ -600,6 +600,7 @@ function qqmain() {
                     'game_pkg': PF_INFO.pkgName,
                     'deviceId': PF_INFO.device_id,
                     'scene': 'QQ_' + PF_INFO.from_scene,
+                    'ad_flag':PF_INFO.ad_flag || 0,
                 }, WX_MAIN.onUserLogin.bind(WX_MAIN), WX_MAIN.apiRetryAmount, WX_MAIN.onApiError.bind(WX_MAIN));
             } else {
                 if (data && data.errMsg && WX_MAIN.sdkLoginRetry > 0 && (
@@ -693,6 +694,7 @@ function qqmain() {
             WX_MAIN.sendApi(PF_INFO.apiurl, 'Server.check_server', {
                 'server_id': lastSerId,
                 'time': Date.now() / 1000,
+                'uid':PF_INFO.account,
             }, WX_MAIN.onUserLoginCheckServers.bind(WX_MAIN), WX_MAIN.apiRetryAmount, WX_MAIN.onApiError.bind(WX_MAIN));
         },
         onUserLoginCheckServers: function (response) {
@@ -707,7 +709,7 @@ function qqmain() {
                 return;
             }
             if (!response.data || response.data.length == 0) {
-                WX_MAIN.toErrorAlarm(4, 'Server.check_server failed: data null');
+                if (response.default != 1) WX_MAIN.toErrorAlarm(4, 'Server.check_server failed: data null');
                 WX_MAIN.getDefaultServers();
                 return;
             }
@@ -716,6 +718,7 @@ function qqmain() {
         updCurServer: function (response) {
             WX_MAIN.onRoleRecordStep(24);
             PF_INFO.newRegister = response.is_new != undefined ? response.is_new : 0;
+            PF_INFO.oldRegister = response.default != undefined ? response.default : 0;
             PF_INFO.selectedServer = {
                 'server_id': String(response.data[0].server_id),
                 'server_name': String(response.data[0].server_name),

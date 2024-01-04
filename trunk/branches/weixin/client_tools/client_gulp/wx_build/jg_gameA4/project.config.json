@@ -27,17 +27,19 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useIsolateContext": false,
-    "userConfirmedUseIsolateContext": true,
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "userConfirmedUseIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
     "disableUseStrict": false,
-    "useStaticServer": true,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true
+    "ignoreUploadUnusedFiles": true,
+    "useStaticServer": true,
+    "condition": false
   },
   "compileType": "game",
   "libVersion": "2.23.2",
@@ -45,14 +47,6 @@
   "projectname": "幻剑情缘-A4",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 2
-  },
   "condition": {
     "search": {
       "list": []
@@ -67,5 +61,13 @@
     "miniprogram": {
       "list": []
     }
+  },
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
   }
 }

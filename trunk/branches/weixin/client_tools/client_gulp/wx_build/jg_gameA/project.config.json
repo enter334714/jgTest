@@ -53,19 +53,5 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
-    "game": {
-      "currentL": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "list": []
-    }
-  }
+  "condition": {}
 }

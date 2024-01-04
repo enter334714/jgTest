@@ -45,14 +45,23 @@ wx.onError(function (error) {
   }
 })
 
+window.PF_INFO = window.PF_INFO || {};
+var launchInfo = wx.getLaunchOptionsSync();
+var enterInfo = wx.getEnterOptionsSync();
+if (launchInfo.referrerInfo && launchInfo.referrerInfo.extraData && launchInfo.referrerInfo.extraData.gameType) {
+  PF_INFO.referrerInfoExtraData = launchInfo.referrerInfo.extraData;
+}
+else if(enterInfo.referrerInfo && enterInfo.referrerInfo.extraData && enterInfo.referrerInfo.extraData.gameType){
+  PF_INFO.referrerInfoExtraData = enterInfo.referrerInfo.extraData;
+}
 
 import "md5.min.js";
 import "zlib.js";
 window["Parser"] = require("dom_parser.js");
+import "index.js";
 import "libs.min.js";
 import "laya.wxmini.js";
 import "init.min.js";
-import "index.js";
 
 
 console.info("3 libs初始化完成");
@@ -63,6 +72,7 @@ var wxData = {
   showLoadingBtn: true,
   // rainArr: wx.rainArr,
 }
+
 new window.ServerLoading(wxData);
 window.ServerLoading.instance.openAuthor();
 if (wx.loadingInterval) clearInterval(wx.loadingInterval);
@@ -93,28 +103,7 @@ window.SDKVersion = wx.getSystemInfoSync().SDKVersion;
 console.log("微信基础库版本："+window.SDKVersion);
 
 
-// 版本更新相关，基础库 1.9.90 开始支持
-var updateManager = wx.getUpdateManager();
-updateManager.onCheckForUpdate(function (res) {
-  console.log("是否有新版本："+ res.hasUpdate);
-})
-updateManager.onUpdateReady(function () {
-  wx.showModal({
-    title: '更新提示',
-    content: '新版本已经准备好，是否重启应用？',
-    showCancel : false, // 加了取消按钮后，实际不会触发更新
-    success: function (res) {
-      // if (res.confirm) { // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
-        updateManager.applyUpdate();
-      // } else if (res.cancel) {
-      //   console.log('用户点击取消')
-      // }
-    }
-  })
-})
-updateManager.onUpdateFailed(function () {
-  console.log('新版本下载失败 ')
-})
+
 
 
 
@@ -125,7 +114,7 @@ window.loadProbuf = function() {
     success: function(res) {
       console.log("protobuf 分包加载成功");
       console.log(res);
-      if (res && res.errMsg == "loadSubpackage:ok") {
+      if (res && (res.errMsg == "loadSubpackage:ok" || res.errMsg == "loadSubPackage:ok")) {
         window.loadProbPkg = true;
         window.initMain();
         window.enterToGame(); 
@@ -154,7 +143,7 @@ window.loadMain = function() {
     success: function(res) {
       console.log("Main 分包加载成功");
       console.log(res);
-      if (res && res.errMsg == "loadSubpackage:ok") {
+      if (res && (res.errMsg == "loadSubpackage:ok" || res.errMsg == "loadSubPackage:ok")) {
         window.loadMainPkg = true;
         window.initMain();
         window.enterToGame(); 

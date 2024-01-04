@@ -272,3 +272,4 @@ wx.onMemoryWarning(function () {
     if (onMemoryWarningCallBack) onMemoryWarningCallBack();//游戏内画质设为“低”
   }
 })
+

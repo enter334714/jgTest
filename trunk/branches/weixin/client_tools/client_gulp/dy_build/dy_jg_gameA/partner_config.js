@@ -3,7 +3,7 @@
     game_pkg: 'tjqy_tjqydyxyx_KI',
     partner_label: 'douyinxyx',
     partner_id: '502',
-    game_ver: '1.0.109',
+    game_ver: '1.0.111',
     is_auth: false, //授权登录
 };
 

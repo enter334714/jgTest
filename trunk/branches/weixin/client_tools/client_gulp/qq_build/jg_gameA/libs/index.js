@@ -151,7 +151,7 @@ window.reqPkgOptionsCallBack = function(data) {
   window.loadOption = true;
   
   //请求完包配置后再走其他逻辑
-  if (PF_INFO.newRegister == 1) { //新用户，发送验证
+  if (PF_INFO.newRegister == 1 || PF_INFO.oldRegister == 1) { //新用户，发送验证
     var status = PF_INFO.selectedServer.status;
     if (status === -1 || status === 0) {
       window.toErrorAlarm(15, 'new register selectedServer status error: id='+PF_INFO.selectedServer.id+',status='+PF_INFO.selectedServer.status);
@@ -162,7 +162,7 @@ window.reqPkgOptionsCallBack = function(data) {
     req_server_check_ban(0, PF_INFO.selectedServer.server_id);
     window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
   } else { //老用户，进游戏的选服界面
-    window.ServerLoading.instance.openServer();
+    window.ServerLoading.instance.openServer({show:sdkInitRes.isShowSdkAge, skinUrl:sdkInitRes.sdk_age_adaptation_icon, content:sdkInitRes.sdk_age_adaptation_content, x:sdkInitRes.coordinate_x, y:sdkInitRes.coordinate_y});
     wxHideLoading();
   }
   // if (qq.loadingInterval) clearInterval(qq.loadingInterval);
@@ -170,7 +170,7 @@ window.reqPkgOptionsCallBack = function(data) {
   window.loadServer = true;
 ;
   window.initMain();
-  window.ServerLoading.instance.addPkgConfigRainBg(PF_INFO.rain_pkg?JSON.parse(PF_INFO.rain_pkg):null)
+  window.ServerLoading.instance.addPkgConfigRainBg(PF_INFO.rain_pkg?JSON.parse(PF_INFO.rain_pkg):null);
   window.enterToGame(); 
 }
 

@@ -1,4 +1,4 @@
-﻿import AKSDK from "./wx_aksdk.js";
+import AKSDK from "./wx_aksdk.js";
 window.versions = {
   wxVersion: window.config.game_ver,
 };
@@ -11,11 +11,10 @@ window.PACK = true;
 window.WSS = true;
 window.workerJsURL = "";
 window.isWaiFangWx = false;
-window.PF_INFO = {
-  base_cdn: "https://cdn-tjqy.shzbkj.com/weixingf_0/",
-  cdn: "https://cdn-tjqy.shzbkj.com/weixingf_0/",
-}
 
+window.PF_INFO = window.PF_INFO || {};
+PF_INFO.base_cdn = "https://cdn-tjqy.shzbkj.com/weixingf_0/";
+PF_INFO.cdn = "https://cdn-tjqy.shzbkj.com/weixingf_0/";
 PF_INFO.pay_infos = {}
 PF_INFO.package = "0";
 PF_INFO.version = window.versions.wxVersion;
@@ -60,12 +59,11 @@ window.loadLoadingRes = false;
 window.loadVersion = false;
 window.loadOption = false;
 window.loadServer = false;
-
+window.wxPrivacy = 0;
 window.bEnterGame = false;
 window.sdkInitRes = null;
 
-window.alert = function (value) {
-  console.log("alert", value);
+window.alert = function (value) {  
   wx.hideLoading({});
   wx.showModal({
     title: '提示',
@@ -110,13 +108,8 @@ window.exitAlert = function (value) {
     confirmText: "重登",
     showCancel: false,
     complete(res) {
-      if (wx.restartMiniProgram) {
-        console.log("重启游戏");
-        wx.restartMiniProgram({});
-      } else {
-        console.log("退出游戏");
-        wx.exitMiniProgram({});
-      }
+      console.log("退出游戏");
+      wx.exitMiniProgram({});
     }
   })
 }
@@ -206,6 +199,7 @@ window.reqRecordError = function (str) {
   info.gamever = window.config.game_ver;
   info.serverid = (window.PF_INFO.selectedServer ? window.PF_INFO.selectedServer.server_id : 0);
   info.systemInfo = window.systemInfo;
+  info.updateRecord = wx.updateRecord;
   var infostr = JSON.stringify(info);
   console.error("上报错误：" + infostr);
   window.clientlog(infostr);
@@ -222,6 +216,7 @@ window.reqRecordInfo = function (error, stack) {
     gamever: window.config.game_ver,
     serverid: (window.PF_INFO.selectedServer ? window.PF_INFO.selectedServer.server_id : 0),
     systemInfo: window.systemInfo,
+    updateRecord: wx.updateRecord,
     error: error,
     stack: stack,
   }
@@ -270,7 +265,6 @@ window.sdkInit = function () {
     game_ver: PF_INFO.version
   };
   PF_INFO.device_id = this.guild();
-
   wxShowLoading({ title: '正在初始化' });
   AKSDK.init(initData, this.sdkOnInited.bind(this));
 }
@@ -313,14 +307,28 @@ window.sdkOnInited = function (res) {
 
   this.loadVersionConfig();
   this.reqPkgOptions();
-
-  window.sdkLoginRetry = 5;
   wxShowLoading({ title: '正在登录账号' });
-  AKSDK.login(this.sdkOnLogin.bind(this));
+  window.sdkLoginRetry = 5; 
+  AKSDK.login(window.sdkOnLoginPrivacy,this.sdkOnLogin.bind(this));
+}
+
+/**自然量隐私协议回调（登录之前）广告量直接走以前的流程*/
+window.sdkOnLoginPrivacy = function(reslove){ 
+    PF_INFO.reslove = reslove;
+    window.wxPrivacy = 1;
+    window.alertPrivacy();
+}
+/**弹出隐私协议*/
+window.alertPrivacy = function(){
+    if (window.wxPrivacy == 1 && window.loadOption) {
+        window.wxPrivacy = 2;        
+        ServerLoading.instance.openPrivacy(PF_INFO.reslove)
+    }
 }
 window.sdkLoginRetry = 5;
 /*sdk登录回调*/
 window.sdkOnLogin = function (status, data) {
+  wxShowLoading({ title: '正在登录账号.' });
   if (status == 0 && data && data.token) {
     PF_INFO.sdk_token = data.token;
     PF_INFO.wx_channel = data.wx_channel;
@@ -347,7 +355,7 @@ window.sdkOnLogin = function (status, data) {
       data.errMsg.indexOf("ERR_CONNECTION_ABORTED") != -1 ||
       data.errMsg.indexOf("ERR_CONNECTION_RESET") != -1)) { //可以自动重试的失败  network api interrupted in suspend state(小程序退后台之后发起网络请求)
       window.sdkLoginRetry--;
-      AKSDK.login(this.sdkOnLogin.bind(this));
+      AKSDK.login(window.sdkOnLoginPrivacy,this.sdkOnLogin.bind(this));
     } else {
       window.toErrorAlarm(1, "AKSDK.login fail: status=" + status + ",errMsg=" + (data ? data.errMsg : ""));
       window.reqRecordInfo("sdkOnLoginError", JSON.stringify({ status: status, data: data }));
@@ -382,6 +390,8 @@ window.onUserLogin = function (response) {
   PF_INFO.platform_uid = String(response.platform_uid);
   PF_INFO.php_sign = String(response.sign);
   PF_INFO.php_signtime = String(response.time);
+  PF_INFO.special_id = Number(response.special_id);
+  PF_INFO.white_list = Number(response.white_list);
   PF_INFO.sign = ''; // TODO
 
   var self = this;
@@ -394,6 +404,9 @@ window.onUserLogin = function (response) {
   } else {
     self.getDefaultServers();
   }
+
+  onRoleRecordStep(22, 0);
+  if (PF_INFO.referrerInfoExtraData) onRoleRecordStep(52, 0);
 }
 
 window.getDefaultServers = function () {
@@ -553,6 +566,8 @@ window.reqPkgOptionsCallBack = function (data) {
     console.info("reqPkgOptionsCallBack " + data.state);
   }
   window.loadOption = true;
+  window.alertPrivacy();
+  window.ServerLoading.instance.addPkgConfigRainBg(!PF_INFO.referrerInfoExtraData&&PF_INFO.rain_pkg?JSON.parse(PF_INFO.rain_pkg):null); //跳转的需要换背景，不显示涟漪效果
   window.initComplete();
 }
 
@@ -1087,6 +1102,26 @@ window.req_privacy = function (pkgName, callback) {
     'game_pkg': pkgName,
   }, callback);
 }
+//打开抖音投诉
+window.showTikTokReportPanel = function (playerIdStr, playerName) {
+  ServerLoading.instance.openComplain(playerIdStr, playerName);
+}
+//抖音投诉上报
+window.uploadTikTokReport = function(callback, typeStr, content, playerIdStr, playerName) {
+  var serId = PF_INFO.selectedServer && PF_INFO.selectedServer.server_id ? PF_INFO.selectedServer.server_id : 0;
+  sendApi(PF_INFO.apiurl, 'UserLog.reportTiktokUser', {
+    'typeNick': typeStr ? typeStr : "",
+    'gamePkg': PF_INFO.pkgName ? PF_INFO.pkgName : "",
+    'serverId': serId,
+    "partnerId": PF_INFO.partnerId ? PF_INFO.partnerId : 0,
+    "specialId": PF_INFO.special_id ? PF_INFO.special_id : 0,
+    "reportUserId": PF_INFO.userId ? PF_INFO.userId : "",
+    "reportServerId": serId + "",
+    "reportPlayerId": playerIdStr ? playerIdStr : "",
+    "reportPlayerNick": playerName ? playerName : "",
+    "reportContent": content ? content : "",
+  }, callback, apiRetryAmount, onApiError);
+}
 
 
 window.get_status = function (server) {
@@ -1199,13 +1234,14 @@ window.checkBanSuccess = function () {
 window.initMain = function () {
   if (window.loadProbPkg && window.loadMainPkg && window.loadServerRes && window.loadLoadingRes && window.loadVersion && window.loadServer) {
     if (window.MainWX && !window.MainWX.instance) {
-      console.log("Main 初始化" + window.MainWX.instance);
-      var info = wx.getLaunchOptionsSync();
-      var scene = info.scene ? info.scene : 0;
+      var launchInfo = wx.getLaunchOptionsSync();
+      console.log("Main 初始化" + window.MainWX.instance, PF_INFO.referrerInfoExtraData);
+      var scene = launchInfo.scene ? launchInfo.scene : 0;
       var platData = {
         cdn: window.PF_INFO.cdn,
         spareCdn: window.PF_INFO.spareCdn,
         newRegister: window.PF_INFO.newRegister,
+        oldRegister: window.PF_INFO.oldRegister,
         wxPC: window.PF_INFO.wxPC,
         wxIOS: window.PF_INFO.wxIOS,
         wxAndroid: window.PF_INFO.wxAndroid,
@@ -1215,7 +1251,9 @@ window.initMain = function () {
         scene: scene,
         video_type: window.PF_INFO.video_type,
         ad_flag: window.PF_INFO.ad_flag,
+        white_list: window.PF_INFO.white_list,
       }
+      if (PF_INFO.referrerInfoExtraData) platData.wxParam.wxJumpParams = PF_INFO.referrerInfoExtraData;
       if (window.pkgOptions) {
         for (var k in window.pkgOptions) {
           if (!platData[k])
@@ -1255,10 +1293,12 @@ window.enterToGame = function () {
         data: window.PF_INFO.data,
         package: window.PF_INFO.package,
         newRegister: window.PF_INFO.newRegister,
+        oldRegister: window.PF_INFO.oldRegister,
         pkgName: window.PF_INFO.pkgName,
         partnerId: window.PF_INFO.partnerId,
         platform_uid: window.PF_INFO.platform_uid,
         deviceId: window.PF_INFO.device_id,
+        special_id: window.PF_INFO.special_id,
         selectedServer: selectedServer,
         configType: window.PF_INFO.configType,
         exposeType: window.PF_INFO.exposeType,
@@ -1268,6 +1308,7 @@ window.enterToGame = function () {
         encryptParam: window.PF_INFO.encryptParam,
         wx_channel: window.PF_INFO.wx_channel,
         zsy_tp_state: window.PF_INFO.zsy_tp_state,
+        white_list: window.PF_INFO.white_list,
       };
 
       if (window.pkgOptions) {
@@ -1334,3 +1375,4 @@ window.closeFillter = function () {
 window.showVideoAd = function(callback){
   AKSDK.showVideoAd(callback)
 }
+

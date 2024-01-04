@@ -1,5 +1,4 @@
 import config from './partner_config.js'
-const sdk = require('./index.game.cjs.js');
 window.config = config;
 var PARTNER_SDK = mainSDK();
 var HOST = 'sdk.sh9130.com';
@@ -16,36 +15,6 @@ var requestCallback = false;
 var ad_info = null;
 
 var  develop = 0;
-
-var test_ios_key = "ios_order";
-
-wx.onShow((result) => {
-    var test = wx.getStorageSync(test_ios_key);
-    console.log("onshow-sdk"+test);
-    var launchInfo = wx.getStorageSync('info');
-    if(launchInfo.query.hasOwnProperty('jrtt')&&launchInfo.query.jrtt ==1){
-        if(test){
-            var test1 = test.split("|");
-            var url = "https://"+HOST+"/pay/check?order_id="+test1[0];
-            wx.request({
-                url: url,
-                success:function(res){
-                    if(res.data.state == 1){
-                        wx.setStorageSync(test_ios_key, '');
-                        sdk.track('active_pay', { pay_amount: test1[1]*100 });
-                        console.log("sdk上报成功")
-                    }else{
-                        console.log("该订单还没支付")
-                    }
-                },
-                fail:function(res){
-                    console.log("查询订单状态失败")
-                },
-            })
-        }
-
-    }
-})
 
 function mainSDK() {
     var callbacks = {};
@@ -82,6 +51,13 @@ function mainSDK() {
             if(is_new && info.query && info.query.ad_code){
                 wx.setStorageSync('plat_ad_code', info.query.ad_code);
             }
+            if(info.query && info.query.ad_code){
+                var plat_ad_code1 =  wx.getStorageSync('plat_ad_code');
+                if(plat_ad_code1 && plat_ad_code1 != "" && plat_ad_code1 != info.query.ad_code){
+                    wx.setStorageSync('plat_ad_code', info.query.ad_code);
+                }
+            }
+
 
             //用户来源，如："txcps"
             if(info.query && info.query.from && info.query.from!=""){
@@ -126,6 +102,7 @@ function mainSDK() {
             if(game_ver){
                 this.checkGameVersion(game_ver, function (data) {
                     develop = data.develop;
+                    wx.setStorageSync('partner_privacy_flag',data.partner_privacy_flag);
                     callback && callback(data);
                 });
             }
@@ -170,13 +147,84 @@ function mainSDK() {
             return _result.join('&');
         },
 
+        compareVersion:function (v1, v2) {
+            if(!v1 || !v2) return 0
+            v1 = v1.split('.')
+            v2 = v2.split('.')
+            const len = Math.max(v1.length, v2.length)
+
+            while (v1.length < len) {
+                v1.push('0')
+            }
+            while (v2.length < len) {
+                v2.push('0')
+            }
+
+            for (let i = 0; i < len; i++) {
+                const num1 = parseInt(v1[i])
+                const num2 = parseInt(v2[i])
+
+                if (num1 > num2) {
+                    return 1
+                } else if (num1 < num2) {
+                    return -1
+                }
+            }
+
+            return 0
+        },
+
         //登录接口
-        login: function (data, callback) {
+        login: function (PrivacyAuthorize, callback) {
             console.log("[SDK]调起登录");
             var self = this;
             callbacks['login'] = typeof callback == 'function' ? callback : null;
+            var system = wx.getSystemInfoSync();
+            var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
+            var partner_privacy_flag = wx.getStorageSync('partner_privacy_flag');
+            if(self.compareVersion(system.SDKVersion, '2.32.3') == 1 && ad_flag == 0 && partner_privacy_flag == 1){
+                wx.getPrivacySetting({
+                    success: res => {
+                        console.log("getPrivacySetting"+res)
+                        // 返回结果为: res = { needAuthorization: true/false, privacyContractName: '《xxx隐私保护指引》' }
+                        if(res.needAuthorization){
+                            wx.onNeedPrivacyAuthorization(resolve => {
+                                resolve({ event: 'exposureAuthorization' })
+                                PrivacyAuthorize(resolve);
+                            })
+                            wx.requirePrivacyAuthorize({
+                                success: (res) => {
+                                    console.log("agree privacy:"+res);
+                                    self.login_btn();
+                                },
+                                fail: (res) => {
+                                    console.log("disagree privacy"+res);
+                                    wx.exitMiniProgram();
+                                },
+                                complete:(res)=>{
+                                    console.log("complete privacy"+res);
 
+                                }
+                            })
+
+                        }else{
+                            console.log("needAuthorization false");
+                            // PrivacyAuthorize(null);
+                            self.login_btn();
+                        }
+                    },
+                    fail: () => {},
+                    complete: () => {}
+                })}
+            else{
+                console.log("lib too low or ad_flag"+ad_flag);
+                self.login_btn();
+            }
+        },
+
+        login_btn:function(){
             //授权登录
+            var self = this;
             if(config.is_auth){
                 wx.getSetting({
                     success: function (res) {
@@ -283,9 +331,6 @@ function mainSDK() {
                                                     if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
                                                         wx_channel = 1;
                                                     }
-                                                    if(launchInfo.query.hasOwnProperty('jrtt')&&launchInfo.query.jrtt ==1){
-                                                        sdk.init(data.data.openid)
-                                                    }
                                                     var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
                                                     var userData = {
                                                         userid: data.data.user_id,
@@ -372,9 +417,6 @@ function mainSDK() {
                                             var wx_channel = 0;
                                             if(launchInfo.query.hasOwnProperty('clue_id')&&launchInfo.query.hasOwnProperty('clue_token')){
                                                 wx_channel = 1;
-                                            }
-                                            if(launchInfo.query.hasOwnProperty('jrtt')&&launchInfo.query.jrtt ==1){
-                                                sdk.init(data.data.openid)
                                             }
                                             var ad_flag =  wx.getStorageSync('plat_ad_code')?1:0;
                                             var userData = {
@@ -762,12 +804,6 @@ function mainSDK() {
                                         }else if(data.data.ios_pay_type == 3){
                                             self.wechatscancode(order_data,data.data);
                                         }
-                                        var launchInfo = wx.getStorageSync('info');
-                                        if(launchInfo.query.hasOwnProperty('jrtt')&&launchInfo.query.jrtt == 1){
-                                            var test  = data.data.orderId+"|"+data.data.money;
-                                            wx.setStorageSync(test_ios_key, test)
-
-                                        }
 
                                     }else{
                                         wx.showModal({
@@ -980,10 +1016,7 @@ function mainSDK() {
                                 amount: self.order_data.price,
                                 extension: self.order_data.extension
                             };
-                            var launchInfo = wx.getStorageSync('info');
-                            if(launchInfo.query.hasOwnProperty('jrtt')&&launchInfo.query.jrtt ==1){
-                                sdk.track('active_pay', { pay_amount: self.order_data.price*100 })
-                            }
+                            console.log("111");
                             callbacks['pay'] && callbacks['pay'](0, ret);
                         }else {
                             callbacks['pay'] && callbacks['pay'](1, {errMsg: "支付失败"});
@@ -1345,8 +1378,8 @@ function run(method, data, callback) {
 exports.init = function (data, callback) {
     run('init', data, callback);
 };
-exports.login = function (callback) {
-    run('login', '', callback);
+exports.login = function (privacy,callback) {
+    run('login', privacy, callback);
 };
 exports.showVideoAd = function (callback) {
     run('showVideoAd', '', callback);

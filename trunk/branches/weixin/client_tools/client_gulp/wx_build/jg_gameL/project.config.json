@@ -41,11 +41,12 @@
     "condition": false
   },
   "compileType": "game",
-  "libVersion": "2.33.0",
+  "libVersion": "2.23.2",
   "appid": "wxb854e377cc43451e",
   "projectname": "%E4%BC%8F%E9%AD%94%E8%A5%BF%E6%B8%B8",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+  "condition": {},
   "packOptions": {
     "ignore": [],
     "include": []
@@ -53,6 +54,5 @@
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  },
-  "condition": {}
+  }
 }
