@@ -50,7 +50,7 @@ window["Parser"] = require("dom_parser.js");
 require("index.js");
 require("libs.min.js");
 require("laya.Alipaymini.js");
-Laya["ALIMiniAdapter"].init();
+// Laya["ALIMiniAdapter"].init();
 require("init.min.js");
 console.info("3 libs初始化完成");
 
@@ -59,8 +59,8 @@ var wxData = {
   showLoadingBtn: true,
   // rainArr: my.rainArr,
 }
-new window.ServerLoading(wxData);
-window.ServerLoading.instance.openAuthor();
+// new window.ServerLoading(wxData);
+// window.ServerLoading.instance.openAuthor();
 if (my.loadingInterval) clearInterval(my.loadingInterval);
 my.loadingInterval = null;
 

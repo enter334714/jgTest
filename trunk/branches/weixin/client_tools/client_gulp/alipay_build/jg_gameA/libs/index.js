@@ -131,7 +131,7 @@ window.wxHideLoading = function () {
   }
 }
 window.changeServerLoading = function (value) {
-  window.ServerLoading.instance.changeServerLoading(value);
+  // window.ServerLoading.instance.changeServerLoading(value);
 }
 window.msgCheck = function (value, callback) {
   AKSDK.msgCheck(value, function (res) {
@@ -159,9 +159,9 @@ window.toProgress = function (value, str, currTaskIndex) {
 }
 window.toEnterGame = function (value) {
   console.log("toEnterGame", value);
-  window.ServerLoading.instance.closeAuthor();
-  window.ServerLoading.instance.closeServer();
-  window.ServerLoading.instance.closeLoading();
+  // window.ServerLoading.instance.closeAuthor();
+  // window.ServerLoading.instance.closeServer();
+  // window.ServerLoading.instance.closeLoading();
   window.closeFillter();
 }
 
@@ -496,7 +496,7 @@ window.initComplete = function () {
     } else { //老用户，进游戏的选服界面
       // my.onTouchEnd(window.subscribeWhatsNew);    
       window.isOpenLoading = false
-      window.ServerLoading.instance.openServer({ show: sdkInitRes.isShowSdkAge, skinUrl: sdkInitRes.sdk_age_adaptation_icon, content: sdkInitRes.sdk_age_adaptation_content, x: sdkInitRes.coordinate_x, y: sdkInitRes.coordinate_y });
+      // window.ServerLoading.instance.openServer({ show: sdkInitRes.isShowSdkAge, skinUrl: sdkInitRes.sdk_age_adaptation_icon, content: sdkInitRes.sdk_age_adaptation_content, x: sdkInitRes.coordinate_x, y: sdkInitRes.coordinate_y });
       // wxHideLoading();
     }
     window.setFillter();
@@ -559,7 +559,7 @@ window.reqPkgOptionsCallBack = function (data) {
   }
 
   window.loadOption = true;
-  window.ServerLoading.instance.addPkgConfigRainBg(PF_INFO.rain_pkg ? JSON.parase(PF_INFO.rain_pkg) : null)
+  // window.ServerLoading.instance.addPkgConfigRainBg(PF_INFO.rain_pkg ? JSON.parase(PF_INFO.rain_pkg) : null)
   wxHideLoading();
   window.initComplete();
 }
@@ -1168,7 +1168,7 @@ window.reqServerCheckBanCallBack = function (data) {
 
     if (PF_INFO.newRegister == 1 && server.server_options && server.server_options.show_btn == 1) {
       PF_INFO.showGetBtn = 1;
-      window.ServerLoading.instance.setShowBtn();
+      // window.ServerLoading.instance.setShowBtn();
     }
 
     checkBanSuccess();
@@ -1210,7 +1210,7 @@ window.checkBanSuccess = function () {
   window.loadPackList(function () {
     if (isOpenLoading) //新号
     {
-      window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
+      // window.ServerLoading.instance.openLoading(PF_INFO.newRegister);
     }
 
     initMain();
@@ -1246,7 +1246,7 @@ window.initMain = function () {
             platData[k] = window.pkgOptions[k];
         }
       }
-
+      my.reportGamePlay && my.reportGamePlay();
       new window.MainWX(platData, window.PF_INFO.lastVersion, window.workerJsURL);
     }
   }
@@ -1373,12 +1373,13 @@ window.getSceneInfo = function (callback) {
 }
 
 //  AKSDK.getPublicData() 返回{fufang:0,gufeng:0} //fufang 0不是复访 1是复访  gufeng 0不是瓜分任务 1是瓜分任务
-window.getPublicData = function () { 
-  var data = AKSDK.getPublicData() || {}
-  console.log("请求:::getPublicData11:",data)
-  return data;
+window.tsData = function (callback) { 
+  AKSDK.tsData(callback)
 }
 
-window.navigateToScene = function (callback) {
-  AKSDK.navigateToScene(callback)
+window.navigateToScene = function (callback,value) {
+  if(!value){
+    value = "returnvisit";
+  }
+  AKSDK.navigateToScene(callback,value)
 }
