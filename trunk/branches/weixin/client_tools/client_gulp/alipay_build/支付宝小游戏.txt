@@ -7,11 +7,11 @@ minidev remote-debug -a 2021004124627381
 minidev remote-debug -a 2021004124627381 --ignore-http-domain-check
 
 
-minidev upload -a 2021004124627381 -v 159.0.31 --game 上传
+minidev upload -a 2021004124627381 -v 159.0.43 --game 上传
 sudo npm i -g minidev@latest  --registry=https://registry.npmmirror.com 用这个命令升级下minidev版本
 
 uglifyjs waiFang_wx_main.js --compress toplevel,dead_code,if_return,join_vars  -o ./jg_gameA/subPackage/main.min.js
-
+alipays://platformapi/startapp?appId=2021004124627381&query=
 cdn地址不对，等下查找
 
 选服界面 设置 为不缩放

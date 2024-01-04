@@ -19,9 +19,12 @@ var  develop = 0;
 var sceneInfo = {
     isSidebarCard: 0, //0不展示 1展示
 }
-
+var fufang = 0;
 var onShowCallback = function(opt) {
     console.log("onshow" + JSON.stringify(opt));
+    if(opt.query.sourceChannel == "gamecenter"){
+        fufang = 1;
+    }
 };
 my.onShow(onShowCallback);
 
@@ -139,8 +142,6 @@ function mainSDK() {
                     if (res.authCode) {
                         //发起网络请求
                         var public_data = self.getPublicData();
-                        console.log("1112223333");
-                        console.log("testtest:"+JSON.stringify(public_data));
                         public_data['is_from_min'] = 1;
                         public_data['code'] = res.authCode;
                         public_data['nick_name'] = info ? info.nick_name : '';
@@ -872,7 +873,7 @@ function mainSDK() {
             console.log("每次获取新的:");
             var launchInfo1 = my.getLaunchOptionsSync();
             console.log(launchInfo1);
-            var fufang = 0;
+
             if(launchInfo1.query && launchInfo1.query.sourceChannel){
                 if(launchInfo1.query.sourceChannel == "gamecenter"){
                     fufang = 1;
@@ -1036,8 +1037,8 @@ function mainSDK() {
             return { params };
         },
 
-        navigateToScene:function(callback){
-            var schema = "alipays://platformapi/startapp?appId=2021003125685383&url=https%3A%2F%2Frender.alipay.com%2Fp%2Fyuyan%2F180020010001206617%2Findex.html%3FcaprMode%3Dsync&chInfo=gamesetlattice&sms=YES&appClearTop=false";
+        navigateToScene:function(chInfo,callback){
+            var schema = "alipays://platformapi/startapp?appId=2021003125685383&url=https%3A%2F%2Frender.alipay.com%2Fp%2Fyuyan%2F180020010001206617%2Findex.html%3FcaprMode%3Dsync&chInfo="+chInfo+"&sms=YES&appClearTop=false";
             const { params, message } = this.schemaToParams(schema);
             var successCallback = function() {
                 console.log("successCallback");
@@ -1151,6 +1152,6 @@ exports.getSceneInfo = function (callback) {
     run('check_consult','',callback);
 };
 
-exports.navigateToScene = function (callback) {
-    run('navigateToScene','',callback);
+exports.navigateToScene = function (callback,data) {
+    run('navigateToScene',data,callback);
 };
