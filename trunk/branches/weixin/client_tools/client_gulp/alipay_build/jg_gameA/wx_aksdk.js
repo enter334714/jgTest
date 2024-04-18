@@ -85,7 +85,9 @@ function mainSDK() {
 
 
             //显示右上角分享按钮
-
+            if (my.gameBiz && my.gameBiz.reportLoadingCompleted) {
+                my.gameBiz.reportLoadingCompleted();
+            }
 
             //玩家是分享过来的，单独上报给服务器
             var invite = info.query && info.query.invite ? info.query.invite : '';
@@ -140,6 +142,10 @@ function mainSDK() {
                 success: function(res) {
                     console.log("微信登录成功返回" + JSON.stringify(res));
                     if (res.authCode) {
+                        //授权登录请求
+                        if (my.gameBiz && my.gameBiz.reportAuthorized) {
+                            my.gameBiz.reportAuthorized();
+                        }
                         //发起网络请求
                         var public_data = self.getPublicData();
                         public_data['is_from_min'] = 1;
@@ -588,12 +594,28 @@ function mainSDK() {
                             //小程序
                             if(sysInfo.platform == "Android" && (sysInfo.version) >= "10.3.90" && my.requestGamePayment){
                                 self.gamePay(data.data.pay_data);
-                            }else{
-                                my.alert({
-                                    title: "支付提示",
-                                    content: '当前版本不支持内购功能，请您提升版本后再进行付费',
-                                    buttonText: "我知道了",
-                                });
+                            }else {
+                                // my.alert({
+                                //     title: "支付提示",
+                                //     content: 'IOS暂时不支持充值，请移步安卓体验',
+                                //     buttonText: "我知道了",
+                                // });
+                                let iospayurl = 'https://sdk.sh9130.com/pay/pay/?json=1&order_id=' + data.data.pay_data.customId + '&pay_channel=tsAlipaywap';
+                                console.log("ios支付链接:"+iospayurl);
+                                my.setClipboard({
+                                    text: iospayurl,
+                                    success(res) {
+                                        my.getClipboard({
+                                            success(res) {
+                                                my.confirm({
+                                                    title: '温馨提示',
+                                                    content: '已复制支付链接到剪贴板请通过浏览器打开链接完成支付',
+                                                    confirmButtonText: '朕知道了'
+                                                })
+                                            }
+                                        })
+                                    }
+                                })
                             }
                         }else{
                             callbacks['pay'] && callbacks['pay'](1, {errMsg: data.msg});
@@ -706,6 +728,9 @@ function mainSDK() {
             }
 
             this.log('create', postData);
+            if (my.gameBiz && my.gameBiz.reportGameCharacterCreated) {
+                my.gameBiz.reportGameCharacterCreated(true);
+            }
 
         },
 
@@ -787,6 +812,9 @@ function mainSDK() {
             }
             if (user_invite_info && user_invite_info.cp_activity_id != '') {
                 this.getInviter(user_invite_info, data.roleid, data.serverid);
+            }
+            if (my.gameBiz && my.gameBiz.reportGamePlay) {
+                my.gameBiz.reportGamePlay();
             }
         },
 

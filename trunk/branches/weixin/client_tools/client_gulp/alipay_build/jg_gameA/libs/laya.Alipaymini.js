@@ -61,7 +61,7 @@ var ALIMiniAdapter=(function(){
 		MiniLocalStorage$6.__init__();
 		ALIMiniAdapter.onReciveData();
 		Config.useRetinalCanvas=true;
-		ALIMiniAdapter.window.my.onMessage && ALIMiniAdapter.window.my.onMessage(ALIMiniAdapter._onMessage);
+
 		my.onShow(function () {
 			console.info("小游戏进入前台1：" + Laya.stage.isVisibility);
 			Laya.stage._setStageVisible(true);
@@ -313,36 +313,6 @@ var ALIMiniAdapter=(function(){
 	ALIMiniAdapter.subMaps=[];
 	ALIMiniAdapter.AutoCacheDownFile=false;
 	ALIMiniAdapter._measureText=null;
-	ALIMiniAdapter._onMessage  = function(data){
-		switch (data.type) {
-			case "changeMatrix":
-				Laya.Laya.stage.transform.identity();
-				Laya.Laya.stage._width = data.w;
-				Laya.Laya.stage._height = data.h;
-				Laya.Laya.stage._canvasTransform = new Laya.Matrix(data.a, data.b, data.c, data.d, data.tx, data.ty);
-				break;
-			case "display":
-				Laya.Laya.stage.frameRate = data.rate || Laya.Stage.FRAME_FAST;
-				break;
-			case "undisplay":
-				Laya.Laya.stage.frameRate = Laya.Stage.FRAME_SLEEP;
-				break;
-		}
-		if (data['isLoad'] == "opendatacontext") {
-			if (data.url) {
-				MiniFileMgr.ziyuFileData[data.url] = data.atlasdata;
-				MiniFileMgr.ziyuFileTextureData[data.imgReadyUrl] = data.imgNativeUrl;
-			}
-		}
-		else if (data['isLoad'] == "openJsondatacontext") {
-			if (data.url) {
-				MiniFileMgr.ziyuFileData[data.url] = data.atlasdata;
-			}
-		}
-		else if (data['isLoad'] == "openJsondatacontextPic") {
-			MiniFileMgr.ziyuFileTextureData[data.imgReadyUrl] = data.imgNativeUrl;
-		}
-	}
 	ALIMiniAdapter.parseXMLFromString=function(value){
 		var rst;
 		var Parser;
@@ -1808,7 +1778,7 @@ var MiniSoundChannel$6=(function(_super){
 			this.loops--;
 		}
 		this.startTime=0;
-		this.play();
+		this && this.play && this.play();
 	}
 
 	/**
